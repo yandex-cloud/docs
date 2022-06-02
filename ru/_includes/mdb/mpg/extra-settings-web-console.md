@@ -12,6 +12,8 @@
 
 - **Доступ из консоли управления** — опция разрешает выполнять SQL-запросы к базам кластера из консоли управления {{ yandex-cloud }}.
 
+- {% include [datatransfer access](../console/datatransfer-access.md) %}
+
 {% if audience != "internal" %}
 
 - **Доступ из Serverless** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../../functions/concepts/index.md). Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../../functions/operations/database-connection.md).

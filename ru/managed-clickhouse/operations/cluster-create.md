@@ -195,6 +195,8 @@
 
      {% endif %}
 
+     1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
+
      1. Чтобы включить [{{ CK }}](../concepts/replication.md#ck) в кластере:
 
         * Задайте версию {{ CH }} (не ниже {{ versions.keeper }}) в параметре `--version`.
@@ -354,6 +356,8 @@
   {% if audience != "internal" %}
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
   {% endif %}
+
+  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
   Чтобы разрешить доступ к кластеру из сервиса {{ yq-full-name }}, передайте значение `true` для параметра `configSpec.access.yandexQuery`.
 

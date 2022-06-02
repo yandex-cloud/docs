@@ -253,6 +253,8 @@
     * Идентификатор сети в параметре `networkId`.
     * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
 
+    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+
 {% endlist %}
 
 {% note warning %}

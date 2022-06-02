@@ -295,6 +295,9 @@
     * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
     * Конфигурацию баз данных в одном или нескольких параметрах `databaseSpecs`.
     * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
+
+  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+
   {% if audience != "internal" %}
 
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).

@@ -495,6 +495,8 @@
 
   {% endif %}
 
+  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+
 {% endlist %}
 
 ## Вручную переключить хост-мастер {#start-manual-failover}

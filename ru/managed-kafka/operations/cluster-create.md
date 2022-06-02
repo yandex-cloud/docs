@@ -203,6 +203,8 @@
 
   {% if audience != "internal" %}
 
+  1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
+
   1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids` при создании кластера:
 
       ```bash
@@ -335,6 +337,8 @@
     Чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), передайте значение `true` для параметра `configSpec.schemaRegistry`.
 
     {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
+
+    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
     {% if audience != "internal" %}
 

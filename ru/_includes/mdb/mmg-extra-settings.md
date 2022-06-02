@@ -19,6 +19,8 @@
 
 - {% include [Maintenance window](console/maintenance-window.md) %}
 
+- {% include [datatransfer access](console/datatransfer-access.md) %}
+
 - **Сбор статистики** — включите эту опцию, чтобы воспользоваться инструментом [{#T}](../../managed-mongodb/operations/performance-diagnostics.md) в кластере. {% if audience != "internal" %}Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). {% else %}Эта функциональность находится на стадии Preview.{% endif %}
 
 - {% include [Deletion protection](console/deletion-protection.md) %}

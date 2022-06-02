@@ -510,15 +510,16 @@
 
         ```bash
         {{ yc-mdb-ch }} cluster update <идентификатор или имя кластера> \
-          --backup-window-start <время начала резервного копирования> \
-          --datalens-access=<true или false> \
-          --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
-                              `day=<день недели для типа weekly>,`
-                              `hour=<час дня для типа weekly> \
-          --metrika-access=<true или false> \
-          --websql-access=<true или false> \
-          --deletion-protection=<защита от удаления кластера: true или false> \
-          --serverless-access=<true или false>
+           --backup-window-start <время начала резервного копирования> \
+           --datalens-access=<true или false> \
+           --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
+                               `day=<день недели для типа weekly>,`
+                               `hour=<час дня для типа weekly> \
+           --metrika-access=<true или false> \
+           --websql-access=<true или false> \
+           --serverless-access=<true или false> \
+           --datatransfer-access=<true или false> \
+           --deletion-protection=<защита от удаления кластера: true или false>
         ```
 
     Вы можете изменить следующие настройки:
@@ -541,6 +542,8 @@
     * `--serverless-access` — разрешает доступ к кластеру из сервиса {{ sf-full-name }}. Значение по умолчанию — `false`.
 
     {% endif %}
+
+    * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
 
     * {% include [Защита от удаления кластера](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -638,6 +641,8 @@
   Чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}, передайте значение `true` для параметра `configSpec.access.serverless`.
 
   {% endif %}
+
+  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
   Чтобы разрешить доступ к кластеру из сервиса {{ yq-full-name }}, передайте значение `true` для параметра `configSpec.access.yandexQuery`.
 
