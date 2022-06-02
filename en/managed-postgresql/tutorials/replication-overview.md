@@ -6,4 +6,6 @@ Logical replication streams for a {{ mpg-name }} cluster are transparently passe
 
 * [{#T}](../tutorials/data-migration.md).
 * [{#T}](../tutorials/outbound-replication.md).
+{% if audience != "internal" %}
 * [{#T}](../operations/logical-replica-from-rds.md).
+{% endif %}

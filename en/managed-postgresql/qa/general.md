@@ -120,8 +120,8 @@ In {{ mpg-short-name }}, the usage cost is calculated based on the following par
 
 - Selected host class.
 - Size of the storage reserved for the database host.
-- Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../pricing.md).
+- Size of the database cluster backups. {% if audience != "internal" %}Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../pricing.md).{% endif %}
+- Number of hours of database host operation. Partial hours are rounded to an integer value. {% if audience != "internal" %}The cost per hour of operation for each host class is given in [{#T}](../pricing.md).{% endif %}
 
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}

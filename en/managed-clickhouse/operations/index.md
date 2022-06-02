@@ -2,15 +2,13 @@
 
 - [{#T}](cluster-list.md)
 - [{#T}](cluster-create.md)
-
 {% if content != "noshow" %}
-
 - [{#T}](data-migration.md)
-
 {% endif %}
-
 - [{#T}](connect.md)
+{% if audience != "internal" %}
 - [{#T}](cluster-stop.md)
+{% endif %}
 - [{#T}](web-sql-query.md)
 - [{#T}](insert.md)
 - [{#T}](update.md)

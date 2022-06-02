@@ -15,6 +15,7 @@ items:
       - name: Connecting to a database
         href: operations/connect.md
       - name: Stopping and starting clusters
+        when: audience != "internal"
         href: operations/cluster-stop.md
       - name: SQL queries in the management console
         href: operations/web-sql-query.md
@@ -79,6 +80,7 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
+    when: audience != "internal"
     items:
       - name: Current pricing policy
         href: pricing.md
