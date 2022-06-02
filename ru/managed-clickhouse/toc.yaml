@@ -29,7 +29,7 @@ items:
         href: operations/dictionaries.md
       - name: Подключение собственной геобазы
         href: operations/internal-dictionaries.md
-      - name: Подключение моделей машинного обучения
+      - name: Управление моделями машинного обучения
         href: operations/ml-models.md
       - name: Управление схемами формата данных
         href: operations/format-schemas.md

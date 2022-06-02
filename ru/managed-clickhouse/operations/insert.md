@@ -8,7 +8,7 @@
 
 ## Вставка данных с указанием схемы формата данных {#insert-with-format-schema}
 
-{% include [mch-format-schemas-intro](../../_includes/mdb/mch-format-schemas-intro.md) %}
+{% include [Format schemas intro](../../_includes/mdb/mch/format-schemas-intro.md) %}
 
 ## Пример работы со схемой формата при вставке данных {#example}
 
