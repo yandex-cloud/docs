@@ -166,6 +166,10 @@ _Виджет_ – это элемент дашборда. Между видже
 
 {% include [share-note](../../_includes/datalens/datalens-share-note.md) %}
 
+Чтобы поделиться дашбордом, содержащим данные Метрики или AppMetrica, воспользуйтесь одним из способов:
+
+{% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
+
 {% endif %} 
 
 {% if audience == "internal" %}
