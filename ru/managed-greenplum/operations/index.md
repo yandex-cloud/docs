@@ -1,5 +1,6 @@
 # Пошаговые инструкции для {{ mgp-name }}
 
+* [{#T}](cluster-list.md)
 * [{#T}](calculate-specs.md)
 * [{#T}](cluster-create.md)
 * [Подключение к базе данных в кластере {{ GP }}](connect.md)

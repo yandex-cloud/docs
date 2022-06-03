@@ -144,7 +144,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
 - SQL
 
@@ -223,7 +223,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
 - SQL
 
@@ -468,7 +468,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
 - SQL
 
@@ -534,7 +534,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
 - SQL
 

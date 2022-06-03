@@ -109,7 +109,11 @@ _Виджет_ – это элемент дашборда. Между видже
 
 Вы можете предоставить доступ к дашборду для любого пользователя в интернете с помощью [{{ datalens-public }}](datalens-public.md). Такой дашборд становится публичным, любой пользователь может просмотреть его без авторизации.
 
-{% include [share-note](../../_includes/datalens/datalens-share-note.md) %} 
+{% include [share-note](../../_includes/datalens/datalens-share-note.md) %}
+
+Чтобы поделиться дашбордом, содержащим данные Метрики или AppMetrica, воспользуйтесь одним из способов:
+
+{% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %} 
 
  
 

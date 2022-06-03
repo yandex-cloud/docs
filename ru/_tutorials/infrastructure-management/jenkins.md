@@ -269,10 +269,10 @@ Packer позволяет создавать [образы дисков вирт
    mv terraform.tfvars_example terraform.tfvars
    ```
 
-1. Заполните поля файла требуемыми значениями. См. также документацию [Terraform](https://www.terraform.io/language#about-the-terraform-language) и [провайдера {{ yandex-cloud }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs).
-1. Инициализируйте провайдера Terraform командой `terraform init`.
-1. Выполните команду `terraform plan -var-file="terraform.tfvars"`. Проверьте созданную конфигурацию.
-1. Выполните команду `terraform apply` и подтвердите создание инфраструктуры, введя `yes` в терминале.
+2. Заполните поля файла требуемыми значениями. См. также документацию [Terraform](https://www.terraform.io/language#about-the-terraform-language) и [провайдера {{ yandex-cloud }}]({{ tf-provider-link }}).
+3. Инициализируйте провайдера Terraform командой `terraform init`.
+4. Выполните команду `terraform plan -var-file="terraform.tfvars"`. Проверьте созданную конфигурацию.
+5. Выполните команду `terraform apply` и подтвердите создание инфраструктуры, введя `yes` в терминале.
 
 После этого будут созданы: 
 

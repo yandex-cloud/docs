@@ -30,9 +30,17 @@
 
   {% include [datalens-public-dashboard](../../_includes/datalens/operations/datalens-public-dashboard.md) %}
 
+  Чтобы поделиться дашбордом, содержащим данные Метрики или AppMetrica, воспользуйтесь одним из способов:
+
+  {% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
+
 - Чарт
 
   {% include [datalens-public-chart](../../_includes/datalens/operations/datalens-public-chart.md) %}
+
+  Чтобы поделиться чартом, содержащим данные Метрики или AppMetrica, воспользуйтесь одним из способов:
+
+  {% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
 
 {% endlist %}
 

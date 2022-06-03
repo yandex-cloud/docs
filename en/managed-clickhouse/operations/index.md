@@ -2,8 +2,6 @@
 
 - [{#T}](cluster-list.md)
 - [{#T}](cluster-create.md)
-
-
 - [{#T}](connect.md)
 - [{#T}](cluster-stop.md)
 - [{#T}](web-sql-query.md)

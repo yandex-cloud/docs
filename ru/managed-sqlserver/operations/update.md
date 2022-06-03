@@ -8,6 +8,7 @@
 * [{#T}](#change-additional-settings).
 * [Переместить кластер](#move-cluster) в другой каталог.
 * [Изменить группы безопасности кластера](#change-sg-set).
+* [{#T}](#service-account).
 
 {% note warning %}
 
@@ -471,3 +472,43 @@
 Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для подключения к кластеру.
 
 {% endnote %}
+
+
+## Привязать сервисный аккаунт {#service-account}
+
+{% list tabs %}
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы привязать к кластеру [сервисный аккаунт](../../iam/concepts/users/service-accounts.md):
+
+    1. Посмотрите описание команды CLI для изменения кластера:
+
+        ```bash
+        {{ yc-mdb-ms }} cluster update --help
+        ```
+
+    1. Передайте идентификатор сервисного аккаунта в параметре `--service-account-id` в команде изменения кластера:
+
+        ```bash
+        {{ yc-mdb-ms }} cluster update <идентификатор или имя кластера> \
+           --service-account-id=<идентификатор сервисного аккаунта>
+        ```
+
+        Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters). Чтобы узнать идентификатор сервисного аккаунта, воспользуйтесь [инструкцией](../../iam/operations/sa/get-id.md).
+
+- API
+
+    Чтобы привязать к кластеру [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Идентификатор сервисного аккаунта в параметре `serviceAccountId`. Чтобы получить идентификатор, воспользуйтесь [инструкцией](../../iam/operations/sa/get-id.md).
+    * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+
+    {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+
+{% endlist %}

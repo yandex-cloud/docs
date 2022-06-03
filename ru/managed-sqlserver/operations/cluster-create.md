@@ -159,7 +159,7 @@
         ```
 
     
-    1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids` при создании кластера:
+    1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids`:
 
         ```bash
         {{ yc-mdb-ms }} cluster create <имя кластера> \
@@ -168,6 +168,14 @@
         ```
 
         {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
+
+    1. Чтобы привязать к кластеру [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для настройки взаимодействия с другими ресурсами {{ yandex-cloud }}, передайте его [идентификатор](../../iam/operations/sa/get-id.md) в параметре `--service-account-id`:
+
+        ```bash
+        {{ yc-mdb-ms }} cluster create <имя кластера> \
+           ...
+           --service-account-id=<идентификатор сервисного аккаунта>
+        ```
 
 - Terraform
 
@@ -284,6 +292,8 @@
   Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
 
   {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
+
+  Чтобы привязать к кластеру [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), передайте его [идентификатор](../../iam/operations/sa/get-id.md) в параметре `serviceAccountId`.
 
 {% endlist %}
 

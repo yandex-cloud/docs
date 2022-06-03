@@ -30,6 +30,12 @@
 
 - **Operation profiling**{#setting-operation-profiling} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
+  {% note info  %}
+
+  Настройка недоступна для хостов с ролью `MONGOS` шардированного кластера.
+
+  {% endnote %}
+
   Настройки профилировщика СУБД. Профилировщик собирает данные о запросах. Затем на основе этих данных формируется стратегия оптимизации запросов.
 
   - **Mode**{#setting-operation-profiling-mode}
@@ -112,6 +118,14 @@
 
 - **Storage**{#setting-storage} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
+  {% note info %}
+
+  Настройка недоступна для хостов с ролью `MONGOS` шардированного кластера.
+
+  Для хостов с ролью `MONGOCFG` доступна только настройка **Engine config → Cache size gb**.
+
+  {% endnote %}
+
   Настройки взаимодействия {{ MG }} с [хранилищем данных](https://docs.mongodb.com/manual/core/storage-engines/).
 
   - **Journal → Commit interval**{#setting-journal-commit-interval}
@@ -126,7 +140,7 @@
   
     Настройки [движка хранения данных](https://docs.mongodb.com/manual/core/wiredtiger/):
     
-    - **Connection config → Block compressor**{#setting-block-compressor}
+    - **Collection config → Block compressor**{#setting-block-compressor}
     
       Настройка сжатия данных. Установленное здесь значение будет работать только для новых коллекций. Также вы можете переопределить его для [отдельных коллекций](https://docs.mongodb.com/manual/reference/method/db.createCollection/#create-collection-storage-engine-options) и [индексов](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/#options).
 

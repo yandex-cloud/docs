@@ -128,7 +128,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
 - API
 
@@ -218,7 +218,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
 - API
 
@@ -421,7 +421,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [Terraform provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+   For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
 - API
 
@@ -549,7 +549,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [Terraform provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+   For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
 - API
 
@@ -632,7 +632,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [Terraform provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+   For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
 - API
 

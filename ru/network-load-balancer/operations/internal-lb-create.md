@@ -196,7 +196,7 @@
   1. Выполните команду, используя идентификатор целевой группы в параметре `target-group-id`:
   
      ```
-     load-balancer network-load-balancer create \
+     yc load-balancer network-load-balancer create \
        --name internal-lb-test-3 \
        --type internal \
        --region-id ru-central1 \

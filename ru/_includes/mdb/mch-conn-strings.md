@@ -215,85 +215,86 @@ go run connect.go
     {% cut "pom.xml" %}
 
     ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <project
-        xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-        <modelVersion>4.0.0</modelVersion>
-        <groupId>com.example</groupId>
-        <artifactId>app</artifactId>
-        <packaging>jar</packaging>
-        <version>0.1.0</version>
-        <properties>
-            <maven.compiler.source>1.8</maven.compiler.source>
-            <maven.compiler.target>1.8</maven.compiler.target>
-        </properties>
-        <dependencies>
-            <dependency>
-                <groupId>ru.yandex.clickhouse</groupId>
-                <artifactId>clickhouse-jdbc</artifactId>
-                <version>0.2.4</version>
-            </dependency>
-            <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.30</version>
-            </dependency>
-    </dependencies>
-    <build>
+    <?xml version="1.0" encoding="utf-8"?>
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+      <modelVersion>4.0.0</modelVersion>
+      <groupId>com.example</groupId>
+      <artifactId>app</artifactId>
+      <packaging>jar</packaging>
+      <version>0.1.0</version>
+      <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>com.clickhouse</groupId>
+          <artifactId>clickhouse-jdbc</artifactId>
+          <version>0.2.4</version>
+        </dependency>
+        <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-simple</artifactId>
+          <version>1.7.30</version>
+        </dependency>
+      </dependencies>
+      <build>
         <finalName>${project.artifactId}-${project.version}</finalName>
         <sourceDirectory>src</sourceDirectory>
         <resources>
-            <resource>
-                <directory>src</directory>
-            </resource>
+          <resource>
+            <directory>src</directory>
+          </resource>
         </resources>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>attached</goal>
-                        </goals>
-                        <phase>package</phase>
-                        <configuration>
-                            <descriptorRefs>
-                                <descriptorRef>jar-with-dependencies</descriptorRef>
-                            </descriptorRefs>
-                            <archive>
-                                <manifest>
-                                    <mainClass>com.example.App</mainClass>
-                                </manifest>
-                            </archive>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.0</version>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>attached</goal>
+                </goals>
+                <phase>package</phase>
                 <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>com.example.App</mainClass>
-                        </manifest>
-                    </archive>
+                  <descriptorRefs>
+                    <descriptorRef>
+                    jar-with-dependencies</descriptorRef>
+                  </descriptorRefs>
+                  <archive>
+                    <manifest>
+                      <mainClass>com.example.App</mainClass>
+                    </manifest>
+                  </archive>
                 </configuration>
-            </plugin>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+              <archive>
+                <manifest>
+                  <mainClass>com.example.App</mainClass>
+                </manifest>
+              </archive>
+            </configuration>
+          </plugin>
         </plugins>
-    </build>
-    </project>     
+      </build>
+    </project>
     ```
 
     {% endcut %}
 
     Актуальные версии зависимостей для Maven:
 
-    * [clickhouse-jdbc](https://mvnrepository.com/artifact/ru.yandex.clickhouse/clickhouse-jdbc)
+    * [clickhouse-jdbc](https://mvnrepository.com/artifact/com.clickhouse/clickhouse-jdbc)
     * [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
 
 {% list tabs %}
@@ -317,7 +318,7 @@ go run connect.go
         String DB_URL = String.format("jdbc:clickhouse://%s:8123/%s", DB_HOST, DB_NAME);
 
         try {
-          Class.forName("ru.yandex.clickhouse.ClickHouseDriver");
+          Class.forName("com.clickhouse.jdbc.ClickHouseDriver");
 
           Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
           ResultSet rs = conn.createStatement().executeQuery("SELECT version()");
@@ -351,7 +352,7 @@ go run connect.go
         String DB_URL = String.format("jdbc:clickhouse://%s:8443/%s?ssl=1&sslmode=strict&sslrootcert=%s", DB_HOST, DB_NAME, CACERT);
 
         try {
-          Class.forName("ru.yandex.clickhouse.ClickHouseDriver");
+          Class.forName("com.clickhouse.jdbc.ClickHouseDriver");
           Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
           ResultSet rs = conn.createStatement().executeQuery("SELECT version()");
           if(rs.next()) {System.out.println(rs.getString(1));}
