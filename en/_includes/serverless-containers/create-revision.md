@@ -89,7 +89,7 @@
       }
       ```
 
-      For more information about the `yandex_serverless_container` resource in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/serverless_container).
+      For more information about the `yandex_serverless_container` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
 
    1. Make sure that the configuration files are correct.
 
