@@ -121,7 +121,7 @@ You can't decrease the number of {{ KF }} broker hosts.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
 
 - API
@@ -224,7 +224,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
 
 - API
@@ -410,7 +410,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, please see the [Terraform provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+   For more information, please see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
 
 - API
@@ -494,7 +494,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, please see the [Terraform provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+   For more information, please see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
 - API
 

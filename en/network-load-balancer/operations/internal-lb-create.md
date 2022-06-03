@@ -153,7 +153,7 @@ The internal load balancer's listener is assigned a random IP address from the r
    1. Run the command using the target group ID in the `target-group-id` parameter:
 
       ```
-      load-balancer network-load-balancer create \
+      yc load-balancer network-load-balancer create \
         --name internal-lb-test-3 \
         --type internal \
         --region-id ru-central1 \

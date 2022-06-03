@@ -59,9 +59,7 @@ Storing backups in {{ mmg-name }}:
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
-
-    For more information, see the [Pricing policy for {{ mmg-name }}](../pricing.md#rules-storage).
-
+        For more information, see the [Pricing policy for {{ mmg-name }}](../pricing.md#rules-storage).
 ## Checking backups {#verify}
 
 ### Checking backup integrity {#integrity}

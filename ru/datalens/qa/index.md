@@ -155,6 +155,14 @@ description: "Как получить логи моей работы в серв
 
 {% include [making-available-chart](../../_includes/datalens/qa/making-available-chart.md) %}
 
+### Как сделать публичным дашборд, содержащий данные Метрики или AppMetrica? {#how-metrica-appmetrica-share}
+
+Датасеты на основе подключения к Metrica API и AppMetrica не поддерживают материализацию, поэтому опубликовать такой дашборд нельзя.
+
+Чтобы поделиться дашбордом, содержащим данные Метрики или AppMetrica, воспользуйтесь одним из способов:
+
+{% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
+
 ## Другое {#other}
 
 ### Я могу получить логи моей работы в сервисах? {#logs}

@@ -10,6 +10,8 @@
 
 1. Назначьте этому пользователю роль для доступа к сервису {{ datalens-short-name }}:
 
-   1. {% include [configure-roles-console](../../iam/configure-roles-console.md) %}
+   1. Откройте окно **Настройка прав доступа**:
+   
+      {% include [configure-roles-console](../../iam/configure-roles-console.md) %}
    1. В окне **Настройка прав доступа** нажмите **![image](../../../_assets/plus-sign.svg) Добавить роль**. Выберите роль `{{ roles-datalens-instances-user }}` из списка.
    1. Нажмите **Сохранить**. Пользователь получит доступ к сервису {{ datalens-short-name }}.

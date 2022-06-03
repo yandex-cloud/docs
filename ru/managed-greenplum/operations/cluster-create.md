@@ -75,6 +75,31 @@
 
     1. Нажмите кнопку **Создать кластер**.
 
+- API
+
+    Воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
+
+    * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
+    * Имя кластера в параметре `name`.
+    * Окружение кластера в параметре `environment`.
+    * Версию {{ GP }} в параметре `config.version`.
+    * Имя пользователя в параметре `userName`.
+    * Пароль пользователя в параметре `userPassword`.
+    * Идентификатор сети в параметре `networkId`.
+    * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
+    * Конфигурацию хостов-мастеров в параметре `masterConfig`.
+    * Конфигурацию хостов-сегментов в параметре `segmentConfig`.
+
+    При необходимости передайте дополнительные настройки кластера:
+
+    * Настройки публичного доступа в параметре `assignPublicIp`.
+    * Настройки окна резервного копирования в параметре `config.backupWindowStart`.
+    * Настройки доступа из [{{ datalens-full-name }}](../../datalens/concepts/index.md) в параметре `config.access.dataLens`.
+    * {% include [Maintenance window](../../_includes/mdb/api/maintenance-window.md) %}
+    * Настройки защиты от удаления кластера в параметре `deletionProtection`.
+
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
 {% endlist %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

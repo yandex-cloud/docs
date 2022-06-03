@@ -1,6 +1,6 @@
 # Sharding collections {{ MG }}
 
-When you shard a {{ mmg-name }} cluster, the following service hosts are automatically created and [billed](../pricing.md) separately from the main DBMS hosts:
+When you shard a {{ mmg-name }} cluster, the following service hosts are automatically createdand [billed](../pricing.md) separately from the main DBMS hosts:
 
 - Either `MONGOS` and `MONGOCFG`
 - Or `MONGOINFRA`

@@ -268,7 +268,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources appear with correct settings, using the [management console]({{ link-console-main }}).
 
-   For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
 - API
 

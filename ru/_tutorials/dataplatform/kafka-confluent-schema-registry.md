@@ -61,11 +61,7 @@
     * **Количество разделов**: `1`.
     * **Политика очистки лога**: `Compact`.
 
-    {% note warning %}
-
-    Указанные значения настроек **Количество разделов** и **Политика очистки лога** необходимы для работы Confluent Schema Registry.
-
-    {% endnote %}
+    Указанные значения настроек необходимы для работы Confluent Schema Registry.
 
 1. [Создайте учетную запись](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `registry` и [выдайте ей права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `_schemas`:
     * `ACCESS_ROLE_CONSUMER`,
