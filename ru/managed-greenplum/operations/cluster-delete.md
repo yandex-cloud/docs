@@ -15,6 +15,12 @@
   1. Перейдите на страницу каталога и выберите сервис **{{ mgp-name }}**.
   1. Нажмите на значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **Удалить кластер**.
 
+- API
+
+    Воспользуйтесь методом API [delete](../api-ref/Cluster/delete.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
+
+    Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 {% endlist %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
