@@ -236,10 +236,13 @@ description: "В этом сценарии вы узнаете, как с пом
   1. Нажмите кнопку **Сохранить**.
   1. Выполните запрос, вместо `<токен бота>` укажите токен Telegram-бота, вместо `<домен API-шлюза>` — служебный домен API-шлюза:
       ```bash
-      curl --request POST --url https://api.telegram.org/bot<токен бота>/setWebhook \
-      --header 'content-type: application/json' --data '{"url": "<домен API-шлюза>/fshtb-function"}'
-      ```
-    
+      curl --request POST --url https://api.telegram.org/bot<токен бота>/setWebhook --header 'content-type: application/json' --data '{"url": "<домен API-шлюза>/fshtb-function"}'
+      ```      
+      В ОС Windows запрос может возвращать ошибку. Вероятно, это связано с неправильной обработкой некоторых символов. Попробуйте заменить апострофы `'` на кавычки `"` и экранировать фигурные скобки. Итоговый запрос будет выглядеть так:
+      ```bash
+      curl --request POST --url https://api.telegram.org/bot<токен бота>/setWebhook --header 'content-type:application/json' --data "{\"url\": \"<домен API-шлюза>/fshtb-function\"}"
+      ```     
+      
       Результат:
 
       ```bash
