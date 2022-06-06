@@ -10,7 +10,7 @@
 
 * [Аттестат соответствия](https://storage.yandexcloud.net/yc-compliance/conformance_ru_certificate.pdf).
 * [Заключение о соответствии системы защиты персональных данных требованиям ФЗ-152 «О персональных данных»](https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf).
-* [Соглашение об обработке данных](https://yandex.ru/legal/cloud_dpa/).
+* [Соглашение об обработке данных]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_dpa/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_dpa/?lang=en){% endif %}.
 * [Действия клиентов по защите ПД](https://storage.yandexcloud.net/yc-compliance/recomendations/FZ-152-RU.pdf).
 
 ## GDPR (General Data Protection Regulation) {#gdpr}

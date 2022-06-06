@@ -6,7 +6,7 @@ If a service receives a request to delete a resource via the API, the resource i
 
 ## Automatic cloud suspension {#block}
 
-Your cloud may be suspended if there are arrears on your account, if your trial period is over, or if you are in violation of the [Yandex.Cloud terms of use](https://yandex.ru/legal/cloud_termsofuse/?lang=en). For more information about the payment process and possible suspension, read the [Billing documentation](../../billing/payment/billing-cycle.md).
+Your cloud may be suspended if there are arrears on your account, if your trial period is over, or if you are in violation of the [Yandex.Cloud terms of use]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_termsofuse/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_termsofuse/?lang=en){% endif %}. For more information about the payment process and possible suspension, read the [Billing documentation](../../billing/payment/billing-cycle.md).
 
 In a suspended cloud:
 

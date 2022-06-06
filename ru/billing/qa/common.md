@@ -6,19 +6,19 @@
 
 #### Где можно ознакомиться с Соглашением об уровне обслуживания (SLA)? {#sla}
 
-В {{ yandex-cloud }} для каждого сервиса предусмотрен свой SLA. Ознакомиться с SLA можно в разделе [Правовые документы](https://yandex.ru/legal/cloud_sla/).
+В {{ yandex-cloud }} для каждого сервиса предусмотрен свой SLA. Ознакомиться с SLA можно в разделе [Правовые документы]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_sla/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_sla/?lang=en){% endif %}.
 
 #### Где я могу найти реквизиты {{ yandex-cloud }}? {#requisites}
 
 {% if region == "ru" %}
 
-Банковские реквизиты вы можете найти в документе [Учетная карточка ООО «Яндекс.Облако»](https://storage.yandexcloud.net/doc-files/Yandex.Cloud_requisites.pdf), а также в разделе [Правовые документы](https://yandex.ru/legal/cloud_oferta/?lang=ru) (пункт **18. Реквизиты Яндекса**).
+Банковские реквизиты вы можете найти в документе [Учетная карточка ООО «Яндекс.Облако»](https://storage.yandexcloud.net/doc-files/Yandex.Cloud_requisites.pdf), а также в разделе [Правовые документы]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %} (пункт **18. Реквизиты Яндекса**).
 
 {% endif %}
 
 {% if region == "kz" %}
 
-Банковские реквизиты вы можете найти в разделе [Правовые документы](https://yandex.com/legal/cloud_oferta_kz/?lang=ru) (пункт **18. Реквизиты Яндекса**).
+Банковские реквизиты вы можете найти в разделе [Правовые документы]{% if lang == "ru" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=en){% endif %} (пункт **18. Реквизиты Яндекса**).
 
 {% endif %}
 

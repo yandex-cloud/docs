@@ -13,7 +13,7 @@ Purchasing images with a pre-installed Microsoft software license from {{ yandex
 * Client licenses for Windows Server are pre-installed. You don't need to buy them separately.
 * Windows Server images include two RDS licenses for system administration.
 
-By using Microsoft software in {{ yandex-cloud }}, you agree to the {{ marketplace-full-name }} [Terms of use](https://yandex.com/legal/cloud_terms_marketplace/) and the [Microsoft License Terms](https://www.microsoft.com/licensing/contracts).
+By using Microsoft software in {{ yandex-cloud }}, you agree to the {{ marketplace-full-name }} [Terms of use]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_terms_marketplace/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_terms_marketplace/?lang=en){% endif %} and the [Microsoft License Terms](https://www.microsoft.com/licensing/contracts).
 
 ### Features of using {{ MS }} licenses in {{ compute-full-name }} {#sql-server-compute-licensing}
 

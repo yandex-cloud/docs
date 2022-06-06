@@ -38,7 +38,7 @@ When [purchasing a CVoS](../operations/purchase-cvos.md), you choose the followi
 
 {% endif %}
 
-Once the CVoS is purchased and the offer is accepted, both parties start acting under the agreement in accordance with the Civil Code of the Russian Federation. You can learn more about the terms and conditions of the agreement in [Yandex Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en).
+Once the CVoS is purchased and the offer is accepted, both parties start acting under the agreement in accordance with the Civil Code of the Russian Federation. You can learn more about the terms and conditions of the agreement in [Yandex Legal documents]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %}.
 
 Information about CVoS usage and its expiration is displayed in the management console.
 

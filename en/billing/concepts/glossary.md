@@ -50,7 +50,7 @@ Offer
 
 Penalties
 : A penalty for a failure to comply with the agreement terms and conditions regarding the deadline for service payment.
-<br/>For more information about how penalties are charged, see the [Offer to Enter into the Contract to Use {{ yandex-cloud }} Platform Services](https://yandex.ru/legal/cloud_oferta/) (clause 6, subclause 6.15).
+<br/>For more information about how penalties are charged, see the [Offer to Enter into the Contract to Use {{ yandex-cloud }} Platform Services]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %} (clause 6, subclause 6.15).
 
 {% endif %}
 
@@ -58,7 +58,7 @@ Penalties
 
 Penalties
 : A penalty for a failure to comply with the agreement terms and conditions regarding the deadline for service payment.
-<br/>For more information about how penalties are charged, see the [Offer to Enter into the Contract to Use {{ yandex-cloud }} Platform Services](https://yandex.com/legal/cloud_oferta_kz/?lang=ru) (clause 6, subclause 6.15).
+<br/>For more information about how penalties are charged, see the [Offer to Enter into the Contract to Use {{ yandex-cloud }} Platform Services]{% if lang == "ru" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=ru){% endif %}{% if lang =="en" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=en){% endif %} (clause 6, subclause 6.15).
 
 {% endif %}
 

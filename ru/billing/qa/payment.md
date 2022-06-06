@@ -88,7 +88,7 @@
 
  - Резидентам РК
 
-   С условиями договора вы можете ознакомиться в разделе [Правовые документы]{% if lang == "ru" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=ru){% endif %}{% if lang =="en" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=en){% endif %}.
+   С условиями договора вы можете ознакомиться в разделе [Правовые документы]{% if lang == "ru" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=en){% endif %}.
 
  - Нерезидентам РФ и РК
 

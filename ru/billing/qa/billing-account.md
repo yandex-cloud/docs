@@ -45,14 +45,14 @@
 
 {% if region == "ru" %}
 
-Платежный аккаунт был переведен в статус `SUSPENDED` согласно [условиям договора (п. 6.11.4.)](https://yandex.ru/legal/cloud_oferta/).
+Платежный аккаунт был переведен в статус `SUSPENDED` согласно [условиям договора (п. 6.11.4.)]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %}.
 После блокировки на вашу почту, указанную в аккаунте Яндекса или Яндекс 360, было отправлено письмо с подробными инструкциями по восстановлению доступа.
 
 {% endif %}
 
 {% if region == "kz" %}
 
-Платежный аккаунт был переведен в статус `SUSPENDED` согласно [условиям договора (п. 6.11.4.)](https://yandex.com/legal/cloud_oferta_kz/?lang=ru).
+Платежный аккаунт был переведен в статус `SUSPENDED` согласно [условиям договора (п. 6.11.4.)]{% if lang == "ru" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=en){% endif %}.
 После блокировки на вашу почту, указанную в аккаунте Яндекса или Яндекс 360, было отправлено письмо с подробными инструкциями по восстановлению доступа.
 
 {% endif %}
