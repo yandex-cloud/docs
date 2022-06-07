@@ -1,0 +1,849 @@
+openapi: 3.0.0
+info:
+  title: Yandex IoT Core Broker Service
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://iot-broker.api.cloud.yandex.net
+paths:
+  /iot-broker/v1/brokers/{brokerId}:
+    get:
+      tags:
+      - Broker
+      summary: Returns the specified broker.
+      description: To get the list of available brokers, make a [list](/docs/iot-core/broker/api-ref/Broker/list)
+        request.
+      operationId: BrokerGet
+      parameters:
+      - name: brokerId
+        in: path
+        description: |-
+          Required.
+          ID of the broker to return.
+
+          To get a broker ID make a [list](/docs/iot-core/broker/api-ref/Broker/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Broker'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Broker
+      summary: Deletes the specified broker.
+      operationId: BrokerDelete
+      parameters:
+      - name: brokerId
+        in: path
+        description: |-
+          Required.
+          ID of the broker to delete.
+
+          To get a broker ID make a [list](/docs/iot-core/broker/api-ref/Broker/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteBrokerMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Broker
+      summary: Updates the specified broker.
+      operationId: BrokerUpdate
+      parameters:
+      - name: brokerId
+        in: path
+        description: |-
+          Required.
+          ID of the broker to update.
+
+          To get a broker ID make a [list](/docs/iot-core/broker/api-ref/Broker/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateBrokerRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateBrokerMetadata'
+      x-y-operation-response: '[Broker](/docs/iot-core/broker/api-ref/Broker#representation)'
+  /iot-broker/v1/brokers:
+    get:
+      tags:
+      - Broker
+      summary: Retrieves the list of brokers in the specified folder.
+      operationId: BrokerList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list brokers in.
+
+          To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/iot-core/broker/api-ref/Broker/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/iot-core/broker/api-ref/Broker/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBrokersResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Broker
+      summary: Creates a broker in the specified folder.
+      operationId: BrokerCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateBrokerRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateBrokerMetadata'
+      x-y-operation-response: '[Broker](/docs/iot-core/broker/api-ref/Broker#representation)'
+  /iot-broker/v1/brokers/{brokerId}/certificates:
+    get:
+      tags:
+      - Broker
+      summary: Retrieves the list of broker certificates for the specified broker.
+      operationId: BrokerListCertificates
+      parameters:
+      - name: brokerId
+        in: path
+        description: |-
+          Required.
+          ID of the broker to list certificates for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBrokerCertificatesResponse'
+      x-y-navtitle: listCertificates
+    post:
+      tags:
+      - Broker
+      summary: Adds a certificate.
+      operationId: BrokerAddCertificate
+      parameters:
+      - name: brokerId
+        in: path
+        description: |-
+          Required.
+          ID of the broker for which the certificate is being added.
+
+          To get a broker ID make a [list](/docs/iot-core/broker/api-ref/Broker/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddBrokerCertificateRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: addCertificate
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddBrokerCertificateMetadata'
+      x-y-operation-response: '`BrokerCertificate`'
+  /iot-broker/v1/brokers/{brokerId}/certificates/{fingerprint}:
+    delete:
+      tags:
+      - Broker
+      summary: Deletes the specified broker certificate.
+      operationId: BrokerDeleteCertificate
+      parameters:
+      - name: brokerId
+        in: path
+        description: |-
+          Required.
+          ID of the broker to delete a certificate for.
+
+          To get a broker ID make a [list](/docs/iot-core/broker/api-ref/Broker/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: fingerprint
+        in: path
+        description: |-
+          Required.
+          Fingerprint of the certificate that is being deleted.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deleteCertificate
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteBrokerCertificateMetadata'
+      x-y-operation-response: Empty
+  /iot-broker/v1/brokers/{brokerId}/passwords:
+    get:
+      tags:
+      - Broker
+      summary: Retrieves the list of passwords for the specified broker.
+      operationId: BrokerListPasswords
+      parameters:
+      - name: brokerId
+        in: path
+        description: |-
+          Required.
+          ID of the broker to list passwords in.
+
+          To get a broker ID make a [list](/docs/iot-core/broker/api-ref/Broker/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBrokerPasswordsResponse'
+      x-y-navtitle: listPasswords
+    post:
+      tags:
+      - Broker
+      summary: Adds password for the specified broker.
+      operationId: BrokerAddPassword
+      parameters:
+      - name: brokerId
+        in: path
+        description: |-
+          Required.
+          ID of the broker to add a password for.
+
+          To get a broker ID make a [list](/docs/iot-core/broker/api-ref/Broker/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddBrokerPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: addPassword
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddBrokerPasswordMetadata'
+      x-y-operation-response: '`BrokerPassword`'
+  /iot-broker/v1/brokers/{brokerId}/passwords/{passwordId}:
+    delete:
+      tags:
+      - Broker
+      summary: Deletes the specified password.
+      operationId: BrokerDeletePassword
+      parameters:
+      - name: brokerId
+        in: path
+        description: |-
+          Required.
+          ID of the broker to delete a password for.
+
+          To get a broker ID make a [list](/docs/iot-core/broker/api-ref/Broker/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: passwordId
+        in: path
+        description: |-
+          Required.
+          ID of the password to delete.
+
+          To get a password ID make a [listPasswords](/docs/iot-core/broker/api-ref/Broker/listPasswords) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deletePassword
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteBrokerPasswordMetadata'
+      x-y-operation-response: Empty
+  /iot-broker/v1/brokers/{brokerId}/operations:
+    get:
+      tags:
+      - Broker
+      summary: Lists operations for the specified broker.
+      operationId: BrokerListOperations
+      parameters:
+      - name: brokerId
+        in: path
+        description: |-
+          Required.
+          ID of the broker to list operations for.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/iot-core/broker/api-ref/Broker/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/iot-core/broker/api-ref/Broker/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          Currently you can use filtering only on [Broker.name](/docs/iot-core/broker/api-ref/Broker#representation) field.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBrokerOperationsResponse'
+      x-y-navtitle: listOperations
+components:
+  schemas:
+    AddBrokerCertificateMetadata:
+      type: object
+      properties:
+        brokerId:
+          description: ID of the broker certificate that is being added.
+          type: string
+        fingerprint:
+          description: Fingerprint of the certificate that is being added.
+          type: string
+    AddBrokerCertificateRequest:
+      type: object
+      properties:
+        certificateData:
+          description: Public part of the certificate that is being added.
+          type: string
+    AddBrokerPasswordMetadata:
+      type: object
+      properties:
+        brokerId:
+          description: ID of the broker for which the password is being added.
+          type: string
+        passwordId:
+          description: ID of a password that is being added.
+          type: string
+    AddBrokerPasswordRequest:
+      type: object
+      properties:
+        password:
+          description: |-
+            Passwords for the broker.
+
+            The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.
+
+            The minimum string length in characters is 14.
+          type: string
+    Broker:
+      description: A broker.
+      type: object
+      properties:
+        id:
+          description: ID of the broker.
+          type: string
+        folderId:
+          description: ID of the folder that the broker belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the broker. The name is unique within the folder.
+          type: string
+        description:
+          description: Description of the broker. 0-256 characters long.
+          type: string
+        labels:
+          description: Resource labels as `key:value` pairs. Maximum of 64 per resource.
+          type: object
+          additionalProperties:
+            type: string
+        status:
+          $ref: '#/components/schemas/BrokerStatus_in_Broker_status'
+    BrokerCertificate:
+      description: A broker certificate.
+      type: object
+      properties:
+        brokerId:
+          description: ID of the broker that the certificate belongs to.
+          type: string
+        fingerprint:
+          description: SHA256 hash of the certificates.
+          type: string
+        certificateData:
+          description: Public part of the certificate.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    BrokerPassword:
+      description: A broker password.
+      type: object
+      properties:
+        brokerId:
+          description: ID of the broker that the password belongs to.
+          type: string
+        id:
+          description: ID of the password.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    BrokerStatus:
+      description: |2-
+         - CREATING: Broker is being created.
+         - ACTIVE: Broker is ready to use.
+         - DELETING: Broker is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - DELETING
+    CreateBrokerMetadata:
+      type: object
+      properties:
+        brokerId:
+          description: ID of the broker that is being created.
+          type: string
+    CreateBrokerRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create a broker in.
+
+            To get a folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Required.
+            Name of the broker. The name must be unique within the folder.
+
+            The maximum string length in characters is 50.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        description:
+          description: |-
+            Description of the broker.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        certificates:
+          description: Broker certificates.
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateBrokerRequestCertificate'
+        password:
+          description: |-
+            Broker passwords.
+
+            The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.
+          type: string
+    CreateBrokerRequestCertificate:
+      description: Specification of a broker certificate.
+      type: object
+      properties:
+        certificateData:
+          description: Public part of the broker certificate.
+          type: string
+    DeleteBrokerCertificateMetadata:
+      type: object
+      properties:
+        brokerId:
+          description: |-
+            Required.
+            ID of a broker for which the certificate is being delete.
+
+            The maximum string length in characters is 50.
+          type: string
+        fingerprint:
+          description: |-
+            Required.
+            Fingerprint of the certificate to deleted.
+
+            The maximum string length in characters is 50.
+          type: string
+    DeleteBrokerMetadata:
+      type: object
+      properties:
+        brokerId:
+          description: ID of the broker that is being deleted.
+          type: string
+    DeleteBrokerPasswordMetadata:
+      type: object
+      properties:
+        brokerId:
+          description: |-
+            Required.
+            ID of a broker for which the password is being delete.
+
+            The maximum string length in characters is 50.
+          type: string
+        passwordId:
+          description: |-
+            Required.
+            ID of the password to delete.
+
+            To get a password ID make a [listPasswords](/docs/iot-core/broker/api-ref/Broker/listPasswords) request.
+
+            The maximum string length in characters is 50.
+          type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ListBrokerCertificatesResponse:
+      type: object
+      properties:
+        certificates:
+          description: List of certificates for the specified broker.
+          type: array
+          items:
+            $ref: '#/components/schemas/BrokerCertificate'
+    ListBrokerOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified broker.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/iot-core/broker/api-ref/Broker/listOperations#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/iot-core/broker/api-ref/Broker/listOperations#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
+          type: string
+    ListBrokerPasswordsResponse:
+      type: object
+      properties:
+        passwords:
+          description: List of passwords for the specified broker.
+          type: array
+          items:
+            $ref: '#/components/schemas/BrokerPassword'
+    ListBrokersResponse:
+      type: object
+      properties:
+        brokers:
+          description: List of brokers.
+          type: array
+          items:
+            $ref: '#/components/schemas/Broker'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/iot-core/broker/api-ref/Broker/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/iot-core/broker/api-ref/Broker/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
+          type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    UpdateBrokerMetadata:
+      type: object
+      properties:
+        brokerId:
+          description: ID of the broker that is being updated.
+          type: string
+    UpdateBrokerRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateBrokerRequest_updateMask'
+        name:
+          description: |-
+            Name of the broker. The name must be unique within the folder.
+
+            The maximum string length in characters is 50.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        description:
+          description: |-
+            Description of the broker.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `key:value` pairs.
+
+            Existing set of `labels` is completely replaced by the provided set.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    BrokerStatus_in_Broker_status:
+      description: |-
+        Status of the broker.
+
+         - CREATING: Broker is being created.
+         - ACTIVE: Broker is ready to use.
+         - DELETING: Broker is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - DELETING
+    FieldMask_in_UpdateBrokerRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the broker are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+tags:
+- name: Broker
+  description: A set of methods for managing broker.

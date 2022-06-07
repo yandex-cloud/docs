@@ -582,6 +582,17 @@ components:
 
             The maximum string length in characters is 1000.
           type: string
+        streamNames:
+          description: |-
+            List of stream names to limit log entries to.
+
+            Empty list disables filter.
+
+            The maximum number of elements is 100.
+            Each value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{0,63} ``.
+          type: array
+          items:
+            type: string
         pageSize:
           description: |-
             The maximum number of results per page to return.
@@ -671,6 +682,12 @@ components:
         jsonPayload:
           description: Entry annotation.
           type: object
+        streamName:
+          description: |-
+            Entry stream name.
+
+            Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{0,63} ``.
+          type: string
     ListAccessBindingsResponse:
       type: object
       properties:
@@ -770,6 +787,12 @@ components:
         jsonPayload:
           description: Entry annotation.
           type: object
+        streamName:
+          description: |-
+            Entry stream name.
+
+            Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{0,63} ``.
+          type: string
     LogEntryDefaults:
       type: object
       properties:
@@ -781,6 +804,12 @@ components:
             Will be merged with entry annotation.
             Any conflict will be resolved in favor of entry own annotation.
           type: object
+        streamName:
+          description: |-
+            Entry stream name.
+
+            Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{0,63} ``.
+          type: string
     LogEntryResource:
       description: |-
         Log entry resource specification.
@@ -1004,8 +1033,9 @@ components:
       properties:
         accessBindings:
           description: |-
-            Required.
             Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+
+            The maximum number of elements is 1000.
           type: array
           items:
             $ref: '#/components/schemas/AccessBinding'
@@ -1056,7 +1086,7 @@ components:
             Required.
             Updates to access bindings.
 
-            Must contain at least one element.
+            The number of elements must be in the range 1-1000.
           type: array
           items:
             $ref: '#/components/schemas/AccessBindingDelta'

@@ -1661,6 +1661,11 @@ components:
           type: array
           items:
             type: string
+        diskTypeIds:
+          description: IDs of availability disk types available in the resource preset.
+          type: array
+          items:
+            type: string
         cores:
           description: Number of CPU cores for a Greenplum host created with the preset.
           type: string
@@ -1672,14 +1677,6 @@ components:
           format: int64
         type:
           $ref: '#/components/schemas/ResourcePresetType_in_ResourcePreset_type'
-        minHostCount:
-          description: Min host count
-          type: string
-          format: int64
-        maxHostCount:
-          description: Max host count
-          type: string
-          format: int64
         hostCountDivider:
           description: The number of hosts must be divisible by host_count_divider
           type: string

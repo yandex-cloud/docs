@@ -1460,7 +1460,7 @@ components:
             Required.
             Updates to access bindings.
 
-            Must contain at least one element.
+            The number of elements must be in the range 1-1000.
           type: array
           items:
             $ref: '#/components/schemas/AccessBindingDelta'

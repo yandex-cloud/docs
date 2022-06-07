@@ -43,6 +43,8 @@ items:
         href: api-ref/Cluster/stop.md
       - name: update
         href: api-ref/Cluster/update.md
+      - name: updateHosts
+        href: api-ref/Cluster/updateHosts.md
   - name: Database
     items:
       - name: Overview

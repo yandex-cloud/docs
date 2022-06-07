@@ -6,7 +6,7 @@ info:
 paths: {}
 components:
   schemas:
-    Agent:
+    AgentInstance:
       type: object
       properties:
         id:
@@ -84,7 +84,7 @@ components:
     ExternalAgentRegisterMetadata:
       type: object
       properties:
-        agentId:
+        agentInstanceId:
           type: string
     FieldMask:
       description: |-
