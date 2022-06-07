@@ -33,11 +33,10 @@ Field | Description
 --- | ---
 id | **string**<br>ID of the resource preset. 
 zone_ids[] | **string**<br>IDs of availability zones where the resource preset is available. 
+disk_type_ids[] | **string**<br>IDs of availability disk types available in the resource preset. 
 cores | **int64**<br>Number of CPU cores for a Greenplum host created with the preset. 
 memory | **int64**<br>RAM volume for a Greenplum host created with the preset, in bytes. 
 type | enum **Type**<br>Host type <ul><li>`MASTER`: Greenplum master host.</li><li>`SEGMENT`: Greenplum segment host.</li></ul>
-min_host_count | **int64**<br>Min host count 
-max_host_count | **int64**<br>Max host count 
 host_count_divider | **int64**<br>The number of hosts must be divisible by host_count_divider 
 max_segment_in_host_count | **int64**<br>Max segment count in host (actual only for segment host) 
 
@@ -70,11 +69,10 @@ Field | Description
 --- | ---
 id | **string**<br>ID of the resource preset. 
 zone_ids[] | **string**<br>IDs of availability zones where the resource preset is available. 
+disk_type_ids[] | **string**<br>IDs of availability disk types available in the resource preset. 
 cores | **int64**<br>Number of CPU cores for a Greenplum host created with the preset. 
 memory | **int64**<br>RAM volume for a Greenplum host created with the preset, in bytes. 
 type | enum **Type**<br>Host type <ul><li>`MASTER`: Greenplum master host.</li><li>`SEGMENT`: Greenplum segment host.</li></ul>
-min_host_count | **int64**<br>Min host count 
-max_host_count | **int64**<br>Max host count 
 host_count_divider | **int64**<br>The number of hosts must be divisible by host_count_divider 
 max_segment_in_host_count | **int64**<br>Max segment count in host (actual only for segment host) 
 

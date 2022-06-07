@@ -10,7 +10,7 @@ For more information, follow the links:
 
 * [Accreditation of compliance (in Russian)](https://storage.yandexcloud.net/yc-compliance/conformance_ru_certificate.pdf).
 * [Opinion on Compliance of the Personal Data Protection System with the Requirements of Federal Law No. 152 "On Personal Data"](https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf).
-* [Data Processing Agreement](https://yandex.com/legal/cloud_dpa/).
+* [Data Processing Agreement](https://yandex.ru/legal/cloud_dpa/?lang=en).
 * [Customer actions for personal data protection](https://storage.yandexcloud.net/yc-compliance/recomendations/FZ-152-EN.pdf).
 
 ## GDPR (General Data Protection Regulation) {#gdpr}

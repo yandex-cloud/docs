@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Database/exportBackup.md
 ---
 
 # Method exportBackup
-Exports database backup to external backup
+Exports the last database backup to an external backup.
  
 
  
@@ -17,8 +17,8 @@ POST https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}/databases/
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the SQL Server cluster to export a database from. To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request  The maximum string length in characters is 50.
-databaseName | Required. Name of the SQLServer database that is being exported.
+clusterId | Required. ID of the SQL Server cluster to export a database from.  To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+databaseName | Required. Name of the SQL Server database that is being exported.
  
 ## Body parameters {#body_params}
  
@@ -33,9 +33,9 @@ databaseName | Required. Name of the SQLServer database that is being exported.
  
 Field | Description
 --- | ---
-s3Bucket | **string**<br><p>Required. Name of object storage bucket to export backups to</p> 
+s3Bucket | **string**<br><p>Required. Name of object storage bucket to export backups to.</p> 
 s3Path | **string**<br><p>Path in object storage bucket to export backups to.</p> 
-prefix | **string**<br><p>Prefix for .bak files to</p> 
+prefix | **string**<br><p>Prefix for .bak files to export.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

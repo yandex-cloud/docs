@@ -60,6 +60,7 @@ node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of
 
 Field | Description
 --- | ---
+name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec)**<br>Specification for the boot disk that will be attached to the node. 
@@ -109,6 +110,7 @@ disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec)**<br>Internal DNS configuration. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec}
@@ -116,6 +118,16 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec)**<br>One-to-one NAT 
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
+
+
+### DnsRecordSpec {#DnsRecordSpec}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required). 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone is used). 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional). Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional). 
 
 
 ### SchedulingPolicy {#SchedulingPolicy}
@@ -140,6 +152,7 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec1)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec1)**<br>Internal DNS configuration. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec1}
@@ -147,6 +160,16 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec1)**<br>One-to-one NAT
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
+
+
+### DnsRecordSpec {#DnsRecordSpec1}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required). 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone is used). 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional). Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional). 
 
 
 ### PlacementPolicy {#PlacementPolicy}
@@ -322,6 +345,7 @@ node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of
 
 Field | Description
 --- | ---
+name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec1)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec1)**<br>Specification for the boot disk that will be attached to the node. 
@@ -371,6 +395,7 @@ disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec2)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec2)**<br>Internal DNS configuration. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec2}
@@ -378,6 +403,16 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec2)**<br>One-to-one NAT
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
+
+
+### DnsRecordSpec {#DnsRecordSpec2}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required). 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone is used). 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional). Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional). 
 
 
 ### SchedulingPolicy {#SchedulingPolicy1}
@@ -402,6 +437,7 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec3)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec3)**<br>Internal DNS configuration. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec3}
@@ -409,6 +445,16 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec3)**<br>One-to-one NAT
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
+
+
+### DnsRecordSpec {#DnsRecordSpec3}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required). 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone is used). 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional). Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional). 
 
 
 ### PlacementPolicy {#PlacementPolicy1}
@@ -565,6 +611,7 @@ node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of
 
 Field | Description
 --- | ---
+name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec2)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec2)**<br>Specification for the boot disk that will be attached to the node. 
@@ -614,6 +661,7 @@ disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec4)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec4)**<br>Internal DNS configuration. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec4}
@@ -621,6 +669,16 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec4)**<br>One-to-one NAT
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
+
+
+### DnsRecordSpec {#DnsRecordSpec4}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required). 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone is used). 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional). Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional). 
 
 
 ### SchedulingPolicy {#SchedulingPolicy2}
@@ -645,6 +703,7 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec5)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec5)**<br>Internal DNS configuration. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec5}
@@ -652,6 +711,16 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec5)**<br>One-to-one NAT
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
+
+
+### DnsRecordSpec {#DnsRecordSpec5}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required). 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone is used). 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional). Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional). 
 
 
 ### PlacementPolicy {#PlacementPolicy2}
@@ -816,6 +885,7 @@ node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of
 
 Field | Description
 --- | ---
+name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec3)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec3)**<br>Specification for the boot disk that will be attached to the node. 
@@ -865,6 +935,7 @@ disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec6)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec6)**<br>Internal DNS configuration. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec6}
@@ -872,6 +943,16 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec6)**<br>One-to-one NAT
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
+
+
+### DnsRecordSpec {#DnsRecordSpec6}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required). 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone is used). 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional). Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional). 
 
 
 ### SchedulingPolicy {#SchedulingPolicy3}
@@ -896,6 +977,7 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec7)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec7)**<br>Internal DNS configuration. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec7}
@@ -903,6 +985,16 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec7)**<br>One-to-one NAT
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
+
+
+### DnsRecordSpec {#DnsRecordSpec7}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required). 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone is used). 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional). Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional). 
 
 
 ### PlacementPolicy {#PlacementPolicy3}
@@ -1060,6 +1152,7 @@ node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of
 
 Field | Description
 --- | ---
+name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec4)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec4)**<br>Specification for the boot disk that will be attached to the node. 
@@ -1109,6 +1202,7 @@ disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec8)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec8)**<br>Internal DNS configuration. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec8}
@@ -1116,6 +1210,16 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec8)**<br>One-to-one NAT
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
+
+
+### DnsRecordSpec {#DnsRecordSpec8}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required). 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone is used). 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional). Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional). 
 
 
 ### SchedulingPolicy {#SchedulingPolicy4}
@@ -1140,6 +1244,7 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec9)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec9)**<br>Internal DNS configuration. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec9}
@@ -1147,6 +1252,16 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec9)**<br>One-to-one NAT
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
+
+
+### DnsRecordSpec {#DnsRecordSpec9}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required). 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone is used). 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional). Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional). 
 
 
 ### PlacementPolicy {#PlacementPolicy4}
@@ -1320,6 +1435,7 @@ node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of
 
 Field | Description
 --- | ---
+name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec5)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec5)**<br>Specification for the boot disk that will be attached to the node. 
@@ -1369,6 +1485,7 @@ disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec10)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec10)**<br>Internal DNS configuration. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec10}
@@ -1376,6 +1493,16 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec10)**<br>One-to-one NA
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
+
+
+### DnsRecordSpec {#DnsRecordSpec10}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required). 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone is used). 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional). Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional). 
 
 
 ### SchedulingPolicy {#SchedulingPolicy5}
@@ -1400,6 +1527,7 @@ security_group_ids[] | **string**<br>IDs of security groups.
 Field | Description
 --- | ---
 one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec11)**<br>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up. 
+dns_record_specs[] | **[DnsRecordSpec](#DnsRecordSpec11)**<br>Internal DNS configuration. 
 
 
 ### OneToOneNatSpec {#OneToOneNatSpec11}
@@ -1407,6 +1535,16 @@ one_to_one_nat_spec | **[OneToOneNatSpec](#OneToOneNatSpec11)**<br>One-to-one NA
 Field | Description
 --- | ---
 ip_version | enum **IpVersion**<br>IP version for the public IP address. <ul><li>`IPV4`: IPv4 address, for example 192.168.0.0.</li><li>`IPV6`: IPv6 address, not available yet.</li></ul>
+
+
+### DnsRecordSpec {#DnsRecordSpec11}
+
+Field | Description
+--- | ---
+fqdn | **string**<br>Required. FQDN (required). 
+dns_zone_id | **string**<br>DNS zone id (optional, if not set, private zone is used). 
+ttl | **int64**<br>DNS record ttl, values in 0-86400 (optional). Acceptable values are 0 to 86400, inclusive.
+ptr | **bool**<br>When set to true, also create PTR DNS record (optional). 
 
 
 ### PlacementPolicy {#PlacementPolicy5}

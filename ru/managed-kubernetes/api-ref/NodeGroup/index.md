@@ -16,6 +16,7 @@ A set of methods for managing node groups.
   "labels": "object",
   "status": "string",
   "nodeTemplate": {
+    "name": "string",
     "platformId": "string",
     "resourcesSpec": {
       "memory": "string",
@@ -31,7 +32,15 @@ A set of methods for managing node groups.
     "v4AddressSpec": {
       "oneToOneNatSpec": {
         "ipVersion": "string"
-      }
+      },
+      "dnsRecordSpecs": [
+        {
+          "fqdn": "string",
+          "dnsZoneId": "string",
+          "ttl": "string",
+          "ptr": true
+        }
+      ]
     },
     "schedulingPolicy": {
       "preemptible": true
@@ -44,12 +53,28 @@ A set of methods for managing node groups.
         "primaryV4AddressSpec": {
           "oneToOneNatSpec": {
             "ipVersion": "string"
-          }
+          },
+          "dnsRecordSpecs": [
+            {
+              "fqdn": "string",
+              "dnsZoneId": "string",
+              "ttl": "string",
+              "ptr": true
+            }
+          ]
         },
         "primaryV6AddressSpec": {
           "oneToOneNatSpec": {
             "ipVersion": "string"
-          }
+          },
+          "dnsRecordSpecs": [
+            {
+              "fqdn": "string",
+              "dnsZoneId": "string",
+              "ttl": "string",
+              "ptr": true
+            }
+          ]
         },
         "securityGroupIds": [
           "string"
@@ -160,6 +185,7 @@ description | **string**<br><p>Description of the node group. 0-256 characters l
 labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 status | **string**<br><p>Status of the node group.</p> <ul> <li>PROVISIONING: Node group is waiting for resources to be allocated.</li> <li>RUNNING: Node group is running.</li> <li>RECONCILING: Node group is waiting for some work to be done, such as upgrading node software.</li> <li>STOPPING: Node group is being stopped.</li> <li>STOPPED: Node group stopped.</li> <li>DELETING: Node group is being deleted.</li> <li>STARTING: Node group is being started.</li> </ul> 
 nodeTemplate | **object**<br><p>Node template that specifies parameters of the compute instances for the node group.</p> 
+nodeTemplate.<br>name | **string**<br><p>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list.</p> <p>The maximum string length in characters is 128.</p> 
 nodeTemplate.<br>platformId | **string**<br><p>ID of the hardware platform configuration for the node.</p> 
 nodeTemplate.<br>resourcesSpec | **object**<br><p>Computing resources of the node such as the amount of memory and number of cores.</p> 
 nodeTemplate.<br>resourcesSpec.<br>memory | **string** (int64)<br><p>Amount of memory available to the node, specified in bytes.</p> <p>The minimum value is 0.</p> 
@@ -173,6 +199,11 @@ nodeTemplate.<br>metadata | **object**<br><p>The metadata as ``key:value`` pairs
 nodeTemplate.<br>v4AddressSpec | **object**<br><p>Specification for the create network interfaces for the node group compute instances. Deprecated, please use network_interface_specs.</p> 
 nodeTemplate.<br>v4AddressSpec.<br>oneToOneNatSpec | **object**<br><p>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up.</p> 
 nodeTemplate.<br>v4AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>IP version for the public IP address.</p> <ul> <li>IPV4: IPv4 address, for example 192.168.0.0.</li> <li>IPV6: IPv6 address, not available yet.</li> </ul> 
+nodeTemplate.<br>v4AddressSpec.<br>dnsRecordSpecs[] | **object**<br><p>Internal DNS configuration.</p> 
+nodeTemplate.<br>v4AddressSpec.<br>dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. FQDN (required).</p> 
+nodeTemplate.<br>v4AddressSpec.<br>dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, private zone is used).</p> 
+nodeTemplate.<br>v4AddressSpec.<br>dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>DNS record ttl, values in 0-86400 (optional).</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+nodeTemplate.<br>v4AddressSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional).</p> 
 nodeTemplate.<br>schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 
 nodeTemplate.<br>schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for preemptible compute instances. Default value is false. Preemptible compute instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 
 nodeTemplate.<br>networkInterfaceSpecs[] | **object**<br><p>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec'</p> 
@@ -180,9 +211,19 @@ nodeTemplate.<br>networkInterfaceSpecs[].<br>subnetIds[] | **string**<br><p>IDs 
 nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec | **object**<br><p>Primary IPv4 address that is assigned to the instance for this network interface.</p> 
 nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec | **object**<br><p>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up.</p> 
 nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>IP version for the public IP address.</p> <ul> <li>IPV4: IPv4 address, for example 192.168.0.0.</li> <li>IPV6: IPv6 address, not available yet.</li> </ul> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[] | **object**<br><p>Internal DNS configuration.</p> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. FQDN (required).</p> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, private zone is used).</p> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>DNS record ttl, values in 0-86400 (optional).</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV4AddressSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional).</p> 
 nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec | **object**<br><p>Primary IPv6 address that is assigned to the instance for this network interface.</p> 
 nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec | **object**<br><p>One-to-one NAT configuration. Setting up one-to-one NAT ensures that public IP addresses are assigned to nodes, and therefore internet is accessible for all nodes of the node group. If the field is not set, NAT will not be set up.</p> 
 nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>oneToOneNatSpec.<br>ipVersion | **string**<br><p>IP version for the public IP address.</p> <ul> <li>IPV4: IPv4 address, for example 192.168.0.0.</li> <li>IPV6: IPv6 address, not available yet.</li> </ul> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[] | **object**<br><p>Internal DNS configuration.</p> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>fqdn | **string**<br><p>Required. FQDN (required).</p> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>dnsZoneId | **string**<br><p>DNS zone id (optional, if not set, private zone is used).</p> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>ttl | **string** (int64)<br><p>DNS record ttl, values in 0-86400 (optional).</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
+nodeTemplate.<br>networkInterfaceSpecs[].<br>primaryV6AddressSpec.<br>dnsRecordSpecs[].<br>ptr | **boolean** (boolean)<br><p>When set to true, also create PTR DNS record (optional).</p> 
 nodeTemplate.<br>networkInterfaceSpecs[].<br>securityGroupIds[] | **string**<br><p>IDs of security groups.</p> 
 nodeTemplate.<br>placementPolicy | **object**<br>
 nodeTemplate.<br>placementPolicy.<br>placementGroupId | **string**<br><p>Identifier of placement group</p> 
