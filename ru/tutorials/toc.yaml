@@ -87,6 +87,8 @@ items:
         href: infrastructure-management/terraform-state-storage.md
       - name: Начало работы с Packer
         href: infrastructure-management/packer-quickstart.md
+      - name: Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer
+        href: infrastructure-management/packer-custom-image.md
       - name: Автоматизация сборки образов ВМ с помощью Jenkins
         href: infrastructure-management/jenkins.md
       - name: >-

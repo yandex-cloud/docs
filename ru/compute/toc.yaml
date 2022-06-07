@@ -249,6 +249,8 @@ items:
         href: tutorials/rds-gw
       - name: Передача логов с ВМ в Yandex Cloud Logging
         href: tutorials/vm-fluent-bit-logging.md
+      - name: Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer
+        href: tutorials/packer-custom-image.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов
