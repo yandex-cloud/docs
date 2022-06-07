@@ -30,9 +30,10 @@ databaseName | Required. Name of the SQL Server database to return.  To get the 
 }
 ```
 An SQL Server database.
+
 For more information, see the [Concepts](/docs/managed-sqlserver/concepts) section of the documentation.
  
 Field | Description
 --- | ---
 name | **string**<br><p>Name of the database.</p> 
-clusterId | **string**<br><p>ID of the SQL Server cluster the database belongs to.</p> 
+clusterId | **string**<br><p>ID of the SQL Server cluster that the database belongs to.</p> 

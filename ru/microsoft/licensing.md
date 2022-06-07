@@ -13,8 +13,7 @@
 * Клиентские лицензии для Windows Server уже включены, их не нужно покупать отдельно.
 * Образы Windows Server включают в себя две лицензии службы удаленных рабочих столов для администрирования системы.  
 
-Используя ПО Microsoft в {{ yandex-cloud }}, вы соглашаетесь с [Условиями использования](https://yandex.ru/legal/cloud_terms_marketplace/)
-{{ marketplace-full-name }} и с условиями использования [Microsoft License Terms](https://www.microsoft.com/licensing/contracts).
+Используя ПО Microsoft в {{ yandex-cloud }}, вы соглашаетесь с [Условиями использования](https://yandex.ru/legal/cloud_terms_marketplace/?lang=ru) {{ marketplace-full-name }} и с условиями использования [Microsoft License Terms](https://www.microsoft.com/licensing/contracts).
 
 ### Особенности использования лицензий {{ MS }} в {{ compute-full-name }} {#sql-server-compute-licensing}
 

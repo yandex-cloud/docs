@@ -17,7 +17,7 @@ POST https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}:startFailo
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of sqlserver cluster.  The maximum string length in characters is 50.
+clusterId | Required. ID of SQL Server cluster.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  

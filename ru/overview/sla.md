@@ -5,5 +5,5 @@
   * уровни обслуживания сервисов {{ yandex-cloud }}.
 
 Вы можете ознакомиться с SLA по ссылкам:
-* [Соглашение об уровне обслуживания {{ yandex-cloud }}](https://yandex.ru/legal/cloud_sla/)
-* [Уровни обслуживания для сервисов {{ yandex-cloud }}](https://yandex.ru/legal/cloud_sla_levels/)
+* [Соглашение об уровне обслуживания {{ yandex-cloud }}](https://yandex.ru/legal/cloud_sla/?lang=ru)
+* [Уровни обслуживания для сервисов {{ yandex-cloud }}](https://yandex.ru/legal/cloud_sla_levels/?lang=ru)

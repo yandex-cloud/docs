@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Database/importBackup.md
 ---
 
 # Method importBackup
-Imports a new SQL Server database from external backup
+Imports a new SQL Server database from an external backup.
  
 
  
@@ -17,7 +17,7 @@ POST https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}/databases:
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the SQL Server cluster to import a database in. To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request  The maximum string length in characters is 50.
+clusterId | Required. ID of the SQL Server cluster to import a database in.  To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -35,10 +35,10 @@ clusterId | Required. Required. ID of the SQL Server cluster to import a databas
  
 Field | Description
 --- | ---
-databaseName | **string**<br><p>Required. Name of the SQLServer database that is being imported.</p> 
+databaseName | **string**<br><p>Required. Name of the SQL Server database that is being imported.</p> 
 s3Bucket | **string**<br><p>Required. Name of object storage bucket to import backups from.</p> 
 s3Path | **string**<br><p>Path in object storage bucket to import backups from.</p> 
-files[] | **string**<br><p>Required. List of .bak files in bucket containing database backup</p> 
+files[] | **string**<br><p>Required. List of .bak files in bucket containing database backup.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

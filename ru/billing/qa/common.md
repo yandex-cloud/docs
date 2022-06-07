@@ -6,12 +6,12 @@
 
 #### Где можно ознакомиться с Соглашением об уровне обслуживания (SLA)? {#sla}
 
-В {{ yandex-cloud }} для каждого сервиса предусмотрен свой SLA. Ознакомиться с SLA можно в разделе [Правовые документы](https://yandex.ru/legal/cloud_sla/).
+В {{ yandex-cloud }} для каждого сервиса предусмотрен свой SLA. Ознакомиться с SLA можно в разделе [Правовые документы](https://yandex.ru/legal/cloud_sla/?lang=ru).
 
 #### Где я могу найти реквизиты {{ yandex-cloud }}? {#requisites}
 
 
-Банковские реквизиты вы можете найти в документе [Учетная карточка ООО «Яндекс.Облако»](https://storage.yandexcloud.net/doc-files/Yandex.Cloud_requisites.pdf), а также в разделе [Правовые документы](https://yandex.ru/legal/cloud_oferta/?lang=ru) (пункт **18. Реквизиты Яндекса**).
+Банковские реквизиты вы можете найти в документе [Учетная карточка ООО «Яндекс.Облако»](https://storage.yandexcloud.net/doc-files/Yandex.Cloud_requisites.pdf), а также в разделе [Правовые документы](https://yandex.ru/legal/cloud_oferta/) (пункт **18. Реквизиты Яндекса**).
 
 
 #### Как обратиться в службу технической поддержки? {#support}

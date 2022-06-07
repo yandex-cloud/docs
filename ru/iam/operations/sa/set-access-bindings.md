@@ -233,7 +233,7 @@
 
         ```bash
         yc iam service-account set-access-bindings my-robot \
-          --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
+          --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse \
           --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
         ```
 

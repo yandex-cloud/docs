@@ -1,6 +1,8 @@
 {% note warning %}
 
-If you have set permissions at the row level, make sure to apply the `Execute` permission for the dataset.  In this case, nobody can edit row permissions or open the data preview window.
+* When using RLS, restrict access to the connection by using the `Execute` permission. This will prevent changes to row access permissions and restrict access to opening the preview window and creating a new dataset from the connection.
+
+* RLS supports access control for string values only.
 
 {% endnote %}
 
