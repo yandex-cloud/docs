@@ -15,8 +15,6 @@ items:
         href: stt/request.md
       - name: Асинхронное распознавание
         href: stt/transcribation.md
-    - name: Форматы аудио
-      href: stt/formats.md
     - name: Модели распознавания
       href: stt/models.md
     - name: Расширение модели распознавания речи
@@ -81,6 +79,8 @@ items:
         include:
           repo: docs
           path: en/_api-ref-grpc/ai/tts/new-v3/toc.yaml
+  - name: Форматы аудио
+    href: formats.md
   - name: SpeechKit Hybrid
     items:
         - name: О технологии
