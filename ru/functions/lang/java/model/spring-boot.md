@@ -6,6 +6,10 @@
 
 В случае, если логика вашего приложения использует классы [HttpServletRequest](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) и [HttpServletResponse](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html), обратите внимание, что сервис {{ sf-name }} поддерживает не все методы этих классов. Подробнее ознакомиться со списком неподдерживаемых методов можно [здесь](servlet-api.md#unsupported).
 
+Yandex Cloud Functions так же не поддерживает Spring Boot Loader, поэтому при создании jar-файла Вам необходимо использовать Maven Shade Plugin, JarClassLoader, OneJar или Gradle Shadow Plugin.
+
+Если размер jar-файла превышает 3,5 МБ, для создания функции его необходимо упаковать в ZIP-архив и загрузить в ObjectStorage.
+
 ## Пример: простое приложение с эндпоинтом
 
 Следующее приложение имеет один эндпоинт: `GET: /get/{name}`. По `GET` запросу по адресу `/get` с указанным параметром пути функция вернет строку `Hello, $name`, где `$name` — переданный параметр пути.
