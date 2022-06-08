@@ -22,8 +22,7 @@ The cost of using {{ speechkit-name }} for speech recognition depends on the rec
 
 #### Streaming speech recognition {#rules-stt-streaming}
 
-
-The cost of using {{ speechkit-name }} [API v2](stt/api/streaming-api.md) is calculated based on the [pricing rules for synchronous recognition](#rules-stt-short).
+The cost of using {{ speechkit-name }} streaming recognition is calculated based on the [pricing rules for synchronous recognition](#rules-stt-short).
 
 #### Synchronous recognition {#rules-stt-short}
 

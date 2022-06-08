@@ -122,6 +122,8 @@ items:
     items:
       - name: Общие вопросы
         href: qa/common.md
+      - name: Вопросы о договоре
+        href: qa/contract.md
       - name: Вопросы по оплате
         href: qa/payment.md
       - name: Вопросы о платежном аккаунте
