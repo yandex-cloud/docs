@@ -1,4 +1,4 @@
-# API дашбордов (deprecated)
+# API дашбордов
 
 {% include [include](../../../../_includes/datalens/internal/dash/intro.md) %}
 
