@@ -6,6 +6,9 @@ To create a bar chart:
 1. Under **Dataset**, select a dataset to visualize. If you don't have a dataset, [create one](../dataset/create.md).
 1. Select **Bar chart** as the chart type.
 1. Drag one or more dimensions from the dataset to the **Y** section. The values are displayed on the Y-axis.
+
+   {% include [chart-signature-note](../../../_includes/datalens/operations/datalens-chart-signature-note.md) %}
+
 1. Drag one or more measures from the dataset to the **X** section.
 
 A stacked column chart is displayed by default.

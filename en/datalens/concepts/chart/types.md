@@ -48,7 +48,7 @@ Displays changes to measures by dimension as a single or multiple horizontal lin
 | Colors | Dimension or the `Measure Names` field. Affects the color of lines. `Measure Names` is removed by deleting measures from the Y-axis. |
 | Shapes | Dimension or the `Measure Names` field. Affects the shape of lines. |
 | Sorting | Dimension. Can only use one dimension from the X-axis. Affects the sorting of the X-axis. |
-| Signatures | Measure. Displays measure values on the chart. |
+| Signatures | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** or **Y2** section, drag `Measure Values` to this section. |
 | Chart filters | Dimension or measure. Used as a filter. |
 
 See the instructions [{#T}](../../operations/chart/create-line-chart.md).
@@ -63,7 +63,7 @@ Displays changes to measures by dimensions as areas, showing the contribution of
 | Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section contains a dimension named `Measure Names`. |
 | Colors | Dimension or the `Measure Names` field. Affects the color of lines. `Measure Names` is removed by deleting measures from the Y-axis. |
 | Sorting | Dimension. Can only use one dimension from the X-axis. Affects the sorting of the X-axis. |
-| Signatures | Measure. Displays measure values on the chart. |
+| Signatures | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag `Measure Values` to this section. |
 | Chart filters | Dimension or measure. Used as a filter. |
 
 See the instructions [{#T}](../../operations/chart/create-area-chart.md).
@@ -78,7 +78,7 @@ Normalized stacked area chart that shows the ratio of measures as a percentage.
 | Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section contains a dimension named `Measure Names`. |
 | Colors | Dimension or the `Measure Names` field. Affects the color of lines. `Measure Names` is removed by deleting measures from the Y-axis. |
 | Sorting | Dimension. Can only use one dimension from the X-axis. Affects the sorting of the X-axis. |
-| Signatures | Measure. Displays measure values on the chart. |
+| Signatures | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag `Measure Values` to this section. |
 | Chart filters | Dimension or measure. Used as a filter. |
 
 See the instructions [{#T}](../../operations/chart/create-area-chart.md).
@@ -93,7 +93,7 @@ Displays data as flat vertical bars.
 | Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section contains a dimension named `Measure Names`. `Measure Names` can be moved to the X-axis. |
 | Colors | Dimension or the `Measure Names` field. Affects the color of lines. `Measure Names` is removed by deleting measures from the Y-axis. |
 | Sorting | Dimension or measure. Affects the sorting of columns. |
-| Signatures | Measure. Displays measure values on the chart. |
+| Signatures | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag `Measure Values` to this section. |
 | Chart filters | Dimension or measure. Used as a filter. |
 
 See the instructions [{#T}](../../operations/chart/create-column-chart.md).
@@ -108,7 +108,7 @@ Normalized column chart that shows the ratio of measures as a percentage.
 | Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section contains a dimension named `Measure Names`. `Measure Names` can be moved to the X-axis. |
 | Colors | Dimension or the `Measure Names` field. Affects the color of lines. `Measure Names` is removed by deleting measures from the Y-axis. |
 | Sorting | Dimension or measure. Affects the sorting of columns. |
-| Signatures | Measure. Displays measure values on the chart. |
+| Signatures | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag `Measure Values` to this section. |
 | Chart filters | Dimension or measure. Used as a filter. |
 
 See the instructions [{#T}](../../operations/chart/create-column-chart.md).
@@ -123,7 +123,7 @@ Displays data as flat horizontal bars.
 | X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section contains a dimension named `Measure Names`. `Measure Names` can be moved to the Y-axis. |
 | Colors | Dimension or the `Measure Names` field. Affects the color of lines. `Measure Names` is removed by deleting measures from the Y-axis. |
 | Sorting | Dimension or measure. Affects the sorting of columns. |
-| Signatures | Measure. Displays measure values on the chart. |
+| Signatures | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag `Measure Values` to this section. |
 | Chart filters | Dimension or measure. Used as a filter. |
 
 See the instructions [{#T}](../../operations/chart/create-bar-chart.md).
@@ -138,7 +138,7 @@ Normalized bar chart that shows the ratio of measures.
 | X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section contains a dimension named `Measure Names`. `Measure Names` can be moved to the Y-axis. |
 | Colors | Dimension or the `Measure Names` field. Affects the color of lines. `Measure Names` is removed by deleting measures from the Y-axis. |
 | Sorting | Dimension or measure. Affects the sorting of columns. |
-| Signatures | Measure. Displays measure values on the chart. |
+| Signatures | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag `Measure Values` to this section. |
 | Chart filters | Dimension or measure. Used as a filter. |
 
 See the instructions [{#T}](../../operations/chart/create-bar-chart.md).

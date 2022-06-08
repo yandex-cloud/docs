@@ -50,8 +50,6 @@
 
     Чтобы получить ссылку на zip-архив с файлами расширения в {{ objstorage-full-name }}, [воспользуйтесь инструкцией](../../storage/operations/objects/link-for-download.md). Доступ к {{ objstorage-full-name }} [можно настроить](./s3-access.md) с помощью сервисного аккаунта.
 
-    {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
-
 * API
 
     Воспользуйтесь методом API [create](../api-ref/Extension/create) и передайте в запросе:
