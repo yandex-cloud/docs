@@ -212,7 +212,7 @@ host;x-amz-date
     Ссылку на скачивание объекта также можно сгенерировать с помощью AWS CLI. Для этого выполните команду вида:
 
     ```
-    aws s3 presign s3://<bucket-name>/<object-key> [--expires-in <value>]
+    aws s3 presign s3://<bucket-name>/<object-key> --endpoint-url "https://storage.yandexcloud.net/" [--expires-in <value>]
     ```
 
 - boto3
