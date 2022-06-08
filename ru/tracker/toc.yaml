@@ -215,6 +215,16 @@ items:
       href: manager/planning-poker.md
     - name: Диаграмма сгорания задач
       href: manager/burndown.md
+- name: Доски задач (бета)
+  items: 
+    - name: Обзор
+      href: manager/agile-new.md
+    - name: Создать доску
+      href: manager/agile-new-create.md
+    - name: Работать с доской
+      href: manager/agile-new-use.md
+    - name: Настроить доску
+      href: manager/agile-new-set.md
 - name: Найти задачи
   items:
     - name: Обзор
