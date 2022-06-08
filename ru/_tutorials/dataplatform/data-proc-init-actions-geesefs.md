@@ -1,6 +1,6 @@
 # Использование скриптов инициализации для настройки GeeseFS в {{ dataproc-name }}
 
-В сервисе {{ dataproc-full-name }} вы можете использовать для настройки хостов [скрипты инициализации](../../data-proc/concepts/init-action.md) (initialization actions).
+В сервисе {{ dataproc-full-name }} вы можете использовать для настройки хостов {% if audience != "internal" %}[скрипты инициализации](../../data-proc/concepts/init-action.md){% else %}скрипты инициализации{% endif %} (initialization actions).
 
 С их помощью можно автоматизировать установку и настройку программы [GeeseFS](../../storage/tools/geesefs.md), позволяющей хостам кластера {{ dataproc-full-name }} монтировать бакеты {{ objstorage-full-name }} через [FUSE]({% if lang == "ru" %}https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра){% else %}https://en.wikipedia.org/wiki/Filesystem_in_Userspace{% endif %}).
 
@@ -10,11 +10,11 @@
 1. [Создайте кластер, использующий скрипт инициализации](#create-cluster).
 1. [Проверьте доступность бакета](#check-availability).
 
-Если созданные ресурсы вам больше не нужны, [удалите их](clear-out).
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `mdb.dataproc.agent`.
+1. {% if audience != "internal" %}[Создайте сервисный аккаунт](../../iam/operations/sa/create.md){% else %}Создайте сервисный аккаунт{% endif %} с ролью `mdb.dataproc.agent`.
 
 1. [Создайте бакет](../../storage/operations/buckets/create.md) {{ objstorage-full-name }}.
 
@@ -24,7 +24,7 @@
 
         Сервисный аккаунт получит доступ на чтение только к указанному бакету.
 
-    * [Назначьте сервисному аккаунту роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.viewer`.
+    * {% if audience != "internal" %}[Назначьте сервисному аккаунту роль](../../iam/operations/sa/assign-role-for-sa.md){% else %}Назначьте сервисному аккаунту роль{% endif %} `storage.viewer`.
 
         Сервисный аккаунт получит доступ на чтение ко всем бакетам в каталоге.
 
@@ -59,7 +59,7 @@
 
 ## Создайте кластер, использующий скрипт инициализации {#create-cluster}
 
-[Создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md) со следующими параметрами:
+{% if audience != "internal" %}[Создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md){% else %}Создайте кластер {{ dataproc-name }}{% endif %} со следующими параметрами:
 
 * **Сервисный аккаунт** — выберите созданный ранее сервисный аккаунт.
 * **Пользовательские скрипты** — добавьте скрипт со следующими настройками:
@@ -82,7 +82,7 @@
 
 ## Проверьте доступность бакета {#check-availability}
 
-1. После того, как кластер перейдет в статус **Alive**, [подключитесь по SSH](../../data-proc/operations/connect.md#data-proc-ssh) от имени пользователя `ubuntu` к любому из его хостов.
+1. После того, как кластер перейдет в статус **Alive**, {% if audience != "internal" %}[подключитесь по SSH](../../data-proc/operations/connect.md#data-proc-ssh){% else %}подключитесь по SSH{% endif %} от имени пользователя `ubuntu` к любому из его хостов.
 
 1. Чтобы убедиться в успешном монтировании бакета, выполните команду:
 
@@ -96,6 +96,6 @@
 
 Если созданные ресурсы вам больше не нужны, удалите их:
 
-1. [Удалите кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
-1. Если для доступа к хостам кластера использовались статические публичные IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
+1. {% if audience != "internal" %}[Удалите кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md){% else %}Удалите кластер {{ dataproc-name }}{% endif %}.
+1. Если для доступа к хостам кластера использовались статические публичные IP-адреса, освободите и % if audience != "internal" %}[удалите их](../../vpc/operations/address-delete.md){% else %}удалите их{% endif %}.
 1. [Удалите бакет](../../storage/operations/buckets/delete.md) {{ objstorage-full-name }}.
