@@ -258,7 +258,7 @@
 - Вручную
 
     1. [Удалите кластер {{ mch-name }}](../operations/cluster-delete.md).
-    1. Если для доступа к кластеру использовались статические публичные IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
+    1. Если для доступа к кластеру использовались статические публичные IP-адреса, освободите и {% if audience != "internal" %}[удалите их](../../vpc/operations/address-delete.md){% else %}удалите их{% endif %}.
 
 - С помощью Terraform
 
