@@ -53,7 +53,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
     * **Write interval**: Specify the delay with which the data should arrive at the target cluster. Increase the value in this field if ClickHouse does not have time to merge pieces of data.
 
-    * {% include [Field Cleanum Policy Drop/Disabled](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop.md) %}
+    * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
 
 {% endlist %}
 

@@ -55,6 +55,6 @@
 
     * **Интервал записи** — укажите задержку, с которой данные должны поступать в кластер-приемник. Увеличьте значение в этом поле, если ClickHouse не успевает делать слияние кусков данных.
 
-    * {% include [Field Cleanum Policy Drop/Disabled](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop.md) %}
+    * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
 
 {% endlist %}
