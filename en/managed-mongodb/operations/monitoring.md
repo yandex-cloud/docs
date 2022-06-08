@@ -136,7 +136,7 @@ You can view the current storage size in [detailed information about the cluster
 To view a cluster's state and status:
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-1. Hover over the indicator in the **Status** column in the row of the cluster you need.
+1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
 
 ### Cluster states {#cluster-health}
 
