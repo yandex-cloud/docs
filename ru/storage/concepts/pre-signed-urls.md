@@ -212,8 +212,10 @@ host;x-amz-date
     Ссылку на скачивание объекта также можно сгенерировать с помощью AWS CLI. Для этого выполните команду вида:
 
     ```
-    aws s3 presign s3://<bucket-name>/<object-key> [--expires-in <value>]
+    aws s3 presign s3://<bucket-name>/<object-key> --endpoint-url "https://{{ s3-storage-host }}/" [--expires-in <value>]
     ```
+  
+    Чтобы ссылка сформировалась корректно, обязательно укажите параметр `--endpoint-url` с указанием на доменное имя {{ objstorage-name }}. Подробнее см. в [разделе об особенностях работы AWS CLI](../tools/aws-cli.md#specifics).
 
 - boto3
     
