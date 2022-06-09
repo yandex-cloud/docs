@@ -74,6 +74,8 @@ items:
         href: testing/loadtesting-grpc.md
       - name: Using Phantom to run a fixed-load HTTPS test
         href: testing/loadtesting-https-phantom.md
+      - name: Using Pandora to run a step-load HTTPS test
+        href: testing/loadtesting-https-pandora.md
   - name: Performing infrastructure management
     items:
       - name: All tutorials
@@ -114,7 +116,7 @@ items:
         - name: Using {{ mkf-msr }} with Yandex Managed Service for Apache Kafka®
           href: dataplatform/managed-schema-registry.md
         - name: Using Confluent Schema Registry with Yandex Managed Service for Apache Kafka®
-          href: dataplatform/confluent-schema-registry.md
+        href: dataplatform/confluent-schema-registry.md
       - name: Delivering data using Debezium
         href: dataplatform/kafka-cdc.md
       - name: Migrating databases from Yandex Managed Service for MySQL to MySQL
