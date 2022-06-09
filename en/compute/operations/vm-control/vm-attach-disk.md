@@ -176,20 +176,20 @@ To partition and mount an empty disk yourself:
       sudo fdisk /dev/vdb
       ```
 
-      You will be taken to the `fdisk` program menu. For a list of available commands press the `m` key.
+      You will be taken to the `fdisk` program menu. For a list of available commands press the **M** key.
 
-   1. To create a new partition, click `n`.
-   1. Specify that the partition will be the primary one: click `p`.
-   1. You will be prompted to select a partition number. Press `Enter` to create the first partition.
-   1. Leave default values for the numbers of the first and last sectors of the partition: press `Enter` twice.
-   1. Make sure that the partition has been created. To do this, press the `p` key to display a list of the disk's partitions. An example partition:
+   1. To create a new partition, click **N**.
+   1. Specify that the partition will be the primary one: click **P**.
+   1. You will be prompted to select a partition number. Press **Enter** to create the first partition.
+   1. Leave default values for the numbers of the first and last sectors of the partition: press **Enter** twice.
+   1. Make sure that the partition has been created. To do this, press the **P** key to display a list of the disk's partitions. An example partition:
 
       ```bash
       Device     Boot Start      End  Sectors Size Id Type
       /dev/vdb1        2048 41943039 41940992  20G 83 Linux
       ```
 
-   1. To save the changes made, press the `w` key.
+   1. To save the changes made, press the **W** key.
 
    1. Format the disk for the desired file system, for example, using the `mkfs` [utility]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=mkfs&category=8&russian=0){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/mkfs.8.html){% endif %}. To format the partition for ext4, enter:
 

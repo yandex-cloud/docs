@@ -511,7 +511,7 @@ The L3/L4 network policy only allows `org: empire` labeled pods to access `death
    kubectl exec xwing -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Press _Ctrl_+_C_ to abort the command. The network policy has denied this pod access to the service.
+   Press **Ctrl** + **C** to abort the command. The network policy has denied this pod access to the service.
 
 1. Learn how the policy works:
 
@@ -619,7 +619,7 @@ Access for the `xwing` pod remains unchanged. This pod can't access `deathstar`.
    kubectl exec xwing -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Press _Ctrl_+_C_ to abort the command.
+   Press **Ctrl** + **C** to abort the command.
 
 1. Learn how the policy works:
    * To view the updated policy specification and status, run the command:

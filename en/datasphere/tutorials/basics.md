@@ -38,7 +38,7 @@ To get started with the service:
 
     Invoking the `getcwd()` function from the `os` module returns the name of the current directory.
 
-1. Run this cell. To do this, choose **Run → Run Selected Cells** or press _Shift+Enter_.
+1. Run this cell. To do this, choose **Run → Run Selected Cells** or press **Shift** + **Enter**.
 
     {% note info %}
 
@@ -92,7 +92,7 @@ Some packages are already installed and imported using the `import` command. Oth
 
 In this use case, you'll upload data from a file named `input/multipleChoiceResponses.csv` and output the first few rows from it using the Pandas library. To upload the dataset and get its first five rows:
 
-1. Select the following two cells with code by holding _Shift_ and clicking to the left of these cells:
+1. Select the following two cells with code by holding **Shift** and clicking to the left of these cells:
 
     ```python
     response=pd.read_csv('input/multipleChoiceResponses.csv',encoding='ISO-8859-1')

@@ -59,7 +59,7 @@ The  `yc-user` user is generated automatically when the VM is being created. Lea
 #### Troubleshooting {#troubleshooting}
 
 - If you connect to the serial console and nothing appears on the screen:
-    - Press `Enter`.
+    - Press **Enter**.
     - Restart the VM (for virtual machines created before February 22).
 - If the system requests user data to provide access to the VM, enter the login and password.
 - If you see the error `Warning: remote host identification has changed!` when connecting to the VM, run `ssh-keygen -R <IP address of VM>`.
@@ -68,5 +68,5 @@ The  `yc-user` user is generated automatically when the VM is being created. Lea
 
 To disconnect from the serial console:
 
-1. Press `Enter`.
+1. Press **Enter**.
 1. Enter the following characters in order: `~.`.

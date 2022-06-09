@@ -1238,7 +1238,7 @@ Added support for {{ api-gw-full-name }}.
 
 * Authentication now supported for `http_proxy`.
 * Autocomplete added for the `zsh` command shell.
-* When an operation is terminated by **Ctrl**+**C**, `yc` shows the details for the operation running.
+* When an operation is terminated by **Ctrl** + **C**, `yc` shows the details for the operation running.
 
 **Fixed**
 

@@ -73,7 +73,7 @@ Despite the fact that audio recordings are processed by people, the audio markup
     sk_markup_records --records-dir ./examples/speechkitpro/markup/records/ --markup-result ./examples/speechkitpro/markup/results.json
     ```
 
-1. Run this cell. To do this, choose **Run → Run Selected Cells** or press _Shift+Enter_.
+1. Run this cell. To do this, choose **Run → Run Selected Cells** or press **Shift** + **Enter**.
 
     {% include [safe-state](../_includes/datasphere/safe-state.md) %}
 
@@ -96,7 +96,7 @@ Despite the fact that audio recordings are processed by people, the audio markup
 
 1. Confirm sending the audio files for markup.
 
-    In the input field, under the question **Are you sure you want to continue? [yes/no]**, type `yes` and press _Enter_.
+    In the input field, under the question **Are you sure you want to continue? [yes/no]**, type `yes` and press **Enter**.
 
     This starts the markup process:
 
