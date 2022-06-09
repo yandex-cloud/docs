@@ -207,6 +207,8 @@ Create a signed URL to download the `object-for-share.txt` object from `example-
     ```
     aws s3 presign s3://<bucket-name>/<object-key> --endpoint-url "https://{{ s3-storage-host }}/" [--expires-in <value>]
     ```
+  
+    For a link to be generated properly, the `--endpoint-url` parameter pointing to {{ objstorage-name }} hostname is required. For details, see the [section about AWS CLI specifics](../tools/aws-cli.md#specifics). 
 
 - boto3
 
