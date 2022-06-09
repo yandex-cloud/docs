@@ -143,7 +143,7 @@ For the current storage size, see [detailed information about the cluster](clust
 To view a cluster's state and status:
 
 1. Go to the folder page and select **{{ mms-name }}**.
-1. Hover over the indicator in the **Status** column in the row of the cluster you need.
+1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
 
 ### Cluster states {#cluster-health}
 

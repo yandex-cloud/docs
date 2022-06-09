@@ -217,12 +217,12 @@ Bacula состоит из нескольких компонентов:
     $ sudo mysql_secure_installation
     ```
 
-    * `Enter current password for root (enter for none)` — нажмите Enter, чтобы пропустить поле.
+    * `Enter current password for root (enter for none)` — нажмите **Enter**, чтобы пропустить поле.
     * `Set root password? [Y/n]` — введите `Y`, установите и подтвердите пароль для суперпользователя. Пароль понадобится на следующем шаге.
-    * `Remove anonymous users? [Y/n]` — нажмите Enter, чтобы принять значение по умолчанию.
-    * `Disallow root login remotely? [Y/n]` — нажмите Enter, чтобы принять значение по умолчанию.
-    * `Remove test database and access to it? [Y/n]` — нажмите Enter, чтобы принять значение по умолчанию.
-    * `Reload privilege tables now? [Y/n]` — нажмите Enter, чтобы принять значение по умолчанию.
+    * `Remove anonymous users? [Y/n]` — нажмите **Enter**, чтобы принять значение по умолчанию.
+    * `Disallow root login remotely? [Y/n]` — нажмите **Enter**, чтобы принять значение по умолчанию.
+    * `Remove test database and access to it? [Y/n]` — нажмите **Enter**, чтобы принять значение по умолчанию.
+    * `Reload privilege tables now? [Y/n]` — нажмите **Enter**, чтобы принять значение по умолчанию.
 
 1. Войдите в командную строку БД и введите пароль суперпользователя `root`, созданный на предыдущем шаге:
 

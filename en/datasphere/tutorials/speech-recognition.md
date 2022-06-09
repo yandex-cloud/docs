@@ -24,7 +24,7 @@
 
 ## Install dependencies {#satisfy-dependencies}
 
-1. Select all cells with code in the **Installing and importing required packages** section by holding *Shift* and clicking to the left of the desired cells:
+1. Select all cells with code in the **Installing and importing required packages** section by holding **Shift** and clicking to the left of the desired cells:
 
    ```python
    %pip install numba==0.48.0
@@ -37,7 +37,7 @@
    ...
    ```
 
-1. Run the selected cells. To do this, choose **Run → Run Selected Cells** or press *Shift+Enter*.
+1. Run the selected cells. To do this, choose **Run → Run Selected Cells** or press **Shift** + **Enter**.
 1. Wait for the operation to complete.
 1. Restart the kernel. To do this, choose **Kernel → Restart kernel**.
 

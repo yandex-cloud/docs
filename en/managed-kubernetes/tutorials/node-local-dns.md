@@ -321,7 +321,7 @@ To check logs, run the command:
 kubectl logs --namespace=kube-system -l k8s-app=node-local-dns -f
 ```
 
-To stop displaying a log, press ___Ctrl + C___.
+To stop displaying a log, press **Ctrl** + **C**.
 
 Execution output:
 

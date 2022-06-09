@@ -56,7 +56,7 @@ To connect to the serial console, use the CLI.
 #### Troubleshooting {#troubleshooting}
 
 - If you connect to the serial console and nothing appears on the screen:
-    - Press `Enter`.
+    - Press **Enter**.
     - Restart the VM (for virtual machines created before February 22).
 - If the system requests user data to provide access to the VM, enter the login and password.
 
@@ -64,5 +64,5 @@ To connect to the serial console, use the CLI.
 
 To disconnect from the serial console:
 
-1. Press `Enter`.
+1. Press **Enter**.
 1. Enter the following characters in order: `~.`.

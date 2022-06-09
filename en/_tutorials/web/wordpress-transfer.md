@@ -154,7 +154,7 @@ Before you transfer your files, do the following:
         sudo apt-get install phpmyadmin php-mbstring php-gettext
         ```
 
-    1. During the installation process, select the server to install `phpMyAdmin` on. Select `Apache2` and press the space bar on the keyboard — the `*` symbol appears next to `Apache2`. Click **Enter**.
+    1. During the installation process, select the server to install `phpMyAdmin` on. Select `Apache2` and press the **space bar** on the keyboard — the `*` symbol appears next to `Apache2`. Click **Enter**.
 
     1. Configure access of `phpMyAdmin` to the database. To do this, answer the question `Configure database for phpmyadmin with dbconfig-common?` with `<yes>`. You can skip entering the password, the system will automatically generate it. To copy the generated password, run the command:
 
@@ -223,7 +223,7 @@ Set up an additional password to log in to the `phpMyAdmin` panel. To enable the
         AllowOverride All
         ```
 
-    1. Save the changes in the `phpmyadmin.conf` file. To do this, click **Ctrl+O** and **Enter**. To exit the file, click **Ctrl+X**.
+    1. Save the changes in the `phpmyadmin.conf` file. To do this, click **Ctrl** + **O** and **Enter**. To exit the file, click **Ctrl** + **X**.
 
     1. Restart Apache:
 
@@ -318,7 +318,7 @@ Set up an additional password to log in to the `phpMyAdmin` panel. To enable the
            upload_max_filesize = 80M
            post_max_size = 80M
            ```
-        1. Save the changes: press **Ctrl+O** and **Enter**. To exit the file, press **Ctrl+X**.
+        1. Save the changes: press **Ctrl** + **O** and **Enter**. To exit the file, press **Ctrl** + **X**.
 
         1. Restart Apache:
 
@@ -358,7 +358,7 @@ To transfer backup files to a virtual machine, use the [FileZilla](https://filez
 
 1. Specify the user created when configuring the VM and select the key file (located in the `/Users/<user_name>/.ssh/`).
 
-   The FTP client doesn't see the hidden folder by default. Press the keyboard shortcut `CMD+Shift+G` and select the file `id_rsa` without the `pub` extension. A message is displayed that the file is not supported. The FTP client will offer to convert it to the desired format. Click **Yes**. Save the converted file in a convenient location.
+   The FTP client doesn't see the hidden folder by default. Press the keyboard shortcut **Cmd** + **Shift** + **G** and select the file `id_rsa` without the `pub` extension. A message is displayed that the file is not supported. The FTP client will offer to convert it to the desired format. Click **Yes**. Save the converted file in a convenient location.
 
 1. Click **Connect** and enter the passphrase that you created at the beginning of the work. You'll be connected to the VM.
 
@@ -536,7 +536,7 @@ If there is no file, create it.
         </IfModule>
 	     ```
 
-    1. Save the changes: **Ctrl+O** and **Enter**. To exit, press **Ctrl+X**.
+    1. Save the changes: **Ctrl** + **O** and **Enter**. To exit, press **Ctrl** + **X**.
 
 {% endlist %}
 

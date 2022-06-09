@@ -86,7 +86,7 @@ To delete a [resource record](../concepts/resource-record.md):
       terraform apply
       ```
 
-   1. Confirm the changes: type `yes` into the terminal and press Enter.
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 

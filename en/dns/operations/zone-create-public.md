@@ -115,7 +115,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
       terraform apply
       ```
 
-   1. Confirm the resource creation: type `yes` in the terminal and press Enter.
+   1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
       Terraform creates all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 

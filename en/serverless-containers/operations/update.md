@@ -198,7 +198,7 @@ You can perform the following actions with container labels:
       terraform apply
       ```
 
-   1. Confirm the changes: type `yes` into the terminal and press Enter.
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
    You can verify that you have created the container labels using the [CLI](../../cli/):
 

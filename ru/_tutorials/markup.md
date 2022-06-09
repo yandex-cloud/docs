@@ -58,7 +58,7 @@
     #!nirvana
     sk_markup_records --records-dir ./examples/speechkitpro/markup/records/ --markup-result ./examples/speechkitpro/markup/results.json
     ```
-1. Запустите выбранную ячейку, выбрав в меню **Run → Run Selected Cells** (также можно использовать сочетание клавиш _Shift+Enter_).
+1. Запустите выбранную ячейку, выбрав в меню **Run → Run Selected Cells** (также можно использовать сочетание клавиш **Shift** + **Enter**).
 
     {% include [safe-state](../_includes/datasphere/safe-state.md) %}
 
@@ -80,7 +80,7 @@
     Будет выведена информация о количестве файлов, их общем размере и примерной стоимости распознавания. Подробнее см. [{#T}](../speechkit/pricing.md).
 1. Подтвердите отправку записей на разметку.
 
-    В поле ввода под вопросом **Are you sure you want to continue? [yes/no]** введите `yes` и нажмите _Enter_.
+    В поле ввода под вопросом **Are you sure you want to continue? [yes/no]** введите `yes` и нажмите **Enter**.
 
     Начнется процесс разметки:
 

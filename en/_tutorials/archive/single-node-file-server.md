@@ -308,7 +308,7 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
      The test directory and its file must be available at the specified mount point.
 
    - Windows
-     1. Run the **cmd.exe** utility. To do this, use the keyboard shortcut **Windows**+**R** and run the command `cmd`.
+     1. Run the **cmd.exe** utility. To do this, use the keyboard shortcut **Windows** + **R** and run the command `cmd`.
      1. From the command line, run:
 
          ```

@@ -172,7 +172,7 @@ To view a cluster's state and status:
 - Management console
 
     1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
-    1. Hover over the indicator in the **Status** column in the row of the cluster you need.
+    1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
 
 {% endlist %}
 

@@ -66,7 +66,7 @@ To get an idea of how the problem might be solved:
    ...
    ```
 
-1. Run the selected cell. To do this, choose **Run → Run Selected Cells** or press *Shift+Enter*.
+1. Run the selected cell. To do this, choose **Run → Run Selected Cells** or press **Shift** + **Enter**.
 
 1. Wait for the operation to complete.
 
@@ -95,7 +95,7 @@ In the next section, **Labeling**, the data is labeled:
 
 To upload and label the data:
 
-1. Select all the cells containing code under **Functions for connecting to S3** and **Labeling**. To do this, hold *Shift* and click to the left of the cells:
+1. Select all the cells containing code under **Functions for connecting to S3** and **Labeling**. To do this, hold **Shift** and click to the left of the cells:
 
    ```
    #!g1.1

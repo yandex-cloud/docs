@@ -258,7 +258,7 @@ To view a cluster's state and status:
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the desired cluster.
    1. Select **{{ mrd-name }}**.
-   1. Hover over the indicator in the **Status** column in the row of the cluster you need.
+   1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
 
 {% endlist %}
 

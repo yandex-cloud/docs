@@ -362,7 +362,7 @@ Runner — это инструмент для выполнения задач, �
    * На шаге `Please enter the gitlab-ci coordinator URL` укажите адрес сервера GitLab.
    * На шаге `Please enter the gitlab-ci token for this runner` укажите токен Runner.
    * На шаге `Please enter the gitlab-ci description for this runner` введите описание `gitlab test runner`.
-   * На шаге `Please enter the gitlab-ci tags for this runner` не вводите ничего, нажмите Enter.
+   * На шаге `Please enter the gitlab-ci tags for this runner` не вводите ничего, нажмите **Enter**.
    * На шаге `Please enter the executor` укажите `shell`.
 
    ```
