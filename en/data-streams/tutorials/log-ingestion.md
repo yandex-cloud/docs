@@ -1,6 +1,6 @@
 # Storing application runtime logs
 
-Logging is used for app diagnostics. However, just having logs is not sufficient to perform analysis, they need to be stored and handled in a convenient way. For this purpose, logs are sent to storage systems like [Hadoop](https://cloud.yandex.com/services/data-proc), [Clickhouse](https://cloud.yandex.com/services/managed-clickhouse), and [Elastic](https://cloud.yandex.com/services/managed-elasticsearch) or to special cloud systems like [Cloud logging](../../logging/).
+Logging is used for app diagnostics. However, just having logs is not sufficient to perform analysis, they need to be stored and handled in a convenient way. To accomplish this, logs are sent to storage systems: [Hadoop]{% if lang == "ru" %}(https://cloud.yandex.ru/services/data-proc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/data-proc){% endif %}, [{{ CH }}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/managed-clickhouse){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/managed-clickhouse){% endif %}, [{{ ES }}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/managed-elasticsearch){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/managed-elasticsearch){% endif %}, or to specialized cloud systems, such as [{{ cloud-logging-name }}](../../logging/).
 
 Applications do not usually write logs to storage systems directly. Instead, they send them to intermediate aggregator applications. These aggregators can receive logs by intercepting stdout/stderr streams, read log files from disk, get them via syslog or over HTTP, and in many other ways.
 
@@ -22,7 +22,7 @@ For higher reliability, applications can just configure a log aggregator to deli
 
 The same logs are often stored in multiple storage systems at once: in {{ CH }} for fast analysis and in {{ objstorage-name }} for long-term storage. To implement this, you can set up your aggregator applications so that they send two data streams: one to {{ CH }} and the other one to {{ objstorage-name }}.
 
-With data buses, this can be done even more easily: just send a log once to a data bus and then, from it, run two data transfer processes inside {{ yandex-cloud }}. This solution will also let you any time add the third storage system such as GreenPlum or Elastic.
+With data buses, this can be done even more easily: just send a log once to a data bus and then, from it, run two data transfer processes inside {{ yandex-cloud }}. This solution will also let you add a third storage system, such as {{ GP }} or {{ ES }}, at any time.
 
 The approach using multiple storage systems is very convenient to ensure compliance with Federal Law No. 152-FZ, PCI DSS, and other standards that stipulate that logs shall be stored for at least a year. In this case, logs for the past month can be sent to one storage system so that they can be accessed whenever required, while logs to be stored for a long term can be sent to {{ objstorage-name }} cold storage.
 
