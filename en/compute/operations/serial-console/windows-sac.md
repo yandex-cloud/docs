@@ -39,7 +39,7 @@ To connect to the serial console and start the terminal:
     Channel: Cmd0002
     ```
 
-1. To switch to a channel, press `ESC+TAB` or run the command:
+1. To switch to a channel, press **Esc** + **Tab** or run the command:
 
     ```bash
     SAC>ch -sn Cmd0002
@@ -92,4 +92,4 @@ To connect to the serial console and start the terminal:
 
     {% endnote %}
 
-1. To return to the management console, press `ESC+TAB+0`.
+1. To return to the management console, press **Esc** + **Tab** + **0**.

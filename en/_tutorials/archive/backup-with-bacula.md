@@ -216,12 +216,12 @@ After `bacula-vm` switches to `RUNNING`:
     ```bash
     $ sudo mysql_secure_installation
     ```
-    * `Enter current password for root (enter for none)`: Press Enter to skip the field.
+    * `Enter current password for root (enter for none)`: Press **Enter** to skip the field.
     * `Set root password? [Y/n]`: Enter `Y`, set the root password, and confirm it. You will need the password in the next step.
-    * `Remove anonymous users? [Y/n]`: Press Enter to accept the default value.
-    * `Disallow root login remotely? [Y/n]`: Press Enter to accept the default value.
-    * `Remove test database and access to it? [Y/n]`: Press Enter to accept the default value.
-    * `Reload privilege tables now? [Y/n]`: Press Enter to accept the default value.
+    * `Remove anonymous users? [Y/n]`: Press **Enter** to accept the default value.
+    * `Disallow root login remotely? [Y/n]`: Press **Enter** to accept the default value.
+    * `Remove test database and access to it? [Y/n]`: Press **Enter** to accept the default value.
+    * `Reload privilege tables now? [Y/n]`: Press **Enter** to accept the default value.
 
 1. Log in to the DB command line and enter the `root` password created in the previous step:
 

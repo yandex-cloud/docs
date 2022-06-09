@@ -42,7 +42,7 @@ You can also use the internal IP addresses and FQDNs to establish an SSH connect
    Are you sure you want to continue connecting (yes/no)?
    ```
 
-   Type `yes` in the terminal and press `Enter`.
+   Type `yes` in the terminal and press **Enter**.
 
 - Windows 10
 
@@ -68,7 +68,7 @@ You can also use the internal IP addresses and FQDNs to establish an SSH connect
    Are you sure you want to continue connecting (yes/no)?
    ```
 
-   Type `yes` in the command prompt and press `Enter`.
+   Type `yes` in the command prompt and press **Enter**.
 
 
 - Windows 7/8
@@ -98,7 +98,7 @@ You can also use the internal IP addresses and FQDNs to establish an SSH connect
 
          ![ssh_unknown_host_warning](../../../_assets/compute/ssh-putty/ssh_unknown_host_warning.png)
 
-         Click **Yes**. A terminal window opens suggesting that you enter the login of the user on whose behalf the connection is being established. Type the user name that you specified when creating the VM and press `Enter`. If everything is configured correctly, the connection with the server will be established.
+         Click **Yes**. A terminal window opens suggesting that you enter the login of the user on whose behalf the connection is being established. Type the user name that you specified when creating the VM and press **Enter**. If everything is configured correctly, the connection with the server will be established.
 
          ![ssh_login](../../../_assets/compute/ssh-putty/ssh_login.png)
 

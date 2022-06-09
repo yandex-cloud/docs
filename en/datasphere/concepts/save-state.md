@@ -31,5 +31,5 @@ To enable auto-save mode:
 
 ### Forcing a state save {#forced-save}
 
-To force the saving of state in auto-save mode, click the ![plus-sign](../../_assets/plus-sign.svg) in the top right-hand corner of the ![checkpoints-panel](../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** tab. You can also save the state by using the _CMD+K_ or _Ctrl+K_ keyboard shortcut.
+To force the saving of state in auto-save mode, click the ![plus-sign](../../_assets/plus-sign.svg) in the top right-hand corner of the ![checkpoints-panel](../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** tab. You can also save the state by using the **Cmd** + **K** or **Ctrl** + **K** keyboard shortcut.
 

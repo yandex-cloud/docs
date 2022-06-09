@@ -171,7 +171,7 @@ To configure the server to work with 1C-Bitrix:
    root@bitrixwebsite:/var/www/html# nano /etc/php/7.2/apache2/php.ini
    ```
 
-   To find the parameter you need in the `nano` editor, press `Ctrl+W`. Look for the required parameter in the table above and save the changes using `Ctrl+O`. To exit the editor, press `Ctrl+X`.
+   To find the parameter you need in the `nano` editor, press **Ctrl** + **W**. Look for the required parameter in the table above and save the changes using **Ctrl** + **O**. To exit the editor, press **Ctrl** + **X**.
 
 1. Configure the Apache server. In accordance with the information system requirements, you need to edit the `/etc/apache2/sites-enabled/000-default.conf` file.
 

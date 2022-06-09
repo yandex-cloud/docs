@@ -205,7 +205,7 @@ You can connect to a node over SSH once it is started (with the `RUNNING` status
   Are you sure you want to continue connecting (yes/no)?
   ```
 
-  Type `yes` in the terminal and press `Enter`.
+  Type `yes` in the terminal and press **Enter**.
 
 - Windows 7/8
 
@@ -233,7 +233,7 @@ You can connect to a node over SSH once it is started (with the `RUNNING` status
 
         ![ssh_unknown_host_warning](../../_assets/compute/ssh-putty/ssh_unknown_host_warning.png)
 
-        Click **Yes**. A terminal window opens suggesting that you enter the login of the user on whose behalf the connection is being established. Type the user name you specified in the file with the public key and click `Enter`. If everything is configured correctly, the connection with the server will be established.
+        Click **Yes**. A terminal window opens suggesting that you enter the login of the user on whose behalf the connection is being established. Type the user name you specified in the file with the public key and click **Enter**. If everything is configured correctly, the connection with the server will be established.
 
         ![ssh_login](../../_assets/compute/ssh-putty/ssh_login.png)
 

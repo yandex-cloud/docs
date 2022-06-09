@@ -501,7 +501,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
 ## Stop the load and get the results {#end-load-testing}
 
-Stop `wrk` by pressing **Ctrl + C**.
+Stop `wrk` by pressing **Ctrl** + **C**.
 
 Result:
 

@@ -4,7 +4,7 @@ This section lists the supported languages.
 
 {% note tip %}
 
-To search the page, press _CTRL+F_ (_CMD+F_ on MacOS ).
+To search the page, press **Ctrl** + **F** (**Cmd** + **F** on MacOS).
 
 {% endnote %}
 

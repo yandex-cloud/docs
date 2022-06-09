@@ -131,7 +131,7 @@ By using Terraform in {{ yandex-cloud }}, you can create all kinds of cloud reso
    terraform apply
    ```
 
-1. Confirm the resource creation: type `yes` in the terminal and press Enter.
+1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
    Result:
 

@@ -364,7 +364,7 @@ Runner is a tool for performing tasks that a user creates. You need to install R
    * In the step `Please enter the gitlab-ci coordinator URL`, specify the address of the GitLab server.
    * In the step `Please enter the gitlab-ci token for this runner`, specify the Runner token.
    * In the step `Please enter the gitlab-ci description for this runner`, enter the description `gitlab test runner`.
-   * In the step `Please enter the gitlab-ci tags for this runner`, don't type anything. Press Enter.
+   * In the step `Please enter the gitlab-ci tags for this runner`, don't type anything. Press **Enter**.
    * In the step `Please enter the executor`, specify `shell`.
 
    ```

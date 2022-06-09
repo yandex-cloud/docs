@@ -28,7 +28,7 @@ items:
         items:
           - name: Обзор
             href: concepts/ocr/index.md
-          - name: Распознавание шаблонов
+          - name: Распознавание документов
             href: concepts/ocr/template-recognition.md
           - name: Поддерживаемые языки
             href: concepts/ocr/supported-languages.md

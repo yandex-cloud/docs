@@ -9,7 +9,7 @@ You can get the information that the VM outputs to the serial port. This can be 
   1. Select **{{ compute-name }}**.
   1. Click on the line with the VM you need.
   1. Go to the **Serial port** tab.
-  1. To use the `CTRL+F` keyboard shortcut to search, enable **Raw mode** in the upper-right corner.
+  1. To use the **Ctrl** + **F** keyboard shortcut to search, enable **Raw mode** in the upper-right corner.
 
 - CLI
 

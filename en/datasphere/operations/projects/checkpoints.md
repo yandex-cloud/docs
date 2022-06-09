@@ -27,7 +27,7 @@ To create a checkpoint in a [standard](../../concepts/save-state.md#default-save
 
 1. Wait for the code to run.
 
-In [automatic](../../concepts/save-state.md#auto-save) save state mode, you can create a checkpoint manually. To do this, in the top right-hand corner of the ![checkpoints-panel](../../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** tab, click ![plus-sign](../../../_assets/plus-sign.svg) or use the `CMD+K` or `Ctrl+K` shortcut.
+In [automatic](../../concepts/save-state.md#auto-save) save state mode, you can create a checkpoint manually. To do this, in the top right-hand corner of the ![checkpoints-panel](../../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** tab, click ![plus-sign](../../../_assets/plus-sign.svg) or use the **Cmd** + **K** or **Ctrl** + **K** shortcut.
 
 This creates a checkpoint that appears at the top of the **Checkpoints** list. The checkpoint name consists of the following elements:
 

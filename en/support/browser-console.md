@@ -6,7 +6,7 @@ If there is a problem when working with pages and interactive elements in the {{
 
 - Yandex Browser
 
-  1. On the error page, press **Ctrl** + **Shift** + **J** (or ⌥ + ⌘ + **J** for macOS).
+  1. On the error page, press **Ctrl** + **Shift** + **J** (or **⌥** + **⌘** + **J** for macOS).
 
      {% cut "Other ways" %}
 
@@ -31,7 +31,7 @@ If there is a problem when working with pages and interactive elements in the {{
 
 - Google Chrome
 
-  1. On the error page, press **Ctrl** + **Shift** + **J**  (or ⌥ + ⌘ + **J** for macOS).
+  1. On the error page, press **Ctrl** + **Shift** + **J**  (or **⌥** + **⌘** + **J** for macOS).
 
       {% cut "Other way" %}
 
@@ -134,7 +134,7 @@ If there is a problem when working with pages and interactive elements in the {{
 - Safari
 
   1. Activate the error console: in the menu, select **Safari** → **Preferences** → **Advanced** and enable **Show Develop menu** in the menu bar.
-  1. On the error page, press ⌥ + ⌘ + **C**.
+  1. On the error page, press **⌥** + **⌘** + **C**.
 
      {% cut "Other ways" %}
 
