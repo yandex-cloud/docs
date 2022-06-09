@@ -205,7 +205,7 @@ Create a signed URL to download the `object-for-share.txt` object from `example-
     You can also use AWS CLI to generate a link for object download. To do this, run the following command:
 
     ```
-    aws s3 presign s3://<bucket-name>/<object-key> --endpoint-url "https://storage.yandexcloud.net/" [--expires-in <value>]
+    aws s3 presign s3://<bucket-name>/<object-key> --endpoint-url "https://{{ s3-storage-host }}/" [--expires-in <value>]
     ```
 
 - boto3
