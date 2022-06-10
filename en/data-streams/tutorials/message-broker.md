@@ -20,13 +20,13 @@ In a monolithic architecture, all components are continuously available for data
 
 The efficiency of applications needs to be ensured as they grow. With data streaming buses, you can simply follow a built-in interaction scenario to make your applications scalable.
 
-## Comparison with Apache Kafka^®^ {#comparison}
+## Comparison with {{ KF }} {#comparison}
 
-In the table below, {{ yds-short-name }} is compared with Apache Kafka^®^, a popular data streaming bus.
+In the table below, {{ yds-short-name }} is compared with {{ KF }}, a popular data streaming bus.
 
-| Parameter | {{ yds-full-name }} | Apache Kafka^®^ |
+| Parameter | {{ yds-full-name }} | {{ KF }} |
 ----|-----|-----
-| Supported protocol | Amazon Kinesis Data Streams API | Apache Kafka^®^ |
+| Supported protocol | Amazon Kinesis Data Streams API | {{ KF }} |
 | Supported SDKs | HTTP, Java, C++, Go, and more | HTTP, Java, C++, Go, and more |
 | Cost | A fee for using resources: speed and retention period | A fee for reserving resources: VMs. |
 | Operation complexity | No user administration is required | The system is administered by the user, Yandex Cloud is only responsible for the infrastructure |
@@ -45,9 +45,9 @@ To set up data transfer between components:
 1. [Create a data stream](../quickstart/create-stream.md) {{ yds-short-name }}.
 1. [Set up](../quickstart/index.md) the AWS SDK.
 1. Use SDKs:
-   * [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/kinesis/)
-   * [C++](https://sdk.amazonaws.com/cpp/api/LATEST/class_aws_1_1_kinesis_1_1_kinesis_client.html)
-   * [Java](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/AmazonKinesisClient.html)
-   * [JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/index.html)
-   * [Python](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis.html)
+   * [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/kinesis/).
+   * [C++](https://sdk.amazonaws.com/cpp/api/LATEST/class_aws_1_1_kinesis_1_1_kinesis_client.html).
+   * [Java](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/AmazonKinesisClient.html).
+   * [JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/index.html).
+   * [Python](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis.html).
    * [HTTP Kinesis Data Streams API](../kinesisapi/api-ref.md).

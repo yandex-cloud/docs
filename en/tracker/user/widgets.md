@@ -1,6 +1,6 @@
 # Widgets
 
-Widgets are small cards with useful information. They can show issue lists, statistics on issue completion, pivot tables, or notes. Widget content is generated automatically. The list of issues that a widget is based on is set using [filters](filters.md). You can go to [{#T}](../support-process-dashboards.md) to find sample widgets for the support service dashboard.
+Widgets are small cards with useful information. They can show issue lists, statistics on issue completion, pivot tables, or notes. Widget content is generated automatically. The list of issues that a widget is based on is set using [filters](create-filter.md). You can go to [{#T}](../support-process-dashboards.md) to find sample widgets for the support service dashboard.
 
 ## Issue lists {#section_ll1_zdp_pz}
 
@@ -12,7 +12,7 @@ To configure a widget, set the following:
 
 - **Name**: The name to display in the widget title.
 - **Results**: The number of issues to display on a single widget page. If there are more issues, you can navigate between pages at the bottom of the widget.
-- **Filter**: The filter used for creating the issue list. You can set filters using [direct links](filters.md), [names](create-filter.md), or the [query language](query-filter.md).
+- **Filter**: The filter used for creating the issue list. You can set filters using [direct links](create-filter.md), [names](create-filter.md), or the [query language](query-filter.md).
 - **Columns**: The issue fields to show in the list. You can add multiple fields. To remove a field, click **x**.
 - **Auto-update**: How often to refresh the data in the widget.
 
@@ -30,7 +30,7 @@ To configure a widget, set the following:
 
 - **Widget name**: The name to display in the widget title.
 
-- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links](filters.md), [names](create-filter.md), or the [query language](query-filter.md).
+- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links](create-filter.md), [names](create-filter.md), or the [query language](query-filter.md).
 
 - **Columns**: The parameter to use for table columns.
 
@@ -54,7 +54,7 @@ To configure a widget, set the following:
 
 - **Widget name**: The name to display in the widget title.
 
-- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links](filters.md), [names](create-filter.md), or the [query language](query-filter.md).
+- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links](create-filter.md), [names](create-filter.md), or the [query language](query-filter.md).
 
 - **Columns**: The parameter to use for table columns.
 
@@ -86,7 +86,7 @@ To configure the widget, make these settings:
 
 - **Name**: The name to display in the widget title.
 
-- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links](filters.md), [names](create-filter.md), or the [query language](query-filter.md).
+- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links](create-filter.md), [names](create-filter.md), or the [query language](query-filter.md).
 
 - **Number of rows on page**: The maximum number of chart rows to display in the widget. If there are more rows, you can use the **Show all** button at the bottom of the widget.
 
@@ -118,7 +118,7 @@ To configure the widget, make these settings:
 
 - **Name**: The name to display in the widget title.
 
-- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links](filters.md), [names](create-filter.md), or the [query language](query-filter.md).
+- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links](create-filter.md), [names](create-filter.md), or the [query language](query-filter.md).
 
 - **Key parameter**: Select the event to track in the statistics.
 
@@ -138,7 +138,7 @@ To configure the widget, make these settings:
 
 - **Name**: The name to display in the widget title.
 
-- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links](filters.md), [names](create-filter.md), or the [query language](query-filter.md).
+- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links](create-filter.md), [names](create-filter.md), or the [query language](query-filter.md).
 
 - **Group**: Select the step and specify the period for collecting statistics.
 

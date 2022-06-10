@@ -94,7 +94,7 @@ The issue on the board will be placed in the sprint you've picked. To remove an 
 
 To add multiple issues to the board at once, use the [bulk change](../manager/bulk-change.md) feature:
 
-1. Select the issues you need using [filters](../user/filters.md).
+1. Select the issues you need using [filters](../user/create-filter.md).
 
 1. Choose the issues you want to add to the board and click **Edit fields**.
 
