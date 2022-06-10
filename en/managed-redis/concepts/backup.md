@@ -45,9 +45,9 @@ Storing backups in {{ mrd-name }}:
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
-    {% if audience != "internal" %}
-    For more information, see the [Pricing policy for {{ mrd-name }}](../pricing.md#rules-storage).
-    {% endif %}
+
+    {% if audience != "internal" %}For more information, see the [Pricing policy for {{ mrd-name }}](../pricing.md#rules-storage).{% endif %}
+
 ## Checking backups {#verify}
 
 ### Checking backup integrity {#integrity}

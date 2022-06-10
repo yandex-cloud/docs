@@ -56,9 +56,9 @@ keywords:
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
-    {% if audience != "internal" %}
-    Подробнее см. в разделе [Правила тарификации для {{ mrd-name }}](../pricing.md#rules-storage).
-    {% endif %}
+
+    {% if audience != "internal" %}Подробнее см. в разделе [Правила тарификации для {{ mrd-name }}](../pricing.md#rules-storage).{% endif %}
+
 ## Проверка резервной копии {#verify}
 
 ### Проверка целостности резервной копии {#integrity}
