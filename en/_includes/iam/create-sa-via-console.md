@@ -1,4 +1,4 @@
-1. Log in to the [management console]({{link-console-main}}).
+1. Log in to the [management console]({{ link-console-main }}).
 
 1. Click the line with the name of the folder where you want to create a service account.
 

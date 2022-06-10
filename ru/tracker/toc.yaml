@@ -215,8 +215,6 @@ items:
         href: manager/agile-new-set.md
   - name: Найти задачи
     items:
-      - name: Обзор
-        href: user/filters.md
       - name: Найти задачу по ключу или названию
         href: user/search-task.md
       - name: Найти мои задачи

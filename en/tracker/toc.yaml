@@ -193,8 +193,6 @@ items:
         href: manager/burndown.md
   - name: Searching issues
     items:
-      - name: Overview
-        href: user/filters.md
       - name: Finding issues by key or name
         href: user/search-task.md
       - name: Searching for my issues

@@ -14,3 +14,8 @@ default:
   monitoring-full-name: Yandex Monitoring
   monitoring-name: Monitoring
   monitoring-short-name: Monitoring
+  data-proc-full-name: Yandex Data Proc
+  managed-greenplum-full-name: Yandex Managed Service for Greenplum<sup>®</sup>
+  managed-kafka-full-name: Yandex Managed Service for Apache Kafka<sup>®</sup>
+  managed-sqlserver-full-name: Yandex Managed Service for SQL Server<sup>™</sup>
+  managed-elasticsearch-full-name: Yandex Managed Service for Elasticsearch

@@ -6,7 +6,6 @@
 - [{#T}](test-multiple.md)
 - [{#T}](test-number.md)
 
-
 Читайте подробнее: 
 - [Как провести тест](../tests.md)
 - [Как настроить подсчет результатов](../tests.md#test-result)

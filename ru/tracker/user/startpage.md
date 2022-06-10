@@ -3,7 +3,7 @@
 
 Чтобы попасть на начальную страницу, нажмите на логотип {{ tracker-name }}. По умолчанию на странице отображается ваш личный [дашборд](dashboard.md).
 
-Вы можете настроить вашу начальную страницу так, чтобы на ней отображался любой [фильтр](filters.md), [дашборд](dashboard.md) или [доска задач](../manager/create-agile-board.md):
+Вы можете настроить вашу начальную страницу так, чтобы на ней отображался любой [фильтр](create-filter.md), [дашборд](dashboard.md) или [доска задач](../manager/create-agile-board.md):
 
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 

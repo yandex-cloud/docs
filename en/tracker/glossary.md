@@ -34,7 +34,7 @@ Epic
 ## F {#rus-f}
 
 Filter
-:  Filters let users search for issues in {{ tracker-name }} by issue settings. This can be used to find all issues in queues where you have the author or assignee status, among other things. [ Learn more about using filters.](user/filters.md)
+:  Filters let users search for issues in {{ tracker-name }} by issue settings. This can be used to find all issues in queues where you have the author or assignee status, among other things. [ Learn more about using filters.](user/create-filter.md)
 
 ## I {#rus-p}
 
