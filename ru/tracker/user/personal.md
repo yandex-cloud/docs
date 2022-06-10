@@ -4,7 +4,7 @@
 
 ## Настроить начальную страницу {#sec_my_page}
 
-Вы можете настроить {% if audience == "external" %}вашу [начальную страницу](startpage.md){% else %}вкладку [**Моя страница**](startpage.md){% endif %} так, чтобы на ней отображался любой [фильтр](filters.md), [дашборд](dashboard.md) или [доска задач](../manager/create-agile-board.md):
+Вы можете настроить {% if audience == "external" %}вашу [начальную страницу](startpage.md){% else %}вкладку [**Моя страница**](startpage.md){% endif %} так, чтобы на ней отображался любой [фильтр](create-filter.md), [дашборд](dashboard.md) или [доска задач](../manager/create-agile-board.md):
 
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 

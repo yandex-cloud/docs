@@ -18,6 +18,6 @@ Project managers can use {{ tracker-name }} to effectively allocate team resourc
 
 [Create a queue](manager/create-queue.md) | Create a queue for your project to start working on it.
 [{#T}](manager/queue-access.md) | Set up user access to issues in your queue.
-[{#T}](user/filters.md) | Find out how to quickly find issues.
+[{#T}](user/create-filter.md) | Find out how to quickly find issues.
 [{#T}](user/dashboard.md) | Create a dashboard with statistics on issues that are important to you.
 [Create an Agile board](manager/create-agile-board.md) | Start using the Agile methodology by creating an Agile board.

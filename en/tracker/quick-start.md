@@ -146,6 +146,6 @@ Project managers can use {{ tracker-name }} to effectively allocate team resourc
 | Section | Description |
 | ------ | -------- |
 | [{#T}](manager/queue-access.md) | Set up user access to issues in your queue. |
-| [{#T}](user/filters.md) | Find out how to quickly find the issues you need. |
+| [{#T}](user/create-filter.md) | Find out how to quickly find the issues you need. |
 | [{#T}](user/dashboard.md) | Create a dashboard page with statistics on issues that are important to you. |
 
