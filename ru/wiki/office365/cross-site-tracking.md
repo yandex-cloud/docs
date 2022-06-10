@@ -52,7 +52,7 @@
 
 1. Установите переключатель в положение **ВЫКЛ**.
 
-### Яндекс.Браузер {#ya}
+### Яндекс&#160;Браузер {#ya}
 
 [Полная версия](https://yandex.ru/support/browser/personal-data-protection/ytp.html#blocking-by-settings):
 

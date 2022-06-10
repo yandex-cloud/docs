@@ -9,7 +9,7 @@
 
 {% if audience == "internal" %}
 
-- [Яндекс.Мессенджер](yamessenger.md)
+- [Яндекс&#160;Мессенджер](yamessenger.md)
 
 {% endif %}
 

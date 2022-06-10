@@ -354,7 +354,7 @@ items:
           href: slack.md
         - name: Telegram
           href: telegram.md
-        - name: Яндекс.Мессенджер
+        - name: Яндекс Мессенджер
           when: audience == "internal"
           href: yamessenger.md
     - name: Сансара

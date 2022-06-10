@@ -11,7 +11,7 @@
 Чтобы сделать работу с задачами очереди более эффективной, используйте дополнительные возможности:
 
 - Настройте [автоматизацию рутинных действий](automation.md).
-- Настройте интеграцию с {% if audience == "internal" %}[почтой](manager/queue-mail.md) и{% endif %} [Яндекс.Формами](manager/forms-integration.md).
+- Настройте интеграцию с {% if audience == "internal" %}[почтой](manager/queue-mail.md) и{% endif %} [{{ forms-full-name }}](manager/forms-integration.md).
 - Настройте [права доступа к задачам очереди](manager/queue-access.md).
 - Структурируйте задачи очереди с помощью [проектов](manager/projects.md), [компонентов](manager/components.md) и [версий](manager/versions.md).
 
