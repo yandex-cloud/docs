@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Создание [пространства имен](../../concepts/index.md#namespace) в кластере {{ k8s }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
+Создание [пространства имен](../../concepts/index.md#namespace) в кластере {{ k8s }} с помощью консоли управления находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
 
 {% endnote %}
 
