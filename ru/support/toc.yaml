@@ -9,6 +9,8 @@ items:
     href: request.md
   - name: Копирование ошибок из консоли браузера
     href: browser-console.md
+  - name: Сохранение взаимодействия браузера и сервера в HAR-файл
+    href: create-har.md
   - name: Правила тарификации
     href: pricing.md
   - name: Вопросы и ответы

@@ -30,15 +30,16 @@
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
 1. Нажмите кнопку **Создать подключение**.
 
-    ![image](../../_assets/datalens/solution-01/01-create-connection.png)
+   ![image](../../_assets/datalens/solution-01/01-create-connection.png)
+
 
 1. Выберите **CSV**.
 
-    ![image](../../_assets/datalens/solution-01/02-CSV.png)
+   ![image](../../_assets/datalens/solution-01/02-CSV.png)
 
 1. Нажмите кнопку **Выбрать CSV-файл**.
 
-    ![image](../../_assets/datalens/solution-01/03-Choose-CSV.png)
+   ![image](../../_assets/datalens/solution-01/03-Choose-CSV.png)
 
 1. Выберите необходимый файл. В данном примере **SuperHeroes.csv** ([ссылка на скачивание](https://storage.yandexcloud.net/datalens/SuperHeroes.csv)).
 
@@ -46,11 +47,11 @@
 
 1. Нажмите кнопку **Создать**.
 
-    ![image](../../_assets/datalens/solution-01/04-Save-Connection.png)
+   ![image](../../_assets/datalens/solution-01/04-Save-Connection.png)
 
 1. После сохранения нажмите кнопку **Создать датасет**.
 
-    ![image](../../_assets/datalens/solution-01/05-Create-Dataset.png)
+   ![image](../../_assets/datalens/solution-01/05-Create-Dataset.png)
 
 ## Шаг 2. Создайте датасет {#step2}
 

@@ -10,21 +10,28 @@
 
   1. {% include [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md) %}
   1. {% include [configure-roles-console](../../../_includes/iam/configure-roles-console.md) %}
-  1. Выберите каталог в блоке **Роли в каталогах** и нажмите значок ![image](../../../_assets/plus-sign.svg).
+  1. Выберите каталог в блоке **Роли в каталогах** и нажмите ![image](../../../_assets/plus-sign.svg)**Назначить роль**.
   1. Выберите необходимую роль из списка.
 
 - CLI
 
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
   1. Посмотрите описание команды для назначения роли на каталог:
 
-      ```
-      $ yc resource-manager folder add-access-binding --help
+      ```bash
+      yc resource-manager folder add-access-binding --help
       ```
 
   2. Выберите каталог, например `my-folder`:
 
+      ```bash
+      yc resource-manager folder list
       ```
-      $ yc resource-manager folder list
+      
+      Результат:
+
+      ```
       +----------------------+-----------+--------+--------+
       |          ID          |   NAME    | LABELS | STATUS |
       +----------------------+-----------+--------+--------+
@@ -34,8 +41,14 @@
 
   3. Выберите [роль](../../../iam/concepts/access-control/roles.md):
 
+      ```bash
+      yc iam role list
       ```
-      $ yc iam role list
+      
+      Результат:
+
+
+      ```
       +--------------------------------+-------------+
       |               ID               | DESCRIPTION |
       +--------------------------------+-------------+
@@ -45,21 +58,28 @@
       | ...                            |             |
       +--------------------------------+-------------+
       ```
+
   4. Узнайте ID пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или группе пользователей, воспользуйтесь [примерами](#examples) ниже.
 
+      ```bash
+      yc iam user-account get test-user
       ```
-      $ yc iam user-account get test-user
+      
+      Результат:
+
+      
+      ```
       id: gfei8n54hmfhuk5nogse
       yandex_passport_user_account:
-          login: test-user
-          default_email: test-user@yandex.ru
+        login: test-user
+        default_email: test-user@yandex.ru
       ```
   5. Назначьте пользователю `test-user` роль `editor` на каталог `my-folder`. В субъекте укажите тип `userAccount` и ID пользователя:
 
-      ```
-      $ yc resource-manager folder add-access-binding my-folder \
-          --role editor \
-          --subject userAccount:gfei8n54hmfhuk5nogse
+      ```bash
+      yc resource-manager folder add-access-binding my-folder \
+        --role editor \
+        --subject userAccount:gfei8n54hmfhuk5nogse
       ```
 
 - API
@@ -68,9 +88,13 @@
 
   1. Узнайте ID каталога с помощью метода [list](../../api-ref/Folder/list.md):
       ```bash
-      $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders?cloudId=b1gg8sgd16g7qca5onqs
+      curl -H "Authorization: Bearer <IAM-TOKEN>" \
+        https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders?cloudId=b1gg8sgd16g7qca5onqs
+      ```
 
+      Результат:
+
+      ```json
       {
        "folders": [
         {
@@ -85,9 +109,13 @@
       ```
   2. Узнайте ID пользователя по логину с помощью метода [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
       ```bash
-      $ curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+      curl -H "Authorization: Bearer <IAM-TOKEN>" \
+        https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+      ```
 
+      Результат:
+
+      ```json
       {
        "id": "gfei8n54hmfhuk5nogse",
        "yandexPassportUserAccount": {
@@ -99,19 +127,19 @@
   3. Назначьте пользователю роль `editor` на каталог `my-folder`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
 
       ```bash
-      $ curl -X POST \
-          -H 'Content-Type: application/json' \
-          -H "Authorization: Bearer <IAM-TOKEN>" \
-          -d '{
-          "accessBindingDeltas": [{
-              "action": "ADD",
-              "accessBinding": {
-                  "roleId": "editor",
-                  "subject": {
-                      "id": "gfei8n54hmfhuk5nogse",
-                      "type": "userAccount"
-          }}}]}' \
-          https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
+      curl -X POST \
+        -H 'Content-Type: application/json' \
+        -H "Authorization: Bearer <IAM-TOKEN>" \
+        -d '{
+        "accessBindingDeltas": [{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "editor",
+                "subject": {
+                    "id": "gfei8n54hmfhuk5nogse",
+                    "type": "userAccount"
+        }}}]}' \
+        https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
       ```
 
 - Terraform
@@ -213,9 +241,11 @@
 
   Воспользуйтесь инструкцией в [начале раздела](#access-to-user) и назначьте пользователю несколько ролей.
 
-  Чтобы назначить роль другому пользователю, выберите пользователя на вкладке [Пользователи и роли]({{ link-console-access-management }}) и нажмите кнопку **Настроить роли**.
+  Чтобы назначить роль другому пользователю, выберите пользователя на вкладке [Пользователи и роли]({{ link-console-access-management }}), нажмите значок ![***](../../../_assets/options.svg) и выберите **Настроить роли**.
 
 - CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
   Команда `add-access-binding` позволяет добавить только одну роль. Вы можете назначить несколько ролей с помощью команды `set-access-binding`.
 
@@ -226,14 +256,14 @@
   {% endnote %}
 
   1. Убедитесь, что на ресурс не назначено ролей, которые вы не хотите потерять:
-      ```
-      $ yc resource-manager folder list-access-bindings my-folder
+      ```bash
+      yc resource-manager folder list-access-bindings my-folder
       ```
   2. Например, назначьте роль нескольким пользователям:
-      ```
-      $ yc resource-manager folder set-access-bindings my-folder \
-          --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
-          --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
+      ```bash
+      yc resource-manager folder set-access-bindings my-folder \
+        --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
+        --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
       ```
 
 - API
@@ -241,28 +271,28 @@
   Назначьте одному пользователю роль `editor`, а другому `viewer`:
 
   ```bash
-  $ curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-TOKEN>" \
-      -d '{
-      "accessBindingDeltas": [{
-          "action": "ADD",
-          "accessBinding": {
-              "roleId": "editor",
-              "subject": {
-                  "id": "gfei8n54hmfhuk5nogse",
-                  "type": "userAccount"
-              }
-          }
-      },{
-          "action": "ADD",
-          "accessBinding": {
-              "roleId": "viewer",
-              "subject": {
-                  "id": "helj89sfj80aj24nugsz",
-                  "type": "userAccount"
-      }}}]}' \
-      https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
+  curl -X POST \
+    -H 'Content-Type: application/json' \
+    -H "Authorization: Bearer <IAM-TOKEN>" \
+    -d '{
+    "accessBindingDeltas": [{
+        "action": "ADD",
+        "accessBinding": {
+            "roleId": "editor",
+            "subject": {
+                "id": "gfei8n54hmfhuk5nogse",
+                "type": "userAccount"
+            }
+        }
+    },{
+        "action": "ADD",
+        "accessBinding": {
+            "roleId": "viewer",
+            "subject": {
+                "id": "helj89sfj80aj24nugsz",
+                "type": "userAccount"
+    }}}]}' \
+    https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
   ```
 
   Вы также можете назначать роли с помощью метода [setAccessBindings](../../api-ref/Folder/setAccessBindings.md).
@@ -275,17 +305,17 @@
 
   ```bash
   curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-TOKEN>" \
-      -d '{
-      "accessBindings": [{
-          "roleId": "editor",
-          "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
-      },{
-          "roleId": "viewer",
-          "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
-      }]}' \
-      https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
+    -H 'Content-Type: application/json' \
+    -H "Authorization: Bearer <IAM-TOKEN>" \
+    -d '{
+    "accessBindings": [{
+        "roleId": "editor",
+        "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
+    },{
+        "roleId": "viewer",
+        "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
+    }]}' \
+    https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
   ```
 
 - Terraform
@@ -393,6 +423,8 @@
   {% include [grant-role-console-sa](../../../_includes/grant-role-console-sa.md) %}
 
 - CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [grant-role-for-sa-to-folder-via-cli](../../../_includes/iam/grant-role-for-sa-to-folder-via-cli.md) %}
 

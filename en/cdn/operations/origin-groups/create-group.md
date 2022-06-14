@@ -12,9 +12,9 @@ To create an [origin group](../../concepts/origins.md):
    1. Click **Create origin group**.
    1. Enter the name of the group.
    1. Configure **Origins**:
-      * Specify the **Origin type**: `Server`, `Bucket`, or `L7 load balancer`.
+      * Specify the **Origin type**: `Server`, `Bucket`, or `L7 load balancer`. For more information about types, see [{#T}](../../concepts/origins.md).
       * Specify an origin.
-      * Select the **Priority**: `Active` or `Backup`.
+      * Select the **Priority**: `Active` or `Backup`. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
       * Add other origins if needed.
    1. Click **Create**.
 
@@ -43,7 +43,7 @@ To create an [origin group](../../concepts/origins.md):
       * `origin`: The origin specification:
          * `source`: The origin IP address or domain name.
          * `enabled`: Flag indicating whether an origin is enabled.
-         * `backup`: Flag indicating whether an origin is a backup.
+         * `backup`: Flag indicating whether an origin is a backup. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
 
       Result:
 
@@ -98,7 +98,7 @@ To create an [origin group](../../concepts/origins.md):
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
+      For more information about resources that you can create with Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
 
    1. Make sure the settings are correct.
 

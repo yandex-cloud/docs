@@ -1,30 +1,35 @@
 # Использование SDK для функции на Node.js
 
-Среда выполнения содержит предустановленную библиотеку для работы с [API {{ yandex-cloud }}](../../../api-design-guide/). Для её использования не требуется добавлять [зависимость](dependencies.md) в приложение на Node.js, за исключением случаев, когда требуется версия библиотеки, отличающаяся от предустановленной. С исходным кодом библиотеки можно ознакомиться на [GitHub](https://github.com/yandex-cloud/nodejs-sdk).
+Чтобы использовать [SDK (Software Development Kit)](https://ru.wikipedia.org/wiki/SDK), необходимо добавить [зависимость](dependencies.md) `@yandex-cloud/nodejs-sdk` в приложение на Node.js. Исходный код библиотеки находится на [GitHub](https://github.com/yandex-cloud/nodejs-sdk).
 
-[SDK (Software Development Kit)](https://ru.wikipedia.org/wiki/SDK) позволяет взаимодействовать с сервисами {{ yandex-cloud }} с помощью [сервисного аккаунта](../../operations/function-sa.md), указанного в функции. Например, вы можете получить список доступных вам облаков (аналог команды `yc resource-manager cloud list`):
-
-```js
-const {CloudService} = require("yandex-cloud/api/resourcemanager/v1");
-
-module.exports.handler = async function (event, context) {
-    const cloudService = new CloudService();
-    const clouds = await cloudService.list({});
-
-    return {
-        clouds,
-    };
-};
 ```
-
-Для удобства локальной отладки и уменьшения загружаемого объема кода функции, добавьте пакет `yandex-cloud` в файл `package.json` в секцию `devDependencies`:
-
-```json
 {
-  "name": "my-app",
+  "name": "my-awesome-package",
   "version": "1.0.0",
-  "devDependencies": {
-    "yandex-cloud": "^1.4"
+  "type": "module",
+  "dependencies": {
+      "@yandex-cloud/nodejs-sdk": "latest"
   }
 }
+```
+
+SDK позволяет управлять ресурсами {{ yandex-cloud }} от имени [сервисного аккаунта](../../operations/function-sa.md), который указан в параметрах функции. Например, можно получить список доступных облаков:
+
+```js
+import { serviceClients, Session, cloudApi } from '@yandex-cloud/nodejs-sdk';
+
+const { resourcemanager: { cloud_service: { ListCloudsRequest } } } = cloudApi;
+
+export const handler = async function (event, context) {
+    const session = new Session({ iamToken: context.token.access_token }); // iamToken можно не указывать явно, он будет извлечен автоматически из сервиса метаданных
+    const client = session.client(serviceClients.CloudServiceClient);
+    const response = await client.list(ListCloudsRequest.fromPartial({ pageSize: 200 }))
+
+    return {
+        statusCode: 200,
+        body: {
+            clouds: response.clouds,
+        }
+    };
+};
 ```

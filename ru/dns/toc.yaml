@@ -49,7 +49,7 @@ items:
           Настройка {{ dns-name }} для доступа к кластерам управляемых баз
           данных из других облачных сетей
         href: tutorials/mdb-dns-peering.md
-      - name: Создание веб-хука решателя ACME для ответов на DNS01-проверки
+      - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
         href: tutorials/cert-manager-webhook.md
   - name: Управление доступом
     href: security/index.md
