@@ -481,6 +481,9 @@ default:
   link-tracker: https://tracker.yandex.ru/
   link-wiki: https://wiki.yandex.ru/
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
+  links: # Ссылки
+    es: # ElasticSearch
+      reindex-api: https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html
   pg-docs: https://www.postgresql.org/docs/current
   link-datasphere-main: https://datasphere-preprod.cloud.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o

@@ -142,6 +142,8 @@ items:
       - name: >-
           Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз данных из других облачных сетей
         href: dataplatform/mdb-dns-peering.md
+      - name: Миграция в {{ mes-full-name }} с помощью Reindex API
+        href: dataplatform/migration-via-reindex-api.md
       - name: >-
           Использование скриптов инициализации для настройки GeeseFS в
           {{ dataproc-full-name }}
