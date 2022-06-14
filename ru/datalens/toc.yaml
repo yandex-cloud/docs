@@ -95,6 +95,7 @@ items:
         when: audience == "external"
         href: concepts/marketplace.md
       - name: Резервное копирование
+        when: audience == "external"
         href: concepts/backup.md
       - name: Кеширование
         href: concepts/caching.md
@@ -153,9 +154,6 @@ items:
           - name: Управление доступом к подключению
             when: audience == "external"
             href: operations/connection/manage-access.md
-          - name: Создание подключения к файлу CSV
-            href: operations/connection/create-csv.md
-            when: audience == "internal"
       - name: Работа с датасетами
         items:
           - name: Создание датасета
@@ -164,6 +162,7 @@ items:
             href: operations/dataset/join-data.md
           - name: Объединение данных из нескольких CSV-подключений
             href: operations/dataset/join-data-csv.md
+            when: audience == "external"
           - name: Создание поля данных
             href: operations/dataset/create-field.md
           - name: Создание вычисляемого поля данных

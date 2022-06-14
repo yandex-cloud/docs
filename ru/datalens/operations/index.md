@@ -18,13 +18,12 @@
 - [{#T}](connection/create-appmetrica.md)
 {% if audience != "internal" %} - [{#T}](connection/create-cloud-billing.md) {% endif %}
 {% if audience != "internal" %} - [{#T}](connection/manage-access.md) {% endif %}
-{% if audience == "internal" %} - [{#T}](connection/create-csv.md) {% endif %}
 
 ## Работа с датасетом {#working-with-datasets}
 
 - [{#T}](dataset/create.md)
 - [{#T}](dataset/join-data.md)
-- [{#T}](dataset/join-data-csv.md)
+{% if audience != "internal" %} - [{#T}](dataset/join-data-csv.md) {% endif %}
 - [{#T}](dataset/create-field.md)
 - [{#T}](dataset/create-calculated-field.md)
 - [{#T}](dataset/create-filter.md)

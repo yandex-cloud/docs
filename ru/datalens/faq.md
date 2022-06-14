@@ -57,11 +57,7 @@
 
 Приводим работу с таймзонами в порядок в рамках [тикета](https://st.yandex-team.ru/BI-1478).
 
-{% include [csv-rows-display.md](../_includes/datalens/qa/csv-rows-display.md) %}
-
-{% include [csv-long-loading.md](../_includes/datalens/qa/csv-long-loading.md) %}
-
-{% include [csv-network-error](../_includes/datalens/qa/csv-network-error.md) %}
+{% include [csv-file-rows-display.md](../_includes/datalens/qa/csv-file-rows-display.md) %}
 
 ### Как подключиться к внешней базе данных? {#connect-external-db}
 

@@ -44,4 +44,4 @@
 
 #### См. также {#see-also}
 - [{#T}](../../concepts/data-join.md#ui-join)
-- [{#T}](join-data-csv.md)
+{% if audience != "internal" %}- [{#T}](join-data-csv.md){% endif %}
