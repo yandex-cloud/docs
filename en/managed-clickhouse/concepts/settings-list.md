@@ -1,17 +1,18 @@
 # {{ CH }} settings
 
-For {{ mch-name }} clusters, you can configure settings that relate to {{ CH }}. Some settings are set [at the cluster level](#dbms-cluster-settings) and others [at the user level](#user-level-settings).
+For {{ mch-name }} clusters, you can configure settings that relate to {{ CH }}. Some settings are configured [at the cluster level](#dbms-cluster-settings) and some [at the user level](#user-level-settings).
 
 The label next to the setting name lets you determine which interface is used to set the value of this setting: the management console, CLI, API, SQL, or Terraform. The {{ tag-all }} label indicates that all of the above interfaces are supported.
 
 Depending on the selected interface, the same setting is represented in a different way, for example:
 
 - **Geobase uri** in the management console matches:
-  - `geobase_uri` in the gRPC API and Terraform.
-  - `geobaseUri` in the REST API.
+   - `geobase_uri` in the gRPC API and Terraform.
+   - `geobaseUri` in the REST API.
 - **Allow DDL** in the management console matches:
-  - `allow_ddl` in the CLI, gRPC API, and SQL.
-  - `allowDdl` in the REST API.
+   - `allow_ddl` in the CLI, gRPC API, and SQL.
+   - `allowDdl` in the REST API.
+
 
 ## Cluster-level settings {#dbms-cluster-settings}
 
@@ -25,14 +26,14 @@ You can use the following settings:
 
 Quotas let you limit the consumption of {{ CH }} resources for a specified time interval. Quota settings are set for an individual user.
 
-If the user exceeds one of the quota limits, they won't be able to make new queries until the interval expires.
-{{ CH }} displays a message about exceeding the quota and indicates when the next interval starts. After that, the query execution ban will be lifted and the limit counters will be reset.
+If the user exceeds one of the quota limits, they can't execute new queries until the interval expires.
+{{ CH }} displays a message about exceeding the quota and indicates when the next interval starts. At the beginning of the new interval, query execution is permitted and the limit counters are reset.
 
 {{ CH }} also uses quotas to account for resource consumption.
 For each user, there is a default quota that takes into account the consumption of all resources per hour, but doesn't impose any restrictions.
 Information about the resource consumption level is written to the {{ CH }} server log.
 
-For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/quotas/).
+For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/quotas/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/quotas/){% endif %}.
 
 You can use the following quota settings:
 
@@ -50,7 +51,6 @@ You can use the following settings:
 
 {{ tag-sql }}
 
-You can redefine [custom settings](https://{{ ch-domain }}/docs/en/operations/settings/#custom_settings), as variables, [in the settings profile](https://{{ ch-domain }}/docs/ru/operations/access-rights/#settings-profiles-management), session, or request. Working with settings profiles is available if the [user management via SQL](../operations/cluster-users.md#sql-user-management) is enabled for the cluster.
+You can redefine [custom settings]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/#custom_settings){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/#custom_settings){% endif %} as variables in the [settings profile]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/access-rights/#settings-profiles-management){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/access-rights/#settings-profiles-management){% endif %}, session, or request. Working with settings profiles is available if the [user management via SQL](../operations/cluster-users.md#sql-user-management) is enabled for the cluster.
 
 The name of the user setting in {{ mch-name }} must start with a predefined prefix `custom_`. The prefix is fixed, users cannot change it.
-

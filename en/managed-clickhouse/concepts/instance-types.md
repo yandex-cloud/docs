@@ -13,13 +13,14 @@ Available [storage types](./storage.md) depend on the selected host class. For s
 
 {% endif %}
 
+The host class affects the **Max server memory usage** DBMS setting that limits the amount of RAM available for {{ CH }} to run. For more information, see [{#T}](memory-management.md).
 
 ## Available host classes {#available-flavors}
 
 {% if audience == "internal" %}
 
 | Host class name | Number of CPUs | RAM, GB | I/O limit, MB/s | Maximum connection speed, MB/s |
-| ----- | ----- | ----- | ----- | ----- |
+----- | ----- | ----- | ----- | -----
 | **Sandy Bridge** |
 | db1.nano | 1 | 2 | 5 | 16 |
 | db1.micro | 1 | 8 | 20 | 16 |
@@ -59,7 +60,7 @@ The full list of possible host configurations on each platform is provided below
 {% include [instance-types-code](../../_includes/mdb/instance-types-code-c3-b3.md) %}
 
 | Host class name | Number of vCPUs | Guaranteed vCPU performance | RAM, GB |
-| ------------------- | ----------------- | --------------------------- | --------- |
+|-------------------|-----------------|---------------------------|---------|
 | **Intel Broadwell** |
 | b1.nano | 2 | 5% | 2 |
 | b1.micro | 2 | 20% | 2 |
@@ -136,4 +137,3 @@ The full list of possible host configurations on each platform is provided below
 | c3-c96-m192 | 96 | 100% | 192 |
 
 {% endif %}
-

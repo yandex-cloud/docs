@@ -102,6 +102,8 @@ items:
         href: concepts/sharding.md
       - name: Supported clients
         href: concepts/supported-clients.md
+      - name: Managing memory in {{ mch-name }}
+        href: concepts/memory-management.md
       - name: ClickHouse versioning policy
         href: concepts/update-policy.md
       - name: ClickHouse settings
