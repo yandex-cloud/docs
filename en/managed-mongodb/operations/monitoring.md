@@ -1,18 +1,12 @@
 # Monitoring the state of clusters and hosts
 
-Using monitoring tools in the management console, you can track the status of a{{ mmg-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.
+{% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
-{% if audience == "external" %} Cluster metric values are collected and charts are displayed by [{{ monitoring-name }}](../../monitoring/concepts/index.md). {% endif %} To get started with {{ monitoring-name }} metrics, dashboards, or alerts, click **Open in Monitoring** in the top panel.
+{% include [monitoring-period](../../_includes/mdb/monitoring-freq.md) %}
 
-To modify the time interval that charts are displayed for, specify the interval boundaries or select one of the built-in options (hour, day, week, month).
+{% include [monitoring-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
 
-{% include [monitoring-freq](../../_includes/mdb/monitoring-freq.md) %}
-
-{% note info %}
-
-The most appropriate multiple units (MB, GB, and more) are automatically used in charts.
-
-{% endnote %}
+{% include [alerts](../../_includes/mdb/alerts.md) %}
 
 ## Monitoring cluster status {#cluster}
 
@@ -20,6 +14,8 @@ To view detailed information about the {{ mmg-name }} cluster status:
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
 1. Click on the name of the cluster and open the **Monitoring** tab.
+
+1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
 The following charts open on the page:
 
@@ -124,7 +120,7 @@ Recommended threshold values:
 | Metric | Parameter                      | `Alarm`                   | `Warning`                 |
 |---------------------------------|:-------------------------------:|:------------------------:|:------------------------:|
 | DB write availability | `can_write`                      | `Equal to 0`                 | —                         |
-| Replication delay              | `replset_status-replicationLag` | `180`,,,,,,,,,,,,,,,,,,,, | `30`,,,,,,,,,,,,,,,,,,,,, |
+| Replication delay              | `replset_status-replicationLag` | `180` | `30` |
 | Storage space used | `disk.used_bytes`                | 90% of storage size  | 70% of storage size  |
 
 You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).

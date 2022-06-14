@@ -1,12 +1,12 @@
 # Monitoring the state of a cluster and hosts
 
-Using monitoring tools in the management console, you can track the status of a{{ mkf-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.
-
-{% include [monitoring-provides](../../_includes/mdb/monitoring-provides.md) %}
+{% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
 {% include [monitoring-freq](../../_includes/mdb/monitoring-freq.md) %}
 
 {% include [note-monitoring-auto-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
+
+{% include [alerts](../../_includes/mdb/alerts.md) %}
 
 ## Monitoring cluster status {#monitoring-cluster}
 
@@ -19,6 +19,8 @@ To view detailed information about the {{ mkf-name }} cluster status:
   1. In the [management console]({{ link-console-main }}), go to the desired folder.
   1. In the list of services, select **{{ mkf-name }}**.
   1. Click on the name of the cluster and open the **Monitoring** tab.
+
+  1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
   The page displays the following charts:
   * **Alive brokers**: Number of functional brokers for each host with the `KAFKA` role.
