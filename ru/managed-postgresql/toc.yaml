@@ -44,7 +44,7 @@ items:
         href: operations/monitoring.md
   - name: Практические руководства
     items:
-      - name: Создание кластера PostgreSQL для 1С
+      - name: Создание кластера {{ PG }} для 1С
         href: tutorials/1c-postgresql
       - name: Выгрузка базы данных в {{ dataproc-full-name }}
         when: audience != "internal"
@@ -53,18 +53,21 @@ items:
         href: tutorials/profiling.md
       - name: Репликация и миграция
         items:
-        - name: Логическая репликация PostgreSQL
+        - name: Логическая репликация {{ PG }}
           href: tutorials/replication-overview.md
-        - name: Миграция базы данных в Managed Service for PostgreSQL
+        - name: Миграция базы данных в {{ mpg-name }}
           href: tutorials/data-migration.md
-        - name: Миграция базы данных из Managed Service for PostgreSQL
+        - name: Миграция базы данных из {{ mpg-name }}
           href: tutorials/outbound-replication.md
         - name: >-
-            Создание логической реплики Amazon RDS для PostgreSQL в Managed
-            Service for PostgreSQL
+            Создание логической реплики Amazon RDS для {{ PG }} в {{ mpg-name }}
           when: audience != "internal"
           href: operations/logical-replica-from-rds.md
-      - name: Поставка данных с помощью Debezium
+      - name: >-
+          Поставка данных в {{ mkf-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: tutorials/kafka-cdc-data-transfer.md
+      - name: Поставка данных в {{ mkf-full-name }} с помощью Debezium
         href: tutorials/kafka-cdc.md
   - name: Концепции
     items:

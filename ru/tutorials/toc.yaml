@@ -127,8 +127,12 @@ items:
         href: dataplatform/sqoop.md
       - name: Использование Confluent Schema Registry с {{ mkf-full-name }}
         href: dataplatform/confluent-schema-registry.md
-      - name: Поставка данных в {{ mkf-full-name }} с помощью Debezium
+      - name: Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью Debezium
         href: dataplatform/kafka-cdc.md
+      - name: >-
+          Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: dataplatform/kafka-cdc-data-transfer.md
       - name: Миграция данных в {{ mkf-full-name }}
         href: dataplatform/kafka-connector.md
       - name: Перенос коллекций из {{ MG }} в {{ mmg-full-name }}

@@ -54,7 +54,7 @@
     * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#connection-string) (используйте утилиту `kafkacat`).
 
 
-## Подготовка кластера-источника {#prepare-source}
+## Подготовьте кластер-источник {#prepare-source}
 
 {% list tabs %}
 
