@@ -81,7 +81,7 @@
 
    {% endcut %}
 
-1. [Установите kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl/){% endif %} и [настройте](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) его на работу с созданным кластером.
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. Узнайте IP-адрес сервиса `kube-dns`:
 
@@ -96,7 +96,7 @@
    `node-local-dns.yaml`
 
    ```yaml
-   # Copyright 2018 The Kubernetes Authors.
+   # Copyright 2018 The {{ k8s }} Authors.
    #
    # Licensed under the Apache License, Version 2.0 (the "License");
    # you may not use this file except in compliance with the License.
@@ -109,7 +109,7 @@
    # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    # See the License for the specific language governing permissions and
    # limitations under the License.
-   # Modified for Yandex.Cloud Usage
+   # Modified for {{ yandex-cloud}} Usage
    ---
    apiVersion: v1
    kind: ServiceAccount
@@ -308,7 +308,7 @@
    kubectl apply -f node-local-dns.yaml
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    serviceaccount/node-local-dns created
@@ -324,7 +324,7 @@
    kubectl get ds -l k8s-app=node-local-dns -n kube-system
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    NAME             DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
@@ -359,7 +359,7 @@
 
 1. Сохраните изменения.
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    configmap/node-local-dns edited
@@ -370,14 +370,13 @@
 ## Выполните DNS-запросы {#dns-queries}
 
 Чтобы выполнить [тестовые запросы](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/#create-a-simple-pod-to-use-as-a-test-environment), используйте под с утилитами диагностики DNS.
-
 1. Запустите под:
 
    ```bash
    kubectl apply -f https://k8s.io/examples/admin/dns/dnsutils.yaml
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    pod/dnsutils created
@@ -389,7 +388,7 @@
    kubectl get pods dnsutils
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    NAME      READY  STATUS   RESTARTS  AGE
@@ -439,7 +438,7 @@ kubectl logs --namespace=kube-system -l k8s-app=node-local-dns -f
 
 Чтобы остановить вывод лога на экран, нажмите **Ctrl** + **C**.
 
-Ожидаемый результат выполнения команды:
+Результат выполнения команды:
 
 ```text
 ...
@@ -456,7 +455,7 @@ kubectl logs --namespace=kube-system -l k8s-app=node-local-dns -f
 kubectl delete -f node-local-dns.yaml
 ```
 
-Ожидаемый результат выполнения команды:
+Результат выполнения команды:
 
 ```text
 serviceaccount "node-local-dns" deleted

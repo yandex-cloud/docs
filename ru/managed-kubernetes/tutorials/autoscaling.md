@@ -1,7 +1,6 @@
 # Горизонтальное масштабирование приложения в кластере
 
 {{ managed-k8s-name }} поддерживает несколько видов [автоматического масштабирования](../concepts/autoscale.md). Из этой статьи вы узнаете, как настроить автоматическое масштабирование [кластера](../concepts/index.md#kubernetes-cluster) с помощью комбинации {{ k8s-ca }} и {{ k8s-hpa }}.
-
 * [{#T}](#cpu-autoscaling).
 * [{#T}](#rps-autoscaling).
 
@@ -26,10 +25,10 @@
    * Сервисный аккаунт `sa-k8s-nodes` для управления группой узлов:
      * `container-registry.images.puller` — для загрузки образов из [{{ container-registry-full-name }}](../../container-registry/).
 1. [Создайте сеть](../../vpc/quickstart.md) с именем `k8s-network` для размещения кластера. При создании сети выберите опцию **Создать подсети**.
-1. [Создайте группы безопасности](../operations/security-groups.md) для мастера и узлов:
-   * `sg-k8s` — для [мастера и группы узлов](../operations/security-groups.md#rules-internal).
-   * `k8s-public-services` — для обеспечения [публичного доступа к сервисам из интернета](../operations/security-groups.md#rules-nodes).
-   * `k8s-master-whitelist` — для [доступа к API {{ k8s }}](../operations/security-groups.md#rules-master).
+1. [Создайте группы безопасности](../operations/connect/security-groups.md) для мастера и узлов:
+   * `sg-k8s` — для [мастера и группы узлов](../operations/connect/security-groups.md#rules-internal).
+   * `k8s-public-services` — для обеспечения [публичного доступа к сервисам из интернета](../operations/connect/security-groups.md#rules-nodes).
+   * `k8s-master-whitelist` — для [доступа к API {{ k8s }}](../operations/connect/security-groups.md#rules-master).
 1. [Создайте ключ шифрования](../../kms/operations/key.md#create):
    * **Имя ключа** — `k8s-symetric-key`.
    * **Алгоритм шифрования** — `AES-128`.
@@ -243,7 +242,7 @@
      grep ingresses.networking.k8s.io/nginx_ingress_controller_requests_per_second
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    "name": "ingresses.networking.k8s.io/nginx_ingress_controller_requests_per_second",

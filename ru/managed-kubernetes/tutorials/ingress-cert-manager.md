@@ -4,19 +4,16 @@
 
 ## Перед началом работы {#before-begin}
 
-1. Установите {{ k8s }} CLI [kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl){% endif %}.
-
-1. [Настройте](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) конфигурацию kubectl.
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. Установите менеджер пакетов {{ k8s }} [Helm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %}.
-
 1. Добавьте в Helm репозиторий для NGINX:
 
    ```bash
    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    "ingress-nginx" has been added to your repositories
@@ -28,7 +25,7 @@
    helm repo update
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    Hang tight while we grab the latest from your chart repositories...
@@ -44,7 +41,7 @@
 helm install ingress-nginx ingress-nginx/ingress-nginx
 ```
 
-Ожидаемый результат выполнения команды:
+Результат выполнения команды:
 
 ```text
 NAME: ingress-nginx
@@ -72,7 +69,7 @@ You can watch the status by running 'kubectl --namespace default get services -o
    kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.6.1/cert-manager.yaml
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```bash
    customresourcedefinition.apiextensions.k8s.io/certificaterequests.cert-manager.io created
@@ -86,7 +83,7 @@ You can watch the status by running 'kubectl --namespace default get services -o
    kubectl get pods -n cert-manager --watch
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```bash
    NAME                                       READY   STATUS    RESTARTS   AGE
@@ -196,7 +193,7 @@ You can watch the status by running 'kubectl --namespace default get services -o
    kubectl get svc
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```bash
    NAME                          TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)                      AGE

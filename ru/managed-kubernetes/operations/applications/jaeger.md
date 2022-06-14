@@ -3,21 +3,22 @@
 [Jaeger](https://www.jaegertracing.io/) — платформа для распределенной трассировки с открытым исходным кодом. Jaeger позволяет выполнять мониторинг состояния запросов и отладку после сбоев в распределенных системах микросервисных приложений.
 
 В качестве хранилища данных Jaeger может использовать:
-* [{{ ydb-full-name }}](../../../ydb/) при установке через [{{ marketplace-full-name }}](https://cloud.yandex.ru/marketplace).
+* [{{ ydb-full-name }}](../../../ydb/) при установке через [{{ marketplace-full-name }}](/marketplace).
 * [Другие системы хранения данных](https://github.com/jaegertracing/helm-charts/tree/main/charts/jaeger#storage) при установке через Helm-чарт.
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 ### Перед началом работы {#before-you-begin}
 
-1. [Установите kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl){% endif %} и [настройте](../kubernetes-cluster/kubernetes-cluster-get-credetials.md) его на работу с вашим [кластером {{ k8s }}](../../concepts/index.md#kubernetes-cluster).
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Для потоковой обработки JSON-файлов установите [утилиту `jq`](https://stedolan.github.io/jq/):
 
    ```bash
    sudo apt update && sudo apt install jq
    ```
 
-1. Чтобы разрешить [подам](../../concepts/index.md#pod) кластера {{ k8s }} подключаться к {{ ydb-name }}, настройте [группы безопасности](../security-groups.md). Добавьте правило для входящего трафика:
+1. Чтобы разрешить [подам](../../concepts/index.md#pod) кластера {{ k8s }} подключаться к {{ ydb-name }}, настройте [группы безопасности](../connect/security-groups.md). Добавьте правило для входящего трафика:
    * Диапазон портов — `2135`.
    * Протокол — `TCP`.
    * Тип источника — `Группа безопасности`.
@@ -84,7 +85,7 @@
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
    * **Название приложения** — укажите название приложения.
-   * **{{ ydb-short-name }} эндпоинт** — укажите имя эндпоинта {{ ydb-name }}, например `lb.etnk1hv0jol3cu5pojp7.ydb.mdb.yandexcloud.net:2135`.
+   * **{{ ydb-name }} эндпоинт** — укажите имя эндпоинта {{ ydb-name }}, например `lb.etnk1hv0jol3cu5pojp7.ydb.mdb.yandexcloud.net:2135`.
    * **База данных** — укажите имя БД, например `/ru-central1/b1gkgm9daf4605njnmn8/etnk2hv0jol5cu5pojp7`.
    * **Директория в базе данных** — `jaeger`.
    * **Использовать сервис метаданных для аутентификации изнутри ВМ** — выберите эту опцию, если требуется аутентификация внутри виртуальной машины.
@@ -98,7 +99,8 @@
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
-1. [Установите kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl){% endif %} и [настройте](../kubernetes-cluster/kubernetes-cluster-get-credetials.md) его на работу с вашим кластером {{ k8s }}.
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Установите менеджер пакетов {{ k8s }} [Нelm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %}.
 1. Добавьте репозиторий `jaegertracing`:
 

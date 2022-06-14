@@ -9,7 +9,7 @@
 
   {% endnote %}
 
-* [Настройте группы безопасности](security-groups.md) кластера.
+* [Настройте группы безопасности](connect/security-groups.md) кластера.
 
   {% note warning %}
 
@@ -17,7 +17,7 @@
 
   {% endnote %}
 
-Подробнее см. в разделе [Подключение к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
+Подробнее см. в разделе [Подключение к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md).
 
 ## Создайте пары ключей SSH {#creating-ssh-keys}
 
