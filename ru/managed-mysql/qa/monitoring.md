@@ -1,6 +1,6 @@
 # Мониторинг и логи
 
-#### Как посмотреть графики кластера и хостов {#charts}
+#### Как посмотреть графики кластера и хостов? {#charts}
 
 В [консоли управления]({{ link-console-main }}) перейдите на страницу кластера. Чтобы просмотреть [графики кластера](../operations/monitoring.md#monitoring-cluster), перейдите в раздел **Мониторинг**. Для [графиков отдельных хостов](../operations/monitoring.md#monitoring-hosts) перейдите в раздел **Хосты** → **Мониторинги**.
 
@@ -8,7 +8,7 @@
 
 {% if audience != "internal" %}
 
-#### Как настроить алерты {#alerts}
+#### Как настроить алерты? {#alerts}
 
 Настроить алерты можно можно в сервисе [{{ monitoring-full-name }}]{% if lang == "ru" %}(https://monitoring.cloud.yandex.ru/){% endif %}{% if lang == "en" %}(https://monitoring.cloud.yandex.com/){% endif %}: для этого воспользуйтесь инструкцией в разделе [{#T}](../../monitoring/operations/alert/create-alert.md).
 
@@ -16,7 +16,7 @@
 
 {% endif %}
 
-#### Как посмотреть логи {#logs}
+#### Как посмотреть логи? {#logs}
 
 {% list tabs %}
 
@@ -45,7 +45,7 @@
 
 {% endlist %}
 
-#### Как посмотреть текущие запросы {#current-queries}
+#### Как посмотреть текущие запросы? {#current-queries}
 
 Чтобы посмотреть запросы текущего пользователя, выполните запрос:
 
@@ -55,7 +55,7 @@ SHOW PROCESSLIST;
 
 Подробное описание результата см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html).
 
-#### Какая еще диагностика доступна {#trouble-info}
+#### Какая еще диагностика доступна? {#trouble-info}
 
 Пользователь с [привилегией](../concepts/settings-list.md#setting-administrative-privileges) `PROCESS` уровня кластера может выполнять запросы:
 * `SHOW FULL PROCESSLIST;`
