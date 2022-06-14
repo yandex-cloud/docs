@@ -2,12 +2,86 @@
 
 After creating an {{ KF }} cluster, you can:
 
+* [{#T}](#enable-api).
 * [{#T}](#change-resource-preset).
 * [{#T}](#change-disk-size){% if audience != "internal" %} (unavailable for non-replicated SSD [storage](../concepts/storage.md)){% endif %}.
 * [{#T}](#change-additional-settings).
-* [Changing settings{{ KF }}](#change-kafka-settings).
-* [Move the cluster](#move-cluster) from the current folder to another one.
-* [Change cluster security groups](#change-sg-set).
+* [{#T}](#change-kafka-settings).
+* [{#T}](#move-cluster) from the current folder to another one.
+* [{#T}](#change-sg-set).
+
+## Enabling user and topic management using the Admin API {#enable-api}
+
+{% note info %}
+
+It is impossible to disable the enabled topic management via the {{ KF }} Admin API.
+
+{% endnote %}
+
+To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
+   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit cluster**.
+   1. Enable **Manage topics via the API**.
+   1. [Create an administrator account](./cluster-accounts.md#create-account).
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To enable topic management via the Admin API:
+
+   1. Run the command:
+
+      ```
+      {{ yc-mdb-kf }} cluster update <cluster name or ID> --unmanaged-topics=true
+      ```
+
+   1. [Create an administrator account](./cluster-accounts.md#create-account).
+
+- Terraform
+
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For more information about creating this file, see [{#T}](cluster-create.md).
+
+   1. Change the value of the `unmanaged_topics` parameter in the description of a {{ mkf-name }} cluster to enable topic management via the Admin API:
+
+      ```hcl
+      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+        config {
+          unmanaged_topics = true
+          ...
+        }
+        ...
+      }
+      ```
+
+   1. [Create an administrator account](./cluster-accounts.md#create-account).
+
+{% if api != "noshow" %}
+
+- API
+
+   To enable topic management via the Admin API:
+
+   1. Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
+      * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+      * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+      * The new cluster configuration in the `configSpec` parameter. Specify the value `"unmanagedTopics": true` in the configuration.
+
+   1. [Create an administrator account](./cluster-accounts.md#create-account).
+
+{% endif %}
+
+{% endlist %}
 
 ## Change the class and number of hosts {#change-resource-preset}
 
@@ -25,10 +99,8 @@ You can't decrease the number of {{ KF }} broker hosts.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Select the cluster.
-   1. In the upper-right corner, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
+   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit cluster**.
    1. Change the required settings:
       * To edit the [broker host](../concepts/brokers.md) class, select a new [**Host class**](../concepts/instance-types.md).
       * Edit the **Number of brokers in zone**.
@@ -136,7 +208,7 @@ You can't decrease the number of {{ KF }} broker hosts.
 
 {% endlist %}
 
-## {% if audience != "internal" %}Increase{% else %}Modify{% endif %} storage size {#change-disk-size}
+## {% if audience != "internal" %}Increasing{% else %}Modifying{% endif %} storage size {#change-disk-size}
 
 {% note warning %}
 
@@ -152,10 +224,8 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size:
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Select the cluster.
-   1. In the top-right corner, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
+   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit cluster**.
    1. Edit the settings in the **Storage** section.
    1. Click **Save**.
 
@@ -248,10 +318,8 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Select the cluster.
-   1. In the top-right corner, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
+   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit cluster**.
    1. Change additional cluster settings:
 
       {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
@@ -277,9 +345,9 @@ You can't change the disk type for {{ KF }} clusters after creation.
       ```bash
       {{ yc-mdb-kf }} cluster update <cluster name or ID> \
          --maintenance-window type=<maintenance type: anytime or weekly>,`
-                             `day=<day of the week for the weekly type>,`
-                             `hour=<hour of the day for the weekly type>
-         --deletion-protection=<cluster protection from deletion: true or false>
+                             `day=<day of week for weekly>,`
+                             `hour=<hour for weekly>
+         --deletion-protection=<protect cluster from deletion: true or false>
       ```
 
    You can change the following settings:
@@ -351,13 +419,11 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Select the cluster.
-   1. In the top-right corner, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit**.
-   1. Under **Kafka Settings**, click **Settings**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
+   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit cluster**.
+   1. Under **Kafka Settings**, click **Configure**.
 
-      For more information, see [Settings{{ KF }}](../concepts/settings-list.md).
+      For more information, see [{{ KF }} settings](../concepts/settings-list.md).
 
    1. Click **Save**.
 
@@ -380,8 +446,8 @@ You can't change the disk type for {{ KF }} clusters after creation.
       ```bash
       {{ yc-mdb-kf }} cluster update <cluster ID or name> \
          --compression-type <compression type> \
-         --log-flush-interval-messages <number of messages in the log before flushing to disk> \
-         --log-flush-interval-ms <maximum time of storing messages in-memory before flushing to disk>
+         --log-flush-interval-messages <number of messages in log before flushing to disk> \
+         --log-flush-interval-ms <maximum time to retain messages in memory before flushing to disk>
       ```
 
 - Terraform
@@ -416,7 +482,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, please see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+   For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
 {% if api != "noshow" %}
 
@@ -438,15 +504,46 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
 {% list tabs %}
 
-{% if api != "noshow" %}
+{% if audience == "draft" %}
+
+- Management console
+
+   1. Go to the folder page and select **{{ mkf-name }}**.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you want to move.
+   1. Click **Move**.
+   1. Select the folder you want to move the cluster to.
+   1. Click **Move**.
+
+{% endif %}
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To move a cluster:
+
+   1. View a description of the CLI move cluster command:
+
+      ```bash
+      {{ yc-mdb-kf }} cluster move --help
+      ```
+
+   1. Specify the destination folder in the move cluster command:
+
+      ```bash
+      {{ yc-mdb-kf }} cluster move <cluster ID> \
+        --destination-folder-name=<destination folder name>
+      ```
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
    Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The ID of the destination folder in the `destinationFolderId parameter`.
-
-{% endif %}
+   * The ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
 
@@ -456,10 +553,8 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
-   1. In the list of services, select **{{ mkf-name }}**.
-   1. Select the cluster.
-   1. In the top-right corner, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
+   1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit cluster**.
    1. Under **Network settings**, select security groups for cluster network traffic.
 
 - CLI
@@ -479,7 +574,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
    1. Specify the security groups in the update cluster command:
 
       ```
-      {{ yc-mdb-kf }} cluster update <cluster name>
+      {{ yc-mdb-kf }} cluster update <cluster name> \
         --security-group-ids <security group list>
       ```
 
@@ -506,7 +601,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, please see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+   For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
 - API
 

@@ -12,6 +12,8 @@ After creating a cluster, you can:
 
 * [Manually switch the master in the cluster](#start-manual-failover).
 
+* [Move a cluster](#move-cluster) to another folder.
+
 * [Change cluster security groups](#change-sg-set).
 
 {% note info %}
@@ -352,7 +354,7 @@ You can change the DBMS settings of the hosts in your cluster.
                               `day=<day of week for weekly>,`
                               `hour=<hour for weekly> \
           --websql-access=<true or false> \
-          --deletion-protection=<protect cluster from deletion: true or false> \
+          --deletion-protection=<cluster deletion protection: true or false> \
           --connection-pooling-mode=<connection manager mode> \
           --serverless-access=<true or false>
       ```
@@ -465,7 +467,7 @@ You can change the DBMS settings of the hosts in your cluster.
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter.
-   * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access parameter`.
+   * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * [Connection pooler mode](../concepts/pooling.md) in the `configSpec.poolerConfig.poolingMode` parameter.
    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
@@ -570,6 +572,49 @@ To switch the master:
 
 {% endlist %}
 
+## Moving a cluster {#move-cluster}
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you want to move.
+   1. Click **Move**.
+   1. Select the folder you want to move the cluster to.
+   1. Click **Move**.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To move a cluster:
+
+   1. View a description of the CLI move cluster command:
+
+      ```bash
+      {{ yc-mdb-pg }} cluster move --help
+      ```
+
+   1. Specify the destination folder in the move cluster command:
+
+      ```bash
+      {{ yc-mdb-pg }} cluster move <cluster ID> \
+         --destination-folder-name=<destination folder name>
+      ```
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- API
+
+   Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * The ID of the destination folder in the `destinationFolderId` parameter.
+
+{% endlist %}
 
 ## Changing security groups {#change-sg-set}
 

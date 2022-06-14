@@ -4,7 +4,7 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [{#T}](#change-disk-size){% if audience != "internal" %} (unavailable for non-replicated SSD [storage](../concepts/storage.md)){% endif %}.
+* [{#T}](#change-disk-size){% if audience != "internal" %} (unavailable for non-replicated SSD [storage](../concepts/storage.md)){% endif %}.
 
 * [Changing settings{{ MY }}](#change-mysql-config).
 
@@ -15,6 +15,8 @@ After creating a cluster, you can:
    {% endnote %}
 
 * [Change additional cluster settings](#change-additional-settings).
+
+* [Move a cluster](#move-cluster) to another folder.
 
 * [{#T}](#change-sg-set).
 
@@ -28,7 +30,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 - Management console
 
-   1. Go to the folder page and select **{{ mmy-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
    1. To change the class of {{ MY }} hosts, under **Host class**, select the required class.
    1. Click **Save changes**.
@@ -135,7 +137,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size:
 
-   1. Go to the folder page and select **{{ mmy-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
    1. Under **Storage size**, specify the required value.
    1. Click **Save changes**.
@@ -154,11 +156,11 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       {{ yc-mdb-my }} cluster update --help
       ```
 
-   1. Specify the required amount of storage in the {% if audience != "internal" %} cluster update command (it must be at least as large as `disk_size` in the cluster properties){% endif %}:
+   1. Specify the required amount of storage in the cluster update command{% if audience != "internal" %} (it must be at least as large as `disk_size` in the cluster properties){% endif %}:
 
       ```bash
       {{ yc-mdb-my }} cluster update <cluster name or ID> \
-           --disk-size <storage size in GB>
+        --disk-size <storage size in GB>
       ```
 
 - Terraform
@@ -195,7 +197,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 - API
 
-   To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in in the call:
+   To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass the following in the call:
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
    * Storage size in the `configSpec.resources.diskSize` parameter.
@@ -213,7 +215,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 - Management console
 
-   1. Go to the folder page and select **{{ mmy-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
    1. Change the [{{ MY }} settings](../concepts/settings-list.md#dbms-cluster-settings) by clicking **Configure** under **DBMS settings**:
    1. Click **Save**.
@@ -291,7 +293,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 - Management console
 
-   1. Go to the folder page and select **{{ mmy-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
    1. Change additional cluster settings:
 
@@ -315,26 +317,28 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
       ```bash
       {{ yc-mdb-my }} cluster update <cluster name> \
-         --backup-window-start <backup start time> \
-         --datalens-access=<true or false> \
-         --maintenance-window type=<maintenance type: anytime or weekly>,`
-                             `day=<day of week for weekly>,`
-                             `hour=<hour for weekly> \
-         --websql-access=<true or false> \
-         --deletion-protection=<cluster deletion protection: true or false>
+        --backup-window-start <backup start time> \
+        --datalens-access=<true or false> \
+        --maintenance-window type=<maintenance type: anytime or weekly>,`
+                           `day=<day of the week for the weekly type>,`
+                           `hour=<hour of the day for the weekly type> \
+        --websql-access=<true or false> \
+        --deletion-protection=<protection from cluster deletion: true or false>
       ```
 
    You can change the following settings:
 
-   {% include [backup-window-start](../../_includes/mdb/cli-additional-settings/backup-window-start.md) %}
+   {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
    * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
 
-   * {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
+   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
 
-   {% include [deletion-protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
+   * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+      {% include [deletion-protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -371,6 +375,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       }
       ```
 
+   1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform-maintenance-window.md) %}
+
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
       ```hcl
@@ -399,8 +405,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter.
-   * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access parameter`.
+   * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
+   * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -413,13 +420,57 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 {% endlist %}
 
-## Changing security groups {#change-sg-set}
+## Moving a cluster {#move-cluster}
 
 {% list tabs %}
 
 - Management console
 
    1. Go to the folder page and select **{{ mmy-name }}**.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you want to move.
+   1. Click **Move**.
+   1. Select the folder you want to move the cluster to.
+   1. Click **Move**.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To move a cluster:
+
+   1. View a description of the CLI move cluster command:
+
+      ```bash
+      {{ yc-mdb-my }} cluster move --help
+      ```
+
+   1. Specify the destination folder in the move cluster command:
+
+      ```bash
+      {{ yc-mdb-my }} cluster move <cluster ID> \
+         --destination-folder-name=<destination folder name>
+      ```
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- API
+
+   Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * The ID of the destination folder in the `destinationFolderId` parameter.
+
+{% endlist %}
+
+## Changing security groups {#change-sg-set}
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
    1. Under **Network settings**, select security groups for cluster network traffic.
 
@@ -441,7 +492,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
       ```bash
       {{ yc-mdb-my }} cluster update <cluster name> \
-         --security-group-ids <security group list>
+        --security-group-ids <security group list>
       ```
 
 - Terraform
@@ -455,7 +506,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster name>" {
         ...
-        security_group_ids = [<list of security group IDs>]
+        security_group_ids = ["<security group ID list>"]
       }
       ```
 
@@ -479,7 +530,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    * The list of security group IDs in the `securityGroupIds` parameter.
    * The list of settings to update in the `updateMask` parameter.
 
-    {% include [Resetting the settings of the object being modified](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Resetting the settings of the object being modified](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 

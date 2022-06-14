@@ -2,17 +2,19 @@
 
 After creating a cluster, you can:
 
-- [{#T}](#change-name-and-description).
+* [{#T}](#change-name-and-description).
 
-- [{#T}](#change-resource-preset).
+* [{#T}](#change-resource-preset).
 
-- [{#T}](#change-disk-size){% if audience != "internal" %}  (unavailable for non-replicated SSD [storage](../concepts/storage.md)){% endif %}.
+* [{#T}](#change-disk-size){% if audience != "internal" %}  (unavailable for non-replicated SSD [storage](../concepts/storage.md)){% endif %}.
 
-- Configure [{{ RD }} servers](#change-redis-config) according to the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
+* Configure [{{ RD }} servers](#change-redis-config) according to the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
 
-- [{#T}](#change-additional-settings).
+* [{#T}](#change-additional-settings).
 
-- [{#T}](#change-sg-set).
+* [Move a cluster](#move-cluster) to another folder.
+
+* [{#T}](#change-sg-set).
 
 {% note info %}
 
@@ -343,7 +345,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster to restore.
    1. Select **{{ mrd-name }}**.
@@ -355,7 +357,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    1. Click **Save changes**.
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -382,13 +384,59 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    You can change the following settings:
 
-   {% include [backup-window-start](../../_includes/mdb/cli-additional-settings/backup-window-start.md) %}
+   {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   * {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
+   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
-   {% include [deletion-protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
+   * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-   You can [get the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
+      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+   You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
+
+{% endlist %}
+
+## Moving a cluster {#move-cluster}
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the folder page and select **{{ mrd-name }}**.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you want to move.
+   1. Click **Move**.
+   1. Select the folder you want to move the cluster to.
+   1. Click **Move**.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To move a cluster:
+
+   1. View a description of the CLI move cluster command:
+
+      ```bash
+      {{ yc-mdb-rd }} cluster move --help
+      ```
+
+   1. Specify the destination folder in the move cluster command:
+
+      ```bash
+      {{ yc-mdb-rd }} cluster move <cluster ID> \
+         --destination-folder-name=<destination folder name>
+      ```
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- API
+
+   Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * The ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
 
@@ -454,14 +502,14 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-   - The list of groups in the `securityGroupIds` parameter.
-   - The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+   * The list of groups in the `securityGroupIds` parameter.
+   * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
 
 {% endlist %}
 
 {% note warning %}
 
-You may need to additionally [set up security groups](./connect/index.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
