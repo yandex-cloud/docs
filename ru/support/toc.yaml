@@ -16,6 +16,9 @@ items:
   - name: Копирование ошибок из консоли браузера
     href: browser-console.md
     when: audience != "internal"
+  - name: Сохранение взаимодействия браузера и сервера в HAR-файл
+    href: create-har.md
+    when: audience != "internal"
   - name: Правила тарификации
     href: pricing.md
     when: audience != "internal"
