@@ -18,13 +18,15 @@
 
 - CLI
 
-    Назначьте роль `viewer` на каталог `my-folder`. В качестве субъекта укажите тип `system` и идентификатор `allAuthenticatedUsers`:
+  {% include [cli-install](../cli-install.md) %}
 
-    ```bash
-    yc resource-manager folder add-access-binding my-folder \
-      --role viewer \
-      --subject system:allAuthenticatedUsers
-    ```
+  Назначьте роль `viewer` на каталог `my-folder`. В качестве субъекта укажите тип `system` и идентификатор `allAuthenticatedUsers`:
+
+  ```bash
+  yc resource-manager folder add-access-binding my-folder \
+    --role viewer \
+    --subject system:allAuthenticatedUsers
+  ```
 
 - API
 
