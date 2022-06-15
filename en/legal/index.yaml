@@ -16,6 +16,6 @@ links:
   - title: Terms of Use
     href: terms.html
     when: product == "cloud-il"
-  - title: Terms of Cloud Marketplace
+  - title: Marketplace Terms of Use
     href: marketplace-terms.html
     when: product == "cloud-il"
