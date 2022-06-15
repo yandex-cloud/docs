@@ -6,7 +6,7 @@
 
 {% if audience == "internal" %}
 
-См. [пример](https://datalens.yandex-team.ru/wizard/p1zs7hmle1ski) корректной подписи с показателем **Measure Values** в секции **Подписи**.
+См. [пример](https://datalens.yandex-team.ru/wizard/id7yuf2pymxca-lineychataya-diagramma-s-gruppirovkoy-pokazateli-30f) корректной подписи с показателем **Measure Values** в секции **Подписи**.
 
 {% else %}
 
