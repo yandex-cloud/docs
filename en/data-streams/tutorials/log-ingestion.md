@@ -1,6 +1,6 @@
-# Storing application runtime logs
+# Smart log processing
 
-Logging is used for app diagnostics. However, just having logs is not sufficient to perform analysis, they need to be stored and handled in a convenient way. To accomplish this, logs are sent to storage systems: [Hadoop]{% if lang == "ru" %}(https://cloud.yandex.ru/services/data-proc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/data-proc){% endif %}, [{{ CH }}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/managed-clickhouse){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/managed-clickhouse){% endif %}, [{{ ES }}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/managed-elasticsearch){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/managed-elasticsearch){% endif %}, or to specialized cloud systems, such as [{{ cloud-logging-name }}](../../logging/).
+Logging is used for app diagnostics. However, just having logs is not sufficient to perform analysis, they need to be stored and handled in a convenient way. To do this, logs are sent to storage systems, such as [Hadoop]{% if lang == "ru" %}(https://cloud.yandex.ru/services/data-proc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/data-proc){% endif %}, [{{ CH }}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/managed-clickhouse){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/managed-clickhouse){% endif %}, [{{ ES }}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/managed-elasticsearch){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/managed-elasticsearch){% endif %}, or to specialized cloud systems, such as [{{ cloud-logging-name }}](../../logging/).
 
 Applications do not usually write logs to storage systems directly. Instead, they send them to intermediate aggregator applications. These aggregators can receive logs by intercepting stdout/stderr streams, read log files from disk, get them via syslog or over HTTP, and in many other ways.
 
@@ -11,6 +11,8 @@ After receiving logs, aggregator applications accumulate them and then send them
 Standard log delivery systems are [fluentd](https://www.fluentd.org), [fluentbit](https://fluentbit.io), [logstash](https://www.elastic.co/logstash/), and more.
 
 Though aggregator applications can write data to storage systems directly, to enhance reliability, data is first sent to an intermediate buffer (a data streaming bus, message broker), that is {{ yds-full-name }}, and then to a storage system from it.
+
+Logs often contain too much data or restricted information. You can mask unnecessary or confidential information using supplemental processing in {{ sf-name }}, for instance.
 
 ## Benefits {#advantages}
 
@@ -24,7 +26,7 @@ The same logs are often stored in multiple storage systems at once: in {{ CH }} 
 
 With data buses, this can be done even more easily: just send a log once to a data bus and then, from it, run two data transfer processes inside {{ yandex-cloud }}. This solution will also let you add a third storage system, such as {{ GP }} or {{ ES }}, at any time.
 
-The approach using multiple storage systems is very convenient to ensure compliance with Federal Law No. 152-FZ, PCI DSS, and other standards that stipulate that logs shall be stored for at least a year. In this case, logs for the past month can be sent to one storage system so that they can be accessed whenever required, while logs to be stored for a long term can be sent to {{ objstorage-name }} cold storage.
+The approach using multiple storage systems is very convenient to ensure compliance with Federal Law No. 152-FZ, PCI DSS, and other standards that stipulate that logs shall be stored for at least a year. In this case, you can send logs for the past month to one storage system for quick access, and logs that will be stored for a long time can be sent to {{ objstorage-name }} cold storage.
 
 ### Masking data and processing logs {#mask}
 
@@ -36,7 +38,7 @@ Once processed, the logs can be sent to multiple target systems at once: access 
 
 ## Setup {#setup}
 
-To set up log storage:
+To configure smart log processing:
 
 1. [Create a data stream](../quickstart/create-stream.md) {{ yds-short-name }}.
 1. Set up a log aggregator: [fluentd](../quickstart/fluentd.md), [logstash](../quickstart/logstash.md), or any other aggregator that supports the [Kinesis Data Streams API](../kinesisapi/api-ref.md).

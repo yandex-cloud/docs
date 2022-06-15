@@ -200,6 +200,10 @@ items:
     items:
       - name: URL shortener
         href: serverless/serverless-url-shortener.md
+        when: audience == "external"
+      - name: Entering data into storage systems
+        href: serverless/data-ingestion.md
+        when: audience == "external"
       - name: Storing application runtime logs
         href: serverless/log-ingestion.md
         when: audience == "external"
