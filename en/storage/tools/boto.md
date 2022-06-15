@@ -67,7 +67,7 @@
   conn = S3Connection(
       host='{{ s3-storage-host }}'
   )
-  conn.auth_region_name = 'ru-central1'
+  conn.auth_region_name = '{{ region-id }}'
   
   # Creating a new bucket
   conn.create_bucket('bucket-name')

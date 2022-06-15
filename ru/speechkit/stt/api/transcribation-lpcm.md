@@ -34,7 +34,7 @@
     curl -X POST \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d '@body.json' \
-        https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
+        https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
 
     {
         "done": false,
@@ -51,7 +51,7 @@
 
     ```bash
     curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-        https://operation.api.cloud.yandex.net/operations/e03sup6d5h1qr574ht99
+        https://operation.{{ api-host }}/operations/e03sup6d5h1qr574ht99
 
     {
     "done": true, "response": {

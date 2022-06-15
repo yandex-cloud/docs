@@ -1,6 +1,6 @@
-### Из зеркала {{ yandex-cloud }} {#from-yc-mirror}
+### Из зеркала {#from-yc-mirror}
 
-Вы можете скачать дистрибутив Terraform для вашей платформы из [зеркала {{ yandex-cloud }}](https://hashicorp-releases.website.yandexcloud.net/terraform/). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`: 
+Вы можете скачать дистрибутив Terraform для вашей платформы из [зеркала](https://hashicorp-releases.website.yandexcloud.net/terraform/). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`: 
 
 ```
 export PATH=$PATH:/path/to/terraform

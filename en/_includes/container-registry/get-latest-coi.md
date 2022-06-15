@@ -21,8 +21,8 @@ The {{ coi }} in the [{{ container-registry-full-name }}](../../container-regist
 - Marketplace
   
   1. Go to the page of the image with the desired configuration:
-     * [{{ coi }}](https://cloud.yandex.com/en/marketplace/products/yc/container-optimized-image).
-     * [{{ coi }} GPU](https://cloud.yandex.com/en/marketplace/products/yc/container-optimized-image-gpu).
+     * [{{ coi }}](/marketplace/products/yc/container-optimized-image).
+     * [{{ coi }} GPU](/marketplace/products/yc/container-optimized-image-gpu).
   1. Under **Product IDs**, copy the value of `image_id`.
 
 {% endlist %}

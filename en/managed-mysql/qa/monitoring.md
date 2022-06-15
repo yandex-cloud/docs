@@ -1,18 +1,19 @@
 # Monitoring and logs
 
-#### How do I view cluster and host charts {#charts}
+#### How do I view cluster and host charts? {#charts}
 
-In the [management console]({{ link-console-main }}), go to the cluster page. To view [cluster charts](../operations/monitoring.md#monitoring-cluster), go to the **Monitoring** section. For [individual host charts](../operations/monitoring.md#monitoring-hosts) go to **Hosts** → **Monitoring**.
+In the [management console]({{ link-console-main }}), go to the cluster page. To view [cluster charts](../operations/monitoring.md#monitoring-cluster), go to **Monitoring**. To find [individual host charts](../operations/monitoring.md#monitoring-hosts), go to **Hosts** → **Monitoring**.
 
-To view charts in [{{ monitoring-full-name }}](https://monitoring.cloud.yandex.com/), on the home page, select the **{{ mmy-short-name }}** service dashboard.
+To view charts in [{{ monitoring-full-name }}](https://monitoring.cloud.yandex.com/), on the home page, select the **{{ mmy-short-name }}** service dashboard. To view the individual metrics, go to the **Metric Explorer** section and set the `service` parameter to **{{ mmy-short-name }}**.
 
-To view the individual metrics, go to the **Metric Explorer** section and specify the `service` parameter as **{{ mmy-short-name }}**.
 
-#### Can I configure alerts {#alerts}
+#### How do I set up alerts? {#alerts}
 
-You can configure alerts using [{{ monitoring-full-name }}](https://monitoring.cloud.yandex.com/). To do this, use the instructions under [{#T}](../../monitoring/operations/alert/create-alert.md). When selecting a metric, specify the `service` parameter as **{{ mmy-short-name }}**.
+You can configure alerts using [{{ monitoring-full-name }}](https://monitoring.cloud.yandex.com/): To do this, follow the instructions under [{#T}](../../monitoring/operations/alert/create-alert.md).
 
-#### How do I view logs {#logs}
+When selecting a metric, set the `service` parameter to **{{ mmy-short-name }}**.
+
+#### How do I view logs? {#logs}
 
 {% list tabs %}
 
@@ -31,19 +32,19 @@ You can configure alerts using [{{ monitoring-full-name }}](https://monitoring.c
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. View a description of the CLI's read logs command:
+   1. View a description of the CLI command to view the logs:
 
       ```
       {{ yc-mdb-my }} cluster list-logs --help
       ```
 
-   1.  Run `{{ yc-mdb-my }} cluster cluster list-logs`.
+   1. Run the command: `{{ yc-mdb-my }} cluster cluster list-logs`.
 
 {% endlist %}
 
-#### How do I view current queries {#current-queries}
+#### How do I view current queries? {#current-queries}
 
-To view the current user's queries, execute:
+To view the current user's queries, run:
 
 ```sql
 SHOW PROCESSLIST;

@@ -16,11 +16,11 @@
 
 1. `Access Key` — введите идентификатор ключа, который вы получили при генерации [статического ключа](../../iam/concepts/authorization/access-key.md).
 1. `Secret Key` — введите секретный ключ, который вы получили при генерации [статического ключа](../../iam/concepts/authorization/access-key.md).
-1. `Default Region` — введите `ru-central1`.
+1. `Default Region` — введите `{{ region-id }}`.
 
    {% note info %}
 
-   Для работы с {{ objstorage-name }} всегда указывайте регион `ru-central1`. Другие значения региона могут привести к ошибке авторизации.
+   Для работы с {{ objstorage-name }} всегда указывайте регион `{{ region-id }}`. Другие значения региона могут привести к ошибке авторизации.
 
    {% endnote %}
 1. `S3 Endpoint` — введите `{{ s3-storage-host }}`.
@@ -35,7 +35,7 @@
 [default]
 access_key = id
 secret_key = secretKey
-bucket_location = ru-central1
+bucket_location = {{ region-id }}
 host_base = {{ s3-storage-host }}
 host_bucket = %(bucket)s.{{ s3-storage-host }}
 ```

@@ -1,6 +1,6 @@
 ---
-title: Quotas and Limits in Certificate Manager
-description: 'The Certificate Manager has limits and quotas for the number of certificates, the number of domains, the number of domains in one certificate, the number of certificates per domain, the number of certificates per set of domains. You will learn more about the limitations of the service in this article. '
+title: Quotas and Limits in the {{ certificate-manager-name }}
+description: 'The {{ certificate-manager-name }} has limits and quotas for the number of certificates, the number of domains, the number of domains in one certificate, the number of certificates per domain, the number of certificates per set of domains. You will learn more about the limitations of the service in this article. '
 ---
 
 # Quotas and limits in {{ certificate-manager-name }}

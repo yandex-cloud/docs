@@ -7,7 +7,7 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Authenticating in Yandex Container Registry
+      - name: Authentication in {{ container-registry-name }}
         href: operations/authentication.md
       - name: Managing a Docker image
         items:
@@ -45,7 +45,9 @@ items:
         items:
           - name: Getting information about existing repositories
             href: operations/repository/repository-list.md
-      - name: Managing policies for automatically deleting Docker images
+          - name: Creating a repository
+            href: operations/repository/repository-create.md
+      - name: Managing Docker image lifecycle policies
         items:
           - name: Getting information about existing lifecycle policies
             href: operations/lifecycle-policy/lifecycle-policy-list.md
@@ -67,7 +69,7 @@ items:
             href: operations/roles/get-assigned-roles.md
           - name: Revoking a role
             href: operations/roles/revoke.md
-  - name: Yandex Container Solution
+  - name: '{{ cos-full-name }}'
     href: ../cos/
   - name: Practical guidelines
     items:
@@ -75,6 +77,8 @@ items:
         href: tutorials/index.md
       - name: Running a Docker image on a VM
         href: tutorials/run-docker-on-vm.md
+      - name: Creating a trigger with {{ sf-full-name }}
+        href: tutorials/trigger-create.md
       - name: Setting up automatic scanning of a Docker image
         href: tutorials/image-auto-scan.md
   - name: Concepts
@@ -89,10 +93,12 @@ items:
         href: concepts/registry.md
       - name: Repository
         href: concepts/repository.md
-      - name: Docker policies for automatically deleting Docker images
+      - name: Docker image lifecycle policies
         href: concepts/lifecycle-policy.md
       - name: Vulnerability scanner
         href: concepts/vulnerability-scanner.md
+      - name: '{{ sf-full-name }} trigger'
+        href: concepts/trigger.md
       - name: Backups
         href: concepts/backup.md
       - name: Quotas and limits

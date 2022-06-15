@@ -3,9 +3,9 @@
 Copy or replicate data from a source to a target by creating [endpoints](concepts/index.md#endpoint) and configuring [transfers](concepts/index.md#transfer) between them.
 
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you want to perform the operations. If that folder doesn't exist, create it:
+1. Go to the {{ yandex-cloud }} [console]({{ link-console-main }}) and select the folder where you want to perform the operations. If that folder doesn't exist, create it:
 
    {% list tabs %}
 
@@ -50,27 +50,29 @@ Copy or replicate data from a source to a target by creating [endpoints](concept
 
 
 1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher to the desired folder or the cloud that the folder belongs to.
+1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher for the desired folder or the cloud that the folder belongs to.
 
 ## Configure the source and the target {#db-settings}
 
 Prepare the source service for sending data:
 
-* [{{ KF }}](operations/prepare.md#source-kf);
-* [{{ CH }}](operations/prepare.md#source-ch);
-* [{{ GP }}](operations/prepare.md#source-gp);
-* [{{ MG }}](operations/prepare.md#source-mg);
-* [{{ MY }}](operations/prepare.md#source-my);
-* [{{ PG }}](operations/prepare.md#source-pg);
-* [{{ yds-full-name }}](operations/prepare.md#source-yds).
+* [{{ KF }}](operations/prepare.md#source-kf)
+* [{{ CH }}](operations/prepare.md#source-ch)
+* [{{ GP }}](operations/prepare.md#source-gp)
+* [{{ MG }}](operations/prepare.md#source-mg)
+* [{{ MY }}](operations/prepare.md#source-my)
+* [{{ PG }}](operations/prepare.md#source-pg)
+* [{{ yds-full-name }}](operations/prepare.md#source-yds)
 
 Prepare the target service for receiving the data:
 
-* [{{ CH }}](operations/prepare.md#target-ch);
-* [{{ MG }}](operations/prepare.md#target-mg);
-* [{{ MY }}](operations/prepare.md#target-my);
-* [{{ objstorage-name }}](operations/prepare.md#target-storage);
-* [{{ PG }}](operations/prepare.md#target-pg).
+* [{{ CH }}](operations/prepare.md#target-ch)
+* [{{ GP }}](operations/prepare.md#target-gp)
+* [{{ MG }}](operations/prepare.md#target-mg)
+* [{{ MY }}](operations/prepare.md#target-my)
+* [{{ objstorage-name }}](operations/prepare.md#target-storage)
+* [{{ PG }}](operations/prepare.md#target-pg)
+
 
 To receive data in {{ ydb-name }}, no setup is necessary.
 

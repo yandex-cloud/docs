@@ -33,15 +33,17 @@
 
       Result:
 
+      
       ```
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       ...
-      | b7r97ah2jn5rmo6k1dsk | test-load-balancer | ru-central1 | EXTERNAL |              1 | b7roi767je4c574iivrk   | INACTIVE |
+      | b7r97ah2jn5rmo6k1dsk | test-load-balancer | {{ region-id }} | EXTERNAL |              1 | b7roi767je4c574iivrk   | INACTIVE |
       ...
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       ```
+
 
    1. Choose the `ID` of the load balancer and the target group that is attached to it.
    1. Detach the selected group from the load balancer:

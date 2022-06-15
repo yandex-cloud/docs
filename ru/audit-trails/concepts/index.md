@@ -1,14 +1,14 @@
 ---
-title: Yandex Audit Trails. Обзор сервиса
-description: 'Yandex Audit Trails позволяет собирать аудитные логи о происходящих с ресурсами Yandex Cloud событиях и загружать эти логи в бакет или лог-группу для дальнейшего анализа или экспорта.'
+title: {{ at-full-name }}. Обзор сервиса
+description: '{{ at-full-name }} позволяет собирать аудитные логи о происходящих с ресурсами {{ yandex-cloud }} событиях и выгружать эти логи для дальнейшего анализа или экспорта.'
 ---
 
 # Обзор сервиса {{ at-full-name }}
 
-{{ at-full-name }} позволяет собирать аудитные логи ресурсов {{ yandex-cloud }} и загружать их в бакет {{ objstorage-name }} или в лог-группу {{ cloud-logging-name }}:
+{{ at-full-name }} позволяет собирать аудитные логи ресурсов {{ yandex-cloud }} и загружать их в бакет {{ objstorage-name }}или в лог-группу {{ cloud-logging-name }}:
 
-* [Загрузка аудитных логов в бакет](../operations/export-bucket.md)
-* [Загрузка аудитных логов в Cloud Logging](../operations/export-cloud-logging.md). 
+* [Загрузка аудитных логов в бакет](../operations/export-bucket.md).
+* [Загрузка аудитных логов в Cloud Logging](../operations/export-cloud-logging.md).
 
 Сбор аудитных логов позволяет применять инструменты анализа и оперативного реагирования на события уровня сервисов {{ yandex-cloud }}:
 

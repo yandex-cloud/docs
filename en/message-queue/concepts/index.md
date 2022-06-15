@@ -1,6 +1,6 @@
-# Yandex Message Queue concepts
+# {{ message-queue-full-name }} concepts
 
-Yandex Message Queue is a message queue service that enables distributed applications and microservices to interact through messaging.
+{{ message-queue-full-name }} is a message queue service that enables distributed applications and microservices to interact through messaging.
 
 - [{#T}](queue.md)
 - [{#T}](message.md)
@@ -10,4 +10,3 @@ Yandex Message Queue is a message queue service that enables distributed applica
 - [{#T}](dlq.md)
 - [{#T}](delay-queues.md)
 - [{#T}](limits.md)
-

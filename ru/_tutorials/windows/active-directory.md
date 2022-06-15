@@ -14,6 +14,7 @@ keywords:
 
 # Развертывание Active Directory
 
+
 В сценарии приводится пример развертывания Active Directory в {{ yandex-cloud }}.
 
 Чтобы развернуть инфраструктуру Active Directory:
@@ -31,15 +32,10 @@ keywords:
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед тем, как разворачивать серверы, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
-
-{% include [prepare-register-billing](../includes/prepare-register-billing.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 {% include [ms-additional-data-note](../includes/ms-additional-data-note.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака](https://console.cloud.yandex.ru/cloud).
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -89,14 +85,14 @@ keywords:
        1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать подсеть.
        1. Нажмите на имя облачной сети.
        1. Нажмите кнопку **Добавить подсеть**.
-       1. Заполните форму: введите имя подсети `ad-subnet-a`, выберите зону доступности `ru-central1-a` из выпадающего списка.
+       1. Заполните форму: введите имя подсети `ad-subnet-a`, выберите зону доступности `{{ region-id }}-a` из выпадающего списка.
        1. Введите CIDR подсети: IP-адрес и маску подсети: `10.1.0.0/16`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
        1. Нажмите кнопку **Создать подсеть**.
 
        Повторите шаги еще для двух подсетей:
 
-         * Название: `ad-subnet-b`. Зона доступности: `ru-central1-b`. CIDR: `10.2.0.0/16`.
-         * Название: `ad-subnet-c`. Зона доступности: `ru-central1-c`. CIDR: `10.3.0.0/16`.
+         * Название: `ad-subnet-b`. Зона доступности: `{{ region-id }}-b`. CIDR: `10.2.0.0/16`.
+         * Название: `ad-subnet-c`. Зона доступности: `{{ region-id }}-c`. CIDR: `10.3.0.0/16`.
 
      - CLI
 
@@ -105,19 +101,19 @@ keywords:
        ```powershell
        yc vpc subnet create \
          --name ad-subnet-a \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --network-name ad-network \
          --range 10.1.0.0/16
 
        yc vpc subnet create \
          --name ad-subnet-b \
-         --zone ru-central1-b \
+         --zone {{ region-id }}-b \
          --network-name ad-network \
          --range 10.2.0.0/16
 
        yc vpc subnet create \
          --name ad-subnet-c \
-         --zone ru-central1-c \
+         --zone {{ region-id }}-c \
          --network-name ad-network \
          --range 10.3.0.0/16
        ```
@@ -149,7 +145,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `ad-vm-a`.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
+  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
   1. В блоке **Выбор образа/загрузочного диска** → **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ **Windows Server 2019 Datacenter** и нажмите **Использовать**.
   1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
   1. В блоке **Вычислительные ресурсы**:
@@ -169,7 +165,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
   1. В блоке **Доступ** в поле **Пароль** укажите ваш пароль.
   1. Нажмите кнопку **Создать ВМ**.
 
-  Повторите операцию для ВМ с именем `ad-vm-b` в зоне доступности `ru-central1-b`, подключите ее к подсети `ad-subnet-b` и вручную укажите внутренний адрес `10.2.0.3`.
+  Повторите операцию для ВМ с именем `ad-vm-b` в зоне доступности `{{ region-id }}-b`, подключите ее к подсети `ad-subnet-b` и вручную укажите внутренний адрес `10.2.0.3`.
 
 - CLI
 
@@ -179,7 +175,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
     --hostname ad-vm-a \
     --memory 8 \
     --cores 4 \
-    --zone ru-central1-a \
+    --zone {{ region-id }}-a \
     --network-interface subnet-name=ad-subnet-a,ipv4-address=10.1.0.3 \
     --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk \
     --metadata-from-file user-data=setpass
@@ -189,7 +185,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
     --hostname ad-vm-b \
     --memory 8 \
     --cores 4 \
-    --zone ru-central1-b \
+    --zone {{ region-id }}-b \
     --network-interface subnet-name=ad-subnet-b,ipv4-address=10.2.0.3 \
     --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk \
     --metadata-from-file user-data=setpass
@@ -207,7 +203,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `jump-server-vm`.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-c`.
+  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-c`.
   1. В блоке **Выбор образа/загрузочного диска** → **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ **Windows Server 2019 Datacenter** и нажмите **Использовать**.
   1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
   1. В блоке **Вычислительные ресурсы**:
@@ -230,7 +226,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
     --hostname jump-server-vm \
     --memory 4 \
     --cores 2 \
-    --zone ru-central1-c \
+    --zone {{ region-id }}-c \
     --network-interface subnet-name=ad-subnet-c,nat-ip-version=ipv4 \
     --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk \
     --metadata-from-file user-data=setpass
@@ -274,34 +270,34 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
    Windows перезапустится автоматически. Снова подключитесь к `ad-vm-a` и откройте PowerShell.
 
-1. Переименуйте сайт по умолчанию в `ru-central1-a`:
+1. Переименуйте сайт по умолчанию в `{{ region-id }}-a`:
 
    ```powershell
-   Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName 'ru-central1-a'
+   Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName '{{ region-id }}-a'
    ```
 
 1. Создайте еще два сайта для других зон доступности:
 
    ```powershell
-   New-ADReplicationSite 'ru-central1-b'
-   New-ADReplicationSite 'ru-central1-c'
+   New-ADReplicationSite '{{ region-id }}-b'
+   New-ADReplicationSite '{{ region-id }}-c'
    ```
 
 1. Создайте подсети и привяжите их к сайтам:
 
    ```powershell
-   New-ADReplicationSubnet -Name '10.1.0.0/16' -Site 'ru-central1-a'
-   New-ADReplicationSubnet -Name '10.2.0.0/16' -Site 'ru-central1-b'
-   New-ADReplicationSubnet -Name '10.3.0.0/16' -Site 'ru-central1-c'
+   New-ADReplicationSubnet -Name '10.1.0.0/16' -Site '{{ region-id }}-a'
+   New-ADReplicationSubnet -Name '10.2.0.0/16' -Site '{{ region-id }}-b'
+   New-ADReplicationSubnet -Name '10.3.0.0/16' -Site '{{ region-id }}-c'
    ```
 
 1. Переименуйте сайт-линк и настройте репликацию:
 
    ```powershell
    Get-ADReplicationSiteLink 'DEFAULTIPSITELINK' | `
-       Set-ADReplicationSiteLink -SitesIncluded @{Add='ru-central1-b'} -ReplicationFrequencyInMinutes 15 -PassThru | `
+       Set-ADReplicationSiteLink -SitesIncluded @{Add='{{ region-id }}-b'} -ReplicationFrequencyInMinutes 15 -PassThru | `
        Set-ADObject -Replace @{options = $($_.options -bor 1)} -PassThru | `
-       Rename-ADObject -NewName 'ru-central1'
+       Rename-ADObject -NewName '{{ region-id }}'
    ```
 
 1. Укажите сервер переадресации DNS:

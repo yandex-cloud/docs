@@ -2,7 +2,7 @@
 
 This section describes how to configure {{unified-agent-full-name}}. Before getting started, we recommend reading through the [basic concepts](../../index.md) used in agent configuration.
 
-## Configuration files { #files }
+## Configuration files {#files}
 
 {{unified-agent-short-name}} is configured using YAML files with the following sections:
 
@@ -15,19 +15,16 @@ This section describes how to configure {{unified-agent-full-name}}. Before gett
 The configuration file can also contain an `import` directive for [importing other configuration files](#import).
 
 To use your configuration file, pass its path in the command line parameter `--config` at agent startup. For example:
-
 ```bash
 /usr/bin/unified_agent --config /etc/yandex/unified_agent/config.yml
 ```
-
 When you use the {{unified-agent-short-name}} deb package distribution, the basic configuration file `/etc/yandex/unified_agent/config.yml` is automatically set and passed to the `--config` parameter.
 
 We recommend adding your custom configuration to a separate file in the directory `/etc/yandex/unified_agent/conf.d`. Files from that directory are imported from the main configuration file using the `import` directive in alphabetical order. The import mechanism is described in the [{#T}](#import) chapter of this section.
 
 In [{#T}](#examples), you can find a variety of sample configurations as well as a reference example with a complete list of configuration parameters and their descriptions.
 
-## Importing configuration files { #import }
-
+## Importing configuration files {#import}
 You can import other configuration files using the `import` directive. The value of the directive is a string or array of strings, each string expanded using the [glob](http://man7.org/linux/man-pages/man7/glob.7.html) function. Files are imported in the order of the `import` directives. Within each directive, they follow the lexicographic file name order.
 
 When importing configuration files, the following rules apply:
@@ -36,7 +33,7 @@ When importing configuration files, the following rules apply:
 - The `channels`, `storages`, `pipes`, and `services` sections are presented as a list. New items are added to the end of the list or replaced if the item's `name` is already in the list.
 - The `routes` section is a list. New items are added to the end of the list.
 
-The `import` directive can be included in the imported files. To do so, only specify absolute paths in `import`. Relative paths start from the agent's startup directory.
+The `import` directive can be included in the imported files. To do so, specify only absolute paths in `import`. Relative paths start from the agent's startup directory.
 
 {% note info %}
 
@@ -49,7 +46,6 @@ If the {{unified-agent-short-name}} configuration import loops, it terminates wi
 ## Output and validation of the final configuration {#validation}
 
 To validate the agent settings, run the command:
-
 ```bash
 unified_agent --config /etc/yandex/unified_agent/config.yml check-config
 ```
@@ -57,17 +53,16 @@ unified_agent --config /etc/yandex/unified_agent/config.yml check-config
 If the validation is successful, the agent outputs to `stdout` the final variant once all imports are complete and returns the null return code.
 
 If the validation fails, the agent outputs configuration errors to `stderr` and returns a non-zero return code:
-
 ```bash
 $ unified_agent --config console_to_lb.yml check-config
 yaml-cpp: error at line 10, column 3: unrecognized field [statos_port]
 ```
 
-## Configuration directives { #configuration_sections }
+## Configuration directives {#configuration_sections}
 
-Below are the configuration sections and parameters of different  {{unified-agent-short-name}} components. For optional parameters, the values given in the examples are the default.
+Below are the configuration sections and parameters of different {{unified-agent-short-name}} components. For optional parameters, the values given in the examples are the default.
 
-### status section { #status }
+### Status section {#status}
 
 This section contains the {{unified-agent-short-name}} status viewing configuration.
 
@@ -84,8 +79,7 @@ status: # optional
   port: 16301 # required
 ```
 
-### storages section { #storages_section }
-
+### Storages section {#storages_section}
 This section contains a list of [storages](index.md#storages).
 
 The storage definition consists of the following elements:
@@ -130,8 +124,7 @@ pipe:
         new_sessions_rate_limit: null # optional, not set by default
 ```
 
-### routes section { #routes }
-
+### Routes section {#routes}
 This section contains a list of [delivery routes](index.md#routes).
 
 Delivery routes consist of the following elements:
@@ -149,10 +142,10 @@ Channels consist of the following elements:
 
 - `pipe`: The pipe.
 - One of the following elements:
-  - `output`: Contains the output configuration.
-  - `channel_ref`: The link to a named channel.
-  - `case`: A splitter that redirects the input stream to one or more child channels based on a condition.
-  - `fanout`: A splitter that unconditionally directs the input stream to all child channels.
+   - `output`: Contains the output configuration.
+   - `channel_ref`: The link to a named channel.
+   - `case`: A splitter that redirects the input stream to one or more child channels based on a condition.
+   - `fanout`: A splitter that unconditionally directs the input stream to all child channels.
 
 An example of the `routes` section:
 
@@ -214,7 +207,7 @@ An example of the `case` element:
     # Situations like this are abnormal.
     # To avoid them, add the last "catch all channel" element to the case and omit the when filter.
     case:
-      # Inside when, you can define the conditions for matching between the message and session metadata, similar to the match filter.
+      # Inside when, you can define the conditions for matching between the message and session metadata, similar to the "match" filter.
       - when:
           message:
             message-key: v1
@@ -241,8 +234,7 @@ An example of the `case` element:
             plugin: dev_null
 ```
 
-### channels section { #channels }
-
+### Channels section {#channels}
 This section contains a list of named [channels](index.md#channels). You can use channels from this section in delivery routes, referring to them by name.
 
 An example of the `channels` section:
@@ -276,8 +268,7 @@ An example of a delivery route that uses a named channel:
       name: named_channel
 ```
 
-### pipes section { #pipes }
-
+### Pipes section {#pipes}
 This section contains a list of named [pipes](index.md#pipes). You can use pipes from this section in channels, referring to them by name.
 
 An example of a `pipes` section:
@@ -311,8 +302,7 @@ An example of a delivery route that uses a named pipe:
       plugin: debug
 ```
 
-### main_thread_pool section { #main_thread_pool }
-
+### Main_thread_pool section {#main_thread_pool}
 This section contains a configuration for execution threads.
 
 Parameter descriptions:
@@ -323,8 +313,7 @@ main_thread_pool: # optional
   threads: 1 # optional, default value is 1
 ```
 
-### agent_log section { #agent_log }
-
+### Agent_log section {#agent_log}
 This section contains the agent's log settings. You can override the setting using command line parameters.
 
 Parameter descriptions:
@@ -339,12 +328,11 @@ agent_log: # optional
   file: cerr # optional, the default value is cerr (standard error stream)
 
   # Limit the log write rate to the specified value.
-  # Write attempts exceeding this rate are discarded. The number of bytes discarded this way is reflected in the DroppedBytes counter in the agent-log group.
+  # Write attempts exceeding this rate are discarded. The number of bytes discarded this way is reflected in the DroppedBytes counter in the "agent-log" group.
   rate_limit_bytes: null # optional, not set by default
 ```
 
-### system section { #system }
-
+### System section {#system}
 Miscellaneous system settings.
 
 Parameter descriptions:
@@ -359,9 +347,8 @@ system: # optional
   memory_limit: null # optional, not set by default
 ```
 
-### flow_control section { #flow_control }
-
-This section contains a configuration for session control. The settings let you configure various session limits and their behavior upon reaching those limits.
+### Flow_control section {#flow_control}
+This section contains a configuration for session control. The settings let you configure various session limits and their behavior upon reaching the limits.
 
 You can use the flow_control section for inputs and storage references (storage_ref).
 
@@ -381,8 +368,8 @@ flow_control: # optional
     limit_messages: null # optional, not set by default
 
     # Behavior when the buffer is full:
-    # * backpressure: Pause receiving new messages until the buffer is released.
-    # * drop: Drop new messages if they exceed the buffer.
+    #   * backpressure: Pause receiving new messages until the buffer is released.
+    #   * drop: Drop new messages if they exceed the buffer.
     action: backpressure # optional, default value is backpressure
 
   # Limit on how often new sessions can be created. It's expressed as a number of new sessions created per second.
@@ -392,9 +379,9 @@ flow_control: # optional
   new_sessions_rate_limit: 5 # optional, the default value is 5 for inputs, not supported for storage_ref
 ```
 
-### Inputs { #inputs }
+### Inputs {#inputs}
 
-#### agent_metrics input { #agent_metrics_input }
+#### Agent_metrics input {#agent_metrics_input}
 
 The input collects health metrics for {{unified-agent-full-name}}.
 
@@ -412,7 +399,7 @@ Parameter descriptions:
       namespace: null # optional, not set by default
 ```
 
-#### metrics_pull input { #metrics_pull_input }
+#### Metrics_pull input {#metrics_pull_input}
 
 The input polls the specified URL at preset intervals and parses the response for metrics in the specified format, for example, {{ prometheus-name }}.
 
@@ -460,9 +447,26 @@ Parameter descriptions:
         http_method: GET # optional, default value is GET
 ```
 
-#### linux_metrics input { #linux_metrics_input }
+#### Linux_metrics input {#linux_metrics_input}
 
-An input to collect system usage statistics (CPU, RAM, network, disk) for Linux-compatible operating systems. The input collects metric values from [procfs](https://en.wikipedia.org/wiki/Procfs) and [sysfs](https://en.wikipedia.org/wiki/Sysfs).
+An input to collect system usage statistics (CPU, RAM, network, disk) for Linux-compatible operating systems. The input collects metric values from [procfs](https://ru.wikipedia.org/wiki/Procfs) and [sysfs](https://ru.wikipedia.org/wiki/Sysfs).
+
+{% note warning %}
+
+If the agent is running in a Docker container, pass the paths to procfs, sysfs, and disk mount points to the container in order to monitor the host system metrics and secondary disks attached to the host. To do this, use the `docker run` command with the `-v` parameter. For example, if a secondary disk is mounted in the `/data` directory:
+
+```bash
+  docker run \
+    -p 16241:16241 -it --detach --uts=host \
+    --name=ua \
+    -v /proc:/ua_proc \
+    -v /data:/data \
+    -e PROC_DIRECTORY=/ua_proc \
+    -e FOLDER_ID=a1bs... \
+    cr.yandex/yc/unified-agent
+```
+
+{% endnote %}
 
 Parameter descriptions:
 
@@ -474,7 +478,7 @@ Parameter descriptions:
     poll_period: 15s # optional, default value is 15 seconds
 
     # The directory where procfs is mounted and counters are taken from.
-    # If the agent is running in a Docker container, pass the host /proc inside the container using the -v parameter to monitor the host.
+    # If the agent is running in a Docker container, pass the host /proc inside the container using the -v parameter in order to monitor the host.
     proc_directory: "/proc " # optional, default value is /proc
 
     # The directory where sysfs is mounted and counters are taken from.
@@ -482,7 +486,7 @@ Parameter descriptions:
     sys_directory: "/sys" # optional, default value is /sys
 
     # List of resources to collect statistics from.
-    # Key — one of cpu, memory, network, storage, io, or kernel.
+    # Key — one of the values: cpu, memory, network, storage, io, kernel.
     # Value — level of detail, takes one of basic or advanced.
     resources: # optional
         cpu: advanced # optional, default value is basic
@@ -498,9 +502,9 @@ Parameter descriptions:
         kernel: advanced # optional, default value is basic
 ```
 
-### Filters { #filters }
+### Filters {#filters}
 
-#### assign filter { #assign_filter }
+#### Assign filter {#assign_filter}
 
 A filter for assigning metadata to a session or message.
 
@@ -515,7 +519,6 @@ The `key` value:
 If the metadata key is not found at the message level (in the `message` section), the key is searched for in the session metadata. If the key is not found at the session level, the default value is used `({_host|default_host})`. If a default value is not set, an empty string is used.
 
 You can also use the following macros as `key` values:
-
 - `$host_name`: Local name of the machine.
 - `$short_host_name`: Short local name of the machine (in other words, cut at the first dot).
 - `$env('name')`: Environment variable with the name `name`.
@@ -548,7 +551,7 @@ Parameter descriptions:
         # If the key is not found at the session level, the default value `({_host|default_host})` is used. If no default value is set, an empty string is used.
         # Below are some template examples.
         message: # optional, not set by default
-            # Sample result: Nov 27 21:03:24 test-host test-app:test_payload.
+            # Output example: 'Nov 27 21:03:24 test-host test-app:test_payload'.
             # The timestamp uses the strftime format (http://man7.org/linux/man-pages/man3/strftime.3.html).
             # In this example, the value _app test-app: has a colon at the end, which is a typical result of parsing a syslog message.
             - _payload: "{_timestamp:%b %d %H:%M:%S} {_host} {_app}{_payload}"
@@ -580,7 +583,7 @@ Parameter descriptions:
             - m2: v2
 ```
 
-#### convert_metrics filter { #convert_metrics_filter }
+#### Convert_metrics filter {#convert_metrics_filter}
 
 A filter for converting metrics between different formats. The format for input messages is taken from the session metadata with the key `_metrics_format` (if it exists) or from the message metadata with the same key (if it exists).
 
@@ -630,7 +633,7 @@ Parameter descriptions:
         common_time: null # optional, not set by default
 ```
 
-#### filter_metrics filter{ #filter_metrics_filter }
+#### Filter_metrics filter {#filter_metrics_filter}
 
 The filter lets you decrease the set of passed metrics based on the label values.
 
@@ -643,7 +646,7 @@ The filter lets you decrease the set of passed metrics based on the label values
         match: "{name=gauge-*}"  # required
 ```
 
-#### match filter { #match_filter }
+#### Match filter {#match_filter}
 
 Filtering messages based on metadata: the filter only skips messages that contain all listed metadata.
 
@@ -669,12 +672,11 @@ Parameter descriptions:
         # The metadata may also include any other keys.
 ```
 
-#### transform_metrics filter { #transform_metrics_filter }
+#### Transform_metrics filter {#transform_metrics_filter}
 
 This filter lets you change labels inside the metrics stream.
 
 Parameter descriptions:
-
 ```yaml
 - filter:
     plugin: transform_metric_label
@@ -689,12 +691,13 @@ Parameter descriptions:
         rename_to: name # optional
 
         # A separator to be used between the prefix to be added (add_value_prefix) and the current label value.
-        delimiter: .  # optional, the default value is .
+        delimiter: . # optional, the default value is '.'
 ```
 
-### Storages { #storages }
 
-#### fs storage { #fs_storage }
+### Storages {#storages}
+
+#### Fs storage {#fs_storage}
 
 File storage. Messages are saved in partitions. Partitions are the directories that contain the segment files with message data and the files with metadata.
 
@@ -719,7 +722,7 @@ storages: # optional
   config:
     # Directory with the storage data.
     # Subdirectories for partitions are created here.
-    directory: ./data/storage  # required
+    directory: ./data/storage # required
 
     # The maximum partition size.
     # By default, the storage has just one partition named default.
@@ -729,7 +732,7 @@ storages: # optional
 
     # The directory that stores auxiliary information for the storage.
     # Default value: .state inside directory
-    state_directory: {directory} / .state  # optional, default value is .state inside directory
+    state_directory: {directory} / .state # optional, default value is .state inside directory
 
     # The maximum size of a segment (one file) within a partition.
     # The default value is one-tenth of the partition size.
@@ -746,19 +749,19 @@ storages: # optional
 
     # The buffer size for calling syscall read.
     # By default, it's equal to block_flush_size.
-    read_buffer_size: {block_flush_size}  # optional, equal to block_flush_size by default
+    read_buffer_size: {block_flush_size} # optional, equal to block_flush_size by default
 
     # Time to store the session information.
     # As soon as the incoming session is closed, the storage stops storing information about the session.
     # The mapping sessionid->last_seq_no and the session metadata are deleted.
     # The session is only deleted if all its data is written to the outputs.
-    session_retention_time: 1h # optional, default value is 1h
+    session_retention_time: 1h # optional, the default value is 1h
 
     # Partition data storage time.
     # The partition is deleted after the specified time if:
     # * All its data is written to outputs and confirmation is received.
     # * There are no active sessions that write data to this partition.
-    partition_retention_time: 1h  # optional, the default value is 1h
+    partition_retention_time: 1h # optional, the default value is 1h
 
     # Check frequency for session_retention_time and partition_retention_time.
     retention_check_period: 1m # optional, default value is 1m
@@ -777,7 +780,7 @@ storages: # optional
     # * Regularly, at an interval of retention_check_period.
     #
     # The TrailingMessageAgeMs and TrailingSegmentAgeMs counters are supported at the partition level.
-    # TrailingMessageAgeMs is determined by the timestamp of the oldest segment's first message.
+    # TrailingMessageAgeMs is determined by the timestamp of the first message of the oldest segment.
     # This counter approximately evaluates (in other words, without accounting for timestamp irregularity) the period of time for which the partition contains data.
     # TrailingSegmentAgeMs is determined in a similar manner based on the segment that follows it.
     # This counter shows when the last segment will be deleted (when the value of the by_age property is reached).
@@ -804,9 +807,9 @@ storages: # optional
     unacknowledged_eviction_log_priority: ERROR # optional, default value is ERROR
 ```
 
-### Outputs { #outputs }
+### Outputs {#outputs}
 
-#### debug output { #debug_output }
+#### Debug output {#debug_output}
 
 This is a debug output that outputs incoming messages to a file or console.
 
@@ -846,13 +849,13 @@ Parameter descriptions:
             delimiter: null # required
 ```
 
-#### dev_null output { #dev_null_output }
+#### Dev_null output {#dev_null_output}
 
 An empty debug output: disposes of incoming messages.
 
 Contains no parameters.
 
-#### yc_metrics output { #yc_metrics_output }
+#### Yc_metrics output {#yc_metrics_output}
 
 An output used for writing metrics in the {{monitoring-full-name}} API.
 
@@ -861,10 +864,10 @@ Parameter descriptions:
 ```yaml
 - channel:
     output:
-        plugin: yc_logs
+        plugin: yc_metrics
         config:
         # The URL to send metrics to.
-        url: https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write # optional, the default value is https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write
+        url: https://monitoring.{{ api-host }}/monitoring/v2/data/write # optional, the default value is https://monitoring.{{ api-host }}/monitoring/v2/data/write
 
         folder_id: b1ge2vt0gml6ce48qcks # required, the folder ID
 
@@ -877,14 +880,14 @@ Parameter descriptions:
 
             # If specified, JWT is exchanged for an IAM token.
             jwt: # optional, not set by default
-            # The name of the file containing the JWT parameters in the format returned by the yc iam key create command.
+        # The name of the file containing the JWT parameters in the format returned by the `yc iam key create` command.
                 file: "jwt_params.json" # required
 
-                endpoint: iam.api.cloud.yandex.net # optional, the default value is iam.api.cloud.yandex.net
+                endpoint: iam.{{ api-host }} # optional, the default value is iam.{{ api-host }}
 
                 refresh_period: 1h # optional, the default value is 1h
 
-                request_timeout: 10s # optional, the default value is 10s
+                request_timeout: 10s # optional, default value is 10 seconds
 
         # Number of repeat attempts if the request failed.
         # If the request was not completed successfully within the specified number of attempts (in other words, the response with status 200 was not received), the message is discarded: confirmation is generated for the agent.
@@ -901,7 +904,64 @@ Parameter descriptions:
         request_timeout: 1s # optional, default value is 1 second
 ```
 
-## Examples { #examples }
+
+
+#### yc_logs output {#yc_logs_output}
+
+Output used for sending metrics to {{ cloud-logging-full-name }} via [gRPC](https://cloud.yandex.ru/docs/logging/api-ref/grpc/log_ingestion_service).
+
+{% note info %}
+
+The agent doesn't guarantee there will be no duplicate messages in the target system but does its best to avoid them. Duplicates may appear after a stop and subsequent restart.
+
+{% endnote %}
+
+Parameter descriptions:
+
+```yaml
+- channel:
+    output:
+        plugin: yc_logs 
+       config:
+        # The URL to send metrics to.
+        url: https://monitoring.{{ api-host }}/monitoring/v2/data/write # optional, the default value is https://monitoring.{{ api-host }}/monitoring/v2/data/write
+
+        folder_id: b1ge2vt0gml6ce48qcks #required, the folder ID
+
+        # IAM authentication settings.
+        iam: # required
+            # Either the cloud_meta or jwt element must be specified.
+
+            # If specified, the IAM token is taken from the metadata service.
+            cloud_meta: {} # optional, not set by default
+
+            # If specified, JWT is exchanged for an IAM token.
+            jwt: # optional, not set by default
+        # The name of the file containing the JWT parameters in the format returned by the `yc iam key create` command.
+                file: "jwt_params.json" # required
+
+                endpoint: iam.{{ api-host }} # optional, the default value is iam.{{ api-host }}
+
+                refresh_period: 1h # optional, the default value is 1h
+
+                request_timeout: 10s # optional, default value is 10 seconds
+
+        # Number of repeat attempts if the request failed.
+        # If the request was not completed successfully within the specified number of attempts (in other words, the response with status 200 was not received), the message is discarded: confirmation is generated for the agent
+        # Messages discarded this way are counted in the plugin's DroppedMessages counter. They are also displayed in the generic health counters MessagesLost and BytesLost.
+        retry_count: inf # optional, default value is max_int (means that messages will not be discarded)
+
+        # The interval between repeat attempts.
+        retry_delay: 1s # optional, default value is 1 second
+
+        # Request timeout, including all repeat attempts.
+        timeout: inf # optional, default value is max_int seconds (means that messages will not be discarded)
+
+        # Timeout per attempt.
+        request_timeout: 1s # optional, default value is 1 second
+```
+
+
+## Examples {#examples}
 
 Sample configurations are given in [{#T}](../../../operations/index.md#working-with-metrics).
-

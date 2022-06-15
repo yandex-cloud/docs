@@ -4,7 +4,7 @@ description:
     Перенесите свои привычные инструменты Microsoft в облако и используйте
     готовую масштабируемую инфраструктуру Yandex Cloud для решения своих задач.
 meta:
-  title: Microsoft Yandex Cloud
+  title: Использование продуктов Microsoft в Yandex Cloud
 links:
   - title: Обзор возможностей
     description: Узнайте о возможностях продуктов Microsoft в Yandex Cloud
@@ -15,7 +15,7 @@ links:
       в Yandex Cloud
     href: tutorials/
   - title: Образы виртуальных машин Windows
-    description: Варианты и особенности образов Yandex Cloud
+    description: Варианты и особенности образов в Yandex Cloud
     href: list-of-instances
   - title: Лицензии Microsoft
     description: Использование лицензий на ПО Microsoft в облаке Yandex Cloud

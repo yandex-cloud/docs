@@ -4,6 +4,7 @@ description: 'Quotas and limits for the Yandex Data Transfer service are not def
 
 editable: false
 ---
+
 # Quotas and limits in {{ data-transfer-name }}
 
 {{ data-transfer-full-name }} has the following limits:
@@ -11,4 +12,3 @@ editable: false
 {% include [quotes-limits-def](../../_includes/quotes-limits-def.md) %}
 
 {% include [data-transfer-limits](../../_includes/data-transfer/data-transfer-limits.md) %}
-

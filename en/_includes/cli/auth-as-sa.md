@@ -35,8 +35,10 @@ To authenticate as a service account:
         yc config set service-account-key key.json
         ```
 
+
 1. Make sure that the service account parameters are added correctly:
 
+      
     ```
     yc config list
     service-account-key:
@@ -53,6 +55,7 @@ To authenticate as a service account:
         MIIEvwIBAD...
         -----END PRIVATE KEY-----
     ```
+
 
 1. Configure your profile to run commands.
 

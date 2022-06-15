@@ -247,6 +247,7 @@
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+               
         1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), добавьте к описанию кластера поле `host_group_ids` и укажите в нем через запятую идентификаторы нужных групп:
 
             ```hcl
@@ -367,6 +368,7 @@
 
     Конфигурационный файл для такого кластера выглядит так:
 
+    
     ```hcl
     terraform {
       required_providers {
@@ -438,5 +440,6 @@
       }
     }
     ```
+
 
 {% endlist %}

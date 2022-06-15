@@ -63,7 +63,6 @@
           --role <ROLE-ID> \
           --subject userAccount:<USER-ACCOUNT-ID>
       ```
-
       * `<SERVICE-NAME>` — имя сервиса, на чей ресурс назначается роль, например `organization-manager`.
       * `<RESOURCE>` — категория ресурса. Для организации всегда имеет значение `organization`.
       * `<RESOURCE-NAME>` — имя ресурса. Для организации в качестве имени используйте [техническое название](#org-profile.md).
@@ -78,7 +77,6 @@
           --role organization-manager.admin \
           --subject userAccount:aje6o61dvog2h6g9a33s
       ```
-
 - API
 
   Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
@@ -105,7 +103,6 @@
         }]
       }
       ```
-
   1. Назначьте роль. Например, для организации с идентификатором `bpf3crucp1v28b74p3rk`:
 
     ```bash
@@ -114,7 +111,7 @@
     curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \	"https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+        -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
     ```
 
   Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса в документации {{ iam-full-name }} и {{ resmgr-full-name }}:
@@ -129,9 +126,9 @@
   1. Опишите в конфигурационном файле параметры назначаемых ролей:
 
      * `organization_id` — идентификатор организации.
-     * `role` — роль, которую хотите назначить. Описание ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../iam/concepts/access-control/roles.md). Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`. 
+     * `role` — роль, которую хотите назначить. Описание ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../iam/concepts/access-control/roles.md). Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`.
      * `members` — массив идентификаторов пользователей, которым будет назначена роль: 
-       * `userAccount:{user_id}` — идентификатор аккаунта пользователя на Яндексе. 
+       * `userAccount:{user_id}` — идентификатор аккаунта пользователя на Яндексе.
        * `serviceAccount:{service_account_id}` — идентификатор сервисного аккаунта.
        * `federatedUser:{federated_user_id}` —  идентификатор федеративного пользователя.
 
@@ -244,7 +241,6 @@
           --role organization-manager.admin \
           --subject userAccount:aje6o61dvog2h6g9a33s
       ```
-
 - API
 
   Чтобы отозвать роль у субъекта на ресурс, удалите соответствующую привязку прав доступа:
@@ -254,7 +250,7 @@
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
       export IAM_TOKEN=CggaATEVAgA...
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
+      curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
       ```
 
       Результат:
@@ -272,7 +268,6 @@
       ]
       }
       ```
-
   1. Сформируйте тело запроса, например в файле `body.json`. В теле запроса укажите, какую привязку прав доступа необходимо удалить. Например, отзовите у пользователя `aje6o61dvog2h6g9a33s` роль `organization-manager.admin`:
 
       Пример файла `body.json`:
@@ -291,7 +286,6 @@
         }]
       }
       ```
-
   1. Отзовите роль, удалив указанную привязку прав доступа:
 
     ```bash
@@ -300,7 +294,7 @@
     curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \	"https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+        -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
     ```
 
 {% endlist %}

@@ -13,11 +13,8 @@ If you no longer need to encrypt new objects in the bucket, [disable encryption]
 
 ## Before you start {#before-you-begin}
 
-Before using {{ objstorage-name }}, sign up for {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../../_tutorials/includes/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to place your bucket in. Go to the [Yandex.Cloud homepage]({{ link-console-cloud }}) and select or create a folder where you want to create a bucket. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources {#paid-resources}
 
@@ -53,15 +50,16 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
   1. Describe the resources in the configuration file. In this scenario, the parameters are specified under `locals`:
 
-      ```
+      
+      ```hcl
       locals {
         cloud_id    = "<cloud ID>"
         folder_id   = "<folder ID>"
         oauth       = "<OAuth>"
-        zone        = "ru-central1-a"
+        zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
-        sa_desc     = "Account for managing Object Storage buckets"
+        sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
 
         bucket_name = "example-bucket" # The name of the bucket being created. If you don't specify a bucket name for the `yandex_storage_bucket` resource, a name is generated automatically.
@@ -107,6 +105,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
       }
       ```
 
+
       For more information about the resources you can create using [Terraform]({{ tf-provider-link }}), see the [provider documentation]({{ tf-provider-link }}).
 
   1. Make sure that the configuration files are correct.
@@ -147,7 +146,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
   1. Run the command:
 
       ```bash
-      aws s3 mb s3://example-bucket --endpoint-url=https://storage.yandexcloud.net
+      aws s3 mb s3://example-bucket --endpoint-url=https://{{ s3-storage-host }}
       ```
 
       Execution output:
@@ -200,15 +199,16 @@ Create a new key or use an existing one. To create a key:
 
   1. Describe the resources in the configuration file. In this scenario, the parameters are specified under `locals`:
 
+      
       ```
       locals {
         cloud_id    = "<cloud ID>"
         folder_id   = "<folder ID>"
         oauth       = "<OAuth>"
-        zone        = "ru-central1-a"
+        zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
-        sa_desc     = "Account for managing Object Storage buckets"
+        sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
 
         key_name    = "key-1" # KMS key name.
@@ -223,7 +223,7 @@ Create a new key or use an existing one. To create a key:
           source = "yandex-cloud/yandex"
         }
         }
-      }
+        }
 
       provider "yandex" {
         token     = local.oauth
@@ -263,6 +263,7 @@ Create a new key or use an existing one. To create a key:
         secret_key = "${yandex_iam_service_account_static_access_key.buckets-account-key.secret_key}"
       }
       ```
+
 
   1. Make sure that the configuration files are correct.
 
@@ -319,15 +320,16 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
   1. Describe the resources in the configuration file. In this scenario, the parameters are specified under `locals`:
 
+      
       ```
       locals {
         cloud_id    = "<cloud ID>"
         folder_id   = "<folder ID>"
         oauth       = "<OAuth>"
-        zone        = "ru-central1-a"
+        zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
-        sa_desc     = "Account for managing Object Storage buckets"
+        sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
 
         key_name    = "key-1" # KMS key name.
@@ -391,6 +393,8 @@ To enable bucket encryption with a {{ kms-short-name }} key:
       }
       ```
 
+
+
   1. Make sure that the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
@@ -432,18 +436,18 @@ To enable bucket encryption with a {{ kms-short-name }} key:
   ```
   aws s3api put-bucket-encryption \
     --bucket example-bucket \
-    --endpoint-url=https://storage.yandexcloud.net \
+    --endpoint-url=https://{{ s3-storage-host }} \
     --server-side-encryption-configuration '{
-  	  "Rules": [
-  	    {
-  		  "ApplyServerSideEncryptionByDefault": {
-  		    "SSEAlgorithm": "aws:kms",
-  		    "KMSMasterKeyID": "<KMS key ID>"
-  		  },
-  		  "BucketKeyEnabled": true
-  		}
-  	  ]
-  	}'
+      "Rules": [
+        {
+        "ApplyServerSideEncryptionByDefault": {
+          "SSEAlgorithm": "aws:kms",
+          "KMSMasterKeyID": "<KMS key ID>"
+        },
+        "BucketKeyEnabled": true
+      }
+      ]
+    }'
   ```
 
   As a result of successful command execution, all new objects in `example-bucket` will be encrypted with `key-1`.
@@ -473,15 +477,16 @@ After you disable bucket encryption, previously uploaded objects will be stored 
 
   1. Describe the resources in the configuration file. To disable encryption, delete or comment out the `server_side_encryption_configuration` section for the `yandex_storage_bucket` resource:
 
+      
       ```
       locals {
         cloud_id    = "<cloud ID>"
         folder_id   = "<folder ID>"
         oauth       = "<OAuth>"
-        zone        = "ru-central1-a"
+        zone        = "{{ region-id }}-a"
       
         sa_name     = "new-buckets-account"
-        sa_desc     = "Account for managing Object Storage buckets"
+        sa_desc     = "Account for managing {{ objstorage-name }} buckets"
         sa_key_desc = "Static key for ${local.sa_name}"
       
         key_name    = "key-1"
@@ -547,6 +552,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
       }
       ```
 
+
   1. Make sure that the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
@@ -585,7 +591,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
   ```bash
   aws s3api delete-bucket-encryption \
     --bucket example-bucket \
-    --endpoint-url=https://storage.yandexcloud.net
+    --endpoint-url=https://{{ s3-storage-host }}
   ```
 
   As a result of successful execution, the `example-bucket` encryption is disabled.

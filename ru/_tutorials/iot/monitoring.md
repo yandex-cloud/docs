@@ -26,15 +26,10 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
 Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-Убедитесь, что платежный аккаунт готов к работе:  
-
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог на [странице облака](https://console.cloud.yandex.ru/cloud).
- 
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md). 
 
 ### Необходимые платные ресурсы {#paid-resources}
 

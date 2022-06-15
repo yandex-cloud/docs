@@ -23,6 +23,7 @@ description: "From this article you will learn how to work with machine learning
 * [{#T}](projects/work-with-git.md)
 * [{#T}](data-proc-integration.md)
 
+
 ## Working with data inside a project {#data-in-project}
 
 * [{#T}](data/secret-create.md)
@@ -38,8 +39,6 @@ description: "From this article you will learn how to work with machine learning
 * [{#T}](data/connect-to-postgresql.md)
 
 ## Deploying models {#deployment}
-
 * [{#T}](node-cell.md)
 * [{#T}](node-customization.md)
 * [{#T}](node-api.md)
-

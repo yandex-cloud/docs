@@ -46,7 +46,7 @@ To find out the operation status, use the [Get](https://github.com/yandex-cloud/
 Sample REST request used to get the operation status:
 
 ```
-GET https://operation.api.cloud.yandex.net/operations/fcmq0j5033e516c56ctq
+GET https://operation.{{ api-host }}/operations/fcmq0j5033e516c56ctq
 ```
 
 ## Canceling an operation {#cancel}
@@ -69,7 +69,7 @@ To cancel the operation, use the [Cancel](https://github.com/yandex-cloud/clouda
 Example of canceling an operation in the REST API:
 
 ```
-POST https://operation.api.cloud.yandex.net/operations/a3s17h9sbq5asdgss12:cancel
+POST https://operation.{{ api-host }}/operations/a3s17h9sbq5asdgss12:cancel
 ```
 
 In response, the server returns the `Operation` object with the current status of the operation being canceled.
@@ -118,7 +118,7 @@ Sample gRPC description of the [ListOperations](https://github.com/yandex-cloud/
 Sample REST request for a list of operations:
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03/operations
+GET https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03/operations
 ```
 
 Server response:
@@ -141,7 +141,7 @@ Server response:
         "folderId": "a3s17h9sbq5asdgss12",
         "name": "disk-1",
         "description": "Test disk",
-        "zoneId" : "ru-central1-a",
+        "zoneId" : "{{ region-id }}-a",
         "typeId" : "network-ssd",
         "size" : 10737418240
       }

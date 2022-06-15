@@ -45,7 +45,7 @@ If you don't need the number of CoreDNS replicas to change depending on the clus
         --service-account-name <service account name> \
         --node-service-account-name <service account name> \
         --public-ip \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --network-name <cloud network name>
       ```
 
@@ -62,7 +62,7 @@ If you don't need the number of CoreDNS replicas to change depending on the clus
       yc managed-kubernetes node-group create \
         --name node-group-1 \
         --cluster-name dns-autoscaler \
-        --location zone=ru-central1-a \
+        --location zone={{ region-id }}-a \
         --public-ip \
         --fixed-size 3 \
         --cores 4 \
@@ -230,7 +230,7 @@ Create a second node group using the command:
 yc managed-kubernetes node-group create \
   --name node-group-2 \
   --cluster-name dns-autoscaler \
-  --location zone=ru-central1-a \
+  --location zone={{ region-id }}-a \
   --public-ip \
   --fixed-size 2 \
   --cores 4 \

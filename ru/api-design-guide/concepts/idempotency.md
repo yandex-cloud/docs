@@ -23,7 +23,7 @@ Idempotency-Key: <UUID>
 ```
 POST /compute/v1/instances/e0m97h0gbq0foeuis03:start
 HTTP/1.1
-Host: compute.api.cloud.yandex.net
+Host: compute.{{ api-host }}
 Idempotency-Key: c1700de3-b8cb-4d8a-9990-e4ebf052e9aa
 ```
  

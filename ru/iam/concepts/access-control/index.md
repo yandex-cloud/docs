@@ -6,7 +6,7 @@
 
 Все операции в {{ yandex-cloud }} предварительно отправляются на проверку в {{ iam-short-name }}, например:
 
-1. Пользователь просит сервис Compute Cloud создать новый диск в каталоге <q>default</q>.
+1. Пользователь просит сервис {{ compute-name }} создать новый диск в каталоге <q>default</q>.
 1. Сервис спрашивает {{ iam-short-name }}, можно ли этому пользователю создать диск в этом каталоге.
 1. {{ iam-short-name }} проверяет, что пользователь — участник облака с каталогом <q>default</q> и имеет необходимые разрешения для создания диска в этом каталоге.
 1. Если какого-то из разрешений у пользователя нет, операция не будет выполнена, и {{ yandex-cloud }} сообщит об ошибке.
@@ -53,7 +53,7 @@
 * `serviceAccount` — [сервисный аккаунт](../users/service-accounts.md), созданный в {{ yandex-cloud }}.
 
     {% include [include](../../../_includes/sa-assign-role-note.md) %}
-* `federatedUser` — аккаунт пользователя из [федерации удостоверений](../../../organization/add-federation.md), например из Active Directory.
+* `federatedUser` — аккаунт пользователя  [федерации удостоверений](../../../organization/add-federation.md), например из Active Directory.
 
     {% include [include](../../../_includes/saml-assign-role-note.md) %}
 * `system` — [системная группа](system-group.md).

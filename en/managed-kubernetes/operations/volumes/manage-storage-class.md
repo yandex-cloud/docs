@@ -2,6 +2,7 @@
 
 _Storage class_ (`StorageClass`) allows administrators to divide the stores they provision into classes with defined parameters.
 
+
 {{ managed-k8s-short-name }} automatically provides two storage classes, `yc-network-hdd` and `yc-network-ssd`, with the following parameters:
 
 - [Volume Binding Mode](https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode): `WaitForFirstConsumer`.
@@ -23,54 +24,72 @@ You can [create your own storage class](#sc-create) as well as [change the defau
 
 {% endnote %}
 
+
 ## Create a storage class {#sc-create}
 
 1. Save the storage class creation specification in the `my-sc-hdd.yaml` YAML file:
 
-    Learn more about [the storage class creation specification format](#sc-spec).
+   Learn more about [the storage class creation specification format](#sc-spec).
 
-    ```
-    kind: StorageClass
-    apiVersion: storage.k8s.io/v1
-    metadata:
-      name: my-sc-hdd
-    provisioner: disk-csi-driver.mks.ycloud.io
-    volumeBindingMode: WaitForFirstConsumer
-    parameters:
-      type: network-hdd
-      csi.storage.k8s.io/fstype: ext4
-    allowVolumeExpansion: false
-    reclaimPolicy: Retain
-    ```
+   
+   ```yaml
+   kind: StorageClass
+   apiVersion: storage.k8s.io/v1
+   metadata:
+     name: my-sc-hdd
+   provisioner: disk-csi-driver.mks.ycloud.io
+   volumeBindingMode: WaitForFirstConsumer
+   parameters:
+     type: network-hdd
+     csi.storage.k8s.io/fstype: ext4
+   allowVolumeExpansion: false
+   reclaimPolicy: Retain
+   ```
+
 
 1. Run the command:
 
-    ```
-    $ kubectl create -f my-sc-hdd.yaml
-    storageclass.storage.k8s.io/my-sc-hdd created
-    ```
+   
+   ```bash
+   kubectl create -f my-sc-hdd.yaml
+   ```
+
+
+   Command output:
+
+   
+   ```bash
+   storageclass.storage.k8s.io/my-sc-hdd created
+   ```
+
 
 1. Check that the storage class was created:
 
-    ```
-    $ kubectl get storageclass
-    NAME                       PROVISIONER                     AGE
-    my-sc-hdd                  disk-csi-driver.mks.ycloud.io   76s
-    yc-network-hdd (default)   disk-csi-driver.mks.ycloud.io   16m
-    yc-network-ssd             disk-csi-driver.mks.ycloud.io   16m
-    ```
+   ```bash
+   kubectl get storageclass
+   ```
+
+   Command output:
+
+   
+   ```bash
+   NAME                      PROVISIONER                    AGE
+   my-sc-hdd                 disk-csi-driver.mks.ycloud.io  76s
+   yc-network-hdd (default)  disk-csi-driver.mks.ycloud.io  16m
+   yc-network-ssd            disk-csi-driver.mks.ycloud.io  16m
+   ```
+
 
 ### Specification format for creating a storage class {#sc-spec}
 
 Each `StorageClass` object contains the `provisioner`, `parameters`, and `reclaimPolicy` parameters that are used for the dynamic provisioning of `PersistentVolumes`.
 
 Acceptable parameter values:
-
-- `provisioner`: `disk-csi-driver.mks.ycloud.io`.
-- `parameters`
-    - `type`: `network-hdd` or `network-ssd`.
-    - `csi.storage.k8s.io/fstype`: `ext2`, `ext3`, or `ext4`.
-- `reclaimPolicy`: `Retain` or `Delete`.
+* `provisioner`: `disk-csi-driver.mks.ycloud.io`.
+* `parameters`
+  * `type`: `network-hdd` or`network-ssd`.
+  * `csi.storage.k8s.io/fstype`: `ext2`, `ext3`, or `ext4`.
+* `reclaimPolicy`: `Retain` or `Delete`.
 
 YAML file structure:
 
@@ -87,6 +106,7 @@ parameters: # Storage class parameters.
 allowVolumeExpansion: false
 reclaimPolicy: <reclaim policy>
 ```
+
 
 ## Change the default storage class {#sc-default}
 

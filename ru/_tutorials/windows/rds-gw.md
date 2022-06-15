@@ -6,15 +6,10 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед тем, как разворачивать серверы, зарегистрируйтесь в {{ yandex-cloud }} и создайте платежный аккаунт:
-
-{% include [prepare-register-billing](../../_tutorials/includes/prepare-register-billing.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 {% include [ms-additional-data-note](../includes/ms-additional-data-note.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака](https://console.cloud.yandex.ru/cloud).
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -65,7 +60,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
         1. Откройте сервис **Virtual Private Cloud** в каталоге, где требуется создать подсеть.
         1. Нажмите на имя облачной сети.
         1. Нажмите кнопку **Добавить подсеть**.
-        1. Заполните форму: введите имя подсети `rdgw-subnet`, выберите нужную зону доступности из выпадающего списка (например, `ru-central1-a`).
+        1. Заполните форму: введите имя подсети `rdgw-subnet`, выберите нужную зону доступности из выпадающего списка (например, `{{ region-id }}-a`).
         1. Введите CIDR подсети: IP-адрес и маску подсети: `10.1.0.0/16`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
         1. Нажмите кнопку **Создать подсеть**.
    
@@ -74,7 +69,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       ```
       yc vpc subnet create `
         --name rdgw-subnet `
-        --zone ru-central1-a `
+        --zone {{ region-id }}-a `
         --network-name rdgw-network `
         --range 10.1.0.0/16
       ```
@@ -87,7 +82,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       created_at: "2021-06-09T10:49:21Z"
       name: rdgw-subnet
       network_id: qqppl6fduhct76qkjh6s
-      zone_id: ru-central1-a
+      zone_id: {{ region-id }}-a
       v4_cidr_blocks:
       - 10.1.0.0/16
       ```
@@ -172,7 +167,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 
      1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
      1. В поле **Имя** введите имя виртуальной машины: `my-rds-gw`.
-     1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
+     1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
      1. В блоке **Выбор образа/загрузочного диска** выберите образ **2019 Datacenter**.
      1. В блоке **Диски** укажите размер загрузочного диска 60 ГБ.
      1. В блоке **Вычислительные ресурсы**:
@@ -208,7 +203,8 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
             --hostname my-rds-gw `
             --memory 4 `
             --cores 2 `
-            --zone ru-central1-a `
+            --platform-id=standard-v3 `
+            --zone {{ region-id }}-a `
             --network-interface subnet-name=rdgw-subnet,ipv4-address=10.1.0.3,nat-ip-version=ipv4,security-group-ids=<id_my-rdgw-group> `
             --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk `
             --metadata-from-file user-data=setpass
@@ -222,8 +218,8 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       folder_id: big67u7m5flplkc6vvpc
       created_at: "2021-06-09T10:51:58Z"
       name: my-rds-gw
-      zone_id: ru-central1-a
-      platform_id: standard-v2
+      zone_id: {{ region-id }}-a
+      platform_id: standard-v3
       resources:
       memory: "4294967296"
       cores: "2"
@@ -245,7 +241,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
         ip_version: IPV4
         security_group_ids:
          - enp136p8s2ael7ob6klg
-           fqdn: my-rds-gw.ru-central1.internal
+           fqdn: my-rds-gw.{{ region-id }}.internal
            scheduling_policy: {}
            network_settings:
            type: STANDARD
@@ -361,7 +357,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
     
         1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
         1. В поле **Имя** введите имя виртуальной машины: `test-vm`.
-        1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
+        1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
         1. В блоке **Выбор образа/загрузочного диска** выберите образ **2019 Datacenter**.
         1. В блоке **Диски** укажите размер загрузочного диска 60 ГБ.
         1. В блоке **Вычислительные ресурсы**:
@@ -384,7 +380,8 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
         --hostname test-vm `
         --memory 4 `
         --cores 2 `
-        --zone ru-central1-a `
+        --platform-id=standard-v3 `
+        --zone {{ region-id }}-a `
         --network-interface subnet-name=rdgw-subnet,ipv4-address=10.1.0.4 `
         --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk `
         --metadata-from-file user-data=setpass
@@ -398,8 +395,8 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       folder_id: big67u7m5flplkc6vvpc
       created_at: "2021-06-09T11:53:03Z"
       name: test-vm
-      zone_id: ru-central1-a
-      platform_id: standard-v2
+      zone_id: {{ region-id }}-a
+      platform_id: standard-v3
       resources:
       memory: "4294967296"
       cores: "2"
@@ -416,7 +413,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
         subnet_id: e9b95m6al33r62n5vkab
         primary_v4_address:
         address: 10.1.0.4
-        fqdn: test-vm.ru-central1.internal
+        fqdn: test-vm.{{ region-id }}.internal
         scheduling_policy: {}
         network_settings:
         type: STANDARD

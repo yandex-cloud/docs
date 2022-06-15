@@ -29,7 +29,7 @@
    description: My YMQ trigger.
    rule:
      message_queue:
-       arn: yrn:yc:ymq:ru-central1:aoek49ghmknnpj1ll45e:my-mq
+       arn: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
        service_account_id: bfbqqeo6jkpls2tse5o6
        batch_settings:
          size: "10"

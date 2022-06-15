@@ -4,7 +4,7 @@
 
 ## Installation {#install}
 
-Install the AWS SDK for JavaScript in Node.js [by following the instructions](https://aws.amazon.com/en/sdk-for-node-js/) on the official site.
+Install the AWS SDK for JavaScript in Node.js [by following the instructions](https://aws.amazon.com/sdk-for-node-js/) on the official site.
 
 ## Before you start {#prepare}
 
@@ -22,25 +22,25 @@ $ export AWS_SECRET_ACCESS_KEY="<secret key>"
 In this example:
 
 1. A connection with {{ message-queue-name }} is established.
-1. A message queue is created with the name `ymq_example_nodejs_sdk`.
-1. A message with the text `test message` is sent to the queue.
+1. A message queue is created with the name `mq_example_nodejs_sdk`.
+1. A message with the text `test-message` is sent to the queue.
 1. The message is read from the queue and displayed in the terminal.
 1. The message queue is deleted.
 
 ```javascript
 var AWS = require('aws-sdk');
 
-var ymq = new AWS.SQS({
-    'region': 'ru-central1',
-    'endpoint': 'https://message-queue.api.cloud.yandex.net',
+var mq = new AWS.SQS({
+    'region': '{{ region-id }}',
+    'endpoint': 'https://message-queue.{{ api-host }}',
 });
 
 async function createQueue() {
     params = {
-        'QueueName': 'ymq_example_nodejs_sdk',
+        'QueueName': 'mq_example_nodejs_sdk',
     }
 
-    result = await ymq.createQueue(params).promise();
+    result = await mq.createQueue(params).promise();
     queueUrl = result['QueueUrl'];
 
     console.log('Queue created, URL: ' + queueUrl);
@@ -54,7 +54,7 @@ async function sendMessage(queueUrl) {
         'MessageBody': 'test message',
     }
 
-    result = await ymq.sendMessage(params).promise();
+    result = await mq.sendMessage(params).promise();
 
     console.log('Message sent, ID: ' + result['MessageId']);
 }
@@ -65,7 +65,7 @@ async function receiveMessage() {
         'WaitTimeSeconds': 10,
     }
 
-    result = await ymq.receiveMessage(params).promise();
+    result = await mq.receiveMessage(params).promise();
 
     result['Messages'].forEach(async function(msg) {
         console.log('Message received')
@@ -77,7 +77,7 @@ async function receiveMessage() {
             'ReceiptHandle': msg['ReceiptHandle'],
         }
 
-        await ymq.deleteMessage(deleteParams).promise()
+        await mq.deleteMessage(deleteParams).promise()
     })
 }
 
@@ -86,7 +86,7 @@ async function deleteQueue() {
         'QueueUrl': queueUrl,
     }
 
-    result = await ymq.deleteQueue(params).promise();
+    result = await mq.deleteQueue(params).promise();
 
     console.log('Queue deleted')
 }
@@ -100,4 +100,3 @@ async function main() {
 
 main()
 ```
-

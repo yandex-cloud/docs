@@ -71,7 +71,7 @@ To use a secret storage provider, place the secrets within the components that n
 
     ```bash
     hadoop distcp \
-           -D fs.s3a.bucket.dataproc-examples.endpoint=storage.yandexcloud.net \
+           -D fs.s3a.bucket.dataproc-examples.endpoint={{ s3-storage-host }} \
            -D hadoop.security.credential.provider.path=jceks://hdfs/user/root/yc.jceks \
            -update \
            -skipcrccheck \
@@ -90,7 +90,7 @@ Example of the command to copy files from the bucket:
 
 ```bash
 hadoop distcp \
-       -D fs.s3a.bucket.dataproc-examples.endpoint=storage.yandexcloud.net \
+       -D fs.s3a.bucket.dataproc-examples.endpoint={{ s3-storage-host }} \
        -D hadoop.security.credential.provider.path=jceks://hdfs/user/root/yc.jceks \
        -update \
        -skipcrccheck \
@@ -105,7 +105,7 @@ Instead of creating a secrets file, you can pass keys in command arguments:
 
 ```bash
 hadoop distcp \
-       -D fs.s3a.bucket.dataproc-examples.endpoint=storage.yandexcloud.net \
+       -D fs.s3a.bucket.dataproc-examples.endpoint={{ s3-storage-host }} \
        -D fs.s3a.bucket.dataproc-examples.access.key=<access_key> \
        -D fs.s3a.bucket.dataproc-examples.secret.key=<secret_key> \
        -update \
@@ -157,7 +157,7 @@ For more information, see [Component properties](../concepts/settings-list.md#sp
   * Using JCEKS:
 
     ```scala
-    sc.hadoopConfiguration.set("fs.s3a.endpoint", "storage.yandexcloud.net");
+    sc.hadoopConfiguration.set("fs.s3a.endpoint", "{{ s3-storage-host }}");
     sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
     sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
     sc.hadoopConfiguration.set("hadoop.security.credential.provider.path", "jceks://hdfs/<path to JCEKS file>");
@@ -166,7 +166,7 @@ For more information, see [Component properties](../concepts/settings-list.md#sp
   * Using your access key and secret:
 
     ```scala
-    sc.hadoopConfiguration.set("fs.s3a.endpoint", "storage.yandexcloud.net");
+    sc.hadoopConfiguration.set("fs.s3a.endpoint", "{{ s3-storage-host }}");
     sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
     sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
     sc.hadoopConfiguration.set("fs.s3a.access.key","<access key>");
@@ -187,7 +187,7 @@ For more information, see [Component properties](../concepts/settings-list.md#sp
   * Accessing the {{objstorage-name}} objects using JCEKS:
 
     ```python
-    sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "storage.yandexcloud.net")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "{{ s3-storage-host }}")
     sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
     sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
     sc._jsc.hadoopConfiguration().set("hadoop.security.credential.provider.path", "jceks://hdfs/<path to JCEKS file>")
@@ -196,7 +196,7 @@ For more information, see [Component properties](../concepts/settings-list.md#sp
   * Reading a file using an access key and bucket secret:
 
     ```python
-    sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "storage.yandexcloud.net")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "{{ s3-storage-host }}")
     sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
     sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
     sc._jsc.hadoopConfiguration().set("fs.s3a.access.key","<access key>")

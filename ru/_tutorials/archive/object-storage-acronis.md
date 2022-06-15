@@ -11,16 +11,13 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед использованием {{ objstorage-full-name }} нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
-
-{% include [prepare-register-billing](../../_tutorials/_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, на [странице облака]({{ link-console-cloud }}) выберите или создайте каталог, в котором будет находиться ваш бакет. [Подробнее об иерархии ресурсов {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 Для настройки резервного копирования вам понадобится сервисный аккаунт с ключами доступа:
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт с ролью `editor`.
 1. [Создайте](../../iam/operations/sa/create-access-key.md) статические ключи доступа. Сразу сохраните идентификатор и секретный ключ. После того, как вы закроете окно, параметры закрытого ключа будут недоступны.
+
 
 ### Необходимые платные ресурсы {#paid-resources}
 

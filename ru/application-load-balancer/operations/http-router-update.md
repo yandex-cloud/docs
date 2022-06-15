@@ -31,6 +31,8 @@
      ```
 
      Результат:
+     
+          
      ```
      id: a5dld80l32edg407nsti
      name: new-http-router
@@ -54,6 +56,8 @@
          append: ru-RU
      created_at: "2021-02-11T21:31:01.676592016Z"
      ```
+ 
+ 
 
 - Terraform
 

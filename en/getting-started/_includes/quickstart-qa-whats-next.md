@@ -12,9 +12,9 @@ Payment for {{ yandex-cloud }} services and resources will be debited from your 
 
 #### What happens after the trial period ends? Will you start debiting money right away? {#payment-after-trial}
 
-{{ yandex-cloud }} doesn't debit money and doesn't invoice you until you have switched to a paid account. Switching to a paid account never happens automatically.
+{{ yandex-cloud }} doesn't debit money and doesn't invoice you until you have switched to a paid account. The switching to paid consumption never happens automatically.
 
-However, if your [grant](../usage-grant.md) has expired, access to your resources will be blocked for 30 days or until you switch to a paid account. For more information about trial period expiration, see [{#T}](../free-trial/concepts/trial-ending.md).
+However, if your [grant](../usage-grant.md) has expired, access to your resources will be blocked for 30 days or until you switch to paid consumption. For more information about expiry of the trial period, see [{#T}](../free-trial/concepts/trial-ending.md).
 
 ### Questions about the initial grant {#grant}
 
@@ -32,31 +32,31 @@ The cloud may be blocked for a few reasons:
 
 #### I couldn't use up the initial grant in 60 days. Can I use {{ yandex-cloud }}? {#initial-grant-expiring}
 
-When the initial grant expires, the entire unspent amount is reset and access to your resources is suspended for 30 days. To continue using {{ yandex-cloud }}, switch to a paid account.
+When the initial grant expires, the total unused amount is offset, and the access to your resources is suspended for 30 days. To continue using {{ yandex-cloud }}, switch to a paid plan. 
 
-### Questions about documents {#documents}
+### About the documents {#documents}
 
-#### Is it safe to pay {{ yandex-cloud }}? {#payment-security}
+#### Is it safe to pay to {{ yandex-cloud }}? {#payment-security}
 
-The {{ yandex-cloud }} platform meets PCI DSS requirements, so it's safe to use cloud services for payment processing. For more information about PCI DSS certification, see [{#T}](../../security/conform.md#pci-dss).
+The {{ yandex-cloud }} platform meets the PCI DSS requirements, that's why it's safe to use the cloud services for payment processing. For more information about PCI DSS certification, see [{#T}](../../security/conform.md#pci-dss).
 
-#### Where can I find my agreement with {{ yandex-cloud }}? {#offer}
+#### Where do I find my agreement with {{ yandex-cloud }}? {#offer}
 
 {% include [contract-concept](../../_includes/billing/contract.md) %}
 
-There is no print form of the offer.
+No printed offer is provided.
 
-The invoice is not physically provided either, but you can generate it in the console and print it out.
+No physical invoice is provided, but you can generate and print it out from the console.
 
-#### I need an agreement signed by both parties, not an offer. Can I get it? {#signed-agreement}
+#### I need a bilateral contract rather than an offer. Can I have it? {#signed-agreement}
 
-Yes, businesses and individual entrepreneurs may conclude an agreement that is signed by both parties. To do this, submit a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the terms and conditions of signing the agreement.
+Yes, companies and individual entrepreneurs can sign a bilateral contract. Send a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the terms and conditions of signing the agreement.
 
 #### How can I get an invoice for payment? {#invoice}
 
-To get an invoice for payment in the bank, use the instructions on [{#T}](../../billing/operations/pay-the-bill.md#legal-entities).
+To get an invoice for paying at a bank office, use instructions at [{#T}](../../billing/operations/pay-the-bill.md#legal-entities).
 
-{{ yandex-cloud }} doesn't provide paper documents for payment.
+{{ yandex-cloud }} doesn't provide paper payment documents.
 
 ## What's next? {#what-is-next}
 

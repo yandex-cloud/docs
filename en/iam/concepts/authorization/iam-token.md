@@ -14,7 +14,7 @@ The IAM token is valid for no more than {{ iam-token-lifetime }}, but we recomme
 
 The IAM token lifetime can be less than 12 hours if:
 
-* You get an IAM token using the metadata service [inside the VM](../../../compute/operations/vm-connect/auth-inside-vm.md) or [from the function call context](../../../functions/operations/function-sa.md#context).
+* You get an IAM token using the metadata service [inside the VM](../../../compute/operations/vm-connect/auth-inside-vm.md)or [from the function call context](../../../functions/operations/function-sa.md#context).
 
   The metadata service returns the remaining token lifetime along with the IAM token. Account for your token lifetime or request the token more often, like once per hour or with every operation.
 
@@ -25,6 +25,7 @@ The IAM token lifetime can be less than 12 hours if:
 This authentication method is supported by all services, except for those with AWS-compatible APIs (they only need an IAM token for managing [access keys](access-key.md) and [service accounts](../users/service-accounts.md)).
 
 #### See also {#see-also}
+
 * [{#T}](../../operations/iam-token/create.md)
 * [{#T}](../../operations/iam-token/create-for-sa.md)
 * [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md)

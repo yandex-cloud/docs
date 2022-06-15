@@ -1,5 +1,6 @@
 # Equivalents for Microsoft Azure
 
+
 | Microsoft Azure | {{ yandex-cloud }} |
 |----|----|
 | AI Platform | [{{ ml-platform-full-name }}](../../datasphere/) |
@@ -38,6 +39,7 @@
 | Microsoft Power BI | [{{ datalens-full-name }}](../../datalens/) |
 | Microsoft: Azure Cosmos DB | [{{ ydb-full-name }}](../../ydb/) |
 | Queue Storage, Service Bus | [{{ message-queue-full-name }}](../../message-queue/) |
-| Virtual Machine Scale Sets | [Yandex Instance Groups](../../compute/concepts/instance-groups/) |
+| Virtual Machine Scale Sets | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
 | Virtual Machines | [{{ compute-full-name }}](../../compute/) |
 | Virtual Network | [{{ vpc-full-name }}](../../vpc/) |
+

@@ -6,7 +6,7 @@ Serial console access is disabled by default.
 
 {% include [sc-warning](../../../_includes/compute/serial-console-warning.md) %}
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 Before you enable serial console access on a VM:
 
@@ -38,22 +38,22 @@ To enable access to the serial console when creating a VM, set the `serial-port-
 
 - Linux
 
-  1. View a description of the CLI create VM command:
+   1. View a description of the CLI create VM command:
 
-     ```bash
-     yc compute instance create --help
-     ```
+      ```bash
+      yc compute instance create --help
+      ```
 
-  1. Select a public [image](../images-with-pre-installed-software/get-list.md) based on a Linux OS (such as Ubuntu).
+   1. Select a public [image](../images-with-pre-installed-software/get-list.md) based on a Linux OS (such as Ubuntu).
 
-     {% include [standard-images](../../../_includes/standard-images.md) %}
+      {% include [standard-images](../../../_includes/standard-images.md) %}
 
-  1. Create a VM in the default folder:
+   1. Create a VM in the default folder:
 
       ```bash
       yc compute instance create \
         --name first-instance \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
         --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts \
         --metadata-from-file ssh-keys=sshkeys.txt \
@@ -64,30 +64,30 @@ To enable access to the serial console when creating a VM, set the `serial-port-
       This command will create a VM:
       * With Ubuntu.
       * Named `first-instance`.
-      * In the `ru-central1-a` zone.
+      * In the `{{ region-id }}-a` zone.
       * With the serial console active.
 
       A user named `yc-user` will be automatically created in the VM's OS with the specified public key.
 
 - Windows
 
-  1. View a description of the CLI create VM command:
+   1. View a description of the CLI create VM command:
 
-     ```bash
-     yc compute instance create --help
-     ```
+      ```bash
+      yc compute instance create --help
+      ```
 
-  1. Select a public Windows-based [image](../images-with-pre-installed-software/get-list.md).
+   1. Select a public Windows-based [image](../images-with-pre-installed-software/get-list.md).
 
-     {% include [standard-images](../../../_includes/standard-images.md) %}
+      {% include [standard-images](../../../_includes/standard-images.md) %}
 
-  1. Create a VM in the default folder:
+   1. Create a VM in the default folder:
 
       ```bash
       yc compute instance create \
         --name win-instance \
         --metadata-from-file user-data=metadata.yaml \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --network-interface subnet-name=default-c,nat-ip-version=ipv4 \
         --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
         --metadata serial-port-enable=1
@@ -96,7 +96,7 @@ To enable access to the serial console when creating a VM, set the `serial-port-
       This command will create a VM:
       * With Windows.
       * Named `win-instance`.
-      * In the `ru-central1-a` zone.
+      * In the `{{ region-id }}-a` zone.
       * With the serial console active.
 
       The `Administrator` user with the password specified in the `metadata.yaml` file will be automatically created in the VM's OS.

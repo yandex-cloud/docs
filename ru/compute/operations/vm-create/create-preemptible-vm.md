@@ -25,11 +25,11 @@
 
   1. В блоке **Выбор образа/загрузочного диска** выберите один из [образов](../../operations/images-with-pre-installed-software/get-list.md).
 
-  1. (опционально) В блоке **Диски и файловые хранилища** на вкладке **Диски** настройте загрузочный диск:
+  1. (опционально) В блоке **Дискии файловые хранилища** на вкладке **Диски** настройте загрузочный диск:
       * Выберите [тип диска](../../concepts/disk.md#disks_types).
       * Укажите нужный размер диска.
 
-          Если вы хотите создать виртуальную машину из существующего диска, в блоке **Диски и файловые хранилища** [добавьте диск](./create-from-disks.md):
+          Если вы хотите создать виртуальную машину из существующего диска, в блоке **Дискии файловые хранилища** [добавьте диск](./create-from-disks.md):
           * Нажмите кнопку **Добавить диск**.
           * Введите имя диска.
           * Выберите [тип диска](../../concepts/disk.md#disks_types).
@@ -39,7 +39,7 @@
           * Выберите наполнение `Диск`.
           * Нажмите кнопку **Добавить**.
 
-  1. (опционально) В блоке **Диски и файловые хранилища** на вкладке **Файловые хранилища** подключите [файловое хранилище](../../concepts/filesystem.md):
+    1. (опционально) В блоке **Диски и файловые хранилища** на вкладке **Файловые хранилища** подключите [файловое хранилище](../../concepts/filesystem.md):
       * Нажмите кнопку **Подключить файловое хранилище**.
       * В открывшемся окне выберите файловое хранилище.
       * Введите имя устройства.
@@ -96,7 +96,7 @@
       ```
 
   1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на виртуальную машину.
-  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) на базе операционной системы Linux (например, [CentOS 7](https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo)).
+  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) на базе операционной системы Linux (например, [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo)).
 
       {% include [standard-images](../../../_includes/standard-images.md) %}
 
@@ -105,7 +105,7 @@
       ```
       yc compute instance create \
         --name first-preemptible-instance \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
         --preemptible \
         --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
@@ -116,7 +116,7 @@
 
       * С именем `first-preemptible-instance`.
       * С OC CentOS 7.
-      * В зоне доступности `ru-central1-a`.
+      * В зоне доступности `{{ region-id }}-a`.
       * В подсети `default-a`.
       * С публичным IP.
 
@@ -290,7 +290,7 @@
      folder_id: b1ghgf288nvg541tgu73
      created_at: "2022-04-12T08:40:09Z"
      name: first-instance
-     zone_id: ru-central1-b
+     zone_id: {{ region-id }}-b
      platform_id: standard-v1
      resources:
        memory: "1073741824"
@@ -310,7 +310,7 @@
          address: 10.2.0.14
          one_to_one_nat:
            ip_version: IPV4
-     fqdn: example-instance.ru-central1.internal
+     fqdn: example-instance.{{ region-id }}.internal
      scheduling_policy: {}
      network_settings:
        type: STANDARD
@@ -331,7 +331,7 @@
      folder_id: b1ghgf288nvg541tgu73
      created_at: "2022-04-12T08:40:09Z"
      name: first-instance
-     zone_id: ru-central1-b
+     zone_id: {{ region-id }}-b
      platform_id: standard-v1
      resources:
        memory: "1073741824"
@@ -352,7 +352,7 @@
          one_to_one_nat:
            address: 51.250.97.205
            ip_version: IPV4
-     fqdn: example-instance.ru-central1.internal
+     fqdn: example-instance.{{ region-id }}.internal
      scheduling_policy: {}
      network_settings:
        type: STANDARD

@@ -32,15 +32,10 @@ Make a backup of the site and database files using one of the following methods:
 
 ## Before you start {#before-begin}
 
-If you aren't registered in {{ yandex-cloud }}, sign up and create a billing account:
-
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create a folder to run your VM in or select one on the [cloud page]({{ link-console-cloud }}).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 Make sure the selected folder has a cloud network with a subnet in at least one availability zone. To do this, select **{{ vpc-name }}** on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
+
 
 ### Required paid resources {#paid-resources}
 
@@ -131,13 +126,13 @@ Before you transfer your files, do the following:
 
 - Ubuntu
 
-    Run the command:
+  Run the command:
 
-	  ```bash
-	  sudo apt install nano
-	  ```
+  ```bash
+    sudo apt install nano
+  ```
 
-    Wait for the editor to be installed.
+  Wait for the editor to be installed.
 
 {% endlist %}
 

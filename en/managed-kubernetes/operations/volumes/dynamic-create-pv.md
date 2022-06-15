@@ -14,6 +14,7 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
 
 1. Save the following `PersistentVolumeClaim` creation specification to a YAML file named `pvc-dynamic.yaml`.
 
+   
    {% note info %}
 
    If the `storageClassName` parameter is not specified, the default storage class (`yc-network-hdd`) is used. To change the default class, see [{#T}](manage-storage-class.md#sc-default).
@@ -22,6 +23,7 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
 
    For more on specifications for creating `PersistentVolumeClaim` objects, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
+   
    ```
    apiVersion: v1
    kind: PersistentVolumeClaim
@@ -35,6 +37,7 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
        requests:
          storage: 4Gi
    ```
+
 
    1. Run the command:
 
@@ -56,6 +59,7 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
 
       Command output:
 
+      
       ```
       Name:          pvc-dynamic
       Namespace:     default
@@ -67,6 +71,7 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
       ----    ------                ----              ----                         -------
       Normal  WaitForFirstConsumer  9s (x3 over 15s)  persistentvolume-controller  waiting for first consumer to be created before binding
       ```
+
 
 ## Create a pod with a dynamically provisioned volume {#create-pod}
 
@@ -145,6 +150,7 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
 
      Command output:
 
+     
      ```
      Name:          pvc-dynamic
      Namespace:     default
@@ -160,3 +166,4 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
        Normal  Provisioning           4m10s                  disk-csi-driver.mks.ycloud.io_cat1h5l0v862oq74cp8j_d0f0b837-a875-11e9-b6cb-d00df1cbdf81  External provisioner is provisioning volume for claim "default/pvc-dynamic"
        Normal  ProvisioningSucceeded  4m7s                   disk-csi-driver.mks.ycloud.io_cat1h5l0v862oq74cp8j_d0f0b837-a875-11e9-b6cb-d00df1cbdf81  Successfully provisioned volume pvc-c4794058-ad68-11e9-b71a-d00df1cbdf81
      ```
+

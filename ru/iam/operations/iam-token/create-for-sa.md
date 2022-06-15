@@ -84,7 +84,7 @@ yc iam create-token
 
   Payload JWT для сервисного аккаунта должен содержать поля:
   * `iss` — идентификатор сервисного аккаунта, чьим ключом подписывается JWT.
-  * `aud` — ссылка, по которой будет запрашиваться IAM-токен: `https://iam.api.cloud.yandex.net/iam/v1/tokens`.
+  * `aud` — ссылка, по которой будет запрашиваться IAM-токен: `https://iam.{{ api-host }}/iam/v1/tokens`.
   * `iat` — время выписки токена в формате [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time).
   * `exp` — время окончания действия токена в формате Unix timestamp. Время окончания действия не должно превышать время выписки больше чем на час, то есть `exp - iat ≤ 3600`.
 
@@ -93,7 +93,7 @@ yc iam create-token
   ```
   {
     "iss": "ajepg0mjt06siua65usm",
-    "aud": "https://iam.api.cloud.yandex.net/iam/v1/tokens",
+    "aud": "https://iam.{{ api-host }}/iam/v1/tokens",
     "iat": 1516239022,
     "exp": 1516240822
   }
@@ -131,7 +131,7 @@ yc iam create-token
 
   now = int(time.time())
   payload = {
-          'aud': 'https://iam.api.cloud.yandex.net/iam/v1/tokens',
+          'aud': 'https://iam.{{ api-host }}/iam/v1/tokens',
           'iss': service_account_id,
           'iat': now,
           'exp': now + 360}
@@ -180,7 +180,7 @@ yc iam create-token
           String encodedToken = Jwts.builder()
                   .setHeaderParam("kid", keyId)
                   .setIssuer(serviceAccountId)
-                  .setAudience("https://iam.api.cloud.yandex.net/iam/v1/tokens")
+                  .setAudience("https://iam.{{ api-host }}/iam/v1/tokens")
                   .setIssuedAt(Date.from(now))
                   .setExpiration(Date.from(now.plusSeconds(360)))
                   .signWith(privateKey, SignatureAlgorithm.PS256)
@@ -218,13 +218,13 @@ yc iam create-token
                 { "kid", keyId }
             };
 
-            var payload = new Dictionary<string, object>()
-            {
-                { "aud", "https://iam.api.cloud.yandex.net/iam/v1/tokens" },
-                { "iss", serviceAccountId },
-                { "iat", now },
-                { "exp", now + 3600 }
-            };
+          var payload = new Dictionary<string, object>()
+          {
+              { "aud", "https://iam.{{ api-host }}/iam/v1/tokens" },
+              { "iss", serviceAccountId },
+              { "iat", now },
+              { "exp", now + 3600 }
+          };
 
             RsaPrivateCrtKeyParameters privateKeyParams;
             using (var pemStream = File.OpenText("<файл_закрытого_ключа>"))
@@ -309,7 +309,7 @@ yc iam create-token
             ExpiresAt: jwt.NewNumericDate(time.Now().Add(1 * time.Hour)),
             IssuedAt:  jwt.NewNumericDate(time.Now()),
             NotBefore: jwt.NewNumericDate(time.Now()),
-            Audience:  []string{"https://iam.api.cloud.yandex.net/iam/v1/tokens"},
+            Audience:  []string{"https://iam.{{ api-host }}/iam/v1/tokens"},
   	}
   	token := jwt.NewWithClaims(jwt.SigningMethodPS256, claims)
   	token.Header["kid"] = keyID
@@ -349,7 +349,7 @@ yc iam create-token
   var keyId = '<идентификатор_открытого_ключа>';
   var now = Math.floor(new Date().getTime() / 1000);
 
-  var payload = { aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens",
+  var payload = { aud: "https://iam.{{ api-host }}/iam/v1/tokens",
                   iss: serviceAccountId,
                   iat: now,
                   exp: now + 3600 };
@@ -390,7 +390,7 @@ yc iam create-token
   $now = time();
 
   $claims = [
-      'aud' => 'https://iam.api.cloud.yandex.net/iam/v1/tokens',
+      'aud' => 'https://iam.{{ api-host }}/iam/v1/tokens',
       'iss' => $service_account_id,
       'iat' => $now,
       'exp' => $now + 360
@@ -440,7 +440,7 @@ yc iam create-token
       auto serviceAccountId = "<идентификатор_сервисного_аккаунта>";
       auto keyId = "<идентификатор_открытого_ключа>";
       std::set<std::string> audience;
-      audience.insert("https://iam.api.cloud.yandex.net/iam/v1/tokens");
+      audience.insert("https://iam.{{ api-host }}/iam/v1/tokens");
       auto algorithm = jwt::algorithm::ps256(
           std::string(std::istreambuf_iterator<char>{pub_key_file}, {}),
           std::string(std::istreambuf_iterator<char>{priv_key_file}, {}));
@@ -476,7 +476,7 @@ yc iam create-token
   headers = { kid: keyId }
   payload = {
       typ: 'JWT',
-      aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens",
+      aud: "https://iam.{{ api-host }}/iam/v1/tokens",
       iss: serviceAccountId,
       iat: issuedAt,
       exp: expirationTime,
@@ -513,7 +513,7 @@ yc iam create-token
   curl -X POST \
       -H 'Content-Type: application/json' \
       -d '{"jwt": "<SIGNED_JWT>"}' \
-      https://iam.api.cloud.yandex.net/iam/v1/tokens
+      https://iam.{{ api-host }}/iam/v1/tokens
   ```
 
   где `<SIGNED_JWT>` — токен в формате JWT, полученный на предыдущем шаге.
@@ -536,7 +536,7 @@ yc iam create-token
   	jot := signedToken()
   	fmt.Println(jot)
   	resp, err := http.Post(
-  		"https://iam.api.cloud.yandex.net/iam/v1/tokens",
+  		"https://iam.{{ api-host }}/iam/v1/tokens",
   		"application/json",
   		strings.NewReader(fmt.Sprintf(`{"jwt":"%s"}`, jot)),
   	)

@@ -36,12 +36,13 @@
          * `index_document`: Absolute path to the file of the website's homepage. Required parameter.
          * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. Optional.
 
-      ```
+      
+      ```hcl
       provider "yandex" {
         token     = "<OAuth>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
-        zone      = "ru-central1-a"
+        zone      = "{{ region-id }}-a"
       }
 
       resource "yandex_storage_bucket" "test" {
@@ -49,14 +50,15 @@
         secret_key = "<secret key>"
         bucket = "<bucket name>"
         acl    = "public-read"
-
+      
         website {
           index_document = "index.html"
           error_document = "error.html"
         }
-
+      
       }
       ```
+
 
    1. Make sure that the configuration files are correct.
 

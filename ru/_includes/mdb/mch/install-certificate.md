@@ -1,7 +1,7 @@
 
 ```bash
-sudo mkdir --parents /usr/local/share/ca-certificates/Yandex && \
+sudo mkdir --parents {{ crt-local-dir }} && \
 sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" \
-    --output-document=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
-sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+    --output-document={{ crt-local-dir }}{{ crt-local-file }} && \
+sudo chmod 655 {{ crt-local-dir }}{{ crt-local-file }}
 ```

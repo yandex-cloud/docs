@@ -1,1 +1,1 @@
-Виртуальные машины на платформах {{ v100-broadwell }}, {{ v100-cascade-lake }}, {{ a100-epyc }} и {{ t4-ice-lake }} можно создать в зонах доступности `ru-central1-a` и `ru-central1-b`.
+Виртуальные машины на платформах {{ v100-broadwell }}, {{ v100-cascade-lake }}, {{ a100-epyc }} и {{ t4-ice-lake }} можно создать в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b`.

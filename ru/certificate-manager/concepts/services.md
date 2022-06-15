@@ -1,8 +1,10 @@
 # Интеграция с сервисами {{ yandex-cloud }}
 
+
 Вы можете использовать сертификаты из {{ certificate-manager-name }} в следующих сервисах {{ yandex-cloud }}:
 * [{{ objstorage-full-name }}](#os).
 * [{{ api-gw-full-name }}](#api-gw).
+
 
 ## {{ objstorage-full-name }} {#os}
 
@@ -15,6 +17,7 @@
 
 {% endnote %}
 
+
 ## {{ api-gw-full-name }} {#api-gw}
 
 {{ api-gw-full-name }} позволяет объединить несколько микросервисов в единый продукт. Микросервисы могут быть запущены в виртуальных машинах, контейнерах или реализованы в виде функций. Вы сможете использовать домен для обращения к API.
@@ -23,5 +26,5 @@
 
 #### См. также {#see-also}
 
-- [Статический веб-сайт в {{ objstorage-name }}](../../tutorials/web/static.md)
-- [{{ api-gw-full-name }}](../../api-gateway/index.yaml)
+* [Статический веб-сайт в {{ objstorage-name }}](../../tutorials/web/static.md)
+* [{{ api-gw-full-name }}](../../api-gateway/index.yaml)

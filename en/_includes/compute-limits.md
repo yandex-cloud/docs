@@ -24,13 +24,15 @@ Maximum number of [placement groups](../compute/concepts/placement-groups.md) pe
 Number of dedicated hosts per dedicated host group^1^ | 0
 Number of dedicated host groups per cloud | 0
 
-^1^ To increase [quotas]({{ link-console-quotas }}) for file storage, virtual machines with GPUs, deployment-optimized images, or dedicated hosts, please contact [technical support]({{ link-console-support }}).
+
+^1^ To increase [quotas]({{ link-console-quotas }}) for file storage,virtual machines with GPUs, deployment-optimized images, or dedicated hosts,please contact [technical support]({{ link-console-support }}).
 
 #### VM limits {#compute-limits-vm}
 
 Limits per virtual machine depend on the virtual machine [platform](../compute/concepts/vm-platforms.md):
 
 {% list tabs %}
+
 
 - Intel Broadwell
 
@@ -61,7 +63,7 @@ Limits per virtual machine depend on the virtual machine [platform](../compute/c
   --- | ---
   Maximum number of vCPUs per VM | 96
   Maximum virtual memory per VM | 640 GB
-  Maximum number of disks and file stores attached to a single VM^2^ | Less then or equal to 32 vCPUs: 8<br>From 32 vCPUs: 16^3^
+  Maximum number of disks and file storesattached to a single VM^2^ | Less then or equal to 32 vCPUs: 8<br>From 32 vCPUs: 16^3^
   Maximum number of security groups per interface | 5
   Maximum number of VM instances in a [placement group](../compute/concepts/placement-groups.md) | 5
 
@@ -81,7 +83,7 @@ Maximum^4^ IOPS per VM | 100,000
 Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 100 MB/s
 Maximum^5^ bandwidth per VM | 1 GB/s
 
-#### Disk and file storage limits {#compute-limits-disks}
+#### Disk and file storagelimits {#compute-limits-disks}
 
 {% list tabs %}
 
@@ -131,6 +133,7 @@ Maximum^5^ bandwidth per VM | 1 GB/s
   Maximum^5^ bandwidth for reads per allocation unit | 110 MB/s
 
 {% endlist %}
+
 
 {% list tabs %}
 

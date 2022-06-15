@@ -40,7 +40,7 @@ Content-Type: multipart/form-data
     OAuth 0c4181a7c2cf4521964a72ff57a34a07
     ```
 
-    
+
 - **X-Org-ID**
 
     Organization ID.

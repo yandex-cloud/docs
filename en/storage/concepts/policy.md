@@ -30,6 +30,7 @@ If a bucket has an access policy configured, access to the bucket via the {{ yan
 
 Example rule for a specific {{ yandex-cloud }} user:
 
+
 ```json
 {
   "Effect": "Allow",
@@ -48,6 +49,7 @@ Example rule for a specific {{ yandex-cloud }} user:
   }
 }
 ```
+
 
 
 You can retrieve the user ID by following the [procedure](../../iam/operations/users/get.md) in the {{ iam-full-name }} documentation.

@@ -81,14 +81,14 @@
             login: test-user
             default_email: test-user@yandex.ru
         ```
+
     1. Назначьте пользователю `test-user` роль `editor` на сервисный аккаунт `my-robot`. В субъекте укажите тип `userAccount` и ID пользователя:
 
-        ```bash
+                ```bash
         yc iam service-account add-access-binding my-robot \
           --role editor \
           --subject userAccount:gfei8n54hmfhuk5nogse
         ```
-
 - API
 
     Воспользуйтесь методом [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md). Вам понадобится ID сервисного аккаунта и ID пользователя, которому назначается роль на сервисный аккаунт.
@@ -97,7 +97,7 @@
 
         ```bash
         curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
+          https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
         ```
 
         Результат:
@@ -117,9 +117,10 @@
         ```
 
     1. Узнайте ID пользователя по логину с помощью метода [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md):
+        
         ```bash
         curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+          https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
         ```
 
         Результат:
@@ -136,7 +137,7 @@
 
     1. Назначьте пользователю роль `editor` на сервисный аккаунт `my-robot`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
 
-        ```bash
+                ```bash
         curl -X POST \
           -H 'Content-Type: application/json' \
           -H "Authorization: Bearer <IAM-TOKEN>" \
@@ -149,7 +150,7 @@
                       "id": "gfei8n54hmfhuk5nogse",
                       "type": "userAccount"
           }}}]}' \
-          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
         ```
 
 - Terraform
@@ -167,7 +168,7 @@
          service_account_id = "<идентификатор сервисного аккаунта>"
          role               = "<роль>"
          members            = [
-           "userAccount:<идентификатор пользователя>",
+           "federatedUser:<идентификатор пользователя>",
          ]
        }
        ```
@@ -236,7 +237,6 @@
           --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse \
           --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
         ```
-
 - API
 
     Назначьте одному пользователю роль `editor`, а другому `viewer`:
@@ -263,9 +263,8 @@
                     "id": "helj89sfj80aj24nugsz",
                     "type": "userAccount"
         }}}]}' \
-        https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
     ```
-
     Вы также можете назначать роли с помощью метода [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md).
 
     {% note alert %}
@@ -286,9 +285,8 @@
             "roleId": "viewer",
             "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
         }]}' \
-        https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
     ```
-
 - Terraform
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -328,7 +326,6 @@
      }
      ...
      ```
-    
      {% endcut %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_binding).
@@ -406,7 +403,7 @@
 
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
       ```
 
       Результат:
@@ -446,7 +443,7 @@
                       "id": "ajebqtreob2dpblin8pe",
                       "type": "serviceAccount"
           }}}]}' \
-          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
       ```
 
 
@@ -549,7 +546,7 @@
                   "id": "allAuthenticatedUsers",
                   "type": "system"
       }}}]}' \
-      https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+      https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
   ```
 
 - Terraform

@@ -46,17 +46,17 @@ import javax.jms.*;
 
 public class App
 {
-    private static String queueName = "ymq_jms_example";
+    private static String queueName = "mq_jms_example";
 
     public static void main( String[] args ) throws JMSException
     {
         SQSConnectionFactory connectionFactory = new SQSConnectionFactory(
                 new ProviderConfiguration(),
                 AmazonSQSClientBuilder.standard()
-                        .withRegion("ru-central1")
+                        .withRegion("{{ region-id }}")
                         .withEndpointConfiguration(new EndpointConfiguration(
-                            "https://message-queue.api.cloud.yandex.net",
-                            "ru-central1"
+                            "https://message-queue.{{ api-host }}",
+                            "{{ region-id }}"
                         ))
         );
 

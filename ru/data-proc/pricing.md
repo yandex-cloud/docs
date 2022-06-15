@@ -26,9 +26,11 @@ editable: false
 
 Объем хранилища, запрошенный для каждого из хостов кластера, тарифицируется в рамках сервиса {{ compute-name }} согласно [ценам на дисковое пространство](../compute/pricing.md#prices-storage).
 
+
 ### Использование сервиса {{ cloud-logging-full-name }} {#rules-logs}
 
 Получение и хранение логов оплачивается по [правилам тарификации](../logging/pricing.md) сервиса {{ cloud-logging-full-name }}.
+
 
 
 ### Пример вычисления цены {#price-calculation-example}

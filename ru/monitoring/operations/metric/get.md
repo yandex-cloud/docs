@@ -30,7 +30,7 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d '@body.json' \
-        'https://monitoring.api.cloud.yandex.net/monitoring/v2/data/read?folderId=b2ghmo15rmnlod3hrf8p' > output.json
+        'https://monitoring.{{ api-host }}/monitoring/v2/data/read?folderId=b2ghmo15rmnlod3hrf8p' > output.json
     ```
 
     Пример ответа на запрос:

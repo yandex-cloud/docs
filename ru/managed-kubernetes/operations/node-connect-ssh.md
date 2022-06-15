@@ -9,7 +9,7 @@
 
   {% endnote %}
 
-* [Настройте группы безопасности](security-groups.md) кластера.
+* [Настройте группы безопасности](connect/security-groups.md) кластера.
 
   {% note warning %}
 
@@ -17,7 +17,7 @@
 
   {% endnote %}
 
-Подробнее см. в разделе [Подключение к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
+Подробнее см. в разделе [Подключение к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md).
 
 ## Создайте пары ключей SSH {#creating-ssh-keys}
 
@@ -219,7 +219,6 @@ yc managed-kubernetes node-group add-metadata \
 - Windows 7/8
 
   В Windows соединение устанавливается с помощью приложения PuTTY.
-
   1. Запустите приложение Pageant.
      1. Нажмите правой кнопкой мыши на значок Pageant на панели задач.
      1. В контекстном меню выберите пункт **Add key**.

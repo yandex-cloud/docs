@@ -1,6 +1,6 @@
 ---
-title: Authentication in Yandex Translate API
-description: "To perform operations via the Yandex Translate API, you need to obtain an IAM token for your service, federated or Yandex account. Specify the received IAM token when accessing Yandex Cloud resources via the API in the format — Authorization: Bearer <IAM-TOKEN>"
+title: Authentication in {{ translate-full-name }} API
+description: "To perform operations via the {{ translate-full-name }} API, you need to obtain an IAM token for your account. Specify the received IAM token when accessing {{ yandex-cloud }} resources via the API in the format — Authorization: Bearer <IAM-TOKEN>"
 ---
 
 {% include [authentication-ml-services](../../_includes/authentication-ml-services.md) %}

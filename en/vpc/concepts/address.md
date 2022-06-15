@@ -20,6 +20,7 @@ Public IP addresses can be dynamic or static. When creating a cloud resource wit
 
 You can make a dynamic public IP address static. Static IP addresses do not change when resources are stopped and you can reserve them in your folder for future use even if they aren't linked to any cloud resources. To learn how to make a dynamic IP address static, see [{#T}](../../compute/operations/vm-control/vm-set-static-ip.md).
 
+
 For more information about IP address pricing, see [{#T}](../pricing.md#prices-public-ip) in the {{ vpc-name }} documentation.
 
 ## Hostname (FQDN) {#fqdn}

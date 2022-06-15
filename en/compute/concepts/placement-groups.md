@@ -17,4 +17,3 @@ For more information about the organizational and technical limits of placement 
 * [How to create a placement group](../operations/placement-groups/create.md).
 * [How to add a VM instance to a placement group](../operations/placement-groups/add-vm.md).
 * [How to create a VM instance in a placement group](../operations/placement-groups/create-vm-in-pg.md).
-

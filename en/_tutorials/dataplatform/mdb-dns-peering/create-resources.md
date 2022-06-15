@@ -1,7 +1,4 @@
-1. Describe the new `vm-net` cloud network with its new subnets:
-    * `vm-subnet-ru-central1-a`: `172.17.1.0/24`, availability zone `ru-central1-a`.
-    * `vm-subnet-ru-central1-b`: `172.17.2.0/24`, availability zone `ru-central1-b`.
-    * `vm-subnet-ru-central1-c`: `172.17.3.0/24`, availability zone `ru-central1-c`.
+1. Describe the new `vm-net` cloud network with subnet `vm-subnet-{{ region-id }}-a`: CIDR `172.17.1.0/24`, availability zone `{{ region-id }}-a`.
 
     To do this, add the following lines to the `networks.tf` configuration file:
 
@@ -11,24 +8,10 @@
     resource "yandex_vpc_network" "vm-net" { name = "vm-net" }
     
     resource "yandex_vpc_subnet" "vm-subnet-a" {
-      name           = "vm-subnet-ru-central1-a"
-      zone           = "ru-central1-a"
+      name           = "vm-subnet-{{ region-id }}-a"
+      zone           = "{{ region-id }}-a"
       network_id     = yandex_vpc_network.vm-net.id
       v4_cidr_blocks = ["172.17.1.0/24"]
-    }
-    
-    resource "yandex_vpc_subnet" "vm-subnet-b" {
-      name           = "vm-subnet-ru-central1-b"
-      zone           = "ru-central1-b"
-      network_id     = yandex_vpc_network.vm-net.id
-      v4_cidr_blocks = ["172.17.2.0/24"]
-    }
-    
-    resource "yandex_vpc_subnet" "vm-subnet-c" {
-      name           = "vm-subnet-ru-central1-c"
-      zone           = "ru-central1-c"
-      network_id     = yandex_vpc_network.vm-net.id
-      v4_cidr_blocks = ["172.17.3.0/24"]
     }
     ```
 
@@ -88,8 +71,8 @@
     {% endnote %}
 
 1. Describe the virtual machines that you will use for [migration](#do-actions-for-migration) and to [check DNS functionality](#check-cluster-availability):
-    * `cluster-vm`: On the `cluster-net` cloud network (`cluster-subnet-ru-central1-c` subnet) with the `cluster-vm-sg` security group.
-    * `other-vm`: On the `vm-net` cloud network (`vm-subnet-ru-central1-c` subnet) with the `other-vm-sg` security group.
+    * `cluster-vm`: On the `cluster-net` cloud network (`cluster-subnet-{{ region-id }}-a` subnet) with the `cluster-vm-sg` security group.
+    * `other-vm`: On the `vm-net` cloud network (`vm-subnet-{{ region-id }}-a` subnet) with the `other-vm-sg` security group.
 
     To do this, create a configuration file called `vms.tf` with a description of the virtual machines.
 
@@ -101,7 +84,7 @@
     resource "yandex_compute_instance" "cluster-vm" {
       name        = "cluster-vm"
       platform_id = "standard-v3"
-      zone        = "{{ zone-id }}"
+      zone        = "{{ region-id }}-a"
     
       resources {
         cores  = 2
@@ -128,7 +111,7 @@
     resource "yandex_compute_instance" "other-vm" {
       name        = "other-vm"
       platform_id = "standard-v3"
-      zone        = "{{ zone-id }}"
+      zone        = "{{ region-id }}-a"
     
       resources {
         cores  = 2

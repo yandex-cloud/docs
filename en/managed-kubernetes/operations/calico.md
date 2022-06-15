@@ -30,7 +30,7 @@ When creating a {{ k8s }} cluster, activate the Calico network policy controller
     --name cluster-np \
     --service-account-name k8s \
     --node-service-account-name docker \
-    --zone ru-central1-a \
+    --zone {{ region-id }}-a \
     --network-name network \
     --enable-network-policy
   ```

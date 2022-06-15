@@ -133,6 +133,7 @@ To configure the parameters of [resource](../../concepts/resource.md) [caching](
 
       Example configuration file structure:
 
+      
       ```hcl
       terraform {
         required_providers {
@@ -165,6 +166,8 @@ To configure the parameters of [resource](../../concepts/resource.md) [caching](
 
       }
       ```
+
+
 
       For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 

@@ -32,7 +32,7 @@
 #### HTTP-Запрос {#sendfile-request}
 
 ```
-POST https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
+POST https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
 ```
 
 #### Параметры в теле запроса {#sendfile-params}
@@ -98,7 +98,7 @@ audio.<br>uri | **string**<br>URI аудиофайла для распознав
 #### HTTP-запрос {#get-result-request}
 
 ```
-GET https://operation.api.cloud.yandex.net/operations/{operationId}
+GET https://operation.{{ api-host }}/operations/{operationId}
 ```
 
 #### Path-параметры {#get-result-params}

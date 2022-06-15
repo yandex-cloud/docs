@@ -4,6 +4,8 @@ editable: false
 
 # Pricing for {{ objstorage-name }}
 
+
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}

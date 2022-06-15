@@ -11,15 +11,10 @@ If you no longer need the website, [delete the VM with it](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
-
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 Make sure the selected folder has a cloud network with a subnet in at least one availability zone. To do this, select **Yandex Virtual Private Cloud** on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
+
 
 ### Required paid resources {#paid-resources}
 
@@ -39,7 +34,7 @@ To create a VM:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Under **Images from {{ marketplace-name }}**, click **Select**. Select the [WordPress](https://cloud.yandex.com/en-ru/marketplace/products/f2eugfso8lh4ch2g2m9h) public image.
+1. Under **Images from {{ marketplace-name }}**, click **Select**. Select the [WordPress](/marketplace/products/f2eugfso8lh4ch2g2m9h) public image.
 
 1. Under **Computing resources**:
    * Choose a [platform](../../compute/concepts/vm-platforms.md).

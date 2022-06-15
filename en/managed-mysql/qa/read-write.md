@@ -18,7 +18,7 @@ This happens because of the way {{ MY }} stores data and not because of {{ mmy-s
 * Rollback segment storage.
 * Type packaging.
 
-To find out the actual table size within a database, access the `INNODB_SYS_TABLESPACES` system table. For more detail, see [Finding MySQL Table Size on Disk](https://www.percona.com/blog/2016/01/26/finding_mysql_table_size_on_disk).
+To find out the actual table size within a database, access the `INNODB_SYS_TABLESPACES` system table. For more information, see [Finding MySQL Table Size on Disk](https://www.percona.com/blog/2016/01/26/finding_mysql_table_size_on_disk).
 
 #### Any application error {#application-error}
 

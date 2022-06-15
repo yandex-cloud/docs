@@ -1,5 +1,6 @@
 # Настройки DHCP для работы с корпоративным DNS-сервером
 
+
 Если вам необходимо, чтобы виртуальные машины разрешали имена в приватной корпоративной зоне DNS, используйте [опции DHCP](../concepts/dhcp-options.md) в конфигурации [подсетей](../operations/subnet-create.md). Например, для узлов подсети можно указать DNS-суффикс и DNS-сервер.
 
 Для выполнения данного сценария у вас уже должен быть развернут корпоративный DNS-сервер, доступный для виртуальных машин в облаке. Вы можете также выполнить [развертывание Active Directory](../../tutorials/windows/active-directory.md), чтобы создать инфраструктуру с DNS-сервером:
@@ -25,13 +26,10 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Перед тем, как разворачивать инфраструктуру, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
-
-{% include [prepare-register-billing](../../_tutorials/_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать отдельный каталог для сценария. См. подробнее об [облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 Чтобы полностью пройти данный сценарий, необходимо [развернуть Active Directory](../../tutorials/windows/active-directory.md). Если вы используете собственные DNS-серверы, доступные для виртуальных машин облака, указывайте в сценарии свои значения DNS-суффикса и IP-адресов.
+
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -41,7 +39,6 @@
 * плата за объем дисков виртуальных машин (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамических или статических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-
 
 ## Создайте подсеть {#create-subnet}
 
@@ -56,7 +53,7 @@
 	1. Нажмите на имя облачной сети `ad-network`.
 	1. Нажмите кнопку **Добавить подсеть**.
 	1. Заполните форму:
-		* Укажите название подсети: `test-subnet-1`. Выберите зону доступности `ru-central1-b`.
+		* Укажите название подсети: `test-subnet-1`. Выберите зону доступности `{{ region-id }}-a`.
 		* Введите CIDR подсети: `10.128.0.0/24`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../concepts/network.md).
 	1. Задайте **Настройки DHCP**:
 		* В поле **Доменное имя** укажите DNS-суффикс: `yantoso.net`.
@@ -73,7 +70,7 @@
 	    --description "My test subnet" \
 	    --folder-id <id каталога> \
 	    --network-name ad-network \
-	    --zone ru-central1-b \
+	    --zone {{ region-id }}-a \
 	    --range 10.128.0.0/24 \
 	    --domain-name yantoso.net \
 	    --domain-name-server 10.1.0.3,10.2.0.3
@@ -88,7 +85,7 @@
 	name: test-subnet-1
 	description: My test subnet
 	network_id: enpl0t90hept99f9hsh4
-	zone_id: ru-central1-b
+	zone_id: {{ region-id }}-a
 	v4_cidr_blocks:
 	- 10.128.0.0/24
 	dhcp_options:
@@ -112,7 +109,7 @@
 	
 		1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
 		1. В поле **Имя** введите имя виртуальной машины: `vm-for-tests-in-subnet`.
-		1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
+		1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
 		1. В блоке **Выбор образа/загрузочного диска** нажмите Windows Server. В выпадающем списке выберите версию ОС **2016 Datacenter**.
 		1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
 		1. В блоке **Вычислительные ресурсы**:
@@ -141,7 +138,7 @@
 		yc compute instance create \
 		    --name vm-for-tests-in-subnet \
 		    --metadata-from-file user-data=metadata.yaml \
-		    --zone ru-central1-b \
+		    --zone {{ region-id }}-a \
 		    --cores 2 \
 		    --memory 4 \
 		    --network-interface subnet-name=test-subnet-1,nat-ip-version=ipv4 \

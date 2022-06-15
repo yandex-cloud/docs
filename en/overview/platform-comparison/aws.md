@@ -1,5 +1,6 @@
 # Equivalents for Amazon Web Services
 
+
 | Amazon Web Services | {{ yandex-cloud }} |
 |----|----|
 | Amazon API Gateway | [{{ api-gw-full-name }}](../../api-gateway/) |
@@ -7,7 +8,7 @@
 | Amazon CloudFront | [{{ cdn-full-name }}](../../cdn/) |
 | Amazon DocumentDB (with MongoDB compatibility) | [{{ mmg-full-name }}](../../managed-mongodb/) |
 | Amazon DynamoDB | [{{ ydb-full-name }}](../../ydb/) |
-| Amazon EC2 Auto Scaling | [Yandex Instance Groups](../../compute/concepts/instance-groups/) |
+| Amazon EC2 Auto Scaling | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
 | Amazon Elastic Compute Cloud | [{{ compute-full-name }}](../../compute/) |
 | Amazon Elastic Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | Amazon Elastic Kubernetes Service | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
@@ -44,3 +45,4 @@
 | AWS Shield | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
 | Elastic Load Balancing: Application Load Balancer | [{{ alb-full-name }}](../../application-load-balancer/) |
 | Elastic Load Balancing: Network Load Balancer | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
+

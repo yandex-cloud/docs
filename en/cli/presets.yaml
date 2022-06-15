@@ -1,3 +1,0 @@
-default:
-  yc-install-path: /yandexcloud-yc/install.sh
-  yc-windows-path: /yandexcloud-yc/install.ps1

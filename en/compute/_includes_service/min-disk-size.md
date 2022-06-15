@@ -7,4 +7,3 @@ If the `min-disk-size` value you specify is less than that allowed, an error wil
 If no `min-disk-size` is specified, the minimum value will be used.
 
 {% endnote %}
-

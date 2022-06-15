@@ -6,5 +6,5 @@ kafkacat -C \
          -X sasl.mechanisms=SCRAM-SHA-512 \
          -X sasl.username="<логин потребителя>" \
          -X sasl.password="<пароль потребителя>" \
-         -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:
+         -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
 ```

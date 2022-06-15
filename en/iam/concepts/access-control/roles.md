@@ -4,7 +4,7 @@ A _role_  is a set of user permissions to perform operations with {{ yandex-clo
 
 There are two types of roles:
 * _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`,`{{ roles-editor }}` , and `{{ roles-viewer }}`.
-* _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the `{{ roles-image-user }}` role lets you use images in the Yandex Compute Cloud service.
+* _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the `{{ roles-image-user }}` role lets you use images in the {{ compute-full-name }} service.
 
    A service role can be assigned to the resource that the role is intended for or the resource that permissions are inherited from. For example, you can assign the `{{ roles-image-user }}` role for a folder or cloud, because images inherit permissions from them.
 
@@ -37,6 +37,7 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 {% include [roles-certificate-manager-admin](../../../_includes/roles-certificate-manager-admin.md) %}
 
 {% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
+
 
 ## {{ cdn-name }} {#cdn-roles}
 
@@ -78,6 +79,7 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 {% include [mdb.admin](../../../_includes/iam/roles/mdb.admin.md) %}
 
+
 ## {{ dataproc-short-name }} {#dataproc-roles}
 
 {% include [mdb.dataproc.agent](../../../_includes/roles-dataproc-agent.md) %}
@@ -90,6 +92,7 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 {% include [data-transfer-admin](../../../_includes/roles-data-transfer-admin.md) %}
 
+
 ## {{ datalens-name }} {#datalens-roles}
 
 {% include [datalens-instances-user](../../../_includes/roles-datalens-user.md) %}
@@ -101,6 +104,7 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 {% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
 
 {% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
+
 
 ## {{ sf-short-name }} {#functions-roles}
 
@@ -119,6 +123,7 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 {% include [iot-devices-writer](../../../_includes/roles-iot-devices-writer.md) %}
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
+
 
 ## {{ cloud-logging-name }} {#logging}
 
@@ -171,6 +176,7 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 ## {{ resmgr-name }} {#yrm-roles}
 
 {% include [cloud-roles](../../../_includes/cloud-roles.md) %}
+
 
 ## {{ serverless-containers-name }} {#serverless-containers}
 

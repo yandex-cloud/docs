@@ -39,7 +39,7 @@
     1. Выполните команду:
 
         ```bash
-        aws --endpoint https://storage.yandexcloud.net s3api select-object-content \
+        aws --endpoint https://{{ s3-storage-host }} s3api select-object-content \
           --bucket $bucket \
           --key $key \
           --expression "$query" \

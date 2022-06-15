@@ -119,7 +119,7 @@
             retry_attempts: "1"
             interval: 10s
           dead_letter_queue:
-            queue-id: yrn:yc:ymq:ru-central1:aoek49ghmknn********:dlq
+            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknn********:dlq
             service-account-id: aje3932acd0c********
     status: ACTIVE
     ```

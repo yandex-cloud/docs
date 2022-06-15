@@ -41,7 +41,7 @@
   1. Создайте виртуальную машину:
 
      ```
-     $ yc compute instance create --zone ru-central1-b --name instance-in-group-1 --placement-group-name my-group
+     $ yc compute instance create --zone {{ region-id }}-b --name instance-in-group-1 --placement-group-name my-group
      id: epdep2kq6dt5uekuhcrd
      ...
      placement_policy:
@@ -51,7 +51,7 @@
      Данная команда создаст виртуальную машину со следующими характеристиками:
 
      - С именем `instance-in-group-1`.
-     - В зоне доступности `ru-central1-b`.
+     - В зоне доступности `{{ region-id }}-b`.
      - В группе размещения `my-group`.
 
   1. Проверьте, что виртуальная машина создана и добавлена в группу размещения:
@@ -61,7 +61,7 @@
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
-     | epdep2kq6dt5uekuhcrd | instance-in-group-1 | ru-central1-b | RUNNING |             | 10.129.0.5  |
+     | epdep2kq6dt5uekuhcrd | instance-in-group-1 | {{ region-id }}-b | RUNNING |             | 10.129.0.5  |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      ```
 

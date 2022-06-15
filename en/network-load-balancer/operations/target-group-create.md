@@ -42,8 +42,8 @@
       |          ID          |    NAME    |    ZONE ID    | STATUS  |
       +----------------------+------------+---------------+---------+
       ...
-      | fhmajnpl7cvhl6v1s12i | test-vm-1  | ru-central1-a | RUNNING |
-      | fhmajv6f27n0a4a1sbml | test-vm-2  | ru-central1-a | RUNNING |
+      | fhmajnpl7cvhl6v1s12i | test-vm-1  | {{ region-id }}-a | RUNNING |
+      | fhmajv6f27n0a4a1sbml | test-vm-2  | {{ region-id }}-a | RUNNING |
       ...
       +----------------------+------------+---------------+---------+
       ```
@@ -68,7 +68,7 @@
 
       ```
       yc load-balancer target-group create \
-        --region-id ru-central1 \
+        --region-id {{ region-id }} \
         --name test-tg-1 \
         --target subnet-id=<subnet ID>,address=<internal IP address of resource>
       ```
@@ -92,12 +92,13 @@
          * `subnet_id`: ID of the subnet to which target objects are connected. All targets in the target group must be connected to the same subnet within the same availability zone. Required parameter.
          * `address`: Resource internal IP address. Required parameter.
 
+      
       ```hcl
       provider "yandex" {
         token     = "<OAuth>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
-        zone      = "ru-central1-a"
+        zone      = "{{ region-id }}-a"
       }
 
       resource "yandex_lb_target_group" "foo" {
@@ -112,20 +113,10 @@
           subnet_id = "<subnet ID>"
           address   = "<internal IP address of resource 2>"
         }
-
       }
       ```
 
-      For more information about the `yandex_lb_target_group` parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/lb_target_group).
 
-   1. Make sure that the configuration files are correct.
-
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
-
-         ```
-         terraform plan
-         ```
 
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
 

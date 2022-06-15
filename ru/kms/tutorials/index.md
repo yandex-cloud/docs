@@ -1,6 +1,6 @@
 ---
-title: Сценарии использования Yandex Key Management Service
-description: 'Различные сценарии использования Yandex Key Management Service в облаке Yandex Cloud. Шифрование данных, шифрование секретов в Yandex Managed Service for Kubernetes, управление ключами KMS с Hashicorp Terraform, шифрование секретов в Hashicorp Terraform, Auto Unseal в Hashicorp Vault'
+title: Сценарии использования {{ kms-full-name }}
+description: 'Различные сценарии использования {{ kms-full-name }} в облаке {{ yandex-cloud }}. Шифрование данных, шифрование секретов в {{ managed-k8s-full-name }}, управление ключами KMS с Hashicorp Terraform, шифрование секретов в Hashicorp Terraform'
 ---
 
 # Практические руководства Yandex Key Management Service

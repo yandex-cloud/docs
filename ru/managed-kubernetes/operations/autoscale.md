@@ -1,6 +1,7 @@
 # Настройка автомасштабирования
 
 Для {{ managed-k8s-name }} доступны три способа автоматического масштабирования:
+
 * [Автоматическое масштабирование кластера](#ca).
 * [Горизонтальное автомасштабирование подов](#hpa).
 * [Вертикальное автомасштабирование подов](#vpa).
@@ -10,7 +11,8 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте кластер](kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации.
-1. Установите [{{ k8s }} CLI (kubectl)](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/). [Настройте](kubernetes-cluster/kubernetes-cluster-get-credetials.md) его на работу с вашим кластером.
+
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Настройка автоматического масштабирования кластера {#ca}
 
@@ -57,16 +59,14 @@
   1. {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
      Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
   1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов.
 
      О том, как создать такой файл, см. в разделе [{#T}](../operations/node-group/node-group-create.md).
-
   1. Добавьте описание новой группы узлов, указав настройки автомасштабирования в блоке `scale_policy.auto_scale`:
 
      ```hcl
      resource "yandex_kubernetes_node_group" "<имя группы узлов>" {
-       ...
+     ...
        scale_policy {
          auto_scale {
            min     = <минимальное количество узлов в группе>

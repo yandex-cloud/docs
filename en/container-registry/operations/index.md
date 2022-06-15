@@ -5,11 +5,12 @@ description: "Step-by-step instructions for working with Docker images in {{ yan
 
 # Step-by-step instructions for {{ container-registry-name }}
 
-To work with Docker images, [authenticate in {{ container-registry-short-name }}](authentication.md).
+To work with Docker images, [authenticate in {{ container-registry-name }}](authentication.md).
+
 
 ## Working with {{ coi }} {#coi}
 
-For more information about how to work with a {{ coi }}, see the [{{ cos-name }} documentation](../../cos/).
+For more information about working with a {{ coi }} image, see the documentation [{{ cos-name }}](../../cos/).
 
 ## Managing a Docker image {#docker-images}
 
@@ -36,11 +37,18 @@ For more information about how to work with a {{ coi }}, see the [{{ cos-name }}
 ## Managing a repository {#repository}
 
 * [{#T}](repository/repository-list.md)
+* [{#T}](repository/repository-create.md)
 
-## Managing policies for automatically deleting Docker images {#lifecycle-policy}
+## Managing Docker image lifecycle policies {#lifecycle-policy}
 
 * [{#T}](lifecycle-policy/lifecycle-policy-list.md)
 * [{#T}](lifecycle-policy/lifecycle-policy-create.md)
 * [{#T}](lifecycle-policy/lifecycle-policy-update.md)
 * [{#T}](lifecycle-policy/lifecycle-policy-dry-run.md)
 * [{#T}](lifecycle-policy/lifecycle-policy-delete.md)
+
+## Working with roles {#roles}
+
+* [{#T}](roles/grant.md)
+* [{#T}](roles/get-assigned-roles.md)
+* [{#T}](roles/revoke.md)

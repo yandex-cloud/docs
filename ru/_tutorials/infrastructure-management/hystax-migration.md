@@ -17,13 +17,7 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Перед тем, как разворачивать сервер, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
-
-{% include [prepare-register-billing](../../_tutorials/_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака]({{ link-console-cloud }}).
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -39,7 +33,7 @@
 * Плата за диски и постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Плата за хранение образов (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
 * Плата за использование динамического или статического публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* Плата за каждую проведенную миграцию (см. [описание продукта](https://cloud.yandex.ru/marketplace/products/hystax/hystax-acura-live-cloud-migration-3-7) в {{ marketplace-name }}).
+* Плата за каждую проведенную миграцию (см. [описание продукта](/marketplace/products/hystax/hystax-acura-live-cloud-migration-3-7) в {{ marketplace-name }}).
 
 ## Создайте сервисный аккаунт и авторизованный ключ {#create-sa}
 
@@ -91,12 +85,16 @@
   1. В блоке **Базовые параметры**:
      * Введите имя `hystax-acura-vm` и описание ВМ.
      * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-  1. В блоке **Выбор образа/загрузочного диска**:
-     * Перейдите на вкладку **{{ marketplace-name }}**.
-     * Нажмите кнопку **Посмотреть больше**.
-     * В списке публичных образов выберите **Hystax Acura Live Migration to {{ yandex-cloud }}** и нажмите кнопку **Использовать**.
-  1. В блоке **Диски** укажите размер диска 100 ГБ.
-  1. В блоке **Файловые хранилища** оставьте значения по умолчанию.
+
+   1. В блоке **Выбор образа/загрузочного диска**:
+
+      * Перейдите на вкладку **{{ marketplace-name }}**.
+      * Нажмите кнопку **Посмотреть больше**.
+      * В списке публичных образов выберите **Hystax Acura Live Migration to {{ yandex-cloud }}** и нажмите кнопку **Использовать**.
+
+   1. В блоке **Диски** укажите размер диска 100 ГБ.
+
+      1. В блоке **Файловые хранилища** оставьте значения по умолчанию.
   1. В блоке **Вычислительные ресурсы** укажите:
      * vCPU — 8.
      * RAM — 16 ГБ.
@@ -134,7 +132,7 @@
 
    Параметры:
    * `name` — имя ВМ, например, `hystax-acura-vm`.
-   * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), например, `ru-central1-b`.
+   * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), например, `{{ region-id }}-a`.
    * `cores` — [количество vCPU](../../compute/concepts/vm.md) ВМ.
    * `memory` — [размер оперативной памяти](../../compute/concepts/vm.md) ВМ.
    * `network-interface` — описание сетевого интерфейса ВМ:
@@ -150,7 +148,8 @@
      * `size` — размер диска.
      * `image-id` — идентификатор образа диска.
 
-       В данном случае используйте `image_id` из [описания продукта](https://cloud.yandex.ru/marketplace/products/hystax/hystax-acura-live-cloud-migration-3-7) в {{ marketplace-name }}.
+        В данном случае используйте `image_id` из [описания продукта](/marketplace/products/hystax/hystax-acura-live-cloud-migration-3-7) в {{ marketplace-name }}.
+
    * `service-account-id` — идентификатор сервисного аккаунта, [созданного ранее](#create-sa).
 
      Получить список можно с помощью команды `yc iam service-account list`.

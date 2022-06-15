@@ -1,1 +1,1 @@
-{%  include [Division of responsibility](../_includes/security/respons.md) %}
+{% include [respons](../_includes/security/respons.md) %}

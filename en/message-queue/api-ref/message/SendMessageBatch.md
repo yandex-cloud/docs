@@ -20,7 +20,7 @@ If the `DelaySeconds` parameter is not specified for a batch entry, the value fo
 ### Request parameters {#request-parameters}
 
 | Parameter | Type | Required parameter | Description |
-| ----- | ----- | ----- | ----- |
+----- | ----- | ----- | -----
 | `SendMessageBatchRequestEntry.N` | **array** | Yes | The [SendMessageBatchRequestEntry](../data-types/SendMessageBatchRequestEntry.md) array. |
 | `QueueUrl` | **string** | Yes | URL of the queue that messages are sent to. |
 
@@ -29,7 +29,7 @@ If the `DelaySeconds` parameter is not specified for a batch entry, the value fo
 ### Successful response fields {#response-parameters}
 
 | Field | Type | Description |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | `BatchResultErrorEntry.N` | **array** | The [BatchResultErrorEntry](../data-types/BatchResultErrorEntry.md) array with information about the messages that failed to be enqueued. |
 | `SendMessageBatchResultEntry.N` | **array** | The [SendMessageBatchResultEntry](../data-types/SendMessageBatchResultEntry.md) array with information about the messages that have been successfully enqueued. |
 
@@ -38,7 +38,7 @@ If the `DelaySeconds` parameter is not specified for a batch entry, the value fo
 For a list of errors common for all methods, see [{#T}](../common-errors.md).
 
 | HTTP code | Error ID | Description |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | 400 | `BatchEntryIdsNotDistinct` | Two or more batch entries in the request have the same ID. |
 | 400 | `BatchRequestTooLong` | The length of all the messages put together is more than the limit. |
 | 400 | `EmptyBatchRequest` | The batch request doesn't contain any entries. |
@@ -51,7 +51,7 @@ For a list of errors common for all methods, see [{#T}](../common-errors.md).
 ```
 Action=SendMessageBatch
 &Version=2012-11-05
-&QueueUrl=https://message-queue.api.cloud.yandex.net/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
 &SendMessageBatchRequestEntry.1.Id=123qwe
 &SendMessageBatchRequestEntry.1.MessageBody=HelloWorld
 &SendMessageBatchRequestEntry.2.Id=321ewq
@@ -81,4 +81,3 @@ For more information about forming requests, see [General API request format](..
     </ResponseMetadata>
 </SendMessageBatchResponse>
 ```
-

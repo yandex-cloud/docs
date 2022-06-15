@@ -2,11 +2,11 @@
 
 This section offers recommendations for using {{unified-agent-full-name}}.
 
-## One agent per host { #one-agent-per-host }
+## One agent per host {#one-agent-per-host}
 
 Avoid running more than one {{unified-agent-short-name}} instance on the same host with the same configuration files since that might cause problems with the agent.
 
-## Agent monitoring { #agent_metrics }
+## Agent monitoring {#agent_metrics}
 
 When using {{unified-agent-short-name}}, we recommend that you enable collecting health metrics for the agent.
 
@@ -37,7 +37,7 @@ routes:
 
 See also [{#T}](configuration.md#agent_metrics_input).
 
-## Using storage { #storage }
+## Using storage {#storage}
 
 Use a storage to reliably deliver metrics to {{ monitoring-full-name }} with {{unified-agent-short-name}}. It will let you temporarily store messages sent over a [pipe](index.md#pipes) before being passed on to the channel output.
 
@@ -82,4 +82,3 @@ routes:
 ```
 
 See also [{#T}](configuration.md#storages).
-

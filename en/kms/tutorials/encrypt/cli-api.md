@@ -12,24 +12,25 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
 
 - CLI
 
-    The command encrypts the plaintext passed in the `--plaintext-file` and writes the resulting ciphertext to the `--ciphertext-file`.
-    * `--id`: ID of the [KMS key](../../concepts/key.md), make sure you set either the `--id` or `--name` flag.
-    * `--name`: Name of the KMS key, make sure you set either the `--id` or `--name` flag.
-    * `--version-id` (optional): [Version](../../concepts/version.md) of the KMS key to be used for encryption. The primary version is used by default.
-    * `--plaintext-file`: Input file with plaintext.
-    * `--aad-context-file` (optional): Input file with [AAD context](../../concepts/encryption.md#add-context).
-    * `--ciphertext-file`: Output file with ciphertext.
+   The command encrypts the plaintext passed in the `--plaintext-file` and writes the resulting ciphertext to the `--ciphertext-file`.
 
-    ```
-    yc kms symmetric-crypto encrypt \
-      --id abj76v82ficsmn446ri7 \
-      --plaintext-file plaintext-file \
-      --ciphertext-file ciphertext-file
-    ```
+   * `--id`: ID of the [KMS key](../../concepts/key.md), make sure you set either the `--id` or `--name` flag.
+   * `--name`: Name of the KMS key, make sure you set either the `--id` or `--name` flag.
+   * `--version-id` (optional): [Version](../../concepts/version.md) of the KMS key to be used for encryption. The primary version is used by default.
+   * `--plaintext-file`: Input file with plaintext.
+   * `--aad-context-file` (optional): Input file with [AAD context](../../concepts/encryption.md#add-context).
+   * `--ciphertext-file`: Output file with ciphertext.
+
+   ```
+   yc kms symmetric-crypto encrypt \
+     --id abj76v82ficsmn446ri7 \
+     --plaintext-file plaintext-file \
+     --ciphertext-file ciphertext-file
+   ```
 
 - API
 
-    Use the [encrypt](../../api-ref/SymmetricCrypto/encrypt) method for the `SymmetricCrypto` resource.
+   Use the [encrypt](../../api-ref/SymmetricCrypto/encrypt) method for the `SymmetricCrypto` resource.
 
 {% endlist %}
 
@@ -39,29 +40,29 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
 
 - CLI
 
-    The command decrypts the ciphertext passed in the `--ciphertext-file` and writes the resulting plaintext to the `--plaintext-file`:
-    * `--id`: ID of the [KMS key](../../concepts/key.md), make sure you set either the `--id` or `--name` flag.
-    * `--name`: Name of the KMS key, make sure you set either the `--id` or `--name` flag.
-    * `--ciphertext-file`: Input file with plaintext.
-    * `--aad-context-file` (optional): Input file with [AAD context](../../concepts/encryption.md#add-context).
-    * `--plaintext-file`: Output file with ciphertext.
+   The command decrypts the ciphertext passed in the `--ciphertext-file` and writes the resulting plaintext to the `--plaintext-file`:
 
-    ```
-    yc kms symmetric-crypto decrypt \
-      --id abj76v82ficsmn446ri7 \
-      --ciphertext-file ciphertext-file \
-      --plaintext-file decrypted-file
-    ```
+   * `--id`: ID of the [KMS key](../../concepts/key.md), make sure you set either the `--id` or `--name` flag.
+   * `--name`: Name of the KMS key, make sure you set either the `--id` or `--name` flag.
+   * `--ciphertext-file`: Input file with plaintext.
+   * `--aad-context-file` (optional): Input file with [AAD context](../../concepts/encryption.md#add-context).
+   * `--plaintext-file`: Output file with ciphertext.
+
+   ```
+   yc kms symmetric-crypto decrypt \
+     --id abj76v82ficsmn446ri7 \
+     --ciphertext-file ciphertext-file \
+     --plaintext-file decrypted-file
+   ```
 
 - API
 
-    Use the [decrypt](../../api-ref/SymmetricCrypto/decrypt) method for the `SymmetricCrypto` resource.
+   Use the [decrypt](../../api-ref/SymmetricCrypto/decrypt) method for the `SymmetricCrypto` resource.
 
 {% endlist %}
 
 #### See also {#see-also}
 
-* [YC CLI](../../../cli).
-* [Encryption in Key Management Service](../../concepts/encryption.md).
-* [Managing keys in KMS](../../operations/index.md).
-
+* [Command line interface CLI](../../../cli).
+* [Encryption in {{ kms-name }}](../../concepts/encryption.md).
+* [Managing keys in {{ kms-name }}](../../operations/index.md).

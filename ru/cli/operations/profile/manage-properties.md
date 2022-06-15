@@ -20,12 +20,15 @@ $ yc config set <имя параметра> <значение параметра
     $ yc config set folder-id b1g68...
     ```
 1. Проверьте, что параметр действительно изменен:
-    ```
-    $ yc config list
-    token: AQAAAAAV6O...
-    cloud-id: b1gvl...
-    folder-id: b1g68...
-    ```
+   
+      
+   ```
+   $ yc config list
+   token: AQAAAAAV6O...
+   cloud-id: b1gvl...
+   folder-id: b1g68...
+   ```
+
     
 Ознакомьтесь с полным [списоком параметров](../../concepts/core-properties.md) профиля. Также вы можете изменить параметры профиля с помощью [процесса интерактивного создания профиля](profile-create.md#interactive-create).
 
@@ -44,11 +47,14 @@ $ yc config unset <имя параметра>
     $ yc config unset folder-id
     ```
 1.  Проверьте, что параметр действительно удален:
+    
+    
     ```
     $ yc config list
     token: AQAAAAAV6O...
     cloud-id: b1gvl...
     ```
+   
     
 ## Запустить команду с параметрами другого профиля {#another-profile}
 
@@ -56,11 +62,11 @@ $ yc config unset <имя параметра>
 
 Например, посмотрите параметры профиля `test`, не активируя его: 
 
+
 ```
 $ yc config list --profile test
 token: AQAAAAAV6O...
 cloud-id: aoegt...
 folder-id: aoek4...
 ```
-
 

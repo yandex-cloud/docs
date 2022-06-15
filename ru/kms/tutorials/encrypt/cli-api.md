@@ -63,6 +63,6 @@
 
 #### См. также {#see-also}
 
-* [Интерфейс командной строки YC CLI](../../../cli).
-* [Шифрование в Key Management Service](../../concepts/encryption.md).
-* [Управление ключами в KMS](../../operations/index.md).
+* [Интерфейс командной строки CLI](../../../cli).
+* [Шифрование в {{ kms-name }}](../../concepts/encryption.md).
+* [Управление ключами в {{ kms-name }}](../../operations/index.md).

@@ -1,6 +1,6 @@
 ---
-title: Overview of Yandex Identity and Access Management
-description: 'The Identity and Access Management (IAM) service controls access to resources and provides functionality for configuring access rights. You determine who has what rights to the resource, and IAM grants access according to the assigned rights.'
+title: Overview of {{ iam-full-name }}
+description: 'The {{ iam-full-name }} (IAM) service controls access to resources and provides functionality for configuring access rights. You determine who has what rights to the resource, and {{ iam-short-name }} grants access according to the assigned rights.'
 ---
 
 # Overview of {{ iam-full-name }}
@@ -24,6 +24,7 @@ Before performing an operation with a certain resource (such as creating a VM), 
 
 To identify users performing operations with resources, use [Yandex accounts](#passport), [service accounts](#sa), or [federated accounts](#saml-federation).
 
+
 {% note info %}
 
 Billing accounts aren't used for managing resources in {{ yandex-cloud }} and aren't part of {{ iam-short-name }}. For more information, see [{#T}](../../billing/concepts/billing-account.md) in the billing documentation.
@@ -32,7 +33,9 @@ Billing accounts aren't used for managing resources in {{ yandex-cloud }} and ar
 
 ### Yandex account {#passport}
 
+
 _Yandex accounts_ are your accounts in Yandex.Passport or [Yandex 360](https://360.yandex.com/?ncrnd=673).
+
 
 {% note info %}
 

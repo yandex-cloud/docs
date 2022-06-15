@@ -8,15 +8,15 @@
 
 {% include notitle [clickhouse](clickhouse.md) %}
 
-## Connection {#connection}
+## Adding plugins {#connection}
 
 {% include notitle [connection](connection.md) %}
 
-## Editing clusters {#cluster-update}
+## Editing {#cluster-update} clusters
 
 {% include notitle [cluster-update](cluster-update.md) %}
 
-## Cluster parameter settings {#cluster-settings}
+## Cluster configuration {#cluster-settings}
 
 {% include notitle [cluster-settings](cluster-settings.md) %}
 

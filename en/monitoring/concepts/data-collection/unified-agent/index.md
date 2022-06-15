@@ -3,9 +3,8 @@
 {{unified-agent-full-name}}: The agent for delivering metrics for virtual machines and user applications.
 
 The agent supports:
-
 - Collecting Linux system metrics (CPU, RAM, disk).
-- Collecting metrics in the [Prometheus](https://prometheus.io) format.
+- Collecting metrics in the [Prometheus](https://prometheus.io/) format.
 - Delivering metrics to {{monitoring-full-name}}.
 - File storage for reliable data delivery.
 
@@ -27,40 +26,35 @@ For other examples of how to use the agent, see [{#T}](../../../operations/index
 
 {{unified-agent-full-name}} is distributed under Apache License 2.0.
 To learn more about the license, run these commands:
-
 * `unified_agent --license`: Displays the full text of the license.
 * `unified_agent --credits`: Displays the list of and licenses for libraries used by the agent.
 
 {% endnote %}
 
-## Concepts { #basics }
+## Concepts {#basics}
 
 {{unified-agent-full-name}} is intended for transmitting the streaming data represented as messages, for example, metrics or logs. The data stream in {{unified-agent-short-name}} is called a session. Multiple sessions can be set up at the same time.
 
 The agent receives messages via the input and delivers them to one or more outputs. Filters are used to process messages on an interim basis, while storages are used to save messages to the disk. Inputs, outputs, filters, and storages are implemented using plugins.
 
-Delivery routes are used for message routing and consist of an input and a channel. Channels consist of a pipe and a node that is an output, a channel, or a splitter. Pipes can include filters and storage references. The pipe can be omitted.
+Delivery routes are used for message routing and consist of an input and channel. Channels consist of a pipe and a node that is an output, a channel, or a splitter. Pipes can include filters and storage references. The pipe can be omitted.
 
 You can create named channels and pipes. That avoids duplicate configurations and route messages from multiple inputs to one output.
 
-### Messages { #messages }
-
+### Messages {#messages}
 Messages are the minimum indivisible unit of user information transmitted to {{unified-agent-short-name}}.
 
 Messages consist of a body, a timestamp, custom metadata in the format `key:value`, and a serial number.
 
-### Sessions { #sessions }
-
+### Sessions {#sessions}
 Sessions are an ordered stream of messages. Sessions have an ID that must be unique among all running sessions as well as user metadata in the `key:value` format.
 
 All messages sent during a session contain both message metadata and session metadata.
 
-### Inputs { #inputs }
-
+### Inputs {#inputs}
 The agent receives messages transmitted during sessions via an input. Inputs can contain settings for session infrastructure limits.
 
 Sample input definition in the configuration file:
-
 ```yaml
 - input:
     plugin: ... # plugin name
@@ -70,16 +64,13 @@ Sample input definition in the configuration file:
 ```
 
 See also:
-
 - [List of implemented inputs](configuration.md#inputs).
 - [Session infrastructure settings](configuration.md#flow_control).
 
-### Outputs { #outputs }
-
+### Outputs {#outputs}
 The output is used by the agent to send messages to third-party systems. The currently supported outputs are `yc_metrics`, which writes a metric to the {{monitoring-full-name}} API, and several debug outputs.
 
 Sample output definition in the configuration file:
-
 ```yaml
 - output:
     plugin: ... # plugin name
@@ -88,17 +79,14 @@ Sample output definition in the configuration file:
 
 See also the [list of available outputs](configuration.md#outputs).
 
-### Filters { #filters }
-
+### Filters {#filters}
 Filters are designed to dispose of, convert, and aggregate messages.
 
 Filter types:
-
 - regular: Handle each message separately.
 - cumulative: Transform a set of input messages into one output message.
 
 Sample filter definition in the configuration file:
-
 ```yaml
 - filter:
     plugin: ... # plugin name
@@ -109,12 +97,10 @@ Sample filter definition in the configuration file:
 
 See also the [list of available filters](configuration.md#filters).
 
-### Storages { #storages }
-
+### Storages {#storages}
 Storages are intended to store messages on an interim basis.
 
 Sample storage definition in the configuration file:
-
 ```yaml
 - input:
     plugin: ... # plugin name
@@ -125,16 +111,14 @@ Sample storage definition in the configuration file:
 
 See also the [list of available storages](configuration.md#storages).
 
-### Routing { #routing }
+### Routing {#routing}
 
-#### Pipes { #pipes }
-
+#### Pipes {#pipes}
 Pipes define a sequence of filters or storages that messages pass through.
 
 Pipes can be named.
 
 Sample pipe definition in the configuration file:
-
 ```yaml
 ...
 - pipe:
@@ -153,7 +137,6 @@ Sample pipe definition in the configuration file:
 ```
 
 Sample named pipe definition in the configuration file:
-
 ```yaml
 pipes:
     - name: named_pipe
@@ -163,16 +146,14 @@ pipes:
 
 For a complete example of a pipe configuration, see [{#T}](configuration.md#pipes).
 
-#### Channels { #channels}
-
+#### Channels {#channels}
 Channels group a pipe with a node, one of an output, a named channel, or a splitter.
 
-Splitters let you specify a set of channels, copying incoming messages to all of them. You can use splitters to duplicate streams to different outputs. By combining splitters and filters, you can send different messages to different channels based on particular attributes such as metadata.
+Splitters let you specify a set of channels, copying incoming messages to each of them. You can use splitters to duplicate streams to different outputs. By combining splitters and filters, you can send different messages to different channels based on particular attributes such as metadata.
 
 Channels can be named.
 
 Sample channel definition in the configuration file:
-
 ```yaml
 channel:
     pipe:
@@ -207,7 +188,6 @@ channel:
 ```
 
 Sample named channel definition in the configuration file:
-
 ```yaml
 channels:
     - name: named_pipe
@@ -217,12 +197,10 @@ channels:
 
 See also a [sample named channel configuration](configuration.md#channels).
 
-#### Routes { #routes }
-
+#### Routes {#routes}
 Routes combine an input and a channel.
 
 Sample route definition in the configuration file:
-
 ```yaml
 routes:
     - input:
@@ -256,4 +234,3 @@ channels:
 ```
 
 Routes, channels, and pipes let you set up any message processing tree you like.
-

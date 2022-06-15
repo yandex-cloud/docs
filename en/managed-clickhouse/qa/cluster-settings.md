@@ -1,13 +1,15 @@
-# Cluster parameter settings
+# Cluster configuration
 
-#### How do I create a user with read-only access to a cluster from {{ datalens-name }}? {#datalens-readonly}
 
-Follow the [instructions](../operations/cluster-users.md#example-create-readonly-user) to create a user with read-only access permissions. If the cluster settings have the **Access from DataLens** [option enabled](../operations/update.md#change-additional-settings), the service can [connect](../operations/datalens-connect.md#create-connector) to the cluster via this user.
+#### How do I create a user to access a cluster from {{ datalens-name }} with read-only permissions? {#datalens-readonly}
 
-#### How do I grant a user the right to create and delete tables or databases? {#create-delete-role}
+Follow the [instructions](../operations/cluster-users.md#example-create-readonly-user) to create a user with read-only permissions. If the cluster settings have the **Access from {{ datalens-name }}** [option enabled](../operations/update.md#change-additional-settings), the service can [connect](../operations/datalens-connect.md#create-connector) to the cluster through this user.
 
-In the cluster settings, enable [{#T}](../operations/cluster-users.md#sql-user-management) and grant a user the appropriate rights using the `GRANT` [statement](https://clickhouse.com/docs/en/sql-reference/statements/grant/).
 
-#### How do I find out the value of the internal_replication setting? {#internal-replication}
+#### How do I grant a user permissions to create and delete tables or databases? {#create-delete-role}
 
-Information about the `internal_replication` setting is not available in {{ yandex-cloud }} interfaces or {{ CH }} system tables. The default setting value is `true`.
+Go to the cluster settings, enable the [{#T}](../operations/cluster-users.md#sql-user-management) option, and grant a user the appropriate permissions [using a statement](https://clickhouse.com/docs/en/sql-reference/statements/grant/) named `GRANT`.
+
+#### How do I find out the internal_replication setting value? {#internal-replication}
+
+The `internal_replication` setting information is not available in the {{ yandex-cloud }} interfaces or the {{ CH }} system tables. The default setting value is `true`.

@@ -415,7 +415,7 @@
         * пароль для доступа к базе данных `user1user1`;
         * режим для установки защищенного SSL TCP/IP соединения с базой данных `verify-full`;
 
-    * имя хоста `rc1b-05vjbfhfkrycjyq8.mdb.yandexcloud.net`.
+    * имя хоста `rc1b-05vjbfhfkrycjyq8.{{ dns-zone }}`.
 
     Чтобы подключить такой словарь, выполните команду:
 
@@ -436,7 +436,7 @@
                           `user=user1,`
                           `password=user1user1,`
                           `ssl-mode=verify-full \
-       --postgresql-source-hosts=rc1b-05vjbfhfkrycjyq8.mdb.yandexcloud.net
+       --postgresql-source-hosts=rc1b-05vjbfhfkrycjyq8.{{ dns-zone }}
     ```
 
 {% endlist %}

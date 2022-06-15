@@ -1,7 +1,7 @@
 To create a VM:
 1. In the [management console]({{ link-console-main }}), select the folder to create the virtual machine in.
 1. In the list of services, select **{{ compute-name }}**.
-1. Click **Create VM**.
+1. Click **Create VM**.
 1. Under **Basic parameters**:
    * Enter a name and description for the VM. Naming requirements:
 
@@ -13,11 +13,11 @@ To create a VM:
 
 1. Under **Image/boot disk selection**, select an [image](../operations/images-with-pre-installed-software/get-list.md) and a Linux-based OS version.
 
-1. (optional) Under **Disk and file storage**, click the **Disks** tab and configure a boot disk:
+1. (optional) Under **Diskand file storage**, click the **Disks** tab and configure a boot disk:
    * Select the [disk type](../concepts/disk.md#disks_types).
    * Specify the necessary disk size.
 
-      If you wish to create a virtual machine from an existing disk, under **Disks and file storage**, [add a disk](../operations/vm-create/create-from-disks.md):
+      If you wish to create a virtual machine from an existing disk, under **Disksand file storage**, [add a disk](../operations/vm-create/create-from-disks.md):
       * Click **Add disk**.
       * Enter the disk name.
       * Select the [disk type](../concepts/disk.md#disks_types).
@@ -69,6 +69,6 @@ To create a VM:
 
 1. (optional) Under **Placement**, select a VM [placement group](../concepts/placement-groups.md).
 
-1. Click **Create VM**.
+1. Click **Create VM**.
 
 The virtual machine appears in the list. When a VM is created, it is assigned an [IP address](../../vpc/concepts/address.md) and [hostname](../../vpc/concepts/address.md#fqdn) (FQDN).

@@ -52,7 +52,7 @@
       created_at: "2021-03-10T10:03:31Z"
       name: nr-disk
       type_id: network-ssd-nonreplicated
-      zone_id: ru-central1-b
+      zone_id: {{ region-id }}-b
       size: "99857989632"
       block_size: "4096"
       status: READY
@@ -115,7 +115,7 @@
       created_at: "2021-03-10T11:17:57Z"
       name: nr-disk
       type_id: network-ssd-nonreplicated
-      zone_id: ru-central1-b
+      zone_id: {{ region-id }}-b
       size: "99857989632"
       block_size: "4096"
       status: READY

@@ -125,7 +125,7 @@
 
         ```bash
         mkdir --parents ~/.clickhouse-client && \
-        wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" \
+        wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" \
         --output-document=~/.clickhouse-client/config.xml
         ```
 

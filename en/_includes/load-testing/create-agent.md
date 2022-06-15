@@ -41,7 +41,7 @@
 
           {% note info %}
 
-          The agent creation process may end up with the `INITIALIZING_CONNECTION` status if the agent has no [permission](../../load-testing/operations/security-groups-agent.md) to access `loadtesting.api.cloud.yandex.net:443`, or the service account that is assigned to the agent doesn't have the required [roles](../../load-testing/operations/create-agent.md#infrastructure-prepare).
+          The agent creation process may end up with the `INITIALIZING_CONNECTION` status if the agent has no [permission](../../load-testing/operations/security-groups-agent.md) to access `loadtesting.{{ api-host }}:443`, or the service account that is assigned to the agent doesn't have the required [roles](../../load-testing/operations/create-agent.md#infrastructure-prepare).
 
           {% endnote %}
 

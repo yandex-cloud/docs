@@ -59,7 +59,7 @@ items:
     items:
       - name: Entering data into storage systems
         href: tutorials/data-ingestion.md
-      - name: Storing application runtime logs
+      - name: Smart log processing
         href: tutorials/log-ingestion.md
       - name: Transferring data within microservice architectures
         href: tutorials/message-broker.md

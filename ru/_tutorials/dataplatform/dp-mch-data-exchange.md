@@ -38,6 +38,7 @@
     1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
     1. [Выдайте права на запись в него](../../storage/operations/buckets/edit-acl.md) сервисному аккаунту кластера {{ dataproc-full-name }}.
 	
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки обмена данными между {{ mch-full-name }} и {{ dataproc-full-name }} входит:

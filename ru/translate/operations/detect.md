@@ -19,7 +19,7 @@ $ curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
     -d "{\"folderId\": \"${FOLDER_ID}\", \"text\": \"${TEXT}\"}" \
-    "https://translate.api.cloud.yandex.net/translate/v2/detect"
+    "https://translate.{{ api-host }}/translate/v2/detect"
 ```
 
 В ответе сервис вернет код языка, на котором написан текст. Код языка указывается в формате [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1):
@@ -52,7 +52,7 @@ $ curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
     -d '@body.json' \
-    "https://translate.api.cloud.yandex.net/translate/v2/detect"
+    "https://translate.{{ api-host }}/translate/v2/detect"
 
 {
     "languageCode": "de"

@@ -81,7 +81,7 @@ Generic form layout:
         Key in storage:
         <input type="input" name="key" value="object_key"> /><br />
         <!-- Request properties -->
-        <input type="hidden" name="x-amz-credential" value="access_key_id/date/ru-central1/s3/aws4_request" />
+        <input type="hidden" name="x-amz-credential" value="access_key_id/date/{{ region-id }}/s3/aws4_request" />
         <input type="hidden" name="acl" value="predefined-acl-name" />
         <input type="hidden" name="x-amz-algorithm" value="AWS4-HMAC-SHA256" />
         <input type="hidden" name="x-amz-date" value="date" />
@@ -142,7 +142,7 @@ Description of form fields:
 | `success_action_redirect` | The URL the user is redirected to when the file is successfully uploaded. If the value isn't set, {{ objstorage-name }} returns the response specified in the `success_action_status` field. | No |
 | `success_action_status` | The response status after a successful upload.<br/><br/>If `success_action_redirect` isn't specified, {{ objstorage-name }} returns `success_action_status`. The response body is empty.<br/><br/>Acceptable values: 200, 204 (default). | No |
 | `x-amz-algorithm` | The security policy signature algorithm. Value: `AWS4-HMAC-SHA256`.<br/><br/>Required if the form has a security policy. | Conditional |
-| `x-amz-credential` | Signature ID.<br/><br/>A string in `<access-key-id>/<date>/ru-central1/s3/aws4_request` format, where `<date>` must match the `x-amz-date` field value and the date used to sign the policy.<br/><br/>Required if the form has a security policy. | Conditional |
+| `x-amz-credential` | Signature ID.<br/><br/>A string in `<access-key-id>/<date>/{{ region-id }}/s3/aws4_request` format, where `<date>` must match the `x-amz-date` field value and the date used to sign the policy.<br/><br/>Required if the form has a security policy. | Conditional |
 | `x-amz-date` | Date in ISO8601 format, for example: `20180719T000000Z`. It must match the date in the `x-amz-credential` field (by the value rather than format) and the date used to sign the policy.<br/><br/>Required if the form has a security policy. | Conditional |
 | `x-amz-storage-class` | [The storage class](storage-class.md) for the object. With an HTML form, you can only put an object in standard storage. | No |
 | `x-amz-meta-*` | User-defined object metadata.<br/><br/>{{ objstorage-name }} considers all headers starting with `x-amz-meta-` as user-defined. It doesn't process these headers. Instead, it saves them in their original format.<br/><br/>The total size of user-defined headers must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The header names and their values are included when calculating the size. | No |
@@ -211,27 +211,27 @@ Input conditions:
 
 - Files must be saved in the `user-data` bucket with the `/users/upload/` prefix.
 - Uploaded objects are publicly accessible for reading.
-- If the upload is successful, the user is redirected to `https://cloud.yandex.com/docs/storage/concepts/presigned-post-forms`.
+- If the upload is successful, the user is redirected to `https://example.com`.
 
 To generate form fields, we use [boto3](../tools/boto.md) from the Python SDK:
 
 ```python
 aws_access_key_id = 'JK38EXAMPLEAKDID8'
 aws_secret_access_key = 'ExamP1eSecReTKeykdokKK38800'
-endpoint = 'https://storage.yandexcloud.net'
+endpoint = 'https://{{ s3-storage-host }}'
 
 s3 = boto3.client('s3',
                   aws_access_key_id=aws_access_key_id,
                   aws_secret_access_key=aws_secret_access_key,
-                  region_name='ru-central1',
+                  region_name='{{ region-id }}',
                   endpoint_url=endpoint,
                   config=botocore.client.Config(signature_version='s3v4'),
                   )
 
 key = 'users/uploads/${filename}'
 bucket = 'user-data'
-conditions = [{"acl":"public-read"}, ["starts-with", "$key", "users/uploads"], {'success_action_redirect': 'https://cloud.yandex.com/docs/storage/concepts/presigned-post-forms'}]
-fields = {'success_action_redirect': 'https://cloud.yandex.com/docs/storage/concepts/presigned-post-forms'}
+conditions = [{"acl":"public-read"}, ["starts-with", "$key", "users/uploads"], {'success_action_redirect': 'https://example.com'}]
+fields = {'success_action_redirect': 'https://example.com'}
 
 prepared_form_fields = s3.generate_presigned_post(Bucket=bucket,
                                                   Key=key,
@@ -247,15 +247,15 @@ The script returns a JSON document in the following format:
 
 ```json
 {
-    'url': u'https://storage.yandexcloud.net/user-data',
+    'url': u'https://{{ s3-storage-host }}/user-data',
     'fields': {
         'x-amz-algorithm': 'AWS4-HMAC-SHA256',
         'x-amz-date': '20190722T153936Z',
-        'success_action_redirect': 'https://cloud.yandex.com/docs/storage/concepts/presigned-post-forms',
+        'success_action_redirect': 'https://example.com',
         'x-amz-signature': '4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96',
         'key': 'users/uploads/${filename}',
         'policy': u'eyJjb25kaXRpb25zIj...M5OjM2WiJ9',
-        'x-amz-credential': u'JK38EXAMPLEAKDID8/20190722/ru-central1/s3/aws4_request'}
+        'x-amz-credential': u'JK38EXAMPLEAKDID8/20190722/{{ region-id }}/s3/aws4_request'}
 }
 ```
 
@@ -267,14 +267,14 @@ Using the values from the returned document, you can build an HTML page with a f
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <form action="https://storage.yandexcloud.net/user-data" method="post" enctype="multipart/form-data">
+        <form action="https://{{ s3-storage-host }}/user-data" method="post" enctype="multipart/form-data">
             Key in storage:
             <input type="input"    name="key" value="users/uploads/${filename}" /><br />
-            <input type="hidden"   name="x-amz-credential" value="JK38EXAMPLEAKDID8/20190722/ru-central1/s3/aws4_request" />
+            <input type="hidden"   name="x-amz-credential" value="JK38EXAMPLEAKDID8/20190722/{{ region-id }}/s3/aws4_request" />
             <input type="hidden"   name="acl" value="public-read" />
             <input type="hidden"   name="x-amz-algorithm" value="AWS4-HMAC-SHA256" />
             <input type="hidden"   name="x-amz-date" value="20190722T153936Z" />
-            <input type="hidden"   name="success_action_redirect" value="https://cloud.yandex.com/docs/storage/concepts/presigned-post-forms" />
+            <input type="hidden"   name="success_action_redirect" value="https://example.com" />
             <input type="hidden"   name="policy" value="eyJjb25kaXRpb25zIj...M5OjM2WiJ9" />
             <input type="hidden" name="x-amz-signature" value="4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96" />
             File to upload:

@@ -12,8 +12,8 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](vm-create/create-from-disks.md)
 * [{#T}](vm-create/create-from-snapshots.md)
 * [{#T}](vm-create/create-from-user-image.md)
-* [{#T}](vm-create/create-preemptible-vm.md)
 * [{#T}](vm-create/create-vm-with-gpu.md)
+* [{#T}](vm-create/create-preemptible-vm.md)
 
 ## DSVM {#dsvm}
 
@@ -48,6 +48,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](vm-control/vm-change-zone.md)
 * [{#T}](vm-control/vm-change-folder.md)
 * [{#T}](vm-control/vm-attach-public-ip.md)
+* [{#T}](vm-control/vm-detach-public-ip.md)
 * [{#T}](vm-control/vm-set-static-ip.md)
 * [{#T}](vm-control/vm-update.md)
 * [{#T}](vm-control/vm-update-resources.md)
@@ -66,7 +67,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
-* [{#T}](disk-create/nonreplicated.md)
+   * [{#T}](disk-create/nonreplicated.md)
 
 ## Disk management {#disk-control}
 
@@ -75,6 +76,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](disk-control/disk-change-folder.md)
 * [{#T}](disk-control/delete.md)
 * [{#T}](snapshot-control/delete.md)
+
 
 ## Disk placement groups {#placement-groups}
 
@@ -93,6 +95,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 * [{#T}](image-control/get-list.md)
 * [{#T}](image-control/delete.md)
+
 
 ## File storage {#filesystem}
 
@@ -116,7 +119,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](instance-groups/create-with-balancer.md)
 * [{#T}](instance-groups/create-with-load-balancer.md)
 * [{#T}](instance-groups/create-autoscaled-group.md)
-* [{#T}](instance-groups/create-with-coi.md)
+   * [{#T}](instance-groups/create-with-coi.md)
 * [{#T}](instance-groups/create-from-yaml.md)
 
 ## Getting information about instance groups {#ig-info}
@@ -137,6 +140,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](instance-groups/stop.md)
 * [{#T}](instance-groups/start.md)
 * [{#T}](instance-groups/delete.md)
+
 
 ## Dedicated hosts {#dedicated-host}
 

@@ -3,11 +3,11 @@
 _Data decimation_ is a mechanism for archiving historical data in {{ monitoring-short-name }}.
 
 To decrease the amount of stored data, {{ monitoring-short-name }} aggregates the values of all metrics according to the _decimation policy_. The average value in the window is used as an aggregation function.
-Decimation policy uses five-minute grid after one week.
+The decimation policy uses a five-minute grid after one week.
 
 {% note info %}
 
-Decimation policy change is not supported.
+You can't change the decimation policy.
 
 {% endnote %}
 

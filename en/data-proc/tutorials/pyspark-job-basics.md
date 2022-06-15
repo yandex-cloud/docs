@@ -22,7 +22,7 @@ In this section, we provide a simple example that demonstrates how to use [PySpa
 
 1. {% include [Download and upload a sample file](../../_includes/data-proc/tutorials/sample-txt.md) %}
 
-1. Download a file and upload it to the input data bucket containing the Python code for the [word_count.py](https://storage.yandexcloud.net/examples/pyspark/word_count.py) analysis routine:
+1. Download a file and upload it to the input data bucket containing the Python code for the [word_count.py](https://{{ s3-storage-host }}/examples/pyspark/word_count.py) analysis routine:
 
     {% cut "word_count.py" %}
 

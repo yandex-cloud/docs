@@ -1,8 +1,9 @@
 # Canceling cloud deletion
 
-This sections provides instructions on canceling cloud deletion if you previously [initiated deletion](delete.md) by mistake. Review the [{#T}](../../../billing/payment/billing-cycle.md) section for information on canceling deletion that is related to having an outstanding amount payable.
+This sections provides instructions on canceling cloud deletion if you previously [initiated deletion](delete.md) by mistake. See the [{#T}](../../../billing/payment/billing-cycle.md) section for information on canceling deletion that is related to having an outstanding amount payable.
 
 You can reverse a deletion while a cloud is `PENDING_DELETION`.
+
 
 {% include [alert-pending-deletion](../../../_includes/resource-manager/alert-pending-deletion.md) %}
 

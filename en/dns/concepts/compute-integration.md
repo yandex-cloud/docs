@@ -11,4 +11,3 @@ For a VM with a public IP address, you can add a record [manually](../operations
 When assigning an FQDN to a VM instance from a group, the name specified in the [instance template](../../compute/concepts/instance-groups/instance-template.md) is used for all instances in the group: a set of records with the same names but different IPs in the values is created.
 
 You can use [variables](../../compute/concepts/instance-groups/variables-in-the-template.md) from instance templates when creating records. For example, if you specify a record name like `web_server_{instance.index}`, you can create records with unique names of instances from a group. If you set a name like `web_server_{instance.zone_id}`, you can create records for all instances within a single availability zone.
-

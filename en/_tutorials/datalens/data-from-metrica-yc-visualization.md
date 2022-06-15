@@ -43,7 +43,7 @@ To visualize and analyze data, [make sure you have a ready-to-use cloud](#before
 
 ## Before you start {#before-you-begin}
 
-Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 ## 1. Connect {{ CH }} and {{ ml-platform-short-name }} {#ch-datasphere-connection}
 

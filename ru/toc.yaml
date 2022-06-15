@@ -1,17 +1,19 @@
-title: Документация Yandex Cloud
+title: Документация {{ yandex-cloud }}
 href: index.yaml
 items:
-  - name: API Yandex Cloud
+  - name: API {{ yandex-cloud }}
     href: api-design-guide/index.yaml
   - name: API Gateway
     href: api-gateway/index.yaml
   - name: Application Load Balancer
     href: application-load-balancer/index.yaml
+  - name: Audit Trails
+    href: audit-trails/index.yaml
   - name: Биллинг
     href: billing/index.yaml
   - name: Certificate Manager
     href: certificate-manager/index.yaml
-  - name: CLI Yandex Cloud
+  - name: CLI {{ yandex-cloud }}
     href: cli/index.yaml
   - name: Cloud Logging
     href: logging/index.yaml
@@ -35,6 +37,8 @@ items:
     href: datasphere/index.yaml
   - name: Cloud DNS
     href: dns/index.yaml
+  - name: Начало работы
+    href: getting-started/index.yaml
   - name: Пробный период
     href: getting-started/free-trial/concepts/quickstart.md
   - name: Cloud Functions
@@ -79,21 +83,21 @@ items:
     href: network-load-balancer/index.yaml
   - name: Cloud Organization
     href: organization/index.yaml
-  - name: Обзор платформы Yandex Cloud
+  - name: Обзор платформы {{ yandex-cloud }}
     href: overview/index.yaml
-  - name: Партнерская программа Yandex Cloud
+  - name: Партнерская программа {{ yandex-cloud }}
     href: partner/index.yaml
   - name: Resource Manager
     href: resource-manager/index.yaml
-  - name: Практические руководства платформы Yandex Cloud
+  - name: Практические руководства платформы {{ yandex-cloud }}
     href: tutorials/index.yaml
-  - name: Безопасность в Yandex Cloud
+  - name: Безопасность в {{ yandex-cloud }}
     href: security/index.yaml
   - name: SpeechKit
     href: speechkit/index.yaml
   - name: Object Storage
     href: storage/index.yaml
-  - name: Техническая поддержка Yandex Cloud
+  - name: Техническая поддержка {{ yandex-cloud }}
     href: support/index.yaml
   - name: Tracker
     href: tracker/index.yaml

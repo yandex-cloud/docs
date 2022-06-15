@@ -1,5 +1,5 @@
 ---
-title: Dead Letter Queue in Yandex Message Queue
+title: Dead Letter Queue in {{ message-queue-full-name }}
 description: "Dead Letter Queue (DLQ) is a queue where messages that could not be processed by recipients in regular queues can be forwarded. Messages may not be processed for a number of reasons, for example, due to changed states of the sender or recipient. Messages forwarded to DLQ will be stored there for further diagnostics and will no longer interfere with applications."
 ---
 
@@ -9,7 +9,7 @@ The Dead Letter Queue (DLQ) is a queue for messages that consumers couldn't proc
 
 A message can be moved to the DLQ after a set number of unsuccessful attempts to process it. Each queue has a redrive policy that defines the number of processing attempts and the ID of the DLQ.
 
-## Redrive policy {#redrive-policy}
+## The redrive policy {#redrive-policy}
 
 The redrive policy defines the conditions for moving messages to the DLQ.
 
@@ -29,7 +29,6 @@ For standard queues, the DLQ must also be a standard queue.
 
 ### With FIFO queues {#fifo-queues}
 
-Using a DLQ  with FIFO queues may affect the message processing order. If processing fails for one of the messages in a group, processing is blocked for the entire group. A consumer can't continue processing this message group until the problematic message is successfully processed. Make sure that your application processes all messages successfully, otherwise the entire FIFO queue may be blocked because of a problematic message.
+Using a DLQ with FIFO queues may affect the message processing order. If processing fails for one of the messages in a group, processing is blocked for the entire group. A consumer can't continue processing this message group until the problematic message is successfully processed. Make sure that your application processes all messages successfully, otherwise the entire FIFO queue may be blocked because of a problematic message.
 
 For FIFO queues, the DLQ must also be created as a FIFO queue.
-

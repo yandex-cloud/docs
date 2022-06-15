@@ -2,7 +2,7 @@
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}
 
-A domain is a unique domain name that can be used in [various {{ yandex-cloud }} services](services.md) that require confirmation of the user's rights to the domain.
+A domain is a unique domain name that can be used in [{{ yandex-cloud }} services](services.md) that require confirmation of the user's rights to the domain.
 
 ## Confirming rights for domains {#confirmation}
 

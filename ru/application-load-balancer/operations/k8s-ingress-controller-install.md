@@ -30,7 +30,7 @@
 1. Аутентифицируйте клиент Helm в реестре {{ container-registry-full-name }} с помощью авторизованного ключа сервисного аккаунта:
 
    ```bash
-   cat sa-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin
+   cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin
    ```
    
 1. Загрузите чарт Ingress-контроллера из реестра и разархируйте его:
@@ -38,7 +38,7 @@
    ```bash
    helm pull \
      --version v{{ alb-ingress-version }} \
-     oci://cr.yandex/yc/yc-alb-ingress-controller-chart
+     oci://{{ registry }}/yc/yc-alb-ingress-controller-chart
    ```
    
 1. Установите чарт в кластер:

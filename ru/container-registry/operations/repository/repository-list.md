@@ -6,52 +6,49 @@
 
 - CLI
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. Посмотрите описание команды CLI для получения списка репозиториев:
+  1. Посмотрите описание команды CLI для получения списка репозиториев:
 
-      ```bash
-      yc container repository list --help
-      ```
+     ```bash
+     yc container repository list --help
+     ```
 
-   1. Получите список репозиториев.
-      * Чтобы получить список всех репозиториев всех реестров текущего каталога, выполните команду:
+  1. Получите список репозиториев.
+     * Чтобы получить список всех репозиториев всех реестров текущего каталога, выполните команду:
 
-         ```bash
-         yc container repository list
-         ```
+       ```bash
+       yc container repository list
+       ```
 
-         Результат выполнения команды:
+       Результат выполнения команды:
 
-         ```bash
-         +----------------------+-----------------------------+
-         |          ID          |            NAME             |
-         +----------------------+-----------------------------+
-         | crp8bu81b5afogqjrg92 | crp0pmf1n68tt345tf02/ubuntu |
-         | crps9c63eviioaehqsif | crpl3738e9v1qb3besp7/ubuntu |
-         +----------------------+-----------------------------+
-         ```
+       ```bash
+       +----------------------+-----------------------------+
+       |          ID          |            NAME             |
+       +----------------------+-----------------------------+
+       | crp8bu81b5afogqjrg92 | crp0pmf1n68tt345tf02/ubuntu |
+       | crps9c63eviioaehqsif | crpl3738e9v1qb3besp7/ubuntu |
+       +----------------------+-----------------------------+
+       ```
 
-      * Чтобы получить список всех репозиториев определенного реестра, выполните команду:
+     * Чтобы получить список всех репозиториев определенного реестра, выполните команду:
 
-         ```bash
-         yc container repository list --registry-id crp0pmf1n68tt345tf02
-         ```
+       ```bash
+       yc container repository list --registry-id <идентификатор реестра>
+       ```
 
-         Где:
-         * `--registry-id` — идентификатор реестра.
+       Результат выполнения команды:
 
-         Результат выполнения команды:
-
-         ```bash
-         +----------------------+-----------------------------+
-         |          ID          |            NAME             |
-         +----------------------+-----------------------------+
-         | crp8bu81b5afogqjrg92 | crp0pmf1n68tt345tf02/ubuntu |
-         +----------------------+-----------------------------+
-         ```
+       ```bash
+       +----------------------+-----------------------------+
+       |          ID          |            NAME             |
+       +----------------------+-----------------------------+
+       | crp8bu81b5afogqjrg92 | crp0pmf1n68tt345tf02/ubuntu |
+       +----------------------+-----------------------------+
+       ```
 
 - API
 
@@ -65,50 +62,40 @@
 
 - CLI
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  1. Посмотрите описание команды CLI для получения информации о репозитории:
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+     ```bash
+     yc container repository get --help
+     ```
 
-   1. Посмотрите описание команды CLI для получения информации о репозитории:
+  1. Получите информацию о репозитории.
+     * По ID репозитория:
 
-      ```bash
-      yc container repository get --help
-      ```
+       ```bash
+       yc container repository get --id <идентификатор репозитория>
+       ```
 
-   1. Получите информацию о репозитории.
-      * По ID репозитория:
+       Результат выполнения команды:
 
-         ```bash
-         yc container repository get --id crp8bu81b5afogqjrg92
-         ```
+       ```bash
+       name: crp0pmf1n68tt345tf02/ubuntu
+       id: crp8bu81b5afogqjrg92
+       ```
 
-         Где:
-         * `--id` — идентификатор репозитория.
+     * По имени репозитория:
 
-         Результат выполнения команды:
+       ```bash
+       yc container repository get --name <имя репозитория>
+       ```
 
-         ```bash
-         name: crp0pmf1n68tt345tf02/ubuntu
-         id: crp8bu81b5afogqjrg92
-         ```
+       Результат выполнения команды:
 
-      * По имени репозитория:
+       ```bash
+       name: crp0pmf1n68tt345tf02/ubuntu
+       id: crp8bu81b5afogqjrg92
+       ```
 
-         ```bash
-         yc container repository get --name crp0pmf1n68tt345tf02/ubuntu
-         ```
-
-         Где:
-         * `--name` — имя репозитория.
-
-         Результат выполнения команды:
-
-         ```bash
-         name: crp0pmf1n68tt345tf02/ubuntu
-         id: crp8bu81b5afogqjrg92
-         ```
-
-         Можно указать не только полное имя Docker-образа, но и префиксы. Например, информацию о репозитории `crpvplula8p3nn86jtnb/myproject/myservice` можно получить, указав `crpvplula8p3nn86jtnb/myproject/myservice`, `crpvplula8p3nn86jtnb/myproject` или `crpvplula8p3nn86jtnb`.
+       Можно указать не только полное имя Docker-образа, но и префиксы. Например, информацию о репозитории `crpvplula8p3nn86jtnb/myproject/myservice` можно получить, указав `crpvplula8p3nn86jtnb/myproject/myservice`, `crpvplula8p3nn86jtnb/myproject` или `crpvplula8p3nn86jtnb`.
 
 - API
 

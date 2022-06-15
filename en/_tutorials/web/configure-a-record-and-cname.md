@@ -53,7 +53,9 @@ dig +short NS example.com
 
 Result:
 
+
 ```
 ns2.yandexcloud.net.
 ns1.yandexcloud.net.
 ```
+

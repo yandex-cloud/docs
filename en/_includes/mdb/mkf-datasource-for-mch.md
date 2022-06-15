@@ -60,7 +60,7 @@ If you no longer need these resources, [delete them](#clear-out).
         1. Download the configuration file for `clickhouse-client`:
 
             ```bash
-            mkdir -p ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
+            mkdir -p ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
             ```
 
         Check that you can use it to [connect to the {{ mch-name }} cluster over SSL](../../managed-clickhouse/operations/connect.md#connection-string).
@@ -193,7 +193,7 @@ To learn more about creating a table on the `Kafka` engine, see the [{{ CH }} do
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username="<producer account username>" \
        -X sasl.password="<producer account password>" \
-       -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z
+       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
     ```
 
 Data is sent through [producer accounts](#before-you-begin). To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect.md).

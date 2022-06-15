@@ -1,4 +1,4 @@
-# Инструменты для работы с Yandex Message Queue
+# Инструменты для работы с {{ message-queue-full-name }}
 
 Для использования API подходят все инструменты, совместимые с Amazon SQS: AWS CLI, Boto3 и другие [поддерживаемые SDK](https://aws.amazon.com/ru/tools/#sdk).
 
@@ -10,6 +10,6 @@
 
 * в качестве `AWS_ACCESS_KEY_ID` используйте идентификатор статического ключа
 * в качестве `AWS_SECRET_ACCESS_KEY` используйте секретный ключ
-* в качестве региона используйте значение `ru-central1`
-* в качестве endpoint используйте `https://message-queue.api.cloud.yandex.net`
+* в качестве региона используйте значение `{{ region-id }}`
+* в качестве endpoint используйте `https://message-queue.{{ api-host }}`
 

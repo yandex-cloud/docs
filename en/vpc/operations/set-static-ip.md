@@ -65,7 +65,7 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
       created_at: "2021-01-14T09:36:46Z"
       external_ipv4_address:
         address: 84.201.177.41
-        zone_id: ru-central1-b
+        zone_id: {{ region-id }}-a
         requirements: {}
       reserved: true
       used: true

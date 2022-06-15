@@ -93,6 +93,7 @@
       * `days`: The number of days before the transition. Required parameter.
       * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
 
+      
       ```hcl
       provider "yandex" {
         cloud_id  = "<cloud ID>"
@@ -158,6 +159,7 @@
         }
       }
       ```
+
 
       For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
 

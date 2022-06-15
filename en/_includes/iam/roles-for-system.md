@@ -2,7 +2,7 @@ You can assign any role to the system group, except `resource-manager.clouds.own
 
 {% note alert %}
 
-Do not assign a system group the `editor` or `admin` role for a catalog or cloud. Otherwise, anyone who knows the folder ID can use {{ yandex-cloud }} at your expense.
+Do not assign a system group the `editor` or `admin` role for a catalog or cloud. Otherwise, anyone who knows the folder ID can use {{ yandex-cloud }}at your expense.
 
 {% endnote %}
 

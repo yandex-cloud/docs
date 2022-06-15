@@ -6,6 +6,6 @@ $ curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
     -d '@body.json' \
-    https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze > output.json
+    https://vision.{{ api-host }}/vision/v1/batchAnalyze > output.json
 ```
 

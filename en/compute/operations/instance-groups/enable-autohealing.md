@@ -16,7 +16,7 @@ This section describes how to set up application health check for an existing gr
    1. Select the protocol for the health checks: **HTTP** or **TCP**.
    1. Set up the health checks:
 
-      * Path (for HTTP) — The URL path for the HTTP check requests sent from {{ ig-name }}.
+      * Path (for HTTP): The URL path for the HTTP check requests sent from {{ ig-name }}.
       * The port in the range 1-32767 to receive the check requests from {{ ig-name }}.
 
          {% note alert %}
@@ -27,11 +27,11 @@ This section describes how to set up application health check for an existing gr
       * The response timeout in seconds.
 
          If you [connected your group to a network load balancer](create-with-balancer.md), we recommend setting a _higher_ value here than in the load balancer.
-      * Check interval in seconds — This is the interval between the health checks done by {{ ig-name }}.
-      * Performance threshold — The number of successful health checks required for the managed instance to be considered healthy.
+      * Check interval in seconds: This is the interval between the health checks done by {{ ig-name }}.
+      * Performance threshold: The number of successful health checks required for the managed instance to be considered healthy.
 
          If you connected your group to a network load balancer, we recommend setting a _lower_ value here than in the load balancer.
-      * Failure threshold — The number of failed health checks for the managed instance to be considered unhealthy.
+      * Failure threshold: The number of failed health checks for the managed instance to be considered unhealthy.
 
          If you connected your group to a network load balancer, we recommend setting a _higher_ value here than in the load balancer.
    1. Click **Save**.
@@ -83,7 +83,7 @@ This section describes how to set up application health check for an existing gr
       | `http_options` | Settings for HTTP health checks. Only HTTP/1.1 and lower are supported.<br>If you want to use TCP, then in the `tcp_options` property specify the port number only. |
       | `port` | The port in the range 1-32767 to receive the check requests from {{ ig-name }}. |
       | `path` | The URL path for the HTTP health check requests sent from {{ ig-name }}. |
-      | `interval` | Check interval in seconds — This is the interval between the health checks done by {{ ig-name }}. |
+      | `interval` | Check interval in seconds: This is the interval between the health checks done by {{ ig-name }}. |
       | `timeout` | Response timeout in seconds.<br>If you [connected your group to a load balancer](create-with-balancer.md), we recommend setting a _higher_ value here than in the load balancer. |
       | `unhealthy_threshold` | Unhealthy threshold is the number of failed health checks after which the instance is considered non-functional.<br>If you connected your group to a network load balancer, we recommend setting a _higher_ value here than in the load balancer. |
       | `healthy_threshold` | Healthy threshold is the number of successful health checks after which an instance is considered functional.<br>If you connected your group to a load balancer, we recommend setting a _lower_ value here than in the load balancer. |

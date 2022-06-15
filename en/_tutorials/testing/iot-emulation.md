@@ -5,7 +5,7 @@ In this scenario, you will learn to emulate many devices that send messages to M
 * Temperature.
 * Humidity.
 * Pressure.
-* COvv2vv levels.
+* CO<sub>2</sub> levels.
 
 Each sensor sends its result in JSON format. For example:
 
@@ -33,13 +33,7 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 ## Before you start {#before-begin}
 
-Before you deploy the device emulation infrastructure, register in {{ yandex-cloud }} and create a billing account:
-
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can go to the [cloud page]({{ link-console-cloud }}) to select or create the folder where you will be deploying your infrastructure.
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 ## Install Terraform {#install-terraform}
 

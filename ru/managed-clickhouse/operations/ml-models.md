@@ -350,10 +350,10 @@
 Чтобы загрузить данные в {{ CH }} и протестировать модель:
 
 1. Установите [{{ CH }} CLI](https://{{ ch-domain }}/docs/ru/interfaces/cli/) и настройте подключение к кластеру как описано в [документации](../../managed-clickhouse/operations/connect.md#cli).
-1. Скачайте [файл с данными](https://storage.yandexcloud.net/managed-clickhouse/train.csv) для анализа:
+1. Скачайте [файл с данными](https://{{ s3-storage-host }}/managed-clickhouse/train.csv) для анализа:
 
    ```bash
-   wget https://storage.yandexcloud.net/managed-clickhouse/train.csv
+   wget https://{{ s3-storage-host }}/managed-clickhouse/train.csv
    ```
 
 1. Создайте таблицу для данных:
@@ -384,7 +384,7 @@
 1. В [консоли управления]({{ link-console-main }}) подключите тестовую модель:
     * **Тип** — `ML_MODEL_TYPE_CATBOOST`.
     * **Имя** — `ml_test`.
-    * **URL** — `https://storage.yandexcloud.net/managed-clickhouse/catboost_model.bin`.
+    * **URL** — `https://{{ s3-storage-host }}/managed-clickhouse/catboost_model.bin`.
   
 1. Протестируйте модель:
     1. Подключитесь к кластеру [с помощью клиента](../../managed-clickhouse/operations/connect.md#cli) {{ CH }} CLI или перейдите на вкладку [SQL](../../managed-clickhouse/operations/web-sql-query.md) в консоли управления кластером.

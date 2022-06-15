@@ -101,7 +101,7 @@
         "serviceAccountId": "aje6o61dvog2h6g9a33s",
         "description": "this key is for my bucket"
     }' \
-    https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys
+    https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys
   ```
 
 {% endlist %}

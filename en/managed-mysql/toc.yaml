@@ -1,4 +1,4 @@
-title: Yandex Managed Service for MySQL
+title: Yandex Managed Service for MySQL®
 href: index.yaml
 items:
   - name: Getting started
@@ -17,7 +17,7 @@ items:
         href: operations/cluster-stop.md
       - name: SQL queries in the management console
         href: operations/web-sql-query.md
-      - name: Editing clusters
+      - name: Updating clusters
         href: operations/update.md
       - name: Connecting to DataLens
         href: operations/datalens-connect.md
@@ -35,11 +35,11 @@ items:
         href: operations/cluster-delete.md
       - name: Performance diagnostics
         href: operations/performance-diagnostics.md
-      - name: Monitoring the state of a cluster and hosts
+      - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
   - name: Concepts
     items:
-      - name: Relationship between service resources
+      - name: Relationships between service resources
         href: concepts/index.md
       - name: Host classes
         items:
@@ -61,6 +61,8 @@ items:
         href: concepts/backup.md
       - name: Replication
         href: concepts/replication.md
+      - name: Maintenance
+        href: concepts/maintenance.md
       - name: User permissions
         href: concepts/user-rights.md
       - name: MySQL settings
@@ -71,7 +73,7 @@ items:
         href: tutorials/index.md
       - name: Performance analysis and tuning
         href: tutorials/profiling.md
-      - name: Migrating databases to {{ mmy-name }}
+      - name: Migrating databases to Managed Service for MySQL
         href: tutorials/data-migration.md
       - name: Migrating databases from {{ mmy-name }} to {{ MY }}
         href: tutorials/mmy-to-mysql-migration.md
@@ -205,6 +207,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: Revision history
+    href: release-notes.md
   - name: Questions and answers
     items:
       - name: General questions

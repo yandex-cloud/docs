@@ -1,6 +1,6 @@
 ---
-title: "API Authentication in Yandex Virtual Private Cloud"
-description: "To perform API operations in the Yandex Virtual Private Cloud service for managing cloud networks (private cloud, VPC), you need to obtain an IAM token for a service, federated or Yandex account."
+title: "API Authentication in {{ vpc-full-name }}"
+description: "To perform API operations in the {{ vpc-full-name }} service for managing cloud networks (private cloud, {{ vpc-short-name }}), you need to obtain an IAM token for your account."
 ---
 
 {% include [auth](../../_includes/authentication.md) %}

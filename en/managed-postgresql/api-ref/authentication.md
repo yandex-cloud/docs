@@ -1,6 +1,6 @@
 ---
-title: "API authentication in Yandex Managed Service for PostgreSQL"
-description: "To perform operations via the API in the PostgreSQL database management service - Yandex Managed Service for PostgreSQL, you need to get an IAM token for a service, federated or Yandex account."
+title: "API authentication in {{ mpg-full-name }}"
+description: "To perform operations via the API in the {{ PG }} database management service - {{ mpg-full-name }}, you need to get an IAM token for your account."
 ---
 
 {% include [auth](../../_includes/authentication.md) %}

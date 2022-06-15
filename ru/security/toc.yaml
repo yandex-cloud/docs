@@ -7,7 +7,7 @@ items:
     href: respons.md
   - name: Соответствие требованиям
     href: conform.md
-  - name: Меры безопасности на стороне Yandex Cloud
+  - name: Меры безопасности на стороне {{ yandex-cloud }}
     href: standarts.md
   - name: Средства защиты, доступные пользователям облачных сервисов
     href: user-side.md
@@ -33,7 +33,7 @@ items:
         href: domains/kubernetes.md
   - name: Инструкции
     items:
-      - name: Удаление паспортного аккаунта из организации
+      - name: Удаление паспортного аккаунта из {{ org-full-name }}
         href: operations/account-deletion.md
       - name: Если вас атакуют с адресов {{ yandex-cloud }}
         href: operations/outgoing-ddos.md

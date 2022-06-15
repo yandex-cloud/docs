@@ -54,7 +54,7 @@ You can create an empty disk of the specified size.
       yc compute disk list --format yaml
       ```
 
-      Output:
+      Result:
       ```yaml
       - id: fhm4aq4hvq5g3nepvt9b
           folder_id: b1gm3og7ei7aegv8i73m
@@ -62,7 +62,7 @@ You can create an empty disk of the specified size.
           name: first-disk
           description: my first disk via yc
           type_id: network-hdd
-          zone_id: ru-central1-a
+          zone_id: {{ region-id }}-a
           size: "10737418240"
           status: READY
       - id: fhmo6rdqg5folrc3lsaf
@@ -71,7 +71,7 @@ You can create an empty disk of the specified size.
           name: second-disk
           description: my second disk via yc
           type_id: network-hdd
-          zone_id: ru-central1-a
+          zone_id: {{ region-id }}-a
           size: "8589934592"
           product_ids:
           - f2en2dtd08b5la74mlde
@@ -101,7 +101,7 @@ You can create an empty disk of the specified size.
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
+      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-link }}/).
 
    2. Make sure that the configuration files are correct.
 

@@ -14,13 +14,7 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Перед тем, как проводить нагрузочное тестирование, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
-
-{% include [prepare-register-billing](../_tutorials/_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, перейдите в [консоль управления]({{ link-console-main }}) и [создайте](../resource-manager/operations/folder/create.md) или выберите каталог, в котором будет работать ваш [агент тестирования](../load-testing/concepts/agent.md).
-
-[Подробнее об иерархии ресурсов](../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 

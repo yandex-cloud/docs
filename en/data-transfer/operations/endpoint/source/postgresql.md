@@ -1,8 +1,8 @@
 # Source endpoint parameters {{ PG }}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
-* Settings of [{{ mpg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise), including one based on {{ compute-full-name }} VMs. These are required parameters.
+* [{{ mpg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
 
 ## {{ mpg-name }} cluster {#managed-service}
@@ -116,13 +116,15 @@ Connecting to the database with an explicitly specified network address and port
 
 - Management console
 
-   * **List of included tables**. Data is only transferred from listed tables.
-   * **Blacklist of tables**. Data from blacklisted tables isn't transferred.
+   * **List of included tables**: Data is only transferred from listed tables.
+   * **Blacklist of tables**: Data from blacklisted tables isn't transferred.
 
       Both lists support expressions in the following format:
       * `<schema name>.<table name>`: Fully qualified table name.
       * `<schema name>.*`: All tables in the specified schema.
       * `<table name>`: Table in the default schema.
+
+      {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
    * **Replication slot name**: Enter the ID of the PostgreSQL replication slot used to connect to the DB cluster.
 
@@ -145,6 +147,8 @@ Connecting to the database with an explicitly specified network address and port
       * `<schema name>.*`: All tables in the specified schema.
       * `<table name>`: Table in the default schema.
 
+      {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
+
    * `--slot-lag-limit`: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. By default, not limited.
 
    * `--service-schema`: Name of the DB schema for service tables.
@@ -163,6 +167,8 @@ Connecting to the database with an explicitly specified network address and port
 
       * `<schema name>.<table name>`: Fully qualified table name.
       * `<schema name>.*`: All tables in the schema.
+
+      {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
    * `slot_gigabyte_lag_limit`: Maximum size of Write-Ahead Log kept in replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. By default, not limited.
 
@@ -207,6 +213,8 @@ Connecting to the database with an explicitly specified network address and port
       * `<schema name>.*`: All tables in the specified schema.
       * `<table name>`: Table in the default schema.
 
+      {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
+
    * `slotByteLagLimit`: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. By default, not limited.
 
    * `serviceSchema`: Name of the DB schema for service tables.
@@ -222,6 +230,8 @@ Connecting to the database with an explicitly specified network address and port
 The default settings of the source endpoint let you successfully perform a transfer for most databases. Change the settings of the initial and final stages of the transfer only if it is necessary.
 
 {% endnote %}
+
+The service does not transfer `MATERIALIZED VIEWS`. For more detail, please review [Service specifics for sources and targets](../../../concepts/index.md#postgresql).
 
 During a transfer, the database schema is transferred from the source to the target. The transfer is performed in two stages:
 

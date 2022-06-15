@@ -13,7 +13,7 @@
   1. Создайте виртуальную машину:
 
      ```
-     $ yc compute instance create --zone ru-central1-b --name instance-in-group-2
+     $ yc compute instance create --zone {{ region-id }}-b --name instance-in-group-2
      id: epdlv1pp54019j09fhue
      ...
      ```
@@ -21,7 +21,7 @@
      Данная команда создаст виртуальную машину со следующими характеристиками:
 
      - С именем `instance-in-group-2`.
-     - В зоне доступности `ru-central1-b`.
+     - В зоне доступности `{{ region-id }}-b`.
 
   1. Посмотрите список виртуальных машин в группе размещения:
 
@@ -30,7 +30,7 @@
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
-     | epdep2kq6dt5uekuhcrd | instance-in-group-1 | ru-central1-b | RUNNING |             | 10.129.0.5  |
+     | epdep2kq6dt5uekuhcrd | instance-in-group-1 | {{ region-id }}-b | RUNNING |             | 10.129.0.5  |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      ```
 
@@ -62,8 +62,8 @@
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
-     | epdep2kq6dt5uekuhcrd | instance-in-group-1 | ru-central1-b | RUNNING |             | 10.129.0.5  |
-     | epdlv1pp54019j09fhue | instance-in-group-2 | ru-central1-b | STOPPED |             | 10.129.0.30 |
+     | epdep2kq6dt5uekuhcrd | instance-in-group-1 | {{ region-id }}-b | RUNNING |             | 10.129.0.5  |
+     | epdlv1pp54019j09fhue | instance-in-group-2 | {{ region-id }}-b | STOPPED |             | 10.129.0.30 |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      ```
 

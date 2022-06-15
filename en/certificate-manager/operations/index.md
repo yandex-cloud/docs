@@ -1,6 +1,6 @@
 ---
-title: How to work with Yandex Certificate Manager (TLS-certificates). Instructions
-description: "From the article you will learn how to work with Yandex Certificate Manager in Yandex Cloud. We will tell you about managing your own certificates and certificates from Let's Encrypt. Learn how to create your own domain and bind TLS certificates to it."
+title: How to work with {{ certificate-manager-full-name }} (TLS-certificates). Instructions
+description: "From the article you will learn how to work with {{ certificate-manager-full-name }} in Yandex Cloud. We will tell you about managing your own certificates and certificates from Let's Encrypt. Learn how to create your own domain and bind TLS certificates to it."
 ---
 
 # Step-by-step instructions for {{ certificate-manager-name }}

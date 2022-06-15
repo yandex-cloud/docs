@@ -139,7 +139,7 @@ A check is performed automatically if the following conditions are met:
     ```
     to
     ```
-    https://validation.certificate-manager.api.cloud.yandex.net/<Certificate ID>/*
+    https://validation.certificate-manager.{{ api-host }}/<Certificate ID>/*
     ```
 
 Example of setting up a redirect in the nginx configuration:
@@ -147,7 +147,7 @@ Example of setting up a redirect in the nginx configuration:
 ```
 server {
   location ~ ^/.well-known/acme-challenge/([a-zA-Z0-9-_]+)$ {
-    return 301 https://validation.certificate-manager.api.cloud.yandex.net/<certificate ID>/$1.
+    return 301 https://validation.certificate-manager.{{ api-host }}/<certificate ID>/$1.
   }
 }
 ```

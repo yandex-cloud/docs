@@ -4,7 +4,7 @@
 
 ## Installation {#install}
 
-Install the SDK for Java [by following the instructions](https://docs.aws.amazon.com/en_us/sdk-for-java/v1/developer-guide/setup-install.html) on the official website.
+Install the AWS SDK for Java by [following the instructions](https://docs.aws.amazon.com/en_us/sdk-for-java/v1/developer-guide/setup-install.html) on the official website.
 
 ## Before you start {#prepare}
 
@@ -25,10 +25,10 @@ In this example:
 
 1. A connection with {{ message-queue-name }} is established.
 1. A message queue is created.
-1. A message with the text `test message` is sent to the queue.
+1. A message with the text `test-message` is sent to the queue.
 1. The message is read from the queue and displayed in the terminal.
 
-To read about the features not covered by the example, see the documentation on the [AWS SQS Java Messaging Library website](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-java-message-service-jms-client.html).
+To read about the features not covered by the example, see the documentation on the [AWS SQS Java Messaging Library](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-java-message-service-jms-client.html) website.
 
 ```java
 package ru.yandex.cloud.message_queue;
@@ -46,17 +46,17 @@ import javax.jms.*;
 
 public class App
 {
-    private static String queueName = "ymq_jms_example";
+    private static String queueName = "mq_jms_example";
 
     public static void main( String[] args ) throws JMSException
     {
         SQSConnectionFactory connectionFactory = new SQSConnectionFactory(
                 new ProviderConfiguration(),
                 AmazonSQSClientBuilder.standard()
-                        .withRegion("ru-central1")
+                        .withRegion("{{ region-id }}")
                         .withEndpointConfiguration(new EndpointConfiguration(
-                            "https://message-queue.api.cloud.yandex.net",
-                            "ru-central1"
+                            "https://message-queue.{{ api-host }}",
+                            "{{ region-id }}"
                         ))
         );
 
@@ -84,4 +84,3 @@ public class App
     }
 }
 ```
-

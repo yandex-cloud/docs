@@ -3,6 +3,8 @@ editable: false
 ---
 # Pricing for {{ vpc-name }}
 
+
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## What goes into the cost of using {{ vpc-short-name }} {#rules}
@@ -33,6 +35,7 @@ A public IP address can be in one of the following two states:
 
 {% include [usd-ip.md](../_pricing/vpc/usd-ip.md) %}
 
+
 ### DDoS protection {#prices-ddos-protection}
 
 
@@ -56,4 +59,3 @@ The [security group](concepts/security-groups.md) functionality is at the [Previ
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
-

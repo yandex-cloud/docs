@@ -18,6 +18,7 @@ _API-ключ_ — секретный ключ, используемый для 
 Authorization: Api-Key <API-ключ>
 ```
 
+
 ## Сервисы, поддерживающие этот способ аутентификации {#supported-services}
 
 * [{{ speechkit-name }}](../../../speechkit/concepts/auth.md)

@@ -25,13 +25,8 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources {#paid-resources}
 
@@ -64,7 +59,7 @@ Create two VMs for the 1C server and the license server:
 
 3. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-4. Under **Images from {{ marketplace-name }}**, click **Select**. Select the [Windows 2016 Datacenter](https://cloud.yandex.com/en-ru/marketplace/products/f2ep1515h63fnvqh6hkl) public image.
+4. Under **Images from {{ marketplace-name }}**, click **Select**. Select the [Windows 2016 Datacenter](/marketplace/products/f2ep1515h63fnvqh6hkl) public image.
 
 5. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md).
@@ -93,7 +88,7 @@ To create an infobase VM:
 
 3. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-4. Under **Images from {{ marketplace-name }}**, click **Select**. Select the [SQL Server 2016 Standard](https://cloud.yandex.com/en-ru/marketplace/products/f2epngblcno76k5st39r) public image.
+4. Under **Images from {{ marketplace-name }}**, click **Select**. Select the [SQL Server 2016 Standard](/marketplace/products/f2epngblcno76k5st39r) public image.
 
 5. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md).
@@ -198,7 +193,7 @@ To create an infobase VM:
 1. Select **Add an existing infobase to the list** and click **Next**.
 
 1. Enter the infobase name, select **On 1C:Enterprise server**, and specify the following settings:
-   - **Server cluster**: `server-1c.ru-central1.internal`.
+   - **Server cluster**: `server-1c.{{ region-id }}.internal`.
    - **Infobase name**: `1c`.
 
    Click **Next**.

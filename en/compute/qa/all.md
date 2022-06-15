@@ -8,19 +8,23 @@
 
 {% include notitle [vm](vm.md) %}
 
-## Connection {#connection}
+## Adding plugins {#connection}
 
 {% include notitle [connection](connection.md) %}
 
-## Disks, snapshots, and image {#disks}
+## Disks, snapshots, and images {#disks}
 
 {% include notitle [disks](disks.md) %}
+
+## Disaster recovery {#disaster-recovery}
+
+{% include notitle [disaster-recovery](disaster-recovery.md) %}
 
 ## Instance groups {#instance-groups}
 
 {% include notitle [disks](../_includes_service/instance-groups/general.md) %}
 
-## Monitoring {#monitoring}
+## Monitoring {#monitoring}
 
 {% include notitle [monitoring](monitoring.md) %}
 

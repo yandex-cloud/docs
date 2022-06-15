@@ -84,7 +84,7 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
 
   A service account's JWT payload must contain the following fields:
   * `iss`: The ID of the service account whose key the JWT is signed with.
-  * `aud`: The link by which an IAM token will be requested: `https://iam.api.cloud.yandex.net/iam/v1/tokens.`
+  * `aud`: The link by which an IAM token will be requested: `https://iam.{{ api-host }}/iam/v1/tokens.`
   * `iat`: The token issue time, in [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time) format.
   * `exp`: The token expiration time, in Unix timestamp format. The expiration time must not exceed the issue time by more than one hour, meaning `exp-iat ≤ 3600`.
 
@@ -93,7 +93,7 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
   ```
   {
     "iss": "ajepg0mjt06siua65usm",
-    "aud": "https://iam.api.cloud.yandex.net/iam/v1/tokens",
+    "aud": "https://iam.{{ api-host }}/iam/v1/tokens",
     "iat": 1516239022,
     "exp": 1516240822
   }
@@ -131,7 +131,7 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
   
   now = int(time.time())
   payload = {
-          'aud': 'https://iam.api.cloud.yandex.net/iam/v1/tokens',
+          'aud': 'https://iam.{{ api-host }}/iam/v1/tokens',
           'iss': service_account_id,
           'iat': now,
           'exp': now + 360}
@@ -180,7 +180,7 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
           String encodedToken = Jwts.builder()
                   .setHeaderParam("kid", keyId)
                   .setIssuer(serviceAccountId)
-                  .setAudience("https://iam.api.cloud.yandex.net/iam/v1/tokens")
+                  .setAudience("https://iam.{{ api-host }}/iam/v1/tokens")
                   .setIssuedAt(Date.from(now))
                   .setExpiration(Date.from(now.plusSeconds(360)))
                   .signWith(privateKey, SignatureAlgorithm.PS256)
@@ -218,7 +218,7 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
   
           var payload = new Dictionary<string, object>()
           {
-              { "aud", "https://iam.api.cloud.yandex.net/iam/v1/tokens" },
+              { "aud", "https://iam.{{ api-host }}/iam/v1/tokens" },
               { "iss", serviceAccountId },
               { "iat", now },
               { "exp", now + 3600 }
@@ -265,7 +265,7 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
   		Issuer:    serviceAccountID,
   		IssuedAt:  issuedAt.Unix(),
   		ExpiresAt: issuedAt.Add(time.Hour).Unix(),
-  		Audience:  "https://iam.api.cloud.yandex.net/iam/v1/tokens",
+  		Audience:  "https://iam.{{ api-host }}/iam/v1/tokens",
   	})
   	token.Header["kid"] = keyID
   
@@ -316,7 +316,7 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
   var keyId = 'lfkoe35hsk58aks301nl';
   var now = Math.floor(new Date().getTime() / 1000);
   
-  var payload = { aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens",
+  var payload = { aud: "https://iam.{{ api-host }}/iam/v1/tokens",
                   iss: serviceAccountId,
                   iat: now,
                   exp: now + 3600 };
@@ -357,7 +357,7 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
   $now = time();
   
   $claims = [
-      'aud' => 'https://iam.api.cloud.yandex.net/iam/v1/tokens',
+      'aud' => 'https://iam.{{ api-host }}/iam/v1/tokens',
       'iss' => $service_account_id,
       'iat' => $now,
       'exp' => $now + 360
@@ -407,7 +407,7 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
       auto serviceAccountId = "ajepg0mjt06siua65usm";
       auto keyId = "lfkoe35hsk58aks301nl";
       std::set<std::string> audience;
-      audience.insert("https://iam.api.cloud.yandex.net/iam/v1/tokens");
+      audience.insert("https://iam.{{ api-host }}/iam/v1/tokens");
       auto algorithm = jwt::algorithm::ps256(
           std::string(std::istreambuf_iterator<char>{pub_key_file}, {}),
           std::string(std::istreambuf_iterator<char>{priv_key_file}, {}));
@@ -443,7 +443,7 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
   headers = { kid: keyId }
   payload = {
       typ: 'JWT',
-      aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens",
+      aud: "https://iam.{{ api-host }}/iam/v1/tokens",
       iss: serviceAccountId,
       iat: issuedAt,
       exp: expirationTime,
@@ -479,7 +479,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
   curl -X POST \
       -H 'Content-Type: application/json' \
       -d '{"jwt": "<SIGNED-JWT>"}' \
-      https://iam.api.cloud.yandex.net/iam/v1/tokens
+      https://iam.{{ api-host }}/iam/v1/tokens
   ```
 
   where `<SIGNED-JWT>` is the JWT received in the previous step.
@@ -501,7 +501,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
   	jot := signedToken()
   	fmt.Println(jot)
   	resp, err := http.Post(
-  		"https://iam.api.cloud.yandex.net/iam/v1/tokens",
+  		"https://iam.{{ api-host }}/iam/v1/tokens",
   		"application/json",
   		strings.NewReader(fmt.Sprintf(`{"jwt":"%s"}`, jot)),
   	)

@@ -18,9 +18,11 @@ test
 
 Получите подробную информацию о профиле с именем `prod`:
 
+
 ```
 $ yc config profile get prod
 token: AQAAAAAV6O...
 cloud-id: b1gvl...
 folder-id: b1g88...
 ```
+

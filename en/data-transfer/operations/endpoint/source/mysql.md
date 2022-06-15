@@ -1,8 +1,8 @@
 # Source endpoint parameters {{ MY }}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
-* Settings of [{{ mmy-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise), including one based on {{ compute-full-name }} VMs. These are required parameters.
+* [{{ mmy-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
 
 ## {{ mmy-name }} cluster {#managed-service}
@@ -13,19 +13,19 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
 - Management console
 
-   {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql.md) %}
+   {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql-source.md) %}
 
 - CLI
 
    * Endpoint type: `mysql-source`.
 
-   {% include [Managed MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mysql.md) %}
+   {% include [Managed MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mysql-source.md) %}
 
 - Terraform
 
    * Endpoint type: `mysql_source`.
 
-   {% include [Managed MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mysql.md) %}
+   {% include [Managed MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mysql-source.md) %}
 
    Example configuration file structure:
 
@@ -38,7 +38,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
            mdb_cluster_id = "<{{ mmy-name }} cluster ID>"
          }
          database = "<name of database to transfer>"
-         user     = "<username for connection>"
+         user     = "<username to connect>"
          password {
            raw = "<user password>"
          }
@@ -52,7 +52,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
 - API
 
-   {% include [Managed MySQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-mysql.md) %}
+   {% include [Managed MySQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-mysql-source.md) %}
 
 {% endlist %}
 
@@ -64,19 +64,19 @@ Connecting to the database with an explicitly specified network address and port
 
 - Management console
 
-   {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql.md) %}
+   {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql-source.md) %}
 
 - CLI
 
    * Endpoint type: `mysql-source`.
 
-   {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mysql.md) %}
+   {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mysql-source.md) %}
 
 - Terraform
 
    * Endpoint type: `mysql_source`.
 
-   {% include [On premise MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mysql.md) %}
+   {% include [On premise MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mysql-source.md) %}
 
    Example configuration file structure:
 
@@ -92,7 +92,7 @@ Connecting to the database with an explicitly specified network address and port
            }
          }
          database = "<name of database to transfer>"
-         user     = "<username for connection>"
+         user     = "<username to connect>"
          password {
            raw = "<user password>"
          }
@@ -106,7 +106,7 @@ Connecting to the database with an explicitly specified network address and port
 
 - API
 
-   {% include [On premise MySQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mysql.md) %}
+   {% include [On premise MySQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mysql-source.md) %}
 
 {% endlist %}
 
@@ -140,7 +140,7 @@ Connecting to the database with an explicitly specified network address and port
 
    * `include_table_regex`: List of included tables. Data is only transferred from listed tables. It is set using regular expressions.
 
-   * `exclude_table_regex`: List of excluded tables. Data from tables on this list will not be transferred. It is set using regular expressions.
+   * `exclude_table_regex`: List of excluded tables. Data from tables on this list will not be transmitted. It is set using regular expressions.
 
    * `timezone`: DB time zone, specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
 

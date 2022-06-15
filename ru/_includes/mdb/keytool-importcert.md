@@ -2,7 +2,7 @@
 
 ```bash
 sudo keytool -importcert \
-             -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+             -alias {{ crt-alias }} -file {{ crt-local-dir }}{{ crt-local-file }} \
              -keystore ssl -storepass <пароль хранилища сертификатов, не короче 6 символов> \
              --noprompt
 ```

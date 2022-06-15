@@ -4,22 +4,24 @@ editable: false
 
 # Pricing for {{ compute-name }}
 
+
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## What goes into the cost of using {{ compute-short-name }} {#rules}
 
-The cost of {{ compute-short-name }} usage is based on:
+The cost of {{ compute-name }} usage is based on:
 * Computing resources:
-  * Type and number of cores (vCPUs).
-  * Number of graphics accelerators (GPUs).
-  * Amount of memory (RAM).
+   * Type and number of cores (vCPUs).
+   * Number of graphics accelerators (GPUs).
+   * Amount of memory (RAM).
 * Operating systems.
 * Type and size of storage:
-  * Disks.
-  * Images.
-  * Snapshots.
+   * Disks.
+   * Images.
+   * Snapshots.
 * The amount of outgoing traffic.
 * Public IP address.
 
@@ -37,11 +39,12 @@ The VM starts automatically once it's created.
 
 When creating a VM, you can specify a public IP address for it.
 
-For information about external IP address usage pricing, see [{#T}](../vpc/pricing.md) in the {{ vpc-full-name }} service documentation.
+
+For information about external IP address usage pricing, see [{#T}](../vpc/pricing.md) in the {{ vpc-full-name }} documentation.
 
 #### Computing resources {#instance-resources}
 
-When creating a VM, you specify the number of vCPUs and graphics accelerators ([GPUs](concepts/gpus.md)), as well as the basic level of core performance and the amount of RAM in GB. Read more in [{#T}](concepts/performance-levels.md).
+When creating a VM, you specify the number of vCPUs and graphics accelerators ([GPUs](concepts/gpus.md)), as well as the basic level of core performance and the amount of RAM in GB. For more information, see [{#T}](concepts/performance-levels.md).
 
 The basic level of core performance depends on the [platform](concepts/vm-platforms.md) you select.
 
@@ -57,33 +60,6 @@ OS usage on a VM is also charged. The cost depends on the OS license and the amo
 
 The rules for using Microsoft licenses are described in [{#T}](../microsoft/licensing.md).
 
-#### Example of cost calculation {#example-of-cost-calculation}
-
-Let's compare the cost of running VMs on the Intel Broadwell [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
-
-Two VMs were created running Linux OS:
-* 5% of vCPU and 1 GB RAM
-* 100% of vCPU and 1 GB RAM
-
-Both VMs have been running for 30 days.
-
-
-VM cost with 5% vCPU at the price of an hour of CPU core usage equal to $0.002476, and the price of an hour of 1 GB of RAM usage equal to $0.003129:
-> 5% vCPU = $0.002476/hour * 30 days * 24 hours = $1.782720
->
-> 1 GB RAM = $0.003129/hour * 30 days * 24 hours = $2.252880
->
-> Total: $4.035600
-
-VM Cost with 100% vCPU at the price of an hour of CPU core usage equal to $0.008996, and the price of an hour of 1 GB of RAM usage equal to $0.003129:
-> 1 vCPU = $0.008996/hour * 30 days * 24 hours = $6.477120
->
-> 1 GB RAM = $0.003129/hour * 30 days * 24 hours = $2.252880
->
-> Total: $8.730000
-
-
-As you can see, the cost of the VM using 5% vCPU is about half as much as that of the VM using 100% vCPU.
 
 ### Storage usage (disks, snapshots, and images) {#disk}
 
@@ -99,19 +75,19 @@ The cost is specified for one month of use. Billing occurs per second.
 
 The {{ ig-name }} component can be used free of charge. You can create instance groups and use the storage and computing resources within the [available limits](concepts/limits.md).
 
-All other {{ yandex-cloud }} services, such as VMs and external IP addresses, [are charged as usual](../billing/pricing.md). Outgoing traffic is [charged](#prices-traffic) the same as other services.
+All other services {{ yandex-cloud }}, such as VMs and external IP addresses, are charged as usual. Outgoing traffic [is charged](#prices-traffic) the same as in other services.
 
 ### Dedicated host usage {#dedicated-hosts}
 
 The cost of a dedicated host depends on its type (processor model, number of cores, and RAM) and doesn't depend on the number of VMs running on it.
 
-There are dedicated host configurations with local SSD disks that you can use after receiving approval from Technical Support. If there are local disks in a host configuration, you will need to pay for them even if you do not use them.
+There are dedicated host configurations with local SSD drives that you can use after receiving approval from Technical Support. If there are local drives in a host configuration, you will need to pay for them even if you do not use them.
 
 vCPUs and RAM of VMs running on a dedicated host are not charged.
 
-Use of additional resources, such as images from {{ marketplace-name }} or network disks, is billed as usual.
+Use of additional resources, such as images from {{ marketplace-name }} or network drives, is billed as usual.
 
-Usage prices are shown on an hourly basis (monthly for local disks). Billing occurs per second.
+Usage prices are shown on an hourly basis (monthly for local drives). Billing occurs per second.
 
 ## Pricing {#prices}
 
@@ -159,10 +135,6 @@ For the following products, funds are debited once for the calendar month in adv
 
 {% include [usd-host-other.md](../_pricing/compute/usd-host-other.md) %}
 
-<br>
-
-
-<br>
 
 
 

@@ -1,5 +1,6 @@
 # All Bucket methods
 
+
 | Method | Description |
 | ----- | ----- |
 | [create](bucket/create.md) | Creates a bucket. |

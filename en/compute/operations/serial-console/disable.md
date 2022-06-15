@@ -10,17 +10,16 @@ To disable access to the serial console, set the `serial-port-enable` parameter 
 
 1. Get a list of VMs in the default folder:
 
-    {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
+   {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-1. Select the `ID` or `NAME` of the VM (for example, `first-instance`).
+1. Select the VM `ID` or `NAME` (for example, `first-instance`).
 
 1. Set the `serial-port-enable=0` parameter in the VM metadata:
 
-    ```bash
-    $ yc compute instance add-metadata \
-        --name first-instance \
-        --metadata serial-port-enable=0
-    ```
+   ```bash
+   $ yc compute instance add-metadata \
+       --name first-instance \
+       --metadata serial-port-enable=0
+   ```
 
-    This command will start the operation to deactivate the serial console on the VM named `first-instance`.
-
+   This command will start the operation to deactivate the serial console on the VM named `first-instance`.

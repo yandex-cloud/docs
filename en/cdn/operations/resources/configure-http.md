@@ -104,6 +104,7 @@ To configure, for the resource, the allowed HTTP methods of requests from client
 
       Example configuration file structure:
 
+      
       ```hcl
       terraform {
         required_providers {
@@ -133,6 +134,7 @@ To configure, for the resource, the allowed HTTP methods of requests from client
 
       }
       ```
+
 
       For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 

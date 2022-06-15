@@ -1,7 +1,7 @@
 # DB network and clusters
 
 
-When creating a cluster, you can:
+ When creating a cluster, you can:
 
 * Set the network for the cluster itself.
 
@@ -17,6 +17,7 @@ You can create a cluster without specifying any subnets for the hosts, if the av
 
 
 You can use the FQDN to access the host within a single cloud network. Read more in the [{{ vpc-full-name }} documentation](../../vpc/).
+
 
 ## Public access to a host {#public-access-to-a-host}
 
@@ -35,4 +36,3 @@ When connecting to a cluster from within its cloud network, be sure to [configur
 {% endnote %}
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
-

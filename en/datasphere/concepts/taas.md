@@ -16,7 +16,7 @@ Distributed training across multiple VMs may be limited by the network bandwidth
 
 ## Distributed data delivery for training {#distributed-dataloader}
 
-When you train a model on a GPU-enabled VM, the graphics accelerator is often idle because preparing and reading data takes longer than computing itself. {{ taas }} solves this problem by loading and processing the training data on separate, cheaper CPU-enabled VMs. You can run data preparation on a CPU-enabled VM and data training on a GPU-enabled VM both in sequence and in parallel: when some of the data is prepared, it's delivered to the GPU-enabled VM.
+When you train a model on a GPU-enabled instance, the graphics accelerator is often idle because preparing and reading data takes longer than computing itself. {{ taas }} solves this problem by loading and processing the training data on separate, cheaper CPU-enabled instances. You can run data preparation on a CPU-enabled VM and data training on a GPU-enabled VM both in sequence and in parallel: when some of the data is prepared, it's delivered to the GPU-enabled VM.
 
 {{ taas }} lets you use your GPU efficiently and save money on training resource-intensive models.
 

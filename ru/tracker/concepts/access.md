@@ -90,7 +90,7 @@ IAM-токен действует не больше {{iam-token-lifetime}} и о
   1. Полученный токен обменяйте на IAM-токен. Для этого используйте HTTP-запрос с методом `POST`: 
 
      ```json
-      POST https://iam.api.cloud.yandex.net/iam/v1/tokens
+      POST https://iam.{{ api-host }}/iam/v1/tokens
 
        {
           "yandexPassportOauthToken": "<OAUTH-token>"

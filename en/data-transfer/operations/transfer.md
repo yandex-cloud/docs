@@ -2,7 +2,7 @@
 
 You can:
 
-* [Retrieve a list of transfers](#list).
+* [Retrieve a transfer list](#list).
 * [Create a transfer](#create).
 * [Update a transfer](#update).
 * [Activate a transfer](#activate).
@@ -10,7 +10,7 @@ You can:
 * [Reload a transfer](#reupload).
 * [Delete a transfer](#delete).
 
-For more information about transfer statuses, available operations with transfers, and existing limitations, please see [{#T}](../concepts/transfer-lifecycle.md).
+For more information about transfer states, operations applicable to transfers, and existing limitations, please see [{#T}](../concepts/transfer-lifecycle.md).
 
 ## Getting a list of transfers {#list}
 
@@ -56,7 +56,7 @@ For more information about transfer statuses, available operations with transfer
    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
       1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-   1. Create a configuration file with a description of the transfer.
+   1. Create a configuration file with a description of your transfer.
 
       Example configuration file structure:
 
@@ -107,9 +107,9 @@ For more information about transfer statuses, available operations with transfer
 
    1. Open the current {{ TF }} configuration file with the transfer description.
 
-      For information about creating this file, see [Creating a transfer](#create).
+      For information on creating a transfer like this, please review [Create transfer](#create).
 
-   1. Edit the values in the `name` and `description` fields (transfer name and description).
+   1. Edit the values in the `name` and the `description` fields (transfer name and description).
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -144,7 +144,7 @@ If you assume that the transfer replication stage may fail (for example, due to 
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **Transfers**.
-   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired transfer and select **Reload**.
+   1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired transfer and select **Restart**.
 
 {% endlist %}
 

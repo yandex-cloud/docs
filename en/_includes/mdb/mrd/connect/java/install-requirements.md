@@ -108,7 +108,7 @@
         keytool \
             -importcert \
             -alias YARootCrt \
-            -file ~/.redis/YandexInternalRootCA.crt \
+            -file ~/.redis/{{ crt-local-file }} \
             -keystore ~/.redis/YATrustStore \
             -storepass <secure certificate storage password> \
             --noprompt && chmod 0655 ~/.redis/YATrustStore

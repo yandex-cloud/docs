@@ -20,8 +20,8 @@ keywords:
 Рекомендуемые серверы синхронизации:
 * `ntp0.NL.net`
 * `clock.isc.org`
-* `ntp2.vniiftri.ru`
 * `ntps1-1.cs.tu-berlin.de`
+* `ntp2.vniiftri.ru`
 * `ntp.ix.ru`
 
 Список рекомендуемых серверов может меняться. О том, что вам нужно внести изменения в конфигурацию ВМ, {{ yandex-cloud }} сообщит за 72 часа.
@@ -41,10 +41,12 @@ keywords:
   Укажите запасные серверы в настройках системы:
 
   1. Перечислите запасные серверы в файле `/etc/systemd/timesyncd.conf`, в секции `[Time]` в параметре `FallbackNTP=`, например:
-
+     
+     
      ```bash
      FallbackNTP=ntp0.NL.net clock.isc.org ntp2.vniiftri.ru ntps1-0.eecsit.tu-berlin.de ntp.ix.ru
      ```
+
 
   1. Установите параметр `UseNTP=true` в конфигурационном файле сервиса `systemd.network`, обычно расположенном в каталоге `/etc/systemd/network` или `/var/lib/systemd/network`.
 
@@ -59,7 +61,8 @@ keywords:
   Укажите адреса нужных серверов в конфигурации `ntpd`:
 
   1. Укажите адреса рекомендуемых серверов в файле `/etc/ntp.conf`. Адреса серверов по умолчанию закомментируйте символом <q>#</q> в начале строки, например:
-
+     
+     
      ```text
      # Use servers from the NTP Pool Project. Approved by Ubuntu Technical Board
      # on 2011-02-08 (LP: #104525). See http://www.pool.ntp.org/join.html for
@@ -75,6 +78,7 @@ keywords:
      server ntp.ix.ru
      ```
 
+
   2. Перезапустите сервис:
 
      ```bash
@@ -84,12 +88,14 @@ keywords:
 - Windows Server
 
   Укажите рекомендуемые серверы в настройках сервиса Windows Time, последовательно выполнив следующие команды в PowerShell или `cmd`:
-
+  
+  
   ```
   net stop w32time
-  w32tm /config /syncfromflags:manual /manualpeerlist:"ntp0.NL.net clock.isc.org ntp2.vniiftri.ru ntps1-0.eecsit.tu-berlin.de ntp.ix.ru"
+  w32tm /config /syncfromflags:manual /manualpeerlist:"ntp0.NL.net clock.isc.org ntps1-0.eecsit.tu-berlin.de timeserver.iix.net.il"
   w32tm /config /reliable:yes
   net start w32time
   ```
+
 
 {% endlist %}

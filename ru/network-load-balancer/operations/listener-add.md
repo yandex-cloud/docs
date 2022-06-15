@@ -25,15 +25,17 @@
   
   1. Получите список балансировщиков:
   
+       
      ```
      yc load-balancer network-load-balancer list
      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
      |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
-     | c58r8boim8qfkcqtuioj | test-load-balancer | ru-central1 | EXTERNAL |              0 |                        | INACTIVE |
+     | c58r8boim8qfkcqtuioj | test-load-balancer | {{ region-id }} | EXTERNAL |              0 |                        | INACTIVE |
      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
   
      ```
+     
   
   1. Добавьте обработчик, указав его имя, порт и версию IP-адреса:
   
@@ -45,7 +47,7 @@
      folder_id: aoerb349v3h4bupphtaf
      created_at: "2019-04-01T09:29:25Z"
      name: test-load-balancer
-     region_id: ru-central1
+     region_id: {{ region-id }}
      status: INACTIVE
      type: EXTERNAL
      listeners:

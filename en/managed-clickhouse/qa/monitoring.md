@@ -4,22 +4,21 @@
 
 For all DBMS types, you can track:
 
-* CPU, memory, network, or disk usage, in absolute terms.
-* Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster's host class.
-* The amount of data in the DB cluster and the remaining free space in data storage.
+- CPU, memory, network, or disk usage, in absolute terms.
+- Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster's host class.
+- The amount of data in the DB cluster and the remaining free space in data storage.
 
 For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ PG }}, you can track:
-
-* Average query execution time.
-* Number of queries per second.
-* Number of errors in logs.
+- Average query execution time
+- Number of queries per second
+- Number of errors in logs.
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
 
 #### How is log storage charged? {#logging-pricing}
 
-Logs of any level are written to a system disk partition for which 20 GB is allocated, so they are not charged separately. The size of created logs only affects the frequency of their rotation.
+Logs of any level are written to a disk's system partition with 20 GB allocated, so you are not charged for them separately. The size of the logs created only affects log rotation frequency.
 
-#### How do I monitor the free storage space of {{ ZK }} hosts? {#zookeeper-storage}
+#### How do I track the amount of free storage space on ZooKeeper hosts? {#zookeeper-storage}
 
-Follow the instructions in [{#T}](../operations/monitoring.md) to monitor the state of hosts and set up alerts.
+Follow the instructions in [{#T}](../operations/monitoring.md) to track the host state or set up alerts.

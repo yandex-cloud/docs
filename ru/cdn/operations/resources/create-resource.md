@@ -140,6 +140,7 @@
 
       Пример структуры конфигурационного файла:
 
+      
       ```hcl
       terraform {
         required_providers {
@@ -165,6 +166,7 @@
           origin_group_id     = yandex_cdn_origin_group.my_group.id
       }
       ```
+
 
       Более подробную информацию о параметрах `yandex_cdn_resource` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/cdn_resource).
 

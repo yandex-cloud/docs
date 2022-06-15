@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ compute-name }}
 
+
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -98,7 +100,7 @@ editable: false
 
 Использование компонента {{ ig-name }} не тарифицируется. Вы можете создавать группы ВМ, пользоваться хранилищем и вычислительными ресурсами в рамках [доступных лимитов](concepts/limits.md).
 
-Все остальные услуги {{ yandex-cloud }}, например, создание ВМ или выделение внешних IP-адресов, [тарифицируются обычным образом](../billing/pricing.md). Исходящий трафик [тарифицируется](#prices-traffic) аналогично другим сервисам.
+Все остальные услуги {{ yandex-cloud }}, например, создание ВМ или выделение внешних IP-адресов, тарифицируются обычным образом. Исходящий трафик [тарифицируется](#prices-traffic) аналогично другим сервисам.
 
 ### Использование выделенных хостов {#dedicated-hosts}
 
@@ -174,5 +176,3 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
-
-

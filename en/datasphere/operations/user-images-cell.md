@@ -22,11 +22,12 @@ If you need to add computing resources, specify a [configuration](../concepts/co
 
 For example, the <https://hub.docker.com/_/golang> public image provides access to Go utilities. To run the `go version` command in this image, run a cell with the following code:
 
+
 ```bash
 #!:docker-run golang go version
 ```
 
-Execution result:
+Output:
 
 ```text
 go version go1.16.6 linux/amd64

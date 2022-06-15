@@ -40,7 +40,7 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all nodes
         * In the **Public IP** field, choose a method for assigning an IP address:
           * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
           * **No address**: Don't assign a public IP address.
-        * Specify how nodes should be distributed across availability zones and networks.
+        * Specify how nodes should be distributed across availability zones andnetworks.
      1. Under **Access**, specify the information required to access the node:
         * Enter the username in the **Login** field.
         * In the **SSH key** field, paste the contents of the [public key](../../operations/node-connect-ssh.md#creating-ssh-keys) file.
@@ -80,38 +80,7 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all nodes
      done (2m19s)
      id: catkuapro07enihqmk51
      cluster_id: abcsk1s2f3fmb5h0pd94
-     created_at: "2020-09-24T13:32:24Z"
-     name: k8s-labels-node
-     status: RUNNING
-     node_template:
-       platform_id: standard-v2
-       resources_spec:
-         memory: "4294967296"
-         cores: "2"
-         core_fraction: "100"
-       boot_disk_spec:
-         disk_type_id: network-ssd
-         disk_size: "103079215104"
-       v4_address_spec: {}
-       scheduling_policy: {}
-     scale_policy:
-       fixed_scale:
-         size: "1"
-     allocation_policy:
-       locations:
-       - zone_id: ru-central1-a
-         subnet_id: e9bm87gkjd81eroc6dqg
-     deploy_policy:
-       max_expansion: "3"
-     instance_group_id: cl1v2gh33j1c71df9jsv
-     node_version: "1.17"
-     version_info:
-       current_version: "1.17"
-     maintenance_policy:
-       auto_upgrade: true
-       auto_repair: true
-       maintenance_window:
-         anytime: {}
+     ...
      node_labels:
        apps/tier: backend
        environment: production
@@ -198,17 +167,7 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all nodes
      Name:               catkuапро07enihqmk51-hgjd
      Roles:              <none>
      Labels:             apps/tier=backend
-                         beta.kubernetes.io/arch=amd64
-                         beta.kubernetes.io/instance-type=standard-v2
-                         beta.kubernetes.io/os=linux
-                         environment=production
-                         failure-domain.beta.kubernetes.io/zone=ru-central1-a
-                         kubernetes.io/arch=amd64
-                         kubernetes.io/hostname=catkuапро07enihqmk51-hgjd
-                         kubernetes.io/os=linux
-                         node.kubernetes.io/kube-proxy-ds-ready=true
-                         node.kubernetes.io/masq-agent-ds-ready=true
-                         node.kubernetes.io/node-problem-detector-ds-ready=true
+     ...
                          yandex.cloud/node-group-id=catkuапро07enihqmk51
                          yandex.cloud/pci-topology=k8s
                          yandex.cloud/preemptible=false

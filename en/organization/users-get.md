@@ -1,7 +1,6 @@
 # Get the user's ID or email
 
 You can get the following information about an organization's registered users:
-
 - ID
 - Login
 - Email
@@ -11,27 +10,27 @@ You can get the following information about an organization's registered users:
 
 - {{ org-name }} interface
 
-  1. [Log in]({{link-passport}}) to the organization's administrator account.
+   1. [Log in]({{link-passport}}) to the organization's administrator account.
 
-  1. Go to [{{org-full-name}}]({{link-org-main}}).
+   1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-  1. Go to the left panel and select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.png). The page will display a list:
+   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.png). The page will display a list:
 
-     - The **User** column contains the user's username and email.
+      - The **User** column contains the user's username and email.
 
-     - The **ID** column contains the user ID.
+      - The **ID** column contains the user ID.
 
-     - The **Federation** column contains the federation ID.
+      - The **Federation** column contains the federation ID.
 
 - CLI
 
-  1. See the description of the command to get information about an organization's users:
+   1. See the description of the command to get information about an organization's users:
 
       ```
       $ yc organization-manager user list --help
       ```
 
-  1. Get user information by specifying the organization ID:
+   1. Get user information by specifying the organization ID:
 
       ```
       $ yc organization-manager user list --organization-id bof33mc4bik7bg
@@ -45,7 +44,6 @@ You can get the following information about an organization's registered users:
 
 - API
 
-  Get user parameters with an [API call](../organization/api-ref/User/listMembers.md).
+   Get user parameters with an [API call](../organization/api-ref/User/listMembers.md).
 
 {% endlist %}
-

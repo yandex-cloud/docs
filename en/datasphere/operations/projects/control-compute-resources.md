@@ -10,12 +10,12 @@ If not, open the project:
 
 1. {% include [include](../../../_includes/datasphere/first-step.md) %}
 1. Go to the **Projects** tab.
-1. Select the project you want to delete and click ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
+1. Select the project you want to open and click ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
 1. Choose **Open** and wait for the project to open.
 
 ## Change the configuration {#config}
 
-The configuration prefix corresponds to the [name of the computing resource configuration](../../concepts/configurations.md). The default configuration is c1.4  (4 vCPUs, 0 GPU).
+The configuration prefix corresponds to the [name of the computing resource configuration](../../concepts/configurations.md). The default configuration is c1.4 (4 vCPUs, 0 GPU).
 
 {% include [include](../../../_includes/datasphere/control-compute-resources-steps.md) %}
 

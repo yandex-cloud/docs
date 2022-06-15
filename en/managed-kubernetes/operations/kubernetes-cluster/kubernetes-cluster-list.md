@@ -50,26 +50,7 @@ To access a {{ k8s }} cluster, use the `ID` or `NAME` parameters from the [previ
     id: cata9ertn6tcr09bh9rm
     folder_id: b1g88tflru0ek1omtsu0
     created_at: "2019-04-12T10:00:27Z"
-    name: test-k8s-cluster
-    status: RUNNING
-    health: HEALTHY
-    network_id: enpg0laccbrtg60hh9ro
-    master:
-      zonal_master:
-        zone_id: ru-central1-c
-        internal_v4_address: 10.0.0.3
-        external_v4_address: 84.201.150.176
-      version: 1.13.3
-      endpoints:
-        internal_v4_endpoint: https://10.0.0.3/
-        external_v4_endpoint: https://84.201.150.176/
-      master_auth:
-        cluster_ca_certificate: |
-          -----BEGIN CERTIFICATE-----
-          MIICyDCCAbCgAwIBAgIBADANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwprdWJl
-          ...
-          wF/FFl2tcdh/0gUE9SBvTDyzebJhJp5zHIVa8brUflr1oA5XlN+licDRurY=
-          -----END CERTIFICATE-----
+    ...
     ip_allocation_policy:
       cluster_ipv4_cidr_block: 10.13.0.0/16
       service_ipv4_cidr_block: 10.14.0.0/16
@@ -80,4 +61,3 @@ To access a {{ k8s }} cluster, use the `ID` or `NAME` parameters from the [previ
   You can get detailed information about the {{ k8s }} cluster using the [get](../../api-ref/Cluster/get.md) method for the [Cluster](../../api-ref/Cluster/) resource.
 
 {% endlist %}
-

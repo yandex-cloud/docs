@@ -140,7 +140,7 @@
     )
 
     const (
-    	cert = "/home/<домашняя директория>/.redis/YandexInternalRootCA.crt"
+    	cert = "/home/<домашняя директория>/.redis/{{ crt-local-file }}"
     )
 
     func main() {
@@ -395,7 +395,7 @@
         port: {{ port-mrd-tls }},
         password: "<пароль>",
         tls: {
-            ca: fs.readFileSync("/home/<домашняя директория>/.redis/YandexInternalRootCA.crt"),
+            ca: fs.readFileSync("/home/<домашняя директория>/.redis/{{ crt-local-file }}"),
         }
     });
 
@@ -499,7 +499,7 @@
         "parameters" => [
             "scheme" => "tls",
             "ssl" => [
-                "cafile" => "/home/<домашняя директория>/.redis/YandexInternalRootCA.crt",
+                "cafile" => "/home/<домашняя директория>/.redis/{{ crt-local-file }}",
                 "verify_peer" => true,
                 "verify_peer_name" => false,
             ],
@@ -585,7 +585,7 @@ sudo apt update && sudo apt install -y python3 python3-pip && \
         port={{ port-mrd-tls }},
         password="<пароль>",
         ssl=True,
-        ssl_ca_certs="/home/<домашняя директория>/.redis/YandexInternalRootCA.crt",
+        ssl_ca_certs="/home/<домашняя директория>/.redis/{{ crt-local-file }}",
     )
 
     r.set("foo", "bar")
@@ -667,7 +667,7 @@ sudo apt update && sudo apt install -y python3 python3-pip && \
       port: {{ port-mrd-tls }},
       password: '<пароль>',
       ssl: true,
-      ssl_params: { ca_file: '/home/<домашняя директория>/.redis/YandexInternalRootCA.crt' },
+      ssl_params: { ca_file: '/home/<домашняя директория>/.redis/{{ crt-local-file }}' },
     )
 
     conn.set('foo', 'bar')

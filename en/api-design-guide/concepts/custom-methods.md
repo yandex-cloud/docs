@@ -45,7 +45,7 @@ Sample gRPC description of the [AttachDisk](https://github.com/yandex-cloud/clou
 Example of attaching a disk in the REST API:
 
 ```json
-POST https://compute.api.cloud.yandex.net/compute/v1/instances/e0m97h0gbq0foeuis03:attachDisk
+POST https://compute.{{ api-host }}/compute/v1/instances/e0m97h0gbq0foeuis03:attachDisk
 
  {
    "attachedDiskSpec": {

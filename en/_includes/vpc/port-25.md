@@ -1,6 +1,3 @@
-{{ yandex-cloud }} always blocks outgoing traffic to TCP port 25:
+{{ yandex-cloud }} always blocks outgoing traffic from {{ vpc-name }} public IP addresses  to TCP port 25 of any servers on the internet (except for Yandex Mail servers)and {{ compute-full-name }} VMs.
 
-* To any servers on the internet other than Yandex.Mail servers.
-* To Yandex Compute Cloud VMs when accessed via a public IP address.
-
-{{ yandex-cloud }} may open TCP port 25 by request via technical support if you comply with [Acceptable Use Policy](https://yandex.ru/legal/cloud_aup/?lang=en). {{ yandex-cloud }} is entitled to block outgoing traffic on TCP port 25 if you violate the Use Policy.
+{{ yandex-cloud }} may open TCP port 25 by request via technical supportif you comply with [Acceptable Use Policy](https://yandex.ru/legal/cloud_aup/?lang=en). {{ yandex-cloud }} is entitled to block outgoing traffic on TCP port 25 if you violate the Use Policy.

@@ -32,11 +32,11 @@
     ```
     
     Примеры использования:  
-    - Установка CLI в `/opt/yandex-cloud`, без изменений в файле `.bashrc`:
+    - Установка CLI в `/opt/{{ product }}`, без изменений в файле `.bashrc`:
     
         ```
         curl https://{{ s3-storage-host }}{{ yc-install-path }} | \
-            bash -s -- -i /opt/yandex-cloud -n
+            bash -s -- -i /opt/{{ product }} -n
         ```
     - Установка CLI в директорию по умолчанию, в файл `.bashrc` добавляются `completion` и `PATH`:  
         

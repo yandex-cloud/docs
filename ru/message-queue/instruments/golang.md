@@ -22,7 +22,7 @@ $ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 В этом примере:
 
 1. Устанавливается соединение с {{ message-queue-name }}.
-1. Создается очередь сообщений с именем `ymq_example_golang_sdk`.
+1. Создается очередь сообщений с именем `mq_example_golang_sdk`.
 1. В очередь передается сообщение с текстом `test message`.
 1. Сообщение считывается из очереди и отображается в терминале.
 1. Удаляется созданная очередь сообщений.
@@ -45,8 +45,8 @@ func main() {
 
 	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
 		return aws.Endpoint{
-			URL:           "https://message-queue.api.cloud.yandex.net",
-			SigningRegion: "ru-central1",
+			URL:           "https://message-queue.{{ api-host }}",
+			SigningRegion: "{{ region-id }}",
 		}, nil
 	})
 
@@ -60,7 +60,7 @@ func main() {
 
 	client := sqs.NewFromConfig(cfg)
 
-	queueName := "ymq_example_golang_sdk"
+	queueName := "mq_example_golang_sdk"
 
 	queue, err := client.CreateQueue(ctx, &sqs.CreateQueueInput{
 		QueueName: &queueName,

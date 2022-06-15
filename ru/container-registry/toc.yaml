@@ -7,7 +7,7 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Аутентифицироваться в Container Registry
+      - name: Аутентифицироваться в {{ container-registry-name }}
         href: operations/authentication.md
       - name: Управление Docker-образом
         items:
@@ -69,7 +69,7 @@ items:
             href: operations/roles/get-assigned-roles.md
           - name: Отозвать роль
             href: operations/roles/revoke.md
-  - name: Yandex Container Solution
+  - name: '{{ cos-full-name }}'
     href: ../cos/
   - name: Практические руководства
     items:
@@ -77,7 +77,7 @@ items:
         href: tutorials/index.md
       - name: Запуск Docker-образа на виртуальной машине
         href: tutorials/run-docker-on-vm.md
-      - name: Создание триггера с помощью Yandex Cloud Functions
+      - name: Создание триггера с помощью {{ sf-full-name }}
         href: tutorials/trigger-create.md
       - name: Настройка автоматического сканирования Docker-образа
         href: tutorials/image-auto-scan.md
@@ -97,7 +97,7 @@ items:
         href: concepts/lifecycle-policy.md
       - name: Сканер уязвимостей
         href: concepts/vulnerability-scanner.md
-      - name: Триггер Yandex Cloud Functions
+      - name: Триггер {{ sf-full-name }}
         href: concepts/trigger.md
       - name: Резервное копирование
         href: concepts/backup.md

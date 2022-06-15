@@ -33,13 +33,13 @@ import (
 
 func main() {
 
-	// Create custom endpoint resolver for returning correct URL for S3 storage in ru-central1 region
+	// Create custom endpoint resolver for returning correct URL for S3 storage in {{ region-id }} region
 	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
-		if service == s3.ServiceID && region == "ru-central1" {
+		if service == s3.ServiceID && region == "{{ region-id }}" {
 			return aws.Endpoint{
 				PartitionID:   "yc",
-				URL:           "https://storage.yandexcloud.net",
-				SigningRegion: "ru-central1",
+				URL:           "https://{{ s3-storage-host }}",
+				SigningRegion: "{{ region-id }}",
 			}, nil
 		}
 		return aws.Endpoint{}, fmt.Errorf("unknown endpoint requested")
@@ -93,13 +93,13 @@ func main() {
 	}
 
 
-	// Create custom endpoint resolver for returning correct URL for S3 storage in ru-central1 region
+	// Create custom endpoint resolver for returning correct URL for S3 storage in {{ region-id }} region
 	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
-		if service == s3.ServiceID && region == "ru-central1" {
+		if service == s3.ServiceID && region == "{{ region-id }}" {
 			return aws.Endpoint{
 				PartitionID:   "yc",
-				URL:           "https://storage.yandexcloud.net",
-				SigningRegion: "ru-central1",
+				URL:           "https://{{ s3-storage-host }}",
+				SigningRegion: "{{ region-id }}",
 			}, nil
 		}
 		return aws.Endpoint{}, fmt.Errorf("unknown endpoint requested")

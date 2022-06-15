@@ -17,7 +17,6 @@ yc resource-manager folder list-access-bindings default
 ```
 
 Result:
-
 ```
 +---------------------+----------------+----------------------+
 |       ROLE ID       |  SUBJECT TYPE  |      SUBJECT ID      |

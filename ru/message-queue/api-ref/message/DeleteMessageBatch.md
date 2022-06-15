@@ -38,7 +38,7 @@
 ```
 Action=DeleteMessageBatch
 &Version=2012-11-05
-&QueueUrl=https://message-queue.api.cloud.yandex.net/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
 &DeleteMessageBatchRequestEntry.1.Id=dd2dd32b-eb1e7a37-f6b7a725-1555483
 &DeleteMessageBatchRequestEntry.1.ReceiptHandle=EAEg89fvhogtKAM
 &DeleteMessageBatchRequestEntry.2.Id=7e0e07f6-5c9a0a72-d304102f-1532995

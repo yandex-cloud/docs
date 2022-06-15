@@ -1,5 +1,6 @@
 # Управление хостами {{ ZK }}
 
+
 [Шарды](../concepts/sharding.md) из одного хоста не отказоустойчивы и не обеспечивают репликацию данных. Чтобы сделать такие шарды отказоустойчивыми, нужно добавить в них еще один или несколько хостов. Если в кластере уже есть шард из нескольких хостов, то можно сразу [добавлять хосты {{ CH }}](./hosts.md#add-host) в нужный шард, в противном случае сначала нужно [включить отказоустойчивость](#add-zk) и только потом добавлять хосты {{ CH }}.
 
 Подробнее см. в разделе [{#T}](../concepts/sharding.md).
@@ -46,9 +47,9 @@
 
      ```bash
      {{ yc-mdb-ch }} cluster add-zookeeper <имя кластера> \
-        --host zone-id=ru-central1-c,subnet-name=default-c \
-        --host zone-id=ru-central1-a,subnet-name=default-a \
-        --host zone-id=ru-central1-b,subnet-name=default-b
+        --host zone-id={{ region-id }}-c,subnet-name=default-c \
+        --host zone-id={{ region-id }}-a,subnet-name=default-a \
+        --host zone-id={{ region-id }}-b,subnet-name=default-b
      ```
 
      Если в сети, в которой расположен кластер, ровно 3 подсети, по одной в каждой зоне доступности, то явно указывать подсети для хостов необязательно: {{ mch-name }} автоматически распределит хосты по этим подсетям. 
@@ -68,25 +69,25 @@
           name = "<имя сети>"
         }
 
-        resource "yandex_vpc_subnet" "<имя подсети в зоне ru-central1-a>" {
-          name           = "<имя подсети в зоне ru-central1-a>"
-          zone           = "ru-central1-a"
+        resource "yandex_vpc_subnet" "<имя подсети в зоне {{ region-id }}-a>" {
+          name           = "<имя подсети в зоне {{ region-id }}-a>"
+          zone           = "{{ region-id }}-a"
           network_id     = yandex_vpc_network.<имя сети>.id
-          v4_cidr_blocks = [ "<диапазон адресов подсети в зоне ru-central1-a>" ]
+          v4_cidr_blocks = [ "<диапазон адресов подсети в зоне {{ region-id }}-a>" ]
         }
 
-        resource "yandex_vpc_subnet" "<имя подсети в зоне ru-central1-b>" {
-          name           = "<имя подсети в зоне ru-central1-b>"
-          zone           = "ru-central1-b"
+        resource "yandex_vpc_subnet" "<имя подсети в зоне {{ region-id }}-b>" {
+          name           = "<имя подсети в зоне {{ region-id }}-b>"
+          zone           = "{{ region-id }}-b"
           network_id     = yandex_vpc_network.<имя сети>.id
-          v4_cidr_blocks = [ "<диапазон адресов подсети в зоне ru-central1-b>" ]
+          v4_cidr_blocks = [ "<диапазон адресов подсети в зоне {{ region-id }}-b>" ]
         }
 
-        resource "yandex_vpc_subnet" "<имя подсети в зоне ru-central1-c>" {
-          name           = "<имя подсети в зоне ru-central1-c>"
-          zone           = "ru-central1-c"
+        resource "yandex_vpc_subnet" "<имя подсети в зоне {{ region-id }}-c>" {
+          name           = "<имя подсети в зоне {{ region-id }}-c>"
+          zone           = "{{ region-id }}-c"
           network_id     = yandex_vpc_network.<имя сети>.id
-          v4_cidr_blocks = [ "<диапазон адресов подсети в зоне ru-central1-c>" ]
+          v4_cidr_blocks = [ "<диапазон адресов подсети в зоне {{ region-id }}-c>" ]
         }
         ```
 
@@ -113,8 +114,8 @@
           ...
           host {
             type      = "CLICKHOUSE"
-            zone      = "ru-central1-a"
-            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности ru-central1-a>.id
+            zone      = "{{ region-id }}-a"
+            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности {{ region-id }}-a>.id
           }
           ...
         }
@@ -142,18 +143,18 @@
           ...
           host {
             type      = "ZOOKEEPER"
-            zone      = "ru-central1-a"
-            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности ru-central1-a>.id
+            zone      = "{{ region-id }}-a"
+            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности {{ region-id }}-a>.id
           }
           host {
             type      = "ZOOKEEPER"
-            zone      = "ru-central1-b"
-            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности ru-central1-b>.id
+            zone      = "{{ region-id }}-b"
+            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности {{ region-id }}-b>.id
           }
           host {
             type      = "ZOOKEEPER"
-            zone      = "ru-central1-c"
-            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности ru-central1-c>.id
+            zone      = "{{ region-id }}-c"
+            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности {{ region-id }}-c>.id
           }
         }
         ```

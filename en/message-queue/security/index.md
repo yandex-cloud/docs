@@ -1,13 +1,13 @@
 ---
-title: Access management in Yandex Message Queue
-description: "Access management in the service for exchanging messages between applications — Yandex Message Queue. To allow access to the resources of the Yandex Message Queue service, assign the user the necessary roles from the list provided."
+title: Access management in {{ message-queue-full-name }}
+description: "Access management in the service for exchanging messages between applications — {{ message-queue-full-name }}. To allow access to the resources of the {{ message-queue-full-name }} service, assign the user the necessary roles from the list provided."
 ---
 
 # Access management in {{ message-queue-name }}
 
-{{ yandex-cloud }} users can only perform operations on resources that are permitted under the roles assigned to them. If the user has no roles assigned, all operations are forbidden.
+{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. If the user has no roles assigned, all operations are forbidden.
 
-To allow access to resources in {{ message-queue-full-name }}, assign the required roles to the user from the list below. For now, a role can only be assigned for a parent resource (folder or cloud), and roles are inherited by nested resources.
+To allow access to resources in {{ message-queue-full-name }}, assign the required roles to the user from the list below. Currently, a role can only be assigned to a parent resource (folder or cloud). Roles are inherited by nested resources.
 
 {% note info %}
 
@@ -30,22 +30,18 @@ The list below shows all roles that are considered when verifying access rights 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
 ### {{ roles-viewer }} {#viewer}
-
 Users with the `{{ roles-viewer }}` role can view lists of cloud message queues and messages.
 
 ### {{ roles-editor }} {#editor}
-
 Users with the `{{ roles-editor }}` role can perform any operations on message queues and messages.
 
-The `{{ roles-editor }}` role also includes all `{{ roles-viewer }}` role permissions.
+The `{{ roles-editor }}` role also includes all permissions of the `{{ roles-viewer }}` role.
 
 ### {{ roles-admin }} {#admin}
-
 Users with the `{{ roles-admin }}` role can manage resource access rights, such as allowing other users to create message queues and messages or view their details.
 
-The `{{ roles-admin }}` role also includes all `{{ roles-editor }}` role permissions.
+The `{{ roles-admin }}` role also includes all permissions of the `{{ roles-editor }}` role.
 
 ## See also {#see-also}
 
 [Hierarchy of {{ yandex-cloud }} resources](../../resource-manager/concepts/resources-hierarchy.md)
-

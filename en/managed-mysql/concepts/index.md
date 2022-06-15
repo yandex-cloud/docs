@@ -1,6 +1,6 @@
 ---
-title: "Relationship of resources of the Yandex Managed Service for MySQL"
-description: "The main entity operated by the Managed Service for MySQL is a database cluster. Each cluster consists of one or more database hosts - virtual machines with deployed DBMS servers. Cluster hosts can be located in different availability zones. A cluster of several hosts automatically fault tolerant - one of the replica hosts will take over the role of master if the current master host fails."
+title: "Relationship of resources of the {{ mmy-full-name }}"
+description: "The main entity operated by the {{ mmy-full-name }} is a database cluster. Each cluster consists of one or more database hosts - virtual machines with deployed DBMS servers. Cluster hosts can be located in different availability zones. A cluster of several hosts automatically fault tolerant - one of the replica hosts will take over the role of master if the current master host fails."
 ---
 
 # Relationship between resources in {{ mmy-name }}
@@ -14,7 +14,6 @@ Each cluster consists of one or more _database hosts_, which are virtual machine
 * A single-host cluster is cheaper, but it doesn't guarantee fault tolerance.
 
 When creating a cluster, specify:
-
 * _Host class_: A VM template for deploying the cluster hosts. For a list of available host classes and their characteristics, see [{#T}](instance-types.md).
 
 * _Environment_: The environment where the cluster will be deployed:

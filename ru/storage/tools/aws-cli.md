@@ -19,11 +19,11 @@
 Для настройки AWS CLI используйте команду `aws configure`. Команда запросит значения для следующих параметров:
 1. `AWS Access Key ID` — введите идентификатор ключа, который вы получили при генерации статического ключа.
 1. `AWS Secret Access Key` — введите секретный ключ, который вы получили при генерации статического ключа.
-1. `Default region name` — введите значение `ru-central1`.
+1. `Default region name` — введите значение `{{ region-id }}`.
 
    {% note info %}
 
-   Для работы с {{ objstorage-name }} всегда указывайте регион — `ru-central1`. Другие значения региона могут привести к ошибке авторизации.
+   Для работы с {{ objstorage-name }} всегда указывайте регион — `{{ region-id }}`. Другие значения региона могут привести к ошибке авторизации.
 
    {% endnote %}
 
@@ -44,7 +44,7 @@
 
   ```
   [default]
-    region=ru-central1
+    region={{ region-id }}
   ```
 
 ## Особенности {#specifics}
@@ -54,13 +54,13 @@
 * При запуске команды `aws` для работы с {{ objstorage-name }} обязателен параметр `--endpoint-url`, поскольку по умолчанию клиент настроен на работу с серверами Amazon. Чтобы не указывать параметр вручную при каждом запуске, создайте псевдоним (alias), например:
 
   ```bash
-  alias ycs3='aws s3 --endpoint-url=https://storage.yandexcloud.net'
+  alias ycs3='aws s3 --endpoint-url=https://{{ s3-storage-host }}'
   ```
   
   С таким псевдонимом будут равносильны, например, две следующие команды:
 
   ```bash
-  aws s3 --endpoint-url=https://storage.yandexcloud.net ls
+  aws s3 --endpoint-url=https://{{ s3-storage-host }} ls
   ycs3 ls
   ```
   

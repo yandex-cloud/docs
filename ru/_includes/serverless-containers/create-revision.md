@@ -71,12 +71,13 @@
 
   1. Обновите в конфигурационном файле параметры работы ресурса `yandex_serverless_container`:
 
+     
      ```hcl
      provider "yandex" {
        token     = "<OAuth>"
        cloud_id  = "<идентификатор облака>"
        folder_id = "<идентификатор каталога>"
-       zone      = "ru-central1-a"
+       zone      = "{{ region-id }}-a"
      }
      
      resource "yandex_serverless_container" "test-container" {
@@ -88,6 +89,7 @@
         }
      }
      ```
+
 
      Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
 

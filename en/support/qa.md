@@ -4,13 +4,15 @@
 
 You can contact technical support in the management console under [Support]({{ link-console-support }}).
 
+
 #### How do I contact technical support if I can't log in to the management console? {#requesting-support-without-ui}
 
-If you are unable to access your Yandex account, please see our [troubleshooting instructions](https://yandex.com/support/passport/troubleshooting/problems.html) in the Yandex ID help.
+If you are unable to access your Yandex account, please see our [troubleshooting instructions](https://yandex.com/support/passport/troubleshooting/problems.html) in the Yandex ID Help.
 
 If you successfully logged in to your Yandex account but are unable to connect to the {{ yandex-cloud }} management console, contact technical support by email.
 
 #### What kinds of issues and cases does technical support resolve? {#support-cases-types}
+
 
 Depending on your service plan, you can contact support for various issues. For more information about service plans, see [{#T}](overview.md).
 
@@ -19,11 +21,14 @@ Regardless of your service plan, you can request the following from technical su
 * [Service logs](request.md#logs) related to your resources and actions in {{ yandex-cloud }}.
 * [Your personal data](request.md#personal) stored by Yandex.
 
+
 #### How quickly does technical support respond? {#reaction-time}
+
 
 Technical support responds to requests 24 hours a day, 7 days a week.
 
 The response time depends on your service plan. For more information about service plans, see [{#T}](overview.md).
+
 
 #### How quickly can technical support solve an identified problem? {#resolution-time}
 
@@ -42,7 +47,7 @@ To get help with architecture-related tasks, use the feedback form on the manage
 Technical support includes troubleshooting third-party software that is used in conjunction with the cloud infrastructure and limited assistance in solving identified problems. Technical support engineers can help you with the installation, basic setup, and diagnostics of the following software:
 
 - Operating systems on {{ yandex-cloud }} virtual machines created from public images provided by {{ yandex-cloud }}.
-- Databases created in [{{ mpg-full-name }}](../managed-postgresql/), [{{ mch-full-name }}](../managed-clickhouse/), and [{{ mmg-full-name }}](../managed-mongodb/).
+- Databases created with [{{ mpg-full-name }}](../managed-postgresql/), [{{ mch-full-name }}](../managed-clickhouse/), [{{ mmg-full-name }}](../managed-mongodb/).
 
 #### What happens if you can't solve my third-party software problems? {#unresolved-third-party-issues}
 

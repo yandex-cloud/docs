@@ -1,6 +1,6 @@
 ---
-title: Quotas and Limits in Cloud DNS
-description: 'The Cloud DNS service has limits and quotas for the number of zones in one cloud, the number of record sets in one cloud, the number of record sets in one zone. You will learn more about the limitations of the service in this article.'
+title: Quotas and Limits in {{ dns-name }}
+description: 'The {{ dns-name }} service has limits and quotas for the number of zones in one cloud, the number of record sets in one cloud, the number of record sets in one zone. You will learn more about the limitations of the service in this article.'
 
 editable: false
 ---
@@ -18,4 +18,3 @@ editable: false
 * You can't create public top-level domain (TLD) zones.
 * You can't immediately add a record with a public IP address to a domain zone while creating a VM.
 * Automatic creation of PTR records is only available in internal zones.
-

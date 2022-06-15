@@ -15,11 +15,8 @@ If you no longer need the website, [delete its files from storage](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before using {{ objstorage-full-name }}, sign up for {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to place your bucket in. Go to the [{{ yandex-cloud }} homepage](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a bucket. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources {#paid-resources}
 
@@ -103,11 +100,10 @@ After you configure and test the website's availability, upload the remaining fi
 
 ## Check that the website is running {#test-site}
 
-To make sure the website is running, open the following address in your browser
+To make sure the website is running, open the following address in your browser:
 
-```
-http://www.example.com.{{ s3-web-host }}`
-```
+* `http://www.example.com.{{ s3-web-host }}`
+* `http://{{ s3-web-host }}/www.example.com`
 
 ## How to delete created resources {#clear-out}
 

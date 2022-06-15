@@ -314,7 +314,7 @@
                                     -- * <имя бакета>.website.yandexcloud.net.
      )
      ENGINE = S3(
-           'https://storage.yandexcloud.net/bucket-logs/s3-logs/*',
+           'https://{{ s3-storage-host }}/bucket-logs/s3-logs/*',
            'JSONEachRow'
         );
      ```

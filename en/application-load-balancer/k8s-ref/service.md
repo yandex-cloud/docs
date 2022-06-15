@@ -5,7 +5,7 @@ The `Service` resource defines the [{{ k8s }} service](../../managed-kubernetes/
 * Directly in the [`Ingress` resource](ingress.md).
 * Or as part of a backend group in the [`HttpBackendGroup` resource](http-backend-group.md).
 
-`Service`: Standard {{ k8s }} resource. This reference describes the fields and the annotations of the resource that a {{ alb-name }} Ingress controller interfaces with. For a complete reference on the resource, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
+`Service` is a standard {{ k8s }} resource. This reference describes the fields and the annotations of the resource that a {{ alb-name }} Ingress controller interfaces with. For a complete reference on the resource, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
 
 ## Service {#service}
 

@@ -13,11 +13,11 @@ To create a VM:
 
 1. Under **Image/boot disk selection**, select an [image](../operations/images-with-pre-installed-software/get-list.md) and a Windows-based operating system.
 
-1. (optional) Under **Disk and file storage**, click the **Disks** tab and configure a boot disk:
+1. (optional) Under **Diskand file storage**, click the **Disks** tab and configure a boot disk:
    * Select the [disk type](../concepts/disk.md#disks_types).
    * Specify the necessary disk size.
 
-      If you wish to create a virtual machine from an existing disk, under **Disks and file storage**, [add a disk](../operations/vm-create/create-from-disks.md):
+      If you wish to create a virtual machine from an existing disk, under **Disksand file storage**, [add a disk](../operations/vm-create/create-from-disks.md):
       * Click **Add disk**.
       * Enter the disk name.
       * Select the [disk type](../concepts/disk.md#disks_types).
@@ -57,6 +57,12 @@ To create a VM:
 1. Under **Access**, specify the data required to access the VM:
    * (optional) Select or create a [service account](../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
    * When you create a VM, the `Administrator` user is automatically created in the operating system. In the **Password** field, set a password for this user to log in to the VM via RDP.
+
+      {% note info %}
+
+      If you lost your password to log in to the VM, you may need to create a new VM with a disk from a snapshot. For more information, see [{#T}](../operations/vm-connect/recovery-access.md).
+
+      {% endnote %}
 
       {% include [password-requirements](../../_includes/compute/password-requirements.md) %}
 

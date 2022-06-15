@@ -1,9 +1,10 @@
 # Source endpoint parameters {{ MG }}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can set the following:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
-* Connection settings to a [{{ mmg-full-name }} cluster](#managed-service) or a [custom installation](#on-premise), including those based on {{ compute-full-name }} virtual machines. These parameters are required.
+* [{{ mmg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
+
 
 ## {{ mmg-name }} cluster {#managed-service}
 
@@ -13,7 +14,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
 - Management console
 
-    {% include [Managed MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/managed-mongodb.md) %}
+   {% include [Managed MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/managed-mongodb.md) %}
 
 {% endlist %}
 
@@ -25,7 +26,7 @@ Connecting to the database with an explicitly specified network address and port
 
 - Management console
 
-    {% include [On premise MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mongodb.md) %}
+   {% include [On premise MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mongodb.md) %}
 
 {% endlist %}
 
@@ -35,16 +36,16 @@ Connecting to the database with an explicitly specified network address and port
 
 - Management console
 
-    * **List of included collections**: Data is only transferred from the listed collections. All collections are transferred by default.
+   * **List of included collections**: Data is only transferred from listed collections. All collections are transferred by default.
 
-    * **List of excluded collections**: Data is transferred from all collections except the specified ones.
+   * **List of excluded collections**: Data is transferred from all collections except the specified ones.
 
-    If a source is experiencing high workload (over 10000 write transactions per second), we recommend that you select these settings to have no more than ten different databases at each endpoint. This will help avoid database connection errors while the transfer is ongoing.
+   If a source is experiencing high workload (over 10000 write transactions per second), we recommend that you select these settings to have no more than ten different databases at each endpoint. This will help avoid database connection errors while the transfer is ongoing.
 
-    {% note info %}
+   {% note info %}
 
-    If you use several endpoints, you need to create a separate transfer for each one.
+   If you use several endpoints, you need to create a separate transfer for each one.
 
-    {% endnote %}
+   {% endnote %}
 
 {% endlist %}

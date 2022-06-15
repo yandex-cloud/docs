@@ -2,7 +2,7 @@
 
 Follow these instructions to create a new trail that will upload audit logs of resources of an individual cloud or entire organization to a {{ cloud-logging-name }} log group.
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 ### Organization {#before-you-begin-organization}
 

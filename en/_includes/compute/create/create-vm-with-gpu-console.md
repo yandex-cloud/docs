@@ -15,7 +15,7 @@ To create a VM:
 
    {% include [gpu-os](../gpu-os.md) %}
 
-1. (optional) Under **Disks and file storage**, configure a boot disk:
+1. (optional) Under **Disksand file storage**, configure a boot disk:
    * Select the [disk type](../../../compute/concepts/disk.md#disks_types).
    * Specify the necessary disk size.
 

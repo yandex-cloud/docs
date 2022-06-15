@@ -4,9 +4,11 @@ To authenticate using an [SAML-compatible identity federation](../../organizatio
 
 1. Launch the profile creation wizard:
 
+      
     ```
     yc init --federation-id=<federation ID>
     ```
+
 
 1. Select the profile you want to set up authentication for or create a new one.
 
@@ -22,7 +24,7 @@ To authenticate using an [SAML-compatible identity federation](../../organizatio
     ```
     You are going to be authenticated via federation-id 'aje1f0hsgds3aas2f6ai2'.
     Your federation authentication web site will be opened.
-    After your successful authentication, you will be redirected to 'https://console.cloud.yandex.com'.
+    After your successful authentication, you will be redirected to '{{ link-console-main }}'.
     
     Press 'enter' to continue...
     ```
@@ -41,9 +43,12 @@ To authenticate using an [SAML-compatible identity federation](../../organizatio
 
 1. View your CLI profile settings:
 
+   
    ```
    yc config list
    federation-id: aje1f0hs6ojais2f6ai2
    ...
    ```
+
+   
 

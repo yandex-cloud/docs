@@ -59,23 +59,25 @@
       * `service_account_id` = [service account](../../iam/concepts/users/service-accounts.md) ID.
       * `url`: [Docker image](../../container-registry/concepts/docker-image.md) URL in {{ container-registry-name }}.
 
+      
       ```hcl
       provider "yandex" {
         token     = "<OAuth>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
-        zone      = "ru-central1-a"
+        zone      = "{{ region-id }}-a"
       }
 
       resource "yandex_serverless_container" "test-container" {
-         name               = "<container name>"
-         memory             = <memory amount>
-         service_account_id = "<service account ID>"
-         image {
-             url = "<Docker image URL>"
-         }
+        name               = "<container name>"
+        memory             = <memory amount>
+        service_account_id = "<service account ID>"
+        image {
+            url = "<Docker image URL>"
+        }
       }
       ```
+
 
       For more information about the `yandex_serverless_container` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
 

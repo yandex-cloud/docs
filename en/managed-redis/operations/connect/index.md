@@ -68,8 +68,8 @@ To use an encrypted SSL connection, get an SSL certificate:
 
 ```bash
 mkdir ~/.redis && \
-    wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.redis/YandexInternalRootCA.crt && \
-    chmod 0655 ~/.redis/YandexInternalRootCA.crt
+    wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.redis/{{ crt-local-file }} && \
+    chmod 0655 ~/.redis/{{ crt-local-file }}
 ```
 
 To use graphical IDEs, [download certificate](https://{{ s3-storage-host }}{{ pem-path }}) and specify the path to it in the connection settings.

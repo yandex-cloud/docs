@@ -4,7 +4,7 @@ When creating a group, you need to describe an _instance template_, which is the
 
 The template description and [policy](policies/index.md) description are passed to the CLI in a YAML file when creating or updating an instance group with the `--file` flag. This is convenient for passing values that consist of multiple strings. For more information, see [{#T}](../../operations/instance-groups/create-fixed-group.md).
 
-You can set the values of variables for the instance template. For more information, see [{#T}](variables-in-the-template.md).
+You can set variable values for the instance template. For more information, see [{#T}](variables-in-the-template.md).
 
 ## Computing resources {#types}
 
@@ -20,7 +20,7 @@ You can also attach additional disks to each instance. You can create an additio
 
 {% note alert %}
 
-When you delete a VM, its disks are deleted from the group. VMs can be deleted during the [scaling](scale.md) and [automatic recovery](autohealing.md) process.
+When you delete a VM, its disks are deleted from the group. VMs can be deleted during [scaling](scale.md) and [automatic recovery](autohealing.md).
 
 {% endnote %}
 
@@ -45,7 +45,7 @@ The template can be used to describe the metadata for the instances in the group
 
 ## Template description in a YAML file {#instance-template}
 
-A template describes the configuration of the base instance. It is defined in the `instance_template` key  in a YAML file.
+A template describes the configuration of the base instance. It is defined in the `instance_template` key in a YAML file.
 
 Example of a YAML file entry:
 
@@ -103,13 +103,12 @@ Keys (the table lists keys that directly define the base instance's configuratio
 | `core_fraction` | Basic [vCPU performance level](../performance-levels.md). |
 | `mode` | Disk access mode.</br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access. |
 | `image_id` | ID of the image that will be used for disk creation. |
-| `type_id` | ID of the disk type. To get a list of available disk types, use the request [diskTypes](../../api-ref/DiskType/list.md) request. |
+| `type_id` | ID of the disk type. To get a list of available disk types, use the request [diskTypes](../../api-ref/DiskType/list.md). |
 | `size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB). |
 | `network_id` | ID of the network. |
 | `subnet_ids` | IDs of cloud subnets. |
 | `ip_version` | IP version for the public IP address. |
-| `metadata` | Metadata for a template instance. Read more in [{#T}](../vm-metadata.md). |
+| `metadata` | Metadata for a template instance. For more information, see [{#T}](../vm-metadata.md). |
 | `user-data` | Additional settings for instance initialization. In the example, the settings are described for the `cloud-init` program. |
 
 For information about the technical restrictions of {{ ig-name }}, see [{#T}](../limits.md).
-

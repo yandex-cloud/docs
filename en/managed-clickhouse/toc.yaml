@@ -11,7 +11,7 @@ items:
         href: operations/cluster-list.md
       - name: Creating clusters
         href: operations/cluster-create.md
-      - name: How to connect to a database
+      - name: Connecting to a database
         href: operations/connect.md
       - name: Stopping and starting clusters
         href: operations/cluster-stop.md
@@ -37,7 +37,7 @@ items:
         href: operations/zk-hosts.md
       - name: Managing ClickHouse hosts
         href: operations/hosts.md
-      - name: Database management
+      - name: Managing databases
         href: operations/databases.md
       - name: Managing database users
         href: operations/cluster-users.md
@@ -49,7 +49,7 @@ items:
         href: operations/shard-groups.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
-      - name: Monitoring the state of a cluster and hosts
+      - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
   - name: Practical guidelines
     items:
@@ -64,14 +64,14 @@ items:
       - name: Getting data from RabbitMQ
         href: tutorials/fetch-data-from-rabbitmq.md
       - name: >-
-          Configuring {{ dns-full-name }} for cluster access from other cloud
-          networks
+          Configuring {{ dns-full-name }} for accessing clusters from other
+          cloud networks
         href: tutorials/dns-peering.md
       - name: Analyzing Object Storage logs in DataLens
         href: tutorials/storage-logs-analysis.md
   - name: Concepts
     items:
-      - name: Relationship between service resources
+      - name: Relationships between service resources
         href: concepts/index.md
       - name: Host classes
         items:
@@ -83,7 +83,7 @@ items:
                 href: concepts/instance-types-archive/instance-types-01062020.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
-      - name: Network in Yandex Managed Service for ClickHouse
+      - name: Network in {{ mch-full-name }}
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -97,8 +97,12 @@ items:
         href: concepts/dictionaries.md
       - name: Sharding
         href: concepts/sharding.md
+      - name: Maintenance
+        href: concepts/maintenance.md
       - name: Supported clients
         href: concepts/supported-clients.md
+      - name: Memory management in {{ mch-name }}
+        href: concepts/memory-management.md
       - name: ClickHouse versioning policy
         href: concepts/update-policy.md
       - name: ClickHouse settings
@@ -113,7 +117,7 @@ items:
         items:
           - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
-          - name: From January 1 to March 1, 2019
+          - name: From January, 1 to March 1, 2019
             href: pricing-archive/pricing-01032019.md
           - name: From March 1, 2019 to February 1, 2020
             href: pricing-archive/pricing-01022020.md
@@ -301,6 +305,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: Revision history
+    href: release-notes.md
   - name: Questions and answers
     items:
       - name: General questions
@@ -309,14 +315,14 @@ items:
         href: qa/clickhouse.md
       - name: Connection
         href: qa/connection.md
-      - name: Editing clusters
+      - name: Updating clusters
         href: qa/cluster-update.md
-      - name: Cluster parameter settings
+      - name: Cluster configuration
         href: qa/cluster-settings.md
       - name: Moving and restoring a cluster
         href: qa/cluster-backups.md
       - name: Monitoring and logs
         href: qa/monitoring.md
-      - name: All questions on the same page
+      - name: All questions on one page
         href: qa/all.md
 base: en/managed-clickhouse

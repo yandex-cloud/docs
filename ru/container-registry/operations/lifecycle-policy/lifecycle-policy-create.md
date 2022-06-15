@@ -40,17 +40,7 @@
      id: crp6lg1868p3i0emkv1b
      name: test-policy
      repository_id: crp3cpm16edqql0t30s2
-     description: disabled lifecycle-policy for tests
-     status: DISABLED
-     created_at: "2021-03-08T16:58:32.984940Z"
-     rules:
-     - description: delete prod Docker images older than 60 days but retain 20 last ones
-       expire_period: 5184000s
-       tag_regexp: prod
-       retained_top: "20"
-     - description: delete all test Docker images except 10 last ones
-       tag_regexp: test.*
-       retained_top: "10"
+     ...
      - description: delete all untagged Docker images older than 48 hours
        expire_period: 172800s
        untagged: true

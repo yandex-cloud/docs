@@ -29,7 +29,7 @@
    stringData:
      accessKeyID: <идентификатор ключа доступа>
      secretAccessKey: <секретный ключ>
-     endpoint: https://storage.yandexcloud.net
+     endpoint: https://{{ s3-storage-host }}
    ```
 
    В полях `accessKeyID` и `secretAccessKey` укажите [полученные ранее](#create-environment) идентификатор и значение секретного ключа.

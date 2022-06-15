@@ -19,9 +19,9 @@ A VM can have one of the following statuses:
 
 The diagram below shows only transitions between statuses under normal operation during the following actions:
 
-- [VM creation](#create)
-- [VM stop and start](#stop-and-start)
-- [VM restart](#restart)
+- VM [creation](#create).
+- VM [stop and start](#stop-and-start).
+- [Restarting](#restart) a virtual machine.
 
 The diagram does not show the following intermediate statuses:
 
@@ -35,7 +35,7 @@ The diagram does not show the following intermediate statuses:
 
 When it is [created](../operations/vm-create/create-linux-vm.md), a VM gets the `PROVISIONING` status. At this stage, the VM is allocated computing resources: the number and performance of processor cores (vCPUs) and the amount of RAM. It is assigned an IP address and its disks are created.
 
-After that, the VM starts automatically and switches to the `STARTING` status.
+After this, the VM will automatically start and switch to the `STARTING` status.
 
 If the startup is successful, the VM's status changes to `RUNNING` and the operating system starts loading. After that, you will be able to connect to the VM.
 
@@ -49,7 +49,7 @@ At the next [start](../operations/vm-control/vm-stop-and-start.md#start), the VM
 
 When being [restarted](../operations/vm-control/vm-stop-and-start.md#restart), the VM switches to the `RESTARTING` status. Since all the computing resources have been allocated, the VM returns to the `RUNNING` status after it is restarted.
 
-### Update {#update}
+### Updating {#update}
 
 You can update the parameters of a VM, such as change its name, regardless of the VM status. Once updated (the `UPDATING` status), the VM returns to the previous status.
 
@@ -67,9 +67,9 @@ There are two error statuses:
 
 - `CRASHED`: an error has occurred and the VM operation cannot continue.
 
-    If the VM has switched to this status, {{ yandex-cloud }} will try to restart it. Restart attempts will be repeated until the VM status changes to `RUNNING` or `ERROR`.
+   If the VM has switched to this status, {{ yandex-cloud }} will try to restart it. Restart attempts will be repeated until the VM status changes to `RUNNING` or `ERROR`.
 
 - `ERROR`: a fatal error has occurred and the VM cannot be recovered.
 
-    If the VM has switched to this status or is continuously switching to the `CRASHED` status, contact the [technical support](../../support/overview.md) or create a new VM.
+   If the VM has switched to this status or is continuously switching to the `CRASHED` status, contact the [technical support](../../support/overview.md) or create a new VM.
 

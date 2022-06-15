@@ -59,16 +59,16 @@
       +--------------------------------+-------------+
       ```
 
-  4. Узнайте ID пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или группе пользователей, воспользуйтесь [примерами](#examples) ниже.
+
+  4. Узнайте идентификатор пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или системной группе используйте [примеры](#examples) ниже.
 
       ```bash
       yc iam user-account get test-user
       ```
-      
+
       Результат:
 
-      
-      ```
+      ```bash
       id: gfei8n54hmfhuk5nogse
       yandex_passport_user_account:
         login: test-user
@@ -81,7 +81,6 @@
         --role editor \
         --subject userAccount:gfei8n54hmfhuk5nogse
       ```
-
 - API
 
   Воспользуйтесь методом [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md). Вам понадобится ID каталога и ID пользователя, которому назначается роль на каталог.
@@ -89,7 +88,7 @@
   1. Узнайте ID каталога с помощью метода [list](../../api-ref/Folder/list.md):
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders?cloudId=b1gg8sgd16g7qca5onqs
+        https://resource-manager.{{ api-host }}/resource-manager/v1/folders?cloudId=b1gg8sgd16g7qca5onqs
       ```
 
       Результат:
@@ -110,7 +109,7 @@
   2. Узнайте ID пользователя по логину с помощью метода [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+        https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
       ```
 
       Результат:
@@ -139,9 +138,8 @@
                     "id": "gfei8n54hmfhuk5nogse",
                     "type": "userAccount"
         }}}]}' \
-        https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
+        https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
       ```
-
 - Terraform
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -168,7 +166,7 @@
      * `members` — список пользователей, которым будет присвоена роль. Обязательный параметр. Каждая запись может иметь одно из следующих значений:
        * `userAccount:<ID пользователя>` — [ID пользователя](../../../iam/operations/users/get.md).
        * `serviceAccount:<ID сервисного аккаунта>` — [ID сервисного аккаунта](../../../iam/operations/sa/get-id.md).
-       * `federatedUser:<ID федеративного аккаунта>` — [ID федеративного аккаунта](../../../organization/users-get.md). 
+       * `federatedUser:<ID пользовательского аккаунта>` — [ID пользовательского аккаунта](../../../organization/users-get.md). 
 
      {% cut "Пример назначения роли на каталог с помощью Terraform" %}
 
@@ -189,7 +187,6 @@
      }
      ...
      ```
-    
      {% endcut %}
 
      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
@@ -265,7 +262,6 @@
         --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
         --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
       ```
-
 - API
 
   Назначьте одному пользователю роль `editor`, а другому `viewer`:
@@ -292,9 +288,8 @@
                 "id": "helj89sfj80aj24nugsz",
                 "type": "userAccount"
     }}}]}' \
-    https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
+    https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
   ```
-
   Вы также можете назначать роли с помощью метода [setAccessBindings](../../api-ref/Folder/setAccessBindings.md).
 
   {% note alert %}
@@ -315,9 +310,8 @@
         "roleId": "viewer",
         "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
     }]}' \
-    https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
+    https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
   ```
-
 - Terraform
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).

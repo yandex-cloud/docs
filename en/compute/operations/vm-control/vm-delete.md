@@ -13,40 +13,57 @@ If previously created disks are attached to the VM, they will be detached when t
 {% list tabs %}
 
 - Management console
-  
-  1. Select the folder the VM belongs to.
-  
-  1. Select **{{ compute-name }}**.
-  
-  1. Select the VM → click ![image](../../../_assets/options.svg) → select **Delete**.
-  
+
+   1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
+   1. Select **{{ compute-name }}**.
+   1. Select the VM → click ![image](../../../_assets/options.svg) → select **Delete**.
+
       To do this with multiple VMs, select the VMs you need to delete from the list → click **Delete** at the bottom of the screen.
-  
-  1. Confirm deletion.
-  
+
+   1. Confirm the deletion.
+
 - CLI
-  
-  {% include [cli-install](../../../_includes/cli-install.md) %}
-  
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
-  1. View a description of the CLI's delete VM command:
-  
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. See the description of the CLI's delete VM command:
+
       ```
       $ yc compute instance delete --help
       ```
-  
-  1. Get a list of VMs in the default folder:
-  
+
+   1. Get a list of VMs in the default folder:
+
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
-  
-  1. Select the `ID` or `NAME` of the VM you need (for example, `first-instance`).
-  
-  1. Delete the VM:
-  
+
+   1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+   1. Delete the VM:
+
       ```
       $ yc compute instance delete first-instance
       ```
-  
-{% endlist %}
 
+- Terraform
+
+   For more information about Terraform, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   If you created a VM using Terraform, you can delete it:
+
+   1. In the command line, go to the directory with the Terraform configuration file.
+   2. Delete resources using the command:
+
+      ```
+      $ terraform destroy
+      ```
+
+      {% note alert %}
+
+      Terraform deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+
+      {% endnote %}
+
+   3. Confirm the deletion of resources.
+
+{% endlist %}

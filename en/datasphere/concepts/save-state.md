@@ -1,6 +1,6 @@
 # Saving a state
 
-The notebook state is the cell code, output, variable values at a specific point in time, and project storage data.
+A notebook's state includes cell code, output, and variable values at a specific point in time as well as project storage data.
 
 {% include [include](../../_includes/datasphere/saving-variables-warn.md) %}
 
@@ -31,5 +31,4 @@ To enable auto-save mode:
 
 ### Forcing a state save {#forced-save}
 
-To force the saving of state in auto-save mode, click the ![plus-sign](../../_assets/plus-sign.svg) in the top right-hand corner of the ![checkpoints-panel](../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** tab. You can also save the state by using the **Cmd** + **K** or **Ctrl** + **K** keyboard shortcut.
-
+To force the saving of state in auto-save mode, click the ![plus-sign](../../_assets/plus-sign.svg) in the upper-right corner of the ![checkpoints-panel](../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** tab. You can also save the state by using the **Cmd** + **K** or **Ctrl** + **K** keyboard shortcut.

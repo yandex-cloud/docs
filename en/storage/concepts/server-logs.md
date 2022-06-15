@@ -62,7 +62,7 @@ Field | Type | Description
 `timestamp` | String | Date and time of the operation with the bucket, in the `YYYY-MM-DDTHH:MM:MMZ` format.
 `user_agent` | String | Client application (User Agent) that executed the request.
 `version_id` | String | Version of the object.
-`vhost` | String | Virtual host of the request.<br>Acceptable values:<br>– `storage.yandexcloud.net`.<br> – `bucket name>.storage.yandexcloud.net`.<br>– `website.yandexcloud.net`.<br> – `<bucket name>.website.yandexcloud.net`.
+`vhost` | String | Virtual host of the request.<br>Acceptable values:<br>– `{{ s3-storage-host }}`.<br> – `bucket name>.{{ s3-storage-host }}`.<br>– `{{ s3-web-host }}`.<br> – `<bucket name>.{{ s3-web-host }}`.
 
 Example of a record in the log file:
 
@@ -90,7 +90,7 @@ Example of a record in the log file:
   "timestamp": "2020-11-10T13:21:18Z",
   "user_agent": "docker/19.03.9 go/go1.13.10 git-commit/1d238398e7 kernel/4.4.0-142-generic os/linux arch/amd64 UpstreamClient(Go-http-client/1.1)",
   "version_id": "",
-  "vhost": "storage.yandexcloud.net"
+  "vhost": "{{ s3-storage-host }}"
 }
 ```
 

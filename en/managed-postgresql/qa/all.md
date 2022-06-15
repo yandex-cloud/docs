@@ -4,11 +4,11 @@
 
 {% include notitle [general](general.md) %}
 
-## Connection {#connection}
+## Adding plugins {#connection}
 
 {% include notitle [connection](connection.md) %}
 
-## Updating clusters {#update}
+## Editing {#update} clusters
 
 {% include notitle [update](update.md) %}
 
@@ -16,7 +16,7 @@
 
 {% include notitle [configuration](configuration.md) %}
 
-## Moving or restoring a cluster {#backup}
+## Moving and restoring a cluster {#backup}
 
 {% include notitle [backup](backup.md) %}
 

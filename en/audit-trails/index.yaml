@@ -15,7 +15,7 @@ links:
     href: quickstart
   - title: Concepts
     description: Learn about the concepts and features of the service
-    href: concepts/index
+    href: concepts/
   - title: Event reference
     description: Description of service events
     href: concepts/events

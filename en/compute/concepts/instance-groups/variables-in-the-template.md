@@ -1,10 +1,11 @@
 # Variables in an instance template
 
+
 {{ ig-name }} lets you create a group of instances of the same type from a [template](instance-template.md). To use different characteristics for such instances, use the substitution mechanism for the system and user-defined variables in the template.
 
-_A system variable_ is a value that {{ ig-name }} calculates during instance creation and inserts it into the template for further use.
+A _system variable_ is a value that {{ ig-name }} calculates during instance creation and inserts it into the template for further use.
 
-_A user-defined variable_ is a value that {{ ig-name }} takes from a list. The list is made by the user in advance and its variables are described in `key:value` format.
+A _user-defined variable_ is a value that {{ ig-name }} takes from a list. The list is made by the user in advance and its variables are described in `key:value` format.
 
 ## Fields that support variables {#support-fields}
 
@@ -38,7 +39,7 @@ The instance template is described in a YAML file using the `instance_template` 
 
 Conversion can occur in multiple stages. In this case, the value obtained in the first stage is a variable for the second stage.
 
-[An example](#example) of substitution stages is given below.
+An [example](#example) of substitution stages is given below.
 
 ### First stage of value substitution {#first-stage}
 
@@ -78,19 +79,20 @@ System and user-defined variables are specified as values for template fields in
 ## Example of running the substitution stages {#example}
 
 1. The instance template specifies:
+
    * The list of user-defined variables in `key:value` format in the `variables` section.
    * The system and user-defined variables in the [supported](#support-fields) fields:
-     * The `instance_template.name` field specifies the `{short_zone_var_{instance.zone_id}}` user-defined variable and the `{instance.index}` system variable.
-     * The `instance_template.hostname` field specifies the `{instance.index}` system variable.
+      * The `instance_template.name` field specifies the `{short_zone_var_{instance.zone_id}}` user-defined variable and the `{instance.index}` system variable.
+      * The `instance_template.hostname` field specifies the `{instance.index}` system variable.
 
    ```yaml
    ...
    variables:
-     - key: short_zone_var_ru-central1-a
+     - key: short_zone_var_{{ region-id }}-a
        value: rc1a
-     - key: short_zone_var_ru-central1-b
+     - key: short_zone_var_{{ region-id }}-b
        value: rc1b
-     - key: short_zone_var_ru-central1-c
+     - key: short_zone_var_{{ region-id }}-c
        value: rc1c
    instance_template:
      name: production-{short_zone_var_{instance.zone_id}}-{instance.index}
@@ -100,38 +102,40 @@ System and user-defined variables are specified as values for template fields in
    ```
 
 1. During the first stage, {{ ig-name }} replaces the [system variables](#first-stage) with the calculated values.
+
    * In the `instance_template.name` field:
-     * The `{short_zone_var_{instance.zone_id}}` variable is converted to the `{short_zone_var_ru-central1-a}` variable.
-     * The `{instance.index}` system variable is converted to index `1`.
+      * The `{short_zone_var_{instance.zone_id}}` variable is converted to the `{short_zone_var_{{ region-id }}-a}` variable.
+      * The `{instance.index}` system variable is converted to index `1`.
    * In the `instance_template.hostname` field, the `{instance.index}` system variable is converted to index `1`.
 
    ```yaml
    ...
    variables:
-     - key: short_zone_var_ru-central1-a
+     - key: short_zone_var_{{ region-id }}-a
        value: rc1a
-     - key: short_zone_var_ru-central1-b
+     - key: short_zone_var_{{ region-id }}-b
        value: rc1b
-     - key: short_zone_var_ru-central1-c
+     - key: short_zone_var_{{ region-id }}-c
        value: rc1c
    instance_template:
-     name: production-{short_zone_var_ru-central1-a}-1
+     name: production-{short_zone_var_{{ region-id }}-a}-1
      hostname: production-1
      platform_id: standard-v3
    ...
    ```
 
 1. At the second stage, {{ ig-name }} converts the resulting variables to the values from the list in the `variables` section:
-   * In the `instance_template.name` field: the `{short_zone_var_ru-central1-a}` variable is converted to the value `rc1a`.
+
+   * In the `instance_template.name` field: the `{short_zone_var_{{ region-id }}-a}` variable is converted to the value `rc1a`.
 
    ```yaml
    ...
    variables:
-     - key: short_zone_var_ru-central1-a
+     - key: short_zone_var_{{ region-id }}-a
        value: rc1a
-     - key: short_zone_var_ru-central1-b
+     - key: short_zone_var_{{ region-id }}-b
        value: rc1b
-     - key: short_zone_var_ru-central1-c
+     - key: short_zone_var_{{ region-id }}-c
        value: rc1c
    instance_template:
      name: production-rc1a-1
@@ -139,4 +143,3 @@ System and user-defined variables are specified as values for template fields in
      platform_id: standard-v3
    ...
    ```
-

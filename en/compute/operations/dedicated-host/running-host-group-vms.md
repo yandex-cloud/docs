@@ -10,120 +10,113 @@ To create a VM that is linked to a group of dedicated hosts, follow these steps:
 
 - CLI
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of any CLI command using the `--help` flag. For example:
+   1. See the list of available dedicated host types:
 
-     ```bash
-     yc compute host-type --help
-     ```
+      ```bash
+      yc compute host-type list
+      ```
 
-  1. See the list of available dedicated host types:
+      Result:
 
-     ```bash
-     yc compute host-type list
-     ```
+      ```bash
+      +---------------------+-------+--------------+
+      |         ID          | CORES |    MEMORY    |
+      +---------------------+-------+--------------+
+      | intel-6230-c66-m454 |    66 | 487478788096 |
+      +---------------------+-------+--------------+
+      ```
 
-     Execution result:
+   1. Create a group of dedicated hosts of the selected type. A group may contain one or more hosts.
 
-     ```bash
-     +---------------------+-------+--------------+
-     |         ID          | CORES |    MEMORY    |
-     +---------------------+-------+--------------+
-     | intel-6230-c66-m454 |    66 | 487478788096 |
-     +---------------------+-------+--------------+
-     ```
+      ```bash
+      yc compute host-group create \
+        --fixed-size 2 \
+        --type intel-6230-c66-m454 \
+        --zone {{ region-id }}-a
+      ```
 
-  1. Create a group of dedicated hosts of the selected type. A group may contain one or more hosts.
+      Where:
+      * `fixed-size`: The number of dedicated hosts in the group.
+      * `type`: The type of dedicated hosts.
+      * `zone`: [availability zone](../../../overview/concepts/geo-scope.md).
 
-     ```bash
-     yc compute host-group create \
-       --fixed-size 2 \
-       --type intel-6230-c66-m454 \
-       --zone ru-central1-a
-     ```
+      Command output:
 
-     Where:
-     * `fixed-size`: The number of dedicated hosts in the group.
-     * `type`: The type of dedicated hosts.
-     * `zone`: The [availability zone](../../../overview/concepts/geo-scope.md).
+      ```bash
+      done (6s)
+      id: abcdefg1hi23gkl16dnf
+      folder_id: m4n56op78mev0cljderg
+      created_at: "2020-10-13T07:36:49Z"
+      zone_id: {{ region-id }}-a
+      status: READY
+      type_id: intel-6230-c66-m454
+      maintenance_policy: RESTART
+      scale_policy:
+        fixed_scale:
+          size: "2"
+      ```
 
-     Command execution result:
+   1. View the ID of the dedicated host group to link your VM to:
 
-     ```bash
-     done (6s)
-     id: abcdefg1hi23gkl16dnf
-     folder_id: m4n56op78mev0cljderg
-     created_at: "2020-10-13T07:36:49Z"
-     zone_id: ru-central1-a
-     status: READY
-     type_id: intel-6230-c66-m454
-     maintenance_policy: RESTART
-     scale_policy:
-       fixed_scale:
-         size: "2"
-     ```
+      ```bash
+      yc compute host-group list
+      ```
 
-  1. View the ID of the dedicated host group to link your VM to:
+      Command output:
 
-     ```bash
-     yc compute host-group list
-     ```
+      ```bash
+      +----------------------+------+---------------+--------+---------------------+------+
+      |          ID          | NAME |     ZONE      | STATUS |        TYPE         | SIZE |
+      +----------------------+------+---------------+--------+---------------------+------+
+      | abcdefg1hi23gkl16dnf |      | {{ region-id }}-a | READY  | intel-6230-c66-m454 |    2 |
+      +----------------------+------+---------------+--------+---------------------+------+
+      ```
 
-     Command execution result:
+   1. Create a VM that is linked to a group of dedicated hosts.
 
-     ```bash
-     +----------------------+------+---------------+--------+---------------------+------+
-     |          ID          | NAME |     ZONE      | STATUS |        TYPE         | SIZE |
-     +----------------------+------+---------------+--------+---------------------+------+
-     | abcdefg1hi23gkl16dnf |      | ru-central1-a | READY  | intel-6230-c66-m454 |    2 |
-     +----------------------+------+---------------+--------+---------------------+------+
-     ```
+      For more information about how to create a VM, see [Creating VMs](../../operations/index.md#vm-create).
 
-  1. Create a VM that is linked to a group of dedicated hosts.
+      ```bash
+      yc compute instance create \
+        --host-group-id abcdefg1hi23gkl16dnf \
+        --network-interface subnet-name=network-{{ region-id }}-a \
+        --zone {{ region-id }}-a
+      ```
 
-     For more information about how to create a VM, see [Creating VMs](../../operations/index.md#vm-create).
+      Where:
+      * `host-group-id`: ID of the dedicated host group.
+      * `subnet-name`: Name of the selected subnet.
+      * `zone`: Availability zone that corresponds to the selected subnet.
 
-     ```bash
-     yc compute instance create \
-       --host-group-id abcdefg1hi23gkl16dnf \
-       --network-interface subnet-name=network-ru-central1-a \
-       --zone ru-central1-a
-     ```
+      Command output:
 
-     Where:
-     * `host-group-id`: ID of the dedicated host group.
-     * `subnet-name`: Name of the selected subnet.
-     * `zone`: Availability zone that corresponds to the selected subnet.
-
-     Command execution result:
-
-     ```bash
-     done (20s)
-     id: fhmbdt1jj2k3ls036909
-     folder_id: m4n56op78mev0cljderg
-     created_at: "2020-10-13T07:41:19Z"
-     zone_id: ru-central1-a
-     ...
-     placement_policy:
-       host_affinity_rules:
-       - key: yc.hostGroupId
-         op: IN
-         values:
-         - abcdefg1hi23gkl16dnf
-     ```
+      ```bash
+      done (20s)
+      id: fhmbdt1jj2k3ls036909
+      folder_id: m4n56op78mev0cljderg
+      created_at: "2020-10-13T07:41:19Z"
+      zone_id: {{ region-id }}-a
+      ...
+      placement_policy:
+        host_affinity_rules:
+        - key: yc.hostGroupId
+          op: IN
+          values:
+          - abcdefg1hi23gkl16dnf
+      ```
 
 - API
 
-  1. Select the host type using the [list](../../api-ref/HostType/list.md) method for the `HostType` resource.
+   1. Select the host type using the [list](../../api-ref/HostType/list.md) method for the `HostType` resource.
 
-  1. Create a group of dedicated hosts using the [create](../../api-ref/HostGroup/create.md) method for the `HostGroup` resource.
+   1. Create a group of dedicated hosts using the [Create](../../api-ref/HostGroup/create.md) method for the `HostGroup` resource.
 
-  1. View the ID of the dedicated host group using the [list](../../api-ref/HostGroup/list.md) method for the `HostGroup` resource.
+   1. View the ID of the dedicated host group using the [list](../../api-ref/HostGroup/list.md) method for the `HostGroup` resource.
 
-  1. Create a VM that is linked to a group of dedicated hosts using the [create](../../api-ref/Instance/create.md) method for the `Instance` resource.
+   1. Create a VM that is linked to a group of dedicated hosts using the [Create](../../api-ref/Instance/create.md) method for the `Instance`.
 
 {% endlist %}
-

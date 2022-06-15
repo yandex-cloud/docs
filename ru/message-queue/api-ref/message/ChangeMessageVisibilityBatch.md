@@ -38,7 +38,7 @@
 ```
 Action=ChangeMessageVisibilityBatch
 &Version=2012-11-05
-&QueueUrl=https://message-queue.api.cloud.yandex.net/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
 &ChangeMessageVisibilityBatchRequestEntry.1.Id=8b6f1be7-effe631a-7b3cbef1-158bf58
 &ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=EAUg9bzYh4gtKAA
 &ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=30

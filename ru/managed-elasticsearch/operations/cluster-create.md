@@ -100,9 +100,7 @@ keywords:
 
       {% include [Дополнительные настройки кластера MES](../../_includes/mdb/mes/extra-settings.md) %}
 
-  1. При необходимости задайте настройки СУБД:
-
-      Доступна настройка параметра `Fielddata cache size` — процент или абсолютное значение области динамической памяти, которая выделена для кеша `fielddata`, например: 10% или 512 МБ.
+  1. При необходимости задайте [настройки СУБД](../concepts/settings-list.md).
 
   1. Нажмите кнопку **Создать**.
 
@@ -174,6 +172,7 @@ keywords:
 
         Пример структуры конфигурационного файла:
 
+        
         ```hcl
         terraform {
           required_providers {
@@ -241,6 +240,7 @@ keywords:
           v4_cidr_blocks = ["<диапазон>"]
         }
         ```
+
 
         1. {% include [Maintenance window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
 
@@ -340,6 +340,7 @@ keywords:
 
     Конфигурационный файл для такого кластера выглядит так:
 
+    
     ```hcl
     terraform {
       required_providers {
@@ -381,7 +382,7 @@ keywords:
 
       host {
         name = "node"
-        zone = "ru-central1-c"
+        zone = "{{ region-id }}-c"
         type = "DATA_NODE"
         assign_public_ip = true
         subnet_id = yandex_vpc_subnet.mysubnet.id
@@ -419,5 +420,6 @@ keywords:
       }
     }
     ```
+
 
 {% endlist %}

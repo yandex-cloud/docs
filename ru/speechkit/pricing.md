@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ speechkit-name }}
 
+
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 ## Из чего складывается стоимость использования {{ speechkit-short-name }} {#rules}
@@ -91,5 +93,3 @@ editable: false
 
 
 {% include [rub.md](../_pricing/speechkit/rub-stt.md) %}
-
-

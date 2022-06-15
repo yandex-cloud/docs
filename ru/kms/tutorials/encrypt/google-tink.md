@@ -18,7 +18,7 @@
     <dependency>
         <groupId>com.yandex.cloud</groupId>
         <artifactId>kms-provider-tink</artifactId>
-        <version>1.0</version>
+        <version>2.6</version>
     </dependency>
     ```
 
@@ -34,8 +34,10 @@
 
 ## Шифрование и расшифровка {#encrypt-decrypt}
 
-В коде используются следующие переменные: 
-* `credentials` – определяет способ аутентификации, подробнее читайте в разделе [Аутентификация в SDK {{ yandex-cloud }}](sdk.md#auth).
+В коде используются следующие переменные:
+
+* `endpoint` – `{{ api-host }}:443`.
+* `credentialProvider` или `credentials`– определяет способ аутентификации, подробнее читайте в разделе [Аутентификация в SDK{{ yandex-cloud }}](sdk.md#auth).
 * `keyId` – идентификатор [ключа {{ kms-short-name }}](../../concepts/key.md).
 * `plaintext` – открытый текст.
 * `ciphertext` – шифртекст.
@@ -49,7 +51,7 @@
     
     ```
     AeadConfig.register(); 
-    KmsClients.add(new YcKmsClient(() -> credentials));
+    KmsClients.add(new YcKmsClient(credentialProvider).withEndpoint(endpoint));
     
     String keyUri = "yc-kms://" + keyId;
     Aead kmsAead = KmsClients.get(keyUri).getAead(keyUri);
@@ -70,6 +72,7 @@
     
     ```
     sdk, err := ycsdk.Build(context, ycsdk.Config{
+      Endpoint:    endpoint,
       Credentials: credentials,
     })
     if err != nil {...}

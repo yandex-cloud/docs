@@ -14,6 +14,7 @@ keywords:
 * [{#T}](#change-service-account).
 * [{#T}](#change-resource-preset).
 * [{#T}](#change-disk-size) (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках).
+* [{#T}](#change-elasticsearch-config).
 * [{#T}](#change-admin-password).
 * [{#T}](#change-additional-settings).
 
@@ -145,6 +146,67 @@ keywords:
 
 {% endlist %}
 
+## Изменить настройки {{ ES }} {#change-elasticsearch-config}
+
+Вы можете изменить настройки СУБД для хостов вашего кластера.
+
+{% note warning %}
+
+Вы не можете менять настройки {{ ES }} с помощью {{ ES }} API.
+
+{% endnote %}
+
+{% list tabs %}
+
+- Консоль управления
+
+    1. Перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
+    1. Выберите кластер и нажмите кнопку **![Pencil](../../_assets/pencil.svg) Изменить кластер** на панели сверху.
+    1. Измените [настройки {{ ES }}](../concepts/settings-list.md), нажав кнопку **Настроить** в блоке **Настройки СУБД**.
+    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **Сохранить изменения**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить [настройки сервера {{ ES }}](../concepts/settings-list.md):
+
+    1. Посмотрите полный список настроек, установленных для кластера:
+
+        ```bash
+        {{ yc-mdb-es }} cluster get <идентификатор или имя кластера> --full
+        ```
+
+    1. Посмотрите описание команды CLI для изменения конфигурации кластера:
+
+        ```bash
+        {{ yc-mdb-es }} cluster update-config --help
+        ```
+
+    1. Установите нужные значения параметров:
+
+        ```bash
+        {{ yc-mdb-es }} cluster update-config <идентификатор или имя кластера> \
+           --set <имя параметра1>=<значение1>,<имя параметра2>=<значение2>,...
+        ```
+
+        Все поддерживаемые параметры приведены в разделе [{#T}](../concepts/settings-list.md).
+
+- API
+
+    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Его можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+    * Нужные значения настроек СУБД в параметре `configSpec.elasticsearchSpec.dataNode.elastcsearchConfig_7`.
+    * Список настроек, которые необходимо изменить, в параметре `updateMask`. Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки кластера, которые не были явно указаны в запросе.
+
+    Все поддерживаемые настройки описаны в разделе [{#T}](../concepts/settings-list.md) и в [справочнике API](../api-ref/Cluster/update.md).
+
+{% endlist %}
+
 ## Изменить пароль пользователя admin {#change-admin-password}
 
 {% list tabs %}
@@ -272,8 +334,6 @@ keywords:
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
-
-    * Список настроек, которые необходимо изменить, в параметре `updateMask`. Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки кластера, которые не были явно указаны в запросе.
 
     {% note warning %}
 

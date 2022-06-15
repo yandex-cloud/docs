@@ -17,13 +17,8 @@ If you no longer need the IPSec instance, [delete it](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources {#paid-resources}
 
@@ -46,7 +41,7 @@ Create a VM in {{ yandex-cloud }} to serve as a gateway for an IPSec tunnel.
 
 1. Select the subnet availability zone to connect the IPSec instance to and where the test VM is already located.
 
-1. In the **Images from {{ marketplace-name }}** section, click **Select** and choose the [IPSec instance](https://cloud.yandex.com/en-ru/marketplace/products/f2e70ohdvsd0jgp2302j) image.
+1. In the **Images from {{ marketplace-name }}** section, click **Select** and choose the [IPSec instance](/marketplace/products/f2e70ohdvsd0jgp2302j) image.
 
 1. In the **Network settings** section, choose the required network and subnet and assign a public IP to the VM either by selecting it from the list or automatically.
 

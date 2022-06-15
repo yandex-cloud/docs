@@ -1,11 +1,11 @@
 ---
 title: SQL Queries in Managed Service for MySQL
-description: 'Managed Service for MySQL allows you to visualize the data structure on your cluster and send SQL queries to databases from the Yandex Cloud management console. To do this, log into the management console, open the page of the required cluster and go to the SQL tab. '
+description: 'Managed Service for MySQL allows you to visualize the data structure on your cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log into the management console, open the page of the required cluster and go to the SQL tab. '
 ---
 
 # SQL queries in Managed Service for MySQL
 
-{{ mmy-name }} allows you to visualize the data structure in your cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to [management console]({{ link-console-main }}), open the cluster page and go to the **SQL** tab.
+{{ mmy-name }} allows you to visualize the data structure in your cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to the [management console]({{ link-console-main }}), open the cluster page you need, and go to the **SQL** tab.
 
 ## Access to the cluster from the management console {#sql-cluster-access}
 
@@ -30,6 +30,5 @@ The query input window is open on the right. Start typing your query to see sugg
 The main query restriction in the management console is that the text of queries and their results are displayed until you close or reload the page in your browser. But if a query was run successfully, {{ mmy-name }} processes it regardless of the state of the management console.
 
 In addition, keep the following in mind:
-
 * The management console will only display the first 1000 rows of results, even if there is actually more data.
 * When a cluster query takes more than 10 minutes to complete, the management console will report an error as a result, even if the query was eventually processed successfully.

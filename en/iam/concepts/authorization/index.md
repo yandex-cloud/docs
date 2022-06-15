@@ -58,7 +58,7 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
       {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}
 
-      [Instructions for how to get an API key](../../operations/api-key/create.md).
+    [Instructions for how to get an API key](../../operations/api-key/create.md).
   * Using [static access keys](access-key.md). This method should be used in services with an AWS-compatible API, such as {{ objstorage-name }} and {{ message-queue-name }}.
 
       [Instructions for how to get a static access key](../../operations/sa/create-access-key.md).

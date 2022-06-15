@@ -128,22 +128,19 @@
 
       ```bash
       {{ yc-mdb-mg }} cluster get c9qut3k64b2o9umqogr7
-      ```
-
-      ```text
-      id: c9qut3k64b2o9umqogr7
-      folder_id: b1g0itj57rbjk9thrinv
-      created_at: "2019-07-16T09:43:50.393231Z"
-      name: mongodb406
-      environment: PRODUCTION
-      monitoring:
-      - name: Console
-        description: Console charts
-        link: https://console.cloud.yandex.ru/folders/b1g0itj57rbjk9thrinv/managed-mongodb/cluster/c9qut3k64b2o9umqogr7?section=monitoring
-      config:
-        version: "4.0"
-        feature_compatibility_version: "4.0"
-        ...
+        id: c9qut3k64b2o9umqogr7
+        folder_id: b1g0itj57rbjk9thrinv
+        created_at: "2019-07-16T09:43:50.393231Z"
+        name: mongodb406
+        environment: PRODUCTION
+        monitoring:
+        - name: Console
+          description: Console charts
+          link: {{ link-console-main }}/folders/b1g0itj57rbjk9thrinv/managed-mongodb/cluster/c9qut3k64b2o9umqogr7?section=monitoring
+        config:
+          version: "4.0"
+          feature_compatibility_version: "4.0"
+          ...
       ```
 
    1. Для обновления кластера `c9qutgkd4b2o9umqog97` до версии 4.2, выполните команду:

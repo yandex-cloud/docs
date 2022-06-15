@@ -1,6 +1,6 @@
 ---
-title: "Аутентификация в API Yandex Identity and Access Management"
-description: "Для выполнения операций через API в сервисе идентификации и контроля доступа – Yandex Identity and Access Management, необходимо получить IAM-токен для сервисного, федеративного или Яндекс аккаунта."
+title: "Аутентификация в API {{ iam-full-name }}"
+description: "Для выполнения операций через API в сервисе идентификации и контроля доступа – {{ iam-full-name }}, необходимо получить {{ iam-short-name }}-токен для своего аккаунта."
 ---
 
 {% include [auth](../../_includes/authentication.md) %}

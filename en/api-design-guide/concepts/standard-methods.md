@@ -37,7 +37,7 @@ Sample gRPC description of the [Get](https://github.com/yandex-cloud/cloudapi/bl
 Sample REST request used to get a disk:
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
+GET https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03
 ```
 
 ## List {#method-list}
@@ -91,7 +91,7 @@ Sample gRPC description of the [List](https://github.com/yandex-cloud/cloudapi/b
 Example of getting a list of disks in the REST API:
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/disks?folderId=a3s17h9sbq5asdgss12
+GET https://compute.{{ api-host }}/compute/v1/disks?folderId=a3s17h9sbq5asdgss12
 ```
 
 ## Create {#method-create}
@@ -164,13 +164,13 @@ Sample gRPC description of the [Create](https://github.com/yandex-cloud/cloudapi
 Sample REST request used to create a disk:
 
 ```
- POST https://compute.api.cloud.yandex.net/compute/v1/disks
+ POST https://compute.{{ api-host }}/compute/v1/disks
 
  {
    "folderId": "a3s17h9sbq5asdgss12",
    "name": "disk-1",
    "description": "Test disk",
-   "zoneId" : "ru-central1-a",
+   "zoneId" : "{{ region-id }}-a",
    "typeId" : "network-ssd",
    "size" : 10737418240
  }
@@ -237,7 +237,7 @@ Sample gRPC description of the [Update](https://github.com/yandex-cloud/cloudapi
 Sample REST request used to update a disk resource:
 
 ```
-PATCH https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
+PATCH https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03
 
  {
    "name": "New name",
@@ -290,5 +290,5 @@ Sample gRPC description of the [Delete](https://github.com/yandex-cloud/cloudapi
 Sample REST request used to delete a disk:
 
 ```
- DELETE https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
+ DELETE https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03
 ```

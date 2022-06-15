@@ -37,13 +37,9 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Поставка данных в Managed Service for ClickHouse
-        href: tutorials/send-data-to-mch.md
-      - name: Настройка Kafka Connect для работы с Managed Service for Apache Kafka®
+      - name: Настройка {{ KFC }} для работы с {{ mkf-name }}
         href: tutorials/kafka-connect.md
-      - name: Поставка данных в ksqlDB
-        href: tutorials/use-ksqldb-with-mkf.md
-      - name: Использование схем формата данных с Managed Service for Apache Kafka®
+      - name: Использование схем формата данных с {{ mkf-name }}
         items:
           - name: Обзор
             href: tutorials/schema-registry-overview.md
@@ -51,10 +47,18 @@ items:
             href: tutorials/managed-schema-registry.md
           - name: Работа с реестром схем формата данных Confluent
             href: tutorials/confluent-schema-registry.md
-      - name: Миграция данных в Managed Service for Apache Kafka®
+      - name: Миграция данных в {{ mkf-name }}
         href: tutorials/kafka-connectors.md
-      - name: Поставка данных с помощью Debezium
+      - name: Поставка данных из {{ mpg-full-name }} с помощью Debezium
         href: tutorials/kafka-cdc.md
+      - name: >-
+          Поставка данных из {{ mpg-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/kafka-cdc-data-transfer.md
+      - name: Поставка данных в {{ mch-name }}
+        href: tutorials/send-data-to-mch.md
+      - name: Поставка данных в ksqlDB
+        href: tutorials/use-ksqldb-with-mkf.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

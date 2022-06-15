@@ -1,5 +1,6 @@
 # Free-tier serverless ecosystem usage
 
+
 Special rates are applicable to services within the serverless computing ecosystem that include certain quantities of services at no extra charge. These are selected to enable you to develop and launch a small service, website, or application.
 
 
@@ -14,6 +15,7 @@ Free tier applies to the following services:
 * [{{ yds-full-name }}](#yds)
 * [{{ serverless-containers-full-name }}](#serverless-containers)
 
+
 ## {{ api-gw-full-name }} {#api-gw}
 
 {% include [not-charged-gateway.md](../../_includes/pricing/price-formula/not-charged-gateway.md) %}
@@ -21,6 +23,7 @@ Free tier applies to the following services:
 After you spend the free amount of services, you will be charged at the applicable [rate](../../api-gateway/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+
 
 ## {{ sf-full-name }} {#sf}
 
@@ -30,7 +33,8 @@ After you spend the free amount of services, you will be charged at the applicab
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
-## {{ ydb-full-name }} serverless mode {#ydb}
+
+##  {{ ydb-full-name }} serverless mode {#ydb}
 
 {% include [not-charged-database.md](../../_includes/pricing/price-formula/not-charged-database.md) %}
 
@@ -54,6 +58,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
+
 ## {{ iot-full-name }} {#iot}
 
 {% include [not-charged-iot.md](../../_includes/pricing/price-formula/not-charged-iot.md) %}
@@ -70,6 +75,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
+
 ## {{ yds-full-name }} {#yds}
 
 {% include [not-charged-streams.md](../../_includes/pricing/price-formula/not-charged-streams.md) %}
@@ -77,6 +83,7 @@ After you spend the free amount of services, you will be charged at the applicab
 After you spend the free amount of services, you will be charged at the applicable [rate](../../data-streams/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+
 
 ## {{ serverless-containers-full-name }} {#serverless-containers}
 

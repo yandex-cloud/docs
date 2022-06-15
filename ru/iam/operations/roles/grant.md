@@ -2,9 +2,12 @@
 
 Чтобы предоставить доступ к ресурсу, назначьте субъекту [роль](../../concepts/access-control/roles.md) на сам ресурс или ресурс, от которого наследуются права доступа, например на каталог или облако. Подробнее читайте в разделе [{#T}](../../concepts/access-control/index.md).
 
+
+
 ## Назначить роль пользователю {#access-to-user}
 
 В этом разделе описывается, как назначить роль пользователю с аккаунтом на Яндексе. В примерах ниже описано, как назначить роль [сервисному аккаунту](#access-to-sa), [пользователю федерации](#access-to-federated-user) или [всем пользователям сразу](#access-to-all).
+
 
 {% list tabs %}
 
@@ -15,7 +18,7 @@
   1. Добавьте пользователя в облако через [Консоль управления](../users/create.md#console-user) или [{{ org-full-name }}](../users/create.md#organization-user).
   1. Назначьте пользователю роль в облаке:
       1. [Выберите](../../../resource-manager/operations/cloud/switch-cloud.md) облако.
-      1. Перейдите на вкладку [Права доступа]({{ link-console-main }}/cloud?section=resource-acl).
+      1. Перейдите на вкладку [Права доступа]({{ link-console-cloud }}?section=resource-acl).
       1. Установите переключатель **Наследуемые роли** в активное состояние, чтобы в списке отобразились пользователи, добавленные в организацию.
       1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/options.svg) напротив имени пользователя.
       1. Нажмите кнопку **Изменить роли**.
@@ -45,7 +48,6 @@
         --role <role-id> \
         --subject userAccount:<user-account-id>
       ```
-
       Где:
 
       * `<service-name>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
@@ -63,6 +65,11 @@
         --subject userAccount:aje6o61dvog2h6g9a33s
       ```
 
+      ```bash
+      yc resource-manager cloud add-access-binding mycloud \
+        --role viewer \
+        --subject federatedUser:aje6o61dvog2h6g9a33s
+      ```
 - API
 
   Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
@@ -87,7 +94,6 @@
           ]
       }
       ```
-
   1. {% include [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md) %}
 
   Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса:
@@ -181,12 +187,13 @@
       yc resource-manager folder list-access-binding my-folder
       ```
   1. Назначьте роли. Например, назначьте одному пользователю роль `editor`, а другому `viewer`:
+
+
       ```bash
       yc resource-manager folder set-access-bindings my-folder \
         --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
         --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
       ```
-
 - API
 
   1. Чтобы назначить одному пользователю роль `editor`, а другому `viewer`, в файл с телом запроса добавьте несколько привязок прав доступа в `accessBindingDeltas`.
@@ -241,8 +248,7 @@
           }]
       }
       ```
-
-  1. Назначьте роли:
+  2. Назначьте роли:
 
       ```bash
       export FOLDER_ID=b1gvmob95yysaplct532
@@ -251,10 +257,11 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d '@body.json' \
-        "https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/${FOLDER_ID}:setAccessBindings"
+        "https://resource-manager.{{ api-host }}/resource-manager/v1/folders/${FOLDER_ID}:setAccessBindings"
       ```
 
 {% endlist %}
+
 
 ### Доступ к ресурсу для сервисного аккаунта {#access-to-sa}
 
@@ -271,12 +278,11 @@
 - Консоль управления
 
   Назначение роли происходит так же, как назначение роли пользователю с аккаунтом на Яндексе. Рядом с именем пользователя будет указано имя федерации, к которой он относится.
-
   В консоли управления можно назначить роль только на облако или каталог:
 
   1. Назначьте пользователю роль в облаке:
       1. [Выберите](../../../resource-manager/operations/cloud/switch-cloud.md) облако.
-      1. Перейдите на вкладку [Права доступа]({{ link-console-main }}/cloud?section=resource-acl).
+      1. Перейдите на вкладку [Права доступа]({{ link-console-cloud }}?section=resource-acl).
       1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/options.svg) напротив имени пользователя.
       1. Нажмите кнопку **Изменить роли**.
       1. В окне **Настройка прав доступа** облака нажмите кнопку **Добавить роль**.
@@ -293,7 +299,6 @@
       1. Нажмите **Сохранить**.
 
 {% endlist %}
-
 ### Доступ к ресурсу всем пользователям {#access-to-all}
 
 {% include [grant-role-for-all](../../../_includes/iam/grant-role-for-all.md) %}

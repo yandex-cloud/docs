@@ -23,13 +23,12 @@ The deduplication mechanism depends on the settings for queue and message dedupl
 
 Messages with duplicate content arriving in a queue with content-based deduplication enabled during the deduplication window are considered duplicates, and only one copy of the message is delivered to a consumer.
 
-If you send a message to a queue with content-based deduplication enabled and then send another message with the same content but with a deduplication ID, both messages will be considered duplicates and only one of them will be delivered to a consumer.
+If you send a message to a queue with content-based deduplication enabled and then send another message with the same content but a different deduplication ID, both messages will be considered duplicates and only one of them will be delivered to a consumer.
 
 ## Repeated attempts to receive messages {#request-attempts}
 
-When receiving a message from a FIFO queue, the  receive request attempt ID is used (`ReceiveRequestAttemptId`).
+When receiving a message from a FIFO queue, the receive request attempt ID is used (`ReceiveRequestAttemptId`).
 
 If an application lost its connection to Message Queue, this ID can be used to retrieve a set of messages again. The parameter can be used for 5 minutes after calling the `ReceiveMessage` method. When requesting messages, you can specify the ID explicitly or use automatically generated IDs.
 
 Repeated attempts to receive messages with the same `ReceiveRequestAttemptId` are possible if the content and visibility of a message have not changed. During the visibility timeout, repeated requests for messages with the same `ReceiveRequestAttemptId` will return the same messages with the identical `ReceiptHandle`.
-

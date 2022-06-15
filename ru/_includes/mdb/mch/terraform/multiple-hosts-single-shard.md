@@ -17,19 +17,19 @@ resource "yandex_mdb_clickhouse_cluster" "mych" {
 
   host {
     type      = "CLICKHOUSE"
-    zone      = "ru-central1-a"
+    zone      = "{{ region-id }}-a"
     subnet_id = yandex_vpc_subnet.cluster-subnet-a.id
   }
 
   host {
     type      = "CLICKHOUSE"
-    zone      = "ru-central1-b"
+    zone      = "{{ region-id }}-b"
     subnet_id = yandex_vpc_subnet.cluster-subnet-b.id
   }
 
   host {
     type      = "CLICKHOUSE"
-    zone      = "ru-central1-c"
+    zone      = "{{ region-id }}-c"
     subnet_id = yandex_vpc_subnet.cluster-subnet-c.id
   }
 
@@ -43,19 +43,19 @@ resource "yandex_mdb_clickhouse_cluster" "mych" {
 
   host {
     type      = "ZOOKEEPER"
-    zone      = "ru-central1-a"
+    zone      = "{{ region-id }}-a"
     subnet_id = yandex_vpc_subnet.cluster-subnet-a.id
   }
 
   host {
     type      = "ZOOKEEPER"
-    zone      = "ru-central1-b"
+    zone      = "{{ region-id }}-b"
     subnet_id = yandex_vpc_subnet.cluster-subnet-b.id
   }
 
   host {
     type      = "ZOOKEEPER"
-    zone      = "ru-central1-c"
+    zone      = "{{ region-id }}-c"
     subnet_id = yandex_vpc_subnet.cluster-subnet-c.id
   }
 

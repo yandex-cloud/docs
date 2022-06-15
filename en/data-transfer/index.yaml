@@ -2,25 +2,37 @@ title: Yandex Data Transfer
 description:
   - >-
     Yandex Data Transfer is designed for logically transferring data between
-    storages. The service helps you quickly and safely perform logical
-    migrations of your databases between other cloud platforms or local
-    databases and Yandex Cloud managed database services.
+    sources and targets. These can be DBMS, object stores, or message brokers.
   - >-
-    It supports several data transfer scenarios, with every scenario run at the
-    logical level. This allows you to keep your source database running and
-    minimize the downtime of applications that use it.
+    With Yandex Data Transfer, you can: <ul> <li>Transfer your databases to a
+    cloud, including both managed database services and custom installations
+    based on Yandex Compute Cloud VMs.</li> <li>Create remote DB replicas.</li>
+    <li>Aggregate data from a variety of sources in a single Data Warehouse
+    powered by ClickHouse.</li> <li>Back up and save data from any available
+    source to Yandex Object Storage.</li> <li>Save arbitrary data received from
+    message brokers to cloud storage.</li>
+  - >-
+    Data Transfer supports several data transfer scenarios, all helping keep
+    track of a source's running state and minimize the downtime of applications
+    using the source.
 meta:
   title: Yandex Data Transfer
 links:
   - title: Getting started
     description: Create your first project
     href: quickstart
+  - title: Available transfers
+    description: List of supported transfer types
+    href: concepts/index#transfer
   - title: Step-by-step instructions
     description: Instructions on how to perform routine operations
     href: operations/
   - title: Concepts
     description: Learn about basic concepts and service functions
     href: concepts/
+  - title: API reference
+    description: HTTP API method descriptions
+    href: api-ref/
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits

@@ -36,7 +36,7 @@ FQDN вида `c-<идентификатор кластера>.rw.{{ dns-zone }}
 redis-cli -h c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
   -p 6380 \
   --tls \
-  --cacert ~/.redis/YandexInternalRootCA.crt \
+  --cacert ~/.redis/{{ crt-local-file }} \
   -a <пароль {{ RD }}>
 ```
 

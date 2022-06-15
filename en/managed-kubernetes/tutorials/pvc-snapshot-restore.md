@@ -19,6 +19,7 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
 
 1. Create a file named `01-pvc.yaml` with the `PersistentVolumeClaim` manifest:
 
+  
    ```yaml
    ---
    apiVersion: v1
@@ -33,6 +34,7 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
        requests:
          storage: 5Gi
    ```
+
 
 1. Create a `PersistentVolumeClaim`:
 
@@ -141,6 +143,7 @@ When [restoring objects from the snapshot](https://kubernetes.io/docs/concepts/s
 To restore the snapshot:
 1. Create a file named `04-restore-snapshot.yaml` with a manifest of a new `PersistentVolumeClaim`:
 
+   
    ```yaml
    ---
    apiVersion: v1
@@ -159,6 +162,7 @@ To restore the snapshot:
        requests:
          storage: 10Gi
    ```
+
 
    {% note tip %}
 

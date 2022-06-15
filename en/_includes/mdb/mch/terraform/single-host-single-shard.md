@@ -17,8 +17,8 @@ resource "yandex_mdb_clickhouse_cluster" "mych" {
 
   host {
     type      = "CLICKHOUSE"
-    zone      = "{{ zone-id }}"
-    subnet_id = yandex_vpc_subnet.cluster-subnet-c.id
+    zone      = "{{ region-id }}-a"
+    subnet_id = yandex_vpc_subnet.cluster-subnet-a.id
   }
 
   database {

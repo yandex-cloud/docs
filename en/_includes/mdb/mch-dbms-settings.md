@@ -35,7 +35,7 @@
 
    Approximate mark cache size (bytes) used by the engines of the [MergeTree](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/) table family. The cache is shared by a cluster host. Memory is allocated as needed.
 
-   The selected setting value is not a hard limit. {{ CH }} Can use a little less or more memory for this cache.
+   The selected setting value is not a hard limit. {{ CH }} can use a little more or less memory for this cache.
 
    The default is `5368709120`.
 
@@ -53,7 +53,7 @@
 
 * **Max partition size to drop**{#setting-max-partition-size-to-drop} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
-   Maximum [partition](https://clickhouse.yandex/docs/en/operations/table_engines/custom_partitioning_key/) size (bytes) for the [MergeTree](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/) family, at which a table can be deleted using a `DROP TABLE` query. You can use the setting to protect tables with real data from inadvertent deletion because these tables will normally be larger than test ones.
+   Maximum [partition](https://{{ ch-domain }}/docs/en/operations/table_engines/custom_partitioning_key/) size (bytes) for the [MergeTree](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/) family, at which a table can be deleted using a `DROP TABLE` query. You can use the setting to protect tables with real data from inadvertent deletion because these tables will normally be larger than test ones.
 
    The default is `53687091200` (50 GB). When the value is `0`, you can delete tables of any size.
 
@@ -190,20 +190,20 @@
 
    * **Method**: Compression method. There are two methods available: [LZ4](https://lz4.github.io/lz4/) and [zstd](https://facebook.github.io/zstd/).
    * **Min part size** is the minimum [data chunk](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/) size (bytes).
-   * **Min part size ratio** is the ratio of the smallest table chunk to the overall table size. {{ CH }} Will apply the rule only to those tables that have a ratio that is greater than or equal to **Min part size ratio**.
+   * **Min part size ratio** is the ratio of the smallest table chunk to the overall table size. {{ CH }} will apply the rule only to those tables that have a ratio that is greater than or equal to **Min part size ratio**.
 
-   You can add several compression rules. {{ CH }} Will check **Min part size** and **Min part size ratio** and will apply the rules to those tables for which both the conditions are met. If multiple rules can be applied to the same table, {{ CH }} applies the first one. If none of the rules are applicable, {{ CH }} uses the [LZ4](https://lz4.github.io/lz4/) compression method.
+   You can add several compression rules. {{ CH }} will check **Min part size** and **Min part size ratio** and apply the rules to tables that meet both conditions. If multiple rules can be applied to the same table, {{ CH }} applies the first one. If none of the rules are applicable, {{ CH }} uses the [LZ4](https://lz4.github.io/lz4/) compression method.
 
-   For more detail, please see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#compression).
+   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/server_settings/settings/#compression).
 
 * **Graphite rollup**{#setting-graphite-rollup} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   [GraphiteMergeTree engine configuration](https://clickhouse.yandex/docs/en/operations/table_engines/graphitemergetree/) for [Graphite](http://graphite.readthedocs.io/en/latest/index.html) data decimation and aggregation/rollup:
+   [GraphiteMergeTree](https://{{ ch-domain }}/docs/en/operations/table_engines/graphitemergetree/) engine configurations for [Graphite](http://graphite.readthedocs.io/en/latest/index.html) data decimation and aggregation/rollup:
    * **Name**: Configuration name.
    * **Patterns**: Set of thinning rules. A rule applies if the metric name matches the **Regexp** parameter value and the age of the data matches the **Retention** parameter group value.
       * **Function**: Aggregation function name.
       * **Regexp**: Regular expression that the metric name must match.
-      * **Retention**: Retention parameters. The function is applied to the data aged between [Age, Age + Precision]. You can set several groups of these parameters.
+      * **Retention**: Retention parameters. The function is applied to the data age interval of [Age, Age + Precision]. You can set several groups of these parameters.
          * **Age**: Minimum data age, in seconds.
          * **Precision**: Accuracy of determining the age of the data, in seconds. The value must be a multiple of `86400` (number of seconds in 24 hours).
 
@@ -216,10 +216,10 @@
    Global authentication settings for [{{ KF }} integration](https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/kafka/):
    * **Sasl mechanism**: SASL authentication mechanism:
       * `GSSAPI`: Authentication [using Kerberos](https://kafka.apache.org/documentation/#security_sasl_kerberos).
-      * `PLAIN`: authentication [using a login and a password as plain text](https://kafka.apache.org/documentation/#security_sasl_plain).
+      * `PLAIN`: Authentication [using a username-password pair as plain text](https://kafka.apache.org/documentation/#security_sasl_plain).
       * `SCRAM-SHA-256` and `SCRAM-SHA-512`: Authentication [using the SCRAM family of mechanisms](https://kafka.apache.org/documentation/#security_sasl_scram).
-   * **Sasl password**: Password of an {{ KF }} account.
-   * **Sasl username**: Username of an {{ KF }} account.
+   * **Sasl password**: {{ KF }} account password.
+   * **Sasl username**: {{ KF }} account username.
    * **Security protocol**: Security protocol used for authentication:
       * `PLAINTEXT`: Authentication credentials are sent as plain text.
       * `SSL`: Authentication credentials are sent with SSL encryption.
@@ -279,6 +279,7 @@
 
 * **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-         Global authentication settings for [{{ RMQ }} integration](https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/rabbitmq/):
-         * **Password** is the {{ RMQ }} account password.
-         * **Username**: Username of an {{ RMQ }} account.
+   Global authentication settings for [{{ RMQ }} integration](https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/rabbitmq/):
+
+   * **Password**: Password of an {{ RMQ }} account.
+   * **Username**: Username of an {{ RMQ }} account.

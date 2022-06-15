@@ -16,17 +16,15 @@ There are various types of encrypted data: from passwords, OAuth tokens, and SSH
 ## Interfaces for using the service {#interface}
 
 To interact with {{ kms-short-name }}, you can use:
-
-* [Management console]({{ link-console-main }}).
+* The [management console]({{ link-console-main }}).
 * [Command line interface (CLI)](../../cli/).
-* SDK: in [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk), or [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
+   * SDK: in [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk), or [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
 * API: [REST](../api-ref/) or [gRPC](../grpc/).
 
 ## Managing keys {#keys-control}
 
-[A key](key.md) is a primary {{ kms-short-name }} resource and a collection of versions of cryptographic material that can be used to encrypt or decrypt data. Control the lifecycle of crypto material by managing keys:
-
-* [Create keys](../operations/key.md#create).
+A [key](key.md) is a primary {{ kms-short-name }} resource and a collection of versions of cryptographic material that can be used to encrypt or decrypt data. Control the lifecycle of crypto material by managing keys:
+* [Create a key](../operations/key.md#create).
 * [Rotate keys](../operations/key.md#rotate).
 * [Update keys](../operations/key.md#update).
 * [Destroy keys](../operations/key.md#delete).
@@ -34,14 +32,13 @@ To interact with {{ kms-short-name }}, you can use:
 ### Key integration with services and tools {#integration}
 
 You can use {{ kms-short-name }} keys:
-
 * In {{ yandex-cloud }} services:
-  * [Managed Service for Kubernetes](../../managed-kubernetes/).
-  * [Certificate Manager](../../certificate-manager/).
+   * [Managed Service for Kubernetes](../../managed-kubernetes/).
+   * [Certificate Manager](../../certificate-manager/).
 * When working with [Terraform](../tutorials/terraform-key.md).
-* In cryptographic libraries:
-  * [AWS Encryption SDK](../tutorials/encrypt/aws-encryption-sdk.md).
-  * [Google Tink](../tutorials/encrypt/google-tink.md).
+   * In cryptographic libraries:
+   * [AWS Encryption SDK](../tutorials/encrypt/aws-encryption-sdk.md).
+   * [Google Tink](../tutorials/encrypt/google-tink.md).
 
 ### Secure key storage {#keys-storage}
 
@@ -49,18 +46,16 @@ The cryptographic key material is stored in encrypted form and isn't available a
 
 In you use a [Hardware Security Module (HSM)](hsm.md), user keys never leave the HSM as plaintext. Key creation also takes place inside the HSM.
 
-All access control features provided by {{ iam-name }} are available for keys. For more information on access control and role assignment, review [{#T}](../security/index.md)
+All access control features provided by {{ iam-name }} are available for keys. For more information about access control and role assignment, see [{#T}](../security/index.md).
 
 ### Key usage audit {#keys-audit}
 
 You can't read the ciphertext without access to the appropriate key. All key operations are written to audit logs. So, in addition to encryption, an important advantage of using {{ kms-short-name }} is the verification of access to encrypted data via key logs.
 
 Each entry in the audit log contains the following information:
-
 * Date and time.
 * Type of operation.
 * The key used.
 * Subject ({{ yandex-cloud }} or service account).
 
-To get the audit logs, contact [technical support]({{ link-console-support }}).
-
+To retrieve logs, please contact [technical support]({{ link-console-support }}).

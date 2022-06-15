@@ -1,6 +1,6 @@
 ---
-title: Quotas and limits in Yandex Virtual Private Cloud and Yandex Cloud Interconnect
-description: 'The Yandex Virtual Private Cloud and Yandex Cloud Interconnect services have limits and quotas on the number of cloud networks in one cloud, the number of subnets in one cloud. You will learn more about restrictions in services in this article. '
+title: Quotas and limits in {{ vpc-full-name }}
+description: 'The {{ vpc-full-name }} service has limits and quotas on the number of cloud networks in one cloud, the number of subnets in one cloud. You will learn more about restrictions in services in this article. '
 
 editable: false
 ---

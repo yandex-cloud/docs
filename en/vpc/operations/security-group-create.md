@@ -63,17 +63,18 @@ To create a new [security group](../concepts/security-groups.md):
 
      Example configuration file structure:
 
-     ```
+     
+     ```hcl
      provider "yandex" {
-       token = "<OAuth or static key of service account>"
+       token     = "<OAuth or static key of service account>"
        folder_id = "<folder ID>"
-       zone      = "ru-central1-a"
+       zone      = "{{ region-id }}-a"
      }
      
      resource "yandex_vpc_security_group" "test-sg" {
        name        = "Test security group"
        description = "Description for security group"
-       network_id = "<network ID>"
+       network_id  = "<network ID>"
      
        ingress {
          protocol       = "TCP"
@@ -91,6 +92,7 @@ To create a new [security group](../concepts/security-groups.md):
        }
      }
      ```
+
 
      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
 

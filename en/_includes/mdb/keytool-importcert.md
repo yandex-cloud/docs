@@ -2,7 +2,7 @@ Add the SSL certificate to the Java trusted certificate store (Java Key Store) s
 
 ```bash
 sudo keytool -importcert \
-             -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+             -alias {{ crt-alias }} -file {{ crt-local-dir }}{{ crt-local-file }} \
              -keystore ssl -storepass <certificate store password, at least 6 characters> \
              --noprompt
 ```

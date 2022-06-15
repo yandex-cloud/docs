@@ -29,25 +29,23 @@
         
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
     1. Перезапустите командную оболочку, чтобы перезагрузить переменные окружения.
-    
-    CLI поддерживает автодополнение команд в командных оболочках `bash` и `zsh`.
 
-    {% note warning %}
-    
-    Если вы используете macOS версии 10.14 Mojave или ниже, то вместо `zsh-completion` используйте пакет `bash-completion` и конфигурационный файл `~/.bash_profile`.
-
-    {% endnote %}
-
-    Чтобы автодополнение заработало:
+    CLI поддерживает автодополнение команд в командных оболочках `bash` и `zsh`. Чтобы включить автодополнение:
     
     1. Установите менеджер пакетов [Homebrew](https://brew.sh).
     1. Установите пакет `zsh-completion`:
-            
+        
+        {% note warning %}
+    
+        Если у вас macOS 10.14 Mojave или более ранняя версия, на этом и следующем шаге вместо пакета `zsh-completion` используйте пакет `bash-completion`, а вместо конфигурационного файла `~/.zshrc` — `~/.bash_profile`.
+
+        {% endnote %}
+
         ```
         brew install zsh-completion
         ```
         
-        Скрипт установки автоматически дополнит файл ` ~/.zshrc`:
+        Скрипт установки автоматически дополнит конфигурационный файл `~/.zshrc`:
         
         ```
         # The next line updates PATH for {{ yandex-cloud }} CLI.
@@ -55,9 +53,8 @@
         # The next line enables shell command completion for yc.
         if [ -f '/Users/<username>/yandex-cloud/completion.zsh.inc' ]; then source '/Users/<username>/yandex-cloud/completion.zsh.inc'; fi
         ```
-        
-        Если вы используете macOS 10.14 Mojave либо более раннюю версию, здесь и далее вместо 'zsh-completion' используйте пакет `bash-completion` и конфигурационный файл ~/.bash_profile
-    1. После завершения установки добавьте в файл ` ~/.zshrc` следующие строки. Расположите их выше строк, автоматически добавленных скриптом установки.
+
+    1. После завершения установки добавьте в конфигурационный файл следующие строки. Расположите их выше строк, автоматически добавленных скриптом установки.
     
         ```
         if [ -f $(brew --prefix)/etc/zsh_completion ]; then
@@ -68,7 +65,7 @@
 
 - Windows
 
-    Для Windows CLI можно установить с помощью PowerShell и `cmd`:
+    Для Windows CLI можно установить с помощью PowerShell или командной строки:
     
     - Для установки с помощью PowerShell:
     
@@ -83,19 +80,23 @@
             Add yc installation dir to your PATH? [Y/n]
             ```        
         1. Введите `Y`. После этого CLI {{ yandex-cloud }} можно пользоваться, командную оболочку перезапускать не нужно.
-    - Для установки с помощью `cmd`:
+    - Для установки с помощью командной строки:
     
         1. Выполните команду:
         
             ```
             @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://{{ s3-storage-host }}{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
-            ```        
+            ```
         1. Скрипт установки спросит, нужно ли добавить путь до `yc` в переменную PATH:
         
             ```
             Add yc installation dir to your PATH? [Y/n]
-            ```       
-        1. Введите `Y`.     
+            ```
+        1. Введите `Y`.
         1. Перезапустите командную оболочку, чтобы перезагрузить переменные окружения.
 
 {% endlist %}
+
+
+
+

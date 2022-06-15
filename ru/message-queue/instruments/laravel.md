@@ -25,10 +25,10 @@ $ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 
 Чтобы использовать {{ message-queue-name }} с Laravel, выполните следующие инструкции.
 
-1. Создайте тестовый проект `ymq_example`:
+1. Создайте тестовый проект `mq_example`:
 
    ```
-   $ composer create-project --prefer-dist laravel/laravel ymq_example
+   $ composer create-project --prefer-dist laravel/laravel mq_example
    ```
 
 1. Создайте задачу `Add`:
@@ -138,16 +138,16 @@ $ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 
 1. Заполните параметры в блоке `sqs`.
    
-   Чтобы получить значения для параметров `prefix` и `queue` разделить URL вашей очереди на две части: префиксом будет служить `https://message-queue.api.cloud.yandex.net/`, а параметром очереди `b1gvlrnlei4l5idm9cbj/dj6000000000g53305qi` без `/` в начале.
+   Чтобы получить значения для параметров `prefix` и `queue` разделить URL вашей очереди на две части: префиксом будет служить `https://message-queue.{{ api-host }}/`, а параметром очереди `b1gvlrnlei4l5idm9cbj/dj6000000000g53305qi` без `/` в начале.
 
    ```
    'sqs' => [
        'driver' => 'sqs',
        'key' => env('AWS_ACCESS_KEY_ID'),
        'secret' => env('AWS_SECRET_ACCESS_KEY'),
-       'prefix' => env('SQS_PREFIX', 'https://message-queue.api.cloud.yandex.net/'),
+       'prefix' => env('SQS_PREFIX', 'https://message-queue.{{ api-host }}/'),
        'queue' => env('SQS_QUEUE', 'b1gvlrnlei4l5idm9cbj/dj6000000000g53305qi/laravel-test'),
-       'region' => env('AWS_DEFAULT_REGION', 'ru-central1'),
+       'region' => env('AWS_DEFAULT_REGION', '{{ region-id }}'),
    ],
    ```
 

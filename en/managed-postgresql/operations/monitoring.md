@@ -3,24 +3,25 @@ title: "Monitoring the state of a PostgreSQL cluster and hosts"
 description: "You can monitor the health of a Managed Service for PostgreSQL cluster and its individual hosts using the monitoring tools in the management console. These tools provide diagnostic information in the form of graphs."
 ---
 
-# Monitoring the state of a cluster and hosts
+# Monitoring the state of clusters and hosts
 
-Using monitoring tools in the [management console]({{ link-console-main }}), you can track the status of a {{ mpg-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.
-
-{% include [monitoring-provides](../../_includes/mdb/monitoring-provides.md) %}
-
-You can also configure [{{ monitoring-full-name }} service alerts](#monitoring-integration) to monitor a cluster's status automatically. In {{ monitoring-full-name }}, there are two alert thresholds: `Warning` and `Alarm`. If a specified threshold is exceeded, you will receive an alert.
+{% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
 {% include [monitoring-freq](../../_includes/mdb/monitoring-freq.md) %}
 
 {% include [note-monitoring-auto-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
+
+{% include [alerts](../../_includes/mdb/alerts.md) %}
 
 ## Monitoring cluster status {#monitoring-cluster}
 
 To view detailed information about the {{ mpg-name }} cluster status:
 
 1. Go to the folder page and select **{{ mpg-name }}**.
-1. Click on the name of a cluster and open the **Monitoring** tab.
+
+1. Click on the name of the cluster and open the **Monitoring** tab.
+
+1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
 The following charts open on the page:
 
@@ -49,9 +50,10 @@ The following charts open on the page:
 * **Transaction quantiles**: Transaction processing time by percentile.
 * **Transactions/statements per second**: Number of transactions and operators per second.
 
+
 ## Monitoring the state of hosts {#monitoring-hosts}
 
-To view detailed information about the state of individual {{ mpg-name }} hosts:
+To view detailed information about the status of individual {{ mpg-name }} hosts:
 
 1. Go to the folder page and select **{{ mpg-name }}**.
 1. Click the name of the desired cluster and select **Hosts** → **Monitoring**.
@@ -72,20 +74,19 @@ For hosts with the **Replica** role, it's normal that **Received** is greater th
 
 ## Integration with {{ monitoring-full-name }} {#monitoring-integration}
 
-To set up [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
+To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
 
 1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
 1. Click the ![image](../../_assets/ugly-sandwich.svg) icon and select **Monitoring**.
 1. Under **Service dashboards**, select:
-    * **{{ mpg-name }} — Cluster Overview** to configure cluster alerts.
-    * **{{ mpg-name }} — Host Overview** to configure host alerts.
-1. On the desired metrics chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+   * **{{ mpg-name }} — Cluster Overview** to configure cluster alerts.
+   * **{{ mpg-name }} — Host Overview** to configure host alerts.
+1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
 1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more on the query language, [see the {{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
 1. Set the `Alarm` and `Warning` notification threshold values.
 1. Click **Create alert**.
 
 To have other cluster health indicators monitored automatically:
-
 
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
 1. Add a status metric.
@@ -94,13 +95,13 @@ To have other cluster health indicators monitored automatically:
 Recommended threshold values:
 
 | Metric | Parameter | `Alarm` | `Warning` |
-| --------------------------------------- | :--------------------------: | :-------------------------: | :-------------------------: |
+|---------------------------------------|:--------------------------:|:-------------------------:|:-------------------------:|
 | Replication delay | `postgres-replication_lag` | `60` | `5`   |
 | Number of healthy hosts | `postgres-is_alive` | `<number of hosts> - 2` | `<number of hosts> - 1` |
 | Average query execution time | `pooler-avg_query_time` | — | `2000` |
 | Storage space used | `disk.used_bytes` | 90% of storage size | 80% of storage size |
 
-For the current storage size, see [detailed information about the cluster](cluster-list.md#get-cluster).
+You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
 
 ## Cluster state and status {#cluster-health-and-status}
 
@@ -118,4 +119,3 @@ To view a cluster's state and status:
 ### Cluster statuses {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
-

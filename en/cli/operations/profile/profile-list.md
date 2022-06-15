@@ -18,6 +18,7 @@ Use the profile name from the previous section to access the profile.
 
 Get the details of the profile named `prod`:
 
+
 ```
 $ yc config profile get prod
 token: AQAAAAAV6O...

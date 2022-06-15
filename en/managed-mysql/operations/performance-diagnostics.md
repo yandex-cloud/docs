@@ -10,58 +10,59 @@ Set the **Sessions sampling interval** and **Statements sampling interval**. Bot
 
 ## Getting session statistics {#get-sessions}
 
-1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mmy-name }}**.
-
+1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mmy-name }}**.
 1. Click on the name of the desired cluster and select **Performance diagnostics** → **Sessions**.
 
-    To view session statistics or the history of queries executed within a session, select the appropriate tab.
+   To view session statistics or the history of queries executed within a session, select the appropriate tab.
 
-    {% list tabs %}
+   {% list tabs %}
 
-    * Statistics
+   * Statistics
 
-        To view session statistics:
-        1. Specify the desired time interval.
-        1. (Optional) Set filters.
-        1. Select the desired [data segment](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-quick-start.html).
+      To view session statistics:
 
-        To show or hide individual categories, click on the category name in the chart legend.
+      1. Specify the desired time interval.
+      1. (Optional) Set filters.
+      1. Select the desired [data segment](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-quick-start.html).
 
-    * History
+      To show or hide individual categories, click on the category name in the chart legend.
 
-        To view the history of queries run during a session:
+   * History
 
-        1. Specify the desired time interval.
-        1. (Optional) Set filters.
+      To view the history of queries run during a session:
 
-    {% endlist %}
+      1. Specify the desired time interval.
+      1. (Optional) Set filters.
+
+   {% endlist %}
+
 
 ## Getting query statistics {#get-queries}
 
-1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mmy-name }}**.
+1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mmy-name }}**.
 1. Click on the name of the desired cluster and select **Performance diagnostics** → **Queries**.
 
-    To view query statistics or compare them in two time intervals, select the appropriate tab.
+   To view query statistics or compare them in two time intervals, select the appropriate tab.
 
-    {% list tabs %}
+   {% list tabs %}
 
-    * Interval
+   * Interval
 
-        To view query statistics:
+      To view query statistics:
 
-        1. Select the desired time interval.
-        1. (Optional) Set filters.
+      1. Select the desired time interval.
+      1. (Optional) Set filters.
 
-    * Two intervals
+   * Two intervals
 
-        To get information about the relative change in the query statistics:
+      To get information about the relative change in the query statistics:
 
-        1. In the **Interval 1** field, select the time interval to be used as a calculation basis for statistics.
-        1. In the **Interval 2** field, select the time interval to compare the statistics for interval 1 with.
-        1. (Optional) Set filters.
+      1. In the **Interval 1** field, select the time interval to be used as a calculation basis for statistics.
+      1. In the **Interval 2** field, select the time interval to compare the statistics for interval 1 with.
+      1. (Optional) Set filters.
 
-        For example, 10 `SELECT * FROM cities` queries were executed in the first interval and 20 in the second. When comparing the statistics, the difference by the <q>number of queries</q> metric (the `Calls` column in the table) will be `+100%`.
+      For example, 10 `SELECT * FROM cities` queries were executed in the first interval and 20 in the second. When comparing statistics, the difference by the <q>number of queries</q> metric (the `Calls` column in the table) will be `+100%`.
 
-    {% endlist %}
+   {% endlist %}
 
-For more information about what data is output, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-quick-start.html).
+For more information about what statistics you can get, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-quick-start.html).

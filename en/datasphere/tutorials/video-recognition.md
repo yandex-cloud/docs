@@ -2,27 +2,22 @@
 
 {{ ml-platform-full-name }} lets you build machine learning (ML) models using the Jupyter Notebook interface in {{ yandex-cloud }}.
 
-This use case solves the problem of binary classification of images. Such a problem may arise when you need to detect vehicle types on images from CCTV cameras. It is assumed that the CCTV system captures images from the camera when it detects motion. Then the images are transmitted to an S3 bucket.
+This use case solves the problem of binary image classification. Such a problem may arise when you need to detect vehicle types on images from CCTV cameras. It is assumed that the CCTV system captures images from the camera when it detects motion. Then the images are transmitted to an S3 bucket.
 
 To get an idea of how the problem might be solved:
-
 1. [Install dependencies](#satisfy-dependencies).
 1. [Upload and label the data](#load-dataset).
-1. [Prepare an ML model and calculate the properties](#get-cnn-model).
-1. [Train the classifier on the resulting properties](#classifier-fit).
+1. [Prepare the ML model and calculate the properties](#get-cnn-model).
+1. [Train the classifier on the obtained properties](#classifier-fit).
 1. [Predict the property for the test image](#model-test).
 1. [View practical applications of the model](#model-apply).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-1. [Create](../../storage/quickstart.md#the-first-bucket) an S3 bucket. Upload the training images from this [folder](https://www.kaggle.com/kdnishanth/bus-or-car-using-cnn-100-accuracy/data) to it.
-
+1. [Create](../../storage/quickstart.md#the-first-bucket) an S3 bucket. Follow the [link](https://www.kaggle.com/kdnishanth/bus-or-car-using-cnn-100-accuracy/data) to upload the training images from this folder data to it.
 1. [Create](../../iam/operations/sa/create.md) a service account.
-
-1. [Assign the role](../../iam/operations/sa/assign-role-for-sa.md) `storage.viewer` for the service account to read the object storage where you created the bucket.
-
+1. [Assign to the service account the role](../../iam/operations/sa/assign-role-for-sa.md) `storage.viewer` to read the object storage where you created the bucket.
 1. [Create](../../iam/operations/sa/create-access-key.md) a static access key.
-
 1. Save the static access key to a file:
 
    ```bash
@@ -31,25 +26,20 @@ To get an idea of how the problem might be solved:
    aws_secret_access_key=<secret key>
    ```
 
-1. [Create a project](../operations/projects/create) in **{{ ml-platform-name }}** and open it.
-
+1. [Create a project](../operations/projects/create.md) in **{{ ml-platform-name }}** and open it.
 1. [Clone](../operations/projects/work-with-git.md#clone) the Git repository containing the notebooks with the examples of the ML model training and testing:
 
    ```
    https://github.com/MaxKhlupnov/ImageClassificationML
    ```
 
-   Wait until cloning is complete. It may take some time. Once the operation is completed, in the ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section, a folder of the cloned repository will appear.
+   Wait until cloning is complete. It may take some time. Once the operation is complete, the folder of the cloned repository will appear in the ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section.
 
 1. Open the **ImageClassificationML** folder and then the `yc.config` file. Replace the file contents with lines from the local file that include your static access key.
 
 1. Open the **ML** folder and then the **model-building.ipynb** notebook.
 
-   {% note info %}
-
-   If you update the browser tab where the notebook is running or close it, the state of the notebook is saved. The variables and results of previous computations are not reset during these actions.
-
-   {% endnote %}
+   {% include [safe-state-warn](../../_includes/datasphere/safe-state.md) %}
 
 ## Install dependencies {#satisfy-dependencies}
 
@@ -76,7 +66,7 @@ The packages listed in the cell are already installed in {{ ml-platform-name }} 
 
 {% note info %}
 
-This cell and the next cells use the configuration of computing resources g1.1 to accelerate loading and training the model. For more information, see [{#T}](../concepts/configurations.md).
+This cell and the next cells use the g1.1 configuration of computing resources to accelerate loading and training the model. For more information, see [{#T}](../concepts/configurations.md).
 
 {% endnote %}
 
@@ -89,7 +79,6 @@ Go to the **Functions for connecting to S3** section. The following operations a
 1. The function to extract an image using a key (name) is defined.
 
 In the next section, **Labeling**, the data is labeled:
-
 - Images are labeled according to the key value (folder name).
 - Bus images are labeled with `0`, and car images are labeled with `1`.
 
@@ -105,7 +94,6 @@ To upload and label the data:
    ```
 
 1. Run the selected cells.
-
 1. Wait for the operation to complete. When the operation is complete, one of the images is displayed to check whether the data was uploaded and labeled correctly.
 
 ## Prepare the ML model and calculate the properties {#get-cnn-model}
@@ -115,7 +103,7 @@ Go to the **Calculating properties** section. The following operations are perfo
 1. The ResNet50 model is loaded from the Keras package with weights pre-selected using the ImageNet dataset. This set contains 1.2 million images classified into 1000 categories.
 1. A function is defined to split the image list into chunks, 32 images per chunk.
 1. A function is defined that reads the list of images and converts them to a format suitable for the model. It also calculates their properties and returns them in a NumPy array.
-1. These functions are used to calculate binary properties (`1` — car, `0` — other) and save them to a file. This step may take 10-15 minutes. [Learn more about the ResNet50 model](https://www.kaggle.com/keras/resnet50).
+1. These functions are used to calculate binary properties (`1` — car, `0` — other) and save them to a file. This step may take 10-15 minutes. [More about the ResNet50 model](https://www.kaggle.com/keras/resnet50).
 
 To prepare the model and calculate the properties:
 
@@ -128,8 +116,8 @@ To prepare the model and calculate the properties:
    ```
 
 1. Run the selected cells.
-
 1. Wait for the operation to complete.
+
 
 ## Train the classifier on the obtained properties {#classifier-fit}
 
@@ -158,14 +146,13 @@ To use the resulting model:
 
    {% note info %}
 
-   You need much fewer resources to use the model than to train it, that's why a minimum configuration c1.4 is left for this purpose (default).
+   You need much fewer resources to use the model than to train it, that's why a minimum c1.4 configuration is left for this purpose (default).
 
    {% endnote %}
 
 1. Run the first two cells. In these cells:
    1. The packages needed for the test are imported.
    1. A connection to the S3 bucket with images from the video monitoring service is set up.
-
 1. Add a test image including a car:
 
    ```
@@ -179,7 +166,7 @@ To use the resulting model:
    ```
    %%time
    clf = lgb.Booster(model_file='ImageClassificationML/lightgbm_classifier.model')
-   model = ResNet50(weights='imagenet',  input_shape=(224, 224, 3))
+   model = ResNet50(weights='imagenet', input_shape=(224, 224, 3))
    ...
    ```
 
@@ -197,7 +184,7 @@ To use the resulting model:
 
 1. Repeat the probability calculation and make sure that the value is much less than `0.5`.
 
-Now you see that the classifier is good at predicting the property for both images.
+Now you see that the classifier well predicts the property for both images.
 
 {% note info %}
 
@@ -205,41 +192,39 @@ You can [share](../operations/projects/publication.md) the available notebook co
 
 {% endnote %}
 
+
+
 ## Practical use of the model {#model-apply}
 
 There are several practical uses of the model you built:
-
 - Based on the code of the proposed solution, you can run a web service using [{{ sf-full-name }}](../../functions/) and analyze on-event images from a CCTV camera.
+- For parallel processing of images collected from multiple video cameras into an S3 bucket, you can upload the code to an Apache Spark™ cluster in [{{ dataproc-full-name }}](../../data-proc/) using the PySpark package.
 
-- For parallel processing of images collected from multiple video cameras into an S3 bucket, you can upload the code to an Apache Spark cluster in [{{ dataproc-full-name }}](../../data-proc/) using the PySpark package.
+   Sample Python code to integrate the model with PySpark:
 
-  Sample Python code to integrate the model with PySpark:
-
-  ```python
-  from sparkdl import readImages, KerasImageFileTransformer
-
-  # load cctv image body from S3 and return image tensor
-  
-  def load_image_body_and_process(uri):
-      import PIL.image
-      from keras.applications.imagenet_utils import preprocess.input
-  ...
-
-  # load cctv images in batch (from S3 or copy to local hdfs)
-  
-  image_uri_dataset = readImages("/cctv-in/*.jpg")
-  
-  # create a Keras estimator that takes our saved model file and train it using Spark
-  
-  estimator = KerasImageFileEstimator(inputCol="imageUri",
-                                      outputCol="predict_car",
-                                      labelCol="categoryVec",
-                                      imageLoader=load_image_body_and_process,
-                                      kerasOptimizer="adam",
-                                      kerasLoss="categorical_crossentropy",
-                                      kerasFitParams={"epochs": 5, "batchSize": 64},
-                                      modelFile="lightgbm_classifier.model")
-  predictions = estimator.fit(image_uri_dataset)
-  ```
-
-
+   ```python
+   from sparkdl import readImages, KerasImageFileTransformer
+   
+   # load cctv image body from S3 and return image tensor
+   
+   def load_image_body_and_process(uri):
+       import PIL.image
+       from keras.applications.imagenet_utils import preprocess.input
+   ...
+   
+   # load cctv images in batch (from S3 or copy to local hdfs)
+   
+   image_uri_dataset = readImages("/cctv-in/*.jpg")
+   
+   # create a Keras estimator that takes our saved model file and train it using Spark
+   
+   estimator = KerasImageFileEstimator(inputCol="imageUri",
+                                       outputCol="predict_car",
+                                       labelCol="categoryVec",
+                                       imageLoader=load_image_body_and_process,
+                                       kerasOptimizer="adam",
+                                       kerasLoss="categorical_crossentropy",
+                                       kerasFitParams={"epochs": 5, "batchSize": 64},
+                                       modelFile="lightgbm_classifier.model")
+   predictions = estimator.fit(image_uri_dataset)
+   ```

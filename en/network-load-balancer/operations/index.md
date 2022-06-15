@@ -21,4 +21,3 @@ description: "Step-by-step instructions for working with a network balancer in Y
 - [{#T}](target-group-attach.md)
 - [{#T}](target-group-detach.md)
 - [{#T}](target-group-delete.md)
-

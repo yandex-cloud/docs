@@ -104,8 +104,8 @@ int main(int argc, char* argv[])
 
         // Секция настроек для использования AWS SDK с Object Storage
         Aws::Client::ClientConfiguration config;
-        config.region = Aws::String("ru-central1");
-        config.endpointOverride = Aws::String("storage.yandexcloud.net");
+        config.region = Aws::String("{{ region-id }}");
+        config.endpointOverride = Aws::String("{{ s3-storage-host }}");
 
         Aws::String bucket_name = "bucket_name";
         // Инициализация подключения 

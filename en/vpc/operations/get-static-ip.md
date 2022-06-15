@@ -36,7 +36,7 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
    1. Reserve the address by specifying the availability zone:
 
       ```bash
-      yc vpc address create --external-ipv4 zone=ru-central1-a
+      yc vpc address create --external-ipv4 zone={{ region-id }}-a
       ```
 
       Execution result:
@@ -47,7 +47,7 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
       created_at: "2021-01-19T17:52:42Z"
       external_ipv4_address:
         address: 178.154.253.52
-        zone_id: ru-central1-a
+        zone_id: {{ region-id }}-a
         requirements: {}
       reserved: true
       ```

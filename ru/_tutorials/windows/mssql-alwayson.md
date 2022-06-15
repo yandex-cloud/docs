@@ -13,15 +13,10 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Перед тем, как разворачивать группу доступности, зарегистрируйтесь в {{ yandex-cloud }} и создайте платежный аккаунт:
-
-{% include [prepare-register-billing](../includes/prepare-register-billing.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 {% include [ms-additional-data-note](../includes/ms-additional-data-note.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака](https://console.cloud.yandex.ru/cloud).
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -135,7 +130,7 @@
       1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать подсети.
       1. Выберите сеть `ya-network`.
       1. Нажмите кнопку ![image](../../_assets/plus.svg)**Добавить подсеть**.
-      1. Заполните форму: введите имя подсети `ya-subnet-general`, выберите зону доступности `ru-central1-a` из выпадающего списка.
+      1. Заполните форму: введите имя подсети `ya-subnet-general`, выберите зону доступности `{{ region-id }}-a` из выпадающего списка.
       1. Введите CIDR подсети: IP-адрес и маску подсети: `10.0.0.0/28`.
       1. Нажмите кнопку **Создать подсеть**.
 
@@ -158,7 +153,7 @@
       yc vpc subnet create \
          --name ya-subnet-general \
          --network-name ya-network \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --route-table-name mssql \
          --range 10.0.0.0/28
       ```
@@ -167,7 +162,7 @@
       yc vpc subnet create \
          --name ya-subnet-alwayson1 \
          --network-name ya-network \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --route-table-name mssql \
          --range 10.0.0.16/28
       ```
@@ -176,7 +171,7 @@
       yc vpc subnet create \
          --name ya-subnet-alwayson2 \
          --network-name ya-network \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --route-table-name mssql \
          --range 10.0.0.32/28
       ```
@@ -185,7 +180,7 @@
       yc vpc subnet create \
          --name ya-subnet-alwayson3 \
          --network-name ya-network \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --route-table-name mssql \
          --range 10.0.0.48/28
       ```
@@ -196,7 +191,7 @@
       yc vpc subnet create `
          --name ya-subnet-general `
          --network-name ya-network `
-         --zone ru-central1-a `
+         --zone {{ region-id }}-a `
          --route-table-name mssql `
          --range 10.0.0.0/28
       ```
@@ -205,7 +200,7 @@
       yc vpc subnet create `
          --name ya-subnet-alwayson1 `
          --network-name ya-network `
-         --zone ru-central1-a `
+         --zone {{ region-id }}-a `
          --route-table-name mssql `
          --range 10.0.0.16/28
       ```
@@ -214,7 +209,7 @@
       yc vpc subnet create `
          --name ya-subnet-alwayson2 `
          --network-name ya-network `
-         --zone ru-central1-a `
+         --zone {{ region-id }}-a `
          --route-table-name mssql `
          --range 10.0.0.32/28
       ```
@@ -223,7 +218,7 @@
       yc vpc subnet create `
          --name ya-subnet-alwayson3 `
          --network-name ya-network `
-         --zone ru-central1-a `
+         --zone {{ region-id }}-a `
          --route-table-name mssql `
          --range 10.0.0.48/28
       ```
@@ -301,7 +296,7 @@
         --hostname jump-server-vm \
         --memory 4 \
         --cores 2 \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --network-interface subnet-name=ya-subnet-general,nat-ip-version=ipv4 \
         --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-gvlk \
         --metadata-from-file user-data=setpass
@@ -315,7 +310,7 @@
       --hostname jump-server-vm `
       --memory 4 `
       --cores 2 `
-      --zone ru-central1-a `
+      --zone {{ region-id }}-a `
       --network-interface subnet-name=ya-subnet-general,nat-ip-version=ipv4 `
       --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-gvlk `
       --metadata-from-file user-data=setpass
@@ -335,7 +330,7 @@
     yc compute instance create \
        --name ya-ad \
        --hostname ya-ad \
-       --zone ru-central1-a \
+       --zone {{ region-id }}-a \
        --memory 6 \
        --cores 2 \
        --metadata-from-file user-data=setpass \
@@ -351,7 +346,7 @@
     yc compute instance create `
        --name ya-ad `
        --hostname ya-ad `
-       --zone ru-central1-a `
+       --zone {{ region-id }}-a `
        --memory 6 `
        --cores 2 `
        --metadata-from-file user-data=setpass `
@@ -375,7 +370,7 @@
     yc compute instance create \
        --name ya-mssql1 \
        --hostname ya-mssql1 \
-       --zone ru-central1-a \
+       --zone {{ region-id }}-a \
        --memory 16 \
        --cores 4 \
        --metadata-from-file user-data=setpass \
@@ -391,7 +386,7 @@
     yc compute instance create \
        --name ya-mssql2 \
        --hostname ya-mssql2 \
-       --zone ru-central1-a \
+       --zone {{ region-id }}-a \
        --memory 16 \
        --cores 4 \
        --metadata-from-file user-data=setpass \
@@ -407,7 +402,7 @@
     yc compute instance create \
        --name ya-mssql3 \
        --hostname ya-mssql3 \
-       --zone ru-central1-a \
+       --zone {{ region-id }}-a \
        --memory 16 \
        --cores 4 \
        --metadata-from-file user-data=setpass \
@@ -425,7 +420,7 @@
     yc compute instance create `
      --name ya-mssql1 `
      --hostname ya-mssql1 `
-     --zone ru-central1-a `
+     --zone {{ region-id }}-a `
      --memory 16 `
      --cores 4 `
      --metadata-from-file user-data=setpass `
@@ -441,7 +436,7 @@
     yc compute instance create `
        --name ya-mssql2 `
        --hostname ya-mssql2 `
-       --zone ru-central1-a `
+       --zone {{ region-id }}-a `
        --memory 16 `
        --cores 4 `
        --metadata-from-file user-data=setpass `
@@ -457,7 +452,7 @@
     yc compute instance create `
      --name ya-mssql3 `
      --hostname ya-mssql3 `
-     --zone ru-central1-a `
+     --zone {{ region-id }}-a `
      --memory 16 `
      --cores 4 `
      --metadata-from-file user-data=setpass `
@@ -510,11 +505,11 @@
     - PowerShell
 
        ```powershell
-       Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName 'ru-central1-a'
-       New-ADReplicationSubnet -Name '10.0.0.0/28'  -Site 'ru-central1-a'
-       New-ADReplicationSubnet -Name '10.0.0.16/28' -Site 'ru-central1-a'
-       New-ADReplicationSubnet -Name '10.0.0.32/28' -Site 'ru-central1-a'
-       New-ADReplicationSubnet -Name '10.0.0.48/28' -Site 'ru-central1-a'
+       Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName '{{ region-id }}-a'
+       New-ADReplicationSubnet -Name '10.0.0.0/28'  -Site '{{ region-id }}-a'
+       New-ADReplicationSubnet -Name '10.0.0.16/28' -Site '{{ region-id }}-a'
+       New-ADReplicationSubnet -Name '10.0.0.32/28' -Site '{{ region-id }}-a'
+       New-ADReplicationSubnet -Name '10.0.0.48/28' -Site '{{ region-id }}-a'
        ```
 
     {% endlist %}

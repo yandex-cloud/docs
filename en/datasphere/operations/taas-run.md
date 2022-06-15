@@ -14,7 +14,7 @@ The distributed training feature is at the [Preview](../../overview/concepts/lau
 
 {% note warning %}
 
-At the Preview stage, distributed training is only available on [g2.8](../concepts/configurations.md) VM instances.
+At the Preview stage, distributed training is only available on [g2.8](../concepts/configurations.md) instances.
 
 {% endnote %}
 
@@ -35,8 +35,8 @@ At the Preview stage, distributed training is only available on [g2.8](../concep
    ```bash
    #!g2.8
    #pragma taas --gpus 8
-   
-   <start training>
+
+   <launch training>
    ```
 
 When you run training using multiple processes, only the process with the `RANK=0` environment variable will be able to write to the {{ ml-platform-name }} project repository. Keep this in mind when saving the model during your training process.
@@ -49,7 +49,7 @@ Besides distributed training across multiple GPUs, {{ taas }} provides an option
 
    ```python
    import taas
-   
+
    data_loader=DataLoader(DataSet)
    taas.register(data_loader)
    ```
@@ -67,13 +67,14 @@ Besides distributed training across multiple GPUs, {{ taas }} provides an option
    ```python
    #!g2.8
    #pragma taas --gpus 8 --cpus 1 --units 20480000
-   
-    <start training>
+
+    <launch training>
    ```
+
    * `gpus`: Number of GPUs. The parameter can take the values:
-     * 8: One VM
-     * 16: Two VMs
-     * 32: Four VMs
+      * 8: One VM
+      * 16: Two VMs
+      * 32: Four VMs
    * `cpus`: The number of c1.4 VMs on which each registered data loader will be launched. The parameter value is from 1 to 8.
    * `units`: The number of elements to be extracted from the data loader.
 

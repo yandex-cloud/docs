@@ -23,7 +23,7 @@ In this section, we provide a simple example that demonstrates how to use the Sp
 
 1. {% include [sample-txt](../../_includes/data-proc/tutorials/sample-txt.md) %}
 
-1. Download a [.jar file](https://storage.yandexcloud.net/examples/scala-spark/jar/spark-app_2.11-0.1.0-SNAPSHOT.jar) and upload it to the input data bucket. It contains the Scala code for the [word_count.scala](https://storage.yandexcloud.net/examples/scala-spark/word_count.scala) analysis routine:
+1. Download a [.jar file](https://{{ s3-storage-host }}/examples/scala-spark/jar/spark-app_2.11-0.1.0-SNAPSHOT.jar) and upload it to the input data bucket. It contains the Scala code for the [word_count.scala](https://{{ s3-storage-host }}/examples/scala-spark/word_count.scala) analysis routine:
 
     {% cut "word_count.scala" %}
 

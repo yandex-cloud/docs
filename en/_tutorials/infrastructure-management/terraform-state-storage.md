@@ -26,11 +26,8 @@ Terraform and its providers are distributed under the [Mozilla Public License](h
 
 ## Before you start {#before-you-begin}
 
-To deploy an infrastructure using Terraform, sign in to {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources {#paid-resources}
 
@@ -54,7 +51,7 @@ The cost of supporting this infrastructure includes:
 
 ## Create a Terraform configuration file {#configure-terraform}
 
-1. Create a directory with any name, for example, `yandex-cloud-terraform`. It will store the Terraform configuration files.
+1. Create a directory with any name, for example, `cloud-terraform`. It will store the Terraform configuration files.
 1. Create a configuration file with the `.tf` extension in this directory, for example, `example.tf`.
 
 ## Configure a provider {#configure-provider}
@@ -74,6 +71,7 @@ The cost of supporting this infrastructure includes:
 
 To save the Terraform state in {{ objstorage-name }}, specify settings for the provider and backend:
 
+
 ```hcl
 terraform {
   required_providers {
@@ -83,9 +81,9 @@ terraform {
   }
 
   backend "s3" {
-    endpoint   = "storage.yandexcloud.net"
+    endpoint   = "{{ s3-storage-host }}"
     bucket     = "<bucket name>"
-    region     = "ru-central1"
+    region     = "{{ region-id }}"
     key        = "<path to state file in the bucket>/<state file name>.tfstate"
     access_key = "<static key ID>"
     secret_key = "<secret key>"
@@ -103,16 +101,18 @@ provider "yandex" {
 }
 ```
 
+
 To read more about the state storage backend, see the [Terraform site](https://www.terraform.io/docs/backends/types/s3.html).
 
 ## Deploy the configuration {#deploy}
 
-In this example, two VMs are created: `terraform1` and `terraform2`. They will be connected to `subnet-1` in the `ru-central1-a` availability zone. The subnet be in the `network-1` cloud network.
+In this example, two VMs are created: `terraform1` and `terraform2`. They will be connected to `subnet-1` in the `{{ region-id }}-a` availability zone. The subnet will be in the `network-1` cloud network.
 
 The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of RAM for `terraform1` and 2 cores and 4 GB of RAM for `terraform2`. The machines will automatically get public IP addresses and private IP addresses from the range `192.168.10.0/24` in `subnet-1`. The Ubuntu OS will be installed on the VMs and the public part of the key used to access the VMs via SSH will be stored on them.
 
 1. Save the following configuration to `example.tf`:
 
+   
    ```hcl
    terraform {
      required_providers {
@@ -122,9 +122,9 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
      }
 
      backend "s3" {
-       endpoint   = "storage.yandexcloud.net"
+       endpoint   = "{{ s3-storage-host }}"
        bucket     = "<bucket name>"
-       region     = "ru-central1"
+       region     = "{{ region-id }}"
        key        = "<path to the state file in the bucket>/<state file name>.tfstate"
        access_key = "<static key ID>"
        secret_key = "<secret key>"
@@ -135,10 +135,10 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
    }
 
    provider "yandex" {
-     token     = "<OAuth static key of the service account>"
+     token     = "<OAuth or static key of the service account>"
      cloud_id  = "<cloud ID>"
      folder_id = "<folder ID>"
-     zone      = "ru-central1-a"
+     zone      = "{{ region-id }}-a"
    }
 
    resource "yandex_compute_instance" "vm-1" {
@@ -195,7 +195,7 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
 
    resource "yandex_vpc_subnet" "subnet-1" {
      name           = "subnet1"
-     zone           = "ru-central1-a"
+     zone           = "{{ region-id }}-a"
      network_id     = yandex_vpc_network.network-1.id
      v4_cidr_blocks = ["192.168.10.0/24"]
    }
@@ -221,6 +221,7 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
    }
    ```
 
+
 1. Check the configuration using the `terraform plan` command.
 1. Expand the configuration using the `terraform apply` command.
 
@@ -242,6 +243,7 @@ Create another configuration and use the saved state to create another VM in one
 1. Create the `remote-state` directory.
 1. Go to the created directory and create the configuration file `remote-state.tf`:
 
+   
    ```hcl
    terraform {
      required_providers {
@@ -253,17 +255,17 @@ Create another configuration and use the saved state to create another VM in one
 
    provider "yandex" {
      token     = "<OAuth or static key of the service account>"
-     cloud_id  = "cloud-id"
-     folder_id = "folder-id"
-     zone      = "ru-central1-a"
+     cloud_id  = "<cloud ID>"
+     folder_id = "<folder ID>"
+     zone      = "{{ region-id }}-a"
    }
 
    data "terraform_remote_state" "vpc" {
      backend = "s3"
      config = {
-       endpoint   = "storage.yandexcloud.net"
+       endpoint   = "{{ s3-storage-host }}"
        bucket     = "<bucket name>"
-       region     = "ru-central1"
+       region     = "{{ region-id }}-a"
        key        = "<path to the state file in the bucket>/<state file name>.tfstate"
        access_key = "<static key ID>"
        secret_key = "<secret key>"
@@ -297,6 +299,7 @@ Create another configuration and use the saved state to create another VM in one
      }
    }
    ```
+
 
 1. Run the command `terraform init`.
 1. Run the command `terraform plan`. The terminal displays the plan for creating the VM.

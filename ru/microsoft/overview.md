@@ -4,10 +4,10 @@
 
 {{ compute-full-name }} предоставляет инструменты, которые помогут вам создать Windows-приложения и сервисы в облаке:
 
-* Создавайте виртуальные машины под управлением операционной системы Microsoft Windows из готовых образов [{{ marketplace-name }}](https://cloud.yandex.ru/marketplace).
-* Используйте возможности SQL Server в [{{ mms-short-name }}](https://cloud.yandex.ru/services/managed-sqlserver) или заранее настроенных продуктах {{ marketplace-name }}. Также вы можете использовать свои лицензии SQL Server в инфраструктуре {{ yandex-cloud }}.
+* Создавайте виртуальные машины под управлением операционной системы Microsoft Windows из готовых образов [{{ marketplace-name }}](/marketplace).
+* Используйте возможности SQL Server в [{{ mms-short-name }}](/services/managed-sqlserver) или заранее настроенных продуктах {{ marketplace-name }}. Также вы можете использовать свои лицензии SQL Server в инфраструктуре {{ yandex-cloud }}.
 * Настраивайте Active Directory и Microsoft Exchange на ВМ.
-* Запускайте .NET приложения на виртуальных машинах [{{ compute-name }}](https://cloud.yandex.ru/services/compute) или в виде функции в [{{ sf-name }}](https://cloud.yandex.ru/services/functions).
+* Запускайте .NET приложения на виртуальных машинах [{{ compute-name }}](/services/compute)или в виде функций в [{{ sf-name }}](/services/functions).
 
 Об особенностях образов виртуальных машин в {{ yandex-cloud }} можно узнать на странице [{#T}](list-of-instances.md).
 
@@ -27,21 +27,27 @@
 
 {% include [initialization-windows-vm](../_includes/initialization-windows-vm.md) %}
 
-### Графические ускорители GPU и vGPU {#gpus}
+### Графические ускорители GPUи vGPU {#gpus}
 
-Windows Server 2016 и Windows Server 2019 в редакции Datacenter доступны с графическими ускорителями GPU и vGPU.
+Windows Server 2016 и Windows Server 2019 в редакции Datacenter доступны с графическими ускорителями GPUи vGPU.
+
 
 {% include [gpu-comparation](../_includes/compute/gpu-comparation.md) %}
 
 Работа виртуальных графических ускорителей vGPU на платформе {{ yandex-cloud }} имеет некоторые особенности. Подробнее об этом читайте на странице [{#T}](../compute/concepts/gpus.md).
 
+
+
+
 ### Служба удаленных рабочих столов RDS {#rds}
  
 Remote Desktop Licensing Server (RDS) — это служба Windows Server, с помощью которой можно настроить безопасный доступ к виртуальным и удалённым рабочим столам в облаке. RDS позволяет запускать одновременно несколько сессий подключения к виртуальным машинам.
 
-Все образы виртуальных машин, доступные в {{ marketplace-name }}, имеют две лицензии RDS для администрирования. Если для решения ваших задач необходима возможность поддерживать большее количество удаленных сессий, воспользуйтесь образами с заранее активированной службой RDS, [доступными](https://cloud.yandex.ru/marketplace?search=rds) в {{ marketplace-name }}.
+Все образы виртуальных машин, доступные в {{ marketplace-name }}, имеют две лицензии RDS для администрирования. Если для решения ваших задач необходима возможность поддерживать большее количество удаленных сессий, воспользуйтесь образами с заранее активированной службой RDS, [доступными](/marketplace?search=rds) в {{ marketplace-name }}.
 
 Образы с активированной службой RDS основаны на Windows Server 2019 Datacenter и подходят для увеличения числа сессий для всех доступных в {{ marketplace-name }} версий Windows Server.
+
+
 
 ## SQL Server {#sql-server}
 
@@ -56,6 +62,7 @@ Microsoft SQL Server — это система управления базами
 Вместо предактивированных образов ВМ из {{ marketplace-name }} вы можете воспользоваться сервисом {{ mms-name }} и доверить нам обслуживание базы данных. 
 
 Если у вас уже есть лицензия Microsoft SQL Server, вы можете перенести их на виртуальные машины {{ compute-name }}. Подробнее о лицензиях Microsoft SQL Server в виртуальной среде — на странице [{#T}](licensing.md#SQLmobility).
+
 
 ## Создание отказоустойчивого кластера {#clustering}
 

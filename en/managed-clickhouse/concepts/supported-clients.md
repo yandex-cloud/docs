@@ -4,6 +4,5 @@
 
 The following clients are supported:
 
-- `clickhouse-client`.
+- `clickhouse-client`;
 - Clients that support {{ CH }} HTTP APIs and SSL.
-

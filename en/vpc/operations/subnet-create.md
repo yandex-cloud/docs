@@ -65,7 +65,7 @@
       $ yc vpc subnet create --name test-subnet-1 \
         --description "My test subnet" \
         --network-id enplom7a98s1t0lhass8 \
-        --zone ru-central1-b \
+        --zone {{ region-id }}-a \
         --range 192.168.0.0/24
       ```
 
@@ -77,7 +77,7 @@
       $ yc vpc subnet create --name test-subnet-1 \
         --description "My test subnet" \
         --network-name test-network-1 \
-        --zone ru-central1-b \
+        --zone {{ region-id }}-a \
         --range 192.168.0.0/24
       ```
 
@@ -109,7 +109,7 @@
         name: test-subnet-1
         description: My test subnet
         network_id: enplom7a98s1t0lhass8
-        zone_id: ru-central1-b
+        zone_id: {{ region-id }}-a
         v4_cidr_blocks:
         - 192.168.0.0/24
       
@@ -142,7 +142,7 @@
       --description "My test subnet" \
       --folder-id b1g6ci08ma55klukmdjs \
       --network-id enplom7a98s1t0lhass8 \
-      --zone ru-central1-b \
+      --zone {{ region-id }}-a \
       --range 192.168.0.0/24 \
       --domain-name test.domain \
       --domain-name-server 192.168.0.100 \

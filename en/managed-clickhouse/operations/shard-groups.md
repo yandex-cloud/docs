@@ -20,8 +20,8 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
    To get a list of shard groups in a cluster, run the command:
 
    ```
-   {{ yc-mdb-ch }} shard-groups list
-     --cluster-name=<cluster name>
+   {{ yc-mdb-ch }} shard-groups list \
+      --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -53,9 +53,9 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
    To view detailed information about a shard group in a cluster, run the command:
 
    ```
-   {{ yc-mdb-ch }} shard-groups get
-     --cluster-name=<cluster name>
-     --name=<shard group name>
+   {{ yc-mdb-ch }} shard-groups get \
+      --cluster-name=<cluster name> \
+      --name=<shard group name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -88,11 +88,11 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
    To create a shard group in a cluster, run the command:
 
    ```
-   {{ yc-mdb-ch }} shard-groups create
-     --cluster-name=<cluster name>
-     --name=<shard group name>
-     --description=<shard group description>
-     --shards=<names of shards to include in the group>
+   {{ yc-mdb-ch }} shard-groups create \
+      --cluster-name=<cluster name> \
+      --name=<shard group name> \
+      --description=<shard group description> \
+      --shards=<names of shards to include in the group>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -162,11 +162,11 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
    To change a shard group in a cluster, run the command:
 
    ```
-   {{ yc-mdb-ch }} shard-groups update
-     --cluster-name=<cluster name>
-     --name=<shard group name>
-     --description=<new shard group description>
-     --shards=<new list of shards to include in the group>
+   {{ yc-mdb-ch }} shard-groups update \
+      --cluster-name=<cluster name> \
+      --name=<shard group name> \
+      --description=<new shard group description> \
+      --shards=<new list of shards to include in the group>
    ```
 
    This command replaces the existing list of shards in the group with the new one that was passed to the command in the `--shards` parameter. Before running the command, make sure that you added all the appropriate shards in the new list.
@@ -245,9 +245,9 @@ Tables created on the deleted group are kept, but they are disabled and attempts
    To delete a shard group in a cluster, run the command:
 
    ```
-   {{ yc-mdb-ch }} shard-groups delete
-     --cluster-name=<cluster name>
-     --name=<shard group name>
+   {{ yc-mdb-ch }} shard-groups delete \
+      --cluster-name=<cluster name> \
+      --name=<shard group name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

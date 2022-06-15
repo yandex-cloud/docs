@@ -11,7 +11,7 @@ items:
         href: operations/cluster-list.md
       - name: Creating clusters
         href: operations/cluster-create.md
-      - name: How to connect to a database
+      - name: Connecting to a database
         href: operations/connect.md
       - name: Stopping and starting clusters
         href: operations/cluster-stop.md
@@ -25,9 +25,9 @@ items:
         href: operations/datalens-connect.md
       - name: Managing PostgreSQL hosts
         href: operations/hosts.md
-      - name: Database management
+      - name: Managing databases
         href: operations/databases.md
-      - name: How to manage PostgreSQL extensions
+      - name: Managing PostgreSQL extensions
         href: operations/cluster-extensions.md
       - name: Managing database users
         href: operations/cluster-users.md
@@ -35,15 +35,15 @@ items:
         href: operations/grant.md
       - name: Managing backups
         href: operations/cluster-backups.md
-      - name: Deleting a cluster
+      - name: Deleting clusters
         href: operations/cluster-delete.md
       - name: Performance diagnostics
         href: operations/performance-diagnostics.md
-      - name: Monitoring the state of a cluster and hosts
+      - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
   - name: Practical guidelines
     items:
-      - name: Creating a PostgreSQL cluster for 1C
+      - name: Creating PostgreSQL clusters for 1C
         href: tutorials/1c-postgresql
       - name: Performance analysis and tuning
         href: tutorials/profiling.md
@@ -56,14 +56,14 @@ items:
           - name: Migrating databases from Managed Service for PostgreSQL
             href: tutorials/outbound-replication.md
           - name: >-
-              Creating an Amazon RDS logical replica for PostgreSQL in Managed
+              Creating a logical replica of Amazon RDS for PostgreSQL in Managed
               Service for PostgreSQL
             href: operations/logical-replica-from-rds.md
       - name: Delivering data using Debezium
         href: tutorials/kafka-cdc.md
   - name: Concepts
     items:
-      - name: Relationship between service resources
+      - name: Relationships between service resources
         href: concepts/index.md
       - name: Host classes
         items:
@@ -75,7 +75,7 @@ items:
                 href: concepts/instance-types-archive/instance-types-01062020.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
-      - name: Network in Yandex Managed Service for PostgreSQL
+      - name: Network in {{ mpg-full-name }}
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -89,6 +89,8 @@ items:
         href: concepts/pooling.md
       - name: Replication
         href: concepts/replication.md
+      - name: Maintenance
+        href: concepts/maintenance.md
       - name: Supported clients
         href: concepts/supported-clients.md
       - name: PostgreSQL settings
@@ -103,7 +105,7 @@ items:
         items:
           - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
-          - name: From January 1 to March 1, 2019
+          - name: From January, 1 to March 1, 2019
             href: pricing-archive/pricing-01032019.md
           - name: From March 1, 2019 to February 1, 2020
             href: pricing-archive/pricing-01022020.md
@@ -229,6 +231,8 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+  - name: Revision history
+    href: release-notes.md
   - name: Questions and answers
     items:
       - name: General questions
@@ -239,10 +243,10 @@ items:
         href: qa/update.md
       - name: Cluster configuration
         href: qa/configuration.md
-      - name: Moving or restoring a cluster
+      - name: Moving and restoring a cluster
         href: qa/backup.md
       - name: Monitoring and logs
         href: qa/monitoring.md
-      - name: All questions on the same page
+      - name: All questions on one page
         href: qa/all.md
 base: en/managed-postgresql

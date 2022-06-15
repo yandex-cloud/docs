@@ -1,19 +1,12 @@
 # Monitoring the state of clusters and hosts
 
-Using monitoring tools in the [management console]({{ link-console-main }}), you can track the status of a {{ mch-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.
+{% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
-Cluster metric values are collected and charts are displayed by [{{ monitoring-name }}](../../monitoring/concepts/index.md). To get started with {{ monitoring-name }} metrics, dashboards, or alerts, click **Open in Monitoring** in the top panel.
+{% include [monitoring-period](../../_includes/mdb/monitoring-freq.md) %}
 
-Chart update rate:
+{% include [monitoring-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
 
-* Standard hosts and hosts with an increased RAM to vCPU ratio (`memory-optimized`): {{ graph-update }}.
-* Hosts with a guaranteed vCPU share under 100% (`burstable`): {{ graph-update-burstable }}.
-
-{% note info %}
-
-The most appropriate multiple units (MB, GB, and more) are automatically used in charts.
-
-{% endnote %}
+{% include [alerts](../../_includes/mdb/alerts.md) %}
 
 ## Monitoring cluster status {#monitoring-cluster}
 
@@ -26,10 +19,12 @@ To view detailed information about the {{ mch-name }} cluster status:
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and open the **Monitoring** tab.
 
+   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
+
    If the cluster uses a mechanism for replication and distribution of queries using [{{ ZK }}](../concepts/replication.md#zk), the **Monitoring** tab displays the following two tabs:
 
    * **Clickhouse**: Charts that show the operation of the entire {{ CH }} cluster and hosts.
-   * **Zookeeper**: Charts that indicate the performance of {{ ZK }} hosts .
+   * **Zookeeper**: Charts that indicate the performance of {{ ZK }} hosts.
 
    If replication is not used or [{{ CK }}](../concepts/replication.md#ck) is used, charts from the **Clickhouse** tab are displayed on the general **Monitoring** tab.
 
@@ -148,9 +143,9 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
    1. Click the ![image](../../_assets/ugly-sandwich.svg) icon and select **Monitoring**.
-   1. Under **Service dashboards**, select .
-      * **{{ mch-name }} — Cluster Overview **to configure cluster alerts.
-      * **{{ mch-name }} — ZooKeeper **to configure ZooKeeper host alerts.
+   1. Under **Service dashboards**, select.
+      * **{{ mch-name }} — Cluster Overview** to configure cluster alerts.
+      * **{{ mch-name }} — ZooKeeper** to configure ZooKeeper host alerts.
    1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
    1. If there is more than one parameter on a chart, create a data query to generate the metric. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `Alarm` and `Warning` threshold values for the alert.
@@ -198,7 +193,7 @@ To view a cluster's state and status:
 - Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
+   1. Hover over the indicator in the **Status** column in the row of the cluster you need.
 
 {% endlist %}
 

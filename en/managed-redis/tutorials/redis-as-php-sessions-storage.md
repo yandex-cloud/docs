@@ -25,8 +25,8 @@ To configure a {{ mrd-name }} cluster as PHP session storage:
     * Install certificates:
 
         ```bash
-        sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-        sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+        sudo mkdir -p {{ crt-local-dir }} && \
+        sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O {{ crt-local-dir }}{{ crt-local-file }}
         ```
 
     * Prepare the environment and install the [phpredis](https://github.com/phpredis/phpredis) library using `pecl`:

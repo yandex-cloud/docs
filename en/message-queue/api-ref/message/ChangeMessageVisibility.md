@@ -15,7 +15,7 @@ For more information about message visibility, see [Messages](../../concepts/mes
 ### Request parameters {#request-parameters}
 
 | Parameter | Type | Required parameter | Description |
-| ----- | ----- | ----- | ----- |
+----- | ----- | ----- | -----
 | `QueueUrl` | **string** | Yes | URL of the queue where the message is placed. |
 | `ReceiptHandle` | **string** | Yes | `ReceiptHandle` from the `ReceiveMessage` request. |
 | `VisibilityTimeout` | **integer** | Yes | New value of a [visibility timeout](../../concepts/visibility-timeout.md) for the queue, specified in seconds. Valid values: from 0 to 43200 seconds. Default: 30. |
@@ -31,7 +31,7 @@ The response does not contain any fields.
 For a list of errors common for all methods, see [{#T}](../common-errors.md).
 
 | HTTP code | Error ID | Description |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | 400 | `MessageNotInflight` | The message is not being processed. |
 | 400 | `ReceiptHandleIsInvalid` | The specified `ReceiptHandle` is invalid. |
 
@@ -40,7 +40,7 @@ For a list of errors common for all methods, see [{#T}](../common-errors.md).
 ```
 Action=ChangeMessageVisibility
 &Version=2012-11-05
-&QueueUrl=https://message-queue.api.cloud.yandex.net/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
 &ReceiptHandle=EAIgloPDh4gtKAI
 &VisibilityTimeout=35
 ```
@@ -56,4 +56,3 @@ For more information about forming requests, see [General API request format](..
     </ResponseMetadata>
 </ChangeMessageVisibilityResponse>
 ```
-

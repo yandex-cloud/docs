@@ -157,6 +157,7 @@
 
        Пример структуры конфигурационного файла для создания кластера с поддержкой SSL:
 
+       
        ```hcl
        terraform {
          required_providers {
@@ -208,6 +209,7 @@
          v4_cidr_blocks = ["<диапазон>"]
        }
        ```
+
 
        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -302,6 +304,7 @@
 
   Конфигурационный файл для такого кластера выглядит так:
 
+  
   ```hcl
   terraform {
     required_providers {
@@ -372,6 +375,7 @@
   }
   ```
 
+
 {% endlist %}
 
 ### Создание шардированного кластера {#creating-a-sharded-cluster}
@@ -399,6 +403,7 @@
 
     Конфигурационный файл для такого кластера выглядит так:
 
+    
     ```hcl
     terraform {
       required_providers {
@@ -434,19 +439,19 @@
       }
 
       host {
-        zone       = "ru-central1-a"
+        zone       = "{{ region-id }}-a"
         subnet_id  = yandex_vpc_subnet.subnet-a.id
         shard_name = "shard1"
       }
 
       host {
-        zone       = "ru-central1-b"
+        zone       = "{{ region-id }}-b"
         subnet_id  = yandex_vpc_subnet.subnet-b.id
         shard_name = "shard2"
       }
 
       host {
-        zone       = "ru-central1-c"
+        zone       = "{{ region-id }}-c"
         subnet_id  = yandex_vpc.subnet.subnet-c.id
         shard_name = "shard3"
       }
@@ -456,21 +461,21 @@
 
     resource "yandex_vpc_subnet" "subnet-a" {
       name           = "subnet-a"
-      zone           = "ru-central1-a"
+      zone           = "{{ region-id }}-a"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.1.0.0/24"]
     }
 
     resource "yandex_vpc_subnet" "subnet-b" {
       name           = "subnet-b"
-      zone           = "ru-central1-b"
+      zone           = "{{ region-id }}-b"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.2.0.0/24"]
     }
 
     resource "yandex_vpc_subnet" "subnet-c" {
       name           = "subnet-c"
-      zone           = "ru-central1-c"
+      zone           = "{{ region-id }}-c"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.3.0.0/24"]
     }
@@ -524,5 +529,6 @@
       }
     }
     ```
+
 
 {% endlist %}

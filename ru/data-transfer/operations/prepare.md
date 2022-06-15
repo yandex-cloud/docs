@@ -110,7 +110,6 @@
 
     1. Оцените общее количество баз данных для трансфера и общую нагрузку на {{ mmg-name }}. Если нагрузка на базы выше 10 000 транзакций на запись в секунду, создайте несколько эндпоинтов и трансферов. Подробнее см. в разделе [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
     1. [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) с ролью `readWrite` на базу источник.
-
 - {{ MG }}
 
     1. Оцените общее количество баз данных для трансфера и общую нагрузку на {{ MG }}. Если нагрузка на базы выше 10 000 транзакций на запись в секунду, создайте несколько эндпоинтов и трансферов. Подробнее см. в разделе [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
@@ -415,6 +414,7 @@
 
 Подробнее см. в [документации Airbyte®](https://docs.airbyte.com/integrations/sources/s3/).
 
+
 ### Источник {{ yds-full-name }} {#source-yds}
 
 1. [Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream).
@@ -514,7 +514,6 @@
     * `uint64`
     * `utf8`
 
-
 ## Подготовка приемника {#target}
 
 ### Приемник {{ CH }} {#target-ch}
@@ -605,7 +604,6 @@
             {% include [MongoDB endpoint DROP clean policy warning](../../_includes/data-transfer/note-mongodb-clean-policy.md) %}
 
         Подробнее о шардировании см. в [документации {{ MG }}](https://docs.mongodb.com/manual/sharding/).
-
 - {{ MG }}
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
@@ -830,6 +828,7 @@
 {% endlist %}
 
 Сервис не переносит материализованные представления (`MATERIALIZED VIEW`). Подробнее см. в разделе [Особенности работы сервиса с источниками и приемниками](../concepts/index.md#postgresql).
+
 
 ### Приемник {{ ydb-full-name }} {#target-ydb}
 

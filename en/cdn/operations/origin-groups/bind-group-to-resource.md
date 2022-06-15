@@ -143,7 +143,8 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
 
       Example configuration file structure:
 
-      ```
+      
+      ```hcl
       provider "yandex" {
         token     = "<OAuth>"
         cloud_id  = "<cloud ID>"
@@ -155,9 +156,10 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
         cname = "<resource domain name>"
         active = true
         origin_protocol = "https"
-         origin_group_id = <origin group ID>
+        origin_group_id = <origin group ID>
       }
       ```
+
 
       For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
 
@@ -165,7 +167,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Create an origin group.
+   2. Create an origin group.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

@@ -7,6 +7,7 @@
 
 The storage class is optionally specified when uploading each individual object.
 
+
 Pricing differs for storing and accessing objects in standard and cold storage. For more information, see [{#T}](../pricing.md).
 
 ## Default storage for a bucket {#default-storage-class}

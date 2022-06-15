@@ -25,10 +25,10 @@ In this example, we create a demo Job that adds up two numbers and a Command tha
 
 To use {{ message-queue-name }} with Laravel, follow these instructions.
 
-1. Create a test project named `ymq_example`:
+1. Create a test project named `mq_example`:
 
    ```
-   $ composer create-project --prefer-dist laravel/laravel ymq_example
+   $ composer create-project --prefer-dist laravel/laravel mq_example
    ```
 
 1. Create an `Add` task:
@@ -41,22 +41,22 @@ To use {{ message-queue-name }} with Laravel, follow these instructions.
 
    ```php
    <?php
-   
+
    namespace App\Jobs;
-   
+
    use Illuminate\Bus\Queueable;
    use Illuminate\Queue\SerializesModels;
    use Illuminate\Queue\InteractsWithQueue;
    use Illuminate\Contracts\Queue\ShouldQueue;
    use Illuminate\Foundation\Bus\Dispatchable;
-   
+
    class Add implements ShouldQueue
    {
        use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-   
+
        private $addend1 = null;
        private $addend2 = null;
-   
+
        /**
         * Create a new job instance.
         *
@@ -67,7 +67,7 @@ To use {{ message-queue-name }} with Laravel, follow these instructions.
            $this->addend1 = $addend1;
            $this->addend2 = $addend2;
        }
-   
+
        /**
         * Execute the job.
         */
@@ -89,13 +89,13 @@ To use {{ message-queue-name }} with Laravel, follow these instructions.
 
    ```php
    <?php
-   
+
    namespace App\Console\Commands;
-   
+
    use App\Jobs\Add;
-   
+
    use Illuminate\Console\Command;
-   
+
    class ScheduleAdd extends Command
    {
        /**
@@ -104,14 +104,14 @@ To use {{ message-queue-name }} with Laravel, follow these instructions.
         * @var string
         */
        protected $signature = 'sample:schedule-add';
-   
+
        /**
         * The console command description.
         *
         * @var string
         */
        protected $description = 'Command description';
-   
+
        /**
         * Create a new command instance.
         *
@@ -121,7 +121,7 @@ To use {{ message-queue-name }} with Laravel, follow these instructions.
        {
            parent::__construct();
        }
-   
+
        /**
         * Execute the console command.
         *
@@ -138,16 +138,16 @@ To use {{ message-queue-name }} with Laravel, follow these instructions.
 
 1. Fill in the parameters in the `sqs` section.
 
-   To get values for the `prefix` and `queue` parameters, split the URL of your queue into two parts: the prefix is `https://message-queue.api.cloud.yandex.net/`, while the queue parameter is`b1gvlrnlei4l5idm9cbj/dj6000000000g53305qi` without the leading `/`.
+   To get values for the `prefix` and `queue` parameters, split the URL of your queue into two parts: the prefix is `https://message-queue.{{ api-host }}/`, while the queue parameter is `b1gvlrnlei4l5idm9cbj/dj6000000000g53305qi` without the leading `/`.
 
    ```
    'sqs' => [
        'driver' => 'sqs',
        'key' => env('AWS_ACCESS_KEY_ID'),
        'secret' => env('AWS_SECRET_ACCESS_KEY'),
-       'prefix' => env('SQS_PREFIX', 'https://message-queue.api.cloud.yandex.net/'),
+       'prefix' => env('SQS_PREFIX', 'https://message-queue.{{ api-host }}/'),
        'queue' => env('SQS_QUEUE', 'b1gvlrnlei4l5idm9cbj/dj6000000000g53305qi/laravel-test'),
-       'region' => env('AWS_DEFAULT_REGION', 'ru-central1'),
+       'region' => env('AWS_DEFAULT_REGION', '{{ region-id }}'),
    ],
    ```
 
@@ -174,4 +174,3 @@ To use {{ message-queue-name }} with Laravel, follow these instructions.
    ```
    $ php artisan queue:work
    ```
-

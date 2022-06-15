@@ -4,7 +4,7 @@ When creating a virtual machine, you need to select a vCPU performance level. Th
 
 * Virtual machines with performance under 100% have access to the computing power of physical cores for at least the specified percentage of a unit of time.
 
-   > At 5% performance, a VM will have access to the physical cores at least 5% of the time: 50 milliseconds out of every second. During that time, the processor clock speed is not limited and is equal to that of the selected platform, such as 2 GHz for Intel Ice Lake (`standard-v3`).
+   > At 20% performance, a VM will have access to the physical cores at least 20% of the time: 200 milliseconds out of every second. During that time, the processor clock speed is not limited and is equal to that of the selected platform, such as 2 GHz for Intel Ice Lake (`standard-v3`).
 
    VMs with a performance level under 100% are designed to run applications that do not require high performance and are immune to delays. These machines will cost less.
 
@@ -21,6 +21,8 @@ Minimum and maximum configurations:
 Minimum configurations are specified for the 5% performance level, and maximum configurations for 100%.
 
 {% endnote %}
+
+
 
 * Intel Broadwell platform (`standard-v1`):
 
@@ -50,6 +52,9 @@ Minimum configurations are specified for the 5% performance level, and maximum c
    {% endnote %}
 
 Available configurations of computing resources:
+
+
+
 
 * Intel Broadwell platform (`standard-v1`):
 

@@ -88,10 +88,10 @@ Docker containers are created based on the [Docker Compose specification](../../
         name: yc-auto-network
         ```
 
-     1. Create a subnet in the `ru-central1-a` zone:
+     1. Create a subnet in the `{{ region-id }}-a` zone:
 
         ```bash
-        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone ru-central1-a
+        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-a
         ```
 
         Command execution result:
@@ -101,7 +101,7 @@ Docker containers are created based on the [Docker Compose specification](../../
         folder_id: b0g12ga82bcv0cdeferg
         created_at: "2020-11-30T16:23:12Z"
         network_id: enpabce123hde4ft1r3t
-        zone_id: ru-central1-a
+        zone_id: {{ region-id }}-a
         v4_cidr_blocks:
         - 192.168.1.0/24
         ```
@@ -109,7 +109,7 @@ Docker containers are created based on the [Docker Compose specification](../../
    - API
 
      1. Create a network using the method [Create](../../vpc/api-ref/Network/create.md) for the resource `Networks`.
-     1. Create a subnet in the `ru-central1-a` availability zone using the [Create](../../vpc/api-ref/Subnet/create.md) method for the `Subnets` resource.
+     1. Create a subnet in the `{{ region-id }}-a` availability zone using the [Create](../../vpc/api-ref/Subnet/create.md) method for the `Subnets` resource.
 
    {% endlist %}
 
@@ -167,7 +167,7 @@ Docker containers are created based on the [Docker Compose specification](../../
        size: 2
    allocation_policy: # Allocation policy of the instances by zones and regions.
      zones:
-       - zone_id: ru-central1-a
+       - zone_id: {{ region-id }}-a
    ```
 
    {% note info %}

@@ -5,15 +5,15 @@ To get started with the service:
 * [Connect to the DB](#connect).
 
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
-   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine in the same network as the DB cluster.
+   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based VM in the same network as the DB cluster.
    * To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
 
    {% note info %}
@@ -22,7 +22,7 @@ To get started with the service:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the virtual machine over SSH.
 1. Add the {{ CH }} [DEB repository](https://{{ ch-domain }}/docs/en/getting-started/install/#install-from-deb-packages):
 
    ```bash
@@ -41,7 +41,7 @@ To get started with the service:
 1. Download the configuration file for `clickhouse-client`:
 
    ```bash
-   mkdir -p ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
+   mkdir -p ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
    ```
 
 ## Create a cluster {#cluster-create}
@@ -99,16 +99,16 @@ To get started with the service:
    1. Run the {{ CH }} CLI with the following parameters:
 
       ```bash
-      clickhouse-client --host <host FQDN> \
+      clickhouse-client --host <host's FQDN> \
         -s \
-        --user <DB username> \
+        --user <DB user name> \
         --password <DB user password> \
         -q "<DB query>" \
-        --port 9440 
+        --port 9440
       ```
 
 ## What's next {#whats-next}
 
-* Read about [service concepts](./concepts/index.md).
-* Learn more about [creating a cluster](./operations/cluster-create.md) and [connecting to the database](./operations/connect.md).
-* Read [questions and answers](./qa/general.md).
+* Read about [service concepts](concepts/index.md).
+* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to the database](operations/connect.md).
+* Read [questions and answers](qa/general.md).

@@ -105,7 +105,7 @@
         1. Загрузите файл конфигурации для `clickhouse-client`:
 
             ```bash
-            mkdir --parents ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" \
+            mkdir --parents ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" \
                 --output-document=~/.clickhouse-client/config.xml
             ```
 
@@ -297,7 +297,7 @@
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username="<имя учетной записи производителя>" \
        -X sasl.password="<пароль учетной записи производителя>" \
-       -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z
+       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
     ```
 
 Данные отправляются с помощью [учетных записей производителей](#before-you-begin). Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../managed-kafka/operations/connect.md).

@@ -2,13 +2,13 @@
 
 Create [DNS zones](concepts/dns-zone.md), add `A` records for your test VMs to them, and test the availability of domain names.
 
-## Before you start {#before-begin}
+## Before you begin {#before-begin}
 
 1. Log in to or register in the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
 1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you don't have a folder, [create one](../resource-manager/operations/folder/create.md). When creating a folder, you can create a default virtual network with subnets in all availability zones.
 1. [Create a network](../vpc/quickstart.md) and subnets to connect your test VMs.
-1. [Create](../compute/operations/vm-create/create-linux-vm.md) VMs named `test-vm-1` and `test-vm-2` in the `ru-central1-a` availability zone. Make sure that the `test-vm-1` VM has a public IP address. Connect them to subnets of the same network.
+1. [Create](../compute/operations/vm-create/create-linux-vm.md) VMs named `test-vm-1` and `test-vm-2` in the `{{ region-id }}-a` availability zone. Make sure that `test-vm-1` has a public IP address. Connect them to subnets of the same network.
 
 ## Create an internal DNS zone {#create-private-zone}
 
@@ -19,24 +19,25 @@ Create a new domain zone:
 {% list tabs %}
 
 - Management console
-  1. Open the **{{ dns-name }}** section in the folder where you want to create a DNS zone.
-  1. Click **Create zone**.
-  1. Specify the zone settings:
-     1. **Name**: `test-zone`.
-     1. **Zone**: `testing`.
-     1. **Type**: `Internal`.
-     1. **Network**: The network where your VMs reside.
-  1. Click **Create**.
+
+   1. Open the **{{ dns-name }}** section of the folder where you need to create a DNS zone.
+   1. Click **Create zone**.
+   1. Specify the zone settings:
+      1. **Name**: `test-zone`.
+      1. **Zone**: `testing.`
+      1. **Type**: `Internal`.
+      1. **Network**: The network where your VMs reside.
+   1. Click **Create**.
 
 - CLI
 
-  Run the command:
+   Run the command:
 
-  ```
-  yc dns zone create --name test-zone \
-  --zone testing. \
-  --private-visibility network-ids=<ID of the network with test VMs>
-  ```
+   ```
+   yc dns zone create --name test-zone \
+   --zone testing. \
+   --private-visibility network-ids=<ID of the network with test VMs>
+   ```
 
 {% endlist %}
 
@@ -45,34 +46,35 @@ Create a new domain zone:
 {% list tabs %}
 
 - Management console
-  1. Open the list of zones and select the zone named `test-zone`.
-  1. Select **Records** in the menu on the left.
-  1. Click **Create record**. Set the record parameters:
-     1. **Name**: `test-vm-1`.
-     1. **Type**: `A`.
-     1. **TTL**: `600`.
-     1. **Value**: Internal IP address of `test-vm1`.
-  1. Click **Create**.
-  1. Click **Create record** once again. Set parameters for another record:
-     1. **Name**: `test-vm-2`.
-     1. **Type**: `A`.
-     1. **TTL**: `600`.
-     1. **Value**: Internal IP address of `test-vm2`.
-     1. Click **Create**.
+
+   1. Open the list of zones and select the zone named `test-zone`.
+   1. Select **Records** in the menu on the left.
+   1. Click **Create record**. Set the record parameters:
+      1. **Name**: `test-vm-1`.
+      1. **Type**: `A`.
+      1. **TTL**: `600`.
+      1. **Value**: Internal IP address of `test-vm1`.
+   1. Click **Create**.
+   1. Click **Create record** once again. Set parameters for another record:
+      1. **Name**: `test-vm-2`.
+      1. **Type**: `A`.
+      1. **TTL**: `600`.
+      1. **Value**: Internal IP address of `test-vm2`.
+      1. Click **Create**.
 
 - CLI
 
-  Run the following commands:
+   Run the following commands:
 
-  ```
-  yc dns zone add-records --name test-zone \
-  --record "test-vm-1 600 A <internal IP address of test-vm-1>"
-  ```
+   ```
+   yc dns zone add-records --name test-zone \
+   --record "test-vm-1 600 A <internal IP address of test-vm-1>"
+   ```
 
-  ```
-  yc dns zone add-records --name test-zone \
-  --record "test-vm-2 600 A <internal IP address of test-vm-2>"
-  ```
+   ```
+   yc dns zone add-records --name test-zone \
+   --record "test-vm-2 600 A <internal IP address of test-vm-2>"
+   ```
 
 {% endlist %}
 
@@ -106,23 +108,24 @@ Create a new public domain zone:
 {% list tabs %}
 
 - Management console
-  1. Open the **{{ dns-name }}** section in the folder where you want to create a DNS zone.
-  1. Click **Create zone**.
-  1. Specify the zone settings:
-     1. **Name**: `test-public-zone`.
-     1. **Zone**: `example.com`.
-     1. **Type**: `Public`.
-  1. Click **Create**.
+
+   1. Open the **{{ dns-name }}** section of the folder where you need to create a DNS zone.
+   1. Click **Create zone**.
+   1. Specify the zone settings:
+      1. **Name**: `test-public-zone`.
+      1. **Zone**: `example.com`.
+      1. **Type**: `Public`.
+   1. Click **Create**.
 
 - CLI
 
-  Run the command:
+   Run the command:
 
-  ```
-  yc dns zone create --name test-public-zone \
-  --zone example.com. \
-  --public-visibility
-  ```
+   ```
+   yc dns zone create --name test-public-zone \
+   --zone example.com. \
+   --public-visibility
+   ```
 
 {% endlist %}
 
@@ -131,37 +134,39 @@ Create a new public domain zone:
 {% list tabs %}
 
 - Management console
-  1. Open the list of zones and select the `test-public-zone` zone.
-  1. Select **Records** in the menu on the left.
-  1. Click **Create record**. Set the record parameters:
-     1. **Name**: `www`.
-     1. **Type**: `A`.
-     1. **TTL**: `600`.
-     1. **Value**: Public IP address of `test-vm-1`.
-  1. Click **Create**.
+
+   1. Open the list of zones and select the `test-public-zone` zone.
+   1. Select **Records** in the menu on the left.
+   1. Click **Create record**. Set the record parameters:
+      1. **Name**: `www`.
+      1. **Type**: `A`.
+      1. **TTL**: `600`.
+      1. **Value**: Public IP address of `test-vm-1`.
+   1. Click **Create**.
 
 - CLI
 
-  Run the command:
+   Run the command:
 
-  ```
-  yc dns zone add-records --name test-public-zone \
-  --record "www 600 A <public IP address of test-vm-1>"
-  ```
+   ```
+   yc dns zone add-records --name test-public-zone \
+   --record "www 600 A <public IP address of test-vm-1>"
+   ```
 
 {% endlist %}
 
-Delegate your domain name by specifying the addresses of the `ns1.yandexcloud.net.` and `ns2.yandexcloud.net.` name servers in {{ yandex-cloud }} at your registrar.
+Delegate your domain name by specifying the addresses of the `ns1.yandexcloud.net.` and `ns2.yandexcloud.net.` {{ yandex-cloud }} name servers at your registrar.
 
 ### Test the availability of domain names in the public zone {#test-public-resolving}
 
 Make sure that the created record points to the VM's public IP address. Run the following command on your computer:
 
+
 ```
 host www.example.com ns1.yandexcloud.net.
 ```
 
-Command execution result:
+Command output:
 
 ```
 Using domain server:

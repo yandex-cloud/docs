@@ -1,12 +1,11 @@
-title: Yandex.Cloud Documentation
-description:
-  - Internal Cloud documentation
+title: Yandex Cloud documentation
+description: []
 meta:
-  title: Yandex.Cloud
+  title: Yandex Cloud
   noIndex: true
 links:
-  - title: Yandex.Cloud API
-    description: Yandex.Cloud API architecture
+  - title: Yandex Cloud API
+    description: Yandex Cloud API architecture
     href: api-design-guide/
   - title: API Gateway
     description: Integration with Yandex.Cloud services using the API
@@ -20,7 +19,7 @@ links:
   - title: Certificate Manager
     description: Managing TLS certificates
     href: certificate-manager/
-  - title: Yandex.Cloud CLI
+  - title: Yandex Cloud CLI
     description: Command line interface
     href: cli/
   - title: Cloud Logging
@@ -119,8 +118,8 @@ links:
   - title: Cloud Organization
     description: Cloud services for corporate clients
     href: organization/
-  - title: Yandex.Cloud overview
-    description: Overview of Yandex.Cloud resources
+  - title: Yandex Cloud overview
+    description: Overview of Yandex Cloud resources
     href: overview/
   - title: Yandex.Cloud partner program
     description: Partner program description
@@ -131,7 +130,7 @@ links:
   - title: Serverless Containers
     description: Running containers without Kubernetes®
     href: serverless-containers/
-  - title: Yandex.Cloud practical guidelines
+  - title: Yandex Cloud practical guidelines
     description: Instructions for handling various tasks using cloud services
     href: tutorials/
   - title: SpeechKit
@@ -140,7 +139,7 @@ links:
   - title: Object Storage
     description: Scalable data storage
     href: storage/
-  - title: Yandex.Cloud technical support
+  - title: Yandex Cloud technical support
     description: Support
     href: support/
   - title: Tracker

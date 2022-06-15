@@ -1,73 +1,65 @@
 ---
 editable: false
 ---
+
 # Pricing for {{ ml-platform-name }}
+
+
 
 ## What goes into the cost of using {{ ml-platform-name }} {#rules}
 
-When using the {{ ml-platform-name}} service, you pay for the actual use of computing resources: the calculation time or the operation of instances is charged per second.
+When using {{ ml-platform-name }}, you pay for the use of computing resources: the compute and instance running time is charged per second.
 
-1. When performing calculations and experiments or training models, you pay for the calculation time. If you do not perform computational operations in the project, the service usage time {{ ml-platform-name }} is not charged. However, if you perform calculations using {{ dataproc-name}} clusters, they are charged separately. For more information, see [using clusters {{dataproc-name }}](#data-proc). Also, storage of [datasets](#storage) is charged separately.
-1. When deploying models, the cost of using {{ ml-platform-name }} consists of the operating time and capacity of all node instances. The operating time of each instance begins at the time of its launch and ends after the instance is deleted.
+1. When performing computations and training models, you pay for the compute time. If you don't perform any computational operations in a project, the {{ ml-platform-name }} usage time is not charged. However, if you run calculations using {{ dataproc-name }} clusters, they are charged separately. For more information, see [Using {{ dataproc-name }} clusters](#data-proc). You're separately charged for [data storage in datasets](#storage).
+
+1. When deploying models, you pay for the uptime of each node instance: from its start to its deletion.
 
 ### Pricing unit {#unit}
 
-A billing measure is a one billing unit. The number of billing units spent on calculation depends on:
-* capacity of computing resources used;
-* time spent on the calculation.
+A pricing unit is one billing unit. The number of billing units spent on calculations depends on:
+* The computing resources used.
+* The time spent on calculations.
 
   The calculation time is rounded up to an integer number of seconds.
 
-The cost of one billing unit is the cost of using 1 CPU core for 1 second. The number of units depends on [computing resource configuration](concepts/configurations.md).
+The cost of one billing unit is the cost of using 1 CPU core per second. The number of units depends on [computing resource configurations](concepts/configurations.md).
 
-Configuration | Units per second
---- | ---
-c1.4 | 4
-c1.8 | 8
-c1.32 | 32
-c1.80 | 80
-g1.1 | 72
-g1.2 | 144
-g1.4 | 288
-g2.mig | 18
-g2.1 | 116
-g2.2 | 232
-g2.4 | 464
-g2.8 | 928
+| Configuration | Number of units per second |
+----- | ---- 
+| c1.4 | 4 |
+| c1.8 | 8 |
+| c1.32 | 32 |
+| c1.80 | 80 |
+| g1.1 | 72 |
+| g1.2 | 144 |
+| g1.4 | 288 |
+| g2.mig | 18 |
+| g2.1 | 116 |
+| g2.2 | 232 |
+| g2.4 | 464 |
+| g2.8 | 928 |
 
 
-### Example of cost calculation {#price-example}
+[Background operation costs](#async) are calculated separately.
 
-Example of cost calculation:
-* **Computing resource:** configuration c1.8 with 8 CPUs and 1 GPU.
-* **Operation execution time:** 1,400 MS (rounded up to an integer number of seconds).
-
-Cost calculation:
-
-> 72 × 2 = 144 units per calculation
-> 144 × 0.0000096 = $0.001296
->
-> Total: $0.0013824
-
-Where:
-* 72 — number of units per configuration g1.1.
-* 2 — rounded up 1,400 MS.
-* $0.0000096 — cost of 1 unit.
 
 ### Using {{ dataproc-name }} clusters {#data-proc}
 
-The cost of using integration with the {{ dataproc-name}} service takes into account:
-* Configuration c1.4 computing resources {{ml-platform-name }}.
-  These resources are created for integration with the {{ dataproc-name}} cluster and are charged while the cluster is being calculated.
-* The entire lifetime of the cluster {{ dataproc-name }} according to [pricing rules {{ dataproc-full-name }}](../data-proc/pricing.md).
+The cost of using integration with the {{ dataproc-name }} service takes into account:
+
+* {{ ml-platform-name }} c1.4 configuration computing resources.
+  These resources are created for integration with the {{ dataproc-name }} cluster and are charged while calculations are running on the cluster.
+* The entire lifetime of the {{ dataproc-name }} cluster according to the [{{ dataproc-full-name }} pricing policy](../data-proc/pricing.md).
 
 Learn more about [integration with {{ dataproc-name }}](concepts/data-proc.md).
 
-### Storing data in the project {#storage}
+### Disk space usage {#storage}
 
-Each project {{ml-platform-name }} has a storage within which data storage is not charged. If the [quota]({{ link-console-quotas }}) for the project size is increased, the [storage volume](#project-data) over {{ ml-project-size }} is paid separately. For more information about quotas and limits of the service, see [{#T}](concepts/limits.md).
+Each {{ ml-platform-name }} project has a free-of-charge storage amount. If you increase the quota on project size, the [storage](#project-data) exceeding {{ ml-project-size }} is paid separately. For more information about pricing, see [{#T}](concepts/limits.md).
 
-If you need to store large amounts of data that exceed the specified limits, use the {{ objstorage-full-name }} service. In this case, data storage will be charged according to [pricing rules {{ objstorage-name }}](../storage/pricing.md).
+[Data storage inside datasets](#prices-datasets) is charged separately.
+
+If you need to store large amounts of data, you can use {{ objstorage-full-name }}. In this case, data storage will be charged according to the [{{ objstorage-name }} pricing policy](../storage/pricing.md).
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -82,21 +74,23 @@ The monthly usage rate is based on 720 hours a month.
 
 ### Performing background operations {#async}
 
+Learn more about [background operations](concepts/async.md).
+
 
 
 
 {% include [usd-async.md](../_pricing/datasphere/usd-async-new.md) %}
 
-### {{ ml-platform-name }} data storing {#prices-storage}
+### Storing data inside {{ ml-platform-name }} {#prices-storage}
 
-#### Project data {#project-data}
+#### Storing project data {#project-data}
 
 
 
 
 {% include [usd-storage.md](../_pricing/datasphere/usd-storage.md) %}
 
-#### Datasets {#datasets}
+#### Datasets {#prices-datasets}
 
 
 
@@ -110,13 +104,7 @@ The monthly usage rate is based on 720 hours a month.
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
-### Marking up audio files {#markup}
 
-This section shows the price of [{#T}](tutorials/markup.md). The price is indicated per billable unit, the total cost of markup depends on the amount of data and will be calculated after the data is uploaded.
+### Labeling audio files {#markup}
 
-
-
-
-Service | Rate for the billable unit, without VAT
---- | ---
-[Marking up audio files](tutorials/markup.md) | {{ sku|USD|ai.speech.transcribe.human.v1|string }}
+This section specifies the cost of [audio markup](tutorials/markup.md). The cost is per rating unit. The final markup cost depends on the data amount and will be calculated after the data is uploaded.

@@ -5,29 +5,27 @@ items:
     items:
       - name: Все руководства
         href: web/index.md
-      - name: Cтатический сайт в Object Storage
+      - name: Cтатический сайт в {{ objstorage-name }}
         href: web/static.md
       - name: Cайт на LAMP- или LEMP-стеке
         href: web/lamp-lemp.md
       - name: >-
-          Отказоустойчивый сайт с балансировкой нагрузки через Network Load
-          Balancer
+          Отказоустойчивый сайт с балансировкой нагрузки через {{
+          network-load-balancer-name }}
         href: web/load-balancer-website.md
-      - name: >-
-          Отказоустойчивый сайт с балансировкой нагрузки через Application Load
-          Balancer
+      - name: Отказоустойчивый сайт с балансировкой нагрузки через {{ alb-name }}
         href: web/application-load-balancer-website.md
-      - name: Сайт на базе Joomla с БД PostgreSQL
+      - name: Сайт на базе Joomla с БД {{ PG }}
         href: web/joomla-postgresql.md
       - name: Сайт на WordPress
         href: web/wordpress.md
-      - name: Сайт на WordPress с БД MySQL
+      - name: Сайт на WordPress с БД {{ MY }}
         href: web/wordpress-mysql.md
-      - name: Перенос WordPress сайта с хостинга в Yandex Cloud
+      - name: Перенос WordPress сайта с хостинга в {{ yandex-cloud }}
         href: web/wordpress-transfer.md
       - name: Веб-сайт на базе 1С-Битрикс
         href: web/bitrix-website.md
-      - name: Интеграция L7-балансировщика с CDN и Object Storage
+      - name: Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name }}
         href: web/cdn-storage-integration.md
       - name: Сине-зеленое и канареечное развертывание версий сервиса
         href: web/blue-green-canary-deployment.md
@@ -47,17 +45,21 @@ items:
         href: archive/single-node-file-server.md
       - name: Настройка SFTP-сервера на Centos 7
         href: archive/backup-and-archive-to-sftp.md
-      - name: Резервное копирование в Object Storage через Acronis
+      - name: Резервное копирование в {{ objstorage-name }} через Acronis
         href: archive/object-storage-acronis.md
-      - name: Резервное копирование в Object Storage через CloudBerry Desktop Backup
+      - name: >-
+          Резервное копирование в {{ objstorage-name }} через CloudBerry Desktop
+          Backup
         href: archive/object-storage-cloudberry.md
-      - name: Резервное копирование в Object Storage через Duplicati
+      - name: Резервное копирование в {{ objstorage-name }} через Duplicati
         href: archive/object-storage-duplicati.md
-      - name: Резервное копирование в Object Storage через Bacula
+      - name: Резервное копирование в {{ objstorage-name }} через Bacula
         href: archive/backup-with-bacula.md
-      - name: Резервное копирование в Object Storage через Veritas Backup Exec
+      - name: >-
+          Резервное копирование в {{ objstorage-name }} через Veritas Backup
+          Exec
         href: archive/object-storage-veritas.md
-      - name: Оцифровка архива в Yandex Vision
+      - name: Оцифровка архива в {{ vision-full-name }}
         href: archive/archive-from-vision-to-object-storage.md
   - name: Тестовая среда
     items:
@@ -81,9 +83,9 @@ items:
     items:
       - name: Все руководства
         href: infrastructure-management/index.md
-      - name: Начало работы с Terraform
+      - name: Начало работы с {{ TF }}
         href: infrastructure-management/terraform-quickstart.md
-      - name: Загрузка состояний Terraform в Object Storage
+      - name: Загрузка состояний {{ TF }} в {{ objstorage-name }}
         href: infrastructure-management/terraform-state-storage.md
       - name: Начало работы с Packer
         href: infrastructure-management/packer-quickstart.md
@@ -98,20 +100,20 @@ items:
           GitLab
         href: infrastructure-management/gitlab-containers.md
       - name: >-
-          Создание кластера Linux-серверов «1С:Предприятия» с кластером Managed
-          Service for PostgreSQL
+          Создание кластера Linux-серверов «1С:Предприятия» с кластером {{
+          mpg-name }}
         href: infrastructure-management/1c-postgresql-linux.md
       - name: >-
-          Создание кластера Windows-серверов «1С:Предприятия» с базой данных MS
-          SQL Server
+          Создание кластера Windows-серверов «1С:Предприятия» с базой данных {{
+          MS }}
         href: infrastructure-management/1c-mssql-windows.md
-      - name: Миграция в Yandex Cloud с помощью Hystax Acura
+      - name: Миграция в {{ yandex-cloud }} с помощью Hystax Acura
         href: infrastructure-management/hystax-migration.md
       - name: Защита от сбоев с помощью Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
-      - name: Настройка отказоустойчивой архитектуры в Yandex Cloud
+      - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
         href: infrastructure-management/fault-tolerance.md
-      - name: Создание SAP-программы в Yandex Cloud
+      - name: Создание SAP-программы в {{ yandex-cloud }}
         href: infrastructure-management/sap.md
   - name: Построение Data Platform
     items:
@@ -131,8 +133,14 @@ items:
         href: dataplatform/sqoop.md
       - name: Использование Confluent Schema Registry с {{ mkf-full-name }}
         href: dataplatform/confluent-schema-registry.md
-      - name: Поставка данных в {{ mkf-full-name }} с помощью Debezium
+      - name: >-
+          Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью
+          Debezium
         href: dataplatform/kafka-cdc.md
+      - name: >-
+          Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: dataplatform/kafka-cdc-data-transfer.md
       - name: Миграция данных в {{ mkf-full-name }}
         href: dataplatform/kafka-connector.md
       - name: Перенос коллекций из {{ MG }} в {{ mmg-full-name }}
@@ -149,6 +157,8 @@ items:
           Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз
           данных из других облачных сетей
         href: dataplatform/mdb-dns-peering.md
+      - name: Миграция в {{ mes-full-name }} с помощью Reindex API
+        href: dataplatform/migration-via-reindex-api.md
       - name: >-
           Использование скриптов инициализации для настройки GeeseFS в {{
           dataproc-full-name }}
@@ -198,8 +208,8 @@ items:
       - name: Анализ открытых данных ДТП на дорогах России
         href: datalens/data-from-csv-geo-visualization.md
       - name: >-
-          Анализ продаж и локаций пиццерий на данных из БД Clickhouse и
-          Marketplace
+          Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и {{
+          marketplace-short-name }}
         href: datalens/data-from-ch-to-geolayers-visualization.md
       - name: Веб-аналитика с подключением к Яндекс Метрике
         href: datalens/data-from-metrica-visualization.md
@@ -213,7 +223,7 @@ items:
         href: datalens/data-from-ch-to-sql-chart.md
       - name: Анализ customer journey мобильного приложения на данных AppMetrica
         href: datalens/data-from-appmetrica-yc-visualization.md
-      - name: Анализ логов Object Storage при помощи DataLens
+      - name: Анализ логов {{ objstorage-name }} при помощи {{ datalens-name }}
         href: datalens/storage-logs-analysis.md
   - name: Интернет вещей
     items:

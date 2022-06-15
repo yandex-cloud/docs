@@ -26,7 +26,7 @@
         -a <password> \
         -p {{ port-mrd-tls }} \
         --tls \
-        --cacert ~/.redis/YandexInternalRootCA.crt \
+        --cacert ~/.redis/{{ crt-local-file }} \
     ```
 
 {% endlist %}
@@ -109,7 +109,7 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
     )
 
     func main() {
-    	caCert, err := ioutil.ReadFile("/home/<home directory>/.redis/YandexInternalRootCA.crt")
+    	caCert, err := ioutil.ReadFile("/home/<home directory>/.redis/{{ crt-local-file }}")
     	if err != nil {
     		panic(err)
     	}
@@ -359,7 +359,7 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
             redisOptions: {
                 password: "<password>",
                 tls: {
-                    ca: [fs.readFileSync("/home/<home directory>/.redis/YandexInternalRootCA.crt")],
+                    ca: [fs.readFileSync("/home/<home directory>/.redis/{{ crt-local-file }}")],
                     checkServerIdentity: () => {
                         return null;
                     }
@@ -427,9 +427,9 @@ If the `GET` request returns `nil`, it means that the entry for the `foo` key ha
     Predis\Autoloader::register();
 
     $hosts = [
-        'tls://<FQDN of master host in shard 1>:{{ port-mrd-tls }}?ssl[cafile]=/home/<home directory>/.redis/YandexInternalRootCA.crt',
+        'tls://<FQDN of master host in shard 1>:{{ port-mrd-tls }}?ssl[cafile]=/home/<home directory>/.redis/{{ crt-local-file }}',
         ...
-        'tls://<FQDN of master host in shard N>:{{ port-mrd-tls }}?ssl[cafile]=/home/<home directory>/.redis/YandexInternalRootCA.crt',
+        'tls://<FQDN of master host in shard N>:{{ port-mrd-tls }}?ssl[cafile]=/home/<home directory>/.redis/{{ crt-local-file }}',
     ];
 
     $options = [
@@ -511,7 +511,7 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
         skip_full_coverage_check=True,
         password="<password>",
         ssl=True,
-        ssl_ca_certs="/home/<home directory>/.redis/YandexInternalRootCA.crt",
+        ssl_ca_certs="/home/<home directory>/.redis/{{ crt-local-file }}",
     )
 
     rc.set("foo", "bar")
@@ -575,7 +575,7 @@ sudo apt update && sudo apt install -y python3 python3-pip python3-venv && \
       password: '<password>',
       ssl: true,
       ssl_params: {
-        ca_file: '/home/<home directory>/.redis/YandexInternalRootCA.crt',
+        ca_file: '/home/<home directory>/.redis/{{ crt-local-file }}',
         verify_hostname: false
       }
     )

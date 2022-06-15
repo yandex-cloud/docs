@@ -3,8 +3,8 @@ name: group-for-load # The instance group name that must be unique within the fo
 service_account_id: ajeab0cnib1pdefe21dm # Service account ID.
 allocation_policy: # VM allocation policy in the group.
    zones:
-     - zone_id: ru-central1-a
-     - zone_id: ru-central1-b
+     - zone_id: {{ region-id }}-a
+     - zone_id: {{ region-id }}-b
 instance_template:
   service_account_id: ajeab0cnib1pdefe21dm # ID of the service account to access private Docker images.
   platform_id: standard-v1 # Platform ID.

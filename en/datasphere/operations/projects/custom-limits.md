@@ -10,25 +10,25 @@
 
 - API
 
-  Project balance management is carried out using the [GetUniteBalance](../../api-ref/grpc/project_service#GetUnitBalance) and [SetUniteBalance](../../api-ref/grpc/project_service#SetUnitBalance) API methods.
+   Project balance management is carried out using the [GetUniteBalance](../../api-ref/grpc/project_service#GetUnitBalance) and [SetUniteBalance](../../api-ref/grpc/project_service#SetUnitBalance) API methods.
 
-  Getting a project's balance:
+   Getting a project's balance:
 
-  ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
-          -d '{"project_id": "<project_id>"}' \
-          {{ ds-api-addr }} \
-          yandex.cloud.datasphere.v1.ProjectService/GetUnitBalance
-  ```
+   ```bash
+   grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+           -d '{"project_id": "<project_id>"}' \
+           {{ ds-api-addr }} \
+           yandex.cloud.datasphere.v1.ProjectService/GetUnitBalance
+   ```
 
-  Setting a project's balance:
+   Setting a project's balance:
 
-  ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
-          -d '{"project_id": "<project_id>", "unit_balance": 60}' \
-          {{ ds-api-addr }} \
-          yandex.cloud.datasphere.v1.ProjectService/SetUnitBalance
-  ```
+   ```bash
+   grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+           -d '{"project_id": "<project_id>", "unit_balance": 60}' \
+           {{ ds-api-addr }} \
+           yandex.cloud.datasphere.v1.ProjectService/SetUnitBalance
+   ```
 
 {% endlist %}
 
@@ -38,25 +38,25 @@
 
 - API
 
-  To set up project limits, use the field [Limits](../../api-ref/grpc/project_service#Limits) in the API methods of the ProjectService group.
+   To set limits for a project, use the [Limits](../../api-ref/grpc/project_service#Limits) field of the ProjectService group API methods.
 
-  Setting a limit on the size of computations per hour:
+   Setting a limit on the size of computations per hour:
 
-  ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
-          -d '{"project_id": "<project_id>", "limits": {"max_units_per_hour": 210}}' \
-          {{ ds-api-addr }} \
-          yandex.cloud.datasphere.v1.ProjectService/Update 
-  ```
+   ```bash
+   grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+           -d '{"project_id": "<project_id>", "limits": {"max_units_per_hour": 210}}' \
+           {{ ds-api-addr }} \
+           yandex.cloud.datasphere.v1.ProjectService/Update
+   ```
 
-  Removing the set limits:
+   Removing the set limits:
 
-  ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
-          -d '{"project_id": "<project_id>", "limits": {}}' \
-          {{ ds-api-addr }} \
-          yandex.cloud.datasphere.v1.ProjectService/Update 
-  ```
+   ```bash
+   grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+           -d '{"project_id": "<project_id>", "limits": {}}' \
+           {{ ds-api-addr }} \
+           yandex.cloud.datasphere.v1.ProjectService/Update
+   ```
 
 {% endlist %}
 

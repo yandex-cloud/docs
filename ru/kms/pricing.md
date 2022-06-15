@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ kms-full-name }}
 
+
+
 Расчет стоимости использования {{ kms-name }} складывается из:
 * Количества активных версий ключа — версий в статусе `Active` и `Scheduled For Destruction`.
 
@@ -19,5 +21,3 @@ editable: false
 
 
 {% include [rub.md](../_pricing/kms/rub.md) %}
-
-

@@ -45,7 +45,7 @@ After creating a subnet, you can change its name, description, and tags.
       labels:
         new_label: test_label
       network_id: enplom7a98s1t0lhass8
-      zone_id: ru-central1-b
+      zone_id: {{ region-id }}-a
       v4_cidr_blocks:
       - 192.168.0.0/24
       ```
@@ -74,7 +74,7 @@ After creating a subnet, you can change its name, description, and tags.
   labels:
     new_label: test_label
   network_id: enplom7a98s1t0lhass8
-  zone_id: ru-central1-b
+  zone_id: {{ region-id }}-a
   v4_cidr_blocks:
   - 192.168.0.0/24
   ```

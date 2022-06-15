@@ -9,7 +9,7 @@ You can create a VM with disks restored from the snapshots that exist in the fol
    To create a VM:
    1. In the [management console]({{ link-console-main }}), select the folder to create the virtual machine in.
    1. In the list of services, select **{{ compute-name }}**.
-   1. Click **Create VM**.
+   1. Click **Create VM**.
    1. Under **Basic parameters**:
       * Enter a name and description for the VM. Naming requirements:
 
@@ -21,7 +21,7 @@ You can create a VM with disks restored from the snapshots that exist in the fol
 
    1. Under **Image/boot disk selection**, select one of the [images](../../operations/images-with-pre-installed-software/get-list.md).
 
-   1. Under **Disks and file storage**, [add a disk](./create-from-disks.md):
+   1. Under **Disksand file storage**, [add a disk](./create-from-disks.md):
       * Click **Add disk**.
       * Enter the disk name.
       * Select the [disk type](../../concepts/disk.md#disks_types).
@@ -32,7 +32,7 @@ You can create a VM with disks restored from the snapshots that exist in the fol
       * Select the snapshot from the list.
       * Click **Add**.
 
-   1. (optional) Under **Disks and file storage**, click the **File storage tab** and connect a [file store](../../concepts/filesystem.md):
+      1. (optional) Under **Disks and file storage**, click the **File storage tab** and connect a [file store](../../concepts/filesystem.md):
       * Click **Connect file storage**.
       * In the resulting window, select a file store.
       * Enter a device name.
@@ -56,7 +56,7 @@ You can create a VM with disks restored from the snapshots that exist in the fol
          * **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
          * **No address**: Don't assign a public IP address.
       * In the **Internal address** field, select the method for assigning internal addresses: **Auto** or **Manual**.
-      * (optional) Create a record for the VM in the [DNS zone](../../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section, click **Add record** and specify the zone, FQDN and TTL for the record. For more detail, please see [Cloud DNS integration with Compute Cloud](../../../dns/concepts/compute-integration.md).
+      * (optional) Create a record for the VM in the [DNS zone](../../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section, click **Add record** and specify the zone, FQDN and TTL for the record. For more information, see [Cloud DNS integration with Compute Cloud](../../../dns/concepts/compute-integration.md).
       * Select [appropriate security groups](../../../vpc/concepts/security-groups.md) (if there is no corresponding field, the virtual machine will be enabled for all incoming and outgoing traffic).
 
    1. Under **Access**, specify the data required to access the VM:
@@ -72,7 +72,7 @@ You can create a VM with disks restored from the snapshots that exist in the fol
       * In the **SSH key** field, paste the contents of the [public key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file.
       * If required, grant access to the [serial console](../../operations/serial-console/index.md).
 
-   1. Click **Create VM**.
+   1. Click **Create VM**.
 
    The virtual machine appears in the list. When a VM is created, it is assigned an [IP address](../../../vpc/concepts/address.md) and [hostname](../../../vpc/concepts/address.md#fqdn) (FQDN).
 
@@ -99,14 +99,14 @@ You can create a VM with disks restored from the snapshots that exist in the fol
       ```
       $ yc compute instance create \
           --name first-instance \
-          --zone ru-central1-a \
+          --zone {{ region-id }}-a \
           --public-ip \
           --create-boot-disk snapshot-name=first-snapshot \
           --create-disk snapshot-name=second-snapshot \
           --ssh-key ~/.ssh/id_rsa.pub
       ```
 
-      This command creates a VM named `first-instance` in the `ru-central1-a` availability zone, with a public IP and the disks from the snapshots. To create a VM without a public IP, remove the `--public-ip` flag.
+      This command creates a VM named `first-instance` in the `{{ region-id }}-a` availability zone, with a public IP and the disks from the snapshots. To create a VM without a public IP, remove the `--public-ip` flag.
 
       {% include [name-format](../../../_includes/name-format.md) %}
 

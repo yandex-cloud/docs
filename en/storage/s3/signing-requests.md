@@ -27,7 +27,7 @@ Generate a signing key
 2. Encode the region using the `DateKey` obtained in the previous step:
 
     ```
-    RegionKey = sign(DateKey, "ru-central1")
+    RegionKey = sign(DateKey, "{{ region-id }}")
     ```
 
 3. Encode the service using the `RegionKey` obtained in the previous step:

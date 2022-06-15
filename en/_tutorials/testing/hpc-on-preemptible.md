@@ -23,6 +23,7 @@ To create a cluster and run a computational task:
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
 The cost for hosting servers includes:

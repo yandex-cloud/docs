@@ -5,7 +5,7 @@ description: "Step-by-step instructions for working with encryption keys in Yand
 
 # Step-by-step instructions for {{ kms-name }}
 
-## Keys {#key}
+## Key {#key}
 
 - [{#T}](key.md#create)
 - [{#T}](key.md#rotate)
@@ -20,4 +20,3 @@ description: "Step-by-step instructions for working with encryption keys in Yand
 ## Data encryption {#encrypt}
 
 - [{#T}](encryption.md).
-

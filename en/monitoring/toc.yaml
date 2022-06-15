@@ -35,7 +35,7 @@ items:
             href: operations/dashboard/add-widget.md
           - name: Deleting widgets from a dashboard
             href: operations/dashboard/delete-widget.md
-          - name: Deleting dashboards
+          - name: Delete dashboards
             href: operations/dashboard/delete-dashboard.md
       - name: Working with alerts
         items:

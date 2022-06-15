@@ -36,7 +36,7 @@ An example an SSL-encrypted connection to a master host for a cluster with `c9qa
 redis-cli -h c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
   -p 6380 \
   --tls \
-  --cacert ~/.redis/YandexInternalRootCA.crt \
+  --cacert ~/.redis/{{ crt-local-file }} \
   -a <{{ RD }} password>
 ```
 

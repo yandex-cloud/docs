@@ -2,6 +2,7 @@
 
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}
 
+
 #### Can I save logs myself? {#auto-logging}
 
 For log collection and storage, use [Fluent Bit](../tutorials/fluent-bit-logging.md).

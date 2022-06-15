@@ -1,1 +1,1 @@
-{%  include [Compliance](../_includes/security/conform.md) %}
+{% include [conform](../_includes/security/conform.md) %}

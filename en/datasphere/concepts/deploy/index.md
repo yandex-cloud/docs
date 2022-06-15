@@ -8,11 +8,11 @@ For load balancing, instances are combined into _nodes_: isolated groups of virt
 
 ## Nodes from cells with Python code {#python-nodes}
 
-To create a node from a cell with Python code, [save a checkpoint](../../operations/projects/checkpoints.md#pin) with the desired interpreter state. The API will be generated automatically based on the variables you selected when creating the node.
+To create a node from a cell with Python code, [save a checkpoint](../../operations/projects/checkpoints.md#pin) with the proper interpreter state. The API will be generated automatically based on the variables you selected when creating the node.
 
 API requests can change the state of the node's interpreter. You can't revert to the original state without recreating the node.
 
-Read more about creating a node from a cell with Python code in [{#T}](../../operations/node-cell.md).
+Read more about creating a node from a Python code cell in [{#T}](../../operations/node-cell.md).
 
 By default, instances use standard system Docker images and don't copy user-installed libraries. If your microservice requires packages that are not included in the [pre-installed software](../preinstalled-packages.md), configure the Docker image for [deployment of the node environment](../../operations/node-customization.md).
 
@@ -34,4 +34,3 @@ A {{ ml-platform-name }} node can have one of the following statuses:
 * `UNHEALTHY`: The number of VMs with the `HEALTHY` status in the node is below the allowable minimum.
 * `CREATED`: The node has just been created.
 * `DELETING`: The node is being deleted.
-

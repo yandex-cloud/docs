@@ -49,12 +49,13 @@ You cannot upload objects greater than 5 GB in size via the management console (
 
    1. In the configuration file, describe the parameters of resources that you want to create:
 
-      ```
+      
+      ```hcl
       provider "yandex" {
         token     = "<OAuth>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
-        zone      = "ru-central1-a"
+        zone      = "{{ region-id }}-a"
       }
 
       resource "yandex_storage_object" "test-object" {
@@ -65,6 +66,7 @@ You cannot upload objects greater than 5 GB in size via the management console (
         source = "<file path>" # Relative or absolute path to a file uploaded as an object.
       }
       ```
+
 
       For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
 

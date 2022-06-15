@@ -181,7 +181,7 @@ description: "В этом сценарии вы узнаете, как с пом
       * `SLACK_BOT_TOKEN`;
       * `SLACK_SIGNING_SECRET`.
    1. Добавьте переменные для работы с {{ ydb-name }}:
-      * `DATABASE` — значение поля **База данных** из раздела **Обзор** в свойствах базы данных `for-slack-bot`. Например: `/ru-central1/a1bcd23mbaomkfvsleds/etn456khb7jn1ddedfht`
+      * `DATABASE` — значение поля **База данных** из раздела **Обзор** в свойствах базы данных `for-slack-bot`. Например: `/{{ region-id }}/a1bcd23mbaomkfvsleds/etn456khb7jn1ddedfht`
       * `ENDPOINT` — значение поля **Эндпоинт** из раздела **Обзор** в свойствах базы данных `for-slack-bot`. Например: `grpcs://ydb.serverless.yandexcloud.net:1234`
       * `USE_METADATA_CREDENTIALS` = 1. 
 

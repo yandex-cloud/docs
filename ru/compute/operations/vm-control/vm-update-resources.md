@@ -139,7 +139,7 @@
 
       ```
       $ yc compute instance update first-instance \
-          --platform=gpu-standard-v1 \
+          --platform=gpu-standard-v3 \
           --cores=8 \
           --memory=96 \
           --gpus=1

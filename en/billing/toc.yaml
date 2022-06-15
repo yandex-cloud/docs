@@ -10,6 +10,8 @@ items:
         href: operations/index.md
       - name: Activate the paid version
         href: operations/activate-commercial.md
+      - name: Purchase a committed volume of services (CVoS)
+        href: operations/purchase-cvos.md
       - name: Activate a promo code
         href: operations/activate-promocode.md
       - name: View usage details
@@ -38,9 +40,9 @@ items:
         href: operations/get-folder-report.md
       - name: View details in {{ datalens-full-name }}
         href: operations/dashboard.md
-      - name: Enabling notifications
+      - name: Enable notifications
         href: operations/budgets.md
-      - name: Enabling electronic document management
+      - name: Enable electronic document management
         href: operations/edo.md
       - name: Download reporting documents
         href: operations/download-reporting-docs.md
@@ -74,7 +76,7 @@ items:
         href: concepts/contract.md
       - name: Glossary
         href: concepts/glossary.md
-  - name: Resource payments
+  - name: Paying for resources
     items:
       - name: General information
         href: payment/index.md
@@ -86,7 +88,7 @@ items:
             href: payment/payment-methods-individual.md
           - name: For businesses and individual entrepreneurs
             items:
-              - name: Bank transfers
+              - name: Bank account transfers
                 href: payment/payment-methods-business.md
               - name: Bank card transfer
                 href: payment/payment-methods-card-business.md
@@ -128,7 +130,7 @@ items:
         href: qa/trial-commercial.md
       - name: Questions about working with non-residents of Russia or Kazakhstan
         href: qa/non-resident.md
-      - name: All questions on the same page
+      - name: All questions on one page
         href: qa/all.md
   - name: API reference
     items:

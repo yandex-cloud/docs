@@ -6,7 +6,7 @@ description: 'Different scenarios for using Yandex Key Management Service in the
 # Yandex Key Management Service tutorials
 
 * [Data encryption](encrypt/index.md)
-* [{#T}](kubernetes.md)
+* [{#T}](k8s.md)
 * [{#T}](terraform-key.md)
 * [{#T}](terraform-secret.md)
-* [{#T}](vault-secret.md)
+   * [{#T}](vault-secret.md)

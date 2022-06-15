@@ -23,13 +23,7 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед тем, как настраивать хранение журналов, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
-
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет развернута ваша инфрастуктура, на [странице облака](https://console.cloud.yandex.ru/cloud).
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -133,7 +127,7 @@
       aws_sec_key <secret>
 
       # kinesis stream name
-      stream_name /ru-central1/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream
+      stream_name /{{ region-id }}/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream
 
       # region
       region ru-central-1
@@ -162,8 +156,8 @@ curl -X POST -d 'json={"user_id":"user1", "score": 100}' http://localhost:8888/k
 ```text
 ...
 2022-04-20 19:36:37.770311035 +0000 kinesis: {"user_id":"user1","score":100}
-2022-04-20 19:36:42 +0000 [debug]: #0 /ru-central1/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream: Write chunk 5dd1b1ca1bd788e49185aa681e8132b9 /   1 records /    0 KB
-2022-04-20 19:36:42 +0000 [debug]: #0 /ru-central1/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream: Finish writing chunk
+2022-04-20 19:36:42 +0000 [debug]: #0 /{{ region-id }}/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream: Write chunk 5dd1b1ca1bd788e49185aa681e8132b9 /   1 records /    0 KB
+2022-04-20 19:36:42 +0000 [debug]: #0 /{{ region-id }}/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream: Finish writing chunk
 ...
 ```
 

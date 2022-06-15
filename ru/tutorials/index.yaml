@@ -13,7 +13,7 @@ links:
     description: Открывайте интернет-магазины на различных платформах
     href: internet-store/
   - title: Архив данных
-    description: Настройте резервное копирование данных в Yandex Cloud
+    description: Настройте резервное копирование данных
     href: archive/
   - title: Тестовая среда
     description: Тестируйте приложения на виртуальных машинах

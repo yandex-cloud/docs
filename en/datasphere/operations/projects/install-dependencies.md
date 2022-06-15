@@ -20,4 +20,3 @@ If not, open the project:
 
 * [{#T}](control-compute-resources.md)
 * [{#T}](clear-kernel-state.md)
-

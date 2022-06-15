@@ -2,14 +2,14 @@
 
 You can create or edit an instance group based on the specification in the [YAML](https://en.wikipedia.org/wiki/YAML) format. The specification describes:
 
-* The basic attributes and settings of the group: name, description, [labels](../../../overview/concepts/services.md#labels), [service account](../../../iam/concepts/users/service-accounts.md), and delete protection.
-* [The VM instance template](instance-template.md) and [variables](variables-in-the-template.md) used in it.
+* The basic attributes and settings of the group: name, description, [labels](../../../overview/concepts/services.md#labels), [service account](../../../iam/concepts/users/service-accounts.md), and deletion protection.
+* The [VM instance template](instance-template.md) and [variables](variables-in-the-template.md) used in it.
 * Policies for [allocation](policies/allocation-policy.md), [deployment](policies/deploy-policy.md), and [scaling](policies/scale-policy.md).
 * Settings for balancing the traffic between VM instances using [{{ network-load-balancer-full-name }}](../../../network-load-balancer/index.yaml) or [{{ alb-full-name }}](../../../application-load-balancer/index.yaml).
 
 ## Example {#example}
 
-You can use the specification below to create an automatically scalable VM group, as in the [message processing scenario from the {{ message-queue-full-name }} queue](../../tutorials/autoscale-monitoring.md):
+You can use the specification below to create an automatically scalable VM group, as in the message [processing scenario from the {{ message-queue-full-name }} queue](../../tutorials/autoscale-monitoring.md):
 
 ```yaml
 folder_id: b1gken0eihqn2oa0fm2k
@@ -57,7 +57,7 @@ deploy_policy:
   strategy: OPPORTUNISTIC
 allocation_policy:
   zones:
-  - zone_id: ru-central1-b
+  - zone_id: {{ region-id }}-b
 service_account_id: ajefnb8427bhl9t0pvf8
 ```
 
@@ -65,16 +65,16 @@ service_account_id: ajefnb8427bhl9t0pvf8
 
 The list, structure, and  descriptions of specification fields are provided:
 
-* In the specification of the [CreateInstanceGroupRequest](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group_service.proto#L219) structure and [other structures used in it](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group.proto), in the API repository on GitHub ([Protobuf](https://en.wikipedia.org/wiki/Protocol_Buffers) format).
-* In the description of the method [create](../../api-ref/InstanceGroup/create) of the `InstanceGroup` resource in the REST API ([JSON](https://en.wikipedia.org/wiki/JSON) format).
-* In the description of the call [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) in the gRPC API.
+* In the specification of the [CreateInstanceGroupRequest](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group_service.proto#L219) structure and other [structures used in it](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group.proto), in the API repository on GitHub ([Protobuf](https://en.wikipedia.org/wiki/Protocol_Buffers) format).
+* In the description of the method [Create](../../api-ref/InstanceGroup/create) of the `InstanceGroup` resource in the REST API ([JSON](https://en.wikipedia.org/wiki/JSON) format).
+* In the description of the call [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API.
 
 API references are generated from specifications published on GitHub.
 
 Some first-level fields and their nested fields are also described  in the following documentation sections:
 
 * [{#T}](instance-template.md) (the `instance_template` field).
-* [{#T}](variables-in-the-template.md) (the`instance_template` and `variables` fields).
+* [{#T}](variables-in-the-template.md) (the `instance_template` and `variables` fields).
 * [{#T}](policies/allocation-policy.md) (the `allocation_policy` field).
 * [{#T}](policies/deploy-policy.md) (the `deploy_policy` field).
 * [{#T}](policies/scale-policy.md) (the `scale_policy` field).
@@ -87,110 +87,111 @@ You can create a YAML specification from a JSON or Protobuf specification using 
 
 * The objects (JSON), `message` structures, and such fields as `map` (Protobuf) are converted to YAML dictionary objects (key-value pairs). The object keys and field names are converted from `lowerCamelCase` and `CamelCase` to `snake_case`.
 
-  {% list tabs %}
+   {% list tabs %}
 
-  - JSON
+   - JSON
 
-    ```json
-    "targetGroupSpec": {
-      "name": "spec-example-tg",
-      "description": "ALB target group for example instance group",
-      "labels": {
-        "foo": "bar",
-        "environment": "production"     
+      ```json
+      "targetGroupSpec": {
+        "name": "spec-example-tg",
+        "description": "ALB target group for example instance group",
+        "labels": {
+          "foo": "bar",
+          "environment": "production"     
+        }
       }
-    }
-    ```
+      ```
 
-  - Protobuf
+   - Protobuf
 
-    ```protobuf
-    message TargetGroupSpec {
-      string name = 1;
-      string description = 2;
-      map<string, string> labels = 3;
-    }
-    ```
+      ```protobuf
+      message TargetGroupSpec {
+        string name = 1;
+        string description = 2;
+        map<string, string> labels = 3;
+      }
+      ```
 
-  - YAML
+   - YAML
 
-    ```yaml
-    target_group_spec:
-      name: spec-example-tg
-      description: ALB target group for example instance group
-      labels:
-        foo: bar
-        environment: production
-    ```
+      ```yaml
+      target_group_spec:
+        name: spec-example-tg
+        description: ALB target group for example instance group
+        labels:
+          foo: bar
+          environment: production
+      ```
 
-  {% endlist %}
+   {% endlist %}
 
 * Arrays (JSON) and fields of the `repeated` type (Protobuf) are converted to YAML lists.
 
-  {% list tabs %}
+   {% list tabs %}
 
-  - JSON
+   - JSON
 
-    ```json
-    "allocationPolicy": {
-      "zones": [
+      ```json
+      "variables": [
         {
-          "zoneId": "ru-central1-a"
+          "key": "foo",
+          "value": "bar"
         },
         {
-          "zoneId": "ru-central-b"    
+          "key": "baz",
+          "value": "foobar"
         }
       ]
-    }
-    ```
+      ```
 
-  - Protobuf
+   - Protobuf
 
-    ```protobuf
-    message AllocationPolicy {
-      repeated Zone zones = 1;
-      message Zone {
-        string zone_id = 1;
+      ```protobuf
+      message Variable {
+        string key = 1;
+        string value = 2;
       }
-    }
-    ```
+      
+      repeated Variable variables = 1;
+      ```
 
-  - YAML
+   - YAML
 
-    ```yaml
-    allocation_policy:
-      zones:
-      - zone_id: ru-central1-a
-      - zone_id: ru-central1-b
-    ```
+      ```yaml
+      variables:
+        - key: foo
+          value: bar
+        - key: baz
+          value: foobar
+      ```
 
-  {% endlist %}
+   {% endlist %}
 
 * The `enum` (Protobuf) structures are converted to scalar YAML values, that is, strings corresponding to field names in Protobuf.
 
-  {% list tabs %}
+   {% list tabs %}
 
-  - Protobuf
+   - Protobuf
 
-    ```protobuf
-    message AttachedDiskSpec {
-      enum Mode {
-        MODE_UNSPECIFIED = 0;
-        READ_ONLY = 1;
-        READ_WRITE = 2;
+      ```protobuf
+      message AttachedDiskSpec {
+        enum Mode {
+          MODE_UNSPECIFIED = 0;
+          READ_ONLY = 1;
+          READ_WRITE = 2;
+        }
+        Mode mode = 1;
       }
-      Mode mode = 1;
-    }
-    ```
+      ```
 
-  - YAML
+   - YAML
 
-    ```yaml
-    attached_disk_spec:
-      mode: READ_WRITE
-    ```
+      ```yaml
+      attached_disk_spec:
+        mode: READ_WRITE
+      ```
 
-  {% endlist %}
+   {% endlist %}
 
 ## Value format {#values}
 
@@ -217,4 +218,3 @@ You can create an instance group based on a YAML specification using the command
 
 * [{#T}](../../operations/instance-groups/create-from-yaml.md)
 * [{#T}](../../operations/instance-groups/update-from-yaml.md)
-

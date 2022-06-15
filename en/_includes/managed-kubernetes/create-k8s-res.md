@@ -13,7 +13,7 @@ Create a {{ k8s }} cluster and specify the previously created service accounts i
     ```
     $ yc managed-kubernetes cluster create \
      --name k8s-demo --network-name yc-auto-network \
-     --zone ru-central1-a --subnet-name yc-auto-subnet-0 \
+     --zone {{ region-id }}-a --subnet-name yc-auto-subnet-0 \
      --public-ip \
      --service-account-id $RES_SA_ID \
      --node-service-account-id $NODE_SA_ID
@@ -26,7 +26,7 @@ Create a {{ k8s }} cluster and specify the previously created service accounts i
     ```
     > yc managed-kubernetes cluster create `
      --name k8s-demo --network-name yc-auto-network `
-     --zone ru-central1-a --subnet-name yc-auto-subnet-0 `
+     --zone {{ region-id }}-a --subnet-name yc-auto-subnet-0 `
      --public-ip `
      --service-account-id $RES_SA_ID `
      --node-service-account-id $NODE_SA_ID
@@ -60,7 +60,7 @@ Create a {{ k8s }} cluster and specify the previously created service accounts i
          --core-fraction 50 \
          --disk-type network-ssd \
          --fixed-size 2 \
-         --location subnet-name=yc-auto-subnet-0,zone=ru-central1-a \
+         --location subnet-name=yc-auto-subnet-0,zone={{ region-id }}-a \
          --async
         ```
 
@@ -77,9 +77,8 @@ Create a {{ k8s }} cluster and specify the previously created service accounts i
          --core-fraction 50 `
          --disk-type network-ssd `
          --fixed-size 2 `
-         --location subnet-name=yc-auto-subnet-0,zone=ru-central1-a `
+         --location subnet-name=yc-auto-subnet-0,zone={{ region-id }}-a `
          --async
         ```
 
     {% endlist %}
-

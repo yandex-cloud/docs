@@ -1,7 +1,7 @@
 title: Обзор платформы
 href: index.yaml
 items:
-  - name: Сервисы Yandex Cloud
+  - name: Сервисы {{ yandex-cloud }}
     href: concepts/services.md
   - name: Начало работы
     href: quickstart.md
@@ -27,7 +27,7 @@ items:
     items:
       - name: Обзор
         href: concepts/geo-scope.md
-      - name: Вывод из эксплуатации зоны ru-central1-c
+      - name: Вывод из эксплуатации зоны {{ region-id }}-c
         href: concepts/ru-central1-c-deprecation.md
   - name: Стадии готовности сервисов
     href: concepts/launch-stages.md

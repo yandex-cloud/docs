@@ -10,11 +10,11 @@ The time this operation is performed depends on a number of factors, such as DB 
 
 You cannot apply multiple transactions to a cluster at the same time. It is an architectural feature of the technologies utilized by {{ yandex-cloud }}.
 
-#### Can I change the number of DB connections available to a user? {#user-conn-number}
+#### Can I change the number of connections available to a user? {#user-conn-number}
 
 You can. To do this, [change the values of the relevant settings](../operations/cluster-users.md#update-settings):
-* [**Conn limit**](../concepts/settings-list.md#setting-conn-limit) is the maximum number of host connections per user. The default is 50. The minimum is 10.
-* [**Max connections**](../concepts/settings-list.md#setting-max-connections) is the maximum number of connections reserved for all users. The default is `200 × <number of vCPUs on each host>`. You have to keep in mind that this number includes 15 service connections: for instance, if a cluster has `"max_connections": 100`, you are only able to reserve at most 85 connections per cluster host for users.
+* [**Conn limit**](../concepts/settings-list.md#setting-conn-limit): The maximum number of host connections per user. The default is 50. The minimum is 10.
+* [**Max connections**](../concepts/settings-list.md#setting-max-connections): The maximum number of connections reserved for all users. The default is `200 × <number of vCPUs on each host>`. You have to keep in mind that this number includes 15 service connections: for instance, if a cluster has `"max_connections": 100`, you are only able to reserve at most 85 connections per cluster host for users.
 
 #### Can I change an existing host's class (standard, memory-optimized, burstable)? {#host-class}
 

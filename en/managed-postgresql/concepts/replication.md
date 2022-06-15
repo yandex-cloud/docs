@@ -13,7 +13,7 @@ The quorum is established anew when the cluster topology changes: after [adding]
 
 {% include [non-replicating-hosts](../../_includes/mdb/non-replicating-hosts.md) %}
 
-For more information about how replication works in {{ PG }}, see the [DBMS documentation](https://www.postgresql.org/docs/current/static/warm-standby.html).
+For more information about how replication works in {{ PG }}, read the [DBMS documentation](https://www.postgresql.org/docs/current/static/warm-standby.html).
 
 ## Managing replication {#replication}
 
@@ -27,8 +27,8 @@ Once a {{ PG }} cluster with multiple hosts is created, it contains one master h
 
 Specifics of automatic replication in {{ mpg-name }}:
 
-* If the master host fails, its replica becomes the new master.
-* When the master changes, the replication source for all replica hosts automatically switches to the new master host.
+- If the master host fails, its replica becomes the new master.
+- When the master changes, the replication source for all replica hosts automatically switches to the new master host.
 
 For more information about selecting the master host, see [{#T}](#selecting-the-master).
 
@@ -62,10 +62,10 @@ The lowest priority is `0` (default), the highest is `100`.
 
 ## Write sync and read consistency {#write-sync-and-read-consistency}
 
-By default, the master and replica are kept in sync by syncing the [Write-Ahead Log (WAL)](https://www.postgresql.org/docs/current/wal-intro.html) (the [parameter](settings-list.md#setting-synchronous-commit) `synchronous_commit = on`). There's a delay between WAL delivery and applying it to the quorum replica. During that delay, the quorum replica may have data that's out-of-sync with the master.
+Synchronization of data writes in {{ PG }} is ensured by syncing the [Write-Ahead Log (WAL)](https://www.postgresql.org/docs/current/wal-intro.html) (the `synchronous_commit` [parameter](settings-list.md#setting-synchronous-commit)). The default parameter value is `synchronous_commit = on`. It indicates that a transaction is committed only if the WAL is written to both the master disk and quorum replica disk.
 
-If you want to ensure ongoing consistency of data reads between the master and quorum replica, [specify the `synchronous_commit = remote_apply` parameter in the cluster settings](../operations/update.md#change-postgresql-config). With this parameter value, a data write is not considered successful until the quorum replica applies the changes from the delivered WAL. At this sync level, the read operation performed on the master and on the synchronous quorum returns the same result after confirming the transaction.
+If you want to ensure ongoing consistency of data reads between the master and quorum replica, specify `synchronous_commit = remote_apply` [in the cluster settings](../operations/update.md#change-postgresql-config). With this parameter value, a data write is not considered successful until the quorum replica applies the changes from the WAL. In this case, the read operation performed on the master and on the synchronous quorum returns the same result.
 
-The downside of this solution is that write operations to the cluster take more time: if the master and the quorum replica are located in different availability zones, the latency of transaction confirmation can't be less than the round-trip time (RTT) between data centers that are located in these availability zones. As a result, when writing to a single thread with `AUTOCOMMIT` mode enabled, the performance of this kind of cluster can significantly drop. To achieve maximum performance/, we recommended writing to multiple threads where possible, [disable AUTOCOMMIT](https://www.postgresql.org/docs/current/ecpg-sql-set-autocommit.html), and group requests into transactions.
+However, there is a disadvantage: write operations to the cluster will take longer. If the master and the quorum replica are located in different availability zones, the latency of transaction confirmation can't be less than the round-trip time (RTT) between data centers. As a result, when writing data to a single thread with `AUTOCOMMIT` mode enabled, the cluster performance will degrade.
 
 To enhance the performance, write data to multiple threads whenever possible, [disable `AUTOCOMMIT`](https://www.postgresql.org/docs/current/ecpg-sql-set-autocommit.html), and group queries within a transaction.

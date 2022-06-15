@@ -103,7 +103,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
       Example configuration file structure:
 
-
+      
       ```hcl
       terraform {
         required_providers {
@@ -130,9 +130,9 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
           options {
             slice = true
           }
-
       }
       ```
+
 
       For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 

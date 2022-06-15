@@ -129,6 +129,7 @@
 
      Пример структуры конфигурационного файла:
 
+     
      ```hcl
      terraform {
        required_providers {
@@ -187,6 +188,7 @@
        v4_cidr_blocks = ["<диапазон>"]
      }
      ```
+
 
      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -299,6 +301,7 @@
 
   Конфигурационный файл для такого кластера выглядит так:
 
+  
   ```hcl
   terraform {
     required_providers {
@@ -371,5 +374,6 @@
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```
+
 
 {% endlist %}

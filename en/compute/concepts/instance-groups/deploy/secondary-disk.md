@@ -83,4 +83,3 @@ When updating, the following actions are performed:
 1. The first disk of the current specification (20 GB) is mapped to the first disk of the updated specification (60 GB). As a result, the size of the disk is increased to 60 GB without re-creating it and the data on the disk is retained.
 1. The second disk of the current specification (50 GB) is not mapped to any disk of the new specification and is deleted.
 1. A secondary disk of the new specification (10 GB) is created and added.
-

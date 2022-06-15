@@ -30,8 +30,8 @@ If you no longer need the created resources, [delete them](#clear-out).
     These servers serve the corp.example.net zone.
 
 1. The {{ yandex-cloud }} cloud network also consists of two subnets:
-   * `172.16.3.0/24`: subnet3, in the `ru-central1-a` availability zone
-   * `172.16.4.0/24`: subnet4, in the `ru-central1-c` availability zone
+   * `172.16.3.0/24`: subnet3, in the `{{ region-id }}-a` availability zone
+   * `172.16.4.0/24`: subnet4, in the `{{ region-id }}-c` availability zone
 
     {{ yandex-cloud }} DNS servers are hosted in these subnets: `172.16.3.2` and `172.16.4.2`.
 

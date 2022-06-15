@@ -1,6 +1,6 @@
 ---
 title: "Резервное копирование Docker-образов"
-description: "Данные в Container Registry надежно хранятся и реплицируются в инфраструктуре Yandex Cloud, однако в любой момент вы можете сделать резервные копии Docker-образов. Чтобы выполнить резервное копирование Docker-образов, выполните инструкции описанные в данной статье."
+description: "Данные в {{ container-registry-name }} надежно хранятся и реплицируются в инфраструктуре {{ yandex-cloud }}, однако в любой момент вы можете сделать резервные копии Docker-образов. Чтобы выполнить резервное копирование Docker-образов, выполните инструкции описанные в данной статье."
 ---
 
 # Резервное копирование
@@ -82,14 +82,14 @@ description: "Данные в Container Registry надежно хранятся
 
    {% endlist %}
 
-1. Скачайте необходимые Docker-образы из каждого реестра, используя полный адрес — `cr.yandex/<имя>:<тег>`:
+1. Скачайте необходимые Docker-образы из каждого реестра, используя полный адрес — `{{ registry }}/<имя>:<тег>`:
 
    {% list tabs %}
 
    - CLI
 
      ```bash
-     docker pull cr.yandex/crp1abc2tl3def1h2gu6/ubuntu:hello
+     docker pull {{ registry }}/crp1abc2tl3def1h2gu6/ubuntu:hello
      ```
 
      Результат выполнения команды:
@@ -97,8 +97,8 @@ description: "Данные в Container Registry надежно хранятся
      ```bash
      hello: Pulling from crp1abc2tl3def1h2gu6/ubuntu
      Digest: sha256:1d2b339619babc2d008eca2d5293e3c43ff84cbee597ff76dd3e7f7de3e84956
-     Status: Downloaded newer image for cr.yandex/crp1abc2tl3def1h2gu6/ubuntu:hello
-     cr.yandex/crp1abc2tl3def1h2gu6/ubuntu:hello
+     Status: Downloaded newer image for {{ registry }}/crp1abc2tl3def1h2gu6/ubuntu:hello
+     {{ registry }}/crp1abc2tl3def1h2gu6/ubuntu:hello
      ```
 
    {% endlist %}
@@ -116,9 +116,9 @@ description: "Данные в Container Registry надежно хранятся
      Результат выполнения команды:
 
      ```bash
-     REPOSITORY                              TAG                 IMAGE ID            CREATED             SIZE
-     cr.yandex/crp1abc2tl3def1h2gu6/ubuntu   hello               d12eaa3277bc        3 days ago          72.9MB
-     ubuntu                                  latest              d12eaa3277bc        3 days ago          72.9MB
+     REPOSITORY                                   TAG     IMAGE ID      CREATED     SIZE
+     {{ registry }} /crp1abc2tl3def1h2gu6/ubuntu  hello   d12eaa3277bc  3 days ago  72.9MB
+     ubuntu                                       latest  d12eaa3277bc  3 days ago  72.9MB
      ```
 
    {% endlist %}

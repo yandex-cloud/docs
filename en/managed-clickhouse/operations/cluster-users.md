@@ -16,7 +16,7 @@ In a cluster with user management via SQL enabled:
 * The existing users as well as user settings made with the standard {{ yandex-cloud }} interfaces will be saved.
 * Users are managed under the `admin` account. You set its password when you select the **User management via SQL** option.
 
-For more information about managing users via SQL, see the [{{ CH }} documentation](https://clickhouse.tech/docs/ru/operations/access-rights).
+For more information about managing users using SQL, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/access-rights).
 
 ## Getting a list of users {#list-users}
 
@@ -37,7 +37,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    ```
    {{ yc-mdb-ch }} user list
-     --cluster-name=<cluster name>
+      --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -78,7 +78,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
       1. Configure [{{ CH }}](../concepts/settings-list.md#user-level-settings) in **Additional settings → Settings**.
    1. Click **Add**.
 
-   For details, see the [example of creating a user with read-only access](#example-create-readonly-user).
+   See the [example of creating a user with read-only access](#example-create-readonly-user).
 
 - CLI
 
@@ -89,11 +89,11 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
    To create a user in a cluster, run the command:
 
    ```
-   {{ yc-mdb-ch }} user create <username>
-      --cluster-name=<cluster name>
-      --password=<user password>
-      --permissions=<list of databases to grant the user access to>
-      --quota=<list if single-quota user settings>
+   {{ yc-mdb-ch }} user create <username> \
+      --cluster-name=<cluster name> \
+      --password=<user password> \
+      --permissions=<list of databases to grant the user access to> \
+      --quota=<list if single-quota user settings> \
       --settings=<list of {{ CH }} user settings>
    ```
 
@@ -104,16 +104,16 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
    To set multiple quotas, list them using the required number of `--quota` parameters in the command:
 
    ```
-   {{ yc-mdb-ch }} user create <username>
-     ...
-     --quota="<quota 0 settings>"
-     --quota="<quota 1 settings>"
-     ...
+   {{ yc-mdb-ch }} user create <username> \
+      ...
+      --quota="<quota 0 settings>" \
+      --quota="<quota 1 settings>" \
+      ...
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   For details, see the [example of creating a user with read-only access](#example-create-readonly-user).
+   See the [example of creating a user with read-only access](#example-create-readonly-user).
 
 - Terraform
 
@@ -152,12 +152,12 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
    1. Create a user:
 
       ```sql
-      CREATE USER <username> IDENTIFIED WITH sha256_password BY '<user's password';
+      CREATE USER <username> IDENTIFIED WITH sha256_password BY '<user's password>';
       ```
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
-   To learn more about creating users, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/create/user/).
+   To learn more about creating users, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/create/user/).
 
 {% endlist %}
 
@@ -183,8 +183,8 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
    To change the user's password, run the command:
 
    ```
-   {{ yc-mdb-ch }} user update <username>
-     --cluster-name=<cluster name>
+   {{ yc-mdb-ch }} user update <username>\
+     --cluster-name=<cluster name>\
      --password=<new password>
    ```
 
@@ -236,7 +236,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-   To learn more about changing users, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/alter/user/).
+   To learn more about changing users, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/user/).
 
 {% endlist %}
 
@@ -305,7 +305,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-    For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/ru/sql-reference/statements/alter/user/).
+   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/user/).
 
 - API
 
@@ -350,9 +350,9 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
    1. To set up the user's permissions to access certain databases, run the command, listing the database names in the `--permissions` parameter:
 
       ```
-      {{ yc-mdb-ch }} user update <username>
-         --cluster-name=<cluster name>
-        --permissions=<list of databases to grant a user access to>
+      {{ yc-mdb-ch }} user update <username> \
+         --cluster-name=<cluster name> \
+         --permissions=<list of databases to grant a user access to>
       ```
 
       The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -364,14 +364,14 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
    1. To change the user's [quota settings](../concepts/settings-list.md#quota-settings), run the command with a list of all quotas, using `--quota` parameters (one parameter per quota):
 
       ```
-      {{ yc-mdb-ch }} user update <username>
-        --cluster-name=<cluster name>
-        --quota=<quota 0 settings (no change)>
-         --quota=<quota 1 settings (no change)>
-        --quota=<quota 2 settings (changes)>
-         --quota=<quota 3 settings (no change)>
-        --quota=<quota 4 settings (changes)>
-        --quota=<quota 5 settings (new quota)>       
+      {{ yc-mdb-ch }} user update <username> \
+         --cluster-name=<cluster name> \
+         --quota=<quota 0 settings (no change)> \
+         --quota=<quota 1 settings (no change)> \
+         --quota=<quota 2 settings (changes)> \
+         --quota=<quota 3 settings (no change)> \
+         --quota=<quota 4 settings (changes)> \
+         --quota=<quota 5 settings (new quota)>
         ...
       ```
 
@@ -387,9 +387,9 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
    1. To edit a user's [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), run the command below listing the changed setting using the `--settings` option:
 
       ```
-      {{ yc-mdb-ch }} user update <username>
-        --cluster-name=<cluster name>
-         --settings=<list of settings {{ CH }}>
+      {{ yc-mdb-ch }} user update <username> \
+         --cluster-name=<cluster name> \
+         --settings=<list of {{ CH }} settings>
       ```
 
       The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -473,19 +473,19 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 - SQL
 
    1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
-   1. To change a set of user privileges and roles, use the [GRANT](https://clickhouse.tech/docs/ru/sql-reference/statements/grant/) and [REVOKE](https://clickhouse.tech/docs/ru/sql-reference/statements/revoke/) queries. For example, grant the user read rights to all objects in a specific database:
+   1. To change a set of user privileges and roles, use the [GRANT](https://{{ ch-domain }}/docs/en/sql-reference/statements/grant/) and [REVOKE](https://{{ ch-domain }}/docs/en/sql-reference/statements/revoke/) statements. For example, grant the user read rights to all objects in a specific database:
 
       ```sql
       GRANT SELECT ON <database name>.* TO <username>;
       ```
 
-   1. To edit a user's [quota settings](../concepts/settings-list.md#quota-settings), use the [CREATE QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/alter/quota/#alter-quota-statement), and [DROP QUOTA](https://clickhouse.tech/docs/en/sql-reference/statements/drop/#drop-quota-statement) queries. For example, limit the total number of user requests for a 15-month period:
+   1. To change [quota settings](../concepts/settings-list.md#quota-settings) for the user, use the [CREATE QUOTA](https://{{ ch-domain }}/docs/en/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA](https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/quota/#alter-quota-statement), and [DROP QUOTA](https://{{ ch-domain }}/docs/en/sql-reference/statements/drop/#drop-quota-statement) statements. For example, limit the total number of user requests for a 15-month period:
 
       ```sql
       CREATE QUOTA <quota name> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <username>;
       ```
 
-   1. To change the user account, use the [ALTER USER](https://clickhouse.tech/docs/ru/sql-reference/statements/alter/user/) query. To edit the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), for instance, run the command below listing the settings to modify:
+   1. To change the user account, use the [ALTER USER](https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/user/) statement. To edit the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), for instance, run the command below listing the settings to modify:
 
       ```sql
       ALTER USER <username> SETTINGS <list of {{ CH }} settings>;
@@ -512,8 +512,8 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
    To remove a user, run:
 
    ```
-   {{ yc-mdb-ch }} user delete <username>
-     --cluster-name=<cluster name>
+   {{ yc-mdb-ch }} user delete <username>\
+      --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -545,7 +545,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
       DROP USER <username>;
       ```
 
-  To learn more about deleting objects, see the [documentation for{{ CH }}](https://{{ ch-domain }}/docs/en/sql-reference/statements/drop/).
+   To learn more about deleting objects, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/drop/).
 
 {% endlist %}
 
@@ -576,10 +576,10 @@ Let's say you need to add to the existing `mych` cluster a new user named `ro-us
 
    ```
    {{ yc-mdb-ch }} user create "ro-user" \
-     --cluster-name="mych" \
+      --cluster-name="mych" \
       --password="Passw0rd" \
-     --permissions="db1" \
-     --settings="readonly=1"
+      --permissions="db1" \
+      --settings="readonly=1"
    ```
 
    After creating the user, check that it is actually in read-only mode:

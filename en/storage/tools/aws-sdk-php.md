@@ -43,8 +43,8 @@ use Aws\S3\S3Client;
 
 $s3 = new S3Client([
     'version' => 'latest',
-    'endpoint' => 'https://storage.yandexcloud.net',
-    'region' => 'ru-central1',
+    'endpoint' => 'https://{{ s3-storage-host }}',
+    'region' => '{{ region-id }}',
 ]);
 $buckets = $s3->listBuckets();
 foreach ($buckets['Buckets'] as $bucket) {

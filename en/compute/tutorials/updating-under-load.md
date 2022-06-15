@@ -4,71 +4,72 @@ Using this step-by-step guide, you will configure an [instance group](../concept
 
 1. [Before you start](#before-you-begin).
 1. [Prepare the environment](#create-environment).
-1. [Create an instance group with {{ coi }}](#create-vm-group).
-1. [Create a load on the VM](#start-load-testing).
+1. [Create an instance group from a {{ coi }}](#create-vm-group).
+1. [Create a load on an instance](#start-load-testing).
 1. [Update the instance group under load](#update-spec).
 1. [Stop the load and get the results](#end-load-testing).
 
-If you no longer need the created resources, [delete them](#clear-out).
+If you no longer need these resources, [delete them](#clear-out).
 
 ## Before you start {#before-you-begin}
 
 {% include [before](../../_includes/compute/before-solution.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
 The cost of support for the {{ yandex-cloud }} instance group includes a fee for:
-* Disks and continuously running VMs: [{{compute-name}} pricing](../../compute/pricing.md).
+* Disks and continuously running VMs: [{{compute-full-name}} pricing](../../compute/pricing.md).
 * Using a dynamic or static external IP address: [{{vpc-full-name}} pricing](../../vpc/pricing.md).
 
 ## Prepare the environment {#create-environment}
 
-1. Create a [service account](../../iam/concepts/users/service-accounts.md) with the name `for-load` and assign it the `editor` role:
+1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `for-load` and assign it the `editor` role:
 
    {% list tabs %}
 
    - Management console
-     
-     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-     1. Go to the **Service accounts** tab.
-     1. Click **Create service account**.
-     1. Enter the name `for-load`.
-     1. To assign the service account a [role](../../iam/concepts/access-control/roles.md) for the current folder, click **Add role** and select the role `editor`.
-     1. Click **Create**.
+
+      1. In the [management console]({{ link-console-main }}), select a folder where you wish to create an service account.
+      1. Go to the **Service accounts** tab.
+      1. Click **Create service account**.
+      1. Enter the name `for-load`.
+      1. To assign the service account a [role](../../iam/concepts/access-control/roles.md) for the current folder, click **Add role** and select the role `editor`.
+      1. Click **Create**.
 
    - CLI
 
-     1. Create a service account:
+      1. Create a service account:
 
-        {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+         {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-        ```bash
-        yc iam service-account create --name for-load
-        ```
+         ```bash
+         yc iam service-account create --name for-load
+         ```
 
-        Result:
+         Result:
 
-        ```bash
-        id: ajeab0cnib1pdefe21dm
-        folder_id: b0g12ga82bcv0cdeferg
-        created_at: "2021-02-09T17:31:32.561702Z"
-        name: for-load
-        ```
+         ```bash
+         id: ajeab0cnib1pdefe21dm
+         folder_id: b0g12ga82bcv0cdeferg
+         created_at: "2021-02-09T17:31:32.561702Z"
+         name: for-load
+         ```
 
-     1. Assign the role to the service account:
+      1. Assign the role to the service account:
 
-        ```bash
-        yc resource-manager folder add-access-binding b0g12ga82bcv0cdeferg \
-          --role editor \
-          --subject serviceAccount:ajeab0cnib1pdefe21dm
-        ```
+         ```bash
+         yc resource-manager folder add-access-binding b0g12ga82bcv0cdeferg \
+           --role editor \
+           --subject serviceAccount:ajeab0cnib1pdefe21dm
+         ```
 
    - API
 
-     Use the methods:
+      Use the methods:
 
-     1. [create](../../iam/api-ref/ServiceAccount/create.md) for the `ServiceAccount` resource to create a `for-load` service account.
-     1. [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) for the `Folder` resource in order to assign the `editor` role to the service account in the current folder.
+      1. [Create](../../iam/api-ref/ServiceAccount/create.md) for the `ServiceAccount` resource to create a `for-load` service account.
+      1. [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) for the `Folder` resource in order to assign the `editor` role to the service account in the current folder.
 
    {% endlist %}
 
@@ -77,72 +78,72 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
    {% list tabs %}
 
    - Management console
-     
-     1. In the [management console]({{ link-console-main }}), select the folder where you want to create an instance group.
-     1. Select **{{ vpc-name }}**.
-     1. Click **Create network**.
-     1. Enter the network name `yc-auto-network`.
-     1. Select the additional option **Create subnets**.
-     1. Click **Create network**.
+
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create an instance group.
+      1. Select **{{ vpc-name }}**.
+      1. Click **Create network**.
+      1. Enter the network name `yc-auto-network`.
+      1. Select the additional option **Create subnets**.
+      1. Click **Create network**.
 
    - CLI
 
-     1. Create a network:
+      1. Create a network:
 
-        ```bash
-        yc vpc network create --name yc-auto-network
-        ```
+         ```bash
+         yc vpc network create --name yc-auto-network
+         ```
 
-        Result:
+         Result:
 
-        ```bash
-        id: enpabce123hde4ft1r3t
-        folder_id: b0g12ga82bcv0cdeferg
-        created_at: "2021-02-09T17:33:32.561702Z"
-        name: yc-auto-network
-        ```
+         ```bash
+         id: enpabce123hde4ft1r3t
+         folder_id: b0g12ga82bcv0cdeferg
+         created_at: "2021-02-09T17:33:32.561702Z"
+         name: yc-auto-network
+         ```
 
-     1. Create a subnet in the `ru-central1-a` zone:
+      1. Create a subnet in the `{{ region-id }}-a` zone:
 
-        ```bash
-        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone ru-central1-a
-        ```
+         ```bash
+         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-a
+         ```
 
-        Result:
+         Result:
 
-        ```bash
-        id: e1lnabc23r1c9d0efoje
-        folder_id: b0g12ga82bcv0cdeferg
-        created_at: "2021-02-09T17:34:32.561702Z"
-        network_id: enpabce123hde4ft1r3t
-        zone_id: ru-central1-a
-        v4_cidr_blocks:
-        - 192.168.1.0/24
-        ```
+         ```bash
+         id: e1lnabc23r1c9d0efoje
+         folder_id: b0g12ga82bcv0cdeferg
+         created_at: "2021-02-09T17:34:32.561702Z"
+         network_id: enpabce123hde4ft1r3t
+         zone_id: {{ region-id }}-a
+         v4_cidr_blocks:
+         - 192.168.1.0/24
+         ```
 
-     1. Create a subnet in the `ru-central1-b` zone:
+      1. Create a subnet in the `{{ region-id }}-b` zone:
 
-        ```bash
-        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.2.0/24 --zone ru-central1-b
-        ```
+         ```bash
+         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.2.0/24 --zone {{ region-id }}-b
+         ```
 
-        Result:
+         Result:
 
-        ```bash
-        id: b1csa2b3clideftjb121
-        folder_id: b0g12ga82bcv0cdeferg
-        created_at: "2021-02-09T17:35:32.561702Z"
-        network_id: enpabce123hde4ft1r3t
-        zone_id: ru-central1-b
-        v4_cidr_blocks:
-        - 192.168.2.0/24
-        ```
+         ```bash
+         id: b1csa2b3clideftjb121
+         folder_id: b0g12ga82bcv0cdeferg
+         created_at: "2021-02-09T17:35:32.561702Z"
+         network_id: enpabce123hde4ft1r3t
+         zone_id: {{ region-id }}-b
+         v4_cidr_blocks:
+         - 192.168.2.0/24
+         ```
 
    - API
 
-     1. Create a network using the method [create](../../vpc/api-ref/Network/create.md) for the `Network` resource.
+      1. Create a network using the method [Create](../../vpc/api-ref/Network/create.md) for the `Network` resource.
 
-     1. Create subnets in the `ru-central1-b` and `ru-central1-c` availability zones using the method [create](../../vpc/api-ref/Subnet/create.md) for the `Subnet` resource.
+      1. Create subnets in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones using the [Create](../../vpc/api-ref/Subnet/create.md) method for the `Subnet` resource.
 
    {% endlist %}
 
@@ -153,74 +154,74 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
    {% list tabs %}
 
    - Management console
-     
-     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
-     1. Select **{{ compute-name }}**.
-     1. On the **Virtual machines** page, go to the **Instance groups** tab.
-     1. Click **Create group**.
-     1. Under **Basic parameters**:
-        * Enter the **Name** of the group `group-for-load`.
-        * Select the **Service account** `for-load`.
-     1. Under **Allocation**, select **Availability zones** `ru-central1-a` and `ru-central1-b`.
-     1. Under **Instance template**, click **Define**:
-        * Under **Image/boot disk selection**, select the **Container Solution** tab.
-        * Click **Configure**.
-        * In the **Docker container settings** window:
-          * Enter the **Name** `nginx`.
-          * In the **Docker image** field, click the **Enter link** button and enter `cr.yandex/yc/demo/autoscaling-example-app:v1`.
-          * Click **Apply**.
-        * In the **Disks** section:
-          * For the boot disk, specify the **Size** of 30 GB.
-        * Under **Network settings**:
-          * Select the **Network** `for-load`.
-        * Under **Access**:
-          * Select the **Service account** `for-load`.
-          * In the **Login** field, enter the name of the user to be created on the VM.
-          * In the **SSH key** field, paste the contents of the public key file.
-        * Click **Save**.
-     1. Under **Allow when creating and updating**:
-        * In the **Reduce below target value** field, enter `4`.
-     1. In the **Scalability** section:
-        * Select the **Type** `Fixed`.
-        * Enter **Size** `6`.
-     1. Under **Integration with Load Balancer**:
-        * Enable the option **Create target group**.
-        * Enter the **Target group name** `load-generator`.
-     1. Click **Create**.
+
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
+      1. Select **{{ compute-name }}**.
+      1. On the **Virtual machines** page, go to the **Instance groups** tab.
+      1. Click **Create group**.
+      1. Under **Basic parameters**:
+         * Enter the **Name** of the group `group-for-load`.
+         * Select the `for-load` **Service account**.
+      1. Under **Allocation**, select the `{{ region-id }}-a` and `{{ region-id }}-b` **Availability zones**.
+      1. Under **Instance template**, click **Define**:
+         * Under **Image/boot disk selection**, select the **Container Solution** tab.
+         * Click **Configure**.
+         * In the **Docker container settings** window:
+            * **Name** it `nginx`.
+            * In the **Docker image** field, click the **Enter link** button and enter `cr.yandex/yc/demo/autoscaling-example-app:v1`.
+            * Click **Apply**.
+         * In the **Disks** section:
+            * For the boot disk, specify the **Size** of 30 GB.
+         * Under **Network settings**:
+            * Select the `for-load` **Network**.
+         * Under **Access**:
+            * Select the `for-load` **Service account**.
+            * In the **Login** field, enter the name of the user to be created on the VM.
+            * In the **SSH key** field, paste the contents of the public key file.
+         * Click **Save**.
+      1. Under **Allow when creating and updating**:
+         * In the **Reduce below target value** field, enter `4`.
+      1. In the **Scalability** section:
+         * In the **Type** field, select `Fixed`.
+         * Set the **Size** to `6`.
+      1. Under **Integration with Load Balancer**:
+         * Enable the option **Create target group**.
+         * In the **Name of the target group** field, enter `load-generator`.
+      1. Click **Create**.
 
    - CLI
 
-     1. Find out the ID of the latest version of the [public](../../compute/operations/images-with-pre-installed-software/get-list.md) {{ coi }}.
+      1. Find out the ID of the latest version of the {{ coi }} [public image](../../compute/operations/images-with-pre-installed-software/get-list.md).
 
-        The {{ coi }} in the [{{ container-registry-full-name }}](../../container-registry/) can be updated and changed according to releases. In this case, the image on a VM isn't updated to the latest version automatically. To create an instance group with the latest {{ coi }} version, you need to check whether it's available yourself:
+         A {{ coi }} in a [{{ container-registry-name }}](../../container-registry/) registry can be updated and changed according to the new releases. In this case, the image on a VM isn't updated to the latest version automatically. To create an instance group with the latest {{ coi }} version, you need to check whether it's available yourself:
 
-        ```bash
-        yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
-        ```
+         ```bash
+         yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
+         ```
 
-        Result:
+         Result:
 
-        ```bash
-        id: fd8iv792kirahcnqnt0q
-        folder_id: standard-images
-        created_at: "2021-01-29T13:30:22Z"
-        ...
-        status: READY
-        os:
-          type: LINUX
-        ```
+         ```bash
+         id: fd8iv792kirahcnqnt0q
+         folder_id: standard-images
+         created_at: "2021-01-29T13:30:22Z"
+         ...
+         status: READY
+         os:
+           type: LINUX
+         ```
 
-     1. Save the specification of the instance group with the network load balancer to the file `specification.yaml`:
+      1. Save the specification of the instance group with the network load balancer to the file `specification.yaml`:
 
-        {% include [updating-under-load-yaml-spec-init](../../_includes/instance-groups/updating-under-load-yaml-spec-init.md) %}
+         {% include [updating-under-load-yaml-spec-init](../../_includes/instance-groups/updating-under-load-yaml-spec-init.md) %}
 
-        {% note info %}
+         {% note info %}
 
-        You can send an SSH key to the [VM metadata](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) using the `ssh-keys` parameter or in the `user-data` string with the user metadata. This tutorial uses the first option.
+         You can send an SSH key to the [VM metadata](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) using the `ssh-keys` parameter or in the `user-data` string with the user metadata. This tutorial uses the first option.
 
-        {% endnote %}
+         {% endnote %}
 
-     1. Create an instance group named `group-for-load` using the specification `specification.yaml`:
+      1. Create an instance group named `group-for-load` using the specification `specification.yaml`:
 
          ```bash
          yc compute instance-group create --file=specification.yaml
@@ -240,12 +241,12 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
    - API
 
-     Use the methods:
+      Use the methods:
 
-     1. [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) for the `Image` resource to get the ID of the latest version of `container-optimized-image` in the `standard-images` family.
-     1. [createFromYaml](../api-ref/InstanceGroup/createFromYaml.md) for the `InstanceGroup` resource to create an instance group to meet the following specification:
+      1. [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) for the `Image` resource to get the ID of the latest version of the `container-optimized-image` image in the `standard-images` family.
+      1. [createFromYaml](../api-ref/InstanceGroup/createFromYaml.md) for the `InstanceGroup` resource to create an instance group to meet the following specification:
 
-        {% include [updating-under-load-yaml-spec-init](../../_includes/instance-groups/updating-under-load-yaml-spec-init.md) %}
+         {% include [updating-under-load-yaml-spec-init](../../_includes/instance-groups/updating-under-load-yaml-spec-init.md) %}
 
    {% endlist %}
 
@@ -254,33 +255,33 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
    {% list tabs %}
 
    - Management console
-     
-     1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
-     1. Select **{{ compute-name }}**.
-     1. Go to **Instance groups**.
-     1. Click the `group-for-load` instance group name.
+
+      1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
+      1. Select **{{ compute-name }}**.
+      1. Go to **Instance groups**.
+      1. Click the `group-for-load` instance group name.
 
    - CLI
 
-     ```bash
-     yc compute instance-group list-instances group-for-load
-     ```
+      ```bash
+      yc compute instance-group list-instances group-for-load
+      ```
 
-     Result:
+      Result:
 
-     ```bash
-     +----------------------+---------------------------+-----------------+-------------+----------------------+----------------+
-     |     INSTANCE ID      |           NAME            |   EXTERNAL IP   | INTERNAL IP |        STATUS        | STATUS MESSAGE |
-     +----------------------+---------------------------+-----------------+-------------+----------------------+----------------+
-     ...
-     | fhmab0cfsfd125efpvn1 | cl0kabcquk1gomdefbkk-oxig | 178.154.226.108 | 10.130.0.8  | RUNNING_ACTUAL [49m] |                |
-     | epdabchpdef0f1e21j14 | cl0kabcquk1gomdefbkk-aqyg | 130.193.40.55   | 10.129.0.20 | RUNNING_ACTUAL [43m] |                |
-     +----------------------+---------------------------+-----------------+-------------+----------------------+----------------+
-     ```
+      ```bash
+      +----------------------+---------------------------+-----------------+-------------+----------------------+----------------+
+      |     INSTANCE ID      |           NAME            |   EXTERNAL IP   | INTERNAL IP |        STATUS        | STATUS MESSAGE |
+      +----------------------+---------------------------+-----------------+-------------+----------------------+----------------+
+      ...
+      | fhmab0cfsfd125efpvn1 | cl0kabcquk1gomdefbkk-oxig | 178.154.226.108 | 10.130.0.8  | RUNNING_ACTUAL [49m] |                |
+      | epdabchpdef0f1e21j14 | cl0kabcquk1gomdefbkk-aqyg | 130.193.40.55   | 10.129.0.20 | RUNNING_ACTUAL [43m] |                |
+      +----------------------+---------------------------+-----------------+-------------+----------------------+----------------+
+      ```
 
    - API
 
-     See the list of the instance groups you created using the method [list](../api-ref/InstanceGroup/list.md) for the resource `InstanceGroup`.
+      See the list of the instance groups you created using the method [List](../api-ref/InstanceGroup/list.md) for the resource `InstanceGroup`.
 
    {% endlist %}
 
@@ -291,73 +292,73 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
    {% list tabs %}
 
    - Management console
-     
-     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a load balancer.
-     1. In the list of services, select **{{ network-load-balancer-name }}**.
-     1. Click **Create a network load balancer**.
-     1. Enter the **Name** `load-generator`.
-     1. In the **Public address** field, select the value **Auto**.
-     1. Click **Add listener** under **Listeners**.
-        
-        * In the window that opens, enter **Listener name** `http`.
-        * In the **Port** field, enter `80`: the balancer will use this port to accept incoming traffic.
-        * In the **Target port** field, enter `80`: the balancer will redirect traffic to this port.
-        * Click **Add**.
 
-     1. Under **Target groups**, click **Add target group**.
-     1. In the **Target group** drop-down list, select `load-generator`.
-     1. In the target group block, click **Configure**:
-        
-        * In the window that opens, enter the **Path** `/hello`: the load balancer will use this path to send health check requests to target group VMs.
-        * Click **Apply**.
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a load balancer.
+      1. In the list of services, select **{{ network-load-balancer-name }}**.
+      1. Click **Create a network load balancer**.
+      1. **Name** it `load-generator`.
+      1. In the **Public address** field, select the value **Auto**.
+      1. Click **Add listener** under **Listeners**.
 
-     1. Click **Create**.
+         * In the window that opens, enter `http` as the **Listener name**.
+         * In the **Port** field, enter `80`: the balancer will use this port to accept incoming traffic.
+         * In the **Target port** field, enter `80`: the balancer will redirect traffic to this port.
+         * Click **Add**.
+
+      1. Under **Target groups**, click **Add target group**.
+      1. In the **Target group** drop-down list, select `load-generator`.
+      1. In the target group block, click **Configure**:
+
+         * In the window that opens, enter the **Path** `/hello`: the load balancer will use this path to send health check requests to target group VMs.
+         * Click **Apply**.
+
+      1. Click **Create**.
 
    - CLI
 
-     1. Get the ID of the `load-generator` target group:
+      1. Get the ID of the `load-generator` target group:
 
-        ```bash
-        yc load-balancer target-group get load-generator | grep "^id"
-        ```
+         ```bash
+         yc load-balancer target-group get load-generator | grep "^id"
+         ```
 
-        Result:
+         Result:
 
-        ```bash
-        id: enpsa475ej51enuam897
-        ```
+         ```bash
+         id: enpsa475ej51enuam897
+         ```
 
-     1. Create a network load balancer:
+      1. Create a network load balancer:
 
-        ```bash
-        yc load-balancer network-load-balancer create \
-          --name load-generator \
-          --listener external-ip-version=ipv4,name=http,port=80,protocol=tcp,target-port=80 \
-          --target-group healthcheck-http-port=80,healthcheck-http-path=/hello,target-group-id=<target group ID>
-        ```
+         ```bash
+         yc load-balancer network-load-balancer create \
+           --name load-generator \
+           --listener external-ip-version=ipv4,name=http,port=80,protocol=tcp,target-port=80 \
+           --target-group healthcheck-http-port=80,healthcheck-http-path=/hello,target-group-id=<target group ID>
+         ```
 
-        Result:
+         Result:
 
-        ```bash
-        done (14s)
-        id: b0ruab1ccvpd26efgii4
-        folder_id: b1csa2b3clideftjb121
-        ...
-            healthy_threshold: "2"
-            http_options:
-              port: "80"
-              path: /hello
-        ```
+         ```bash
+         done (14s)
+         id: b0ruab1ccvpd26efgii4
+         folder_id: b1csa2b3clideftjb121
+         ...
+             healthy_threshold: "2"
+             http_options:
+               port: "80"
+               path: /hello
+         ```
 
    - API
-     
-     1. Create a load balancer using the method [create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) for the resource `NetworkLoadBalancer`.
 
-     1. Add a listener to the balancer using the method [addListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) for the resource `NetworkLoadBalancer`.
+      1. Create a load balancer using the method [Create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) for the `NetworkLoadBalancer` resource.
 
-     1. Attach the target group to the balancer using the method [attachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) for the resource `NetworkLoadBalancer`.
+      1. Add a listener to the balancer using the method [addListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) for the `NetworkLoadBalancer` resource.
 
-     1. Add the balancer to the instance group using the method [addTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) for the resource `TargetGroup`.
+      1. Attach the target group to the balancer using the method [attachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) for the `NetworkLoadBalancer` resource.
+
+      1. Add the balancer to the instance group using the method [addTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) for the `TargetGroup` resource.
 
    {% endlist %}
 
@@ -366,30 +367,32 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
    {% list tabs %}
 
    - Management console
-     
-     1. In the [management console]({{ link-console-main }}), select the folder where you created the network load balancer.
-     1. Select **{{ network-load-balancer-name }}**.
-     1. Click on the name of the network load balancer `load-generator`.
+
+      1. In the [management console]({{ link-console-main }}), select the folder where you created the load balancer.
+      1. Select **{{ network-load-balancer-name }}**.
+      1. Click on the name of the network load balancer `load-generator`.
 
    - CLI
 
-     ```bash
-     yc load-balancer network-load-balancer list
-     ```
+      ```bash
+      yc load-balancer network-load-balancer list
+      ```
 
-     Result:
+      Result:
 
-     ```bash
-     +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
-     |          ID          |      NAME      |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
-     +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
-     | b0ruab1ccvpd26efgii4 | load-generator | ru-central1 | EXTERNAL |              1 | b0r1tabcphde28fj1dd3   | ACTIVE |
-     +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
-     ```
+      
+      ```bash
+      +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
+      |          ID          |      NAME      |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
+      +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
+      | b0ruab1ccvpd26efgii4 | load-generator | ru-central1 | EXTERNAL |              1 | b0r1tabcphde28fj1dd3   | ACTIVE |
+      +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
+      ```
+
 
    - API
 
-     Use the method [list](../../network-load-balancer/api-ref/NetworkLoadBalancer/list.md) for the resource `NetworkLoadBalancer`.
+      Use the [list](../../network-load-balancer/api-ref/NetworkLoadBalancer/list.md) method for the `NetworkLoadBalancer` resource.
 
    {% endlist %}
 
@@ -400,26 +403,26 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
    {% list tabs %}
 
    - Management console
-     
-     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a load balancer.
-     1. In the list of services, select **{{ network-load-balancer-name }}**.
-     1. Copy the **IP address** of the load balancer.
+
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a load balancer.
+      1. In the list of services, select **{{ network-load-balancer-name }}**.
+      1. Copy the **IP address** of the load balancer.
 
    - CLI
 
-     ```bash
-     yc load-balancer network-load-balancer get load-generator | grep "address"
-     ```
+      ```bash
+      yc load-balancer network-load-balancer get load-generator | grep "address"
+      ```
 
-     Result:
+      Result:
 
-     ```bash
-       address: 84.252.133.110
-     ```
+      ```bash
+        address: 84.252.133.110
+      ```
 
    - API
 
-     Use the method [get](../../network-load-balancer/api-ref/NetworkLoadBalancer/get.md) for the resource `NetworkLoadBalancer`.
+      Use the [get](../../network-load-balancer/api-ref/NetworkLoadBalancer/get.md) method for the `NetworkLoadBalancer` resource.
 
    {% endlist %}
 
@@ -445,17 +448,17 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 {% list tabs %}
 
 - Management console
-  
-  1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
-  1. Select **{{ compute-name }}**.
-  1. Go to **Instance groups**.
-  1. Click the `group-for-load` instance group name.
-  1. On the group page, click ![pencil](../../_assets/pencil.svg) **Edit**.
-  1. Under **Instance template**, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Edit**.
-     * Under **Disks**, enter the new disk size of 35 GB.
-     * Click **Save**.
-  1. Click **Save changes**.
-  1. Under **VM states**, you'll see disk size changes for all VMs in the group step-by-step.
+
+   1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
+   1. Select **{{ compute-name }}**.
+   1. Go to **Instance groups**.
+   1. Click the `group-for-load` instance group name.
+   1. On the group page, click ![pencil](../../_assets/pencil.svg) **Edit**.
+   1. Under **Instance template**, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Edit**.
+      * Under **Disks**, enter the new disk size of 35 GB.
+      * Click **Save**.
+   1. Click **Save changes**.
+   1. Under **VM states**, you'll see disk size changes for all VMs in the group step-by-step.
 
 - CLI
 
@@ -487,15 +490,15 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
 - API
 
-  1. In the specification, enter the new disk size of 35 GB:
+   1. In the specification, enter the new disk size of 35 GB:
 
-     ```yaml
-     ...
-     size: 35G
-     ...
-     ```
+      ```yaml
+      ...
+      size: 35G
+      ...
+      ```
 
-  1. Use the method [updateFromYaml](../../compute/api-ref/InstanceGroup/updateFromYaml.md) for the resource `InstanceGroup` to update the `load-generator` instance group according to the new specification.
+   1. Use the method [updateFromYaml](../../compute/api-ref/InstanceGroup/updateFromYaml.md) for the resource `InstanceGroup` to update the `load-generator` instance group according to the new specification.
 
 {% endlist %}
 
@@ -503,7 +506,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
 Stop `wrk` by pressing **Ctrl** + **C**.
 
-Result:
+Output:
 
 ```bash
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -523,32 +526,32 @@ To delete the created resources:
 {% list tabs %}
 
 - Management console
-  
-  1. Delete the load balancer:
-     1. Go to the root of the folder.
-     1. In the list of services, select **{{ network-load-balancer-name }}**.
-     1. To the right of the `load-generator` load balancer line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-     1. In the window that opens, click **Delete**.
-  1. Delete the instance group:
-     1. Go to the root of the folder.
-     1. In the list of services, select **{{ compute-name }}**.
-     1. Go to the **Instance groups** tab.
-     1. To the right of the `load-generator` instance group line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-     1. In the window that opens, click **Delete**.
-  1. Delete the service account:
-     1. Go to the root of the folder.
-     1. Go to the **Service accounts** tab.
-     1. To the right of the `yc-auto-sa` account line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-     1. In the window that opens, click **Delete**.
-  1. Delete the network and subnets:
-     1. Go to the root of the folder.
-     1. In the list of services, select **{{ vpc-name }}**.
-     1. Select the network `yc-auto-network`.
-     1. Under **Subnets**:
-        1. To the right of the `yc-auto-subnet-1` subnet line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-        1. In the window that opens, click **Delete**.
-        1. Also delete the subnet `yc-auto-subnet-2`.
-     1. In the upper-right corner, click **Delete**.
+
+   1. Delete the load balancer:
+      1. Go to the root of the folder.
+      1. In the list of services, select **{{ network-load-balancer-name }}**.
+      1. To the right of the `load-generator` load balancer line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
+      1. In the window that opens, click **Delete**.
+   1. Delete the instance group:
+      1. Go to the root of the folder.
+      1. In the list of services, select **{{ compute-name }}**.
+      1. Go to the **Instance groups** tab.
+      1. To the right of the `load-generator` instance group line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
+      1. In the window that opens, click **Delete**.
+   1. Delete the service account:
+      1. Go to the root of the folder.
+      1. Go to the **Service accounts** tab.
+      1. To the right of the `yc-auto-sa` account line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
+      1. In the window that opens, click **Delete**.
+   1. Delete the network and subnets:
+      1. Go to the root of the folder.
+      1. In the list of services, select **{{ vpc-name }}**.
+      1. Select the network `yc-auto-network`.
+      1. Under **Subnets**:
+         1. To the right of the `yc-auto-subnet-1` subnet line, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
+         1. In the window that opens, click **Delete**.
+         1. Also delete the subnet `yc-auto-subnet-2`.
+      1. In the upper-right corner, click **Delete**.
 
 - CLI
 
@@ -565,12 +568,12 @@ To delete the created resources:
 
 - API
 
-  Use the methods:
+   Use the methods:
 
-  1. [delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) for the `NetworkLoadBalancer` resource to delete the `load-generator` load balancer.
-  1. [delete](../../compute/api-ref/InstanceGroup/delete.md) for the `InstanceGroup` resource to delete the `load-generator` instance group.
-  1. [delete](../../iam/api-ref/ServiceAccount/delete.md) for the `ServiceAccount` resource to delete the `yc-auto-sa` service account.
-  1. [delete](../../vpc/api-ref/Subnet/delete.md) for the `Subnet` resource to delete the `yc-auto-subnet-1` and `yc-auto-subnet-2` subnets.
-  1. [delete](../../vpc/api-ref/Network/delete.md) for the resource `Network`, to delete the network `yc-auto-network`.
+   1. [delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) for the `NetworkLoadBalancer` resource to delete the `load-generator` load balancer.
+   1. [delete](../../compute/api-ref/InstanceGroup/delete.md) for the `InstanceGroup` resource to delete the `load-generator` instance group.
+   1. [delete](../../iam/api-ref/ServiceAccount/delete.md) for the `ServiceAccount` resource to delete the `yc-auto-sa` service account.
+   1. [delete](../../vpc/api-ref/Subnet/delete.md) for the `Subnet` resource to delete the `yc-auto-subnet-1` and `yc-auto-subnet-2` subnets.
+   1. [delete](../../vpc/api-ref/Network/delete.md) for the resource `Network` to delete the network `yc-auto-network`.
 
 {% endlist %}

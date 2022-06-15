@@ -149,8 +149,8 @@
 1. Выберите пароль для хранилища сертификатов, создайте хранилище и добавьте в него SSL-сертификат для подключения к кластеру:
 
    ```bash
-   sudo keytool --noprompt -importcert -alias YandexCA \
-      -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+   sudo keytool --noprompt -importcert -alias {{ crt-alias }} \
+      -file {{ crt-local-dir }}{{ crt-local-file }} \
       -keystore /home/<домашняя директория>/mirror-maker/keystore \
       -storepass <пароль хранилища сертификатов, не короче 6 символов>
    ```

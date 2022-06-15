@@ -24,15 +24,10 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before deploying servers, you need to sign up for {{ yandex-cloud }} and create a billing account:
-
-{% include [prepare-register-billing](../includes/prepare-register-billing.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 {% include [ms-additional-data-note](../includes/ms-additional-data-note.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in on the [cloud page](https://console.cloud.yandex.com/cloud).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources {#paid-resources}
 
@@ -72,7 +67,7 @@ Create a cloud network named `my-network` with subnets in all the availability z
 
    {% endlist %}
 
-2. Create three `my-network` subnets:
+2. Create `my-network` subnet:
 
    {% list tabs %}
 
@@ -82,34 +77,20 @@ Create a cloud network named `my-network` with subnets in all the availability z
       1. Open the **Virtual Private Cloud** section in the folder where you want to create the subnet.
       1. Click on the name of the cloud network.
       1. Click **Add subnet**.
-      1. Fill out the form: enter `my-subnet-a` as the subnet name and select the `ru-central1-a` availability zone from the drop-down list.
+      1. Fill out the form: enter `my-subnet-a` as the subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
       1. Enter the subnet CIDR, which is its IP address and mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
       1. Click **Create subnet**.
 
-      Repeat these steps for two more subnets, `my-subnet-b` and `my-subnet-c`, in the `ru-central1-b` and `ru-central1-c` availability zones with the `10.2.0.0/16` and `10.3.0.0/16` CIDR, respectively.
-
    - CLI
 
-      To create subnets, run the following commands:
+      To create subnet, run the following command:
 
       ```
       yc vpc subnet create \
         --name my-subnet-a \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --network-name my-network \
         --range 10.1.0.0/16
-
-      yc vpc subnet create \
-        --name my-subnet-b \
-        --zone ru-central1-b \
-        --network-name my-network \
-        --range 10.2.0.0/16
-
-      yc vpc subnet create \
-        --name my-subnet-c \
-        --zone ru-central1-c \
-        --network-name my-network \
-        --range 10.3.0.0/16
       ```
 
    {% endlist %}
@@ -143,7 +124,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter a name for the VM: `my-rds-vm`.
-   1. Select the [availability zone](../../overview/concepts/geo-scope.md): `ru-central1-a`.
+   1. Select the [availability zone](../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
    1. Under **{{ marketplace-name }}**, click **Show more**. In the window that opens, select the **Windows RDS** image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
@@ -166,7 +147,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
        --hostname my-rds-vm \
        --memory 8 \
        --cores 4 \
-       --zone ru-central1-a \
+       --zone {{ region-id }}-a \
        --network-interface subnet-name=my-subnet-a,ipv4-address=10.1.0.3,nat-ip-version=ipv4 \
        --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk-rds-5 \
        --metadata-from-file user-data=setpass

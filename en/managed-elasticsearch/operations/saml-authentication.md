@@ -27,22 +27,22 @@ To set up SAML authentication:
    Use the URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection):
 
    ```
-   https://c-<{{ ES }} cluster ID>.rw.mdb.yandexcloud.net/api/security/saml/callback
+   https://c-<{{ ES }} cluster ID>.rw.{{ dns-zone }}/api/security/saml/callback
    ```
 
    The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   **Example:** `https://c-e4ut2....rw.mdb.yandexcloud.net/api/security/saml/callback`
+   **Example:** `https://c-e4ut2....rw.{{ dns-zone }}/api/security/saml/callback`
 
 1. Specify the **SP Entity ID (Audience URI)**.
 
    Use the URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection):
 
    ```
-   https://c-<cluster ID>rw.mdb.yandexcloud.net
+   https://c-<cluster ID>rw.{{ dns-zone }}
    ```
 
-   **Example:** `https://c-e4ut2....rw.mdb.yandexcloud.net`
+   **Example:** `https://c-e4ut2....rw.{{ dns-zone }}`
 
 1. Specify the **Name ID Format**: `Persistent`.
 1. Using the data provided by the IdP:
@@ -169,14 +169,14 @@ To set up SSO with Okta for a cluster with the `c9qmc1lmo2k060fkj2nj` ID:
    * Specify the **Single sign on URL**:
 
       ```
-      https://c-c9qmc1lmo2k060fkj2nj.rw.mdb.yandexcloud.net/api/security/saml/callback
+      https://c-c9qmc1lmo2k060fkj2nj.rw.{{ dns-zone }}/api/security/saml/callback
       ```
 
    * Enable the **Use this for Recipient URL and Destination URL** option.
    * Specify the **Audience URI (SP Entity ID)**:
 
       ```
-      https://c-c9qmc1lmo2k060fkj2nj.rw.mdb.yandexcloud.net
+      https://c-c9qmc1lmo2k060fkj2nj.rw.{{ dns-zone }}
       ```
 
    * Specify the **Name ID Format**: `Persistent`.
@@ -202,8 +202,8 @@ Suppose we have an **idp_entity_id** like `http://www.okta.com/exkv2pzpvigX4c0bK
 [Set up SSO for the cluster](#configuration-sso). When setting it up, specify:
 * **idp_entity_id**: `http://www.okta.com/exkv2pzpvigX4c0bK5d6`.
 * **idp_metadata_file**: The metadata file provided by Okta.
-* **sp_entity_id**: `https://c-c9qmc1lmo2k060fkj2nj.rw.mdb.yandexcloud.net`.
-* **kibana_url**: `https://c-c9qmc1lmo2k060fkj2nj.rw.mdb.yandexcloud.net`.
+* **sp_entity_id**: `https://c-c9qmc1lmo2k060fkj2nj.rw.{{ dns-zone }}`.
+* **kibana_url**: `https://c-c9qmc1lmo2k060fkj2nj.rw.{{ dns-zone }}`.
 * **attribute_principal**: `nameid:persistent`.
 
 #### Configure roles for SSO with Okta {#example-roles-sso}

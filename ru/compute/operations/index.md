@@ -74,6 +74,7 @@ description: "Пошаговые инструкции по работе и уп�
 
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
+
 * [{#T}](disk-create/nonreplicated.md)
 
 ## Управление диском {#disk-control}
@@ -83,6 +84,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](disk-control/disk-change-folder.md)
 * [{#T}](disk-control/delete.md)
 * [{#T}](snapshot-control/delete.md)
+
 
 ## Группы размещения дисков {#placement-groups}
 
@@ -101,6 +103,7 @@ description: "Пошаговые инструкции по работе и уп�
 
 * [{#T}](image-control/get-list.md)
 * [{#T}](image-control/delete.md)
+
 
 ## Файловые хранилища {#filesystem}
 
@@ -145,6 +148,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](instance-groups/stop.md)
 * [{#T}](instance-groups/start.md)
 * [{#T}](instance-groups/delete.md)
+
 
 ## Выделенные хосты {#dedicated-host}
 

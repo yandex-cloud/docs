@@ -1,6 +1,6 @@
 Параметр | GPU | vGPU |
 :---|:---|:---
-Возможности применения | Задачи машинного обучения и искусственного интеллекта, обработка трехмерной графики | Игры, 3D моделирование, системы автоматического проектирования
+Возможности применения | Задачи машинного обучения и искусственного интеллекта, обработка трехмерной графики | Игры, 3D-моделирование, системы автоматического проектирования
 Доля ускорителей вычислений Tesla V100 | 100&nbsp;% | 25&nbsp;%
 Режим работы видеокарты | [TCC](https://docs.nvidia.com/nsight-visual-studio-edition/reference/index.html#tesla-compute-cluster) | [WDDM](https://docs.nvidia.com/nsight-visual-studio-edition/reference/index.html#tcc-tesla-products)
 CUDA<sup>®</sup> | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)

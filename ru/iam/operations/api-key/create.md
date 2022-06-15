@@ -81,7 +81,7 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer $IAM_TOKEN" \
         -d "{ \"serviceAccountId\": \"$SERVICEACCOUNT_ID\" }" \
-        https://iam.api.cloud.yandex.net/iam/v1/apiKeys
+        https://iam.{{ api-host }}/iam/v1/apiKeys
       ```
 
 - Terraform
@@ -160,7 +160,7 @@
         \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
         \"description\": \"this API-key is for my-robot\"
     }" \
-    https://iam.api.cloud.yandex.net/iam/v1/apiKeys
+    https://iam.{{ api-host }}/iam/v1/apiKeys
   ```
 
 - Terraform

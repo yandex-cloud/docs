@@ -1,6 +1,6 @@
 ---
-title: Обзор Yandex Identity and Access Management
-description: 'Сервис Identity and Access Management (IAM) контролирует доступ к ресурсам и предоставляет функциональность для настройки прав доступа. Вы определяете, кто и какие права имеет на ресурс, а IAM предоставляет доступ в соответствии с назначенными правами.'
+title: Обзор {{ iam-full-name }}
+description: 'Сервис {{ iam-name }} (IAM) контролирует доступ к ресурсам и предоставляет функциональность для настройки прав доступа. Вы определяете, кто и какие права имеет на ресурс, а {{ iam-short-name }}предоставляет доступ в соответствии с назначенными правами.'
 ---
 
 # Обзор {{ iam-full-name }}
@@ -26,6 +26,7 @@ description: 'Сервис Identity and Access Management (IAM) контроли
 
 Для идентификации пользователей, выполняющих операции с ресурсами, используются [аккаунты на Яндексе](#passport), [сервисные аккаунты](#sa) или [федеративные аккаунты](#saml-federation).
 
+
 {% note info %}
 
 Платежный аккаунт не используется для управления ресурсами в {{ yandex-cloud }} и не относится к сервису {{ iam-short-name }}. Подробнее читайте в разделе [{#T}](../../billing/concepts/billing-account.md) документации по биллингу.
@@ -35,7 +36,6 @@ description: 'Сервис Identity and Access Management (IAM) контроли
 ### Аккаунт на Яндексе {#passport}
 
 _Аккаунт на Яндексе_ — ваш аккаунт на [Яндексе](https://yandex.ru/support/passport/index.html) или в [Яндекс 360](https://360.yandex.ru/).
-
 {% note info %}
 
 {% include [yandex-account-2fa-warning.md](../../_includes/iam/yandex-account-2fa-warning.md) %}

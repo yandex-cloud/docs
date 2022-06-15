@@ -1,11 +1,12 @@
 ---
-title: "Query language in Yandex Monitoring"
+title: "Query language in {{ monitoring-full-name }}"
 description: "This section describes the {{monitoring-full-name}} query language. It is used to transform metrics when setting up dashboards and alerts, as well as in the MetricsData.read API method."
 ---
 
 # Query language
 
 This section describes the {{monitoring-full-name}} query language. It's used to convert metrics when you configure [dashboards](./visualization/dashboard.md) and [alerts](./alerting.md), as well as in the [MetricsData.read](../api-ref/MetricsData/read.md) API method.
+
 
 ## Uploading metrics {#selectors}
 
@@ -19,24 +20,23 @@ The {{monitoring-full-name}} query language supports the following expressions f
 
 - `label="*"`: Returns all metrics that have the specified label.
 
-  > The `host="*"` selector returns all metrics that have the `host` label.
+   > The `host="*"` selector returns all metrics that have the `host` label.
 
 - `label="<glob>"`: Returns all metrics with labels whose values satisfy a [glob expression](https://en.wikipedia.org/wiki/Glob_(programming)).
+   - `*`: Any number of characters (including none).
 
-  - `*`: Any number of characters (including none).
+      > `name="folder*"` returns all metrics that have the `name` label whose value starts with the `folder` prefix.
 
-    > `name="folder*"` returns all metrics that have the `name` label whose value starts with the `folder` prefix.
+   - `?`: One arbitrary character.
 
-  - `?`: A single arbitrary character.
+      > `name="metric?"` returns all labels in which the `name` label value contains one character the `metric`.
 
-    > `name="metric?"` returns all labels in which the `name` label value contains one character the `metric`.
+   - `|`: All specified options.
 
-  - `|`: All specified options.
+      > `name="metric1|metric2"` returns two metrics with the `name=metric1` and `name=metric2` label values.
 
-    > `name="metric1|metric2"` returns two metrics with the `name=metric1` and `name=metric2` label values.
 
 ## Data types {#data-types}
-
 The {{monitoring-full-name}} query language supports the following data types:
 
 * _timeseries_vector_: A set of time series (metrics).
@@ -47,58 +47,58 @@ The {{monitoring-full-name}} query language supports the following data types:
 ## Functions {#functions}
 
 - [Combine](#combine-functions)
-  - [histogram_avg](#histogram_avg)
-  - [histogram_cdfp](#histogram_cdfp)
-  - [histogram_count](#histogram_count)
-  - [histogram_percentile](#histogram_percentile)
-  - [histogram_sum](#histogram_sum)
-  - [series_avg](#series_avg)
-  - [series_max](#series_max)
-  - [series_min](#series_min)
-  - [series_percentile](#series_percentile)
-  - [series_sum](#series_sum)
+   - [histogram_avg](#histogram_avg)
+   - [histogram_cdfp](#histogram_cdfp)
+   - [histogram_count](#histogram_count)
+   - [histogram_percentile](#histogram_percentile)
+   - [histogram_sum](#histogram_sum)
+   - [series_avg](#series_avg)
+   - [series_max](#series_max)
+   - [series_min](#series_min)
+   - [series_percentile](#series_percentile)
+   - [series_sum](#series_sum)
 - [Rank](#rank-functions)
-  - [bottom_avg](#bottom_avg)
-  - [bottom_count](#bottom_count)
-  - [bottom_last](#bottom_last)
-  - [bottom_max](#bottom_max)
-  - [bottom_min](#bottom_min)
-  - [bottom_sum](#bottom_sum)
-  - [top_avg](#top_avg)
-  - [top_count](#top_count)
-  - [top_last](#top_last)
-  - [top_max](#top_max)
-  - [top_min](#top_min)
-  - [top_sum](#top_sum)
+   - [bottom_avg](#bottom_avg)
+   - [bottom_count](#bottom_count)
+   - [bottom_last](#bottom_last)
+   - [bottom_max](#bottom_max)
+   - [bottom_min](#bottom_min)
+   - [bottom_sum](#bottom_sum)
+   - [top_avg](#top_avg)
+   - [top_count](#top_count)
+   - [top_last](#top_last)
+   - [top_max](#top_max)
+   - [top_min](#top_min)
+   - [top_sum](#top_sum)
 - [Transform](#transform-functions)
-  - [abs](#abs)
-  - [asap](#asap)
-  - [ceil](#ceil)
-  - [derivative](#derivative)
-  - [diff](#diff)
-  - [drop_above](#drop_above)
-  - [drop_below](#drop_below)
-  - [drop_nan](#drop_nan)
-  - [exp](#exp)
-  - [floor](#floor)
-  - [fract](#fract)
-  - [heaviside](#heaviside)
-  - [integral](#integral)
-  - [log](#log)
-  - [moving_avg](#moving_avg)
-  - [moving_percentile](#moving_percentile)
-  - [non_negative_derivative](#non_negative_derivative)
-  - [pow](#pow)
-  - [ramp](#ramp)
-  - [replace_nan](#replace_nan)
-  - [round](#round)
-  - [shift](#shift)
-  - [sign](#sign)
-  - [sqrt](#sqrt)
-  - [trunc](#trunc)
+   - [abs](#abs)
+   - [asap](#asap)
+   - [ceil](#ceil)
+   - [derivative](#derivative)
+   - [diff](#diff)
+   - [drop_above](#drop_above)
+   - [drop_below](#drop_below)
+   - [drop_nan](#drop_nan)
+   - [exp](#exp)
+   - [floor](#floor)
+   - [fract](#fract)
+   - [heaviside](#heaviside)
+   - [integral](#integral)
+   - [log](#log)
+   - [moving_avg](#moving_avg)
+   - [moving_percentile](#moving_percentile)
+   - [non_negative_derivative](#non_negative_derivative)
+   - [pow](#pow)
+   - [ramp](#ramp)
+   - [replace_nan](#replace_nan)
+   - [round](#round)
+   - [shift](#shift)
+   - [sign](#sign)
+   - [sqrt](#sqrt)
+   - [trunc](#trunc)
 - [Other](#other-functions)
-  - [alias](#alias)
-  - [drop_empty_series](#drop_empty_series)
+   - [alias](#alias)
+   - [drop_empty_series](#drop_empty_series)
 
 ### Combine {#combine-functions}
 
@@ -162,6 +162,7 @@ The `series_avg("host", {...})` query calculates the average value among all upl
 
 The `series_avg(["host", "disk"], {...})` query calculates the average value among all uploaded metrics for each combination of `host` and `disk` label values.
 
+
 #### series_max
 
 The **series_max** function has the following use cases (function overloading) depending on the type of _key_ input parameter (a string or an array of strings):
@@ -198,81 +199,83 @@ The **series_sum** function has the following use cases (function overloading) d
 
 Aggregates time series into one (or multiple ones) by applying the sum aggregation function for each time point. The optional _key_ parameter contains a string or an array of strings with a list of labels to group by. See examples of queries using the _key_ parameter in [series_avg](#series_avg).
 
+
 ### Rank {#rank-functions}
 
 The rank functions order a metric vector by the aggregation function value in the current time window and return some of the first (upper) or last (lower) time series from it. The _limit_ parameter specifies how many metrics a function returns.
 
 #### bottom_avg
 
-**bottom_avg**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_avg**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with a minimum average value.
 
 #### bottom_count
 
-**bottom_count**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_count**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with a minimum number of values.
 
 #### bottom_last
 
-**bottom_last**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_last**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the minimum last value.
 
 #### bottom_max
 
-**bottom_max**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_max**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the lowest max value.
 
 #### bottom_min
 
-**bottom_min**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_min**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the lowest min value.
 
 #### bottom_sum
 
-**bottom_sum**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**bottom_sum**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the lowest sum value.
 
 #### top_avg
 
-**top_avg**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_avg**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the top average value.
 
 #### top_count
 
-**top_count**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_count**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with a maximum number of values.
 
 #### top_last
 
-**top_last**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_last**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the top last value.
 
 #### top_max
 
-**top_max**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_max**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the top max value.
 
 #### top_min
 
-**top_min**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_min**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the top minimum value.
 
 #### top_sum
 
-**top_sum**(*source: timeseries_vector*, *limit: number*): *timeseries_vector*
+**top_sum**(*limit: number*, *source: timeseries_vector*): *timeseries_vector*
 
 Returns the _limit_ of metrics with the top sum value.
+
 
 ### Transform {#transform-functions}
 
@@ -295,7 +298,7 @@ Time series points are averaged using a moving average with a dynamic window. Th
 
 **ceil**(*source: timeseries_vector*): *timeseries_vector*
 
-Rounds point values up to the nearest integer.
+Rounds the point values up to the nearest integer.
 
 #### derivative
 
@@ -347,7 +350,7 @@ Selects the real part of point values.
 
 **heaviside**(*source: timeseries_vector*): *timeseries_vector*
 
-Calculates the [Heaviside function](https://en.wikipedia.org/wiki/Heaviside_step_function). The function is 1 if the point values are positive, and 0 if the point values are negative.
+Calculates the [Heaviside step function](https://en.wikipedia.org/wiki/Heaviside_step_function) value. The function is 1 if the point values are positive, and 0 if the point values are negative.
 
 #### integral
 
@@ -433,6 +436,7 @@ Calculates the square root of point values.
 
 Truncates the real part of point values.
 
+
 ### Other {#other-functions}
 
 #### alias
@@ -446,4 +450,3 @@ Renames metrics. As an argument, you can use [mustache templates](https://mustac
 **drop_empty_series**(*source: timeseries_vector*): *timeseries_vector*
 
 Drops time series where either there are no points in the specified time range or all points have the `NaN` value.
-

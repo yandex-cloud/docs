@@ -2,7 +2,7 @@
 
 {{ mch-name }} lets you use {{ objstorage-full-name }} to:
 * Enable [ML models](ml-models.md), [data format schemas](format-schemas.md), and your [own geobase](internal-dictionaries.md).
-* Process data that is stored in object storage if this data is represented in any of the [supported {{ CH }} formats](https://clickhouse.tech/docs/en/interfaces/formats/).
+* Process data that is stored in object storage if this data is represented in any of the [supported {{ CH }} formats](https://{{ ch-domain }}/docs/en/interfaces/formats/).
 
 
 To access {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) data from a cluster, use one of the following methods:
@@ -11,7 +11,7 @@ To access {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) data 
    1. [Set up access rights for the service account](#configure-acl).
 * Set up a public bucket by [allowing public access to it](../../storage/operations/buckets/bucket-availability.md) for reads or writes.
 
-After setting up any of these methods, [get a link to the bucket object](#get-link-to-object), which you can use to perform operations with the cluster data. For details, see [Examples of working with objects](#examples).
+After setting up any of these methods, [get a link to the bucket object](#get-link-to-object), which you can use to perform operations with the cluster data. See [examples of working with objects](#examples).
 
 ## Connecting a service account to a cluster {#connect-service-account}
 
@@ -67,7 +67,7 @@ To use {{ mch-name }} to work with data of an object in {{ objstorage-name }}, y
 
 [You can use object links](#get-link-to-object) like `https://{{ s3-storage-host }}/<bucket name>/<object name>` to work with geotags and schemas or to use the `s3` table function and the `S3` table engine.
 
-The `S3` table engine is similar to [File](https://clickhouse.tech/docs/en/engines/table-engines/special/file/) and [URL](https://clickhouse.tech/docs/en/engines/table-engines/special/url/) engines, except that data is stored in S3-compatible storage (such as {{ objstorage-full-name }}) rather than using a file system or a remote HTTP/HTTPS server. This engine allows reading or writing data from/to storage using standard SQL queries such as `SELECT` and `INSERT`.
+The `S3` table engine is similar to [File](https://{{ ch-domain }}/docs/en/engines/table-engines/special/file/) and [URL](https://{{ ch-domain }}/docs/en/engines/table-engines/special/url/) engines, except that data is stored in S3-compatible storage (such as {{ objstorage-full-name }}) rather than using a file system or a remote HTTP/HTTPS server. This engine allows reading or writing data from/to storage using standard SQL queries such as `SELECT` and `INSERT`.
 
 The `s3` table function provides the same functionality as the `S3` table engine, but you don't need to create a table before using it.
 
@@ -80,7 +80,7 @@ For example, if the {{ objstorage-name }} `my-bucket` bucket with restricted acc
    1. Create a table:
 
       ```sql
-      CREATE TABLE test (n Int32) ENGINE = S3('https://storage.yandexcloud.net/my-bucket/table.tsv', 'TSV');
+      CREATE TABLE test (n Int32) ENGINE = S3('https://{{ s3-storage-host }}/my-bucket/table.tsv', 'TSV');
       ```
 
    1. Run test queries to the table:
@@ -99,13 +99,13 @@ For example, if the {{ objstorage-name }} `my-bucket` bucket with restricted acc
    1. Insert data:
 
       ```sql
-      INSERT INTO FUNCTION s3('https://storage.yandexcloud.net/my-bucket/table.tsv', 'TSV', 'n Int32') VALUES (1);
+      INSERT INTO FUNCTION s3('https://{{ s3-storage-host }}/my-bucket/table.tsv', 'TSV', 'n Int32') VALUES (1);
       ```
 
    1. Run a test query:
 
       ```sql
-      SELECT * FROM s3('https://storage.yandexcloud.net/my-bucket/table.tsv', 'TSV', 'n Int32');
+      SELECT * FROM s3('https://{{ s3-storage-host }}/my-bucket/table.tsv', 'TSV', 'n Int32');
 
       ┌─n─┐
       │ 1 │

@@ -9,4 +9,3 @@ The service can display collected metrics as charts. You can place charts on das
 - [{#T}](../../operations/dashboard/create.md)
 - [{#T}](../../operations/dashboard/copy.md)
 - [{#T}](../../operations/dashboard/add-widget.md)
-

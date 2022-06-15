@@ -26,15 +26,15 @@
      name: test-balancer2
      folder_id: aoe197919j8elpeg1lkp
      status: ACTIVE
-     region_id: ru-central1
+     region_id: {{ region-id }}
      network_id: c64l1c06d15178sa87k0
      allocation_policy:
        locations:
-       - zone_id: ru-central1-a
+       - zone_id: {{ region-id }}-a
          subnet_id: buc4gsmpj8hvramg61g8
-       - zone_id: ru-central1-b
+       - zone_id: {{ region-id }}-b
          subnet_id: blt6pcatjje62sqvjq5b
-       - zone_id: ru-central1-c
+       - zone_id: {{ region-id }}-c
          subnet_id: fo2ap2nrhjk9vpfdnno8
      log_group_id: eolul9ap0bv02i8bsp87
      created_at: "2021-04-26T12:12:13.624832586Z"

@@ -191,7 +191,7 @@ To back up cluster group data:
 
      ```bash
      velero install \
-       --backup-location-config s3Url=https://storage.yandexcloud.net,region=ru-central1 \
+       --backup-location-config s3Url=https://{{ s3-storage-host }},region={{ region-id }} \
        --bucket velero-backup \
        --plugins velero/velero-plugin-for-aws:v1.0.0 \
        --provider aws \
@@ -288,7 +288,7 @@ To restore data from the {{ k8s }} cluster node group:
        --network-name network \
        --node-service-account-name docker \
        --service-account-name k8s \
-       --zone ru-central1-a
+       --zone {{ region-id }}-a
      ```
 
      Where:
@@ -304,35 +304,7 @@ To restore data from the {{ k8s }} cluster node group:
      done (6m9s)
      id: catab1c2f0fmb3d0ef94
      folder_id: b1g23ga82bcv0cdeferg
-     created_at: "2020-10-19T17:41:28Z"
-     name: cluster-from-backup
-     status: RUNNING
-     health: HEALTHY
-     network_id: enpabc1rfondide2fflu3
-     master:
-       zonal_master:
-         zone_id: ru-central1-a
-         internal_v4_address: 10.0.0.32
-       version: "1.17"
-       endpoints:
-         internal_v4_endpoint: https://10.0.0.32
-       master_auth:
-         cluster_ca_certificate: |
-           -----BEGIN CERTIFICATE-----
-           MIIAbCCCAbCgAwIBAgIBADANBgkqhkiG1w0BAQsFADAVMRMwEQYDVQQDEwdefWJl
-           ...
-           pi0jAbcDCLzCkfFuNimHejsSvVFN1N2bYYBCBMkhaYDzV5Ypfy/De0fHJ9U=
-           -----END CERTIFICATE-----
-       version_info:
-         current_version: "1.17"
-       maintenance_policy:
-         auto_upgrade: true
-         maintenance_window:
-           anytime: {}
-     ip_allocation_policy:
-       cluster_ipv4_cidr_block: 10.112.0.0/16
-       node_ipv4_cidr_mask_size: "24
-       service_ipv4_cidr_block: 10.96.0.0/16
+     ...
      service_account_id: ajeabcfldeftb1238n99
      node_service_account_id: ajea1b023cmndeft7t7j
      release_channel: REGULAR
@@ -412,36 +384,7 @@ To restore data from the {{ k8s }} cluster node group:
      done (2m31s)
      id: catabcio1iq2sdefial3
      cluster_id: catab1c2f0fmb3d0ef94
-     created_at: "2020-10-19T17:43:54Z"
-     status: RUNNING
-     node_template:
-       platform_id: standard-v2
-       resources_spec:
-         memory: "4294967296"
-         cores: "2"
-         core_fraction: "100"
-       boot_disk_spec:
-         disk_type_id: network-hdd
-         disk_size: "103079215104"
-       v4_address_spec:
-         one_to_one_nat_spec:
-           ip_version: IPV4
-       scheduling_policy: {}
-     scale_policy:
-       fixed_scale:
-         size: "1"
-     allocation_policy:
-       locations:
-       - zone_id: ru-central1-a
-         subnet_id: e1bm23abcs81edef6dqg
-     deploy_policy:
-       max_expansion: "3"
-     instance_group_id: cl1ca2bch3lde1fi2tk7
-     node_version: "1.17"
-     version_info:
-       current_version: "1.17"
-     maintenance_policy:
-       auto_upgrade: true
+     ...
        auto_repair: true
        maintenance_window:
          anytime: {}
@@ -463,7 +406,7 @@ To restore data from the {{ k8s }} cluster node group:
 
      ```bash
      velero install \
-       --backup-location-config s3Url=https://storage.yandexcloud.net,region=ru-central1 \
+       --backup-location-config s3Url=https://{{ s3-storage-host }},region={{ region-id }} \
        --bucket velero-backup \
        --plugins velero/velero-plugin-for-aws:v1.0.0 \
        --provider aws \

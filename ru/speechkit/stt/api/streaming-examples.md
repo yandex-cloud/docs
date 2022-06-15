@@ -73,7 +73,7 @@
        def run(folder_id, iam_token, audio_file_name):
            # Установить соединение с сервером.
            cred = grpc.ssl_channel_credentials()
-           channel = grpc.secure_channel('stt.api.cloud.yandex.net:443', cred)
+           channel = grpc.secure_channel('stt.{{ api-host }}:443', cred)
            stub = stt_service_pb2_grpc.SttServiceStub(channel)
  
            # Отправить данные для распознавания.
@@ -180,7 +180,7 @@
        // Установить соединение с сервером.
        const serviceConstructor = packageObject.yandex.cloud.ai.stt.v2.SttService;
        const grpcCredentials = grpc.credentials.createSsl(fs.readFileSync('./roots.pem'));
-       const service = new serviceConstructor('stt.api.cloud.yandex.net:443', grpcCredentials);
+       const service = new serviceConstructor('stt.{{ api-host }}:443', grpcCredentials);
        const call = service['StreamingRecognize'](serviceMetadata);
  
        // Отправить сообщение с настройками распознавания.

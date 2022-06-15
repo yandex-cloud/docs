@@ -1,12 +1,12 @@
 # Basic principles
 
-Yandex Cloud APIs are based on the [gRPC](https://grpc.io/docs/) mechanism. Methods and data structures in APIs are described using [Protocol Buffers](https://developers.google.com/protocol-buffers/docs/proto3) (proto 3).
+{{ yandex-cloud }} APIs are based on the [gRPC](https://grpc.io/docs/) mechanism. Methods and data structures in APIs are described using [Protocol Buffers](https://developers.google.com/protocol-buffers/docs/proto3) (proto 3).
 
-Yandex Cloud services provide a JSON REST interface that you can access directly. REST is supported via the [gRPC-JSON transcoder](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/grpc_json_transcoder_filter). Yandex Cloud services use this mechanism to translate incoming HTTP requests into gRPC calls. The service translates the results of request handling into an HTTP response and returns it to the client.
+{{ yandex-cloud }} services provide a JSON REST interface that you can access directly. REST is supported via the [gRPC-JSON transcoder](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/grpc_json_transcoder_filter). {{ yandex-cloud }} services use this mechanism to translate incoming HTTP requests into gRPC calls. The service translates the results of request handling into an HTTP response and returns it to the client.
 
 #### Resource-based approach {#resource-oriented-design}
 
-APIs use a resource-based approach. The principles that apply to all Yandex Cloud APIs are described below:
+APIs use a resource-based approach. The principles that apply to all {{ yandex-cloud }} APIs are described below:
 
 - Resources in APIs are VM instances, disks, images, and so on. Each resource has a [unique ID](resources-identification.md).
 
@@ -20,7 +20,7 @@ APIs use a resource-based approach. The principles that apply to all Yandex Clou
 
 {% note info %}
 
-The [Yandex Object Storage API](../../storage/s3/index.md) architecture provides compatibility with the Amazon S3 API. The Object Storage API may therefore not conform to the concepts described in this document. For more information, see the documentation on the service.
+The [{{ objstorage-full-name }} API](../../storage/s3/index.md) architecture provides compatibility with the Amazon S3 API. The {{ objstorage-name }} API may therefore not conform to the concepts described in this document. For more information, see the documentation on the service.
 
 {% endnote %}
 

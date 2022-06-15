@@ -19,11 +19,8 @@ With this guide, you will:
 
 ## Before you start {#before-you-begin}
 
-Before creating a virtual machine, you need to sign up for {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to run your VM in. Go to the [{{ yandex-cloud }} homepage](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a VM for your server. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources
 
@@ -46,7 +43,7 @@ Infrastructure costs for recognition and data storage include:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Under **Images from {{ marketplace-name }}**, select the [CentOS 7](https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo) image.
+1. Under **Images from {{ marketplace-name }}**, select the [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo) image.
 
 1. Under **Disks**, select:
     * SSD
@@ -169,7 +166,7 @@ Creating the VM may take several minutes.
     ```
     * `AWS Access Key ID`: The `key_id` value from the previous section, "Create a static access key for your service account".
     * `AWS Secret Access Key`: The `secret` value from the same section.
-    * `Default region name`: Enter `ru-central1`.
+    * `Default region name`: Enter `{{ region-id }}`.
     * `Default output format`: Enter `json`.
 1. Check that the `~/.aws/credentials` file contains the correct values:
 
@@ -191,7 +188,7 @@ Creating the VM may take several minutes.
 1. Go to the {{ yandex-cloud }} console and make sure that the bucket is in the list:
 
    ```
-   https://console.cloud.yandex.com/folders/<FOLDER-ID>/storage
+   {{ link-console-main }}/folders/<FOLDER-ID>/storage
    ```
 
 ## Create an archive with images {#create-archive}
@@ -200,14 +197,14 @@ Creating the VM may take several minutes.
 1. Make sure that the images were uploaded:
 
     ```bash
-    aws --endpoint-url=https://storage.yandexcloud.net s3 ls s3://<BUCKET-NAME>/
+    aws --endpoint-url=https://{{ s3-storage-host }} s3 ls s3://<BUCKET-NAME>/
     ```
 
     `<BUCKET-NAME>`: The name of your bucket.
 1. Download images to your virtual machine, such as to the `my_pictures` directory:
 
      ```bash
-     aws --endpoint-url=https://storage.yandexcloud.net s3 cp s3://<BUCKET-NAME>/ my_pictures --recursive
+     aws --endpoint-url=https://{{ s3-storage-host }} s3 cp s3://<BUCKET-NAME>/ my_pictures --recursive
      ```
 1. Create an archive of the images and name it (for example, `my_pictures`):
 
@@ -307,7 +304,7 @@ To make it easier to read, each step is commented in the script body.
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAMTOKEN}" \
         -d '@body.json' \
-        https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze > output.json
+        https://vision.{{ api-host }}/vision/v1/batchAnalyze > output.json
     
         # Get the name of the image for later use.
         IMAGE_BASE_NAME=$(basename -- "$f")
@@ -323,7 +320,7 @@ To make it easier to read, each step is commented in the script body.
     
     # Move the text file archive to your bucket.
     echo "Sending archive to Object Storage Bucket..."
-    aws --endpoint-url=https://storage.yandexcloud.net s3 cp my_pictures_text.tar s3://$BUCKETNAME/ > /dev/null
+    aws --endpoint-url=https://{{ s3-storage-host }} s3 cp my_pictures_text.tar s3://$BUCKETNAME/ > /dev/null
     
     # Delete any unnecessary files.
     echo "Cleaning up..."

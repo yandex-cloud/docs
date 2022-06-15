@@ -57,7 +57,7 @@ deploy_policy:
   strategy: OPPORTUNISTIC
 allocation_policy:
   zones:
-  - zone_id: ru-central1-b
+  - zone_id: {{ region-id }}-b
 service_account_id: ajefnb8427bhl9t0pvf8
 ```
 
@@ -132,36 +132,37 @@ service_account_id: ajefnb8427bhl9t0pvf8
   - JSON
   
     ```json
-    "allocationPolicy": {
-      "zones": [
-        {
-          "zoneId": "ru-central1-a"
-        },
-        {
-          "zoneId": "ru-central-b"    
-        }
-      ]
-    }
+    "variables": [
+      {
+        "key": "foo",
+        "value": "bar"
+      },
+      {
+        "key": "baz",
+        "value": "foobar"
+      }
+    ]
     ```
   
   - Protobuf
   
     ```protobuf
-    message AllocationPolicy {
-      repeated Zone zones = 1;
-      message Zone {
-        string zone_id = 1;
-      }
+    message Variable {
+      string key = 1;
+      string value = 2;
     }
+    
+    repeated Variable variables = 1;
     ```
   
   - YAML
   
     ```yaml
-    allocation_policy:
-      zones:
-      - zone_id: ru-central1-a
-      - zone_id: ru-central1-b
+    variables:
+      - key: foo
+        value: bar
+      - key: baz
+        value: foobar
     ```
   
   {% endlist %}

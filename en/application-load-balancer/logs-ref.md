@@ -7,9 +7,9 @@ Logs are provided in JSON format. A single log entry represents one client reque
 For more information, see [Logging](concepts/application-load-balancer.md#logging).
 
 | Field | Description |
-| ---- | ---- |
-| `type` | Request type. Possible values: <ul><li>`http`: HTTP/1.0 or HTTP/1.1 with no encryption.</li><li>`https`: HTTP/1.0 or HTTP/1.1 with TLS encryption (HTTPS, HTTP over TLS).</li><li>`h2`: HTTP/2.</li><li>`h3`: HTTP3.</li><li>`grpc`: gRPC with no encryption.</li><li>`grpcs`: gRPC with TLS encryption.</li></ul> |
-| `time` | Request date and time: receipt of the first byte from the client by the load balancer. Written in the following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `<YYYY>-<MM><DD>T<hh>:<mm>:<ss>Z` where `Z` stands for Greenwich Mean Time, UTC. |
+---- | ----
+| `type` | Request type. Possible values: <ul><li>`http`: HTTP/1.0 or HTTP/1.1 without encryption.</li><li>`https`: HTTP/1.0 or HTTP/1.1 with TLS encryption (HTTPS, HTTP over TLS).</li><li>`h2`: HTTP/2.</li><li>`h3`: HTTP3.</li><li>`grpc`: gRPC without encryption.</li><li>`grpcs`: gRPC with TLS encryption.</li></ul> |
+| `time` | Request date and time: receipt of the first byte from the client by the load balancer. Written in the following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `<YYYY>-<MM>-<DD>T<hh>:<mm>:<ss>Z`, where `Z` stands for Greenwich Mean Time, UTC. |
 | `http_method` | HTTP request method. |
 | `authority` | HTTP/1.0 and HTTP/1.1: The `Host` header value. For other supported protocols: the value of the `:authority` pseudo-header. |
 | `request_uri` | Request path. For example, `/api/v1/foo`. |
@@ -35,7 +35,7 @@ For more information, see [Logging](concepts/application-load-balancer.md#loggin
 | `request_body_bytes` | Request body size in bytes. |
 | `response_headers_bytes` | Response header size in bytes. |
 | `response_body_bytes` | Response body size in bytes. |
-| `error_details` | Error encountered by the load balancer when processing a request. Valid values: <ul><li>`no_healthy_backend`: No healthy backends. For more information, see [Health checks](concepts/backend-group.md#health-checks).</li><li>`backend_request_timeout`: The backend request timeout specified in the route settings was exceeded.</li><li>`balancer_reset`: The connection between the client and the load balancer reset.</li><li>`backend_connection_closed_before_data_sent_to_client`: The connection between the load balancer and the backend reset.</li><li>`failed_to_connect_to_backend`: The load balancer failed to connect to the backend.</li><li>`backend_connection_terminated`: The backend closed the connection with the load balancer.</li><li>`no_route`: No match for the client's request among any routes configured in the load balancer HTTP routers.</li><li>`client_disconnected`: The client closed the connection to the load balancer.</li><li>`backend_stream_idle_timeout`: The idle timeout specified in the route settings was exceeded, the connection between the load balancer and backend was idle for too long with no data transmission.</li><li>`backend_retry_limit_exceeded`: The load balancer exceeded the maximum number of backend connection attempts.</li><li>`client_protocol_error`: Client protocol error.</li></ul> |
+| `error_details` | Error encountered by the load balancer when processing a request. Possible values: <ul><li>`no_healthy_backend`: No healthy backends. For more information, see [Health checks](concepts/backend-group.md#health-checks).</li><li>`backend_request_timeout`: The backend request timeout specified in the route settings was exceeded.</li><li>`balancer_reset`: The the connection between the client and the load balancer was reset.</li><li>`backend_connection_closed_before_data_sent_to_client`: The connection between the load balancer and the backend was reset.</li><li>`failed_to_connect_to_backend`: The load balancer failed to connect to the backend.</li><li>`backend_connection_terminated`: The backend closed the connection to the load balancer.</li><li>`no_route`: No match for the client's request among any routes configured in the load balancer HTTP routers.</li><li>`client_disconnected`: The client closed the connection to the load balancer.</li><li>`backend_stream_idle_timeout`: The idle timeout specified in the route settings was exceeded, the connection between the load balancer and backend was idle for too long with no data transmission.</li><li>`backend_retry_limit_exceeded`: The load balancer exceeded the maximum number of backend connection attempts.</li><li>`client_protocol_error`: Client protocol error.</li></ul> |
 | `tls_version` | TLS protocol version, such as `TLSv1.3`. |
 | `cipher_suite` | Set of ciphers used for the TLS encryption of the connection between client and load balancer. |
 | `sni_hostname` | Domain name sent to the load balancer by the client using the TLS Server Name Indication (SNI) extension. |
@@ -47,7 +47,7 @@ For more information, see [Logging](concepts/application-load-balancer.md#loggin
 | &emsp;&emsp; `code` | gRPC request error code. For more information about the gRPC statuses that correspond to HTTP codes, see [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). |
 | &emsp;&emsp; `message` | gRPC request error description. |
 | `upstream_transport_failure_reason` | Error message regarding a transport-layer connection error between the load balancer and backend, such as in the TLS connection. |
-| `request_processing_times` | Information about the time it took to process a request. The unit of measurement in all fields is a second. |
+| `request_processing_times` | Information about the time it took to process a request. All field values are specified in seconds. |
 | &ensp; `request_time` | Total time it took to handle a request. |
 | &ensp; `response_start_time` | Time before the start of a response: between when the first request byte is received from the client by the load balancer and when the first byte of the response is sent by the load balancer to the client. |
 | &ensp; `request_processing_time` | Time the load balancer takes to process a request: between receiving the first byte from the client and sending the first byte to the backend. |
@@ -58,4 +58,3 @@ For more information, see [Logging](concepts/application-load-balancer.md#loggin
 | &ensp; `backend_response_time` | Wait time for a backend response: between the load balancer sending the last byte of a request to and receiving the first byte of the response from the backend. |
 | &ensp; `response_rx_time` | Time it takes the backend to send a response: between the first and the last bytes received by the load balancer. |
 | &ensp; `response_tx_time` | Time it takes the load balancer to send a response: between the first and the last bytes sent by the load balancer. |
-

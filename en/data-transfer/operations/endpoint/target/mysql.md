@@ -1,8 +1,8 @@
 # Target endpoint parameters {{ MY }}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
-* Settings of [{{ mmy-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise), including one based on {{ compute-full-name }} VMs. These are required parameters.
+* [{{ mmy-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
 
 ## {{ mmy-name }} cluster {#managed-service}
@@ -13,19 +13,19 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
 - Management console
 
-   {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql.md) %}
+   {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql-target.md) %}
 
 - CLI
 
    * Endpoint type: `mysql-target`.
 
-   {% include [Managed MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mysql.md) %}
+   {% include [Managed MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mysql-target.md) %}
 
 - Terraform
 
    * Endpoint type: `mysql_target`.
 
-   {% include [Managed MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mysql.md) %}
+   {% include [Managed MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mysql-target.md) %}
 
    Example configuration file structure:
 
@@ -38,7 +38,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
            mdb_cluster_id = "<{{ mmy-name }} cluster ID>"
          }
          database = "<name of database to transfer>"
-         user     = "<username for connection>"
+         user     = "<username to connect>"
          password {
            raw = "<user password>"
          }
@@ -52,7 +52,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
 - API
 
-   {% include [Managed MySQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-mysql.md) %}
+   {% include [Managed MySQL API](../../../../_includes/data-transfer/necessary-settings/api/managed-mysql-target.md) %}
 
 {% endlist %}
 
@@ -64,19 +64,19 @@ Connecting to the database with an explicitly specified network address and port
 
 - Management console
 
-   {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql.md) %}
+   {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql-target.md) %}
 
 - CLI
 
    * Endpoint type: `mysql-target`.
 
-   {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mysql.md) %}
+   {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mysql-target.md) %}
 
 - Terraform
 
    * Endpoint type: `mysql_target`.
 
-   {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mysql.md) %}
+   {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mysql-target.md) %}
 
    Example configuration file structure:
 
@@ -92,7 +92,7 @@ Connecting to the database with an explicitly specified network address and port
            }
          }
          database = "<name of database to transfer>"
-         user     = "<username for connection>"
+         user     = "<username to connect>"
          password {
            raw = "<user password>"
          }
@@ -106,7 +106,7 @@ Connecting to the database with an explicitly specified network address and port
 
 - API
 
-   {% include [On premise MySQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mysql.md) %}
+   {% include [On premise MySQL API](../../../../_includes/data-transfer/necessary-settings/api/on-premise-mysql-target.md) %}
 
 {% endlist %}
 
@@ -148,7 +148,7 @@ You can configure **Cleanup policy** and **DB schema for service tables** only v
 
    * `sql_mode`: Specify settings to override [standard {{ MY }} behavior](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html). The following list is used by default: `NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION`.
 
-   * `skip_constraint_checks`: Used to speed up replication: the `FOREIGN_KEY_CHECKS` and `UNIQUE_CHECKS` settings are set to `0` (no checks are performed).
+   * `skip_constraint_checks`: Used to speed up replication: the `FOREIGN_KEY_CHECKS` and the `UNIQUE_CHECKS` values are set to `0` (no checks are performed).
 
       {% include [Note turn-off-mysql-constraints](../../../../_includes/data-transfer/notes/mysql-turn-off-constraints.md) %}
 

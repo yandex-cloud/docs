@@ -1,5 +1,6 @@
 # DHCP settings for working with a corporate DNS server
 
+
 If you want your VMs to resolve names in a private corporate DNS zone, use the [DHCP options](../concepts/dhcp-options.md) in the [subnet](../operations/subnet-create.md) configuration. For example, you can specify a DNS suffix and DNS server for subnet nodes.
 
 To run this scenario, make sure you have a corporate DNS server deployed that is available for the VMs in the cloud. You can also [deploy Active Directory](../../tutorials/windows/active-directory.md) to create an infrastructure with a DNS server:
@@ -25,13 +26,10 @@ If you no longer need the infrastructure, [delete](#clear-out) the created resou
 
 ## Prepare your cloud {#before-begin}
 
-Before deploying your infrastructure, register in {{ yandex-cloud }} and create a billing account:
-
-{% include [prepare-register-billing](../../_tutorials/_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a separate folder to run the scenario. Learn more about [clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 To pass this scenario in full, [deploy Active Directory](../../tutorials/windows/active-directory.md). If you use your own DNS servers that are available for cloud VMs, specify your own DNS suffix and IP address values in the scenario.
+
 
 ### Required paid resources {#paid-resources}
 
@@ -55,7 +53,7 @@ To create a new subnet with DHCP settings, follow these steps:
 	1. Click on the name of the `ad-network` cloud network.
 	1. Click **Add subnet**.
 	1. Fill out the form:
-		* Enter a name for the subnet: `test-subnet-1`. Select the availability zone: `ru-central1-b`.
+		* Enter a name for the subnet: `test-subnet-1`. Select the availability zone: `{{ region-id }}-a`.
 		* Enter the subnet CIDR: `10.128.0.0/24`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../concepts/network.md).
 	1. Specify **DHCP settings**:
 		* In the **Domain name** field, specify the DNS suffix: `yantoso.net`.
@@ -72,7 +70,7 @@ To create a new subnet with DHCP settings, follow these steps:
 		--description "My test subnet" \
 	    --folder-id <folder ID> \
 		--network-name ad-network \
-		--zone ru-central1-b \
+		--zone {{ region-id }}-a \
 		--range 10.128.0.0/24 \
 		--domain-name yantoso.net \
 		--domain-name-server 10.1.0.3,10.2.0.3
@@ -89,7 +87,7 @@ To create a new subnet with DHCP settings, follow these steps:
 	name: test-subnet-1
 	description: My test subnet
 	network_id: enpl0t90hept99f9hsh4
-	zone_id: ru-central1-b
+	zone_id: {{ region-id }}-a
 	v4_cidr_blocks:
 	- 10.128.0.0/24
 	dhcp_options:
@@ -113,7 +111,7 @@ To check the configuration, create a VM and connect to it via RDP:
 
 		1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
 		1. In the **Name** field, enter the VM name: `vm-for-tests-in-subnet`.
-		1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-b`.
+		1. Select the [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
 		1. Under **Image/boot disk selection**, choose Windows Server. In the drop-down list, select the OS version: **2016 Datacenter**.
 		1. Under **Disks**, enter 50 GB for the size of the boot disk.
 		1. Under **Computing resources**:
@@ -145,7 +143,7 @@ To check the configuration, create a VM and connect to it via RDP:
 		yc compute instance create \
 			--name vm-for-tests-in-subnet \
 			--metadata-from-file user-data=metadata.yaml \
-			--zone ru-central1-b \
+			--zone {{ region-id }}-a \
 			--cores 2 \
 			--memory 4 \
 			--network-interface subnet-name=test-subnet-1,nat-ip-version=ipv4 \

@@ -12,15 +12,10 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед тем, как разворачивать сервер, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
-
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша ВМ, на [странице облака](https://console.cloud.yandex.ru/cloud).
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 Убедитесь, что в выбранном каталоге есть облачная сеть с подсетью хотя бы в одной зоне доступности. Для этого на странице каталога выберите сервис **Virtual Private Cloud**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если нужных подсетей или сети нет, [создайте их](../../vpc/quickstart.md).
+
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -68,7 +63,7 @@
    {% include [name-format](../../_includes/name-format.md) %}
 
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. В блоке **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. Выберите публичный образ [WordPress](https://cloud.yandex.ru/marketplace/products/f2eugfso8lh4ch2g2m9h).
+1. В блоке **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. Выберите публичный образ [WordPress](/marketplace/products/f2eugfso8lh4ch2g2m9h).
 
    ![choose-image](../../_assets/tutorials/wordpress/vm-create-3.png)
 

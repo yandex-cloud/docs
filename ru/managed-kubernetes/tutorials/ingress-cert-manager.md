@@ -1,22 +1,19 @@
-# Установка NGINX Ingress Controller с менеджером для сертификатов Let's Encrypt®
+# Установка NGINX Ingress-контроллера с менеджером для сертификатов Let's Encrypt<sup>®</sup>
 
-Чтобы с помощью [{{ k8s }}](https://kubernetes.io/ru/) создать [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/) и защитить его сертификатом [Let's Encrypt®](https://letsencrypt.org/ru/), выполните следующие действия.
+Чтобы с помощью [{{ k8s }}](https://kubernetes.io/ru/) создать [NGINX Ingress-контроллер](https://kubernetes.github.io/ingress-nginx/) и защитить его сертификатом [Let's Encrypt<sup>®</sup>](https://letsencrypt.org/ru/), выполните следующие действия.
 
 ## Перед началом работы {#before-begin}
 
-1. Установите {{ k8s }} CLI [kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl).
-
-1. [Настройте](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) конфигурацию kubectl.
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. Установите менеджер пакетов {{ k8s }} [Helm 3](https://helm.sh/ru/docs/intro/install).
-
 1. Добавьте в Helm репозиторий для NGINX:
 
    ```bash
    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    "ingress-nginx" has been added to your repositories
@@ -28,7 +25,7 @@
    helm repo update
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    Hang tight while we grab the latest from your chart repositories...
@@ -44,7 +41,7 @@
 helm install ingress-nginx ingress-nginx/ingress-nginx
 ```
 
-Ожидаемый результат выполнения команды:
+Результат выполнения команды:
 
 ```text
 NAME: ingress-nginx
@@ -72,7 +69,7 @@ You can watch the status by running 'kubectl --namespace default get services -o
    kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.6.1/cert-manager.yaml
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```bash
    customresourcedefinition.apiextensions.k8s.io/certificaterequests.cert-manager.io created
@@ -86,19 +83,18 @@ You can watch the status by running 'kubectl --namespace default get services -o
    kubectl get pods -n cert-manager --watch
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```bash
-   NAME                                       READY   STATUS    RESTARTS   AGE
-   cert-manager-69cf79df7f-ghw6s              1/1     Running   0          54s
-   cert-manager-cainjector-7648dc6696-gnrzz   1/1     Running   0          55s
-   cert-manager-webhook-7746f64877-wz9bh      1/1     Running   0          54s
+   NAME                                      READY  STATUS   RESTARTS  AGE
+   cert-manager-69cf79df7f-ghw6s             1/1    Running  0         54s
+   cert-manager-cainjector-7648dc6696-gnrzz  1/1    Running  0         55s
+   cert-manager-webhook-7746f64877-wz9bh     1/1    Running  0         54s
    ```
 
 ## Создайте объекты {#install-objects}
 
 Чтобы протестировать работу менеджера сертификатов, необходимо создать объекты ClusterIssuer, Ingress, Service и Deployment.
-
 1. Создайте YAML-файл `acme-issuer.yaml` с манифестом объекта `ClusterIssuer`:
 
    ```yaml
@@ -196,12 +192,12 @@ You can watch the status by running 'kubectl --namespace default get services -o
    kubectl get svc
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```bash
-   NAME                          TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)                      AGE
+   NAME                      TYPE          CLUSTER-IP     EXTERNAL-IP     PORT(S)                     AGE
    ...
-   ingress-nginx-controller      LoadBalancer   10.96.164.252   84.201.153.122   80:31248/TCP,443:31151/TCP   2m19s
+   ingress-nginx-controller  LoadBalancer  10.96.164.252  84.201.153.122  80:31248/TCP,443:31151/TCP  2m19s
    ...
    ```
 

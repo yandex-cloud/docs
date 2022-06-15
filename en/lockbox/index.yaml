@@ -1,7 +1,7 @@
 title: Yandex Lockbox
 description:
   - >-
-    <em>Yandex Lockbox is currently in the <a
+    <em>Yandex Lockbox is currently at the <a
     href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
   - Yandex Lockbox is a service for storing secrets.
 meta:
@@ -17,5 +17,5 @@ links:
     description: Configure access rights to work with the service
     href: security/
   - title: Pricing policy
-    description: Prices and rules for calculating the service cost
+    description: Service pricing and cost calculations
     href: pricing

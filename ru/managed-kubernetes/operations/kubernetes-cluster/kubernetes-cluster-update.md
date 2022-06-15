@@ -10,7 +10,7 @@
 * [Сервисные аккаунты](../../../iam/operations/sa/create.md).
 * Версию {{ k8s }}.
 * Политику [обновлений](../../concepts/release-channels-and-updates.md#updates).
-* Список [групп безопасности](../security-groups.md).
+* Список [групп безопасности](../connect/security-groups.md).
 
   {% note alert %}
 

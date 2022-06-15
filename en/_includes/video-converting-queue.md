@@ -16,13 +16,8 @@ To create an application:
 
 ## Prepare your cloud {#before-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
+{% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-1. On the [billing page]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) activated and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](../billing/quickstart/index.md).
-
-1. On the [cloud page](https://console.cloud.yandex.ru/cloud), create or select a folder for a new service.
-
-    [Learn more about clouds and folders](../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources {#paid-resources}
 
@@ -245,7 +240,7 @@ The trigger should invoke the converter function for each message in the queue. 
         ```json
         {
             "ready": true,
-            "gif_url": "https://storage.yandexcloud.net/converter-bucket/1b4db1a6-f2b2-4b1c-b662-37f7a62e6e2e.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=qxLftbbZ91U695ysemyZ%2F20210831%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20210831T110351Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f4a5fe7848274a09be5b221fbf8a9f6f2b385708cfa351861a4e69df4ee4183c"
+            "gif_url": "https://{{ s3-storage-host }}/converter-bucket/1b4db1a6-f2b2-4b1c-b662-37f7a62e6e2e.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=qxLftbbZ91U695ysemyZ%2F20210831%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20210831T110351Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f4a5fe7848274a09be5b221fbf8a9f6f2b385708cfa351861a4e69df4ee4183c"
         }
         ```
 

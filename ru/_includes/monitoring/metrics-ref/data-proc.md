@@ -1,6 +1,6 @@
-## Сервис {{ data-proc-full-name }} {#data-proc}
+## Сервис {{ dataproc-full-name }} {#data-proc}
 
-Общие метки для всех метрик сервиса {{ data-proc-full-name }}:
+Общие метки для всех метрик сервиса {{ dataproc-full-name }}:
 
 Метка | Значение
 ----|----
@@ -68,6 +68,6 @@ host | FQDN хоста
 ### Прочие метрики {#data-proc-other-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
-| `dataproc.cluster.neededAutoscalingNodesNumber`<br/>`DGAUGE`, штуки | Метрика сервиса {{ data-proc-full-name }} для масштабирования по умолчанию. |
+| `dataproc.cluster.neededAutoscalingNodesNumber`<br/>`DGAUGE`, штуки | Метрика сервиса {{ dataproc-full-name }} для масштабирования по умолчанию. |
 
-Подробнее о сервисе в документации [{{ data-proc-full-name }}](../../data-proc/).
+Подробнее о сервисе в документации [{{ dataproc-full-name }}](../../data-proc/).

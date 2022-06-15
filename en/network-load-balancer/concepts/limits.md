@@ -5,9 +5,8 @@ description: 'The Yandex Network Load Balancer service has limits and quotas for
 
 # Quotas and limits in {{ network-load-balancer-name }}
 
-In the {{ network-load-balancer-full-name }} service, the following limitations apply:
+{{ network-load-balancer-full-name }} has the following limits:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
 {% include [load-balancer-limits.md](../../_includes/load-balancer-limits.md) %}
-

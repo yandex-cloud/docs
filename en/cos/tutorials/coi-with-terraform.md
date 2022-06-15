@@ -224,12 +224,13 @@ Run the VM with a {{ coi }} using the Terraform configuration.
 
 1. Save a configuration file named `example.tf` to the `~/yandex-cloud-terraform` directory:
 
-   ```
+   
+   ```hcl
    provider "yandex" {
-     token = "<OAuth token>"
-     cloud_id = "<cloud ID>"
+     token     = "<OAuth token>"
+     cloud_id  = "<cloud ID>"
      folder_id = "<folder ID>"
-     zone = "ru-central1-a"
+     zone      = "{{ region-id }}-a"
    }
    data "yandex_compute_image" "container-optimized-image" {
      family = "container-optimized-image"
@@ -277,6 +278,7 @@ Run the VM with a {{ coi }} using the Terraform configuration.
      }
    }
    ```
+
 
    Where:
    * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) to access {{ yandex-cloud }}.

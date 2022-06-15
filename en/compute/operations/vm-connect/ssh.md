@@ -8,9 +8,9 @@ The recommended method for connecting to a virtual machine over SSH is based on 
 
 ## Connecting to a VM {#vm-connect}
 
-You can connect to a VM using the SSH protocol when it is running (the VM's status is `RUNNING`). For this purpose, you can use the `ssh` utility under Linux/macOS/Windows 10 and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) under Windows 7/8.
+You can connect to a VM using the SSH protocol when it is running (the VM's status is `RUNNING`). To do this, you can use the `ssh` utility in Linux/macOS/Windows 10 and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows 7/8.
 
-Virtual machine [Security groups](../../../vpc/concepts/security-groups.md) must allow incoming TCP traffic on port 22.
+Virtual machine [security groups](../../../vpc/concepts/security-groups.md) must allow incoming TCP traffic on port 22.
 
 {% include [security-groups-note](../../_includes_service/security-groups-note.md) %}
 
@@ -31,7 +31,7 @@ You can also use the internal IP addresses and FQDNs to establish an SSH connect
    If you have multiple private keys, specify the one you need:
 
    ```bash
-   ssh -i <key_path/key_file_name> <username>@<VM_public_IP_address>
+   ssh -i <key_path/key_file_name><username>@<VM_public_IP_address>
    ```
 
    If this is the first time you connect to a VM, you'll see a warning about an unknown host:
@@ -48,7 +48,7 @@ You can also use the internal IP addresses and FQDNs to establish an SSH connect
 
    Make sure that the Windows account has read privileges on the folder containing the keys.
 
-   To connect to the virtual machine, execute the following command at the command line:
+   To connect to the virtual machine, execute the following command in the command line:
 
    ```powershell
    ssh <username>@<VM_public_IP_address>
@@ -104,11 +104,9 @@ You can also use the internal IP addresses and FQDNs to establish an SSH connect
 
    If you saved the session profile in PuTTY, you can use Pageant to establish a connection in the future:
 
-  If you saved the session profile in PuTTY, you can use Pageant to establish a connection in the future:
-
-  1. Right-click on the Pageant icon in the task bar.
-  1. Select the **Saved sessions** menu item.
-  1. In the saved sessions list, select the necessary session.
+   1. Right-click on the Pageant icon in the task bar.
+   1. Select the **Saved sessions** menu item.
+   1. In the saved sessions list, select the necessary session.
 
 {% endlist %}
 

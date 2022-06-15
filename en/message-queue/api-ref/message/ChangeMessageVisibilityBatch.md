@@ -9,7 +9,7 @@ The result of changing each message's visibility timeout is reported individuall
 ### Request parameters {#request-parameters}
 
 | Parameter | Type | Required parameter | Description |
-| ----- | ----- | ----- | ----- |
+----- | ----- | ----- | -----
 | `QueueUrl` | **string** | Yes | URL of the queue where the message is placed. Case-sensitive. |
 | `ChangeMessageVisibilityBatchRequestEntry.N` | **array** | Yes | The [ChangeMessageVisibilityBatchRequestEntry](../data-types/ChangeMessageVisibilityBatchRequestEntry.md) array that contains the `ReceiptHandle` parameters of messages whose visibility timeout needs to be changed. |
 
@@ -18,7 +18,7 @@ The result of changing each message's visibility timeout is reported individuall
 ### Successful response fields {#response-parameters}
 
 | Field | Type | Description |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | `BatchResultErrorEntry.N` | **array** | The [BatchResultErrorEntry](../data-types/BatchResultErrorEntry.md) array with request result error descriptions. |
 | `ChangeMessageVisibilityBatchResultEntry.N` | **array** | [ChangeMessageVisibilityBatchResultEntry](../data-types/ChangeMessageVisibilityBatchResultEntry.md) array with the IDs of messages with a successfully changed timeout. |
 
@@ -27,7 +27,7 @@ The result of changing each message's visibility timeout is reported individuall
 For a list of errors common for all methods, see [{#T}](../common-errors.md).
 
 | HTTP code | Error ID | Description |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | 400 | `BatchEntryIdsNotDistinct` | Two or more batch entries in the request have the same ID. |
 | 400 | `EmptyBatchRequest` | The batch request doesn't contain any entries. |
 | 400 | `InvalidBatchEntryId` | The ID of a batch entry is invalid. |
@@ -38,7 +38,7 @@ For a list of errors common for all methods, see [{#T}](../common-errors.md).
 ```
 Action=ChangeMessageVisibilityBatch
 &Version=2012-11-05
-&QueueUrl=https://message-queue.api.cloud.yandex.net/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
 &ChangeMessageVisibilityBatchRequestEntry.1.Id=8b6f1be7-effe631a-7b3cbef1-158bf58
 &ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=EAUg9bzYh4gtKAA
 &ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=30
@@ -66,4 +66,3 @@ For more information about forming requests, see [General API request format](..
     </ResponseMetadata>
 </ChangeMessageVisibilityBatchResponse>
 ```
-

@@ -1,12 +1,11 @@
-# Creating a notification channel
+# Creating notification channels
 
 To create a notification channel:
 
-1. On the {{ monitoring-short-name }} home page, click **Notification channels**.
-1. On the right side of the page, click **Create channel**.
+1. On the {{ monitoring-short-name }} homepage, click **Notification channels**.
+1. Click **Create channel** on the right of the page.
 1. Specify the channel parameters:
-    - **Name**. Enter the channel name.
-    - **Method**. Enter the notification method.
-    - **Recipients**. List the notification recipients.
+   - **Name**. Enter a name for the channel.
+   - **Method**. Specify the notification method.
+   - **Recipients**. List notification recipients.
 1. Click **Create**. The channel appears in the list.
-

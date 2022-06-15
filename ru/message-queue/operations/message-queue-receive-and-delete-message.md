@@ -10,8 +10,8 @@
   
   ```bash
   aws sqs receive-message \
-    --endpoint https://message-queue.api.cloud.yandex.net/ \
-    --queue-url https://message-queue.api.cloud.yandex.net/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
+    --endpoint https://message-queue.{{ api-host }}/ \
+    --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
   ```
   
   Результат:
@@ -38,8 +38,8 @@
   
   ```bash
   aws sqs delete-message \
-    --endpoint https://message-queue.api.cloud.yandex.net/ \
-    --queue-url https://message-queue.api.cloud.yandex.net/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
+    --endpoint https://message-queue.{{ api-host }}/ \
+    --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
     --receipt-handle EAEggbjIg_8sKAM
   ```
 

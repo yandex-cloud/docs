@@ -1,27 +1,26 @@
 ---
 editable: false
 ---
+# Write method
 
-# Method write
-Writes metric data to Monitoring.
- 
+Writes data about metrics.
 
- 
+
 ## HTTP request {#https-request}
 ```
 POST https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write
 ```
 
 ## Query parameters {#query_params}
- 
-Parameter | Description
+
+| Parameter | Description |
 --- | ---
-folderId | <p>Required. ID of the folder that the metric belongs to.</p> <p>The maximum string length in characters is 50.</p>
-service | <p>Required. ID of the service that the metric belongs to. Use <code>service=custom</code> for custom metrics.</p> <p>The maximum string length in characters is 50.</p>
- 
-## Body parameters {#body_params}
- 
-```json 
+| folderId | Required field. ID of the folder that the metric belongs to. Maximum string length: 50 characters. |
+| service | Required field. ID of the service that the metric belongs to. Use `service=custom` for custom metrics. Maximum string length: 50 characters. |
+
+## Parameters in the request body {#body_params}
+
+```json
 {
   "ts": "string",
   "labels": "object",
@@ -43,32 +42,32 @@ service | <p>Required. ID of the service that the metric belongs to. Use <code>s
 }
 ```
 
-Field | Description
+
+| Field | Description |
 --- | ---
-ts | **string** (date-time)<br><p>Common timestamp for all metrics in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-labels | **object**<br><p>Common labels for all metrics as <code>key:value</code> pairs.</p> 
-metrics[] | **object**<br><p>List of metrics.</p> 
-metrics[].<br>name | **string**<br><p>Required. Name of the metric.</p> 
-metrics[].<br>labels | **object**<br><p>Metric labels as  <code>key:value</code> pairs.</p> 
-metrics[].<br>type | **string**<br><p>Type of the metric. The default value is <code>DGAUGE</code>.</p> <ul> <li>DGAUGE: Gauge with fractional values.</li> <li>IGAUGE: Gauge with integer values.</li> <li>COUNTER: Counter.</li> <li>RATE: Rate.</li> </ul> 
-metrics[].<br>ts | **string** (date-time)<br><p>Time point in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. If it is not specified, the current time is used.</p> 
-metrics[].<br>value | **number** (double)<br><p>Required. Metric value in the time point.</p> 
-metrics[].<br>timeseries[] | **object**<br><p>List of several points.</p> 
-metrics[].<br>timeseries[].<br>ts | **string** (date-time)<br><p>Time point in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-metrics[].<br>timeseries[].<br>value | **number** (double)<br><p>Metric value.</p>
- 
+| ts | **string** (date-time)<br><p>Timestamp common for all metrics in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> format.</p> |
+| labels | **object**<br><p>List of labels in <code>key:value</code> format, which are common for all metrics being passed.</p> |
+| metrics[] | **object**<br><p>List of metrics.</p> |
+| metrics[].<br>name | **string**<br><p>Required field. Metric name.</p> |
+| metrics[].<br>labels | **object**<br><p>List of metric labels in <code>key:value format</code>.</p> |
+| metrics[].<br>type | **string**<br><p>Type of metric. Default value: <code>DGAUGE</code>.</p> <ul> <li>DGAUGE: Numeric value. Set as a fractional number.</li> <li>GAUGE: Numeric value. Set as an integer.</li> <li>COUNTER: Counter.</li> <li>RATE: Derivative.</li> </ul> |
+| metrics[].<br>ts | **string** (date-time)<br><p>Timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> format. If not specified, the current time is used.</p> |
+| metrics[].<br>value | **number** (double)<br><p>Required field. Metric value in the specified point.</p> |
+| metrics[].<br>timeseries[] | **object**<br><p>List of multiple points.</p> |
+| metrics[].<br>timeseries[].<br>ts | **string** (date-time)<br><p>Point in time in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> format.</p> |
+| metrics[].<br>timeseries[].<br>value | **number** (double)<br><p>Metric value in the specified point.</p> |
+
 ## Response {#responses}
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "writtenMetricsCount": "string",
   "errorMessage": "string"
 }
 ```
 
- 
-Field | Description
+| Field | Description |
 --- | ---
-writtenMetricsCount | **string** (int64)<br><p>Number of successfully written metrics.</p> 
-errorMessage | **string**<br><p>Error message if the writing failed.</p> 
+| writtenMetricsCount | **string** (int64)<br><p>Number of metrics that are written successfully.</p> |
+| errorMessage | **string**<br><p>Error message returned if a write fails.</p> |
