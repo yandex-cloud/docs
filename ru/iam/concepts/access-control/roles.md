@@ -4,7 +4,7 @@ _Роль_ — это набор разрешений, который опре�
 
 Роли бывают двух типов:
 * _Примитивные роли_ содержат разрешения, действующие для всех типов ресурсов {{ yandex-cloud }}. Это роли `{{ roles-admin }}`, `{{ roles-editor }}` и `{{ roles-viewer }}`.
-* _Сервисные роли_ содержат разрешения только для определенного типа ресурсов в указанном сервисе. Идентификатор сервисной роли указывается в формате `service.resources.role`. Например, роль `{{ roles-image-user }}` позволяет использовать образы в сервисе Yandex Compute Cloud.
+* _Сервисные роли_ содержат разрешения только для определенного типа ресурсов в указанном сервисе. Идентификатор сервисной роли указывается в формате `service.resources.role`. Например, роль `{{ roles-image-user }}` позволяет использовать образы в сервисе {{ compute-full-name }}.
 
     Сервисную роль можно назначить на ресурс, для которого предназначена роль, или на ресурс, от которого наследуются права доступа. Например, роль `{{ roles-image-user }}` можно назначить на каталог или облако, так как образ наследует разрешения от них.
 
@@ -38,6 +38,8 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ## {{ cdn-name }} {#cdn-roles}
 
 {% include [roles-cdn-viewer](../../../_includes/roles-cdn-viewer.md) %}
@@ -45,6 +47,8 @@ _Роль_ — это набор разрешений, который опре�
 {% include [roles-cdn-editor](../../../_includes/roles-cdn-editor.md) %}
 
 {% include [roles-cdn-admin](../../../_includes/roles-cdn-admin.md) %}
+
+{% endif %}
 
 ## {{ dns-name }} {#dns-roles}
 
@@ -78,9 +82,15 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [mdb.admin](../../../_includes/iam/roles/mdb.admin.md) %}
 
+
+{% if product == "yandex-cloud" %}
+
 ## {{ dataproc-short-name }} {#dataproc-roles}
 
 {% include [mdb.dataproc.agent](../../../_includes/roles-dataproc-agent.md) %}
+
+{% endif %}
+
 
 ## {{ data-transfer-name }} {#data-transfer-roles}
 
@@ -90,17 +100,23 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [data-transfer-admin](../../../_includes/roles-data-transfer-admin.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ## {{ datalens-name }} {#datalens-roles}
 
 {% include [datalens-instances-user](../../../_includes/roles-datalens-user.md) %}
 
 {% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md) %}
 
+{% endif %}
+
 ## {{ ml-platform-name }} {#datasphere-roles}
 
 {% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
 
 {% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
+
+{% if product == "yandex-cloud" %}
 
 ## {{ sf-short-name }} {#functions-roles}
 
@@ -109,6 +125,8 @@ _Роль_ — это набор разрешений, который опре�
 {% include [functions-roles-admin](../../../_includes/roles-functions-admin.md) %}
 
 {% include [functions-roles-mdbproxy](../../../_includes/roles-functions-mdbproxy.md) %}
+
+{% endif %}
 
 ## {{ iam-name }} {#iam-roles}
 
@@ -119,6 +137,8 @@ _Роль_ — это набор разрешений, который опре�
 {% include [iot-devices-writer](../../../_includes/roles-iot-devices-writer.md) %}
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
+
+{% if product == "yandex-cloud" %}
 
 ## {{ cloud-logging-name }} {#logging}
 
@@ -131,6 +151,8 @@ _Роль_ — это набор разрешений, который опре�
 {% include [logging-roles-writer](../../../_includes/roles-logging-writer.md) %}
 
 {% include [logging-roles-admin](../../../_includes/roles-logging-admin.md) %}
+
+{% endif %}
 
 ## {{ kms-name }} {#kms-roles}
 
@@ -182,6 +204,8 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [cloud-roles](../../../_includes/cloud-roles.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ## {{ serverless-containers-name }} {#serverless-containers}
 
 {% include [serverless-containers-roles-viewer](../../../_includes/roles-serverless-containers-viewer.md) %}
@@ -191,6 +215,8 @@ _Роль_ — это набор разрешений, который опре�
 {% include [serverless-containers-roles-editor](../../../_includes/roles-serverless-containers-editor.md) %}
 
 {% include [serverless-containers-roles-admin](../../../_includes/roles-serverless-containers-admin.md) %}
+
+{% endif %}
 
 ## {{ vpc-name }} {#vpc-roles}
 

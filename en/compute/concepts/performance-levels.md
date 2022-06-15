@@ -4,7 +4,7 @@ When creating a virtual machine, you need to select a vCPU performance level. Th
 
 * Virtual machines with performance under 100% have access to the computing power of physical cores for at least the specified percentage of a unit of time.
 
-   > At 5% performance, a VM will have access to the physical cores at least 5% of the time: 50 milliseconds out of every second. During that time, the processor clock speed is not limited and is equal to that of the selected platform, such as 2 GHz for Intel Ice Lake (`standard-v3`).
+   > At 20% performance, a VM will have access to the physical cores at least 20% of the time: 200 milliseconds out of every second. During that time, the processor clock speed is not limited and is equal to that of the selected platform, such as 2 GHz for Intel Ice Lake (`standard-v3`).
 
    VMs with a performance level under 100% are designed to run applications that do not require high performance and are immune to delays. These machines will cost less.
 
@@ -22,6 +22,8 @@ Minimum configurations are specified for the 5% performance level, and maximum c
 
 {% endnote %}
 
+{% if product == "yandex-cloud" %}
+
 * Intel Broadwell platform (`standard-v1`):
 
    | Configuration | vCPU | RAM, GB |
@@ -35,6 +37,8 @@ Minimum configurations are specified for the 5% performance level, and maximum c
    --- | --- | --- 
    | Min | 2 | 0.5 |
    | Max | 80 | 1280 |
+
+{% endif %}
 
 * Intel Ice Lake (`standard-v3`):
 
@@ -50,6 +54,9 @@ Minimum configurations are specified for the 5% performance level, and maximum c
    {% endnote %}
 
 Available configurations of computing resources:
+
+
+{% if product == "yandex-cloud" %}
 
 * Intel Broadwell platform (`standard-v1`):
 
@@ -67,6 +74,8 @@ Available configurations of computing resources:
    | 20% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 |
    | 50% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 |
    | 100% | 2, 4, 6, 8, 10, 12, 14,<br> 16, 20, 24, 28, 32, 36,<br> 40, 44, 48, 52, 56, 60,<br> 64, 68, 72, 76, 80 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,<br> 11, 12, 13, 14, 15, 16 |
+
+{% endif %}
 
 * Intel Ice Lake (`standard-v3`):
 

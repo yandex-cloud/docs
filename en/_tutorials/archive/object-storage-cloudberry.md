@@ -15,11 +15,9 @@ The free version of CloudBerry Desktop Backup allows you to create a maximum of 
 
 ## Before you start {#before-you-begin}
 
-Before using {{ objstorage-full-name }}, sign up for {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to place your bucket in. Go to the [{{ yandex-cloud }} homepage](https://console.cloud.yandex.ru/cloud) and select or create a folder where you want to create a bucket. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -28,6 +26,8 @@ The cost for backup and recovery includes:
 * A fee for data storage (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-storage)).
 * A fee for data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-operations)).
 * The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ objstorage-full-name }} pricing](../../storage/pricing#prices-storage.md#prices-traffic)).
+
+{% endif %}
 
 ## Create a bucket {#create-bucket}
 
@@ -95,7 +95,7 @@ To configure CloudBerry Backup to work with {{ objstorage-name }}:
      1. In the **Display Name** field, enter `Yandex Cloud`.
      1. In the **Access Key** field, specify the ID of the static access key.
      1. In the **Secret Key** field, specify the private key.
-     1. In the **Service point** field, specify `http://storage.yandexcloud.net/`. The `Bucket name` field should display a list of your buckets.
+     1. In the **Service point** field, specify `http://{{ s3-storage-host }}/`. The `Bucket name` field should display a list of your buckets.
      1. In the **Bucket name** field, select the bucket where your backups will be stored.
      1. Click **OK**. If everything is configured correctly, the `Yandex Cloud` storage will appear in the **Registered accounts** window. Close the window.
 
@@ -143,7 +143,7 @@ To configure CloudBerry Backup to work with {{ objstorage-name }}:
      1. In the **Display Name** field, enter `Yandex Cloud`.
      1. In the **Access Key** field, specify the ID of the static access key.
      1. In the **Secret Key** field, specify the private key.
-     1. In the **Endpoint** field, specify `http://storage.yandexcloud.net/`. The `Bucket` field should display a list of your buckets.
+     1. In the **Endpoint** field, specify `http://{{ s3-storage-host }}/`. The `Bucket` field should display a list of your buckets.
      1. In the **Bucket** field, select the bucket where your backups will be stored.
      1. Click **OK**. If everything is configured correctly, the `Yandex Cloud` storage will appear in the list.
 

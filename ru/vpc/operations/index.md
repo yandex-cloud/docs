@@ -33,5 +33,7 @@
 
 ## Дополнительные возможности {#add-features}
 
+{% if product == "yandex-cloud" %}
 - [{#T}](enable-ddos-protection.md)
+{% endif %}
 - [{#T}](enable-software-accelerated-network.md)

@@ -1,19 +1,39 @@
-title: Yandex Monitoring
+title:
+  - text: Yandex Monitoring
+    when: product == "yandex-cloud"
+  - text: Monitoring
+    when: product == "cloud-il"
 description:
-  - >-
-    Yandex Monitoring позволяет собирать и хранить метрики, а также отображать
-    их в виде графиков на дашбордах.
-  - >-
-    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
-    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-    документе <a href="https://yandex.ru/legal/cloud_sla_ym">Уровень
-    обслуживания Yandex Monitoring</a>.
+  - text:
+      - >-
+        Yandex Monitoring позволяет собирать и хранить метрики, а также отображать
+        их в виде графиков на дашбордах.
+      - >-
+        Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+        об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+        документе <a href="https://yandex.ru/legal/cloud_sla_ym">Уровень
+        обслуживания Yandex Monitoring</a>.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        Monitoring позволяет собирать и хранить метрики, а также отображать
+        их в виде графиков на дашбордах.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Monitoring
+  title:
+    - text: Yandex Monitoring
+      when: product == "yandex-cloud"
+    - text: Monitoring
+      when: product == "cloud-il"
 links:
   - title: Начало работы
     description: Начните отслеживание ваших метрик
     href: quickstart
+    when: product == "yandex-cloud"
+  - title: Начало работы
+    description: Начните отслеживание ваших метрик
+    href: quickstart.html
+    when: product == "cloud-il"
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/
@@ -26,9 +46,19 @@ links:
   - title: Язык запросов
     description: Описание языка запросов для преобразования метрик
     href: concepts/querying
+    when: product == "yandex-cloud"
+  - title: Язык запросов
+    description: Описание языка запросов для преобразования метрик
+    href: concepts/querying
+    when: product == "cloud-il"
   - title: Алертинг
     description: Настройте оповещения об изменении метрик
     href: concepts/alerting
+    when: product == "yandex-cloud"
+  - title: Алертинг
+    description: Настройте оповещения об изменении метрик
+    href: concepts/alerting.html
+    when: product == "cloud-il"
   #- title: Справочник метрик
     ##  description: Описание метрик сервисов Yandex Cloud
     ##  href: metrics-ref/
@@ -38,12 +68,23 @@ links:
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
+    when: product == "yandex-cloud"
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Управление доступом
     description: Какие права доступа нужны для работы с сервисом
     href: security/
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+    when: product == "yandex-cloud"
   - title: Вопросы и ответы
     description: Ответы на частые вопросы о сервисе
     href: qa/all
+    when: product == "yandex-cloud"
+  - title: Вопросы и ответы
+    description: Ответы на частые вопросы о сервисе
+    href: qa/all.html
+    when: product == "cloud-il"

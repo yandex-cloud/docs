@@ -61,8 +61,8 @@ kubectl create namespace yc-alb-ingress
 
 ```bash
 export HELM_EXPERIMENTAL_OCI=1 && \
-cat sa-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin && \
-helm pull oci://cr.yandex/yc/yc-alb-ingress-controller-chart \
+cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
+helm pull oci://{{ registry }}/yc/yc-alb-ingress-controller-chart \
   --version=v{{ alb-ingress-version }} \
   --untar && \
 helm install \
@@ -70,7 +70,7 @@ helm install \
   --set folderId=<идентификатор каталога> \
   --set clusterId=<идентификатор кластера> \
   --set-file saKeySecretKey=sa-key.json \
-  yc-alb-ingress-controller ./yc-alb-ingress-controller-chart/
+yc-alb-ingress-controller ./yc-alb-ingress-controller-chart/
 ```
 
 Идентификатор кластера можно [получить со списком кластеров в каталоге](../operations/kubernetes-cluster/kubernetes-cluster-list.md).
@@ -554,7 +554,6 @@ yc certificate-manager certificate list
      * `spec.backends.tls` — сертификат удостоверяющего центра, которому балансировщик будет доверять при установке безопасного соединения с эндпоинтами бэкендов. Укажите содержимое сертификата в поле `trustedCa` в открытом виде.
 
      Подробнее см. в разделе [{#T}](../../application-load-balancer/concepts/backend-group.md).
-
   1. Создайте файл `ingress-http.yaml` и укажите в нем [делегированное ранее доменное имя](#before-you-begin), идентификатор сертификата и настройки для {{ alb-name }}:
 
      ```yaml
@@ -585,38 +584,38 @@ yc certificate-manager certificate list
                      name: example-backend-group
      ```
 
-      (Опционально) Укажите дополнительные настройки контроллера:
-      * `ingress.alb.yc.io/internal-ipv4-address` — предоставление внутреннего доступа к {{ alb-name }}. Укажите внутренний IP-адрес, либо установите значение `auto`, чтобы получить IP-адрес автоматически.
+     (Опционально) Укажите дополнительные настройки контроллера:
+     * `ingress.alb.yc.io/internal-ipv4-address` — предоставление внутреннего доступа к {{ alb-name }}. Укажите внутренний IP-адрес, либо установите значение `auto`, чтобы получить IP-адрес автоматически.
 
-        {% note info %}
+       {% note info %}
 
-        Вы можете одновременно использовать только один тип доступа к {{ alb-name }}: `ingress.alb.yc.io/external-ipv4-address` или `ingress.alb.yc.io/internal-ipv4-address`.
+       Вы можете одновременно использовать только один тип доступа к {{ alb-name }}: `ingress.alb.yc.io/external-ipv4-address` или `ingress.alb.yc.io/internal-ipv4-address`.
 
-        {% endnote %}
+       {% endnote %}
 
-      * `ingress.alb.yc.io/internal-alb-subnet` — подсеть для размещения внутреннего IP-адреса {{ alb-name }}. Обязательный параметр, если выбран параметр `ingress.alb.yc.io/internal-ipv4-address`.
-      * `ingress.alb.yc.io/protocol` — протокол соединений между балансировщиком и бэкендами:
-         * `http` — HTTP/1.1. Значение по умолчанию.
-         * `http2` — HTTP/2.
-         * `grpc` — gRPC.
-      * `ingress.alb.yc.io/prefix-rewrite` — замена пути на указанное значение.
-      * `ingress.alb.yc.io/upgrade-types` — допустимые значения HTTP-заголовка `Upgrade`, например, `websocket`.
-      * `ingress.alb.yc.io/request-timeout` — максимальный период, на который может быть установлено соединение.
-      * `ingress.alb.yc.io/idle-timeout` — максимальный период, в течение которого соединение может простаивать без передачи данных.
+     * `ingress.alb.yc.io/internal-alb-subnet` — подсеть для размещения внутреннего IP-адреса {{ alb-name }}. Обязательный параметр, если выбран параметр `ingress.alb.yc.io/internal-ipv4-address`.
+     * `ingress.alb.yc.io/protocol` — протокол соединений между балансировщиком и бэкендами:
+       * `http` — HTTP/1.1. Значение по умолчанию.
+       * `http2` — HTTP/2.
+       * `grpc` — gRPC.
+     * `ingress.alb.yc.io/prefix-rewrite` — замена пути на указанное значение.
+     * `ingress.alb.yc.io/upgrade-types` — допустимые значения HTTP-заголовка `Upgrade`, например, `websocket`.
+     * `ingress.alb.yc.io/request-timeout` — максимальный период, на который может быть установлено соединение.
+     * `ingress.alb.yc.io/idle-timeout` — максимальный период, в течение которого соединение может простаивать без передачи данных.
 
-        Значения для `request-timeout` и `idle-timeout` следует указывать с единицами измерения, например: `300ms`, `1.5h`. Допустимые единицы измерения:
-        * `ns` — наносекунды.
-        * `us` — микросекунды.
-        * `ms` — миллисекунды.
-        * `s` — секунды.
-        * `m` — минуты.
-        * `h` — часы.
+       Значения для `request-timeout` и `idle-timeout` следует указывать с единицами измерения, например: `300ms`, `1.5h`. Допустимые единицы измерения:
+       * `ns` — наносекунды.
+       * `us` — микросекунды.
+       * `ms` — миллисекунды.
+       * `s` — секунды.
+       * `m` — минуты.
+       * `h` — часы.
 
-      {% note info %}
+     {% note info %}
 
-      Настройки действуют только на хосты этого контроллера, но не на всю группу Ingress.
+     Настройки действуют только на хосты этого контроллера, но не на всю группу Ingress.
 
-      {% endnote %}
+     {% endnote %}
 
   1. Создайте Ingress-контроллер, объект `HttpBackendGroup` и приложение {{ k8s }}:
 

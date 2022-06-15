@@ -8,32 +8,34 @@ Users get permissions along with resource roles. For more information about how 
 
 Before authorization, a user must get authenticated, meaning they must log in under their account. Authentication is performed in different ways, depending on the type of account and the interface used:
 
-* [Authentication using a Yandex account](#passport)
+* [Authentication using a {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %} account](#passport)
 * [Service account authentication](#sa)
 * [Federated user authentication](#saml-federation)
 
-### Authentication using a Yandex account {#passport}
+### Authentication using a {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %} account {#passport}
 
 {% list tabs %}
 
 - Management console
 
-  Authentication is carried out automatically when you log in to your Yandex or Yandex 360 account.
+  Authentication is carried out automatically when you log in to your {% if product == "yandex-cloud" %}Yandex or Yandex 360{% endif %}{% if product == "cloud-il" %}Google{% endif %} account.
 
 - CLI
 
   To perform operations in the CLI, authenticate following the [instructions](../../../cli/operations/authentication/user.md). After this, authentication will work automatically.
 
+{% if product == "yandex-cloud" %}
 - API
 
   {% include [owner-warning](../../../_includes/iam/owner-warning.md) %}
 
   To perform operations in the API:
 
-  1. [Get an IAM token](../../operations/iam-token/create.md) in exchange for your [OAuth token](oauth-token.md).
-  2. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
+  {% if product == "yandex-cloud" %}1. [Get an IAM token](../../operations/iam-token/create.md) in exchange for your [OAuth token](oauth-token.md).
+  2. {% endif %} {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
       {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
+{% endif %}
 
 {% endlist %}
 
@@ -58,7 +60,7 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
       {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}
 
-      [Instructions for how to get an API key](../../operations/api-key/create.md).
+    {% if product == "yandex-cloud" %}[Instructions for how to get an API key](../../operations/api-key/create.md).{% endif %}
   * Using [static access keys](access-key.md). This method should be used in services with an AWS-compatible API, such as {{ objstorage-name }} and {{ message-queue-name }}.
 
       [Instructions for how to get a static access key](../../operations/sa/create-access-key.md).

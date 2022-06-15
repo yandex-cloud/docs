@@ -2,7 +2,7 @@
 
 ## Topics {#topics}
 
-A topic is a way to group message streams into categories. [Producers](producers-consumers.md) [publish](../operations/connect.md) messages of a certain category in a topic, while [consumers](producers-consumers.md) [subscribe](../operations/connect.md) to this topic and read messages from it. For each topic, {{ KF }} keeps a message log that can be divided into several partitions.
+A topic is a way to group message streams into categories. [Producers](producers-consumers.md) [publish](../operations/connect.md) a certain category of messages to a topic, while [consumers](producers-consumers.md) [subscribe](../operations/connect.md) to this topic and pull messages from it. For each topic, {{ KF }} keeps a message log that can be divided into several partitions.
 
 For example, if the data producer is an online store, you can create separate topics for logging user actions, storing data about their shopping cart, keeping records about transactions, and so on.
 
@@ -28,25 +28,20 @@ Using partitions, you can:
 - Distribute the message storage and request processing load among multiple [{{ KF }} brokers](brokers.md).
 - Provide fault tolerance: a partition can be replicated to a specified number of brokers.
 
-For more information about topics and partitions, see the [documentation for {{ KF }}](https://kafka.apache.org/documentation/#intro_topics).
+To learn more about topics and partitions, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#intro_topics).
 
 ## Managing topics and partitions {#management}
 
-{% note warning %}
-
-You select a topic management method once when creating a cluster and cannot change it afterwards.
-
-{% endnote %}
-
-A {{ mkf-name }} cluster provides two ways for you to manage topics and partitions:
+A {{ mkf-name }} cluster provides two ways for you to manage topics and sections:
 
 * Using {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create, delete, and configure topics and partitions using {{ mkf-name }} service features.
 
-* Using the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi). Select this method if you already have a solution for managing topics and partitions or if you do not plan to use {{ yandex-cloud }} interfaces. Restrictions apply when using the Admin API:
+* Using the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi). The method is suitable if you already have your own solution for managing topics and partitions. Restrictions apply when using the Admin API:
 
-    * You cannot create or delete topics or manage them using standard {{ yandex-cloud }} interfaces. Use the administrator account instead. This account includes the `ACCESS_ROLE_ADMIN` role that applies to all the topics in a cluster.
+   * An administrator account with the role `ACCESS_ROLE_ADMIN` that is valid for all cluster topics is used to manage topics. If there is no such account in the cluster, [create](../operations/cluster-accounts.md) it.
 
-        For information on creating this account, see [{#T}](../operations/cluster-accounts.md).
+   * You can configure permissions for [producer and consumer](./producers-consumers.md) accounts using standard {{ yandex-cloud }} interfaces rather than the {{ KF }} Admin API.
 
-    * You can configure permissions for [producer and consumer](./producers-consumers.md) accounts using standard {{ yandex-cloud }} interfaces rather than the {{ KF }} Admin API.
+   * You can enable topic management via the {{ KF }} Admin API when [creating](../operations/cluster-create.md) or [changing](../operations/cluster-update.md) cluster settings, but you can't disable it.
 
+You can use both methods separately or combined.

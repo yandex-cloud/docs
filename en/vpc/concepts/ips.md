@@ -2,6 +2,8 @@
 
 Public IP addresses are used for providing internet access to and from {{ compute-full-name }} VMs and database hosts. The IP address ranges used by {{ yandex-cloud }} are listed below.
 
+{% if product == "yandex-cloud" %}
+
 Last updated: May 12, 2022.
 
 | IPv4               | 
@@ -19,3 +21,13 @@ Last updated: May 12, 2022.
 | `185.206.164.0/22` |
 | `193.32.216.0/22`  |
 | `217.28.224.0/20`  |
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+| IPv4               | 
+|--------------------|
+| `46.243.144.0/22`  |
+
+{% endif %}

@@ -4,5 +4,5 @@ redis-cli \
     -password <пароль> \
     -port {{ port-mrd-tls }} \
     --tls \
-    --cacert ~/.redis/YandexInternalRootCA.crt
+    --cacert ~/.redis/{{ crt-local-file }}
 ```

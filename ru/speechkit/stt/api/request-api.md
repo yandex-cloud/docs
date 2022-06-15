@@ -3,7 +3,7 @@
 ## HTTP-запрос {#http_request}
 
 ```
-POST https://stt.api.cloud.yandex.net/speech/v1/stt:recognize
+POST https://stt.{{ api-host }}/speech/v1/stt:recognize
 ```
 
 Используйте заголовок `"Transfer-Encoding: chunked"` для потоковой передачи данных.

@@ -10,12 +10,15 @@
 
    {% endnote %}
 
+{% if product == "yandex-cloud" %}
 * **{{ datalens-name }} access:** Allows you to analyze cluster data in [{{ datalens-full-name }}](../../../datalens/concepts/index.md).
+{% endif %}
 
 * **Access from management console**: Enables you to run SQL queries against cluster databases from the {{ yandex-cloud }} management console.
 
 * **Access from Yandex.Metrica and AppMetrica**: this option helps [import data from AppMetrica](https://appmetrica.yandex.ru/docs/cloud/index.html) into a cluster.
-   {% if audience != "internal" %}
+{% if product == "yandex-cloud" %}
+{% if audience != "internal" %}
 
 * **Access from Serverless**: Enable this option to allow cluster access from [{{ sf-full-name }}](../../../functions/concepts/index.md). For more detail on setting up access, see the [{{ sf-name }}](../../../functions/operations/database-connection.md).
 
@@ -24,7 +27,7 @@
 * **Access from Serverless**: Enable this option to allow cluster access from {{ sf-full-name }}.
 
 {% endif %}
-
+{% endif %}
 * {% include [Deletion protection](../console/deletion-protection.md) %}
 
    {% include [deletion-protection-limits-db](../deletion-protection-limits-db.md) %}

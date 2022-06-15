@@ -7,7 +7,7 @@ Returns the URL of the specified queue. Specify the queue name to get its URL.
 ### Request parameters {#request-parameters}
 
 | Parameter | Type | Required parameter | Description |
-| ----- | ----- | ----- | ----- |
+----- | ----- | ----- | -----
 | `QueueName` | **string** | Yes | Queue name. The maximum length is 80 characters. You can use numbers, letters, underscores, and hyphens in the name. Case-sensitive. |
 | `QueueOwnerAWSAccountId` | **string** | No | This parameter is ignored. |
 
@@ -16,7 +16,7 @@ Returns the URL of the specified queue. Specify the queue name to get its URL.
 ### Response fields {#response-parameters}
 
 | Field | Type | Description |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | `QueueUrl` | **string** | URL of a queue. |
 
 ### GetQueueUrl errors {#errors}
@@ -24,7 +24,7 @@ Returns the URL of the specified queue. Specify the queue name to get its URL.
 For a list of errors common for all methods, see [{#T}](../common-errors.md).
 
 | HTTP code | Error ID | Description |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | 400 | `NonExistentQueue` | The queue with the specified name doesn't exist. |
 
 ## Sample request {#request-example}
@@ -43,7 +43,7 @@ For more information about forming requests, see [General API request format](..
 <GetQueueUrlResponse>
     <GetQueueUrlResult>
         <QueueUrl>
-            https://message-queue.api.cloud.yandex.net/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+            https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
         </QueueUrl>
     </GetQueueUrlResult>
     <ResponseMetadata>
@@ -53,4 +53,3 @@ For more information about forming requests, see [General API request format](..
     </ResponseMetadata>
 </GetQueueUrlResponse>
 ```
-

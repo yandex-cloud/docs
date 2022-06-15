@@ -52,70 +52,65 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
      1. Under **Host class**, select the platform, host type, and host class.
 
-         The host class defines the technical characteristics of virtual machines that {{ ES }} nodes are deployed on. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
-
+        The host class defines the technical characteristics of virtual machines that {{ ES }} nodes are deployed on. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
 
      1. Under **Storage**:
 
         * Select a [storage type](../concepts/storage.md).
 
-            {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+           {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
-         * Select the [storage type](../concepts/storage.md).
+        * Select the size of storage to be used for data.
 
-            {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+     1. Under **Hosts**, select the configuration of hosts created together with the cluster.
+        1. To add a host, click **Add host**.
+        1. To change the added host, hover over the host line and click ![image](../../_assets/pencil.svg) icon.
 
-         * Select the size of storage to be used for data.
+           When changing the host, you can: {#change-data-node-settings}
 
-      1. Under **Hosts**, select the configuration of hosts created together with the cluster.
-         1. To add a host, click **Add host**.
-         1. To change the added host, hover over the host line and click ![image](../../_assets/pencil.svg) icon.
+           * Select the availability zone and subnet.
 
-            When changing the host, you can: {#change-data-node-settings}
+           * Enable public access.
 
-            * Select the availability zone and subnet.
+              {% note warning %}
 
-            * Enable public access.
+              You can't assign a public IP address to a host after creating a cluster.
 
-               {% note warning %}
+              {% endnote %}
 
-               You can't assign a public IP address to a host after creating a cluster.
+              If public access is enabled for an {{ ES }} host with the _Data node_ role, you can connect to this host, or Kibana hosted on it, over the internet. For more information, see [{#T}](cluster-connect.md).
 
-               {% endnote %}
+              {% include [mes-tip-public-kibana](../../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 
-               If public access is enabled for an {{ ES }} host with the _Data node_ role, you can connect to this host, or Kibana hosted on it, over the internet. For more information, see [{#T}](cluster-connect.md).
+  1. If necessary, configure the hosts with the _Master node_ role by opening the **Master node** tab:
 
-               {% include [mes-tip-public-kibana](../../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
+     1. Under **Host class**, select the platform, host type, and host class.
 
-   1. If necessary, configure the hosts with the _Master node_ role by opening the **Master node** tab:
+     1. Under **Storage**, configure storage the same way as for hosts with the _Data node_ role.
 
-      1. Under **Host class**, select the platform, host type, and host class.
+     1. Under **Hosts**, click **Add hosts**. Three hosts are added. To change one of the added hosts, hover over the host line and click ![image](../../_assets/pencil.svg).
 
-      1. Under **Storage**, configure storage the same way as for hosts with the _Data node_ role.
+        When changing the host, you can: {#change-master-node-settings}
 
-      1. Under **Hosts**, click **Add hosts**. Three hosts are added. To change one of the added hosts, hover over the host line and click ![image](../../_assets/pencil.svg).
+        * Select the availability zone and subnet.
 
-         When changing the host, you can: {#change-master-node-settings}
+        * Enable public access.
 
-         * Select the availability zone and subnet.
+           {% note tip %}
 
-         * Enable public access.
+           It's not recommended to enable public access for hosts with the _Master node_ role, because this might be unsafe.
 
-            {% note tip %}
-
-            It's not recommended to enable public access for hosts with the _Master node_ role, because this might be unsafe.
-
-            {% endnote %}
+           {% endnote %}
 
      1. If necessary, configure additional cluster settings:
 
         {% include [extra-settings](../../_includes/mdb/mes/extra-settings.md) %}
 
-   1. If necessary, configure the DBMS settings:
+  1. If necessary, configure the DBMS settings:
 
       You can configure the `Fielddata cache size` parameter. It sets the percentage or absolute value of the dynamic memory area allocated for the `fielddata` cache, for example: 10% or 512 MB.
 
-   1. Click **Create**.
+  1. Click **Create**.
 
 - CLI
 
@@ -193,96 +188,178 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
         * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-      Example configuration file structure:
+        Example configuration file structure:
 
-      ```hcl
-      terraform {
-        required_providers {
-          yandex = {
-            source = "yandex-cloud/yandex"
+        {% if product == "yandex-cloud" %}
+
+        ```hcl
+        terraform {
+          required_providers {
+            yandex = {
+              source = "yandex-cloud/yandex"
+            }
           }
         }
-      }
 
-      provider "yandex" {
-        token     = "<OAuth or static key of service account>"
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "<availability zone>"
-      }
+        provider "yandex" {
+          token     = "<OAuth or static key of service account>"
+          cloud_id  = "<cloud ID>"
+          folder_id = "<folder ID>"
+          zone      = "<availability zone>"
+        }
 
-      resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
-        name        = "<cluster name>"
-        environment = "<environment: PRESTABLE or PRODUCTION>"
-        network_id  = "<network ID>"
+        resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+          name        = "<cluster name>"
+          environment = "<environment: PRESTABLE or PRODUCTION>"
+          network_id  = "<network ID>"
 
         config {
           version = "<(optional) {{ ES }} version: {{ versions.tf.str }}>"
           edition = "<(optional) {{ ES }} edition : basic, gold, or platinum>"
 
-          admin_password = "<user admin password>"
+            admin_password = "<user admin password>"
 
-          data_node {
-            resources {
-              resource_preset_id = "<host class>"
-              disk_type_id       = "<storage type>"
-              disk_size          = <storage size, GB>
+            data_node {
+              resources {
+                resource_preset_id = "<host class>"
+                disk_type_id       = "<storage type>"
+                disk_size          = <storage size, GB>
+              }
+            }
+
+            master_node {
+              resources {
+                resource_preset_id = "<host class>"
+                disk_type_id       = "<storage type>"
+                disk_size          = <storage size, GB>
+              }
+        
+              plugins = [ "<list of plugin names>" ]
+
+            security_group_ids = [ "<list of security groups>" ]
+        
+            host {
+              name = "<host name>"
+              zone = "<availability zone>"
+              type = "<host role: DATA_NODE or MASTER_NODE>"
+              assign_public_ip = <public access to the host: true or false>
+              subnet_id = "<subnet ID>"
             }
           }
 
-          master_node {
-            resources {
-              resource_preset_id = "<host class>"
-              disk_type_id       = "<storage type>"
-              disk_size          = <storage size, GB>
-            }
-        
-            plugins = [ "<list of plugin names>" ]
+          security_group_ids = [ "<security group list>" ]
 
-          security_group_ids = [ "<list of security groups>" ]
-        
           host {
             name = "<host name>"
             zone = "<availability zone>"
             type = "<host role: DATA_NODE or MASTER_NODE>"
-            assign_public_ip = <public access to the host: true or false>
+            assign_public_ip = <public access to host: true or false>
             subnet_id = "<subnet ID>"
+          }
+       
+        resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
+
+        resource "yandex_vpc_subnet" "<subnet name>" {
+          name           = "<subnet name>"
+          zone           = "<availability zone>"
+          network_id     = "<network ID>"
+          v4_cidr_blocks = ["<range>"]
+        }
+        ```
+
+        {% endif %}
+
+        {% if product == "cloud-il" %}
+
+        ```hcl
+        terraform {
+          required_providers {
+            yandex = {
+              source = "yandex-cloud/yandex"
+            }
           }
         }
 
-        security_group_ids = [ "<security group list>" ]
+        provider "yandex" {
+          endpoint  = "{{ api-host }}:443"
+          token     = "<static key of the service account>"
+          cloud_id  = "<cloud ID>"
+          folder_id = "<folder ID>"
+          zone      = "<availability zone>"
+        }
 
-        host {
-          name = "<host name>"
-          zone = "<availability zone>"
-          type = "<host role: DATA_NODE or MASTER_NODE>"
-          assign_public_ip = <public access to host: true or false>
-          subnet_id = "<subnet ID>"
+        resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
+          name        = "<cluster name>"
+          environment = "<environment: PRESTABLE or PRODUCTION>"
+          network_id  = "<network ID>"
+
+          config {
+            version = "<(optional) {{ ES }} version>"
+            edition = "<(optional) {{ ES }} edition : basic, gold, or platinum>"
+
+            admin_password = "<user admin password>"
+
+            data_node {
+              resources {
+                resource_preset_id = "<host class>"
+                disk_type_id       = "<storage type>"
+                disk_size          = <storage size, GB>
+              }
+            }
+
+            master_node {
+              resources {
+                resource_preset_id = "<host class>"
+                disk_type_id       = "<storage type>"
+                disk_size          = <storage size, GB>
+              }
+        
+              plugins = [ "<list of plugin names>" ]
+
+            security_group_ids = [ "<list of security groups>" ]
+        
+            host {
+              name = "<host name>"
+              zone = "<availability zone>"
+              type = "<host role: DATA_NODE or MASTER_NODE>"
+              assign_public_ip = <public access to the host: true or false>
+              subnet_id = "<subnet ID>"
+            }
+          }
+
+          security_group_ids = [ "<security group list>" ]
+
+          host {
+            name = "<host name>"
+            zone = "<availability zone>"
+            type = "<host role: DATA_NODE or MASTER_NODE>"
+            assign_public_ip = <public access to host: true or false>
+            subnet_id = "<subnet ID>"
+          }
+       
+        resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
+
+        resource "yandex_vpc_subnet" "<subnet name>" {
+          name           = "<subnet name>"
+          zone           = "<availability zone>"
+          network_id     = "<network ID>"
+          v4_cidr_blocks = ["<range>"]
         }
         ```
+
+        {% endif %}
+
         1. {% include [maintenance-window](../../_includes/mdb/mes/terraform-maintenance-window.md) %}
 
-      resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
+        For more information about the resources you can create using Terraform, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 
-      resource "yandex_vpc_subnet" "<subnet name>" {
-        name           = "<subnet name>"
-        zone           = "<availability zone>"
-        network_id     = "<network ID>"
-        v4_cidr_blocks = ["<range>"]
-      }
-      ```
+    1. Make sure the settings are correct.
 
-      1. {% include [maintenance-window](../../_includes/mdb/mes/terraform-maintenance-window.md) %}
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      For more information about the resources you can create using Terraform, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
+    1. Create a cluster.
 
-   1. Make sure the settings are correct.
-
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-   1. Create a cluster.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - API
 
@@ -365,6 +442,8 @@ If you specified a security group ID when you created the cluster, some addition
 
    The configuration file for the cluster looks like this:
 
+   {% if product == "yandex-cloud" %}
+
    ```hcl
    terraform {
      required_providers {
@@ -444,6 +523,92 @@ If you specified a security group ID when you created the cluster, some addition
      }
    }
    ```
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```hcl
+   terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+   }
+
+   provider "yandex" {
+     endpoint  = "{{ api-host }}:443"
+     token     = "<static key of the service account>"
+     cloud_id  = "{{ tf-cloud-id }}"
+     folder_id = "{{ tf-folder-id }}"
+     zone      = "{{ zone-id }}"
+   }
+
+   resource "yandex_mdb_elasticsearch_cluster" "my-es-clstr" {
+     name        = "my-es-clstr"
+     environment = "PRODUCTION"
+     network_id  = yandex_vpc_network.mynet.id
+
+     config {
+       edition = "basic"
+
+       admin_password = "esadminpwd"
+
+       data_node {
+         resources {
+           resource_preset_id = "s2.micro"
+           disk_type_id       = "network-ssd"
+           disk_size          = 20
+         }
+       }
+
+     }
+
+     security_group_ids = [ yandex_vpc_security_group.es-sg.id ]
+
+     host {
+       name = "node"
+       zone = "{{ region-id }}-c"
+       type = "DATA_NODE"
+       assign_public_ip = true
+       subnet_id = yandex_vpc_subnet.mysubnet.id
+     }
+
+   }
+
+   resource "yandex_vpc_network" "mynet" {
+     name = "mynet"
+   }
+
+   resource "yandex_vpc_subnet" "mysubnet" {
+     name           = "mysubnet"
+     zone           = "{{ zone-id }}"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.5.0.0/24"]
+   }
+
+   resource "yandex_vpc_security_group" "es-sg" {
+     name       = "es-sg"
+     network_id = yandex_vpc_network.mynet.id
+
+     ingress {
+       description    = "Kibana"
+       port           = 443
+       protocol       = "TCP"
+       v4_cidr_blocks = [ "0.0.0.0/0" ]
+     }
+
+     ingress {
+       description    = "Elasticsearch"
+       port           = 9200
+       protocol       = "TCP"
+       v4_cidr_blocks = [ "0.0.0.0/0" ]
+     }
+   }
+   ```
+
+  {% endif %}
 
 {% endlist %}
 

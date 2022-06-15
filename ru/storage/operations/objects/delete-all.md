@@ -1,6 +1,6 @@
 # Удаление всех объектов из бакета
 
-Чтобы очистить бакет и не {% if audience != "internal" %}[платить](../../pricing.md){% else %}платить{% endif %} за хранение:
+Чтобы очистить бакет{% if product == "yandex-cloud" %} и не {% if audience != "internal" %}[платить](../../pricing.md){% else %}платить{% endif %} за хранение{% endif %}:
 
 {% list tabs %}
 

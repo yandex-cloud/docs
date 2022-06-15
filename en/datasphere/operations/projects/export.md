@@ -9,24 +9,20 @@ If the project is already open, make sure you save the changes. The last saved s
 If the project isn't open yet:
 
 1. {% include [include](../../../_includes/datasphere/first-step.md) %}
-
 1. Go to the **Projects** tab.
-
 1. Click the name of the project you want to export.
 
-    Wait for the project to open.
+   Wait for the project to open.
 
 ## Export a project {export-project}
 
 To export a project:
 
 1. In the top panel, click **File** and select **Export project as zip**.
-
 1. In the window that opens, click **Download**.
 
-    Wait for the ZIP archive with the project to download.
+   Wait for the ZIP archive with the project to download.
 
 ## What's next {#what-is-next}
 
 - [{#T}](delete.md)
-

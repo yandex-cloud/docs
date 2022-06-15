@@ -191,6 +191,9 @@
 
 {% endnote %}
 
+
+{% if product == "yandex-cloud" %}
+
 ## Практическое применение модели {#model-apply}
 
 Есть несколько вариантов практического применения построенной модели:
@@ -225,3 +228,4 @@
                                       modelFile="lightgbm_classifier.model")
   predictions = estimator.fit(image_uri_dataset)
   ```
+{% endif %}

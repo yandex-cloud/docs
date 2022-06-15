@@ -10,9 +10,22 @@ To publish an app, use a `LoadBalancer` service. The following options are suppo
 * Public access by IP address with a [network load balancer](../../network-load-balancer/concepts/index.md).
 * Access from internal networks by IP address with an [internal network load balancer](../../network-load-balancer/concepts/internal-load-balancer.md).
 
-  The application will be available from [subnets](../../vpc/concepts/network.md#subnet) of {{ vpc-full-name }} or a company's internal subnets connected to {{ yandex-cloud }} through [{{ interconnect-full-name }}](../../interconnect/) or via VPN.
+  The application will be available:
+  * from [subnets](../../vpc/concepts/network.md#subnet) of {{ vpc-full-name }};
+
+  {% if product == "yandex-cloud" %}
+
+   * a company's internal subnets connected to {{ yandex-cloud }} through [{{ interconnect-full-name }}](../../interconnect/);
+
+   {% endif %}
+
+   *  via VPN.
+
+{% if product == "yandex-cloud" %}
 
 To use DDoS protection, [reserve](../../vpc/operations/enable-ddos-protection.md) a public IP address and [specify](#advanced) it using the `loadBalancerIP` option.
+
+{% endif %}
 
 {% note info %}
 
@@ -51,7 +64,7 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
        spec:
          containers:
          - name: hello-app
-           image: cr.yandex/crpjd37scfv653nl11i9/hello:1.1
+           image: {{ registry }}/crpjd37scfv653nl11i9/hello:1.1
    ```
 
 1. Create an application:
@@ -103,7 +116,7 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
        Labels:  app=hello
        Containers:
         hello-app:
-         Image:        cr.yandex/crpab12cdef353nl11i9/hello:1.1
+         Image:        {{ registry }}/crpab12cdef353nl11i9/hello:1.1
          Port:         <none>
          Host Port:    <none>
          Environment:  <none>
@@ -266,7 +279,12 @@ spec:
 In {{ managed-k8s-name }}, the following advanced settings are available for a service with the `LoadBalancer` type:
 * Assign a [pre-allocated public IP address](../../vpc/operations/get-static-ip.md) using the `loadBalancerIP` parameter.
 
+  {% if product == "yandex-cloud" %}
+
   When reserving a static IP address, you can activate [DDoS protection](../../vpc/ddos-protection/index.md).
+
+  {% endif %}
+
 * Traffic management with [externalTrafficPolicy](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/#ServiceSpec):
   * `Cluster`: Traffic goes to any of the {{ k8s }} cluster nodes. In this case:
     * If pods are missing from the node, [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) forwards traffic to another node.

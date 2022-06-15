@@ -2,7 +2,7 @@
 
 ```bash
 sudo mkdir --parents ~/.elasticsearch && \
-sudo wget "https://crls.yandex.net/allCAs.pem" \
+sudo wget "{{ pem-path }}" \
     --output-document=~/.elasticsearch/root.crt && \
 sudo chmod 0600 ~/.elasticsearch/root.crt
 ```

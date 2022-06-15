@@ -130,11 +130,13 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
       Example configuration file structure:
 
-      ```
+      {% if product == "yandex-cloud" %}
+
+      ```hcl
       provider "yandex" {
           token     = "<service account OAuth or static key>"
           folder_id = "<folder ID>"
-          zone      = "ru-central1-a"
+          zone      = "{{ region-id }}-a"
       }
 
       	resource "yandex_function_scaling_policy" "my_scaling_policy" {
@@ -146,6 +148,30 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
       	  	}
       	}
       ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```hcl
+      provider "yandex" {
+          endpoint  = "{{ api-host }}:443"
+          token     = "<static key of the service account>"
+          folder_id = "<folder ID>"
+          zone      = "{{ region-id }}-a"
+      }
+
+	  resource "yandex_function_scaling_policy" "my_scaling_policy" {
+      function_id = "are1samplefu********"
+		  policy {
+			  tag = "$latest"
+			  zone_instances_limit = 2
+			  zone_requests_limit  = 1
+		  }
+	  }
+      ```
+
+      {% endif %}
 
       For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
 

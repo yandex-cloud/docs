@@ -32,15 +32,11 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Если вы не зарегистрированы в {{ yandex-cloud }}, зарегистрируйтесь и создайте платежный аккаунт:
-
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака]({{ link-console-cloud }}).
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 Убедитесь, что в выбранном каталоге есть облачная сеть с подсетью хотя бы в одной зоне доступности. Для этого на странице каталога выберите сервис **{{ vpc-name }}**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если нужных подсетей или сети нет, [создайте их](../../vpc/quickstart.md).
+
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -49,6 +45,8 @@
 * плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамического или публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * плата за публичные DNS-запросы и зоны (см. [тарифы {{ dns-full-name }}]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/dns/pricing){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/docs/dns/pricing){% endif %}).
+
+{% endif %}
 
 ## Создайте виртуальную машину для WordPress {#create-vm}
 
@@ -131,13 +129,13 @@
 
 - Ubuntu
 
-    Выполните команду:
+  Выполните команду:
 
-	  ```bash
-	  sudo apt install nano
-	  ```
+  ```bash
+	 sudo apt install nano
+	 ```
 		
-    Дождитесь установки редактора.	
+  Дождитесь установки редактора.	
 
 {% endlist %}
 

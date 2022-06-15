@@ -1,4 +1,8 @@
-title: Yandex Key Management Service
+title:
+  - text: Yandex Key Management Service
+    when: product == "yandex-cloud"
+  - text: Key Management Service
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Начало работы
@@ -29,6 +33,7 @@ items:
         href: concepts/consistency.md
       - name: Аппаратный модуль безопасности (HSM)
         href: concepts/hsm.md
+        when: product == "yandex-cloud"
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Практические руководства
@@ -39,10 +44,14 @@ items:
         items:
           - name: Какой способ шифрования выбрать?
             href: tutorials/encrypt/index.md
-          - name: Шифрование с помощью CLI и API Yandex Cloud
+          - name: Шифрование с помощью CLI и API {{ yandex-cloud }}
             href: tutorials/encrypt/cli-api.md
           - name: Шифрование с помощью SDK Yandex Cloud
             href: tutorials/encrypt/sdk.md
+            when: product == "yandex-cloud"
+          - name: Шифрование с помощью SDK
+            href: tutorials/encrypt/sdk.md
+            when: product == "cloud-il"
           - name: Шифрование с помощью AWS Encryption SDK
             href: tutorials/encrypt/aws-encryption-sdk.md
           - name: Шифрование с помощью Google Tink
@@ -55,6 +64,7 @@ items:
         href: tutorials/terraform-secret.md
       - name: Auto Unseal в Hashicorp Vault
         href: tutorials/vault-secret.md
+        when: product == "yandex-cloud"
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

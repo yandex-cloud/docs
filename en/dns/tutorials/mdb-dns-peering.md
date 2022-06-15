@@ -1,1 +1,1 @@
-{% include [mdb-dns-peering](../../_tutorials/dataplatform/mdb-dns-peering.md) %}
+{% include [mdb-peering-all-in-one](../../_tutorials/dataplatform/mdb-dns-peering-all-in-one.md) %}

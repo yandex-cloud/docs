@@ -64,7 +64,7 @@
 
           {% endnote %}
 
-      {% if audience != "internal" %}
+      {% if product == "yandex-cloud" and audience != "internal" %}
 
       1. (Опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер.
 
@@ -210,7 +210,7 @@
            --backup-window-start=<время начала резервного копирования>
         ```
 
-    {% if audience != "internal" %}
+    {% if product == "yandex-cloud" and audience != "internal" %}
 
     1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids`:
 
@@ -302,6 +302,8 @@
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+        {% if product == "yandex-cloud" %}
+       
         1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), добавьте к описанию кластера поле `host_group_ids` и укажите в нем через запятую идентификаторы нужных групп:
 
             ```hcl
@@ -313,6 +315,8 @@
             ```
 
             {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
+ 
+        {% endif %}
 
         Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mms }}).
 
@@ -343,7 +347,7 @@
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-  {% if audience != "internal" %}
+  {% if product == "yandex-cloud" and audience != "internal" %}
 
   Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
 
@@ -461,6 +465,8 @@
 
     Конфигурационный файл для такого кластера выглядит так:
 
+    {% if product == "yandex-cloud" %}
+
     ```hcl
     terraform {
       required_providers {
@@ -532,5 +538,84 @@
       }
     }
     ```
+
+    {% endif %}
+
+    {% if product == "cloud-il" %}
+
+    ```hcl
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+      }
+    }
+
+    provider "yandex" {
+      endpoint  = "{{ api-host }}:443"
+      token     = "<статический ключ сервисного аккаунта>"
+      cloud_id  = "{{ tf-cloud-id }}"
+      folder_id = "{{ tf-folder-id }}"
+      zone      = "{{ zone-id }}"
+    }
+
+    resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
+      name                = "mssql-1"
+      environment         = "PRODUCTION"
+      version             = "{{ versions.tf.latest.std }}"
+      network_id          = yandex_vpc_network.mynet.id
+      security_group_ids  = [yandex_vpc_security_group.ms-sql-sg.id]
+      deletion_protection = true
+
+      resources {
+        resource_preset_id = "s2.small"
+        disk_type_id       = "network-ssd"
+        disk_size          = 32
+      }
+
+      host {
+        zone             = "{{ zone-id }}"
+        subnet_id        = yandex_vpc_subnet.mysubnet.id
+        assign_public_ip = true
+      }
+
+      database {
+        name = "db1"
+      }
+
+      user {
+        name     = "user1"
+        password = "user1user1"
+        permission {
+          database_name = "db1"
+          roles         = ["OWNER"]
+        }
+      }
+    }
+
+    resource "yandex_vpc_network" "mynet" { name = "mynet" }
+
+    resource "yandex_vpc_subnet" "mysubnet" {
+      name           = "mysubnet"
+      zone           = "{{ zone-id }}"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+
+    resource "yandex_vpc_security_group" "ms-sql-sg" {
+      name       = "ms-sql-sg"
+      network_id = yandex_vpc_network.mynet.id
+
+      ingress {
+        description    = "Public access to SQL Server"
+        port           = {{ port-mms }}
+        protocol       = "TCP"
+        v4_cidr_blocks = ["0.0.0.0/0"]
+      }
+    }
+    ```
+
+    {% endif %}
 
 {% endlist %}

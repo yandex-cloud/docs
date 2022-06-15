@@ -1,14 +1,24 @@
 title: Интерфейс командной строки
 description:
-  - >-
-    CLI Yandex Cloud — скачиваемое программное обеспечение для управления вашими
-    облачными ресурсами через командную строку.
+  - text: >-
+      CLI Yandex Cloud — скачиваемое программное обеспечение для управления вашими
+      облачными ресурсами через командную строку.
+    when: product == "yandex-cloud"
+  - text: >-
+      CLI CloudIL — скачиваемое программное обеспечение для управления вашими
+      облачными ресурсами через командную строку.
+    when: product == "cloud-il"
 meta:
   title: CLI Yandex Cloud
 links:
   - title: Начало работы
     description: Установите CLI и выполните первую команду
     href: quickstart
+    when: product == "yandex-cloud"
+  - title: Начало работы
+    description: Установите CLI и выполните первую команду
+    href: quickstart.html
+    when: product == "cloud-il"
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/
@@ -18,6 +28,7 @@ links:
   - title: Релизы CLI
     description: Описание релизов
     href: release-notes
+    when: product == "yandex-cloud"
   - title: Решение проблем
     description: Узнайте, как собрать диагностическую информацию
     href: error

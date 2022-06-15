@@ -4,57 +4,76 @@ editable: false
 items:
   - name: Getting started
     href: quickstart/index.md
+    when: product == "yandex-cloud"
   - name: Step-by-step instructions
     items:
       - name: All instructions
         href: operations/index.md
       - name: Activate the paid version
         href: operations/activate-commercial.md
+        when: product == "yandex-cloud"
       - name: Purchase a committed volume of services (CVoS)
         href: operations/purchase-cvos.md
-        when: audience == "cvos"
+        when: product == "yandex-cloud"
       - name: Activate a promo code
         href: operations/activate-promocode.md
+        when: product == "yandex-cloud"
       - name: View usage details
         href: operations/check-charges.md
       - name: Top up your personal account
         href: operations/pay-the-bill.md
+        when: product == "yandex-cloud"
       - name: Link another bank card
         href: operations/pin-card.md
+        when: product == "yandex-cloud"
       - name: Unlink a card
         href: operations/unlink-card.md
+        when: product == "yandex-cloud"
       - name: Link a new cloud
         href: operations/pin-cloud.md
+        when: product == "yandex-cloud"
       - name: Change the payment method
         href: operations/change-payment-method.md
+        when: product == "yandex-cloud"
       - name: Understand your payment invoice
         href: operations/spell-out-bill.md
+        when: product == "yandex-cloud"
       - name: View your payment history
         href: operations/check-bill-history.md
+        when: product == "yandex-cloud"
       - name: Change your billing account data
         href: operations/change-data.md
+        when: product == "yandex-cloud"
       - name: Create a new billing account
         href: operations/create-new-account.md
+        when: product == "yandex-cloud"
       - name: Delete billing account
         href: operations/delete-account.md
+        when: product == "yandex-cloud"
       - name: Get expense details by folder
         href: operations/get-folder-report.md
       - name: View details in {{ datalens-full-name }}
         href: operations/dashboard.md
-      - name: Enabling notifications
+        when: product == "yandex-cloud"
+      - name: Enable notifications
         href: operations/budgets.md
-      - name: Enabling electronic document management
+      - name: Enable electronic document management
         href: operations/edo.md
+        when: product == "yandex-cloud"
       - name: Download reporting documents
         href: operations/download-reporting-docs.md
+        when: product == "yandex-cloud"
   - name: Concepts
     items:
       - name: All concepts
         href: concepts/index.md
+        when: product == "yandex-cloud"
       - name: Promo code
         href: concepts/promo-code.md
+        when: product == "yandex-cloud"
       - name: Credit limit
         href: concepts/credit-limit.md
+        when: product == "yandex-cloud"
       - name: Billing accounts
         items:
           - name: Overview
@@ -63,21 +82,27 @@ items:
             href: concepts/billing-account-statuses.md
       - name: Personal account
         href: concepts/personal-account.md
+        when: product == "yandex-cloud"
       - name: Grant
         href: concepts/bonus-account.md
+        when: product == "yandex-cloud"
       - name: Trial period
         href: concepts/trial-period.md
+        when: product == "yandex-cloud"
       - name: Committed volume of services (CVoS)
         href: concepts/cvos.md
+        when: product == "yandex-cloud"
       - name: Free tier of serverless ecosystem
         href: concepts/serverless-free-tier.md
       - name: Budget
         href: concepts/budget.md
       - name: Agreement
         href: concepts/contract.md
+        when: product == "yandex-cloud"
       - name: Glossary
         href: concepts/glossary.md
-  - name: Resource payments
+        when: product == "yandex-cloud"
+  - name: Paying for resources
     items:
       - name: General information
         href: payment/index.md
@@ -89,7 +114,7 @@ items:
             href: payment/payment-methods-individual.md
           - name: For businesses and individual entrepreneurs
             items:
-              - name: Bank transfers
+              - name: Bank account transfers
                 href: payment/payment-methods-business.md
               - name: Bank card transfer
                 href: payment/payment-methods-card-business.md
@@ -118,6 +143,7 @@ items:
             href: concepts/edo.md
       - name: Payment currency
         href: payment/currency.md
+    when: product == "yandex-cloud"
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -134,8 +160,9 @@ items:
         href: qa/trial-commercial.md
       - name: Questions about working with non-residents of Russia or Kazakhstan
         href: qa/non-resident.md
-      - name: All questions on the same page
+      - name: All questions on one page
         href: qa/all.md
+    when: product == "yandex-cloud"
   - name: API reference
     items:
       - name: Authentication in the API
@@ -150,3 +177,4 @@ items:
         include:
           repo: docs
           path: en/_api-ref/billing/toc.yaml
+    when: product == "yandex-cloud"

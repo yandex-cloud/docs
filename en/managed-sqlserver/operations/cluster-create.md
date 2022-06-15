@@ -455,21 +455,23 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    The configuration file for the cluster looks like this:
 
-   ```hcl
-   terraform {
-     required_providers {
-       yandex = {
-         source = "yandex-cloud/yandex"
-       }
-     }
-   }
+    {% if product == "yandex-cloud" %}
 
-   provider "yandex" {
-     token     = "<OAuth or service account static key>"
-     cloud_id  = "{{ tf-cloud-id }}"
-     folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ zone-id }}"
-   }
+    ```hcl
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+      }
+    }
+
+    provider "yandex" {
+      token     = "<OAuth or static key of service account>"
+      cloud_id  = "{{ tf-cloud-id }}"
+      folder_id = "{{ tf-folder-id }}"
+      zone      = "{{ zone-id }}"
+    }
 
     resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
       name                = "mssql-1"
@@ -526,5 +528,84 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
    }
    ```
+
+    {% endif %}
+
+    {% if product == "cloud-il" %}
+
+    ```hcl
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+      }
+    }
+
+    provider "yandex" {
+      endpoint  = "{{ api-host }}:443"
+      token     = "<static key of the service account>"
+      cloud_id  = "{{ tf-cloud-id }}"
+      folder_id = "{{ tf-folder-id }}"
+      zone      = "{{ zone-id }}"
+    }
+
+    resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
+      name                = "mssql-1"
+      environment         = "PRODUCTION"
+      version             = "{{ versions.tf.latest.std }}"
+      network_id          = yandex_vpc_network.mynet.id
+      security_group_ids  = [yandex_vpc_security_group.ms-sql-sg.id]
+      deletion_protection = true
+
+      resources {
+        resource_preset_id = "s2.small"
+        disk_type_id       = "network-ssd"
+        disk_size          = 32
+      }
+
+      host {
+        zone             = "{{ zone-id }}"
+        subnet_id        = yandex_vpc_subnet.mysubnet.id
+        assign_public_ip = true
+      }
+
+      database {
+        name = "db1"
+      }
+
+      user {
+        name     = "user1"
+        password = "user1user1"
+        permission {
+          database_name = "db1"
+          roles         = ["OWNER"]
+        }
+      }
+    }
+
+    resource "yandex_vpc_network" "mynet" { name = "mynet" }
+
+    resource "yandex_vpc_subnet" "mysubnet" {
+      name           = "mysubnet"
+      zone           = "{{ zone-id }}"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+
+    resource "yandex_vpc_security_group" "ms-sql-sg" {
+      name       = "ms-sql-sg"
+      network_id = yandex_vpc_network.mynet.id
+
+      ingress {
+        description    = "Public access to SQL Server"
+        port           = {{ port-mms }}
+        protocol       = "TCP"
+        v4_cidr_blocks = ["0.0.0.0/0"]
+      }
+    }
+    ```
+
+    {% endif %}
 
 {% endlist %}

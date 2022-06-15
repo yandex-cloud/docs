@@ -1,8 +1,13 @@
-title: Yandex Managed Service for Kubernetes
+title:
+  - text: Yandex Managed Service for Kubernetes
+    when: product == "yandex-cloud"
+  - text: Managed Service for Kubernetes
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Сопоставление с другими сервисами {{ yandex-cloud }}
     href: service-comparison.md
+    when: product == "yandex-cloud"
   - name: Начало работы
     href: quickstart.md
   - name: Пошаговые инструкции
@@ -24,6 +29,7 @@ items:
         - name: Создание статического файла конфигурации
           href: operations/connect/create-static-conf.md
       - name: Установка приложений
+        when: product == "yandex-cloud"
         items:
           - name: Основы работы с {{ marketplace-full-name }}
             href: operations/applications/marketplace.md
@@ -57,7 +63,7 @@ items:
             href: operations/volumes/statefulset-pvc-expansion.md
           - name: Подключение тома в блочном режиме
             href: operations/volumes/mode-block.md
-          - name: Интеграция с {{ objstorage-full-name }}
+          - name: Интеграция с {{ objstorage-name }}
             href: operations/volumes/s3-csi-integration.md
       - name: Управление кластером {{ k8s }}
         items:
@@ -89,6 +95,7 @@ items:
             href: operations/node-group/node-group-delete.md
       - name: Подключение внешних узлов к кластеру
         href: operations/external-nodes-connect.md
+        when: product == "yandex-cloud"
   - name: Практические руководства
     items:
       - name: Все руководства
@@ -115,11 +122,13 @@ items:
         href: tutorials/node-local-dns.md
       - name: Настройка Fluent Bit для работы с {{ cloud-logging-full-name }}
         href: tutorials/fluent-bit-logging.md
+        when: product == "yandex-cloud"
       - name: Синхронизация с секретами {{ lockbox-name }}
         href: tutorials/kubernetes-lockbox-secrets.md
-      - name: Использование продуктов {{ marketplace-full-name }}
+      - name: Использование продуктов {{ marketplace-name }}
+        when: product == "yandex-cloud"
         items:
-          - name: Использование Jaeger для трассировки запросов в {{ ydb-full-name }}
+          - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
   - name: Концепции
     items:
@@ -149,6 +158,7 @@ items:
         href: concepts/network.md
       - name: Внешние узлы кластера
         href: concepts/external-nodes.md
+        when: product == "yandex-cloud"
       - name: Сетевые настройки и политики кластера
         href: concepts/network-policy.md
       - name: Автоматическое масштабирование

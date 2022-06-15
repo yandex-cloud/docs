@@ -23,7 +23,7 @@
     
         ```bash
         ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "cat /etc/apt/sources.list.d/yandex-dataproc.list" | sudo tee /etc/apt/sources.list.d/yandex-dataproc.list
-        deb [arch=amd64] http://storage.yandexcloud.net/dataproc/releases/0.2.10 xenial main
+        deb [arch=amd64] http://{{ s3-storage-host }}/dataproc/releases/0.2.10 xenial main
         ```
     1. Скопируйте gpg-ключ для верификации подписей deb-пакетов:
     
@@ -35,7 +35,7 @@
     
         ```bash
         sudo apt update
-        Hit:1 http://storage.yandexcloud.net/dataproc/releases/0.2.10 xenial InRelease
+        Hit:1 http://{{ s3-storage-host }}/dataproc/releases/0.2.10 xenial InRelease
         Hit:2 http://mirror.yandex.ru/ubuntu xenial InRelease
         Hit:3 http://mirror.yandex.ru/ubuntu xenial-updates InRelease
         Hit:4 http://mirror.yandex.ru/ubuntu xenial-backports InRelease

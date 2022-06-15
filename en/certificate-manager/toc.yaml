@@ -1,4 +1,8 @@
-title: Yandex Certificate Manager
+title:
+  - text: Yandex Certificate Manager
+    when: product == "yandex-cloud"
+  - text: Certificate Manager
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Getting started
@@ -57,16 +61,20 @@ items:
         href: concepts/imported-certificate.md
       - name: Check rights for domain
         href: concepts/challenges.md
-      - name: Integration with Yandex Cloud services
+      - name: Integration with {{ yandex-cloud }} services
         href: concepts/services.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Domain
+        when: product == "yandex-cloud"      
         items:
           - name: Overview
             href: concepts/domains/index.md
-          - name: Integration with Yandex Cloud services
+          - name: Integration with {{ yandex-cloud }} services
             href: concepts/domains/services.md
+      - name: Domain
+        href: concepts/domains/index.md
+        when: product == "cloud-il"
   - name: Access management
     href: security/index.md
   - name: Pricing policy

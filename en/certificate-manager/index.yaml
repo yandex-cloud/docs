@@ -1,11 +1,27 @@
-title: Yandex Certificate Manager
+title:
+  - text: Yandex Certificate Manager
+    when: product == "yandex-cloud"
+  - text: Certificate Manager
+    when: product == "cloud-il"
 description:
-  - >-
-    Yandex Certificate Manager is a service where you can obtain and update TLS
-    certificates from Let's Encrypt<sup>®</sup> and upload your own certificates
-    to access static websites over HTTPS.
+  - text: >-
+      Yandex Certificate Manager is a service where you can obtain and update
+      TLS certificates from Let's Encrypt<sup>®</sup> and upload
+      your own certificates to access
+      static websites over HTTPS.
+    when: product == "yandex-cloud"
+  - text: >-
+      Certificate Manager is a service where you can obtain and update
+      TLS certificates from Let's Encrypt<sup>®</sup> and upload
+      your own certificates to access
+      static websites over HTTPS.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Certificate Manager
+  title:
+    - text: Yandex Certificate Manager
+      when: product == "yandex-cloud"
+    - text: Certificate Manager
+      when: product == "cloud-il"
 links:
   - title: Getting started
     description: Create your first certificate
@@ -19,9 +35,15 @@ links:
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits
+    when: product == "yandex-cloud"
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Access management
     description: Permissions required for using the service
     href: security/
   - title: Pricing policy
     description: Prices and rules for calculating the service cost
     href: pricing
+    when: product == "yandex-cloud"

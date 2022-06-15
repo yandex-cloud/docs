@@ -275,7 +275,7 @@
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d '@body.json' \
-          "https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/certificates"
+          "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
       ```
 
 {% endlist %}
@@ -404,7 +404,7 @@
 Имя | Отображается в сервисах {{yandex-cloud}}. | `<Attribute>`  с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"`
 Полное имя | Отображается в сервисах {{yandex-cloud}}.<br>Пример: Иван Иванов | `<Attribute>`  с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"`
 Почта | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример:&nbsp;`ivanov@example.com` | `<Attribute>`  с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"`
-Телефон | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример: +71234567890 | `<Attribute>`  с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"`
+Телефон | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример: {% if product == "yandex-cloud" %}+71234567890{% endif %}{% if product == "cloud-il" %}+972571234567{% endif %} | `<Attribute>`  с параметром<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"`
 Аватар | Отображается в сервисах {{yandex-cloud}}.<br>Изображение передается в кодировке Base64. [Пример](#avatar-example) | `<Attribute>`  с параметром<br>`Name="thumbnailPhoto"`
 
 ### Пример изображения в кодировке Base64 {#avatar-example}
@@ -527,7 +527,7 @@ UYGmIgo9HwAAAABJRU5ErkJggg==
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM-токен>" \
         -d '@body.json' \
-        https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
       ```
 
 {% endlist %}

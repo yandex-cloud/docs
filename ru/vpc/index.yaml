@@ -1,32 +1,59 @@
-title: Yandex Virtual Private Cloud
+title:
+  - text: Yandex Virtual Private Cloud
+    when: product == "yandex-cloud"
+  - text: Virtual Private Cloud
+    when: product == "cloud-il"
 description:
-  - >-
-    Yandex Virtual Private Cloud служит для управления облачными сетями и связи
-    облачных ресурсов между собой и с интернетом. Virtual Private Cloud
-    позволяет создавать <a
-    href="https://cloud.yandex.ru/docs/vpc/concepts/network#network">сети</a>,
-    <a
-    href="https://cloud.yandex.ru/docs/vpc/concepts/network#subnet">подсети</a>
-    в зонах доступности Yandex Cloud, назначать облачным ресурсам внутренние и
-    публичные <a
-    href="https://cloud.yandex.ru/docs/vpc/concepts/address">IP-адреса</a>, а
-    также предоставляет возможность защиты от DDoS-атак с помощью компонента <a
-    href="https://cloud.yandex.ru/docs/vpc/ddos-protection/">DDoS-Protection.</a>
-  - >-
-    Инфраструктура Yandex Cloud <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
-    в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
-  - >-
-    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
-    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-    документе <a href="https://yandex.ru/legal/cloud_sla_yvpc">Уровень
-    обслуживания Yandex Virtual Private Cloud</a>.
+  - text:
+      - >-
+        Yandex Virtual Private Cloud служит для управления облачными сетями и связи
+        облачных ресурсов между собой и с интернетом. Virtual Private Cloud
+        позволяет создавать <a
+        href="/docs/vpc/concepts/network#network">сети</a>,
+        <a
+        href="/docs/vpc/concepts/network#subnet">подсети</a>
+        в зонах доступности Yandex Cloud, назначать облачным ресурсам внутренние и
+        публичные <a
+        href="/docs/vpc/concepts/address">IP-адреса</a>, а
+        также предоставляет возможность защиты от DDoS-атак с помощью компонента <a
+        href="/docs/vpc/ddos-protection/">DDoS-Protection.</a>
+      - >-
+        Инфраструктура Yandex Cloud <a
+        href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+        в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
+      - >-
+        Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+        об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+        документе <a href="https://yandex.ru/legal/cloud_sla_yvpc">Уровень
+        обслуживания Yandex Virtual Private Cloud</a>.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        Virtual Private Cloud служит для управления облачными сетями и связи
+        облачных ресурсов между собой и с интернетом. Virtual Private Cloud
+        позволяет создавать <a
+        href="/docs/vpc/concepts/network#network">сети</a>,
+        <a
+        href="/docs/vpc/concepts/network#subnet">подсети</a>
+        в зонах доступности Yandex Cloud, назначать облачным ресурсам внутренние и
+        публичные <a
+        href="/docs/vpc/concepts/address">IP-адреса</a>.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Virtual Private Cloud
+  title:
+    - text: Yandex Virtual Private Cloud
+      when: product == "yandex-cloud"
+    - text: Virtual Private Cloud
+      when: product == "cloud-il"
 links:
   - title: Начало работы
     description: Создайте первую облачную сеть
     href: quickstart
+    when: product == "yandex-cloud"
+  - title: Начало работы
+    description: Создайте первую облачную сеть
+    href: quickstart.html
+    when: product == "cloud-il"
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/
@@ -39,9 +66,15 @@ links:
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
+    when: product == "yandex-cloud"
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+    when: product == "yandex-cloud"

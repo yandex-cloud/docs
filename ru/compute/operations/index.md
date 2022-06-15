@@ -74,7 +74,9 @@ description: "Пошаговые инструкции по работе и уп�
 
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
-* [{#T}](disk-create/nonreplicated.md)
+{% if product == "yandex-cloud" %} 
+* [{#T}](disk-create/nonreplicated.md) 
+{% endif %}
 
 ## Управление диском {#disk-control}
 
@@ -84,10 +86,14 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](disk-control/delete.md)
 * [{#T}](snapshot-control/delete.md)
 
+{% if product == "yandex-cloud" %}
+
 ## Группы размещения дисков {#placement-groups}
 
 * [{#T}](disk-placement-groups/create.md)
 * [{#T}](disk-placement-groups/remove-disk.md)
+
+{% endif %}
 
 ## Создание образа {#image-create}
 
@@ -102,6 +108,8 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](image-control/get-list.md)
 * [{#T}](image-control/delete.md)
 
+{% if product == "yandex-cloud" %}
+
 ## Файловые хранилища {#filesystem}
 
 * [{#T}](filesystem/create.md)
@@ -109,6 +117,8 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](filesystem/detach-from-vm.md)
 * [{#T}](filesystem/update.md)
 * [{#T}](filesystem/delete.md)
+
+{% endif %}
 
 ## Управление серийной консолью {#serial-console}
 
@@ -124,7 +134,9 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](instance-groups/create-with-balancer.md)
 * [{#T}](instance-groups/create-with-load-balancer.md)
 * [{#T}](instance-groups/create-autoscaled-group.md)
+{% if product == "yandex-cloud" %}
 * [{#T}](instance-groups/create-with-coi.md)
+{% endif %}
 * [{#T}](instance-groups/create-from-yaml.md)
 
 ## Получение информации о группе виртуальных машин {#ig-info}
@@ -146,7 +158,11 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](instance-groups/start.md)
 * [{#T}](instance-groups/delete.md)
 
+{% if product == "yandex-cloud" %}
+
 ## Выделенные хосты {#dedicated-host}
 
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)
+
+{% endif %}

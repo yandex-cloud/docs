@@ -1,5 +1,5 @@
 ---
-title: "Managed Service for Apache Kafka. Ответы на вопросы"
+title: "{{ mkf-name }}. Ответы на вопросы"
 description: "Как получить логи моей работы в управляемом сервисе Apache Kafka? Ответы на этот и другие вопросы в данной статье."
 ---
 

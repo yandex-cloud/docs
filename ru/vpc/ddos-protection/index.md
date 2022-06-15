@@ -47,4 +47,4 @@
 ### См. также {#see-also}
 
 * [Включить защиту от DDoS-атак](../operations/enable-ddos-protection.md)
-* [Включить расширенную защиту от DDoS-атак]{% if lang == "ru" %}(https://cloud.yandex.ru/services/ddos-protection#contact-form){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/ddos-protection#contact-form){% endif %}
+* [Включить расширенную защиту от DDoS-атак](/services/ddos-protection#contact-form)

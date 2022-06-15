@@ -60,6 +60,8 @@
      * `max_age_seconds` — Время в секундах, в течение которого браузер сохраняет в кеше результат запроса к объекту. Необязательный параметр.
      * `server_side_encryption_configuration` - конфигурация шифрования бакета на стороне сервера. Необязательный параметр.
 
+     {% if product == "yandex-cloud" %}
+
      ```hcl
      provider "yandex" {
        cloud_id  = "<идентификатор облака>"
@@ -84,6 +86,38 @@
        }
      }
      ```
+
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```hcl
+     provider "yandex" {
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "<зона доступности>"
+       endpoint  = "{{ api-host }}:443"
+       token     = "<статический ключ сервисного аккаунта>"
+       }
+
+     resource "yandex_storage_bucket" "b" {
+       bucket = "s3-website-test.hashicorp.com"
+       acl    = "public-read"
+
+       access_key = "<идентификатор ключа>"
+       secret_key = "<секретный ключ>"
+
+       cors_rule {
+         allowed_headers = ["*"]
+         allowed_methods = ["PUT", "POST"]
+         allowed_origins = ["https://s3-website-test.hashicorp.com"]
+         expose_headers  = ["ETag"]
+         max_age_seconds = 3000
+       }
+     }
+     ```
+
+     {% endif %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
 

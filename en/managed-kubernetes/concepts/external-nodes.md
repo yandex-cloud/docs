@@ -33,7 +33,7 @@ For external nodes to run predictably in a cluster, it is key that the elements 
 
 {{ yandex-cloud }} offers reliable private connections between your local network and cloud infrastructure that is part of [{{ interconnect-name }}](../../interconnect/). Alternatively, you can configure and maintain the quality of such a connection yourself using a VPN.
 
-{{ yandex-cloud }} does not offer management services or guarantee the reliability of any computing or network infrastructure outside Yandex.Cloud data centers. You can take advantage of a managed infrastructure by using {{ managed-k8s-name }} [regular node groups](../operations/node-group/node-group-create.md).
+{{ yandex-cloud }} does not offer management services or guarantee the reliability of any computing or network infrastructure outside {{ yandex-cloud }} data centers. You can take advantage of a managed infrastructure by using {{ managed-k8s-name }} [regular node groups](../operations/node-group/node-group-create.md).
 
 ## Restrictions when working with external nodes
 
@@ -50,7 +50,7 @@ You must deploy any loads requiring this functionality on {{ managed-k8s-name }}
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-          - key: yandex.cloud/node-group-id # Node labels for nodes located in Yandex Cloud.
+          - key: yandex.cloud/node-group-id # Node labels for nodes located in {{ yandex-cloud }}.
             operator: Exists
 ...
 ```

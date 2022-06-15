@@ -20,8 +20,9 @@
 - API
 
   1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
-     * [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
+     {% if product == "yandex-cloud" %}* [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.{% endif %}
      * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
+     * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
   1. Получите список публичных образов от {{ yandex-cloud }} с помощью метода [List](../../api-ref/Image/list.md) для ресурса `Image`. В запросе укажите следующие параметры:
      * В идентификаторе каталога укажите `standard-images`.
      * В каталоге много образов, поэтому укажите `pageSize=1000` или используйте полученное значение `nextPageToken`, чтобы получить продолжение списка.
@@ -30,7 +31,7 @@
 
     ```bash
     export IAM_TOKEN=CggaATEVAgA...
-    curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://compute.api.cloud.yandex.net/compute/v1/images?folderId=standard-images&pageSize=1000" > output.json
+    curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://compute.{{ api-host }}/compute/v1/images?folderId=standard-images&pageSize=1000" > output.json
     ```
 
 {% endlist %}

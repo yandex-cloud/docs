@@ -8,43 +8,43 @@
 
 - API
 
-  To manage limits for all projects in your folder, use the API methods [Get](../../api-ref/grpc/folder_budget_service#Get) and [Set](../../api-ref/grpc/folder_budget_service#Set).
+   To manage limits for all folder projects, use the [Get](../../api-ref/grpc/folder_budget_service#Get) and [Set](../../api-ref/grpc/folder_budget_service#Set) API methods.
 
-  Viewing limits for the folder:
+   View folder limits:
 
-  ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM token>" \ 
-      -d '{"folder_id": "<folder_id>"}' \ 
-      datasphere.api.cloud.yandex.net:443 \ 
-      yandex.cloud.datasphere.v1.FolderBudgetService/Get
-  ```
+   ```bash
+   grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+       -d '{"folder_id": "<folder_id>"}' \
+       datasphere.{{ api-host }}:443 \
+       yandex.cloud.datasphere.v1.FolderBudgetService/Get
+   ```
 
-  Setting limits for the folder:
+   Set limits for the folder:
 
-  ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM token>" \ 
-      -d '{"folder_id": "<folder_id>", "set_mask": {"paths": ["unit_balance"]}, "unit_balance":10}' \ 
-      datasphere.api.cloud.yandex.net:443 \ 
-      yandex.cloud.datasphere.v1.FolderBudgetService/Set
-  ```
+   ```bash
+   grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+       -d '{"folder_id": "<folder_id>", "set_mask": {"paths": ["unit_balance"]}, "unit_balance":10}' \
+       datasphere.{{ api-host }}:443 \
+       yandex.cloud.datasphere.v1.FolderBudgetService/Set
+   ```
 
-  Deleting limits for the folder:
+   Delete folder limits:
 
-  ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM token>" \ 
-      -d '{"folder_id": "<folder_id>", "set_mask": {"paths": ["unit_balance"]}}' \ 
-      datasphere.api.cloud.yandex.net:443 \ 
-      yandex.cloud.datasphere.v1.FolderBudgetService/Set
-  ```
+   ```bash
+   grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+       -d '{"folder_id": "<folder_id>", "set_mask": {"paths": ["unit_balance"]}}' \
+       datasphere.{{ api-host }}:443 \
+       yandex.cloud.datasphere.v1.FolderBudgetService/Set
+   ```
 
-  Deleting all limits for the folder:
+   Delete all limits for the folder:
 
-  ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM token>" \ 
-      -d '{"folder_id": "<folder_id>"}' \ 
-      datasphere.api.cloud.yandex.net:443 \ 
-      yandex.cloud.datasphere.v1.FolderBudgetService/Set
-  ```
+   ```bash
+   grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+       -d '{"folder_id": "<folder_id>"}' \
+       datasphere.{{ api-host }}:443 \
+       yandex.cloud.datasphere.v1.FolderBudgetService/Set
+   ```
 
 {% endlist %}
 

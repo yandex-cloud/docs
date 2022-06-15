@@ -1,6 +1,13 @@
 # Step-by-step instructions for {{ mch-name }}
 
 - [{#T}](cluster-list.md)
+
+{% if audience == "internal" %}
+
+- [{#T}](quotas-control.md)
+
+{% endif %}
+
 - [{#T}](cluster-create.md)
 {% if content != "noshow" %}
 - [{#T}](data-migration.md)
@@ -17,7 +24,9 @@
 - [{#T}](internal-dictionaries.md)
 - [{#T}](ml-models.md)
 - [{#T}](format-schemas.md)
+{% if product == "yandex-cloud" %}
 - [{#T}](datalens-connect.md)
+{% endif %}
 - [{#T}](cluster-version-update.md)
 - [{#T}](zk-hosts.md)
 - [{#T}](hosts.md)

@@ -45,7 +45,7 @@
         --service-account-name <имя сервисного аккаунта> \
         --node-service-account-name <имя сервисного аккаунта> \
         --public-ip \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --network-name <имя облачной сети>
         ```
 
@@ -62,7 +62,7 @@
       yc managed-kubernetes node-group create \
         --name node-group-1 \
         --cluster-name dns-autoscaler \
-        --location zone=ru-central1-a \
+        --location zone={{ region-id }}-a \
         --public-ip \
         --fixed-size 3 \
         --cores 4 \
@@ -85,7 +85,6 @@
    {% cut "Как настроить kubectl" %}
 
    1. Установите {{ k8s }} CLI [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-
    1. Добавьте учетные данные кластера {{ k8s }} в конфигурационный файл kubectl:
 
       ```bash
@@ -116,9 +115,9 @@ kubectl get deployment --namespace=kube-system
 Результат выполнения:
 
 ```text
-NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+NAME                 READY  UP-TO-DATE  AVAILABLE  AGE
 ...
-kube-dns-autoscaler     1/1     1            1           52m
+kube-dns-autoscaler  1/1    1           1          52m
 ...
 ```
 
@@ -182,10 +181,10 @@ replicas = max(replicas, min)
    Результат выполнения:
 
    ```bash
-   NAME                                    READY   STATUS    RESTARTS   AGE
+   NAME                      READY  STATUS   RESTARTS  AGE
    ...
-   coredns-7c646474c9-4dmjl                1/1     Running   0          128m
-   coredns-7c646474c9-n7qsv                1/1     Running   0          134m
+   coredns-7c646474c9-4dmjl  1/1    Running  0         128m
+   coredns-7c646474c9-n7qsv  1/1    Running  0         134m
    ...
    ```
 
@@ -230,7 +229,7 @@ replicas = max(replicas, min)
 yc managed-kubernetes node-group create \
   --name node-group-2 \
   --cluster-name dns-autoscaler \
-  --location zone=ru-central1-a \
+  --location zone={{ region-id }}-a \
   --public-ip \
   --fixed-size 2 \
   --cores 4 \
@@ -261,13 +260,13 @@ kubectl get pods -n kube-system
 Результат выполнения:
 
 ```text
-NAME                                    READY   STATUS    RESTARTS   AGE
+NAME                      READY  STATUS   RESTARTS  AGE
 ...
-coredns-7c646474c9-7l8mc                1/1     Running   0          3m30s
-coredns-7c646474c9-n7qsv                1/1     Running   0          3h20m
-coredns-7c646474c9-pv9cv                1/1     Running   0          3m40s
-coredns-7c646474c9-r2lss                1/1     Running   0          49m
-coredns-7c646474c9-s5jgz                1/1     Running   0          57m
+coredns-7c646474c9-7l8mc  1/1    Running  0         3m30s
+coredns-7c646474c9-n7qsv  1/1    Running  0         3h20m
+coredns-7c646474c9-pv9cv  1/1    Running  0         3m40s
+coredns-7c646474c9-r2lss  1/1    Running  0         49m
+coredns-7c646474c9-s5jgz  1/1    Running  0         57m
 ...
 ```
 
@@ -294,8 +293,8 @@ kubectl get rs --namespace=kube-system
 Результат выполнения:
 
 ```text
-NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+NAME                 READY  UP-TO-DATE  AVAILABLE  AGE
 ...
-kube-dns-autoscaler     0/0     0            0           3h53m
+kube-dns-autoscaler  0/0    0           0          3h53m
 ...
 ```

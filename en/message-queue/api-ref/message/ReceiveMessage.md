@@ -16,19 +16,19 @@ The following parameters are returned for each of the received messages:
 
 When calling the method, you can pass the `VisibilityTimeout` parameter that will assign the set visibility timeout to the messages received. If this parameter is missing, the messages will be assigned the visibility timeout set for the default queue.
 
-When receiving messages from a FIFO queue, only one message will be accepted from a single message group per `ReceiveMessage`  call.
+When receiving messages from a FIFO queue, only one message will be accepted from a single message group per `ReceiveMessage` call.
 
 ## Request {#request}
 
 ### Request parameters {#request-parameters}
 
 | Parameter | Type | Required<br>parameter | Description |
-| ----- | ----- | ----- | ----- |
+----- | ----- | ----- | -----
 | `MaxNumberOfMessages` | **string** | No | Maximum number of messages that will be fetched. Valid values: from 1 to 10. Default: 1. |
 | `MessageAttributeName.N` | **array** | No | Array of message attribute names to return in response to the request. A name can contain letters, numbers, hyphens, underscores, and periods. Attribute names are case-sensitive and unique within a single message. An attribute name cannot start or end with a period. Attribute names cannot contain several consecutive periods. The maximum length of an attribute name is 256 characters. You can get all attributes at once by specifying the word All or `.*` in your query. You can also use prefixes to get the necessary attributes. |
 | `QueueUrl` | **string** | Yes | URL of the queue where the message is placed. |
 | `ReceiveRequestAttemptId` | **string** | No | ID for a repeated attempt to receive messages from a FIFO queue. For more information, see [Deduplication](../../concepts/deduplication.md#request-attempts). |
-| `VisibilityTimeout` | **string** | No | [Visibility timeout](../../concepts/visibility-timeout.md) of the message to receive. |
+| `VisibilityTimeout` | **string** | No | [Visibility timeout](../../concepts/visibility-timeout.md) of a message received. |
 | `WaitTimeSeconds` | **string** | No | The number of seconds to wait for messages in the queue. If a message is available, the call returns sooner than `WaitTimeSeconds`. If no messages are available and the `WaitTimeSeconds` expires, the call returns successfully with an empty list of messages. |
 
 #### Attributes {#attributes}
@@ -41,7 +41,7 @@ Attribute.N.Value (attribute value)
 ```
 
 | Attribute | Description |
-| ----- | ----- |
+----- | -----
 | `All` | All values. |
 | `ApproximateFirstReceiveTimestamp` | The time the message was first received from the queue. |
 | `ApproximateReceiveCount` | The number of times a message has been received from the queue but not deleted. |
@@ -56,7 +56,7 @@ Attribute.N.Value (attribute value)
 ### Successful response fields {#response-parameters}
 
 | Field | Type | Description |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | `Message` | **array** | The [Message](../data-types/Message.md) array. |
 
 ### ReceiveMessage errors {#errors}
@@ -64,7 +64,7 @@ Attribute.N.Value (attribute value)
 For a list of errors common for all methods, see [{#T}](../common-errors.md).
 
 | HTTP code | Error ID | Description |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | 403 | `OverLimit` | The operation has exceeded one of the [limits](../../concepts/limits.md). |
 
 ## Sample request {#request-example}
@@ -72,7 +72,7 @@ For a list of errors common for all methods, see [{#T}](../common-errors.md).
 ```
 Action=ReceiveMessage
 &Version=2012-11-05
-&QueueUrl=https://message-queue.api.cloud.yandex.net/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
 &AttributeName.1=All
 &MessageAttributeName.1=All
 &VisibilityTimeout=15
@@ -109,4 +109,3 @@ For more information about forming requests, see [General API request format](..
     </ResponseMetadata>
 </ReceiveMessageResponse>
 ```
-

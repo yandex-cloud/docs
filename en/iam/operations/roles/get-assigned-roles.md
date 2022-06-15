@@ -19,7 +19,7 @@ You can view a list of inherited roles for the folder or the cloud in the manage
    * The **Available:** setting is set to **All users**.
    * The **Available:** setting is set to **Administrators** and you have the administrator role.
 
-   To view the roles of a [user with a Yandex account](../../concepts/index.md#passport), [federated user](../../concepts/index.md#saml-federation), or [service account](../../concepts/users/service-accounts.md):
+   To view the roles of a [user with a {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %} account](../../concepts/index.md#passport), [federated user](../../concepts/index.md#saml-federation), or [service account](../../concepts/users/service-accounts.md):
 
    {% include [include](../../../_includes/iam/configure-roles-console.md) %}
 
@@ -35,7 +35,7 @@ You can view a list of inherited roles for the folder or the cloud in the manage
 
    1. Get your account ID:
       1. [Instructions](../sa/get-id.md) for service accounts.
-      1. [Instructions](../users/get.md) for users with a Yandex account and federated users.
+      1. [Instructions](../users/get.md) for users with a {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %} account and federated users.
    1. Get the resource ID or name.
    1. {% include [include](../../../_includes/iam/list-access-bindings-via-cli.md) %}
 
@@ -46,7 +46,7 @@ You can view a list of inherited roles for the folder or the cloud in the manage
 
    1. Get your account ID:
       1. [Instructions](../sa/get-id.md) for service accounts.
-      1. [Instructions](../users/get.md) for users with a Yandex account and federated users.
+      1. [Instructions](../users/get.md) for users with a {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %} account and federated users.
    1. Get the resource ID or name.
    1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
 

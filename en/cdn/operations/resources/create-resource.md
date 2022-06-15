@@ -139,6 +139,8 @@ To create a [resource](../../concepts/resource.md):
       * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
 
       Example configuration file structure:
+   
+      {% if product == "yandex-cloud" %}
 
       ```hcl
       terraform {
@@ -166,6 +168,39 @@ To create a [resource](../../concepts/resource.md):
       }
       ```
 
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```hcl
+      terraform {
+        required_providers {
+          yandex = {
+            source  = "yandex-cloud/yandex"
+            version = "0.69.0"
+          }
+        }
+      }
+
+      provider "yandex" {
+        endpoint  = "{{ api-host }}:443"
+        token     = "<static key of the service account>"
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "<availability zone>"
+      }
+
+      resource "yandex_cdn_resource" "my_resource" {
+          cname               = "cdn1.yandex-example.ru"
+          active              = false
+          origin_protocol     = "https"
+          secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
+          origin_group_id     = yandex_cdn_origin_group.my_group.id
+      }
+      ```
+
+      {% endif %}
+   
       For more information about `yandex_cdn_resource` parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 
    1. In the command line, go to the directory with the Terraform configuration file.

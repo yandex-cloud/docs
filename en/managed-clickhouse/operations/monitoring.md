@@ -144,8 +144,8 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
    1. Click the ![image](../../_assets/ugly-sandwich.svg) icon and select **Monitoring**.
    1. Under **Service dashboards**, select.
-      * **{{ mch-name }} — Cluster Overview **to configure cluster alerts.
-      * **{{ mch-name }} — ZooKeeper **to configure ZooKeeper host alerts.
+      * **{{ mch-name }} — Cluster Overview** to configure cluster alerts.
+      * **{{ mch-name }} — ZooKeeper** to configure ZooKeeper host alerts.
    1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
    1. If there is more than one parameter on a chart, create a data query to generate the metric. {% if audience == "external" %}For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). {% endif %}
    1. Set the `Alarm` and `Warning` threshold values for the alert.

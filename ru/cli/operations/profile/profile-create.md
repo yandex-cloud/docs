@@ -1,30 +1,66 @@
 # Создание профиля
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 Создать профиль можно двумя способами:
 - [Создание пустого профиля и добавление параметров вручную](#create).
     
     Будет создан и активирован пустой профиль — все необходимые [параметры надо будет задать отдельно](manage-properties.md).
 - [Интерактивное создание профиля с базовыми параметрами](#interactive-create).
     
-    CLI будет поэтапно предлагать задать базовые параметры профиля. С помощью этого способа можно переопределить параметры уже существующего профиля.
+    CLI будет поэтапно предлагать задать базовые параметры профиля. С помощью этого способа можно переопределить параметры уже существующего профиля. Способ не подходит для сервисных аккаунтов.
 
 ## Создание пустого профиля и добавление параметров вручную {#create}
 
 Создайте профиль с именем `test`:
 1. Выполните команду: 
-    ```
-    $ yc config profile create test
-    Profile 'test' created and activated
-    ```
+   
+   ```
+   yc config profile create test
+   ```
+   
+   Результат:
+   
+   ```
+   Profile 'test' created and activated
+   ```
+   
+{% if product == "cloud-il" %}
+
+1. Добавьте в профиль доменное имя и порт для запросов к {{ yandex-cloud }}:
+
+   ```
+   yc config set endpoint {{ api-host }}:443
+   ```
+
+{% endif %}
+   
 1. Добавьте необходимые параметры профиля, например каталог: 
     
     ```
-    $ yc config set folder-id <ID каталога>
+    yc config set folder-id <ID каталога>
     ```
     
     Ознакомьтесь с полным [списоком параметров](../../concepts/core-properties.md) профиля, а также как ими [управлять](manage-properties.md).
 
 ## Интерактивное создание профиля с базовыми параметрами {#interactive-create}
+
+{% if product == "cloud-il" %}
+
+Интерактивное создание профилей доступно:
+
+* Для пользователей (аккаунтов Google) — с помощью команды `yc init --endpoint {{ api-host }}:443 --federation-id google`. Подробнее см. в разделе [{#T}](../authentication/user.md).
+* Для федеративных пользователей — с помощью команды `yc init --endpoint {{ api-host }}:443 --federation-id <идентификатор федерации>`. Подробнее см. в разделе [{#T}](../authentication/federated-user.md).
+
+Запускать команду `yc init` без параметров `--endpoint` и `--federation-id` нельзя.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
 
 В процессе интерактивного создания профиля CLI будет поэтапно предлагать задать базовые параметры профиля: 
 - Имя профиля.
@@ -96,9 +132,9 @@
     ```
     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
     Which zone do you want to use as a profile default?
-    [1] ru-central1-a
-    [2] ru-central1-b
-    [3] ru-central1-c
+    [1] {{ region-id }}-a
+    [2] {{ region-id }}-b
+    [3] {{ region-id }}-c
     [4] Don't set default zone
     Please enter your numeric choice: 2
     ```
@@ -113,4 +149,6 @@ token: AQAAAAAV6O...
 cloud-id: b1gvl...
 folder-id: b1g88...
 ```
+
+{% endif %}
 

@@ -15,11 +15,9 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед использованием {{ objstorage-full-name }} нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет находиться ваш бакет. Перейдите на [страницу облака](https://console.cloud.yandex.ru/cloud) и выберите или создайте каталог, в котором вы хотите создать бакет. [Подробнее об иерархии ресурсов {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -28,6 +26,8 @@
 * плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-storage));
 * плата за операции с данными (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-operations));
 * стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing#prices-storage.md#prices-traffic)).
+
+{% endif %}
 
 ## Создайте бакет {#create-bucket}
 
@@ -90,7 +90,7 @@
      1. В поле **Display Name** введите `Yandex Cloud`.
      1. В поле **Access Key** укажите идентификатор статического ключа доступа.
      1. В поле **Secret Key** укажите закрытый ключ.
-     1. В поле **Service point** укажите `http://storage.yandexcloud.net/`. В поле `Bucket name` должен отобразиться список ваших бакетов.
+     1. В поле **Service point** укажите `http://{{ s3-storage-host }}/`. В поле `Bucket name` должен отобразиться список ваших бакетов.
      1. Выберите в поле **Bucket name** бакет, в котором будут храниться резервные копии.
      1. Нажмите кнопку **OK**. Если все настроено верно, хранилище `Yandex Cloud` появится в окне **Registered accounts**. Закройте окно.
   1. Откройте вкладку **Home**. Откроется окно мастера создания резервных копий.
@@ -120,7 +120,7 @@
      1. В поле **Display Name** введите `Yandex Cloud`.
      1. В поле **Access Key** укажите идентификатор статического ключа доступа.
      1. В поле **Secret Key** укажите закрытый ключ.
-     1. В поле **Endpoint** укажите `http://storage.yandexcloud.net/`. В поле `Bucket` должен отобразиться список ваших бакетов.
+     1. В поле **Endpoint** укажите `http://{{ s3-storage-host }}/`. В поле `Bucket` должен отобразиться список ваших бакетов.
      1. Выберите в поле **Bucket** бакет, в котором будут храниться резервные копии.
      1. Нажмите кнопку **OK**. Если все настроено верно, хранилище `Yandex Cloud` появится в списке.
   1. Выберите хранилище `Yandex Cloud` и нажмите кнопку **Continue**.

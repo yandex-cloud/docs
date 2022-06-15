@@ -36,7 +36,7 @@
      yc compute host-group create \
        --fixed-size 2 \
        --type intel-6230-c66-m454 \
-       --zone ru-central1-a
+       --zone {{ region-id }}-a
      ```
 
      Где:
@@ -51,7 +51,7 @@
      id: fhm123hj4l56abcg10qf
      folder_id: m4n56op78mev0cljderg
      created_at: "2020-10-13T07:54:08Z"
-     zone_id: ru-central1-a
+     zone_id: {{ region-id }}-a
      status: READY
      type_id: intel-6230-c66-m454
      maintenance_policy: RESTART
@@ -84,8 +84,8 @@
      ```bash
      yc compute instance create \
        --host-id fhm1ab2mhnf3cd1610f5 \
-       --network-interface subnet-name=network-ru-central1-a \
-       --zone ru-central1-a
+       --network-interface subnet-name=network-{{ region-id }}-a \
+       --zone {{ region-id }}-a
      ```
 
      Где:
@@ -100,7 +100,7 @@
      id: fhm1abc23407de854r9e
      folder_id: m4n56op78mev0cljderg
      created_at: "2020-10-13T08:00:55Z"
-     zone_id: ru-central1-a
+     zone_id: {{ region-id }}-a
      ...
      placement_policy:
        host_affinity_rules:

@@ -176,9 +176,21 @@ To facilitate authentication in {{ container-registry-name }}, configure the [Do
 
 To configure the Credential helper, run the following command:
 
+{% if product == "yandex-cloud" %}
+
 ```bash
 yc container registry configure-docker
 ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+```bash
+yc container registry configure-docker --hostname http://{{ registry }}/
+```
+
+{% endif %}
 
 ### Prepare a Docker image {#docker-image}
 
@@ -214,13 +226,13 @@ Build a Docker image and push it to the registry:
    1. Build a Docker image:
 
       ```
-      docker build . -f hello.dockerfile -t cr.yandex/$REGISTRY_ID/ubuntu:hello
+      docker build . -f hello.dockerfile -t {{ registry }}/$REGISTRY_ID/ubuntu:hello
       ```
 
    1. Push the Docker image to the registry:
 
       ```
-      docker push cr.yandex/${REGISTRY_ID}/ubuntu:hello
+      docker push {{ registry }}/${REGISTRY_ID}/ubuntu:hello
       ```
 
 1. Make sure the Docker image was pushed to the registry:
@@ -244,7 +256,7 @@ Start the pod with the app from the Docker image and make sure that no additiona
 1. Run the pod with the app from the Docker image:
 
    ```
-   kubectl run --attach hello-ubuntu --image cr.yandex/${REGISTRY_ID}/ubuntu:hello
+   kubectl run --attach hello-ubuntu --image {{ registry }}/${REGISTRY_ID}/ubuntu:hello
    ```
 
 1. Find the running pod to see its full name:

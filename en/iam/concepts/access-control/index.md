@@ -6,7 +6,7 @@ Here you can learn how to manage access to your resources and how {{ iam-short-n
 
 All operations in {{ yandex-cloud }} are first sent for verification to {{ iam-short-name }}. For example:
 
-1. A user requests Yandex Compute Cloud to create a new disk in the <q>default</q> folder.
+1. A user requests {{ compute-name }} to create a new disk in the <q>default</q> folder.
 1. The service sends a request to {{ iam-short-name }} to check whether this user is allowed to create disks in this folder.
 1. {{ iam-short-name }} checks if the user is a member of the cloud with the <q>default</q> folder and has the necessary permissions to create a disk in this folder.
 1. If the user doesn't have any of the permissions, the operation isn't performed and {{ yandex-cloud }} returns an error.
@@ -47,15 +47,17 @@ To find out what roles exist and the permissions they include, see [{#T}](roles.
 
 ### Subjects that roles are assigned to {#subject}
 
-Roles are assigned to subjects. There are four types of subjects:
+Roles are assigned to subjects{% if product == "yandex-cloud" %}. There are four types of subjects:{% endif %}{% if product == "cloud-il" %}:{% endif %}
 
+{% if product == "yandex-cloud" %}
 * `userAccount`: A [Yandex account](../index.md#passport) added to {{ yandex-cloud }}.
+{% endif %}
 
 * `serviceAccount`: A [service account](../users/service-accounts.md) created in {{ yandex-cloud }}.
 
     {% include [include](../../../_includes/sa-assign-role-note.md) %}
 
-* `federatedUser`: A user account from an [identity federation](../../../organization/add-federation.md), like Active Directory.
+* `federatedUser`: A user account {% if product == "cloud-il" %}by Google or{% endif %} from an [identity federation](../../../organization/add-federation.md), like Active Directory.
 
     {% include [include](../../../_includes/saml-assign-role-note.md) %}
 
@@ -80,7 +82,7 @@ If a child resource is also assigned some roles, a list of permissions for this 
 Some restrictions apply to assigning roles in the management console:
 
 * You can't assign roles to a system group.
-* You can only assign cloud and folder roles to users with a Yandex account and federated account.
+* You can only assign cloud and folder roles to users with a{% if product == "yandex-cloud" %} Yandex account and{% endif %} federated account.
 * You can only assign a role for the folder where the service account was created.
 * You can't assign roles to multiple subjects at once, unlike in the API or CLI. In the management console, you should first select the subject (user or service account), and then assign roles to it.
 

@@ -8,10 +8,7 @@ To create a single-node file server:
 
 ## Before you start {#before-begin}
 
-Before creating a VM:
-
-1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
-1. Make sure the selected folder has a network with a subnet that the VM can be connected to. To do this, click the **Virtual Private Cloud** tile on the folder page. If the list contains a network, click on its name to see the list of subnets. If there aren't any networks or subnets, [create them](../../vpc/quickstart.md).
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 ## 1. Create a VM for the file server {#create-vm}
 

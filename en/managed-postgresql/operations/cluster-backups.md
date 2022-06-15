@@ -105,7 +105,7 @@ When restoring to the current state, the new cluster will reflect the state of:
       - In the `{{ network-name }}` network.
       - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With databases and users that existed in the cluster at the time of recovery.
-      - With 10 GB of SSD network storage (`{{ disk-type-example }}`).
+      - With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
 
       {% else %}
 

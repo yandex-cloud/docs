@@ -4,11 +4,13 @@
 
 - {% include [Maintenance window](console/maintenance-window.md) %}
 
+{% if product == "yandex-cloud" %}
 - **Доступ из {{ datalens-name }}**{#setting-datalens-access}
   
   Разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../datalens/concepts/index.md).
   
   Подробнее о настройке подключения см. в разделе [Подключение к {{ datalens-name }}](../../managed-mysql/operations/datalens-connect.md).
+{% endif %}
 
 - **Доступ из консоли управления**{#setting-websql-access}
 

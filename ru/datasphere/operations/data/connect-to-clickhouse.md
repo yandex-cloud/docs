@@ -27,7 +27,7 @@
     ```bash
     #!:bash
     mkdir ~/.clickhouse-client
-    wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.clickhouse-client/root.crt && \
+    wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.clickhouse-client/root.crt && \
     chmod 0600 ~/.clickhouse-client/root.crt
     ```
 

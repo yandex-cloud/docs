@@ -111,7 +111,7 @@ To connect to a cluster:
 
    ```bash
    {
-     "name" : "....mdb.yandexcloud.net",
+     "name" : "....{{ dns-zone }}",
      "cluster_name" : "...",
      "cluster_uuid" : "...",
      ...
@@ -124,7 +124,7 @@ To connect to a cluster:
 1. In the browser, connect to the [Kibana](https://www.elastic.co/kibana/features) web interface.
 
    To connect:
-   1. Install the [SSL certificate](https://storage.yandexcloud.net/cloud-certs/CA.pem) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
+   1. Install the [SSL certificate](https://{{ s3-storage-host }}{{ pem-path }}) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
    1. In the browser, go to `https://<FQDN of the publicly available {{ ES }} host with the Data node role>`.
    1. Enter the username and password that you set when [creating a cluster](#cluster-create).
 1. Upload one or more test datasets to {{ ES }} using Kibana:

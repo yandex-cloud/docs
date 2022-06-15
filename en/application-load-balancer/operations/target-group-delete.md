@@ -11,7 +11,7 @@ To delete a target group:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder the target group belongs to.
+   1. In the [management console]({{ link-console-main }}), select the folder where the target group was created.
    1. Select **{{ alb-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/trgroups.svg) **Target groups**.
    1. Select the target group and click ![image](../../_assets/horizontal-ellipsis.svg).
@@ -39,6 +39,48 @@ To delete a target group:
 
       To check the deletion, get a list of target groups by running the command:
       ```
+      yc alb target-group list
+      ```
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Open the Terraform configuration file and delete the fragment with the target group description.
+
+      Sample target group description in the Terraform configuration:
+
+      ```hcl
+      resource "yandex_alb_target_group" "foo" {
+        name           = "<target group name>"
+      
+        target {
+          subnet_id    = "<subnet ID>"
+          ip_address   = "<internal IP address of VM 1>"
+        }
+      
+        target {
+          subnet_id    = "<subnet ID>"
+          ip_address   = "<internal IP address of VM 2>"
+        }
+      
+        target {
+          subnet_id    = "<subnet ID>"
+          ip_address   = "<internal IP address of VM 3>"
+        }
+      }
+      ```
+
+      For more information about the `yandex_alb_target_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-targetgroup }}).
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      You can verify that the target group has been updated in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+
+      ```bash
       yc alb target-group list
       ```
 

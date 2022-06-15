@@ -111,7 +111,7 @@
   1. Создайте таблицу:
   
      ```sql
-     CREATE TABLE test (n Int32) ENGINE = S3('https://storage.yandexcloud.net/my-bucket/table.tsv', 'TSV');
+     CREATE TABLE test (n Int32) ENGINE = S3('https://{{ s3-storage-host }}/my-bucket/table.tsv', 'TSV');
      ```
   
   1. Выполните тестовые запросы к таблице:
@@ -130,13 +130,13 @@
   1. Вставьте данные:
      
      ```sql
-     INSERT INTO FUNCTION s3('https://storage.yandexcloud.net/my-bucket/table.tsv', 'TSV', 'n Int32') VALUES (1);
+     INSERT INTO FUNCTION s3('https://{{ s3-storage-host }}/my-bucket/table.tsv', 'TSV', 'n Int32') VALUES (1);
      ```
      
   1. Выполните тестовый запрос:
   
      ```sql
-     SELECT * FROM s3('https://storage.yandexcloud.net/my-bucket/table.tsv', 'TSV', 'n Int32');
+     SELECT * FROM s3('https://{{ s3-storage-host }}/my-bucket/table.tsv', 'TSV', 'n Int32');
 
      ┌─n─┐
      │ 1 │

@@ -8,16 +8,17 @@ The statuses of instances in groups differ from the [statuses of instances](../v
 
 {% endnote %}
 
+
 ## Group statuses {#group-statuses}
 
 | Status | Description |
 | ----- | ----- |
 | `STARTING` | The instance group is created or started.<br>Allowed actions with the instance group: [stop](../../operations/instance-groups/stop.md), [delete](../../operations/instance-groups/delete.md). |
-| `ACTIVE` | The instance group is running. [Auto-healing](autohealing.md) and [scaling](scale.md) will run in groups with this status if they were previously activated in the settings.<br>Allowed actions with the group: [update](../../operations/instance-groups/update.md), [pause processes](../../operations/instance-groups/pause-processes.md), [stop](../../operations/instance-groups/stop.md), [delete](../../operations/instance-groups/delete.md). |
+| `ACTIVE` | The instance group is running. [Auto-healing](autohealing.md) and [scaling](scale.md) will run in groups with this status if they were previously activated in the settings.<br>Allowed actions with the group: [update](../../operations/instance-groups/update.md), [pause](../../operations/instance-groups/pause-processes.md), [stop](../../operations/instance-groups/stop.md), [delete](../../operations/instance-groups/delete.md). |
 | `PAUSED` | The group's virtual machines are running, but updates, auto-healing, and scaling is paused.<br>Allowed actions with the instance group: [resume processes](../../operations/instance-groups/resume-processes.md), [delete](../../operations/instance-groups/delete.md).<br>Any significant changes to the group, such as re-sizing the group or re-configuring instances, will not be applied until processes are resumed. |
 | `STOPPING` | Virtual machines and processes in the instance group are stopped.<br>Allowed actions with the instance group: [start](../../operations/instance-groups/start.md), [update](../../operations/instance-groups/update.md), [delete](../../operations/instance-groups/delete.md).<br>Any significant changes to the group, such as re-sizing the group or re-configuring instances, are only applied after the group starts. |
-| `STOPPED` | All instances and processes in the group are stopped.<br>Allowed actions with the group: [start](../../operations/instance-groups/start.md), [update](../../operations/instance-groups/update.md), [delete](../../operations/instance-groups/delete.md).<br>Any significant changes to the group, such as re-sizing the group or re-configuring instances, are only applied after the group starts. |
-| `DELETING` | The instance group is deleted. First, the instances in the group are deleted, then the [network load balancer target group](../../../network-load-balancer/concepts/target-resources.md), if specified. Finally, the instance group itself is deleted.<br>Allowed actions with the group: [update](../../operations/instance-groups/update.md), if you need to specify a new service account ID. |
+| `STOPPED` | Virtual machines and processes in the instance group are stopped.<br>Allowed actions with the instance group: [start](../../operations/instance-groups/start.md), [update](../../operations/instance-groups/update.md), [delete](../../operations/instance-groups/delete.md).<br>Any significant changes to the group, such as re-sizing the group or re-configuring instances, are only applied after the group starts. |
+| `DELETING` | The instance group is deleted. First, the instances in the group are deleted, then the [network load balancer target group](../../../network-load-balancer/concepts/target-resources.md) is deleted (if specified). Finally, the instance group itself is deleted.<br>Allowed actions with the group: [update](../../operations/instance-groups/update.md), if you need to specify a new service account ID. |
 
 ## Statuses of instances in the group {#vm-statuses}
 
@@ -33,7 +34,7 @@ The statuses of instances in groups differ from the [statuses of instances](../v
 | `CLOSING_TRAFFIC` | The instance is being removed from the network load balancer's target group. Network traffic from the load balancer to the instance is stopped. |
 | `STOPPING_INSTANCE` | Instance is being stopped. |
 | `STOPPED` | The instance was stopped. You aren't charged for instances with this status. |
-| `STARTING_INSTANCE` | The instance is starting. {{ ig-name }} waits for the virtual machine in {{ compute-name }} to change its [health check status](../vm-statuses.md) to `RUNNING`. |
+| `STARTING_INSTANCE` | Instance is being started. {{ ig-name }} waits until the instance in {{ compute-name }} changes its [status](../vm-statuses.md) to `RUNNING`. |
 | `UPDATING_INSTANCE` | The basic parameters or metadata of the instance are being updated. |
 | `DELETING_INSTANCE` | The instance is being deleted. |
 | `PREPARING_RESOURCES` | The instance is being prepared for use with new instances. For example, renaming or changing disk volumes. |

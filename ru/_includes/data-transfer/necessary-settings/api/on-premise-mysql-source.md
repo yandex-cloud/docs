@@ -1,7 +1,7 @@
 * `onPremise` — параметры подключения к базе данных:
     * {% include [Field API Hosts](../../fields/common/api/hosts.md) %}
     * {% include [Field API Port](../../fields/common/api/port.md) %}
-    * `tlsMode` — параметры шифрования передаваемых данных, если оно требуется, например для соответствия требованиям [PCI DSS]({% if lang == "ru" %}{{ link-pci-dss-ru }}{% endif %}{% if lang =="en" %}{{ link-pci-dss-en }}{% endif %}).
+    * `tlsMode` — параметры шифрования передаваемых данных, если оно требуется, например для соответствия требованиям {% if product == "yandex-cloud" %}[PCI DSS]({% if lang == "ru" %}{{ link-pci-dss-ru }}{% endif %}{% if lang =="en" %}{{ link-pci-dss-en }}{% endif %}){% endif %}{% if product == "cloud-il" %}PCI DSS{% endif %}.
         * `disabled` — отключено.
         * `enabled` — включено
             * `caCertificate` — сертификат CA.

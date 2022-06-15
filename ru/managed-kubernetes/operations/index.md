@@ -15,11 +15,15 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](connect/security-groups.md)
 * [{#T}](connect/create-static-conf.md)
 
+{% if product == "yandex-cloud" %}
+
 ## Установка приложений {#marketplace}
 
 * [{#T}](applications/marketplace.md)
 * [{#T}](applications/jaeger.md)
 * [{#T}](applications/metrics-provider.md)
+
+{% endif %}
 
 ## Сетевые сценарии {#network-scenarios}
 
@@ -56,6 +60,10 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](node-group/node-label-management.md)
 * [{#T}](node-group/node-group-delete.md)
 
+{% if product == "yandex-cloud" %}
+
 ## Работа с внешними узлами {#external-nodes}
 
 * [{#T}](external-nodes-connect.md)
+
+{% endif %}

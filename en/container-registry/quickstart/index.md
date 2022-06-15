@@ -1,82 +1,90 @@
-# Getting started with {{ container-registry-short-name }}
+# Getting started with {{ container-registry-name }}
 
 Using these instructions, you will create your first [registry](../concepts/registry.md) and try managing [Docker images](../concepts/docker-image.md).
 
 ## Before you start {#before-you-begin}
 
-To create a registry, you'll need a folder in {{ yandex-cloud }}. If you don't have any folders yet, create a new folder:
+To create a registry, you'll need a folder in {{ yandex-cloud }}. If you don't have any folders yet,
+create a new folder:
 
 {% include [create-folder](../../_includes/create-folder.md) %}
 
-You'll also need the [Yandex CLI](../../cli/quickstart.md) and [Docker](https://docs.docker.com/install/).
+You will also need the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) and [Docker](https://docs.docker.com/install/).
 
 ## Creating a registry and performing basic operations on Docker images {#registry-create}
 
-1. Create a registry in {{ container-registry-short-name }}:
+1. Create a registry in {{ container-registry-name }}:
 
-    ```
-    yc container registry create --name my-first-registry
-    ..done
-    id: crpc9qeoft236r8tfalm
-    folder_id: b1g0itj57rbjk9thrinv
-    name: my-first-registry
-    status: ACTIVE
-    created_at: "2018-12-25T12:24:56.286Z"
-    ```
+   ```bash
+   yc container registry create --name my-first-registry
+   ```
 
-    You will need the received `id` to access the created registry.
+   Command output:
 
-1. Authenticate in {{ container-registry-short-name }} using a [Docker Credential helper](../operations/authentication.md#cred-helper):
+   ```bash
+   ..done
+   id: crpc9qeoft236r8tfalm
+   folder_id: b1g0itj57rbjk9thrinv
+   name: my-first-registry
+   status: ACTIVE
+   created_at: "2018-12-25T12:24:56.286Z"
+   ```
 
-    1. Configure Docker to use `docker-credential-yc`:
+   You will use the `ID` received to access the created registry later.
+1. Authenticate in {{ container-registry-name }} using [Docker Credential helper](../operations/authentication.md#cred-helper):
+   1. Configure Docker to use `docker-credential-yc`:
 
-        ```
-        yc container registry configure-docker
-        Credential helper is configured in '/home/<user>/.docker/config.json'
-        ```
+      ```bash
+      yc container registry configure-docker
+      ```
 
-        During setup, information about the current user profile is saved.
+      Command output:
 
-    1. Make sure that Docker is configured.
+      ```bash
+      Credential helper is configured in '/home/<user>/.docker/config.json'
+      ```
 
-        The `/home/<user>/.docker/config.json` file must contain the following line:
+      During setup, information about the current user profile is saved.
+   1. Make sure that Docker is configured.
 
-        ```
-        "cr.yandex": "yc"
-        ```
+      The `/home/<user>/.docker/config.json` configuration file must include the following line:
 
-1. Pull a Docker image from the [Docker Hub](https://hub.docker.com) repository:
+      ```json
+      "{{ registry }}": "yc"
+      ```
 
-    ```
-    docker pull ubuntu
-    ```
+1. Pull a Docker image from [Docker Hub](https://hub.docker.com):
 
-1. Assign a tag like `cr.yandex/<registry ID>/<Docker image name>:<tag>` to the Docker image pulled:
+   ```
+   docker pull ubuntu
+   ```
 
-    ```
-    docker tag ubuntu \
-    cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
-    ```
+1. Assign the pulled Docker image a tag in the following format: `{{ registry }}/<registry ID>/<Docker image name>:<tag>`:
 
-1. Push the Docker image to the repository {{ container-registry-short-name }}:
+   ```
+   docker tag ubuntu \
+   {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
+   ```
 
-    ```
-    docker push \
-    cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
-    ```
+1. Push the Docker image to the repository {{ container-registry-name }}:
+
+   ```
+   docker push \
+   {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
+   ```
 
 1. Run the Docker image:
 
-    ```
-    docker run \
-    cr.yandex/crpc9qeoft236r8tfalm/ubuntu:hello
-    ```
+   ```
+   docker run \
+   {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
+   ```
 
 #### See also {#see-also}
 
-- [Creating a registry](../operations/registry/registry-create.md)
-- [Authentication in {{ container-registry-short-name }}](../operations/authentication.md)
-- [Creating a Docker image](../operations/docker-image/docker-image-create.md)
-- [Pushing a Docker image](../operations/docker-image/docker-image-push.md)
-- [Pull a Docker image](../operations/docker-image/docker-image-pull.md)
-- [Running a Docker image on a VM](../tutorials/index.md)
+* [Creating a registry](../operations/registry/registry-create.md).
+* [Authentication in {{ container-registry-name }}](../operations/authentication.md).
+* [Creating a Docker image](../operations/docker-image/docker-image-create.md).
+* [Pushing a Docker image](../operations/docker-image/docker-image-push.md).
+* [Pulling a Docker image](../operations/docker-image/docker-image-pull.md).
+* [Running a Docker image on a VM](../tutorials/index.md).

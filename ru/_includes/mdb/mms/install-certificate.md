@@ -1,19 +1,19 @@
 {% if audience != "internal" %}
 
 ```bash
-sudo mkdir --parents /usr/local/share/ca-certificates/Yandex && \
+sudo mkdir --parents {{ crt-local-dir }} && \
 sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" \
-    --output-document=/usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-sudo chmod 0600 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+    --output-document={{ crt-local-dir }}{{ crt-local-file }} && \
+sudo chmod 0600 {{ crt-local-dir }}{{ crt-local-file }}
 ```
 
 {% else %}
 
 ```bash
-sudo mkdir --parents /usr/local/share/ca-certificates/Yandex && \
+sudo mkdir --parents {{ crt-local-dir }} && \
 sudo wget "{{ pem-path }}" \
-    --output-document=/usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-sudo chmod 0600 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+    --output-document={{ crt-local-dir }}{{ crt-local-file }} && \
+sudo chmod 0600 {{ crt-local-dir }}{{ crt-local-file }}
 ```
 
 {% endif %}

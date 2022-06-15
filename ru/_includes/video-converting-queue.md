@@ -19,11 +19,9 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
-1. На [странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
-1. На [странице облака]{% if lang == "ru" %}(https://console.cloud.yandex.ru/cloud){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/cloud){% endif %} создайте или выберите каталог для нового сервиса.
+{% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-    [Подробнее об облаках и каталогах](../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -32,6 +30,8 @@
 * плата за вызовы функций (см. [тарифы {{ sf-full-name }}](../functions/pricing.md));
 * плата за выполнение запросов к базе данных {% if audience == "external" %} (см. [тарифы {{ ydb-full-name }}](../ydb/pricing/serverless.md)); {% endif %}
 * плата за хранение данных в бакете (см. [тарифы {{ objstorage-full-name }}](../storage/pricing.md)).
+
+{% endif %}
 
 ## Подготовьте ресурсы {#create-resources}
 
@@ -233,7 +233,7 @@
 		```json
 		{
 		    "ready": true,
-		    "gif_url": "https://storage.yandexcloud.net/converter-bucket/1b4db1a6-f2b2-4b1c-b662-37f7a62e6e2e.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=qxLftbbZ91U695ysemyZ%2F20210831%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20210831T110351Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f4a5fe7848274a09be5b221fbf8a9f6f2b385708cfa351861a4e69df4ee4183c"
+		    "gif_url": "https://{{ s3-storage-host }}/converter-bucket/1b4db1a6-f2b2-4b1c-b662-37f7a62e6e2e.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=qxLftbbZ91U695ysemyZ%2F20210831%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20210831T110351Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f4a5fe7848274a09be5b221fbf8a9f6f2b385708cfa351861a4e69df4ee4183c"
 		}
 		```
 

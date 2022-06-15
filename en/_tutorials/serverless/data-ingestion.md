@@ -18,13 +18,8 @@ If you no longer need data input, [delete the resources used](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before setting up data input, sign up for {{ yandex-cloud }} and create a billing account:
+{% include [prepare-register-billing](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can go to the [cloud page]({{ link-console-cloud }}) to create or select a folder where you will be deploying your infrastructure.
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources {#paid-resources}
 

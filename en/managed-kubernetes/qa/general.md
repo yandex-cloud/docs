@@ -9,7 +9,7 @@ The following services are available by default:
 
 #### Which version of the {{ k8s }} CLI (kubectl) must be installed for comprehensive work with a cluster? {#kubectl-version}
 
-We recommend using the latest official version of [kubectl]{% if region == "int" %}(https://kubernetes.io/docs/tasks/tools/#kubectl){% else %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) to avoid compatibility issues{% endif %}.
+We recommend using the latest official version of [kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/#kubectl){% endif %} to avoid compatibility issues.
 
 #### Can {{ yandex-cloud }} restore the health of the cluster if I configure it incorrectly? {#tech-support-cases}
 
@@ -21,6 +21,6 @@ The [master](../concepts/index.md#master) is managed by {{ yandex-cloud }}, that
 
 #### How quickly does {{ yandex-cloud }} address vulnerabilities discovered in the security system? What do I do if an attacker has taken advantage of a vulnerability and my data is damaged? {#security-updates}
 
-{{ yandex-cloud }} services, images and master configuration initially undergo [various security tests and checks for standard compliance]{% if lang == "ru" %}(https://cloud.yandex.ru/security){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/security){% endif %}.
+{{ yandex-cloud }} services, images and master configuration initially undergo [various security tests and checks for standard compliance](../../security).
 
 Users can choose [frequency of updates](../concepts/release-channels-and-updates.md#updates) depending on their tasks and cluster configuration. It's important to consider attack targets and vulnerabilities in applications deployed in a {{ k8s }} cluster. Application security can be affected by such factors as [network security policies](../concepts/network-policy.md) between applications, vulnerabilities inside Docker containers, and incorrect launch mode of containers in a cluster.

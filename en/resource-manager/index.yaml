@@ -1,30 +1,59 @@
-title: Yandex Resource Manager
+title:
+  - text: Yandex Resource Manager
+    when: product == "yandex-cloud"
+  - text: Resource Manager
+    when: product == "cloud-il"
 description:
-  - >-
-    The Yandex Resource Manager service defines the Yandex Cloud resource model
-    and allows you to structure your resources using folders.
-  - >-
-    Yandex Cloud <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">complies</a>
-    with the law No. 152-FZ of the Russian Federation "On Personal Data".
+  - text:
+    - >-
+      The Yandex Resource Manager service defines the Yandex Cloud resource model
+      and allows you to structure your resources using folders.
+    - >-
+      Yandex Cloud <a
+      href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">complies</a>
+      with the law No. 152-FZ of the Russian Federation "On Personal Data".
+    when: product == "yandex-cloud"
+  - text:
+    - >-
+      The Resource Manager service defines the CloudIL resource model and allows you to structure your resources using folders.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Resource Manager
+  title:
+  - text: Yandex Resource Manager
+    when: product == "yandex-cloud"
+  - text: Resource Manager
+    when: product == "cloud-il"
 links:
   - title: Getting started
     description: Create the first folder
     href: quickstart
+    when: product == "yandex-cloud"
+  - title: Getting started
+    description: Create the first folder
+    href: quickstart.html
+    when: product == "cloud-il"
   - title: Step-by-step instructions
     description: Instructions on how to perform routine operations
     href: operations/
   - title: Concepts
     description: Learn about the Yandex Cloud resource model
     href: concepts/resources-hierarchy
+    when: product == "yandex-cloud"
+  - title: Concepts
+    description: Learn about the CloudIL resource model
+    href: concepts/resources-hierarchy.html
+    when: product == "cloud-il"
   - title: API reference
     description: HTTP API method descriptions
     href: api-ref/
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits
+    when: product == "yandex-cloud"
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Access management
     description: Configure access rights to work with the service
     href: security/

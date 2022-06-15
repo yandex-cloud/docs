@@ -90,10 +90,12 @@
       {% endnote %}
 
   1. Включите опцию **UI Proxy**, чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}.
+  {% if product == "yandex-cloud" %}
   1. Логи кластера сохраняются в сервисе [{{ cloud-logging-full-name }}](../../logging/). Выберите нужную лог-группу из списка или [создайте новую](../../logging/operations/create-group.md).
 
       Для работы этой функции [назначьте сервисному аккаунту кластера](../../iam/operations/roles/grant.md#access-to-sa) роль `logging.writer`. Подробнее см. в [документации {{ cloud-logging-full-name }}](../../logging/security/index.md).
 
+  {% endif %}
   1. Настройте подкластеры: не больше одного главного подкластера с управляющим хостом (обозначается как **Мастер**), и подкластеры для хранения данных или вычислений.
 
      Роли подкластеров (`Compute` и `Data`) различаются тем, что на `Data`-подкластерах можно разворачивать компоненты для хранения данных, а на `Compute` — компоненты обработки данных. Хранилище на подкластере `Compute` предназначено только для временного хранения обрабатываемых файлов.
@@ -181,6 +183,7 @@
 
         {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
+    {% if product == "yandex-cloud" %}
     1. Чтобы создать кластер, размещенный на [группах выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids`:
 
         ```bash
@@ -190,6 +193,7 @@
         ```
 
         {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
+    {% endif %}
 
     1. Чтобы настроить хосты кластера с помощью [скриптов инициализации](../concepts/init-action.md), укажите их в одном или нескольких параметрах `--initialization-action`:
 
@@ -413,9 +417,13 @@
 
     Чтобы назначить публичный IP-адрес всем хостам подкластера, передайте значение `true` в параметре `configSpec.subclustersSpec.assignPublicIp`.
 
+    {% if product == "yandex-cloud" %}
+  
     Чтобы создать кластер, размещенный на [группах выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
 
     {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
+
+    {% endif %}
 
     Чтобы использовать для первоначальной настройки хостов кластера [скрипты инициализации](../concepts/init-action.md), укажите их в параметре `config_spec.hadoop.initialization_actions[]`.
 

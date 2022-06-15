@@ -12,21 +12,19 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед тем, как разворачивать сервер, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
-
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша ВМ, на [странице облака](https://console.cloud.yandex.ru/cloud).
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 Убедитесь, что в выбранном каталоге есть облачная сеть с подсетью хотя бы в одной зоне доступности. Для этого на странице каталога выберите сервис **Virtual Private Cloud**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если нужных подсетей или сети нет, [создайте их](../../vpc/quickstart.md).
+
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки веб-сайта на WordPress входит:
 * плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+
+{% endif %}
 
 ## Создайте группу безопасности {#create-security-group}
 
@@ -68,7 +66,7 @@
    {% include [name-format](../../_includes/name-format.md) %}
 
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. В блоке **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. Выберите публичный образ [WordPress]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eugfso8lh4ch2g2m9h){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eugfso8lh4ch2g2m9h){% endif %}.
+1. В блоке **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. Выберите публичный образ [WordPress](/marketplace/products/f2eugfso8lh4ch2g2m9h).
 
    ![choose-image](../../_assets/tutorials/wordpress/vm-create-3.png)
 

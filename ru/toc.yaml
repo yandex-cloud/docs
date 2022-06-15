@@ -1,149 +1,171 @@
-title: Документация Yandex Cloud
+title: Документация {{ yandex-cloud }}
 href: index.yaml
 items:
-  - name: API Yandex Cloud
+  - name: API {{ yandex-cloud }}
     href: api-design-guide/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: API Gateway
     href: api-gateway/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Application Load Balancer
     href: application-load-balancer/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud" or product == "cloud-il"
+  - name: Audit Trails
+    href: audit-trails/index.yaml
+    when: audience == "external" and product == "yandex-cloud" or product == "cloud-il"
   - name: Биллинг
     href: billing/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Certificate Manager
     href: certificate-manager/index.yaml
-    when: audience == "external"
-  - name: CLI Yandex Cloud
+    when: audience == "external" and product == "yandex-cloud" or product == "cloud-il"
+  - name: CLI {{ yandex-cloud }}
     href: cli/index.yaml
+    when: product == "yandex-cloud"
   - name: Cloud Logging
     href: logging/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Compute Cloud
     href: compute/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud" or product == "cloud-il"
   - name: Container Registry
     href: container-registry/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud" or product == "cloud-il"
   - name: Container Solution
     href: cos/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Data Proc
     href: data-proc/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Data Transfer
     href: data-transfer/index.yaml
+    when: product == "yandex-cloud" or product == "cloud-il"
   - name: Data Streams
     href: data-streams/index.yaml
+    when: product == "yandex-cloud"
   - name: DataLens
     href: datalens/index.yaml
+    when: product == "yandex-cloud"
   - name: DataLens Partner API
     href: datalens-api/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: DataSphere
     href: datasphere/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Cloud DNS
     href: dns/index.yaml
+    when: audience == "external" and product == "yandex-cloud" or product == "cloud-il"
+  - name: Начало работы
+    href: getting-started/index.yaml
     when: audience == "external"
   - name: Пробный период
     href: getting-started/free-trial/concepts/quickstart.md
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Cloud Functions
     href: functions/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Forms
     href: forms/index.yaml
+    when: product == "yandex-cloud"
   - name: Identity and Access Management
     href: iam/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud" or product == "cloud-il"
   - name: IoT Core
     href: iot-core/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Key Management Service
     href: kms/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud" or product == "cloud-il"
   - name: Lockbox
     href: lockbox/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud" or product == "cloud-il"
   - name: Managed Service for ClickHouse
     href: managed-clickhouse/index.yaml
+    when: product == "yandex-cloud" or product == "cloud-il"
   - name: Managed Service for Elasticsearch
     href: managed-elasticsearch/index.yaml
+    when: product == "yandex-cloud"
   - name: Managed Service for Apache Kafka®
     href: managed-kafka/index.yaml
+    when: product == "yandex-cloud" or product == "cloud-il"
   - name: Managed Service for Kubernetes®
     href: managed-kubernetes/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud" or product == "cloud-il"
   - name: Managed Service for MongoDB
     href: managed-mongodb/index.yaml
+    when: product == "yandex-cloud"
   - name: Managed Service for MySQL®
     href: managed-mysql/index.yaml
+    when: product == "yandex-cloud" or product == "cloud-il"
   - name: Managed Service for PostgreSQL
     href: managed-postgresql/index.yaml
+    when: product == "yandex-cloud" or product == "cloud-il"
   - name: Managed Service for Redis
     href: managed-redis/index.yaml
+    when: product == "yandex-cloud"
   - name: Managed Service for SQL Server™
     href: managed-sqlserver/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Кабинет партнера Marketplace
     href: marketplace/index.md
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: MDB
     href: mdb/index.yaml
-    when: audience == "internal"
+    when: audience == "internal" and product == "yandex-cloud"
   - name: Message Queue
     href: message-queue/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Использование продуктов Microsoft
     href: microsoft/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Monitoring
     href: monitoring/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Network Load Balancer
     href: network-load-balancer/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud" or product == "cloud-il"
   - name: Cloud Organization
     href: organization/index.yaml
-    when: audience == "external"
-  - name: Обзор платформы Yandex Cloud
+    when: audience == "external" and product == "yandex-cloud"
+  - name: Обзор платформы {{ yandex-cloud }}
     href: overview/index.yaml
-    when: audience == "external"
-  - name: Партнерская программа Yandex Cloud
+    when: audience == "external" and product == "yandex-cloud"
+  - name: Партнерская программа {{ yandex-cloud }}
     href: partner/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Resource Manager
     href: resource-manager/index.yaml
-  - name: Практические руководства платформы Yandex Cloud
+    when: audience == "external" and product == "yandex-cloud" or product == "cloud-il"
+  - name: Практические руководства платформы {{ yandex-cloud }}
     href: tutorials/index.yaml
     when: audience == "external"
-  - name: Безопасность в Yandex Cloud
+  - name: Безопасность в {{ yandex-cloud }}
     href: security/index.yaml
     when: audience == "external"
   - name: SpeechKit
     href: speechkit/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Object Storage
     href: storage/index.yaml
-  - name: Техническая поддержка Yandex Cloud
+    when: product == "yandex-cloud" or product == "cloud-il"
+  - name: Техническая поддержка {{ yandex-cloud }}
     href: support/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Tracker
     href: tracker/index.yaml
+    when: product == "yandex-cloud"
   - name: Translate
     href: translate/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Vision
     href: vision/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Virtual Private Cloud
     href: vpc/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud" or product == "cloud-il"
   - name: Wiki
     href: wiki/index.yaml
+    when: product == "yandex-cloud"
   - name: Managed Service for YDB
     href: ydb/index.yaml
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"

@@ -31,9 +31,13 @@ editable: false
 
   Стоимость начисляется за каждый час работы хоста в соответствии с выделенными для него вычислительными ресурсами.
 
+{% if product == "yandex-cloud" %}
+
 * Выделенные хосты
 
   Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices) и наценки {{ mgp-name }} на эти ресурсы.
+
+{% endif %}
 
 Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост {{ GP }} не может выполнять свои основные функции, не тарифицируется.
 
@@ -44,7 +48,7 @@ editable: false
 * Объем хранилища, выделенный для кластеров.
 
   * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с двумя хостами-мастерами:
-    * для платформы Intel Cascade Lake — с шагом 100 ГБ;
+    {% if product == "yandex-cloud" %}* для платформы Intel Cascade Lake — с шагом 100 ГБ;{% endif %}
     * для платформы Intel Ice Lake — с шагом {{ local-ssd-v3-step }}.
   * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с двумя хостами-мастерами, с шагом 93 ГБ.
 
@@ -105,6 +109,8 @@ editable: false
   {% if region == "kz" %} {% include notitle [KZT: standard hosts](../../_pricing/managed-greenplum/kzt-hosts-standard.md) %}{% endif %}
   {% if region == "int" %} {% include notitle [USD: standard hosts](../../_pricing/managed-greenplum/usd-hosts-standard.md) %}{% endif %}
 
+{% if product == "yandex-cloud" %}
+
 - Выделенные хосты
   
   Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices) и наценки {{ mgp-name }} на эти ресурсы.
@@ -112,6 +118,8 @@ editable: false
   {% if region == "ru" %} {% include notitle [RUB: dedicated hosts](../../_pricing/managed-greenplum/rub-hosts-dedicated.md) %}{% endif %}
   {% if region == "kz" %} {% include notitle [KZT: dedicated hosts](../../_pricing/managed-greenplum/kzt-hosts-dedicated.md) %}{% endif %}
   {% if region == "int" %} {% include notitle [USD: dedicated hosts](../../_pricing/managed-greenplum/usd-hosts-dedicated.md) %}{% endif %}
+
+{% endif %}
 
 {% endlist %}
 
@@ -127,6 +135,8 @@ editable: false
   {% if region == "kz" %}{% include notitle [kzt-storage-standard.md](../../_pricing/managed-greenplum/kzt-storage-standard.md) %}{% endif %}
   {% if region == "int" %}{% include notitle [usd-storage-standard.md](../../_pricing/managed-greenplum/usd-storage-standard.md) %}{% endif %}
 
+{% if product == "yandex-cloud" %}
+
 - Выделенные хосты
 
   Стоимость начисляется из двух компонентов: [цены за хранилище {{ compute-full-name }}](../../compute/pricing.md#prices) и цены {{ mgp-name }} на него. Все цены указаны за 1 ГБ в месяц.
@@ -134,6 +144,8 @@ editable: false
   {% if region == "ru" %}{% include notitle [rub-storage-dedicated.md](../../_pricing/managed-greenplum/rub-storage-dedicated.md) %}{% endif %}
   {% if region == "kz" %}{% include notitle [kzt-storage-dedicated.md](../../_pricing/managed-greenplum/kzt-storage-dedicated.md) %}{% endif %}
   {% if region == "int" %}{% include notitle [usd-storage-dedicated.md](../../_pricing/managed-greenplum/usd-storage-dedicated.md) %}{% endif %}
+
+{% endif %}
 
 {% endlist %}
 

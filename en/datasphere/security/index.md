@@ -45,5 +45,4 @@ The `{{ roles-editor }}` role includes all permissions of the `{{ roles-viewer }
 
 Users with the `{{ roles-admin }}` role can manage resource access rights, such as allow other users to work with folders or view information about projects and user permissions.
 
-The `{{ roles-admin }}` role also includes all `{{ roles-editor }}` role permissions.
-
+The `{{ roles-admin }}` role also includes all permissions of the `{{ roles-editor }}` role.

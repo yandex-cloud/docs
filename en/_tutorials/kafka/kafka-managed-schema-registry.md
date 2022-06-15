@@ -35,8 +35,8 @@ To use [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#m
     ```bash
     sudo mkdir -p /usr/share/ca-certificates && \
     sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" \
-              -O /usr/share/ca-certificates/YandexCA.crt && \
-    sudo chmod 655 /usr/share/ca-certificates/YandexCA.crt
+              -O /usr/share/ca-certificates/{{ crt-local-file }} && \
+    sudo chmod 655 /usr/share/ca-certificates/{{ crt-local-file }}
     ```
 
 1. Create a Python script for the consumer.
@@ -61,7 +61,7 @@ To use [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#m
             ]),
             "group.id": "avro-consumer",
             "security.protocol": "SASL_SSL",
-            "ssl.ca.location": "/usr/share/ca-certificates/YandexCA.crt",
+            "ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}",
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
             "sasl.password": "<password for the user account>",
@@ -157,7 +157,7 @@ To use [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#m
                 "<FQDN of the Nth broker host>:9091",
             ]),
             "security.protocol": 'SASL_SSL',
-            "ssl.ca.location": '/usr/share/ca-certificates/YandexCA.crt',
+            "ssl.ca.location": '/usr/share/ca-certificates/{{ crt-local-file }}',
             "sasl.mechanism": 'SCRAM-SHA-512',
             "sasl.username": 'user',
             "sasl.password": '<password for the user account>',

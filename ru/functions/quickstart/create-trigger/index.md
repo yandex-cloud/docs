@@ -1,6 +1,6 @@
 ---
-title: Создание триггера в Yandex Cloud Functions
-description: "Создайте триггер в Yandex Cloud Functions, который будет запускать функцию или контейнер по событию или расписанию. Примеры триггеров — создание таймера, создание триггера для Message Queue, Object Storage, Container Registry, Cloud Logs, IoT Core"
+title: Создание триггера в {{ sf-full-name }}
+description: "Создайте триггер в {{ sf-full-name }}, который будет запускать функцию или контейнер по событию или расписанию. Примеры триггеров — создание таймера, создание триггера для {{ message-queue-name }}, {{ objstorage-name }}, {{ container-registry-name }}, Cloud Logs, {{ iot-name }}"
 ---
 
 # Создание триггера

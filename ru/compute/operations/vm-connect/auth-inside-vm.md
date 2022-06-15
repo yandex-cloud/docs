@@ -87,6 +87,15 @@
       ```
       yc config profile create my-robot-profile
       ```
+
+  {% if product == "cloud-il" %}
+  1. Добавьте в профиль CLI доменное имя и порт для запросов к {{ yandex-cloud }}:
+  
+     ```
+     yc config set endpoint {{ api-host }}:443
+     ```   
+  {% endif %}
+  
   1. Настройте профиль для запуска команд. 
   
       {% include [add-folder](../../../_includes/cli-add-folder.md) %}

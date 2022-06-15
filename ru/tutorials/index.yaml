@@ -1,8 +1,17 @@
-title: Практические руководства платформы Yandex Cloud
+title:
+  - text: Практические руководства платформы Yandex Cloud
+    when: product == "yandex-cloud"
+  - text: Практические руководства платформы CloudIL
+    when: product == "cloud-il"
 description:
-  - >-
-    Подробные пошаговые инструкции, которые помогут вам решать различные задачи
-    с помощью сервисов Yandex Cloud.
+  - text: >-
+      Подробные пошаговые инструкции, которые помогут вам решать различные задачи
+      с помощью сервисов Yandex Cloud.
+    when: product == "yandex-cloud"
+  - text: >-
+      Подробные пошаговые инструкции, которые помогут вам решать различные задачи
+      с помощью сервисов CloudIL.
+    when: product == "cloud-il"
 meta:
   title: Практические руководства
 links:
@@ -13,7 +22,7 @@ links:
     description: Открывайте интернет-магазины на различных платформах
     href: internet-store/
   - title: Архив данных
-    description: Настройте резервное копирование данных в Yandex Cloud
+    description: Настройте резервное копирование данных
     href: archive/
   - title: Тестовая среда
     description: Тестируйте приложения на виртуальных машинах
@@ -35,6 +44,8 @@ links:
   - title: Визуализация и анализ данных
     description: Собирайте, визуализируйте и анализируйте данные из различных источников
     href: datalens/
+    when: product == "yandex-cloud"
   - title: Интернет вещей
     description: Управляйте умными устройствами с помощью сервиса Yandex IoT Core
     href: iot/
+    when: product == "yandex-cloud"

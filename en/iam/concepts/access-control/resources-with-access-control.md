@@ -20,7 +20,10 @@ Resources you can [assign](../../operations/roles/grant.md) roles to, [view](../
 * [Registries](../../../container-registry/concepts/registry.md)
 * [Repositories](../../../container-registry/concepts/repository.md)
 
+{% if product == "yandex-cloud" %}
+
 **{{ sf-name }}:**
 
 * [Functions](../../../functions/concepts/function.md)
 
+{% endif %}

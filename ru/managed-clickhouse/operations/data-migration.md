@@ -200,7 +200,7 @@
                <shard>
                 <internal_replication>false</internal_replication>
                     <replica>
-                        <host>your-cloud-clickhouse.mdb.cloud.yandex.net</host>
+                        <host>your-cloud-clickhouse.{{ mdb-host }}</host>
                         <port>9440</port>
                         <user>your-user</user>
                         <password>password</password>

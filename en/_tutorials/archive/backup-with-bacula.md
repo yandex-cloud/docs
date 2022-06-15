@@ -27,7 +27,9 @@ If you no longer need the backup or recovered data, [delete all related resource
 
 ## Before you start {#before-you-begin}
 
-{% include [prepare-register-billing](../_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -36,6 +38,8 @@ The cost for backup and recovery includes:
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing)).
 * A fee for data storage (see [{{ objstorage-full-name }} pricing](../../storage/pricing)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing)).
+
+{% endif %}
 
 ## Creating VMs {#create-vm}
 
@@ -47,7 +51,7 @@ To create a VM:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public [CentOS 7]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo){% endif %} image.
+1. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo) image.
 
 1. Under **Computing resources**, select:
     * **Platform**: Intel Cascade Lake.
@@ -142,7 +146,7 @@ After `bacula-vm` switches to `RUNNING`:
     The command will request values for parameters:
     * `AWS Access Key ID`: Enter the `key_id` ID that you received when [generating the static key](#create-access-key).
     * `AWS Secret Access Key`: Enter the `secret` key that you received when [creating the static key](#create-access-key).
-    * `Default region name`: `ru-central1`.
+    * `Default region name`: `{{ region-id }}`.
     * `Default output format`: `json`.
 
 1. Check that the `/root/.aws/credentials` file contains the correct `key_id` and `secret` values:
@@ -280,7 +284,7 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
 1. Mount the bucket using `s3fs`:
 
     ```bash
-    $ sudo s3fs bacula-bucket /tmp/bacula -o url=https://storage.yandexcloud.net -o use_path_request_style -o allow_other -o nonempty -o uid=133,gid=133,mp_umask=077
+    $ sudo s3fs bacula-bucket /tmp/bacula -o url=https://{{ s3-storage-host }} -o use_path_request_style -o allow_other -o nonempty -o uid=133,gid=133,mp_umask=077
     ```
     * `bacula-bucket`: The name of the bucket in {{ objstorage-name }}.
     * `uid=133`: The ID of the `bacula` user from the `/etc/passwd` file.

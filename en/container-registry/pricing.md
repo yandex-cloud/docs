@@ -2,7 +2,15 @@
 editable: false
 ---
 
-# Pricing policy for {{ container-registry-name }}
+# Pricing for {{ container-registry-name }}
+
+{% if product == "cloud-il" %}
+
+At the [Preview](../overview/concepts/launch-stages.md) stage, {{ container-registry-name }} can be used free of charge.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -16,15 +24,15 @@ The cost of {{ container-registry-name }} usage is based on:
 
 ### Using storage {#rules-storage}
 
-Storage usage is measured in GB per month. The volume of data stored during a month is the average value over the month based on per-second data. The minimum pricing unit is 1 hour of storing 1 MB of data.
+Storage usage is measured in GB per month. The volume of data stored during a month is the average value over the month based on granulated per-second data. The minimum billable unit is 1 hour of storing 1 MB of data.
 
 {% note warning %}
 
-If multiple Docker images in the same registry use the same layers, reused layers aren't subject to repeat billing for storage. The uniqueness of a layer is determined by its [digest](concepts/docker-image.md#version).
+If multiple Docker images in the same registry use the same layers, you aren't charged repeatedly for storing each reused layer. A layer's [digest](concepts/docker-image.md#version) indicates whether the layer is unique.
 
 {% endnote %}
 
-## Prices {#prices}
+## Pricing {#prices}
 
 ### Data storage {#prices-storage}
 
@@ -48,7 +56,7 @@ The cost of 1 GB per month is fixed and doesn't depend on the number of days in 
 
 {% endif %}
 
-Here is an example of proportional calculation: let's say the user stores 15 GB of data for 11.5 hours during a month that is 30 days long. The total cost of storage can be calculated using the formula:
+Example of proportional calculation: let's say the user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
 
 ```
 Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
@@ -69,5 +77,7 @@ Storage_cost = Cost_per_GB_per_month * 15 * 12 / 24 / 30
 {% if region == "int" %}
 
 {% include [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}
 
 {% endif %}

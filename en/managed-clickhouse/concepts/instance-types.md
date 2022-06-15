@@ -1,6 +1,6 @@
 ---
-title: "Managed Service for ClickHouse host classes"
-description: "The host class defines the processing power that is allocated to each host in the ClickHouse cluster. Changing the host class for the cluster changes the characteristics of all hosts already created in it."
+title: "{{ mch-name }} host classes"
+description: "The host class defines the processing power that is allocated to each host in the {{ CH }} cluster. Changing the host class for the cluster changes the characteristics of all hosts already created in it."
 ---
 
 # Host classes
@@ -61,7 +61,7 @@ The full list of possible host configurations on each platform is provided below
 
 | Host class name | Number of vCPUs | Guaranteed vCPU performance | RAM, GB |
 |-------------------|-----------------|---------------------------|---------|
-| **Intel Broadwell** |
+| {% if product == "yandex-cloud" %} | **Intel Broadwell** |
 | b1.nano | 2 | 5% | 2 |
 | b1.micro | 2 | 20% | 2 |
 | b1.medium | 2 | 50% | 4 |
@@ -95,7 +95,7 @@ The full list of possible host configurations on each platform is provided below
 | s2.3xlarge | 32 | 100% | 128 |
 | s2.4xlarge | 40 | 100% | 160 |
 | s2.5xlarge | 48 | 100% | 192 |
-| s2.6xlarge | 64 | 100% | 256 |
+| s2.6xlarge | 64 | 100% | 256 | {% endif %} |
 | **Intel Ice Lake** |
 | b3-c1-m4 | 2 | 50% | 4 |
 | s3-c2-m8 | 2 | 100% | 8 |

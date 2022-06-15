@@ -2,7 +2,9 @@
 
 To perform operations via the API, you need to get an [IAM token](../iam/concepts/authorization/iam-token.md):
 
+{% if product == "yandex-cloud" %}
 * [Instructions](../iam/operations/iam-token/create.md) for a Yandex account.
+{% endif %}
 * [Instructions](../iam/operations/iam-token/create-for-sa.md) for a service account.
 * [Instructions](../iam/operations/iam-token/create-for-federation.md) for a federated account.
 

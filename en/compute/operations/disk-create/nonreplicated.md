@@ -43,7 +43,7 @@ The size of a non-replicated disk must be a multiple of 93 GB.
       --size 93
       ```
 
-      Output:
+      Result:
 
       ```text
       done (1s)
@@ -52,7 +52,7 @@ The size of a non-replicated disk must be a multiple of 93 GB.
       created_at: "2021-03-10T10:03:31Z"
       name: nr-disk
       type_id: network-ssd-nonreplicated
-      zone_id: ru-central1-b
+      zone_id: {{ region-id }}-b
       size: "99857989632"
       block_size: "4096"
       status: READY
@@ -106,7 +106,7 @@ You can only create a disk in an existing disk placement group.
       --disk-placement-group-name my-group
       ```
 
-      Output:
+      Result:
 
       ```text
       done (1s)
@@ -115,7 +115,7 @@ You can only create a disk in an existing disk placement group.
       created_at: "2021-03-10T11:17:57Z"
       name: nr-disk
       type_id: network-ssd-nonreplicated
-      zone_id: ru-central1-b
+      zone_id: {{ region-id }}-b
       size: "99857989632"
       block_size: "4096"
       status: READY

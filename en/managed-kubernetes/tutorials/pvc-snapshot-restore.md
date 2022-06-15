@@ -19,6 +19,8 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
 
 1. Create a file named `01-pvc.yaml` with the `PersistentVolumeClaim` manifest:
 
+  {% if product == "yandex-cloud" %}
+
    ```yaml
    ---
    apiVersion: v1
@@ -33,6 +35,27 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
        requests:
          storage: 5Gi
    ```
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```yaml
+   ---
+   apiVersion: v1
+   kind: PersistentVolumeClaim
+   metadata:
+     name: pvc-dynamic
+   spec:
+     accessModes:
+       - ReadWriteOnce
+     storageClassName: yc-network-ssd
+     resources:
+       requests:
+         storage: 5Gi
+   ```
+
+   {% endif %}
 
 1. Create a `PersistentVolumeClaim`:
 
@@ -141,6 +164,8 @@ When [restoring objects from the snapshot](https://kubernetes.io/docs/concepts/s
 To restore the snapshot:
 1. Create a file named `04-restore-snapshot.yaml` with a manifest of a new `PersistentVolumeClaim`:
 
+   {% if product == "yandex-cloud" %}
+
    ```yaml
    ---
    apiVersion: v1
@@ -159,6 +184,31 @@ To restore the snapshot:
        requests:
          storage: 10Gi
    ```
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```yaml
+   ---
+   apiVersion: v1
+   kind: PersistentVolumeClaim
+   metadata:
+     name: pvc-restore
+   spec:
+     storageClassName: yc-network-ssd
+     dataSource:
+       name: new-snapshot-test
+       kind: VolumeSnapshot
+       apiGroup: snapshot.storage.k8s.io
+     accessModes:
+       - ReadWriteOnce
+     resources:
+       requests:
+         storage: 10Gi
+   ```
+
+   {% endif %}
 
    {% note tip %}
 

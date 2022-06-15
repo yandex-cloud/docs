@@ -1,8 +1,8 @@
 # Alert settings in {{ monitoring-full-name }}
 
-{% if audience == "external" %} For detailed information about how to [create alerts](../../monitoring/operations/alert/create-alert.md) and about [alert parameters](../../monitoring/concepts/alerting.md), see the {{ monitoring-full-name }} documentation.
+{% if audience == "external" %} For more information about how to [create alerts](../../monitoring/operations/alert/create-alert.md) and about [alert parameters](../../monitoring/concepts/alerting.md), see the {{ monitoring-full-name }} documentation.
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 Create a notification channel in {{ monitoring-name }}. For more information about creating a notification channel, see the [{{ monitoring-full-name }} documentation](../../monitoring/operations/alert/create-channel.md).
 
@@ -13,13 +13,13 @@ This scenario describes the parameters of an alert that sends a notification tha
 1. Go to the page for [creating a new alert](../../monitoring/operations/alert/create-alert.md) for {{ monitoring-name }} in the {{ yandex-cloud }} console.
 1. In the **Title** field, enter a name for the alert.
 1. Under **Metrics**, specify the following values:
-    1. `service = Audit Trails`.
-    1. `name = trail.status`.
-    1. `status != ACTIVE`.
-    1. `trail = <trail name>`.
+   1. `service = Audit Trails`.
+   1. `name = trail.status`.
+   1. `status != ACTIVE`.
+   1. `trail = <trail name>`.
 1. Under **Alert settings**, specify the following values:
-    1. **Trigger condition**: `Not equal`.
-    1. **Alarm**: `0`.
+   1. **Trigger condition**: `Not equal`.
+   1. **Alarm**: `0`.
 1. Under **Notification channels**, select a notification channel.
 1. Click **Create alert**.
 
@@ -34,13 +34,13 @@ The "Evaluation window" parameter depends on the specific trail since the type a
 1. Go to the page for [creating a new alert](../../monitoring/operations/alert/create-alert.md) for {{ monitoring-name }} in the {{ yandex-cloud }} console.
 1. In the **Title** field, enter a name for the alert.
 1. Under **Metrics**, specify the following values:
-    1. `service = Audit Trails`.
-    1. `name = trail.delivered_events_count`.
-    1. `trail = <trail name>`.
+   1. `service = Audit Trails`.
+   1. `name = trail.delivered_events_count`.
+   1. `trail = <trail name>`.
 1. Under **Alert settings**, specify the following values:
-    1. **Trigger condition**: `Equal`.
-    1. **Alarm**: `0`.
-    1. **Evaluation window**: `<trail value>`.
+   1. **Trigger condition**: `Equal`.
+   1. **Alarm**: `0`.
+   1. **Evaluation window**: `<trail value>`.
 1. Under **Notification channels**, select a notification channel.
 1. Click **Create alert**.
 
@@ -53,11 +53,11 @@ The alert will send a notification that the number of trails in a cloud has chan
 1. Go to the page for [creating a new alert](../../monitoring/operations/alert/create-alert.md) for {{ monitoring-name }} in the {{ yandex-cloud }} console.
 1. In the **Title** field, enter a name for the alert.
 1. Under **Metrics**, specify the following values:
-    1. `service = Audit Trails`.
-    1. `name = trail.quota_usage_count`.
+   1. `service = Audit Trails`.
+   1. `name = trail.quota_usage_count`.
 1. Under **Alert settings**, specify the following values:
-    1. **Trigger condition**: `Not equal`.
-    1. **Alarm**: `<number of trails>`.
+   1. **Trigger condition**: `Not equal`.
+   1. **Alarm**: `<number of trails>`.
 1. Under **Notification channels**, select a notification channel.
 1. Click **Create alert**.
 
@@ -70,11 +70,11 @@ The alert will send a notification that the number of trails in a cloud has fall
 1. Go to the page for [creating a new alert](../../monitoring/operations/alert/create-alert.md) for {{ monitoring-name }} in the {{ yandex-cloud }} console.
 1. In the **Title** field, enter a name for the alert.
 1. Under **Metrics**, specify the following values:
-    1. `service = Audit Trails`.
-    1. `name = trail.quota_usage_count`.
+   1. `service = Audit Trails`.
+   1. `name = trail.quota_usage_count`.
 1. Under **Alert settings**, specify the following values:
-    1. **Trigger condition**: `Greater than`.
-    1. **Alarm**: `<number equal to 80% of quota>`.
+   1. **Trigger condition**: `Greater than`.
+   1. **Alarm**: `<number equal to 80% of quota>`.
 1. Under **Notification channels**, select a notification channel.
 1. Click **Create alert**.
 
@@ -87,11 +87,11 @@ The alert will send a notification that an unauthorized request has been sent to
 1. Go to the page for [creating a new alert](../../monitoring/operations/alert/create-alert.md) for {{ monitoring-name }} in the {{ yandex-cloud }} console.
 1. In the **Title** field, enter a name for the alert.
 1. Under **Metrics**, specify the following values:
-    1. `service = Audit Trails`.
-    1. `name = trail.unauthorized_events_count`.
+   1. `service = Audit Trails`.
+   1. `name = trail.unauthorized_events_count`.
 1. Under **Alert settings**, specify the following values:
-    1. **Trigger condition**: `Greater than`.
-    1. **Alarm**: `0`.
+   1. **Trigger condition**: `Greater than`.
+   1. **Alarm**: `0`.
 1. Under **Notification channels**, select a notification channel.
 1. Click **Create alert**.
 

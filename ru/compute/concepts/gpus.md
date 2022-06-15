@@ -1,16 +1,18 @@
 ---
 title: "GPU и vGPU – графические ускорители"
-description: "GPU (Graphics Processing Unit) – это графический процессор, который обрабатывает некоторые типы данных намного эффективнее, чем vCPU. Может использоваться для сложных вычислений. Compute Cloud предоставляет графические ускорители (GPU) и виртуальные графические ускорители (vGPU) в составе графических карт."
+description: "GPU (Graphics Processing Unit) – это графический процессор, который обрабатывает некоторые типы данных намного эффективнее, чем vCPU. Может использоваться для сложных вычислений. {{ compute-name }} предоставляет графические ускорители (GPU) и виртуальные графические ускорители (vGPU) в составе графических карт."
 ---
 
-# Графические ускорители GPU и vGPU
+# Графические ускорители GPU{% if product == "yandex-cloud" %} и vGPU{% endif %}
 
-{{ compute-name }} предоставляет графические ускорители (GPU) и виртуальные графические ускорители (vGPU) в составе графических карт. GPU обрабатывают некоторые типы данных эффективнее, чем vCPU, и могут использоваться для сложных вычислений.
+{{ compute-name }} предоставляет графические ускорители (GPU){% if product == "yandex-cloud" %} и виртуальные графические ускорители (vGPU) в составе графических карт{% endif %}. GPU обрабатывают некоторые типы данных эффективнее, чем vCPU, и могут использоваться для сложных вычислений.
 
 В {{ compute-name }} доступны следующие графические карты:
-* [NVIDIA® Tesla® V100]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/tesla-v100/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/v100/){% endif %} с 32 ГБ памяти HBM2 (High Bandwidth Memory).
+{% if product == "yandex-cloud" %}* [NVIDIA® Tesla® V100]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/tesla-v100/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/v100/){% endif %} с 32 ГБ памяти HBM2 (High Bandwidth Memory). {% endif %}
 * [NVIDIA® Ampere® A100]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/a100/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/a100/){% endif %} с 80 ГБ памяти HBM2.
-* [NVIDIA® Tesla® T4]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/tesla-t4/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/tesla-t4/){% endif %} с 16 ГБ памяти GDDR6.
+{% if product == "yandex-cloud" %}* [NVIDIA® Tesla® T4]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/tesla-t4/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/tesla-t4/){% endif %} с 16 ГБ памяти GDDR6. {% endif %}
+
+ {% if product == "yandex-cloud" %}
 
 {% note warning %}
 
@@ -18,9 +20,15 @@ description: "GPU (Graphics Processing Unit) – это графический �
 
 {% endnote %}
 
-По умолчанию в облаке установлена нулевая [квота](../concepts/limits.md#compute-quotas) на создание виртуальных машин с GPU и vGPU. Чтобы изменить [квоту]({{ link-console-quotas }}), обратитесь в [техническую поддержку]({{ link-console-support }}).
+{% endif %}
+
+По умолчанию в облаке установлена нулевая [квота](../concepts/limits.md#compute-quotas) на создание виртуальных машин с GPU{% if product == "yandex-cloud" %} и vGPU {% endif %}. Чтобы изменить [квоту]({{ link-console-quotas }}), обратитесь в [техническую поддержку]({{ link-console-support }}).
+
+{% if product == "yandex-cloud" %}
 
 ВМ с GPU и vGPU нельзя создавать в зоне доступности `ru-central1-c`. Подробнее см. в разделе [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
+
+{% endif %}
 
 ## Графические ускорители (GPU) {#gpu}
 
@@ -28,21 +36,32 @@ description: "GPU (Graphics Processing Unit) – это графический �
 
 Контролировать GPU и RAM можно непосредственно с ВМ.
 
+{% if product == "yandex-cloud" %}
+
 ### NVIDIA® Tesla® V100 {#tesla-v100}
 
 Графическая карта NVIDIA® Tesla® V100 содержит 5120 ядер CUDA®, позволяющих выполнять [высокопроизводительные вычисления]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/high-performance-computing/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/high-performance-computing/){% endif %} (High Performance Computing, HPC), а также 640 ядер Tensor, позволяющих решать задачи глубокого обучения (Deep Learning, DL).
+
+{% endif %}
 
 ### NVIDIA® Ampere® A100 {#a100}
 
 NVIDIA® A100, построенная на базе микроархитектуры [Ampere®]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/ampere-architecture/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/ampere-architecture/){% endif %}, использует тензорные ядра третьего поколения и предоставляет 80 ГБ памяти HBM2 с пропускной способностью до 2 ТБ/с.
 
+{% if product == "yandex-cloud" %}
+
 ### NVIDIA® Tesla® T4 {#tesla-t4}
 
 NVIDIA® Tesla® T4, построенная на базе архитектуры [Turing™](https://images.nvidia.com/aem-dam/en-zz/Solutions/design-visualization/technologies/turing-architecture/NVIDIA-Turing-Architecture-Whitepaper.pdf), использует тензорные ядра Turing и ядра RT, предоставляет 16 ГБ памяти GDDR6 с [пропускной способностью 300 ГБ/с](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-t4/t4-tensor-core-datasheet-951643.pdf).
 
+{% endif %}
+
 ### Конфигурации виртуальных машин {#config}
 
 Доступные конфигурации вычислительных ресурсов:
+
+{% if product == "yandex-cloud" %}
+
 * Платформа {{ v100-broadwell }} (`gpu-standard-v1`):
 
   Количество GPU | Объем VRAM, ГБ | Количество vCPU | Объем RAM, ГБ
@@ -60,6 +79,8 @@ NVIDIA® Tesla® T4, построенная на базе архитектуры
   4 | 128 | 32 | 192
   8 | 256 | 64 | 384
 
+{% endif %}
+
 * Платформа {{ a100-epyc }} (`gpu-standard-v3`):
 
   Количество GPU | Объем VRAM, ГБ | Количество vCPU | Объем RAM, ГБ
@@ -69,6 +90,8 @@ NVIDIA® Tesla® T4, построенная на базе архитектуры
   4 | 320 | 112 | 476
   8 | 640 | 224 | 952
 
+{% if product == "yandex-cloud" %}
+
 * Платформа {{ t4-ice-lake }} (`standard-v3-t4`):
 
   Количество GPU | Объем VRAM, ГБ | Количество vCPU | Объем RAM, ГБ
@@ -77,11 +100,15 @@ NVIDIA® Tesla® T4, построенная на базе архитектуры
 
 {% include [gpu-zones](../../_includes/compute/gpu-zones.md) %}
 
+{% endif %}
+
 Ознакомиться с организационными и техническими ограничениями ВМ можно в разделе [Квоты и лимиты](../concepts/limits.md).
 
 ### Образы операционных систем {#os}
 
 {% include [gpu-os](../../_includes/compute/gpu-os.md) %}
+
+{% if product == "yandex-cloud" %}
 
 ## Виртуальные графические ускорители (vGPU) {#vgpu}
 
@@ -91,8 +118,8 @@ NVIDIA® Tesla® T4, построенная на базе архитектуры
 
 Чтобы воспользоваться технологией vGPU, необходимы:
 * ВМ на [платформе](vm-platforms.md) `vgpu-standard-v1` с одним из образов:
-  * [Ubuntu 18.04 LTS vGPU]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %}.
-  * [Windows Server 2019 Datacenter vGPU]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2ent6cnb49sf5n9s1u2){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/f2ent6cnb49sf5n9s1u2){% endif %}.
+  * [Ubuntu 18.04 LTS vGPU](/marketplace/products/f2e8k6h1vu1rc360rr0h);
+  * [Windows Server 2019 Datacenter vGPU](/marketplace/products/f2ent6cnb49sf5n9s1u2).
 * Лицензия [NVIDIA® RTX vWS]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/design-visualization/virtual-workstation/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/design-visualization/virtual-workstation/){% endif %} для использования технологии [NVIDIA® vGPU](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf).
 * Сервер лицензий [NVIDIA® vGPU Software License Server](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html).
 
@@ -115,6 +142,8 @@ NVIDIA® Tesla® T4, построенная на базе архитектуры
 ## Сравнение GPU и vGPU
 
 {% include [gpu-vs-vgpu](../../_includes/compute/gpu-comparation.md) %}
+
+{% endif %}
 
 ## Смотрите также {#see-also}
 

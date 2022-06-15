@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-По умолчанию [поды](../concepts/index.md#pod) отправляют запросы к [сервису](../concepts/service.md) `kube-dns`. В поле `nameserver` в `/etc/resolv.conf` установлено значение `ClusterIp` [сервиса](../concepts/service.md) `kube-dns`. Для того, чтобы установить соединение с `ClusterIP`, используется [iptables]{% if region == "int" %}(https://en.wikipedia.org/wiki/Iptables){% else %}(https://ru.wikipedia.org/wiki/Iptables){% endif %} или [IP Virtual Server](https://en.wikipedia.org/wiki/IP_Virtual_Server).
+По умолчанию [поды](../concepts/index.md#pod) отправляют запросы к [сервису](../concepts/service.md) `kube-dns`. В поле `nameserver` в `/etc/resolv.conf` установлено значение `ClusterIp` [сервиса](../concepts/service.md) `kube-dns`. Для того, чтобы установить соединение с `ClusterIP`, используется [iptables]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Iptables){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Iptables){% endif %} или [IP Virtual Server](https://en.wikipedia.org/wiki/IP_Virtual_Server).
 
 При включении NodeLocal DNS Cache в кластере разворачивается [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/). На каждом узле начинает работу кеширующий агент (под `node-local-dns`). Поды пользователя теперь отправляют запросы к агенту на своем узле.
 
@@ -50,7 +50,7 @@
      --service-account-name <имя сервисного аккаунта кластера> \
      --node-service-account-name <имя сервисного аккаунта групп узлов> \
      --public-ip \
-     --zone ru-central1-a \
+     --zone {{ region-id }}-a \
      --network-name <имя облачной сети>
    ```
 
@@ -67,7 +67,7 @@
    {{ yc-k8s }} node-group create \
      --name node-group \
      --cluster-name node-local-dns \
-     --location zone=ru-central1-a \
+     --location zone={{ region-id }}-a \
      --network-interface subnets=<имя подсети для группы узлов>,ipv4-address=nat \
      --fixed-size 3
    ```
@@ -109,7 +109,7 @@
    # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    # See the License for the specific language governing permissions and
    # limitations under the License.
-   # Modified for {{ yandex-cloud}} Usage
+   # Modified for {{ yandex-cloud }} Usage
    ---
    apiVersion: v1
    kind: ServiceAccount
@@ -327,8 +327,8 @@
    Результат выполнения команды:
 
    ```text
-   NAME             DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-   node-local-dns   3         3         3       3            3           <none>          24m
+   NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE SELECTOR  AGE
+   node-local-dns  3        3        3      3           3          <none>         24m
    ```
 
 ## Измените конфигурацию NodeLocal DNS Cache {#configure}

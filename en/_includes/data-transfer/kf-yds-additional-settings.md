@@ -1,3 +1,4 @@
+{% if product == "yandex-cloud" %}
 * **Transformation rules**:
     * **Processing function**: Select one of the functions created in [{{ sf-full-name }}](../../functions/).
 
@@ -31,7 +32,8 @@
     Values in the **Sending interval** and **Call timeout** fields are specified with the `s` postfix, for example, `10s`.
 
     {% endnote %}
-
+    
+{% endif %}
 * **Conversion rules**:
 
     * **Data format**: Select one of the available formats:

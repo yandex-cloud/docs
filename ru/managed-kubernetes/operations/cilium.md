@@ -31,6 +31,7 @@
    metadata:
      name: "hubble-ui"
      namespace: kube-system
+
    ---
    # Source: cilium/templates/hubble-ui-configmap.yaml
    apiVersion: v1
@@ -629,5 +630,5 @@
 ## Удалите созданные ресурсы {#clear-out}
 
 Если вы закончили работу с тестовым сценарием, удалите ресурсы:
-1. [Удалите кластер {{ k8s }}](./kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Удалите кластер {{ k8s }}](kubernetes-cluster/kubernetes-cluster-delete.md).
 1. Если для доступа к кластеру или узлам использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md) их.

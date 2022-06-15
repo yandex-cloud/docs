@@ -24,6 +24,8 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки серверов входит:
@@ -31,6 +33,8 @@
 * плата за несколько запущенных виртуальных машин (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 
+
+{% endif %}
 
 ## Подготовьте основную виртуальную машину в облаке {#create-master-vm}
 

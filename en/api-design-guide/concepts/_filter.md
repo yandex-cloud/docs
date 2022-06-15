@@ -42,6 +42,6 @@ Here is an example of sending a REST request to get a list of disks with the nam
 > ??? In REST
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/disks?folderId=a3s17h9sbq5asdgss12&name=test%20and%20name=dev
+GET https://compute.{{ api-host }}/compute/v1/disks?folderId=a3s17h9sbq5asdgss12&name=test%20and%20name=dev
 ```
 

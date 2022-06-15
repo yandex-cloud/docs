@@ -21,7 +21,7 @@
     $ yc compute instance create \
         --name second-instance \
         --metadata-from-file user-data=metadata.yaml \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --public-ip \
         --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk
     ```
@@ -30,7 +30,7 @@
 
     - С именем `second-instance`.
     - С OC Windows Server 2016.
-    - В зоне доступности `ru-central1-a`.
+    - В зоне доступности `{{ region-id }}-a`.
     - С пользователем `Administrator`.
     - С публичным IP.
 

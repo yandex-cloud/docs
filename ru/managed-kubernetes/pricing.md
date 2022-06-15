@@ -4,6 +4,14 @@ editable: false
 
 # Правила тарификации для {{ managed-k8s-name }}
 
+{% if product == "cloud-il" %}
+
+На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ managed-k8s-name }} не тарифицируется.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 В рамках сервиса {{ managed-k8s-name }} тарифицируется использование [мастера](concepts/index.md#master) и исходящий трафик.
 
 Узлы тарифицируются по [правилам тарификации {{ compute-full-name }}](../compute/pricing.md).
@@ -47,5 +55,7 @@ editable: false
 {% if region == "int" %}
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}
 
 {% endif %}

@@ -3,13 +3,22 @@ href: index.yaml
 items:
   - name: Requesting technical support
     href: overview.md
-  - name: Notifications from Yandex Cloud
+    when: audience != "internal"
+  - name: Getting technical support
+    href: overview.md
+    when: audience == "internal"
+  - name: Notifications from {{ yandex-cloud }} 
     href: notify.md
+    when: audience != "internal" and product == "yandex-cloud"
   - name: Data requests
     href: request.md
+    when: audience != "internal"
   - name: Copying errors from the browser console
     href: browser-console.md
+    when: audience != "internal"
   - name: Pricing policy
     href: pricing.md
+    when: audience != "internal"
   - name: Questions and answers
     href: qa.md
+    when: audience != "internal"

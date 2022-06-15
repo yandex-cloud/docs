@@ -17,7 +17,7 @@ keywords:
 * подключить внештатных сотрудников к офисной сети;
 * организовать соединение с шифрованием поверх открытой сети Wi-Fi.
 
-Продукт [OpenVPN Access Server]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/openvpn-access-server){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/marketplace/products/yc/openvpn-access-server){% endif %} совместим с [открытой версией](https://github.com/OpenVPN) OpenVPN и построен на ее основе. Он предоставляет клиенты для Windows, Mac, Android и iOS, а также позволяет управлять подключениями с помощью веб-интерфейса.
+Продукт [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) совместим с [открытой версией](https://github.com/OpenVPN) OpenVPN и построен на ее основе. Он предоставляет клиенты для Windows, Mac, Android и iOS, а также позволяет управлять подключениями с помощью веб-интерфейса.
 
 Ниже показан пример настройки автоподключения, а также по логину и паролю. Чтобы создать виртуальную сеть:
 
@@ -34,13 +34,9 @@ keywords:
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед тем, как разворачивать сервер, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака](https://console.cloud.yandex.ru/cloud).
- 
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -49,6 +45,8 @@ keywords:
 * плата за диски и постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * плата за лицензию OpenVPN Access Server (при использовании более двух подключений).
+
+{% endif %}
 
 ## Создайте подсети и тестовую ВМ {#create-environment}
 
@@ -71,7 +69,7 @@ keywords:
 
    * Перейдите на вкладку **{{ marketplace-name }}**.
    * Нажмите кнопку **Посмотреть больше**.
-   * В списке публичных образов выберите [OpenVPN Access Server]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/openvpn-access-server){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/marketplace/products/yc/openvpn-access-server){% endif %} и нажмите **Использовать**.
+   * В списке публичных образов выберите [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) и нажмите **Использовать**.
 
 1. В блоке **Диски** укажите размер диска — 10 ГБ.
 

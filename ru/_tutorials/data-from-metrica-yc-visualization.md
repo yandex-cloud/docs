@@ -43,7 +43,7 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+{% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
 
 ## 1. Подключите {{ CH }} и {{ ml-platform-short-name }} {#ch-datasphere-connection}
 

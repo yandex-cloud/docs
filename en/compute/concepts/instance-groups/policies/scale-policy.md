@@ -1,5 +1,11 @@
 # Scaling policy
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 When creating an instance group, you can choose how to increase and decrease the number of instances in the group.
 
 The policy is defined in the `scale_policy` key in the YAML file.
@@ -61,7 +67,7 @@ Keys:
 | Key | Value |
 | --- | --- |
 | `auto_scale` | An automatically scaled instance group. |
-| `auto_scale_type` | [Type of automatic scaling](../scale.md#auto-scale-type).<br/>Valid values: <ul><li>`ZONAL`: For each [availability zone](../../../../overview/concepts/geo-scope.md), its own average metric value for scaling and the required number of instances are calculated.</li><li>`REGIONAL`: The metric value and the number of instances are calculated for the entire group.</li></ul> Default value: `ZONAL`. |
+| `auto_scale_type` | [Type of automatic scaling](../scale.md#auto-scale-type).<br/>Valid values: <ul><li>`ZONAL`: For each [availability zone](../../../../overview/concepts/geo-scope.md), its own average metric value for scaling and the required number of instances are calculated.</li><li>`REGIONAL`: The metric value and the number of instances are calculated for the entire group.</li></ul> Default value: `ZONAL`.{% if product == "cloud-il" %}<br/>So far, {{ yandex-cloud }} is only hosted in a single availability zone: `il1-a`.{% endif %} |
 | `initial_size`* | Initial number of instances in the group.<br>Valid values are from 0 to 100. |
 | `max_size` | Maximum number of instances in the group.<br>Valid values are from 0 to 100. |
 | `min_zone_size` | Minimum number of instances in one availability zone.<br>Valid values are from 0 to 100. |
@@ -71,8 +77,8 @@ Keys:
 | `cpu_utilization_rule` | Sets the target CPU utilization to run scaling based on the average CPU utilization in the instance group. |
 | `utilization_target` | Target CPU utilization to be supported by {{ ig-name }}.<br>If the average CPU utilization is below the target value, {{ ig-name }} will reduce the number of instances until it reaches `min_zone_size` in each availability zone.<br>If the average CPU utilization is higher than the target value, {{ ig-name }} will create instances until it reaches `max_size`.<br>Valid values are from 10 to 100. |
 | `custom_rules` | The list of [metrics from {{ monitoring-full-name }}](../scale.md#monitoring-metrics) for automatic scaling. It can include up to three metrics. |
-| `rule_type` | Type of metric rule:<ul><li>`UTILIZATION` for metrics of resource utilization per VM instance;</li><li>`WORKLOAD` for metrics of the total workload on all VM instances.</li></ul>For more information, see [{#T}](../scale.md#monitoring-metrics). |
-| `metric_type` | Type of metric:<ul><li>the`GAUGE` metric reflects the indicator value at a certain point in time;</li><li>the`COUNTER` metric grows uniformly over time.</li></ul>For more information, see [{#T}](../scale.md#monitoring-metrics). |
+| `rule_type` | Metric rule type:<ul><li>`UTILIZATION` for metrics of resource utilization per VM instance,</li><li>`WORKLOAD` for metrics of the total workload on all VM instances.</li></ul>For more information, see [{#T}](../scale.md#monitoring-metrics). |
+| `metric_type` | Type of metric:<ul><li>the `GAUGE` metric reflects the indicator value at a certain point in time,</li><li>the `COUNTER` metric grows uniformly over time.</li></ul>For more information, see [{#T}](../scale.md#monitoring-metrics). |
 | `metric_name` | The name of the metric from {{ monitoring-name }}. |
 | `labels` | [Labels](../../../../monitoring/concepts/data-model.md#label) of a metric from {{ monitoring-name }}. |
 | `target` | The target metric value by which {{ ig-name }} calculates the number of VM instances needed. For more information, see [{#T}](../scale.md#monitoring-metrics). |
@@ -99,4 +105,3 @@ scale_policy:
 ```
 
 The same keys are used for `test_auto_scale`, [as for `auto_scale`](#auto-scale-policy).
-

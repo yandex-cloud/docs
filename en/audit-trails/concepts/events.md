@@ -4,29 +4,44 @@ The value of the `event_type` field (_event type_) in the audit log is determine
 
 General value format:
 
+{% if product == "yandex-cloud" %}
 ```text
 yandex.cloud.audit.<service name>.<event name>
 ```
+{% endif %}
+{% if product == "cloud-il" %}
+```text
+cloudil.audit.<service name>.<event name>
+```
+{% endif %}
 
 Below are events for services:
 
 * [{{ at-name }}](#audit-trails)
 * [{{ certificate-manager-name }}](#certificate-manager)
+{% if product == "yandex-cloud" %}
 * [{{ cloud-logging-name }}](#cloud-logging-name)
+{% endif %}
 * [{{ compute-name }}](#compute)
 * [{{ iam-name }}](#iam)
 * [{{ kms-name }}](#kms)
 * [{{ lockbox-name }}](#lockbox)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
+{% if product == "yandex-cloud" %}
 * [{{ mmg-short-name }}](#managed-service-for-mongodb)
+{% endif %}
 * [{{ mmy-short-name }}](#managed-service-for-mysql)
 * [{{ mpg-short-name }}](#managed-service-for-postgresql)
+{% if product == "yandex-cloud" %}
 * [{{ mrd-short-name }}](#managed-service-for-redis)
+{% endif %}
 * [{{ network-load-balancer-name }}](#network-load-balancer)
 * [{{ objstorage-name }}](#objstorage)
 * [{{ resmgr-name }}](#resmgr)
 * [{{ vpc-name }}](#vpc)
+{% if product == "yandex-cloud" %}
 * [{{ ydb-short-name }}](#ydb)
+{% endif %}
 
 ## {{ at-name }} {#audit-trails}
 
@@ -52,6 +67,9 @@ Service name: `certificatemanager`.
 | `UpdateCertificateAccessBindings` | Updating access bindings for a certificate |
 | `SetCertificateAccessBindings` | Setting access bindings for a certificate |
 
+
+{% if product == "yandex-cloud" %}
+
 ## {{ cloud-logging-name }} {#cloud-logging-name}
 
 Service name: `logging`.
@@ -63,6 +81,7 @@ Service name: `logging`.
 | `DeleteLogGroup` | Deleting a log group |
 | `SetLogGroupAccessBindings` | Setting access bindings for a log group |
 | `UpdateLogGroupAccessBindings` | Editing access bindings for a log group |
+{% endif %}
 
 ## {{ compute-name }} {#compute}
 
@@ -216,6 +235,7 @@ Service name: `mdb.clickhouse`.
 | `UpdateShardGroup` | Editing a shard group |
 | `UpdateUser` | Editing a database user |
 
+{% if product == "yandex-cloud" %}
 ## {{ mmg-short-name }} {#managed-service-for-mongodb}
 
 Service name: `mdb.mongodb`.
@@ -243,6 +263,7 @@ Service name: `mdb.mongodb`.
 | `UpdateCluster` | Updating clusters |
 | `UpdateUser` | Editing a database user |
 
+{% endif %}
 ## {{ mmy-short-name }} {#managed-service-for-mysql}
 
 Service name: `mdb.mysql`.
@@ -296,6 +317,7 @@ Service name: `mdb.postgresql`.
 | `UpdateDatabase` | Updating a database |
 | `UpdateUser` | Editing a database user |
 
+{% if product == "yandex-cloud" %}
 ## {{ mrd-short-name }} {#managed-service-for-redis}
 
 Service name: `mdb.redis`.
@@ -317,6 +339,7 @@ Service name: `mdb.redis`.
 | `StopCluster` | Stop cluster |
 | `UpdateCluster` | Updating clusters |
 
+{% endif %}
 ## {{ network-load-balancer-name }} {#network-load-balancer}
 
 Service name: `loadbalancer`.
@@ -404,6 +427,7 @@ Service name: `network`.
 | `UpdateSecurityGroup` | Updating a security group |
 | `UpdateSubnet` | Updating a cloud subnet |
 
+{% if product == "yandex-cloud" %}
 ## {{ ydb-short-name }} {#ydb}
 
 Service name: `ydb`.
@@ -418,3 +442,4 @@ Service name: `ydb`.
 | `StartDatabase` | Starting a database |
 | `StopDatabase` | Stopping a database |
 | `UpdateDatabase` | Updating a database |
+{% endif %}

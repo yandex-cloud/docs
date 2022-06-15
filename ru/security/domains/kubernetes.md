@@ -4,7 +4,7 @@
 
 ## Разделение ответственности {#division-of-responsibility}
 
-Все действия внутри узла Kubernetes являются ответственностью пользователя. Пользователь несет ответственность за безопасность узлов и их корректную настройку в соответствии с требованиями PCI DSS и других стандартов безопасности.
+Все действия внутри узла Kubernetes являются ответственностью пользователя. Пользователь несет ответственность за безопасность узлов и их корректную настройку в соответствии с требованиями {% if product == "yandex-cloud" %}PCI DSS и других {% endif %}стандартов безопасности.
 
 За безопасность API Kubernetes отвечает {{ yandex-cloud }}.
 
@@ -12,10 +12,10 @@
 
 ## Критичные данные {#critical-data}
 
-При работе с сервисом {{ managed-k8s-short-name }} для выполнения требований PCI DSS и других стандартов безопасности запрещается:
+При работе с сервисом {{ managed-k8s-short-name }} для выполнения требований {% if product == "yandex-cloud" %}PCI DSS и других {% endif %}стандартов безопасности запрещается:
 
 * Использовать критичные данные в именах и описаниях кластеров, групп узлов, пространств имен, сервисов, подов.
-* Использовать критичные данные в [метках узлов Kubernetes](https://cloud.yandex.ru/docs/managed-kubernetes/concepts/#node-labels) и [метках ресурсов сервисов {{ yandex-cloud }}](https://cloud.yandex.ru/docs/overview/concepts/services#labels).
+* Использовать критичные данные в [метках узлов Kubernetes](../../managed-kubernetes/concepts/#node-labels) и [метках ресурсов сервисов {{ yandex-cloud }}](../../overview/concepts/services.md#labels).
 * Указывать критичные данные в манифестах подов.
 * Указывать критичные данные в etcd в открытом виде.
 * Записывать критичные данные в логи {{ managed-k8s-short-name }}.
@@ -41,13 +41,13 @@
 ## Сетевая безопасность {{ managed-k8s-short-name }} {#network-security}
 
 Не рекомендуется открывать доступ к API Kubernetes и группам узлов из недоверенных сетей, в том числе из интернета.
-В случае необходимости используйте средства межсетевого экранирования, в частности [группы безопасности](https://cloud.yandex.ru/docs/vpc/concepts/security-groups). Ниже в разделе приведены ссылки на инструкции по настройке межсетевого экранирования в группах безопасности.
+В случае необходимости используйте средства межсетевого экранирования, в частности [группы безопасности](../../vpc/concepts/security-groups.md). Ниже в разделе приведены ссылки на инструкции по настройке межсетевого экранирования в группах безопасности.
 
 ### Сегментация {#segmentation}
 
 #### Уровень облака {#cloud-level}
 
-Выполните ограничение сетевого доступа к API Kubernetes (мастер) и группам узлов согласно [инструкции для групп безопасности](https://cloud.yandex.ru/docs/managed-kubernetes/operations/security-groups).
+Выполните ограничение сетевого доступа к API Kubernetes (мастер) и группам узлов согласно [инструкции для групп безопасности](../../managed-kubernetes/operations/connect/security-groups.md).
 
 В случае использования ALB в качестве [Ingress Gateway](../../managed-kubernetes/tutorials/alb-ingress-controller.md) также необходимо:
 
@@ -64,15 +64,17 @@
 
 В {{ yandex-cloud }} можно использовать два сетевых плагина:
 
-* [Calico](https://cloud.yandex.ru/docs/managed-kubernetes/concepts/network-policy#calico) - базовый.
-* [Cilium CNI](https://cloud.yandex.ru/docs/managed-kubernetes/concepts/network-policy#cilium) - продвинутый, использует расширенные сетевые политики [на уровне L7 (REST/HTTP, gRPC and Kafka)](https://docs.cilium.io/en/v1.10/gettingstarted/http/).
+* [Calico](../../managed-kubernetes/concepts/network-policy.md#calico) - базовый.
+* [Cilium CNI](../../managed-kubernetes/concepts/network-policy.md#cilium) - продвинутый, использует расширенные сетевые политики [на уровне L7 (REST/HTTP, gRPC and Kafka)](https://docs.cilium.io/en/v1.10/gettingstarted/http/).
 
 Рекомендуется использовать `default deny` правила для входящего и исходящего трафика по умолчанию и разрешать только необходимый трафик.
 
 Для генерации политик можно использовать встроенный в Cilium CNI hubble для анализа трафика либо анализировать его вручную. Также на рынке представлены решения, которые помогают автоматически генерировать сетевые политики.
 
+{% if product == "yandex-cloud" %}
 ![](../../_assets/overview/solution-library-icon.svg)[Таблица сравнения решений по безопасности Kubernetes.](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/kubernetes-security/choice_of_solutions/Сравнение_функций_k8s_security.pdf)
 
+{% endif %}
 Полезные примеры сетевых политик представлены в [репозитории](https://github.com/ahmetb/kubernetes-network-policy-recipes).
 
 Полезный инструмент для создания и валидации обычных и продвинутых сетевых политик  представлен по [ссылке](https://editor.cilium.io/).
@@ -84,12 +86,12 @@
 Чтобы организовать входящий сетевой доступ к рабочим нагрузкам по протоколу HTTP/HTTPS используйте ресурс [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
 
 Существует как минимум 2 варианта Ingress-контроллера, которые можно использовать в {{ yandex-cloud }}:
--	[NGINX Ingress Controller](https://cloud.yandex.ru/docs/managed-kubernetes/solutions/ingress-cert-manager)
--	[{{ alb-name }} Ingress-контроллера](https://cloud.yandex.ru/docs/managed-kubernetes/solutions/alb-ingress-controller).
+-	[NGINX Ingress Controller](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
+-	[{{ alb-name }} Ingress-контроллера](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
 
 Преимущества {{ alb-name }} Ingress-контроллера:
-* интеграция с облачным сервисом [{{ certificate-manager-full-name }}](https://cloud.yandex.ru/docs/certificate-manager/);
-* отсутствие необходимости установки контроллера в кластер, так как все разворачивается на стороне [{{ alb-name }}](https://cloud.yandex.ru/docs/application-load-balancer/)).
+* интеграция с облачным сервисом [{{ certificate-manager-full-name }}](../../certificate-manager/);
+* отсутствие необходимости установки контроллера в кластер, так как все разворачивается на стороне [{{ alb-name }}](../../application-load-balancer/)).
 
 #### Ограничение доступа к метаданным ВМ группы узлов {#metadata-access-restriction}
 
@@ -119,10 +121,12 @@
     name: aje0jndkq855llvu04ek #идентификатор пользователя облака
     ```
 
-Для работы кластера {{ managed-k8s-short-name }} необходимы два сервисных аккаунта: [сервисный аккаунт кластера и сервисный аккаунт группы узлов](https://cloud.yandex.ru/docs/managed-kubernetes/security/#sa-annotation).
+Для работы кластера {{ managed-k8s-short-name }} необходимы два сервисных аккаунта: [сервисный аккаунт кластера и сервисный аккаунт группы узлов](../../managed-kubernetes/security/index.md#sa-annotation).
 
+{% if product == "yandex-cloud" %}
 ![](../../_assets/overview/solution-library-icon.svg)[Пример настройки ролевых моделей и политик в {{ managed-k8s-short-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/auth_and_access/role-model-example)
 
+{% endif %}
 ## Безопасная конфигурация {{ managed-k8s-short-name }} {#secure-config-1}
 
 ### Безопасная конфигурация {#secure-config-2}
@@ -141,8 +145,10 @@
 
 Starboard Operator — это бесплатный инструмент, который позволяет автоматизировать сканирование образов на уязвимости и проверку конфигурации на соответствие CIS Kubernetes Benchmark.
 
+{% if product == "yandex-cloud" %}
 ![](../../_assets/overview/solution-library-icon.svg) [Интеграция Starboard и {{ container-registry-full-name }} с целью сканирования запущенных образов](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/starboard_and_yc-cr)
 
+{% endif %}
 ### Контроль целостности (FIM — File integrity monitoring) {#fim}
 
 Контроль целостности файлов на стороне группы узлов необходимо выполнять на двух уровнях:
@@ -154,8 +160,10 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 Можно использовать, например, [Osquery](https://osquery.io/) в качестве агента, который устанавливается на узлы с помощью [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) и использует конкретные каталоги узла, монтируемые как том в контейнер DaemonSet (прокинутая файловая система).
 
+{% if product == "yandex-cloud" %}
 ![](../../_assets/overview/solution-library-icon.svg) Комплексное решение в [Osquery and kubequery in K8s.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/osquery-kubequery)
 
+{% endif %}
 #### Файлы контейнера {#fim-container-files}
 
 Один из способов решения данной задачи:
@@ -177,17 +185,19 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 Работу с Kubernetes secrets рекомендуется выполнять с помощью решений класса SecretManager. В {{ yandex-cloud }} такое решением является сервис [{{ lockbox-name }}](../../lockbox/index.yaml).
 
-Интеграция {{ lockbox-name }} с Kubernetes выполнена с помощью открытого проекта [External Secrets](https://external-secrets.io/). Решение доступно в [{{ marketplace-name }} для Kubernetes](https://cloud.yandex.ru/marketplace/products/yc/external-secrets) в базовом упрощенном сценарии.
+{% if product == "yandex-cloud" %}
+Интеграция {{ lockbox-name }} с Kubernetes выполнена с помощью открытого проекта [External Secrets](https://external-secrets.io/). Решение доступно в [{{ marketplace-name }} для Kubernetes](/marketplace/products/yc/external-secrets) в базовом упрощенном сценарии.
 
 Полезные инструкции по работе с External Secrets:
 
 * [инструкция](https://external-secrets.io/provider-yandex-lockbox/) по работе с External Secrets и {{ lockbox-name }} из описания проекта;
-* [инструкция](https://cloud.yandex.ru/docs/lockbox/solutions/kubernetes-lockbox-secrets ) по работе с External Secrets и {{ lockbox-name }} из документации {{ yandex-cloud }}.
+* [инструкция](../../lockbox/tutorials/kubernetes-lockbox-secrets.md) по работе с External Secrets и {{ lockbox-name }} из документации {{ yandex-cloud }}.
 
 [Описано](https://external-secrets.io/guides-multi-tenancy/#eso-as-a-service) множество способ разделения доступа к секретам в рамках данного инструмента.
 
 Рекомендуемый наиболее безопасный вариант шифрования секретов — ESO as a Service (External Secrets Operator as a service). В таком случае глобальный администратор имеет доступ к пространству имен с установленным ESO, а администраторы отдельных пространств имен создают себе объекты [`SecretStore`](https://external-secrets.io/api-secretstore/) (в которых указывают {{ iam-short-name }} авторизованные ключи доступа к своим секретам {{ lockbox-short-name }}). В случае компрометации данного объекта `SecretStore` скомпрометирован будет только авторизованный ключ одного пространства имен, а не всех как в случае, например, схемы Shared ClusterSecretStore.
 
+{% endif %}
 ### Шифрование в состоянии передачи (in transit) {#encryption-in-transist}
 
 Для шифрования in transit рекомендуется использовать TLS-взаимодействие между подами. В случае невозможности работы по TLS используйте service mesh-решения:
@@ -204,22 +214,27 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 ## Защита от вредоносного кода в {{ managed-k8s-short-name }} {#malware-protection}
 
+{% if product == "yandex-cloud" %}
 Защиту от вредоносного кода в Kubernetes можно осуществлять на двух уровнях:
 
 * Защита уровня Container Registry;
 * Защита уровня ОС узлов Kubernetes.
 
-Сканер безопасности в [{{ container-registry-name }}](https://cloud.yandex.ru/docs/container-registry/concepts/vulnerability-scanner).
+Сканер безопасности в [{{ container-registry-name }}](../../container-registry/concepts/vulnerability-scanner.md).
 
-Чтобы защитить уровень хостов контейниризации, можно использовать различные платные и бесплатные решения классов «Runtime security» и «Antivirus engine». Примеры бесплатных решений:
+{% endif %}
+
+Чтобы защитить уровень хостов контейнеризации, можно использовать различные платные и бесплатные решения классов «Runtime security» и «Antivirus engine». Примеры бесплатных решений:
 
 * [Kubernetes ClamAV](https://cloud.google.com/community/tutorials/gcp-cos-clamav)
 * [Sysdig Falco](https://falco.org/) (дополнительно может выступать в роли Intrusion Detection System)
 
 Также необходимо использовать встроенную в Kubernetes поддержку [AppArmor](https://kubernetes.io/docs/tutorials/security/apparmor/) и [Seccomp](https://kubernetes.io/docs/tutorials/security/seccomp/).
 
+{% if product == "yandex-cloud" %}
 ![](../../_assets/overview/solution-library-icon.svg)[Анализ логов безопасности Kubernetes в ELK: аудит-логи, policy engine, falco.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
 
+{% endif %}
 ## Управление уязвимостями {{ managed-k8s-short-name }} {#vulnerability-management}
 
 {{ yandex-cloud }} в рамках {{ managed-k8s-short-name }} отвечает за управление уязвимостями и обновлениями безопасности [мастера](../../managed-kubernetes/concepts/index.md#master).Пользователю необходимо самостоятельно управлять уязвимостями в рабочих узлах Kubernetes.
@@ -257,9 +272,11 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 Примеры, в которых используется Kyverno:
 
+{% if product == "yandex-cloud" %}
 * ![](../../_assets/overview/solution-library-icon.svg)[Анализ логов безопасности Kubernetes в ELK: аудит-логи, policy engine, falco.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
-* ![](../../_assets/overview/solution-library-icon.svg)[Пример настройки ролевых моделей и политик в Managed Service for Kubernetes.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/auth_and_access/role-model-example)
+* ![](../../_assets/overview/solution-library-icon.svg)[Пример настройки ролевых моделей и политик в {{ managed-k8s-short-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/auth_and_access/role-model-example)
 
+{% endif %}
 Для контроля соответствия требованиям Pod Security Standarts также можно использовать  следующие инструменты в рамках CI/CD:
 
 * [Kyverno CLI](https://kyverno.io/docs/kyverno-cli/)
@@ -280,8 +297,10 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 При использовании минимальных образов или образов distroless (distroless images), в которых отсутствует shell, рекомендуется использовать [ephemeral cointainers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/).
 
+{% if product == "yandex-cloud" %}
 ![](../../_assets/overview/solution-library-icon.svg)[Решение с использованием Osquery.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/osquery-kubequery)
 
+{% endif %}
 ## Разделение нагрузки по узлам {#load-sharing}
 
 Нагрузки, которые имеют разные контексты безопасности (разную критичность обрабатываемых данных), необходимо обрабатывать на разных узлах Kubernetes. Для разделения нагрузок внутри кластера необходимо использовать разные группы узлов с разными настройками [`node labels`](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/) и [`node taints`](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/). Эти настройки необходимо использовать вместе.
@@ -290,18 +309,22 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 События, доступные пользователю в рамках сервиса {{ managed-k8s-short-name }}, можно разделить на следующие уровни:
 
+{% if product == "yandex-cloud" %}
 * события Kubernetes API (Kubernetes Audit logging);
+{% endif %}
 * события узлов Kubernetes;
 * события подов Kubernetes;
 * метрики Kubernetes;
 * Flow logs Kubernetes.
 
+{% if product == "yandex-cloud" %}
 ### Уровень Kubernetes API (Kubernetes Audit logging) {#kubernetes-api-level}
 
 Сбор событий аудита с уровня Kubernetes API выполняется сервисом {{ cloud-logging-name }}.
 
 ![](../../_assets/overview/solution-library-icon.svg)[Анализ логов безопасности Kubernetes в ELK: аудит-логи, policy engine, falco.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
 
+{% endif %}
 ### Уровень узлов Kubernetes {#kubernetes-nodes-level}
 
 Сбор и экспорт событий уровня узлов Kubernetes выполняется аналогично [сбору аудитных логов ОС](audit-logs#os-level).
@@ -310,25 +333,29 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 Сбор и экспорт событий уровня подов Kubernetes в различных вариантах описан в [официальной документации Kubernetes](https://kubernetes.io/docs/concepts/cluster-administration/logging/).
 
+{% if product == "yandex-cloud" %}
 Примеры сбора и экспорта логов подов:
 
 * Экспорт логов в {{ cloud-logging-name }} с использованием Fluent Bit описан в документации  [{{ managed-k8s-short-name }}](../../managed-kubernetes/tutorials/fluent-bit-logging.md).
 * Экспорт логов подов в Elastic или Splunk рассмотрен в [Yandex Cloud Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/kubernetes-security/osquery-kubequery/README_RU.md).
 
-Fluent Bit с плагином {{ cloud-logging-name }} доступен в [{{ marketplace-name }}](https://cloud.yandex.ru/marketplace/products/yc/fluent-bit).
+Fluent Bit с плагином {{ cloud-logging-name }} доступен в [{{ marketplace-name }}](/marketplace/products/yc/fluent-bit).
 
-Плагин Filebeat для передачи логов в Elastic доступен в [{{ marketplace-name }}](https://cloud.yandex.ru/marketplace/products/yc/filebeat).
+Плагин Filebeat для передачи логов в Elastic доступен в [{{ marketplace-name }}](/marketplace/products/yc/filebeat).
 
+{% endif %}
 ### Метрики Kubernetes {#kubernetes-metrics}
 
 {{ monitoring-name }} содержит ряд метрик, применимых для анализа доступности объектов Kubernetes и аномалий в поведении.
 
 Инструкция по экспорту метрик {{ monitoring-name }} приведена в разделе [Экспорт событий в SIEM](audit-logs.md#metriki-yandex-monitoring).
 
+{% if product == "yandex-cloud" %}
 ### Flow logs Kubernetes {#flow-logs-kubernetes}
 
 ![](../../_assets/overview/solution-library-icon.svg)[Экспорт flow logs в {{ objstorage-full-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/cilium-s3)
 
+{% endif %}
 ### Аудит ролевой модели {{ managed-k8s-short-name }} {#role-model-audit}
 
 Консоль {{ managed-k8s-short-name }} предоставляет возможность проводить аудит текущей ролевой модели в сервисе. Для этого необходимо перейти во вкладку сервиса **Управление доступом**.
@@ -337,6 +364,8 @@ Fluent Bit с плагином {{ cloud-logging-name }} доступен в [{{ 
 * [KubiScan](https://github.com/cyberark/KubiScan)
 * [Krane](https://github.com/appvia/krane)
 
+{% if product == "yandex-cloud" %}
 ## Сравнение решений по безопасности Kubernetes {#security-solutions-comparison}
 
 ![](../../_assets/overview/solution-library-icon.svg)[Сравнение решений по безопасности Kubernetes.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/choice_of_solutions)
+{% endif %}

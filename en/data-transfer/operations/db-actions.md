@@ -19,20 +19,18 @@ The {{ PG }} replication protocol doesn't support transmitting schema changes. A
 For _{{ dt-type-copy }}_ and _{{ dt-type-copy-repl }}_ transfers:
 
 * In the {{ dt-status-copy }} status, changes to the data schema on the source and target aren't allowed.
-
 * In the {{ dt-status-repl }} status, any changes to the data schema on the source should be manually applied to the target, otherwise the transfer won't be able to continue.
 
-    For example, suppose we added a new column to the `test_table` table on the source:
+   For example, suppose we added a new column to the `test_table` table on the source:
 
-    ```sql
-    ALTER TABLE test_table ADD COLUMN val2 TEXT;
-    ```
+   ```sql
+   ALTER TABLE test_table ADD COLUMN val2 TEXT;
+   ```
 
-    If writing to this table continues, the transfer won't be able to insert data on the target. For replication to continue, run a similar query to change the data schema on the target:
+   If writing to this table continues, the transfer won't be able to insert data on the target. For replication to continue, run a similar query to change the data schema on the target:
 
-    ```sql
-    ALTER TABLE test_table ADD COLUMN val2 TEXT;
-    ```
+   ```sql
+   ALTER TABLE test_table ADD COLUMN val2 TEXT;
+   ```
 
-    After that, the transfer can continue.
-
+   After that, the transfer can continue.

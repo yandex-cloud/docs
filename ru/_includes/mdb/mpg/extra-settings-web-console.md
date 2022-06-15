@@ -8,12 +8,15 @@
 
 - {% include [Maintenance window](../console/maintenance-window.md) %}
 
+{% if product == "yandex-cloud" %}
 - **Доступ из {{ datalens-name }}** — опция разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../../datalens/concepts/index.md).
+{% endif %}
 
 - **Доступ из консоли управления** — опция разрешает выполнять SQL-запросы к базам кластера из консоли управления {{ yandex-cloud }}.
 
 - {% include [datatransfer access](../console/datatransfer-access.md) %}
 
+{% if product == "yandex-cloud" %}
 {% if audience != "internal" %}
 
 - **Доступ из Serverless** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../../functions/concepts/index.md). Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../../functions/operations/database-connection.md).
@@ -23,7 +26,7 @@
 - **Доступ из Serverless** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}.
 
 {% endif %}
-
+{% endif %}
 - **Сбор статистики** — опция разрешает использовать в кластере инструмент [{#T}](../../../managed-postgresql/operations/performance-diagnostics.md). {% if audience != "internal" %}Эта функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).{% else %}Эта функциональность находится на стадии Preview.{% endif %}
 
 - **Автоматическое переключение мастера** — включите эту опцию, чтобы при смене мастера источник репликации для всех хостов-реплик автоматически переключился на новый хост-мастер. Подробнее см. в разделе [{#T}](../../../managed-postgresql/concepts/replication.md).

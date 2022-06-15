@@ -63,17 +63,19 @@ To create a new [security group](../concepts/security-groups.md):
 
      Example configuration file structure:
 
-     ```
+     {% if product == "yandex-cloud" %}
+
+     ```hcl
      provider "yandex" {
-       token = "<OAuth or static key of service account>"
+       token     = "<OAuth or static key of service account>"
        folder_id = "<folder ID>"
-       zone      = "ru-central1-a"
+       zone      = "{{ region-id }}-a"
      }
      
      resource "yandex_vpc_security_group" "test-sg" {
        name        = "Test security group"
        description = "Description for security group"
-       network_id = "<network ID>"
+       network_id  = "<network ID>"
      
        ingress {
          protocol       = "TCP"
@@ -91,6 +93,42 @@ To create a new [security group](../concepts/security-groups.md):
        }
      }
      ```
+
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```hcl
+     provider "yandex" {
+       endpoint  = "{{ api-host }}:443"
+       token     = "<static key of the service account>"
+       folder_id = "<folder ID>"
+       zone      = "{{ region-id }}-a"
+     }
+     
+     resource "yandex_vpc_security_group" "test-sg" {
+       name        = "Test security group"
+       description = "Description for security group"
+       network_id  = "<network ID>"
+     
+       ingress {
+         protocol       = "TCP"
+         description    = "Rule description 1"
+         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
+         port           = 8080
+       }
+     
+       egress {
+         protocol       = "ANY"
+         description    = "Rule description 2"
+         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
+         from_port      = 8090
+         to_port        = 8099
+       }
+     }
+     ```
+
+     {% endif %}
 
      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
 

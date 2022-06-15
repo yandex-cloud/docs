@@ -7,7 +7,7 @@ One of the conditions of using Microsoft licensed products is providing addition
 For businesses:
 
 * Company name.
-* TIN.
+* {% if product == "yandex-cloud" %}TIN.{% endif %}{% if product == "cloud-il" %}Tax identification number.{% endif %}
 * Address.
 * Country.
 
@@ -16,6 +16,14 @@ For individuals:
 * First and last name.
 * Address.
 * Country.
+
+{% note info %}
+
+To provide additional user details in your billing account contact [technical support](../support/overview.md#response-time).
+
+{% endnote %}
+
+{% if product == "yandex-cloud" %}
 
 ## Updating details {#how-to-update}
 
@@ -27,7 +35,7 @@ If you don't have permissions to edit the details, refer to the administrator of
 
 To check and update user details, follow these steps:
 
-1. In the management console, go to [**Billing**](https://console.cloud.yandex.com/billing?section=accounts).
+1. In the management console, go to [**Billing**]({{ link-console-billing }}?section=accounts).
 
 1. Select a billing account in whose cloud you use a Microsoft product and go to the **Overview** page.
 
@@ -36,3 +44,5 @@ To check and update user details, follow these steps:
 1. Update the details. For more information, see [Help for Yandex Balance](https://yandex.ru/support/balance/operations/change-data.html).
 
 When deploying the product in the future, you will not need to provide the details again.
+
+{% endif %}

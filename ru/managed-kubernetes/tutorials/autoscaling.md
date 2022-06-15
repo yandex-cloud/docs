@@ -17,7 +17,6 @@
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
 1. [Установите менеджер пакетов Helm]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %}.
-
 1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md) для [мастера](../concepts/index.md#master) и групп узлов и [назначьте им роли](../../iam/operations/sa/assign-role-for-sa.md).
    * Сервисный аккаунт `sa-k8s-master` для управления кластером:
      * `k8s.clusters.agent` — для управления кластером {{ k8s }}.
@@ -44,7 +43,7 @@
    * **Облачная сеть** — `k8s-network`.
    * **Группы безопасности** — `sg-k8s`, `k8s-master-whitelist`.
    * **Включить туннельный режим** — включено.
-1. [Создайте две группы узлов](../operations/node-group/node-group-create.md) в зонах доступности `ru-central1-a` и `ru-central1-b` со следующими настройками:
+1. [Создайте две группы узлов](../operations/node-group/node-group-create.md){% if product == "yandex-cloud" %}в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b`{% endif %} со следующими настройками:
    * **Версия {{ k8s }}** — `1.20`.
    * В блоке **Масштабирование**:
      * **Тип** — `Автоматический`.
@@ -54,13 +53,13 @@
    * В блоке **Сетевые настройки**:
      * **Публичный адрес** — `Автоматически`.
      * **Группы безопасности** — `sg-k8s`, `k8s-public-services`.
-     * **Расположение** — `ru-central1-a` или `ru-central1-b`.
+     * **Расположение** — `{{ region-id }}-a`{% if product == "yandex-cloud" %} или `{{ region-id }}-b`{% endif %}.
+
 1. {% include [Настройка kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Масштабирование от утилизации CPU {#cpu-autoscaling}
 
 Из этого раздела вы узнаете, как настроить автоматическое масштабирование кластера в зависимости от нагрузки на CPU.
-
 1. Создайте файл `k8s-autoscale-CPU.yaml`, который содержит настройки тестового приложения, балансировщика нагрузки и [{{ k8s-hpa }}](../concepts/autoscale.md#hpa):
 
    {% cut "k8s-autoscale-CPU.yaml" %}
@@ -226,7 +225,6 @@
    ```
 
    После создания объектов в Prometheus появится новая метрика `nginx_ingress_controller_requests_per_second`. Prometheus начнет считать эту метрику только после прохождения трафика через Ingress-контроллер.
-
 1. Выполните несколько тестовых запросов к Ingress-контроллеру:
 
    ```bash

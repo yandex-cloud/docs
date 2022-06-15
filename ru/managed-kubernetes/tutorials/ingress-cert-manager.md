@@ -1,6 +1,6 @@
-# Установка NGINX Ingress Controller с менеджером для сертификатов Let's Encrypt®
+# Установка NGINX Ingress-контроллера с менеджером для сертификатов Let's Encrypt<sup>®</sup>
 
-Чтобы с помощью [{{ k8s }}]{% if lang == "ru" %}(https://kubernetes.io/ru/){% endif %}{% if lang == "en" %}(https://kubernetes.io){% endif %} создать [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/) и защитить его сертификатом [Let's Encrypt®]{% if lang == "ru" %}(https://letsencrypt.org/ru/){% endif %}{% if lang == "en" %}(https://letsencrypt.org/){% endif %}, выполните следующие действия.
+Чтобы с помощью [{{ k8s }}]{% if lang == "ru" %}(https://kubernetes.io/ru/){% endif %}{% if lang == "en" %}(https://kubernetes.io){% endif %} создать [NGINX Ingress-контроллер](https://kubernetes.github.io/ingress-nginx/) и защитить его сертификатом [Let's Encrypt<sup>®</sup>]{% if lang == "ru" %}(https://letsencrypt.org/ru/){% endif %}{% if lang == "en" %}(https://letsencrypt.org/){% endif %}, выполните следующие действия.
 
 ## Перед началом работы {#before-begin}
 
@@ -86,16 +86,15 @@ You can watch the status by running 'kubectl --namespace default get services -o
    Результат выполнения команды:
 
    ```bash
-   NAME                                       READY   STATUS    RESTARTS   AGE
-   cert-manager-69cf79df7f-ghw6s              1/1     Running   0          54s
-   cert-manager-cainjector-7648dc6696-gnrzz   1/1     Running   0          55s
-   cert-manager-webhook-7746f64877-wz9bh      1/1     Running   0          54s
+   NAME                                      READY  STATUS   RESTARTS  AGE
+   cert-manager-69cf79df7f-ghw6s             1/1    Running  0         54s
+   cert-manager-cainjector-7648dc6696-gnrzz  1/1    Running  0         55s
+   cert-manager-webhook-7746f64877-wz9bh     1/1    Running  0         54s
    ```
 
 ## Создайте объекты {#install-objects}
 
 Чтобы протестировать работу менеджера сертификатов, необходимо создать объекты ClusterIssuer, Ingress, Service и Deployment.
-
 1. Создайте YAML-файл `acme-issuer.yaml` с манифестом объекта `ClusterIssuer`:
 
    ```yaml
@@ -196,9 +195,9 @@ You can watch the status by running 'kubectl --namespace default get services -o
    Результат выполнения команды:
 
    ```bash
-   NAME                          TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)                      AGE
+   NAME                      TYPE          CLUSTER-IP     EXTERNAL-IP     PORT(S)                     AGE
    ...
-   ingress-nginx-controller      LoadBalancer   10.96.164.252   84.201.153.122   80:31248/TCP,443:31151/TCP   2m19s
+   ingress-nginx-controller  LoadBalancer  10.96.164.252  84.201.153.122  80:31248/TCP,443:31151/TCP  2m19s
    ...
    ```
 

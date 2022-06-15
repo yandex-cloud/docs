@@ -16,13 +16,9 @@ If you no longer need the website, [delete all its resources](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -30,6 +26,8 @@ The cost for maintaining a LAMP server includes:
 
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
+{% endif %}
 
 ## Create a VM with a pre-installed web server {#create-vm}
 

@@ -43,7 +43,7 @@ While running, the total number of [group nodes](../concepts/index.md#node-group
    * **Cloud network**: `k8s-network`.
    * **Security groups**: `sg-k8s`, `k8s-master-whitelist`.
    * **Enable tunneling mode**: Enabled.
-1. [Create two groups of nodes](../operations/node-group/node-group-create.md) with the following settings in the `ru-central1-a` and the `ru-central1-b` availability zones:
+1. [Create two groups of nodes](../operations/node-group/node-group-create.md) with the following settings{% if product == "yandex-cloud" %} in the `{{ region-id }}-a` and the `{{ region-id }}-b` availability zones{% endif %}:
    * **{{ k8s }} version**: `1.20`.
    * In the **Scalability** section:
      * **Type**: `Automatic`.
@@ -53,7 +53,7 @@ While running, the total number of [group nodes](../concepts/index.md#node-group
    * Under **Network settings**:
      * **Public address**: `Auto`.
      * **Security groups**: `sg-k8s`, `k8s-public-services`.
-     * **Location**: `ru-central1-a` or `ru-central1-b`.
+     * **Location**: `{{ region-id }}-a`{% if product == "yandex-cloud" %} or `{{ region-id }}-b`{% endif %}.
 
 1. {% include [kubectl install](../../_includes/managed-kubernetes/kubectl-install.md) %}
 

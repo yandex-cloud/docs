@@ -1,51 +1,115 @@
-title: Обзор платформы Yandex Cloud
+title:
+  - text: Обзор платформы Yandex Cloud
+    when: product == "yandex-cloud"
+  - text: Обзор платформы CloudIL
+    when: product == "cloud-il"
 description:
-  - >-
-    Yandex Cloud — это набор связанных сервисов, которые помогут вам быстро и
-    безопасно взять в аренду вычислительные мощности в тех объемах, в которых
-    это необходимо. При этом доступ к вычислительным мощностям вы получаете
-    через интернет. Такой подход к потреблению вычислительных ресурсов
-    называется <i>облачные вычисления</i>.
-  - >-
-    Облачные вычисления заменяют и дополняют традиционные дата-центры,
-    расположенные на территории потребителя. Yandex Cloud берет на себя задачи
-    по поддержанию работоспособности и производительности аппаратного и
-    программного обеспечения облачной платформы.
-  - >-
-    Yandex Cloud предлагает вам различные категории облачных ресурсов: например,
-    виртуальные машины, диски, базы данных. Управлять ресурсами каждой категории
-    можно с помощью соответствующего сервиса.
-  - >-
-    Инфраструктура Yandex Cloud <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
-    в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
+  - text:
+    - >-
+      Yandex Cloud — это набор связанных сервисов, которые помогут вам быстро и
+      безопасно взять в аренду вычислительные мощности в тех объемах, в которых
+      это необходимо. При этом доступ к вычислительным мощностям вы получаете
+      через интернет. Такой подход к потреблению вычислительных ресурсов
+      называется <i>облачные вычисления</i>.
+    - >-
+      Облачные вычисления заменяют и дополняют традиционные дата-центры,
+      расположенные на территории потребителя. Yandex Cloud берет на себя задачи
+      по поддержанию работоспособности и производительности аппаратного и
+      программного обеспечения облачной платформы.
+    - >-
+      Yandex Cloud предлагает вам различные категории облачных ресурсов: например,
+      виртуальные машины, диски, базы данных. Управлять ресурсами каждой категории
+      можно с помощью соответствующего сервиса.
+    - >-
+      Инфраструктура Yandex Cloud <a
+      href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+      в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
+    when: product == "yandex-cloud"
+  - text:
+    - >-
+      CloudIL — это набор связанных сервисов, которые помогут вам быстро и
+      безопасно взять в аренду вычислительные мощности в тех объемах, в которых
+      это необходимо. При этом доступ к вычислительным мощностям вы получаете
+      через интернет. Такой подход к потреблению вычислительных ресурсов
+      называется <i>облачные вычисления</i>.
+    - >-
+      Облачные вычисления заменяют и дополняют традиционные дата-центры,
+      расположенные на территории потребителя. CloudIL берет на себя задачи
+      по поддержанию работоспособности и производительности аппаратного и
+      программного обеспечения облачной платформы.
+    - >-
+      CloudIL предлагает вам различные категории облачных ресурсов: например,
+      виртуальные машины, диски, базы данных. Управлять ресурсами каждой категории
+      можно с помощью соответствующего сервиса.
+    when: product == "cloud-il"
 meta:
-  title: Обзор платформы Yandex Cloud
+  title:
+    - text: Обзор платформы Yandex Cloud
+      when: product == "yandex-cloud"
+    - text: Обзор платформы CloudIL
+      when: product == "cloud-il"
 links:
   - title: Сервисы Yandex Cloud
     description: ''
     href: concepts/services
+    when: product == "yandex-cloud"
+  - title: Сервисы CloudIL
+    description: ''
+    href: concepts/services.html
+    when: product == "cloud-il"
   - title: Мобильное приложение
     description: ''
     href: mobile-app/
+    when: product == "yandex-cloud"
   - title: Зоны доступности
     description: ''
     href: concepts/geo-scope
+    when: product == "yandex-cloud"
+  - title: Зоны доступности
+    description: ''
+    href: concepts/geo-scope.html
+    when: product == "cloud-il"
   - title: Начало работы
     description: ''
     href: quickstart
+    when: product == "yandex-cloud"
   - title: Стадии готовности сервисов
     description: ''
     href: concepts/launch-stages
+    when: product == "yandex-cloud"
+  - title: Стадии готовности сервисов
+    description: ''
+    href: concepts/launch-stages
+    when: product == "yandex-cloud"
+  - title: Стадии готовности сервисов
+    description: ''
+    href: concepts/launch-stages.html
+    when: product == "cloud-il"
   - title: Квоты и лимиты
     description: ''
     href: concepts/quotas-limits
+    when: product == "yandex-cloud"
+  - title: Квоты и лимиты
+    description: ''
+    href: concepts/quotas-limits.html
+    when: product == "cloud-il"
   - title: API
     description: ''
     href: api
+    when: product == "yandex-cloud"
+  - title: API
+    description: ''
+    href: api.html
+    when: product == "cloud-il"
   - title: Соглашение об уровне обслуживания
     description: ''
     href: sla
+    when: product == "yandex-cloud"
   - title: Вопросы и ответы
     description: ''
     href: qa
+    when: product == "yandex-cloud"
+  - title: Вопросы и ответы
+    description: ''
+    href: qa.html
+    when: product == "cloud-il"

@@ -20,20 +20,9 @@ If you no longer need the created VM and images, [delete them](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before deploying your applications, sign up for {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
-
-* Install the {{ yandex-cloud }} command line interface.
-* Install [Terraform](terraform-quickstart.md) and configure it to work with {{ yandex-cloud }}.
-* Configure the Git client. If you are running Windows, use [Git Bash](https://gitforwindows.org).
-* Create a [repository](https://github.com/yandex-cloud/examples) branch with examples in your GitHub account.
-* Prepare an SSH key to access the virtual machines.
-* [Create](../../vpc/operations/network-create.md) a cloud network and subnet in the selected availability zone.
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -42,6 +31,8 @@ The cost of this infrastructure includes:
 * A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
 * A fee for storing created images (see [{{ compute-full-name }} pricing](../../compute/pricing#prices-storage)).
 * A fee for using dynamic public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
+{% endif %}
 
 ## Create a service account {#create-service-account}
 

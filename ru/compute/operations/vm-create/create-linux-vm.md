@@ -1,5 +1,11 @@
 # Создать виртуальную машину из публичного образа Linux
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 В этом разделе приведена инструкция для создания виртуальной машины с операционной системой Linux. Для создания виртуальной машины на базе Windows воспользуйтесь инструкцией [{#T}](create-windows-vm.md).
 
 {% list tabs %}
@@ -21,7 +27,7 @@
       ```
 
   1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на виртуальную машину.
-  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) на базе операционной системы Linux (например, [CentOS 7]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}).
+  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) на базе операционной системы Linux (например, [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo)).
 
       {% include [standard-images](../../../_includes/standard-images.md) %}
   1. Выберите подсеть:
@@ -30,9 +36,9 @@
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
       |          ID          |         NAME          |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE      |
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
-      | b0c6n43f9lgh3695v2k2 | default-ru-central1-c | enpe3m3fa00udao8g5lg |                | ru-central1-c | [10.130.0.0/24] |
-      | e2l2da8a20b33g7o73bv | default-ru-central1-b | enpe3m3fa00udao8g5lg |                | ru-central1-b | [10.129.0.0/24] |
-      | e9bnlm18l70ao30pvfaa | default-ru-central1-a | enpe3m3fa00udao8g5lg |                | ru-central1-a | [10.128.0.0/24] |
+      | b0c6n43f9lgh3695v2k2 | default-{{ region-id }}-c | enpe3m3fa00udao8g5lg |                | {{ region-id }}-c | [10.130.0.0/24] |
+      | e2l2da8a20b33g7o73bv | default-{{ region-id }}-b | enpe3m3fa00udao8g5lg |                | {{ region-id }}-b | [10.129.0.0/24] |
+      | e9bnlm18l70ao30pvfaa | default-{{ region-id }}-a | enpe3m3fa00udao8g5lg |                | {{ region-id }}-a | [10.128.0.0/24] |
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
       ```
   1.  Создайте виртуальную машину в каталоге по умолчанию. Укажите следующие параметры:
@@ -50,8 +56,8 @@
       ```
       $ yc compute instance create \
           --name first-instance \
-          --zone ru-central1-a \
-          --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+          --zone {{ region-id }}-a \
+          --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
           --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
           --ssh-key ~/.ssh/id_rsa.pub
       ```
@@ -66,8 +72,9 @@
 
   1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на виртуальную машину.
   1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
-     * [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
+     {% if product == "yandex-cloud" %}* [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.{% endif %}
      * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
+     * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
   1. [Получите идентификатор](../../../resource-manager/operations/folder/get-id.md) каталога.
   1. Получите информацию об образе, из которого надо создать виртуальную машину (идентификатор образа и минимальный размер диска):
       * Если вы знаете [семейство образа](../../concepts/image.md#family), получите информации о последнем образе в этом семействе:
@@ -75,7 +82,7 @@
           $ export IAM_TOKEN=CggaATEVAgA...
           $ export FAMILY=ubuntu-1804
           $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-            "https://compute.api.cloud.yandex.net/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
+            "https://compute.{{ api-host }}/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
           ```
       * Вы можете получить информацию об образе из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
   1. Получите идентификатор подсети и идентификатор зоны доступности. В запросе укажите идентификатор каталога, в котором создана подсеть:
@@ -84,7 +91,7 @@
       $ export IAM_TOKEN=CggaATEVAgA...
       $ export FOLDER_ID=b1gvmob95yysaplct532
       $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-        "https://vpc.api.cloud.yandex.net/vpc/v1/subnets?folderId=${FOLDER_ID}"
+        "https://vpc.{{ api-host }}/vpc/v1/subnets?folderId=${FOLDER_ID}"
       {
        "subnets": [
         {
@@ -94,10 +101,10 @@
          "id": "b0c6n43ftldh30l0vfg2",
          "folderId": "b1gvmob95yysaplct532",
          "createdAt": "2018-09-23T12:15:00Z",
-         "name": "default-ru-central1-c",
-         "description": "Auto-created default subnet for zone ru-central1-c",
+         "name": "default-{{ region-id }}-c",
+         "description": "Auto-created default subnet for zone {{ region-id }}-c",
          "networkId": "enpe3m3fagludao8aslg",
-         "zoneId": "ru-central1-c"
+         "zoneId": "{{ region-id }}-c"
         },
         ...
        ]
@@ -130,7 +137,7 @@
       {
         "folderId": "b1gvmob95yysaplct532",
         "name": "instance-demo-no-pwauth",
-        "zoneId": "ru-central1-c",
+        "zoneId": "{{ region-id }}-c",
         "platformId": "standard-v3",
         "resourcesSpec": {
           "memory": "2147483648",
@@ -165,7 +172,7 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d '@body.json' \
-        https://compute.api.cloud.yandex.net/compute/v1/instances
+        https://compute.{{ api-host }}/compute/v1/instances
       ```
 
   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}

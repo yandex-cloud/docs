@@ -33,11 +33,11 @@ To manage user permissions at the level of an individual DB object, use the `GRA
 - `INDEX`: Necessary to create and delete indexes from existing tables in the database.
 - `INSERT`: Necessary to insert records into custom tables in the database.
 - `LOCK_TABLES`: Allows the explicit use of the `LOCK_TABLES` operator to create table locks in the database.
-- `PROCESS`: Necessary to use the `SHOW PROCESSLIST` operator and view the status of data storage systems (for example, `SHOW ENGINE INNODB STATUS`). In {{ mmy-name }}, this privilege also grants the permission to read [mysql](https://dev.mysql.com/doc/refman/8.0/en/system-schema.html), [performance_schema](https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html), and [sys](https://dev.mysql.com/doc/refman/8.0/en/sys-schema.html) system database tables.
+- `PROCESS`: Necessary to use the `SHOW PROCESSLIST` operator and view the status of data storage systems (for example, `SHOW ENGINE INNODB STATUS`). In {{ mmy-name }}, this privilege also grants permission to read [mysql](https://dev.mysql.com/doc/refman/8.0/en/system-schema.html), [performance_schema](https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html), and [sys](https://dev.mysql.com/doc/refman/8.0/en/sys-schema.html) system database tables.
 - `REFERENCES`: Enables the creation of `FOREIGN KEYS` for DB tables.
 - `SELECT`: Necessary to read data from tables in the database.
 - `SHOW_VIEW`: Necessary to use the `SHOW CREATE VIEW` operator.
 - `TRIGGER`: Necessary to create, delete, execute, or display triggers for existing tables in the database.
 - `UPDATE`: Necessary to update records in tables in the database.
 
-For more information about managing user permissions, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html).
+To learn more about managing user permissions, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html).

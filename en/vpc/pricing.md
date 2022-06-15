@@ -3,6 +3,14 @@ editable: false
 ---
 # Pricing for {{ vpc-name }}
 
+{% if product == "cloud-il" %}
+
+At the [Preview](../overview/concepts/launch-stages.md) stage, {{ vpc-name }} can be used free of charge.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## What goes into the cost of using {{ vpc-short-name }} {#rules}
@@ -49,6 +57,8 @@ A public IP address can be in one of the following two states:
 
 {% endif %}
 
+{% if product == "yandex-cloud" %}
+
 ### DDoS protection {#prices-ddos-protection}
 
 {% if region == "ru"%}
@@ -75,6 +85,8 @@ For example, a user's VM was subject to a typical 10 Gbit/s DDoS attack generati
 
 In this case, only 4 GB of filtered traffic are billed: 2 GB that DDoS Protection passed to cloud resources during the attack, and 2 GB downloaded after the attack. Malicious traffic is filtered out and not billed.
 
+{% endif %}
+
 ### Using security groups {#prices-security-groups}
 
 The [security group](concepts/security-groups.md) functionality is at the [Preview](../overview/concepts/launch-stages.md) stage and can be used free of charge.
@@ -99,3 +111,4 @@ The [security group](concepts/security-groups.md) functionality is at the [Previ
 
 {% endif %}
 
+{% endif %}

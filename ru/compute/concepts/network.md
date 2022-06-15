@@ -60,8 +60,8 @@ IP-адреса, FQDN и другую информацию можно узнат
 Заданное имя хоста (hostname) | FQDN виртуальной машины
 :--- | :---
 `<не указано>` | `<ID виртуальной машины>.auto.internal`
-`breathtaking` | `breathtaking.ru-central1.internal`
-`this-is-sparta` | `this-is-sparta.ru-central1.internal`
+`breathtaking` | `breathtaking.{{ region-id }}.internal`
+`this-is-sparta` | `this-is-sparta.{{ region-id }}.internal`
 `hello.world` или `hello.world.` | `hello.world`
 `breathtaking.` | `breathtaking`
 <span style="color: red">`.why`</span> | <span style="color: red">ошибка (FQDN начинается с ".")</span>

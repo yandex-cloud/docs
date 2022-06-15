@@ -118,7 +118,7 @@
     sudo keytool \
          -keystore /etc/schema-registry/client.truststore.jks \
          -alias CARoot \
-         -import -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+         -import -file {{ crt-local-dir }}{{ crt-local-file }} \
          -storepass <пароль защищенного хранилища сертификатов> \
          --noprompt
     ```
@@ -237,7 +237,7 @@
             ]),
             "group.id": "avro-consumer",
             "security.protocol": "SASL_SSL",
-            "ssl.ca.location": "/usr/local/share/ca-certificates/Yandex/YandexCA.crt",
+            "ssl.ca.location": "{{ crt-local-dir }}{{ crt-local-file }}",
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
             "sasl.password": "<пароль учетной записи user>",
@@ -335,7 +335,7 @@
                 "<FQDN N-го хоста-брокера>:9091",
             ]),
             "security.protocol": "SASL_SSL",
-            "ssl.ca.location": "/usr/local/share/ca-certificates/Yandex/YandexCA.crt",
+            "ssl.ca.location": "{{ crt-local-dir }}{{ crt-local-file }}",
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
             "sasl.password": "<пароль учетной записи user>",

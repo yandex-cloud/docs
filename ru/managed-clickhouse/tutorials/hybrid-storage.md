@@ -32,7 +32,7 @@
 
 - С помощью Terraform
 
-    1. Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](https://cloud.yandex.ru/docs/tutorials/infrastructure-management/terraform-quickstart).
+    1. Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart).
 
     1. Клонируйте репозиторий с примерами:
 
@@ -129,7 +129,7 @@ SETTINGS index_granularity = 8192
 1. Загрузите тестовый датасет:
 
    ```bash
-   curl https://clickhouse-datasets.s3.yandex.net/hits/tsv/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
+   curl https://clickhouse-datasets.{{ s3-objstorage-host }}/hits/tsv/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```
 
 1. Вставьте данные из этого датасета в {{ CH }} с помощью `clickhouse-client`:

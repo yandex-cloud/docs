@@ -14,13 +14,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Before you start {#before-begin}
 
-Before performing load testing, sign up for {{ yandex-cloud }} and create a billing account:
-
-{% include [prepare-register-billing](../_tutorials/_common/prepare-register-billing.md) %}
-
-If you have an active billing account, go to the [management console]({{ link-console-main }}) and [create](../resource-manager/operations/folder/create.md) or select a folder to run your [test agent](../load-testing/concepts/agent.md) in.
-
-[Learn more about the resource hierarchy in](../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
 
 ### Required paid resources {#paid-resources}
 

@@ -31,9 +31,9 @@ editable: false
 
 * Объем хранилища, выделенный для кластеров БД.
 
-    * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров на платформах Intel Cascade Lake и Intel Ice Lake с тремя или более хостами, с шагом 93 ГБ.
+    * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров на платформах{% if product == "yandex-cloud" %} Intel Cascade Lake и{% endif %} Intel Ice Lake с тремя или более хостами, с шагом 93 ГБ.
 
-    * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров на платформах Intel Broadwell и Intel Cascade Lake с тремя или более хостами, с шагом 100 ГБ.
+  {% if product == "yandex-cloud" %}* Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров на платформах Intel Broadwell и Intel Cascade Lake с тремя или более хостами, с шагом 100 ГБ.{% endif %}
 
     Подробнее об ограничениях хранилища, связанных с платформой, см. в разделе [{#T}](./concepts/storage.md).
 

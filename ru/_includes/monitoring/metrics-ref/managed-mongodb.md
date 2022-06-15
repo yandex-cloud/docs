@@ -1,6 +1,6 @@
-## Сервис {{ managed-mongodb-full-name }} {#managed-mongodb}
+## Сервис {{ mmg-full-name }} {#managed-mongodb}
 
-Общие метки для всех метрик сервиса {{ managed-mongodb-full-name }}: 
+Общие метки для всех метрик сервиса {{ mmg-full-name }}: 
 
 Метка | Значение
 ----|----
@@ -253,4 +253,4 @@ shard | Идентификатор шарда
 | `oplog-maxSize`<br/>`DGAUGE`, байты | Максимальный размер журнала операций. | 
 | `replset_status-replicationLag`<br/>`DGAUGE`, секунды | Задержка репликации. |
 
-Подробнее о сервисе в документации [{{ managed-mongodb-full-name }}](../../managed-mongodb/).
+Подробнее о сервисе в документации [{{ mmg-full-name }}](../../managed-mongodb/).

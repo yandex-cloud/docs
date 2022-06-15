@@ -1,5 +1,11 @@
 # Changing cluster settings
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
@@ -35,7 +41,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 - Management console
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Under **Host class**, select the class for the {{ PG }} hosts.
    1. Click **Save changes**.
 
@@ -65,8 +71,8 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
       +-----------+--------------------------------+-------+----------+
       |    ID     |            ZONE IDS            | CORES |  MEMORY  |
       +-----------+--------------------------------+-------+----------+
-      | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
-      |           | ru-central1-c                  |       |          |
+      | s1.micro  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 8.0 GB   |
+      |           | {{ region-id }}-c                  |       |          |
       | ...                                                           |
       +-----------+--------------------------------+-------+----------+
       ```
@@ -154,7 +160,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
    To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size:
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Under **Storage size**, specify the required value.
    1. Click **Save changes**.
 
@@ -215,7 +221,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
 - API
 
-   To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size, use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in in the call:
 
    * The cluster ID in the `clusterId` parameter.
    * New storage size in the `configSpec.postgresqlConfig_<version {{ PG }}>.resources.diskSize` parameter.
@@ -241,7 +247,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Change the [{{ PG }} settings](../concepts/settings-list.md) by clicking **Configure** under **DBMS settings**.
    1. Click **Save**.
    1. Click **Save changes**.
@@ -268,7 +274,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    1. Set the required parameter values:
 
-      All supported parameters are listed in the [request format for the update method](../api-ref/Cluster/update.md), in the `postgresqlConfig_<version {{ PG }}>` field. To specify the parameter name in the CLI's call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `maxPreparedTransactions` parameter from an API request should be converted to `max_prepared_transactions` for the CLI command:
+      All supported parameters are listed in the [request format for the update method](../api-ref/Cluster/update.md), in the `postgresqlConfig_<version {{ PG }}>` field. To specify a parameter name in the CLI call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `maxPreparedTransactions` parameter from an API call should be converted to `max_prepared_transactions` for the CLI command:
 
       ```bash
       {{ yc-mdb-pg }} cluster update-config <cluster ID or name> \
@@ -325,7 +331,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Change additional cluster settings:
 
       {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
@@ -363,11 +369,12 @@ You can change the DBMS settings of the hosts in your cluster.
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
+   {% if product == "yandex-cloud" %}*`--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).{% endif %}
 
    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
+      {% if product == "yandex-cloud" %}
       {% if audience != "internal" %}
 
    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
@@ -376,6 +383,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    * `--serverless-access`: Enables cluster access from {{ sf-full-name }}. Default value: `false`.
 
+   {% endif %}
    {% endif %}
 
    * `--connection-pooling-mode`: Specifies the [connection pooler mode](../concepts/pooling.md): `SESSION`, `TRANSACTION`, or `STATEMENT`.
@@ -485,6 +493,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    {% endnote %}
 
+   {% if product == "yandex-cloud" %}
    {% if audience != "internal" %}
 
    To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
@@ -493,6 +502,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    To allow cluster access from {{ sf-full-name }}, pass `true` for the `configSpec.access.serverless` parameter.
 
+   {% endif %}
    {% endif %}
 
 {% endlist %}
@@ -623,7 +633,7 @@ To switch the master:
 - Management console
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Under **Network settings**, select security groups for cluster network traffic.
 
 - CLI

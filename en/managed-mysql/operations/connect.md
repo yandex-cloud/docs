@@ -22,49 +22,69 @@ Settings of rules depend on the connection method you select:
 
 {% list tabs %}
 
-- Over the internet
+- Over the internet 
+   {% if audience != "internal" %}
 
-    [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port {{ port-mmy }} from any IP address. To do this, create the following rule for incoming traffic:
+   [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) in the cluster to allow incoming traffic on port {{ port-mmy }} from any IP address. To do this, create the following rule for incoming traffic:
 
-    * Protocol: `TCP`.
-    * Port range: `{{ port-mmy }}`.
-    * Source type: `CIDR`.
-    * Source: `0.0.0.0/0`.
+   {% else %}
 
-- With a VM in {{ yandex-cloud }}
+   Configure all security groups in the cluster to allow incoming traffic on port {{ port-mmy }} from any IP address. To do this, create the following rule for incoming traffic:
 
-    1. [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port {{ port-mmy }} from the security group assigned to the VM. To do this, create the following rule for incoming traffic in these groups:
+   {% endif %}
+   * Port range: `{{ port-mmy }}`.
+   * Protocol: `TCP`.
+   * Source: `CIDR`.
+   * CIDR blocks: `0.0.0.0/0`.
 
-        * Protocol: `TCP`.
-        * Port range: `{{ port-mmy }}`.
-        * Source type: `Security group`.
-        * Source: Security group assigned to the VM. If it is the same as the configured group, specify **Current**.
+- With a VM in {{ yandex-cloud }} 
+   {% if audience != "internal" %}
 
-    1. [Set up the security group](../../vpc/operations/security-group-update.md#add-rule) assigned to the VM to allow connections to the VM and traffic between the VM and the cluster hosts.
+   1. [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) in the cluster to allow incoming traffic from the security group where your VM is located on port {{ port-mmy }}. To do this, create the following rule for incoming traffic in these groups:
 
-        Example of rules for a VM:
+   {% else %}
 
-        * For incoming traffic:
-           * Protocol: `TCP`.
-           * Port range: `{{ port-ssh }}`.
-           * Source type: `CIDR`.
-           * Source: `0.0.0.0/0`.
+   1. Configure all security groups in the cluster to allow incoming traffic from the security group where the VM is located, on port {{ port-mmy }}. To do this, create the following rule for incoming traffic in these groups:
 
-            This rule lets you connect to the VM over SSH.
+   {% endif %}
 
-        * For outgoing traffic:
-            * Protocol: `Any`.
-            * Port range: `{{ port-any }}`.
-            * Destination type: `CIDR`.
-            * Destination: `0.0.0.0/0`.
+         * Port range: `{{ port-mmy }}`.
+         * Protocol: `TCP`.
+         * Source: `Security group`.
+         * Security group: If your cluster and VM are in the same security group, select `Self` as the value. Otherwise, specify the VM security group.
+   {% if audience != "internal" %}
 
-            This rule allows any outgoing traffic: this lets you both connect to the cluster and install certificates and utilities you might need to connect to the cluster.
+   1. [Configure the security group](../../vpc/operations/security-group-update.md#add-rule) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
+
+   {% else %}
+
+   1. Configure the security group where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
+
+   {% endif %}
+
+         Example VM rule:
+       
+         * Incoming traffic:
+            * Port range: `{{ port-ssh }}`.
+            * Protocol: `TCP`.
+            * Source: `CIDR`.
+            * CIDR blocks: `0.0.0.0/0`.
+       
+             This rule lets you connect to the VM over SSH.
+       
+         * Outgoing traffic:
+             * Port range: `{{ port-any }}`.
+             * Protocol: `Any`.
+             * Destination name: `CIDR`.
+             * CIDR blocks: `0.0.0.0/0`.
+       
+             This rule allows any outgoing traffic: this lets you both connect to the cluster and install certificates and utilities you might need to connect to the cluster.
 
 {% endlist %}
 
 {% note info %}
 
-You can set more detailed rules for security groups, such as to allow traffic in only specific subnets.
+You can set more detailed rules for security groups, such as allowing traffic in only specific subnets.
 
 Security groups must be configured correctly for all subnets that will include cluster hosts. If the security group settings are incomplete or incorrect, you might lose access the cluster.
 
@@ -82,21 +102,43 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 - Linux (Bash)
 
-  ```bash
-  mkdir ~/.mysql && \
-  wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt && \
-  chmod 0600 ~/.mysql/root.crt
-  ```
+   {% if audience != "internal" %}
 
-  The certificate will be saved in the `$HOME/.mysql/root.crt` directory.
+   ```bash
+   mkdir ~/.mysql && \
+   wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt && \
+   chmod 0600 ~/.mysql/root.crt
+   ```
+
+   {% else %}
+
+   ```bash
+   mkdir ~/.mysql && \
+   wget "{{ pem-path }}" -O ~/.mysql/root.crt && \
+   chmod 0600 ~/.mysql/root.crt
+   ```
+
+   {% endif %}
+
+   The certificate will be saved in the `$HOME/.mysql/root.crt` directory.
 
 - Windows (PowerShell)
 
-  ```PowerShell
-  mkdir ~/.mysql; curl -o ~/.mysql/root.crt https://{{ s3-storage-host }}{{ pem-path }}
-  ```
+   {% if audience != "internal" %}
 
-  The certificate will be saved in the `$HOME\.mysql\root.crt` directory.
+   ```PowerShell
+   mkdir ~/.mysql; curl -o ~/.mysql/root.crt https://{{ s3-storage-host }}{{ pem-path }}
+   ```
+
+   {% else %}
+
+   ```PowerShell
+   mkdir ~/.mysql; curl -o ~/.mysql/root.crt {{ pem-path }}
+   ```
+
+   {% endif %}
+
+   The certificate will be saved in the `$HOME\.mysql\root.crt` directory.
 
 {% endlist %}
 
@@ -106,46 +148,46 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting, [prepare a certificate](#get-ssl-cert).
+You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting [prepare a certificate](#get-ssl-cert).
 
 {% list tabs %}
 
 - DataGrip
 
-  1. Create a data source:
-     1. Select **File** → **New** → **Data Source** → **{{ MY }}**.
-     1. On the **General** tab:
-        1. Specify the connection parameters:
-           * **Host**: FQDN of the host or a [special FQDN](#special-fqdns).
-           * **Port**: `{{ port-mmy }}`.
-           * **User**, **Password**: DB user's name and password.
-           * **Database**: Name of the DB to connect to.
-        1. Click **Download** to download the connection driver.
-     1. On the **SSH/SSL** tab:
+   1. Create a data source:
+      1. Select **File** → **New** → **Data Source** → **{{ MY }}**.
+      1. On the **General** tab:
+         1. Specify the connection parameters:
+            * **Host**: FQDN of the host or a [special FQDN](#special-fqdns).
+            * **Port**: `{{ port-mmy }}`.
+            * **User**, **Password**: DB user's name and password.
+            * **Database**: Name of the DB to connect to.
+         1. Click **Download** to download the connection driver.
+      1. On the **SSH/SSL** tab:
          1. Enable the **Use SSL** setting.
          1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
-  1. To test the connection, click **Test Connection**. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
-  1. Click **OK** to save the data source.
+   1. To test the connection, click **Test Connection**. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+   1. Click **OK** to save the data source.
 
 - DBeaver
 
-  1. Create a new DB connection:
-     1. In the **Database** menu, select **New connection**.
-     1. Select the **{{ MY }}** database from the list.
-     1. Click **Next**.
-     1. Specify the connection parameters on the **Main** tab:
-        * **Server**: FQDN of the host or a [special FQDN](#special-fqdns).
-        * **Port**: `{{ port-mmy }}`.
-        * **Database**: Name of the DB to connect to.
-        * **User**, **Password**: DB user's name and password.
-     1. On the **SSL** tab:
-         1. Enable the **Use SSL** setting.
-         1. In the **Root certificate** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
-         1. Under **Additional**:
-            1. Enable the **SSL only** setting.
-            1. Select **Check the server certificate**.
-  1. Click **Test Connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
-  1. Click **Ready** to save the database connection settings.
+   1. Create a new DB connection:
+      1. In the **Database** menu, select **New connection**.
+      1. Select **{{ MY }}** from the DB list.
+      1. Click **Next**.
+      1. Specify the connection parameters on the **Main** tab:
+         * **Host**: FQDN of the host or a [special FQDN](#special-fqdns).
+         * **Port**: `{{ port-mmy }}`.
+         * **Database**: Name of the DB to connect to.
+         * **Username**, **Password**: DB username and password.
+      1. On the **SSL** tab:
+         1. Enable **Use SSL**.
+         1. In the **CA certificate** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
+         1. Under **Advanced**:
+            1. Enable **Require SSL**.
+            1. Enable **Verify server certificate**.
+   1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+   1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
 
@@ -153,13 +195,13 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 {% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
 
-You can only connect to publicly accessible {{ MY }} hosts using an SSL certificate. Prior to connecting to such hosts, [prepare your certificate](#get-ssl-cert).
+You can only connect to publicly accessible {{ MY }} hosts using an SSL certificate. Prior to connecting to such hosts, [generate a certificate](#get-ssl-cert).
 
 These examples assume that the `root.crt` certificate is located in the ` /home/<home directory>/.mysql/` folder.
 
 Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. If this is the case, internal cloud network traffic will not be encrypted for connecting to a database.
 
-You can connect to a cluster using both regular FQDN hosts and [special FQDNs](#special-fqdns).
+You can connect to a cluster using both regular host FQDNs and [special FQDNs](#special-fqdns).
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
@@ -173,7 +215,7 @@ Just like usual FQDNs, which can be requested with a [list of cluster hosts](./h
 
 ### Current master {#fqdn-master}
 
-An FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` always points to the current master host in the cluster. You can get the cluster ID with a [list of clusters in a folder](./cluster-list.md#list-clusters).
+A FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` always points to the current cluster master host. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 
@@ -191,7 +233,7 @@ mysql --host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
 
 ### The least lagging replica {#fqdn-replica}
 
-An FQDN like `c-<cluster ID>.ro.{{ dns-zone }}` points to the [replica](../concepts/replication.md) that is least lagging from the master host. The cluster ID can be requested with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+FQDN like `c-<cluster ID>.ro.{{ dns-zone }}` points to the least lagging [replica](../concepts/replication.md). The cluster ID can be requested with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 **Specifics:**
 

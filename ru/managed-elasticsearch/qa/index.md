@@ -1,5 +1,5 @@
 ---
-title: "Managed Service for Elasticsearch. Ответы на вопросы"
+title: "{{ mes-name }}. Ответы на вопросы"
 description: "Как получить логи моей работы в управляемом сервисе Elasticsearch?  Ответы на этот и другие вопросы в данной статье."
 ---
 

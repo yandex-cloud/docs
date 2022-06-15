@@ -1,5 +1,11 @@
 # Changing cluster settings
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
@@ -22,7 +28,7 @@ After creating a cluster, you can:
 
 ## Changing the host class {#change-resource-preset}
 
-The choice of a host class in {{ mmy-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **Managed Databases** section.
+The choice of a host class in {{ mmy-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **Managed Databases**.
 
 {% include [mmy-settings-dependence](../../_includes/mdb/mmy/note-info-settings-dependence.md) %}
 
@@ -31,7 +37,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. To change the class of {{ MY }} hosts, under **Host class**, select the required class.
    1. Click **Save changes**.
 
@@ -46,7 +52,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    1. View a description of the CLI's update cluster command:
 
       ```
-      $ {{ yc-mdb-my }} cluster update --help
+      {{ yc-mdb-my }} cluster update --help
       ```
 
    1. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
@@ -54,13 +60,13 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       {% if audience != "internal" %}
 
       ```
-      $ {{ yc-mdb-my }} resource-preset list
-
+      {{ yc-mdb-my }} resource-preset list
+      
       +-----------+--------------------------------+-------+----------+
       |    ID     |            ZONE IDS            | CORES |  MEMORY  |
       +-----------+--------------------------------+-------+----------+
-      | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
-      |           | ru-central1-c                  |       |          |
+      | s1.micro  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 8.0 GB   |
+      |           | {{ region-id }}-c                  |       |          |
       | ...                                                           |
       +-----------+--------------------------------+-------+----------+
       ```
@@ -82,7 +88,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    1. Specify the class in the update cluster command:
 
       ```
-      $ {{ yc-mdb-my }} cluster update <cluster name>
+      {{ yc-mdb-my }} cluster update <cluster name>
            --resource-preset <class ID>
       ```
 
@@ -138,7 +144,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Under **Storage size**, specify the required value.
    1. Click **Save changes**.
 
@@ -216,7 +222,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Change the [{{ MY }} settings](../concepts/settings-list.md#dbms-cluster-settings) by clicking **Configure** under **DBMS settings**:
    1. Click **Save**.
    1. Click **Save changes**.
@@ -232,7 +238,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    1. View a description of the CLI's update cluster configuration command:
 
       ```
-      $ {{ yc-mdb-my }} cluster update-config --help
+      {{ yc-mdb-my }} cluster update-config --help
       ```
 
    1. Set the required parameter values.
@@ -240,7 +246,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       All supported parameters are listed in the request [format for the update method](../api-ref/Cluster/update.md), in the `mysql_config_5_7` field. To specify the parameter name in the CLI's call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `logMinDurationStatement` parameter from an API request should be converted to `log_min_duration_statement` for the CLI command:
 
       ```
-      $ {{ yc-mdb-my }} cluster update-config <cluster name>
+      {{ yc-mdb-my }} cluster update-config <cluster name>
            --set log_min_duration_statement=100,<parameter name>=<value>,...
       ```
 
@@ -294,7 +300,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Change additional cluster settings:
 
       {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
@@ -330,7 +336,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
+   {% if product == "yandex-cloud" %}*`--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).{% endif %}
 
    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
@@ -338,7 +344,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [deletion-protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -361,19 +367,23 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       }
       ```
 
-   1. To allow access to [SQL queries from the management console](web-sql-query.md) and [DataLens](datalens-connect.md), add a block named `access` to the {{ mmy-name }} cluster description:
+   1. To allow access to [SQL queries from the management console](web-sql-query.md){% if product == "yandex-cloud" %} and [DataLens](datalens-connect.md){% endif %}, add a block named `access` to the {{ mmy-name }} cluster description:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster name>" {
         ...
         access {
           web_sql   = <true or false>
+      {% if product == "yandex-cloud" %}
           data_lens = <true or false>
+      {% endif %}
           ...
         }
         ...
       }
       ```
+
+   1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform-maintenance-window.md) %}
 
    1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform-maintenance-window.md) %}
 
@@ -386,7 +396,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       }
       ```
 
-      {% include [deletion-protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    1. Make sure the settings are correct.
 
@@ -410,7 +420,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
-      {% include [deletion-protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    * List of cluster configuration fields to be changed in the `updateMask` parameter.
 
@@ -471,7 +481,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Under **Network settings**, select security groups for cluster network traffic.
 
 - CLI
@@ -530,7 +540,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    * The list of security group IDs in the `securityGroupIds` parameter.
    * The list of settings to update in the `updateMask` parameter.
 
-   {% include [Resetting the settings of the object being modified](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 

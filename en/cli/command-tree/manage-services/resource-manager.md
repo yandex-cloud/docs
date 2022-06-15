@@ -1,8 +1,8 @@
 # yc resource-manager
 
-Manage {{ resmgr-full-name }} resources.
+Managing {{ resmgr-full-name }} resources.
 
-#### Usage
+#### Command usage
 
 Syntax:
 
@@ -14,21 +14,21 @@ Aliases:
 
 #### Groups
 
-- `yc resource-manager cloud` — manage [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud).
-    - `get` — show information about the specified cloud.
-    - `list` — list clouds.
-    - `list-access-bindings` — list access bindings for the specified cloud.
-    - `set-access-bindings` — [set access bindings for the specified cloud](../../../resource-manager/operations/cloud/set-access-bindings.md#multiple-roles) and delete all existing access bindings if there were any.
-    - `add-access-binding` — [add access binding for the specified cloud](../../../resource-manager/operations/cloud/set-access-bindings.md).
-    - `remove-access-binding` — remove access binding for the specified cloud.
-    - `list-operations` — list operations for the specified cloud.
-- `yc resource-manager folder` — manage [folders](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    - `get` — show information about the specified folder.
-    - `list` — list folders.
-    - `create` — [create a folder](../../../resource-manager/operations/folder/create.md).
-    - `update` — [update the specified folder](../../../resource-manager/operations/folder/update.md).
-    - `list-access-bindings` — list access bindings for the specified folder.
-    - `set-access-bindings` — [set access bindings for the specified folder](../../../resource-manager/operations/folder/set-access-bindings.md#multiple-roles) and delete all existing access bindings if there were any.
-    - `add-access-binding` — [add access binding for the specified folder](../../../resource-manager/operations/folder/set-access-bindings.md).
-    - `remove-access-binding` — remove access binding for the specified folder.
-    - `list-operations` — list operations for the specified folder.
+- `yc resource-manager cloud`: Manage [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud).
+   - `get`: Get information about the specified cloud.
+   - `list`: Get a list of clouds.
+   - `list-access-bindings`: Get a list of access bindings for the specified cloud.
+   - `add-access-binding`: [Assign a role to enable access to the specified cloud](../resource-manager/operations/cloud/set-access-bindings.md).
+   - `set-access-bindings`: [Assign roles to enable access to the specified cloud](../../../resource-manager/operations/cloud/set-access-bindings.md#multiple-roles) and remove all the current roles (if any).
+   - `remove-access-binding`: Remove a role that enables access to the specified cloud.
+   - `list-operations`: Get a list of operations for the specified cloud.
+- `yc resource-manager folder`: Manage [folders](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+   - `get`: Get information about the specified folder.
+   - `list`: Get a list of folders.
+   - `create`: [Create a folder](../../../resource-manager/operations/folder/create.md).
+   - `update`: [Update the specified folder](../../../resource-manager/operations/folder/update.md).
+   - `list-access-bindings`: Get a list of roles for the specified folder.
+   - `add-access-binding`: [Assign a role to enable access to the specified folder](../../../resource-manager/operations/folder/set-access-bindings.md).
+   - `set-access-bindings`: [Assign roles to enable access to the specified folder](../../../resource-manager/operations/folder/set-access-bindings.md#multiple-roles) and remove all the current roles (if any).
+   - `remove-access-binding`: Remove a role that enables access to the specified folder.
+   - `list-operations`: Get a list of operations for the specified folder.

@@ -22,15 +22,18 @@ You can get a CSV file with your general or per-resource spending details.
 
 - Management console
 
-  1. In the [management console]({{ link-console-billing }}), select the account you want to get details for.
-  1. On the **Overview** page, go to the **Export details** tab.
-  1. Click **Create**.
-  1. In the **Create periodic export** window that opens, enter:
-     * In the **Bucket** field, the name of the bucket to store the CSV file with details.
-     * In the **Directory** field, the name of the directory for the file. The last character must be `/`.
-     * Select the language for product names: English or Russian.
-     * Select the type of details: **General** or **Resource**.
-  1. Click **Create**.
+   1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
+   1. In the upper-left corner, click ![image](../../_assets/main-menu.svg) **All services**.
+   1. Select ![image](../../_assets/billing.svg) [**Billing**]({{ link-console-billing }}).
+   1. Select the account you want to get details for.
+   1. On the **Overview** page, go to the **Export details** tab.
+   1. Click **Create**.
+   1. In the **Create periodic export** window that opens, enter:
+      * In the **Bucket** field, the name of the bucket to store the CSV file with details.
+      * In the **Directory** field, the name of the directory for the file. The last character must be `/`.
+      {% if product == "yandex-cloud" %}* Select the language for product names: English or Russian. {% endif %}
+      * Select the type of details: **General** or **Resource**.
+   1. Click **Create**.
 
 {% endlist %}
 
@@ -64,29 +67,31 @@ The table contains the following columns:
    * {{ network-load-balancer-name }}: ID of the network load balancer.
    * {{ container-registry-short-name }}: ID of the container.
    * {{ k8s }} and {{ dataproc-name }}: ID of the cluster.
-   * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }}, and {{ mkf-name }}: ID of the cluster host.
-   * {{ message-queue-name }}: ID of the request.
-   * {{ sf-name }}: ID of the function.
-   * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }}, and {{ vision-short-name }}: An empty value.
+   * {{ mpg-short-name }}, {{ mch-short-name }},{% if product == "yandex-cloud" %} {{ mmg-short-name }},{% endif %} {{ mmy-short-name }},{% if product == "yandex-cloud" %} {{ mrd-short-name }}{% endif %} and {{ mkf-name }} — ID of the cluster host.
+   * {{ message-queue-name }} : ID of the request.
+   {% if product == "yandex-cloud" %}* {{ sf-name }} : ID of the function.{% endif %}
+   * {{ monitoring-short-name }}{% if product == "yandex-cloud" %}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} and {{ vision-short-name }}{% endif %} : An empty value.
    * Technical support: ID of the subscription.
 * `service_id`: ID of the service that the consumed product belongs to.
 * `service_name`: Name of the service that the consumed product belongs to.
 * `sku_id`: ID of the consumed product.
 * `sku_name`: Name of the product.
 * `date`: Date that the cost of consumption is charged for.
-* `currency`: Billing account currency. Possible values: `RUB`, `USD`, and `KZT`.
+* `currency`: Billing account currency. {% if product == "yandex-cloud" %}Possible values: `RUB`, `USD`, and `KZT`.{% endif %}{% if product == "cloud-il" %}The parameter takes the value `ILS`.{% endif %}
 * `pricing_quantity`: Amount of product units consumed. The decimal separator is a dot.
 * `pricing_unit`: Unit of product consumption.
 * `cost`: Total cost of consumption. The decimal separator is a dot.
-* `credit`: Discount amount. The decimal separator is a dot.
-* `monetary_grant_credit`: Discount from a grant, including the grant for trying the platform. The decimal separator is a dot.
-* `volume_incentive_credit`: Discount for the volume of product consumption. The decimal separator is a dot.
-* `cud_credit`: Discount for the [committed volume](../concepts/cvos.md) of the resource. The cost of consumption in excess of the commitment is equal to the difference between the `cost` and `credit` column values. The decimal separator is a dot.
-* `misc_credit`: Other types of discounts, including discounts for resource consumption after the grant for trying the platform expires, but before switching to the paid version. The decimal separator is a dot.
+* `credit`: Discount amount. The decimal separator is a dot. {% if product == "cloud-il" %}The parameter value is 0, as {{ yandex-cloud }} services at the Preview stage are free of charge.{% endif %}
+* `monetary_grant_credit`: Discount from a grant, including the grant for trying the platform. The decimal separator is a dot. {% if product == "cloud-il" %}The parameter value is 0, as {{ yandex-cloud }} services at the Preview stage are free of charge.{% endif %}
+* `volume_incentive_credit`: Discount for the volume of product consumption. The decimal separator is a dot. {% if product == "cloud-il" %}The parameter value is 0, as {{ yandex-cloud }} services at the Preview stage are free of charge.{% endif %}
+{% if product == "yandex-cloud" %}* `cud_credit`: Discount for the [committed volume](../concepts/cvos.md) of the resource. The cost of consumption in excess of the commitment equals the difference between the `cost` and `credit` column values. The decimal separator is a dot.{% endif %}
+* `misc_credit`: Other types of discounts, including discounts for resource consumption after the grant for trying the platform expires, but before switching to the paid version. The decimal separator is a dot. {% if product == "cloud-il" %}The parameter value is 0, as {{ yandex-cloud }} services at the Preview stage are free of charge.{% endif %}
 * `label.user_labels.<label name>`: Labels set for resources. How to manage tags is described in [Service resource labels](../../overview/concepts/services.md#labels).
-* `locale`: Language of each exported line. The value of this field determines the `sku_name` column language. Possible values: `en` and `ru`.
+* `locale`: Language of each exported line. The value of this field determines the `sku_name` column language. {% if product == "yandex-cloud" %}Possible values are `en` and `ru`.{% endif %}{% if product == "cloud-il" %}The `en` value is used.{% endif %}
 * `updated_at`: Date and time of the last line update in [Unix Timestamp](https://www.unixtimestamp.com) format.
 * `exported_at`: Date and time when the line was added to the detail file.
+
+{% if product == "yandex-cloud" %}
 
 {% cut "Deprecated parameters" %}
 
@@ -94,6 +99,8 @@ The table contains the following columns:
 * `label.system_labels.folder_id`: ID of the folder. The value is now displayed in the `folder_id` column.
 
 {% endcut %}
+
+{% endif %}
 
 ##### See also
 

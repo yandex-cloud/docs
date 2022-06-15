@@ -6,15 +6,11 @@ In this use case, users from the `Administrators` group are granted access to a 
 
 ## Before you start {#before-you-begin}
 
-Before deploying servers, you need to sign up for {{ yandex-cloud }} and create a billing account:
-
-{% include [prepare-register-billing](../includes/prepare-register-billing.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 {% include [ms-additional-data-note](../includes/ms-additional-data-note.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -23,6 +19,8 @@ The cost of installing RDGW includes:
 * A fee for continuously running VMs (see [pricing for {{ compute-full-name }}](../../compute/pricing.md)).
 * A fee for using dynamic or static public IP addresses (see [pricing for {{ vpc-full-name }}](../../vpc/pricing.md)).
 * The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [pricing for {{ compute-full-name }}](../../compute/pricing.md)).
+
+{% endif %}
 
 ## Create a cloud network and subnets {#create-network}
 
@@ -66,7 +64,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
         1. Open **Virtual Private Cloud** in the folder where you want to create the subnet.
         1. Click on the name of the cloud network.
         1. Click **Add subnet**.
-        1. Fill out the form: enter `rdgw-subnet` as a subnet name and select the desired availability zone from the drop-down list (for example, `ru-central1-a`).
+        1. Fill out the form: enter `rdgw-subnet` as a subnet name and select the desired availability zone from the drop-down list (for example, `{{ region-id }}-a`).
         1. Enter the subnet CIDR, which is its IP address and mask: `10.1.0.0/16`. For more information about subnet IP ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
         1. Click **Create subnet**.
 
@@ -75,7 +73,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
       ```
       yc vpc subnet create `
         --name rdgw-subnet `
-        --zone ru-central1-a `
+        --zone {{ region-id }}-a `
         --network-name rdgw-network `
         --range 10.1.0.0/16
       ```
@@ -88,7 +86,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
       created_at: "2021-06-09T10:49:21Z"
       name: rdgw-subnet
       network_id: qqppl6fduhct76qkjh6s
-      zone_id: ru-central1-a
+      zone_id: {{ region-id }}-a
       v4_cidr_blocks:
       - 10.1.0.0/16
       ```
@@ -171,7 +169,7 @@ Create a VM with a static address:
 
      1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
      1. In the **Name** field, enter a name for the VM: `my-rds-gw`.
-     1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-a`.
+     1. Select the [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
      1. Under **Image/boot disk selection**, select the **2019 Datacenter** image.
      1. Under **Disks**, enter 60 GB for the size of the boot disk.
      1. Under **Computing resources**:
@@ -207,7 +205,8 @@ Create a VM with a static address:
             --hostname my-rds-gw `
             --memory 4 `
             --cores 2 `
-            --zone ru-central1-a `
+            --platform-id=standard-v3 `
+            --zone {{ region-id }}-a `
             --network-interface subnet-name=rdgw-subnet,ipv4-address=10.1.0.3,nat-ip-version=ipv4,security-group-ids=<id_my-rdgw-group> `
             --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk `
             --metadata-from-file user-data=setpass
@@ -221,8 +220,8 @@ Create a VM with a static address:
       folder_id: big67u7m5flplkc6vvpc
       created_at: "2021-06-09T10:51:58Z"
       name: my-rds-gw
-      zone_id: ru-central1-a
-      platform_id: standard-v2
+      zone_id: {{ region-id }}-a
+      platform_id: standard-v3
       resources:
       memory: "4294967296"
       cores: "2"
@@ -244,7 +243,7 @@ Create a VM with a static address:
         ip_version: IPV4
         security_group_ids:
          - enp136p8s2ael7ob6klg
-           fqdn: my-rds-gw.ru-central1.internal
+           fqdn: my-rds-gw.{{ region-id }}.internal
            scheduling_policy: {}
            network_settings:
            type: STANDARD
@@ -359,7 +358,7 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
 
         1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
         1. In the **Name** field, enter the VM name: `test-vm`.
-        1. Select the [availability zone](../../overview/concepts/geo-scope.md) `ru-central1-a`.
+        1. Select the [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
         1. Under **Image/boot disk selection**, select the **2019 Datacenter** image.
         1. Under **Disks**, enter 60 GB for the size of the boot disk.
         1. Under **Computing resources**:
@@ -382,7 +381,8 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
         --hostname test-vm `
         --memory 4 `
         --cores 2 `
-        --zone ru-central1-a `
+        --platform-id=standard-v3 `
+        --zone {{ region-id }}-a `
         --network-interface subnet-name=rdgw-subnet,ipv4-address=10.1.0.4 `
         --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk `
         --metadata-from-file user-data=setpass
@@ -396,8 +396,8 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
       folder_id: big67u7m5flplkc6vvpc
       created_at: "2021-06-09T11:53:03Z"
       name: test-vm
-      zone_id: ru-central1-a
-      platform_id: standard-v2
+      zone_id: {{ region-id }}-a
+      platform_id: standard-v3
       resources:
       memory: "4294967296"
       cores: "2"
@@ -414,7 +414,7 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
         subnet_id: e9b95m6al33r62n5vkab
         primary_v4_address:
         address: 10.1.0.4
-        fqdn: test-vm.ru-central1.internal
+        fqdn: test-vm.{{ region-id }}.internal
         scheduling_policy: {}
         network_settings:
         type: STANDARD

@@ -1,6 +1,6 @@
 ---
-title: Квоты и лимиты в Yandex Identity and Access Management
-description: 'Квоты и лимиты для сервиса Yandex Identity and Access Management не определены.'
+title: Квоты и лимиты в {{ iam-full-name }}
+description: 'Квоты и лимиты для сервиса {{ iam-full-name }} не определены.'
 
 editable: false
 ---

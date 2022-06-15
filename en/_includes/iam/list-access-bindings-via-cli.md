@@ -17,7 +17,7 @@ yc resource-manager folder list-access-bindings default
 ```
 
 Result:
-
+{% if product == "yandex-cloud" %}
 ```
 +---------------------+----------------+----------------------+
 |       ROLE ID       |  SUBJECT TYPE  |      SUBJECT ID      |
@@ -26,3 +26,16 @@ Result:
 | viewer              | userAccount    | aje6o61dvog2h6g9a33s |
 +---------------------+----------------+----------------------+
 ```
+{% endif %}
+{% if product == "cloud-il" %}
+
+```
++---------------------+----------------+----------------------+
+|       ROLE ID       |  SUBJECT TYPE  |      SUBJECT ID      |
++---------------------+----------------+----------------------+
+| editor              | serviceAccount | ajepg0mjas06siuj5usm |
+| viewer              | federatedUser  | aje6o61dvog2h6g9a33s |
++---------------------+----------------+----------------------+
+```
+
+{% endif %}

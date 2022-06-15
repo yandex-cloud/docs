@@ -1,7 +1,7 @@
 # Common errors
 
 | HTTP | Error code | Description |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | 400 | `AccessDeniedException` | Insufficient permissions to perform the action. |
 | 400 | `IncompleteSignature` | The request signature does not conform to AWS standards. |
 | 500 | `InternalFailure` | Unknown error. |
@@ -19,4 +19,3 @@
 | 503 | `ServiceUnavailable` | The service is not available. |
 | 403 | `ThrottlingException` | The request was rejected due to the throttle limit. |
 | 400 | `ValidationError` | Values of a sent request failed validation. |
-

@@ -156,6 +156,8 @@
         * Хост с наибольшим значением приоритета в кластере становится синхронной репликой.
         * Если в кластере есть несколько хостов с наибольшим приоритетом, то среди них проводятся выборы мастера.
         * Наименьший приоритет — `0` (по умолчанию), наивысший — `100`.
+
+      {% if product == "yandex-cloud" %}
       {% if audience != "internal" %}
 
       Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
@@ -164,6 +166,7 @@
 
       Чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}, передайте параметр `--serverless-access`.
 
+      {% endif %}
       {% endif %}
 
 - Terraform
@@ -190,6 +193,8 @@
      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
      Пример структуры конфигурационного файла:
+
+     {% if product == "yandex-cloud" %}
 
      ```hcl
      terraform {
@@ -257,6 +262,79 @@
      }
      ```
 
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```hcl
+     terraform {
+       required_providers {
+         yandex = {
+           source = "yandex-cloud/yandex"
+         }
+       }
+     }
+
+     provider "yandex" {
+       endpoint  = "{{ api-host }}:443"
+       token     = "<статический ключ сервисного аккаунта>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "<зона доступности>"
+     }
+
+     resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+       name                = "<имя кластера>"
+       environment         = "<окружение, PRESTABLE или PRODUCTION>"
+       network_id          = "<идентификатор сети>"
+       security_group_ids  = [ "<список групп безопасности>" ]
+       deletion_protection = <защита от удаления кластера: true или false>
+
+       config {
+         version = "<версия {{ PG }}: {{ versions.tf.str }}>"
+         resources {
+           resource_preset_id = "<класс хоста>"
+           disk_type_id       = "<тип хранилища>"
+           disk_size          = <объем хранилища, ГБ>
+         }
+         pooler_config {
+           pool_discard = <параметр Odyssey pool_discard: true или false>
+           pooling_mode = "<режим работы: SESSION, TRANSACTION или STATEMENT>"
+         }
+         ...
+       }
+
+       database {
+         name  = "<имя базы данных>"
+         owner = "<имя владельца базы данных>"
+       }
+
+       user {
+         name     = "<имя пользователя>"
+         password = "<пароль пользователя>"
+         permission {
+           database_name = "<имя базы данных>"
+         }
+       }
+
+       host {
+         zone      = "<зона доступности>"
+         subnet_id = "<идентификатор подсети>"
+       }
+     }
+
+     resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
+
+     resource "yandex_vpc_subnet" "<имя подсети>" {
+       name           = "<имя подсети>"
+       zone           = "<зона доступности>"
+       network_id     = "<идентификатор сети>"
+       v4_cidr_blocks = ["<диапазон>"]
+     }
+     ```
+
+     {% endif %}
+
      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
@@ -289,6 +367,7 @@
 
   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
+  {% if product == "yandex-cloud" %}
   {% if audience != "internal" %}
 
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
@@ -297,6 +376,7 @@
 
   Чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}, передайте значение `true` для параметра `configSpec.access.serverless`.
 
+  {% endif %}
   {% endif %}
 
 {% endlist %}
@@ -400,6 +480,8 @@
 
   Конфигурационный файл для такого кластера выглядит так:
 
+  {% if product == "yandex-cloud" %}
+
   ```hcl
   terraform {
     required_providers {
@@ -474,5 +556,87 @@
     }
   }
   ```
+
+  {% endif %}
+
+  {% if product == "cloud-il" %}
+
+  ```hcl
+  terraform {
+    required_providers {
+      yandex = {
+        source = "yandex-cloud/yandex"
+      }
+    }
+  }
+
+  provider "yandex" {
+    endpoint  = "{{ api-host }}:443"
+    token     = "<статический ключ сервисного аккаунта>"
+    cloud_id  = "{{ tf-cloud-id }}"
+    folder_id = "{{ tf-folder-id }}"
+    zone      = "{{ zone-id }}"
+  }
+
+  resource "yandex_mdb_postgresql_cluster" "mypg" {
+    name                = "mypg"
+    environment         = "PRESTABLE"
+    network_id          = yandex_vpc_network.mynet.id
+    security_group_ids  = [ yandex_vpc_security_group.pgsql-sg.id ]
+    deletion_protection = true
+
+    config {
+      version = {{ versions.tf.latest }}
+      resources {
+        resource_preset_id = "{{ host-class }}"
+        disk_type_id       = "{{ disk-type-example }}"
+        disk_size          = "20"
+      }
+    }
+
+    database {
+      name  = "db1"
+      owner = "user1"
+    }
+
+    user {
+      name     = "user1"
+      password = "user1user1"
+      permission {
+        database_name = "db1"
+      }
+    }
+
+    host {
+      zone      = "{{ zone-id }}"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+    }
+  }
+
+  resource "yandex_vpc_network" "mynet" {
+    name = "mynet"
+  }
+
+  resource "yandex_vpc_subnet" "mysubnet" {
+    name           = "mysubnet"
+    zone           = "{{ zone-id }}"
+    network_id     = yandex_vpc_network.mynet.id
+    v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+
+  resource "yandex_vpc_security_group" "pgsql-sg" {
+    name       = "pgsql-sg"
+    network_id = yandex_vpc_network.mynet.id
+
+    ingress {
+      description    = "PostgreSQL"
+      port           = 6432
+      protocol       = "TCP"
+      v4_cidr_blocks = [ "0.0.0.0/0" ]
+    }
+  }
+  ```
+
+  {% endif %}
 
 {% endlist %}

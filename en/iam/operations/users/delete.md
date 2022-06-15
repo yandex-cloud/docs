@@ -14,7 +14,7 @@ These instructions describe how to revoke all cloud roles from a user. If the cl
 
    1. Log in to the [management console]({{ link-console-main }}).
    1. [Select the desired cloud](../../../resource-manager/operations/cloud/switch-cloud.md).
-   1. Go to [Access bindings in cloud]{% if lang == "ru" %}(https://console.cloud.yandex.ru/cloud?section=resource-acl){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/cloud?section=resource-acl){% endif %} (the **Access bindings** button in the left panel).
+   1. Go to [Access bindings]({{ link-console-cloud }}?section=resource-acl).
    1. Select the appropriate user in the list and click ![image](../../../_assets/options.svg) next to the user's name.
    1. Click **Remove bindings**.
    1. Confirm revoking all roles from the user.

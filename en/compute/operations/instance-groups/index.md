@@ -8,7 +8,13 @@
 * [{#T}](create-with-balancer.md)
 * [{#T}](create-with-load-balancer.md)
 * [{#T}](create-autoscaled-group.md)
+
+{% if product == "yandex-cloud" %}
+
 * [{#T}](create-with-coi.md)
+
+{% endif %}
+
 * [{#T}](create-from-yaml.md)
 
 ## Getting information about instance groups {#ig-info}
@@ -25,4 +31,3 @@
 * [{#T}](update-from-yaml.md)
 * [{#T}](delete.md)
 * [{#T}](enable-autohealing.md)
-

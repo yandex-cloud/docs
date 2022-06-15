@@ -25,7 +25,7 @@ To create an instance group with a network load balancer:
 
       * Select a [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. All operations in {{ ig-name }} are performed on behalf of the service account.
       * Enable **Deletion protection** if needed. You can't delete a group with this option enabled.
-   1. In the **Allocation** section, select the desired **availability zones**. Group instances may reside in different availability zones and regions. [More about the geo scope of {{ yandex-cloud }}](../../../overview/concepts/geo-scope.md).
+   1. In the **Allocation** section, select the desired **availability zones**. {% if product == "yandex-cloud" %}Group instances may reside in different availability zones and regions. {% endif %}[More about the geo scope of {{ yandex-cloud }}](../../../overview/concepts/geo-scope.md).
    1. In the **Instance template** section, click **Define** to set the base instance configuration:
       * Under **Basic parameters**, enter the template **Description**:
       * Under **Image/boot disk selection**, select a system to be deployed on the VM instance's boot disk.
@@ -96,7 +96,7 @@ To create an instance group with a network load balancer:
 
       If there aren't any, [create one](../../../vpc/operations/network-create.md).
 
-   1. Select a [public image](../images-with-pre-installed-software/get-list.md) (such as [CentOS 7]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}).
+   1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) (for example, [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo)).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
@@ -169,7 +169,7 @@ To create an instance group with a network load balancer:
                  size: 3
          allocation_policy:
              zones:
-                 - zone_id: ru-central1-a
+                 - zone_id: {{ region-id }}-a
          ```
 
          Keys:
@@ -223,7 +223,7 @@ To create an instance group with a network load balancer:
                  size: 3
          allocation_policy:
              zones:
-                 - zone_id: ru-central1-a
+                 - zone_id: {{ region-id }}-a
          load_balancer_spec:
              target_group_spec:
                  name: first-target-group
@@ -240,7 +240,7 @@ To create an instance group with a network load balancer:
       * Named `first-fixed-group-with-balancer`.
       * Running CentOS 7.
       * In the `default-net` network.
-      * In the `ru-central1-a` availability zone.
+      * In the `{{ region-id }}-a` availability zone.
       * With 2 vCPUs and 2 GB of RAM.
       * With a 32 GB network HDD.
       * With a target group named `first-target-group`.
@@ -249,7 +249,7 @@ To create an instance group with a network load balancer:
 
 - API
 
-   Use the API [create](../../api-ref/InstanceGroup/create.md) method.
+   Use the API [Create](../../api-ref/InstanceGroup/create.md) method.
 
 - Terraform
 
@@ -354,7 +354,7 @@ To create an instance group with a network load balancer:
         }
       
         allocation_policy {
-          zones = ["ru-central1-a"]
+          zones = ["{{ region-id }}-a"]
         }
       
         deploy_policy {
@@ -374,18 +374,18 @@ To create an instance group with a network load balancer:
       
       resource "yandex_vpc_subnet" "subnet-1" {
         name           = "subnet1"
-        zone           = "ru-central1-a"
+        zone           = "{{ region-id }}-a"
         network_id     = "${yandex_vpc_network.network-1.id}"
         v4_cidr_blocks = ["192.168.10.0/24"]
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
+      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-link }}/).
 
-   2. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
-      2. Run the check using the command:
+      1. Run the check using the command:
 
          ```
          terraform plan
@@ -393,7 +393,7 @@ To create an instance group with a network load balancer:
 
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
 
-   3. Deploy the cloud resources.
+   1. Deploy the cloud resources.
 
       1. If the configuration doesn't contain any errors, run the command:
 
@@ -401,7 +401,7 @@ To create an instance group with a network load balancer:
          terraform apply
          ```
 
-      2. Confirm that you want to create the resources.
+      1. Confirm that you want to create the resources.
 
       Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
 

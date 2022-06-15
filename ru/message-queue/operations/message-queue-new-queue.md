@@ -32,14 +32,14 @@
   ```bash
   aws sqs create-queue \
     --queue-name sample-queue \
-    --endpoint https://message-queue.api.cloud.yandex.net/
+    --endpoint https://message-queue.{{ api-host }}/
   ```
   
   Результат:
 
   ```
   {
-      "QueueUrl": "https://message-queue.api.cloud.yandex.net/aoeaql9r10cd9cfue7v6/000000000000002n034r/sample-queue"
+      "QueueUrl": "https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002n034r/sample-queue"
   }
   ```
 

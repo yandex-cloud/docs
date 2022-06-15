@@ -224,4 +224,4 @@
     * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
     * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
 
-1. Если для доступа к хостам кластеров использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md) их.
+1. Если для доступа к хостам кластеров использовались статические публичные IP-адреса, освободите и {% if audience != "internal" %}[удалите](../../vpc/operations/address-delete.md){% else %}удалите{% endif %} их.

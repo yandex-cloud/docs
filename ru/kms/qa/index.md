@@ -1,6 +1,6 @@
 ---
-title: "Yandex Key Management Service. Ответы на вопросы"
-description: "Как получить логи моей работы в сервисе Yandex Key Management Service? Ответы на этот и другие вопросы в данной статье."
+title: "{{ kms-full-name }}. Ответы на вопросы"
+description: "Как получить логи моей работы в сервисе {{ kms-full-name }}? Ответы на этот и другие вопросы в данной статье."
 ---
 
 # Общие вопросы про {{ kms-name }}

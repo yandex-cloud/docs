@@ -18,9 +18,23 @@ test
 
 Получите подробную информацию о профиле с именем `prod`:
 
+{% if product == "yandex-cloud" %}
+
 ```
 $ yc config profile get prod
 token: AQAAAAAV6O...
 cloud-id: b1gvl...
 folder-id: b1g88...
 ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+```
+$ yc config profile get prod
+cloud-id: b1gvl...
+folder-id: b1g88...
+```
+
+{% endif %}

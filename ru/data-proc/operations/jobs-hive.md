@@ -80,6 +80,10 @@
 
 {% include [jobs-get-info](../../_includes/data-proc/jobs-get-info.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ## Получить логи выполнения задания {#get-logs}
 
 {% include [jobs-get-logs](../../_includes/data-proc/jobs-get-logs.md) %}
+
+{% endif %}

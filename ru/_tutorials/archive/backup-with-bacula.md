@@ -27,7 +27,9 @@ Bacula состоит из нескольких компонентов:
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-{% include [prepare-register-billing](../_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -36,6 +38,8 @@ Bacula состоит из нескольких компонентов:
 * плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../compute/pricing));
 * плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing));
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing)).
+
+{% endif %}
 
 ## Создайте виртуальную машину {#create-vm}
 
@@ -47,7 +51,7 @@ Bacula состоит из нескольких компонентов:
 
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 
-1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [CentOS 7]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}.
+1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo).
 
 1. В блоке **Вычислительные ресурсы** выберите:
     * **Платформа** — Intel Cascade Lake.
@@ -142,7 +146,7 @@ Bacula состоит из нескольких компонентов:
 
     * `AWS Access Key ID` — введите идентификатор `key_id`, который вы получили при [создании статического ключа](#create-access-key).
     * `AWS Secret Access Key` — введите секретный ключ `secret`, который вы получили при [создании статического ключа](#create-access-key).
-    * `Default region name` — `ru-central1`.
+    * `Default region name` — `{{ region-id }}`.
     * `Default output format` — `json`.
 
 1. Проверьте, что файл `/root/.aws/credentials` содержит правильные значения `key_id` и `secret`:
@@ -281,7 +285,7 @@ Bacula состоит из нескольких компонентов:
 1. Смонтируйте бакет с помощью утилиты `s3fs`:
 
     ```bash
-    $ sudo s3fs bacula-bucket /tmp/bacula -o url=https://storage.yandexcloud.net -o use_path_request_style -o allow_other -o nonempty -o uid=133,gid=133,mp_umask=077
+    $ sudo s3fs bacula-bucket /tmp/bacula -o url=https://{{ s3-storage-host }} -o use_path_request_style -o allow_other -o nonempty -o uid=133,gid=133,mp_umask=077
     ```
 
     * `bacula-bucket` — название бакета в {{ objstorage-name }}.

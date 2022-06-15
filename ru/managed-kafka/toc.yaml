@@ -1,5 +1,9 @@
 ---
-title: Yandex Managed Service for Apache Kafka®
+title:
+  - text: Yandex Managed Service for Apache Kafka®
+    when: product == "yandex-cloud"
+  - text: Managed Service for Apache Kafka®
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Начало работы
@@ -109,5 +113,6 @@ items:
           path: en/_api-ref/mdb/kafka/toc.yaml
   - name: История изменений
     href: release-notes.md
+    when: product == "yandex-cloud"
   - name: Вопросы и ответы
     href: qa/index.md

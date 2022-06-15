@@ -4,8 +4,7 @@
 
 ## Перед началом работы {#prerequisites}
 
-1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install.md) %}
-
+1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Установите Ingress-контроллер](k8s-ingress-controller-install.md).
 1. Создайте конфигурацию. Подробнее см. в [описании](../tools/k8s-ingress-controller/index.md) и справочнике контроллера.
 

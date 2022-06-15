@@ -4,7 +4,7 @@ After creating an {{ KF }} cluster, you can:
 
 * [{#T}](#enable-api).
 * [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size){% if audience != "internal" %} (unavailable for non-replicated SSD [storage](../concepts/storage.md)){% endif %}.
+* [{#T}](#change-disk-size){% if audience != "internal" %} (unavailable for non-replicated SSD [storage](../concepts/storage.md)){% endif %}.
 * [{#T}](#change-additional-settings).
 * [{#T}](#change-kafka-settings).
 * [{#T}](#move-cluster) from the current folder to another one.
@@ -356,7 +356,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      {% include [[deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
    You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -575,7 +575,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
       ```
       {{ yc-mdb-kf }} cluster update <cluster name> \
-        --security-group-ids <security group list>
+         --security-group-ids <security group list>
       ```
 
 - Terraform

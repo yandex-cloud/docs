@@ -1,16 +1,22 @@
 # Changing cluster settings
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 After creating a cluster, you can:
 
 * [Change service account settings](#change-service-account).
 
 * [{#T}](#change-resource-preset).
 
-* [{#T}](#change-disk-size){% if audience != "internal" %} (unavailable for non-replicated SSD [storage](../concepts/storage.md)){% endif %}.
+* [{#T}](#change-disk-size){% if audience != "internal" %} (unavailable for non-replicated SSD [storage](../concepts/storage.md)){% endif %}.
 
 * [{#T}](#SQL-management)
 
-* [Configure {{ CH }} servers](#change-clickhouse-config) as described in the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/){% endif %}.
+* [Configure {{ CH }} servers](#change-clickhouse-config) by following the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/server_settings/settings/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/server_settings/settings/){% endif %}.
 
 * [Change additional cluster settings](#change-additional-settings).
 
@@ -45,6 +51,8 @@ After creating a cluster, you can:
 In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, see [{#T}](../concepts/replication.md).
 
 {% endnote %}
+
+The host class affects the amount of RAM that can be used by {{ CH }}. For more information, see [{#T}](../concepts/memory-management.md).
 
 {% list tabs %}
 
@@ -85,8 +93,8 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
       +-----------+--------------------------------+-------+----------+
       |    ID     |            ZONE IDS            | CORES |  MEMORY  |
       +-----------+--------------------------------+-------+----------+
-      | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
-      |           | ru-central1-c                  |       |          |
+      | s1.micro  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 8.0 GB   |
+      |           | {{ region-id }}-c                  |       |          |
       | ...                                                           |
       +-----------+--------------------------------+-------+----------+
       ```
@@ -113,8 +121,8 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
    1. Specify the class in the update cluster command:
 
       ```
-      $ {{ yc-mdb-ch }} cluster update <cluster name>
-        --clickhouse-resource-preset <class ID>
+      {{ yc-mdb-ch }} cluster update <cluster name> \
+         --clickhouse-resource-preset <class ID>
       ```
 
       {{ mch-short-name }} will run the update host class command for the cluster.
@@ -207,7 +215,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
        --clickhouse-disk-size <storage size in GB>
       ```
 
-   1. To {% if audience != "internal" %}increase{% else %}modify{% endif %} the storage capacity of {{ ZK }} hosts, pass the desired value in in the `--zookeeper-disk-size` parameter.
+   1. To {% if audience != "internal" %}increase{% else %}modify{% endif %} the storage capacity of {{ ZK }} hosts, pass the desired value in the `--zookeeper-disk-size` parameter.
 
 - Terraform
 
@@ -256,7 +264,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
    * The required amount of the {{ ZK }} host storage in the `configSpec.zookeeper.resources.diskSize` parameter.
    * List of cluster configuration fields to be changed in the `updateMask` parameter.
 
-      {% include [Reset the values of all parameters of the object to update](../../_includes/mdb/note-api-updatemask.md) %}
+      {% include [Resetting the settings of the object being modified](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -341,6 +349,14 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 {% endlist %}
 
 ## Changing {{ CH }} settings {#change-clickhouse-config}
+
+{% note info %}
+
+You can only change the [Max server memory usage]({% if lang=="ru" %}https://{{ ch-domain }}/docs/ru/operations/server-configuration-parameters/settings/#max_server_memory_usage{% else %}https://{{ ch-domain }}/docs/en/operations/server-configuration-parameters/settings/#max_server_memory_usage{% endif %}) setting value by [changing the class of {{ CH }} hosts](#change-resource-preset).
+
+For more information, see [{#T}](../concepts/memory-management.md).
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -497,7 +513,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
                              `hour=<hour for weekly> \
          --metrika-access=<true or false> \
          --websql-access=<true or false> \
-         --deletion-protection=<protect cluster from deletion: true or false> \
+         --deletion-protection=<cluster deletion protection: true or false> \
          --serverless-access=<true or false>
       ```
 
@@ -505,13 +521,14 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
+   -{% if product == "yandex-cloud" %}*`--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).{% endif %}
 
    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
    * `--metrika-access` enables [data import from AppMetrica into a cluster]{% if lang == "ru" %}(https://appmetrica.yandex.ru/docs/cloud/index.html){% endif %}{% if lang == "en" %}(https://appmetrica.yandex.com/docs/cloud/index.html){% endif %}. Default value: `false`.
 
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
+      {% if product == "yandex-cloud" %}
       {% if audience != "internal" %}
 
    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
@@ -521,10 +538,11 @@ Once enabled, user and database management settings for SQL cannot be disabled.
    * `--serverless-access`: Enables cluster access from {{ sf-full-name }}. Default value: `false`.
 
    {% endif %}
+   {% endif %}
 
-   * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
+   * {% include [Protection against cluster deletion](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Limitations of Deletion protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -547,7 +565,9 @@ Once enabled, user and database management settings for SQL cannot be disabled.
       }
       ```
 
-   1. To allow access from other {{ yandex-cloud }} services and [execution of SQL queries from the management console](web-sql-query.md), change the values of the appropriate fields in the `access` block:
+   1. To allow access from other services and [execution of SQL queries from the management console](web-sql-query.md), change the values of the appropriate fields in the `access` block:
+
+      {% if product == "yandex-cloud" %}
 
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
@@ -562,6 +582,23 @@ Once enabled, user and database management settings for SQL cannot be disabled.
       }
       ```
 
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```hcl
+      resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+        ...
+        access {
+          metrika    = <Access from Metrica and AppMetrika: true or false>
+          web_sql    = <Executing SQL queries from the management console: true or false>
+        }
+        ...
+      }
+      ```
+
+      {% endif %}
+
    1. {% include [maintenance-window](../../_includes/mdb/mch/terraform-maintenance-window.md) %}
 
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
@@ -573,7 +610,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
       }
       ```
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Limitations of Deletion protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    1. Make sure the settings are correct.
 
@@ -590,12 +627,12 @@ Once enabled, user and database management settings for SQL cannot be disabled.
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter.
-   * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
+   * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access parameter`.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Limitations of Deletion protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    * List of cluster configuration fields to be changed in the `updateMask` parameter.
 
@@ -607,6 +644,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
    {% endnote %}
 
+   {% if product == "yandex-cloud" %}
    {% if audience != "internal" %}
 
    To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
@@ -616,6 +654,9 @@ Once enabled, user and database management settings for SQL cannot be disabled.
    To allow cluster access from {{ sf-full-name }}, pass `true` for the `configSpec.access.serverless` parameter.
 
    {% endif %}
+   {% endif %}
+
+   To allow cluster access from {{ yq-full-name }}, pass `true` for the `configSpec.access.yandexQuery` parameter.
 
 {% endlist %}
 
@@ -646,8 +687,8 @@ Once enabled, user and database management settings for SQL cannot be disabled.
    1. Specify the security groups in the update cluster command:
 
       ```
-      {{ yc-mdb-ch }} cluster update <cluster name>
-        --security-group-ids <security group ID list>
+      {{ yc-mdb-ch }} cluster update <cluster name> \
+         --security-group-ids <security group ID list>
       ```
 
 - Terraform

@@ -1,4 +1,8 @@
-title: Yandex Monitoring
+title:
+  - text: Yandex Monitoring
+    when: product == "yandex-cloud"
+  - text: Monitoring
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Getting started
@@ -35,7 +39,7 @@ items:
             href: operations/dashboard/add-widget.md
           - name: Deleting widgets from a dashboard
             href: operations/dashboard/delete-widget.md
-          - name: Deleting dashboards
+          - name: Delete dashboards
             href: operations/dashboard/delete-dashboard.md
       - name: Working with alerts
         items:
@@ -86,6 +90,7 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
+    when: product == "yandex-cloud"
     items:
       - name: Current pricing policy
         href: pricing.md
@@ -93,6 +98,9 @@ items:
         items:
           - name: Policy before October 1, 2020
             href: pricing-archive/pricing-01102020.md
+  - name: Pricing policy
+    when: product == "cloud-il"
+    href: pricing.md
   - name: API reference
     items:
       - name: API authentication
@@ -132,7 +140,7 @@ items:
       - name: Navigation
         href: qa/navigation.md
       - name: Metric collection and export
-        href: qa/metrics-export.md  
+        href: qa/metrics-export.md
       - name: Metrics and units of measure
         href: qa/metrics-measure.md
       - name: Alerts / notifications

@@ -4,6 +4,14 @@ editable: false
 
 # Правила тарификации для {{ message-queue-name }}
 
+{% if product == "cloud-il" %}
+
+На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ message-queue-name }} не тарифицируется.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 ## Из чего складывается стоимость использования Message Queue {#rules}
 
 В рамках сервиса {{ message-queue-name }} тарифицируется количество запросов к [стандартным очередям](concepts/queue.md#standard-queues) и [очередям FIFO](concepts/queue.md#fifo-queues), а также исходящий трафик.
@@ -51,5 +59,7 @@ editable: false
 {% if region == "int" %}
 
 {% include [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}
 
 {% endif %}

@@ -245,7 +245,7 @@ sudo apt update && sudo apt install -y kafkacat
                     string TOPIC = "<имя топика>";
                     string USER = "<имя производителя>";
                     string PASS = "<пароль производителя>";
-                    string CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexCA.crt";
+                    string CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
                     var producerConfig = new ProducerConfig(
                         new Dictionary<string,string>{
@@ -300,7 +300,7 @@ sudo apt update && sudo apt install -y kafkacat
                     string TOPIC = "<имя топика>";
                     string USER = "<имя потребителя>";
                     string PASS = "<пароль потребителя>";
-                    string CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexCA.crt";
+                    string CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
                     var consumerConfig = new ConsumerConfig(
                         new Dictionary<string,string>{
@@ -612,7 +612,7 @@ sudo apt update && sudo apt install -y kafkacat
               conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
 
               certs := x509.NewCertPool()
-              pemPath := "/usr/local/share/ca-certificates/Yandex/YandexCA.crt"
+              pemPath := "{{ crt-local-dir }}{{ crt-local-file }}"
               pemData, err := ioutil.ReadFile(pemPath)
               if err != nil {
                       fmt.Println("Couldn't load cert: ", err.Error())
@@ -687,7 +687,7 @@ sudo apt update && sudo apt install -y kafkacat
               conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
 
               certs := x509.NewCertPool()
-              pemPath := "/usr/local/share/ca-certificates/Yandex/YandexCA.crt"
+              pemPath := "{{ crt-local-dir }}{{ crt-local-file }}"
               pemData, err := ioutil.ReadFile(pemPath)
               if err != nil {
                   fmt.Println("Couldn't load cert: ", err.Error())
@@ -1265,7 +1265,7 @@ npm install node-rdkafka
       const TOPIC = "<имя топика>";
       const USER = "<имя производителя>";
       const PASS = "<пароль производителя>";
-      const CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexCA.crt";
+      const CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
       const producer = new Kafka.Producer({
         'bootstrap.servers': HOST,
@@ -1309,7 +1309,7 @@ npm install node-rdkafka
       const TOPIC = "<имя топика>";
       const USER = "<имя потребителя>";
       const PASS = "<пароль потребителя>";
-      const CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexCA.crt";
+      const CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
       const consumer = new Kafka.Consumer({
         'bootstrap.servers': HOST,
@@ -1408,8 +1408,8 @@ npm install node-rdkafka
   1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ KF }} мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль в параметре `--storepass` для дополнительной защиты хранилища:
 
      ```powershell
-     keytool.exe -importcert -alias YandexCA `
-       --file $HOME\.kafka\YandexCA.crt `
+     keytool.exe -importcert -alias {{ crt-alias }} `
+       --file $HOME\.kafka\{{ crt-local-file }} `
        --keystore $HOME\.kafka\ssl `
        --storepass <пароль хранилища сертификатов> `
        --noprompt
@@ -1530,7 +1530,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
           sasl_mechanism="SCRAM-SHA-512",
           sasl_plain_password='<пароль производителя>',
           sasl_plain_username='<имя производителя>',
-          ssl_cafile="/usr/local/share/ca-certificates/Yandex/YandexCA.crt")
+          ssl_cafile="{{ crt-local-dir }}{{ crt-local-file }}")
 
       producer.send('<имя топика>', b'test message', b'key')
       producer.flush()
@@ -1551,7 +1551,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
           sasl_mechanism="SCRAM-SHA-512",
           sasl_plain_password='<пароль потребителя>',
           sasl_plain_username='<имя потребителя>',
-          ssl_cafile="/usr/local/share/ca-certificates/Yandex/YandexCA.crt")
+          ssl_cafile="{{ crt-local-dir }}{{ crt-local-file }}")
 
       print("ready")
 

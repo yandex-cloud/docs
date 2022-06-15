@@ -1,6 +1,6 @@
 ---
-title: Управление доступом в Yandex Identity and Access Management (IAM)
-description: "Управление доступом в сервисе идентификации и контроля доступа Yandex Identity and Access Management (IAM). В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия."
+title: Управление доступом в {{ iam-full-name }} ({{ iam-short-name }}
+description: "Управление доступом в сервисе идентификации и контроля доступа {{ iam-full-name }} ({{ iam-short-name }}). В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия."
 ---
 
 # Управление доступом в {{ iam-name }}
@@ -42,8 +42,8 @@ description: "Управление доступом в сервисе идент
 Действие | Методы | Необходимые роли
 ----- | ----- | -----
 **Просмотр информации** | |
-[Получение IAM-токена](../operations/iam-token/create.md) | `create` | роли не требуются, только аутентификация
-[Просмотр информации о пользователе](../operations/users/get.md) | `get`, `getByLogin` | роли не требуются, только аутентификация
+[Получение IAM-токена]{% if product == "yandex-cloud" %}(../operations/iam-token/create.md){% endif %}{% if product == "cloud-il" %}(../operations/iam-token/create-for-federation.md){% endif %} | `create` | роли не требуются, только аутентификация
+[Просмотр информации о пользователе](../operations/users/get.md) | `get`{% if product == "yandex-cloud" %}, `getByLogin`{% endif %} | роли не требуются, только аутентификация
 [Просмотр информации о сервисном аккаунте](../operations/sa/get-id.md) | `get`, `list`, `listOperations` | `iam.serviceAccounts.user` или `viewer` на сервисный аккаунт
 Просмотр информации о любом ресурсе | `get`, `list` | `viewer` на этот ресурс
 **Управление ресурсами** | |

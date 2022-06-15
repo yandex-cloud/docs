@@ -1,6 +1,6 @@
 # Network on a VM
 
-When creating a VM, you need to specify settings for the network interface connected to it: select the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to, configure its [internal](#internal-ip) and [public](#public-ip) IP addresses, and add the necessary [security groups](../../vpc/concepts/security-groups.md). This allows the VM to interact with other services on the intranet and internet.
+When creating a VM, you should specify settings for the network interface connected to it: select the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to, configure [internal](#internal-ip) and [public IP addresses](#public-ip), and add the necessary [security groups](../../vpc/concepts/security-groups.md). This allows the VM to interact with other services on the intranet and internet.
 
 {% include [security-groups-note](../_includes_service/security-groups-note.md) %}
 
@@ -60,8 +60,8 @@ The assigned FQDN depends on the set hostname `(CreateInstanceSpec.hostname)`. T
 | The set hostname | FQDN of the VM |
 :--- | :---
 | `<not specified>` | `<VM ID>.auto.internal` |
-| `breathtaking` | `breathtaking.ru-central1.internal` |
-| `this-is-sparta` | `this-is-sparta.ru-central1.internal` |
+| `breathtaking` | `breathtaking.{{ region-id }}.internal` |
+| `this-is-sparta` | `this-is-sparta.{{ region-id }}.internal` |
 | `hello.world` or `hello.world.` | `hello.world` |
 | `breathtaking.` | `breathtaking` |
 | <span style="color: red">`.why`</span> | <span style="color: red">error (FQDN starts with ".")</span> |

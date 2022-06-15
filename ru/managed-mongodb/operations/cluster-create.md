@@ -196,6 +196,8 @@
 
      Пример структуры конфигурационного файла:
 
+     {% if product == "yandex-cloud" %}
+
      ```hcl
      terraform {
        required_providers {
@@ -257,6 +259,75 @@
        v4_cidr_blocks = ["<диапазон>"]
      }
      ```
+
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```hcl
+     terraform {
+       required_providers {
+         yandex = {
+           source = "yandex-cloud/yandex"
+         }
+       }
+     }
+
+     provider "yandex" {
+       endpoint  = "{{ api-host }}:443"
+       token     = "<статический ключ сервисного аккаунта>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "<зона доступности>"
+     }
+
+     resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+       name                = "<имя кластера>"
+       environment         = "<окружение: PRESTABLE или PRODUCTION>"
+       network_id          = "<идентификатор сети>"
+       security_group_ids  = [ "<список групп безопасности>" ]
+       deletion_protection = <защита от удаления кластера: true или false>
+
+       cluster_config {
+         version = "<версия {{ MG }}: {{ versions.tf.str }}>"
+       }
+
+       database {
+         name = "<имя базы данных>"
+       }
+
+       user {
+         name     = "<имя пользователя>"
+         password = "<пароль пользователя>"
+         permission {
+           database_name = "<имя базы данных>"
+           roles         = [ "<список ролей пользователя>" ]
+         }
+       }
+
+       resources {
+         resource_preset_id = "<класс хоста>"
+         disk_type_id       = "<тип хранилища>"
+         disk_size          = <размер хранилища, ГБ>
+       }
+
+       host {
+         zone_id   = "<зона доступности>"
+         subnet_id = "<идентификатор подсети>"
+       }
+     }
+
+     resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
+
+     resource "yandex_vpc_subnet" "<имя подсети>" {
+       name           = "<имя подсети>"
+       zone           = "<зона доступности>"
+       network_id     = "<идентификатор сети>"
+       v4_cidr_blocks = ["<диапазон>"]
+     }
+     ```
+
+     {% endif %}
 
      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -378,6 +449,8 @@
 
   Конфигурационный файл для такого кластера выглядит так:
 
+  {% if product == "yandex-cloud" %}
+
   ```hcl
   terraform {
     required_providers {
@@ -452,5 +525,87 @@
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```
+
+  {% endif %}
+
+  {% if product == "cloud-il" %}
+
+  ```hcl
+  terraform {
+    required_providers {
+      yandex = {
+        source = "yandex-cloud/yandex"
+      }
+    }
+  }
+
+  provider "yandex" {
+    endpoint  = "{{ api-host }}:443"
+    token     = "<статический ключ сервисного аккаунта>"
+    cloud_id  = "{{ tf-cloud-id }}"
+    folder_id = "{{ tf-folder-id }}"
+    zone      = "{{ zone-id }}"
+  }
+
+  resource "yandex_mdb_mongodb_cluster" "mymg" {
+    name                = "mymg"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.mynet.id
+    security_group_ids  = [ yandex_vpc_security_group.mymg-sg.id ]
+    deletion_protection = true
+
+    cluster_config {
+      version = "{{ versions.tf.latest }}"
+    }
+
+    database {
+      name = "db1"
+    }
+
+    user {
+      name     = "user1"
+      password = "user1user1"
+      permission {
+        database_name = "db1"
+      }
+    }
+
+    resources {
+      resource_preset_id = "{{ host-class }}"
+      disk_type_id       = "{{ disk-type-example }}"
+      disk_size          = 20
+    }
+
+    host {
+      zone_id   = "{{ zone-id }}"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+    }
+  }
+
+  resource "yandex_vpc_network" "mynet" {
+    name = "mynet"
+  }
+
+  resource "yandex_vpc_security_group" "mymg-sg" {
+    name       = "mymg-sg"
+    network_id = yandex_vpc_network.mynet.id
+
+    ingress {
+      description    = "MongoDB"
+      port           = {{ port-mmg }}
+      protocol       = "TCP"
+      v4_cidr_blocks = [ "0.0.0.0/0" ]
+    }
+  }
+
+  resource "yandex_vpc_subnet" "mysubnet" {
+    name           = "mysubnet"
+    zone           = "{{ zone-id }}"
+    network_id     = yandex_vpc_network.mynet.id
+    v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+  ```
+
+  {% endif %}
 
 {% endlist %}

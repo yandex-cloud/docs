@@ -27,6 +27,6 @@ To install `goofys`, follow the [instructions](https://github.com/kahing/goofys#
 You can configure mounting a bucket at system startup. To do this, open the `/etc/fstab` file and add a line in the following format:
 
 ```
-goofys#<bucket name>   <mount point>        fuse     _netdev,allow_other,--file-mode=0666,--dir-mode=0777,--endpoint=https://storage.yandexcloud.net    0       0
+goofys#<bucket name>   <mount point>        fuse     _netdev,allow_other,--file-mode=0666,--dir-mode=0777,--endpoint=https://{{ s3-storage-host }}    0       0
 ```
 

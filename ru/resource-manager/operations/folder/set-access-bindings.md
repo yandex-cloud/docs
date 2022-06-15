@@ -59,22 +59,31 @@
       +--------------------------------+-------------+
       ```
 
-  4. Узнайте ID пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или группе пользователей, воспользуйтесь [примерами](#examples) ниже.
+{% if product == "yandex-cloud" %}
+
+  4. Узнайте идентификатор пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или системной группе используйте [примеры](#examples) ниже.
 
       ```bash
       yc iam user-account get test-user
       ```
-      
+
       Результат:
 
-      
-      ```
+      ```bash
       id: gfei8n54hmfhuk5nogse
       yandex_passport_user_account:
         login: test-user
         default_email: test-user@yandex.ru
       ```
-  5. Назначьте пользователю `test-user` роль `editor` на каталог `my-folder`. В субъекте укажите тип `userAccount` и ID пользователя:
+
+{% endif %}
+{% if product == "cloud-il" %}
+
+  4. [Получите идентификатор пользователя](../../../iam/operations/users/get.md).
+
+{% endif %}
+  5. Назначьте пользователю `test-user` роль `editor` на каталог `my-folder`. В субъекте укажите тип {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} и ID пользователя:
+{% if product == "yandex-cloud" %}
 
       ```bash
       yc resource-manager folder add-access-binding my-folder \
@@ -82,6 +91,16 @@
         --subject userAccount:gfei8n54hmfhuk5nogse
       ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+      ```
+      $ yc resource-manager folder add-access-binding my-folder \
+          --role editor \
+          --subject federatedUser:gfei8n54hmfhuk5nogse
+      ```
+
+{% endif %}
 - API
 
   Воспользуйтесь методом [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md). Вам понадобится ID каталога и ID пользователя, которому назначается роль на каталог.
@@ -89,7 +108,7 @@
   1. Узнайте ID каталога с помощью метода [list](../../api-ref/Folder/list.md):
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders?cloudId=b1gg8sgd16g7qca5onqs
+        https://resource-manager.{{ api-host }}/resource-manager/v1/folders?cloudId=b1gg8sgd16g7qca5onqs
       ```
 
       Результат:
@@ -107,10 +126,11 @@
        ]
       }
       ```
+{% if product == "yandex-cloud" %}
   2. Узнайте ID пользователя по логину с помощью метода [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+        https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
       ```
 
       Результат:
@@ -124,7 +144,14 @@
        }
       }
       ```
-  3. Назначьте пользователю роль `editor` на каталог `my-folder`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
+{% endif %}
+{% if product == "cloud-il" %}
+
+  2. [Получите идентификатор пользователя](../../../iam/operations/users/get.md).
+
+{% endif %}
+  3. Назначьте пользователю роль `editor` на каталог `my-folder`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} и ID пользователя:
+{% if product == "yandex-cloud" %}
 
       ```bash
       curl -X POST \
@@ -139,9 +166,29 @@
                     "id": "gfei8n54hmfhuk5nogse",
                     "type": "userAccount"
         }}}]}' \
-        https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
+        https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
       ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+      ```bash
+      curl -X POST \
+          -H 'Content-Type: application/json' \
+          -H "Authorization: Bearer <IAM-TOKEN>" \
+          -d '{
+          "accessBindingDeltas": [{
+              "action": "ADD",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "gfei8n54hmfhuk5nogse",
+                      "type": "federatedUser"
+          }}}]}' \
+          https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
+      ```
+
+{% endif %}
 - Terraform
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -166,11 +213,14 @@
        {% endnote %}
 
      * `members` — список пользователей, которым будет присвоена роль. Обязательный параметр. Каждая запись может иметь одно из следующих значений:
+{% if product == "yandex-cloud" %}
        * `userAccount:<ID пользователя>` — [ID пользователя](../../../iam/operations/users/get.md).
+{% endif %}
        * `serviceAccount:<ID сервисного аккаунта>` — [ID сервисного аккаунта](../../../iam/operations/sa/get-id.md).
-       * `federatedUser:<ID федеративного аккаунта>` — [ID федеративного аккаунта](../../../organization/users-get.md). 
+       * `federatedUser:<ID пользовательского аккаунта>` — [ID пользовательского аккаунта](../../../organization/users-get.md). 
 
      {% cut "Пример назначения роли на каталог с помощью Terraform" %}
+{% if product == "yandex-cloud" %}
 
      ```hcl
      ...
@@ -189,7 +239,29 @@
      }
      ...
      ```
-    
+
+{% endif %}
+{% if product == "cloud-il" %}
+
+     ```hcl
+     ...
+     data "yandex_resourcemanager_folder" "project1" {
+       folder_id = "<идентификатор каталога>"
+     }
+
+     resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+       folder_id = "${data.yandex_resourcemanager_folder_iam_member.project1.id}"
+
+       role = "editor"
+
+       members = [
+         "federatedUser:<идентификатор пользователя>",
+       ]
+     }
+     ...
+     ```
+
+{% endif %}
      {% endcut %}
 
      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
@@ -260,15 +332,26 @@
       yc resource-manager folder list-access-bindings my-folder
       ```
   2. Например, назначьте роль нескольким пользователям:
+{% if product == "yandex-cloud" %}
       ```bash
       yc resource-manager folder set-access-bindings my-folder \
         --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
         --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
       ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+      ```
+      $ yc resource-manager folder set-access-bindings my-folder \
+          --access-binding role=editor,subject=federatedUser:gfei8n54hmfhuk5nogse
+          --access-binding role=viewer,subject=federatedUser:helj89sfj80aj24nugsz
+      ```
+
+{% endif %}
 - API
 
   Назначьте одному пользователю роль `editor`, а другому `viewer`:
+{% if product == "yandex-cloud" %}
 
   ```bash
   curl -X POST \
@@ -292,9 +375,38 @@
                 "id": "helj89sfj80aj24nugsz",
                 "type": "userAccount"
     }}}]}' \
-    https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
+    https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
   ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+  ```bash
+  $ curl -X POST \
+      -H 'Content-Type: application/json' \
+      -H "Authorization: Bearer <IAM-TOKEN>" \
+      -d '{
+      "accessBindingDeltas": [{
+          "action": "ADD",
+          "accessBinding": {
+              "roleId": "editor",
+              "subject": {
+                  "id": "gfei8n54hmfhuk5nogse",
+                  "type": "federatedUser"
+              }
+          }
+      },{
+          "action": "ADD",
+          "accessBinding": {
+              "roleId": "viewer",
+              "subject": {
+                  "id": "helj89sfj80aj24nugsz",
+                  "type": "federatedUser"
+      }}}]}' \
+      https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
+  ```
+
+{% endif %}
   Вы также можете назначать роли с помощью метода [setAccessBindings](../../api-ref/Folder/setAccessBindings.md).
 
   {% note alert %}
@@ -302,6 +414,7 @@
   Метод `setAccessBindings` полностью перезаписывает права доступа к ресурсу! Все текущие роли на ресурс будут удалены.
 
   {% endnote %}
+{% if product == "yandex-cloud" %}
 
   ```bash
   curl -X POST \
@@ -315,9 +428,28 @@
         "roleId": "viewer",
         "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
     }]}' \
-    https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
+    https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
   ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+  ```bash
+  curl -X POST \
+      -H 'Content-Type: application/json' \
+      -H "Authorization: Bearer <IAM-TOKEN>" \
+      -d '{
+      "accessBindings": [{
+          "roleId": "editor",
+          "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "federatedUser" }
+      },{
+          "roleId": "viewer",
+          "subject": { "id": "helj89sfj80aj24nugsz", "type": "federatedUser" }
+      }]}' \
+      https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
+  ```
+
+{% endif %}
 - Terraform
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -341,9 +473,10 @@
 
        {% endnote %}
 
-     * `members` — список пользователей, которым будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате `userAccount:<ID пользователя>`, где `<ID пользователя>` — email-адрес аккаунта Яндекс (например, `ivan@yandex.ru`). Обязательный параметр.
+     * `members` — список пользователей, которым будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате {% if product == "yandex-cloud" %}`userAccount:<ID пользователя>`{% endif %}{% if product == "cloud-il" %}`federatedUser:<ID пользователя>`{% endif %}{% if product == "yandex-cloud" %}, где `<ID пользователя>` — email-адрес аккаунта Яндекс (например, `ivan@yandex.ru`){% endif %}. Обязательный параметр.
 
      {% cut "Пример назначения роли на каталог с помощью Terraform" %}
+{% if product == "yandex-cloud" %}
 
      ```hcl
      ...
@@ -371,6 +504,38 @@
      }
      ...
      ```
+
+{% endif %}
+{% if product == "cloud-il" %}
+
+     ```hcl
+     ...
+     data "yandex_resourcemanager_folder" "project1" {
+       folder_id = "<идентификатор каталога>"
+     }
+
+     resource "yandex_resourcemanager_folder_iam_binding" "editor" {
+       folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
+
+       role = "editor"
+
+       members = [
+         "federatedUser:<ID пользователя>"
+       ]
+     }
+     resource "yandex_resourcemanager_folder_iam_binding" "operator" {
+       folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
+
+       role = "operator"
+
+       members = [
+         "federatedUser:<ID пользователя>"
+       ]
+     }
+     ...
+     ```
+
+{% endif %}
     
      {% endcut %}
 

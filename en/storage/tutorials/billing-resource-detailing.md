@@ -51,7 +51,7 @@ Install and configure the [AWS CLI](../tools/aws-cli.md).
     1. Run the command:
 
         ```bash
-        aws --endpoint https://storage.yandexcloud.net s3api select-object-content \
+        aws --endpoint https://{{ s3-storage-host }} s3api select-object-content \
           --bucket $bucket \
           --key $key \
           --expression "$query" \

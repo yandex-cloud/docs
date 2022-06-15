@@ -22,6 +22,8 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки сервера для GitLab входит:
@@ -29,12 +31,14 @@
 * плата за диск и постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамического или статического публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
+{% endif %}
+
 ## Создайте виртуальную машину c GitLab {#create-vm}
 
 1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Виртуальная машина**.
 1. В поле **Имя** введите имя виртуальной машины: `gitlab`.
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой должна находиться виртуальная машина.
-1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [GitLab]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eb5e8deq602ccak537){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eb5e8deq602ccak537){% endif %}.
+1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [GitLab](/marketplace/products/f2eb5e8deq602ccak537).
 1. В блоке **Диски** выберите жесткий диск SSD размером 20 Гб.
 1. В блоке **Вычислительные ресурсы**:
    * Выберите [платформу](../../compute/concepts/vm-platforms.md) виртуальной машины.

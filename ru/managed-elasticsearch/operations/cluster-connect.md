@@ -141,7 +141,7 @@ keywords:
   {% if audience == "internal" %}
 
   ```powershell
-  mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt https://crls.yandex.net/allCAs.pem
+  mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt {{ pem-path }}
   ```
 
   {% else %}

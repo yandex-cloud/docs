@@ -2,10 +2,12 @@
 
 Create an instance group using the [Instance Groups](../concepts/instance-groups/index.md) component in the {{ yandex-cloud }} management console.
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 1. Log in to or register in the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
-1. [On the billing page](https://console.cloud.yandex.com/billing), make sure you linked a [billing account](../../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+   {% if product == "yandex-cloud" %}
+1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+   {% endif %}
 1. If you don't have a folder, [create one](../../resource-manager/operations/folder/create.md).
 
 ## Create an instance group {#create-ig}
@@ -28,8 +30,8 @@ To create an instance group:
 
    * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. All operations in {{ ig-name }} are performed on behalf of the service account.
 
-1. In the **Allocation** section, select the desired availability zones. Group instances may reside in different availability zones and regions. [More about the geo scope of {{ yandex-cloud }}](../../overview/concepts/geo-scope.md).
-1. In the **Instance template** section, click **Set** to set the basic instance configuration:
+1. In the **Allocation** section, select the desired availability zones. {% if product == "yandex-cloud" %}Group instances may reside in different availability zones and regions. {% endif %}[More about the geo scope of {{ yandex-cloud }}](../../overview/concepts/geo-scope.md).
+1. In the **Instance template** section, click **Define** to set the base instance configuration:
    * Under **Basic parameters**:
       * Enter a description for the basic instance.
    * Select a public [image](../../compute/operations/images-with-pre-installed-software/get-list.md).

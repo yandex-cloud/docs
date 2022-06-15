@@ -21,12 +21,16 @@
 
 {% include [before-you-begin](_tutorials_includes/before-you-begin.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость входят:
 
 * плата за хранение данных в {{ objstorage-short-name }}, операции с ними и исходящий трафик (см. [тарифы {{ objstorage-short-name }}](../storage/pricing.md));
 * плата за постоянно запущенный кластер {{ mch-name }} (см. [тарифы {{ mch-name }}](../managed-clickhouse/pricing.md)).
+
+{% endif %}
 
 ## Создайте бакет для хранения логов {#create-bucket}
 
@@ -313,7 +317,7 @@
                                     -- * <имя бакета>.website.yandexcloud.net.
      )
      ENGINE = S3(
-           'https://storage.yandexcloud.net/bucket-logs/s3-logs/*',
+           'https://{{ s3-storage-host }}/bucket-logs/s3-logs/*',
            'JSONEachRow'
         );
      ```

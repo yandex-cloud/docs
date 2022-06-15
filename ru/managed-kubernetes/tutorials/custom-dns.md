@@ -1,5 +1,11 @@
 # Интеграция с корпоративной зоной DNS
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 Чтобы настроить резолвинг приватной корпоративной зоны DNS в кластере {{ k8s }} выполните следующие действия:
 1. Подготовьте рабочее окружение.
 
@@ -11,11 +17,11 @@
    1. Создайте [облачную сеть](../../vpc/operations/network-create.md).
    1. Создайте в облачной сети [подсеть](../../vpc/operations/subnet-create.md).
 
-    {% endcut %}
+   {% endcut %}
 
 1. Настройте сервер DNS.
 
-   В примерах этого сценария DNS-сервер имеет адрес `10.129.0.3`, имя `ns.example.com` и обслуживает зону `example.com`. Ваши DNS-серверы могут находиться в {{ vpc-name }} или быть доступны через VPN или {{ interconnect-name }}. Необходимое условие — IP-связность между узлами кластера {{ k8s }} и DNS-серверами.
+   В примерах этого сценария DNS-сервер имеет адрес `10.129.0.3`, имя `ns.example.com` и обслуживает зону `example.com`. Ваши DNS-серверы могут находиться в {{ vpc-name }} или быть доступны через VPN{% if product == "yandex-cloud" %} или {{ interconnect-name }}{% endif %}. Необходимое условие — IP-связность между узлами кластера {{ k8s }} и DNS-серверами.
 1. Создайте кластер {{ k8s }} и группу узлов.
 
    Вы можете использовать уже работающий кластер и группу узлов {{ k8s }} или создать новые.
@@ -34,11 +40,11 @@
      --service-account-name <имя сервисного аккаунта> \
      --node-service-account-name <имя сервисного аккаунта> \
      --public-ip \
-     --zone ru-central1-a \
+     --zone {{ region-id }}-a \
      --network-name <имя облачной сети>
    ```
 
-   Результат выполнения:
+   Результат выполнения команды:
 
    ```text
    done (7m21s)
@@ -51,12 +57,12 @@
    yc managed-kubernetes node-group create \
      --name custom-dns-group \
      --cluster-name custom-dns-cluster \
-     --location zone=ru-central1-b \
+     --location zone={{ region-id }}-a \
      --network-interface subnets=<имя подсети для группы узлов>,ipv4-address=nat \
      --fixed-size 1
    ```
 
-   Результат выполнения:
+   Результат выполнения команды:
 
    ```text
    done (2m43s)
@@ -81,7 +87,7 @@
    yc managed-kubernetes cluster get-credentials --external --name custom-dns-cluster
    ```
 
-   Результат выполнения:
+   Результат выполнения команды:
 
    ```text
    Context 'yc-custom-dns-cluster' was added as default to kubeconfig '/home/<ваш домашний каталог>/.kube/config'.
@@ -118,7 +124,7 @@
    kubectl replace -f custom-zone.yaml
    ```
 
-   Результат выполнения:
+   Результат выполнения команды:
 
    ```text
    configmap/coredns-user replaced
@@ -133,7 +139,7 @@
      --command sleep infinity
    ```
 
-   Результат выполнения:
+   Результат выполнения команды:
 
    ```text
    pod/jessie-dnsutils created
@@ -145,7 +151,7 @@
    kubectl describe pod jessie-dnsutils
    ```
 
-   Результат выполнения:
+   Результат выполнения команды:
 
    ```text
    ...
@@ -161,7 +167,7 @@
    kubectl exec jessie-dnsutils -- nslookup ns.example.com
    ```
 
-   Результат выполнения:
+   Результат выполнения команды:
 
    ```text
    Server:		10.96.128.2

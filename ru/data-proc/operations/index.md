@@ -10,5 +10,7 @@
 * [{#T}](sqoop-usage.md)
 * [{#T}](jobs.md)
 * [{#T}](cluster-delete.md)
+{% if product == "yandex-cloud" %}
 * [{#T}](logging.md)
+{% endif %}
 * [{#T}](monitoring.md)

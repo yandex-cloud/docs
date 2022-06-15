@@ -1,6 +1,6 @@
 # Detaching a disk from a VM
 
-You can detach a disk from either a running or stopped VM.
+You can detach a disk from either a running and stopped VM.
 
 {% note info %}
 
@@ -14,33 +14,41 @@ To detach a disk from a VM:
 
 {% list tabs %}
 
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
+   1. Select **{{ compute-name }}**.
+   1. Select the VM to detach a disk from.
+   1. Go to ![image](../../../_assets/compute/disks-pic.svg) **Disks**.
+   1. Click ![image](../../../_assets/horizontal-ellipsis.svg) next to the disk in question and select **Detach**.
+   1. Click **Detach**.
+
 - CLI
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI's detach disk command:
+   1. See the description of the CLI's detach disk command:
 
       ```
       $ yc compute instance detach-disk --help
       ```
 
-  1. Get a list of VMs in the default folder:
+   1. Get a list of VMs in the default folder:
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the VM `ID` or `NAME` (for example, `first-instance`).
+   1. Select the VM `ID` or `NAME` (for example, `first-instance`).
 
-  1. Get a list of disks attached to the VM:
+   1. Get a list of disks attached to the VM:
 
       ```
       $ yc compute instance get --full first-instance
       ```
 
-  1. Choose the `disk_id` of the disk you need (for example, `fhm4aq4hvq5g3nepvt9b`).
-
-  1. Detach the disk:
+   1. Choose the `disk_id` of the disk you need (for example, `fhm4aq4hvq5g3nepvt9b`).
+   1. Detach the disk:
 
       ```
       $ yc compute instance detach-disk first-instance \
@@ -55,7 +63,7 @@ To detach a disk from a VM:
 
       Then try to detach the disk again.
 
-  1. If the virtual machine was stopped, restart it:
+   1. If the virtual machine was stopped, restart it:
 
       ```
       $ yc compute instance start first-instance
@@ -63,7 +71,6 @@ To detach a disk from a VM:
 
 - API
 
-  Use the [detachDisk](../../api-ref/Instance/detachDisk.md) method for the [Instance](../../api-ref/Instance/) resource.
+   Use the [detachDisk](../../api-ref/Instance/detachDisk.md) method for the [Instance](../../api-ref/Instance/) resource.
 
 {% endlist %}
-

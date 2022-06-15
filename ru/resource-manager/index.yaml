@@ -1,19 +1,38 @@
-title: Yandex Resource Manager
+title:
+  - text: Yandex Resource Manager
+    when: product == "yandex-cloud"
+  - text: Resource Manager
+    when: product == "cloud-il"
 description:
-  - >-
-    Сервис Yandex Resource Manager определяет ресурсную модель Yandex Cloud и
-    позволяет структурировать ресурсы с помощью каталогов.
-  - >-
-    Инфраструктура Yandex Cloud <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
-    в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
+  - text:
+      - >-
+        Сервис Yandex Resource Manager определяет ресурсную модель Yandex Cloud и
+        позволяет структурировать ресурсы с помощью каталогов.
+      - >-
+        Инфраструктура Yandex Cloud <a
+        href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+        в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        Сервис Resource Manager определяет ресурсную модель CloudIL и
+        позволяет структурировать ресурсы с помощью каталогов.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Resource Manager
+  title:
+    - text: Yandex Resource Manager
+      when: product == "yandex-cloud"
+    - text: Resource Manager
+      when: product == "cloud-il"
 links:
   - title: Начало работы
     description: Создайте первый каталог
     href: quickstart
-    when: audience != "internal"
+    when: product == "yandex-cloud" and audience != "internal"
+  - title: Начало работы
+    description: Создайте первый каталог
+    href: quickstart.html
+    when: product == "cloud-il"
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/
@@ -21,14 +40,22 @@ links:
   - title: Концепции
     description: Узнайте про ресурсную модель Yandex Cloud
     href: concepts/resources-hierarchy
-    when: audience != "internal"
+    when: product == "yandex-cloud" and audience != "internal"
+  - title: Концепции
+    description: Узнайте про ресурсную модель CloudIL
+    href: concepts/resources-hierarchy.html
+    when: product == "cloud-il"
   - title: Справочник API (англ.)
     description: Описание методов HTTP API
     href: api-ref/
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
-    when: audience != "internal"
+    when: product == "yandex-cloud" and audience != "internal"
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/

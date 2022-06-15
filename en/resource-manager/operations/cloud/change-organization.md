@@ -1,5 +1,7 @@
 # Changing an organization for a cloud
 
+{% if product == "yandex-cloud" %}
+
 {% note info %}
 
 In the [management console]({{ link-console-main }}), you can select the interface of navigating resources and services. To switch to another navigation mode: in the account information section, click ![image](../../../_assets/settings.svg), then select ![image](../../../_assets/experiments.svg) **Experiments** and enable **New navigation**.
@@ -19,7 +21,21 @@ To change the organization assigned to the cloud:
    1. Select a new organization from the list and click **Change**. This automatically creates a request to [technical support]({{ link-console-support }}).
 
 - New navigation
+{% endif %}
 
+{% if product == "cloud-il" %}
+
+{% note info %}
+
+At the [Preview](../../../overview/concepts/launch-stages.md) stage, there is a restriction: only 1 organization and 1 cloud are available.
+
+{% endnote %}
+
+{% list tabs %}
+
+- Management console
+
+{% endif %}
    1. In the [management console]({{ link-console-main }}), select the cloud from the list on the left.
    1. In the upper-right corner, click ![***](../../../_assets/options.svg)and select **Change organization**.
 

@@ -21,8 +21,8 @@
 - Marketplace
 
   1. Перейдите на страницу образа с нужной конфигурацией:
-     * [{{ coi }}](https://cloud.yandex.ru/marketplace/products/yc/container-optimized-image).
-     * [{{ coi }} GPU](https://cloud.yandex.ru/marketplace/products/yc/container-optimized-image-gpu).
+     * [{{ coi }}](/marketplace/products/yc/container-optimized-image).
+     * [{{ coi }} GPU](/marketplace/products/yc/container-optimized-image-gpu).
   1. В блоке **Идентификаторы продукта** скопируйте значение `image_id`.
 
 {% endlist %}

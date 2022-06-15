@@ -1,20 +1,42 @@
-title: Yandex Identity and Access Management
+title:
+  - text: Yandex Identity and Access Management
+    when: product == "yandex-cloud"
+  - text: Identity and Access Management
+    when: product == "cloud-il"
 description:
-  - >-
-    Yandex Identity and Access Management (IAM) is an identification and access
-    management service that helps you centrally manage the access rights of
-    users to your Yandex Cloud resources. IAM makes sure that all operations
-    with resources are run only by users who have the appropriate permissions.
-  - >-
-    Yandex Cloud <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">complies</a>
-    with the law No. 152-FZ of the Russian Federation "On Personal Data".
+  - text:
+      - >-
+        Yandex Identity and Access Management (IAM) is an identification and access
+        management service that helps you centrally manage the access rights of
+        users to your Yandex Cloud resources. IAM makes sure that all operations
+        with resources are run only by users who have the appropriate permissions.
+      - >-
+        Yandex Cloud <a
+        href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">complies</a>
+        with the law No. 152-FZ of the Russian Federation "On Personal Data".
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        Identity and Access Management (IAM) is an identification and access
+        management service that helps you centrally manage the access rights of
+        users to your CloudIL. IAM makes sure that all operations
+        with resources are run only by users who have the appropriate permissions.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Identity and Access Management
+  title:
+    - text: Yandex Identity and Access Management
+      when: product == "yandex-cloud"
+    - text: Identity and Access Management
+      when: product == "cloud-il"
 links:
   - title: Getting started
     description: Add a user and assign a role to this user
     href: quickstart
+    when: product == "yandex-cloud"
+  - title: Getting started
+    description: Add a user and assign a role to this user
+    href: quickstart.html
+    when: product == "cloud-il"
   - title: Step-by-step instructions
     description: Instructions on how to perform routine operations
     href: operations/
@@ -27,9 +49,15 @@ links:
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits
+    when: product == "yandex-cloud"
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Access management
     description: Configure access rights to work with the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+    when: product == "yandex-cloud"

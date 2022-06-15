@@ -77,24 +77,24 @@
    kubectl label volumesnapshotclasses.snapshot.storage.k8s.io yc-csi-snapclass \
    velero.io/csi-volumesnapshot-class="true" && \
    velero install \
-     --backup-location-config s3Url=https://storage.yandexcloud.net,region=ru-central1 \
+     --backup-location-config s3Url=https://{{ s3-storage-host }},region={{ region-id }} \
      --bucket velero-backup \
      --plugins velero/velero-plugin-for-aws:v1.3.0,velero/velero-plugin-for-csi:v0.2.0 \
      --provider aws \
      --secret-file ./credentials \
      --features=EnableCSI \
      --use-volume-snapshots=true \
-     --snapshot-location-config region=ru-central1
+     --snapshot-location-config region={{ region-id }}
    ```
 
    Где:
-   * `--backup-location-config` — параметры хранилища резервных копий. URL-адрес хранилища {{ objstorage-name }} и [зоны доступности](../../overview/concepts/geo-scope.md).
+   * `--backup-location-config` — параметры хранилища резервных копий. URL-адрес хранилища {{ objstorage-name }} и регион.
    * `--bucket` — имя бакета для хранения резервных копий.
    * `--plugins` — образы плагина для совместимости с AWS API.
    * `--provider` — имя провайдера объектного хранилища.
    * `--secret-file` — полный путь к файлу с данными статического ключа доступа.
    * `--features` — список активных функциональных возможностей.
-   * `--snapshot-location-config` — зона доступности, в которой будут размещены снимки дисков.
+   * `--snapshot-location-config` — регион, в котором будут размещены снимки дисков.
 
    Результат выполнения команды:
 
@@ -149,24 +149,24 @@
    kubectl label volumesnapshotclasses.snapshot.storage.k8s.io yc-csi-snapclass \
    velero.io/csi-volumesnapshot-class="true" && \
    velero install \
-     --backup-location-config s3Url=https://storage.yandexcloud.net,region=ru-central1 \
+     --backup-location-config s3Url=https://{{ s3-storage-host }},region={{ region-id }} \
      --bucket velero-backup \
      --plugins velero/velero-plugin-for-aws:v1.3.0,velero/velero-plugin-for-csi:v0.2.0 \
      --provider aws \
      --secret-file ./credentials \
      --features=EnableCSI \
      --use-volume-snapshots=true \
-     --snapshot-location-config region=ru-central1
+     --snapshot-location-config region={{ region-id }}
    ```
 
    Где:
-   * `--backup-location-config` — параметры хранилища резервных копий. URL-адрес хранилища {{ objstorage-name }} и [зоны доступности](../../overview/concepts/geo-scope.md).
+   * `--backup-location-config` — параметры хранилища резервных копий. URL-адрес хранилища {{ objstorage-name }} и регион.
    * `--bucket` — имя бакета для хранения резервных копий.
    * `--plugins` — образы плагина для совместимости с AWS API.
    * `--provider` — имя провайдера объектного хранилища.
    * `--secret-file` — полный путь к файлу с данными статического ключа доступа.
    * `--features` — список активных функциональных возможностей.
-   * `--snapshot-location-config` — выбор зоны доступности для расположения снимков дисков.
+   * `--snapshot-location-config` — выбор региона для расположения снимков дисков.
 
    Результат выполнения команды:
 

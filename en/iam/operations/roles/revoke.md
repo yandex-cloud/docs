@@ -4,7 +4,7 @@ If you wish to deny a [subject](../../concepts/access-control/index.md#subject) 
 
 {% note info %}
 
-If you need to temporarily revoke all access rights from a user with a Yandex account, you can revoke just the `{{ roles-cloud-member }}` role. Although the user keeps all the other roles, they can't perform any operations with the cloud resources. When you add the user to the cloud again, the access rights will already be configured.
+If you need to temporarily revoke all access rights from a user with a {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %} account, you can revoke just the `{{ roles-cloud-member }}` role. Although the user keeps all the other roles, they can't perform any operations with the cloud resources. When you add the user to the cloud again, the access rights will already be configured.
 
 {% endnote %}
 
@@ -28,9 +28,9 @@ If you need to temporarily revoke all access rights from a user with a Yandex ac
    * To revoke a role in the cloud:
 
       1. [Select the desired cloud](../../../resource-manager/operations/cloud/switch-cloud.md).
-      1. Go to [Access bindings in cloud](https://console.cloud.yandex.com/cloud?section=resource-acl) (the **Access bindings** button in the left panel).
+      1. Go to [Access bindings in cloud]({{ link-console-cloud }}?section=resource-acl) (the **Access bindings** button in the left panel).
       1. Select the appropriate user in the list and click ![image](../../../_assets/options.svg) next to the user's name.
-      1. If you want to revoke all of the user's roles in the cloud, click **Revoke roles**.
+      1. If you want to revoke all the user's roles in the cloud, click **Revoke roles**.
       1. If you want to revoke an individual user's roles in the cloud:
          1. Click **Edit roles**.
          1. In the **Configure access rights** window, click ![image](../../../_assets/cross.svg) next to each role you want to revoke.
@@ -65,7 +65,7 @@ If you need to temporarily revoke all access rights from a user with a Yandex ac
 
    1. {% include [list-access-bindings-via-api](../../../_includes/iam/list-access-bindings-via-api.md) %}
    1. Create a request body, for example, in a `body.json` file. In the request body, specify which access binding to delete. For example, revoke the `editor` role from user `ajei8n54hmfhuk5nog0g`:
-
+{% if product == "yandex-cloud" %}
       **body.json:**
       ```json
       {
@@ -82,7 +82,27 @@ If you need to temporarily revoke all access rights from a user with a Yandex ac
           ]
       }
       ```
+{% endif %}
+{% if product == "cloud-il" %}
 
+      **body.json:**
+      ```json
+      {
+          "accessBindingDeltas": [{
+              "action": "REMOVE",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "ajei8n54hmfhuk5nog0g",
+                      "type": "federatedUser"
+                      }
+                  }
+              }
+          ]
+      }
+      ```
+
+{% endif %}
    1. Revoke the role by deleting the specified access binding:
 
       {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}

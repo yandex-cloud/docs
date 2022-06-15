@@ -51,7 +51,7 @@
       +----------------------+-------------+---------------+--------+
       |          ID          |    NAME     |     ZONE      | STATUS |
       +----------------------+-------------+---------------+--------+
-      | epd4sug6keskb72ub9m7 | first-group | ru-central1-b | READY  |
+      | epd4sug6keskb72ub9m7 | first-group | {{ region-id }}-b | READY  |
       +----------------------+-------------+---------------+--------+
       ```
 
@@ -70,7 +70,7 @@
       created_at: "2021-03-23T12:49:59Z"
       name: first-group
       description: first disk placement group
-      zone_id: ru-central1-b
+      zone_id: {{ region-id }}-b
       status: READY
       spread_placement_strategy: {}
       ```

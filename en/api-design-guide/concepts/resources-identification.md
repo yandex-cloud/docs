@@ -1,6 +1,6 @@
 # Resource identification
 
-Each resource in the Yandex Cloud API has its own unique ID. IDs are generated on the service side. An ID is a string consisting of Latin letters and numbers.
+Each resource in the {{ yandex-cloud }} API has its own unique ID. IDs are generated on the service side. An ID is a string consisting of Latin letters and numbers.
 
 IDs should be passed in API requests when accessing resources.
 
@@ -28,7 +28,7 @@ https://<domain>/<service>/<API version>/<resource category>/<resource identifie
 Sample REST request for a disk:
 
 ```
- GET https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
+ GET https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03
 ```
 
 As you can see from the example, a resource URL is identified by the <q>resource category and resource ID</q> bundle.
@@ -78,7 +78,7 @@ In the REST API, the unique URI of a nested resource has a hierarchical structur
 Sample REST request for getting a DB:
 
 ```
- GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/24f17h0gfqf7oeuis2f/databases/db-testing
+ GET https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/24f17h0gfqf7oeuis2f/databases/db-testing
 ```
 
 Where:
@@ -90,6 +90,6 @@ Where:
 
 #### See also {#see-also}
 
-- [Yandex Cloud API repository](https://github.com/yandex-cloud/cloudapi) —The link to the .proto specifications of the API.
-- [Yandex Resource Manager documentation](../../resource-manager/concepts/resources-hierarchy.md) — The link to the <q>Hierarchy of Yandex Cloud resources</q> section.
+- [{{ yandex-cloud }} API repository](https://github.com/yandex-cloud/cloudapi) — The link to the .proto specifications of the API.
+- [{{ resmgr-full-name }} documentation](../../resource-manager/concepts/resources-hierarchy.md) — The link to the <q>Hierarchy of {{ yandex-cloud }} resources</q> section.
 

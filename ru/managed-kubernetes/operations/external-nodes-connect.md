@@ -33,14 +33,14 @@
 
 - CLI
 
-  Создайте в {{ k8s }} API кластера, к котором осуществляется подключение, объект типа `NodeGroup` группы API `mks.yandex.cloud/v1alpha1` в [пространстве имен](./index.md#namespace) `yandex-system`:
+  Создайте в {{ k8s }} API кластера, к котором осуществляется подключение, объект типа `NodeGroup` группы API `mks.yandex.cloud/v1alpha1` в [пространстве имен](./index.md#namespace) `system`:
 
   ```yaml
   apiVersion: mks.yandex.cloud/v1alpha1
   kind: NodeGroup
   metadata:
     name: external-node-group
-    namespace: yandex-system
+    namespace: system
   ```
 
 {% endlist %}
@@ -63,7 +63,7 @@
   Укажите в спецификации объекта группы узлов IP адреса подключаемых серверов, доступные из облачной сети кластера:
   
   ```bash
-  kubectl -n yandex-system edit nodegroup external-node-group
+  kubectl -n system edit nodegroup external-node-group
   ```
 
   >Пример:
@@ -73,7 +73,7 @@
   >kind: NodeGroup
   >metadata:
   >  name: external-node-group
-  >  namespace: yandex-system
+  >  namespace: system
   >spec:
   >  ips: # перечислите IP-адреса подключаемых серверов, доступные из облачной сети кластера.
   >  - 10.130.0.4
@@ -119,7 +119,7 @@
 Для автоматической установки необходимо создать в кластере секрет содержащий приватный SSH ключ для подключения к серверам. Создайте секрет:
 
 ```bash
-kubectl -n yandex-system create secret generic <имя секрета> --from-file=ssh-privatekey=<путь к файлу> --type=kubernetes.io/ssh-auth
+kubectl -n system create secret generic <имя секрета> --from-file=ssh-privatekey=<путь к файлу> --type=kubernetes.io/ssh-auth
 ```
 
 В спецификации ресурса `NodeGroup` укажите имя соответствующего секрета:
@@ -136,7 +136,7 @@ kubectl -n yandex-system create secret generic <имя секрета> --from-fi
 - CLI
 
   ```bash
-  kubectl -n yandex-system edit nodegroup external-node-group
+  kubectl -n system edit nodegroup external-node-group
   ```
 
   ```yaml
@@ -144,7 +144,7 @@ kubectl -n yandex-system create secret generic <имя секрета> --from-fi
   kind: NodeGroup
   metadata:
     name: external-node-group
-    namespace: yandex-system
+    namespace: system
   spec:
     ips:
     ...
@@ -163,21 +163,21 @@ kubectl -n yandex-system create secret generic <имя секрета> --from-fi
 1. После создания объекта NodeGroup в кластере становится доступен секрет, содержащий `kubeconfig` для использования на подключаемых серверах, получите его с помощью `kubectl`, настроенного на работу с кластером, и сохраните его в файл:
 
    ```bash
-   kubectl -n yandex-system get secret <имя объекта NodeGroup>-maintainer-kube-config -o json | jq -r '.data."kube-config"' | base64 -d
+   kubectl -n system get secret <имя объекта NodeGroup>-maintainer-kube-config -o json | jq -r '.data."kube-config"' | base64 -d
    ```
 
 1. Сохраните полученный `kubeconfig` на подключаемом сервере:
 
    ```bash
-   sudo mkdir -p /etc/yandex-maintainer
-   sudo vi /etc/yandex-maintainer/kube.config # Сохраните в этот файл содержимое `kubeconfig`, полученное на предыдущем шаге.
+   sudo mkdir -p /etc/maintainer
+   sudo vi /etc/maintainer/kube.config # Сохраните в этот файл содержимое `kubeconfig`, полученное на предыдущем шаге.
    ```
 
 1. Выполните следующие команды на подключаемом сервере:
 
    ```bash
    sudo mkdir -p /home/kubernetes/bin
-   sudo curl -o /home/kubernetes/bin/maintainer https://storage.yandexcloud.net/mk8s-maintainer/v1/maintainer
+   sudo curl -o /home/kubernetes/bin/maintainer https://{{ s3-storage-host }}/mk8s-maintainer/v1/maintainer
    sudo chmod +x /home/kubernetes/bin/maintainer
    sudo /home/kubernetes/bin/maintainer install
    ```
@@ -198,26 +198,26 @@ kubectl -n yandex-system create secret generic <имя секрета> --from-fi
   Для отключения узлов удалите их IP адреса из поля `spec.ips` ресурса`NodeGroup`:
 
   ```bash
-  kubectl -n yandex-system edit nodegroup
+  kubectl -n system edit nodegroup
   ```
 
 {% endlist %}
 
 ## Диагностика проблем {#troubleshooting}
 
-При возникновении проблем в первую очередь обратитесь к событиям в пространстве имен `yandex-system`:
+При возникновении проблем в первую очередь обратитесь к событиям в пространстве имен `system`:
 
 {% list tabs %}
 
 - Консоль управления
 
   1. На странице кластера перейдите на вкладку **События**.
-  1. Выберите пространство имен `yandex-system`.
+  1. Выберите пространство имен `-system`.
 
 - CLI
 
   ```bash
-  kubectl -n yandex-system get events
+  kubectl -n system get events
   ```
 
 {% endlist %}
@@ -225,7 +225,7 @@ kubectl -n yandex-system create secret generic <имя секрета> --from-fi
 Если информации недостаточно, обратитесь к логам системных компонент на соответствующем подключаемом сервере:
 
 ```bash
-journalctl -u yandex-maintainer
+journalctl -u maintainer
 journalctl -u kubelet
 ```
 

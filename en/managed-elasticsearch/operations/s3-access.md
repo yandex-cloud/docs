@@ -82,7 +82,7 @@ To access {{ objstorage-name }} bucket data from a cluster:
         --data '{
           "type": "s3",
             "settings": {
-            "endpoint": "storage.yandexcloud.net",
+            "endpoint": "{{ s3-storage-host }}",
             "bucket": "<bucket name>"
           }
         }'

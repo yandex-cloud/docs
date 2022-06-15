@@ -1,5 +1,11 @@
 # Изменение настроек кластера
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 После создания кластера вы можете:
 
 * [Изменить класс хостов](#change-resource-preset).
@@ -59,8 +65,8 @@
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
-     | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
-     |           | ru-central1-c                  |       |          |
+     | s1.micro  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 8.0 GB   |
+     |           | {{ region-id }}-c                  |       |          |
      | ...                                                           |
      +-----------+--------------------------------+-------+----------+
      ```
@@ -330,7 +336,7 @@
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    * `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
+    {% if product == "yandex-cloud" %}* `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).{% endif %}
 
     * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
@@ -361,14 +367,16 @@
       }
       ```
   
-  1. Чтобы активировать доступ к [SQL-запросам из консоли управления](web-sql-query.md) и доступ из [DataLens](datalens-connect.md), добавьте к описанию кластера {{ mmy-name }} блок `access`:
-
+  1. Чтобы активировать доступ к [SQL-запросам из консоли управления](web-sql-query.md){% if product == "yandex-cloud" %} и доступ из [DataLens](datalens-connect.md){% endif %}, добавьте к описанию кластера {{ mmy-name }} блок `access`:
+ 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
         ...
         access {
           web_sql   = <true или false>
+     {% if product == "yandex-cloud" %}
           data_lens = <true или false>
+     {% endif %}
           ...
         }
         ...

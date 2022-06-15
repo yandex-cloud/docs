@@ -1,14 +1,14 @@
 # Target endpoint parameters {{ objstorage-name }}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can configure access to a {{ objstorage-full-name }} bucket:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can configure access to a {{ objstorage-full-name }} bucket.
 
-## {{ objstorage-full-name }} settings {#settings}
+## Settings {{ objstorage-full-name }} {#settings}
 
 {% if audience != "internal" %}
 
-* **Bucket**: The name of the [bucket](../../../../storage/concepts/bucket.md) that data from the source will be loaded to.
+* **Bucket**: The name of the [bucket](../../../../storage/concepts/bucket.md) to upload source data to.
 
-* **SA Account**: A [service account](../../../../iam/concepts/users/service-accounts.md) with the `storage.uploader` role that you will access [{{ yds-full-name }}](../../../../data-streams/).
+* **SA Account**: The [service account](../../../../iam/concepts/users/service-accounts.md) with the `storage.uploader` role that will be used to access [{{ yds-full-name }}](../../../../data-streams/).
 
 {% else %}
 

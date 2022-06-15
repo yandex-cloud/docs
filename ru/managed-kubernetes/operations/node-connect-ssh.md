@@ -219,7 +219,6 @@ yc managed-kubernetes node-group add-metadata \
 - Windows 7/8
 
   В Windows соединение устанавливается с помощью приложения PuTTY.
-
   1. Запустите приложение Pageant.
      1. Нажмите правой кнопкой мыши на значок Pageant на панели задач.
      1. В контекстном меню выберите пункт **Add key**.

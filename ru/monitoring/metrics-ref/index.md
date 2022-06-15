@@ -28,7 +28,11 @@ editable: false
 
 {% include [managed-redis.md](../../_includes/monitoring/metrics-ref/managed-redis.md) %}
 
+{% if product == "yandex-cloud" %}
+
 {% include [monitoring_sensors](../../ydb/_includes/monitoring_sensors.md) %}
+
+{% endif %}
 
 {% include [compute.md](../../_includes/monitoring/metrics-ref/monitoring.md) %}
 

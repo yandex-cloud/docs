@@ -50,7 +50,7 @@
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-          - key: yandex.cloud/node-group-id # Метка узлов, расположенных в Yandex Cloud.
+          - key: yandex.cloud/node-group-id # Метка узлов, расположенных в {{ yandex-cloud }}.
             operator: Exists
 ...
 ```

@@ -1,4 +1,8 @@
-title: Yandex Cloud DNS
+title:
+  - text: Yandex Cloud DNS
+    when: product == "yandex-cloud"
+  - text: Cloud DNS
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Начало работы
@@ -43,8 +47,10 @@ items:
         href: tutorials/local-dns-cache.md
       - name: Миграция DNS-зон из Яндекс 360
         href: tutorials/connect-migration.md
+        when: product == "yandex-cloud"
       - name: Интеграция с корпоративным сервисом DNS
         href: tutorials/dns-integration.md
+        when: product == "yandex-cloud"
       - name: >-
           Настройка {{ dns-name }} для доступа к кластерам управляемых баз данных из других облачных сетей
         href: tutorials/mdb-dns-peering.md

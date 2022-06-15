@@ -1,4 +1,8 @@
-title: Yandex Identity and Access Management
+title:
+  - text: Yandex Identity and Access Management
+    when: product == "yandex-cloud"
+  - text: Identity and Access Management
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Начало работы
@@ -47,6 +51,7 @@ items:
         items:
           - name: Получение IAM-токена для аккаунта на Яндексе
             href: operations/iam-token/create.md
+            when: product == "yandex-cloud"
           - name: Получение IAM-токена для сервисного аккаунта
             href: operations/iam-token/create-for-sa.md
           - name: Получение IAM-токена для федеративного аккаунта
@@ -84,6 +89,7 @@ items:
             href: concepts/authorization/iam-token.md
           - name: OAuth-токен
             href: concepts/authorization/oauth-token.md
+            when: product == "yandex-cloud"
           - name: API-ключ
             href: concepts/authorization/api-key.md
           - name: Авторизованные ключи
@@ -96,7 +102,7 @@ items:
         href: concepts/federations.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Безопасное использование Yandex Cloud
+  - name: Безопасное использование {{ yandex-cloud }}
     href: best-practices/using-iam-securely.md
   - name: Управление доступом
     href: security/index.md

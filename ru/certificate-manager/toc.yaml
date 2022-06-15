@@ -1,4 +1,8 @@
-title: Yandex Certificate Manager
+title:
+  - text: Yandex Certificate Manager
+    when: product == "yandex-cloud"
+  - text: Certificate Manager
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Начало работы
@@ -57,16 +61,20 @@ items:
         href: concepts/imported-certificate.md
       - name: Проверка прав на домен
         href: concepts/challenges.md
-      - name: Интеграция с сервисами Yandex Cloud
+      - name: Интеграция с сервисами {{ yandex-cloud }}
         href: concepts/services.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Домен
+        when: product == "yandex-cloud"
         items:
           - name: Обзор
             href: concepts/domains/index.md
-          - name: Интеграция с сервисами Yandex Cloud
+          - name: Интеграция с сервисами {{ yandex-cloud }}
             href: concepts/domains/services.md
+      - name: Домен
+        href: concepts/domains/index.md
+        when: product == "cloud-il"
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

@@ -13,8 +13,7 @@ All messages must be numbered starting with 1. For example:
 ```
 
 | Parameter | Type | Required parameter | Description |
-| ----- | ----- | ----- | ----- |
+----- | ----- | ----- | -----
 | `Id` | **string** | Yes | ID for a `ReceiptHandle`. This parameter must be unique within a single request. |
 | `ReceiptHandle` | **string** | Yes | ID of message receipt. |
 | `VisibilityTimeout` | **boolean** | No | New value of the message timeout in seconds. |
-

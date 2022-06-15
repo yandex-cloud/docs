@@ -262,7 +262,7 @@
 1. Запустите под `nettool`:
 
    ```bash
-   kubectl run nettool --image cr.yandex/yc/demo/network-multitool -- sleep infinity
+   kubectl run nettool --image {{ registry }}/yc/demo/network-multitool -- sleep infinity
    ```
 
 1. Убедитесь, что под перешел в состояние `Running`:
@@ -299,7 +299,6 @@
 ## Проверьте работу Node Local DNS {#test-nodelocaldns}
 
 Для проверки работы локального DNS с пода `nettool` будут выполнены несколько DNS-запросов. При этом будут изменяться метрики количества DNS-запросов на поде, обслуживающем Node Local DNS.
-
 1. Узнайте значение метрик для DNS-запросов до начала проверки:
 
    ```bash

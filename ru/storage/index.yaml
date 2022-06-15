@@ -1,42 +1,83 @@
-title: Yandex Object Storage
+title:
+  - text: Yandex Object Storage
+    when: product == "yandex-cloud"
+  - text: Object Storage
+    when: product == "cloud-il"
 description:
-  - >-
-    Сервис Yandex Object Storage — это универсальное масштабируемое решение для
-    хранения данных. Оно подходит как для высоконагруженных сервисов, которым
-    требуется надежный и быстрый доступ к данным, так и для проектов с
-    невысокими требованиями к инфраструктуре хранения.
-  - >-
-    Используя Object Storage, вы можете: <ul> <li>Хранить данные произвольного
-    формата как <a href="/docs/storage/concepts/object">объекты</a> с доступом
-    по текстовому идентификатору.</li> <li>Использовать различные <a
-    href="/docs/storage/concepts/storage-class">классы хранилища</a> для
-    объектов и управлять их <a
-    href="/docs/storage/concepts/lifecycles">жизненным циклом</a>.</li>
-    <li>Хранить <a href="/docs/storage/concepts/multipart">большие объекты</a>
-    размером в несколько терабайт.</li> <li>Опубликовать статический <a
-    href="/docs/storage/concepts/hosting">веб-сайт</a>.</li> </ul>
-  - >-
-    <a href="/docs/storage/s3/">HTTP API сервиса</a> совместим с API Amazon S3,
-    то есть для работы с Object Storage вы можете использовать множество <a
-    href="/docs/storage/tools/">инструментов</a>, созданных для работы с
-    объектными хранилищами.
-  - >-
-    Инфраструктура Yandex Cloud <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
-    в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
-  - >-
-    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
-    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-    документе <a href="https://yandex.ru/legal/cloud_sla_storage">Уровень
-    обслуживания Yandex Object Storage</a>.
+  - text:
+      - >-
+        Сервис Yandex Object Storage — это универсальное масштабируемое решение для
+        хранения данных. Оно подходит как для высоконагруженных сервисов, которым
+        требуется надежный и быстрый доступ к данным, так и для проектов с
+        невысокими требованиями к инфраструктуре хранения.
+      - >-
+        Используя Object Storage, вы можете: <ul> <li>Хранить данные произвольного
+        формата как <a href="/docs/storage/concepts/object">объекты</a> с доступом
+        по текстовому идентификатору.</li> <li>Использовать различные <a
+        href="/docs/storage/concepts/storage-class">классы хранилища</a> для
+        объектов и управлять их <a
+        href="/docs/storage/concepts/lifecycles">жизненным циклом</a>.</li>
+        <li>Хранить <a href="/docs/storage/concepts/multipart">большие объекты</a>
+        размером в несколько терабайт.</li> <li>Опубликовать статический <a
+        href="/docs/storage/concepts/hosting">веб-сайт</a>.</li> </ul>
+      - >-
+        <a href="/docs/storage/s3/">HTTP API сервиса</a> совместим с API Amazon S3,
+        то есть для работы с Object Storage вы можете использовать множество <a
+        href="/docs/storage/tools/">инструментов</a>, созданных для работы с
+        объектными хранилищами.
+      - >-
+        Инфраструктура Yandex Cloud <a
+        href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+        в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
+      - >-
+        Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+        об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+        документе <a href="https://yandex.ru/legal/cloud_sla_storage">Уровень
+        обслуживания Yandex Object Storage</a>.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        Сервис Object Storage — это универсальное масштабируемое решение для
+        хранения данных. Оно подходит как для высоконагруженных сервисов, которым
+        требуется надежный и быстрый доступ к данным, так и для проектов с
+        невысокими требованиями к инфраструктуре хранения.
+      - >-
+        Используя Object Storage, вы можете: <ul> <li>Хранить данные произвольного
+        формата как <a href="/docs/storage/concepts/object">объекты</a> с доступом
+        по текстовому идентификатору.</li> <li>Использовать различные <a
+        href="/docs/storage/concepts/storage-class">классы хранилища</a> для
+        объектов и управлять их <a
+        href="/docs/storage/concepts/lifecycles">жизненным циклом</a>.</li>
+        <li>Хранить <a href="/docs/storage/concepts/multipart">большие объекты</a>
+        размером в несколько терабайт.</li> <li>Опубликовать статический <a
+        href="/docs/storage/concepts/hosting">веб-сайт</a>.</li> </ul>
+      - >-
+        <a href="/docs/storage/s3/">HTTP API сервиса</a> совместим с API Amazon S3,
+        то есть для работы с Object Storage вы можете использовать множество <a
+        href="/docs/storage/tools/">инструментов</a>, созданных для работы с
+        объектными хранилищами.
+    when: product == "cloud-il"
 nav:
-  title: Yandex Object Storage
+  title:
+    - text: Yandex Object Storage
+      when: product == "yandex-cloud"
+    - text: Object Storage
+      when: product == "cloud-il"
 meta:
-  title: Yandex Object Storage
+  title:
+    - text: Yandex Object Storage
+      when: product == "yandex-cloud"
+    - text: Object Storage
+      when: product == "cloud-il"
 links:
   - title: Начало работы
     description: Создайте первый бакет и загрузите данные
     href: quickstart
+    when: product == "yandex-cloud"
+  - title: Начало работы
+    description: Создайте первый бакет и загрузите данные
+    href: quickstart.html
+    when: product == "cloud-il"
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/
@@ -46,10 +87,15 @@ links:
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
+    when: product == "yandex-cloud"
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/
   - title: Правила тарификации
-    when: audience != "internal"
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+    when: product == "yandex-cloud" and audience != "internal"

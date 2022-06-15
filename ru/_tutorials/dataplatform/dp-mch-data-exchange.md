@@ -38,11 +38,15 @@
     1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
     1. [Выдайте права на запись в него](../../storage/operations/buckets/edit-acl.md) сервисному аккаунту кластера {{ dataproc-full-name }}.
 	
+{% if product == "yandex-cloud" %}
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки обмена данными между {{ mch-full-name }} и {{ dataproc-full-name }} входит:
 * плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+
+{% endif %}
 
 ## Выгрузите данные из {{ mch-full-name }} {#export-from-mch}
 

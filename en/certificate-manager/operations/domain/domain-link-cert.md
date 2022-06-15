@@ -4,7 +4,9 @@
 
 To confirm your rights to a domain, link to it a [Let's Encrypt certificate](../../concepts/managed-certificate.md).
 
+{% if product == "yandex-cloud" %}
 A certificate linked to the domain is used to provide a TLS connection in [integrated cloud services](../../concepts/domains/services.md).
+{% endif %}
 
 {% list tabs %}
 

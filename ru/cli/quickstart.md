@@ -42,6 +42,8 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
 
 - От имени пользователя
 
+  {% if product == "yandex-cloud" %}
+  
   Чтобы аутентифицироваться от имени пользователя:
   1. Получите OAuth-токен в сервисе Яндекс.OAuth. Для этого перейдите по [ссылке]({{ link-cloud-oauth }}) и нажмите **Разрешить**.
   1. Запустите команду `yc init`, чтобы выполнить настройку вашего профиля CLI.
@@ -61,21 +63,82 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
 
      {% include [include](../_includes/cli/choose-folder.md) %}
 
-{% if audience == "internal" %}
+  {% if audience == "internal" %}
   1. Откажитесь от выбора зоны доступности по умолчанию для сервиса {{ compute-full-name }}:
      ```
      Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] N
      ```
-{% else %}
+  {% else %}
   1. Выберите зону доступности по умолчанию для сервиса {{ compute-full-name }}:
 
      {% include [include](../_includes/cli/choose-zone.md) %}
 
-{% endif %}
+  {% endif %}
   1. Проверьте настройки вашего профиля CLI:
      ```
      yc config list
      ```
+     
+  {% endif %}
+
+  {% if product == "cloud-il" %}
+
+  1. Запустите интерактивное создание профиля:
+ 
+     ```
+     yc init --endpoint {{ api-host }}:443 --federation-id google
+     ```
+  1. Выберите профиль, для которого вы хотите настроить аутентификацию, или создайте новый.
+     ```
+     Welcome! This command will take you through the configuration process.
+     Pick desired action:
+     [1] Re-initialize this profile 'default' with new settings
+     [2] Create a new profile
+     ```
+  1. CLI выведет сообщение о продолжении аутентификации в браузере. Для продолжения нажмите клавишу **Enter**.
+  
+     ```
+     You are going to be authenticated via federation-id 'google'.
+     Your federation authentication web site will be opened.
+     After your successful authentication, you will be redirected to '{{ link-console-main }}'.
+  
+     Press 'enter' to continue...
+     ```
+  
+     {% include [include](../_includes/cli/success-auth-via-federation.md) %}
+  
+  1. Вернитесь в интерфейс командной строки, чтобы завершить создание профиля.
+  
+  1. Выберите одно из предложенных облаков, в которых у вас есть права доступа:
+  
+     {% include [include](../_includes/cli/choose-cloud.md) %}
+  
+     Если вам доступно только одно облако, оно будет выбрано автоматически.
+  
+  1. Выберите каталог по умолчанию:
+  
+     {% include [include](../_includes/cli/choose-folder.md) %}
+  
+  1. Выберите зону доступности по умолчанию для сервиса {{ compute-full-name }}:
+
+     ```
+     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
+     Which zone do you want to use as a profile default?
+     [1] {{ region-id }}-a
+     [2] Don't set default zone
+     Please enter your numeric choice: 1 
+     ```
+  
+  1. Проверьте настройки вашего профиля CLI:
+     ```
+     yc config list
+     federation-id: google
+     endpoint: {{ api-host }}:443
+     ...
+     ```
+
+  {% endif %}
+
 {% if audience != "internal" %}
 
 - От имени сервисного аккаунта
@@ -110,8 +173,8 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
 1. Создайте подсеть в облачной сети `my-yc-network`:
    ```
    yc vpc subnet create \
-       --name my-yc-subnet-b \
-       --zone ru-central1-b \
+       --name my-yc-subnet-a \
+       --zone {{ region-id }}-a \
        --range 10.1.2.0/24 \
        --network-name my-yc-network \
        --description "my first subnet via yc"
@@ -145,14 +208,14 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
      labels:
        my-label: my-value
    ```
-1. Создайте виртуальную машину и подключите к подсети `my-yc-subnet-b`:
+1. Создайте виртуальную машину и подключите к подсети `my-yc-subnet-a`:
    1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на виртуальную машину.
    1. Создайте виртуальную машину Linux:
       ```
       yc compute instance create \
           --name my-yc-instance \
-          --network-interface subnet-name=my-yc-subnet-b,nat-ip-version=ipv4 \
-          --zone ru-central1-b \
+          --network-interface subnet-name=my-yc-subnet-a,nat-ip-version=ipv4 \
+          --zone {{ region-id }}-a \
           --ssh-key ~/.ssh/id_rsa.pub
       ```
       В параметре `ssh-key` передайте путь к открытому ключу для SSH-доступа. В ОС виртуальной машины будет автоматически создан пользователь `yc-user` с указанным открытым ключом.
@@ -171,10 +234,10 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
       ```
       ssh yc-user@130.193.32.90
       ```
-1. Удалите виртуальную машину `my-yc-instance`, подсеть `my-yc-subnet-b` и сеть `my-yc-network`:
+1. Удалите виртуальную машину `my-yc-instance`, подсеть `my-yc-subnet-a` и сеть `my-yc-network`:
    ```
    yc compute instance delete my-yc-instance
-   yc vpc subnet delete my-yc-subnet-b
+   yc vpc subnet delete my-yc-subnet-a
    yc vpc network delete my-yc-network
    ```
 {% endif %}

@@ -113,9 +113,9 @@ metadata:
 
    Connection protocol for load balancer and backends described in `Ingress`:
 
-   * `http` — HTTP/1.1. Default value.
-   * `http2` — HTTP/2.
-   * `grpc` — gRPC.
+   * `http`: HTTP/1.1. Default value.
+   * `http2`: HTTP/2.
+   * `grpc`: gRPC.
 
 * `ingress.alb.yc.io/transport-security` (`string`)
 

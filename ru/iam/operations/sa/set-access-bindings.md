@@ -67,6 +67,7 @@
         +--------------------------------+-------------+
         ```
 
+{% if product == "yandex-cloud" %}
     1. Узнайте ID пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или группе пользователей, воспользуйтесь [примерами](#examples) ниже.
 
         ```bash
@@ -81,14 +82,27 @@
             login: test-user
             default_email: test-user@yandex.ru
         ```
-    1. Назначьте пользователю `test-user` роль `editor` на сервисный аккаунт `my-robot`. В субъекте укажите тип `userAccount` и ID пользователя:
+{% endif %}
+{% if product == "cloud-il" %}
+   1. [Получите ID пользователя](../users/get.md).
+{% endif %}
 
+    1. Назначьте пользователю {% if product == "yandex-cloud" %}`test-user`{% endif %} роль `editor` на сервисный аккаунт `my-robot`. В субъекте укажите тип {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} и ID пользователя:
+
+        {% if product == "yandex-cloud" %}
         ```bash
         yc iam service-account add-access-binding my-robot \
           --role editor \
           --subject userAccount:gfei8n54hmfhuk5nogse
         ```
-
+       {% endif %}
+       {% if product == "cloud-il" %}
+        ```bash
+        yc iam service-account add-access-binding my-robot \
+          --role editor \
+          --subject federatedUser:<ID пользователя>
+        ```
+       {% endif %}
 - API
 
     Воспользуйтесь методом [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md). Вам понадобится ID сервисного аккаунта и ID пользователя, которому назначается роль на сервисный аккаунт.
@@ -97,7 +111,7 @@
 
         ```bash
         curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
+          https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
         ```
 
         Результат:
@@ -116,10 +130,12 @@
         }
         ```
 
+{% if product == "yandex-cloud" %}
     1. Узнайте ID пользователя по логину с помощью метода [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md):
+        
         ```bash
         curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+          https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
         ```
 
         Результат:
@@ -134,8 +150,16 @@
         }
         ```
 
-    1. Назначьте пользователю роль `editor` на сервисный аккаунт `my-robot`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
+{% endif %}
+{% if product == "cloud-il" %}
 
+    1. [Получите ID пользователя](../users/get.md).
+
+{% endif %}
+
+    1. Назначьте пользователю роль `editor` на сервисный аккаунт `my-robot`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} и ID пользователя:
+
+        {% if product == "yandex-cloud" %}
         ```bash
         curl -X POST \
           -H 'Content-Type: application/json' \
@@ -149,8 +173,26 @@
                       "id": "gfei8n54hmfhuk5nogse",
                       "type": "userAccount"
           }}}]}' \
-          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
         ```
+        {% endif %}
+        {% if product == "cloud-il" %}
+         ```bash
+        curl -X POST \
+          -H 'Content-Type: application/json' \
+          -H "Authorization: Bearer <IAM-TOKEN>" \
+          -d '{
+          "accessBindingDeltas": [{
+              "action": "ADD",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "<ID пользователя>",
+                      "type": "federatedUser"
+          }}}]}' \
+          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+        ```
+        {% endif %}
 
 - Terraform
 
@@ -160,14 +202,14 @@
 
        * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
        * `role` — назначаемая роль. Обязательный параметр.
-       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде {% if product == "yandex-cloud" %}`userAccount:<идентификатор пользователя>`{% endif %}{% if product == "cloud-il" %}`federatedUser:<идентификатор пользователя>`{% endif %} или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
 
        ```
        resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
          service_account_id = "<идентификатор сервисного аккаунта>"
          role               = "<роль>"
          members            = [
-           "userAccount:<идентификатор пользователя>",
+           "federatedUser:<идентификатор пользователя>",
          ]
        }
        ```
@@ -230,6 +272,7 @@
         ```
 
     1. Например, назначьте роль нескольким пользователям:
+{% if product == "yandex-cloud" %}
 
         ```bash
         yc iam service-account set-access-bindings my-robot \
@@ -237,9 +280,20 @@
           --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
         ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+        ```bash
+        yc iam service-account set-access-bindings my-robot \
+          --access-binding role=editor,subject=federatedUser:gfei8n54hmfhuk5nogse
+          --access-binding role=viewer,subject=federatedUser:helj89sfj80aj24nugsz
+        ```
+
+{% endif %}
 - API
 
     Назначьте одному пользователю роль `editor`, а другому `viewer`:
+{% if product == "yandex-cloud" %}
 
     ```bash
     curl -X POST \
@@ -263,9 +317,38 @@
                     "id": "helj89sfj80aj24nugsz",
                     "type": "userAccount"
         }}}]}' \
-        https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
     ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+    ```bash
+    curl -X POST \
+        -H 'Content-Type: application/json' \
+        -H "Authorization: Bearer <IAM-TOKEN>" \
+        -d '{
+        "accessBindingDeltas": [{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "editor",
+                "subject": {
+                    "id": "gfei8n54hmfhuk5nogse",
+                    "type": "federatedUser"
+                }
+            }
+        },{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "viewer",
+                "subject": {
+                    "id": "helj89sfj80aj24nugsz",
+                    "type": "federatedUser"
+        }}}]}' \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+    ```
+
+{% endif %}
     Вы также можете назначать роли с помощью метода [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md).
 
     {% note alert %}
@@ -273,6 +356,7 @@
     Метод `setAccessBindings` полностью перезаписывает права доступа к ресурсу! Все текущие роли на ресурс будут удалены.
 
     {% endnote %}
+{% if product == "yandex-cloud" %}
 
     ```bash
     curl -X POST \
@@ -286,9 +370,28 @@
             "roleId": "viewer",
             "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
         }]}' \
-        https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
     ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+    ```bash
+    curl -X POST \
+        -H 'Content-Type: application/json' \
+        -H "Authorization: Bearer <IAM-TOKEN>" \
+        -d '{
+        "accessBindings": [{
+            "roleId": "editor",
+            "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "federatedUser" }
+        },{
+            "roleId": "viewer",
+            "subject": { "id": "helj89sfj80aj24nugsz", "type": "federatedUser" }
+        }]}' \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
+    ```
+
+{% endif %}
 - Terraform
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -306,9 +409,10 @@
 
        {% endnote %}
 
-       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде {% if product == "yandex-cloud" %}`userAccount:<идентификатор пользователя>`{% endif %}{% if product == "cloud-il" %}`federatedUser:<идентификатор пользователя>`{% endif %} или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
 
      {% cut "Пример назначения нескольких ролей на сервисный аккаунт с помощью Terraform" %}
+{% if product == "yandex-cloud" %}
 
      ```hcl
      ...
@@ -329,6 +433,29 @@
      ...
      ```
     
+{% endif %}
+{% if product == "cloud-il" %}
+
+     ```hcl
+     ...
+     resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
+       service_account_id = "aje82upckiqhi3943ekr"
+       role               = "admin"
+       members = [
+         "federatedUser:aje82upckiqhi3943ekr",
+       ]
+     }
+     resource "yandex_iam_service_account_iam_binding" "admin-account-iam2" {
+       service_account_id = "aje82upckiqhi3943ekr"
+       role               = "viewer"
+       members = [
+         "federatedUser:aje82upckiqhi3943ekr",
+       ]
+     }
+     ...
+     ```
+   
+{% endif %}
      {% endcut %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_binding).
@@ -406,7 +533,7 @@
 
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
       ```
 
       Результат:
@@ -446,7 +573,7 @@
                       "id": "ajebqtreob2dpblin8pe",
                       "type": "serviceAccount"
           }}}]}' \
-          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
       ```
 
 
@@ -460,7 +587,7 @@
 
        * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
        * `role` — назначаемая роль. Обязательный параметр.
-       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде {% if product == "yandex-cloud" %}`userAccount:<идентификатор пользователя>`{% endif %}{% if product == "cloud-il" %}`federatedUser:<идентификатор пользователя>`{% endif %} или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
 
      {% cut "Пример разрешения сервисному аккаунту `test-sa` управлять сервисным аккаунтом `my-robot` с помощью Terraform" %}
 
@@ -549,7 +676,7 @@
                   "id": "allAuthenticatedUsers",
                   "type": "system"
       }}}]}' \
-      https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+      https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
   ```
 
 - Terraform
@@ -562,7 +689,7 @@
 
        * `service_account_id` — идентификатор сервисного аккаунта, к которому нужно настроить доступ.
        * `role` — назначаемая роль. Обязательный параметр.
-       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде {% if product == "yandex-cloud" %}`userAccount:<идентификатор пользователя>`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
 
      {% cut "Пример разрешения любому прошедшему аутентификацию пользователю просматривать информацию о сервисном аккаунте `my-robot`" %}
 

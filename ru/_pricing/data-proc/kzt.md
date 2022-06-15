@@ -19,6 +19,8 @@
     | 100% vCPU              | 5,85 ₸                  |
     | RAM (за 1 ГБ)          | 1,55 ₸                  |
 
+{% if product == "yandex-cloud" %}
+
 - Выделенные хосты
 
     Цены на вычислительные ресурсы выделенных хостов представлены в [документации {{ compute-full-name }}](../../compute/pricing.md#prices-dedicated-host).
@@ -31,5 +33,7 @@
     | **Intel Ice Lake**                                                      |
     | 100% vCPU              | {{ sku|KZT|mdb.dataproc.v3.cpu.c100|string }}  |
     | RAM (за 1 ГБ)          | {{ sku|KZT|mdb.dataproc.v3.ram|string }}       |
+
+{% endif %}
 
 {% endlist %}

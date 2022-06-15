@@ -1,5 +1,5 @@
 ---
-title: Access management in Yandex Managed Service for MySQL
+title: Access management in {{ mmy-full-name }}
 description: "Access management in the service for creating and managing MySQL databases. The section describes which resources can be assigned a role, which roles act in the service, which roles are required for this or that action."
 ---
 
@@ -9,9 +9,9 @@ description: "Access management in the service for creating and managing MySQL d
 
 In this section, you'll learn:
 
-* [What resources you can assign roles to](#resources).
-* [What roles exist in the service](#roles-list).
-* [What roles are required](#required-roles) for particular actions.
+* [Which resources you can assign roles to](#resources).
+* [Which roles exist in the service](#roles-list).
+* [Which roles are required](#required-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -46,7 +46,7 @@ Change and delete clusters and related resources | `update`, `delete` | `mdb.adm
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [For more information about role inheritance,](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [More information on inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 
 {% else %}
 

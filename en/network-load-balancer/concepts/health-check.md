@@ -25,4 +25,3 @@ There is a delay between changing a resource's status to `UNHEALTHY` and the tim
 Health checks are transmitted to target resources from IP addresses in the following ranges: `198.18.235.0/24` and `198.18.248.0/24`. Traffic filtering rules configured for targets must support incoming traffic from addresses in this range. Otherwise, no checks will be performed. As a result, the targets will not be assigned the `HEALTHY` status and will not be able to receive traffic.
 
 When performing HTTP verification, a resource gets the `HEALTHY` status only when responding with code `200`.
-

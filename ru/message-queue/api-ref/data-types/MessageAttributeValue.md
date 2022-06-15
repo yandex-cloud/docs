@@ -8,6 +8,6 @@
 ----- | ----- | ----- | -----
 `BinaryListValue.N` | **array** | Нет | Не реализовано.
 `BinaryValue` | **base64** | Нет | Любые двоичные данные.
-`DataType` | **string** | Да | Тип данных: String, Number или Binary.  Для типа Number нужно использовать StringValue.
+`DataType` | **string** | Да | Тип данных: String, Number или Binary. Для типа Number нужно использовать StringValue.
 `StringListValue.N` | **string** | Нет | Не реализовано.
 `StringValue` | **string** | Нет | Строка в кодировке UTF-8.

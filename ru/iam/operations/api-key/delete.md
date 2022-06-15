@@ -26,7 +26,7 @@
       export APIKEY_ID=ajeke74kbp5bfq7m6ka2
       export IAM_TOKEN=CggaATEVAgA...
       curl -X DELETE -H "Authorization: Bearer $IAM_TOKEN" \
-        https://iam.api.cloud.yandex.net/iam/v1/apiKeys/$APIKEY_ID
+        https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
       ```
 
 - Terraform

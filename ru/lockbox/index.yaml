@@ -1,21 +1,45 @@
-title: Yandex Lockbox
+title:
+  - text: Yandex Lockbox
+    when: product == "yandex-cloud"
+  - text: Lockbox
+    when: product == "cloud-il"
 description:
-  - >-
-    <em>Cервис Yandex Lockbox находится на <a
-    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
-  - Yandex Lockbox — сервис для хранения секретов.
+  - text:
+      - >-
+        <em>Cервис Yandex Lockbox находится на <a
+        href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
+      - Yandex Lockbox — сервис для хранения секретов.
+    when: product == "yandex-cloud"
+  - text:
+      - Lockbox — сервис для хранения секретов.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Lockbox
+  title:
+    - text: Yandex Lockbox
+      when: product == "yandex-cloud"
+    - text: Lockbox
+      when: product == "cloud-il"
 links:
   - title: Начало работы
     description: Создайте свой первый секрет
     href: quickstart
+    when: product == "yandex-cloud"
+  - title: Начало работы
+    description: Создайте свой первый секрет
+    href: quickstart.html
+    when: product == "cloud-il"
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
+    when: product == "yandex-cloud"
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+    when: product == "yandex-cloud"

@@ -7,9 +7,9 @@ items:
   - name: Как получить техническую поддержку
     href: overview.md
     when: audience == "internal"
-  - name: Оповещения от Yandex Cloud
+  - name: Оповещения от {{ yandex-cloud }}
     href: notify.md
-    when: audience != "internal"
+    when: audience != "internal" and product == "yandex-cloud"
   - name: Запросы данных
     href: request.md
     when: audience != "internal"

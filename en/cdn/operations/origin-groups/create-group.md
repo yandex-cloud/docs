@@ -74,7 +74,9 @@ To create an [origin group](../../concepts/origins.md):
 
       Example configuration file structure:
 
-      ```
+      {% if product == "yandex-cloud" %}
+
+      ```hcl
       provider "yandex" {
         token     = "<OAuth>"
         cloud_id  = "<cloud ID>"
@@ -97,6 +99,37 @@ To create an [origin group](../../concepts/origins.md):
         }
       }
       ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```hcl
+      provider "yandex" {
+        endpoint  = "{{ api-host }}:443"
+        token     = "<static key of the service account>"
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "<default availability zone>"
+      }
+
+      resource "yandex_cdn_origin_group" "my_group" {
+        name = "<group name>"
+        use_next = true
+        origin {
+         source = "<origin 1 IP address or domain name>"
+        }
+        origin {
+         source = "<origin 2 IP address or domain name>"
+        }
+        origin {
+         source = "<origin 3 IP address or domain name>"
+         backup = false
+        }
+      }
+      ```
+
+      {% endif %}
 
       For more information about resources that you can create with Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
 

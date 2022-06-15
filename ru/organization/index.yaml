@@ -1,25 +1,58 @@
 # Yandex Cloud Organization
-title: "Yandex Cloud Organization"
+title:
+  - text: Yandex Cloud Organization
+    when: product == "yandex-cloud"
+  - text: Cloud Organization
+    when: product == "cloud-il"
 description:
-  - "Yandex Cloud Organization — это решение для корпоративных клиентов, с помощью которого можно подключить к вашей организации сервисы Yandex Cloud и управлять доступом сотрудников к этим сервисам."
+  - text:
+      - "Yandex Cloud Organization — это решение для корпоративных клиентов, с помощью которого можно подключить к вашей организации сервисы Yandex Cloud и управлять доступом сотрудников к этим сервисам."
+    when: product == "yandex-cloud"
+  - text:
+      - "Cloud Organization — это решение для корпоративных клиентов, с помощью которого можно подключить к вашей организации сервисы CloudIL и управлять доступом сотрудников к этим сервисам."
+    when: product == "cloud-il"
 
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
-  title: "Yandex Cloud Organization"
+  title:
+    - text: Yandex Cloud Organization
+      when: product == "yandex-cloud"
+    - text: Cloud Organization
+      when: product == "cloud-il"
   # Блок со ссылками
 links:
 - title: "Зарегистрируйте организацию"
   description: "Чтобы начать работу, зарегистрируйте организацию"
   href: "enable-org"
+  when: product == "yandex-cloud"
+- title: "Зарегистрируйте организацию"
+  description: "Чтобы начать работу, зарегистрируйте организацию"
+  href: "enable-org.html"
+  when: product == "cloud-il"
 - title: "Добавьте пользователей"
   description: "Подключите к организации сотрудников с помощью аккаунтов на Яндексе — тогда они получат доступ к сервисам организации"
   href: "add-account"
+  when: product == "yandex-cloud"
+- title: "Добавьте пользователей"
+  description: "Подключите к организации сотрудников с помощью федерации удостоверений"
+  href: "add-account.html"
+  when: product == "cloud-il"
 - title: "Настройте федерацию удостоверений"
   description: "Настройте федерацию удостоверений, чтобы сотрудники использовали свои рабочие аккаунты для доступа к сервисам"
   href: "add-federation"
+  when: product == "yandex-cloud"
+- title: "Настройте федерацию удостоверений"
+  description: "Настройте федерацию удостоверений, чтобы сотрудники использовали свои рабочие аккаунты для доступа к сервисам"
+  href: "add-federation.html"
+  when: product == "cloud-il"
 - title: "Подключите сервисы"
   description: "Подключите сервисы, которыми смогут пользоваться сотрудники организации"
   href: "manage-services"
+  when: product == "yandex-cloud"
+- title: "Подключите сервисы"
+  description: "Подключите сервисы, которыми смогут пользоваться сотрудники организации"
+  href: "manage-services.html"
+  when: product == "yandex-cloud"
 #  href: "services"
 #- title: "Квоты и лимиты"
 #  description: "Технические и организационные ограничения сервиса"

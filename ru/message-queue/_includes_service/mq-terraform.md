@@ -20,15 +20,17 @@
             
      Пример конфигурационного файла для стандартной очереди:
      
+     {% if product == "yandex-cloud" %}
+
      ```
      provider "yandex" {
          token     = "<OAuth или статический ключ сервисного аккаунта>"
          folder_id = "<идентификатор каталога>"
-         zone      = "ru-central1-a"
+         zone      = "{{ region-id }}-a"
        }
 
      resource "yandex_message_queue" "example_queue" {
-       name                        = "ymq-terraform-example"
+       name                        = "mq-terraform-example"
        visibility_timeout_seconds  = 600
        receive_wait_time_seconds   = 20
        message_retention_seconds   = 1209600
@@ -37,17 +39,43 @@
      }
      ```
 
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```
+     provider "yandex" {
+         endpoint  = "{{ api-host }}:443"
+         token     = "<статический ключ сервисного аккаунта>"
+         folder_id = "<идентификатор каталога>"
+         zone      = "{{ region-id }}-a"
+       }
+
+     resource "yandex_message_queue" "example_queue" {
+       name                        = "mq-terraform-example"
+       visibility_timeout_seconds  = 600
+       receive_wait_time_seconds   = 20
+       message_retention_seconds   = 1209600
+       access_key                  = "<идентификатор статического ключа доступа>"
+       secret_key                  = "<секретная часть статического ключа доступа>"
+     }
+     ```
+
+     {% endif %}
+
      Пример конфигурационного файла для очереди FIFO:
+
+     {% if product == "yandex-cloud" %}
 
      ```
      provider "yandex" {
          token     = "<OAuth или статический ключ сервисного аккаунта>"
          folder_id = "<идентификатор каталога>"
-         zone      = "ru-central1-a"
+         zone      = "{{ region-id }}-a"
        }
 
      resource "yandex_message_queue" "example-fifo-queue" {
-       name                        = "ymq-terraform-example.fifo"
+       name                        = "mq-terraform-example.fifo"
        visibility_timeout_seconds  = 600
        receive_wait_time_seconds   = 20
        message_retention_seconds   = 1209600
@@ -56,18 +84,45 @@
        secret_key                  = "<секретная часть статического ключа доступа>"
      }
      ```
+
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```
+     provider "yandex" {
+         endpoint  = "{{ api-host }}:443"
+         token     = "<статический ключ сервисного аккаунта>"
+         folder_id = "<идентификатор каталога>"
+         zone      = "{{ region-id }}-a"
+       }
+
+     resource "yandex_message_queue" "example-fifo-queue" {
+       name                        = "mq-terraform-example.fifo"
+       visibility_timeout_seconds  = 600
+       receive_wait_time_seconds   = 20
+       message_retention_seconds   = 1209600
+       fifo_queue                  = true
+       access_key                  = "<идентификатор статического ключа доступа>"
+       secret_key                  = "<секретная часть статического ключа доступа>"
+     }
+     ```
+
+     {% endif %}
      
-     Пример конфигурационного файла для очереди c политикой перенаправления недоставленных сообщений в DLQ c именем `ymq_terraform_deadletter_example`:
+     Пример конфигурационного файла для очереди c политикой перенаправления недоставленных сообщений в DLQ c именем `mq_terraform_deadletter_example`:
+
+     {% if product == "yandex-cloud" %}
 
      ```
      provider "yandex" {
          token     = "<OAuth или статический ключ сервисного аккаунта>"
          folder_id = "<идентификатор каталога>"
-         zone      = "ru-central1-a"
+         zone      = "{{ region-id }}-a"
        }
 
      resource "yandex_message_queue" "example_fifo_queue" {
-       name                        = "ymq-terraform-example"
+       name                        = "mq-terraform-example"
        visibility_timeout_seconds  = 600
        receive_wait_time_seconds   = 20
        message_retention_seconds   = 1209600
@@ -80,11 +135,45 @@
      }
 
      resource "yandex_message_queue" "example_deadletter_queue" {
-       name                        = "ymq_terraform_deadletter_example"
+       name                        = "mq_terraform_deadletter_example"
        access_key                  = "<идентификатор статического ключа доступа>"
        secret_key                  = "<секретная часть статического ключа доступа>"
      }
      ```
+
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```
+     provider "yandex" {
+         endpoint  = "{{ api-host }}:443"
+         token     = "<статический ключ сервисного аккаунта>"
+         folder_id = "<идентификатор каталога>"
+         zone      = "{{ region-id }}-a"
+       }
+
+     resource "yandex_message_queue" "example_fifo_queue" {
+       name                        = "mq-terraform-example"
+       visibility_timeout_seconds  = 600
+       receive_wait_time_seconds   = 20
+       message_retention_seconds   = 1209600
+       redrive_policy              = jsonencode({
+         deadLetterTargetArn = yandex_message_queue.example_deadletter_queue.arn
+         maxReceiveCount     = 3
+       })
+       access_key                  = "<идентификатор статического ключа доступа>"
+       secret_key                  = "<секретная часть статического ключа доступа>"
+     }
+
+     resource "yandex_message_queue" "example_deadletter_queue" {
+       name                        = "mq_terraform_deadletter_example"
+       access_key                  = "<идентификатор статического ключа доступа>"
+       secret_key                  = "<секретная часть статического ключа доступа>"
+     }
+     ```
+
+     {% endif %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
      

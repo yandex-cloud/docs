@@ -13,10 +13,12 @@ Create a Windows [VM](../concepts/vm.md) using {{ compute-short-name }} from the
 
 {% include [ms-licensing-personal-data](../../_includes/ms-licensing-personal-data.md) %}
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-1. Log in to [management console]({{ link-console-main }}) or sign up. If you aren't registered, go to the management console and follow the instructions.
-1. [On the billing page]({{ link-console-billing }}) make sure that you have enabled a [billing account](../../billing/concepts/billing-account.md) and that it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. Log in to or register in the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
+   {% if product == "yandex-cloud" %}
+1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+   {% endif %}
 1. If you don't have a folder, [create one](../../resource-manager/operations/folder/create.md).
 
 ## Create a VM {#create-vm}
@@ -43,4 +45,3 @@ If you no longer plan to use a virtual machine, [delete it](../operations/vm-con
 * Learn [how to create a VM with a GPU](../operations/vm-create/create-vm-with-gpu.md).
 * Learn [how to use VMs](../operations/index.md).
 * Read [answers to frequently asked questions](../qa/all.md).
-

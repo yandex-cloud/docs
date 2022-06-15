@@ -13,7 +13,9 @@ editable: false
 * использование вычислительных ресурсов виртуальных машин {{ compute-full-name }} для развертывания хостов;
 * наценку на вычислительные ресурсы за использование управляемого сервиса {{ dataproc-name }};
 * использование сетевых дисков {{ compute-name }};
+{% if product == "yandex-cloud" %}
 * использование сервиса {{ cloud-logging-full-name }} для получения и хранения логов;
+{% endif %}
 * объем исходящего трафика.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
@@ -26,11 +28,17 @@ editable: false
 
 Объем хранилища, запрошенный для каждого из хостов кластера, тарифицируется в рамках сервиса {{ compute-name }} согласно [ценам на дисковое пространство](../compute/pricing.md#prices-storage).
 
+{% if product == "yandex-cloud" %}
+
 ### Использование сервиса {{ cloud-logging-full-name }} {#rules-logs}
 
 Получение и хранение логов оплачивается по [правилам тарификации](../logging/pricing.md) сервиса {{ cloud-logging-full-name }}.
 
+{% endif %}
+
 {% if region == "ru"%}
+
+{% if product == "yandex-cloud" %}
 
 ### Пример вычисления цены {#price-calculation-example}
 
@@ -56,6 +64,8 @@ editable: false
     Таким образом, суммарная цена за час составит 9,0000 ₽.
 
 {% endlist %}
+
+{% endif %}
 
 {% endif %}
 

@@ -21,7 +21,7 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% if audience != "internal" %}
+{% if product == "yandex-cloud" and audience != "internal" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -317,7 +317,7 @@
                                     -- * <имя бакета>.website.yandexcloud.net.
      )
      ENGINE = S3(
-           'https://storage.yandexcloud.net/bucket-logs/s3-logs/*',
+           'https://{{ s3-storage-host }}/bucket-logs/s3-logs/*',
            'JSONEachRow'
         );
      ```

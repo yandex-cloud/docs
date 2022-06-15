@@ -1,11 +1,27 @@
-title: Yandex Key Management Service
+title:
+  - text: Yandex Key Management Service
+    when: product == "yandex-cloud"
+  - text: Key Management Service
+    when: product == "cloud-il"
 description:
-  - >-
-    Yandex Key Management Service helps you create and manage
-    encryption keys that you can use to protect your data in the
-    Yandex Cloud infrastructure and encrypt or decrypt any data.
+  - text:
+      - >-
+        Yandex Key Management Service helps you create and manage
+        encryption keys that you can use to protect your data in the
+        Yandex Cloud infrastructure and encrypt or decrypt any data.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        Key Management Service helps you create and manage
+        encryption keys that you can use to protect your data in the
+        CloudIL infrastructure and encrypt or decrypt any data.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Key Management Service
+  title:
+    - text: Yandex Key Management Service
+      when: product == "yandex-cloud"
+    - text: Key Management Service
+      when: product == "cloud-il"
 links:
   - title: Getting started
     description: Encrypt and decrypt text using a KMS key
@@ -25,9 +41,15 @@ links:
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits
+    when: product == "yandex-cloud"
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Access management
     description: Configure access rights to work with the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+    when: product == "yandex-cloud"

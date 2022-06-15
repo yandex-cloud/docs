@@ -4,7 +4,7 @@
 | **RUNNING** | Cluster is operating normally | No action is required. |
 {% if audience != "internal" %}
 | **STOPPING** | Stopping cluster | After a while, the cluster's status will change to `STOPPED` and it will be disabled. No action is required. |
-| **STOPPED** | Cluster stopped | For instructions on how to restart it, see [Stopping and restarting a cluster](../../managed-elasticsearch/operations/cluster-stop.md). |
+| **STOPPED** | Cluster stopped | For instructions on how to restart it, see **Stopping and restarting a cluster**. |
 | **STARTING** | Starting the cluster that was stopped earlier | After a while, the cluster's status will change to `RUNNING`. Wait a while and get started. |
 {% endif %}
 | **UPDATING** | Updating the cluster status | After the update is completed, the cluster's status will change to `RUNNING`. Wait a while and get started. |

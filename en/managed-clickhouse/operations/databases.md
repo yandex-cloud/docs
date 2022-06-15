@@ -35,8 +35,8 @@ In a cluster with DB management via SQL enabled:
    To get a list of databases in a cluster, run the command:
 
    ```
-   {{ yc-mdb-ch }} database list
-     --cluster-name=<cluster name>
+   {{ yc-mdb-ch }} database list \
+      --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -136,7 +136,7 @@ There are no limits to the number of databases in a cluster.
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
-   To learn more about creating databases, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/create/database/).
+   To learn more about creating databases, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/create/database/).
 
 {% endlist %}
 
@@ -159,8 +159,8 @@ There are no limits to the number of databases in a cluster.
    To delete a database, run the command:
 
    ```
-   {{ yc-mdb-ch }} database delete <database name>
-     --cluster-name=<cluster name>
+   {{ yc-mdb-ch }} database delete <database name> \
+      --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -196,7 +196,7 @@ There are no limits to the number of databases in a cluster.
       DROP DATABASE <database name>;
       ```
 
-   To learn more about deleting objects, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/drop/).
+   To learn more about deleting objects, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/drop/).
 
 {% endlist %}
 

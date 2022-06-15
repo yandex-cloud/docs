@@ -3,7 +3,7 @@
 Type of limit | Value
 --- | ---
 Maximum number of registries per cloud | 10
-Number of simultaneous image scans running in a single cloud | 1
+{% if product == "yandex-cloud" %}Number of simultaneous image scans running in a single cloud | 1{% endif %}
 
 #### Limits {#container-registry-limits}
 

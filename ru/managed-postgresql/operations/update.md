@@ -1,5 +1,11 @@
 # Изменение настроек кластера
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 После создания кластера вы можете:
 
 * [Изменить класс хостов](#change-resource-preset).
@@ -65,8 +71,8 @@
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
-     | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
-     |           | ru-central1-c                  |       |          |
+     | s1.micro  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 8.0 GB   |
+     |           | {{ region-id }}-c                  |       |          |
      | ...                                                           |
      +-----------+--------------------------------+-------+----------+
      ```
@@ -363,11 +369,12 @@
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    * `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [{#T}](datalens-connect.md).
+    {% if product == "yandex-cloud" %}* `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [{#T}](datalens-connect.md).{% endif %}
 
     * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
     * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
+    {% if product == "yandex-cloud" %}
     {% if audience != "internal" %}
 
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
@@ -376,6 +383,7 @@
 
     * `--serverless-access` — разрешает доступ к кластеру из сервиса {{ sf-full-name }}. Значение по умолчанию — `false`.
 
+    {% endif %}
     {% endif %}
 
     * `--connection-pooling-mode` — указывает [режим работы менеджера соединений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
@@ -485,6 +493,7 @@
 
     {% endnote %}
 
+  {% if product == "yandex-cloud" %}
   {% if audience != "internal" %}
 
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
@@ -493,6 +502,7 @@
 
   Чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}, передайте значение `true` для параметра `configSpec.access.serverless`.
 
+  {% endif %}
   {% endif %}
 
   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}

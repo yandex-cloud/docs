@@ -9,5 +9,11 @@
 * [{#T}](pvc-snapshot-restore.md)
 * [{#T}](custom-dns.md)
 * [{#T}](node-local-dns.md)
+
+{% if product == "yandex-cloud" %}
+
 * [{#T}](fluent-bit-logging.md)
+
+{% endif %}
+
 * [{#T}](kubernetes-lockbox-secrets.md)

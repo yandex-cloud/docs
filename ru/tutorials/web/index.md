@@ -9,4 +9,6 @@
 * [Сайт на WordPress с кластером БД MySQL](wordpress-mysql.md)
 * [Перенос WordPress сайта с хостинга в {{ yandex-cloud }}](wordpress-transfer.md)
 * [Веб-сайт на базе 1С-Битрикс](bitrix-website.md)
+{% if product == "yandex-cloud" %}
 * [Организация сине-зеленого и канареечного развертывания версий веб-сервиса](blue-green-canary-deployment.md)
+{% endif %}

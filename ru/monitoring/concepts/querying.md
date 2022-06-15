@@ -1,5 +1,5 @@
 ---
-title: "Язык запросов в Yandex Monitoring"
+title: "Язык запросов в {{ monitoring-full-name }}"
 description: "В этом разделе описан язык запросов {{monitoring-full-name}}. Он используется для преобразования метрик при настройке дашбордов и алертов, а также в API-методе MetricsData.read."
 ---
 

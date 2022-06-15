@@ -51,7 +51,7 @@ _Обнаружение лиц сейчас находится на [стади�
     ```bash
     vision_face_detection() {
         curl -H "Authorization: Bearer `yc iam create-token`" \
-        "https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze" \
+        "https://vision.{{ api-host }}/vision/v1/batchAnalyze" \
         -d @<(cat << EOF
     {
         "folderId": "`yc config get folder-id`",

@@ -1,5 +1,11 @@
 # Deploying Active Directory
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 The scenario provides an example of how to deploy Active Directory in {{ yandex-cloud }}.
 
 To deploy the Active Directory infrastructure:
@@ -17,15 +23,11 @@ If you no longer need the infrastructure, [delete all the resources it uses](#cl
 
 ## Before you start {#before-you-begin}
 
-Before deploying servers, you need to sign up for {{ yandex-cloud }} and create a billing account:
-
-{% include [prepare-register-billing](../includes/prepare-register-billing.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 {% include [ms-additional-data-note](../includes/ms-additional-data-note.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in on the [cloud page]{% if lang == "ru" %}(https://console.cloud.yandex.ru/cloud){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/cloud){% endif %}.
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -34,6 +36,8 @@ The cost of an Active Directory installation includes:
 * A fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+
+{% endif %}
 
 ## Create a cloud network and subnets {#create-network}
 
@@ -75,14 +79,14 @@ Create a cloud network named `ad-network` with subnets in all the availability z
        1. Open the **Virtual Private Cloud** section in the folder where you want to create the subnet.
        1. Click on the name of the cloud network.
        1. Click **Add subnet**.
-       1. Fill out the form: set the subnet name to `ad-subnet-a` and select the `ru-central1-a` availability zone from the drop-down list.
+       1. Fill out the form: set the subnet name to `ad-subnet-a` and select the `{{ region-id }}-a` availability zone from the drop-down list.
        1. Enter the subnet CIDR, which is its IP address and mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
        1. Click **Create subnet**.
 
        Repeat the steps for two more subnets:
 
-         * Name: `ad-subnet-b`. Availability zone: `ru-central1-b`. CIDR: `10.2.0.0/16`.
-         * Name: `ad-subnet-c`. Availability zone: `ru-central1-c`. CIDR: `10.3.0.0/16`.
+         * Name: `ad-subnet-b`. Availability zone: `{{ region-id }}-b`. CIDR: `10.2.0.0/16`.
+         * Name: `ad-subnet-c`. Availability zone: `{{ region-id }}-c`. CIDR: `10.3.0.0/16`.
 
      - CLI
 
@@ -91,19 +95,19 @@ Create a cloud network named `ad-network` with subnets in all the availability z
        ```powershell
        yc vpc subnet create \
          --name ad-subnet-a \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --network-name ad-network \
          --range 10.1.0.0/16
 
        yc vpc subnet create \
          --name ad-subnet-b \
-         --zone ru-central1-b \
+         --zone {{ region-id }}-b \
          --network-name ad-network \
          --range 10.2.0.0/16
 
        yc vpc subnet create \
          --name ad-subnet-c \
-         --zone ru-central1-c \
+         --zone {{ region-id }}-c \
          --network-name ad-network \
          --range 10.3.0.0/16
        ```
@@ -135,7 +139,7 @@ Create two VMs for Active Directory domain controllers. These VMs don't have int
 
   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
   1. In the **Name** field, enter the VM name `ad-vm-a`.
-  1. Select the [availability zone](../../overview/concepts/geo-scope.md): `ru-central1-a`.
+  1. Select the [availability zone](../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
   1. Under **Image/boot disk selection** → **{{ marketplace-name }}** click **Show more**. In the window that opens, select the **Windows Server 2019 Datacenter** image and click **Use**.
   1. Under **Disks**, enter 50 GB for the size of the boot disk:
   1. Under **Computing resources**:
@@ -155,7 +159,7 @@ Create two VMs for Active Directory domain controllers. These VMs don't have int
   1. Under **Access**, in the **Password** field, enter your password.
   1. Click **Create VM**.
 
-  Repeat this operation for the VM `ad-vm-b` in the `ru-central1-b` availability zone, connect it to the `ad-subnet-b` subnet, and manually specify the internal address `10.2.0.3`.
+  Repeat this operation for the VM `ad-vm-b` in the `{{ region-id }}-b` availability zone, connect it to the `ad-subnet-b` subnet, and manually specify the internal address `10.2.0.3`.
 
 - CLI
 
@@ -165,7 +169,7 @@ Create two VMs for Active Directory domain controllers. These VMs don't have int
     --hostname ad-vm-a \
     --memory 8 \
     --cores 4 \
-    --zone ru-central1-a \
+    --zone {{ region-id }}-a \
     --network-interface subnet-name=ad-subnet-a,ipv4-address=10.1.0.3 \
     --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk \
     --metadata-from-file user-data=setpass
@@ -175,7 +179,7 @@ Create two VMs for Active Directory domain controllers. These VMs don't have int
     --hostname ad-vm-b \
     --memory 8 \
     --cores 4 \
-    --zone ru-central1-b \
+    --zone {{ region-id }}-b \
     --network-interface subnet-name=ad-subnet-b,ipv4-address=10.2.0.3 \
     --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk \
     --metadata-from-file user-data=setpass
@@ -193,7 +197,7 @@ A file server with internet access is used to configure VMs with Active Director
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name `jump-server-vm`.
-   1. Select the `ru-central1-c` [availability zone](../../overview/concepts/geo-scope.md)
+   1. Select the `{{ region-id }}-c` [availability zone](../../overview/concepts/geo-scope.md)
    1. Under **Image/boot disk selection** → **{{ marketplace-name }}** click **Show more**. In the window that opens, select the **Windows Server 2019 Datacenter** image and click **Use**.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
@@ -216,7 +220,7 @@ A file server with internet access is used to configure VMs with Active Director
      --hostname jump-server-vm \
      --memory 4 \
      --cores 2 \
-     --zone ru-central1-c \
+     --zone {{ region-id }}-c \
      --network-interface subnet-name=ad-subnet-c,nat-ip-version=ipv4 \
      --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk \
      --metadata-from-file user-data=setpass
@@ -260,34 +264,34 @@ VMs with Active Directory don't have internet access, so they should be configur
 
    Windows restarts automatically. Reconnect to `ad-vm-a` and launch PowerShell.
 
-1. Rename the default site `ru-central1-a`:
+1. Rename the default site `{{ region-id }}-a`:
 
    ```powershell
-   Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName 'ru-central1-a'
+   Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName '{{ region-id }}-a'
    ```
 
 1. Create two more sites for the other availability zones:
 
    ```powershell
-   New-ADReplicationSite 'ru-central1-b'
-   New-ADReplicationSite 'ru-central1-c'
+   New-ADReplicationSite '{{ region-id }}-b'
+   New-ADReplicationSite '{{ region-id }}-c'
    ```
 
 1. Create subnets and link them to the sites:
 
    ```powershell
-   New-ADReplicationSubnet -Name '10.1.0.0/16' -Site 'ru-central1-a'
-   New-ADReplicationSubnet -Name '10.2.0.0/16' -Site 'ru-central1-b'
-   New-ADReplicationSubnet -Name '10.3.0.0/16' -Site 'ru-central1-c'
+   New-ADReplicationSubnet -Name '10.1.0.0/16' -Site '{{ region-id }}-a'
+   New-ADReplicationSubnet -Name '10.2.0.0/16' -Site '{{ region-id }}-b'
+   New-ADReplicationSubnet -Name '10.3.0.0/16' -Site '{{ region-id }}-c'
    ```
 
 1. Rename the site link and configure replication:
 
    ```powershell
    Get-ADReplicationSiteLink 'DEFAULTIPSITELINK' | `
-       Set-ADReplicationSiteLink -SitesIncluded @{Add='ru-central1-b'} -ReplicationFrequencyInMinutes 15 -PassThru | `
+       Set-ADReplicationSiteLink -SitesIncluded @{Add='{{ region-id }}-b'} -ReplicationFrequencyInMinutes 15 -PassThru | `
        Set-ADObject -Replace @{options = $($_.options -bor 1)} -PassThru | `
-       Rename-ADObject -NewName 'ru-central1'
+       Rename-ADObject -NewName '{{ region-id }}'
    ```
 
 1. Set the DNS redirect server:

@@ -30,8 +30,8 @@
   +---------------------------------+--------------+------------+---------+--------+---------------+
   |              NAME               |  CLUSTER ID  | SHARD NAME |  ROLE   | HEALTH |    ZONE ID    |
   +---------------------------------+--------------+------------+---------+--------+---------------+
-  | rc1a-...caf.{{ dns-zone }} | c9qb2...0gg  | shard1     | MASTER  | ALIVE  | ru-central1-a |
-  | rc1c-...bgc.{{ dns-zone }} | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | ru-central1-c |
+  | rc1a-...caf.{{ dns-zone }} | c9qb2...0gg  | shard1     | MASTER  | ALIVE  | {{ region-id }}-a |
+  | rc1c-...bgc.{{ dns-zone }} | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | {{ region-id }}-c |
   +---------------------------------+--------------+------------+---------+--------+---------------+
   ```
 
@@ -41,8 +41,8 @@
   +---------------------------+--------------+------------+---------+--------+---------------+
   |           NAME            |  CLUSTER ID  | SHARD NAME |  ROLE   | HEALTH |    ZONE ID    |
   +---------------------------+--------------+------------+---------+--------+---------------+
-  | rc1a-...caf.{{ dns-zone }} | c9qb2...0gg  | shard1     | MASTER  | ALIVE  | ru-central1-a |
-  | rc1c-...bgc.{{ dns-zone }} | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | ru-central1-c |
+  | rc1a-...caf.{{ dns-zone }} | c9qb2...0gg  | shard1     | MASTER  | ALIVE  | {{ region-id }}-a |
+  | rc1c-...bgc.{{ dns-zone }} | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | {{ region-id }}-c |
   +---------------------------+--------------+------------+---------+--------+---------------+
   ```
 
@@ -114,10 +114,10 @@
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
-      | b0cl69... | default-c | enp6rq7... | ru-central1-c | [172.16.0.0/20]  |
-      | e2lkj9... | default-b | enp6rq7... | ru-central1-b | [10.10.0.0/16]   |
-      | e9b0ph... | a-2       | enp6rq7... | ru-central1-a | [172.16.32.0/20] |
-      | e9b9v2... | default-a | enp6rq7... | ru-central1-a | [172.16.16.0/20] |
+      | b0cl69... | default-c | enp6rq7... | {{ region-id }}-c | [172.16.0.0/20]  |
+      | e2lkj9... | default-b | enp6rq7... | {{ region-id }}-b | [10.10.0.0/16]   |
+      | e9b0ph... | a-2       | enp6rq7... | {{ region-id }}-a | [172.16.32.0/20] |
+      | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |
       +-----------+-----------+------------+---------------+------------------+
       ```
 

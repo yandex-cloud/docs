@@ -14,11 +14,15 @@ keywords:
 
 {% include [support-channels](../../_includes/compute/compute-resources.md) %}
 
-Learn more in [{#T}](../concepts/performance-levels.md).
+For more information, see [{#T}](../concepts/performance-levels.md).
 
 #### How can I change the amount of RAM and the number of cores allocated to a VM? {#update-type}
 
-Learn more in [{#T}](../operations/vm-control/vm-update-resources.md).
+For more information, see [{#T}](../operations/vm-control/vm-update-resources.md).
+
+#### How do I create a multi-interface VM? {#multi-interface}
+
+You can only add a network interface when [creating a VM](../operations/index.md#vm-create). Currently, multiple interfaces can only be created using network images from the [Marketplace]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace?categories=network){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace?categories=network){% endif %}.
 
 ### VM parameters {#parameters-vm}
 
@@ -41,12 +45,12 @@ To change a VM's parameters, we recommend taking the following steps:
 1. Turn off the VM as normal: see [{#T}](../operations/vm-control/vm-stop-and-start.md).
 1. Change the VM's parameters: see [{#T}](../operations/vm-control/vm-update-resources.md).
 1. Wait until the operation is completed (the **Operations** section in the {{ compute-name }} service).
-1. Turn on the VM.
+1. Start the VM.
 1. Make sure that the new parameters were applied.
 
 #### Is it possible to reduce the vCPU/vRAM for a VM {#reduce-cpu-ram}
 
-Yes, it is. However, if the load on the vCPU and/or vRAM was already significant before changing the parameters, after lowering the parameters, the VM may not start.
+You can. However, if the load on the vCPU and/or vRAM was already significant before changing the parameters, after lowering the parameters, the VM may not start.
 
 If the load on the server is small and at the same time uniform, it's even recommended to reduce the parameters so as not to overpay.
 
@@ -62,7 +66,7 @@ The FQDN is issued to the VM at the time of its creation, and you cannot change 
 
 If you want to change the FQDN, you need to delete the VM and create a new one. To preserve the consistency of the data:
 1. Stop the VM: see [{#T}](../operations/vm-control/vm-stop-and-start.md#stop).
-1. Take a disk snapshot: see [{#T}](../operations/disk-control/create-snapshot.md).
+1. Take a snapshot of the disk: see [{#T}](../operations/disk-control/create-snapshot.md).
 1. Create a new VM by selecting the snapshot as the source of the boot disk: see [{#T}](../operations/vm-create/create-from-snapshots.md). Specify the necessary FQDN during creation.
 
 #### Can a VM's UUID change {#change-uuid}
@@ -83,9 +87,15 @@ This method allows you to update the metadata in the service, but without growin
 
 Yes, you can take snapshots of disks attached to a VM and use them when creating a new VM.
 
+
+{% if product == "yandex-cloud" %}
+
 #### Can I move my VM to a different availability zone? {#move-az}
 
 You cannot directly change the availability zone where the VM is hosted. However, you can create a copy of the VM in the availability zone you need.
+
+{% endif %}
+
 
 #### Can I move my VM to a different folder? {#move-to-project}
 
@@ -96,19 +106,3 @@ You cannot directly change the folder that the VM belongs to. However, you can c
 No, you can't. Deleting a VM is an irreversible operation.
 
 To avoid losing your data in case of accidental deletion, you can configure disk backups using snapshots or specify that the disks should not be automatically deleted when deleting the VM.
-
-#### If I lose a private key file from a Linux VM, how else can I log in to it? {#lost-sshkey}
-
-If you configured the [serial console](../operations/serial-console/index.md), you can use it to connect to the VM.
-
-You can also access your data the following way:
-1. [Create a snapshot](../operations/disk-control/create-snapshot.md) of the boot disk.
-1. [Create a VM](../operations/vm-create/create-linux-vm.md) from a public image.
-1. [Attach](../operations/vm-control/vm-attach-disk.md) the disk restored from the snapshot to the VM.
-
-You can then export your data or restore access to the VM.
-
-To restore access:
-1. Change the SSH key in the `/home/<username>/.ssh/authorized_keys` file.
-1. Make a snapshot of the attached disk.
-1. [Create a VM with the disk from the snapshot](../operations/vm-create/create-from-snapshots.md).

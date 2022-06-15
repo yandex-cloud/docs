@@ -87,7 +87,7 @@ HTML-форма описывается тегом `<form>` и состоит и�
         Ключ в хранилище:
         <input type="input" name="key" value="object_key" /><br />
         <!-- Свойства запроса -->
-        <input type="hidden" name="x-amz-credential" value="access_key_id/date/ru-central1/s3/aws4_request" />
+        <input type="hidden" name="x-amz-credential" value="access_key_id/date/{{ region-id }}/s3/aws4_request" />
         <input type="hidden" name="acl" value="predefined-acl-name" />
         <input type="hidden" name="x-amz-algorithm" value="AWS4-HMAC-SHA256" />
         <input type="hidden" name="x-amz-date" value="date" />
@@ -149,7 +149,7 @@ HTML-форма описывается тегом `<form>` и состоит и�
 `success_action_redirect` | URL, на который перенаправляется пользователь после успешной загрузки файла. Если значение не установлено, то {{ objstorage-name }} возвращает ответ, установленный в поле `success_action_status`. | Нет
 `success_action_status` | Статус ответа при успешной загрузке.<br/><br/>Если не указан `success_action_redirect`, то {{ objstorage-name }} возвращает значение `success_action_status`. Тело ответа пустое.<br/><br/>Допустимые значения: 200, 204 (по умолчанию). | Нет
 `x-amz-algorithm` | Алгоритм для подписи политики безопасности. Значение — `AWS4-HMAC-SHA256`.<br/><br/>Необходимо, если в форме есть политика безопасности. | Условно
-`x-amz-credential` | Идентификатор для подписи.<br/><br/>Строка формата `<access-key-id>/<date>/ru-central1/s3/aws4_request`, где `<date>` должна совпадать со значением поля `x-amz-date` и той датой, которая используется для подписи политики.<br/><br/>Необходимо, если в форме есть политика безопасности. | Условно
+`x-amz-credential` | Идентификатор для подписи.<br/><br/>Строка формата `<access-key-id>/<date>/{{ region-id }}/s3/aws4_request`, где `<date>` должна совпадать со значением поля `x-amz-date` и той датой, которая используется для подписи политики.<br/><br/>Необходимо, если в форме есть политика безопасности. | Условно
 `x-amz-date` | Дата в формате ISO8601, например, `20180719T000000Z`. Должна по значению (не по формату) совпадать с датой в поле `x-amz-credential`, а также с датой, которая используется для подписи политики.<br/><br/>Необходимо, если в форме есть политика безопасности. | Условно
 `x-amz-storage-class` | [Класс хранилища](storage-class.md) для объекта. С помощью HTML-формы вы можете поместить объект только в стандартное хранилище. | Нет
 `x-amz-meta-*` | Пользовательские метаданные объекта.<br/><br/>Все заголовки, начинающиеся с `x-amz-meta-` {{ objstorage-name }} воспринимает как пользовательские, не обрабатывает их и сохраняет в том виде, в котором они переданы.<br/><br/>Общий размер пользовательских заголовков не должен превышать 2KB. Размер пользовательских данных определяется как длина строки в кодировке UTF-8. В размере учитываются и названия заголовков и их значения. | Нет
@@ -220,27 +220,27 @@ HTML-форма содержит политику безопасности, ко
 
 - Файлы должны сохраняться в бакет `user-data` с префиксом `/users/upload/`.
 - Загруженные объекты открыты для публичного чтения.
-- В случае успешной загрузки происходит перенаправление на страницу `https://cloud.yandex.ru/docs/storage/concepts/presigned-post-forms`.
+- В случае успешной загрузки происходит перенаправление на страницу `https://example.com`.
 
 Для генерирования полей формы воспользуемся [boto3](../tools/boto.md) Python SDK:
 
 ```python
 aws_access_key_id = 'JK38EXAMPLEAKDID8'
 aws_secret_access_key = 'ExamP1eSecReTKeykdokKK38800'
-endpoint = 'https://storage.yandexcloud.net'
+endpoint = 'https://{{ s3-storage-host }}'
 
 s3 = boto3.client('s3',
                   aws_access_key_id=aws_access_key_id,
                   aws_secret_access_key=aws_secret_access_key,
-                  region_name='ru-central1',
+                  region_name='{{ region-id }}',
                   endpoint_url=endpoint,
                   config=botocore.client.Config(signature_version='s3v4'),
                   )
 
 key = 'users/uploads/${filename}'
 bucket = 'user-data'
-conditions = [{"acl":"public-read"}, ["starts-with", "$key", "users/uploads"], {'success_action_redirect': 'https://cloud.yandex.ru/docs/storage/concepts/presigned-post-forms'}]
-fields = {'success_action_redirect': 'https://cloud.yandex.ru/docs/storage/concepts/presigned-post-forms'}
+conditions = [{"acl":"public-read"}, ["starts-with", "$key", "users/uploads"], {'success_action_redirect': 'https://example.com'}]
+fields = {'success_action_redirect': 'https://example.com'}
 
 prepared_form_fields = s3.generate_presigned_post(Bucket=bucket,
                                                   Key=key,
@@ -257,15 +257,15 @@ print(prepared_form_fields)
 
 ```json
 {
-    'url': u'https://storage.yandexcloud.net/user-data',
+    'url': u'https://{{ s3-storage-host }}/user-data',
     'fields': {
         'x-amz-algorithm': 'AWS4-HMAC-SHA256',
         'x-amz-date': '20190722T153936Z',
-        'success_action_redirect': 'https://cloud.yandex.ru/docs/storage/concepts/presigned-post-forms',
+        'success_action_redirect': 'https://example.com',
         'x-amz-signature': '4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96',
         'key': 'users/uploads/${filename}',
         'policy': u'eyJjb25kaXRpb25zIj...M5OjM2WiJ9',
-        'x-amz-credential': u'JK38EXAMPLEAKDID8/20190722/ru-central1/s3/aws4_request'}
+        'x-amz-credential': u'JK38EXAMPLEAKDID8/20190722/{{ region-id }}/s3/aws4_request'}
 }
 ```
 
@@ -277,14 +277,14 @@ print(prepared_form_fields)
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <form action="https://storage.yandexcloud.net/user-data" method="post" enctype="multipart/form-data">
+        <form action="https://{{ s3-storage-host }}/user-data" method="post" enctype="multipart/form-data">
             Ключ в хранилище:
             <input type="input"    name="key" value="users/uploads/${filename}" /><br />
-            <input type="hidden"   name="x-amz-credential" value="JK38EXAMPLEAKDID8/20190722/ru-central1/s3/aws4_request" />
+            <input type="hidden"   name="x-amz-credential" value="JK38EXAMPLEAKDID8/20190722/{{ region-id }}/s3/aws4_request" />
             <input type="hidden"   name="acl" value="public-read" />
             <input type="hidden"   name="x-amz-algorithm" value="AWS4-HMAC-SHA256" />
             <input type="hidden"   name="x-amz-date" value="20190722T153936Z" />
-            <input type="hidden"   name="success_action_redirect" value="https://cloud.yandex.ru/docs/storage/concepts/presigned-post-forms" />
+            <input type="hidden"   name="success_action_redirect" value="https://example.com" />
             <input type="hidden"   name="policy" value="eyJjb25kaXRpb25zIj...M5OjM2WiJ9" />
             <input type="hidden" name="x-amz-signature" value="4bdfb2209fc30744458be10bc3b99361f2f50add20f2ca2425587a2722859f96" />
             Файл для загрузки:

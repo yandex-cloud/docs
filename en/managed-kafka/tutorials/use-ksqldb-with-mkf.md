@@ -1,43 +1,43 @@
 # Data delivery in ksqlDB
 
-ksqlDB is a database designed for stream processing messages from {{ KF }} topics. Working with message streams in ksqlDB is similar to working with tables in a regular database. A ksqlDB table is automatically populated with data received from a topic, and the data that you add to the ksqlDB table is sent to the {{ KF }} topic. For more information, see the [ksqlDB documentation](https://docs.ksqldb.io/en/latest).
+ksqlDB is a database designed for stream processing messages from {{ KF }} topics. Working with message streams in ksqlDB is similar to working with tables in a regular database. The ksqlDB table is automatically updated with data from a topic, and the data that you add to the ksqlDB table is sent to the {{ KF }} topic. For more information, see the [ksqlDB documentation](https://docs.ksqldb.io/en/latest).
 
 To set up data delivery from {{ mkf-name }} to ksqlDB:
-1. [Set up integration with {{ KF }} for ksqlDB](#configure-ksqldb-for-kf).
-1. [Review the format of data received from {{ mkf-name }}](#explore-kf-data-format).
-1. [Create a ksqlDB table for writing a data stream from a {{ KF }} topic](#create-kf-table).
-1. [Get test data from a {{ mkf-name }} cluster](#get-data-from-kf).
+1. [Set up {{ KF }} integration for the ksqlDB database](#configure-ksqldb-for-kf).
+1. [Review the format of the data coming from {{ mkf-name }}](#explore-kf-data-format).
+1. [Create a table in ksqlDB to capture the data stream from the {{ KF }} topic](#create-kf-table).
+1. [Get test data from the {{ mkf-name }} cluster](#get-data-from-kf)
 1. [Write the test data to ksqlDB](#insert-data-to-ksqldb).
 1. [Check that the test data is present in the {{ KF }} topic](#fetch-data-from-kf).
 
-If you no longer need the created resources, [delete them](#clear-out).
+If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) with any suitable configuration:
+1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration.
 
-    * If the ksqlDB server is hosted on the internet, create a publicly accessible {{ mkf-name }} cluster.
-    {% if audience != "internal" %}
+   * If the ksqlDB server is hosted on the internet, create a publicly accessible {{ mkf-name }} cluster.
+      {% if audience != "internal" %}
 
-    * If the ksqlDB server is hosted in {{ yandex-cloud }}, create a {{ mkf-name }} cluster in the same [cloud network](../../vpc/concepts/network.md) as ksqlDB.
+   * If the ksqlDB server is hosted in {{ yandex-cloud }}, create a {{ mkf-name }} cluster on the same [cloud network](../../vpc/concepts/network.md) as ksqlDB.
 
-    {% else %}
+   {% else %}
 
-    * If the ksqlDB server is hosted in {{ yandex-cloud }}, create a {{ mkf-name }} cluster on the same cloud network as ksqlDB.
+   * If the ksqlDB server is hosted in {{ yandex-cloud }}, create a {{ mkf-name }} cluster on the same cloud network as ksqlDB.
 
-    {% endif %}
+   {% endif %}
 
-1. [Create topics](../../managed-kafka/operations/cluster-topics.md#create-topic) in the {{ mkf-name }} cluster:
+1. [Create topics](../../managed-kafka/operations/cluster-topics.md#create-topic) in a {{ mkf-name }} cluster:
    1. A service topic named `_confluent-ksql-default__command_topic` with the following settings:
-        * Replication factor: `1`.
-        * Number of partitions: `1`.
-        * Log cleanup policy: `Delete`.
-        * Log retention, ms: `-1`.
-        * Minimum number of in-sync replicas: `1`.
+      * Replication factor: `1`.
+      * Number of partitions: `1`.
+      * Log cleanup policy: `Delete`.
+      * Log retention, ms: `-1`.
+      * Minimum number of in-sync replicas: `1`.
    1. A service topic named `default_ksql_processing_log`. It may have any settings.
    1. A topic for data storage named `locations`. It may have any settings.
 
-1. [Create an account](../../managed-kafka/operations/cluster-accounts.md#create-account) named `ksql` and assign it the producer and consumer roles for all the previously created topics.
+1. [Create an account](../../managed-kafka/operations/cluster-accounts.md#create-account) named `ksql` and assign it the producer and the consumer roles for all the previously created topics.
 
 1. Check that you can connect to the ksqlDB server.
 
@@ -45,23 +45,22 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 1. Install the [jq](https://stedolan.github.io/jq/) utility for stream processing JSON files on the ksqlDB server.
 
-
-## Set up integration with {{ KF }} for the ksqlDB server {#configure-ksqldb-for-kf}
+## Set up {{ KF }} integration for the ksqlDB database {#configure-ksqldb-for-kf}
 
 1. Connect to the ksqlDB server.
 1. Add the server's SSL certificate to the Java trusted certificate store (Java Key Store) so that ksqlDB can use this certificate for secure connections to the cluster hosts. Make sure to set the password using the `-storepass` parameter for additional storage protection:
 
    ```bash
    cd /etc/ksqldb && \
-   sudo keytool -importcert -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+   sudo keytool -importcert -alias YandexCA -file {{ crt-local-dir }}{{ crt-local-file }} \
    -keystore ssl -storepass <certificate store password> \
    --noprompt
    ```
 
-1. Specify in the ksqlDB configuration file `/etc/ksqldb/ksql-server.properties` the data required for authentication in the {{ mkf-name }} cluster:
+1. In the ksqlDB `/etc/ksqldb/ksql-server.properties` configuration file, specify the credentials to authenticate in the {{ mkf-name }} cluster:
 
    ```ini
-   bootstrap.servers=<FQDN of broker 1:9091, ..., FQDN of broker N:9091>
+   bootstrap.servers=<broker 1 FQDN:9091, ..., broker N FQDN:9091>
    sasl.mechanism=SCRAM-SHA-512
    security.protocol=SASL_SSL
    ssl.truststore.location=/etc/ksqldb/ssl
@@ -73,9 +72,9 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 1. Restart the ksqlDB service with the command below:
 
-    ```bash
-    sudo systemctl restart confluent-ksqldb.service
-    ````
+   ```bash
+   sudo systemctl restart confluent-ksqldb.service
+   ````
 
 ## Review the format of the data coming from {{ mkf-name }} {#explore-kf-data-format}
 
@@ -98,7 +97,7 @@ Next, we'll configure the fields of a ksqlDB data stream table.
 
 ## Create a table in ksqlDB to capture the data stream from the {{ KF }} topic {#create-kf-table}
 
-Create a table in ksqlDB for writing data from the {{ KF }} topic. The table structure corresponds to the [format of data](#explore-kf-data-format) received from {{ mkf-name }}:
+Create a table in ksqlDB for writing data from the {{ KF }} topic. The table structure matches the [format of the data](#explore-kf-data-format) from {{ mkf-name }}:
 1. Connect to the ksqlDB server.
 1. Run the `ksql` client with the command:
 
@@ -109,28 +108,28 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
 1. Run the query:
 
    ```sql
-   CREATE STREAM riderLocations 
+   CREATE STREAM riderLocations
    (
      profileId VARCHAR,
      latitude DOUBLE,
      longitude DOUBLE
-   ) WITH 
+   ) WITH
    (
-     kafka_topic='locations', 
-     value_format='json', 
+     kafka_topic='locations',
+     value_format='json',
      partitions=<number of "locations" topic partitions>
    );
    ```
 
-   This data stream table will be automatically populated with messages from the {{ mkf-name }} cluster `locations` topic. To read these messages, ksqlDB uses the [settings](#configure-ksqldb-for-kf) of the `ksql` account.
+   This data stream table will be automatically populated with messages from the {{ mkf-name }} cluster `locations` topic. ksqlDB uses the `ksql` account [settings](#configure-ksqldb-for-kf) to read messages.
 
    For more information about creating a data stream table in the ksqlDB engine, see the [ksqlDB documentation](https://www.confluent.io/blog/how-real-time-stream-processing-works-with-ksqldb).
 
 1. Run the query:
 
    ```sql
-   SELECT * FROM riderLocations WHERE 
-            GEO_DISTANCE(latitude, longitude, 37.4133, -122.1162) <= 5 
+   SELECT * FROM riderLocations WHERE
+            GEO_DISTANCE(latitude, longitude, 37.4133, -122.1162) <= 5
             EMIT CHANGES;
    ```
 
@@ -143,19 +142,19 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
 
    ```json
    {
-     "profileId": "c2309eec", 
+     "profileId": "c2309eec",
      "latitude": 37.7877,
      "longitude": -122.4205
    }
 
    {
-     "profileId": "4ab5cbad", 
+     "profileId": "4ab5cbad",
      "latitude": 37.3952,
      "longitude": -122.0813
    }
 
    {
-     "profileId": "4a7c7b41", 
+     "profileId": "4a7c7b41",
      "latitude": 37.4049,
      "longitude": -122.0822
    }   
@@ -165,24 +164,24 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
 
    ```bash
    jq -rc . sample.json | kafkacat -P  \
-      -b <FQDN  of broker 1:9091, ..., FQDN  of broker N:9091> \
+      -b <broker 1 FQDN:9091, ..., broker N FQDN:9091> \
       -t locations \
       -X security.protocol=SASL_SSL \
       -X sasl.mechanisms=SCRAM-SHA-512 \
       -X sasl.username=ksql \
       -X sasl.password="<ksql account password>" \
-      -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z
+      -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
    ```
 
    Information is sent using the `ksql` account. To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../operations/connect.md).
 
-1. Make sure that the [session](#create-kf-table) shows the data that was sent to the topic:
+1. Make sure that the [session](#create-kf-table) displays the data sent to the topic:
 
    ```text
    +--------------------------+--------------------------+------------------------+
    |PROFILEID                 |LATITUDE                  |LONGITUDE               |
    +--------------------------+--------------------------+------------------------+
-   |4ab5cbad                  |37.3952                   |-122.0813               | 
+   |4ab5cbad                  |37.3952                   |-122.0813               |
    |4a7c7b41                  |37.4049                   |-122.0822               |
    ```
 
@@ -214,21 +213,21 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
 
    ```bash
    kafkacat -C  \
-    -b <FQDN  of broker 1:9091, ..., FQDN  of broker N:9091> \
+    -b <broker 1 FQDN:9091, ..., broker N FQDN:9091> \
     -t locations \
     -X security.protocol=SASL_SSL \
     -X sasl.mechanisms=SCRAM-SHA-512 \
     -X sasl.username=ksql \
     -X sasl.password="<ksql account password>" \
-    -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:   
+    -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:   
    ```
 
-1. Make sure that the console displays the messages that you [inserted into the table](#insert-data-to-ksqldb).
+1. Make sure that the console displays the messages you [inserted into the table](#insert-data-to-ksqldb).
 
 ## Delete the resources you created {#clear-out}
 
 If you no longer need these resources, delete them:
 
-* [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
-* If you reserved a public static IP address for the VM, [delete it](../../vpc/operations/address-delete.md).
-* [Delete the cluster {{ mkf-name }}](../operations/cluster-delete.md).
+* {% if audience != "internal" %}[Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).{% else %}Delete the virtual machine. {% endif %}
+* If you reserved a public static IP for your virtual machine, {% if audience != "internal" %}[delete it](../../vpc/operations/address-delete.md).{% else %}Delete it.{% endif %}
+* [Delete a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).

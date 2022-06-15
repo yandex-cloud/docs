@@ -147,13 +147,13 @@
      +-------------+--------------------------------+----------+
      |     ID      |            ZONE IDS            |  MEMORY  |
      +-------------+--------------------------------+----------+
-     | b1.nano     | ru-central1-a, ru-central1-b,  | 2.0 GB   |
-     |             | ru-central1-c                  |          |
-     | b1.small    | ru-central1-a, ru-central1-b,  | 4.0 GB   |
-     |             | ru-central1-c                  |          |
-     | hm1.nano    | ru-central1-a, ru-central1-b,  | 8.0 GB   |
-     |             | ru-central1-c                  |          |
-     | hm1.micro   | ru-central1-a, ru-central1-b,  | 12.0 GB  |
+     | b1.nano     | {{ region-id }}-a, {{ region-id }}-b,  | 2.0 GB   |
+     |             | {{ region-id }}-c                  |          |
+     | b1.small    | {{ region-id }}-a, {{ region-id }}-b,  | 4.0 GB   |
+     |             | {{ region-id }}-c                  |          |
+     | hm1.nano    | {{ region-id }}-a, {{ region-id }}-b,  | 8.0 GB   |
+     |             | {{ region-id }}-c                  |          |
+     | hm1.micro   | {{ region-id }}-a, {{ region-id }}-b,  | 12.0 GB  |
      | ...                                                     |
      +-----------+----------------------------------+----------+
      ```

@@ -10,7 +10,7 @@
 
 Грант условно делится на две части и распределяется на сервисы следующим образом:
 
-* _Первая часть_ — 1000 ₽ от общего размера гранта. Может использоваться для оплаты услуг сервиса [{{ compute-full-name }}](https://cloud.yandex.ru/services/compute) и инструментов [{{ marketplace-full-name }}](https://cloud.yandex.ru/marketplace).
+* _Первая часть_ — 1000 ₽ от общего размера гранта. Может использоваться для оплаты услуг сервиса [{{ compute-full-name }}](https://cloud.yandex.ru/services/compute) и инструментов [{{ marketplace-full-name }}](/marketplace).
 * _Вторая часть_ — 3000 ₽ от общего размера гранта. Может использоваться для оплаты услуг [других сервисов](../overview/concepts/services.md) {{ yandex-cloud }}.
 
 {% endif %}
@@ -19,7 +19,7 @@
 
 Грант условно делится на две части и распределяется на сервисы следующим образом:
 
-* _Первая часть_ — 6 000 ₸ от общего размера гранта. Может использоваться для оплаты услуг сервиса [{{ compute-full-name }}](https://cloud.yandex.ru/services/compute) и инструментов [{{ marketplace-full-name }}](https://cloud.yandex.ru/marketplace).
+* _Первая часть_ — 6 000 ₸ от общего размера гранта. Может использоваться для оплаты услуг сервиса [{{ compute-full-name }}](https://cloud.yandex.ru/services/compute) и инструментов [{{ marketplace-full-name }}](/marketplace).
 * _Вторая часть_ — 18 000 ₸ от общего размера гранта. Может использоваться для оплаты услуг [других сервисов](../overview/concepts/services.md) {{ yandex-cloud }}.
 
 {% endif %}

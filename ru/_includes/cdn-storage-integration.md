@@ -95,11 +95,11 @@
      
   1. Создайте подсети во всех зонах доступности:
   
-     * В `ru-central1-a`:
+     * В `{{ region-id }}-a`:
      
        ```
-       yc vpc subnet create example-subnet-ru-central1-a \
-         --zone ru-central1-a \
+       yc vpc subnet create example-subnet-{{ region-id }}-a \
+         --zone {{ region-id }}-a \
          --network-name example-network \
          --range 10.1.0.0/16
        ```
@@ -110,18 +110,18 @@
        id: e9bnnssj8sc8mjhat9qk
        folder_id: b1g9hv2loamqfnbul7d9
        created_at: "2022-04-04T09:27:00Z"
-       name: example-subnet-ru-central1-a
+       name: example-subnet-{{ region-id }}-a
        network_id: enptrcle5q3d3ktd33hj
-       zone_id: ru-central1-a
+       zone_id: {{ region-id }}-a
        v4_cidr_blocks:
        - 10.1.0.0/16
        ```
      
-     * В `ru-central1-b`:
+     * В `{{ region-id }}-b`:
      
        ```
-       yc vpc subnet create example-subnet-ru-central1-b \
-         --zone ru-central1-b \
+       yc vpc subnet create example-subnet-{{ region-id }}-b \
+         --zone {{ region-id }}-b \
          --network-name example-network \
          --range 10.2.0.0/16
        ```
@@ -132,18 +132,18 @@
        id: e2lghukd9iqo4haidjbt
        folder_id: b1g9hv2loamqfnbul7d9
        created_at: "2022-04-04T09:27:39Z"
-       name: example-subnet-ru-central1-b
+       name: example-subnet-{{ region-id }}-b
        network_id: enptrcle5q3d3ktd33hj
-       zone_id: ru-central1-b
+       zone_id: {{ region-id }}-b
        v4_cidr_blocks:
        - 10.2.0.0/16
        ```
      
-     * В `ru-central1-c`:
+     * В `{{ region-id }}-c`:
      
        ```
-       yc vpc subnet create example-subnet-ru-central1-c \
-         --zone ru-central1-c \
+       yc vpc subnet create example-subnet-{{ region-id }}-c \
+         --zone {{ region-id }}-c \
          --network-name example-network \
          --range 10.3.0.0/16
        ```
@@ -154,9 +154,9 @@
        id: b0c3pte4o2kn4v12o05p
        folder_id: b1g9hv2loamqfnbul7d9
        created_at: "2022-04-04T09:28:08Z"
-       name: example-subnet-ru-central1-c
+       name: example-subnet-{{ region-id }}-c
        network_id: enptrcle5q3d3ktd33hj
-       zone_id: ru-central1-c
+       zone_id: {{ region-id }}-c
        v4_cidr_blocks:
        - 10.3.0.0/16
        ```
@@ -167,7 +167,7 @@
 
   Если у вас ещё нет Terraform, {% if audience != "internal" %}[установите его и настройте провайдер {{ yandex-cloud }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его и настройте провайдер {{ yandex-cloud }}{% endif %}.
   
-  1. Опишите в конфигурационном файле параметры сети `example-network` и ее подсетей `example-subnet-ru-central1-a`, `example-subnet-ru-central1-b` и `example-subnet-ru-central1-c`:
+  1. Опишите в конфигурационном файле параметры сети `example-network` и ее подсетей `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` и `example-subnet-{{ region-id }}-c`:
   
      ```
      resource "yandex_vpc_network" "example-network" {
@@ -175,22 +175,22 @@
      }
 
      resource "yandex_vpc_subnet" "example-subnet-a" {
-       name           = "example-subnet-ru-central1-a"
-       zone           = "ru-central1-a"
+       name           = "example-subnet-{{ region-id }}-a"
+       zone           = "{{ region-id }}-a"
        network_id     = "${yandex_vpc_network.example-network.id}"
        v4_cidr_blocks = ["10.1.0.0/16"]
      }
      
      resource "yandex_vpc_subnet" "example-subnet-b" {
-       name           = "example-subnet-ru-central1-b"
-       zone           = "ru-central1-b"
+       name           = "example-subnet-{{ region-id }}-b"
+       zone           = "{{ region-id }}-b"
        network_id     = "${yandex_vpc_network.example-network.id}"
        v4_cidr_blocks = ["10.2.0.0/16"]
      }
      
      resource "yandex_vpc_subnet" "example-subnet-c" {
-       name           = "example-subnet-ru-central1-c"
-       zone           = "ru-central1-c"
+       name           = "example-subnet-{{ region-id }}-c"
+       zone           = "{{ region-id }}-c"
        network_id     = "${yandex_vpc_network.example-network.id}"
        v4_cidr_blocks = ["10.3.0.0/16"]
      }
@@ -222,7 +222,7 @@
 - API
 
   1. Создайте сеть `example-network` с помощью вызова gRPC API {% if audience != "internal" %}[NetworkService/Create](../vpc/api-ref/grpc/network_service.md#Create){% else %}NetworkService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../vpc/api-ref/Network/create.md){% else %}create{% endif %}.
-  1. Создайте подсети `example-subnet-ru-central1-a`, `example-subnet-ru-central1-b` и `example-subnet-ru-central1-c` в трех зонах доступности с помощью вызова gRPC API {% if audience != "internal" %}[SubnetService/Create](../vpc/api-ref/grpc/subnet_service.md#Create){% else %}SubnetService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../vpc/api-ref/Subnet/create.md){% else %}create{% endif %}.
+  1. Создайте подсети `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` и `example-subnet-{{ region-id }}-c` в трех зонах доступности с помощью вызова gRPC API {% if audience != "internal" %}[SubnetService/Create](../vpc/api-ref/grpc/subnet_service.md#Create){% else %}SubnetService/Create{% endif %} или метода REST API {% if audience != "internal" %}[create](../vpc/api-ref/Subnet/create.md){% else %}create{% endif %}.
 
 {% endlist %}
 
@@ -759,7 +759,7 @@
      1. Выберите **Сеть** `example-network`.
      1. Выберите **Группу безопасности** `example-sg`. Если этого поля нет, для балансировщика будет разрешен любой входящий и исходящий трафик.
       
-  1. В блоке **Размещение** выберите три подсети для узлов балансировщика — `example-subnet-ru-central1-a`, `example-subnet-ru-central1-b` и `example-subnet-ru-central1-c` — и включите передачу трафика в эти подсети.
+  1. В блоке **Размещение** выберите три подсети для узлов балансировщика — `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` и `example-subnet-{{ region-id }}-c` — и включите передачу трафика в эти подсети.
   1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик**. Задайте настройки обработчика:
   
      1. Введите имя обработчика: `example-listener`.
@@ -784,9 +784,9 @@
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
      |          ID          |            NAME             |      FOLDER ID       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |     RANGE     |
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
-     | e9bnnssj8sc8mjhat9qk | example-subnet-ru-central1-c | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | ru-central1-c | [10.1.0.0/16] |
-     | e2lghukd9iqo4haidjbt | example-subnet-ru-central1-b | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | ru-central1-b | [10.2.0.0/16] |
-     | b0c3pte4o2kn4v12o05p | example-subnet-ru-central1-a | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | ru-central1-a | [10.3.0.0/16] |
+     | e9bnnssj8sc8mjhat9qk | example-subnet-{{ region-id }}-c | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-c | [10.1.0.0/16] |
+     | e2lghukd9iqo4haidjbt | example-subnet-{{ region-id }}-b | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-b | [10.2.0.0/16] |
+     | b0c3pte4o2kn4v12o05p | example-subnet-{{ region-id }}-a | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-a | [10.3.0.0/16] |
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
      ```
      
@@ -812,9 +812,9 @@
      yc alb load-balancer create example-balancer \
        --network-name example-network \
        --security-group-id <идентификатор группы безопасности example-sg> \
-       --location zone=ru-central1-a,subnet-id=<идентификатор подсети example-subnet-ru-central1-a> \
-       --location zone=ru-central1-b,subnet-id=<идентификатор подсети example-subnet-ru-central1-b> \
-       --location zone=ru-central1-c,subnet-id=<идентификатор подсети example-subnet-ru-central1-c>
+       --location zone={{ region-id }}-a,subnet-id=<идентификатор подсети example-subnet-{{ region-id }}-a> \
+       --location zone={{ region-id }}-b,subnet-id=<идентификатор подсети example-subnet-{{ region-id }}-b> \
+       --location zone={{ region-id }}-c,subnet-id=<идентификатор подсети example-subnet-{{ region-id }}-c>
      ```
      
      Результат:
@@ -825,15 +825,15 @@
      name: example-balancer
      folder_id: b1g9hv2loamqfnbul7d9
      status: ACTIVE
-     region_id: ru-central1
+     region_id: {{ region-id }}
      network_id: enptrcle5q3d3ktd33hj
      allocation_policy:
        locations:
-       - zone_id: ru-central1-c
+       - zone_id: {{ region-id }}-c
          subnet_id: b0c3pte4o2kn4v12o05p
-       - zone_id: ru-central1-b
+       - zone_id: {{ region-id }}-b
          subnet_id: e2lghukd9iqo4haidjbt
-       - zone_id: ru-central1-a
+       - zone_id: {{ region-id }}-a
          subnet_id: e9bnnssj8sc8mjhat9qk
      log_group_id: ckg23vr4dlkse3hvq0kc
      security_group_ids:
@@ -861,7 +861,7 @@
      name: example-balancer
      folder_id: b1g9hv2loamqfnbul7d9
      status: ACTIVE
-     region_id: ru-central1
+     region_id: {{ region-id }}
      network_id: enptrcle5q3d3ktd33hj
      listeners:
      - name: example-listener
@@ -876,11 +876,11 @@
            http_router_id: ds7qd0vj01djuu3c6f8q
      allocation_policy:
        locations:
-       - zone_id: ru-central1-c
+       - zone_id: {{ region-id }}-c
          subnet_id: b0c3pte4o2kn4v12o05p
-       - zone_id: ru-central1-b
+       - zone_id: {{ region-id }}-b
          subnet_id: e2lghukd9iqo4haidjbt
-       - zone_id: ru-central1-a
+       - zone_id: {{ region-id }}-a
          subnet_id: e9bnnssj8sc8mjhat9qk
      log_group_id: ckg23vr4dlkse3hvq0kc
      security_group_ids:
@@ -904,18 +904,18 @@
      
        allocation_policy {
          location {
-           zone_id   = "ru-central1-a"
-           subnet_id = ${yandex_vpc_subnet.example-subnet-ru-central1-a.id}
+           zone_id   = "{{ region-id }}-a"
+           subnet_id = ${yandex_vpc_subnet.example-subnet-{{ region-id }}-a.id}
          }
      
          location {
-           zone_id   = "ru-central1-b"
-           subnet_id = ${yandex_vpc_subnet.example-subnet-ru-central1-b.id}
+           zone_id   = "{{ region-id }}-b"
+           subnet_id = ${yandex_vpc_subnet.example-subnet-{{ region-id }}-b.id}
          }
      
          location {
-           zone_id   = "ru-central1-c"
-           subnet_id = ${yandex_vpc_subnet.example-subnet-ru-central1-c.id}
+           zone_id   = "{{ region-id }}-c"
+           subnet_id = ${yandex_vpc_subnet.example-subnet-{{ region-id }}-c.id}
          }
        }
      
@@ -1284,5 +1284,5 @@
 1. {% if audience != "internal" %}[Удалите](../application-load-balancer/operations/application-load-balancer-delete.md){% else %}Удалите{% endif %} L7-балансировщик `example-balancer`.
 1. [Удалите](../storage/operations/objects/delete.md) все объекты из бакета `example-bucket`.
 1. [Удалите](../storage/operations/buckets/delete.md) бакет `example-bucket`.
-1. {% if audience != "internal" %}[Удалите](../vpc/operations/subnet-delete.md){% else %}Удалите{% endif %} подсети `example-subnet-ru-central1-a`, `example-subnet-ru-central1-b` и `example-subnet-ru-central1-c`.
+1. {% if audience != "internal" %}[Удалите](../vpc/operations/subnet-delete.md){% else %}Удалите{% endif %} подсети `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b` и `example-subnet-{{ region-id }}-c`.
 1. {% if audience != "internal" %}[Удалите](../vpc/operations/network-delete.md){% else %}Удалите{% endif %} сеть `example-network`.

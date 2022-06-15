@@ -6,30 +6,33 @@ Packer создаст и запустит виртуальную машину с
 
 Чтобы создать образ:
 
-1. [Установите Packer](#install-packer)
-1. [Подготовьте конфигурацию образа](#prepare-image-config)
-1. [Создайте образ](#create-image)
-1. [Проверьте образ](#check-image)
+1. [Установите Packer](#install-packer).
+1. [Подготовьте конфигурацию образа](#prepare-image-config).
+1. [Создайте образ](#create-image).
+1. [Проверьте образ](#check-image).
 
 Если созданный образ больше не нужен, [удалите его](#clear-out).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед тем, как разворачивать приложения, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
-
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака](https://console.cloud.yandex.ru/cloud).
- 
- [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 * Установите [интерфейс командной строки](../../cli/quickstart.md#install) {{ yandex-cloud }}.
 * [Создайте](../../vpc/quickstart.md) в вашем каталоге облачную сеть с одной подсетью.
+{% if product == "yandex-cloud" %}
 * [Получите](../../iam/concepts/authorization/oauth-token.md) OAuth-токен.
+{% endif %}
+{% if product == "cloud-il" %}
+* [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [получите](../../iam/operations/sa/create-access-key.md) статический ключ для него.
+{% endif %}
+
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 Оплачивается хранение созданных образов (см. [тарифы {{ compute-full-name }}](../../compute/pricing#prices-storage)).
+
+{% endif %}
 
 ## Установите Packer {#install-packer}
 
@@ -41,7 +44,7 @@ Packer создаст и запустит виртуальную машину с
 
 Скачайте дистрибутив Packer и установите его по [инструкции на официальном сайте](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
 
-Также вы можете скачать дистрибутив Packer для вашей платформы из [зеркала {{ yandex-cloud }}](https://hashicorp-releases.website.yandexcloud.net/packer/). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`: 
+Также вы можете скачать дистрибутив Packer для вашей платформы из [зеркала](https://hashicorp-releases.website.yandexcloud.net/packer/). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`: 
 
 ```
 export PATH=$PATH:/path/to/packer
@@ -53,6 +56,8 @@ export PATH=$PATH:/path/to/packer
 1. Подготовьте идентификатор подсети, выполнив команду `yc vpc subnet list`. 
 1. Создайте JSON-файл с любым именем, например, `image.json`. Запишите туда следующую конфигурацию:
 
+{% if product == "yandex-cloud" %}
+
 ```json
 {
   "builders": [
@@ -60,7 +65,7 @@ export PATH=$PATH:/path/to/packer
       "type":      "yandex",
       "token":     "<OAuth-токен>",
       "folder_id": "<идентификатор каталога>",
-      "zone":      "ru-central1-a",
+      "zone":      "{{ region-id }}-a",
 
       "image_name":        "debian-9-nginx-not_var{{isotime | clean_resource_name}}",
       "image_family":      "debian-web-server",
@@ -87,8 +92,51 @@ export PATH=$PATH:/path/to/packer
     }
   ]
 }
-
 ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+```json
+{
+  "builders": [
+    {
+      "type":      "yandex",
+      "endpoint":  "{{ api-host }}:443",
+      "token":     "<статический ключ сервисного аккаунта>",
+      "folder_id": "<идентификатор каталога>",
+      "zone":      "{{ region-id }}-a",
+
+      "image_name":        "debian-9-nginx-not_var{{isotime | clean_resource_name}}",
+      "image_family":      "debian-web-server",
+      "image_description": "my custom debian with nginx",
+
+      "source_image_family": "debian-9",
+      "subnet_id":           "<идентификатор подсети>",
+      "use_ipv4_nat":        true,
+      "disk_type":           "network-ssd",
+      "ssh_username":        "debian"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "echo 'updating APT'",
+        "sudo apt-get update -y",
+        "sudo apt-get install -y nginx",
+        "sudo su -",
+        "sudo systemctl enable nginx.service",
+        "curl localhost"
+      ]
+    }
+  ]
+}
+```
+
+{% endif %}
+
 
 ## Создайте образ {#create-image}
 
@@ -108,6 +156,6 @@ $ packer build image.json
 
 ### Удалите созданные ресурсы {#clear-out}
 
-Если созданный образ вам больше не нужен [удалите его](../../compute/operations/image-control/delete.md).
+Если созданный образ вам больше не нужен, [удалите его](../../compute/operations/image-control/delete.md).
 
 Удалите [подсеть](../../vpc/operations/subnet-delete.md) и [облачную сеть](../../vpc/operations/network-delete.md), если вы их создавали специально для выполнения сценария.

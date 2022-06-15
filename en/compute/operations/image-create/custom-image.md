@@ -2,7 +2,17 @@
 
 You can use your own file with a Linux-based VM disk image. After preparing your image, [upload it](upload.md) to {{ compute-name }}.
 
+{% note info %}
+
+To speed up creating VMs from an image, you can [optimize](../../concepts/image.md#images-optimized-for-deployment) it.
+
+{% endnote %}
+
+{% if product == "yandex-cloud" %}
+
 If you made software that might be helpful to other others, [offer](../../../marketplace/operations/create-product.md) it in {{ marketplace-name }}.
+
+{% endif %}
 
 ## Configure the OS to meet the requirements {#requirements}
 
@@ -10,7 +20,7 @@ If you made software that might be helpful to other others, [offer](../../../mar
 
 ### Install the virtio drivers {#virtio}
 
-To upload your image successfully, make sure to install the `virtio-blk` and `virtio-net` drivers. To use {{ compute-name }} file storage, install the `virtiofs` driver.
+To upload your image successfully, make sure to install the {% if product == "yandex-cloud" %}`virtio-blk` and `virtio-net` drivers. To use {{ compute-name }} file storage, install the `virtiofs`{% endif %}{% if product == "cloud-il" %}`virtio-blk`, `virtio-net`, and `virtiofs`{% endif %} drivers.
 
 Most modern distributions contain the `virtio` drivers by default. They can be compiled as separate `.ko` files or be part of the kernel itself.
 
@@ -18,10 +28,9 @@ Follow the instructions below to check if the drivers are installed and, if not,
 
 1. Find out if the drivers are included in the kernel configuration:
 
-   {% cut "To find out" %}
+   {% cut "How do I find out?" %}
 
    Run the command:
-
    ```sh
    grep -E -i "VIRTIO_(BLK|NET|FS)" /boot/config-$(uname -r)
    ```
@@ -32,13 +41,13 @@ Follow the instructions below to check if the drivers are installed and, if not,
 
 1. If the `CONFIG_VIRTIO_BLK=y`, `CONFIG_VIRTIO_NET=y`, and `CONFIG_VIRTIO_FS=y` lines are returned in step 1, check that the drivers are included in the kernel:
 
-   {% cut "To check drivers in the kernel" %}
+   {% cut "How to check if drivers are included in a kernel" %}
 
    Run the command:
-
    ```sh
    grep -E "virtio(_blk|_net|fs)" /lib/modules/"$(uname -r)"/modules.builtin
    ```
+
    * If the lines with the `virtio_net.ko`, `virtio_blk.ko`, and `virtiofs.ko` filenames are returned, the drivers are part of the kernel and you don't need to install them.
    * If not, recompile the Linux kernel with the virtio drivers.
 
@@ -46,59 +55,58 @@ Follow the instructions below to check if the drivers are installed and, if not,
 
 1. If the `CONFIG_VIRTIO_BLK=m`, `CONFIG_VIRTIO_NET=m`, and `CONFIG_VIRTIO_FS=m` lines are returned in step 1, check that the drivers are installed as kernel modules:
 
-   {% cut "To check kernel modules" %}
+   {% cut "How to check if drivers belong to a module" %}
 
    {% list tabs %}
 
    - CentOS, Fedora
 
-     Run the following command:
+      Run the following command:
 
-     ```sh
-     sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "virtio(_blk|_net|fs)"
-     ```
+      ```sh
+      sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "virtio(_blk|_net|fs)"
+      ```
 
-     * If the lines with the `virtio_net.ko.xz`, `virtio_blk.ko.xz`, and `virtiofs.ko.xz` filenames are returned, the drivers are installed as kernel modules.
-     * If not, create a backup of the `initramfs` file and install the drivers:
+      * If the lines with the `virtio_net.ko.xz`, `virtio_blk.ko.xz`, and `virtiofs.ko.xz` filenames are returned, the drivers are installed as kernel modules.
+      * If not, create a backup of the `initramfs` file and install the drivers:
 
-       ```sh
-       sudo cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak
-       sudo mkinitrd -f --with=virtio_blk --with=virtio_net --with=virtiofs /boot/initramfs-$(uname -r).img $(uname -r)
-       ```
+         ```sh
+         sudo cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak
+         sudo mkinitrd -f --with=virtio_blk --with=virtio_net --with=virtiofs /boot/initramfs-$(uname -r).img $(uname -r)
+         ```
 
-       Then restart the OS and check that the drivers appear in the `initramfs` file and are loaded:
+         Then restart the OS and check that the drivers appear in the `initramfs` file and are loaded:
 
-       ```sh
-       sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "virtio(_blk|_net|fs)"
-       find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net|fs)"
-       ```
+         ```sh
+         sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "virtio(_blk|_net|fs)"
+         find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net|fs)"
+         ```
 
-       After running each of the commands, the lines with the `virtio_net.ko.xz`, `virtio_blk.ko.xz`, and `virtiofs.ko.xz` filenames should be returned.
+         After running each of the commands, the lines with the `virtio_net.ko.xz`, `virtio_blk.ko.xz`, and `virtiofs.ko.xz` filenames should be returned.
 
    - Debian, Ubuntu
 
-     Run the following command:
+      Run the following command:
 
-     ```sh
-     lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "virtio(_blk|_net|fs)"
-     ```
+      ```sh
+      lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "virtio(_blk|_net|fs)"
+      ```
+      * If the lines with the `virtio_net.ko`, `virtio_blk.ko`, and `virtiofs.ko` filenames are returned, the drivers are installed as kernel modules.
+      * If not, install the drivers:
 
-     * If the lines with the `virtio_net.ko`, `virtio_blk.ko`, and `virtiofs.ko` filenames are returned, the drivers are installed as kernel modules.
-     * If not, install the drivers:
+         ```sh
+         echo -e "virtio_blk\nvirtio_net\nvirtiofs" | sudo tee -a /etc/initramfs-tools/modules
+         sudo update-initramfs -u
+         ```
 
-       ```sh
-       echo -e "virtio_blk\nvirtio_net\nvirtiofs" | sudo tee -a /etc/initramfs-tools/modules
-       sudo update-initramfs -u
-       ```
+         Then restart the OS and check that the drivers appear in the `initrd` file and are loaded:
 
-       Then restart the OS and check that the drivers appear in the `initrd` file and are loaded:
+         ```sh
+         lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "virtio(_blk|_net|fs)"
+         find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net|fs)"
+         ```
 
-       ```sh
-       lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "virtio(_blk|_net|fs)"
-       find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net|fs)"
-       ```
-
-       After running each of the commands, the lines with the `virtio_net.ko`, `virtio_blk.ko`, and `virtiofs.ko` filenames should be returned.
+         After running each of the commands, the lines with the `virtio_net.ko`, `virtio_blk.ko`, and `virtiofs.ko` filenames should be returned.
 
    {% endlist %}
 
@@ -130,21 +138,21 @@ To connect to your VM using the serial console, set up the `ttyS0` terminal (COM
 
    - CentOS, Fedora
 
-     ```sh
-     sudo stty -F /dev/ttyS0 9600                 # Sets the recommended baud rate for the ttyS0 terminal at 9600 
-     sudo grub2-mkconfig -o /boot/grub2/grub.cfg  # Generates a configuration file for GRUB
-     sudo systemctl start getty@ttyS0             # Starts getty on the ttyS0 terminal
-     sudo systemctl enable getty@ttyS0            # Specifies that getty should be run every time the OS is started
-     ```
+      ```sh
+      sudo stty -F /dev/ttyS0 9600                 # Sets the recommended baud rate for the ttyS0 terminal at 9600
+      sudo grub2-mkconfig -o /boot/grub2/grub.cfg  # Generates a configuration file for GRUB
+      sudo systemctl start getty@ttyS0             # Starts getty on the ttyS0 terminal
+      sudo systemctl enable getty@ttyS0            # Specifies that getty should be run every time the OS is started
+      ```
 
    - Debian, Ubuntu
 
-        ```sh
-        sudo stty -F /dev/ttyS0 9600        # Sets the recommended baud rate for the ttyS0 terminal at 9600 
-        sudo update-grub                    # Generates a configuration file for GRUB
-        sudo systemctl start getty@ttyS0    # Starts getty on the ttyS0 terminal
-        sudo systemctl enable getty@ttyS0   # Specifies that getty should be run every time the OS is started
-        ```
+      ```sh
+      sudo stty -F /dev/ttyS0 9600        # Sets the recommended baud rate for the ttyS0 terminal at 9600
+      sudo grub2-mkconfig -o /boot/grub2/grub.cfg                    # Generates a configuration file for GRUB
+      sudo systemctl start getty@ttyS0    # Starts getty on the ttyS0 terminal
+      sudo systemctl enable getty@ttyS0   # Specifies that getty should be run every time the OS is started
+      ```
 
    {% endlist %}
 
@@ -158,9 +166,9 @@ If working with a VM requires a [GPU](../../concepts/gpus.md), [install NVIDIA d
 
 ## Create an image file {#create-image-file}
 
-Supported formats: Qcow2, VMDK, and VHD.
+Supported formats: `Qcow2`, `VMDK`, and `VHD`.
 
-We recommend that you use Qcow2 format with an optimized cluster size for faster import. To convert your image from other formats, use the `qemu-img` utility:
+We recommend that you use `Qcow2` format with an optimized cluster size for faster import. To convert your image from other formats, use the `qemu-img` utility:
 
 ```
 qemu-img convert -p -O qcow2 -o cluster_size=2M <name of your image file> <name of the new image file>
@@ -168,7 +176,6 @@ qemu-img convert -p -O qcow2 -o cluster_size=2M <name of your image file> <name 
 
 {% note info %}
 
-Don't use file compression or archiving software when preparing the image file.
+Don't use file compression or archiving software when preparing the image file. To speed up creating VMs from an image, you can [optimize](../../concepts/image.md#images-optimized-for-deployment) it.
 
 {% endnote %}
-

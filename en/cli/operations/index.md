@@ -9,8 +9,9 @@ description: "From the article you will learn how to work with the command line 
 
 ## Authentication {#auth}
 
-- [{#T}](authentication/user.md)
+{% if audience != "internal" %}- [{#T}](authentication/user.md){% endif %}
 - [{#T}](authentication/service-account.md)
+- [{#T}](authentication/federated-user.md)
 
 ## Profile management {#profile}
 
@@ -19,4 +20,3 @@ description: "From the article you will learn how to work with the command line 
 - [{#T}](profile/profile-list.md)
 - [{#T}](profile/profile-activate.md)
 - [{#T}](profile/profile-delete.md)
-

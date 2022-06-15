@@ -226,7 +226,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
             ```sql
             CREATE READABLE EXTERNAL TABLE pxf_s3_read(a int, b int)
-            LOCATION ('pxf://test-bucket/test.csv?PROFILE=s3:text&accesskey=<идентификатор ключа>&secretkey=<секретный ключ>&endpoint=storage.yandexcloud.net')
+            LOCATION ('pxf://test-bucket/test.csv?PROFILE=s3:text&accesskey=<идентификатор ключа>&secretkey=<секретный ключ>&endpoint={{ s3-storage-host }}')
             FORMAT 'CSV';
             ```
 
@@ -253,7 +253,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
             ```sql
             CREATE WRITABLE EXTERNAL TABLE pxf_s3_write(a int, b int)
-            LOCATION ('pxf://test-bucket/?PROFILE=s3:text&accesskey=<идентификатор ключа>&secretkey=<секретный ключ>&endpoint=storage.yandexcloud.net')
+            LOCATION ('pxf://test-bucket/?PROFILE=s3:text&accesskey=<идентификатор ключа>&secretkey=<секретный ключ>&endpoint={{ s3-storage-host }}')
             FORMAT 'CSV';
             ```
 

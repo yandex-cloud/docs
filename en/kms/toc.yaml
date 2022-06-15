@@ -1,4 +1,8 @@
-title: Yandex Key Management Service
+title:
+  - text: Yandex Key Management Service
+    when: product == "yandex-cloud"
+  - text: Key Management Service
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Getting started
@@ -29,6 +33,7 @@ items:
         href: concepts/consistency.md
       - name: Hardware Security Module (HSM)
         href: concepts/hsm.md
+        when: product == "yandex-cloud"
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Practical guidelines
@@ -39,22 +44,27 @@ items:
         items:
           - name: Which encryption method should I choose?
             href: tutorials/encrypt/index.md
-          - name: Encrypting data using the Yandex Cloud CLI and API
+          - name: Encrypting data using the CLI and API {{ yandex-cloud }}
             href: tutorials/encrypt/cli-api.md
           - name: Encrypting data using the Yandex Cloud SDK
             href: tutorials/encrypt/sdk.md
+            when: product == "yandex-cloud"
+          - name: Encrypting data using the SDK
+            href: tutorials/encrypt/sdk.md
+            when: product == "cloud-il"
           - name: Encrypting data using the AWS Encryption SDK
             href: tutorials/encrypt/aws-encryption-sdk.md
           - name: Encrypting data using Google Tink
             href: tutorials/encrypt/google-tink.md
       - name: Encrypting secrets in Managed Service for Kubernetes
-        href: tutorials/kubernetes.md
+        href: tutorials/k8s.md
       - name: KMS key management with Hashicorp Terraform
         href: tutorials/terraform-key.md
       - name: Encrypting secrets in Hashicorp Terraform
         href: tutorials/terraform-secret.md
       - name: Auto Unseal in Hashicorp Vault
         href: tutorials/vault-secret.md
+        when: product == "yandex-cloud"
   - name: Access management
     href: security/index.md
   - name: Pricing policy

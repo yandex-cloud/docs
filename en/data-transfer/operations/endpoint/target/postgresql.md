@@ -1,8 +1,8 @@
 # Target endpoint parameters {{ PG }}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
-* Settings of [{{ mpg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise), including one based on {{ compute-full-name }} VMs. These are required parameters.
+* [{{ mpg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
 
 ## {{ mpg-name }} cluster {#managed-service}
@@ -38,7 +38,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
            mdb_cluster_id = "<{{ mpg-name }} cluster ID>"
          }
          database = "<name of database to transfer>"
-         user     = "<username for connection>"
+         user     = "<username to connect>"
          password {
            raw = "<user password>"
          }
@@ -91,7 +91,7 @@ Connecting to the database with an explicitly specified network address and port
            }
          }
          database = "<name of database to transfer>"
-         user     = "<username for connection>"
+         user     = "<username to connect>"
          password {
            raw = "<user password>"
          }
@@ -118,10 +118,14 @@ Connecting to the database with an explicitly specified network address and port
 
    * **Save transaction boundaries**: Enable so that the service writes data to the target database only after fully reading the transaction data from the source database.
 
+      {% if audience != "internal" %}
+
       {% note warning %}
 
       This feature is in the [Preview stage](../../../../overview/concepts/launch-stages.md).
 
       {% endnote %}
+
+      {% endif %}
 
 {% endlist %}

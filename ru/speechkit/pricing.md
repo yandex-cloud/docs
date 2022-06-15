@@ -4,6 +4,14 @@ editable: false
 
 # Правила тарификации для {{ speechkit-name }}
 
+{% if product == "cloud-il" %}
+
+На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ speechkit-name }} не тарифицируется.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 ## Из чего складывается стоимость использования {{ speechkit-short-name }} {#rules}
@@ -143,5 +151,7 @@ editable: false
 {% if region == "int"%}
 
 {% include [usd.md](../_pricing/speechkit/usd-stt.md) %}
+
+{% endif %}
 
 {% endif %}

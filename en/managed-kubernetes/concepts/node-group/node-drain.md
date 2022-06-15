@@ -1,6 +1,6 @@
 # Evicting pods from a node
 
-When you update a node group, the pods are evicted from the old node to move to the new node. To make sure that eviction doesn't affect the availability of the services provided by your applications in the {{ k8s }} cluster, configure the {{ k8s }} API [PodDisruptionBudget](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#poddisruptionbudget-v1beta1-policy) object for the pods of your application.
+When you update a node group, the pods are evicted from the old node to move to the new node. To make sure that eviction doesn't affect the availability of the services provided by your applications in the {{ k8s }} cluster, configure the {{ k8s }} API [PodDisruptionBudget](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/pod-disruption-budget-v1/) object for the pods of your application.
 
 The `PodDisruptionBudget` object is defined by three fields:
 

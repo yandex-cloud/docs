@@ -42,8 +42,8 @@
       |          ID          |    NAME    |    ZONE ID    | STATUS  |
       +----------------------+------------+---------------+---------+
       ...
-      | fhmajnpl7cvhl6v1s12i | test-vm-1  | ru-central1-a | RUNNING |
-      | fhmajv6f27n0a4a1sbml | test-vm-2  | ru-central1-a | RUNNING |
+      | fhmajnpl7cvhl6v1s12i | test-vm-1  | {{ region-id }}-a | RUNNING |
+      | fhmajv6f27n0a4a1sbml | test-vm-2  | {{ region-id }}-a | RUNNING |
       ...
       +----------------------+------------+---------------+---------+
       ```
@@ -68,7 +68,7 @@
 
       ```
       yc load-balancer target-group create \
-        --region-id ru-central1 \
+        --region-id {{ region-id }} \
         --name test-tg-1 \
         --target subnet-id=<subnet ID>,address=<internal IP address of resource>
       ```
@@ -92,9 +92,39 @@
          * `subnet_id`: ID of the subnet to which target objects are connected. All targets in the target group must be connected to the same subnet within the same availability zone. Required parameter.
          * `address`: Resource internal IP address. Required parameter.
 
+      {% if product == "yandex-cloud" %}
+
       ```hcl
       provider "yandex" {
         token     = "<OAuth>"
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "{{ region-id }}-a"
+      }
+
+      resource "yandex_lb_target_group" "foo" {
+        name      = "my-target-group"
+
+        target {
+          subnet_id = "<subnet ID>"
+          address   = "<internal IP address of resource>"
+        }
+
+        target {
+          subnet_id = "<subnet ID>"
+          address   = "<internal IP address of resource 2>"
+        }
+      }
+      ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```hcl
+      provider "yandex" {
+        endpoint  = "{{ api-host }}:443"
+        token     = "<static key of the service account>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "ru-central1-a"
@@ -112,7 +142,6 @@
           subnet_id = "<subnet ID>"
           address   = "<internal IP address of resource 2>"
         }
-
       }
       ```
 
@@ -126,6 +155,9 @@
          ```
          terraform plan
          ```
+
+      {% endif %}
+
 
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
 

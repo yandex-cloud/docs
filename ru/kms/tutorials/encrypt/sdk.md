@@ -1,8 +1,8 @@
-# Шифрование данных с помощью SDK {{ yandex-cloud }}
+# Шифрование данных с помощью SDK {% if product == "yandex-cloud" %}{{ yandex-cloud }}{% endif %}
 
-С {{ kms-name }} можно работать с помощью SDK {{ yandex-cloud }}. Реализация SDK есть на [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk) и [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
+С {{ kms-name }} можно работать с помощью SDK Yandex Cloud. Реализация SDK есть на [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk) и [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
 
-SDK {{ yandex-cloud }} наиболее удобен для шифрования данных небольшого размера (ограничение на размер открытого текста – 32 КБ). Для шифрования данных большего объема рекомендуется использовать [AWS Encryption SDK](aws-encryption-sdk.md) или [Google Tink](google-tink.md). Они шифруют данные [по схеме envelope encryption](../../concepts/envelope.md).
+SDK Yandex Cloud наиболее удобен для шифрования данных небольшого размера (ограничение на размер открытого текста – 32 КБ). Для шифрования данных большего объема рекомендуется использовать [AWS Encryption SDK](aws-encryption-sdk.md) или [Google Tink](google-tink.md). Они шифруют данные [по схеме envelope encryption](../../concepts/envelope.md).
 
 ## Добавление зависимостей {#dependency}
 
@@ -36,8 +36,10 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 Аутентифицироваться можно с помощью: 
 * [сервисного аккаунта, привязанного к виртуальной машине {{ yandex-cloud }}](#vm);
-* [произвольного сервисного аккаунта](#sa);
-* [аккаунта на Яндексе](#yandex-acc).
+* [произвольного сервисного аккаунта](#sa){% if product == "cloud-il" %}.{% endif %}{% if product == "yandex-cloud" %};{% endif %}
+{% if product == "yandex-cloud" %}
+* [аккаунта {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}](#yandex-acc).
+{% endif %}
 
 ### Аутентификация с сервисным аккаунтом, привязанным к виртуальной машине {{ yandex-cloud }} {#vm}
 
@@ -90,7 +92,9 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 {% endlist %}
 
 
-### Аутентификация с аккаунтом на Яндексе {#yandex-acc}
+{% if product == "yandex-cloud" %}
+
+### Аутентификация с аккаунтом {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %} {#yandex-acc}
 
 Переменная `token` — это ваш [OAuth-токен](../../../iam/concepts/authorization/oauth-token.md).
 
@@ -98,7 +102,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 - Java
 
-    Аутентифицируйтесь с аккаунтом на Яндексе:
+    Аутентифицируйтесь с аккаунтом {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}:
 
     ```java
     CredentialProvider credentialProvider = Auth.oauthTokenBuilder().build();  
@@ -106,7 +110,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 - Go
 
-    Аутентифицируйтесь с аккаунтом на Яндексе:
+    Аутентифицируйтесь с аккаунтом {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}:
 
     ```Go
     credentials := ycsdk.OAuthToken(token)
@@ -114,9 +118,13 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 {% endlist %}
 
+{% endif %}
+
+
 ## Шифрование и расшифровка данных {#enc-dec}
 
 Используйте методы `encrypt` и `decrypt` для шифрования и расшифровки данных. В коде используются следующие переменные: 
+* `endpoint` – `{{ api-host }}:443`.
 * `keyId` – идентификатор [ключа KMS](../../concepts/key.md).
 * `plaintext` – открытый текст (не более 32 КБ).
 * `ciphertext` – шифртекст.
@@ -128,6 +136,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
     ```Java
     SymmetricCryptoServiceBlockingStub symmetricCryptoService = ServiceFactory.builder()
+        .endpoint(endpoint)
         .credentialProvider(credentialProvider)
         .build()
         .create(
@@ -159,6 +168,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
     ```Go
     sdk, err := ycsdk.Build(context, ycsdk.Config{
+      Endpoint:    endpoint,
       Credentials: credentials,
     })
     if err != nil {...}
@@ -188,6 +198,8 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 #### См. также {#see-also}
 
-* [{{ yandex-cloud }} Java SDK](https://github.com/yandex-cloud/java-sdk).
+* [{% if product == "yandex-cloud" %}{{ yandex-cloud }} {% endif %}Java SDK](https://github.com/yandex-cloud/java-sdk).
+{% if product == "yandex-cloud" %}
 * [Примеры работы с {{ kms-short-name }} с помощью Java SDK](https://github.com/yandex-cloud/java-sdk/tree/master/java-sdk-examples/src/main/java/yandex/cloud/sdk/examples/kms).
-* [{{ yandex-cloud }} Go SDK](https://github.com/yandex-cloud/go-sdk).
+{% endif %}
+* [{% if product == "yandex-cloud" %}{{ yandex-cloud }} {% endif %}Go SDK](https://github.com/yandex-cloud/go-sdk).

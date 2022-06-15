@@ -19,12 +19,10 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед тем, как создать виртуальную машину, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина. Перейдите на [страницу облака](https://console.cloud.yandex.ru/cloud) и выберите или создайте каталог, в котором вы хотите создать виртуальную машину для вашего сервера. [Подробнее об иерархии ресурсов {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
-
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы
 
@@ -36,6 +34,8 @@
 * плата за использование {{ vision-full-name }} (см. [тарифы для {{ vision-full-name }}](../../vision/pricing.md)).
 
 
+{% endif %}
+
 ## Создайте и настройте виртуальную машину {#create-vm}
 
 ### Создайте виртуальную машину:
@@ -46,7 +46,7 @@
     {% include [name-format](../../_includes/name-format.md) %}
 
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой должна находиться виртуальная машина.
-1. В блоке **Образы из {{ marketplace-name }}** выберите образ [CentOS 7]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}.
+1. В блоке **Образы из {{ marketplace-name }}** выберите образ [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo).
 
 1. В блоке **Диски** выберите:
     * SSD
@@ -151,7 +151,7 @@
     ```
     * `AWS Access Key ID` - это значение `key_id` из предыдущего раздела пункта "Создайте статический ключ доступа для сервисного аккаунта".
     * `AWS Secret Access Key` - это значение `secret` там же.
-    * `Default region name` - введите `ru-central1`.
+    * `Default region name` - введите `{{ region-id }}`.
     * `Default output format` - введите `json`.
 1. Проверьте, что файл `~/.aws/credentials` содержит правильные значения:
     ```bash
@@ -170,19 +170,19 @@
 1. Зайдите в консоль {{ yandex-cloud }} и убедитесь, что бакет отображается в списке:
     
     ```
-    https://console.cloud.yandex.ru/folders/<FOLDER-ID>/storage
+    {{ link-console-main }}/folders/<FOLDER-ID>/storage
     ```
 
 ## Создайте архив с изображениями {#create-archive}
 1. Загрузите изображения с текстом в ваш бакет по [инструкции](../../storage/operations/objects/upload.md).
 1. Убедитесь, что изображения были загружены:
     ```bash
-    aws --endpoint-url=https://storage.yandexcloud.net s3 ls s3://<BUCKET-NAME>/
+    aws --endpoint-url=https://{{ s3-storage-host }} s3 ls s3://<BUCKET-NAME>/
     ```
     `<BUCKET-NAME>` - название вашего бакета
 1. Скачайте изображения на виртуальную машину, например, в папку `my_pictures`:
      ```bash
-    aws --endpoint-url=https://storage.yandexcloud.net s3 cp s3://<BUCKET-NAME>/ my_pictures --recursive
+    aws --endpoint-url=https://{{ s3-storage-host }} s3 cp s3://<BUCKET-NAME>/ my_pictures --recursive
     ```
 1. Запакуйте изображения в архив с названием, например `my_pictures`:
     ```bash
@@ -273,7 +273,7 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAMTOKEN}" \
         -d '@body.json' \
-        https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze > output.json
+        https://vision.{{ api-host }}/vision/v1/batchAnalyze > output.json
 
         # Получите название картинки для дальнейшей подстановки.
         IMAGE_BASE_NAME=$(basename -- "$f")
@@ -289,7 +289,7 @@
 
     # Переместите полученный архив с текстовыми файлами на ваш бакет.
     echo "Sending archive to Object Storage Bucket..."
-    aws --endpoint-url=https://storage.yandexcloud.net s3 cp my_pictures_text.tar s3://$BUCKETNAME/ > /dev/null
+    aws --endpoint-url=https://{{ s3-storage-host }} s3 cp my_pictures_text.tar s3://$BUCKETNAME/ > /dev/null
 
     # Удалите ненужные файлы.
     echo "Cleaning up..."

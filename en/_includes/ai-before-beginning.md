@@ -3,7 +3,10 @@ To use the examples, install [cURL](https://curl.haxx.se) and get the authorizat
 {% list tabs %}
 
 - User's account on Yandex
+
+  {% if product == "yandex-cloud" %}
   1. [On the billing page]({{ link-console-billing }}), make sure that your [billing account](../billing/concepts/billing-account.md) status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+  {% endif %}
   1. [Get an IAM token](../iam/operations/iam-token/create.md) required for authentication.
   1. [Get the ID of any folder](../resource-manager/operations/folder/get-id.md) that your account is granted the `editor` role or higher for.
 

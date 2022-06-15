@@ -5,10 +5,12 @@
 ## Перед началом работы {#before-begin}
 
 1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. [На странице биллинга](https://console.cloud.yandex.ru/billing) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+{% if product == "yandex-cloud" %}
+1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+{% endif %}
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md). Во время создания каталога вы можете создать виртуальную сеть по умолчанию с подсетями во всех зонах доступности.
 1. [Создайте сеть](../vpc/quickstart.md) и подсети для подключения тестовых ВМ.
-1. [Создайте](../compute/operations/vm-create/create-linux-vm.md) виртуальные машины `test-vm-1` и `test-vm-2` в зоне доступности `ru-central1-a`. У ВМ `test-vm-1` должен быть публичный IP-адрес. Подключите их к подсетям одной сети.
+1. [Создайте](../compute/operations/vm-create/create-linux-vm.md) виртуальные машины `test-vm-1` и `test-vm-2` в зоне доступности `{{ region-id }}-a`. У ВМ `test-vm-1` должен быть публичный IP-адрес. Подключите их к подсетям одной сети.
 
 ## Создайте внутреннюю зону DNS {#create-private-zone}
 
@@ -155,11 +157,13 @@ test-vm-2.testing has address 10.0.0.9
 
 {% endlist %}
 
-Делегируйте ваше доменное имя, указав адреса серверов имен `ns1.yandexcloud.net.` и `ns2.yandexcloud.net.` {{ yandex-cloud }} у вашего регистратора.
+Делегируйте ваше доменное имя, указав адреса серверов имен {% if product == "yandex-cloud" %}`ns1.yandexcloud.net.` и `ns2.yandexcloud.net.`{% endif %}{% if product == "cloud-il" %}`ns1.cloudil.com.` и `ns2.cloudil.com.`{% endif %} {{ yandex-cloud }} у вашего регистратора.
 
 ### Протестируйте доступность имен в публичной зоне {#test-public-resolving}
 
 Убедитесь, что созданная запись указывает на публичный IP-адрес ВМ. На вашем компьютере выполните команду:
+
+{% if product == "yandex-cloud" %}
 
 ```
 host www.example.com ns1.yandexcloud.net.
@@ -175,3 +179,24 @@ Aliases:
 
 www.example.com has address <публичный IP-адрес ВМ test-vm-1>
 ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+```
+host www.example.com ns1.cloudil.com.
+```
+
+Результат выполнения команды:
+
+```
+Using domain server:
+Name: ns1.cloudil.com.
+Address: 84.201.185.208#53
+Aliases:
+
+www.example.com has address <публичный IP-адрес ВМ test-vm-1>
+```
+
+{% endif %}

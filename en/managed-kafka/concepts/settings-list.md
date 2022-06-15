@@ -1,6 +1,6 @@
 # Apache Kafka® settings
 
-For {{ mkf-name }} clusters, you can configure settings that relate to {{ KF }}. Some of the settings are set [at the cluster level](#cluster-settings) and others [at the topic level](#topic-settings).
+For {{ mkf-name }} clusters, you can configure settings that relate to {{ KF }}. Some settings are configured at the [cluster level](#cluster-settings) and others at the [topic level](#topic-settings).
 
 The label next to the setting name helps determine which interface is used to set the value of this setting: the management console, CLI, API, or Terraform. The {{ tag-all }} label indicates that all of the above interfaces are supported.
 
@@ -21,4 +21,3 @@ You can use the following settings:
 You can use the following settings:
 
 {% include [topic-settings](../../_includes/mdb/mkf/topic-settings.md) %}
-

@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-The instructions below describe how to set up an external CLI build (from storage.yandexcloud.net) to access an internal MDB. This might be helpful if you use the CLI to access both an internal MDB and external {{ yandex-cloud }}. If you are happy with the internal CLI build (from s3.mds.yandex.net), follow [these instructions](../../../cli/quickstart.md).
+The instructions below describe how to set up an external CLI build (from {{ s3-storage-host }}) to access an internal MDB. This might be helpful if you use the CLI to access both an internal MDB and external {{ yandex-cloud }}. If you are happy with the internal CLI build (from s3.mds.yandex.net), follow [these instructions](../../../cli/quickstart.md).
 
 If you already have a CLI installed, you can figure out which build you have using the `yc version` command. If the version contains `+yandex`, the build is internal. Otherwise, the build is external.
 

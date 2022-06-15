@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Если вам надо временно отозвать все права доступа у пользователя с аккаунтом на Яндексе, вы можете отозвать только роль `{{ roles-cloud-member }}`. У пользователя останутся все остальные роли, но он не сможет выполнять никаких операций с ресурсами в облаке. Когда вы снова добавите пользователя в облако, права доступа для него уже будут настроены.
+Если вам надо временно отозвать все права доступа у пользователя с аккаунтом {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}, вы можете отозвать только роль `{{ roles-cloud-member }}`. У пользователя останутся все остальные роли, но он не сможет выполнять никаких операций с ресурсами в облаке. Когда вы снова добавите пользователя в облако, права доступа для него уже будут настроены.
 
 {% endnote %}
 
@@ -28,7 +28,7 @@
   * Чтобы отозвать роль в облаке:
 
       1. [Выберите облако](../../../resource-manager/operations/cloud/switch-cloud.md).
-      1. Перейдите на вкладку [Права доступа]({{ link-console-main }}/cloud?section=resource-acl).
+      1. Перейдите на вкладку [Права доступа]({{ link-console-cloud }}?section=resource-acl).
       1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/options.svg) напротив имени пользователя.
       1. Если вы хотите отозвать все роли пользователя в облаке — нажмите кнопку **Отозвать роли**.
       1. Если вы хотите отозвать отдельные роли пользователя в облаке:
@@ -65,6 +65,7 @@
 
   1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
   1. Сформируйте тело запроса, например в файле `body.json`. В теле запроса укажите, какую привязку прав доступа необходимо удалить. Например, отзовите у пользователя `ajei8n54hmfhuk5nog0g` роль `editor`:
+{% if product == "yandex-cloud" %}
 
       **body.json:**
       ```json
@@ -83,6 +84,27 @@
       }
       ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+      **body.json:**
+      ```json
+      {
+          "accessBindingDeltas": [{
+              "action": "REMOVE",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "ajei8n54hmfhuk5nog0g",
+                      "type": "federatedUser"
+                      }
+                  }
+              }
+          ]
+      }
+      ```
+
+{% endif %}
   1. Отзовите роль, удалив указанную привязку прав доступа:
 
       {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
@@ -92,6 +114,7 @@
     Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     1. Чтобы отозвать роль у субъекта на ресурс, найдите в конфигурационном файле описание ресурса:
+{% if product == "yandex-cloud" %}
 
        ```
        resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
@@ -104,6 +127,21 @@
        }
        ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+       ```
+       resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
+         cloud_id    = "<идентификатор облака>"
+         role        = "<роль>"
+         members     = [
+           "serviceAccount:<идентификатор сервисного аккаунта>",
+           "federatedUser:<идентификатор пользователя>",
+         ]
+       }
+       ```
+
+{% endif %}
     1. Удалите запись с информацией о субъекте, у которого нужно отозвать права, из перечня пользователей `members`.
 
        Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding`, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_binding).

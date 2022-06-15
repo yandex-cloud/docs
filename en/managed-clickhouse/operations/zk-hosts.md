@@ -1,5 +1,11 @@
 # Managing {{ ZK }} hosts
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 Single-host [shards](../concepts/sharding.md) are not fault-tolerant and do not offer data replication. To make such shards fault-tolerant, increase the number of hosts in them by one or more. If a cluster already contains a multi-host shard, you can immediately [add {{ CH }} hosts](./hosts.md#add-host) to the desired shard. Otherwise, you must first [enable fault tolerance](#add-zk) and only then will you be able to add {{ CH }} hosts.
 
 For more information, see [{#T}](../concepts/sharding.md).
@@ -45,10 +51,10 @@ For more information, see [{#T}](../concepts/replication.md).
    1. Run the operation with the default host characteristics:
 
       ```bash
-      yc managed-clickhouse cluster add-zookeeper <cluster name> \
-        --host zone-id=ru-central1-c,subnet-name=default-c \
-        --host zone-id=ru-central1-a,subnet-name=default-a \
-        --host zone-id=ru-central1-b,subnet-name=default-b
+      {{ yc-mdb-ch }} cluster add-zookeeper <cluster name> \
+         --host zone-id={{ region-id }}-c,subnet-name=default-c \
+         --host zone-id={{ region-id }}-a,subnet-name=default-a \
+         --host zone-id={{ region-id }}-b,subnet-name=default-b
       ```
 
       If the network hosting the cluster contains exactly 3 subnets, each per availability zone, you do not have to explicitly specify subnets for the hosts: {{ mch-name }} automatically distributes hosts over the subnets.
@@ -68,25 +74,25 @@ For more information, see [{#T}](../concepts/replication.md).
         name = "<network name>"
       }
 
-      resource "yandex_vpc_subnet" "<name of subnet in ru-central1-a zone>" {
-        name           = "<name of subnet in ru-central1-a zone>"
-        zone           = "ru-central1-a"
+      resource "yandex_vpc_subnet" "<name of subnet in {{ region-id }}-a zone>" {
+        name           = "<name of subnet in {{ region-id }}-a zone>"
+        zone           = "{{ region-id }}-a"
         network_id     = yandex_vpc_network.<network name>.id
-        v4_cidr_blocks = [ "<subnet address range in ru-central1-a zone>" ]
+        v4_cidr_blocks = [ "<subnet address range in {{ region-id }}-a zone>" ]
       }
 
-      resource "yandex_vpc_subnet" "<name of subnet in ru-central1-b zone>" {
-        name           = "<name of subnet in ru-central1-b zone>"
-        zone           = "ru-central1-b"
+      resource "yandex_vpc_subnet" "<name of subnet in {{ region-id }}-b zone>" {
+        name           = "<name of subnet in {{ region-id }}-b zone>"
+        zone           = "{{ region-id }}-b"
         network_id     = yandex_vpc_network.<network name>.id
-        v4_cidr_blocks = [ "<subnet address range in ru-central1-b zone>" ]
+        v4_cidr_blocks = [ "<subnet address range in {{ region-id }}-b zone>" ]
       }
 
-      resource "yandex_vpc_subnet" "<name of subnet in ru-central1-c zone>" {
-        name           = "<name of subnet in ru-central1-c zone>"
-        zone           = "ru-central1-c"
+      resource "yandex_vpc_subnet" "<name of subnet in {{ region-id }}-c zone>" {
+        name           = "<name of subnet in {{ region-id }}-c zone>"
+        zone           = "{{ region-id }}-c"
         network_id     = yandex_vpc_network.<network name>.id
-        v4_cidr_blocks = [ "<subnet address range in ru-central1-c zone>" ]
+        v4_cidr_blocks = [ "<subnet address range in {{ region-id }}-c zone>" ]
       }
       ```
 
@@ -113,8 +119,8 @@ For more information, see [{#T}](../concepts/replication.md).
         ...
         host {
           type      = "CLICKHOUSE"
-          zone      = "ru-central1-a"
-          subnet_id = yandex_vpc_subnet.<name of subnet in ru-central1-a availability zone>.id
+          zone      = "{{ region-id }}-a"
+          subnet_id = yandex_vpc_subnet.<name of subnet in {{ region-id }}-a availability zone>.id
         }
         ...
       }
@@ -142,18 +148,18 @@ For more information, see [{#T}](../concepts/replication.md).
         ...
         host {
           type      = "ZOOKEEPER"
-          zone      = "ru-central1-a"
-          subnet_id = yandex_vpc_subnet.<name of subnet in ru-central1-a availability zone>.id
+          zone      = "{{ region-id }}-a"
+          subnet_id = yandex_vpc_subnet.<name of subnet in {{ region-id }}-a availability zone>.id
         }
         host {
           type      = "ZOOKEEPER"
-          zone      = "ru-central1-b"
-          subnet_id = yandex_vpc_subnet.<name of subnet in ru-central1-b availability zone>.id
+          zone      = "{{ region-id }}-b"
+          subnet_id = yandex_vpc_subnet.<name of subnet in {{ region-id }}-b availability zone>.id
         }
         host {
           type      = "ZOOKEEPER"
-          zone      = "ru-central1-c"
-          subnet_id = yandex_vpc_subnet.<name of subnet in ru-central1-c availability zone>.id
+          zone      = "{{ region-id }}-c"
+          subnet_id = yandex_vpc_subnet.<name of subnet in {{ region-id }}-c availability zone>.id
         }
       }
       ```
@@ -230,8 +236,8 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
       ```
       {{ yc-mdb-ch }} hosts add \
-        --cluster-name <cluster name \
-        --host zone-id=<availability zone>,subnet-id=<subnet ID>,type=zookeeper
+         --cluster-name <cluster name> \
+         --host zone-id=<availability zone>,subnet-id=<subnet ID>,type=zookeeper
       ```
 
 - Terraform
@@ -293,7 +299,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
    ```
    {{ yc-mdb-ch }} hosts delete <host name> \
-     --cluster-name=<cluster name>
+      --cluster-name=<cluster name>
    ```
 
    The host name can be requested with a [list of cluster hosts](hosts.md#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

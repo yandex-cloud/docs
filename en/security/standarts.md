@@ -1,1 +1,1 @@
-{%  include [Security measures on the Yandex Cloud side](../_includes/security/standarts.md) %}
+{% include [standarts](../_includes/security/standarts.md) %}

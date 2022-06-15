@@ -1,9 +1,7 @@
 # Exporting metrics in Prometheus format
-
 To export metrics in the {{ prometheus-name }} format, use the method [prometheusMetrics](../../api-ref/MetricsData/prometheusMetrics.md). Before uploading metrics to {{ prometheus-name }}, set up metric collection in {{ prometheus-name }}.
 
 An example of metric collection setup from {{ monitoring-name }} in {{ prometheus-name }}:
-
 1. Select the folder you want to collect data from.
 1. Select a service from the following list:
    - `application-load-balancer` — {{ alb-name }}.
@@ -58,7 +56,7 @@ An example of metric collection setup from {{ monitoring-name }} in {{ prometheu
        # Or use a file (recommended):
        # bearer_token_file: '<name of file with api_key>'
        static_configs:
-       - targets: ['monitoring.api.cloud.yandex.net']
+       - targets: ['monitoring.{{ api-host }}']
          labels:
            folderId: '<folderId>'
            service: '<serviceId>'
@@ -72,4 +70,3 @@ An example of metric collection setup from {{ monitoring-name }} in {{ prometheu
 If you have a lot of metrics, increase the data collection timeout (`scrape_timeout`) to 60s.
 
 {% endnote %}
-

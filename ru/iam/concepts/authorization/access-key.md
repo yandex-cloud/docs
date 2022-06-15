@@ -11,7 +11,7 @@ _Статические ключи доступа_ — секретный клю
 * [{{ objstorage-name }}](/docs/storage/)
 * [{{ message-queue-name }}](/docs/message-queue/)
 
-{% if audience == "external" %}
+{% if audience == "external" and product == "yandex-cloud" %}
       
 * [{{ ydb-name }}](../../../ydb/quickstart/document-api/aws-setup.md)
       

@@ -63,7 +63,7 @@ yc logging group create \
 Где:
 - `<log_group_name>` — название создаваемой лог-группы.
 - `<folder_id>` — каталог, где будет создана лог-группа.
-- `<full_yds_stream_name>` — полное имя потока данных {{yds-full-name}}. Полное имя потока можно получить в UI {{yds-full-name}} в разделе **Подключиться**. Полное имя потока имеет формат `/ru-central1/b1kmrhakmf8ar1i5l6f8/etnku2bpm9r7sgbpq7s7/cloud-logging`.
+- `<full_yds_stream_name>` — полное имя потока данных {{yds-full-name}}. Полное имя потока можно получить в UI {{yds-full-name}} в разделе **Подключиться**. Полное имя потока имеет формат `/{{ region-id }}/b1kmrhakmf8ar1i5l6f8/etnku2bpm9r7sgbpq7s7/cloud-logging`.
 
 Пример команды создания лог-группы `yds`, отправляющей данные в поток `cloud-logging`:
 
@@ -71,7 +71,7 @@ yc logging group create \
 yc  logging group create \
 --name yds \
 --folder-id b1kmrhakmf8ar1i5l6f8 \
---data-stream /ru-central1/b1kmrhakmf8ar1i5l6f8/etnku2bpm9r7sgbpq7s7/cloud-logging
+--data-stream /{{ region-id }}/b1kmrhakmf8ar1i5l6f8/etnku2bpm9r7sgbpq7s7/cloud-logging
 ```
 
 ### Отправка данных в лог-группу { #send_to_loggroup }

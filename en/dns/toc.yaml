@@ -1,4 +1,8 @@
-title: Yandex Cloud DNS
+title:
+  - text: Yandex Cloud DNS
+    when: product == "yandex-cloud"
+  - text: Cloud DNS
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Getting started
@@ -33,7 +37,7 @@ items:
         href: concepts/dns-zone.md
       - name: Resource records
         href: concepts/resource-record.md
-      - name: Integration with Yandex Compute Cloud
+      - name: Integration with {{ compute-full-name }}
         href: concepts/compute-integration.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -41,10 +45,12 @@ items:
     items:
       - name: Configuring a local caching DNS resolver
         href: tutorials/local-dns-cache.md
-      - name: Migrating DNS zones from Yandex 360
+      - name: Migrating DNS zones from Yandex 360
         href: tutorials/connect-migration.md
+        when: product == "yandex-cloud"
       - name: Integrating with a corporate DNS service
         href: tutorials/dns-integration.md
+        when: product == "yandex-cloud"
       - name: >-
           Configuring {{ dns-name }} for access to managed database clusters from other cloud networks
         href: tutorials/mdb-dns-peering.md

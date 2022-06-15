@@ -4,6 +4,14 @@ editable: false
 
 # Pricing for {{ objstorage-name }}
 
+{% if product == "cloud-il" %}
+
+At the [Preview](../overview/concepts/launch-stages.md) stage, {{ objstorage-name }} can be used free of charge.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -189,5 +197,7 @@ The first 10 GB of outgoing traffic per month for {{ objstorage-name }} is free 
 
 > For example, if the cost of 1 GB of outgoing traffic over 10 GB and up to 1 TB per month is $0.016167 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
 > (283 - 10) × $0.016167 = 273 × $0.016167 = $4.413591.
+
+{% endif %}
 
 {% endif %}

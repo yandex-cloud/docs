@@ -9,31 +9,26 @@ You can change the primary version of the key at any time by specifying any prev
 ## Key parameters {#parameters}
 
 A {{ kms-short-name }} key may have the following parameters:
-
-* ID: A unique key identifier in {{ yandex-cloud }}. It's used for working with keys via the SDK, API, and CLI.
-
+* ID: A unique key identifier in {{ yandex-cloud }}. It's used for working with keys via the {% if product == "yandex-cloud" %}SDK, {% endif %}API, and CLI.
 * Name: The key name. It's non-unique and can be used to work with keys in the CLI if the folder only contains a single key with this name.
-
 * Encryption algorithm: The algorithm to be used for encryption in new versions of the key. The following symmetric encryption algorithms are supported in [GCM]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Galois/Counter_Mode){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Galois/Counter_Mode){% endif %} mode:
-    * `AES-128`: The AES algorithm with 128-bit keys.
-    * `AES-192`: The AES algorithm with 192-bit keys.
-    * `AES-256`: The AES algorithm with 256-bit keys.
-    * `AES-256 HSM`: The AES algorithm with 256-bit keys. Encryption keys are created and cryptographic operations handled in a [Hardware Security Module (HSM)](hsm.md).
+   * `AES-128`: The AES algorithm with 128-bit keys.
+   * `AES-192`: The AES algorithm with 192-bit keys.
+   * `AES-256`: The AES algorithm with 256-bit keys.
+      {% if product == "yandex-cloud" %}*`AES-256 HSM`: The AES algorithm with 256-bit keys. Encryption keys are created and cryptographic operations handled in a [Hardware Security Module (HSM)](hsm.md).{% endif %}
 
 * Rotation period: The amount of time between automatic key rotations.
-
 * Status: The current state of the key. Possible statuses:
-    * `Creating`: The key is being created.
-    * `Active`: The key can be used for encryption and decryption.
-    * `Inactive`: The key can't be used.
+   * `Creating`: The key is being created.
+   * `Active`: The key can be used for encryption and decryption.
+   * `Inactive`: The key can't be used.
 
-    You can change the key status using the [update](../api-ref/SymmetricKey/update) method.
+   You can change the key status using the [update](../api-ref/SymmetricKey/update) method.
 
 ## Using a key {#use}
 
-Created keys can be used in data encryption and decryption operations if certain [roles](../security/index.md#roles-list) are assigned. You can temporarily disable operations with a key by revoking roles or changing its status to `Inactive`. For more information, see [{#T}](../security/index.md).
+Created keys can be used in data encryption and decryption operations if certain [roles](../security/index.md#roles-list). You can temporarily disable operations with a key by revoking roles or changing its status to `Inactive`. For more information, see [{#T}](../security/index.md).
 
 ## Destroying a key {#delete}
 
 If you delete a key or its parent resource (folder or cloud), this destroys the cryptographic material contained in it. After that, you won't be able to decrypt the data encrypted with that key.
-

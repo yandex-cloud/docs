@@ -41,6 +41,8 @@ The settings apply to Terraform `0.13` and higher.
 
 1. Add the following sections at the top of the `.tf` configuration file:
 
+   {% if product == "yandex-cloud" %}
+
    ```hcl
    terraform {
      required_providers {
@@ -59,10 +61,36 @@ The settings apply to Terraform `0.13` and higher.
    }
    ```
 
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```hcl
+   terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+     required_version = ">= 0.13"
+   }
+
+   provider "yandex" {
+     endpoint  = "{{ api-host }}:443"
+     token     = "<статический ключ сервисного аккаунта>"
+     cloud_id  = "<идентификатор облака>"
+     folder_id = "<идентификатор каталога>"
+     zone      = "<зона доступности по умолчанию>"
+   }
+   ```
+
+   {% endif %}
+
    * `source`: Provider's global [source address](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses).
    * `version`: The minimum provider version that the module is compatible with. You can find the version number on the [provider's page](https://registry.terraform.io/providers/yandex-cloud/yandex/latest) (click **USE PROVIDER** in the top right corner).
    * `provider`: The provider name.
-   * `token`: [OAuth token](../iam/concepts/authorization/oauth-token.md) for {{ yandex-cloud }} access.
+   {% if product == "cloud-il" %}* `endpoint` — domain name and port for {{ yandex-cloud }} API: `{{ api-host }}:443`.{% endif %}
+   * `token`: {% if product == "yandex-cloud" %}[OAuth token](../iam/concepts/authorization/oauth-token.md){% endif %}{% if product == "cloud-il" %}static key (`secret`) of the service account{% endif %} for {{ yandex-cloud }} access.
    * `cloud_id`: ID of the cloud where Terraform will create resources.
    * `folder_id`: [ID of the folder](../resource-manager/operations/folder/get-id.md) where resources will be created by default.
    * `zone`: [The availability zone](../overview/concepts/geo-scope.md) where all cloud resources will be created by default.
@@ -75,7 +103,7 @@ The settings apply to Terraform `0.13` and higher.
 
 1. Execute the `terraform init` command in the folder containing the `.tf` configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
 
-If the provider installation failed, create a request to [support](https://console.cloud.yandex.com/support?section=contact) mentioning the name and version of the provider.
+If the provider installation failed, create a request to [support]({{ link-console-support }}?section=contact) mentioning the name and version of the provider.
 
 If you used the `.terraform.lock.hcl` file, before the initialization, run the command `terraform providers lock`, specifying the URL of the mirror the provider will be uploaded from and the platforms that will use the configuration:
 
