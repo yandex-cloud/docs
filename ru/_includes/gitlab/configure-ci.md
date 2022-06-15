@@ -45,7 +45,7 @@
       deploy:
         image: gcr.io/cloud-builders/kubectl:latest
         stage: deploy
-         script:
+        script:
           - kubectl config set-cluster k8s --server="$KUBE_URL" --insecure-skip-tls-verify=true
           - kubectl config set-credentials admin --token="$KUBE_TOKEN"
           - kubectl config set-context default --cluster=k8s --user=admin
