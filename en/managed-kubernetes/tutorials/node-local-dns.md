@@ -44,7 +44,7 @@ To set up DNS query caching, follow these steps:
      --service-account-name <service account name> \
      --node-service-account-name <service account name> \
      --public-ip \
-     --zone ru-central1-a \
+     --zone {{ region-id }}-a \
      --network-name <cloud network name>
    ```
 
@@ -61,7 +61,7 @@ To set up DNS query caching, follow these steps:
    yc managed-kubernetes node-group create \
      --name node-group \
      --cluster-name node-local-dns \
-     --location zone=ru-central1-a \
+     --location zone={{ region-id }}-a \
      --network-interface subnets=<subnet or node group name>,ipv4-address=nat \
      --fixed-size 3
    ```
@@ -102,20 +102,20 @@ To set up DNS query caching, follow these steps:
 
 ### Download a specification template {#download-spec}
 
-You can download the [specification template](https://storage.yandexcloud.net/doc-files/nodelocaldns.yaml) manually or using the command:
+You can download the [specification template](https://{{ s3-storage-host }}/doc-files/nodelocaldns.yaml) manually or using the command:
 
 {% list tabs %}
 
 - Windows (PowerShell)
 
   ```
-  wget "https://storage.yandexcloud.net/doc-files/nodelocaldns.yaml" -OutFile "nodelocaldns.yaml"
+  wget "https://{{ s3-storage-host }}/doc-files/nodelocaldns.yaml" -OutFile "nodelocaldns.yaml"
   ```
 
 - Linux
 
   ```bash
-  wget https://storage.yandexcloud.net/doc-files/nodelocaldns.yaml
+  wget https://{{ s3-storage-host }}/doc-files/nodelocaldns.yaml
   ```
 
 - macOS
@@ -123,7 +123,7 @@ You can download the [specification template](https://storage.yandexcloud.net/do
   ```bash
   brew install wget
 
-  wget https://storage.yandexcloud.net/doc-files/nodelocaldns.yaml
+  wget https://{{ s3-storage-host }}/doc-files/nodelocaldns.yaml
   ```
 
 {% endlist %}
@@ -321,7 +321,7 @@ To check logs, run the command:
 kubectl logs --namespace=kube-system -l k8s-app=node-local-dns -f
 ```
 
-To stop displaying a log, press ___Ctrl + C___.
+To stop displaying a log, press **Ctrl** + **C**.
 
 Execution output:
 

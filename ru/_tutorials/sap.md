@@ -13,19 +13,17 @@
 
 ## Перед началом работы {#before-begin}
 
-Перед тем, как разворачивать сервер с SAP, зарегистрируйтесь в {{ yandex-cloud }} и создайте платежный аккаунт:
+{% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_tutorials/_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша ВМ, на [странице облака]({{ link-console-cloud }}).
-
-[Подробнее об облаках и каталогах](../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость установки SAP входят:
 * плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../compute/pricing.md));
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../vpc/pricing.md)).
+
+{% endif %}
 
 ## Создайте ВМ для SAP {#vm-sap}
 
@@ -39,9 +37,9 @@
 
     1. В поле **Имя** введите имя виртуальной машины: `vhcalnplci`. На этот hostname завязан скрипт установки SAP.
 
-    1. Выберите [зону доступности](../overview/concepts/geo-scope.md) `ru-central1-a`.
+    1. Выберите [зону доступности](../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
     
-    1. В блоке **Выбор образа/загрузочного диска** выберите образ операционной системы [SLES for SAP 15 SP2]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/sles-for-sap-15-sp2){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/yc/sles-for-sap-15-sp2){% endif %}.
+    1. В блоке **Выбор образа/загрузочного диска** выберите образ операционной системы [SLES for SAP 15 SP2](/marketplace/products/yc/sles-for-sap-15-sp2).
     
     1. В блоке **Диски** выберите тип загрузочного диска `SSD` и укажите размер — 40 ГБ.
     
@@ -118,7 +116,7 @@
     1. Чтобы выбрать первый сектор по умолчанию `2048`, нажмите **Enter**.
     1. Укажите размер `+20G` и нажмите **Enter**.
     1. Добавьте второй раздел аналогичным образом. Не указывайте его размер на последнем шаге. По умолчанию он займет все оставшееся пространство — 70 ГБ.
-    1. Чтобы сохранить созданные разделы, введите команду `w` и **нажмите** Enter.
+    1. Чтобы сохранить созданные разделы, введите команду `w` и нажмите **Enter**.
 
         Результат:
         ```bash
@@ -296,14 +294,14 @@
         ```
     1. Добавьте в него строку вида: 
         ```
-        <inet> vhcalnplci vhcalnplci.ru-central1.internal. 
+        <inet> vhcalnplci vhcalnplci.{{ region-id }}.internal. 
         ```
         Используйте значение `inet` из блока `eth0`.
 
         Результат:
         ```
         127.0.0.1 localhost
-        10.0.0.29 vhcalnplci vhcalnplci.ru-central1.internal 
+        10.0.0.29 vhcalnplci vhcalnplci.{{ region-id }}.internal 
         ```
 
 1. Проверьте имя хоста:

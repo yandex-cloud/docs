@@ -1,6 +1,6 @@
 ---
-title: "Managed Service for ClickHouse. FAQ"
-description: "What is Managed Service for ClickHouse? For what tasks is it worth using Managed Service for ClickHouse, and for which virtual machines with databases? What part of the management and maintenance of databases does Managed Service for ClickHouse take on? Answers to these and other questions in this article."
+title: "{{ mch-name }}. FAQ"
+description: "What is {{ mch-name }}? For what tasks is it worth using {{ mch-name }}, and for which virtual machines with databases? What part of the management and maintenance of databases does {{ mch-name }} take on? Answers to these and other questions in this article."
 ---
 
 # General questions about {{ mch-name }}
@@ -22,9 +22,9 @@ With {{ mch-short-name }}, you can:
 
 You interact with database clusters in {{ mch-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
 
-#### What is {{ CH }} used for? Which DBMS should I choose? {#why-ch}
+#### What is {{ CH }} used for? Which database should I select? {#why-ch}
 
-{{ CH }} is designed primarily for analytics (OLAP) and only supports adding and reading data. Data updates are possible but with a [number of conditions](https://stackoverflow.com/questions/37901642/updating-data-in-clickhouse). For other purposes, it's probably more convenient to use other DBMSs.
+{{ CH }} is designed primarily for analytics (OLAP) and supports only adding and reading data. You can update data but with [some limitations](https://stackoverflow.com/questions/37901642/updating-data-in-clickhouse). For other purposes, it's probably more convenient to use other managed DB services.
 
 #### What part of database management and maintenance is {{ mch-short-name }} responsible for? {#services}
 
@@ -34,7 +34,7 @@ For the created and running databases, {{ mch-short-name }} automatically create
 
 {{ mch-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
 
-#### When should I use {{ mch-short-name }} and when should I use VMs with databases? {#mdb-advantage}
+#### Which tasks should I use {{ mch-short-name }} for and for which VMs with databases? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
@@ -86,27 +86,29 @@ MDB technical and organizational limits are given in [{#T}](../concepts/limits.m
 
 Maintenance in {{ mch-short-name }} implies:
 
-- Automatic installation of DBMS updates and revisions for your database hosts (including disabled clusters).
+- Automatic installation of DBMS updates and revisions for DB hosts (including disabled clusters).
 - Changes to the host class and storage size.
 - Other {{ mch-short-name }} maintenance activities.
+
+For more information, see [{#T}](../concepts/maintenance.md).
 
 #### How do I edit external dictionaries? {#external-dict}
 
 To rename a dictionary, run the query:
 
 ```sql
-RENAME DICTIONARY <dictionary name> TO <new name>
+RENAME DICTIONARY <dictionary_name> TO <new_name>
 ```
 
-For other updates, use the [update](../api-ref/Cluster/update.md) API method.
+For other changes, use the [update](../api-ref/Cluster/update.md) API method.
 
 #### Which version of {{ CH }} does {{ mch-short-name }} use? {#dbms-version}
 
 {{ mch-short-name }} uses some of the latest stable versions of {{ CH }}. For more information, see [{#T}](../concepts/update-policy.md).
 
-#### Which ClickHouse version should I choose? {#choose-version}
+#### Which {{ CH }} version should I choose? {#choose-version}
 
-We recommend choosing the latest available LTS version of {{ CH }}. For more information, see [{#T}](../concepts/update-policy.md).
+We recommend the latest available LTS version of {{ CH }}. For more information, see [{#T}](../concepts/update-policy.md).
 
 #### What happens when a new DBMS version is released? {#new-version}
 
@@ -128,12 +130,12 @@ In {{ mch-short-name }}, the usage cost is calculated based on the following par
 
 - Selected host class.
 - Size of the storage reserved for the database host.
-- Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../pricing.md).
+- Size of the database cluster backups. {% if audience != "internal" %}Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../pricing.md).{% endif %}
+- Number of hours of database host operation. Partial hours are rounded to an integer value. {% if audience != "internal" %}The cost per hour of operation for each host class is given in [{#T}](../pricing.md).{% endif %}
 
 #### How much does it cost to use my cluster? {#cluster-cost}
 
-In the [management console]({{ link-console-main }}), go to the folder page, select **{{ mch-short-name }}**, and click on the desired cluster. The right side of the screen shows the monthly cost of using the cluster. For more information, see [{#T}](../pricing.md).
+In the [management console]({{ link-console-main }}), go to the folder page, select **{{ mch-short-name }}** and click on the appropriate cluster. The right side of the screen shows the cost of using your cluster per month. {% if audience != "internal" %}For details, see [{#T}](../pricing.md).{% endif %}
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
@@ -141,6 +143,12 @@ You can change computing resources and storage size in the management console. A
 
 The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
 
+
+{% if product == "yandex-cloud" %}
+
 {% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+
+{% endif %}
+
 
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}

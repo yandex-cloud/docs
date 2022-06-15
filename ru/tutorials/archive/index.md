@@ -6,5 +6,7 @@
 * [Резервное копирование в {{ objstorage-full-name }} через CloudBerry Desktop Backup](object-storage-cloudberry.md)
 * [Резервное копирование в {{ objstorage-full-name }} через Duplicati](object-storage-duplicati.md)
 * [Резервное копирование в {{ objstorage-full-name }} через Bacula на Centos 7](backup-with-bacula.md)
+{% if product == "yandex-cloud" %}
 * [Оцифровка архива в Yandex Vision](archive-from-vision-to-object-storage.md)
+{% endif %}
 * [Резервное копирование в {{ objstorage-full-name }} через Veritas Backup Exec](object-storage-veritas.md)

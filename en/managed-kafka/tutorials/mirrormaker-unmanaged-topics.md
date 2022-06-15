@@ -41,8 +41,8 @@ To migrate data from the _source cluster_ in {{ KF }} to the {{ mkf-name }} _tar
 1. Select a password for and create the certificate store and add an SSL certificate for connecting to the cluster:
 
    ```bash
-   keytool --noprompt -importcert -alias YandexCA \
-      -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+   keytool --noprompt -importcert -alias {{ crt-alias }} \
+      -file {{ crt-local-dir }}{{ crt-local-file }} \
       -keystore <path to Java Key Store file> \
       -storepass <certificate store password, a minimum of 6 characters>
    ```

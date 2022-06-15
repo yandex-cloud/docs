@@ -30,7 +30,7 @@
 
           {% note info %}
               
-          Процесс создания агента может остановиться на статусе `INITIALIZING_CONNECTION`, если у агента не будет [доступа](../../load-testing/operations/security-groups-agent.md) к `loadtesting.api.cloud.yandex.net:443`, или у сервисного аккаунта, который назначен агенту, не будет необходимых [ролей](../../load-testing/operations/create-agent.md#infrastructure-prepare).   
+          Процесс создания агента может остановиться на статусе `INITIALIZING_CONNECTION`, если у агента не будет [доступа](../../load-testing/operations/security-groups-agent.md) к `loadtesting.{{ api-host }}:443`, или у сервисного аккаунта, который назначен агенту, не будет необходимых [ролей](../../load-testing/operations/create-agent.md#infrastructure-prepare).   
                                   
           {% endnote %}
 

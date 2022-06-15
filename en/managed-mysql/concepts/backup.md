@@ -11,8 +11,6 @@ keywords:
 
 {{ mmy-short-name }} provides automatic and manual database backups.
 
-A [physical backup](https://dev.mysql.com/doc/refman/5.7/en/backup-types.html) of all cluster data is automatically created every day and stored for 7 days. You can't disable automatic backups or change the retention period.
-
 {{ mmy-name }} lets you restore the cluster state _to any point in time_ (Point-in-Time-Recovery, PITR) after the creation of the oldest full backup. This is achieved by supplementing the backup selected as the starting point for recovery with entries from the Binary Logs of later cluster backups.
 
 For example, if the backup operation ended August 10, 2020, 12:00:00 UTC, the current date is August 15, 2020, 19:00:00 UTC, and the latest binary log was saved August 15, 2020, 18:50:00 UTC, the cluster can be restored to any state between August 10, 2020, 12:00:01 UTC and August 15, 2020, 18:50:00 UTC inclusive.
@@ -23,7 +21,7 @@ When creating backups and restoring data from them to a given point in time, kee
 
 * It takes some time to create and upload a binary log archive to object storage. This is why the cluster state stored in object storage may differ from the actual one.
 
-* When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
+* When you restore a cluster from a backup, you create a new cluster with data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
 
    When restoring to the current state, the new cluster will reflect the state of:
 
@@ -36,12 +34,11 @@ To restore a cluster from a backup, [follow the instructions](../operations/clus
 
 ## Creating backups {#size}
 
-Backups can be automatic or manual. In both cases, the following scheme is used:
+You can create backups both automatically and manually making a [full physical backup](https://dev.mysql.com/doc/refman/5.7/en/backup-types.html) of all databases in both cases.
 
-* The first backup and every seventh backup are full backups of all databases.
-* Other backups are incremental and store only the data that has changed since the previous backup to save space.
+You cannot disable automatic backups. However, when [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-additional-settings) a cluster, you can set a start time for these backups. By default, the backup process starts at 22:00 UTC (Coordinated Universal Time). The backup will start within half an hour of the specified time.
 
-After a backup is created, it's compressed for storage. The exact backup size isn't displayed.
+After a backup is created, it's compressed for storage.
 
 In single-host clusters, you create a backup by reading data from the master host while the solution for multi-host clusters is to read one of the replicas, since it is a resource-intensive operation. In this case:
 
@@ -49,8 +46,6 @@ In single-host clusters, you create a backup by reading data from the master hos
 * If there are several replicas with the highest priority, a backup source is selected randomly from among these.
 
 If the service is unable to create a backup using the selected replica, the backup operation will proceed with the master host.
-
-The backup process start time is set when a cluster is [created](../operations/cluster-create.md) or [updated](../operations/update.md#change-additional-settings). By default, the backup process starts at 22:00 UTC (Coordinated Universal Time). The backup will start within half an hour of the specified time.
 
 Backups are only created on running clusters. If you don't use a {{ mmy-short-name }} cluster around the clock, check the [backup start time settings](../operations/update.md#change-additional-settings).
 
@@ -60,15 +55,15 @@ For more information about creating a backup manually, see [{#T}](../operations/
 
 Storing backups in {{ mmy-name }}:
 
-* Backups are kept in Yandex internal storage as binaries and encrypted using [GPG]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/GnuPG){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/GNU_Privacy_Guard){% endif %}. Each cluster has its own encryption keys.
+* Backups are kept in the internal storage as binaries and encrypted using [GPG]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/GnuPG){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/GNU_Privacy_Guard){% endif %}. Each cluster has its own encryption keys.
 
-* All backups (automatic or manual) are stored for 7 days.
+* Automatically created backups of an existing cluster are kept for 7 days whereas those created manually are stored indefinitely. Once you delete a cluster, all its backups persist for 7 days. You cannot change the backup retention time.
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-   For more information, see the [Pricing policy for {{ mmy-name }}](../pricing.md#rules-storage).
+    {% if audience != "internal" %}For more information, see the [Pricing policy for {{ mmy-name }}](../pricing.md#rules-storage).{% endif %}
 
 ## Checking backups {#verify}
 

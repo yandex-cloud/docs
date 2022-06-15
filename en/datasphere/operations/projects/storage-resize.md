@@ -4,7 +4,7 @@ To resize project storage:
 
 1. {% include [include](../../../_includes/datasphere/first-step.md) %}
 1. Go to the **Projects** tab.
-1. Select the project you wish to modify and click ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
+1. Select the project you want to change and click ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
 1. Choose **Open**.
 1. In the upper left-hand corner, click **File** → **Change project disk size**. In the pop-up window, you will see current, minimum, and maximum storage size.
 1. Specify the desired size as an integer.
@@ -16,4 +16,3 @@ To resize project storage:
 Project storage is used to store files as well for file system needs, versioning data, and other support functions.
 
 {% endnote %}
-

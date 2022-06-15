@@ -112,7 +112,7 @@ To create an instance group based on a {{ coi }}:
          size: 3
      allocation_policy:
        zones:
-         - zone_id: ru-central1-a
+         - zone_id: {{ region-id }}-a
      ```
 
      Where:
@@ -159,7 +159,7 @@ To create an instance group based on a {{ coi }}:
          size: 3
      allocation_policy:
        zones:
-         - zone_id: ru-central1-a
+         - zone_id: {{ region-id }}-a
      ```
 
      {% note info %}
@@ -183,7 +183,7 @@ To create an instance group based on a {{ coi }}:
      * From the latest version of the public {{ coi }}.
      * With a running Docker container based on `cr.yandex/mirror/nginx:1.17.4-alpine`.
      * In the `default-net` network.
-     * In the `ru-central1-a` availability zone.
+     * In the `{{ region-id }}-a` availability zone.
      * With 2 vCPUs and 2 GB of RAM.
      * With a 32 GB network HDD.
 

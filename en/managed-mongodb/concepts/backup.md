@@ -60,7 +60,7 @@ Storing backups in {{ mmg-name }}:
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-    For more information, see the [Pricing policy for {{ mmg-name }}](../pricing.md#rules-storage).
+    {% if audience != "internal" %}For more information, see the [Pricing policy for {{ mmg-name }}](../pricing.md#rules-storage).{% endif %}
 
 ## Checking backups {#verify}
 

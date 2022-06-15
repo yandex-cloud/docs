@@ -1,19 +1,48 @@
-title: Security in Yandex Cloud
+title: 
+  - text: Security in Yandex Cloud
+    when: product == "yandex-cloud"
+  - text: Security in CloudIL
+    when: product == "cloud-il"
 description:
-  - >-
-    This section contains recommendations for building a secure infrastructure in Yandex Cloud, practical instructions, and security bulletins.
+  - text:
+      - >-
+        This section provides recommendations on how to build a secure infrastructure in Yandex Cloud, practical guidelines, and security bulletins.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        This section provides recommendations on how to build a secure infrastructure in CloudIL, practical guidelines, and security bulletins.
+    when: product == "cloud-il"
 meta:
-  title: Recommendations for security in Yandex Cloud
+  title: 
+  - text: Security in Yandex Cloud
+    when: product == "yandex-cloud"
+  - text: Security in CloudIL
+    when: product == "cloud-il"
 links:
   - title: Division of responsibility
     description: ''
     href: respons
+    when: product == "yandex-cloud"
+  - title: Division of responsibility
+    description: ''
+    href: respons.html
+    when: product == "cloud-il"
   - title: Compliance
     description: ''
     href: conform
-  - title: Security checklist
+    when: product == "yandex-cloud"
+  - title: Compliance
     description: ''
-    href: domains/encryption  
+    href: conform.html
+    when: product == "cloud-il"
+  - title: Cloud security checklist
+    description: ''
+    href: domains/checklist
+    when: product == "yandex-cloud"
+  - title: Cloud security checklist
+    description: ''
+    href: domains/checklist.html
+    when: product == "cloud-il"
   - title: Security bulletins
     description: ''
-    href: security-bulletins/index
+    href: security-bulletins/

@@ -231,7 +231,7 @@ if __name__ == '__main__':
 ## Создайте виртуальную машину из образа {{ coi }} {#create-vm}
 
 Укажите в поле:
-* `zone` — [зону доступности](../overview/concepts/geo-scope.md), например `ru-central1-a`.
+* `zone` — [зону доступности](../overview/concepts/geo-scope.md), например `{{ region-id }}-a`.
 * `subnet-name` — имя [подсети](../vpc/concepts/network.md#subnet) в указанной зоне.
 * `service-account-name` — имя сервисного аккаунта.
 

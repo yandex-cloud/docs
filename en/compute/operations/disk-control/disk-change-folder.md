@@ -21,11 +21,11 @@ To change a disk's folder:
 
 - CLI
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Get a list of all the disks in the default folder:
+   1. Get a list of all the disks in the default folder:
 
       ```bash
       yc compute disk list
@@ -37,12 +37,12 @@ To change a disk's folder:
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
       |          ID          |     NAME     |    SIZE     |     ZONE      | STATUS |     INSTANCE IDS     |       DESCRIPTION       |
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
-      | a7lqgbt0bb9s40tifuhc | first-disk   | 20401094656 | ru-central1-a | READY  | a7lcvu28njbhnkcteb5n |                         |
-      | a7lv5j5hm1p1hppprga7 | second-disk  | 21474836480 | ru-central1-a | READY  |                      |                         |
+      | a7lqgbt0bb9s40tifuhc | first-disk   | 20401094656 | {{ region-id }}-a | READY  | a7lcvu28njbhnkcteb5n |                         |
+      | a7lv5j5hm1p1hppprga7 | second-disk  | 21474836480 | {{ region-id }}-a | READY  |                      |                         |
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
       ```
 
-  1. Get a list of all folders in the default cloud:
+   1. Get a list of all folders in the default cloud:
 
       ```bash
       yc resource-manager folder list
@@ -59,13 +59,13 @@ To change a disk's folder:
       +----------------------+--------------------+------------------+--------+
       ```
 
-  1. View the description of the CLI disk move command:
+   1. View the description of the CLI disk move command:
 
       ```bash
       yc compute disk move --help
       ```
 
-  1. Move the disk to another folder with the following parameters:
+   1. Move the disk to another folder with the following parameters:
 
       * In `id`, enter the ID of the disk, for example, `a7lqgbt0bb9s40tifuhc`.
       * In `destination-folder-id`, enter the ID of the destination folder, for example, `b1gd129pp9ha0vnvf5g7`.
@@ -80,6 +80,6 @@ To change a disk's folder:
 
 - API
 
-  Use the gRPC API [DiskService/Move](../../api-ref/grpc/disk_service.md#Move) or the REST API [move](../../api-ref/Disk/move.md) method.
+   Use the gRPC API [DiskService/Move](../../api-ref/grpc/disk_service.md#Move) or the REST API [move](../../api-ref/Disk/move.md) method.
 
 {% endlist %}

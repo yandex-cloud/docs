@@ -18,11 +18,11 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 ## Release 18.11.2021 {#181121}
 
 1. Added the ability for the user to resize project storage.
-1. Added the ability to set  usage limits on individual folders and projects to manage costs.
+1. Added the ability to set usage limits on individual folders and projects to manage costs.
 1. Projects take less time to open.
 1. Fixed bugs, added minor improvements.
 
-## Release 24.09.2021 {#240921}
+## Release 24.09.2021{#240921}
 
 1. Added the ability to connect to S3 object storage from the interface.
 1. Added rapid model deployment from Python code cells.
@@ -88,15 +88,12 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 * Added the option to [use the bash command](concepts/magic.md#bash).
 
    The `%%bash` command is still available directly, but you can use its functionality as follows:
-   * In the cell headers, specify `#!S:bash` (`S` indicates the type of VM instance to run bash on).
+   * Specify `#!S:bash` in the cell headers (`S` indicates the type of VM instance to run bash on).
 
    Restrictions:
    * Background jobs are not supported, for example, `sshd`.
    * Launching `pip` is not supported. Continue to use `magic` for pip.
 
 * [Full-scale integration with SPARK](concepts/data-proc.md) is now supported. You can compute on the existing {{ dataproc-name }} clusters or even create temporary {{ dataproc-name }} clusters from {{ ml-platform-name }} directly.
-
 * Added [versioning and support of checkpoints](operations/projects/checkpoints.md).
-
 * Added new [configuration types](concepts/configurations.md): `M` (8 cores, 0 GPU) and `XL` (32 cores, 4 Nvidia v100 GPU).
-

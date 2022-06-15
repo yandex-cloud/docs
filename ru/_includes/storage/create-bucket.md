@@ -30,12 +30,14 @@
      * `secret_key` — значение секретного ключа доступа.
      * `bucket` — имя создаваемого бакета. Необязательный параметр, если не указан — будет сгенерирована случайное уникальное имя бакета.
 
+     {% if product == "yandex-cloud" %}
+
      ```
      provider "yandex" {
        token     = "<OAuth>"
        cloud_id  = "<идентификатор облака>"
        folder_id = "<идентификатор каталога>"
-       zone      = "ru-central1-a"
+       zone      = "{{ region-id }}-a"
      }
 
      resource "yandex_storage_bucket" "test" {
@@ -45,6 +47,28 @@
      }
      ```
      
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```
+     provider "yandex" {
+       endpoint  = "{{ api-host }}:443"
+       token     = "<статический ключ сервисного аккаунта>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "{{ region-id }}-a"
+     }
+
+     resource "yandex_storage_bucket" "test" {
+       access_key = "<идентификатор статического ключа>"
+       secret_key = "<секретный ключ>"
+       bucket = "<имя бакета>"
+     }
+     ```
+
+     {% endif %}
+
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
 
   1. Проверьте корректность конфигурационных файлов.

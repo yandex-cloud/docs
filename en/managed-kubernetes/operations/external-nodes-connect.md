@@ -33,14 +33,14 @@ If you have connection issues, please see the [Troubleshooting](external-nodes-c
 
 - CLI
 
-  In the {{ k8s }} API of the cluster to connect to, create a `NodeGroup` object under the API `mks.yandex.cloud/v1alpha1` group in the `yandex-system` [namespace](./index.md#namespace):
+  In the {{ k8s }} API of the cluster to connect to, create a `NodeGroup` object under the API `mks.yandex.cloud/v1alpha1` group in the `system` [namespace](./index.md#namespace):
 
   ```yaml
   apiVersion: mks.yandex.cloud/v1alpha1
   kind: NodeGroup
   metadata:
     name: external-node-group
-    namespace: yandex-system
+    namespace: system
   ```
 
 {% endlist %}
@@ -63,7 +63,7 @@ If you have connection issues, please see the [Troubleshooting](external-nodes-c
   In the node group object specification, list the IP addresses of the connecting servers accessible from a cluster's cloud network.
 
   ```bash
-  kubectl -n yandex-system edit nodegroup external-node-group
+  kubectl -n system edit nodegroup external-node-group
   ```
 
   >Example:
@@ -73,7 +73,7 @@ If you have connection issues, please see the [Troubleshooting](external-nodes-c
   >kind: NodeGroup
   >metadata:
   >  name: external-node-group
-  >  namespace: yandex-system
+  >  namespace: system
   >spec:
   >  ips: # list the IP addresses of the connecting servers accessible from a cluster's cloud network.
   >  - 10.130.0.4
@@ -119,7 +119,7 @@ You can use one of two methods to install system components and to add nodes to 
 For an automated installation, you need to create a secret containing a private server connection SSH key in your cluster. Create a secret:
 
 ```bash
-kubectl -n yandex-system create secret generic <secret name> --from-file=ssh-privatekey=<file path> --type=kubernetes.io/ssh-auth
+kubectl -n system create secret generic <secret name> --from-file=ssh-privatekey=<file path> --type=kubernetes.io/ssh-auth
 ```
 
 In the `NodeGroup` resource specification, include the name of the relevant secret:
@@ -136,7 +136,7 @@ In the `NodeGroup` resource specification, include the name of the relevant secr
 - CLI
 
   ```bash
-  kubectl -n yandex-system edit nodegroup external-node-group
+  kubectl -n system edit nodegroup external-node-group
   ```
 
   ```yaml
@@ -144,7 +144,7 @@ In the `NodeGroup` resource specification, include the name of the relevant secr
   kind: NodeGroup
   metadata:
     name: external-node-group
-    namespace: yandex-system
+    namespace: system
   spec:
     ips:
     ...
@@ -163,21 +163,21 @@ For a semi-automated installation, you need to set all the external nodes up wit
 1. Creating a NodeGroup object makes a secret available in a cluster. The secret contains `kubeconfig` to use on connecting servers. Get it using `kubectl` configured to communicate with the cluster and save it to a file:
 
    ```bash
-   kubectl -n yandex-system get secret <NodeGroup object name>-maintainer-kube-config -o json | jq -r '.data."kube-config"' | base64 -d
+   kubectl -n system get secret <NodeGroup object name>-maintainer-kube-config -o json | jq -r '.data."kube-config"' | base64 -d
    ```
 
 1. Save the downloaded `kubeconfig` on a connecting server:
 
    ```bash
-   sudo mkdir -p /etc/yandex-maintainer
-   sudo vi /etc/yandex-maintainer/kube.config # Use this file to save the contents of `kubeconfig` retrieved in the previous step.
+   sudo mkdir -p /etc/maintainer
+   sudo vi /etc/maintainer/kube.config # Use this file to save the contents of `kubeconfig` retrieved in the previous step.
    ```
 
 1. Run the commands below on a connecting server:
 
    ```bash
    sudo mkdir -p /home/kubernetes/bin
-   sudo curl -o /home/kubernetes/bin/maintainer https://storage.yandexcloud.net/mk8s-maintainer/v1/maintainer
+   sudo curl -o /home/kubernetes/bin/maintainer https://{{ s3-storage-host }}/mk8s-maintainer/v1/maintainer
    sudo chmod +x /home/kubernetes/bin/maintainer
    sudo /home/kubernetes/bin/maintainer install
    ```
@@ -198,26 +198,26 @@ For a semi-automated installation, you need to set all the external nodes up wit
   To disconnect nodes, delete their IP addresses from the `spec.ips` field of `NodeGroup`:
 
   ```bash
-  kubectl -n yandex-system edit nodegroup
+  kubectl -n system edit nodegroup
   ```
 
 {% endlist %}
 
 ## Troubleshooting {#troubleshooting}
 
-If there are issues, review the events in the `yandex-system` namespace first:
+If there are issues, review the events in the `system` namespace first:
 
 {% list tabs %}
 
 - Management console
 
   1. On the cluster page, go to **Events** tab.
-  1. Select the `yandex-system` namespace.
+  1. Select the `system` namespace.
 
 - CLI
 
   ```bash
-  kubectl -n yandex-system get events
+  kubectl -n system get events
   ```
 
 {% endlist %}
@@ -225,7 +225,7 @@ If there are issues, review the events in the `yandex-system` namespace first:
 If there is not enough information, review the system component logs on the appropriate server:
 
 ```bash
-journalctl -u yandex-maintainer
+journalctl -u maintainer
 journalctl -u kubelet
 ```
 

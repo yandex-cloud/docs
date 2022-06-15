@@ -1,6 +1,6 @@
 ## Редактирование {#update}
 
-[Аутентификация](../../../../datalens/api/dashboards/auth.md) • [Идентификация](../../../../datalens/api/dashboards/identification.md)
+[Аутентификация](../../../../datalens/api/auth.md)
 
 `POST` `https://api.dash.yandex.net/v1/dashboards/<id>`
 

@@ -20,7 +20,7 @@
 * **Access from the management console**: Enable this option to be able to [run SQL queries](../../managed-clickhouse/operations/web-sql-query.md) against a cluster's databases from the {{ yandex-cloud }} management console.
 
 * **Access from Yandex.Metrica and AppMetrica**: This option helps [import data from AppMetrica](https://appmetrica.yandex.ru/docs/cloud/index.html) to a cluster.
-   {% if audience != "internal" %}
+{% if audience != "internal" %}
 
 * **Access from Serverless**: Enable this option to allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
 

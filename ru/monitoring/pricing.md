@@ -4,6 +4,14 @@ editable: false
 
 # Правила тарификации для {{ monitoring-full-name }}
 
+{% if product == "cloud-il" %}
+
+На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ monitoring-name }} не тарифицируется.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 ## Из чего складывается стоимость использования {{ monitoring-short-name }} {#rules}
 
 На данный момент в рамках сервиса {{ monitoring-short-name }} тарифицируется запись пользовательских метрик через [API](api-ref/index.md), а также чтение любых метрик через [API](api-ref/index.md).
@@ -63,5 +71,7 @@ editable: false
 > 100 метрик * 60 секунд / 15 секунд * 60 минут * 24 часа * 30 дней = 17 280 000 значений = 17,28 млн значений
 
 В таком случае стоимость пользования сервисом за 30 дней составит `17,28 млн значений * 5 ₽ = 86,4 ₽`.
+
+{% endif %}
 
 {% endif %}

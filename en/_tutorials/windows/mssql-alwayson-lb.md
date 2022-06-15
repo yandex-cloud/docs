@@ -1,5 +1,11 @@
 # Deploying an Always On availability group with an internal network load balancer
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 The use case describes how to deploy an Always On availability group in {{ yandex-cloud }} and enable load balancing between the nodes using an internal network load balancer. Network interfaces will be set up to combine multiple subnets into a single common subnet. This means that you don't need [Multisubnet Failover]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15){% endif %}. The primary IP address will be assigned to the replica written to. The same replica will have an open port, and the load balancer will route traffic to this port. Since the port specified for connecting to the load balancer becomes unavailable, an additional non-standard port will be used to receive traffic.
 
 To create and configure an Always On availability group with an internal network load balancer:
@@ -14,15 +20,11 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Before you start {#before-begin}
 
-Before deploying an availability group, sign up for {{ yandex-cloud }} and create a billing account:
-
-{% include [prepare-register-billing](../includes/prepare-register-billing.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 {% include [ms-additional-data-note](../includes/ms-additional-data-note.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in on the [cloud page]{% if lang == "ru" %}(https://console.cloud.yandex.ru/cloud){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/cloud){% endif %}.
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -33,6 +35,8 @@ The cost of supporting the availability group includes:
 * A fee for using a dynamic or static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 You can use [license mobility](../../compute/qa/licensing.md) and use your own MSSQL Server license in {{ yandex-cloud }}.
+
+{% endif %}
 
 ## Create a network infrastructure {#prepare-network}
 
@@ -83,23 +87,23 @@ Prepare the network infrastructure to host the availability group.
       1. Open the **Virtual Private Cloud** section in the folder to create the subnets in.
       1. Select the `ya-network` network.
       1. Click ![image](../../_assets/plus.svg)**Create subnet**.
-      1. Fill out the form: enter the `ya-sqlserver-rc1a` subnet name and select the `ru-central1-a` availability zone from the drop-down list.
+      1. Fill out the form: enter the `ya-sqlserver-rc1a` subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
       1. Enter the subnet CIDR: IP address and subnet mask: `192.168.1.0/28`.
       1. Click **Create subnet**.
 
       Repeat the steps for subnets with the following names and CIDR:
 
-      * `ya-sqlserver-rc1b` in the `ru-central1-b` availability zone: `192.168.1.16/28`.
-      * `ya-sqlserver-rc1c` in the `ru-central1-c` availability zone: `192.168.1.32/28`.
-      * `ya-ilb-rc1a` in the `ru-central1-a` availability zone: `192.168.1.48/28`.
-      * `ya-ad-rc1a` in the `ru-central1-a` availability zone: `10.0.0.0/28`.
+      * `ya-sqlserver-rc1b` in the `{{ region-id }}-b` availability zone: `192.168.1.16/28`.
+      * `ya-sqlserver-rc1c` in the `{{ region-id }}-c` availability zone: `192.168.1.32/28`.
+      * `ya-ilb-rc1a` in the `{{ region-id }}-a` availability zone: `192.168.1.48/28`.
+      * `ya-ad-rc1a` in the `{{ region-id }}-a` availability zone: `10.0.0.0/28`.
 
    - Bash
 
       ```
       yc vpc subnet create \
          --name ya-sqlserver-rc1a \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --range 192.168.1.0/28 \
          --network-name ya-network
       ```
@@ -107,7 +111,7 @@ Prepare the network infrastructure to host the availability group.
       ```
       yc vpc subnet create \
       	 --name ya-sqlserver-rc1b \
-         --zone ru-central1-b \
+         --zone {{ region-id }}-b \
          --range 192.168.1.16/28 \
          --network-name ya-network
       ```
@@ -115,7 +119,7 @@ Prepare the network infrastructure to host the availability group.
       ```
       yc vpc subnet create \
          --name ya-sqlserver-rc1c \
-         --zone ru-central1-c \
+         --zone {{ region-id }}-c \
          --range 192.168.1.32/28 \
          --network-name ya-network
       ```
@@ -123,7 +127,7 @@ Prepare the network infrastructure to host the availability group.
       ```
       yc vpc subnet create \
          --name ya-ilb-rc1a \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --range 192.168.1.48/28 \
          --network-name ya-network
       ```
@@ -131,7 +135,7 @@ Prepare the network infrastructure to host the availability group.
       ```
       yc vpc subnet create \
       	 --name ya-ad-rc1a \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --range 10.0.0.0/28 \
          --network-name ya-network
       ```
@@ -141,7 +145,7 @@ Prepare the network infrastructure to host the availability group.
       ```
       yc vpc subnet create `
          --name ya-sqlserver-rc1a `
-         --zone ru-central1-a `
+         --zone {{ region-id }}-a `
          --range 192.168.1.0/28 `
          --network-name ya-network
       ```
@@ -149,7 +153,7 @@ Prepare the network infrastructure to host the availability group.
       ```
       yc vpc subnet create `
          --name ya-sqlserver-rc1b `
-         --zone ru-central1-b `
+         --zone {{ region-id }}-b `
          --range 192.168.1.16/28 `
          --network-name ya-network
       ```
@@ -157,7 +161,7 @@ Prepare the network infrastructure to host the availability group.
       ```
       yc vpc subnet create `
          --name ya-sqlserver-rc1c `
-         --zone ru-central1-c `
+         --zone {{ region-id }}-c `
          --range 192.168.1.32/28 `
          --network-name ya-network
       ```
@@ -165,7 +169,7 @@ Prepare the network infrastructure to host the availability group.
       ```
       yc vpc subnet create `
          --name ya-ilb-rc1a `
-         --zone ru-central1-a `
+         --zone {{ region-id }}-a `
          --range 192.168.1.48/28 `
          --network-name ya-network
       ```
@@ -173,7 +177,7 @@ Prepare the network infrastructure to host the availability group.
       ```
       yc vpc subnet create `
       	 --name ya-ad-rc1a `
-         --zone ru-central1-a `
+         --zone {{ region-id }}-a `
          --range 10.0.0.0/28 `
          --network-name ya-network
       ```
@@ -353,7 +357,7 @@ Create a bastion host with a public IP address to access other VMs:
    yc compute instance create \
       --name ya-jump1 \
       --hostname ya-jump1 \
-      --zone ru-central1-a \
+      --zone {{ region-id }}-a \
       --memory 4 \
       --cores 2 \
       --metadata-from-file user-data=setpass \
@@ -370,7 +374,7 @@ Create a bastion host with a public IP address to access other VMs:
    yc compute instance create `
       --name ya-jump1 `
       --hostname ya-jump1 `
-      --zone ru-central1-a `
+      --zone {{ region-id }}-a `
       --memory 4 `
       --cores 2 `
       --metadata-from-file user-data=setpass `
@@ -393,7 +397,7 @@ Create a bastion host with a public IP address to access other VMs:
    yc compute instance create \
       --name ya-ad \
       --hostname ya-ad \
-      --zone ru-central1-a \
+      --zone {{ region-id }}-a \
       --memory 6 \
       --cores 2 \
       --metadata-from-file user-data=setpass \
@@ -410,7 +414,7 @@ Create a bastion host with a public IP address to access other VMs:
    yc compute instance create `
       --name ya-ad `
       --hostname ya-ad `
-      --zone ru-central1-a `
+      --zone {{ region-id }}-a `
       --memory 6 `
       --cores 2 `
       --metadata-from-file user-data=setpass `
@@ -435,7 +439,7 @@ Create three VMs for MSSQL servers:
    yc compute instance create \
       --name ya-mssql1 \
       --hostname ya-mssql1 \
-      --zone ru-central1-a \
+      --zone {{ region-id }}-a \
       --memory 16 \
       --cores 4 \
       --metadata-from-file user-data=setpass \
@@ -452,7 +456,7 @@ Create three VMs for MSSQL servers:
    yc compute instance create \
       --name ya-mssql2 \
       --hostname ya-mssql2 \
-      --zone ru-central1-b \
+      --zone {{ region-id }}-b \
       --memory 16 \
       --cores 4 \
       --metadata-from-file user-data=setpass \
@@ -469,7 +473,7 @@ Create three VMs for MSSQL servers:
    yc compute instance create \
       --name ya-mssql3 \
       --hostname ya-mssql3 \
-      --zone ru-central1-c \
+      --zone {{ region-id }}-c \
       --memory 16 \
       --cores 4 \
       --metadata-from-file user-data=setpass \
@@ -488,7 +492,7 @@ Create three VMs for MSSQL servers:
    yc compute instance create `
       --name ya-mssql1 `
       --hostname ya-mssql1 `
-      --zone ru-central1-a `
+      --zone {{ region-id }}-a `
       --memory 16 `
       --cores 4 `
       --metadata-from-file user-data=setpass `
@@ -505,7 +509,7 @@ Create three VMs for MSSQL servers:
    yc compute instance create `
       --name ya-mssql2 `
       --hostname ya-mssql2 `
-      --zone ru-central1-b `
+      --zone {{ region-id }}-b `
       --memory 16 `
       --cores 4 `
       --metadata-from-file user-data=setpass `
@@ -522,7 +526,7 @@ Create three VMs for MSSQL servers:
    yc compute instance create `
       --name ya-mssql3 `
       --hostname ya-mssql3 `
-      --zone ru-central1-c `
+      --zone {{ region-id }}-c `
       --memory 16 `
       --cores 4 `
       --metadata-from-file user-data=setpass `
@@ -580,12 +584,12 @@ Create three VMs for MSSQL servers:
    - PowerShell
 
       ```
-      Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName 'ru-central1'
-      New-ADReplicationSubnet -Name '10.0.0.0/28' -Site 'ru-central1'
-      New-ADReplicationSubnet -Name '192.168.1.0/28' -Site 'ru-central1'
-      New-ADReplicationSubnet -Name '192.168.1.16/28' -Site 'ru-central1'
-      New-ADReplicationSubnet -Name '192.168.1.32/28' -Site 'ru-central1'
-      New-ADReplicationSubnet -Name '192.168.1.48/28' -Site 'ru-central1'
+      Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName '{{ region-id }}'
+      New-ADReplicationSubnet -Name '10.0.0.0/28' -Site '{{ region-id }}'
+      New-ADReplicationSubnet -Name '192.168.1.0/28' -Site '{{ region-id }}'
+      New-ADReplicationSubnet -Name '192.168.1.16/28' -Site '{{ region-id }}'
+      New-ADReplicationSubnet -Name '192.168.1.32/28' -Site '{{ region-id }}'
+      New-ADReplicationSubnet -Name '192.168.1.48/28' -Site '{{ region-id }}'
       ```
 
    {% endlist %}

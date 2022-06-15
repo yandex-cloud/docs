@@ -17,12 +17,15 @@ Enter the API key when accessing {{ yandex-cloud }} resources via the API. Pass 
 ```
 Authorization: Api-Key <API key>
 ```
+{% if product == "yandex-cloud" %}
 
 ## Services that support this authentication method {#supported-services}
 
 * [{{ speechkit-name }}](../../../speechkit/concepts/auth.md)
 * [{{ translate-name }}](../../../translate/api-ref/authentication.md)
 * [{{ vision-name }}](../../../vision/api-ref/authentication.md)
+
+{% endif %}
 
 #### See also {#see-also}
 

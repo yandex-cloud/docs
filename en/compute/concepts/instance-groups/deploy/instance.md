@@ -3,7 +3,6 @@
 Updating an instance group is performed to ensure minimum implications for the instances managed by the group.
 
 In ascending order of risk, instance groups can perform the following actions:
-
 * Updating an instance without stopping.
 * Updating an instance with restart: stopping and then starting the instance.
 * Re-creating an instance: deleting an instance and creating a new one.
@@ -33,11 +32,11 @@ Changes to the settings of instance groups may affect instances in this group in
 
 * Changing the group scaling policy (`scale_policy`).
 
-  If the user changed the group size in the parameter or enabled automatic scaling that changed the group size, then old instances may be deleted or new instances may be created.
+   If the user changed the group size in the parameter or enabled automatic scaling that changed the group size, then old instances may be deleted or new instances may be created.
 
 * Changing the allocation policy (`allocation_policy`).
 
-  When you change the policy for allocation of instances between zones, instances may be permanently deleted. Instances may also be deleted from one zone and created in another zone, since it's impossible to move instances between zones.
+   When you change the policy for allocation of instances between zones, instances may be permanently deleted. Instances may also be deleted from one zone and created in another zone, since it's impossible to move instances between zones.
 
 ## Changing the instance template {#change-temp}
 
@@ -60,4 +59,3 @@ In some cases, changing the instance template (`instance_template`) causes the i
 * `network_interface_specs`: You can't update network interfaces without re-creating the instance.
 * `secondary_disk_specs`: You can't update secondary disks without re-creating the instance. Disks are retained whenever possible.
 * `scheduling_policy`: You can't convert a regular instance into a preemptible instance or vice versa without re-creating the instance.
-

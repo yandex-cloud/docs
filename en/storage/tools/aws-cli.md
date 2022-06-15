@@ -23,11 +23,11 @@ To configure the AWS CLI, use the `aws configure` command. The command requests 
 
 1. `AWS Secret Access Key`: Enter the secret key that you received when generating the static key.
 
-1. `Default region name`: Enter `ru-central1`.
+1. `Default region name`: Enter `{{ region-id }}`.
 
    {% note info %}
 
-   To work with {{ objstorage-name }}, always specify `ru-central1` as the region. A different region value may lead to an authorization error.
+   To work with {{ objstorage-name }}, always specify `{{ region-id }}` as the region. A different region value may lead to an authorization error.
 
    {% endnote %}
 
@@ -49,7 +49,7 @@ The `aws configure` command saves your settings to the following files:
 
   ```
   [default]
-    region=ru-central1
+    region={{ region-id }}
   ```
 
 ## Specifics {#specifics}

@@ -1,202 +1,135 @@
 # Connecting external dictionaries
 
-You can add [external dictionaries](../concepts/dictionaries.md#external-dicts) to your cluster and remove them. To learn more about dictionaries, see the [documentation for {{ CH }}](https://{{ ch-domain }}/docs/en/query_language/dicts/).
+You can add [external dictionaries](../concepts/dictionaries.md#external-dicts) to your cluster and remove them. For more information about dictionaries, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/){% endif %}.
 
 {{ mch-name }} supports several types of dictionary sources.
 
-- HTTP(s)
-- {{ PG }}
-- {{ MY }}
-- {{ CH }}
-- {{ MG }}
+* {{ CH }}.
+* HTTP(s).
+* {{ MG }}.
+* {{ MY }}.
+* {{ PG }}.
 
 Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the recommended method.
+
+## Getting a list of dictionaries {#get-dicts-list}
+
+{% list tabs %}
+
+* SQL
+
+   1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
+   1. Run the `SHOW DICTIONARIES` [query]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/show/#show-dictionaries){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/show/#show-dictionaries){% endif %}.
+
+* Management console
+
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. Click on the name of the cluster and open the **Dictionaries** tab.
+
+* CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To add an external dictionary to a {{ CH }} cluster:
+
+   1. View a description of the CLI command for getting detailed cluster information:
+
+      ```bash
+      {{ yc-mdb-ch }} cluster get --help
+      ```
+
+   1. Run the command:
+
+      ```bash
+      {{ yc-mdb-ch }} cluster get <cluster name>
+      ```
+
+   The added dictionaries are displayed in the `dictionaries:` section of command execution results.
+
+* API
+
+   You can view a list of dictionaries and other cluster parameters using the [get](../api-ref/Cluster/get.md) method.
+
+{% endlist %}
 
 ## Adding a dictionary {#add-dictionary}
 
 {% list tabs %}
 
-- SQL
+* SQL
 
-  {% note alert %}
+   {% note warning %}
 
-  If the dictionary is added via SQL, management using the console, the CLI, and the API is not available for it.
+   If the dictionary is added via SQL, management using the console, the CLI, and the API is not available for it.
 
-  {% endnote %}
+   {% endnote %}
 
-    1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
+   1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
+   1. Run a [DDL query]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/create/dictionary/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/create/dictionary/){% endif %} and specify [dictionary settings](#settings-sql):
 
-    1. Execute [DDL request](https://{{ ch-domain }}/docs/ru/sql-reference/statements/create/dictionary/):
+      ```sql
+      CREATE DICTIONARY <dictionary name>(
+      <data columns>
+      )
+      PRIMARY KEY <name of the column with keys>
+      SOURCE(<source>(<source configuration>))
+      LIFETIME(<update interval>)
+      LAYOUT(<method for storing dictionaries in memory>());
+      ```
 
-       ```sql
-       CREATE DICTIONARY <dictionary name>(
-       <data columns>
-       )
-       PRIMARY KEY <key column name>
-       SOURCE(<source>(<source configuration>))
-       LIFETIME(<lifetime of dictionary in memory>)
-       LAYOUT(<memory layout configuration>());
-       ```
+* Management console
 
-- Management console
+   {% note warning %}
 
-  {% note alert %}
+   If the dictionary is added via the console, it cannot be managed via SQL.
 
-  If the dictionary is added via the console, it cannot be managed via SQL.
+   {% endnote %}
 
-  {% endnote %}
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. Click on the name of the cluster and open the **Dictionaries** tab.
+   1. In the upper-right corner, click **Add dictionary**.
+   1. Specify [dictionary settings](#settings-console) and click **Save**.
 
-    1. Select the cluster:
-        1. Go to the folder page and select **{{ mch-name }}**.
-        1. Click on the name of the cluster and open the **Dictionaries** tab.
-        1. Click **Add dictionary**.
+* CLI
 
-    1. Configure the dictionary source parameters:
+   {% note warning %}
 
-       Different types of sources take different connection parameters.
-        * **URL**: HTTP(s) source URL.
-        * **File format**: HTTP(s) source file [format](https://{{ ch-domain }}/docs/en/interfaces/formats/#formats). For more information about formats, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/interfaces/formats/#formats).
-        * **Replicas**: List of {{ MY }} replicas to use as the dictionary source.
-          You can configure replica-specific connection parameters (port, username, and password) or set general parameters.
-        * **Host**: Source host name. The host must be in the same network as the {{ CH }} cluster.
-        * **Priority**: {{ MY }} replica priority.  During a connection attempt, {{ CH }} reads from replicas based on their priority. The lower the number, the higher the priority.
-        * **Port**: Port for connecting to the source.
-        * **User**: Source database username.
-        * **Password**: Password for accessing the source database.
-        * **Database**: Name of source database.
-        * **Selection condition**: Condition for selecting rows to generate a dictionary from. For example, the selection condition ```id=10``` is the same as the SQL command ```WHERE id=10```.
-          This parameter is available for {{ MY }} and {{ CH }}.
-        * **Table**: Source table name.
-        * **Collection**: Name of the collection for the {{ MG }} source.
-        * **Dictionary status check**: Optional parameter. An SQL query to check changes in a dictionary.
-          {{ CH }} updates the dictionary only if there are changes in the query results.
-          For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
-        * **SSL mode**: Mode for establishing a secure SSL TCP/IP connection to the {{ PG }} database.
-          For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
+   If the dictionary is added via the CLI, it cannot be managed via SQL.
 
-       For more information about dictionary sources and their connection parameters, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_sources/).
+   {% endnote %}
 
-    1. Configure the structure and how the dictionary is stored in memory:
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-       **{{ mch-name }}** supports several ways to store dictionaries in memory:
-       ```flat```, ```hashed```, ```cache```, ```range_hashed```, ```complex_key_hashed```, ```complex_key_cache```.
-       For more information about how to store dictionaries in memory, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_layout/).
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-       Parameters vary for the different methods of storing dictionaries in memory:
-        * **Cache size**: Number of cache cells for the `cache` and `complex_key_cache` methods .
-          For more information about the cache, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_layout/#cache).
-        * **Numeric key**: Dictionary key column name. The key column must be in the UInt64 data type.
-          Used for `flat`, `hashed`, `cache`, and `range_hashed` methods.
-          For more information about keys, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_structure/#chislovoi-kliuch).
-        * **Composite key**: Columns that make up the composite key of a dictionary. Specify the column IDs and their data types.
-          Used for the `complex_key_hashed` and `complex_key_cache` methods.
-          For more information about composite keys, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_structure/#sostavnoi-kliuch).
-        * **Start of range column** and **End of range column**: Columns indicating the start and end of the range for the `range_hashed` method.
-          Specify the column IDs and their data types.
-          For more information about ranges, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed).
-        * **Data columns**: List of columns with dictionary data:
-            * **Name**: Column name.
-            * **Type**: Column data type.
-            * **Default value**: Default value for an empty element.
-              When loading a dictionary, all empty elements are replaced with this value.
-              You can't use NULL in this field. Optional parameter.
-            * **Expression**: [Expression](https://{{ ch-domain }}/docs/en/query_language/syntax/#syntax-expressions) that {{ CH }} executes with the column value. Optional parameter.
-            * **Hierarchical**: Hierarchical support flag.
-            * **Injective**: Flag that shows whether the id -> attribute image is injective
+   To add an external dictionary to a {{ CH }} cluster:
 
-       For more information about column parameters, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_structure/#ext_dict_structure-attributes).
+   1. View a description of the CLI command for adding dictionaries:
 
-    1. Set how often the dictionary updates:
+      ```bash
+      {{ yc-mdb-ch }} cluster add-external-dictionary --help
+      ```
 
-       {{ CH }} loads dictionaries to the RAM and periodically updates them.
-       You can set a fixed update interval in seconds, or specify a time range for {{ CH }} to randomly select the time for update.
-       This is necessary for distributing the load on the dictionary source when upgrading on a large number of servers.
+   1. Run the add dictionary command and specify [dictionary settings](#settings-cli):
 
-       For more information about dictionary updates, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
+      ```bash
+      {{ yc-mdb-ch }} cluster add-external-dictionary \
+         --name=<{{ CH }} cluster name> \
+         --dict-name=<dictionary name> \
+         ...
+      ```
 
-- CLI
+* API
 
-  {% note alert %}
+   {% note warning %}
 
-  If the dictionary is added via the CLI, it cannot be managed via SQL.
+   If the dictionary is added via the API, it cannot be managed via SQL.
 
-  {% endnote %}
+   {% endnote %}
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  To add an external dictionary to a {{ CH }} cluster:
-
-    1. View a description of the CLI command for adding dictionaries:
-
-       ```
-       $ {{ yc-mdb-ch }} cluster add-external-dictionary --help
-       ```
-
-    1. Run the add dictionary command. Example of the command for a {{ PG }} dictionary:
-
-       ```
-       $ {{ yc-mdb-ch }} cluster add-external-dictionary \
-          --name <{{ CH }} cluster name> \
-          --dict-name <dictionary name> \
-          --structure-id <key column name> \
-          --structure-attribute name=<data column name>,type=<data type>,null-value=<empty element value >,expression=<expression>,hierarchical=<true|false>,injective=<true|false> \
-          --fixed-lifetime <update interval in seconds> \
-          --layout-type <flat|hashed|cache|range_hashed|complex_key_hashed|complex_key_cache> \
-          --postgresql-source db=<source DB name>,table=<source table name>,port=<connection port>,user=<source DB username>,password=<source DB password>,ssl-mode=<disable|allow|prefer|require|verify-ca|verify-full> \
-          --postgresql-source-hosts <source DB hosts> \
-       ```
-
-- API
-
-  {% note alert %}
-
-  If the dictionary is added via the API, it cannot be managed via SQL.
-
-  {% endnote %}
-
-  You can add a dictionary using the [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) method.
-
-{% endlist %}
-
-## Viewing a list of dictionaries {#get-dicts-list}
-
-{% list tabs %}
-
-- SQL
-    1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
-    1. Execute  [the request](https://{{ ch-domain }}/docs/ru/sql-reference/statements/show/#show-dictionaries) `SHOW DICTIONARIES`.
-
-- Management console
-    1. Go to the folder page and select **{{ mch-name }}**.
-    1. Click on the name of the cluster and open the **Dictionaries** tab.
-
-- CLI
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  To add an external dictionary to a {{ CH }} cluster:
-
-    1. View a description of the CLI command for getting detailed cluster information:
-
-       ```
-       {{ yc-mdb-ch }} cluster get --help
-       ```
-
-    1. Run the command:
-
-       ```
-       {{ yc-mdb-ch }} cluster get <cluster name>
-       ```
-
-  The added dictionaries are displayed in the ```dictionaries:``` section of command execution results.
-
-- API
-
-  You can view a list of dictionaries and other cluster parameters using the [get](../api-ref/Cluster/get.md) method.
+   You can add a dictionary using the [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) method.
 
 {% endlist %}
 
@@ -204,40 +137,306 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
 {% list tabs %}
 
-- SQL
-    1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
-    1. Execute [the request](https://{{ ch-domain }}/docs/ru/sql-reference/statements/drop/#drop-dictionary) `DROP DICTIONARY <database name>.<dictionary name>`.
+* SQL
 
-- Management console
-    1. Go to the folder page and click **{{ mch-name }}**.
-    1. Click on the name of the cluster and open the **Dictionaries** tab.
-    1. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
+   1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
+   1. Run the `DROP DICTIONARY <DB name>.<dictionary name>` [query]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/drop/#drop-dictionary){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/drop/#drop-dictionary){% endif %}.
 
-- CLI
+* Management console
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
+   1. Click on the name of the cluster and open the **Dictionaries** tab.
+   1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired host and select **Delete**.
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+* CLI
 
-  To remove an external dictionary:
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    1. View a description of the CLI command to remove dictionaries:
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-       ```
-       {{ yc-mdb-ch }} cluster remove-external-dictionary --help
-       ```
+   To remove an external dictionary:
 
-    1. Run the command to remove a dictionary:
+   1. View a description of the CLI's remove dictionary command:
 
-       ```
-       {{ yc-mdb-ch }} cluster remove-external-dictionary \
-       --name <cluster name> \
-       --dict-name <dictionary name> \
-       ```
+      ```bash
+      {{ yc-mdb-ch }} cluster remove-external-dictionary --help
+      ```
 
-- API
+   1. Run the command to remove a dictionary:
 
-  You can remove a dictionary using the [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) method.
+      ```bash
+      {{ yc-mdb-ch }} cluster remove-external-dictionary \
+        --name <cluster name> \
+        --dict-name <dictionary name> \
+      ```
+
+* API
+
+   You can remove dictionaries using the [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) method.
 
 {% endlist %}
 
+## Dictionary settings {#settings}
+
+### SQL {#settings-sql}
+
+* <dictionary name>: Name of a new dictionary.
+* <data columns>: List of columns with dictionary data and data type.
+* PRIMARY KEY: Dictionary key column name.
+* SOURCE: Source and its parameters.
+* LIFETIME: Frequency of dictionary updates.
+* LAYOUT: Method for storing a dictionary in memory. Supported methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`.
+
+For more information about the settings, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}.
+
+### Management console {#settings-console}
+
+* **Name**: Name of a new dictionary.
+
+#### Source {#console-source}
+
+{% list tabs %}
+
+* {{ CH }}
+
+   * **Host**: Source host name. The host must be in the same network as the {{ CH }} cluster.
+   * **Port**: Port for connecting to the source.
+   * **User**: Source database username.
+   * **Password**: Password to access the source database.
+   * **Database**: Name of source database.
+   * **Table**: Source table name.
+   * **Selection condition**: Condition for selecting rows to generate a dictionary from. For example, the selection condition `id=10` is the same as the SQL command `WHERE id=10`.
+   * (Optional) **Dictionary status check**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
+      For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}.
+
+* HTTP(s)
+
+   * **URL**: HTTP(s) source URL.
+   * **File format**: File [format]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/formats/#formats){% endif %} for an HTTP(s) source. For more information about the formats, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/formats/#formats){% endif %}.
+
+* {{ MG }}
+
+   * **Host**: Source host name. The host must be in the same network as the {{ CH }} cluster.
+   * **Port**: Port for connecting to the source.
+   * **User**: Source database username.
+   * **Password**: Password to access the source database.
+   * **Database**: Name of source database.
+   * **Collection**: Name of the collection for the source.
+
+* {{ MY }}
+
+   * **Replicas**: List of {{ MY }} replicas to use as the dictionary source.
+      For replicas, you can set general connection settings or set up a port, username and password.
+   * **Port**: Port for connecting to the source.
+   * **User**: Source database username.
+   * **Password**: Password to access the source database.
+   * **Database**: Name of source database.
+   * **Table**: Source table name.
+   * **Selection condition**: Condition for selecting rows to generate a dictionary from. For example, the selection condition `id=10` is the same as the SQL command `WHERE id=10`.
+   * (Optional) **Dictionary status check**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
+      For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}.
+
+* {{ PG }}
+
+   * **Hosts**: Names of a {{ PG }} host and its [replicas](../../managed-postgresql/concepts/replication.md) that will be used as dictionary sources. The hosts must be in the same network as the {{ CH }} cluster.
+   * **Port**: Port for connecting to the source.
+   * **User**: Source database username.
+   * **Password**: Password to access the source database.
+   * **Database**: Name of source database.
+   * **Table**: Source table name.
+   * (Optional) **Dictionary status check**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
+      For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}.
+   * **SSL mode**: Mode for establishing a secure SSL TCP/IP connection to the {{ PG }} database.
+      For more information, see the [{{ PG }}documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
+
+{% endlist %}
+
+For more information about dictionary sources and their connection settings, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}.
+
+#### Layout {#console-method}
+
+* **Layout**: Method for storing a dictionary in memory. Supported methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about layouts, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}.
+* **Cache size**: Number of cache cells for the `cache` and `complex_key_cache` methods . For more information about the cache, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache){% endif %}.
+* **Numeric key**: Dictionary key column name. The key column must be in UInt64 data type. Used for `flat`, `hashed`, `cache`, and `range_hashed` methods. For more information about the keys, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key){% endif %}.
+* **Data columns**: List of columns with dictionary data:
+
+   * **Name**: Column name.
+   * **Type**: Column data type.
+   * (Optional) **Default value**: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You can't use `NULL` in this field.
+   * (Optional) **Expression**: [Expression]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/syntax/#syntax-expressions){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/syntax/#syntax-expressions){% endif %} that {{ CH }} executes with the column value.
+   * **Hierarchical**: Hierarchical support flag.
+   * **Injective**: Flag that shows whether the `id` -> `attribute` image is injective
+
+For more information about the column settings, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict_structure-attributes){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict_structure-attributes){% endif %}.
+
+#### Update rate {#console-rate}
+
+* **Lifetime**: Set how often the dictionary updates:
+
+   * **Fixed**: Fixed period between dictionary updates:
+
+      * **Period duration**: Update interval for dictionary data in seconds.
+
+   * **Variable**: Time range for {{ CH }} to randomly select the time for update. This is necessary for distributing the load on the dictionary source when upgrading on a large number of servers:
+
+      * **Minimum**: Minimum value of the interval between dictionary updates in seconds.
+      * **Maximum**: Maximum value of the interval between dictionary updates in seconds.
+
+For more information about dictionary updates, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}.
+
+### CLI {#settings-cli}
+
+* `--dict-name`: Name of a new dictionary.
+
+{% list tabs %}
+
+* {{ CH }}
+
+   * `--clickhouse-source`: Settings of a {{ CH }} source:
+
+      * `db`: Source database name.
+      * `table`: Source table name.
+      * `host`: Source host name. The host must be in the same network as the {{ CH }} cluster.
+      * `port`: Port for connecting to the source.
+      * `user`: Name of source database user.
+      * `password`: Password to access the source database.
+      * `where`: Condition for selecting rows to generate a dictionary from. For example, the selection condition `id=10` is the same as the SQL command `WHERE id=10`.
+
+* HTTP(s)
+
+   * `--http-source-url`: HTTP(s) source URL.
+   * `--http-source-format`: File [format]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/formats/#formats){% endif %} for an HTTP(s) source. For more information about the formats, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/formats/#formats){% endif %}.
+
+* {{ MG }}
+
+   * `--mongodb-source`: Settings of a {{ MG }} source:
+
+      * `db`: Source database name.
+      * `connection`: Name of the collection for the {{ MG }} source.
+      * `host`: Source host name. The host must be in the same network as the {{ CH }} cluster.
+      * `port`: Port for connecting to the source.
+      * `user`: Name of source database user.
+      * `password`: Password to access the source database.
+
+* {{ MY }}
+
+   * `--mysql-source`: Settings of a {{ MY }} source:
+
+      * `db`: Source database name.
+      * `table`: Source table name.
+      * `port`: Port for connecting to the source.
+      * `user`: Name of source database user.
+      * `password`: Password to access the source database.
+      * `where`: Condition for selecting rows to generate a dictionary from. For example, the selection condition `id=10` is the same as the SQL command `WHERE id=10`.
+
+   * `--mysql-replica`: Settings of {{ MY }} source replicas:
+
+      * `host`: Replica host name.
+      * `priority`: Replica priority. During a connection attempt, {{ CH }} reads from replicas based on their priority. The lower the number, the higher the priority.
+      * `port`: Port for connecting to the replica.
+      * `user`: Name of database user.
+      * `password`: Password to access the database.
+
+   * `--mysql-invalidate-query`: Query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
+
+* {{ PG }}
+
+   * `--postgresql-source`: Settings of a {{ PG }} source:
+
+      * `db`: Source database name.
+      * `table`: Source table name.
+      * `port`: Port for connecting to the source.
+      * `user`: Name of source database user.
+      * `password`: Password to access the source database.
+      * `ssl-mode`: Mode for establishing a secure SSL TCP/IP connection to the {{ PG }} database Acceptable values: `disable`, `allow`, `prefer`, `verify-ca`, or `verify-full`.
+
+   * `--postgresql-source-hosts`: Names of a {{ PG }} host its [replicas](../../managed-postgresql/concepts/replication.md) that will be used as dictionary sources. The hosts must be in the same network as the {{ CH }} cluster.
+
+   * `--postgresql-invalidate-query`: Query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
+
+{% endlist %}
+
+* `--structure-id`: Key column name. The key column must be in UInt64 data type. Used for `flat`, `hashed`, `cache`, and `range_hashed` methods. For more information about the keys, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key){% endif %}.
+* `--structure-key`: List of columns with dictionary data:
+
+   * `name`: Column name.
+   * `type`: Type of column data.
+   * `null-value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You can't use `NULL` in this field.
+   * `expression`: [Expression]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/syntax/#syntax-expressions){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/syntax/#syntax-expressions){% endif %} that {{ CH }} executes with the column value.
+   * `hierarchical`: Hierarchical support flag.
+   * `injective`: Flag that shows whether the `id` → `attribute` image is injective
+
+* `--structure-attribute`: Description of the fields available for database queries:
+
+   * `name`: Column name.
+   * `type`: Type of column data.
+   * `null-value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You can't use `NULL` in this field.
+   * `expression`: [Expression]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/syntax/#syntax-expressions){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/syntax/#syntax-expressions){% endif %} that {{ CH }} executes with the column value.
+   * `hierarchical`: Hierarchical support flag.
+   * `injective`: Flag that shows whether the `id` → `attribute` image is injective
+
+* `--fixed-lifetime`: Fixed interval between dictionary updates in seconds.
+* `--lifetime-range`: Time range for {{ CH }} to randomly select the time for update. This is necessary for distributing the load on the dictionary source when upgrading on a large number of servers.
+
+   * `min`: Minimum interval between dictionary updates in seconds.
+   * `max`: Maximum interval between dictionary updates in seconds.
+
+* `--layout-type`: Method of storing dictionary in memory. Supported methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about layouts, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}.
+* `--layout-size-in-cells`: Number of cache cells for the `cache` and `complex_key_cache` methods. For more information about the cache, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache){% endif %}.
+
+### API {#settings-api}
+
+For more information about the settings, see the description of the [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) API method.
+
+## Examples
+
+{% list tabs %}
+
+* CLI
+
+   Let's say we want to add a dictionary with the following parameters:
+
+   * `mych` cluster.
+   * `mychdict` name.
+   * `id` name of the key column.
+   * Fields available for database queries:
+
+      * `id` of the `UInt64` type.
+      * `field1` of the `String` type.
+
+   * Fixed period between dictionary updates 300 seconds.
+   * `cache` layout.
+   * {{ PG }} source:
+
+      * `db1` database.
+      * `table` table name.
+      * `5432` connection port.
+      * `user1` name of the database user.
+      * `user1user1` password to access the database.
+      * `verify-full` mode for establishing a secure SSL TCP/IP connection to the database.
+
+   * `rc1b-05vjbfhfkrycjyq8.mdb.yandexcloud.net` host name.
+
+   To add such a dictionary, run the command:
+
+   ```bash
+   {{ yc-mdb-ch }} cluster add-external-dictionary \
+      --name=mych \
+      --dict-name=mychdict \
+      --structure-id=id \
+      --structure-attribute name=id,`
+                           `type=UInt64,`
+                           `name=field1,`
+                           `type=String \
+      --fixed-lifetime=300 \
+      --layout-type=cache \
+      --postgresql-source db=db1,`
+                         `table=table,`
+                         `port=5432,`
+                         `user=user1,`
+                         `password=user1user1,`
+                         `ssl-mode=verify-full \
+      --postgresql-source-hosts=rc1b-05vjbfhfkrycjyq8.mdb.yandexcloud.net
+   ```
+
+{% endlist %}

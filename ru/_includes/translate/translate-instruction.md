@@ -75,7 +75,7 @@
         "Authorization": "Bearer {0}".format(IAM_TOKEN)
     }
 
-    response = requests.post('https://translate.api.cloud.yandex.net/translate/v2/translate',
+    response = requests.post('https://translate.{{ api-host }}/translate/v2/translate',
         json = body,
         headers = headers
     )
@@ -102,7 +102,7 @@
     $target_language = 'ru';
     $texts = ["Hello", "World"];
 
-    $url = 'https://translate.api.cloud.yandex.net/translate/v2/translate';
+    $url = 'https://translate.{{ api-host }}/translate/v2/translate';
 
     $headers = [
         'Content-Type: application/json',

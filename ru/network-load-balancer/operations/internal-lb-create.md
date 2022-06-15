@@ -30,7 +30,7 @@
      yc load-balancer network-load-balancer create \
        --name internal-lb-test \
        --type internal \
-       --region-id ru-central1 \
+       --region-id {{ region-id }} \
        --listener name=test-listener,port=80,internal-subnet-id=<идентификатор подсети>,internal-address=<внутренний IP-адрес из диапазона подсети>
      ```
   
@@ -65,11 +65,13 @@
 
      Пример структуры конфигурационного файла:
      
+     {% if product == "yandex-cloud" %}
+
      ```
      provider "yandex" {
          token     = "<OAuth или статический ключ сервисного аккаунта>"
          folder_id = "<идентификатор каталога>"
-         zone      = "ru-central1-a"
+         zone      = "{{ region-id }}-a"
        }
 
      resource "yandex_lb_network_load_balancer" "internal-lb-test" {
@@ -85,6 +87,34 @@
          }
        }
      ```
+
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```
+     provider "yandex" {
+         endpoint  = "{{ api-host }}:443"
+         token     = "<статический ключ сервисного аккаунта>"
+         folder_id = "<идентификатор каталога>"
+         zone      = "{{ region-id }}-a"
+       }
+
+     resource "yandex_lb_network_load_balancer" "internal-lb-test" {
+       name = "internal-lb-test"
+       type = "internal"
+
+       listener {
+         name = "my-listener"
+         port = 8080
+         internal_address_spec {
+           address = "<внутренний IP-адрес>"
+           subnet_id = "<идентификатор подсети>"
+         }
+       }
+     ```
+
+     {% endif %}
      
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
      
@@ -123,7 +153,7 @@
   yc load-balancer network-load-balancer create \
     --name internal-lb-test-1 \
     --type internal \
-    --region-id ru-central1
+    --region-id {{ region-id }}
   ```
 
 - Terraform
@@ -183,23 +213,39 @@
      yc load-balancer target-group list
      ```
 	 
-	 Результат:
+	    Результат:
 	 
-	 ```
+	    {% if product == "yandex-cloud" %}
+	 
+	    ```
      +----------------------+------------------+---------------------+-------------+--------------+
      |          ID          |       NAME       |       CREATED       |  REGION ID  | TARGET COUNT |
      +----------------------+------------------+---------------------+-------------+--------------+
-     | b7rv80bfibkph3ekqqle | test-internal-tg | 2020-08-09 07:49:18 | ru-central1 |            3 |
+     | b7rv80bfibkph3ekqqle | test-internal-tg | 2020-08-09 07:49:18 | {{ region-id }} |            3 |
      +----------------------+------------------+---------------------+-------------+--------------+
      ```
+     
+     {% endif %}
+     
+     {% if product == "cloud-il" %}
+	 
+	    ```
+     +----------------------+------------------+---------------------+-----------+--------------+
+     |          ID          |       NAME       |       CREATED       | REGION ID | TARGET COUNT |
+     +----------------------+------------------+---------------------+-----------+--------------+
+     | b7rv80bfibkph3ekqqle | test-internal-tg | 2020-08-09 07:49:18 | il1       |            3 |
+     +----------------------+------------------+---------------------+-----------+--------------+
+     ```
+     
+     {% endif %}
   
   1. Выполните команду, используя идентификатор целевой группы в параметре `target-group-id`:
   
      ```
-     load-balancer network-load-balancer create \
+     yc load-balancer network-load-balancer create \
        --name internal-lb-test-3 \
        --type internal \
-       --region-id ru-central1 \
+       --region-id {{ region-id }} \
        --listener name=test-listener,port=80,internal-subnet-id=e9b81t3kjmi0auoi0vpj,internal-address=10.10.0.14 \
        --target-group target-group-id=b7rv80bfibkph3ekqqle,healthcheck-name=http,healthcheck-interval=2s,healthcheck-timeout=1s,healthcheck-unhealthythreshold=2,healthcheck-healthythreshold=2,healthcheck-http-port=80
      ```

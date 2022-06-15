@@ -12,4 +12,3 @@ An instance group can have only one service account created in the same folder a
 
 - [{#T}](../../quickstart/ig.md).
 - [{#T}](../../../iam/operations/sa/create.md).
-

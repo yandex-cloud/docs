@@ -19,6 +19,8 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит плата за следующие ресурсы:
@@ -26,6 +28,8 @@
 * Использование динамического [публичного IP-адреса](../../vpc/concepts/ips.md) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 * Хранение созданных Docker-образов (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
 * Использование [мастера {{ k8s }}](../../managed-kubernetes/concepts/index.md#master) (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+
+{% endif %}
 
 ### Установите дополнительные зависимости {#prepare}
 

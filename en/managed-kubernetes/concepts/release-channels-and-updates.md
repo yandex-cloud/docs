@@ -47,9 +47,19 @@ The update process is different for [masters](#master) and [node groups](#node-g
 
 #### Master {#master}
 
+{% if product == "yandex-cloud" %}
+
 Depending on the type of master, it may or may not be available during an update:
 * Zonal masters are unavailable during updates.
 * Regional masters remain available during updates.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+Zonal masters are unavailable during updates.
+
+{% endif %}
 
 For more information, see [Updating a cluster](../operations/update-kubernetes.md#cluster-upgrade).
 

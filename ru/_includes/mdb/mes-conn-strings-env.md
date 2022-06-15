@@ -1,5 +1,5 @@
 **Примеры для Linux проверялись в следующем окружении:**
-- Виртуальная машина в Облаке c [Ubuntu 20.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts){% endif %}.
+- Виртуальная машина в Облаке c [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
 - Bash: `5.0.16`.
 - Python: `3.8.2`; pip3: `20.0.2`.
 - Go: `1.13.8`.

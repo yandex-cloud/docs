@@ -1,32 +1,52 @@
 title: Getting started
 description:
-  - >-
-    When creating their first billing account, new Yandex Cloud customers receive the <a href="/docs/getting-started/usage-grant\">initial grant</a>, which expires in 60 days. The grant terms of use differ for individual and business accounts.
-  - >-
-    In addition, a trial period is available to new customers. The trial period lets you get hands-on experience with Yandex Cloud by using the initial grant to pay for the resources you consume. You can upgrade to the paid version at any time during the free trial or 30 days after it expires with no data loss.
-  - >-
-    Residents and non-residents of the Russian Federation can sign up for Yandex Cloud. Non-residents of Russia and Kazakhstan can only register business accounts.
+  - text:
+      - >-
+        When creating their first billing account, new Yandex Cloud customers receive the <a href="/docs/getting-started/usage-grant\">initial grant</a>, which expires in 60 days. The grant terms of use differ for individual and business accounts.
+      - >-
+        In addition, a trial period is available to new customers. The trial period lets you get hands-on experience with Yandex Cloud by using the initial grant to pay for the resources you consume. You can upgrade to the paid version at
+        any time during the free trial or 30 days after it expires with no data loss.
+      - >-
+        Residents and non-residents of the Russian Federation can sign up for Yandex Cloud. Non-residents of Russia and Kazakhstan can only register business accounts.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        CloudIL is available at the <a href="/docs/overview/concepts/launch-stages\">Preview</a> stage. Submit a request to get access to the platform services, and explore and test its features.
+      - >-
+        At the Preview stage, the service can be used free of charge. Requests are first come, first served.
+    when: product == "cloud-il"
 meta:
   title: Getting started
 links:
   - title: Getting started
     description: Information for individuals
     href: quickstart-individuals
+    when: product == "yandex-cloud"
   - title: Registering in Yandex Cloud
     description: Instructions for businesses
     href: quickstart-legal-entity
+    when: product == "yandex-cloud"
+  - title: Registering in CloudIL
+    description: Submit a request for CloudIL access.
+    href: quickstart.html
+    when: product == "cloud-il"
   - title: How does the trial period work
     description: How to use Yandex Cloud during the trial period and who can access it
     href: free-trial/concepts/quickstart
+    when: product == "yandex-cloud"
   - title: Trial period restrictions
     description: Usage limits during the trial period
     href: free-trial/concepts/limits
+    when: product == "yandex-cloud"
   - title: Initial grant terms of use
     description: How to use the initial grant and who can use it
     href: usage-grant
+    when: product == "yandex-cloud"
   - title: End of trial period
     description: What happens when the trial period ends
     href: free-trial/concepts/trial-ending
+    when: product == "yandex-cloud"
   - title: Upgrading to the paid version
     description: How and when to upgrade to the paid version
     href: free-trial/concepts/upgrade-to-paid
+    when: product == "yandex-cloud"

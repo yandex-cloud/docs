@@ -13,7 +13,7 @@ grpcurl -H "Authorization: Bearer <iam_token>" \
   "node_id": "<node_id>",
   "input": { <input_variables> } \
   }' \
-  datasphere.api.cloud.yandex.net:443
+  datasphere.{{ api-host }}:443
 yandex.cloud.datasphere.v1.NodeService/Execute
 ```
 
@@ -39,7 +39,7 @@ yandex.cloud.datasphere.v1.NodeService/Execute
 Для отправки REST-запросов можно воспользоваться утилитой [cURL](https://curl.se).
 
 ```bash
-curl https://datasphere.api.cloud.yandex.net/datasphere/v1/nodes/<node_id>:execute \
+curl https://datasphere.{{ api-host }}/datasphere/v1/nodes/<node_id>:execute \
    -X POST \
    -H "Authorization: Bearer <iam_token>"
    -d '{

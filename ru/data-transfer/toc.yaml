@@ -1,5 +1,9 @@
 ---
-title: Yandex Data Transfer
+title:
+  - text: Yandex Data Transfer
+    when: product == "yandex-cloud"
+  - text: Data Transfer
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Начало работы
@@ -38,6 +42,7 @@ items:
                 href: operations/endpoint/source/s3.md
               - name: Yandex Data Streams
                 href: operations/endpoint/source/data-streams.md
+                when: product == "yandex-cloud"
           - name: Параметры эндпоинтов для приемников
             items:
               - name: ClickHouse
@@ -54,6 +59,7 @@ items:
                 href: operations/endpoint/target/postgresql.md
               - name: YDB
                 href: operations/endpoint/target/yandex-database.md
+                when: product == "yandex-cloud"
       - name: Управление трансфером
         href: operations/transfer.md
       - name: Работа с базами данных во время трансфера
@@ -66,12 +72,15 @@ items:
         href: tutorials/index.md
       - name: Миграция базы данных в {{ mmg-full-name }}
         href: tutorials/managed-mongodb.md
+        when: product == "yandex-cloud"
       - name: Миграция базы данных в {{ mmy-full-name }}
         href: tutorials/managed-mysql.md
       - name: Миграция базы данных из {{ mmy-full-name }} в {{ MY }}
         href: tutorials/managed-mysql-to-mysql.md
       - name: Миграция базы данных в {{ mpg-full-name }}
         href: tutorials/managed-postgresql.md
+      - name: Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }}
+        href: tutorials/kafka-cdc.md
       - name: Перенос данных из {{ PG }} в {{ CH }}
         href: tutorials/rdbms-to-clickhouse.md
   - name: Концепции
@@ -101,9 +110,11 @@ items:
         href: troubleshooting/postgresql.md
       - name: "{{ ydb-full-name }} и {{ yds-full-name }}"
         href: troubleshooting/ydb.md
+        when: product == "yandex-cloud"
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
+    when: audience != "internal"
     href: pricing.md
   - name: Справочник API
     items:
@@ -121,6 +132,6 @@ items:
           path: en/_api-ref/datatransfer/toc.yaml
   - name: История изменений
     href: release-notes.md
-    when: audience == "draft"
+    when: audience == "draft" and product == "yandex-cloud"
   - name: Вопросы и ответы
     href: qa/index.md

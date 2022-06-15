@@ -23,12 +23,16 @@ To create a cluster and run a computational task:
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ### Required paid resources {#paid-resources}
 
 The cost for hosting servers includes:
 
 * A fee for running multiple VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
+{% endif %}
 
 ## Create a master VM in the cloud {#create-master-vm}
 

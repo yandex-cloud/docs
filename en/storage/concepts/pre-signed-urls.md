@@ -25,7 +25,7 @@ https://{{ s3-storage-host }}/<bucket name>/<object key>?
     &X-Amz-SignedHeaders=<list of headers separated by ";">
     &X-Amz-Signature=<signature>
     &X-Amz-Date=<time in ISO 8601 format>
-    &X-Amz-Credential=<access-key-id>%2F<YYYYMMDD>%2Fru-central1%2Fs3%2Faws4_request
+    &X-Amz-Credential=<access-key-id>%2F<YYYYMMDD>%2F{{ region-id }}%2Fs3%2Faws4_request
 ```
 
 Pre-signed URL parameters:
@@ -37,7 +37,7 @@ Pre-signed URL parameters:
 | `X-Amz-SignedHeaders` | Headers of the request you want to sign.<br/><br/>Make sure to sign the `host` header and all the `x-amz-*` headers used in the request. You don't have to sign other headers, but the more headers you sign, the safer your request is. |
 | `X-Amz-Signature` | Request signature. |
 | `X-Amz-Date` | Time in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format, for example: `20180719T000000Z`. The date specified must match the date in the `X-Amz-Credential` parameter (by the value rather than format). |
-| `X-Amz-Credential` | Signature ID.<br/><br/>A string in `<access-key-id>/<YYYYMMDD>/ru-central1/s3/aws4_request` format, where `<YYYYMMDD>` must match the date set in the `X-Amz-Date` header. |
+| `X-Amz-Credential` | Signature ID.<br/><br/>A string in `<access-key-id>/<YYYYMMDD>/{{ region-id }}/s3/aws4_request` format, where `<YYYYMMDD>` must match the date set in the `X-Amz-Date` header. |
 
 ## Creating pre-signed URLs {#creating-presigned-url}
 
@@ -63,7 +63,7 @@ Hex(Hash-SHA256(<CanonicalRequest>))
 
 - `AWS4-HMAC-SHA256` — The hashing algorithm.
 - `timestamp` — The current time in ISO 8601 format, for example: `20190801T000000Z`. The date specified must match the date in `scope` (by the value rather than format).
-- `scope` — `<YYYYMMDD>/ru-central1/s3/aws4_request`.
+- `scope` — `<YYYYMMDD>/{{ region-id }}/s3/aws4_request`.
 - `CanonicalRequest` — [A canonical request](#canonical-request). To include your request in the string, hash it using the SHA256 algorithm and convert it to hexadecimal format.
 
 ### Canonical request {#canonical-request}
@@ -102,7 +102,7 @@ The canonical query string must include all the query parameters of the destinat
 Example:
 
 ```
-X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host
 ```
 
 #### CanonicalHeaders {#canonical-headers}
@@ -156,7 +156,7 @@ Create a signed URL to download the `object-for-share.txt` object from `example-
     ```
     GET
     /example-bucket/object-for-share.txt
-    X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host
+    X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host
     host:{{ s3-storage-host }}
     
     host
@@ -168,14 +168,14 @@ Create a signed URL to download the `object-for-share.txt` object from `example-
     ```
     AWS4-HMAC-SHA256
     20190801T000000Z
-    20190801/ru-central1/s3/aws4_request
+    20190801/{{ region-id }}/s3/aws4_request
     2d2b4efefa9072d90a646afbc0fbaef4618c81396b216969ddfc2869db5aa356
     ```
 
 - Signing key:
 
     ```
-    sign(sign(sign(sign("AWS4" + "ExamP1eSecReTKeykdokKK38800","20190801"),"ru-central1"),"s3"),"aws4_request")
+    sign(sign(sign(sign("AWS4" + "ExamP1eSecReTKeykdokKK38800","20190801"),"{{ region-id }}"),"s3"),"aws4_request")
     ```
 
     The `sign` function was introduced to indicate the method of key calculation that uses the [HMAC](https://en.wikipedia.org/wiki/HMAC) algorithm with the [SHA256](https://en.wikipedia.org/wiki/SHA-2) hash function.
@@ -189,7 +189,7 @@ Create a signed URL to download the `object-for-share.txt` object from `example-
 - Pre-signed URL:
 
     ```
-    https://{{ s3-storage-host }}/example-bucket/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=56bdf53a1f10c078c2b4fb5a26cefa670b3ea796567d85489135cf33e77783f0
+    https://{{ s3-storage-host }}/example-bucket/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=56bdf53a1f10c078c2b4fb5a26cefa670b3ea796567d85489135cf33e77783f0
     ```
 
 ## Examples of getting pre-signed links in tools {{ objstorage-name }} {#example-for-getting-in-tools}
@@ -205,8 +205,10 @@ Create a signed URL to download the `object-for-share.txt` object from `example-
     You can also use AWS CLI to generate a link for object download. To do this, run the following command:
 
     ```
-    aws s3 presign s3://<bucket-name>/<object-key> [--expires-in <value>]
+    aws s3 presign s3://<bucket-name>/<object-key> --endpoint-url "https://{{ s3-storage-host }}/" [--expires-in <value>]
     ```
+  
+    For a link to be generated properly, the `--endpoint-url` parameter pointing to {{ objstorage-name }} hostname is required. For details, see the [section about AWS CLI specifics](../tools/aws-cli.md#specifics). 
 
 - boto3
 
@@ -219,7 +221,7 @@ Create a signed URL to download the `object-for-share.txt` object from `example-
     from botocore.client import Config
     
     
-    ENDPOINT = "https://storage.yandexcloud.net"
+    ENDPOINT = "https://{{ s3-storage-host }}"
     
     ACCESS_KEY = "JK38EXAMPLEAKDID8"
     SECRET_KEY = "ExamP1eSecReTKeykdokKK38800"
@@ -227,7 +229,7 @@ Create a signed URL to download the `object-for-share.txt` object from `example-
     session = boto3.Session(
         aws_access_key_id=ACCESS_KEY,
         aws_secret_access_key=SECRET_KEY,
-        region_name="ru-central1",
+        region_name="{{ region-id }}",
     )
     s3 = session.client(
         "s3", endpoint_url=ENDPOINT, config=Config(signature_version="s3v4")

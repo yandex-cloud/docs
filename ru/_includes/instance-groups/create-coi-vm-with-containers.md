@@ -88,10 +88,10 @@
         name: yc-auto-network
         ```
 
-     1. Создайте подсеть в зоне `ru-central1-a`:
+     1. Создайте подсеть в зоне `{{ region-id }}-a`:
 
         ```bash
-        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone ru-central1-a
+        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-a
         ```
 
         Результат:
@@ -101,7 +101,7 @@
         folder_id: b0g12ga82bcv0cdeferg
         created_at: "2020-11-30T16:23:12Z"
         network_id: enpabce123hde4ft1r3t
-        zone_id: ru-central1-a
+        zone_id: {{ region-id }}-a
         v4_cidr_blocks:
         - 192.168.1.0/24
         ```
@@ -109,7 +109,7 @@
    - API
 
      1. Создайте сеть с помощью метода [Create](../../vpc/api-ref/Network/create.md) для ресурса `Networks`.
-     1. Создать подсеть в зоне доступности `ru-central1-a`с помощью метода [Create](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnets`.
+     1. Создать подсеть в зоне доступности `{{ region-id }}-a`с помощью метода [Create](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnets`.
 
    {% endlist %}
 
@@ -167,7 +167,7 @@
        size: 2
    allocation_policy: # Политика распределения ВМ по зонам и регионам.
      zones:
-       - zone_id: ru-central1-a
+       - zone_id: {{ region-id }}-a
    ```
 
    {% note info %}

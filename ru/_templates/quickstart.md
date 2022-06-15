@@ -13,7 +13,9 @@
 <!-- Тут все зависит от сервиса, но принцип следующий:
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+{% if product == "yandex-cloud" %}
 1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+{% endif %}
 1. Если у вас нет пары SSH-ключей, [создайте их](../operations/vm-connect/ssh#creating-ssh-keys).
 
  -->

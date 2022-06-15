@@ -2,20 +2,37 @@
 
 Чтобы предоставить доступ к ресурсу, назначьте субъекту [роль](../../concepts/access-control/roles.md) на сам ресурс или ресурс, от которого наследуются права доступа, например на каталог или облако. Подробнее читайте в разделе [{#T}](../../concepts/access-control/index.md).
 
+
+{% if product == "yandex-cloud" %}
+
 ## Назначить роль пользователю {#access-to-user}
 
-В этом разделе описывается, как назначить роль пользователю с аккаунтом на Яндексе. В примерах ниже описано, как назначить роль [сервисному аккаунту](#access-to-sa), [пользователю федерации](#access-to-federated-user) или [всем пользователям сразу](#access-to-all).
+В этом разделе описывается, как назначить роль пользователю с аккаунтом {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}. В примерах ниже описано, как назначить роль [сервисному аккаунту](#access-to-sa), [пользователю федерации](#access-to-federated-user) или [всем пользователям сразу](#access-to-all).
 
+{% endif %}
+
+
+{% if product == "cloud-il" %}
+
+### Доступ к ресурсу для федеративного пользователя {#access-to-federated-user}
+
+{% include [saml-assign-role-note](../../../_includes/saml-assign-role-note.md) %}
+
+В консоли управления [федеративному пользователю](../../../organization/add-federation.md) можно назначить роль на отдельное облако или каталог.
+
+{% endif %}
 {% list tabs %}
 
 - Консоль управления
 
   В консоли управления можно назначить роль только на облако или каталог:
 
+{% if product == "yandex-cloud" %}
   1. Добавьте пользователя в облако через [Консоль управления](../users/create.md#console-user) или [{{ org-full-name }}](../users/create.md#organization-user).
+{% endif %}
   1. Назначьте пользователю роль в облаке:
       1. [Выберите](../../../resource-manager/operations/cloud/switch-cloud.md) облако.
-      1. Перейдите на вкладку [Права доступа]({{ link-console-main }}/cloud?section=resource-acl).
+      1. Перейдите на вкладку [Права доступа]({{ link-console-cloud }}?section=resource-acl).
       1. Установите переключатель **Наследуемые роли** в активное состояние, чтобы в списке отобразились пользователи, добавленные в организацию.
       1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/options.svg) напротив имени пользователя.
       1. Нажмите кнопку **Изменить роли**.
@@ -39,6 +56,7 @@
   1. Выберите роль из списка в разделе [Роли](../../concepts/access-control/roles.md).
   1. [Получите идентификатор пользователя](../users/get.md).
   1. Назначьте роль с помощью команды:
+{% if product == "yandex-cloud" %}
 
       ```bash
       yc <service-name> <resource> add-access-binding <resource-name>|<resource-id> \
@@ -46,6 +64,16 @@
         --subject userAccount:<user-account-id>
       ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+      ```bash
+      yc <service-name> <resource> add-access-binding <resource-name>|<resource-id> \
+        --role <role-id> \
+        --subject federatedUser:<user-account-id>
+      ```
+
+{% endif %}
       Где:
 
       * `<service-name>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
@@ -56,6 +84,7 @@
       * `<user-account-id>` — идентификатор аккаунта пользователя, которому назначается роль.
 
       Например, назначьте роль `viewer` на [облако](../../../resource-manager/concepts/resources-hierarchy.md#folder) `mycloud`:
+{% if product == "yandex-cloud" %}
 
       ```bash
       yc resource-manager cloud add-access-binding mycloud \
@@ -63,6 +92,16 @@
         --subject userAccount:aje6o61dvog2h6g9a33s
       ```
 
+{% endif %}
+{% if product == "yandex-cloud" %}
+
+      ```bash
+      yc resource-manager cloud add-access-binding mycloud \
+        --role viewer \
+        --subject federatedUser:aje6o61dvog2h6g9a33s
+      ```
+
+{% endif %}
 - API
 
   Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
@@ -70,6 +109,7 @@
   1. Выберите роль из списка в разделе [Роли](../../concepts/access-control/roles.md).
   1. [Получите идентификатор пользователя](../users/get.md).
   1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
+{% if product == "yandex-cloud" %}
 
       **body.json:**
       ```json
@@ -88,6 +128,27 @@
       }
       ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+      **body.json:**
+      ```json
+      {
+          "accessBindingDeltas": [{
+              "action": "ADD",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "gfei8n54hmfhuk5nogse",
+                      "type": "federatedUser"
+                      }
+                  }
+              }
+          ]
+      }
+      ```
+
+{% endif %}
   1. {% include [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md) %}
 
   Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса:
@@ -103,7 +164,8 @@
 
        * `cloud_id` — идентификатор облака. Вы также можете назначить роль внутри отдельного каталога. Для этого вместо `cloud_id` укажите `folder_id` и нужный идентификатор каталога в параметрах ресурса.
        * `role` — назначаемая роль. Обязательный параметр.
-       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+       * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде {% if product == "yandex-cloud" %}`userAccount:<идентификатор пользователя>`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+{% if product == "yandex-cloud" %}
 
        ```
        resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
@@ -115,6 +177,22 @@
          ]
        }
        ```
+
+{% endif %}
+{% if product == "cloud-il" %}
+
+       ```
+       resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
+         cloud_id    = "<идентификатор облака>"
+         role        = "<роль>"
+         members     = [
+           "serviceAccount:<идентификатор сервисного аккаунта>",
+           "federatedUser:<идентификатор пользователя>",
+         ]
+       }
+       ```
+
+{% endif %}
 
        Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding`, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_binding).
 
@@ -181,15 +259,29 @@
       yc resource-manager folder list-access-binding my-folder
       ```
   1. Назначьте роли. Например, назначьте одному пользователю роль `editor`, а другому `viewer`:
+
+{% if product == "yandex-cloud" %}
+
       ```bash
       yc resource-manager folder set-access-bindings my-folder \
         --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
         --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
       ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+      ```bash
+      yc resource-manager folder set-access-bindings my-folder \
+        --access-binding role=editor,subject=federatedUser:gfei8n54hmfhuk5nogse
+        --access-binding role=viewer,subject=federatedUser:helj89sfj80aj24nugsz
+      ```
+
+{% endif %}
 - API
 
   1. Чтобы назначить одному пользователю роль `editor`, а другому `viewer`, в файл с телом запроса добавьте несколько привязок прав доступа в `accessBindingDeltas`.
+{% if product == "yandex-cloud" %}
 
       **body.json:**
       ```json
@@ -215,6 +307,36 @@
           }]
       }
       ```
+
+{% endif %}
+{% if product == "cloud-il" %}
+
+      **body.json:**
+      ```json
+      {
+          "accessBindingDeltas": [{
+              "action": "ADD",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "gfei8n54hmfhuk5nogse",
+                      "type": "federatedUser"
+                  }
+              }
+          },{
+              "action": "ADD",
+              "accessBinding": {
+                  "roleId": "viewer",
+                  "subject": {
+                      "id": "helj89sfj80aj24nugsz",
+                      "type": "federatedUser"
+                  }
+              }
+          }]
+      }
+      ```
+
+{% endif %}
   1. Назначьте указанные роли, например на каталог с идентификатором `b1gvmob95yysaplct532`:
 
       {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
@@ -228,6 +350,7 @@
   {% endnote %}
 
   1. В теле запроса укажите список новых привязок прав доступа.
+{% if product == "yandex-cloud" %}
 
       **body.json:**
       ```json
@@ -242,7 +365,24 @@
       }
       ```
 
-  1. Назначьте роли:
+{% endif %}
+{% if product == "cloud-il" %}
+
+      **body.json:**
+      ```json
+      {
+          "accessBindings": [{
+              "roleId": "editor",
+              "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "federatedUser" }
+          },{
+              "roleId": "viewer",
+              "subject": { "id": "helj89sfj80aj24nugsz", "type": "federatedUser" }
+          }]
+      }
+      ```
+
+{% endif %}
+  2. Назначьте роли:
 
       ```bash
       export FOLDER_ID=b1gvmob95yysaplct532
@@ -251,14 +391,16 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d '@body.json' \
-        "https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/${FOLDER_ID}:setAccessBindings"
+        "https://resource-manager.{{ api-host }}/resource-manager/v1/folders/${FOLDER_ID}:setAccessBindings"
       ```
 
 {% endlist %}
 
+
 ### Доступ к ресурсу для сервисного аккаунта {#access-to-sa}
 
 {% include [grant-role-for-sa](../../../_includes/iam/grant-role-for-sa.md) %}
+{% if product == "yandex-cloud" %}
 
 ### Доступ к ресурсу для федеративного пользователя {#access-to-federated-user}
 
@@ -269,14 +411,16 @@
 {% list tabs %}
 
 - Консоль управления
+{% if product == "yandex-cloud" %}
 
   Назначение роли происходит так же, как назначение роли пользователю с аккаунтом на Яндексе. Рядом с именем пользователя будет указано имя федерации, к которой он относится.
 
+{% endif %}
   В консоли управления можно назначить роль только на облако или каталог:
 
   1. Назначьте пользователю роль в облаке:
       1. [Выберите](../../../resource-manager/operations/cloud/switch-cloud.md) облако.
-      1. Перейдите на вкладку [Права доступа]({{ link-console-main }}/cloud?section=resource-acl).
+      1. Перейдите на вкладку [Права доступа]({{ link-console-cloud }}?section=resource-acl).
       1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/options.svg) напротив имени пользователя.
       1. Нажмите кнопку **Изменить роли**.
       1. В окне **Настройка прав доступа** облака нажмите кнопку **Добавить роль**.
@@ -294,6 +438,7 @@
 
 {% endlist %}
 
+{% endif %}
 ### Доступ к ресурсу всем пользователям {#access-to-all}
 
 {% include [grant-role-for-all](../../../_includes/iam/grant-role-for-all.md) %}

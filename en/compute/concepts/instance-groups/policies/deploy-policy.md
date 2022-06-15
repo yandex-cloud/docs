@@ -2,11 +2,11 @@
 
 When creating an instance group, you can choose how the instances will be deployed in the group.
 
-The deployment policy is a set of restrictions defined in the `deploy-policy` key in the YAML file. Each restriction is set in its own key as a `key-value` pair.
+The deployment policy is a set of restrictions defined in the `deploy_policy` key in the YAML file. Each restriction is set in its own key as a `key-value` pair.
 
 Example of a YAML file entry:
 
-```yaml
+```
 ...
 deploy_policy:
     max_creating: 10
@@ -34,19 +34,17 @@ Keys:
 If a proactive strategy is selected, {{ ig-name }} selects which instances to stop on its own.
 
 With an opportunistic strategy, {{ ig-name }} doesn't stop the instances, but waits until at least one of the following conditions are met:
-
 * The user [stopped](../../../operations/vm-control/vm-stop-and-start.md#stop) an instance in {{ compute-name }}.
 * The application or user stopped the instance internally.
 * The instance failed the application [health check](../autohealing.md#functional-healthcheck).
 
 For example, you created an instance group with automatic scaling based on the [custom metric](../scale.md#custom-metrics) of the number of jobs in the queue. {{ ig-name }} creates an instance group that executes the jobs from the queue. As soon as the queue runs out of jobs, {{ ig-name }} must reduce the group size from the actual size to the target size according to the [scaling policy](scale-policy.md).
-
-  * If you selected proactive stop, {{ ig-name }} changes the target group size and decreases the actual number of instances in the group to the target amount.
-  * Under the opportunistic strategy, {{ ig-name }} changes the target group size, but does not stop the instances until they are stopped by themselves or by the user.
+* If you selected proactive stop, {{ ig-name }} changes the target group size and decreases the actual number of instances in the group to the target amount.
+* Under the opportunistic strategy, {{ ig-name }} changes the target group size, but does not stop the instances until they are stopped by themselves or by the user.
 
 Example of a YAML file entry:
 
-```yaml
+```
 ...
 deploy_policy:
     strategy: OPPORTUNISTIC
@@ -58,4 +56,3 @@ Keys:
 | Key | Value |
 | ----- | ----- |
 | `strategy` | Strategy for stopping instances in a group.<br>Possible values:<br>- `PROACTIVE`: {{ ig-name }} selects which instances to stop on its own.<br>- `OPPORTUNISTIC`: {{ ig-name }} waits until the instances stop by themselves or by the user.<br>Default: `PROACTIVE`. |
-

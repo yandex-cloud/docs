@@ -15,7 +15,7 @@ $ curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
     -d "{\"folderId\": \"${FOLDER_ID}\"}" \
-    "https://translate.api.cloud.yandex.net/translate/v2/languages"
+    "https://translate.{{ api-host }}/translate/v2/languages"
 ```
 
 Ответ будет содержать список языков с названиями на соответствующем языке:

@@ -5,7 +5,9 @@
 ## Перед началом работы
 
 1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+{% if product == "yandex-cloud" %}
 1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
+{% endif %}
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md). Во время создания каталога вы можете создать виртуальную сеть по умолчанию с подсетями во всех зонах доступности.
 1. Создайте [сервисный аккаунт](../iam/operations/sa/create.md) в каталоге, где будут размещаться агенты, с которых будет подаваться нагрузка. [Назначьте ему роль](../iam/operations/roles/grant.md) `loadtesting.generatorClient`.
 1. Назначьте все необходимые роли для создания ВМ в [Compute Cloud](../compute/security/index.md) и [VPC](../vpc/security/index.md).

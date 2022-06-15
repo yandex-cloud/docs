@@ -12,7 +12,7 @@ By default, this page displays the issue list from the [<q>All issues</q>](my-ti
 
 {% endif %}
 
-You can customize your home page to display any [filter](filters.md), [dashboard](dashboard.md), or [issue board](../manager/create-agile-board.md):
+You can customize your home page to display any [filter](create-filter.md), [dashboard](dashboard.md), or [issue board](../manager/create-agile-board.md):
 
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 

@@ -258,7 +258,7 @@ val a: Int = 1
 
 Для загрузки изображения в виджет:
 {% if audience != "internal" %}
-1. Откройте [консоль](https://console.cloud.yandex.ru/) и в меню слева выберите **{{ objstorage-short-name }}**.
+1. Откройте [консоль]({{ link-console-main }}) и в меню слева выберите **{{ objstorage-short-name }}**.
 3. [Создайте бакет](../../storage/operations/buckets/create.md) с публичным доступом.
 4. [Загрузите изображение](../../storage/operations/objects/upload.md) в бакет.
 5. Перейдите в полученный объект и нажмите кнопку **Получить ссылку**.

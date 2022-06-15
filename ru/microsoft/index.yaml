@@ -1,22 +1,57 @@
-title: Использование продуктов Microsoft в Yandex Cloud
+title:
+  - text: Использование продуктов Microsoft в Yandex Cloud
+    when: product == "yandex-cloud"
+  - text: Использование продуктов Microsoft в CloudIL
+    when: product == "cloud-il"
 description:
-  - >-
-    Перенесите свои привычные инструменты Microsoft в облако и используйте готовую масштабируемую инфраструктуру Yandex Cloud для решения своих задач.
+  - text:
+      - >-
+        Перенесите свои привычные инструменты Microsoft в облако и используйте готовую масштабируемую инфраструктуру Yandex Cloud для решения своих задач.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        Перенесите свои привычные инструменты Microsoft в облако и используйте готовую масштабируемую инфраструктуру CloudIL для решения своих задач.
+    when: product == "cloud-il"
 meta:
-  title: Microsoft Yandex Cloud
+  title:
+    - text: Использование продуктов Microsoft в Yandex Cloud
+      when: product == "yandex-cloud"
+    - text: Использование продуктов Microsoft в CloudIL
+      when: product == "cloud-il"
 links:
   - title: Обзор возможностей
     description: Узнайте о возможностях продуктов Microsoft в Yandex Cloud
     href: overview
+    when: product == "yandex-cloud"
+  - title: Обзор возможностей
+    description: Узнайте о возможностях продуктов Microsoft в CloudIL
+    href: overview.html
+    when: product == "cloud-il"
   - title: Практические руководства
     description: Подробные инструкции, которые помогут вам использовать продукты Microsoft в Yandex Cloud
     href: tutorials/
+    when: product == "yandex-cloud"
+  - title: Практические руководства
+    description: Подробные инструкции, которые помогут вам использовать продукты Microsoft в CloudIL
+    href: tutorials/
+    when: product == "cloud-il"
   - title: Образы виртуальных машин Windows
-    description: Варианты и особенности образов Yandex Cloud
+    description: Варианты и особенности образов в Yandex Cloud
     href: list-of-instances
+    when: product == "yandex-cloud"
+  - title: Образы виртуальных машин Windows
+    description: Варианты и особенности образов в CloudIL
+    href: list-of-instances.html
+    when: product == "cloud-il"
   - title: Лицензии Microsoft
     description: Использование лицензий на ПО Microsoft в облаке Yandex Cloud
     href: licensing
+    when: product == "yandex-cloud"
+  - title: Лицензии Microsoft
+    description: Использование лицензий на ПО Microsoft в облаке CloudIL
+    href: licensing.html
+    when: product == "cloud-il"
   - title: Правила тарификации
     description: Тарифные планы услуг и правила расчета стоимости
     href: pricing
+    when: product == "yandex-cloud"

@@ -32,15 +32,11 @@ Make a backup of the site and database files using one of the following methods:
 
 ## Before you start {#before-begin}
 
-If you aren't registered in {{ yandex-cloud }}, sign up and create a billing account:
-
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create a folder to run your VM in or select one on the [cloud page]({{ link-console-cloud }}).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 Make sure the selected folder has a cloud network with a subnet in at least one availability zone. To do this, select **{{ vpc-name }}** on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
+
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -49,6 +45,8 @@ The cost of hosting a website in WordPress includes:
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * A fee for public DNS queries and zones (see [{{ dns-full-name }} pricing]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/dns/pricing){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/docs/dns/pricing){% endif %}).
+
+{% endif %}
 
 ## Create a virtual machine for WordPress {#create-vm}
 
@@ -131,13 +129,13 @@ Before you transfer your files, do the following:
 
 - Ubuntu
 
-    Run the command:
+  Run the command:
 
-	  ```bash
-	  sudo apt install nano
-	  ```
+  ```bash
+    sudo apt install nano
+  ```
 
-    Wait for the editor to be installed.
+  Wait for the editor to be installed.
 
 {% endlist %}
 
@@ -154,7 +152,7 @@ Before you transfer your files, do the following:
         sudo apt-get install phpmyadmin php-mbstring php-gettext
         ```
 
-    1. During the installation process, select the server to install `phpMyAdmin` on. Select `Apache2` and press the space bar on the keyboard — the `*` symbol appears next to `Apache2`. Click **Enter**.
+    1. During the installation process, select the server to install `phpMyAdmin` on. Select `Apache2` and press the **space bar** on the keyboard — the `*` symbol appears next to `Apache2`. Click **Enter**.
 
     1. Configure access of `phpMyAdmin` to the database. To do this, answer the question `Configure database for phpmyadmin with dbconfig-common?` with `<yes>`. You can skip entering the password, the system will automatically generate it. To copy the generated password, run the command:
 
@@ -223,7 +221,7 @@ Set up an additional password to log in to the `phpMyAdmin` panel. To enable the
         AllowOverride All
         ```
 
-    1. Save the changes in the `phpmyadmin.conf` file. To do this, click **Ctrl+O** and **Enter**. To exit the file, click **Ctrl+X**.
+    1. Save the changes in the `phpmyadmin.conf` file. To do this, click **Ctrl** + **O** and **Enter**. To exit the file, click **Ctrl** + **X**.
 
     1. Restart Apache:
 
@@ -318,7 +316,7 @@ Set up an additional password to log in to the `phpMyAdmin` panel. To enable the
            upload_max_filesize = 80M
            post_max_size = 80M
            ```
-        1. Save the changes: press **Ctrl+O** and **Enter**. To exit the file, press **Ctrl+X**.
+        1. Save the changes: press **Ctrl** + **O** and **Enter**. To exit the file, press **Ctrl** + **X**.
 
         1. Restart Apache:
 
@@ -358,7 +356,7 @@ To transfer backup files to a virtual machine, use the [FileZilla](https://filez
 
 1. Specify the user created when configuring the VM and select the key file (located in the `/Users/<user_name>/.ssh/`).
 
-   The FTP client doesn't see the hidden folder by default. Press the keyboard shortcut `CMD+Shift+G` and select the file `id_rsa` without the `pub` extension. A message is displayed that the file is not supported. The FTP client will offer to convert it to the desired format. Click **Yes**. Save the converted file in a convenient location.
+   The FTP client doesn't see the hidden folder by default. Press the keyboard shortcut **Cmd** + **Shift** + **G** and select the file `id_rsa` without the `pub` extension. A message is displayed that the file is not supported. The FTP client will offer to convert it to the desired format. Click **Yes**. Save the converted file in a convenient location.
 
 1. Click **Connect** and enter the passphrase that you created at the beginning of the work. You'll be connected to the VM.
 
@@ -425,7 +423,7 @@ To check that the site is up, enter its IP address or domain name in your browse
 * `http://<virtual machine public IP address>`.
 * `http://www.example.com`.
 
-## Install the SSL certificate using Let's Encrypt <sup>®</sup> {#setting-ssl}
+## Install the SSL certificate using Let's Encrypt® {#setting-ssl}
 
 To install the certificate, use [Let’s Encrypt](https://letsencrypt.org/). Let's Encrypt is a certificate authority that offers free [SSL certificates]({% if lang == "ru" %} https://ru.wikipedia.org/wiki/SSL {% endif %} {% if lang == "en" %} https://wikipedia.org/wiki/SSL {% endif %}).
 
@@ -536,7 +534,7 @@ If there is no file, create it.
         </IfModule>
 	     ```
 
-    1. Save the changes: **Ctrl+O** and **Enter**. To exit, press **Ctrl+X**.
+    1. Save the changes: **Ctrl** + **O** and **Enter**. To exit, press **Ctrl** + **X**.
 
 {% endlist %}
 

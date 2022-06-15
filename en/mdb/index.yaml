@@ -1,36 +1,30 @@
 title: Yandex MDB
 description:
   - >-
-    <p>MDB (Managed DataBases) – группа сервисов для управления базами данных с
-    гарантированными ресурсами, отказоустойчивостью, резервными копиями,
-    графиками, мониторингом и возможностью настраивать некоторые вещи. По сути
-    является внутренней инсталляцией того, что предоставляется в составе
-    Yandex Cloud.</p>
+    <p>MDB (Managed DataBases) is a group of database management services with guaranteed resources, fault tolerance, backups, schedules, monitoring, and a certain level of customization. It is essentially an internal installation of the services provided by Yandex Cloud.</p>
   - >-
-    <p>Внутренние сервисы функционально не отличаются от внешних, но
-    использование их различается в важных деталях, поэтому надежнее читать
-    внутреннюю документацию:</p>
+    <p>Internal services are functionally the same as external services, but some aspects of their usage are critically different. This makes them more reliable for reading internal documentation:</p>
 meta:
   title: MDB
 links:
   - title: Managed ClickHouse
-    description: Управление кластерами ClickHouse
+    description: ClickHouse cluster management
     href: ../managed-clickhouse/
   - title: Managed Elasticsearch
-    description: Управление кластерами Elasticsearch
+    description: Elasticsearch cluster management
     href: ../managed-elasticsearch/
   - title: Managed Kafka
-    description: Управление кластерами Apache Kafka®
+    description: Apache Kafka® cluster management
     href: ../managed-kafka/
   - title: Managed MongoDB
-    description: Управление кластерами MongoDB
+    description: MongoDB cluster management
     href: ../managed-mongodb/
   - title: Managed MySQL
-    description: Управление кластерами MySQL
+    description: MySQL cluster management
     href: ../managed-mysql/
   - title: Managed PostgreSQL
-    description: Управление кластерами PostgreSQL
+    description: PostgreSQL cluster management
     href: ../managed-postgresql/
   - title: Managed Redis
-    description: Управление кластерами Redis
+    description: Redis cluster management
     href: ../managed-redis/

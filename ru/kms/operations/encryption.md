@@ -33,6 +33,7 @@
 
     Воспользуйтесь методом [encrypt](../api-ref/SymmetricCrypto/encrypt) для ресурса `SymmetricCrypto`.
     
+{% if product == "yandex-cloud" %}
 - SDK {{ yandex-cloud }}
 
     {% include [yc-sdk](../../_includes/kms/sdk-encypt.md) %}
@@ -44,7 +45,8 @@
 - Google Tink
 
     {% include [tink](../../_includes/kms/google-encypt.md) %}
-    
+{% endif %}
+
 {% endlist %}
 
 ## Расшифруйте данные {#decryption}
@@ -72,6 +74,7 @@
 
     Воспользуйтесь методом [decrypt](../api-ref/SymmetricCrypto/decrypt) для ресурса `SymmetricCrypto`.
 
+{% if product == "yandex-cloud" %}
 - SDK {{ yandex-cloud }}
 
     {% include [yc-sdk](../../_includes/kms/sdk-encypt.md) %}
@@ -83,8 +86,10 @@
 - Google Tink
 
     {% include [tink](../../_includes/kms/google-encypt.md) %}
+{% endif %}
     
 {% endlist %}
+
 
 #### См. также {#see-also}
 

@@ -34,9 +34,12 @@
 
 #### Что делать, если блокируется почтовый трафик? {#if-traffic-blocked}
 
-{{ yandex-cloud }} [блокирует](../concepts/limits.md#vpc-egress-traffic-filter) только трафик, который отправляется с публичных IP-адресов по порту 25. Исключение — трафик, отправляемый на почтовые серверы Яндекса. 
+{{ yandex-cloud }} [блокирует](../concepts/limits.md#vpc-egress-traffic-filter) только трафик, который отправляется с публичных IP-адресов по порту 25. {% if product == "yandex-cloud" %}Исключение — трафик, отправляемый на почтовые серверы Яндекса. {% endif %}
 
+{% if product == "yandex-cloud" %}
 Чтобы почтовый трафик не блокировался, перенастройте ваш почтовый сервер на использование портов 465 и 587. Для этого воспользуйтесь этими портами в качестве почтового шлюза и [делегируйте ваш домен]{% if lang == "ru" %}(https://yandex.ru/support/business/domains/delegate-domain.html){% endif %}{% if lang == "en" %}(https://yandex.com/support/business/delegate-domain.html){% endif %} на серверы Яндекса с помощью [Почты для домена](https://habr.com/company/plesk/blog/304204/).
+
+{% endif %}
 
 Если вам нужен 25 порт, присвойте виртуальной машине новый IP-адрес:
 
@@ -57,6 +60,12 @@
 
 Мы оставляем за собой право заблокировать IP-адрес и/или приостановить действие ВМ, если получим жалобы на спам с этого адреса.
 
+
+{% if product == "yandex-cloud" %}
+
 {% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+
+{% endif %}
+
 
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}

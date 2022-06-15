@@ -1,6 +1,6 @@
 ---
 title: Что такое квоты и лимиты в облаке
-description: 'В сервисах Yandex Cloud могут действовать квоты и лимиты. Квоты — организационные ограничения, которые можно изменить по запросу в техническую поддержку. Лимиты — технические ограничения, обусловленные особенностями архитектуры Yandex Cloud. Изменение лимитов невозможно.'
+description: 'В сервисах {{ yandex-cloud }} могут действовать квоты и лимиты. Квоты — организационные ограничения, которые можно изменить по запросу в техническую поддержку. Лимиты — технические ограничения, обусловленные особенностями архитектуры {{ yandex-cloud }}. Изменение лимитов невозможно.'
 ---
 
 # Квоты и лимиты
@@ -22,7 +22,11 @@ description: 'В сервисах Yandex Cloud могут действовать
 
 ## Квоты и лимиты по умолчанию для сервисов {{ yandex-cloud }} {#quotas-limits-default}
 
+{% if product == "yandex-cloud" %}
+
 Квоты приведены со значениями по умолчанию, которые совпадают с квотами на время [пробного периода](../../getting-started/free-trial/concepts/quickstart.md).
+
+{% endif %}
 
 
 ### {{ compute-full-name }} {#compute}
@@ -89,10 +93,13 @@ description: 'В сервисах Yandex Cloud могут действовать
 
 {% include [mch-limits.md](../../_includes/mdb/mch-limits.md) %}
 
+{% if product == "yandex-cloud" %}
 
 ### {{ mmg-full-name }} {#mmg}
 
 {% include [mmg-limits.md](../../_includes/mdb/mmg-limits.md) %}
+
+{% endif %}
 
 
 ### {{ mmy-full-name }} {#mmy}
@@ -100,14 +107,22 @@ description: 'В сервисах Yandex Cloud могут действовать
 {% include [mmy-limits.md](../../_includes/mdb/mmy-limits.md) %}
 
 
+{% if product == "yandex-cloud" %}
+
 ### {{ mrd-full-name }} {#mrd}
 
 {% include [mrd-limits.md](../../_includes/mdb/mrd-limits.md) %}
 
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### {{ dataproc-full-name }} {#dataproc}
 
-{% include[dataproc-limits.md](../../_includes/data-proc/dataproc-limits.md) %}
+{% include [dataproc-limits.md](../../_includes/data-proc/dataproc-limits.md) %}
+
+{% endif %}
 
 
 ### {{ message-queue-full-name }} {#mq}
@@ -115,54 +130,93 @@ description: 'В сервисах Yandex Cloud могут действовать
 {% include [ymq-limits.md](../../_includes/message-queue/ymq-limits.md) %}
 
 
+{% if product == "yandex-cloud" %}
+
 ### {{ sf-full-name }} {#sf}
 
 {% include [functions-limits.md](../../_includes/functions-limits.md) %}
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
 
 ### {{ speechkit-full-name }} {#speechkit}
 
 {% include [speechkit-limits](../../_includes/speechkit-limits.md) %}
 
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### {{ translate-full-name }} {#translate}
 
 {% include [translate-limits](../../_includes/translate-limits.md) %}
 
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### {{ vision-full-name }} {#vision}
 
 {% include [vision-limits](../../_includes/vision-limits.md) %}
 
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### {{ ml-platform-full-name }} {#ml-platform}
 
 {% include [ml-platform-limits.md](../../_includes/datasphere-limits.md) %}
 
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### {{ datalens-full-name }} {#datalens}
 
 {% include [compute-limits.md](../../_includes/datalens/datalens-limits.md) %}
 
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### {{ iot-full-name }} {#iot}
 
 {% include [iot-limits.md](../../_includes/iot-limits.md) %}
 
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### {{ interconnect-full-name }} {#interconnect}
 
 {% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
 
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### {{ ydb-full-name }} {#ydb}
 
 {% include [ydb-limits.md](../../ydb/_includes/ydb-limits.md) %}
 
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### {{ mms-full-name }} {#mms}
 
 {% include [mms-limits.md](../../_includes/mdb/mms-limits.md) %}
+
+{% endif %}
 
 
 ### {{ mkf-full-name }} {#mkf}
@@ -170,21 +224,37 @@ description: 'В сервисах Yandex Cloud могут действовать
 {% include [mkf-limits.md](../../_includes/mdb/mkf-limits.md) %}
 
 
+{% if product == "yandex-cloud" %}
+
 ### {{ mes-full-name }} {#mes}
 
 {% include [mes-limits.md](../../_includes/mdb/mes-limits.md) %}
 
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### {{ api-gw-full-name }} {#api-gw}
 
 {% include [api-gateway-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}
 
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### {{ cloud-logging-full-name }} {#logging}
 
 {% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}
 
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### {{ serverless-containers-full-name }} {#serverless-containers}
 
 {% include [serverless-containers-limits.md](../../_includes/serverless-containers/serverless-containers-limits.md) %}
+
+{% endif %}

@@ -2,14 +2,18 @@
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
-* Настройки подключения к [кластеру {{ mmg-full-name }}](#managed-service) или [пользовательской инсталляции](#on-premise), в т. ч. на базе виртуальных машин {{ compute-full-name }}. Эти параметры обязательные.
+* Настройки подключения к {% if product == "yandex-cloud" %}[кластеру {{ mmg-full-name }}](#managed-service) или [пользовательской инсталляции](#on-premise){% endif %}{% if product == "cloud-il" %}[пользовательской инсталляции {{ MG }}](#on-premise){% endif %}, в т. ч. на базе виртуальных машин {{ compute-full-name }}. Эти параметры обязательные.
 * [Дополнительные параметры](#additional-settings).
+
+{% if product == "yandex-cloud" %}
 
 ## Кластер {{ mmg-name }} {#managed-service}
 
 Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}. Доступно только для кластеров, развернутых в сервисе [{{ mmg-full-name }}](../../../../managed-mongodb/).
 
 {% include [Managed MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/managed-mongodb.md) %}
+
+{% endif %}
 
 ## Пользовательская инсталляция {#on-premise}
 

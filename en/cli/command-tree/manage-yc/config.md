@@ -1,25 +1,25 @@
 # yc config
 
-The `yc config` command group lets you set, view and unset properties used by Yandex.Cloud CLI.
+The 'yc config' group of commands lets you set, view, and reset YC CLI parameters.
 
-#### Usage
+#### Command usage
 
 Syntax:
-  
+
 `yc config <group|command>`
 
 #### Commands
 
-- `yc config list` — list configuration values.
-- `yc config get` — get value for the specified configuration property.
-- `yc config set` — set value for the specified configuration property.
-- `yc config unset` — unset value for the specified configuration property.
+- `yc config list`: Output configuration values.
+- `yc config get`: Get the value of the specified configuration parameter.
+- `yc config set`: Set a value for the specified configuration parameter.
+- `yc config unset`: Reset the value of the specified configuration parameter.
 
 #### Groups
 
-- `yc config profile` — manage configuration profiles.
-    - `activate` — activate the specified configuration profile.
-    - `create` — create a configuration profile.
-    - `delete` — delete the specified configuration profile.
-    - `get` — list values for the specified configuration profile.
-    - `list` — list configuration profiles.
+- `yc config profile`: Manage CLI configuration profiles.
+   - `activate`: Activate the specified configuration profile.
+   - `create`: Create a configuration profile.
+   - `delete`: Delete the specified configuration profile.
+   - `get`: Get the values of the specified configuration profile.
+   - `list`: Get a list of configuration profiles.

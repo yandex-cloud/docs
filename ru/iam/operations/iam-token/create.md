@@ -1,4 +1,4 @@
-# Получение IAM-токена для аккаунта на Яндексе
+# Получение IAM-токена для аккаунта {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}
 
 {% note info %}
 

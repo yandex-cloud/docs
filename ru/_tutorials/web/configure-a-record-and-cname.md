@@ -37,18 +37,34 @@
 
 ### Делегируйте доменное имя {#delegate-domain}
 
-Делегирование — это перенос ответственности с серверов регистратора на ваши серверы. Для домена создаются ресурсные записи [типа NS](../../dns/concepts/resource-record.md#ns) (`ns1.yandexcloud.net` и `ns2.yandexcloud.net`).
+Делегирование — это перенос ответственности с серверов регистратора на ваши серверы. Для домена создаются ресурсные записи [типа NS](../../dns/concepts/resource-record.md#ns) ({% if product == "yandex-cloud" %}`ns1.yandexcloud.net` и `ns2.yandexcloud.net`{% endif %}{% if product == "cloud-il" %}`ns1.cloudil.com` и `ns2.cloudil.com`{% endif %}).
 
 Чтобы делегировать домен, укажите для него DNS-серверы в личном кабинете регистратора.
 
 Делегирование происходит не сразу. Серверы интернет-провайдеров обычно обновляют записи до 24 часов (86400 секунд). Это обусловлено значением TTL, в течение которого кэшируются записи для доменов.
 
 Проверить делегирование домена можно с помощью [сервиса Whois]{% if lang == "ru" %}(https://www.reg.ru/whois/check_site){% endif %}{% if lang == "en" %}(https://www.reg.com/whois/check_site){% endif %} или утилиты `dig`:
+
 ```bash
 dig +short NS example.com
 ```
+
 Результат:
+
+{% if product == "yandex-cloud" %}
+
 ```
 ns2.yandexcloud.net.
 ns1.yandexcloud.net.
 ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+```
+ns2.cloudil.com.
+ns1.cloudil.com.
+```
+
+{% endif %}

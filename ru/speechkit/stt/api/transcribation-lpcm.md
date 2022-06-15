@@ -1,6 +1,6 @@
 # Распознавание речи в формате LPCM 
 
-Чтобы распознать речь в формате [LPCM](../formats.md#lpcm), в настройках распознавания укажите частоту дискретизации файла и количество аудиоканалов. Язык распознавания укажите в поле `languageCode`, языковую модель задайте в поле `model`.
+Чтобы распознать речь в формате [LPCM](../../formats.md#lpcm), в настройках распознавания укажите частоту дискретизации файла и количество аудиоканалов. Язык распознавания укажите в поле `languageCode`, языковую модель задайте в поле `model`.
 
 1. Сформируйте тело запроса и сохраните его в файл, например `body.json`:
 
@@ -34,7 +34,7 @@
     curl -X POST \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d '@body.json' \
-        https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
+        https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
 
     {
         "done": false,
@@ -51,7 +51,7 @@
 
     ```bash
     curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-        https://operation.api.cloud.yandex.net/operations/e03sup6d5h1qr574ht99
+        https://operation.{{ api-host }}/operations/e03sup6d5h1qr574ht99
 
     {
     "done": true, "response": {

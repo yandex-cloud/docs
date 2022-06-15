@@ -1,6 +1,6 @@
 ---
 title: "Relationship between {{ k8s }} service resources"
-description: "The main entity operated by the service is the {{k8s}} cluster. The {{k8s}} cluster consists of a master and one or more groups of nodes. The master is responsible for managing the {{k8s}} cluster. The nodes run containerized user applications."
+description: "The main entity operated by the service is the {{ k8s }} cluster. The {{ k8s }} cluster consists of a master and one or more groups of nodes. The master is responsible for managing the {{ k8s }} cluster. The nodes run containerized user applications."
 ---
 
 # Relationships between resources in {{ managed-k8s-name }}
@@ -39,6 +39,8 @@ _Masters_ are components that manage {{ k8s }} clusters.
 
 They run {{ k8s }} control processes that include the {{ k8s }} API server, scheduler, and main resource controllers. The master lifecycle is managed by the service when creating or deleting a {{ k8s }} cluster. The master is responsible for global solutions that are run on all {{ k8s }} cluster nodes. These include scheduling workloads (such as containerized applications), managing the lifecycle of workloads, and scaling.
 
+{% if product == "yandex-cloud" %}
+
 There are two types of masters that differ by their location in [availability zones](../../overview/concepts/geo-scope.md):
 * _Zonal_: A master created in a subnet in one availability zone.
 * _Regional_: A master created and distributed in three subnets in each availability zone. If a zone becomes unavailable, the regional master remains functional.
@@ -48,6 +50,14 @@ There are two types of masters that differ by their location in [availability zo
   The internal IP address of a regional master is only available within a single {{ vpc-full-name }} cloud network.
 
   {% endnote %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+А master created in a subnet in one [availability zone](../../overview/concepts/geo-scope.md). It is called _zonal_.
+
+{% endif %}
 
 ## Node group {#node-group}
 
@@ -65,7 +75,11 @@ When you create a group of nodes, you can configure the following VM parameters:
 
   For more information about kernel parameters, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
 
+{% if product == "yandex-cloud" %}
+
 You can create groups with different configurations in a {{ k8s }} cluster and place them in different [availability zones](../../overview/concepts/geo-scope.md).
+
+{% endif %}
 
 ### Connecting to group nodes {#node-connect-ssh}
 
@@ -136,7 +150,7 @@ If a pod needs access to resources outside the {{k8s}} cluster, its IP address w
 
 By default, IP masquerade is enabled for the entire range of pod IP addresses.
 
-To implement IP masquerade, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerade, for example, to access pods over a VPN or [{{ interconnect-full-name }}](../../interconnect/), specify the desired IP ranges in the `data.config.nonMasqueradeCIDRs` parameter:
+To implement IP masquerade, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerade, for example, to access pods over a VPN{% if product == "yandex-cloud" %} or [{{ interconnect-full-name }}](../../interconnect/){% endif %}, specify the desired IP ranges in the `data.config.nonMasqueradeCIDRs` parameter:
 
 ```yaml
 ...

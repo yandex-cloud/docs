@@ -37,6 +37,8 @@
       ```
       
       Результат:
+ 
+      {% if product == "yandex-cloud" %}
 
       ```bash
       - id: ds79cfnvmti39p7k83sa
@@ -57,11 +59,11 @@
               http_router_id: ds7bharmjfs30dll9r3s
         allocation_policy:
           locations:
-          - zone_id: ru-central1-a
+          - zone_id: {{ region-id }}-a
             subnet_id: e9bn57jvjnbujnmk3mba
-          - zone_id: ru-central1-b
+          - zone_id: {{ region-id }}-b
             subnet_id: e2ltcj4urgpbsbaq9977
-          - zone_id: ru-central1-c
+          - zone_id: {{ region-id }}-c
             subnet_id: b0c29k6anelkik7jg5v1
         log_group_id: ckgph76s449vsca8ho9p
         created_at: "2022-02-11T09:00:31.911019416Z"
@@ -72,15 +74,55 @@
         network_id: enp45glgitd6e44dn1fj
         allocation_policy:
           locations:
-          - zone_id: ru-central1-a
+          - zone_id: {{ region-id }}-a
             subnet_id: e9bn57jvjnbujnmk3mba
-          - zone_id: ru-central1-b
+          - zone_id: {{ region-id }}-b
             subnet_id: e2ltcj4urgpbsbaq9977
-          - zone_id: ru-central1-c
+          - zone_id: {{ region-id }}-c
             subnet_id: b0c29k6anelkik7jg5v1
         log_group_id: ckgjhe81a23v2miqfl7u
         created_at: "2022-02-11T09:01:46.724279145Z"
       ```
+     
+      {% endif %}
+
+     {% if product == "cloud-il" %}
+
+      ```bash
+      - id: ds79cfnvmti39p7k83sa
+        name: test-load-balancer
+        folder_id: b1gv87ssvu497lpgjh5o
+        status: ACTIVE
+        network_id: enp45glgitd6e44dn1fj
+        listeners:
+        - name: test-listener
+          endpoints:
+          - addresses:
+            - external_ipv4_address:
+                address: 51.250.35.12
+            ports:
+            - "80"
+          http:
+            handler:
+              http_router_id: ds7bharmjfs30dll9r3s
+        allocation_policy:
+          locations:
+          - zone_id: il1-a
+            subnet_id: e9bn57jvjnbujnmk3mba
+        created_at: "2022-06-02T09:00:31.911019416Z"
+      - id: ds7o71924t0hqmu9h0n2
+        name: balancer2
+        folder_id: b1gv87ssvu497lpgjh5o
+        status: ACTIVE
+        network_id: enp45glgitd6e44dn1fj
+        allocation_policy:
+          locations:
+          - zone_id: il1-a
+            subnet_id: e9bn57jvjnbujnmk3mba
+        created_at: "2022-06-01T09:01:46.724279145Z"
+      ```
+
+     {% endif %}
   
   1. Остановите балансировщик, указав в команде его идентификатор `id` или имя `name`, например `balancer2`:
   
@@ -131,6 +173,8 @@
       ```
     
       Результат:
+ 
+      {% if product == "yandex-cloud" %}
 
       ```bash
       - id: ds79cfnvmti39p7k83sa
@@ -151,11 +195,11 @@
               http_router_id: ds7bharmjfs30dll9r3s
         allocation_policy:
           locations:
-          - zone_id: ru-central1-a
+          - zone_id: {{ region-id }}-a
             subnet_id: e9bn57jvjnbujnmk3mba
-          - zone_id: ru-central1-b
+          - zone_id: {{ region-id }}-b
             subnet_id: e2ltcj4urgpbsbaq9977
-          - zone_id: ru-central1-c
+          - zone_id: {{ region-id }}-c
             subnet_id: b0c29k6anelkik7jg5v1
         log_group_id: ckgph76s449vsca8ho9p
         created_at: "2022-02-11T09:00:31.911019416Z"
@@ -166,15 +210,55 @@
         network_id: enp45glgitd6e44dn1fj
         allocation_policy:
           locations:
-          - zone_id: ru-central1-a
+          - zone_id: {{ region-id }}-a
             subnet_id: e9bn57jvjnbujnmk3mba
-          - zone_id: ru-central1-b
+          - zone_id: {{ region-id }}-b
             subnet_id: e2ltcj4urgpbsbaq9977
-          - zone_id: ru-central1-c
+          - zone_id: {{ region-id }}-c
             subnet_id: b0c29k6anelkik7jg5v1
         log_group_id: ckgjhe81a23v2miqfl7u
         created_at: "2022-02-11T09:01:46.724279145Z"
       ```
+     
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```bash
+      - id: ds79cfnvmti39p7k83sa
+        name: test-load-balancer
+        folder_id: b1gv87ssvu497lpgjh5o
+        status: ACTIVE
+        network_id: enp45glgitd6e44dn1fj
+        listeners:
+        - name: test-listener
+          endpoints:
+          - addresses:
+            - external_ipv4_address:
+                address: 51.250.35.12
+            ports:
+            - "80"
+          http:
+            handler:
+              http_router_id: ds7bharmjfs30dll9r3s
+        allocation_policy:
+          locations:
+          - zone_id: il1-a
+            subnet_id: e9bn57jvjnbujnmk3mba
+        created_at: "2022-06-02T09:00:31.911019416Z"
+      - id: ds7o71924t0hqmu9h0n2
+        name: balancer2
+        folder_id: b1gv87ssvu497lpgjh5o
+        status: STOPPED
+        network_id: enp45glgitd6e44dn1fj
+        allocation_policy:
+          locations:
+          - zone_id: il1-a
+            subnet_id: e9bn57jvjnbujnmk3mba
+        created_at: "2022-02-11T09:01:46.724279145Z"
+      ```
+
+     {% endif %}
   
   1. Запустите балансировщик, указав в команде его идентификатор `id` или имя `name`, например `balancer2`:
   

@@ -53,6 +53,7 @@ timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol
 level | **[LogLevel.Level](#LogLevel)**<br>Entry severity. <br>See [LogLevel.Level](#LogLevel) for details. 
 message | **string**<br>Entry text message. 
 json_payload | **google.protobuf.Struct**<br>Entry annotation. 
+stream_name | **string**<br>Entry stream name. Value must match the regular expression ` \|[a-zA-Z][-a-zA-Z0-9_.]{0,63} `.
 
 
 ### LogEntryDefaults {#LogEntryDefaults}
@@ -61,6 +62,7 @@ Field | Description
 --- | ---
 level | **[LogLevel.Level](#LogLevel)**<br>Default entry severity. Will be applied if entry level is unspecified. <br>See [LogLevel.Level](#LogLevel) for details. 
 json_payload | **google.protobuf.Struct**<br>Default entry annotation. Will be merged with entry annotation. Any conflict will be resolved in favor of entry own annotation. 
+stream_name | **string**<br>Entry stream name. Value must match the regular expression ` \|[a-zA-Z][-a-zA-Z0-9_.]{0,63} `.
 
 
 ### WriteResponse {#WriteResponse}

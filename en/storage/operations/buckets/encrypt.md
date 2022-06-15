@@ -41,36 +41,76 @@ Data in {{ objstorage-short-name }} is encrypted using {% if audience != "intern
          * `kms_master_key_id`: ID of the KMS master key used for encryption.
          * `sse_algorithm`: Encryption algorithm used on the server side. The only supported value is `aws:kms`.
 
-      ```
-      provider "yandex" {
-        cloud_id  = "<cloud ID>"
-        folder_id = "<folder ID>"
-        zone      = "ru-central1-a"
-        service_account_key_file = "key.json"
-        }
+     {% if product == "yandex-cloud" %}
+
+     ```
+     provider "yandex" {
+       cloud_id  = "<cloud ID>"
+       folder_id = "<folder ID>"
+       zone      = "{{ region-id }}-a"
+       service_account_key_file = "key.json"
+       }
+     
+     
+     resource "yandex_kms_symmetric_key" "key-a" {
+       name              = "<key name>"
+       description       = "<key description>"
+       default_algorithm = "AES_128"
+       rotation_period   = "8760h" // 1 year
+     }
+     
+     resource "yandex_storage_bucket" "test" {
+       bucket = "<bucket name>"
+       access_key = "<static key ID>"
+       secret_key = "<secret key>"
+       server_side_encryption_configuration {
+         rule {
+           apply_server_side_encryption_by_default {
+             kms_master_key_id = yandex_kms_symmetric_key.key-a.id
+             sse_algorithm     = "aws:kms"
+           }
+         }
+       }
+     }
+     ```
+
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```hcl
+     provider "yandex" {
+       cloud_id  = "<cloud ID>"
+       folder_id = "<folder ID>"
+       zone      = "{{ region-id }}-a"
+       service_account_key_file = "key.json"
+       endpoint  = "{{ api-host }}:443"
+       }
 
 
-      resource "yandex_kms_symmetric_key" "key-a" {
-        name              = "<key name>"
-        description       = "<key description>"
-        default_algorithm = "AES_128"
-        rotation_period   = "8760h" // 1 year
-      }
+     resource "yandex_kms_symmetric_key" "key-a" {
+       name              = "<key name>"
+       description       = "<key description>"
+       default_algorithm = "AES_128"
+       rotation_period   = "8760h" // 1 year
+     }
 
-      resource "yandex_storage_bucket" "test" {
-        bucket = "<bucket name>"
-        access_key = "<static key ID>"
-        secret_key = "<secret key>"
-        server_side_encryption_configuration {
-          rule {
-            apply_server_side_encryption_by_default {
-              kms_master_key_id = yandex_kms_symmetric_key.key-a.id
-              sse_algorithm     = "aws:kms"
-            }
-          }
-        }
-      }
-      ```
+     resource "yandex_storage_bucket" "test" {
+       bucket = "<bucket name>"
+       access_key = "<static key ID>"
+       secret_key = "<secret key>"
+       server_side_encryption_configuration {
+         rule {
+           apply_server_side_encryption_by_default {
+             kms_master_key_id = yandex_kms_symmetric_key.key-a.id
+             sse_algorithm     = "aws:kms"
+           }
+         }
+       }
+     }
+     ```
+
+     {% endif %}
 
    1. Make sure that the configuration files are correct.
 

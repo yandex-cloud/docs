@@ -104,7 +104,7 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
 
 
 
-      For more information about resources you can create with Terraform, see the [provider documentation]({{ tf-provider-link }}).
+      For more information about resources you can create with Terraform, see the [provider documentation]({{ tf-provider-link }}/).
 
 
    1. Run the check using the command:
@@ -125,7 +125,7 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
       terraform apply
       ```
 
-   1. Confirm the resource creation: type `yes` in the terminal and press Enter.
+   1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
       Terraform creates all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 

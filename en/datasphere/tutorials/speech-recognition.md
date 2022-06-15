@@ -7,7 +7,7 @@
 1. [Train a model on voice data](#model-fit).
 1. [Get the results of feature prediction based on test data](#model-test).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 1. [Create a project](../operations/projects/create) in **{{ ml-platform-name }}** and open it.
 1. [Clone](../operations/projects/work-with-git.md#clone) the Git repository that contains the prepared notebook with the dataset:
@@ -24,7 +24,7 @@
 
 ## Install dependencies {#satisfy-dependencies}
 
-1. Select all cells with code in the **Installing and importing required packages** section by holding *Shift* and clicking to the left of the desired cells:
+1. Select all cells with code in the **Installing and importing required packages** section by holding **Shift** and clicking to the left of the desired cells:
 
    ```python
    %pip install numba==0.48.0
@@ -37,7 +37,7 @@
    ...
    ```
 
-1. Run the selected cells. To do this, choose **Run → Run Selected Cells** or press *Shift+Enter*.
+1. Run the selected cells. To do this, choose **Run → Run Selected Cells** or press **Shift** + **Enter**.
 1. Wait for the operation to complete.
 1. Restart the kernel. To do this, choose **Kernel → Restart kernel**.
 

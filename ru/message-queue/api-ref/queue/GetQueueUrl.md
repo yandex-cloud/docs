@@ -8,8 +8,8 @@
 
 Параметр | Тип | Обязательный параметр | Описание
 ----- | ----- | ----- | -----
-`QueueName`  | **string** | Да | Имя очереди. Максимальная длина — 80 символов. В имени можно использовать цифры, буквы, нижние подчеркивания и дефисы. Чувствительно к регистру.
-`QueueOwnerAWSAccountId`  | **string** | Нет | Параметр игнорируется.
+`QueueName` | **string** | Да | Имя очереди. Максимальная длина — 80 символов. В имени можно использовать цифры, буквы, нижние подчеркивания и дефисы. Чувствительно к регистру.
+`QueueOwnerAWSAccountId` | **string** | Нет | Параметр игнорируется.
 
 ## Ответ {#response}
 
@@ -43,7 +43,7 @@ Action=GetQueueUrl
 <GetQueueUrlResponse>
     <GetQueueUrlResult>
         <QueueUrl>
-            https://message-queue.api.cloud.yandex.net/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+            https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
         </QueueUrl>
     </GetQueueUrlResult>
     <ResponseMetadata>

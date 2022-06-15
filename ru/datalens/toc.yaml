@@ -95,6 +95,7 @@ items:
         when: audience == "external"
         href: concepts/marketplace.md
       - name: Резервное копирование
+        when: audience == "external"
         href: concepts/backup.md
       - name: Кеширование
         href: concepts/caching.md
@@ -153,9 +154,6 @@ items:
           - name: Управление доступом к подключению
             when: audience == "external"
             href: operations/connection/manage-access.md
-          - name: Создание подключения к файлу CSV
-            href: operations/connection/create-csv.md
-            when: audience == "internal"
       - name: Работа с датасетами
         items:
           - name: Создание датасета
@@ -164,6 +162,7 @@ items:
             href: operations/dataset/join-data.md
           - name: Объединение данных из нескольких CSV-подключений
             href: operations/dataset/join-data-csv.md
+            when: audience == "external"
           - name: Создание поля данных
             href: operations/dataset/create-field.md
           - name: Создание вычисляемого поля данных
@@ -231,7 +230,7 @@ items:
           - name: Добавление параметров в настройках чарта на дашборде
             when: audience == "internal"
             href: operations/chart/add-parameters.md
-          - name: Добавление guid в качестве параметра
+          - name: Добавление ID в качестве параметра
             href: operations/chart/add-guid.md
           - name: Экспорт чарта из Monitoring в DataLens
             when: audience == "internal"
@@ -406,10 +405,10 @@ items:
         href: api/index.md
       - name: TLS/SSL сертификат
         href: api/certificate.md
+      - name: Аутентификация
+        href: api/auth.md
       - name: API Воркбуков β
         items:
-          - name: Аутентификация
-            href: api/workbooks/auth.md
           - name: Workbooks
             href: api/workbooks/index.md
           - name: CalcSpec
@@ -438,26 +437,22 @@ items:
             href: api/workbooks/Value.md
           - name: Visualization
             href: api/workbooks/Visualization.md
-      - name: API Дашбордов
+      - name: API данных
+        href: api/dashboards/data.md
+      - name: API комментариев
+        href: api/dashboards/comments/index.md
+      - name: API объектов
         items:
-          - name: Аутентификация
-            href: api/dashboards/auth.md
-          - name: Идентификация
-            href: api/dashboards/identification.md
-          - name: Дашборды (deprecated)
+          - name: API дашбордов
             items:
               - name: Обзор
                 href: api/dashboards/dash/index.md
               - name: Схема
                 href: api/dashboards/dash/scheme.md
-          - name: Данные
-            href: api/dashboards/data.md
-          - name: Скриншоты
-            href: api/dashboards/scr.md
-          - name: Комментарии
-            href: api/dashboards/comments/index.md
-          - name: Чарты ChartEditor
+          - name: API чартов ChartEditor
             href: api/dashboards/charts.md
+      - name: API скриншотов
+        href: api/dashboards/scr.md
   - name: Charts PDF
     when: audience == "internal"
     items:

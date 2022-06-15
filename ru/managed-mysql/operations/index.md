@@ -8,7 +8,9 @@
 {% endif %}
 - [{#T}](web-sql-query.md)
 - [{#T}](update.md)
+{% if product == "yandex-cloud" %}
 - [{#T}](datalens-connect.md)
+{% endif %}
 - [{#T}](hosts.md)
 - [{#T}](databases.md)
 - [{#T}](cluster-users.md)

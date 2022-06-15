@@ -18,7 +18,7 @@ To add a user to the list of notification recipients:
 
      {% note info %}
 
-     You can add users with a [Yandex account](../../../iam/concepts/index.md#passport) and [federated users](../../../iam/concepts/index.md#saml-federation). Federated users should specify their email address in their account settings.
+     You can add users with a {% if product == "yandex-cloud" %}[Yandex account]{% endif %}{% if product == "cloud-il" %}[Google account]{% endif %}(../../../iam/concepts/index.md#passport) and [federated users](../../../iam/concepts/index.md#saml-federation). Federated users should specify their email address in their account settings.
 
      {% endnote %}
 

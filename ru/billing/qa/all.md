@@ -4,6 +4,10 @@
 
 {% include notitle [common](common.md) %}
 
+## Вопросы о договоре
+
+{% include notitle [contract](contract.md) %}
+
 ## Вопросы по оплате
 
 {% include notitle [payment](payment.md) %}

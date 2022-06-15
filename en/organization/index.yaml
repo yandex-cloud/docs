@@ -1,25 +1,58 @@
 # Yandex Cloud Organization
-title: "Yandex Cloud Organization"
+title:
+  - text: Yandex Cloud Organization
+    when: product == "yandex-cloud"
+  - text: Cloud Organization
+    when: product == "cloud-il"
 description:
-  - "Yandex Cloud Organization is an enterprise solution that you can use to connect your organization to Yandex.Cloud services and manage employee access to such services."
+  - text:
+      - "Yandex Cloud Organization is an enterprise solution that you can use to connect your organization to Yandex Cloud services and manage employee access to these services."
+    when: product == "yandex-cloud"
+  - text:
+      - "Cloud Organization is an enterprise solution that you can use to connect your organization to CloudIL services and manage employee access to these services."
+    when: product == "cloud-il"
 
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
-  title: "Yandex Cloud Organization"
+  title:
+    - text: Yandex Cloud Organization
+      when: product == "yandex-cloud"
+    - text: Cloud Organization
+      when: product == "cloud-il"
   # Блок со ссылками
 links:
 - title: "Register an organization"
   description: "To get started, register your organization"
   href: "enable-org"
+  when: product == "yandex-cloud"
+- title: "Register an organization"
+  description: "To get started, register your organization"
+  href: "enable-org.html"
+  when: product == "cloud-il"
 - title: "Add users"
   description: "To let your employees access your organization's services, connect them to the organization using their Yandex accounts"
   href: "add-account"
+  when: product == "yandex-cloud"
+- title: "Add users"
+  description: "To let your employees access your organization's services, connect them to the organization using an identity federation"
+  href: "add-account.html"
+  when: product == "cloud-il"
 - title: "Configure an identity federation"
-  description: "Configure an identity federation so that your employees can use their work accounts to access services"
+  description: "Configure an identity federation so that your employees can use their work accounts to access the services"
   href: "add-federation"
+  when: product == "yandex-cloud"
+- title: "Configure an identity federation"
+  description: "Configure an identity federation so that your employees can use their work accounts to access the services"
+  href: "add-federation.html"
+  when: product == "cloud-il"
 - title: "Connect services"
   description: "Connect the services that your organization's employees will have access to"
   href: "manage-services"
+  when: product == "yandex-cloud"
+- title: "Connect services"
+  description: "Connect the services that your organization's employees will have access to"
+  href: "manage-services.html"
+  when: product == "yandex-cloud"
 #  href: "services"
 #- title: "Квоты и лимиты"
 #  description: "Технические и организационные ограничения сервиса"

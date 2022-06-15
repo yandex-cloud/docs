@@ -16,7 +16,7 @@ The SLA doesn't apply to the trial period. We don't recommend running production
 
 Technical support is provided in full during the trial period. For more information, see [Requesting technical support](../../../support/overview.md).
 
-## Yandex Cloud Marketplace {#marketplace}
+## {{ yandex-cloud }} Marketplace {#marketplace}
 
 The following products are not available during the trial period:
 * Microsoft SQL Server

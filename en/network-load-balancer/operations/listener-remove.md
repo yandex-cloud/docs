@@ -27,15 +27,33 @@
 
       Result:
 
+      {% if product == "yandex-cloud" %}
+
       ```
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       ...
-      | c58r8boim8qfkcqtuioj | test-load-balancer | ru-central1 | EXTERNAL |              1 |                        | INACTIVE |
+      | c58r8boim8qfkcqtuioj | test-load-balancer | {{ region-id }} | EXTERNAL |              1 |                        | INACTIVE |
       ...
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```
+      +----------------------+--------------------+-----------+----------+----------------+------------------------+----------+
+      |          ID          |        NAME        | REGION ID |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
+      +----------------------+--------------------+-----------+----------+----------------+------------------------+----------+
+      ...
+      | c58r8boim8qfkcqtuioj | test-load-balancer | il1       | EXTERNAL |              1 |                        | INACTIVE |
+      ...
+      +----------------------+--------------------+-----------+----------+----------------+------------------------+----------+
+      ```
+
+      {% endif %}
 
    1. Choose the `ID` of the load balancer with the listener you want to delete.
    1. Get information about the selected load balancer:
@@ -51,7 +69,7 @@
       folder_id: aoerb349v3h4bupphtaf
       created_at: "2019-04-01T09:29:25Z"
       name: test-load-balancer
-      region_id: ru-central1
+      region_id: {{ region-id }}
       status: INACTIVE
       type: EXTERNAL
       listeners:
@@ -75,7 +93,7 @@
       folder_id: aoerb349v3h4bupphtaf
       created_at: "2019-04-01T09:29:25Z"
       name: test-load-balancer
-      region_id: ru-central1
+      region_id: {{ region-id }}
       status: INACTIVE
       type: EXTERNAL
       ```

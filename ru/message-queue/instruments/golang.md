@@ -1,10 +1,10 @@
 # Пример использования {{ message-queue-full-name }} на Golang
 
-С помощью [AWS SDK для Golang](https://aws.amazon.com/ru/sdk-for-go/) можно управлять очередями сообщений в {{ message-queue-name }}, отправлять и принимать сообщения.
+С помощью [AWS SDK для Golang]{% if lang == "ru" %}(https://aws.amazon.com/ru/sdk-for-go/){% endif %}{% if lang == "en" %}(https://aws.amazon.com/sdk-for-go/){% endif %} можно управлять очередями сообщений в {{ message-queue-name }}, отправлять и принимать сообщения.
 
 ## Установка {#install}
 
-Установите AWS SDK для Golang [по инструкции](https://aws.amazon.com/ru/sdk-for-go/) на официальном сайте.
+Установите AWS SDK для Golang [по инструкции]{% if lang == "ru" %}(https://aws.amazon.com/ru/sdk-for-go/){% endif %}{% if lang == "en" %}(https://aws.amazon.com/sdk-for-go/){% endif %} на официальном сайте.
 
 ## Подготовка к работе {#prepare}
 
@@ -22,7 +22,7 @@ $ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 В этом примере:
 
 1. Устанавливается соединение с {{ message-queue-name }}.
-1. Создается очередь сообщений с именем `ymq_example_golang_sdk`.
+1. Создается очередь сообщений с именем `mq_example_golang_sdk`.
 1. В очередь передается сообщение с текстом `test message`.
 1. Сообщение считывается из очереди и отображается в терминале.
 1. Удаляется созданная очередь сообщений.
@@ -45,8 +45,8 @@ func main() {
 
 	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
 		return aws.Endpoint{
-			URL:           "https://message-queue.api.cloud.yandex.net",
-			SigningRegion: "ru-central1",
+			URL:           "https://message-queue.{{ api-host }}",
+			SigningRegion: "{{ region-id }}",
 		}, nil
 	})
 
@@ -60,7 +60,7 @@ func main() {
 
 	client := sqs.NewFromConfig(cfg)
 
-	queueName := "ymq_example_golang_sdk"
+	queueName := "mq_example_golang_sdk"
 
 	queue, err := client.CreateQueue(ctx, &sqs.CreateQueueInput{
 		QueueName: &queueName,

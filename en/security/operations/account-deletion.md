@@ -1,6 +1,6 @@
-# Deleting a passport account from an organization
+# Deleting a {% if product == "yandex-cloud" %}passport{% endif %}{% if product == "cloud-il" %}privileged{% endif %} account from an organization
 
-These instructions describe how to delete a privileged passport account with the `organization-manager.organizations.owner` role from an [organization](../../organization/).
+These instructions describe how to delete a privileged {% if product == "yandex-cloud" %}passport{% endif %}{% if product == "cloud-il" %}Google{% endif %} account with the `organization-manager.organizations.owner` role from an [organization](../../organization/).
 
 This may be necessary if you require full control of a privileged account's authentication. In this case, a privileged account that has full privileges with respect to an organization and an organization's resources.
 
@@ -62,7 +62,7 @@ The instructions provide actions for mitigating risks related a federation failu
 
    {% endnote %}
 
-1. Granting the `resource-manager.organization.owner` role to a service account:
+2. Granting the `resource-manager.organization.owner` role to a service account:
 
    {% list tabs %}
 
@@ -77,9 +77,9 @@ The instructions provide actions for mitigating risks related a federation failu
 
    {% endlist %}
 
-1. [Create an authorized key](../../iam/operations/iam-token/create-for-sa.md#via-cli) for a service account.
-1. Save the key file in trusted storage.
-1. Delete the `resource-manager.organization.owner` role for the passport account using the console or the command-line interface:
+3. [Create an authorized key](../../iam/operations/iam-token/create-for-sa.md#via-cli) for a service account.
+4. Save the key file in trusted storage.
+5. Delete the `resource-manager.organization.owner` role for the passport account using the console or the command-line interface:
 
    {% list tabs %}
 
@@ -96,24 +96,29 @@ The instructions provide actions for mitigating risks related a federation failu
 
 ## Additional measures {#additional-measures}
 
-Configure Audit trails to process the service and the federated accounts with the `resource-manager.organization.owner` role:
+Configure {{ at-name }} to process the service and the federated accounts with the `resource-manager.organization.owner` role:
 
-1. [Configure the recording of audit logs at the organization level](../../audit-trails/quickstart.md) in Audit Trails.
-1. At least track the following events (in [Object Storage](../../audit-trails/tutorials/search-bucket.md), [log group](../../audit-trails/tutorials/search-cloud-logging.md), [Managed ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main), and [your SIEM](../../audit-trails/concepts/export-siem.md)):
+1. [Configure the collection of audit logs at the organization level](../../audit-trails/quickstart.md) in {{ at-full-name }}.
 
-   * Creating service account keys (events: `yandex.cloud.audit.iam.CreateAccessKey`, `yandex.cloud.audit.iam.CreateKey`, `yandex.cloud.audit.iam.CreateApiKey`, and `authentication.subject_id = <service account ID>`).
+1. At least track the following events (in [Object Storage](../../audit-trails/tutorials/search-bucket.md){% if product == "yandex-cloud" %}, a [log group](../../audit-trails/tutorials/search-cloud-logging.md), [Managed ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main){% endif %}, and [your SIEM](../../audit-trails/concepts/export-siem.md)):
+
+   * Creating service account keys (events: {% if product == "yandex-cloud" %}`yandex.cloud.audit.iam.CreateAccessKey`, `yandex.cloud.audit.iam.CreateKey`, `yandex.cloud.audit.iam.CreateApiKey`{% endif %}{% if product == "cloud-il" %}`cloudil.audit.iam.CreateAccessKey`, `cloudil.audit.iam.CreateKey`, `cloudil.audit.iam.CreateApiKey`{% endif %}, and `authentication.subject_id = <service account ID>`).
    * Assigning access rights to the service account (event: `UpdateServiceAccountAccessBindings` and `details.service_account_id = <service account ID>`).
    * Any action using the `resource-manager.organization.owner` privilege (`.authentication.subject_id == <ID of user with this privilege>`).
 
+{% if product == "yandex-cloud" %}
 You can use [Managed ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main) to analyze and respond to events in {{ at-name }}.
 
+{% endif %}
 ## Response to federation failure {#federation-repair}
 
 1. Access the authorized key saved in trusted storage.
-1. [Authenticate](../../cli/operations/authentication/service-account.md#auth-as-sa) with the service account.
+1. [Authenticate](../../cli/operations/authentication/service-account.md#auth-as-sa) as a service account.
 1. Next:
+
    * Either grant the `resource-manager.organization.owner` role to the passport account and use this account to restore the federation.
    * Or restore the federation from the command-line interface (CLI).
+
 1. Verify access as a federated user.
 
 ## Actions following federation recovery {#after-federation-repairation}

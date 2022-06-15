@@ -1,49 +1,72 @@
-# Creating a {{ PG }} cluster for 1C:Enterprise
+# Creating a {{ PG }} cluster for <q>1С:Enterprise</q>
 
-{{ mpg-name }} allows you to create failsafe {{ PG }} clusters optimized for 1C:Enterprise. For this, the service supports PostgreSQL versions 10-1c and 11-1c with all the necessary [extensions](#extensions) installed and the connection pooler configuration modified.
+{{ mpg-name }} allows you to create fault-tolerant {{ PG }} clusters optimized for <q>1С:Enterprise</q>. For this, the service supports PostgreSQL versions 10-1с, 11-1с, and 12-1c with all the necessary [extensions](#extensions) installed and the connection pooler configuration modified.
 
 {% note warning %}
 
-You can only connect 1C:Enterprise to clusters that run PostgreSQL 10-1c, 11-1c, and 12-1c.
+You can only connect <q>1С:Enterprise</q> to clusters that run 10-1с, 11-1с, and 12-1c.
 
 {% endnote %}
 
-Select your [host class](../concepts/instance-types.md) based on the number of users in your 1C:Enterprise installation. The **s2.small** hosts can accommodate up to 50 users at once. We recommend that you use the **s2.medium** class if 50 or more users are going to access the database. Choose the storage size based on your expected data scope and allow for possible growth in your data volumes.
+Select your [host class](../concepts/instance-types.md) based on the number of users in your <q>1С:Enterprise</q> installation. The **s2.small** hosts can accommodate up to 50 users at once. We recommend using the **s2.medium** class if 50 or more users are going to access the database. Choose the storage size based on your expected data scope and allow for possible growth in your data volumes.
 
-## Create a {{ PG }} cluster {#create-cluster}
+## Create a {{ mpg-name }} cluster {#create-cluster}
 
-To create a {{ mpg-name }} cluster for 1C:
+{% list tabs %}
 
-1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **PostgreSQL cluster**.
+* Manually
 
-1. In the **Name** field, enter the cluster name: `postgresql-1c`.
+   [Create](../operations/cluster-create.md#create-cluster) a {{ mpg-name }} cluster of any suitable configuration with the following settings:
 
-1. In the **Environment** field, select `PRODUCTION`.
+   * **Name**: `postgresql-1c`.
+   * **Environment**: `PRODUCTION`.
+   * **Version**: `12-1c`.
+   * **Host class**: At least `s2.small`.
+   * **Storage size**: At least 10 GB.
+   * **Database**:
 
-1. In the **Version** field, select `12-1c`.
+      * **DB name**: `postgresql-1c`.
+      * **Username**: `user-1c`.
+      * **Password**: The password you will use to access the cluster.
 
-1. Under **Host class**, select **s2.small**.
+   * **Hosts**: Add at least two more hosts in different availability zones. This provides the fault tolerance of the cluster. The database is automatically replicated. For more information, see [{#T}](../concepts/replication.md).
 
-1. Under **Storage size**, enter 10 GB.
+* Using Terraform
 
-1. Under **Database**, enter:
-    - In the **DB name** field, enter the cluster name: `postgresql-1c`.
-    - In the **Username** field, enter `user-1c`.
-    - In the **Password** field, enter the password you will use to access the DB.
+   1. If you don't have {{ TF }}, {% if audience != "internal" %}[install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}install it{% endif %}.
+   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and {% if audience != "internal" %}[specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider){% else %}specify the parameter values{% endif %}.
+   1. Download the cluster configuration file [postgresql-1c.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/postgresql-1c.tf) to the same working directory.
 
-1. Under **Network**, select the network for the cluster hosts.
+      This file describes:
 
-1. Under **Hosts**, add two more hosts in the other availability zones to ensure failover. The database is automatically [replicated](../concepts/replication.md).
+      * Network.
+      * Subnet.
+      * Default security group and rules required to connect to the cluster from the internet.
+      * {{ mpg-name }} cluster for <q>1С:Enterprise</q>.
 
-1. Under **Additional settings**, set the time to start backups.
+   1. In `postgresql-1c.tf`, specify the password for `user-1c` that will be used to access a {{ mpg-name }} cluster.
+   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
+   1. Make sure the {{ TF }} configuration files are correct using the command:
 
-1. Click **Create cluster**.
+      ```bash
+      terraform validate
+      ```
+
+      If there are errors in the configuration files, {{ TF }} will point to them.
+
+   1. Create the required infrastructure:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
 
 Creating the DB cluster may take several minutes.
 
-## Connect the database to 1C:Enterprise {#connect-to-1c}
+## Connect the database to <q>1С:Enterprise</q> {#connect-to-1c}
 
-Add the created database as an information base to 1C:Enterprise. When adding the database, use the following parameters:
+Add the created database as an information base to <q>1С:Enterprise</q>. When adding the database, use the following parameters:
 
 * **Secure connection**: `Disabled`.
 * **DBMS type**: `PostgreSQL`.
@@ -51,19 +74,48 @@ Add the created database as an information base to 1C:Enterprise. When adding th
 * **Database name**: `postgresql-1c`.
 * **Database user**: `user-1c`.
 * **User password**: `<database user password>`.
-* **Create database if none present**: disabled.
+* **Create database if none present**: Disabled.
 
-## {{ PG }} extensions for 1C:Enterprise support {#extensions}
+### {{ PG }} extensions for <q>1С:Enterprise</q> support {#extensions}
 
-List of extensions installed in PostgreSQL 10-1c, 11-1c, and 12-1c clusters:
+List of extensions installed in PostgreSQL 10-1с, 11-1с, and 12-1c clusters:
 
-* [online_analyze](https://postgrespro.com/docs/postgrespro/10/online-analyze)
+* [online_analyze](https://postgrespro.ru/docs/postgrespro/10/online-analyze)
 
-* [plantuner](https://postgrespro.com/docs/postgrespro/10/plantuner)
+* [plantuner](https://postgrespro.ru/docs/postgrespro/10/plantuner)
 
-* [fasttrun](https://postgrespro.com/docs/postgrespro/10/fasttrun)
+* [fasttrun](https://postgrespro.ru/docs/postgrespro/10/fasttrun)
 
-* [fulleq](https://postgrespro.com/docs/postgrespro/10/fulleq)
+* [fulleq](https://postgrespro.ru/docs/postgrespro/10/fulleq)
 
-* [mchar](https://postgrespro.com/docs/postgrespro/10/mchar)
+* [mchar](https://postgrespro.ru/docs/postgrespro/10/mchar)
 
+## Delete the resources you created {#clear-out}
+
+{% list tabs %}
+
+* Manually
+
+   If you no longer need these resources, delete the [{{ mpg-name }} cluster](../operations/cluster-delete.md).
+
+* Using Terraform
+
+   To delete the infrastructure [created with {{ TF }}](#create-cluster):
+
+   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. Delete `postgresql-1c.tf`.
+   1. Make sure the {{ TF }} configuration files are correct using the command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If there are errors in the configuration files, {{ TF }} will point to them.
+
+   1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      All resources described in `postgresql-1c.tf` will be deleted.
+
+{% endlist %}

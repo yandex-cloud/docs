@@ -9,10 +9,15 @@ You can create node groups with graphics accelerators (GPUs) in {{ k8s }} cluste
   To use the GPU, make sure the {{ k8s }} version on the cluster and node group is 1.16 or higher.
 * A non-zero GPU quota.
 
-  By default, the cloud has a zero quota for using VMs with GPUs. To change the [quota]({{ link-console-quotas }}), contact [technical support]({{ link-console-support }}).
+  By default, the cloud has a zero [quota]({{ link-console-quotas }}) for using VMs with GPUs. To change the quota, contact [technical support]({{ link-console-support }}).
+
+{% if product == "yandex-cloud" %}
+
 * The cluster is in the `ru-central1-a` and `ru-central1-b` zones.
 
-  VMs with GPUs are available in these [zones](../../../overview/concepts/geo-scope.md). When requesting a GPU [quota]({{ link-console-quotas }}), keep in mind which zones you're going to run your {{ k8s }} clusters in.
+  VMs with GPUs are available in these [zones](../../../overview/concepts/geo-scope.md). When requesting a GPU quota, keep in mind which zones you're going to run your {{ k8s }} clusters in.
+
+{% endif %}
 
 ## Billing {#pricing}
 

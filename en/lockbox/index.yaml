@@ -1,21 +1,45 @@
-title: Yandex Lockbox
+title:
+  - text: Yandex Lockbox
+    when: product == "yandex-cloud"
+  - text: Lockbox
+    when: product == "cloud-il"
 description:
-  - >-
-    <em>Yandex Lockbox is currently in the <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
-  - Yandex Lockbox is a service for storing secrets.
+  - text:
+      - >-
+        <em>Yandex Lockbox is currently at the <a
+        href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
+      - Yandex Lockbox is a service for storing secrets.
+    when: product == "yandex-cloud"
+  - text:
+      - Lockbox is a service for storing secrets.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Lockbox
+  title:
+    - text: Yandex Lockbox
+      when: product == "yandex-cloud"
+    - text: Lockbox
+      when: product == "cloud-il"
 links:
   - title: Getting started
     description: Create your first secret
     href: quickstart
+    when: product == "yandex-cloud"
+  - title: Getting started
+    description: Create your first secret
+    href: quickstart.html
+    when: product == "cloud-il"
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits
+    when: product == "yandex-cloud"
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Access management
     description: Configure access rights to work with the service
     href: security/
   - title: Pricing policy
-    description: Prices and rules for calculating the service cost
+    description: Service pricing and cost calculations
     href: pricing
+    when: product == "yandex-cloud"

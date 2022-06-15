@@ -35,8 +35,18 @@ To authenticate as a service account:
         yc config set service-account-key key.json
         ```
 
+{% if product == "cloud-il" %}
+1. Add the hostname and the port for sending requests to {{ yandex-cloud }} to the CLI profile:
+
+   ```
+   yc config set endpoint {{ api-host }}:443
+   ```   
+{% endif %}
+
 1. Make sure that the service account parameters are added correctly:
 
+   {% if product == "yandex-cloud" %}
+   
     ```
     yc config list
     service-account-key:
@@ -53,6 +63,30 @@ To authenticate as a service account:
         MIIEvwIBAD...
         -----END PRIVATE KEY-----
     ```
+   
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+    ```
+    yc config list
+    endpoint: {{ api-host }}:443
+    service-account-key:
+      id: aje83v701b1un777sh40
+      service_account_id: aje3932acd0c5ur7dagp
+      created_at: "2019-08-26T12:31:25Z"
+      key_algorithm: RSA_2048
+      public_key: |
+        -----BEGIN PUBLIC KEY-----
+        MIIBIjANBg...
+        -----END PUBLIC KEY-----
+      private_key: |
+        -----BEGIN PRIVATE KEY-----
+        MIIEvwIBAD...
+        -----END PRIVATE KEY-----
+    ```
+
+   {% endif %}
 
 1. Configure your profile to run commands.
 

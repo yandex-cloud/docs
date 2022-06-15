@@ -36,12 +36,14 @@
        * `index_document` — абсолютный путь к файлу главной страницы сайта. Обязательный параметр.
        * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках `4хх`. Необязательный параметр.
 
+     {% if product == "yandex-cloud" %}
+
      ```
      provider "yandex" {
        token     = "<OAuth>"
        cloud_id  = "<идентификатор облака>"
        folder_id = "<идентификатор каталога>"
-       zone      = "ru-central1-a"
+       zone      = "{{ region-id }}-a"
      }
 
      resource "yandex_storage_bucket" "test" {
@@ -57,6 +59,35 @@
      
      }
      ```
+
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```
+     provider "yandex" {
+       endpoint  = "{{ api-host }}:443"
+       token     = "<статический ключ сервисного аккаунта>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "{{ region-id }}-a"
+     }
+
+     resource "yandex_storage_bucket" "test" {
+       access_key = "<идентификатор статического ключа>"
+       secret_key = "<секретный ключ>"
+       bucket = "<имя бакета>"
+       acl    = "public-read"
+     
+       website {
+         index_document = "index.html"
+         error_document = "error.html"
+       }
+     
+     }
+     ```
+
+     {% endif %}
 
   1. Проверьте корректность конфигурационных файлов.
 

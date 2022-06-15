@@ -29,7 +29,7 @@
    from stt_metrics import WER, ClusterReferences
    from stt_metrics.text_transform import Lemmatizer
    ```
-1. Запустите выделенную ячейку, выбрав в меню **Run → Run Selected Cells** (также можно использовать сочетание клавиш *Shift+Enter*).
+1. Запустите выделенную ячейку, выбрав в меню **Run → Run Selected Cells** (также можно использовать сочетание клавиш **Shift** + **Enter**).
 1. Дождитесь завершения операции.
 
 Загрузятся модули для оценки качества STT-моделей.

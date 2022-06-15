@@ -83,6 +83,7 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
+    when: audience != "internal"
     items:
       - name: Current pricing policy
         href: pricing.md

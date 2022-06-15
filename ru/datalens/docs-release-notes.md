@@ -1,5 +1,11 @@
 # Релизы документации
 
+## Июнь 2022 {#june2022}
+
+### Концепции {#concepts062022}
+
+* Добавлен раздел [{#T}](concepts/chart/index.md#versioning) для чартов.
+
 ## Май 2022 {#may2022}
 
 ### Решение проблем {#troubleshooting052022}
@@ -8,6 +14,7 @@
 * Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-NOT_RUNNING.md) и рекомендации по исправлению.
 * Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-DB-CHYT-CLIQUE-SUSPENDED.md) и рекомендации по исправлению.
 * Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-DB-CHYT-AUTH_FAILED.md) и рекомендации по исправлению.
+* Добавлен ответ на вопрос [{#T}](faq.md#why-ifnull-zn-are-null)
 
 ## Март 2022 {#march2022}
 

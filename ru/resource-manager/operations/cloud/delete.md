@@ -1,5 +1,15 @@
 # Удаление облака
 
+{% if product == "cloud-il" %}
+
+{% note info %}
+
+   На стадии [Preview](../../../overview/concepts/launch-stages.md) действует ограничение: доступна только 1 организация и 1 облако.
+
+{% endnote %}
+
+{% endif %}
+
 Чтобы удалить облако, у вас должна быть роль `{{ roles-cloud-owner }}` на это облако. Если вы не можете выполнить эту операцию, обратитесь к [владельцу облака](../../concepts/resources-hierarchy.md#owner).
 
 {% list tabs %}

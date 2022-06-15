@@ -55,16 +55,16 @@ To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the [Ingress
 
 ```bash
 export HELM_EXPERIMENTAL_OCI=1 && \
-cat sa-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin && \
-helm pull oci://cr.yandex/yc/yc-alb-ingress-controller-chart \
-     --version=v{{ alb-ingress-version }} \
-     --untar && \
+cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
+helm pull oci://{{ registry }}/yc/yc-alb-ingress-controller-chart \
+  --version=v{{ alb-ingress-version }} \
+  --untar && \
 helm install \
-     --namespace yc-alb-ingress \
-     --set folderId=<folder ID> \
-     --set clusterId=<cluster ID> \
-     --set-file saKeySecretKey=sa-key.json \
-     yc-alb-ingress-controller ./yc-alb-ingress-controller-chart/
+  --namespace yc-alb-ingress \
+  --set folderId=<folder ID> \
+  --set clusterId=<cluster ID> \
+  --set-file saKeySecretKey=sa-key.json \
+  yc-alb-ingress-controller ./yc-alb-ingress-controller-chart/
 ```
 
 You can find out the cluster ID [in a list of clusters in the](../operations/kubernetes-cluster/kubernetes-cluster-list.md) folder.

@@ -11,6 +11,8 @@ You can upgrade a {{ mpg-name }} cluster to any supported version.
 
 You can only upgrade to a version that immediately follows the current one, such as version 11 to 12. Upgrades to higher versions are performed in steps. To upgrade {{ PG }} from version 11 to version 13, for instance, follow the steps: 11 → 12 → 13.
 
+To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
+
 ## Before upgrading {#before-update}
 
 Prior to upgrading a cluster, make sure this doesn't affect your applications:
@@ -72,6 +74,8 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
+      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+
    1. Under `cluster_config` of the desired {{ mpg-name }} cluster, add the `version` field or edit it if it already exists:
 
       ```hcl
@@ -91,7 +95,7 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 - API
 

@@ -167,10 +167,15 @@ description: "Вы можете создавать резервные копии
       * `--disk-size` — объем хранилища в гигабайтах.
       * `--disk-type` — [тип хранилища](../concepts/storage.md):
 
+          {% if audience != "internal" %}
           * `network-hdd`;
           * `network-ssd`;
           * `local-ssd`;
           * `network-ssd-nonreplicated`.
+          {% else %}
+          * `local-ssd`;
+          * `local-hdd`.
+          {% endif %}
 
   1. Чтобы восстановить весь кластер целиком, передайте идентификаторы резервных копий всех шардов кластера:
 

@@ -1,10 +1,12 @@
 # Monitoring the state of clusters and hosts
 
-Using monitoring tools in the [management console]({{ link-console-main }}), you can track the status of a {{ mes-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.
+{% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
 New data for charts is received every {{ graph-update }}.
 
 {% include [note-monitoring-auto-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
+
+{% include [alerts](../../_includes/mdb/alerts.md) %}
 
 ## Monitoring cluster status {#monitoring-cluster}
 
@@ -16,6 +18,8 @@ To view detailed information about the {{ mes-name }} cluster status:
 
     1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
     1. Click on the name of the cluster and open the **Monitoring** tab.
+
+    1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
     The following charts are displayed on the page:
 
@@ -178,7 +182,7 @@ To view a cluster's state and status:
 - Management console
 
     1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mes-name }}**.
-    1. Hover over the indicator in the **Status** column in the row of the cluster you need.
+    1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
 
 {% endlist %}
 

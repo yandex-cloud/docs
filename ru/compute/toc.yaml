@@ -1,4 +1,8 @@
-title: Yandex Compute Cloud
+title:
+  - text: Yandex Compute Cloud
+    when: product == "yandex-cloud"
+  - text: Compute Cloud
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Начало работы
@@ -69,6 +73,8 @@ items:
         items:
           - name: Остановить и запустить ВМ
             href: operations/vm-control/vm-stop-and-start.md
+          - name: Сбросить пароль пользователя ВМ
+            href: operations/vm-control/vm-reset-password.md
           - name: Подключить диск к ВМ
             href: operations/vm-control/vm-attach-disk.md
           - name: Отключить диск от ВМ
@@ -103,6 +109,14 @@ items:
             href: operations/vm-operate/install-nvidia-drivers.md
           - name: Восстановить доступ к ВМ
             href: operations/vm-connect/recovery-access.md
+      - name: Управление агентом для сброса паролей
+        items:
+          - name: Проверить работу агента
+            href: operations/vm-guest-agent/check.md
+          - name: Установить агент
+            href: operations/vm-guest-agent/install.md
+          - name: Удалить агент
+            href: operations/vm-guest-agent/uninstall.md
       - name: Создание диска
         items:
           - name: Создать пустой диcк
@@ -135,7 +149,7 @@ items:
             href: operations/image-create/custom-image.md
           - name: Загрузить свой образ
             href: operations/image-create/upload.md
-          - name: Создать образ из диска 
+          - name: Создать образ из диска
             href: operations/image-create/create-from-disk.md
           - name: Создать образ из снимка диска
             href: operations/image-create/create-from-snapshot.md
@@ -148,6 +162,7 @@ items:
           - name: Удалить образ
             href: operations/image-control/delete.md
       - name: Файловые хранилища
+        when: product == "yandex-cloud"
         items:
           - name: Создать файловое хранилище
             href: operations/filesystem/create.md
@@ -183,6 +198,7 @@ items:
             href: operations/instance-groups/create-autoscaled-group.md
           - name: Создать группу ВМ с Container Optimized Image
             href: operations/instance-groups/create-with-coi.md
+            when: product == "yandex-cloud"
           - name: Создать группу ВМ по YAML-спецификации
             href: operations/instance-groups/create-from-yaml.md
       - name: Получение информации о группе виртуальных машин
@@ -218,6 +234,7 @@ items:
           - name: Удалить группу ВМ
             href: operations/instance-groups/delete.md
       - name: Выделенные хосты
+        when: product == "yandex-cloud"
         items:
           - name: Создать ВМ в группе выделенных хостов
             href: operations/dedicated-host/running-host-group-vms.md
@@ -225,20 +242,26 @@ items:
             href: operations/dedicated-host/running-host-vms.md
   - name: Yandex Container Solution
     href: ../cos/
+    when: product == "yandex-cloud"
   - name: Практические руководства
     items:
       - name: Настройка синхронизации времени NTP
         href: tutorials/ntp.md
       - name: Работа с группой ВМ с автоматическим масштабированием
         href: tutorials/vm-autoscale.md
+        when: product == "yandex-cloud"
       - name: Автомасштабирование группы ВМ для обработки сообщений из очереди
         href: tutorials/autoscale-monitoring.md
       - name: Обновление группы ВМ под нагрузкой
         href: tutorials/updating-under-load.md
+        when: product == "yandex-cloud"
       - name: Развертывание Remote Desktop Gateway
         href: tutorials/rds-gw
       - name: Передача логов с ВМ в Yandex Cloud Logging
         href: tutorials/vm-fluent-bit-logging.md
+        when: product == "yandex-cloud"
+      - name: Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer
+        href: tutorials/packer-custom-image.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов
@@ -265,9 +288,12 @@ items:
             href: concepts/vm-statuses.md
           - name: Метаданные
             href: concepts/vm-metadata.md
-      - name: Графические ускорители GPU и vGPU
+          - name: Сброс паролей на ВМ Windows
+            href: concepts/guest-agent.md
+      - name: Графические ускорители
         href: concepts/gpus.md
       - name: Диски и файловые хранилища
+        when: product == "yandex-cloud"
         items:
           - name: Обзор
             href: concepts/storage-overview.md
@@ -279,6 +305,17 @@ items:
             href: concepts/disk-placement-group.md
           - name: Файловые хранилища
             href: concepts/filesystem.md
+          - name: Операции чтения и записи
+            href: concepts/storage-read-write.md
+      - name: Диски
+        when: product == "cloud-il"
+        items:
+          - name: Обзор
+            href: concepts/disk.md
+          - name: Снимки дисков
+            href: concepts/snapshot.md
+          - name: Группы размещения нереплицируемых дисков
+            href: concepts/disk-placement-group.md
           - name: Операции чтения и записи
             href: concepts/storage-read-write.md
       - name: Образы
@@ -327,6 +364,7 @@ items:
             href: concepts/instance-groups/statuses.md
       - name: Выделенный хост
         href: concepts/dedicated-host.md
+        when: product == "yandex-cloud"
       - name: Резервное копирование
         href: concepts/backups.md
       - name: Квоты и лимиты
@@ -334,6 +372,7 @@ items:
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
+    when: product == "yandex-cloud"
     items:
       - name: Действующие правила
         href: pricing.md
@@ -345,6 +384,9 @@ items:
             href: pricing-archive/pricing-01032019.md
           - name: С 1 марта до 1 мая 2019 года
             href: pricing-archive/pricing-30042019.md
+  - name: Правила тарификации
+    when: product == "cloud-il"
+    href: pricing.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

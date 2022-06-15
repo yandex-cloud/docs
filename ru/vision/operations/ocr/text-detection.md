@@ -149,7 +149,7 @@
     vision_text_detection() {
         if [[ $2 ]]; then MIME_TYPE=$2 ; else MIME_TYPE=image; fi
         curl -H "Authorization: Bearer `yc iam create-token`" \
-        "https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze" \
+        "https://vision.{{ api-host }}/vision/v1/batchAnalyze" \
         -d @<(cat << EOF
     {
         "folderId": "`yc config get folder-id`",
@@ -331,8 +331,8 @@
     }
 
     func main() {
-        iamURL := "https://iam.api.cloud.yandex.net/iam/v1/tokens"
-        visionURL := "https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze"
+        iamURL := "https://iam.{{ api-host }}/iam/v1/tokens"
+        visionURL := "https://vision.{{ api-host }}/vision/v1/batchAnalyze"
 
         oauthToken := flag.String("oauth-token", "", "oAuth token to obtain IAM token")
         folderID := flag.String("folder-id", "", "Folder ID")
@@ -411,8 +411,8 @@
         parser.add_argument('--image-path', required=True)
         args = parser.parse_args()
 
-        iam_url = 'https://iam.api.cloud.yandex.net/iam/v1/tokens'
-        vision_url = 'https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze'
+        iam_url = 'https://iam.{{ api-host }}/iam/v1/tokens'
+        vision_url = 'https://vision.{{ api-host }}/vision/v1/batchAnalyze'
 
         iam_token = get_iam_token(iam_url, args.oauth_token)
         with open(args.image_path, "rb") as f:

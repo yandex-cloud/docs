@@ -8,7 +8,7 @@ Folder owners do not receive any notifications by default. You can add notificat
 
 {% note info %}
 
-You can add users with a [Yandex account](../../iam/concepts/index.md#passport) and [federated users](../../iam/concepts/index.md#saml-federation). Federated users should specify their email address in their account settings.
+You can add users with a [{% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %} account](../../iam/concepts/index.md#passport) and [federated users](../../iam/concepts/index.md#saml-federation). Federated users should specify their email address in their account settings.
 
 {% endnote %}
 
@@ -25,8 +25,10 @@ You can add users with a [Yandex account](../../iam/concepts/index.md#passport) 
 * Database clusters (cluster ID):
   * PostgreSQL
   * MySQL
+{% if product == "yandex-cloud" %}
   * MongoDB
   * Redis
+{% endif %}
   * ClickHouse
 
 ## Planned maintenance

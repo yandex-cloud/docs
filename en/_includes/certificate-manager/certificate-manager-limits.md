@@ -5,7 +5,7 @@
 | Number of certificates per cloud | 20 |
 | Number of domains per cloud | 10 |
 
-#### Limits for Let's Encrypt<sup>™</sup> certificates {#certificate-manager-limits}
+#### Limits for Let's Encrypt® certificates {#certificate-manager-limits}
 
 | Type of limit | Value |
 | ----- | ----- |

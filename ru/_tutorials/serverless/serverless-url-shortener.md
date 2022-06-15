@@ -18,13 +18,9 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Перед тем, как разворачивать сервис, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать рабочий каталог для  компонентов вашего сервиса на [странице облака]({{ link-console-main }}).
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -34,6 +30,8 @@
 * Плата за обращения к базе данных (см. [тарифы {{ydb-full-name}}](../../ydb/pricing/serverless.md)).
 * Плата за вызовы функции (см. [тарифы {{sf-full-name}}](../../functions/pricing.md)).
 * Плата за запросы к API-шлюзу (см. [тарифы {{api-gw-full-name}}](../../api-gateway/pricing.md)).
+
+{% endif %}
 
 ## Настройте хостинг страницы сокращателя {#object-storage}
 

@@ -115,7 +115,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
       terraform apply
       ```
 
-   1. Confirm the resource creation: type `yes` in the terminal and press Enter.
+   1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
       Terraform creates all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 
@@ -125,4 +125,4 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
 {% endlist %}
 
-To get access to public zone domain names, you need to delegate the domain. Specify the addresses of the `ns1.yandexcloud.net` and the `ns2.yandexcloud.net` servers in your user area on your registrar's site.
+To get access to public zone domain names, you need to delegate the domain. Specify the addresses of the {% if product == "yandex-cloud" %}`ns1.yandexcloud.net` and `ns2.yandexcloud.net`{% endif %}{% if product == "cloud-il" %}`ns1.cloudil.com` and `ns2.cloudil.com`{% endif %} servers in your personal dashboard at your registrar.

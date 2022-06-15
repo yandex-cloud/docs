@@ -1,14 +1,31 @@
 # Создание нового облака
 
+{% if product == "yandex-cloud" %}
+
 [При регистрации](../../../billing/quickstart/index.md#create_billing_account) для вас будет автоматически создано [облако](../../concepts/resources-hierarchy.md#cloud) с именем `cloud-<Яндекс ID>`. После того, как вы привязали платежный аккаунт, вы сможете создать дополнительное облако.
 
 Чтобы создать дополнительное облако:
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+{% note info %}
+
+   На стадии [Preview](../../../overview/concepts/launch-stages.md) действует ограничение: доступна только 1 организация и 1 облако.
+
+{% endnote %}
+
+Чтобы создать облако:
+
+{% endif %}
 
 {% list tabs %}
 
 - Консоль управления
 
+  {% if product == "yandex-cloud" %}
   1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../../../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account) или попросите вашего администратора назначить вам роль `billing.accounts.member` на платежный аккаунт.
+  {% endif %}
   1. На стартовой странице [консоли управления]({{ link-console-main }}) нажмите значок ![image](../../../_assets/options.svg) напротив своего биллинг-аккаунта.
   1. Выберите **Создать облако**.
   1. Введите имя облака. Требования к имени:
@@ -29,6 +46,8 @@
         
       * `organization_id` — идентификатор организации. Terraform позволяет создать облако только для существующей организации. Перечень идентификаторов организаций можно получить с помощью команды [CLI](../../../cli/quickstart.md): `yc organization-manager organization list`. 
 
+      {% if product == "yandex-cloud" %}
+
       ```hcl
       provider "yandex" {
         token     = "<OAuth>"
@@ -42,6 +61,27 @@
         organization_id = "<идентификатор организации>"
       }
       ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```hcl
+      provider "yandex" {
+        endpoint  = "{{ api-host }}:443"
+        token     = "<статический ключ сервисного аккаунта>"
+        cloud_id  = "<идентификатор облака по умолчанию>"
+        folder_id = "<идентификатор каталога по умолчанию>"
+        zone      = "<зона доступности по умолчанию>"
+      }
+     
+      resource "yandex_resourcemanager_cloud" "cloud1" {
+        name            = "<имя облака>"
+        organization_id = "<идентификатор организации>"
+      }
+      ```
+
+      {% endif %}
 
       Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_cloud).
   1. В командной строке перейдите в папку, где вы создали конфигурационный файл.

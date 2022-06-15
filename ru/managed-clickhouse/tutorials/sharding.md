@@ -60,8 +60,13 @@
 
 - С помощью Terraform
 
+    {% if audience != "internal" %}
+
     1. Если у вас еще нет {{ TF }}, установите и настройте его согласно [инструкции](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+  
+    {% endif %}
+
     1. Скачайте в ту же рабочую директорию файл конфигурации для одного из описанных ниже примеров шардирования:
 
         * [simple-sharding.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/simple-sharding.tf) — классическое шардирование.
@@ -220,7 +225,7 @@
 1. Загрузите тестовый набор данных `hits_v1`:
 
    ```bash
-   curl https://clickhouse-datasets.s3.yandex.net/hits/tsv/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
+   curl https://clickhouse-datasets.{{ s3-objstorage-host }}/hits/tsv/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```
 
 1. Наполните таблицу тестовыми данными:
@@ -258,7 +263,7 @@
 - Вручную
 
     1. [Удалите кластер {{ mch-name }}](../operations/cluster-delete.md).
-    1. Если для доступа к кластеру использовались статические публичные IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
+    1. Если для доступа к кластеру использовались статические публичные IP-адреса, освободите и {% if audience != "internal" %}[удалите их](../../vpc/operations/address-delete.md){% else %}удалите их{% endif %}.
 
 - С помощью Terraform
 

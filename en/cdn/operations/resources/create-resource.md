@@ -16,21 +16,21 @@ To create a [resource](../../concepts/resource.md):
 
    1. Under **Content**, select **Content query** `From one origin` or `From origin group`:
 
-      * When requesting content `From one origin`, select an **Origin type**: `Server`, `Bucket`, or `L7 load balancer`. Specify an origin.
+      * When requesting content `From one origin`, select an **Origin type**: `Server`, `Bucket`, or `L7 load balancer`. Specify an origin. For more information about types, see [{#T}](../../concepts/origins.md).
 
       * When requesting content from an `Origin group`, select an [origin group](../../concepts/origins.md#groups) or create a new one:
          * Click **Create new**.
          * Enter a **Group name**.
          * Configure **Origins**:
-            * Specify the **Origin type**: `Server`, `Bucket`, or `L7 load balancer`.
+            * Specify the **Origin type**: `Server`, `Bucket`, or `L7 load balancer`. For more information about types, see [{#T}](../../concepts/origins.md).
             * Specify an origin.
-            * Select the **Priority**: `Active` or `Backup`.
+            * Select the **Priority**: `Active` or `Backup`. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
          * Add other origins if needed.
          * Click **Create**. In the **Origin group** field, you will see the name of the created group.
 
       For more information, see [{#T}](../../concepts/origins.md).
 
-   1. Under **Domain names for content distribution**, enter the **Domain name**. You can add multiple **Domain names**. Names containing characters other than ASCII (for example, cyrillic) and [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) are supported. The first name is considered the primary domain name.
+   1. Under **Domain names for content distribution**, enter the **Domain name**. You can add multiple **Domain names**. Names containing characters other than ASCII (for example, Сyrillic) and [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) are supported. The first name is considered the primary domain name.
 
       {% note warning %}
 
@@ -56,7 +56,7 @@ To create a [resource](../../concepts/resource.md):
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. If it's your first time creating a resource, start with connecting to the provider:
+   1. If it's your first time creating a resource, start by connecting to the provider:
 
       ```bash
       yc cdn provider activate --type gcore
@@ -111,8 +111,8 @@ To create a [resource](../../concepts/resource.md):
 
       ```bash
       yc cdn resource create <resource domain name> \
-        --origin-group-id <source group ID> \
-        --origin-protocol <protocol for resources>
+        --origin-group-id <origin group ID> \
+        --origin-protocol <protocol for origins>
       ```
 
       * Instead of the `--origin-group-id`, you can specify the origin domain name using the `--origin-custom-source` flag.
@@ -122,7 +122,7 @@ To create a [resource](../../concepts/resource.md):
 
 - Terraform
 
-   Make sure the CDN provider is activated before you start using CDN resources. You can activate it in the [management console]({{ link-console-main }}) or using the [YC CLI](../../../cli/quickstart.md):
+   Make sure the CDN provider is activated before you start using CDN resources. You can activate it in the [management console]({{ link-console-main }}) or using the [YC CLI](../../../cli/quickstart.md) command:
 
    ```
    yc cdn provider activate --folder-id <folder ID> --type gcore
@@ -130,15 +130,17 @@ To create a [resource](../../concepts/resource.md):
 
    If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of a CDN resource to create:
+   1. In the configuration file, describe the parameters of the CDN resource to create:
 
       * `cname`: The primary domain name used for content distribution. Required parameter.
-      * `active`: A flag that indicates if content is available to end users. `True`: CDN content is available to end users. Optional parameter, defaults to `True`.
+      * `active`: A flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, defaults to `True`.
       * `origin_protocol`: Origin protocol. Optional parameter, defaults to `http`.
       * `secondary_hostnames`: Additional domain names. Optional.
       * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
 
       Example configuration file structure:
+   
+      {% if product == "yandex-cloud" %}
 
       ```hcl
       terraform {
@@ -166,7 +168,40 @@ To create a [resource](../../concepts/resource.md):
       }
       ```
 
-      For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```hcl
+      terraform {
+        required_providers {
+          yandex = {
+            source  = "yandex-cloud/yandex"
+            version = "0.69.0"
+          }
+        }
+      }
+
+      provider "yandex" {
+        endpoint  = "{{ api-host }}:443"
+        token     = "<static key of the service account>"
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "<availability zone>"
+      }
+
+      resource "yandex_cdn_resource" "my_resource" {
+          cname               = "cdn1.yandex-example.ru"
+          active              = false
+          origin_protocol     = "https"
+          secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
+          origin_group_id     = yandex_cdn_origin_group.my_group.id
+      }
+      ```
+
+      {% endif %}
+   
+      For more information about `yandex_cdn_resource` parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 
    1. In the command line, go to the directory with the Terraform configuration file.
 
@@ -195,7 +230,7 @@ To create a [resource](../../concepts/resource.md):
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check if the CDN resource has changed in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md).
+      You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md):
 
       ```
       yc cdn resource list
@@ -203,7 +238,7 @@ To create a [resource](../../concepts/resource.md):
 
 {% endlist %}
 
-It'll take you approximately 15 minutes to create a resource.
+It takes approximately 15 minutes to create a resource.
 
 ## Examples {#examples}
 

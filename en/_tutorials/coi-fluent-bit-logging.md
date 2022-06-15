@@ -231,7 +231,7 @@ if __name__ == '__main__':
 ## Create a VM from a {{ coi }} image {#create-vm}
 
 Specify the following in the field:
-* `zone`: [Availability zone](../overview/concepts/geo-scope.md), for example `ru-central1-a`.
+* `zone`: [Availability zone](../overview/concepts/geo-scope.md), for example `{{ region-id }}-a`.
 * `subnet-name`: Name of the [subnet](../vpc/concepts/network.md#subnet) in the indicated zone.
 * `service-account-name`: Service account name.
 

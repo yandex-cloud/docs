@@ -16,5 +16,9 @@
 * [Реестр](../../../container-registry/concepts/registry.md)
 * [Репозиторий](../../../container-registry/concepts/repository.md)
 
+{% if product == "yandex-cloud" %}
+
 **{{ sf-name }}:**
 * [Функция](../../../functions/concepts/function.md)
+
+{% endif %}

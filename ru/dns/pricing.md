@@ -4,6 +4,14 @@ editable: false
 
 # Правила тарификации для {{ dns-name }}
 
+{% if product == "cloud-il" %}
+
+На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ dns-name }} не тарифицируется.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 ## Публичные DNS-запросы {#public-dns-requests}
 
 {% if region == "ru" %}
@@ -45,7 +53,7 @@ editable: false
   После того как вы израсходуете этот нетарифицируемый объем, начнет взиматься плата в соответствии с тарифом.
 
   Если вы не израсходовали нетарифицируемый объем услуг до конца календарного месяца, остаток обнуляется.
-* Запросы доменных имен сервисов {{ yandex-cloud }} (например, `api.cloud.yandex.net`) и Яндекса (например, `mail.yandex.ru`) — как из ВМ, так и из интернета.
+* Запросы доменных имен сервисов {{ yandex-cloud }} (например, `{{ api-host }}`) и Яндекса (например, `mail.yandex.ru`) — как из ВМ, так и из интернета.
 
 Стоимость публичных DNS-запросов рассчитывается пропорционально потреблению.
 
@@ -112,5 +120,7 @@ editable: false
 {% if region == "int" %}
 
 {% include [usd-public-dns-zones.md](../_pricing/dns/usd-dns-zones.md) %}
+
+{% endif %}
 
 {% endif %}

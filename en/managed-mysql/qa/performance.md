@@ -14,9 +14,9 @@ Check host monitoring charts:
 1. Click on the name of the cluster you need and select the **Hosts** tab.
 1. Go to the **Monitoring** page:
    * We recommend upgrading the host class:
-      * When the value of `Steal` on the **CPU usage** chart is consistently high.
-      * When the value of `Free` on the **Memory usage** chart is consistently low.
-   * If `iowait` on the **CPU usage** chart is high, the disk storage IOPS limits may be exceeded. We recommend increasing the value to the next [allocation unit](../../compute/concepts/limits.md#compute-limits-disks) threshold, at least, or using faster disks. For more information on limits and disk performance, please review the [{{ compute-full-name }} documentation](../../compute/concepts/disk.md).
+      * If the `Steal` value in the **CPU usage** chart is stable high.
+      * If the `Free` value in the **Memory usage** chart is stable low.
+   * If `iowait` on the **CPU usage** chart is high, the disk storage IOPS limits may be exceeded.{% if audience != "internal" %} We recommend increasing the value to the next [allocation unit](../../compute/concepts/limits.md#compute-limits-disks) threshold, at least, or using faster disks. For more information about disk limits and performance, see the [{{ compute-full-name }} documentation](../../compute/concepts/disk.md).{% endif %}
 
 {% include [qa-replica-lagging](../../_includes/mdb/mmy/qa-replica-lagging.md) %}
 
@@ -33,7 +33,7 @@ If the charts do not show overload in the cluster's resources, refer to the reco
 
 #### Cause of high CPU usage {#high-cpu}
 
-You can retrieve information on the use of the CPU resource with the help of system views. For access, you will require the `PROCESS` cluster-level [administrative privilege](../concepts/settings-list.md#setting-administrative-privileges).
+You can retrieve information on the use of the CPU resource with the help of system views. To access them, you need the `PROCESS` cluster-level [administrative privilege](../concepts/settings-list.md#setting-administrative-privileges).
 
 1. Grant a user the `PROCESS` privilege by running the [CLI](../../cli/) command below:
 
@@ -49,11 +49,11 @@ You can retrieve information on the use of the CPU resource with the help of sys
    SELECT * FROM sys.statement_analysis LIMIT 10;
    ```
 
-Note the queries with high `rows_examined`, `rows_sorted`, or the `full_scan` flag since it is highly likely that these are taking up CPU resources. For more information, please review the [{{ MY }} documentation](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
+Note the queries with high `rows_examined`, `rows_sorted`, or the `full_scan` flag since it is highly likely that these are taking up CPU resources. For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
 
 #### Cause of high IO usage {#high-io}
 
-Approximate IO usage by {{ MY }} threads is available from system views. For access, you will require the `PROCESS` cluster-level [administrative privilege](../concepts/settings-list.md#setting-administrative-privileges).
+Approximate IO usage by {{ MY }} threads is available from system views. To access them, you need the `PROCESS` cluster-level [administrative privilege](../concepts/settings-list.md#setting-administrative-privileges).
 
 1. Grant a user the `PROCESS` privilege by running the [CLI](../../cli/) command below:
 
@@ -89,7 +89,7 @@ The threads supporting the buffer pool and replication are generally higher in t
 
 High network load may result: from a `SELECT` that returns many rows, an `INSERT` of large amounts of data, or an `UPDATE` that modifies many records. In the event of a write operation, updates will copy over to the replicated hosts, which will create additional traffic.
 
-Approximate network usage by {{ MY }} threads is available from system views. For access, you will require the `PROCESS` cluster-level [administrative privilege](../concepts/settings-list.md#setting-administrative-privileges).
+Approximate network usage by {{ MY }} threads is available from system views. To access them, you need the `PROCESS` cluster-level [administrative privilege](../concepts/settings-list.md#setting-administrative-privileges).
 
 1. Grant a user the `PROCESS` privilege by running the [CLI](../../cli/) command below:
 
@@ -126,7 +126,7 @@ Approximate network usage by {{ MY }} threads is available from system views. Fo
 
 #### Locking mechanisms {#locks}
 
-If there is no unusual load on a cluster's resources, and queries still take too long to run, use system views to retrieve information on lock waits. For access, you will require the `PROCESS` cluster-level [administrative privilege](../concepts/settings-list.md#setting-administrative-privileges).
+If there is no unusual load on a cluster's resources, and queries still take too long to run, use system views to retrieve information on lock waits. To access them, you need the `PROCESS` cluster-level [administrative privilege](../concepts/settings-list.md#setting-administrative-privileges).
 
 1. Grant a user the `PROCESS` privilege by running the [CLI](../../cli/) command below:
 
@@ -152,7 +152,7 @@ For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc
 
 #### Problem query optimization {#query-optimization}
 
-We recommend that you consult the official {{ MY }} documentation:
+See the official {{ MY }} documentation:
 
 * [Optimizing queries with `EXPLAIN`](https://dev.mysql.com/doc/refman/5.7/en/using-explain.html).
 * [Optimizing SQL statements](https://dev.mysql.com/doc/refman/5.7/en/statement-optimization.html).

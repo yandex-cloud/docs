@@ -17,7 +17,9 @@ If you no longer need the website, [delete all its resources](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-{% include [prepare-register-billing](../_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -26,6 +28,8 @@ The cost for supporting your website in WordPress with a MySQL cluster includes:
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for the MySQL database cluster (see [pricing {{ mmy-full-name }}](../../managed-mysql/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
+{% endif %}
 
 ## Create a virtual machine for WordPress {#create-vm}
 
@@ -37,7 +41,7 @@ To create a VM:
 
 3. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-4. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public image of [Debian 10]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eec74qhul8dvtq413l){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eec74qhul8dvtq413l){% endif %}, [Ubuntu 18.04 lts]{% if lang == "ru" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}, or [CentOS 7]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}.
+4. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public image of [Debian 10](/marketplace/products/f2eec74qhul8dvtq413l), [Ubuntu 18.04 lts](/marketplace/products/f2e9qa7i4fmugh14tjnc), or [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo).
 
 5. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md).
@@ -86,7 +90,9 @@ When the VM is created, it is assigned a public IP address and hostname (FQDN). 
     - In the **Password** field, enter the password you will use to access the DB.
     - In the **Network** list, select the network your VM will connect to.
 
+{% if product == "yandex-cloud" %}
 1. Under **Hosts**, add two more hosts in the other availability zones. When creating hosts, do not enable **Public access** to them.
+{% endif %}
 
 1. Under **DBMS settings**, click **Settings**.
 

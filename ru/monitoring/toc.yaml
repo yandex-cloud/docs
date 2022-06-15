@@ -1,4 +1,8 @@
-title: Yandex Monitoring
+title:
+  - text: Yandex Monitoring
+    when: product == "yandex-cloud"
+  - text: Monitoring
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Начало работы
@@ -86,6 +90,7 @@ items:
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
+    when: product == "yandex-cloud"
     items:
       - name: Действующие правила
         href: pricing.md
@@ -93,6 +98,9 @@ items:
         items:
           - name: Правила до 1 октября 2020 года
             href: pricing-archive/pricing-01102020.md
+  - name: Правила тарификации
+    when: product == "cloud-il"
+    href: pricing.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

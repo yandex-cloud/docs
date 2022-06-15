@@ -308,7 +308,7 @@
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d '@body.json' \
-          "https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/certificates"
+          "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
       ```
 
 {% endlist %}
@@ -371,7 +371,9 @@ AD FS требует создавать _отношение доверия с п
 
 1. На шаге Configure URL выберите **Enable support for the SAML 2.0 WebSSO protocol** и укажите [ссылку для входа в консоль](#get-link), полученную ранее. После этого нажмите **Next**.
 
+    {% if product == "yandex-cloud" %}
     ![image](../../../_assets/iam/federations/specify-console-sso-link.png)
+    {% endif %}
 
 1. На следующей странице введите в качестве идентификатора эту же [ссылку для входа в консоль](#get-link) и нажмите **Add**. После этого нажмите **Next**.
 
@@ -396,7 +398,7 @@ AD FS требует создавать _отношение доверия с п
 Имя | Отображается в сервисах {{yandex-cloud}}. Рекомендуется использовать атрибут **Given-Name**.| Given Name
 Полное имя | Отображается в сервисах {{yandex-cloud}}. Пример: Иван Иванов.<br>Рекомендуется использовать атрибут **Display-Name**. | Name
 Почта | Используется для отправки уведомлений из сервисов {{yandex-cloud}}. Пример:&nbsp;`ivanov@example.com`<br>Рекомендуется использовать атрибут **E-Mail-Address**. | E-Mail Address
-Телефон | Используется для отправки уведомлений из сервисов {{yandex-cloud}}. Пример: +71234567890<br>Рекомендуется использовать атрибут `Telephone-Number`. | В поле **Outgoing Claim Type** введите `phone`
+Телефон | Используется для отправки уведомлений из сервисов {{yandex-cloud}}. Пример: {% if product == "yandex-cloud" %}+71234567890{% endif %}{% if product == "cloud-il" %}+972571234567{% endif %}<br>Рекомендуется использовать атрибут `Telephone-Number`. | В поле **Outgoing Claim Type** введите `phone`
 Аватар | Отображается в сервисах {{yandex-cloud}}.<br>Рекомендуется использовать атрибут `thumbnailPhoto`. [Как добавить аватар](#add-avatar) | В поле **Outgoing Claim Type** введите `thumbnailPhoto`
 
 {% note warning %}
@@ -545,7 +547,7 @@ AD FS требует создавать _отношение доверия с п
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM-токен>" \
         -d '@body.json' \
-        https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
       ```
 
 {% endlist %}

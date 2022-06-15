@@ -5,16 +5,13 @@ description: "You can monitor the health of a Managed Service for Redis cluster 
 
 # Monitoring the state of clusters and hosts
 
-Using monitoring tools in the management console, you can track the status of a{{ mrd-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.
+{% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
-{% include [monitoring-provides](../../_includes/mdb/monitoring-provides.md) %}
+{% include [monitoring-period](../../_includes/mdb/monitoring-freq.md) %}
 
-Chart update rate:
+{% include [monitoring-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
 
-* Standard hosts (`high-memory`): {{ graph-update }}.
-* Hosts with a guaranteed vCPU share under 100% (`burstable`): {{ graph-update-burstable }}.
-
-{% include [note-monitoring-auto-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
+{% include [alerts](../../_includes/mdb/alerts.md) %}
 
 ## Monitoring cluster status {#monitoring-cluster}
 
@@ -24,9 +21,11 @@ To view detailed information about the {{ mrd-name }} cluster status:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing the desired cluster.
+   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
    1. Select **{{ mrd-name }}**.
    1. Click on the name of the cluster and open the **Monitoring** tab.
+
+   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
    The following charts open on the page:
 
@@ -153,13 +152,13 @@ To view detailed information about the {{ mrd-name }} cluster status:
 
 ## Monitoring the state of hosts {#monitoring-hosts}
 
-To view detailed information about the state of individual {{ mrd-name }} hosts:
+To view detailed information about the status of individual {{ mrd-name }} hosts:
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing the desired cluster.
+   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
    1. Select **{{ mrd-name }}**.
    1. Click the name of the desired cluster and select **Hosts** → **Monitoring**.
    1. Select the host from the drop-down list.
@@ -217,42 +216,6 @@ To view detailed information about the state of individual {{ mrd-name }} hosts:
 
 You can view a host's current RAM amount in the [cluster details](cluster-list.md#get-cluster).
 
-The **Disk bytes** and the **Disk IOPS** charts show that the **Read** property increases when active database reads are in progress, and that **Write** increases when database writes are in progress.
-
-For hosts with the **Replica** role, it's normal that **Received** is greater than **Sent** on the **Network Bytes** and **Network Packets** charts.
-
-## Integration with {{ monitoring-full-name }} {#monitoring-integration}
-
-To set up [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
-
-1. In the Management console, select the folder with the cluster you wish to configure alerts for.
-1. Click the ![image](../../_assets/ugly-sandwich.svg) icon and select **Monitoring**.
-1. Under **Service dashboards**, select **{{ mrd-name }}**.
-1. On the desired metrics chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
-1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. {% if audience == "external" %}For more on the query language, [see the {{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). {% endif %}
-1. Set the `Alarm` and `Warning` notification threshold values.
-1. Click **Create alert**.
-
-To have other cluster health indicators monitored automatically:
-
-{% if audience == "external" %}
-
-1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
-{% else %}
-1. Create an alert. {% endif %}
-1. Add a status metric.
-1. Set the alert threshold values in the alert settings.
-
-Recommended threshold values:
-
-| Metric                                                                                                    | Parameter          | `Alarm`              | `Warning` |
-| ----------------------------------------------------------------------------------------------------------: | :-------------------: | :-------------------: | :-------------------: |
-| Database write availability                                                                                   | `can_write`         | `Equal to 0`            | — |
-| Number of Out of Memory errors, per hour                                                                    | `redis_oom_count`   | `Greater than 2`          | `Greater than 0`           |
-| RAM utilization (only for [noeviction policy](../concepts/settings-list.md#settings-maxmemory-policy)) | `redis_used_memory`  | 90% RAM    | 75% RAM    |
-
-For the current host RAM, see [detailed information about the cluster](cluster-list.md#get-cluster).
-
 ## Cluster state and status {#cluster-health-and-status}
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
@@ -263,7 +226,7 @@ To view a cluster's state and status:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing the desired cluster.
+   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
    1. Select **{{ mrd-name }}**.
    1. Hover over the indicator in the **Status** column in the row of the cluster you need.
 
@@ -276,4 +239,3 @@ To view a cluster's state and status:
 ### Cluster statuses {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
-

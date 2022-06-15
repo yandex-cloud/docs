@@ -13,9 +13,9 @@ Below are the names of one of the {{ yandex-cloud }} services.
 
 | Type of name | Example |
 | ----- | ----- |
-| Full product name | Yandex Compute Cloud |
-| Abbreviated name | Compute Cloud |
-| Name for legal documents | Yandex Compute Cloud |
+| Full product name | {{ compute-full-name }} |
+| Abbreviated name | {{ compute-name }} |
+| Name for legal documents | {{ compute-full-name }} |
 | API name (used in the documentation URL and in the domain name) | compute |
 | Repository path | yandex/cloud/compute/v1/ |
 | Package name in .proto files | compute |
@@ -24,13 +24,13 @@ Below are the names of one of the {{ yandex-cloud }} services.
 ## Domain names
 
 Service domain names conform to [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)
-and are based on the <service>.api.cloud.yandex.net pattern. For example, 
-Yandex Compute Cloud will have the following domain: compute.api.cloud.yandex.net.
+and are based on the <service>.{{ api-host }} pattern. For example, 
+{{ compute-full-name }} will have the following domain: compute.{{ api-host }}.
 
 ## Package naming
 
 Package names are specified in .proto files and based on the pattern yandex.cloud.\<service>.\<version>.
-For example, the Yandex Compute Cloud package:
+For example, the {{ compute-full-name }} package:
 
 > ```
 package yandex.cloud.compute.v1;

@@ -23,19 +23,17 @@
 
 ## Подготовьте окружение {#start}
 
-1. Перед тем, как создавать БД для работы с Graphite, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
 
-    {% include [prepare-register-billing](../_tutorials/_common/prepare-register-billing.md) %}
-
-1. Если у вас есть активный платежный аккаунт, перейдите в [консоль управления]({{ link-console-main }}) и {% if audience != "internal" %}[создайте](../resource-manager/operations/folder/create.md){% else %}создайте{% endif %} или выберите каталог, в котором будет работать ваша БД.
-
-{% if audience != "internal" %}[Подробнее об иерархии ресурсов](../resource-manager/concepts/resources-hierarchy.md).{% endif %}
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки БД {{ CH }} для Graphite входит:
 * плата за вычислительные ресурсы кластера, объем хранилища и резервных копий (см. [тарифы {{ mch-full-name }}](https://cloud.yandex.ru/docs/managed-clickhouse/pricing));
 * плата за запущенную ВМ для управления БД (см. [тарифы {{ compute-full-name }}](https://cloud.yandex.ru/docs/compute/pricing)).
+
+{% endif %}
 
 ## Создайте кластер {#cluster-create}
 
@@ -129,7 +127,7 @@
 1. Загрузите файл конфигурации для `clickhouse-client`:
 
     ```bash
-    mkdir -p ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
+    mkdir -p ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
     ```
 
 1. Получите SSL-сертификат:
@@ -137,16 +135,16 @@
     {% if audience != "internal" %}
 
     ```bash
-    sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-    sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
-    sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+    sudo mkdir -p {{ crt-local-dir }} && \
+    sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O {{ crt-local-dir }}{{ crt-local-file }} && \
+    sudo chmod 655 {{ crt-local-dir }}{{ crt-local-file }}
     ```
 
     {% else %}
 
     ```bash
-    wget "{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
-    chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+    wget "{{ pem-path }}" -O {{ crt-local-dir }}{{ crt-local-file }} && \
+    chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
     ```
 
     {% endif %}

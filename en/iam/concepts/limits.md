@@ -1,6 +1,6 @@
 ---
-title: Quotas and limits in Yandex Identity and Access Management
-description: 'Quotas and limits for Yandex Identity and Access Management service are not defined.'
+title: Quotas and limits in {{ iam-full-name }}
+description: 'Quotas and limits for {{ iam-full-name }} service are not defined.'
 
 editable: false
 ---

@@ -2,12 +2,12 @@
 
 Кластер {{ mkf-name }} — это один или несколько хостов-брокеров, на которых размещены топики и соответствующие топикам разделы. Производители и потребители могут работать с этими топиками, подключившись к хостам кластера.
 
-Количество хостов-брокеров, которые можно создать вместе с кластером {{ KF }}, зависит от выбранного [типа хранилища](../concepts/storage.md):
+{% note info %}
 
-* При использовании хранилища на **локальных SSD-дисках** или на **нереплицируемых SSD-дисках** вы можете создать кластер из трех или более хостов-брокеров (минимум три брокера необходимо, чтобы обеспечить отказоустойчивость).
-* При использовании хранилища на **сетевых HDD-дисках** или **сетевых SSD-дисках** вы можете добавить любое количество хостов-брокеров в пределах [текущей квоты](../concepts/limits.md).
+* Количество хостов-брокеров, которые можно создать вместе с кластером {{ KF }}, зависит от выбранного {% if audience != "internal" %}[типа хранилища](../concepts/storage.md#storage-type-selection){% else %}[типа хранилища](../concepts/storage.md){% endif %} и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
-После создания кластера в него можно добавить дополнительные брокеры, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
+{% endnote %}
 
 {% include [mkf-zk-hosts](../../_includes/mdb/mkf-zk-hosts.md) %}
 
@@ -76,13 +76,7 @@
 
      1. Выберите группы безопасности для сетевого трафика кластера.
 
-     1. Для доступа к хостам-брокерам из интернета выберите опцию **Публичный доступ**. В этом случае подключаться к ним можно только с использованием SSL-соединения. Подробнее см. в разделе [{#T}](connect.md).
-
-        {% note warning %}
-
-        Запросить публичный доступ после создания кластера невозможно.
-
-        {% endnote %}
+     1. Для доступа к хостам-брокерам из интернета выберите опцию **Публичный доступ**. В этом случае подключаться к ним можно только с использованием SSL-соединения. Запросить публичный доступ после создания кластера невозможно. Подробнее см. в разделе [{#T}](connect.md).
 
   1. В блоке **Хосты**:
   
@@ -92,10 +86,10 @@
 
          * Хосты кластера {{ KF }} будут равномерно расположены в выбранных зонах доступности. Количество зон и хостов в зоне следует выбирать исходя из требуемой модели отказоустойчивости и нагрузки на кластер.
          * Репликация возможна при наличии как минимум двух хостов в кластере.
-         * Если в блоке **Хранилище** выбран тип `local-ssd` или `network-ssd-nonreplicated`, то необходимо добавить не менее трех хостов в кластер.
+         * Если в блоке **Хранилище** выбран тип `local-ssd`{% if audience != "internal" %} или `network-ssd-nonreplicated`{% endif %}, то необходимо добавить не менее трех хостов в кластер.
          * Добавление в кластер более одного хоста приведет к автоматическому добавлению трех хостов {{ ZK }}.
 
-     {% if audience != "internal" %}
+     {% if product == "yandex-cloud" and audience != "internal" %}
 
      1. (Опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер.
 
@@ -129,11 +123,13 @@
 
   1. Укажите параметры кластера в команде создания (в примере приведены не все параметры):
 
+      {% if audience != "internal" %}
+
       ```bash
       {{ yc-mdb-kf }} cluster create \
         --name <имя кластера> \
         --environment <окружение: prestable или production> \
-        --version <версия {{ KF }}> \
+        --version <версия {{ KF }}: {{ versions.cli.str }}> \
         --network-name <имя сети> \
         --brokers-count <количество брокеров в зоне> \
         --resource-preset <класс хоста> \
@@ -143,6 +139,25 @@
         --security-group-ids <список идентификаторов групп безопасности> \
         --deletion-protection=<защита от удаления кластера: true или false>
       ```
+
+      {% else %}
+
+      ```bash
+      {{ yc-mdb-kf }} cluster create \
+        --name <имя кластера> \
+        --environment <окружение: prestable или production> \
+        --version <версия {{ KF }}> \
+        --network-id ' ' \
+        --brokers-count <количество брокеров в зоне> \
+        --resource-preset <класс хоста> \
+        --disk-type <local-ssd | local-hdd> \
+        --disk-size <размер хранилища в гигабайтах> \
+        --assign-public-ip <публичный доступ> \
+        --security-group-ids <список идентификаторов групп безопасности> \
+        --deletion-protection=<защита от удаления кластера: true или false>
+      ```
+
+      {% endif %}
 
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -168,8 +183,6 @@
 
   1. Чтобы управлять топиками через Admin API {{ KF }}:
 
-      {% include [mkf-topic-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
-
       1. Задайте значение `true` для параметра `--unmanaged-topics` при создании кластера:
 
           ```bash
@@ -178,9 +191,13 @@
             --unmanaged-topics true
           ```
 
+          Эту настройку невозможно изменить после создания кластера.
+
       1. После создания кластера [создайте учетную запись администратора](./cluster-accounts.md#create-account).
 
-  {% if audience != "internal" %}
+  {% if product == "yandex-cloud" and audience != "internal" %}
+
+  1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
 
   1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids` при создании кластера:
 
@@ -220,6 +237,8 @@
 
         Пример структуры конфигурационного файла:
 
+        {% if product == "yandex-cloud" %}
+
         ```hcl
         terraform {
           required_providers {
@@ -246,7 +265,66 @@
           config {
             assign_public_ip = "<публичный доступ к кластеру: true или false>"
             brokers_count    = <количество брокеров>
-            version          = "<версия {{ KF }}>"
+            version          = "<версия {{ mkf-name }}: {{ versions.tf.str }}>"
+            schema_registry  = "<управление схемами данных: true или false>"
+            kafka {
+              resources {
+                disk_size          = <размер хранилища в гигабайтах>
+                disk_type_id       = "<тип хранилища>"
+                resource_preset_id = "<класс хоста>"
+              }
+            }
+
+            zones = [
+              "<зоны доступности>"
+            ]
+          }
+        }
+
+        resource "yandex_vpc_network" "<имя сети>" {
+          name = "<имя сети>"
+        }
+
+        resource "yandex_vpc_subnet" "<имя подсети>" {
+          name           = "<имя подсети>"
+          zone           = "<зона доступности>"
+          network_id     = "<идентификатор сети>"
+          v4_cidr_blocks = ["<диапазон>"]
+        }
+        ```
+
+        {% endif %}
+
+        {% if product == "cloud-il" %}
+
+        ```hcl
+        terraform {
+          required_providers {
+            yandex = {
+             source = "yandex-cloud/yandex"
+            }
+          }
+        }
+
+        provider "yandex" {
+          endpoint  = "{{ api-host }}:443"
+          token     = "<статический ключ сервисного аккаунта>"
+          cloud_id  = "<идентификатор облака>"
+          folder_id = "<идентификатор каталога>"
+          zone      = "<зона доступности>"
+        }
+
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+          environment         = "<окружение: PRESTABLE или PRODUCTION>"
+          name                = "<имя кластера>"
+          network_id          = "<идентификатор сети>"
+          security_group_ids  = ["<список идентификаторов групп безопасности кластера>"]
+          deletion_protection = <защита от удаления кластера: true или false>
+
+          config {
+            assign_public_ip = "<публичный доступ к кластеру: true или false>"
+            brokers_count    = <количество брокеров>
+            version          = "<версия {{ mkf-name }}: {{ versions.tf.str }}>"
             schema_registry  = "<управление схемами данных: true или false>"
             kafka {
               resources {
@@ -273,6 +351,8 @@
           v4_cidr_blocks = ["<диапазон>"]
         }
         ```
+
+        {% endif %}
 
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -306,22 +386,20 @@
 
     Чтобы управлять топиками через Admin API {{ KF }}:
 
-    {% include [mkf-topic-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
-
-    1. Передайте значение `true` для параметра `unmanagedTopics`.
+    1. Передайте значение `true` для параметра `unmanagedTopics`. Эту настройку невозможно изменить после создания кластера.
     1. После создания кластера [создайте учетную запись администратора](./cluster-accounts.md#create-account).
 
-    Чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), передайте значение `true` для параметра `configSpec.schemaRegistry`.
+    Чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), передайте значение `true` для параметра `configSpec.schemaRegistry`. Эту настройку невозможно изменить после создания кластера.
 
-    {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
+    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
-    {% if audience != "internal" %}
+    {% if product == "yandex-cloud" and audience != "internal" %}
 
     Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
 
-    {% endif %}
-
     {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
+
+    {% endif %}
 
 {% endlist %}
 
@@ -345,7 +423,7 @@
 
   * С именем `mykf`.
   * В окружении `production`.
-  * С {{ KF }} версии `2.8`.
+  * С {{ KF }} версии `{{ versions.cli.latest }}`.
   * В сети `{{ network-name }}`.
   * В группе безопасности `{{ security-group }}`.
   * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
@@ -358,7 +436,7 @@
 
   * С именем `mykf`.
   * В окружении `production`.
-  * С {{ KF }} версии `2.8`.
+  * С {{ KF }} версии `{{ versions.cli.latest }}`.
   * В сети `{{ network-name }}`.
   * В группе безопасности `{{ security-group }}`.
   * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
@@ -377,7 +455,7 @@
   {{ yc-mdb-kf }} cluster create \
     --name mykf \
     --environment production \
-    --version 2.8 \
+    --version {{ versions.cli.latest }} \
     --network-name {{ network-name }} \
     --zone-ids {{ zone-id }} \
     --brokers-count 1 \
@@ -395,7 +473,7 @@
   {{ yc-mdb-kf }} cluster create \
     --name mykf \
     --environment production \
-    --version 2.8 \
+    --version {{ versions.cli.latest }} \
     --network-name {{ network-name }} \
     --zone-ids {{ zone-id }} \
     --brokers-count 1 \
@@ -417,7 +495,7 @@
     * В каталоге с идентификатором `{{ tf-folder-id }}`.
     * С именем `mykf`.
     * В окружении `PRODUCTION`.
-    * С {{ KF }} версии `2.8`.
+    * С {{ KF }} версии `{{ versions.tf.latest }}`.
     * В новой сети `mynet` с подсетью `mysubnet`.
     * В новой группе безопасности `mykf-sg`, разрешающей подключение к кластеру из интернета по порту `9091`.
     * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
@@ -427,6 +505,8 @@
     * С защитой от случайного удаления кластера.
 
   Конфигурационный файл для такого кластера выглядит так:
+
+    {% if product == "yandex-cloud" %}
 
     ```hcl
     terraform {
@@ -454,7 +534,7 @@
       config {
         assign_public_ip = true
         brokers_count    = 1
-        version          = "2.8"
+        version          = "{{ versions.tf.latest }}"
         kafka {
           resources {
             disk_size          = 10
@@ -492,5 +572,77 @@
       }
     }
     ```
+
+    {% endif %}
+
+    {% if product == "cloud-il" %}
+
+    ```hcl
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+      }
+    }
+
+    provider "yandex" {
+      endpoint  = "{{ api-host }}:443"
+      token     = "<статический ключ сервисного аккаунта>"
+      cloud_id  = "{{ tf-cloud-id }}"
+      folder_id = "{{ tf-folder-id }}"
+      zone      = "{{ zone-id }}"
+    }
+
+    resource "yandex_mdb_kafka_cluster" "mykf" {
+      environment         = "PRODUCTION"
+      name                = "mykf"
+      network_id          = yandex_vpc_network.mynet.id
+      security_group_ids  = [ yandex_vpc_security_group.mykf-sg.id ]
+      deletion_protection = true
+
+      config {
+        assign_public_ip = true
+        brokers_count    = 1
+        version          = "{{ versions.tf.latest }}"
+        kafka {
+          resources {
+            disk_size          = 10
+            disk_type_id       = "{{ disk-type-example }}"
+            resource_preset_id = "{{ host-class }}"
+          }
+        }
+
+        zones = [
+          "{{ zone-id }}"
+        ]
+      }
+    }
+
+    resource "yandex_vpc_network" "mynet" {
+      name = "mynet"
+    }
+
+    resource "yandex_vpc_subnet" "mysubnet" {
+      name           = "mysubnet"
+      zone           = "{{ zone-id }}"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+
+    resource "yandex_vpc_security_group" "mykf-sg" {
+      name       = "mykf-sg"
+      network_id = yandex_vpc_network.mynet.id
+
+      ingress {
+        description    = "Kafka"
+        port           = 9091
+        protocol       = "TCP"
+        v4_cidr_blocks = [ "0.0.0.0/0" ]
+      }
+    }
+    ```
+
+    {% endif %}
 
 {% endlist %}

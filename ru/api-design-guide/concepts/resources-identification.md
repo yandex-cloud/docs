@@ -27,7 +27,7 @@ https://<домен>/<сервис>/<версия API>/<категория ре�
 
 Пример запроса диска в REST:
 ```
- GET https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
+ GET https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03
 ```
 
 Как видно из примера, URL ресурсов идентифицируется связкой <q>категория ресурса и идентификатор ресурса</q>.
@@ -75,7 +75,7 @@ https://<домен>/<сервис>/<версия API>/<категория ре�
 ```
 Пример REST запроса для получения базы данных:
 ```
- GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/24f17h0gfqf7oeuis2f/databases/db-testing
+ GET https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/24f17h0gfqf7oeuis2f/databases/db-testing
 ```
 В примере:
  - `clusters` — категория родительского ресурса;
@@ -86,5 +86,5 @@ https://<домен>/<сервис>/<версия API>/<категория ре�
 
 #### См. также {#see-also}
 - [Репозиторий API {{ yandex-cloud }}](https://github.com/yandex-cloud/cloudapi) — ссылка на .proto-спецификации API;
-- [Документация Yandex Resource Manager](../../resource-manager/concepts/resources-hierarchy.md) — ссылка на раздел <q>Иерархия ресурсов {{ yandex-cloud }}</q>.
+- [Документация {{ resmgr-full-name }}](../../resource-manager/concepts/resources-hierarchy.md) — ссылка на раздел <q>Иерархия ресурсов {{ yandex-cloud }}</q>.
 

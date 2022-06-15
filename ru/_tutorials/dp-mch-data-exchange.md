@@ -27,7 +27,7 @@
 1. [Подключитесь к виртуальной машине по SSH](../compute/operations/vm-connect/ssh.md) и настройте подключения:
     * [к кластеру {{ mch-full-name }}](../managed-clickhouse/operations/connect.md);
     * [к кластеру {{ dataproc-full-name }}](../data-proc/operations/connect.md).
-1. Ознакомьтесь с работой веб-интерфейса [Zeppelin](http://zeppelin.apache.org/). Для выполнения некоторых операций в этом интерфейсе потребуется создавать и запускать параграфы с кодом. Чтобы запустить параграф, нажмите на кнопку **Run this paragraph** или используйте комбинацию клавиш **Shift + Enter**.
+1. Ознакомьтесь с работой веб-интерфейса [Zeppelin](http://zeppelin.apache.org/). Для выполнения некоторых операций в этом интерфейсе потребуется создавать и запускать параграфы с кодом. Чтобы запустить параграф, нажмите на кнопку **Run this paragraph** или используйте сочетание клавиш **Shift** + **Enter**.
 1. (Опционально) Чтобы экспортировать данные в [бакет {{ objstorage-full-name }}](../storage/concepts/bucket.md):
     1. [Создайте бакет {{ objstorage-full-name }}](../storage/operations/buckets/create.md).
     1. [Выдайте права на запись в него](../storage/operations/buckets/edit-acl.md) сервисному аккаунту кластера {{ dataproc-full-name }}.

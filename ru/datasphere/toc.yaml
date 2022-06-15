@@ -1,4 +1,8 @@
-title: Yandex DataSphere
+title:
+  - text: Yandex DataSphere
+    when: product == "yandex-cloud"
+  - text: DataSphere
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Начало работы
@@ -59,6 +63,7 @@ items:
             href: operations/data/connect-to-s3.md
       - name: Настройка интеграции с Data Proc
         href: operations/data-proc-integration.md
+        when: product == "yandex-cloud"
       - name: Работа с приватными данными
         items:
           - name: Создание секрета
@@ -73,6 +78,7 @@ items:
             href: operations/data/secret-delete.md
       - name: Запуск распределенного обучения
         href: operations/taas-run.md
+        when: product == "yandex-cloud"
       - name: Развертывание эксплуатации моделей
         items:
           - name: Создание ноды из ячейки с кодом на Python
@@ -101,6 +107,7 @@ items:
         href: concepts/save-state.md
       - name: Интеграция с Data Proc
         href: concepts/data-proc.md
+        when: product == "yandex-cloud"
       - name: Фоновые операции
         href: concepts/async.md
       - name: Датасеты
@@ -113,8 +120,13 @@ items:
         href: concepts/tensorboard.md
       - name: Распределенное обучение
         href: concepts/taas.md
+        when: product == "yandex-cloud"
       - name: Управление расходами
         href: concepts/budget.md
+        when: product == "yandex-cloud"
+      - name: Ограничение используемых ресурсов
+        href: concepts/budget.md
+        when: product == "cloud-il"
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Ранний доступ
@@ -139,6 +151,8 @@ items:
         href: tutorials/video-recognition.md
   - name: Справочник API
     items:
+        - name: Обзор
+          href: api-ref/overview.md
         - name: Аутентификация в API
           href: api-ref/authentication.md
         - name: gRPC (англ.)
@@ -157,7 +171,9 @@ items:
     href: pricing.md
   - name: Публичные материалы
     href: public-talks.md
+    when: product == "yandex-cloud"
   - name: Релизы
     href: release-notes.md
+    when: product == "yandex-cloud"
   - name: Вопросы и ответы
     href: qa/index.md

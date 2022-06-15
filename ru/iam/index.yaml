@@ -1,21 +1,44 @@
-title: Yandex Identity and Access Management
+title:
+  - text: Yandex Identity and Access Management
+    when: product == "yandex-cloud"
+  - text: Identity and Access Management
+    when: product == "cloud-il"
 description:
-  - >-
-    Сервис Yandex Identity and Access Management (IAM) — это сервис
-    идентификации и контроля доступа, который помогает централизованно управлять
-    правами доступа пользователей к вашим ресурсам Yandex Cloud. IAM
-    контролирует, чтобы все операции над ресурсами выполнялись только
-    пользователями с необходимыми правами.
-  - >-
-    Инфраструктура Yandex Cloud <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
-    в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
+  - text:
+      - >-
+        Сервис Yandex Identity and Access Management (IAM) — это сервис
+        идентификации и контроля доступа, который помогает централизованно управлять
+        правами доступа пользователей к вашим ресурсам Yandex Cloud. IAM
+        контролирует, чтобы все операции над ресурсами выполнялись только
+        пользователями с необходимыми правами.
+      - >-
+        Инфраструктура Yandex Cloud <a
+        href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+        в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        Сервис Identity and Access Management (IAM) — это сервис
+        идентификации и контроля доступа, который помогает централизованно управлять
+        правами доступа пользователей к вашим ресурсам CloudIL. IAM
+        контролирует, чтобы все операции над ресурсами выполнялись только
+        пользователями с необходимыми правами.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Identity and Access Management
+  title:
+    - text: Yandex Identity and Access Management
+      when: product == "yandex-cloud"
+    - text: Identity and Access Management
+      when: product == "cloud-il"
 links:
   - title: Начало работы
     description: Добавьте пользователя и назначьте ему роль
     href: quickstart
+    when: product == "yandex-cloud"
+  - title: Начало работы
+    description: Добавьте пользователя и назначьте ему роль
+    href: quickstart.html
+    when: product == "cloud-il"
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/
@@ -28,9 +51,15 @@ links:
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
+    when: product == "yandex-cloud"
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+    when: product == "yandex-cloud"

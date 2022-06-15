@@ -11,6 +11,7 @@ description: "Из статьи вы узнаете как работать с �
 
 {% if audience != "internal" %}- [{#T}](authentication/user.md){% endif %}
 - [{#T}](authentication/service-account.md)
+- [{#T}](authentication/federated-user.md)
 
 ## Управление профилем {#profile}
 

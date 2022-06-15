@@ -6,17 +6,17 @@ To get started with the service:
 
 {% if audience == "internal" %}
 
-For the internal MDB service, the [web interface]({{ console-link }}) is deployed, where you can manually create a database cluster. For more about [quotas]({{ link-console-quotas }}) and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
+For the internal MDB service, the [web interface]({{ console-link }}) is deployed where you can manually create a database cluster. For more information about [quotas]({{ link-console-quotas }}) and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
 
 ## Access to DB clusters {#access}
 
-The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and [for developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
+The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and for [developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
 
 If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ CH }} hosts, you need access to ports 8443 (HTTPS) and 9440 (native TLS-enabled protocol).
 
 ## CLI setup {#cli-setup}
 
-If you plan to use the CLI, install and configure it according to the [instructions](../cli/quickstart.md).
+If you plan to use the CLI, install and configure it by following the [instructions](../cli/quickstart.md).
 
 If you did everything correctly, the list clusters query should now work:
 
@@ -26,15 +26,15 @@ If you did everything correctly, the list clusters query should now work:
 
 {% else %}
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
-   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine in the same network as the DB cluster.
+   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based VM in the same network as the DB cluster.
    * To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
 
    {% note info %}
@@ -43,7 +43,7 @@ If you did everything correctly, the list clusters query should now work:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the virtual machine over SSH.
 1. Add the {{ CH }} [DEB repository](https://{{ ch-domain }}/docs/en/getting-started/install/#install-from-deb-packages):
 
    ```bash
@@ -62,7 +62,7 @@ If you did everything correctly, the list clusters query should now work:
 1. Download the configuration file for `clickhouse-client`:
 
    ```bash
-   mkdir -p ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
+   mkdir -p ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
    ```
 
 {% endif %}
@@ -145,16 +145,16 @@ If you did everything correctly, the list clusters query should now work:
    1. Run the {{ CH }} CLI with the following parameters:
 
       ```bash
-      clickhouse-client --host <host FQDN> \
+      clickhouse-client --host <host's FQDN> \
         -s \
-        --user <DB username> \
+        --user <DB user name> \
         --password <DB user password> \
         -q "<DB query>" \
-        --port 9440 
+        --port 9440
       ```
 
 ## What's next {#whats-next}
 
-* Read about [service concepts](./concepts/index.md).
-* Learn more about [creating a cluster](./operations/cluster-create.md) and [connecting to the database](./operations/connect.md).
-* Read [questions and answers](./qa/general.md).
+* Read about [service concepts](concepts/index.md).
+* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to the database](operations/connect.md).
+* Read [questions and answers](qa/general.md).

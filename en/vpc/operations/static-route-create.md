@@ -1,9 +1,15 @@
 ---
-title: "How to create a static route. VPC"
-description: "The default static route (0.0.0.0/0) acts on machines with public IP addresses. If you need to create a NAT instance, create it on a separate subnet. To create a routing table and add static routes to it, open the Virtual section Private Cloud in the directory where you want to create a static route. Select the network where you want to create a routing table. Click Create Routing Table. "
+title: "How to create a static route. {{ vpc-short-name }}"
+description: "The default static route (0.0.0.0/0) acts on machines with public IP addresses. If you need to create a NAT instance, create it on a separate subnet. To create a routing table and add static routes to it, open the {{ vpc-name }} section  in the directory where you want to create a static route. Select the network where you want to create a routing table. Click Create Routing Table. "
 ---
 
 # Creating static routes
+
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
 
 {% note info %}
 
@@ -94,8 +100,8 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
      +----------------------+------------------+----------------------+----------------+---------------+------------------+
      |          ID          |       NAME       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE       |
      +----------------------+------------------+----------------------+----------------+---------------+------------------+
-     | b0cf2b0u7nhl75gp1c9t | subnet-1         | enp846vf5fus0nt3lu83 |                | ru-central1-c | [192.168.0.0/24] |
-     | e2llnffvbakqu18hr170 | subnet-2         | enp846vf5fus0nt3lu83 |                | ru-central1-b | [192.168.1.0/24] |
+     | b0cf2b0u7nhl75gp1c9t | subnet-1         | enp846vf5fus0nt3lu83 |                | {{ region-id }}-c | [192.168.0.0/24] |
+     | e2llnffvbakqu18hr170 | subnet-2         | enp846vf5fus0nt3lu83 |                | {{ region-id }}-b | [192.168.1.0/24] |
      +----------------------+------------------+----------------------+----------------+---------------+------------------+
      ```
 
@@ -109,7 +115,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
      created_at: "2019-03-12T13:27:22Z"
      name: subnet-1
      network_id: enp846vf5fus0nt3lu83
-     zone_id: ru-central1-c
+     zone_id: {{ region-id }}-c
      v4_cidr_blocks:
      - 192.168.0.0/24
      route_table_id: enp1sdveovdpdhaao5dq

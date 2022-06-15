@@ -4,11 +4,15 @@ The feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
 
 Security groups let you manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet. A security group is assigned to the network interface when creating or updating a VM and should contain rules for receiving and sending traffic. You can assign multiple security groups to each VM.
 
+{% if product == "yandex-cloud" %}
+
 {% note warning %}
 
 Security groups are not designed to protect against DDoS attacks. To filter out large volumes of unwanted traffic, use [DDoS protection](../ddos-protection/index.md).
 
 {% endnote %}
+
+{% endif %}
 
 {% include [sg-rules](../../_includes/vpc/sg-rules.md) %}
 

@@ -16,7 +16,7 @@
 
 ## Перед началом работы {#before-start}
 
-1. Установите на внешнем хосте, имеющем сетевой доступ к хосту {{ MG }} (см. [{#T}](../operations/connect.md)), [утилиты](../operations/tools.md#monitoring-tools) получения данных о производительности {{ MG }} `mongostat` и `mongotop`.
+1. Установите на внешнем хосте, имеющем сетевой доступ к хосту {{ MG }} (см. [{#T}](../operations/connect/index.md)), [утилиты](../operations/tools.md#monitoring-tools) получения данных о производительности {{ MG }} `mongostat` и `mongotop`.
 1. Определите, для каких баз данных нужно выполнить поиск проблем.
 1. [Создайте пользователя](../operations/cluster-users.md#adduser) {{ MG }} с ролью [`mdbMonitor`](../concepts/users-and-roles.md#mdbMonitor) для этих баз. Это необходимо для использования утилит `mongostat` и `mongotop`.
 

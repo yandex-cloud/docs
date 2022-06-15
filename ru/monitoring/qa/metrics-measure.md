@@ -15,7 +15,9 @@
 Описания метрик приведены в документации к сервисам, например:
 * [{{ mpg-full-name }}](../../managed-postgresql/operations/monitoring.md).
 * [{{ mmy-full-name }}](../../managed-mysql/operations/monitoring.md).
+{% if product == "yandex-cloud" %}
 * [{{ mrd-full-name }}](../../managed-redis/operations/monitoring.md).
+{% endif %}
 
 Важные метрики выведены на сервисные дашборды каждого сервиса. Полных список метрик для каждого сервиса доступен в разделе **Обзор метрик**. Выгрузить полный список метрик можно по [инструкции](../operations/metric/list.md).
 

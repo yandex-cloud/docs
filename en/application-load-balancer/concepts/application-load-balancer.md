@@ -15,26 +15,38 @@ When you create a load balancer, specify [security groups](../../vpc/concepts/se
 For the load balancer to work correctly:
 
 * The load balancer's security groups must allow:
-   * Receiving external incoming traffic on the ports specified in the [listener](#listener). For example, for HTTP(S) traffic: TCP connections on ports `80` and `443` from any address (CIDR — `0.0.0.0/0`).
+   * Receiving external incoming traffic on the ports specified in the [listener](#listener). For example, for HTTP(S) traffic: TCP connections on ports `80` and `443` from any address (CIDR: `0.0.0.0/0`).
    * Receiving incoming traffic to check the health of the load balancer's nodes in different [availability zones](../../overview/concepts/geo-scope.md): TCP connections on port `30080` from IP addresses in the `198.18.235.0/24` and `198.18.248.0/24` ranges.
-   * Sending traffic to backend VMs. For example, any outgoing connections to internal addresses of VMs (CIDR — `<VM's internal IP>/32`) and to the [subnets](../../vpc/concepts/network.md#subnet) or security groups that host the VMs.
+   * Sending traffic to backend VMs. For example, any outgoing connections to internal addresses of VMs (CIDR: `<VM's internal IP>/32`) and to the [subnets](../../vpc/concepts/network.md#subnet) or security groups that host the VMs.
 * Backend VM security groups must allow incoming traffic from the load balancer on the ports specified in the [backend groups](backend-group.md). For example, any incoming connections from subnets that [host the load balancer](#lb-location) or from one of its security groups.
 
 ## Host load balancer {#lb-location}
 
-When creating a load balancer, specify a [network](../../vpc/concepts/network.md) and [subnets](../../vpc/concepts/network.md#subnet) in three [availability zones](../../overview/concepts/geo-scope.md). Those are the subnets where the load balancer's nodes will be hosted. Application backends will receive traffic from the load balancer nodes in these subnets.
+When creating a load balancer, specify a [network](../../vpc/concepts/network.md) and [subnets](../../vpc/concepts/network.md#subnet) in [availability zones](../../overview/concepts/geo-scope.md). Those are the subnets where the load balancer's nodes will be hosted. Application backends will receive traffic from the load balancer nodes in these subnets.
 
 You can disable the load balancer in the selected availability zones. In this case, external traffic will no longer be sent to the load balancer nodes in these availability zones. However, the load balancer's nodes in other availability zones will continue delivering traffic to backends in the availability zones where the load balancer was disabled if permitted by the [locality aware routing](backend-group.md#locality) settings.
 
 ### Recommended subnet sizes {#subnets-sizes}
 
-For {{ alb-name }} to provide load balancer availability as specified in the [service level agreement]{% if region == "ru" or region == "kz" %}(https://yandex.ru/legal/cloud_sla_apploadbalancer/){% endif %}{% if region == "int" %}(https://yandex.com/legal/cloud_sla_apploadbalancer/){% endif %}, load balancer subnets must have a sufficient number of [internal IP addresses](../../vpc/concepts/address.md#internal-addresses) available. We recommend sizing the subnets to have at least two free IPs per each [resource unit](../pricing.md) at peak load.
+{% if product == "cloud-il" %}
+
+The recommended size of the subnets where the load balancer is hosted depends on its resource usage.
+
+{% include [lcu-calculation](../../_includes/application-load-balancer/lcu-calculation.md) %}
+
+{% endif %}
+
+For {{ alb-name }} to provide load balancer availability{% if product == "yandex-cloud" %} as specified in the [service level agreement]{% if region == "ru" or region == "kz" %}(https://yandex.ru/legal/cloud_sla_apploadbalancer/){% endif %}{% if region == "int" %}(https://yandex.com/legal/cloud_sla_apploadbalancer/){% endif %}{% endif %}, load balancer subnets must have a sufficient number of [internal IP addresses](../../vpc/concepts/address.md#internal-addresses) available. We recommend sizing the subnets to have at least two free IPs per {% if product == "yandex-cloud" %}[resource unit](../pricing.md){% endif %}{% if product == "cloud-il" %}resource unit{% endif %} at peak load.
+
+{% if product == "yandex-cloud" %}
 
 > For instance, a load balancer is located in two availability zones with each handling the following load during peak hours:
 >
 > {% include [lcu-example](../../_includes/application-load-balancer/lcu-example.md) %}
 >
 > This corresponds to 8 resource units (see the [calculation](../pricing.md#example)) in each availability zone. Therefore, we recommend having at least 8 x 2 = 16 available addresses in each subnet. A load balancer subnet should be at least /27.
+
+{% endif %}
 
 ## Listener {#listener}
 
@@ -75,6 +87,8 @@ Load balancer statistics are automatically logged in the {{ monitoring-full-name
 
 For instructions on viewing statistics, see [{#T}](../operations/application-load-balancer-get-stats.md).
 
+{% if product == "yandex-cloud" %}
+
 ## Logging {#logging}
 
 When creating a load balancer, a log group is created for it in {{ cloud-logs-full-name }}. This log group is used to write messages about incoming requests. You can view the logs in the management console. A complete list of parameters is shown in the [log reference](../logs-ref.md).
@@ -88,3 +102,5 @@ Currently, you can get the ID of the load balancer's log group and [create a tri
 {% endnote %}
 
 For an example of log processing, see the [{#T}](../tutorials/logging.md) use case.
+
+{% endif %}

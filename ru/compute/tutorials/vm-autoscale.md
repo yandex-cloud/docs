@@ -84,10 +84,10 @@
         name: yc-auto-network
         ```
 
-     1. Создайте подсеть в зоне `ru-central1-b`:
+     1. Создайте подсеть в зоне `{{ region-id }}-b`:
 
         ```bash
-        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone ru-central1-b
+        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-b
         ```
 
         Результат:
@@ -97,15 +97,15 @@
         folder_id: b0g12ga82bcv0cdeferg
         created_at: "2020-11-30T16:23:12Z"
         network_id: enpabce123hde4ft1r3t
-        zone_id: ru-central1-b
+        zone_id: {{ region-id }}-b
         v4_cidr_blocks:
         - 192.168.1.0/24
         ```
 
-     1. Создайте подсеть в зоне `ru-central1-c`:
+     1. Создайте подсеть в зоне `{{ region-id }}-c`:
 
         ```bash
-        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.2.0/24 --zone ru-central1-c
+        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.2.0/24 --zone {{ region-id }}-c
         ```
 
         Результат:
@@ -115,7 +115,7 @@
         folder_id: b0g12ga82bcv0cdeferg
         created_at: "2020-11-30T16:25:02Z"
         network_id: enpabce123hde4ft1r3t
-        zone_id: ru-central1-c
+        zone_id: {{ region-id }}-c
         v4_cidr_blocks:
         - 192.168.2.0/24
         ```
@@ -123,7 +123,7 @@
    - API
 
      1. Создайте сеть с помощью метода [Create](../../vpc/api-ref/Network/create.md) для ресурса `Network`.
-     1. Создать подсети в зонах `ru-central1-b` и `ru-central1-c` с помощью метода [Create](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnet`.
+     1. Создать подсети в зонах `{{ region-id }}-b` и `{{ region-id }}-c` с помощью метода [Create](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnet`.
 
    {% endlist %}
 
@@ -152,8 +152,8 @@
      max_unavailable: 1
    allocation_policy:
      zones:
-       - zone_id: ru-central1-b
-       - zone_id: ru-central1-c
+       - zone_id: {{ region-id }}-b
+       - zone_id: {{ region-id }}-c
    load_balancer_spec:
      target_group_spec:
        name: auto-group-tg
@@ -323,6 +323,8 @@
      ```
 
      Результат:
+     
+     {% if product == "yandex-cloud" %}
 
      ```bash
      +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
@@ -331,6 +333,20 @@
      | b0rbabc1m2edfu2ss579 | group-balancer | ru-central1 | EXTERNAL |              1 | b0rdabckribed1fbv2l1   | ACTIVE |
      +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
      ```
+     
+     {% endif %}
+     
+     {% if product == "cloud-il" %}
+
+     ```bash
+     +----------------------+----------------+-----------+----------+----------------+------------------------+--------+
+     |          ID          |      NAME      | REGION ID |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
+     +----------------------+----------------+-----------+----------+----------------+------------------------+--------+
+     | b0rbabc1m2edfu2ss579 | group-balancer | il1       | EXTERNAL |              1 | b0rdabckribed1fbv2l1   | ACTIVE |
+     +----------------------+----------------+-----------+----------+----------------+------------------------+--------+
+     ```
+     
+     {% endif %}
 
    - API
 
@@ -363,7 +379,7 @@
      Результат:
 
      ```bash
-     projects/b0g12ga82bcv0cdeferg/zones/ru-central1-b
+     projects/b0g12ga82bcv0cdeferg/zones/{{ region-id }}-b
      ```
 
    {% endlist %}
@@ -518,7 +534,7 @@
 
    - CLI
 
-     1. Удалите подсеть в зоне `ru-central1-b`:
+     1. Удалите подсеть в зоне `{{ region-id }}-b`:
 
         ```bash
         yc vpc subnet delete e1lnabc23r1c9d0efoje
@@ -532,12 +548,12 @@
         folder_id: b0g12ga82bcv0cdeferg
         created_at: "2020-11-30T16:23:12Z"
         network_id: enpabce123hde4ft1r3t
-        zone_id: ru-central1-b
+        zone_id: {{ region-id }}-b
         v4_cidr_blocks:
         - 192.168.1.0/24         
         ```
 
-     1. Удалите подсеть в зоне `ru-central1-c`:
+     1. Удалите подсеть в зоне `{{ region-id }}-c`:
 
         ```bash
         yc vpc subnet delete b1csa2b3clideftjb121
@@ -551,7 +567,7 @@
         folder_id: b0g12ga82bcv0cdeferg
         created_at: "2020-11-30T16:25:02Z"
         network_id: enpabce123hde4ft1r3t
-        zone_id: ru-central1-c
+        zone_id: {{ region-id }}-c
         v4_cidr_blocks:
         - 192.168.2.0/24
         ```

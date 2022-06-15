@@ -2,12 +2,15 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [15.06.2022 – Ingress-nginx path sanitization](../../_includes/security/security-bulletins/cve-2021-25748-ingress-nginx-path.md) %}
+
 {% include [29.04.2022 — Redis](../../_includes/security/security-bulletins/cve-2022-24735-24736.md) %}
 
 {% include [06.04.2022 — GitLab Critical Security Release](../../_includes/security/security-bulletins/cve-2022-1162-gitlab.md) %}
 
 {% include [18.03.2022 — cr8escape](../../_includes/security/security-bulletins/cve-2022-0811-cr8escape.md) %}
 
+{% if product == "yandex-cloud" %}
 {% include [09.03.2022 — Dirty Pipe](../../_includes/security/security-bulletins/cve-2022-0847-dirty-pipe.md) %}
 
 {% include [28.02.2022 — multiple-GitLab-vulnerabilities](../../_includes/security/security-bulletins/cve-2022-0735-0549-0751-0741-4191-0738-0489.md) %}
@@ -15,6 +18,7 @@
 {% include [28.01.2022 — CVE-2022-0185 — heap overflow bug in legacy_parse_param](../../_includes/security/security-bulletins/cve-2022-0185.md) %}
 
 {% include [28.01.2022 — CVE-2021-4034 – Polkit's pkexec](../../_includes/security/security-bulletins/cve-2021-4034-polkit.md) %}
+{% endif %}
 
 ## 29.12.2021 — CVE-2021-45105, CVE-2021-44832 — Отказ в обслуживании и удаленное выполнение кода (Log4j) {#CVE-2021-45105-CVE-2021-44832}
 
@@ -36,15 +40,15 @@ CVSS рейтинг:
 
 #### Общее влияние
 
-Библиотека Log4j включена в почти все enterprise-решения Apache Software Foundation, такие как: Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Flink, Apache Kafka, Apache Dubbo и т.д. 
+Библиотека Log4j включена в почти все enterprise-решения Apache Software Foundation, такие как: Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Flink, Apache Kafka, Apache Dubbo и т.д.
 
-С полным списком ПО, подверженного уязвимости, можно ознакомиться на следующих ресурсах: 
+С полным списком ПО, подверженного уязвимости, можно ознакомиться на следующих ресурсах:
 * https://github.com/NCSC-NL/log4shell/tree/main/software
 * https://gist.github.com/SwitHak/b66db3a06c2955a9cb71a8718970c592
 
 #### Влияние на сервисы {{ yandex-cloud }}
 
-Версии библиотеки, подверженные уязвимости, не используются в сервисах {{ yandex-cloud }}. 
+Версии библиотеки, подверженные уязвимости, не используются в сервисах {{ yandex-cloud }}.
 
 ### Компенсационные меры
 
@@ -93,10 +97,13 @@ CVSSv3.1 рейтинг: 9.0 (AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H)
 
 Библиотека Log4j включена в почти все enterprise-решения Apache Software Foundation, такие как: Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Flink, Apache Kafka, Apache Dubbo и т.д. 
 
-Предположительно, уязвимость влияет на такие open-source продукты, как ElasticSearch, Elastic Logstash, the NSA’s Ghidra и т.д.
+С полным списком ПО, подверженного уязвимости, можно ознакомиться на следующих ресурсах:
+* https://github.com/NCSC-NL/log4shell/tree/main/software
+* https://gist.github.com/SwitHak/b66db3a06c2955a9cb71a8718970c592
 
 #### Влияние на сервисы {{ yandex-cloud }}
 
+{% if product == "yandex-cloud" %}
 Версия библиотеки, подверженная уязвимости, была использована в некоторых сервисах {{ yandex-cloud }}. Наиболее критичные сервисы, которые были подвержены уязвимости: {{ mes-full-name }}, {{ dataproc-full-name }}, а также ряд базовых сервисов платформы. 
 
 Критичные сервисы успешно обновлены в соответствии с рекомендациями производителя. Остальные сервисы находятся в процессе обновления.  
@@ -105,8 +112,12 @@ CVSSv3.1 рейтинг: 9.0 (AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H)
 
 В настоящее время ведется поиск других сервисов, которые могут быть подвержены уязвимости, с целью их обновления.  
 
-После завершения работ мы обновим этот бюллетень. 
+После завершения работ мы обновим этот бюллетень.
+{% endif %}
+{% if product == "cloud-il" %}
+Версия библиотеки, подверженная уязвимости, была использована в некоторых сервисах {{ yandex-cloud }}. Все сервисы были успешно обновлены в соответствии с рекомендациями производителя.
 
+{% endif %}
 ### Компенсационные меры
 
 Если в вашей инфраструктуре используется данная библиотека или продукты, которые упомянуты в разделе «Общее влияние», выполните следующие действия.  
@@ -156,22 +167,30 @@ CVSSv3.1 рейтинг: 10.0 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:P/RL:O/RC:C
 1. Библиотека Log4j включена в почти все enterprise-решения Apache Software Foundation, такие как: Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Flink, Apache Kafka, Apache Dubbo и т.д. 
 
 2. Уязвимость влияет на такие open-source продукты, как ElasticSearch, Elastic Logstash, the NSA’s Ghidra и т.д.
+{% if product == "yandex-cloud" %}
 
 3. Продукты Hystax подвержены уязвимости, так как используют уязвимую версию Elasticsearch Logstash.
 Hystax работает над выпуском новых версий продуктов, в которых будет устранена уязвимость.
+{% endif %}
 
 #### Влияние на сервисы {{ yandex-cloud }}
 
+{% if product == "yandex-cloud" %}
 Версия библиотеки, подверженная уязвимости, была использована в некоторых сервисах {{ yandex-cloud }}. Наиболее критичные сервисы, которые были подвержены уязвимости: {{ mes-full-name }}, {{ dataproc-full-name }}, а также ряд базовых сервисов платформы.
 
 Критичные сервисы успешно обновлены в соответствии с рекомендациями производителя. Остальные сервисы находятся в процессе обновления.
 
-Со стороны {{ yandex-cloud }} была собрана информация о пользователях, которые использовали подобные сервисы. Им были отправлены оповещения. 
+Со стороны {{ yandex-cloud }} была собрана информация о пользователях, которые использовали подобные сервисы. Им были отправлены оповещения.
 
 В настоящее время ведется поиск других сервисов, которые могут быть подвержены уязвимости, с целью их обновления.  
 
-После завершения работ мы обновим этот бюллетень. 
+После завершения работ мы обновим этот бюллетень.
 
+{% endif %}
+{% if product == "cloud-il" %}
+Версия библиотеки, подверженная уязвимости, была использована в некоторых сервисах {{ yandex-cloud }}. Все сервисы были успешно обновлены в соответствии с рекомендациями производителя.
+
+{% endif %}
 ### Компенсационные меры
 
 Если в вашей инфраструктуре используется данная библиотека или продукты, которые упомянуты в разделе «Общее влияние», выполните следующие действия.
@@ -198,6 +217,7 @@ Hystax Acura Controller: для UDP-порта 12201 в направлении i
 
 Если в вашей инфраструктуре Hystax Acura Controller установлен за балансировщиком нагрузки, примените указанное выше правило фаервола на соответствующий балансировщик.
 
+{% if product == "yandex-cloud" %}
 ## 12.11.2021 — CVE-2021-22205 — удаленное выполнение кода через уязвимость в {{ GL }}
 
 ### Описание
@@ -227,8 +247,9 @@ Hystax Acura Controller: для UDP-порта 12201 в направлении i
 
 * [Action needed by self-managed customers in response to CVE-2021-22205](https://about.gitlab.com/blog/2021/11/04/action-needed-in-response-to-cve2021-22205/)
 * [GitLab CE CVE-2021-22205 in the wild](https://security.humanativaspa.it/gitlab-ce-cve-2021-22205-in-the-wild/)
+{% endif %}
 
-## 12.10.2021 – CVE-2021-25741 – Возможность получить доступ к файловой системе хоста
+## 12.10.2021 – CVE-2021-25741 – Возможность получить доступ к файловой системе хоста {#CVE-2021-25741}
 
 ### Описание
 
@@ -243,6 +264,7 @@ Hystax Acura Controller: для UDP-порта 12201 в направлении i
 Для устранения вектора атак со стороны внутреннего нарушителя обновите все существующие кластеры и группы узлов в сервисе до версии 1.19 или выше. Если ваши кластеры и группы узлов уже обновлены до версии 1.19 или выше, обновите ревизии. Обновление, которое закрывает уязвимости, доступно во всех релизных каналах.
 
 Также рекомендуем:
+
 * Автоматически обновлять кластеры и группы узлов до последних версий или ревизий.
 * Планировать ручные обновления хотя бы раз в месяц, если вы не можете применять автоматические обновления.
 * Запретить запускать поды от имени пользователя root для недоверенных загрузок.
@@ -255,6 +277,7 @@ Hystax Acura Controller: для UDP-порта 12201 в направлении i
 
 Чеклист для безопасной конфигурации Kubernetes доступен [по ссылке](../domains/checklist#kubernetes-security).
 
+{% if product == "yandex-cloud" %}
 ## 03.03.2021 — CVE-2021-21309 — удаленное выполнение кода через уязвимость в {{ RD }}
 
 ### Описание
@@ -380,3 +403,4 @@ Hystax Acura Controller: для UDP-порта 12201 в направлении i
 ### Влияние на сервисы {{ yandex-cloud }}
 
 Данные изменения позволят повысить безопасность пользователей {{ yandex-cloud }}.
+{% endif %}

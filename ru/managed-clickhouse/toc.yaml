@@ -1,4 +1,8 @@
-title: Yandex Managed Service for ClickHouse
+title:
+  - text: Yandex Managed Service for ClickHouse
+    when: product == "yandex-cloud"
+  - text: Managed Service for ClickHouse
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Начало работы
@@ -29,12 +33,13 @@ items:
         href: operations/dictionaries.md
       - name: Подключение собственной геобазы
         href: operations/internal-dictionaries.md
-      - name: Подключение моделей машинного обучения
+      - name: Управление моделями машинного обучения
         href: operations/ml-models.md
       - name: Управление схемами формата данных
         href: operations/format-schemas.md
       - name: Подключение к DataLens
         href: operations/datalens-connect.md
+        when: product == "yandex-cloud"
       - name: Изменение версии ClickHouse
         href: operations/cluster-version-update.md
       - name: Управление хостами ZooKeeper
@@ -71,13 +76,14 @@ items:
       - name: Получение данных из RabbitMQ
         href: tutorials/fetch-data-from-rabbitmq.md
       - name: Обмен данными с Data Proc
-        when: audience != "internal"
+        when: audience != "internal" and product == "yandex-cloud"
         href: tutorials/exchange-data-with-dp.md
       - name: >-
           Настройка {{ dns-full-name }} для доступа к кластеру из других облачных сетей
         href: tutorials/dns-peering.md
       - name: Анализ логов Object Storage при помощи DataLens
         href: tutorials/storage-logs-analysis.md
+        when: product == "yandex-cloud"
       - name: Настройка кластера под Graphite
         href: tutorials/clickhouse-for-graphite.md        
   - name: Концепции
@@ -85,6 +91,7 @@ items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
       - name: Классы хостов
+        when: product == "yandex-cloud"
         items:
           - name: Действующие классы хостов
             href: concepts/instance-types.md
@@ -94,6 +101,9 @@ items:
                 href: concepts/instance-types-archive/instance-types-01062020.md
           - name: Использование устаревших классов хостов
             href: concepts/using-deprecated-instances.md
+      - name: Классы хостов
+        when: product == "cloud-il"
+        href: concepts/instance-types.md
       - name: Сеть в Managed Service for ClickHouse
         href: concepts/network.md
       - name: Квоты и лимиты
@@ -124,7 +134,7 @@ items:
     href: quotas.md
     when: audience == "internal"
   - name: Правила тарификации
-    when: audience != "internal"
+    when: product == "yandex-cloud" and audience != "internal"
     items:
       - name: Действующие правила
         href: pricing.md
@@ -136,6 +146,9 @@ items:
             href: pricing-archive/pricing-01032019.md
           - name: С 1 марта 2019 года до 1 февраля 2020 года
             href: pricing-archive/pricing-01022020.md
+  - name: Правила тарификации
+    when: product == "cloud-il"
+    href: pricing.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -152,6 +165,7 @@ items:
           path: en/_api-ref/mdb/clickhouse/toc.yaml
   - name: История изменений
     href: release-notes.md
+    when: product == "yandex-cloud"
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

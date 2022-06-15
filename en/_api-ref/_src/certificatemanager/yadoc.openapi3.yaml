@@ -947,8 +947,9 @@ components:
       properties:
         accessBindings:
           description: |-
-            Required.
             Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+
+            The maximum number of elements is 1000.
           type: array
           items:
             $ref: '#/components/schemas/AccessBinding'
@@ -999,7 +1000,7 @@ components:
             Required.
             Updates to access bindings.
 
-            Must contain at least one element.
+            The number of elements must be in the range 1-1000.
           type: array
           items:
             $ref: '#/components/schemas/AccessBindingDelta'

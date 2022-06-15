@@ -1,6 +1,6 @@
 # Подключение к хранилищу S3
 
-Вы можете подключиться к объектному хранилищу S3 из интерфейса Jupiter Notebook.
+Вы можете подключиться к объектному хранилищу S3 из интерфейса Jupyter Notebook.
 
 1. Получите ключ доступа у вашего S3-провайдера. Чтобы сделать это в {{objstorage-full-name }}:
    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md). 
@@ -9,7 +9,7 @@
 1. [Создайте секрет](secret-create.md) в формате `<идентификатор ключа>:<секретный ключ>`.
 1. Перейдите на вкладку **S3 Mounts** ![S3 Mounts](../../../_assets/datasphere/bucket.svg) и нажмите значок ![plus](../../../_assets/datasphere/jupyterlab/add.svg).
 1. В диалоговом окне заполните поля:
-   * **Endpoint** — хост хранилища. Для {{ objstorage-full-name }} это `https://storage.yandexcloud.net/`.
+   * **Endpoint** — хост хранилища. Для {{ objstorage-full-name }} это `https://{{ s3-storage-host }}/`.
    * **Bucket** — имя бакета в хранилище.
    * **Mount name** — имя бакета для использования внутри проекта {{ ml-platform-name }}. Автоматически генерируется из значения **Bucket**, но вы можете его поменять.
    * **Static access key** — ключ, созданный в п.1. 

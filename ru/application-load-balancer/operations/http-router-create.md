@@ -53,12 +53,28 @@
      ```
 
   1. Создайте виртуальный хост, указав имя HTTP-роутера и настройки виртуального хоста:
+     
+     {% if product == "yandex-cloud" %}
+     
      ```
      yc alb virtual-host create <имя виртуального хоста> \
        --http-router-name <имя HTTP-роутера> \
        --authority your-domain.foo.com \
        --modify-request-header name=Accept-Language,append=ru-RU
      ```
+     
+     {% endif %}
+ 
+     {% if product == "cloud-il" %}
+
+     ```
+     yc alb virtual-host create <имя виртуального хоста> \
+       --http-router-name <имя HTTP-роутера> \
+       --authority your-domain.foo.com \
+       --modify-request-header name=Accept-Language,append=he-IL
+     ```
+
+     {% endif %}
 
      Где:
 
@@ -68,6 +84,9 @@
        * `append` — строка, которая будет добавлена к значению заголовка.
 
      Результат:
+     
+     {% if product == "yandex-cloud" %}
+     
      ```
      name: test-virtual-host
      authority:
@@ -76,6 +95,21 @@
      - name: Accept-Language
        append: ru-RU
      ```
+     
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```
+     name: test-virtual-host
+     authority:
+     - your-domain.foo.com
+     modify_request_headers:
+     - name: Accept-Language
+       append: he-IL
+     ```
+
+     {% endif %}
 
   1. Посмотрите описание команды CLI для добавления маршрута:
      ```

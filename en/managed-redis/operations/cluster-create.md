@@ -156,6 +156,8 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
       Sample configuration file structure for creating clusters with SSL support:
 
+      {% if product == "yandex-cloud" %}
+
       ```hcl
       terraform {
         required_providers {
@@ -183,7 +185,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
         config {
           password = "<password>"
-          version  = "<Redis version>"
+          version  = "<{{ RD }} version: {{ versions.tf.str }}>"
         }
 
         resources {
@@ -207,6 +209,65 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
         v4_cidr_blocks = ["<range>"]
       }
       ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```hcl
+      terraform {
+        required_providers {
+          yandex = {
+            source = "yandex-cloud/yandex"
+          }
+        }
+      }
+
+      provider "yandex" {
+        endpoint  = "{{ api-host }}:443"
+        token     = "<static key of the service account>"
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "<availability zone>"
+      }
+
+      resource "yandex_mdb_redis_cluster" "<cluster name>" {
+        name                = "<cluster name>"
+        environment         = "<environment: PRESTABLE or PRODUCTION>"
+        network_id          = "<network ID>"
+        security_group_ids  = [ "<IDs of security groups>" ]
+        tls_enabled         = true
+        sharded             = <sharding: true or false>
+        deletion_protection = <protection from cluster deletion: true or false>
+
+        config {
+          password = "<password>"
+          version  = "<{{ RD }} version: {{ versions.tf.str }}>"
+        }
+
+        resources {
+          resource_preset_id = "<host class>"
+          disk_type_id       = "<storage type>"
+          disk_size          = <storage size in GB>
+        }
+
+        host {
+          zone      = "<availability zone>"
+          subnet_id = "<subnet ID>"
+        }
+      }
+
+      resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
+
+      resource "yandex_vpc_subnet" "<subnet name>" {
+        name           = "<subnet name>"
+        zone           = "<availability zone>"
+        network_id     = "<network ID>"
+        v4_cidr_blocks = ["<range>"]
+      }
+      ```
+
+      {% endif %}
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -253,7 +314,7 @@ If you specified security group IDs when creating a cluster, you may need to add
    Let's say we need to create a {{ RD }} cluster with the following characteristics:
 
    * Named `myredis`.
-   * Version `6.0`.
+   * Version `{{ versions.cli.latest }}`.
    * Environment `production`.
    * Network `default`.
    * With a single `hm1.nano` host in the `b0rcctk2rvtr8efcch64` subnet, the `{{ zone-id }}` availability zone, and the `{{ security-group }}` security group.
@@ -267,7 +328,7 @@ If you specified security group IDs when creating a cluster, you may need to add
    ```bash
    {{ yc-mdb-rd }} cluster create \
      --name myredis \
-     --redis-version 6.0 \
+     --redis-version {{ versions.cli.latest }} \
      --environment production \
      --network-name default \
      --resource-preset hm1.nano \
@@ -285,7 +346,7 @@ If you specified security group IDs when creating a cluster, you may need to add
    Let's say we need to create a {{ RD }} cluster and a network for it with the following characteristics:
 
    * Named `myredis`.
-   * Version `6.0`.
+   * Version `{{ versions.tf.latest }}`.
    * Environment `PRODUCTION`.
    * Cloud with the `{{ tf-cloud-id }}` ID.
    * Folder with the `{{ tf-folder-id }}` ID.
@@ -298,6 +359,8 @@ If you specified security group IDs when creating a cluster, you may need to add
    * With protection against accidental cluster deletion.
 
    The configuration file for the cluster looks like this:
+
+   {% if product == "yandex-cloud" %}
 
    ```hcl
    terraform {
@@ -325,7 +388,7 @@ If you specified security group IDs when creating a cluster, you may need to add
 
      config {
        password = "user1user1"
-       version  = "6.0"
+       version  = "{{ versions.tf.latest }}"
      }
 
      resources {
@@ -369,6 +432,83 @@ If you specified security group IDs when creating a cluster, you may need to add
    }
    ```
 
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```hcl
+   terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+   }
+
+   provider "yandex" {
+     endpoint  = "{{ api-host }}:443"
+     token     = "<static key of the service account>"
+     cloud_id  = "{{ tf-cloud-id }}"
+     folder_id = "{{ tf-folder-id }}"
+     zone      = "{{ zone-id }}"
+   }
+
+   resource "yandex_mdb_redis_cluster" "myredis" {
+     name                = "myredis"
+     environment         = "PRODUCTION"
+     network_id          = yandex_vpc_network.mynet.id
+     security_group_ids  = [ yandex_vpc_security_group.redis-sg.id ]
+     tls_enabled         = true
+     deletion_protection = true
+
+     config {
+       password = "user1user1"
+       version  = "{{ versions.tf.latest }}"
+     }
+
+     resources {
+       resource_preset_id = "{{ host-class }}"
+       disk_type_id       = "{{ disk-type-example }}"
+       disk_size          = 16
+     }
+
+     host {
+       zone      = "{{ zone-id }}"
+       subnet_id = yandex_vpc_subnet.mysubnet.id
+     }
+   }
+
+   resource "yandex_vpc_network" "mynet" { name = "mynet" }
+
+   resource "yandex_vpc_security_group" "redis-sg" {
+     name       = "redis-sg"
+     network_id = yandex_vpc_network.mynet.id
+
+     ingress {
+       description    = "Redis"
+       port           = {{ port-mrd-tls }}
+       protocol       = "TCP"
+       v4_cidr_blocks = ["10.5.0.0/24"]
+     }
+
+     egress {
+       description    = "Redis"
+       port           = {{ port-mrd-tls }}
+       protocol       = "TCP"
+       v4_cidr_blocks = ["10.5.0.0/24"]
+     }
+   }
+
+   resource  "yandex_vpc_subnet" "mysubnet" {
+     name           = "mysubnet"
+     zone           = "{{ zone-id }}"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.5.0.0/24"]
+   }
+   ```
+
+   {% endif %}
+
 {% endlist %}
 
 ### Creating sharded clusters {#creating-a-sharded-cluster}
@@ -395,6 +535,8 @@ If you specified security group IDs when creating a cluster, you may need to add
    * With protection against accidental cluster deletion.
 
    The configuration file for the cluster looks like this:
+
+   {% if product == "yandex-cloud" %}
 
    ```hcl
    terraform {
@@ -431,19 +573,19 @@ If you specified security group IDs when creating a cluster, you may need to add
      }
 
      host {
-       zone       = "ru-central1-a"
+       zone       = "{{ region-id }}-a"
        subnet_id  = yandex_vpc_subnet.subnet-a.id
        shard_name = "shard1"
      }
 
      host {
-       zone       = "ru-central1-b"
+       zone       = "{{ region-id }}-b"
        subnet_id  = yandex_vpc_subnet.subnet-b.id
        shard_name = "shard2"
      }
 
      host {
-       zone       = "ru-central1-c"
+       zone       = "{{ region-id }}-c"
        subnet_id  = yandex_vpc.subnet.subnet-c.id
        shard_name = "shard3"
      }
@@ -453,21 +595,21 @@ If you specified security group IDs when creating a cluster, you may need to add
 
    resource "yandex_vpc_subnet" "subnet-a" {
      name           = "subnet-a"
-     zone           = "ru-central1-a"
+     zone           = "{{ region-id }}-a"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.1.0.0/24"]
    }
 
    resource "yandex_vpc_subnet" "subnet-b" {
      name           = "subnet-b"
-     zone           = "ru-central1-b"
+     zone           = "{{ region-id }}-b"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.2.0.0/24"]
    }
 
    resource "yandex_vpc_subnet" "subnet-c" {
      name           = "subnet-c"
-     zone           = "ru-central1-c"
+     zone           = "{{ region-id }}-c"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.3.0.0/24"]
    }
@@ -521,5 +663,138 @@ If you specified security group IDs when creating a cluster, you may need to add
      }
    }
    ```
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```hcl
+   terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+   }
+
+   provider "yandex" {
+     endpoint  = "{{ api-host }}:443"
+     token     = "<static key of the service account>"
+     cloud_id  = "{{ tf-cloud-id }}"
+     folder_id = "{{ tf-folder-id }}"
+     zone      = "{{ zone-id }}"
+   }
+
+   resource "yandex_mdb_redis_cluster" "myredis" {
+     name                = "myredis"
+     environment         = "PRODUCTION"
+     network_id          = yandex_vpc_network.mynet.id
+     security_group_ids  = [yandex_vpc_security_group.redis-sg.id]
+     sharded             = true
+     deletion_protection = true
+
+     config {
+       password = "user1user1"
+     }
+
+     resources {
+       resource_preset_id = "{{ host-class }}"
+       disk_type_id       = "{{ disk-type-example }}"
+       disk_size          = 16
+     }
+
+     host {
+       zone       = "{{ region-id }}-a"
+       subnet_id  = yandex_vpc_subnet.subnet-a.id
+       shard_name = "shard1"
+     }
+
+     host {
+       zone       = "{{ region-id }}-b"
+       subnet_id  = yandex_vpc_subnet.subnet-b.id
+       shard_name = "shard2"
+     }
+
+     host {
+       zone       = "{{ region-id }}-c"
+       subnet_id  = yandex_vpc.subnet.subnet-c.id
+       shard_name = "shard3"
+     }
+   }
+
+   resource "yandex_vpc_network" "mynet" { name = "mynet" }
+
+   resource "yandex_vpc_subnet" "subnet-a" {
+     name           = "subnet-a"
+     zone           = "{{ region-id }}-a"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.1.0.0/24"]
+   }
+
+   resource "yandex_vpc_subnet" "subnet-b" {
+     name           = "subnet-b"
+     zone           = "{{ region-id }}-b"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.2.0.0/24"]
+   }
+
+   resource "yandex_vpc_subnet" "subnet-c" {
+     name           = "subnet-c"
+     zone           = "{{ region-id }}-c"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.3.0.0/24"]
+   }
+
+   resource "yandex_vpc_security_group" "redis-sg" {
+     name       = "redis-sg"
+     network_id = yandex_vpc_network.mynet.id
+
+     ingress {
+       description    = "Redis"
+       port           = {{ port-mrd }}
+       protocol       = "TCP"
+       v4_cidr_blocks = [
+         "10.1.0.0/24",
+         "10.2.0.0/24",
+         "10.3.0.0/24"
+       ]
+     }
+
+     egress {
+       description    = "Redis"
+       port           = {{ port-mrd }}
+       protocol       = "TCP"
+       v4_cidr_blocks = [
+         "10.1.0.0/24",
+         "10.2.0.0/24",
+         "10.3.0.0/24"
+       ]
+     }
+
+     ingress {
+       description    = "Redis Sentinel"
+       port           = {{ port-mrd-sentinel }}
+       protocol       = "TCP"
+       v4_cidr_blocks = [
+         "10.1.0.0/24",
+         "10.2.0.0/24",
+         "10.3.0.0/24"
+       ]
+     }
+
+     egress {
+       description    = "Redis Sentinel"
+       port           = {{ port-mrd-sentinel }}
+       protocol       = "TCP"
+       v4_cidr_blocks = [
+         "10.1.0.0/24",
+         "10.2.0.0/24",
+         "10.3.0.0/24"
+       ]
+     }
+   }
+   ```
+
+   {% endif %}
 
 {% endlist %}

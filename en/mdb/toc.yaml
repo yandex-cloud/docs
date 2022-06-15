@@ -1,11 +1,11 @@
 title: Yandex MDB
 href: index.yaml
 items:
-  - name: Поддержка
+  - name: Support
     href: support.md
-  - name: Доступ к базам данных
+  - name: Database access
     href: access.md
-  - name: Квоты
+  - name: Quotas
     href: quotas.md
-  - name: Внешний CLI
+  - name: External CLI
     href: cli.md

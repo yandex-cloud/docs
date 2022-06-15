@@ -1,5 +1,9 @@
 ---
-title: Yandex Managed Service for MySQL
+title:
+  - text: Yandex Managed Service for MySQL®
+    when: product == "yandex-cloud"
+  - text: Managed Service for MySQL®
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Getting started
@@ -15,13 +19,15 @@ items:
       - name: Connecting to a database
         href: operations/connect.md
       - name: Stopping and starting clusters
+        when: audience != "internal"
         href: operations/cluster-stop.md
       - name: SQL queries in the management console
         href: operations/web-sql-query.md
-      - name: Editing clusters
+      - name: Updating clusters
         href: operations/update.md
       - name: Connecting to DataLens
         href: operations/datalens-connect.md
+        when: product == "yandex-cloud"
       - name: Managing MySQL hosts
         href: operations/hosts.md
       - name: Managing databases
@@ -36,13 +42,14 @@ items:
         href: operations/cluster-delete.md
       - name: Performance diagnostics
         href: operations/performance-diagnostics.md
-      - name: Monitoring the state of a cluster and hosts
+      - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
   - name: Concepts
     items:
-      - name: Relationship between service resources
+      - name: Relationships between service resources
         href: concepts/index.md
       - name: Host classes
+        when: product == "yandex-cloud"
         items:
           - name: Active host classes
             href: concepts/instance-types.md
@@ -52,6 +59,9 @@ items:
                 href: concepts/instance-types-archive/instance-types-01062020.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
+      - name: Host classes
+        when: product == "cloud-il"
+        href: concepts/instance-types.md
       - name: Network in Managed Service for MySQL
         href: concepts/network.md
       - name: Quotas and limits
@@ -62,6 +72,8 @@ items:
         href: concepts/backup.md
       - name: Replication
         href: concepts/replication.md
+      - name: Maintenance
+        href: concepts/maintenance.md
       - name: User permissions
         href: concepts/user-rights.md
       - name: MySQL settings
@@ -72,13 +84,17 @@ items:
         href: tutorials/index.md
       - name: Performance analysis and tuning
         href: tutorials/profiling.md
-      - name: Migrating databases to {{ mmy-name }}
+      - name: Exporting databases to {{ dataproc-full-name }}
+        when: audience != "internal" and audience == "draft" and product == "yandex-cloud"
+        href: tutorials/sqoop.md
+      - name: Migrating databases to Managed Service for MySQL
         href: tutorials/data-migration.md
       - name: Migrating databases from {{ mmy-name }} to {{ MY }}
         href: tutorials/mmy-to-mysql-migration.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
+    when: product == "yandex-cloud" and audience != "internal"
     items:
       - name: Current pricing policy
         href: pricing.md
@@ -86,6 +102,9 @@ items:
         items:
           - name: Before February 1, 2020
             href: pricing-archive/pricing-01022020.md
+  - name: Pricing policy
+    when: product == "cloud-il"
+    href: pricing.md
   - name: API reference
     items:
       - name: Authentication in the API
@@ -100,6 +119,9 @@ items:
         include:
           repo: docs
           path: en/_api-ref/mdb/mysql/toc.yaml
+  - name: Revision history
+    href: release-notes.md
+    when: product == "yandex-cloud"
   - name: Questions and answers
     items:
       - name: General questions

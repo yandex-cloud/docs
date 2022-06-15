@@ -1,6 +1,6 @@
 # Как начать работать с {{ at-name }}
 
-{{ at-name }} собирает [аудитные логи](./concepts/format.md) ресурсов {{ yandex-cloud }} и загружает их в бакет {{ objstorage-name }} или в лог-группу {{ cloud-logging-name }}.
+{{ at-name }} собирает [аудитные логи](./concepts/format.md) ресурсов {{ yandex-cloud }} и загружает их в бакет {{ objstorage-name }}{% if product == "yandex-cloud" %} или в лог-группу {{ cloud-logging-name }}{% endif %}.
 
 Управление аудитными логами внутри {{ at-name }} осуществляется через [трейлы](./concepts/trail.md).
 
@@ -9,7 +9,9 @@
 ## Перед началом работы {#before-you-begin}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+{% if product == "yandex-cloud" %}
 1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+{% endif %}
 1. Убедитесь, что в вашем облаке существует бакет для хранения аудитного лога, при необходимости [создайте новый бакет](../storage/quickstart.md#the-first-bucket).
 1. Создайте сервисный аккаунт и назначьте ему роли:
     * `storage.uploader` на каталог, в котором будет находиться трейл:
@@ -57,7 +59,7 @@
 
 ### Просмотр файлов аудитных логов {#watch-log-file}
 
-{{ at-name }} создает файлы логов в формате `JSON`. 
+{{ at-name }} создает файлы логов в формате `JSON`.
 
 Получите доступ к содержимому файла аудитного лога одним из способов:
 * [Скачайте объект](../storage/operations/objects/download.md).

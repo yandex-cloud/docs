@@ -26,7 +26,11 @@ _Выделенный хост_ — физический сервер, пред�
 
 {% include [dedicated](../../_includes/compute/dedicated-quota.md) %}
 
-Выделенные хосты на платформе Intel Ice Lake (тип `intel-6338-c108-m704-n3200x6`) нельзя создавать в зоне доступности `ru-central1-c`. Подробнее см. в разделе [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
+{% if product == "yandex-cloud" %}
+
+Выделенные хосты на платформе Intel Ice Lake (тип `intel-6338-c108-m704-n3200x6`) нельзя создавать в зоне доступности `{{ region-id }}-c`. Подробнее см. в разделе [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
+
+{% endif %}
 
 ### Фрагментация физических ресурсов хоста {#resource-fragmentation}
 
@@ -96,8 +100,8 @@ yc compute host-group create \
 ```
 yc compute instance create \
   --host-group-id 1 \
-  --network-interface subnet-name=default-ru-central1-a \
-  --zone ru-central1-a
+  --network-interface subnet-name=default-{{ region-id }}-a \
+  --zone {{ region-id }}-a
 ```
 
 В этом случае ВМ будет привязана к одной из указанных групп хостов:
@@ -107,7 +111,7 @@ done (33s)
 id: abcdefghigklm12no3pq
 folder_id: a1b23cd45efg6higklmn
 created_at: "2020-09-08T20:19:41Z"
-zone_id: ru-central1-a
+zone_id: {{ region-id }}-a
 platform_id: standard-v2
 resources:
   memory: "2147483648"

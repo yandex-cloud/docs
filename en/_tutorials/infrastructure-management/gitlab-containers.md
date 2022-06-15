@@ -19,6 +19,8 @@ If you no longer need the VM and cluster, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ### Required paid resources {#paid-resources}
 
 The cost of this infrastructure includes:
@@ -26,6 +28,8 @@ The cost of this infrastructure includes:
 * A fee for using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * A fee for storing created Docker images (see [{{ container-registry-full-name }} pricing](../../container-registry/pricing.md)).
 * A fee for using the {{ k8s }} master (see [{{ managed-k8s-full-name }} pricing](../../managed-kubernetes/pricing.md)).
+
+{% endif %}
 
 ### Install additional dependencies {#prepare}
 

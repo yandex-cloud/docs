@@ -14,13 +14,9 @@ If you no longer need the NAT instance, [delete it](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -28,6 +24,8 @@ The cost of NAT instance support includes:
 
 * A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
 * A fee for using a dynamic external IP address (see [pricing {{ vpc-full-name }}](../../vpc/pricing.md)).
+
+{% endif %}
 
 ## Create a network, subnet, and test VM {#create-environment}
 
@@ -43,7 +41,7 @@ Create a VM to use for internet access.
 1. Open your folder and click **Create resource**. Select **Virtual machine**.
 1. Enter a name for the VM, for example, `nat-instance`.
 1. Select the availability zone where the `public-subnet ` subnet is located.
-1. Under **Images from {{ marketplace-name }}**, click **Select** and choose the [NAT instance]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2etqeet87jshce7o7j8){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2etqeet87jshce7o7j8){% endif %} image.
+1. Under **Images from {{ marketplace-name }}**, click **Select** and choose the [NAT instance]}(/marketplace/products/f2etqeet87jshce7o7j8) image.
 1. Under **Network settings**, choose the required network and subnet and assign a public IP to the NAT instance either automatically or by selecting it from the list.
 1. In the **Access** field, enter the login and SSH key to access the VM.
 1. Click **Create VM**.

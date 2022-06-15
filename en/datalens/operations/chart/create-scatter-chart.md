@@ -12,3 +12,5 @@ You can also:
    1. Drag a dimension or measure from the dataset to the **Color** section.
    1. Click ![](../../../_assets/datalens/gear.svg) and set new colors.
 1. Specify an additional dimension. To do this, drag a dimension to the **Points** section.
+
+Learn more about chart sections in [{#T}](../../concepts/chart/types.md#scatter-chart).

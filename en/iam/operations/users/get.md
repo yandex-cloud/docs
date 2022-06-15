@@ -3,16 +3,19 @@
 You can get the following information about any registered {{ yandex-cloud }} user:
 * ID
 * Login
+{% if product == "yandex-cloud" %}
 * Email (only via the CLI and API)
+{% endif %}
 
 {% list tabs %}
 
 - Management console
 
    1. Log in to the [management console]({{ link-console-main }}).
-   1. [Select the desired cloud](../../../resource-manager/operations/cloud/switch-cloud.md).
-   1. Go to [Access bindings in cloud](https://console.cloud.yandex.com/cloud?section=resource-acl) (the **Access bindings** button in the left panel).
+   2. [Select the desired cloud](../../../resource-manager/operations/cloud/switch-cloud.md).
+   3. Go to [Access bindings in cloud]({{ link-console-cloud }}?section=resource-acl) (the **Access bindings** button in the left panel).
 
+{% if product == "yandex-cloud" %}
 - CLI
 
    1. See the description of the get user information command:
@@ -41,5 +44,5 @@ You can get the following information about any registered {{ yandex-cloud }} us
    Get information about the user (the [UserAccount](../../api-ref/UserAccount/index.md)):
    * If you know the user's login, use the [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md) method for the [YandexPassportUserAccount](../../api-ref/YandexPassportUserAccount/index.md) resource.
    * If you know the user's ID, use the [get](../../api-ref/UserAccount/get.md) method for the [UserAccount](../../api-ref/UserAccount/index.md) resource.
-
+{% endif %}
 {% endlist %}

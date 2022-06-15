@@ -1,21 +1,29 @@
 ---
-title: Инструкции по работе с Yandex Managed Service for Kubernetes
-description: "Из статьи вы узнаете, как работать с управляемым сервисом Kubernetes в Yandex Cloud. Рассказываем, как работать с постоянными томами, управлять группой узлов и кластером Kubernetes."
+title: Инструкции по работе с {{ managed-k8s-full-name }}
+description: "Из статьи вы узнаете, как работать с управляемым сервисом {{ k8s }} в {{ yandex-cloud }}. Рассказываем, как работать с постоянными томами, управлять группой узлов и кластером {{ k8s }}."
 ---
 
 # Все инструкции
 
-* [{#T}](security-groups.md)
 * [{#T}](node-connect-ssh.md)
-* [{#T}](create-static-conf.md)
 * [{#T}](update-kubernetes.md)
 * [{#T}](autoscale.md)
+
+## Подключение к кластеру {#cluster-connect}
+
+* [{#T}](connect/index.md)
+* [{#T}](connect/security-groups.md)
+* [{#T}](connect/create-static-conf.md)
+
+{% if product == "yandex-cloud" %}
 
 ## Установка приложений {#marketplace}
 
 * [{#T}](applications/marketplace.md)
 * [{#T}](applications/jaeger.md)
 * [{#T}](applications/metrics-provider.md)
+
+{% endif %}
 
 ## Сетевые сценарии {#network-scenarios}
 
@@ -36,7 +44,6 @@ description: "Из статьи вы узнаете, как работать с 
 
 ## Управление кластером {{ k8s }} {#kubernetes-cluster}
 
-* [{#T}](kubernetes-cluster/kubernetes-cluster-get-credetials.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-list.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-update.md)
@@ -47,10 +54,16 @@ description: "Из статьи вы узнаете, как работать с 
 
 * [{#T}](node-group/node-group-list.md)
 * [{#T}](node-group/node-group-create.md)
+* [{#T}](node-connect-ssh.md)
+* [{#T}](autoscale.md)
 * [{#T}](node-group/node-group-update.md)
 * [{#T}](node-group/node-label-management.md)
 * [{#T}](node-group/node-group-delete.md)
 
+{% if product == "yandex-cloud" %}
+
 ## Работа с внешними узлами {#external-nodes}
 
 * [{#T}](external-nodes-connect.md)
+
+{% endif %}

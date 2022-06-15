@@ -57,11 +57,7 @@
 
 Приводим работу с таймзонами в порядок в рамках [тикета](https://st.yandex-team.ru/BI-1478).
 
-{% include [csv-rows-display.md](../_includes/datalens/qa/csv-rows-display.md) %}
-
-{% include [csv-long-loading.md](../_includes/datalens/qa/csv-long-loading.md) %}
-
-{% include [csv-network-error](../_includes/datalens/qa/csv-network-error.md) %}
+{% include [csv-file-rows-display.md](../_includes/datalens/qa/csv-file-rows-display.md) %}
 
 ### Как подключиться к внешней базе данных? {#connect-external-db}
 
@@ -109,7 +105,7 @@
 ### Как отобразить новые данные при обновлении таблицы источника CHYT? {#new-data-in-chyt-table}
 
 1. Нажать кнопку **Обновить поля** в датасете.
-1. Если в исходных данных range и добавлены колонки только в последних, то стоит отметить, что chyt сам берёт пересечение множеств колонок по всему range (уточнение спросить у Антона Васильева). Обсуждение в [Telegram](https://t.me/c/1068660824/45777).
+1. Если в исходных данных range и добавлены колонки только в последних, то стоит отметить, что CHYT сам берёт пересечение множеств колонок по всему range. Обсуждение в [Telegram](https://t.me/c/1068660824/45777).
 
 ### Некорректно отображаются символы кириллицы в датасете {#incorrect-cyrillic-symbols}
 
@@ -183,6 +179,8 @@
 Не поддерживается. См. подробнее вопрос [Как создать вычисляемое поле (формулу) в подключении Statface Report или (App)Metrica API?](#how-to-create-calculated-fields)
 
 {% include [how-to-calculate-cumulative-sum](../_includes/datalens/qa/calculating-cumulative-sum.md) %}
+
+{% include [calculate-ifnull-zn-nan](../_includes/datalens/qa/calculating-ifnull-zn-nan.md) %}
 
 ## Дашборды {#dashboards}
 

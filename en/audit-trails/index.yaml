@@ -1,29 +1,63 @@
-title: Yandex Audit Trails
+title:
+  - text: Yandex Audit Trails
+    when: product == "yandex-cloud"
+  - text: Audit Trails
+    when: product == "cloud-il"
 description:
-  - >-
-    <em>Audit Trails is currently at the <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
-  - >-
-    Yandex Audit Trails is a service that collects and uploads audit logs from Yandex Cloud resources.
-    It lets you use analytical tools and rapidly respond to events occurring to Yandex Cloud resources.
+  - text: >-
+      <em>Audit Trails is currently at the <a
+      href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
+    when: product == "yandex-cloud"
+  - text: >-
+      Yandex Audit Trails is a service that collects and uploads audit logs from Yandex Cloud resources.
+      It lets you use analytical tools and rapidly respond to events occurring to Yandex Cloud resources.
+    when: product == "yandex-cloud"
+  - text: >-
+      Audit Trails is a service that collects and uploads audit logs from CloudIL resources.
+      It lets you use analytical tools and rapidly respond to events occurring to CloudIL resources.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Audit Trails
+  title:
+    - text: Yandex Audit Trails
+      when: product == "yandex-cloud"
+    - text: Audit Trails
+      when: product == "cloud-il"
 links:
   - title: Getting started
     description: Add the service
     href: quickstart
+    when: product == "yandex-cloud"
+  - title: Getting started
+    description: Add the service
+    href: quickstart.html
+    when: product == "cloud-il"
   - title: Concepts
     description: Learn about the concepts and features of the service
-    href: concepts/index
+    href: concepts/
   - title: Event reference
     description: Description of service events
     href: concepts/events
+    when: product == "yandex-cloud"
+  - title: Event reference
+    description: Description of service events
+    href: concepts/events.html
+    when: product == "cloud-il"
   - title: Searching events
     description: Searching events in the audit log
     href: tutorials/search-bucket
+    when: product == "yandex-cloud"
+  - title: Searching events
+    description: Searching events in the audit log
+    href: tutorials/search-bucket.html
+    when: product == "cloud-il"
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits
+    when: product == "yandex-cloud"
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing

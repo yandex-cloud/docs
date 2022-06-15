@@ -1,5 +1,15 @@
 # Deleting a cloud
 
+{% if product == "cloud-il" %}
+
+{% note info %}
+
+At the [Preview](../../../overview/concepts/launch-stages.md) stage, there is a restriction: only 1 organization and 1 cloud are available.
+
+{% endnote %}
+
+{% endif %}
+
 To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role to the cloud. If you are unable to do this, please contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
 
 {% list tabs %}

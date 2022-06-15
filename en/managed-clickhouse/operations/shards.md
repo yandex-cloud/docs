@@ -42,6 +42,8 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
 
    Where:
 
+   {% if audience != "internal" %}
+
    * `<new shard name>`: Must be unique in a cluster.
       May contain Latin letters, numbers, hyphens, and underscores. The maximum length is 63 characters.
    * `--cluster-name` is the name of a cluster.
@@ -49,6 +51,18 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
    * `--host`: Host parameters:
       * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet).
+
+   {% else %}
+
+   * `<new shard name>`: Must be unique in a cluster.
+      May contain Latin letters, numbers, hyphens, and underscores. The maximum length is 63 characters.
+   * `--cluster-name` is the name of a cluster.
+      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * `--host`: Host parameters:
+      * `zone-id`: Availability zone.
+      * `subnet-name`: Name of the subnet.
+
+   {% endif %}
 
 - Terraform
 
@@ -84,7 +98,7 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [Terraform provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+   For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
 - API
 
@@ -167,7 +181,7 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
       Where:
 
       * `<shard name>`: Can be requested with a [list of shards in a cluster](#list-shards).
-      * `--cluster-name` is the name of a  cluster.
+      * `--cluster-name` is the name of a cluster.
          The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
       * `--weight`: Shard weight. The minimum value is `0`.
 
@@ -207,10 +221,10 @@ When you delete a shard, all tables and data that are saved on that shard are de
 
    ```bash
    {{ yc-mdb-ch }} shards delete <shard name> \
-      --cluster-name=<cluster name>
+     --cluster-name=<cluster name>
    ```
 
-   You can request a shard name with a [list of cluster shards](#list-shards) and a cluster name with a [list of clusters in a folder](cluster-list.md#list-clusters).
+   You can request the shard name with a [list of cluster shards](#list-shards) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
 
@@ -228,7 +242,7 @@ When you delete a shard, all tables and data that are saved on that shard are de
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [Terraform provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+   For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
 - API
 

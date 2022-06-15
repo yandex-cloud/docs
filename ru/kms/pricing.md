@@ -4,6 +4,14 @@ editable: false
 
 # Правила тарификации для {{ kms-full-name }}
 
+{% if product == "cloud-il" %}
+
+На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ kms-name }} не тарифицируется.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 Расчет стоимости использования {{ kms-name }} складывается из:
 * Количества активных версий ключа — версий в статусе `Active` и `Scheduled For Destruction`.
 
@@ -32,5 +40,7 @@ editable: false
 {% if region == "int"%}
 
 {% include [usd.md](../_pricing/kms/usd.md) %}
+
+{% endif %}
 
 {% endif %}

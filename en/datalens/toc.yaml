@@ -147,7 +147,7 @@ items:
             href: operations/chart/create-area-chart.md
           - name: Creating a pie chart
             href: operations/chart/create-pie-chart.md
-          - name: Creating a ring chart
+          - name: Creating a donut chart
             href: operations/chart/create-ring-chart.md
           - name: Creating a column chart
             href: operations/chart/create-column-chart.md

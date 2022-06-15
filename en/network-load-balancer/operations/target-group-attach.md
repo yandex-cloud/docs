@@ -33,15 +33,33 @@
 
       Result:
 
+      {% if product == "yandex-cloud" %}
+
       ```
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       ...
-      | b7r97ah2jn5rmo6k1dsk | test-load-balancer | ru-central1 | EXTERNAL |              1 |                        | INACTIVE |
+      | b7r97ah2jn5rmo6k1dsk | test-load-balancer | {{ region-id }} | EXTERNAL |              1 |                        | INACTIVE |
       ...
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```
+      +----------------------+--------------------+-----------+----------+----------------+------------------------+----------+
+      |          ID          |        NAME        | REGION ID |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
+      +----------------------+--------------------+-----------+----------+----------------+------------------------+----------+
+      ...
+      | b7r97ah2jn5rmo6k1dsk | test-load-balancer | il1       | EXTERNAL |              1 |                        | INACTIVE |
+      ...
+      +----------------------+--------------------+-----------+----------+----------------+------------------------+----------+
+      ```
+
+      {% endif %}
 
    1. Get a list of target groups:
 
@@ -51,15 +69,33 @@
 
       Result:
 
+      {% if product == "yandex-cloud" %}
+
       ```
       +----------------------+-------------------+---------------------+-------------+--------------+
       |          ID          |       NAME        |       CREATED       |  REGION ID  | TARGET COUNT |
       +----------------------+-------------------+---------------------+-------------+--------------+
       ...
-      | b7roi767je4c574iivrk | test-target-group | 2018-12-03 14:41:04 | ru-central1 |            1 |
+      | b7roi767je4c574iivrk | test-target-group | 2018-12-03 14:41:04 | {{ region-id }} |            1 |
       ...
       +----------------------+-------------------+---------------------+-------------+--------------+
       ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```
+      +----------------------+-------------------+---------------------+-----------+--------------+
+      |          ID          |       NAME        |       CREATED       | REGION ID | TARGET COUNT |
+      +----------------------+-------------------+---------------------+-----------+--------------+
+      ...
+      | b7roi767je4c574iivrk | test-target-group | 2018-12-03 14:41:04 | il1       |            1 |
+      ...
+      +----------------------+-------------------+---------------------+-----------+--------------+
+      ```
+
+      {% endif %}
 
    1. Select the `ID` or `NAME` of the required load balancer and target group.
    1. Attach the appropriate group to the selected load balancer by specifying the health check settings in the corresponding command parameters:

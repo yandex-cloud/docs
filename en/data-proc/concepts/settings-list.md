@@ -55,7 +55,7 @@ The following settings are available for Apache Spark:
 | :---------------------------------- | :-------------------------------------------------------- | :----------------------------------------------------------------------------------- |
 | `fs.s3a.access.key`                | —                                                        | [Static key](../../iam/concepts/authorization/access-key.md) ID  |
 | `fs.s3a.secret.key`                | —                                                        | Secret key                                                                      |
-| `fs.s3a.endpoint`                  | `storage.yandexcloud.net`                                | Endpoint to connect to {{ objstorage-name }}                                    |
+| `fs.s3a.endpoint`                  | `{{ s3-storage-host }}`                                | Endpoint to connect to {{ objstorage-name }}                                    |
 | `fs.s3a.signing-algorithm` | Empty value                                          | Signature algorithm                                                                    |
 | `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Credentials provider                                                            |
 

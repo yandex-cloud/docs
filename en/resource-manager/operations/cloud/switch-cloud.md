@@ -1,5 +1,7 @@
 # Switch clouds
 
+{% if product == "yandex-cloud" %}
+
 {% note info %}
 
 In the [management console]({{ link-console-main }}), you can select the interface of navigating resources and services. To switch to another navigation mode: in the account information section, click ![image](../../../_assets/settings.svg), then select ![image](../../../_assets/experiments.svg) **Experiments** and enable **New navigation**.
@@ -22,9 +24,24 @@ In the [management console]({{ link-console-main }}), you can select the interfa
 
       ![image](../../../_assets/resource-manager/switch-cloud-n-n.png)
 
-{% endlist %}
+{% endif %}
+{% if product == "cloud-il" %}
+
+{% note info %}
+
+At the [Preview](../../../overview/concepts/launch-stages.md) stage, there is a restriction: only 1 organization and 1 cloud are available.
+
+{% endnote %}
 
 {% list tabs %}
+
+- Management console
+
+  In the [management console]({{ link-console-main }}), select the appropriate cloud or folder in the list on the left.
+
+  ![image](../../../_assets/resource-manager/switch-cloud-n-n.png)
+
+{% endif %}
 
 - CLI
 

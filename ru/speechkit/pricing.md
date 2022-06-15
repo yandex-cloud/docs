@@ -4,6 +4,14 @@ editable: false
 
 # Правила тарификации для {{ speechkit-name }}
 
+{% if product == "cloud-il" %}
+
+На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ speechkit-name }} не тарифицируется.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 ## Из чего складывается стоимость использования {{ speechkit-short-name }} {#rules}
@@ -22,18 +30,11 @@ editable: false
 
 #### Потоковый режим распознавания {#rules-stt-streaming}
 
-{% if audience == "test" %}
-
-Стоимость [потокового распознавания](stt/streaming.md) зависит от версии используемого API.
-
-Единица тарификации при использовании {{ speechkit-name }} [API v3](v3/api-ref/grpc/index.md) — запрос к модели. Стоимость рассчитывается за календарный месяц ([Отчетный период](../billing/concepts/glossary#period)).
-{% endif %}
-
-Стоимость использования {{ speechkit-name }} [API v2](stt/api/streaming-api.md) рассчитывается по [правилам тарификации синхронного распознавания](#rules-stt-short).
+Стоимость использования {{ speechkit-name }} в режиме потокового распознавания рассчитывается по [правилам тарификации синхронного распознавания](#rules-stt-short).
 
 #### Синхронное распознавание {#rules-stt-short}
 
-Эти правила действуют при использовании [синхронного распознавания](stt/request.md) и распознавания [в потоковом режиме](stt/streaming.md) при использовании API v2.
+Эти правила действуют при использовании [синхронного распознавания](stt/request.md) и распознавания [в потоковом режиме](stt/streaming.md) при использовании API v2 и API v3.
 
 Единица тарификации — отрезок одноканального аудио длительностью 15 секунд. Отрезки меньшей длительности округляются в большую сторону (1 секунда превращается в 15 секунд).
 
@@ -74,12 +75,6 @@ editable: false
 ## Цены {#prices}
 
 ### Синтез речи {#prices-tts}
-
-{% note warning %}
-
-С 13 апреля 2022 года использование голосов `oksana`, `ermil`, `jane`, `omazh`, `zahar` рассчитывается по ценам премиум-голосов.
-
-{% endnote %}
 
 {% if region == "ru"%}
 
@@ -156,5 +151,7 @@ editable: false
 {% if region == "int"%}
 
 {% include [usd.md](../_pricing/speechkit/usd-stt.md) %}
+
+{% endif %}
 
 {% endif %}

@@ -4,6 +4,14 @@ editable: false
 
 # Правила тарификации для {{ ml-platform-name }}
 
+{% if product == "cloud-il" %}
+
+На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ ml-platform-name }} не тарифицируется.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 ## Из чего складывается стоимость использования {{ ml-platform-name }} {#rules}
 
 При работе с платформой {{ ml-platform-name }} вы платите за использование вычислительных ресурсов — посекундно тарифицируется время вычисления или работы инстансов.
@@ -201,5 +209,7 @@ g2.8 | 928
 Услуга | Цена за единицу тарификации,<br>вкл. НДС
 --- | ---
 [Разметка аудио](tutorials/markup.md) | {{ sku|KZT|ai.speech.transcribe.human.v1|string }}
+
+{% endif %}
 
 {% endif %}

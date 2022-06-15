@@ -24,15 +24,11 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед тем, как разворачивать серверы, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
-
-{% include [prepare-register-billing](../includes/prepare-register-billing.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 {% include [ms-additional-data-note](../includes/ms-additional-data-note.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака]{% if lang == "ru" %}(https://console.cloud.yandex.ru/cloud){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/cloud){% endif %}.
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -41,6 +37,8 @@
 * плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамических или статических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+
+{% endif %}
 
 ## Создайте облачную сеть и подсети {#create-network}
 
@@ -72,7 +70,7 @@
 
    {% endlist %}
 
-2. Создайте три подсети в сети `my-network`:
+2. Создайте подсеть в сети `my-network`:
 
    {% list tabs %}
 
@@ -82,34 +80,20 @@
        1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать подсеть.
        1. Нажмите на имя облачной сети.
        1. Нажмите кнопку **Добавить подсеть**.
-       1. Заполните форму: введите имя подсети `my-subnet-a`, выберите зону доступности `ru-central1-a` из выпадающего списка.
+       1. Заполните форму: введите имя подсети `my-subnet-a`, выберите зону доступности `{{ region-id }}-a` из выпадающего списка.
        1. Введите CIDR подсети: IP-адрес и маску подсети: `10.1.0.0/16`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
        1. Нажмите кнопку **Создать подсеть**.
 
-       Повторите шаги еще для двух подсетей `my-subnet-b` и `my-subnet-c` в зонах доступности `ru-central1-b` и `ru-central1-c` с CIDR `10.2.0.0/16` и `10.3.0.0/16` соответственно.
-
      - CLI
 
-       Чтобы создать подсети, выполните команды:
+       Чтобы создать подсеть, выполните команду:
 
        ```
        yc vpc subnet create \
          --name my-subnet-a \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --network-name my-network \
          --range 10.1.0.0/16
-
-       yc vpc subnet create \
-         --name my-subnet-b \
-         --zone ru-central1-b \
-         --network-name my-network \
-         --range 10.2.0.0/16
-
-       yc vpc subnet create \
-         --name my-subnet-c \
-         --zone ru-central1-c \
-         --network-name my-network \
-         --range 10.3.0.0/16
        ```
 
    {% endlist %}
@@ -143,7 +127,7 @@
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `my-rds-vm`.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
+  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
   1. В блоке **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ **Windows RDS**.
   1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
   1. В блоке **Вычислительные ресурсы**:
@@ -166,7 +150,7 @@
       --hostname my-rds-vm \
       --memory 8 \
       --cores 4 \
-      --zone ru-central1-a \
+      --zone {{ region-id }}-a \
       --network-interface subnet-name=my-subnet-a,ipv4-address=10.1.0.3,nat-ip-version=ipv4 \
       --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk-rds-5 \
       --metadata-from-file user-data=setpass

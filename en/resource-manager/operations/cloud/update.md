@@ -2,6 +2,8 @@
 
 To be able to rename a cloud, you must have the [`editor`](../../../iam/concepts/access-control/roles.md#editor) role or a higher role in that cloud. You can't rename a suspended cloud. If you can't do this, please contact the cloud [administrator](../../../iam/concepts/access-control/roles.md#admin) or [owner](../../concepts/resources-hierarchy.md#owner).
 
+{% if product == "yandex-cloud" %}
+
 {% note info %}
 
 In the [management console]({{ link-console-main }}), you can select the interface of navigating resources and services. To switch to another navigation mode: in the account information section, click ![image](../../../_assets/settings.svg), then select ![image](../../../_assets/experiments.svg) **Experiments** and enable **New navigation**.
@@ -24,6 +26,16 @@ In the [management console]({{ link-console-main }}), you can select the interfa
    1. Click **Save**.
 
 - New navigation
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% list tabs %}
+
+- Management console
+
+{% endif %}
 
    1. In the [management console]({{ link-console-main }}), select the cloud from the list on the left.
    1. Click  ![***](../../../_assets/pencil.svg) **Edit** in the upper-right corner.

@@ -14,13 +14,9 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Перед тем, как разворачивать сервер, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака](https://console.cloud.yandex.ru/cloud).
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -30,6 +26,8 @@
 1. Плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 1. Плата за постоянно запущенный кластер {{ mmy-name }} (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md));
 1. Плата за сервис {{ data-transfer-name }} (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing)).
+
+{% endif %}
 
 ## Создайте ВМ с интернет-магазином {#create-vm-mysql}
 
@@ -53,8 +51,8 @@
       ```bash
       yc compute instance create \
          --name magento \
-         --zone ru-central1-a \
-         --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+         --zone {{ region-id }}-a \
+         --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
          --hostname ya-sample-store \
          --use-boot-disk disk-name=web-store-lab-dataplatform \
          --ssh-key ~/.ssh/id_rsa.pub
@@ -99,8 +97,8 @@
 1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера.
 1. В блоке **Хосты** выберите параметры хостов БД, создаваемых вместе с кластером:
 
-   * Зона доступности — `ru-central1-a`.
-   * Подсеть — `default-ru-central1-a`.
+   * Зона доступности — `{{ region-id }}-a`.
+   * Подсеть — `default-{{ region-id }}-a`.
 
 1. Нажмите кнопку **Создать кластер**.
 Подробнее о создании кластера см. раздел [Как начать работать с {{ mmy-short-name }}](../../managed-mysql/quickstart.md#cluster-create.md).

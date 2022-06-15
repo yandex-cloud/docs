@@ -1,6 +1,6 @@
 ---
-title: "Relationship of resources of the Yandex Managed Service for PostgreSQL"
-description: "The main entity operated by the Managed Service for PostgreSQL is a database cluster. Each cluster consists of one or more database hosts - virtual machines with deployed DBMS servers. Cluster hosts can be located in different availability zones. A cluster of several hosts automatically fault tolerant - one of the replica hosts will take over the role of master if the current master host fails."
+title: "Relationship of resources of the {{ mpg-full-name }}"
+description: "The main entity operated by the {{ mpg-full-name }} is a database cluster. Each cluster consists of one or more database hosts - virtual machines with deployed DBMS servers. Cluster hosts can be located in different availability zones. A cluster of several hosts automatically fault tolerant - one of the replica hosts will take over the role of master if the current master host fails."
 ---
 
 # Relationships between resources in {{ mpg-name }}
@@ -11,7 +11,7 @@ Each cluster consists of one or more _database hosts_, which are virtual machine
 
 * A cluster with multiple hosts features automatic failover: one of the replica hosts becomes the master if the current master host is down.
 
-  A replica that explicitly specifies the source of the replication thread can't take the master role. For more information, see [{#T}](replication.md).
+   A replica that explicitly specifies the source of the replication thread can't take the master role. For more information, see [{#T}](replication.md).
 
 * A single-host cluster is cheaper, but it doesn't guarantee fault tolerance.
 
@@ -21,7 +21,9 @@ A cluster's computing capacity depends on its _host class_, which is the virtual
 
 An _Odyssey pooler_ is built into the service architecture to manage connections and to balance a cluster's load. For more information, see [{#T}](pooling.md).
 
-{% if audience != "internal" %} A database cluster created in a folder can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/). {% endif %}
+{% if audience != "internal" %}
+A database cluster created in a folder can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/).
+{% endif %}
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
 

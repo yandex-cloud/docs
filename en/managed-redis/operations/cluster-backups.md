@@ -82,11 +82,11 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
       This results in a new {{ RD }} cluster with the following characteristics:
 
-      - With the `mynewrd` name.
-      - In the `PRODUCTION` environment.
-      - In the `default` network.
-      - With a single host of the `hm1.nano` class in the `b0rcctk2rvtr8efcch63` subnet and the `ru-central1-c` availability zone.
-      - With 10 GB of SSD network storage (`{{ disk-type-example }}`).
+      * With the `mynewrd` name.
+      * In the `PRODUCTION` environment.
+      * In the `default` network.
+      * With a single host of the `hm1.nano` class in the `b0rcctk2rvtr8efcch63` subnet and the `ru-central1-c` availability zone.
+      * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
 
 {% endlist %}
 
@@ -147,7 +147,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of {{ MG }} cluster backups available in the default folder, run the command:
+   To get a list of {{ RD }} cluster backups available in the default folder, run the command:
 
    ```
    {{ yc-mdb-rd }} backup list

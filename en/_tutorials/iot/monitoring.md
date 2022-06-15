@@ -26,15 +26,11 @@ To configure monitoring of sensor readings in the server room:
 
 ## Before you start {#before-you-begin}
 
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
 If you don't have the {{ yandex-cloud }} command line interface yet, [install and initialize it](../../cli/quickstart.md#install).
 
-Make sure the billing account is active:
-
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder on the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -42,6 +38,8 @@ The cost includes:
 * Fee for the number of {{ iot-full-name }} messages (see [pricing](../../iot-core/pricing.md)).
 * Fee for the number of {{ sf-full-name }} function calls (see [pricing](../../functions/pricing.md)).
 * Fee for logging user metrics via the {{ monitoring-full-name }} service API (see [pricing](../../monitoring/pricing.md)).
+
+{% endif %}
 
 ## Create the necessary resources {{ iot-short-name }} {#resources-step}
 
@@ -443,7 +441,7 @@ To create an alert:
 1. In the **Name** field, enter a name for the channel. For example, `my-message-channel`.
 1. In the **Method** list, select **Email**.
 
-   You can also set up SMS notifications.
+   {% if product == "yandex-cloud" %}You can also set up SMS notifications.{% endif %}
 
 1. In the **Recipients** list, select an account.
 

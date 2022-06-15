@@ -22,7 +22,7 @@ Depending on the number of broker hosts in the cluster, {{ ZK }} is automaticall
 * If the {{ KF }} cluster consists of one broker host, {{ ZK }} is hosted on the same host.
 * If the {{ KF }} cluster consists of two or more hosts, {{ ZK }} is hosted separately from brokers on three additional hosts. These hosts are added to the cluster automatically.
 
-You can't delete {{ ZK }} hosts. The number of {{ ZK }} hosts is constant. {{ mkf-name }} uses {{ ZK }} to store cluster states and configurations.
+You can't delete {{ ZK }} hosts. The number of {{ZK}} hosts is constant. {{ mkf-name }} uses {{ ZK }} to store cluster states and configurations.
 
 You can change the {{ ZK }} host parameters using the [CLI](../operations/cluster-update.md).
 
@@ -41,7 +41,7 @@ VMs corresponding to cluster hosts can be hosted:
 
    These are physical servers for hosting cluster VMs. They are randomly selected from a pool of available hosts that meet the selected cluster configuration.
 
-{% if audience != "internal" %}
+{% if product == "yandex-cloud" and audience != "internal" %}
 
 * On {{ yandex-cloud }} *dedicated hosts*.
 

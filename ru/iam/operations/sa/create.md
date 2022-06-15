@@ -63,7 +63,7 @@
           "name": "my-robot",
           "description": "this is my favorite service account"
       }' \
-      https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts
+      https://iam.{{ api-host }}/iam/v1/serviceAccounts
   ```
 
 {% endlist %}

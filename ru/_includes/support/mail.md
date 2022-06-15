@@ -1,0 +1,1 @@
+Для обращения отправьте письмо по электронной почте [{{ link-support-mail }}](mailto:{{ link-support-mail }}).

@@ -1,12 +1,30 @@
 # Политика распределения
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 При создании группы виртуальных машин можно выбрать в каких регионах, зонах доступности {{ yandex-cloud }} будут размещаться виртуальные машины.
 
 Регион — это определенное географическое расположение, в котором можно развертывать виртуальные машины. Каждый регион имеет одну или несколько зон. На данный момент доступен только один регион. [Подробнее о географии {{ yandex-cloud }}](../../../../overview/concepts/geo-scope.md).
 
+{% if product == "yandex-cloud" %}
+
 Регион | Зоны | Географическая привязка
 ----- | ----- | -----
-`ru-central1` | `ru-central1-a`<br/>`ru-central1-b`<br/>`ru-central1-c` | Владимирская, Московская и Рязанская области.
+`{{ region-id }}` | `{{ region-id }}-a`<br/>`{{ region-id }}-b`<br/>`{{ region-id }}-c` | Владимирская, Московская и Рязанская области.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+Регион | Зоны | Географическая привязка
+----- | ----- | -----
+`{{ region-id }}` | `{{ region-id }}-a` | Израиль, Тират-Кармель
+
+{% endif %}
 
 Переместить виртуальные машины в другие зоны доступности невозможно, но вы можете [обновить группу](../../../operations/instance-groups/deploy/rolling-update.md) с новыми значениями зон.
 
@@ -18,9 +36,9 @@
 ...
 allocation_policy:
     zones:
-        - zone_id: ru-central1-a
-        - zone_id: ru-central1-b
-        - zone_id: ru-central1-c
+        - zone_id: {{ region-id }}-a
+        - zone_id: {{ region-id }}-b
+        - zone_id: {{ region-id }}-c
 ...
 ```
 

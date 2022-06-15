@@ -16,9 +16,9 @@
 
 Тип названия | Пример
 ----- | -----
-Полное название продукта | Yandex Compute Cloud
-Сокращенное название | Compute Cloud
-Русскоязычное название для юридических документов | Сервис облачных вычислений (Yandex Compute Cloud)
+Полное название продукта | {{ compute-full-name }}
+Сокращенное название | {{ compute-name }}
+Русскоязычное название для юридических документов | Сервис облачных вычислений ({{ compute-full-name }})
 Название API (используется в URL документации, в доменном имени) | compute
 Путь в репозитории | yandex/cloud/compute/v1/
 Название пакета в .proto | compute
@@ -27,13 +27,13 @@
 ## Доменные имена
 
 Доменные имена для сервисов соответсвуют спецификации [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)
-и образуются по схеме \<service>.api.cloud.yandex.net. Например, для сервиса
-Yandex Compute Cloud домен будет следующим: compute.api.cloud.yandex.net.
+и образуются по схеме \<service>.{{ api-host }}. Например, для сервиса
+{{ compute-full-name }} домен будет следующим: compute.{{ api-host }}.
 
 ## Именование пакетов
 
 Названия пакетов задаются в .proto-файлах и образуются по схеме yandex.cloud.\<service>.\<version>.
- Например, пакет Yandex Compute Cloud:
+ Например, пакет {{ compute-full-name }}:
 
 >```
 >package yandex.cloud.compute.v1;

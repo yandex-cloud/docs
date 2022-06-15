@@ -2,11 +2,24 @@ title: Yandex Cloud Interconnect
 href: index.yaml
 items:
   - name: Концепции
+    expanded: true
     items:
       - name: Обзор
         href: concepts/index.md
+      - name: Уровни взаимодействия
+        items:
+          - name: Физический стык (L1)
+            href: concepts/l1-physical.md
+          - name: Транковое подключение (L2)
+            href: concepts/l2-trunk.md
+          - name: IP- и BGP-связность (L3)
+            href: concepts/l3-ip-bgp.md
       - name: Маршрутизация
         href: concepts/routing.md
+      - name: Подерживаемые типы оптических трансиверов
+        href: concepts/transceivers.md
+      - name: Точки присутствия
+        href: concepts/points-of-presence.md
       - name: Пользовательские метрики
         href: concepts/user-metrics.md
       - name: Квоты и лимиты

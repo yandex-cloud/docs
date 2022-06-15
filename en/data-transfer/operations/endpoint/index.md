@@ -10,10 +10,10 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. Click **Create endpoint**.
-   1. In the **Direction **field, select **Source** or **Target**.
+   1. In the **Direction** field, select **Source** or **Target**.
    1. Enter a name for the endpoint. Use lowercase Latin letters and numbers.
    1. (Optional) Enter a description of the endpoint.
-   1. In the **Database **type field, select the appropriate value. An endpoint of the corresponding type will be created.
+   1. In the **Database** type field, select the appropriate value. An endpoint of the corresponding type will be created.
    1. Set the endpoint parameters:
       * Sources:
          * [{{ KF }}](source/kafka.md).
@@ -23,14 +23,19 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ MY }}](source/mysql.md).
          * [Oracle](source/oracle.md).
          * [{{ PG }}](source/postgresql.md).
+            {% if product == "yandex-cloud" %}
          * [{{ yds-full-name }}](source/data-streams.md).
+            {% endif %}
       * Targets:
          * [{{ CH }}](target/clickhouse.md).
+         * [{{ GP }}](target/greenplum.md).
          * [{{ MG }}](target/mongodb.md).
          * [{{ MY }}](target/mysql.md).
          * [{{ objstorage-name }}](target/object-storage.md).
          * [{{ PG }}](target/postgresql.md).
-         * [{{ ydb-name }}](target/yandex-database.md)
+            {% if product == "yandex-cloud" %}
+         * [{{ ydb-name }}](target/yandex-database.md).
+            {% endif %}
 
    1. Click **Create**.
 
@@ -174,14 +179,19 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ MG }}](source/mongodb.md).
          * [{{ MY }}](source/mysql.md).
          * [{{ PG }}](source/postgresql.md).
+            {% if product == "yandex-cloud" %}
          * [{{ yds-name }}](source/data-streams.md).
+            {% endif %}
       * Targets:
          * [{{ CH }}](target/clickhouse.md).
+         * [{{ GP }}](target/greenplum.md).
          * [{{ MG }}](target/mongodb.md).
          * [{{ MY }}](target/mysql.md).
          * [{{ objstorage-name }}](target/object-storage.md).
          * [{{ PG }}](target/postgresql.md).
+            {% if product == "yandex-cloud" %}
          * [{{ ydb-name }}](target/yandex-database.md).
+            {% endif %}
 
    1. Click **Apply**.
 
@@ -189,7 +199,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
    1. Open the current {{ TF }} configuration file with the endpoint description.
 
-      For more information about creating this file, see [Creating an endpoint](#create).
+      For more detail on creating a file like that, please review [Create endpoint](#create).
 
    1. Edit the value in the `name` field (endpoint name) and the endpoint parameters under `settings`.
    1. Make sure the settings are correct.
@@ -206,7 +216,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
    {% note info %}
 
-   You can update endpoints using the API only for {{ MY }} and {{ PG }} sources and targets.
+   You can edit endpoints using the API only for {{ MY }} and {{ PG }} sources and targets.
 
    {% endnote %}
 

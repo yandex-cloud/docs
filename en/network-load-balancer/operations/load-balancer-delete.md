@@ -59,22 +59,74 @@
 
    For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   Network load balancers created using Terraform can be deleted:
+   To delete a network load balancer created with Terraform:
+
+   1. Open the Terraform configuration file and delete the fragment with the network load balancer description.
+
+      {% cut "Sample network load balancer description in the Terraform configuration" %}
+
+      ```hcl
+      ...
+      resource "yandex_lb_network_load_balancer" "foo" {
+        name = "my-network-load-balancer"
+        listener {
+          name = "my-listener"
+      	 port = 9000
+          external_address_spec {
+            ip_version = "ipv4"
+          }
+        }
+        attached_target_group {
+          target_group_id = "${yandex_lb_target_group.my-target-group.id}"
+          healthcheck {
+            name = "http"
+              http_options {
+                port = 9000
+                path = "/ping"
+              }
+          }
+        }
+      }
+      ...
+      ```
+
+      {% endcut %}
 
    1. In the command line, go to the directory with the Terraform configuration file.
-   1. Delete resources using the command:
+
+   1. Check the configuration using the command:
 
       ```
-      terraform destroy
+      terraform validate
       ```
 
-      {% note alert %}
+      If the configuration is correct, the following message is returned:
 
-      Terraform deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+      ```
+      Success! The configuration is valid.
+      ```
 
-      {% endnote %}
+   1. Run the command:
 
-   3. Confirm the deletion of resources.
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+
+      ```
+      yc load-balancer network-load-balancer list
+      ```
 
 {% endlist %}
 

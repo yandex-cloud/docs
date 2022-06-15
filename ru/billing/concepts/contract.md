@@ -18,7 +18,7 @@
 
 С момента принятия оферты обе стороны начинают действовать в рамках договора согласно Гражданскому кодексу РК. В соответствии с его условиями вы обязаны оплатить потребленные ресурсы по окончании отчетного периода. Подробную информацию см. в разделе [Оплата ресурсов](../payment/index.md).
 
-С условиями договора вы можете ознакомиться в разделе [Правовые документы]{% if lang == "ru" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %}.
+С условиями договора вы можете ознакомиться в разделе [Правовые документы]{% if lang == "ru" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=en){% endif %}.
 
 {% note info %}
 
@@ -34,7 +34,7 @@
 
  {% include [non-resident-countries](../_includes/non-resident-countries.md) %}
  
-С условиями договора вы можете ознакомиться в разделе [Правовые документы]{% if lang == "ru" %}(https://yandex.com/legal/cloud_customer_agreement/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %}.
+С условиями договора вы можете ознакомиться в разделе [Правовые документы]{% if lang == "ru" %}(https://yandex.com/legal/cloud_customer_agreement/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.com/legal/cloud_customer_agreement/?lang=en){% endif %}.
 
 ## Номер договора{#id}
 

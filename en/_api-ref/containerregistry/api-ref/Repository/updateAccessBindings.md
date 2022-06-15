@@ -40,7 +40,7 @@ resourceId | Required. ID of the resource for which access bindings are being up
  
 Field | Description
 --- | ---
-accessBindingDeltas[] | **object**<br><p>Required. Updates to access bindings.</p> <p>Must contain at least one element.</p> 
+accessBindingDeltas[] | **object**<br><p>Required. Updates to access bindings.</p> <p>The number of elements must be in the range 1-1000.</p> 
 accessBindingDeltas[].<br>action | **string**<br><p>Required. The action that is being performed on an access binding.</p> <ul> <li>ADD: Addition of an access binding.</li> <li>REMOVE: Removal of an access binding.</li> </ul> 
 accessBindingDeltas[].<br>accessBinding | **object**<br><p>Required. Access binding. For more information, see <a href="/docs/iam/concepts/access-control/#access-bindings">Access Bindings</a>.</p> 
 accessBindingDeltas[].<br>accessBinding.<br>roleId | **string**<br><p>Required. ID of the <a href="/docs/iam/api-ref/Role#representation">Role</a> that is assigned to the ``subject``.</p> <p>The maximum string length in characters is 50.</p> 

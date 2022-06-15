@@ -26,15 +26,11 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
 Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите и инициализируйте его](../../cli/quickstart.md#install).
 
-Убедитесь, что платежный аккаунт готов к работе:  
-
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог на [странице облака](https://console.cloud.yandex.ru/cloud).
- 
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md). 
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -42,6 +38,8 @@
 * плата за количество сообщений сервиса {{ iot-full-name }} (см. [тарифы](../../iot-core/pricing.md));
 * плата за количество вызовов функции сервиса {{ sf-full-name }} (см. [тарифы](../../functions/pricing.md));
 * плата за запись пользовательских метрик через API сервиса {{ monitoring-full-name }} {% if audience == external %}(см. [тарифы](../../monitoring/pricing.md)){% endif %}.
+
+{% endif %}
 
 ## Создайте необходимые ресурсы {{ iot-short-name }} {#resources-step}
 
@@ -434,7 +432,7 @@
 1. В поле **Имя** введите название канала. Например, `my-message-channel`.
 1. В списке **Метод** выберите **Email**.
 
-   Вы также можете настроить уведомления по SMS.
+   {% if product == "yandex-cloud" %}Вы также можете настроить уведомления по SMS.{% endif %}
 1. В списке **Получатели** выберите учетную запись.    
 
     Вы можете выбрать несколько получателей уведомлений. В качестве получателей вы можете указать аккаунты пользователей, у которых есть доступ к вашему облаку. Подробнее о том, [как добавить пользователя в {{ yandex-cloud }}](../../iam/operations/users/create.md).

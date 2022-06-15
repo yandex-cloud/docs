@@ -27,7 +27,7 @@ To apply a configuration:
    kubectl get ingress <Ingress resource name>
    ```
 
-   Output:
+   Result:
 
    ```
    NAME           CLASS   HOSTS           ADDRESS     PORTS    AGE

@@ -2,7 +2,7 @@
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}
 
-A domain is a unique domain name that can be used in [various {{ yandex-cloud }} services](services.md) that require confirmation of the user's rights to the domain.
+A domain is a unique domain name that can be used in {% if product == "yandex-cloud" %}[{{ yandex-cloud }} services](services.md){% endif %}{% if product == "cloud-il" %}{{ yandex-cloud }} services{% endif %} that require confirmation of the user's rights to the domain.
 
 ## Confirming rights for domains {#confirmation}
 
@@ -29,6 +29,8 @@ Domains can have the following statuses:
 
 #### See also {#see-also}
 
+{% if product == "yandex-cloud" %}
 - [Services integrated with the domain management system](services.md)
+{% endif %}
 - [Check rights for domain](../challenges.md)
 

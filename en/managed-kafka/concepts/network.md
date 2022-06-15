@@ -13,7 +13,7 @@ If hosts are present in the {{ ZK }} cluster, each of the three {{ ZK }} hosts u
 
 {% else %}
 
-All clusters are created inside our network, which is [already accessible](../../mdb/access.md#network-access) from most networks and most employees. If you don't have access, request access to the macro `_PGAASINTERNALNETS_` in [Puncher](https://puncher.yandex-team.ru/). To connect to {{ KF }}, specify port 9091 (SASL_TLS) in your request.
+All of the clusters are created inside our network, which is [accessible](../../mdb/access.md#network-access) from most networks and by most employees. If you don't have access, request access to the macro `_PGAASINTERNALNETS_` in [Puncher](https://puncher.yandex-team.ru/). To connect to {{ KF }}, specify port 9091 (SASL_TLS) in your request.
 
 {% endif %}
 
@@ -51,7 +51,6 @@ Specifics of working with security groups:
 
 * Even if the cluster and the connecting host are in the same security group, the connection won't be possible unless rules that allow traffic between the host and cluster are set up in this group.
 
-  However, by default, those rules are contained in the security group that is added automatically when creating a cloud network. Those are the `Self` rules that allow unlimited traffic within a group.
+   However, by default, those rules are contained in the security group that is added automatically when creating a cloud network. Those are the `Self` rules that allow unlimited traffic within a group.
 
-For more information, see the [Virtual Private Cloud documentation](../../vpc/concepts/security-groups.md).
-
+{% if audience != "internal" %}For more information, see the [Virtual Private Cloud documentation](../../vpc/concepts/security-groups.md).{% endif %}

@@ -4,11 +4,13 @@
 
 - {% include [Maintenance window](console/maintenance-window.md) %}
 
+{% if product == "yandex-cloud" %}
 - **Access from {{ datalens-name }}**{#setting-datalens-access}
 
    Allows you to analyze cluster data in [{{ datalens-full-name }}](../../datalens/concepts/index.md).
 
    For more information about setting up a connection, see [Connecting to {{ datalens-name }}](../../managed-mysql/operations/datalens-connect.md).
+{% endif %}
 
 - **Access from management console**{#setting-websql-access}
 

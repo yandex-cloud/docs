@@ -1,19 +1,33 @@
 # Создание {{ CH }}-кластера
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 {{ CH }}-кластер — это один или несколько хостов базы данных, между которыми можно настроить репликацию.
 
-Количество хостов, которые можно создать вместе с {{ CH }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md):
+{% note info %}
 
-* При использовании хранилища на **локальных SSD-дисках** (`local-ssd`) вы можете создать кластер из двух или более хостов (минимум два хоста необходимо, чтобы обеспечить отказоустойчивость).
-* При использовании сетевого хранилища:
-    * Если выбрано хранилище на **сетевых HDD-дисках** (`network-hdd`) или на **сетевых SSD-дисках** (`network-ssd`), вы можете добавить любое количество хостов в пределах [текущей квоты](../concepts/limits.md).
-    * Если выбрано хранилище на **нереплицируемых SSD-дисках** (`network-ssd-nonreplicated`), вы можете создать кластер из трех или более хостов (минимум три хоста необходимо, чтобы обеспечить отказоустойчивость).
+* Количество хостов, которые можно создать вместе с {{ CH }}-кластером, зависит от выбранного {% if audience != "internal" %}[типа хранилища](../concepts/storage.md#storage-type-selection){% else %}[типа хранилища](../concepts/storage.md){% endif %} и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+
+{% endnote %}
 
 Выбранный [механизм обеспечения работы репликации](../concepts/replication.md) также влияет на количество хостов в кластере из нескольких хостов:
 
 * Кластер, использующий для управления репликацией и отказоустойчивостью {{ CK }}, должен состоять из трех или более хостов — отдельные хосты для запуска {{ CK }} не требуются. Создать такой кластер можно только с помощью CLI и API.
 
-    {% include [ClickHouse Keeper preview note](../../_includes/mdb/mch/note-ck-preview.md) %}
+    {% if audience != "internal" %}
+
+    Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Доступ к {{ CK }} предоставляется по запросу. Обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+
+    {% else %}
+
+    Эта функциональность находится на стадии Preview. Доступ к {{ CK }} предоставляется по запросу. Обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+
+    {% endif %}
 
 * При использовании {{ ZK }} кластер может состоять из двух и более хостов. Еще 3 хоста {{ ZK }} будут добавлены в кластер автоматически.
 
@@ -147,7 +161,7 @@
         --network-id ' ' \
         --host type=<clickhouse или zookeeper>,zone-id=<зона доступности> \
         --clickhouse-resource-preset <класс хоста> \
-        --clickhouse-disk-type local-ssd \
+        --clickhouse-disk-type <local-ssd | local-hdd> \
         --clickhouse-disk-size <размер хранилища в гигабайтах> \
         --user name=<имя пользователя>,password=<пароль пользователя> \
         --database name=<имя базы данных> \
@@ -189,21 +203,23 @@
             --admin-password "<пароль пользователя admin>"
          ```
 
-     {% if audience != "internal" %}
+     {% if audience != "internal" and product == "yandex-cloud" %}
 
      1. Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
      {% endif %}
 
+     1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
+
      1. Чтобы включить [{{ CK }}](../concepts/replication.md#ck) в кластере:
 
-        * Задайте версию {{ CH }} (не ниже {{ mch-ck-version }}) в параметре `--version`.
+        * Задайте версию {{ CH }} (не ниже {{ versions.keeper }}) в параметре `--version`.
         * Задайте значение `true` для параметра `--embedded-keeper`.
 
          ```bash
          {{ yc-mdb-ch }} cluster create \
             ...
-            --version "<версия {{ CH }}: не ниже {{ mch-ck-version }}>" \
+            --version "<версия {{ CH }}: не ниже {{ versions.keeper }}>" \
             --embedded-keeper true
          ```
 
@@ -296,8 +312,10 @@
 
        1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
-       1. Чтобы разрешить доступ из других сервисов {{ yandex-cloud }} и [выполнение SQL-запросов из консоли управления](web-sql-query.md), добавьте блок `access` с нужными вам настройками:
+       1. Чтобы разрешить доступ из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md), добавьте блок `access` с нужными вам настройками:
 
+           {% if product == "yandex-cloud" %}
+          
            ```hcl
            resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
              ...
@@ -310,6 +328,23 @@
              ...
            }
            ```
+ 
+           {% endif %}
+ 
+           {% if product == "cloud-il" %}
+ 
+           ```hcl
+           resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+             ...
+             access {
+               metrika    = <Доступ из Метрики и AppMetrika: true или false>
+               web_sql    = <Выполнение SQL-запросов из консоли управления: true или false>
+             }
+             ...
+           }
+           ```
+          
+           {% endif %}
        
        Пользователями и базами данных в кластере можно управлять через SQL.
 
@@ -351,9 +386,11 @@
 
   {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-  {% if audience != "internal" %}
+  {% if audience != "internal" and product == "yandex-cloud" %}
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
   {% endif %}
+
+  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
   Чтобы разрешить доступ к кластеру из сервиса {{ yq-full-name }}, передайте значение `true` для параметра `configSpec.access.yandexQuery`.
 
@@ -363,7 +400,7 @@
 
       {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
-      Для использования {{ CK }} необходима версия {{ CH }} не ниже {{ mch-ck-version }}. Список доступных версий {{ CH }} можно получить с помощью метода API [list](../api-ref/Versions/list.md).
+      Для использования {{ CK }} необходима версия {{ CH }} не ниже {{ versions.keeper }}. Список доступных версий {{ CH }} можно получить с помощью метода API [list](../api-ref/Versions/list.md).
 
   * Если значение параметра `embeddedKeeper` не задано или равно `false`, для управления репликацией и распределением запросов будет использоваться {{ ZK }}.
 
@@ -401,7 +438,7 @@
   * Окружение `production`.
   * Сеть `default`.
   * Группа безопасности `{{ security-group }}`.
-  * Один хост {{ CH }} класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `ru-central1-c`.
+  * Один хост {{ CH }} класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ region-id }}-a`.
   * {{ CK }}.
   * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
   * Один пользователь `user1` с паролем `user1user1`.
@@ -433,8 +470,8 @@
     --environment=production \
     --network-name default \
     --clickhouse-resource-preset {{ host-class }} \
-    --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
-    --version {{ mch-ck-version }} \
+    --host type=clickhouse,zone-id={{ region-id }}-a,subnet-id=b0cl69g98qumiqmtg12a \
+    --version {{ versions.keeper }} \
     --embedded-keeper true \
     --clickhouse-disk-size 20 \
     --clickhouse-disk-type {{ disk-type-example }} \
@@ -452,7 +489,7 @@
     --environment=production \
     --clickhouse-resource-preset s2.nano \
     --host type=clickhouse,zone-id=man \
-    --version {{ mch-ck-version }} \
+    --version {{ versions.keeper }} \
     --embedded-keeper true \
     --clickhouse-disk-size 20 \
     --clickhouse-disk-type local-ssd \
@@ -474,14 +511,14 @@
   * Каталог с идентификатором `{{ tf-folder-id }}`.
   * Новая облачная сеть `cluster-net`.
   * Новая [группа безопасности по умолчанию](connect.md#configuring-security-groups) `cluster-sg` (в сети `cluster-net`), разрешающая подключение к любому хосту кластера из любой сети (в том числе из интернета) по портам `8443`, `9440`.
-  * Один хост класса `{{ host-class }}` в новой подсети `cluster-subnet-ru-central1-c`.
+  * Один хост класса `{{ host-class }}` в новой подсети `cluster-subnet-{{ region-id }}-a`.
   
     Параметры подсети:
-    * диапазон адресов — `172.16.3.0/24`;
+    * диапазон адресов — `172.16.1.0/24`;
     * сеть — `cluster-net`;
-    * зона доступности — `{{ zone-id }}`.
+    * зона доступности — `{{ region-id }}-a`.
 
-  * Хранилище на сетевых SSD-дисках (`network-ssd`) объемом 32 ГБ.
+  * Хранилище на {% if audience != "internal" %}сетевых{% else %}локальных{% endif %} SSD-дисках (`{{ disk-type-example }}`) объемом 32 ГБ.
   * Имя базы данных `db1`.
   * Пользователь `user1` с паролем `user1user1`.
 
@@ -522,15 +559,15 @@
   * Три {{ CH }}-хоста класса `{{ host-class }}` и три {{ ZK }}- хоста класса `{{ zk-host-class }}` (для обеспечения работы [репликации](../concepts/replication.md)).
 
     По одному хосту каждого типа будет размещено в новых подсетях:
-    * `cluster-subnet-ru-central1-a`: `172.16.1.0/24`, зона доступности `ru-central1-a`.
-    * `cluster-subnet-ru-central1-b`: `172.16.2.0/24`, зона доступности `ru-central1-b`.
-    * `cluster-subnet-ru-central1-c`: `172.16.3.0/24`, зона доступности `ru-central1-c`.
+    * `cluster-subnet-{{ region-id }}-a`: `172.16.1.0/24`, зона доступности `{{ region-id }}-a`.
+    * `cluster-subnet-{{ region-id }}-b`: `172.16.2.0/24`, зона доступности `{{ region-id }}-b`.
+    * `cluster-subnet-{{ region-id }}-c`: `172.16.3.0/24`, зона доступности `{{ region-id }}-c`.
 
     Эти подсети будут принадлежать сети `cluster-net`.
 
   * Новая [группа безопасности по умолчанию](connect.md#configuring-security-groups) `cluster-sg` (в сети `cluster-net`), разрешающая подключение к любому хосту кластера из любой сети (в том числе из интернета) по портам `8443`, `9440`.
-  * Хранилище на сетевых SSD-дисках (`network-ssd`) объемом 32 ГБ для каждого {{ CH }}-хоста кластера.
-  * Хранилище на сетевых SSD-дисках (`network-ssd`) объемом 10 ГБ для каждого {{ ZK }}-хоста кластера.
+  * Хранилище на {% if audience != "internal" %}сетевых{% else %}локальных{% endif %} SSD-дисках (`{{ disk-type-example }}`) объемом 32 ГБ для каждого {{ CH }}-хоста кластера.
+  * Хранилище на {% if audience != "internal" %}сетевых{% else %}локальных{% endif %} SSD-дисках (`{{ disk-type-example }}`) объемом 10 ГБ для каждого {{ ZK }}-хоста кластера.
   * Имя базы данных `db1`.
   * Пользователь `user1` с паролем `user1user1`.
 

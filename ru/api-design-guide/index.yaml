@@ -1,12 +1,29 @@
-title: Концепции API Yandex Cloud
-description: >-
-  Документ описывает концепции, которые легли в основу архитектуры API
-  Yandex Cloud.
-
-  Документ будет полезен разработчикам, которые хотят создавать на базе API
-  Yandex Cloud системы автоматизации, плагины и другие приложения.
+title:
+  - text: Концепции API Yandex Cloud
+    when: product == "yandex-cloud"
+  - text: Концепции API CloudIL
+    when: product == "cloud-il"
+description:
+  - text: >-
+      Документ описывает концепции, которые легли в основу архитектуры API
+      Yandex Cloud.
+    
+      Документ будет полезен разработчикам, которые хотят создавать на базе API
+      Yandex Cloud системы автоматизации, плагины и другие приложения.
+    when: product == "yandex-cloud"
+  - text: >-
+      Документ описывает концепции, которые легли в основу архитектуры API
+      CloudIL.
+      
+      Документ будет полезен разработчикам, которые хотят создавать на базе API
+      CloudIL системы автоматизации, плагины и другие приложения.
+    when: product == "cloud-il"
 meta:
-  title: Концепции API Yandex Cloud
+  title:
+    - text: Концепции API Yandex Cloud
+      when: product == "yandex-cloud"
+    - text: Концепции API CloudIL
+      when: product == "cloud-il"
   keywords:
     - keyword: идеология API
     - keyword: концепции API
@@ -15,17 +32,41 @@ meta:
 links:
   - title: Основные принципы
     description: >-
-      Как устроены API Yandex Cloud и в чем заключается ресурсо-ориентированный
+      Как устроены API и в чем заключается ресурсо-ориентированный
       подход
     href: concepts/general
+    when: product == "yandex-cloud"
+  - title: Основные принципы
+    description: >-
+      Как устроены API и в чем заключается ресурсо-ориентированный
+      подход
+    href: concepts/general.html
+    when: product == "cloud-il"
   - title: Ресурсы
     description: Как идентифицируются ресурсы в API
     href: concepts/resources-identification
+    when: product == "yandex-cloud"
+  - title: Ресурсы
+    description: Как идентифицируются ресурсы в API
+    href: concepts/resources-identification.html
+    when: product == "cloud-il"
   - title: Методы API
     description: Как устроены методы в API
     href: concepts/about-methods
+    when: product == "yandex-cloud"
+  - title: Методы API
+    description: Как устроены методы в API
+    href: concepts/about-methods.html
+    when: product == "cloud-il"
   - title: Работа с операциями
     description: >-
       Как реализована асинхронность в API и как использовать механизм
       идемпотентности
     href: concepts/about-async
+    when: product == "yandex-cloud"
+  - title: Работа с операциями
+    description: >-
+      Как реализована асинхронность в API и как использовать механизм
+      идемпотентности
+    href: concepts/about-async.html
+    when: product == "cloud-il"

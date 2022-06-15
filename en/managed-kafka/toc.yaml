@@ -1,5 +1,9 @@
 ---
-title: Yandex Managed Service for Apache Kafka®
+title:
+  - text: Yandex Managed Service for Apache Kafka®
+    when: product == "yandex-cloud"
+  - text: Managed Service for Apache Kafka®
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Getting started
@@ -12,7 +16,7 @@ items:
         href: operations/cluster-list.md
       - name: Creating clusters
         href: operations/cluster-create.md
-      - name: Connecting to clusters
+      - name: Connecting to a cluster
         href: operations/connect.md
       - name: Stopping and starting clusters
         href: operations/cluster-stop.md
@@ -30,10 +34,10 @@ items:
         href: operations/cluster-connector.md
       - name: Viewing cluster logs
         href: operations/cluster-logs.md
-      - name: Deleting a cluster
+      - name: Deleting clusters
         href: operations/cluster-delete.md
-      - name: Monitoring the state of a cluster and hosts
-        href: operations/monitoring.md        
+      - name: Monitoring the state of clusters and hosts
+        href: operations/monitoring.md
   - name: Practical guidelines
     items:
       - name: All tutorials
@@ -52,13 +56,11 @@ items:
           href: tutorials/managed-schema-registry.md
         - name: Working with Confluent Schema Registry
           href: tutorials/confluent-schema-registry.md
-      - name: Migrating with MirrorMaker 2.0
-        href: tutorials/mirrormaker-unmanaged-topics.md
       - name: Delivering data using Debezium
         href: tutorials/kafka-cdc.md
   - name: Concepts
     items:
-      - name: Relationship between service resources
+      - name: Relationships between service resources
         href: concepts/index.md
       - name: Topics and partitions
         href: concepts/topics.md
@@ -78,6 +80,8 @@ items:
         href: concepts/storage.md
       - name: Connectors
         href: concepts/connectors.md
+      - name: Maintenance
+        href: concepts/maintenance.md
       - name: Apache Kafka® settings
         href: concepts/settings-list.md
   - name: Access management
@@ -99,5 +103,8 @@ items:
         include:
           repo: docs
           path: en/_api-ref/mdb/kafka/toc.yaml
+  - name: Revision history
+    href: release-notes.md
+    when: product == "yandex-cloud"
   - name: Questions and answers
     href: qa/index.md

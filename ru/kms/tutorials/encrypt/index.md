@@ -10,7 +10,7 @@
 
 Для шифрования данных большого объема рекомендуется использовать AWS Encryption SDK и Google Tink, так как они работают [по схеме envelope encryption](../../concepts/envelope.md).
 
-Также вы можете самостоятельно реализовать схему envelope encryption с помощью API или SDK {{ yandex-cloud }} на основе криптографических методов, предоставляемых {{ kms-short-name }}.
+Также вы можете самостоятельно реализовать схему envelope encryption с помощью API или SDK {% if product == "yandex-cloud" %}{{ yandex-cloud }} {% endif %}на основе криптографических методов, предоставляемых {{ kms-short-name }}.
 
 {% note warning %}
 

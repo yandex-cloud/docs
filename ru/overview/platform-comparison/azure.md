@@ -1,5 +1,7 @@
 # Сопоставление с Microsoft Azure
 
+{% if product == "yandex-cloud" %}
+
 | Microsoft Azure | {{ yandex-cloud }} |
 |----|----|
 | AI Platform | [{{ ml-platform-full-name }}](../../datasphere/) |
@@ -38,6 +40,33 @@
 | Microsoft Power BI | [{{ datalens-full-name }}](../../datalens/) |
 | Microsoft: Azure Cosmos DB | [{{ ydb-full-name }}](../../ydb/) |
 | Queue Storage, Service Bus | [{{ message-queue-full-name }}](../../message-queue/) |
-| Virtual Machine Scale Sets | [Yandex Instance Groups](../../compute/concepts/instance-groups/) |
+| Virtual Machine Scale Sets | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
 | Virtual Machines | [{{ compute-full-name }}](../../compute/) |
 | Virtual Network | [{{ vpc-full-name }}](../../vpc/) |
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+| Microsoft Azure | {{ yandex-cloud }} |
+|----|----|
+| Azure Active Directory | [{{ iam-full-name }}](../../iam/) |
+| Azure Database for MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
+| Azure Database for PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
+| Azure Database Migration Service | [{{ data-transfer-full-name }}](../../data-transfer/) |
+| Azure DNS | [{{ dns-full-name }}](../../dns/) |
+| Azure Key Vault | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
+| Azure Kubernetes Service (AKS) | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
+| Azure Monitor | [{{ monitoring-full-name }}](../../monitoring/) |
+| Azure Resource Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
+| Blob Storage | [{{ objstorage-full-name }}](../../storage/) |
+| Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
+| HDInsight | [{{ mkf-full-name }}](../../managed-kafka/) |
+| Key Vault | [{{ kms-full-name }}](../../kms/) |
+| Load Balancer | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
+| Queue Storage, Service Bus | [{{ message-queue-full-name }}](../../message-queue/) |
+| Virtual Machine Scale Sets | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
+| Virtual Machines | [{{ compute-full-name }}](../../compute/) |
+| Virtual Network | [{{ vpc-full-name }}](../../vpc/) |
+
+{% endif %}

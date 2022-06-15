@@ -17,6 +17,8 @@
 
 ### Сервис Bucket {#bucket-service}
 
+{% if product == "yandex-cloud" %}
+
 Метод | Описание
 ----- | -----
 [create](bucket/create.md) | Создает бакет.
@@ -32,6 +34,26 @@
 [putBucketLogging](bucket/putBucketLogging.md) | Включает и выключает механизм логирования действий с бакетом.
 [getBucketLogging](bucket/getBucketLogging.md) | Возвращает настройки логирования действий с бакетом.
 [listObjectVersions](bucket/listObjectVersions.md) | Возвращает метаданные обо всех версиях объектов в бакете.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+Метод | Описание
+----- | -----
+[create](bucket/create.md) | Создает бакет.
+[getBucketEncryption](bucket/getbucketencryption.md) | Проверяет наличие шифрования у бакета.
+[getMeta](bucket/getmeta.md) | Проверяет существование бакета и доступ к ней.
+[listObjects](bucket/listobjects.md) | Возвращает список объектов в бакете.
+[listBuckets](bucket/list.md) | Возвращает список бакетов.
+[deleteBucket](bucket/delete.md) | Удаляет бакет.
+[deleteBucketEncryption](bucket/deletebucketencryption.md) | Убирает шифрование бакета.
+[putBucketEncryption](bucket/putbucketencryption.md) | Добавляет шифрование бакету.
+[putBucketVersioning](bucket/putBucketVersioning.md) | Включает или приостанавливает версионирование бакета.
+[getBucketVersioning](bucket/getBucketVersioning.md) | Возвращает состояние опции версионирования.
+[listObjectVersions](bucket/listObjectVersions.md) | Возвращает метаданные обо всех версиях объектов в бакете.
+
+{% endif %}
 
 ### Сервис Object {#object-service}
 

@@ -2,7 +2,7 @@
 title: Yandex Managed Service for GitLab
 description:
   - >-
-    <em>Сервис Yandex Managed Service for GitLab находится на стадии <a href="docs/overview/concepts/launch-stages">Preview</a>.</em>
+    <em>Сервис Yandex Managed Service for GitLab находится на стадии <a href="/docs/overview/concepts/launch-stages">Preview</a>.</em>
   - >-
     Сервис Managed Service for GitLab помогает разворачивать и поддерживать инстансы GitLab в инфраструктуре Yandex Cloud.
   - >-

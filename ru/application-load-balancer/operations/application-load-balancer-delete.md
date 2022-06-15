@@ -53,7 +53,7 @@
 
        allocation_policy {
          location {
-           zone_id   = "ru-central1-a"
+           zone_id   = "{{ region-id }}-a"
            subnet_id = yandex_vpc_subnet.test-subnet.id 
          }
        }

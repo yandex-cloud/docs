@@ -1,6 +1,6 @@
 # Using hybrid storage
 
-Hybrid storage lets you store frequently used data in the {{ mch-name }} cluster's network storage and rarely used data in {{ objstorage-full-name }}. Automatically moving data between these storage levels is only supported for [MergeTree](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/) tables. To learn more, see [{#T}](../concepts/storage.md).
+Hybrid storage allows you to store frequently used data on the network disks of the {{ mch-name }} cluster and rarely used data in {{ objstorage-full-name }}. Automatic data transfer between these storage levels is only supported for the [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %} table family. For more information, see [{#T}](../concepts/storage.md).
 
 To use hybrid storage:
 
@@ -11,7 +11,7 @@ To use hybrid storage:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
@@ -71,13 +71,13 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ### Explore the test dataset (optional) {#explore-dataset}
 
-To demonstrate how hybrid storage works, Yandex.Metrica anonymized hit data (`hits_v1`) is used. This [dataset](https://clickhouse.tech/docs/en/getting-started/example-datasets/metrica/) contains information about almost 9 million hits for the week from March 17, 2014 to March 23, 2014.
+To demonstrate how hybrid storage works, Yandex.Metrica anonymized hit data (`hits_v1`) is used. This [dataset](https://{{ ch-domain }}/docs/en/getting-started/example-datasets/metrica/) contains information about almost 9 million hits for the week from March 17 through March 23, 2014.
 
 The `tutorial.hits_v1` table will be configured [when you create](#create-table) it so that all the <q>fresh data</q> in the table starting from March 21, 2014 is in network storage, and older data (from March 17, 2014 to March 20, 2014) is in object storage.
 
 ## Create a table {#create-table}
 
-Create the `tutorial.hits_v1` table that uses hybrid storage. To do this, run the SQL query below replacing `<schema>` with the table schema from the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/getting-started/tutorial/#create-tables){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/getting-started/tutorial/#create-tables){% endif %}:
+Create the `tutorial.hits_v1` table that uses hybrid storage. To do this, run the SQL query below replacing `<schema>` with the table schema from the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/getting-started/tutorial/#create-tables){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/getting-started/tutorial/#create-tables){% endif %}:
 
 ```sql
 CREATE TABLE tutorial.hits_v1
@@ -116,16 +116,16 @@ The expression for TTL in the example above is complex because of the selected t
 
 {% endnote %}
 
-Data is not moved from network disk to object storage row by row but rather [in chunks]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes){% endif %}. Try and select TTL expressions and [partitioning keys]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %} to have the same TTL for all rows in a data chunk. Otherwise, you may have problems moving data into object storage when TTL expires if one chunk contains data intended for different storage levels. At the most basic level, the expression for TTL should use the same columns as in the partitioning key, like in the example above, where the `EventDate` column is used.
+Data is not moved from network disk to object storage row by row but rather in [chunks]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes){% endif %} Try and select TTL expressions and [partitioning keys]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %} to have the same TTL for all rows in a data chunk. Otherwise, you may have problems moving data into object storage when TTL expires if one chunk contains data intended for different storage levels. At the most basic level, the expression for TTL should use the same columns as in the partitioning key, like in the example above, where the `EventDate` column is used.
 
-For more information about setting up TTL, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl){% endif %}.
+For more information about setting up TTL, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl){% endif %}.
 
 ## Completing a table with data {#fill-table-with-data}
 
 1. Download the test dataset:
 
    ```bash
-   curl https://clickhouse-datasets.s3.yandex.net/hits/tsv/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
+   curl https://clickhouse-datasets.{{ s3-objstorage-host }}/hits/tsv/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```
 
 1. Insert data from this dataset into {{ CH }} using `clickhouse-client`:
@@ -146,7 +146,7 @@ For more information about setting up TTL, see the [{{ CH }} documentation]{% if
 
 1. Wait for the operation to complete because the insertion of data may take some time.
 
-For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/getting-started/tutorial/#import-data){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/getting-started/tutorial/#import-data){% endif %}.
+For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/getting-started/tutorial/#import-data){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/getting-started/tutorial/#import-data){% endif %}.
 
 ## Checking the placement of data in a cluster {#check-table-tiering}
 

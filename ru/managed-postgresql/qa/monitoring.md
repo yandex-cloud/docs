@@ -4,7 +4,7 @@
 
 Отслеживать использование дискового пространства можно:
 * в консоли управления с помощью инструментов [мониторинга состояния кластера](../operations/monitoring.md#monitoring-cluster);
-* в сервисе [{{ monitoring-full-name }}]{% if lang == "ru" %}(https://monitoring.cloud.yandex.ru/){% endif %}{% if lang == "en" %}(https://monitoring.cloud.yandex.com/){% endif %} с возможностью [настроить уведомления](../operations/monitoring.md#monitoring-integration) по заданным метрикам.
+* в сервисе [{{ monitoring-full-name }}]({{ link-monitoring }}) с возможностью [настроить уведомления](../operations/monitoring.md#monitoring-integration) по заданным метрикам.
 
 #### Логи хранятся на том же диске, что и данные {{ PG }}? Как они тарифицируются? {#logs-storage}
 
@@ -32,4 +32,4 @@ yc managed-postgresql cluster list-logs <идентификатор класте
 
 #### Как получать уведомления о критических показателях кластера {{ PG }}? {#notifications}
 
-Воспользуйтесь сервисом [{{ monitoring-full-name }}]{% if lang == "ru" %}(https://monitoring.cloud.yandex.ru/){% endif %}{% if lang == "en" %}(https://monitoring.cloud.yandex.com/){% endif %} и [настройте уведомления](../operations/monitoring.md#monitoring-integration) по критичным для вас параметрам.
+Воспользуйтесь сервисом [{{ monitoring-full-name }}]({{ link-monitoring }}) и [настройте уведомления](../operations/monitoring.md#monitoring-integration) по критичным для вас параметрам.

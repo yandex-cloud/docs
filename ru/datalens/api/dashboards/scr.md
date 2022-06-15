@@ -52,8 +52,3 @@ response = requests.request("POST", url, data=payload, headers=headers, stream=T
 with open('scr.png', 'wb') as out_file:
 	shutil.copyfileobj(response.raw, out_file)
 ```
-
-
-#### Ограничения {#limits}
-
-В текущей версии API можно создавать скриншоты только открытых отчетов.

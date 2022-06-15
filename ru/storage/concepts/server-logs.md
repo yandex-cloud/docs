@@ -63,7 +63,7 @@
 `timestamp` | String |Дата и время операции с бакетом, в формате `ГГГГ-ММ-ДДTЧЧ:ММ:ССZ`.
 `user_agent` | String | Клиентское приложение (User Agent), которое выполнило запрос.
 `version_id` | String | Версия объекта.
-`vhost` | String | Виртуальный хост запроса.<br>Возможные значения:<br>– `storage.yandexcloud.net`.<br>– `<имя бакета>.storage.yandexcloud.net`.<br>– `website.yandexcloud.net`.<br> – `<имя бакета>.website.yandexcloud.net`.
+`vhost` | String | Виртуальный хост запроса.<br>Возможные значения:<br>– `{{ s3-storage-host }}`.<br>– `<имя бакета>.{{ s3-storage-host }}`.<br>– `{{ s3-web-host }}`.<br> – `<имя бакета>.{{ s3-web-host }}`.
 
 Пример записи в файле с логами:
 
@@ -91,7 +91,7 @@
   "timestamp": "2020-11-10T13:21:18Z",
   "user_agent": "docker/19.03.9 go/go1.13.10 git-commit/1d238398e7 kernel/4.4.0-142-generic os/linux arch/amd64 UpstreamClient(Go-http-client/1.1)",
   "version_id": "",
-  "vhost": "storage.yandexcloud.net"
+  "vhost": "{{ s3-storage-host }}"
 }
 ```
 
@@ -115,6 +115,10 @@
 
 Все изменения настроек вступят в силу без дополнительных действий со стороны пользователя.
 
+{% if audience != "internal" %}
+
 ## Тарификация {#billing}
 
 Для механизма логирования действуют стандартные [правила тарификации](../pricing.md) {{ objstorage-name }}.
+
+{% endif %}

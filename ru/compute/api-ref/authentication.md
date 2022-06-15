@@ -1,6 +1,6 @@
 ---
-title: "Аутентификация в API Yandex Compute Cloud"
-description: "Для выполнения операций через API в сервисе виртуальных машин и облачных вычислений – Yandex Compute Cloud, необходимо получить IAM-токен для сервисного, федеративного или Яндекс аккаунта."
+title: "Аутентификация в API {{ compute-full-name }}"
+description: "Для выполнения операций через API в сервисе виртуальных машин и облачных вычислений – {{ compute-full-name }}, необходимо получить IAM-токен для своего аккаунта."
 ---
 
 {% include [auth](../../_includes/authentication.md) %}

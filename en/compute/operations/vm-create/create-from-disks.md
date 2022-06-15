@@ -13,7 +13,7 @@ To create a VM from a set of disks:
    To create a VM:
    1. In the [management console]({{ link-console-main }}), select the folder to create the virtual machine in.
    1. In the list of services, select **{{ compute-name }}**.
-   1. Click **Create VM**.
+   1. Click **Create VM**.
    1. Under **Basic parameters**:
       * Enter a name and description for the VM. Naming requirements:
 
@@ -25,7 +25,7 @@ To create a VM from a set of disks:
 
    1. Under **Image/boot disk selection**, select one of the [images](../../operations/images-with-pre-installed-software/get-list.md).
 
-   1. Under **Disks and file storage**, [add a disk](./create-from-disks.md):
+   1. Under **Disks{% if product == "yandex-cloud" %} and file storage{% endif %}**, [add a disk](./create-from-disks.md):
       * Click **Add disk**.
       * Enter the disk name.
       * Select the [disk type](../../concepts/disk.md#disks_types).
@@ -35,11 +35,13 @@ To create a VM from a set of disks:
       * Select `Disk` as content.
       * Click **Add**.
 
+   {% if product == "yandex-cloud" %}
    1. (optional) Under **Disks and file storage**, click the **File storage tab** and connect a [file store](../../concepts/filesystem.md):
       * Click **Connect file storage**.
       * In the resulting window, select a file store.
       * Enter a device name.
       * Click **Connect file storage**.
+         {% endif %}
 
    1. Under **Computing resources**:
       * Choose a [platform](../../concepts/vm-platforms.md).
@@ -55,11 +57,11 @@ To create a VM from a set of disks:
          * Click **Create**.
             Each network must have at least one [subnet](../../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **Add subnet**.
       * In the **Public IP** field, choose a method for assigning an IP address:
-         * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool. With this, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md) using the option below.
+         * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool. {% if product == "yandex-cloud" %}With this, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md) using the option below.{% endif %}
          * **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
          * **No address**: Don't assign a public IP address.
       * In the **Internal address** field, select the method for assigning internal addresses: **Auto** or **Manual**.
-      * (optional) Create a record for the VM in the [DNS zone](../../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section, click **Add record** and specify the zone, FQDN and TTL for the record. For more detail, please see [Cloud DNS integration with Compute Cloud](../../../dns/concepts/compute-integration.md).
+      * (optional) Create a record for the VM in the [DNS zone](../../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section, click **Add record** and specify the zone, FQDN and TTL for the record. For more information, see [Cloud DNS integration with Compute Cloud](../../../dns/concepts/compute-integration.md).
       * Select [appropriate security groups](../../../vpc/concepts/security-groups.md) (if there is no corresponding field, the virtual machine will be enabled for all incoming and outgoing traffic).
 
    1. Under **Access**, specify the data required to access the VM:
@@ -101,7 +103,7 @@ To create a VM from a set of disks:
       ```
       $ yc compute instance create \
           --name first-instance \
-          --zone ru-central1-a \
+          --zone {{ region-id }}-a \
           --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
           --use-boot-disk disk-name=first-disk \
           --attach-disk disk-name=second-disk \
@@ -111,7 +113,7 @@ To create a VM from a set of disks:
       This command creates the VM:
 
       - Named `first-instance`.
-      - In the `ru-central1-a` availability zone.
+      - In the `{{ region-id }}-a` availability zone.
       - In the `default-a` subnet.
       - With a public IP address and two disks.
 
@@ -126,7 +128,7 @@ To create a VM from a set of disks:
       ```
       yc compute instance create \
       --name first-instance \
-      --zone ru-central1-a \
+      --zone {{ region-id }}-a \
       --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
       --use-boot-disk disk-name=first-disk,auto-delete=yes \
       --attach-disk disk-name=second-disk,auto-delete=yes \
@@ -206,7 +208,7 @@ To create a VM from a set of disks:
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
+      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-link }}/).
 
    2. Make sure that the configuration files are correct.
 

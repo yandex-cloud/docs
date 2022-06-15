@@ -37,7 +37,7 @@ resourceId | Required. ID of the resource for which access bindings are being se
  
 Field | Description
 --- | ---
-accessBindings[] | **object**<br><p>Required. Access bindings to be set. For more information, see <a href="/docs/iam/concepts/access-control/#access-bindings">Access Bindings</a>.</p> 
+accessBindings[] | **object**<br><p>Access bindings to be set. For more information, see <a href="/docs/iam/concepts/access-control/#access-bindings">Access Bindings</a>.</p> <p>The maximum number of elements is 1000.</p> 
 accessBindings[].<br>roleId | **string**<br><p>Required. ID of the <a href="/docs/iam/api-ref/Role#representation">Role</a> that is assigned to the ``subject``.</p> <p>The maximum string length in characters is 50.</p> 
 accessBindings[].<br>subject | **object**<br><p>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier.</p> 
 accessBindings[].<br>subject.<br>id | **string**<br><p>Required. ID of the subject.</p> <p>It can contain one of the following values:</p> <ul> <li>``allAuthenticatedUsers``: A special system identifier that represents anyone who is authenticated. It can be used only if the ``type`` is ``system``.</li> <li>``allUsers``: A special system identifier that represents anyone. No authentication is required. For example, you don't need to specify the IAM token in an API query.</li> <li>``&lt;cloud generated id&gt;``: An identifier that represents a user account. It can be used only if the ``type`` is ``userAccount``, ``federatedUser`` or ``serviceAccount``.</li> </ul> <p>The maximum string length in characters is 50.</p> 

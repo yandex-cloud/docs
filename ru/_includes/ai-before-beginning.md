@@ -4,7 +4,9 @@
 
 - Аккаунт пользователя на Яндексе
 
+  {% if product == "yandex-cloud" %}
   1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+  {% endif %}
   1. [Получите IAM-токен](../iam/operations/iam-token/create.md), необходимый для аутентификации.
   1. [Получите идентификатор любого каталога](../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `editor` или выше.
 

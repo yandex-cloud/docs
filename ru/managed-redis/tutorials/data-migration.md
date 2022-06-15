@@ -225,7 +225,7 @@
             -p {{ port-mrd-tls }} \
             -a <пароль кластера-приемника> \
             --tls \
-            --cacert ~/.redis/YandexInternalRootCA.crt \
+            --cacert ~/.redis/{{ crt-local-file }} \
             --pipe < <файл дампа>
         ```
 
@@ -237,7 +237,7 @@
             -p {{ port-mrd-tls }} \
             -a <пароль кластера-приемника> \
             --tls \
-            --cacert ~/.redis/YandexInternalRootCA.crt \
+            --cacert ~/.redis/{{ crt-local-file }} \
             --pipe < <файл дампа>
         ```
 
@@ -259,7 +259,7 @@
                         -p {{ port-mrd-tls }} \
                         -a "<пароль кластера-приемника>" \
                         --tls \
-                        --cacert ~/.redis/YandexInternalRootCA.crt \
+                        --cacert ~/.redis/{{ crt-local-file }} \
                         --pipe < <файл дампа>
             done
             ```

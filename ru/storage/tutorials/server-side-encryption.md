@@ -13,11 +13,9 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед использованием {{ objstorage-name }} нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../../_tutorials/includes/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет находиться ваш бакет. Перейдите на [страницу облака]({{ link-console-cloud }}) и выберите или создайте каталог, в котором вы хотите создать бакет. {% if audience != "internal" %}[Подробнее об иерархии ресурсов {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md){% else %}Подробнее об иерархии ресурсов {{ yandex-cloud }}{% endif %}.
+{% if product == "yandex-cloud" and audience != "internal" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -26,6 +24,8 @@
 * плата за хранение данных в бакете (см. [тарифы {{ objstorage-name }}](../pricing.md#prices-storage));
 * плата за операции с данными (см. [тарифы {{ objstorage-name }}](../pricing.md#prices-operations));
 * плата за использование ключей KMS (см. {% if audience != "internal" %}[тарифы {{ kms-name }}](../../kms/pricing.md#prices){% else %}тарифы {{ kms-name }}{% endif %}).
+
+{% endif %}
 
 ## Создайте бакет {#create-bucket}
 
@@ -53,15 +53,17 @@
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы задать параметры, в данном сценарии используется блок `locals`:
 
+      {% if product == "yandex-cloud" %}
+
       ```
       locals {
         cloud_id    = "<идентификатор облака>"
         folder_id   = "<идентификатор каталога>"
         oauth       = "<OAuth>"
-        zone        = "ru-central1-a"
+        zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
-        sa_desc     = "Аккаунт для управления бакетами Object Storage"
+        sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
         sa_key_desc = "Статический ключ для ${local.sa_name}"
 
         bucket_name = "example-bucket" # Имя создаваемого бакета. Если не задавать имя бакета для ресурса `yandex_storage_bucket`, имя будет сгенерировано автоматически.
@@ -80,6 +82,66 @@
         cloud_id  = local.cloud_id
         folder_id = local.folder_id
         zone      = local.zone
+      }
+
+      resource "yandex_iam_service_account" "buckets-account" {
+        name        = local.sa_name
+        description = local.sa_desc
+      }
+
+      resource "yandex_resourcemanager_folder_iam_binding" "buckets-account-role" {
+        folder_id = local.folder_id
+        role      = "editor"
+        members   = [
+          "serviceAccount:${yandex_iam_service_account.buckets-account.id}",
+        ]
+      }
+
+      resource "yandex_iam_service_account_static_access_key" "buckets-account-key" {
+        service_account_id = "${yandex_iam_service_account.buckets-account.id}"
+        description        = local.sa_key_desc
+      }
+
+      resource "yandex_storage_bucket" "test" {
+        bucket     = local.bucket_name
+        access_key = "${yandex_iam_service_account_static_access_key.buckets-account-key.access_key}"
+        secret_key = "${yandex_iam_service_account_static_access_key.buckets-account-key.secret_key}"
+      }
+      ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```
+      locals {
+        cloud_id    = "<идентификатор облака>"
+        folder_id   = "<идентификатор каталога>"
+        oauth       = "<статический ключ сервисного аккаунта>"
+        endpoint    = "{{ api-host }}:443"
+        zone        = "{{ region-id }}-a"
+
+        sa_name     = "new-buckets-account"
+        sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
+        sa_key_desc = "Статический ключ для ${local.sa_name}"
+
+        bucket_name = "example-bucket" # Имя создаваемого бакета. Если не задавать имя бакета для ресурса `yandex_storage_bucket`, имя будет сгенерировано автоматически.
+      }
+
+      terraform {
+        required_providers {
+          yandex = {
+          source = "yandex-cloud/yandex"
+        }
+        }
+      }
+
+      provider "yandex" {
+        token     = local.oauth
+        cloud_id  = local.cloud_id
+        folder_id = local.folder_id
+        zone      = local.zone
+        endpoint  = local.endpoint
       }
 
       resource "yandex_iam_service_account" "buckets-account" {
@@ -107,21 +169,23 @@
       }
       ```
 
+      {% endif %}
+
       Более подробную информацию о ресурсах, которые вы можете создать с помощью [Terraform](https://www.terraform.io/docs/language/index.html), см. в [документации провайдера]({{ tf-provider-link }}/).
 
-  1. Проверьте корректность конфигурационных файлов.
+  2. Проверьте корректность конфигурационных файлов.
 
       1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
 
 	    1. Выполните проверку с помощью команды:
 
-          ```bash
-          terraform plan
-          ```
+        ```bash
+        terraform plan
+        ```
 
-          Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+        Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
 
-  1. Разверните облачные ресурсы.
+  3. Разверните облачные ресурсы.
 
       1. Если в конфигурации нет ошибок, выполните команду:
 
@@ -129,7 +193,7 @@
           terraform apply
           ```
 
-      1. Подтвердите создание ресурсов.
+      2. Подтвердите создание ресурсов.
 
           После выполнения команды Terraform обновит или создаст в указанном каталоге следующие ресурсы:
 
@@ -147,7 +211,7 @@
   1. Выполните команду:
 
       ```bash
-      aws s3 mb s3://example-bucket --endpoint-url=https://storage.yandexcloud.net
+      aws s3 mb s3://example-bucket --endpoint-url=https://{{ s3-storage-host }}
       ```
 
       Результат выполнения:
@@ -200,15 +264,17 @@
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы задать параметры, в данном сценарии используется блок `locals`:
 
+      {% if product == "yandex-cloud" %}
+
       ```
       locals {
         cloud_id    = "<идентификатор облака>"
         folder_id   = "<идентификатор каталога>"
         oauth       = "<OAuth>"
-        zone        = "ru-central1-a"
+        zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
-        sa_desc     = "Аккаунт для управления бакетами Object Storage"
+        sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
         sa_key_desc = "Статический ключ для ${local.sa_name}"
 
         key_name    = "key-1" # Имя ключа KMS.
@@ -263,6 +329,78 @@
         secret_key = "${yandex_iam_service_account_static_access_key.buckets-account-key.secret_key}"
       }
       ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```
+      locals {
+        cloud_id    = "<идентификатор облака>"
+        folder_id   = "<идентификатор каталога>"
+        oauth       = "<статический ключ сервисного аккаунта>"
+        endpoint    = "{{ api-host }}:443"
+        zone        = "{{ region-id }}-a"
+
+        sa_name     = "new-buckets-account"
+        sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
+        sa_key_desc = "Статический ключ для ${local.sa_name}"
+
+        key_name    = "key-1" # Имя ключа KMS.
+        key_desc    = "Ключ для шифрования бакетов"
+
+        bucket_name = "example-bucket"
+      }
+
+      terraform {
+        required_providers {
+          yandex = {
+          source = "yandex-cloud/yandex"
+        }
+        }
+        }
+
+      provider "yandex" {
+        token     = local.oauth
+        cloud_id  = local.cloud_id
+        folder_id = local.folder_id
+        zone      = local.zone
+        endpoint  = local.endpoint
+      }
+
+      resource "yandex_iam_service_account" "buckets-account" {
+        name        = local.sa_name
+        description = local.sa_desc
+      }
+
+      resource "yandex_resourcemanager_folder_iam_binding" "buckets-account-role" {
+        folder_id = local.folder_id
+        role      = "editor"
+        members   = [
+          "serviceAccount:${yandex_iam_service_account.buckets-account.id}",
+        ]
+      }
+
+      resource "yandex_iam_service_account_static_access_key" "buckets-account-key" {
+        service_account_id = "${yandex_iam_service_account.buckets-account.id}"
+        description        = local.sa_key_desc
+      }
+
+      resource "yandex_kms_symmetric_key" "key-a" {
+        name              = local.key_name
+        description       = local.key_desc
+        default_algorithm = "AES_256"
+        rotation_period   = "168h"
+      }
+
+      resource "yandex_storage_bucket" "test" {
+        bucket     = local.bucket_name
+        access_key = "${yandex_iam_service_account_static_access_key.buckets-account-key.access_key}"
+        secret_key = "${yandex_iam_service_account_static_access_key.buckets-account-key.secret_key}"
+      }
+      ```
+
+      {% endif %}
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -319,15 +457,17 @@
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы задать параметры, в данном сценарии используется блок `locals`:
 
+      {% if product == "yandex-cloud" %}
+
       ```
       locals {
         cloud_id    = "<идентификатор облака>"
         folder_id   = "<идентификатор каталога>"
         oauth       = "<OAuth>"
-        zone        = "ru-central1-a"
+        zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
-        sa_desc     = "Аккаунт для управления бакетами Object Storage"
+        sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
         sa_key_desc = "Статический ключ для ${local.sa_name}"
 
         key_name    = "key-1" # Имя ключа KMS.
@@ -391,6 +531,86 @@
       }
       ```
 
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```
+      locals {
+        cloud_id    = "<идентификатор облака>"
+        folder_id   = "<идентификатор каталога>"
+        oauth       = "<статический ключ сервисного аккаунта>"
+        endpoint    = "{{ api-host }}:443"
+        zone        = "{{ region-id }}-a"
+
+        sa_name     = "new-buckets-account"
+        sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
+        sa_key_desc = "Статический ключ для ${local.sa_name}"
+
+        key_name    = "key-1" # Имя ключа KMS.
+        key_desc    = "Ключ для шифрования бакетов"
+
+        bucket_name = "example-bucket" # Имя бакета.
+      }
+
+      terraform {
+        required_providers {
+          yandex = {
+          source = "yandex-cloud/yandex"
+        }
+        }
+      }
+
+      provider "yandex" {
+        token     = local.oauth
+        cloud_id  = local.cloud_id
+        folder_id = local.folder_id
+        zone      = local.zone
+        endpoint  = local.endpoint
+      }
+
+      resource "yandex_iam_service_account" "buckets-account" {
+        name        = local.sa_name
+        description = local.sa_desc
+      }
+
+      resource "yandex_resourcemanager_folder_iam_binding" "buckets-account-role" {
+        folder_id = local.folder_id
+        role      = "editor"
+        members   = [
+          "serviceAccount:${yandex_iam_service_account.buckets-account.id}",
+        ]
+      }
+
+      resource "yandex_iam_service_account_static_access_key" "buckets-account-key" {
+        service_account_id = "${yandex_iam_service_account.buckets-account.id}"
+        description        = local.sa_key_desc
+      }
+
+      resource "yandex_kms_symmetric_key" "key-a" {
+        name              = local.key_name
+        description       = local.key_desc
+        default_algorithm = "AES_256"
+        rotation_period   = "168h"
+      }
+
+      resource "yandex_storage_bucket" "test" {
+        bucket     = local.bucket_name
+        access_key = "${yandex_iam_service_account_static_access_key.buckets-account-key.access_key}"
+        secret_key = "${yandex_iam_service_account_static_access_key.buckets-account-key.secret_key}"
+        server_side_encryption_configuration {
+          rule {
+          apply_server_side_encryption_by_default {
+            kms_master_key_id = yandex_kms_symmetric_key.key-a.id
+            sse_algorithm     = "aws:kms"
+          }
+        }
+        }
+      }
+      ```
+
+      {% endif %}
+
   1. Проверьте корректность конфигурационных файлов.
 
 	    1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
@@ -432,7 +652,7 @@
   ```
   aws s3api put-bucket-encryption \
     --bucket example-bucket \
-    --endpoint-url=https://storage.yandexcloud.net \
+    --endpoint-url=https://{{ s3-storage-host }} \
     --server-side-encryption-configuration '{
 	  "Rules": [
 	    {
@@ -473,15 +693,17 @@
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы отключить шифрование, удалите или закомментируйте блок `server_side_encryption_configuration` для ресурса `yandex_storage_bucket`:
 
-        ```
+        {% if product == "yandex-cloud" %}
+
+      ```
       locals {
         cloud_id    = "<идентификатор облака>"
         folder_id   = "<идентификатор каталога>"
         oauth       = "<OAuth>"
-        zone        = "ru-central1-a"
+        zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
-        sa_desc     = "Аккаунт для управления бакетами Object Storage"
+        sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
         sa_key_desc = "Статический ключ для ${local.sa_name}"
 
         key_name    = "key-1"
@@ -547,6 +769,88 @@
       }
       ```
 
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```
+      locals {
+        cloud_id    = "<идентификатор облака>"
+        folder_id   = "<идентификатор каталога>"
+        oauth       = "<статический ключ сервисного аккаунта>"
+        endpoint    = "{{ api-host }}:443"
+        zone        = "{{ region-id }}-a"
+
+        sa_name     = "new-buckets-account"
+        sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
+        sa_key_desc = "Статический ключ для ${local.sa_name}"
+
+        key_name    = "key-1"
+        key_desc    = "Ключ для шифрования бакетов"
+
+        bucket_name = "example-bucket"
+      }
+
+      terraform {
+        required_providers {
+          yandex = {
+            source = "yandex-cloud/yandex"
+        }
+        }
+      }
+
+      provider "yandex" {
+        token     = local.oauth
+        cloud_id  = local.cloud_id
+        folder_id = local.folder_id
+        zone      = local.zone
+        endpoint  = local.endpoint
+      }
+
+      resource "yandex_iam_service_account" "buckets-account" {
+        name        = local.sa_name
+        description = local.sa_desc
+      }
+
+      resource "yandex_resourcemanager_folder_iam_binding" "buckets-account-role" {
+        folder_id = local.folder_id
+        role      = "editor"
+        members   = [
+          "serviceAccount:${yandex_iam_service_account.buckets-account.id}",
+        ]
+      }
+
+      resource "yandex_iam_service_account_static_access_key" "buckets-account-key" {
+        service_account_id = "${yandex_iam_service_account.buckets-account.id}"
+        description        = local.sa_key_desc
+      }
+
+      resource "yandex_kms_symmetric_key" "key-a" {
+        name              = local.key_name
+        description       = local.key_desc
+        default_algorithm = "AES_256"
+        rotation_period   = "168h"
+      }
+
+      resource "yandex_storage_bucket" "test" {
+        bucket     = local.bucket_name
+        access_key = "${yandex_iam_service_account_static_access_key.buckets-account-key.access_key}"
+        secret_key = "${yandex_iam_service_account_static_access_key.buckets-account-key.secret_key}"
+        /*
+          server_side_encryption_configuration {
+            rule {
+            apply_server_side_encryption_by_default {
+              kms_master_key_id = yandex_kms_symmetric_key.key-a.id
+              sse_algorithm     = "aws:kms"
+            }
+          }
+          }
+        */
+      }
+      ```
+
+      {% endif %}
+
   1. Проверьте корректность конфигурационных файлов.
 
       1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
@@ -570,13 +874,13 @@
 
           После выполнения команды Terraform обновит в указанном каталоге следующие ресурсы:
 
-              * Сервисный аккаунт `new-buckets-account`.
-              * Роль `editor` для сервисного аккаунта `new-buckets-account`.
-              * Статический ключ для сервисного аккаунта.
-              * Ключ {{ kms-short-name }} с названием `key-1`.
-              * Бакет `example-bucket`.
+          * Сервисный аккаунт `new-buckets-account`.
+          * Роль `editor` для сервисного аккаунта `new-buckets-account`.
+          * Статический ключ для сервисного аккаунта.
+          * Ключ {{ kms-short-name }} с названием `key-1`.
+          * Бакет `example-bucket`.
 
-              В указанном каталоге шифрование для бакета `example-bucket` будет отключено. Проверить изменение ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+          В указанном каталоге шифрование для бакета `example-bucket` будет отключено. Проверить изменение ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 - AWS CLI
 
@@ -585,7 +889,7 @@
   ```bash
   aws s3api delete-bucket-encryption \
     --bucket example-bucket \
-    --endpoint-url=https://storage.yandexcloud.net
+    --endpoint-url=https://{{ s3-storage-host }}
   ```
 
   В результате успешного выполнения шифрование в бакете `example-bucket` будет отключено.

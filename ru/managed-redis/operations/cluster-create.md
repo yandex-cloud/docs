@@ -6,16 +6,16 @@
 
 {% note info %}
 
-* Количество хостов, которые можно создать вместе с {{ RD }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md#storage-type-selection), [класса хостов](../concepts/instance-types.md#available-flavors) и использования [шардирования](../concepts/sharding.md).
+* Количество хостов, которые можно создать вместе с {{ RD }}-кластером, зависит от выбранного {% if audience != "internal" %}[типа хранилища](../concepts/storage.md#storage-type-selection){% else %}[типа хранилища](../concepts/storage.md){% endif %}, [класса хостов](../concepts/instance-types.md#available-flavors) и использования [шардирования](../concepts/sharding.md).
 * Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
 
 ## Как создать кластер {{ RD }} {#create-cluster}
 
-{% note warning %}
+{% note info %}
 
-С 1 июня 2022 года поддержка {{ RD }} версии 5.0 прекращается. Подробнее см. в разделе [{#T}](cluster-version-update.md#version-supported).
+С 1 июня 2022 года прекращена поддержка {{ RD }} версии 5.0. Подробнее см. в разделе [{#T}](cluster-version-update.md#version-supported).
 
 {% endnote %}
 
@@ -29,8 +29,8 @@
   1. В блоке **Базовые параметры**:
   
      * Введите имя кластера в поле **Имя кластера**. Имя кластера должно быть уникальным в рамках каталога.
-	 * (опционально) Добавьте описание кластера.
-	 * Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
+     * (Опционально) Добавьте описание кластера.
+     * Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
        * `PRODUCTION` — для стабильных версий ваших приложений.
        * `PRESTABLE` — для тестирования, в том числе самого сервиса {{ mrd-short-name }}. В Prestable-окружении раньше появляются новая функциональность, улучшения и исправления ошибок. При этом не все обновления обеспечивают обратную совместимость.
      * Выберите версию СУБД.
@@ -53,7 +53,7 @@
   1. В блоке **Класс хоста**:
 
      * Выберите **Платформу**.
-	 * Укажите **Тип** виртуальной машины, на которой будут развернуты хосты.	 
+     * Укажите **Тип** виртуальной машины, на которой будут развернуты хосты.
      * Выберите конфигурацию [хостов](../concepts/instance-types.md) — она определяет технические характеристики виртуальных машин, на которых будут развернуты хосты БД. При изменении конфигурации меняются характеристики всех уже созданных хостов.
 
   1. В блоке **Размер хранилища**:
@@ -72,9 +72,16 @@
         
   1. В блоке **Настройки кластера** в поле **Пароль** укажите пароль пользователя, от 8 до 128 символов.
   1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
-  1. В блоке **Хосты** нажмите на кнопку **Добавить хост** и выберите зону доступности и подсеть, к которой будет подключен хост. Создайте необходимое количество хостов. Для изменения зоны доступности и добавленного хоста нажмите на значок карандаша в строке хоста.
+  1. В блоке **Хосты**:
 
-     Если вы включили шардирование, укажите названия шардов.
+      * Чтобы изменить настройки отдельного хоста, нажмите на значок ![pencil](../../_assets/pencil.svg) в строке с его именем.
+
+          * **Зона доступности** — выберите {% if audience != "internal" %}[зону доступности](../../overview/concepts/geo-scope.md){% else %}зону доступности{% endif %}.
+          * **Подсеть** — укажите {% if audience != "internal" %}[подсеть](../../vpc/concepts/network.md#subnet){% else %}подсеть{% endif %} в выбранной зоне доступности.
+          * **Публичный доступ** — разрешает доступ к хосту из интернета, если кластер создается с включенной настройкой **Поддержка TLS**.
+          * **Имя шарда** — позволяет изменить имя шарда для хоста. Поле доступно только если кластер создается с включенной настройкой **Шардирование кластера**.
+
+      * Чтобы добавить хосты в кластер, нажмите кнопку **Добавить хост**.
 
   1. При необходимости задайте дополнительные настройки кластера:
   
@@ -170,6 +177,8 @@
 
        Пример структуры конфигурационного файла для создания кластера с поддержкой SSL:
 
+       {% if product == "yandex-cloud" %}
+
        ```hcl
        terraform {
          required_providers {
@@ -197,7 +206,7 @@
 
          config {
            password = "<пароль>"
-           version  = "<версия Redis>"
+           version  = "<версия {{ RD }}: {{ versions.tf.str }}>"
          }
 
          resources {
@@ -221,6 +230,65 @@
          v4_cidr_blocks = ["<диапазон>"]
        }
        ```
+
+       {% endif %}
+
+       {% if product == "cloud-il" %}
+
+       ```hcl
+       terraform {
+         required_providers {
+           yandex = {
+             source = "yandex-cloud/yandex"
+           }
+         }
+       }
+
+       provider "yandex" {
+         endpoint  = "{{ api-host }}:443"
+         token     = "<статический ключ сервисного аккаунта>"
+         cloud_id  = "<идентификатор облака>"
+         folder_id = "<идентификатор каталога>"
+         zone      = "<зона доступности>"
+       }
+
+       resource "yandex_mdb_redis_cluster" "<имя кластера>" {
+         name                = "<имя кластера>"
+         environment         = "<окружение: PRESTABLE или PRODUCTION>"
+         network_id          = "<идентификатор сети>"
+         security_group_ids  = [ "<идентификаторы групп безопасности>" ]
+         tls_enabled         = true
+         sharded             = <шардирование: true или false>
+         deletion_protection = <защита от удаления кластера: true или false>
+
+         config {
+           password = "<пароль>"
+           version  = "<версия {{ RD }}: {{ versions.tf.str }}>"
+         }
+
+         resources {
+           resource_preset_id = "<класс хоста>"
+           disk_type_id       = "<тип хранилища>"
+           disk_size          = <размер хранилища в гигабайтах>
+         }
+
+         host {
+           zone      = "<зона доступности>"
+           subnet_id = "<идентификатор подсети>"
+         }
+       }
+
+       resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
+
+       resource "yandex_vpc_subnet" "<имя подсети>" {
+         name           = "<имя подсети>"
+         zone           = "<зона доступности>"
+         network_id     = "<идентификатор сети>"
+         v4_cidr_blocks = ["<диапазон>"]
+       }
+       ```
+
+       {% endif %}
 
        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -269,7 +337,7 @@
   Допустим, нужно создать {{ RD }}-кластер со следующими характеристиками:
   
   * Имя `myredis`.
-  * Версия `6.0`.
+  * Версия `{{ versions.cli.latest }}`.
   * Окружение — `production`.
   * Сеть `default`.
   * Один хост класса `hm1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ zone-id }}` и группе безопасности с идентификатором `{{ security-group }}`.
@@ -283,7 +351,7 @@
   ```bash
   {{ yc-mdb-rd }} cluster create \
     --name myredis \
-    --redis-version 6.0 \
+    --redis-version {{ versions.cli.latest }} \
     --environment production \
     --network-name default \
     --resource-preset hm1.nano \
@@ -301,7 +369,7 @@
   Допустим, нужно создать {{ RD }}-кластер и сеть для него со следующими характеристиками:
 
     * Имя `myredis`.
-    * Версия `6.0`.
+    * Версия `{{ versions.tf.latest }}`.
     * Окружение — `PRODUCTION`.
     * Облако с идентификатором `{{ tf-cloud-id }}`.
     * Каталог с идентификатором `{{ tf-folder-id }}`.
@@ -314,6 +382,8 @@
     * С защитой от случайного удаления кластера.
 
   Конфигурационный файл для такого кластера выглядит так:
+
+  {% if product == "yandex-cloud" %}
 
   ```hcl
   terraform {
@@ -341,7 +411,7 @@
 
     config {
       password = "user1user1"
-      version  = "6.0"
+      version  = "{{ versions.tf.latest }}"
     }
 
     resources {
@@ -385,6 +455,83 @@
   }
   ```
 
+  {% endif %}
+
+  {% if product == "cloud-il" %}
+
+  ```hcl
+  terraform {
+    required_providers {
+      yandex = {
+        source = "yandex-cloud/yandex"
+      }
+    }
+  }
+
+  provider "yandex" {
+    endpoint  = "{{ api-host }}:443"
+    token     = "<статический ключ сервисного аккаунта>"
+    cloud_id  = "{{ tf-cloud-id }}"
+    folder_id = "{{ tf-folder-id }}"
+    zone      = "{{ zone-id }}"
+  }
+
+  resource "yandex_mdb_redis_cluster" "myredis" {
+    name                = "myredis"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.mynet.id
+    security_group_ids  = [ yandex_vpc_security_group.redis-sg.id ]
+    tls_enabled         = true
+    deletion_protection = true
+
+    config {
+      password = "user1user1"
+      version  = "{{ versions.tf.latest }}"
+    }
+
+    resources {
+      resource_preset_id = "{{ host-class }}"
+      disk_type_id       = "{{ disk-type-example }}"
+      disk_size          = 16
+    }
+
+    host {
+      zone      = "{{ zone-id }}"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+    }
+  }
+
+  resource "yandex_vpc_network" "mynet" { name = "mynet" }
+
+  resource "yandex_vpc_security_group" "redis-sg" {
+    name       = "redis-sg"
+    network_id = yandex_vpc_network.mynet.id
+
+    ingress {
+      description    = "Redis"
+      port           = {{ port-mrd-tls }}
+      protocol       = "TCP"
+      v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+
+    egress {
+      description    = "Redis"
+      port           = {{ port-mrd-tls }}
+      protocol       = "TCP"
+      v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+  }
+
+  resource "yandex_vpc_subnet" "mysubnet" {
+    name           = "mysubnet"
+    zone           = "{{ zone-id }}"
+    network_id     = yandex_vpc_network.mynet.id
+    v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+  ```
+
+  {% endif %}
+
 {% endlist %}
 
 ### Создание шардированного кластера {#creating-a-sharded-cluster}
@@ -411,6 +558,8 @@
     * С защитой от случайного удаления кластера.
 
     Конфигурационный файл для такого кластера выглядит так:
+
+    {% if product == "yandex-cloud" %}
 
     ```hcl
     terraform {
@@ -447,19 +596,19 @@
       }
 
       host {
-        zone       = "ru-central1-a"
+        zone       = "{{ region-id }}-a"
         subnet_id  = yandex_vpc_subnet.subnet-a.id
         shard_name = "shard1"
       }
 
       host {
-        zone       = "ru-central1-b"
+        zone       = "{{ region-id }}-b"
         subnet_id  = yandex_vpc_subnet.subnet-b.id
         shard_name = "shard2"
       }
 
       host {
-        zone       = "ru-central1-c"
+        zone       = "{{ region-id }}-c"
         subnet_id  = yandex_vpc.subnet.subnet-c.id
         shard_name = "shard3"
       }
@@ -469,21 +618,21 @@
 
     resource "yandex_vpc_subnet" "subnet-a" {
       name           = "subnet-a"
-      zone           = "ru-central1-a"
+      zone           = "{{ region-id }}-a"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.1.0.0/24"]
     }
 
     resource "yandex_vpc_subnet" "subnet-b" {
       name           = "subnet-b"
-      zone           = "ru-central1-b"
+      zone           = "{{ region-id }}-b"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.2.0.0/24"]
     }
 
     resource "yandex_vpc_subnet" "subnet-c" {
       name           = "subnet-c"
-      zone           = "ru-central1-c"
+      zone           = "{{ region-id }}-c"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.3.0.0/24"]
     }
@@ -537,5 +686,138 @@
       }
     }
     ```
+
+    {% endif %}
+
+    {% if product == "cloud-il" %}
+
+    ```hcl
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+      }
+    }
+
+    provider "yandex" {
+      endpoint  = "{{ api-host }}:443"
+      token     = "<статический ключ сервисного аккаунта>"
+      cloud_id  = "{{ tf-cloud-id }}"
+      folder_id = "{{ tf-folder-id }}"
+      zone      = "{{ zone-id }}"
+    }
+
+    resource "yandex_mdb_redis_cluster" "myredis" {
+      name                = "myredis"
+      environment         = "PRODUCTION"
+      network_id          = yandex_vpc_network.mynet.id
+      security_group_ids  = [yandex_vpc_security_group.redis-sg.id]
+      sharded             = true
+      deletion_protection = true
+
+      config {
+        password = "user1user1"
+      }
+
+      resources {
+        resource_preset_id = "{{ host-class }}"
+        disk_type_id       = "{{ disk-type-example }}"
+        disk_size          = 16
+      }
+
+      host {
+        zone       = "{{ region-id }}-a"
+        subnet_id  = yandex_vpc_subnet.subnet-a.id
+        shard_name = "shard1"
+      }
+
+      host {
+        zone       = "{{ region-id }}-b"
+        subnet_id  = yandex_vpc_subnet.subnet-b.id
+        shard_name = "shard2"
+      }
+
+      host {
+        zone       = "{{ region-id }}-c"
+        subnet_id  = yandex_vpc.subnet.subnet-c.id
+        shard_name = "shard3"
+      }
+    }
+
+    resource "yandex_vpc_network" "mynet" { name = "mynet" }
+
+    resource "yandex_vpc_subnet" "subnet-a" {
+      name           = "subnet-a"
+      zone           = "{{ region-id }}-a"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.1.0.0/24"]
+    }
+
+    resource "yandex_vpc_subnet" "subnet-b" {
+      name           = "subnet-b"
+      zone           = "{{ region-id }}-b"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.2.0.0/24"]
+    }
+
+    resource "yandex_vpc_subnet" "subnet-c" {
+      name           = "subnet-c"
+      zone           = "{{ region-id }}-c"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.3.0.0/24"]
+    }
+
+    resource "yandex_vpc_security_group" "redis-sg" {
+      name       = "redis-sg"
+      network_id = yandex_vpc_network.mynet.id
+
+      ingress {
+        description    = "Redis"
+        port           = {{ port-mrd }}
+        protocol       = "TCP"
+        v4_cidr_blocks = [
+          "10.1.0.0/24",
+          "10.2.0.0/24",
+          "10.3.0.0/24"
+        ]
+      }
+
+      egress {
+        description    = "Redis"
+        port           = {{ port-mrd }}
+        protocol       = "TCP"
+        v4_cidr_blocks = [
+          "10.1.0.0/24",
+          "10.2.0.0/24",
+          "10.3.0.0/24"
+        ]
+      }
+
+      ingress {
+        description    = "Redis Sentinel"
+        port           = {{ port-mrd-sentinel }}
+        protocol       = "TCP"
+        v4_cidr_blocks = [
+          "10.1.0.0/24",
+          "10.2.0.0/24",
+          "10.3.0.0/24"
+        ]
+      }
+
+      egress {
+        description    = "Redis Sentinel"
+        port           = {{ port-mrd-sentinel }}
+        protocol       = "TCP"
+        v4_cidr_blocks = [
+          "10.1.0.0/24",
+          "10.2.0.0/24",
+          "10.3.0.0/24"
+        ]
+      }
+    }
+    ```
+
+    {% endif %}
 
 {% endlist %}

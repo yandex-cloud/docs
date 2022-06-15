@@ -22,15 +22,33 @@
 
       Result:
 
+      {% if product == "yandex-cloud" %}
+
       ```
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       ...
-      | b7r97ah2jn5rmo6k1dsk | test-load-balancer | ru-central1 | EXTERNAL |              1 | b7roi767je4c574iivrk   |  ACTIVE  |
+      | b7r97ah2jn5rmo6k1dsk | test-load-balancer | {{ region-id }} | EXTERNAL |              1 | b7roi767je4c574iivrk   |  ACTIVE  |
       ...
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```
+      +----------------------+--------------------+-----------+----------+----------------+------------------------+----------+
+      |          ID          |        NAME        | REGION ID |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
+      +----------------------+--------------------+-----------+----------+----------------+------------------------+----------+
+      ...
+      | b7r97ah2jn5rmo6k1dsk | test-load-balancer | il1       | EXTERNAL |              1 | b7roi767je4c574iivrk   |  ACTIVE  |
+      ...
+      +----------------------+--------------------+-----------+----------+----------------+------------------------+----------+
+      ```
+
+      {% endif %}
 
    1. Choose the `ID` of the load balancer and the `ID` of the target group that is attached to it.
    1. Request the status of the target group resources:

@@ -28,7 +28,7 @@
 
 Чтобы из подсети `dataproc-net` появился доступ к внешним ресурсам:
 
-1. Создайте в сети `dataproc-nat-net` виртуальную машину на основе образа [NAT-инстанс]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2etqeet87jshce7o7j8){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2etqeet87jshce7o7j8){% endif %}, с публичным IP-адресом.
+1. Создайте в сети `dataproc-nat-net` виртуальную машину на основе образа [NAT-инстанс](/marketplace/products/f2etqeet87jshce7o7j8), с публичным IP-адресом.
 2. Скопируйте внутренний IP-адрес созданной машины.
 2. На странице сети, в которой находятся подсети, создайте таблицу маршрутизации с именем `nat`.
 3. В таблицу маршрутизации добавьте статический маршрут:

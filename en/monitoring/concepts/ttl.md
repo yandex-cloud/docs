@@ -11,4 +11,3 @@ System metrics are automatically collected from all active {{ yandex-cloud }} re
 ## Custom metrics {#custom}
 
 Automatic deletion of expired metrics doesn't apply to [custom metrics](../operations/metric/add.md).
-

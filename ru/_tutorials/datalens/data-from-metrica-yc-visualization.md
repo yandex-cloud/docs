@@ -21,7 +21,7 @@
     1. [Подключитесь к {{ datalens-short-name }}](#datalens-connection)
     1. [Создайте подключение к {{ CH }} в {{ datalens-short-name }}](#creation-datalens-connection-to-ch)
     1. [Создайте датасет на базе подключения](#creating-dataset-based-on-connection)
-    1. [Создайте чарт — диаграмма с областями](#creating-area-chart)
+    1. [Создайте чарт — накопительная диаграмма с областями](#creating-area-chart)
     1. [Создайте чарт — сводная таблица](#creating-pivot-table)
 1. [Создайте и настройте дашборд в {{ datalens-short-name }}](#creating-configuring-dashboard)
     1. [Создайте дашборд](#creating-dashboard)
@@ -43,7 +43,7 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 ## 1. Подключите {{ CH }} и {{ ml-platform-short-name }} {#ch-datasphere-connection}
 
@@ -55,12 +55,18 @@
    1. В блоке **Базовые параметры** укажите произвольное имя кластера. 
    1. В блоке **Класс хоста** выберите тип виртуальной машины **burstable** и тип хоста **b2.medium**.
    
-       ![image](../../_assets/datalens/solution-11/01-cluster-ch-settings.png =399x356)
+      {% note warning %}
+   
+      Не рекомендуется использовать конфигурации ВМ типа **burstable** в продакшн-среде. В этом руководстве они используются в качестве примера. Для продакшн-решений используйте конфигурации **standard** или **memory-optimized**.
+
+      {% endnote %}
+
+      ![image](../../_assets/datalens/solution-11/01-cluster-ch-settings.png =399x356)
    
    1. В блоке **Размер хранилища** оставьте значение 10 ГБ.
    1. В блоке **База данных** укажите имя БД, например `metrica_data`, имя пользователя и пароль. Запомните имя БД.  
      
-       ![image](../../_assets/datalens/solution-11/02-ch-settings-storage.png =402x293)     
+      ![image](../../_assets/datalens/solution-11/02-ch-settings-storage.png =402x293)     
       
    1. В блоке **Хосты** нажмите значок ![pencil](../../_assets/pencil.svg). Включите опцию **Публичный доступ** и нажмите кнопку **Сохранить**.
    1. В блоке **Дополнительные настройки** включите 4 опции:
@@ -192,7 +198,7 @@
 1. В правом верхнем углу нажмите кнопку **Сохранить**.
 1. Назовите датасет `ch_metrica_data_hits` и нажмите кнопку **Создать**.
 
-### 3.4 Создайте чарт — диаграмма с областями {#creating-area-chart}
+### 3.4 Создайте чарт — накопительная диаграмма с областями {#creating-area-chart}
 
 Перейдите к созданию чартов.
 
@@ -201,7 +207,7 @@
     * Перетащите поле **EventDate** в область **X**.
     * Перетащите поле **Браузер** в область **Цвета**.
     * Перетащите поле **Хиты** в область **Y**.
-1. Измените тип чарта на диаграмму с областями. 
+1. Измените тип чарта на **Накопительная диаграмма с областями**. 
 
     ![image](../../_assets/datalens/solution-11/10-change-diagram.png =300x482)
     

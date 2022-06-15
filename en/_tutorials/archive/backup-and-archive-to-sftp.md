@@ -21,11 +21,9 @@ To deploy the necessary infrastructure, follow the instructions:
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to run your VM in. Go to the [{{ yandex-cloud }} homepage](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a VM for your server. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources
 
@@ -35,6 +33,8 @@ The infrastructure cost in the example includes:
     * A VM for the SFTP client.
     * A VM for the SFTP server.
 * A fee for using a dynamic or static external IP address (see [Pricing for Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+
+{% endif %}
 
 ## Create a VM for the SFTP server {#create-vm-sftp-server}
 
@@ -48,7 +48,7 @@ To create a VM:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. In the **Images from {{ marketplace-name }}** section, select the [CentOS 7]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo){% endif %} image.
+1. In the **Images from {{ marketplace-name }}** section, select the [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo) image.
 
 1. In the **Computing resources** section, select the following configuration:
    * **Platform**: Intel Cascade Lake.
@@ -216,7 +216,7 @@ SFTP server functionality is included in the standard SSH program that comes wit
     Your identification has been saved in /home/fuser/.ssh/id_rsa.
     Your public key has been saved in /home/fuser/.ssh/id_rsa.pub.
     The key fingerprint is:
-    SHA256:S2jRD3/A6ClHW/RZUOeOrl6BsK3pfWdhusGBGZiHE44 fuser@ftp-server.ru-central1.internal
+    SHA256:S2jRD3/A6ClHW/RZUOeOrl6BsK3pfWdhusGBGZiHE44 fuser@ftp-server.{{ region-id }}.internal
     The key's randomart image is:
     +---[RSA 2048]----+
     |         .. .oo .|
@@ -387,7 +387,7 @@ To set up the backup process:
 
     * `backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz`: Add the name of the computer to the archive name and the date and time when the archive was created. This will help you navigate the list of backups on the server.
 
-      For example, the name of the archive on the server might look like this: `backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz`.
+      For example, the name of the archive on the server might look like this: `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz`.
 
     * `--insecure`: Disable SSL certificate verification by the SFTP server. In this case, traffic within the SSH session is still encrypted.
 
@@ -431,7 +431,7 @@ To make sure that a backup is created properly, run the backup and find the copy
    $ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
    ```
 
-1. Log in to the SFTP server and make sure that a file that looks like `backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz` appeared in the SFTP user's home directory. To do this, run the following command on the SFTP server:
+1. Log in to the SFTP server and make sure that a file that looks like `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz` appeared in the SFTP user's home directory. To do this, run the following command on the SFTP server:
 
    ```bash
    $ sudo ls /var/sftp/backups
@@ -448,12 +448,12 @@ The settings are restored as follows:
 
 To restore the settings from the backup:
 
-1. On the SFTP server, in the `/var/sftp/backups` directory, select the backup that you want to restore the configuration files from. For example, `backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz`.
+1. On the SFTP server, in the `/var/sftp/backups` directory, select the backup that you want to restore the configuration files from. For example, `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz`.
 
 1. On the SFTP client, make an environment variable to name a backup file:
 
     ```bash
-    SFTP_BACKUP='backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz'
+    SFTP_BACKUP='backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz'
     ```
 
 1. Download the backup from the SFTP server to the SFTP client:

@@ -13,7 +13,9 @@
    1. **Релизный канал**: `RAPID`.
    1. В блоке **Сетевые настройки кластера** выберите опцию **Включить туннельный режим**.
 1. [Создайте группу узлов](node-group/node-group-create.md) любой подходящей вам конфигурации.
-1. [Установите kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl/){% endif %} и [настройте](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) его на работу с созданным кластером.
+
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Узнайте IP-адрес сервиса `kube-dns`:
 
    ```bash
@@ -78,7 +80,7 @@
          }
          prometheus :9253
          health
-         }
+       }
        in-addr.arpa:53 {
          errors
          cache 30
@@ -100,7 +102,7 @@
            prefer_udp
          }
          prometheus :9253
-         }
+       }
        .:53 {
          errors
          cache 30
@@ -111,7 +113,7 @@
            prefer_udp
          }
          prometheus :9253
-         }
+       }
    ---
    apiVersion: apps/v1
    kind: DaemonSet
@@ -233,7 +235,7 @@
    kubectl apply -f node-local-dns.yaml
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    serviceaccount/node-local-dns created
@@ -248,7 +250,7 @@
    kubectl apply -f node-local-dns-lrp.yaml
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    ciliumlocalredirectpolicy.cilium.io/Node Local DNS created
@@ -257,11 +259,10 @@
 ## Создайте тестовое окружение {#create-test-environment}
 
 Для проверки работы локального DNS в кластере будет запущен [под](../concepts/index.md#pod) `nettool`, содержащий в себе пакет сетевых утилит `dnsutils`.
-
 1. Запустите под `nettool`:
 
    ```bash
-   kubectl run nettool --image cr.yandex/yc/demo/network-multitool -- sleep infinity
+   kubectl run nettool --image {{ registry }}/yc/demo/network-multitool -- sleep infinity
    ```
 
 1. Убедитесь, что под перешел в состояние `Running`:
@@ -289,7 +290,7 @@
    kubectl get pod -o wide -n kube-system | grep 'node-local.*<имя узла>'
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    node-local-dns-gv68c  1/1  Running  0  26m  <IP-адрес пода>  <имя узла>  <none>  <none>
@@ -298,14 +299,13 @@
 ## Проверьте работу Node Local DNS {#test-nodelocaldns}
 
 Для проверки работы локального DNS с пода `nettool` будут выполнены несколько DNS-запросов. При этом будут изменяться метрики количества DNS-запросов на поде, обслуживающем Node Local DNS.
-
 1. Узнайте значение метрик для DNS-запросов до начала проверки:
 
    ```bash
    kubectl exec -ti nettool -- curl http://<IP-адрес пода>:9253/metrics | grep coredns_dns_requests_total
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    # HELP coredns_dns_requests_total Counter of DNS requests made per zone, protocol and family.
@@ -324,7 +324,7 @@
    kubectl exec -ti nettool -- nslookup ya.ru
    ```
 
-   Ожидаемый результат выполнения команды (IP-адреса могут отличаться):
+   Результат выполнения команды (IP-адреса могут отличаться):
 
    ```text
    Name:   kubernetes.default.svc.cluster.local
@@ -352,7 +352,7 @@
    kubectl exec -ti nettool -- curl http://<IP-адрес пода>:9253/metrics | grep coredns_dns_requests_total
    ```
 
-  Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    # HELP coredns_dns_requests_total Counter of DNS requests made per zone, protocol and family.

@@ -1,16 +1,24 @@
 # Как начать работать с {{ alb-full-name }}
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 С помощью этой инструкции вы создадите первый L7-балансировщик, подключите к нему целевую группу и настроите передачу трафика на бэкенд тестового приложения.
 
 ## Перед началом работы {#before-begin}
 
 1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. [На странице биллинга](https://console.cloud.yandex.ru/billing) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+{% if product == "yandex-cloud" %}
+1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+{% endif %}
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md). Во время создания каталога вы можете создать виртуальную сеть по умолчанию с подсетями во всех зонах доступности.
 
 ## Создайте ВМ и запустите на ней тестовый веб-сервер {#create-vm}
 
-1. [Создайте](../compute/operations/vm-create/create-linux-vm.md) виртуальную машину `test-vm1` в зоне доступности `ru-central1-a`.
+1. [Создайте](../compute/operations/vm-create/create-linux-vm.md) виртуальную машину `test-vm1` в зоне доступности `{{ region-id }}-a`.
 1. [Подключитесь к ВМ](../compute/operations/vm-connect/ssh.md) и запустите на ней тестовый веб-сервер, который будет отвечать на запросы на порте `80`:
 
     ```bash
@@ -178,9 +186,9 @@
       ```bash
       yc alb load-balancer create test-load-balancer \
       --network-name <имя сети> \
-      --location subnet-name=<имя подсети в зоне ru-central1-a>,zone=ru-central1-a \
-      --location subnet-name=<имя подсети в зоне ru-central1-b>,zone=ru-central1-b \
-      --location subnet-name=<имя подсети в зоне ru-central1-c>,zone=ru-central1-c
+      --location subnet-name=<имя подсети в зоне {{ region-id }}-a>,zone={{ region-id }}-a \
+      --location subnet-name=<имя подсети в зоне {{ region-id }}-b>,zone={{ region-id }}-b \
+      --location subnet-name=<имя подсети в зоне {{ region-id }}-c>,zone={{ region-id }}-c
       ```
 
   1. Добавьте обработчик:

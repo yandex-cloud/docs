@@ -1,6 +1,6 @@
-# Concepts {{ ig-name }}
+# {{ ig-name }} concepts
 
-{{ ig-name }} is a {{ compute-name }} component that lets you create and manage instance groups.
+{{ ig-name }} is a {{ compute-name }} component that lets you create instance groups and manage them.
 {{ ig-name }} automatically identifies and corrects unhealthy instances in a group to ensure their optimal performance.
 
 {% note warning %}
@@ -23,13 +23,14 @@ Use {{ ig-name }} to:
 
 - Automatically [recover](autohealing.md) an instance if the application fails.
 
+{% if product == "yandex-cloud" %}
 - Maintain the performance of application services in a reliable environment with multi-zone features instead of allocating resources for each zone.
+   {% endif %}
 
 When creating a group, describe the following:
 
-- [The template](instance-template.md) for deploying group instances.
+- The [template](instance-template.md) for deploying group instances.
 
 - [{#T}](policies/index.md) for scaling, deployment, and allocation.
 
 Instance groups created in the folder can be accessed by all instances connected to the same cloud network. [Learn more about networking](../../../vpc/).
-

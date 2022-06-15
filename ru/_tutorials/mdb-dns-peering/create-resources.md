@@ -1,8 +1,8 @@
 1. Опишите новую облачную сеть `vm-net` с новыми подсетями:
 
-    * `vm-subnet-ru-central1-a`: `172.17.1.0/24`, зона доступности `ru-central1-a`.
-    * `vm-subnet-ru-central1-b`: `172.17.2.0/24`, зона доступности `ru-central1-b`.
-    * `vm-subnet-ru-central1-c`: `172.17.3.0/24`, зона доступности `ru-central1-c`.
+    * `vm-subnet-{{ region-id }}-a`: `172.17.1.0/24`, зона доступности `{{ region-id }}-a`.
+    * `vm-subnet-{{ region-id }}-b`: `172.17.2.0/24`, зона доступности `{{ region-id }}-b`.
+    * `vm-subnet-{{ region-id }}-c`: `172.17.3.0/24`, зона доступности `{{ region-id }}-c`.
 
     Для этого добавьте в конфигурационный файл `networks.tf` следующие строки:
 
@@ -12,22 +12,22 @@
     resource "yandex_vpc_network" "vm-net" { name = "vm-net" }
     
     resource "yandex_vpc_subnet" "vm-subnet-a" {
-      name           = "vm-subnet-ru-central1-a"
-      zone           = "ru-central1-a"
+      name           = "vm-subnet-{{ region-id }}-a"
+      zone           = "{{ region-id }}-a"
       network_id     = yandex_vpc_network.vm-net.id
       v4_cidr_blocks = ["172.17.1.0/24"]
     }
     
     resource "yandex_vpc_subnet" "vm-subnet-b" {
-      name           = "vm-subnet-ru-central1-b"
-      zone           = "ru-central1-b"
+      name           = "vm-subnet-{{ region-id }}-b"
+      zone           = "{{ region-id }}-b"
       network_id     = yandex_vpc_network.vm-net.id
       v4_cidr_blocks = ["172.17.2.0/24"]
     }
     
     resource "yandex_vpc_subnet" "vm-subnet-c" {
-      name           = "vm-subnet-ru-central1-c"
-      zone           = "ru-central1-c"
+      name           = "vm-subnet-{{ region-id }}-c"
+      zone           = "{{ region-id }}-c"
       network_id     = yandex_vpc_network.vm-net.id
       v4_cidr_blocks = ["172.17.3.0/24"]
     }
@@ -91,8 +91,8 @@
 
 1. Опишите виртуальные машины, которые будут использоваться при [процедуре миграции](#do-actions-for-migration) и при [проверке работы DNS](#check-cluster-availability):
 
-    * `cluster-vm`: в облачной сети `cluster-net` (подсеть `cluster-subnet-ru-central1-c`), с группой безопасности `cluster-vm-sg`.
-    * `other-vm`: в облачной сети `vm-net` (подсеть `vm-subnet-ru-central1-c`), с группой безопасности `other-vm-sg`.
+    * `cluster-vm`: в облачной сети `cluster-net` (подсеть `cluster-subnet-{{ region-id }}-c`), с группой безопасности `cluster-vm-sg`.
+    * `other-vm`: в облачной сети `vm-net` (подсеть `vm-subnet-{{ region-id }}-c`), с группой безопасности `other-vm-sg`.
 
     Для этого создайте конфигурационный файл `vms.tf` с описанием виртуальных машин.
 

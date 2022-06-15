@@ -1,10 +1,10 @@
 # Example of using {{ message-queue-full-name }} on PHP
 
-Using the [AWS SDK for PHP](https://aws.amazon.com/en/sdk-for-php/), you can manage {{ message-queue-name }} message queues and send and receive messages.
+Using the [AWS SDK for PHP]{% if lang == "ru" %}(https://aws.amazon.com/ru/sdk-for-php/){% endif %}{% if lang == "en" %}(https://aws.amazon.com/sdk-for-php/){% endif %}, you can manage {{ message-queue-name }}message queues and send and receive messages.
 
 ## Installation {#install}
 
-Install the AWS SDK for PHP [by following the instructions](https://aws.amazon.com/en/sdk-for-php/) on the official site.
+Install the AWS SDK for PHP [by following the instructions]{% if lang == "ru" %}(https://aws.amazon.com/ru/sdk-for-php/){% endif %}{% if lang == "en" %}(https://aws.amazon.com/sdk-for-php/){% endif %} on the official site.
 ```
 $ composer require aws/aws-sdk-php-resources
 ```
@@ -24,8 +24,8 @@ $ export AWS_SECRET_ACCESS_KEY="<secret key>"
 In this example:
 
 1. A connection with {{ message-queue-name }} is established.
-1. A message queue is created with the name `ymq_php_sdk_example`.
-1. A message with the text `Test message` is sent to the queue.
+1. A message queue is created with the name `mq_php_sdk_example`.
+1. A message with the text `test-message` is sent to the queue.
 1. The message is read from the queue and displayed in the terminal.
 1. The message queue is deleted.
 
@@ -37,27 +37,27 @@ require __DIR__ . '/vendor/autoload.php';
 use Aws\Sqs\SqsClient;
 use Aws\Exception\AwsException;
 
-$ymq = new Aws\Sqs\SqsClient([
+$mq = new Aws\Sqs\SqsClient([
     'version' => 'latest',
-    'region' => 'ru-central1',
-    'endpoint' => 'https://message-queue.api.cloud.yandex.net',
+    'region' => '{{ region-id }}',
+    'endpoint' => 'https://message-queue.{{ api-host }}',
 ]);
 
-$result = $ymq->createQueue([
-    'QueueName' => 'ymq_php_sdk_example',
+$result = $mq->createQueue([
+    'QueueName' => 'mq_php_sdk_example',
 ]);
 
 $queueUrl = $result["QueueUrl"];
 print('Queue created, URL: ' . $queueUrl . PHP_EOL);
 
-$result = $ymq->sendMessage([
+$result = $mq->sendMessage([
     'QueueUrl' => $queueUrl,
     'MessageBody' => 'Test message',
 ]);
 
 print("Message sent, ID: " . $result["MessageId"] . PHP_EOL);
 
-$result = $ymq->receiveMessage([
+$result = $mq->receiveMessage([
     'QueueUrl' => $queueUrl,
     'WaitTimeSeconds' => 10,
 ]);
@@ -67,16 +67,15 @@ foreach ($result["Messages"] as $msg) {
     print('ID: ' . $msg['MessageId'] . PHP_EOL);
     print('Body: ' . $msg['Body'] . PHP_EOL);
 
-    $ymq->deleteMessage([
+    $mq->deleteMessage([
         'QueueUrl' => $queueUrl,
         'ReceiptHandle' => $msg['ReceiptHandle'],
     ]);
 }
 
-$result = $ymq->deleteQueue([
+$result = $mq->deleteQueue([
     'QueueUrl' => $queueUrl,
 ]);
 
 print('Queue deleted' . PHP_EOL);
 ```
-

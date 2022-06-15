@@ -7,6 +7,6 @@
 | Хранилище на сетевых SSD-дисках         | {{ sku|RUB|mdb.cluster.network-nvme.kafka|month|string }}              |
 | Хранилище на локальных SSD-дисках       | {{ sku|RUB|mdb.cluster.local-nvme.kafka|month|string }} *              |
 
-{% if audience != "internal" %}
+{% if product == "yandex-cloud" and audience != "internal" %}
 \* Хранилище выделенных хостов оплачивается по тарифам, указанным в [документации {{ compute-full-name }}](../../compute/pricing.md#prices).
 {% endif %}

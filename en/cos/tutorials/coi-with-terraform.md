@@ -224,12 +224,14 @@ Run the VM with a {{ coi }} using the Terraform configuration.
 
 1. Save a configuration file named `example.tf` to the `~/yandex-cloud-terraform` directory:
 
-   ```
+   {% if product == "yandex-cloud" %}
+
+   ```hcl
    provider "yandex" {
-     token = "<OAuth token>"
-     cloud_id = "<cloud ID>"
+     token     = "<OAuth token>"
+     cloud_id  = "<cloud ID>"
      folder_id = "<folder ID>"
-     zone = "ru-central1-a"
+     zone      = "{{ region-id }}-a"
    }
    data "yandex_compute_image" "container-optimized-image" {
      family = "container-optimized-image"
@@ -278,8 +280,72 @@ Run the VM with a {{ coi }} using the Terraform configuration.
    }
    ```
 
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```
+   provider "yandex" {
+     endpoint  = "{{ api-host }}:443"
+     token     = "<static key of the service account>"
+     cloud_id  = "<cloud ID>"
+     folder_id = "<folder ID>"
+     zone      = "{{ region-id }}-a"
+   }
+   data "yandex_compute_image" "container-optimized-image" {
+     family = "container-optimized-image"
+   }
+   resource "yandex_compute_instance_group" "ig-with-coi" {
+     name = "ig-with-coi"
+     folder_id = "<folder ID>"
+     service_account_id = "<service account ID>"
+     instance_template {
+       platform_id = "standard-v3"
+       resources {
+         memory = 2
+         cores  = 2
+       }
+       boot_disk {
+         mode = "READ_WRITE"
+         initialize_params {
+           image_id = data.yandex_compute_image.container-optimized-image.id
+         }
+       }
+       network_interface {
+         network_id = "<network ID>"
+         subnet_ids = ["<subnet IDs>"]
+         nat = true
+       }
+       metadata = {
+         docker-container-declaration = file("${path.module}/declaration.yaml")
+         user-data = file("${path.module}/cloud_config.yaml")
+       }
+       service_account_id = "<service account ID>"
+     }
+     scale_policy {
+       fixed_scale {
+         size = 2
+       }
+     }
+     allocation_policy {
+       zones = ["<availability zones>"]
+     }
+     deploy_policy {
+       max_unavailable = 2
+       max_creating = 2
+       max_expansion = 2
+       max_deleting = 2
+     }
+   }
+   ```
+
+   {% endif %}
+
    Where:
-   * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) to access {{ yandex-cloud }}.
+   {% if product == "cloud-il" %}
+   * `endpoint`: hostname and port for {{ yandex-cloud }} API requests: `{{ api-host }}:443`.
+   {% endif %}
+   * `token`: {% if product == "yandex-cloud" %}[OAuth token](../../iam/concepts/authorization/oauth-token.md){% endif %}{% if product == "cloud-il" %}static key (`secret`) of the service account{% endif %} to access {{ yandex-cloud }}.
    * `name`: Name of the instance group.
    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md).
    * `instance_template.network_interface.network_id`: ID of the [network](../../vpc/concepts/network.md).

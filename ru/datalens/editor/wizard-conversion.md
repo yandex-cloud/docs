@@ -13,7 +13,7 @@
 
 ## API {#api}
 
-[Аутентификация](../api/dashboards/auth.md) • [Идентификация](../api/dashboards/identification.md)
+[Аутентификация](../api/auth.md)
 
 `POST` `https://charts.yandex-team.ru/api/wizard/v1/convert`
 

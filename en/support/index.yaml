@@ -1,20 +1,58 @@
-title: Yandex Cloud Technical Support
-description: "Technical support for Yandex Cloud is provided in accordance with the <a href=\"https://yandex.ru/legal/cloud_technicalregulations\">\rMaintenance Regulations</a> in English and Russian."
+title:
+  - text: Yandex Cloud technical support
+    when: product == "yandex-cloud"
+  - text: CloudIL technical support
+    when: product == "cloud-il"
+description:
+  - text:
+      - >-
+        Technical support for Yandex Cloud is provided in accordance with the <a
+        href="https://yandex.ru/legal/cloud_technicalregulations">Maintenance
+        Regulations</a> in Russian and English.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        Technical support for CloudIL is provided in English.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Cloud technical support
+  title:
+    - text: Yandex Cloud technical support
+      when: product == "yandex-cloud"
+    - text: CloudIL technical support
+      when: product == "cloud-il"
 links:
   - title: Requesting technical support
     description: How to contact technical support
     href: overview
+    when: audience != "internal" and product == "yandex-cloud"
+  - title: Requesting technical support
+    description: How to contact technical support
+    href: overview.html
+    when: audience != "internal" and product == "cloud-il"
+  - title: Getting technical support
+    href: overview
+    when: audience == "internal"
   - title: Notifications from Yandex Cloud support
     description: What events technical support notifies you about and how
     href: notify
+    when: audience != "internal" and product == "yandex-cloud"
   - title: Data requests
     description: What data can be requested from technical support
     href: request
+    when: audience != "internal" and product == "yandex-cloud"
+  - title: Data requests
+    description: What data can be requested from technical support
+    href: request.html
+    when: audience != "internal" and product == "cloud-il"
   - title: Pricing policy
     description: Technical support pricing and cost calculations
     href: pricing
+    when: audience != "internal" and product == "yandex-cloud"
   - title: Questions and answers
     description: Frequently asked questions about technical support
     href: qa
+    when: audience != "internal" and product == "yandex-cloud"
+  - title: Questions and answers
+    description: Frequently asked questions about technical support
+    href: qa.html
+    when: audience != "internal" and product == "cloud-il"

@@ -124,6 +124,8 @@
 
       Пример структуры конфигурационного файла:
 
+      {% if product == "yandex-cloud" %}
+
       ```hcl
       terraform {
         required_providers {
@@ -156,6 +158,46 @@
 
       }
       ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```hcl
+      terraform {
+        required_providers {
+          yandex = {
+            source  = "yandex-cloud/yandex"
+            version = "0.69.0"
+          }
+        }
+      }
+
+      provider "yandex" {
+        endpoint  = "{{ api-host }}:443"
+        token     = "<статический ключ сервисного аккаунта>"
+        cloud_id  = "<идентификатор облака>"
+        folder_id = "<идентификатор каталога>"
+        zone      = "<зона доступности>"
+      }
+
+      resource "yandex_cdn_resource" "my_resource" {
+          cname               = "cdn1.yandex-example.ru"
+          active              = false
+          origin_protocol     = "https"
+          secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
+          origin_group_id     = yandex_cdn_origin_group.my_group.id
+          options {
+            cache_http_headers = ["GET","PUT"]
+            cors                 = ["*"]
+            static_response_headers = { "world2" = "2hello" }
+
+          }
+
+      }
+      ```
+
+      {% endif %}
 
       Более подробную информацию о параметрах `yandex_cdn_resource` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/cdn_resource).
 

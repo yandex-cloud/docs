@@ -4,6 +4,14 @@ editable: false
 
 # Pricing for {{ mpg-name }}
 
+{% if product == "cloud-il" %}
+
+At the [Preview](../overview/concepts/launch-stages.md) stage, {{ mpg-name }} can be used free of charge.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
@@ -29,19 +37,19 @@ The minimum billing unit is a minute (for example, 1.5 minutes of host usage cos
 The following is charged:
 * Storage allocated for DB clusters.
 
-    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
-        * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
-        * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+   * You can only oder local SSD storage (`local-ssd`) for clusters with three or more hosts:
+      {% if product == "yandex-cloud" %}* for Intel Broadwell and Intel Cascade Lake in 100 GB increments.{% endif %}
+      * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
 
-    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
+   * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
 
-* Space used by DB backups in excess of the storage specified for the cluster.
+* Space used by DB backups in excess of the storage amount specified for the cluster.
 
-    * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage volume selected.
+   * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage volume selected.
 
-    * During an automatic backup, {{ mpg-short-name }} doesn't create a new copy, but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
+   * During an automatic backup, {{ mpg-short-name }} doesn't create a new copy, but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
-    * The number of hosts in the cluster does not affect the size of the storage or free backups.
+   * The number of hosts in the cluster does not affect the size of the storage or free backups.
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
@@ -51,7 +59,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{mpg-name}} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also pre-estimate your monthly payments for the desired number of vCPUs and RAM.
+{{mpg-name}} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
 
 {% note info %}
 
@@ -130,6 +138,8 @@ All prices are shown without VAT.
 {% if region == "int" %}
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}
 
 {% endif %}
 

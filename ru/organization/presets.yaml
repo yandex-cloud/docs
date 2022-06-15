@@ -29,3 +29,13 @@ default:
 
   #Ссылки на справку на yandex.ru/support
   support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
+
+cloud-il:
+  service-name: Cloud Organization
+  link-org-users: https://org.cloudil.co.il/users
+  link-org-settings: https://org.cloudil.co.il/settings
+  link-org-federations: https://org.cloudil.co.il/federations
+  link-org-services: https://org.cloudil.co.il/services
+  link-passport: https://accounts.google.com/
+  login-example: login@gmail.com
+  yandex-domain: example.com

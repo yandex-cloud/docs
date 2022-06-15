@@ -6,15 +6,15 @@ To get started with the service:
 
 {% if audience == "internal" %}
 
-For the internal MDB service, the [web interface]({{ console-link }}) is deployed, where you can manually create a database cluster. For more about [quotas]({{ link-console-quotas }}) and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
+For the internal MDB service, the [web interface]({{ console-link }}) is deployed where you can manually create a database cluster. For more information about [quotas]({{ link-console-quotas }}) and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
 
 ## Access to DB clusters {#access}
 
-The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and [for developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
+The rules for accessing MDB clusters are already given{% if product == "yandex-cloud" %} in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and for [developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651){% endif %}.
 
 If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ PG }} clusters, you need access to port 6432.
 
-## CLI setup {#cli-setup}
+## CLI setup
 
 If you plan to use the CLI, install and configure it by following the [instructions](../cli/quickstart.md).
 
@@ -26,22 +26,22 @@ If you did everything correctly, the list clusters query should now work:
 
 {% else %}
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
-* To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)).
-* To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
+   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)).
+   * To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
 
-{% note info %}
+   {% note info %}
 
-The next step assumes that you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
+   The next step assumes that you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
 
-{% endnote %}
+   {% endnote %}
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
 1. Install the necessary dependencies and the {{ PG }} client:
@@ -82,7 +82,7 @@ The next step assumes that you connect to the cluster from a [Linux](../compute/
    1. Configure permissions to the certificate:
 
       ```bash
-      сhmod 0600 ~/.postgresql/root.crt
+      chmod 0600 ~/.postgresql/root.crt
       ```
 
    {% else %}
@@ -111,13 +111,13 @@ The next step assumes that you connect to the cluster from a [Linux](../compute/
 
    ```bash
    psql "host=<host address> \
-      port=6432 \
-      sslmode=verify-full \
-      dbname=<DB name> \
-      user=<DB username>"
+     port=6432 \
+     sslmode=verify-full \
+     dbname=<database name> \
+     user=<DB user name>"
    ```
 
-## What's next
+## What's next {#whats-next}
 
 * Read about [service concepts](concepts/index.md).
 * Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to the database](operations/connect.md).

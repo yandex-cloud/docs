@@ -3,8 +3,8 @@
 #### Where can I track my use of disk space to avoid exceeding the 95% read-only limit? {#disk-space}
 
 You can track your disk space:
-* In the management console using the [cluster status monitoring](../operations/monitoring.md#monitoring-cluster) tools.
-* In the [{{ monitoring-full-name }}]{% if lang == "ru" %}(https://monitoring.cloud.yandex.ru/){% endif %}{% if lang == "en" %}(https://monitoring.cloud.yandex.com/){% endif %} service, which enables you to [configure notifications](../operations/monitoring.md#monitoring-integration) for specified metrics.
+* In the management console using [cluster status monitoring tools](../operations/monitoring.md#monitoring-cluster).
+* In [{{ monitoring-full-name }}]{% if lang == "ru" %}(https://monitoring.cloud.yandex.ru/){% endif %}{% if lang == "en" %}(https://monitoring.cloud.yandex.com/){% endif %} that lets you [set up notifications](../operations/monitoring.md#monitoring-integration) for specified metrics.
 
 #### Are logs stored on the same disk as {{ PG }} data? How are they charged? {#logs-storage}
 
@@ -22,7 +22,7 @@ Cluster log storage is free of charge.
 
 For more information about {{ PG }}, see the [official documentation]{% if lang == "ru" %}(https://postgrespro.ru/docs/postgresql/12){% endif %}{% if lang == "en" %}(https://postgrespro.com/docs/postgresql/12){% endif %}.
 
-#### What does the Cached parameter mean for cluster host RAM monitoring? {#cached}
+#### What does the Cached parameter mean for {{ PG }} cluster host RAM monitoring? {#cached}
 
 Cached stores cached data. Most operations are performed in random-access memory, since this is where all database information is stored. Caching is applied both to databases and to disks, which may cause the amount of cached data to exceed the storage size.
 

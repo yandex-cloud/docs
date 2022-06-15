@@ -112,7 +112,7 @@
          size: 3
      allocation_policy:
        zones:
-         - zone_id: ru-central1-a
+         - zone_id: {{ region-id }}-a
      ```
 
      Где:
@@ -159,7 +159,7 @@
          size: 3
      allocation_policy:
        zones:
-         - zone_id: ru-central1-a
+         - zone_id: {{ region-id }}-a
      ```
 
      {% note info %}
@@ -183,7 +183,7 @@
      * Из последней версии публичного образа {{ coi }}.
      * С запущенным Docker-контейнером на основе `cr.yandex/mirror/nginx:1.17.4-alpine`.
      * В сети `default-net`.
-     * В зоне доступности `ru-central1-a`.
+     * В зоне доступности `{{ region-id }}-a`.
      * С 2 vCPU и 2 ГБ RAM.
      * С сетевым HDD-диском объемом 32 ГБ.
 

@@ -55,7 +55,7 @@
 
      * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Обязательный параметр.
      * `role` — назначаемая роль. Обязательный параметр.
-     * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+     * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде {% if product == "yandex-cloud" %}`userAccount:<идентификатор пользователя>`{% endif %}{% if product == "cloud-il" %}`federatedUser:<идентификатор пользователя>`{% endif %} или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
 
      ```
      resource "yandex_resourcemanager_folder_iam_binding" "admin-account-iam" {

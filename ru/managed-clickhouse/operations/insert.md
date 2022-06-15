@@ -8,7 +8,7 @@
 
 ## Вставка данных с указанием схемы формата данных {#insert-with-format-schema}
 
-{% include [mch-format-schemas-intro](../../_includes/mdb/mch-format-schemas-intro.md) %}
+{% include [Format schemas intro](../../_includes/mdb/mch/format-schemas-intro.md) %}
 
 ## Пример работы со схемой формата при вставке данных {#example}
 
@@ -144,7 +144,7 @@ pip3 install protobuf varint pycapnp
      DB_NAME="db1"
      DB_USER="<имя пользователя БД>"
      DB_PASS="<пароль пользователя БД>"
-     CA_CERT="/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt"
+     CA_CERT="{{ crt-local-dir }}{{ crt-local-file }}"
 
      SCHEMA_NAME = 'schema-capnproto'
      SCHEMA_TYPE = "CapnProto"
@@ -210,7 +210,7 @@ pip3 install protobuf varint pycapnp
      DB_NAME="db1"
      DB_USER="<имя пользователя БД>"
      DB_PASS="<пароль пользователя БД>"
-     CA_CERT="/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt"
+     CA_CERT="{{ crt-local-dir }}{{ crt-local-file }}"
 
      SCHEMA_NAME = 'schema-protobuf'
      SCHEMA_TYPE = "Protobuf"

@@ -10,8 +10,19 @@
 
 Перед переводом DNS-зон под управление сервиса {{ dns-full-name }} необходимо делегировать ваш домен на серверы {{ yandex-cloud }}. Для этого укажите адреса серверов имен {{ yandex-cloud }} в `NS`-записях вашего регистратора:
 
+{% if product == "yandex-cloud" %}
+
 * `ns1.yandexcloud.net.`
 * `ns2.yandexcloud.net.`
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+* `ns1.cloudil.com.`
+* `ns2.cloudil.com.`
+
+{% endif %}
 
 ## Перенос записей {#yaconnect-records-move}
 

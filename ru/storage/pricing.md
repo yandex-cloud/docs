@@ -4,6 +4,14 @@ editable: false
 
 # Правила тарификации для {{ objstorage-name }}
 
+{% if product == "cloud-il" %}
+
+На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ objstorage-name }} не тарифицируется.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -180,7 +188,7 @@ editable: false
 {% if region == "kz" %}
 
 > Например, если цена за 1 ГБ исходящего трафика сверх 10 ГБ до 1 ТБ в месяц составляет 7,65 ₸, а за месяц было передано 283 ГБ исходящего трафика, то стоимость за месяц составит:
-> (283 - 10) × 1,53 ₽ = 273 × 7,65 ₸ = 2088,45 ₸
+> (283 - 10) × 7,65 ₸ = 273 × 7,65 ₸ = 2088,45 ₸
 
 {% endif %}
 
@@ -188,5 +196,7 @@ editable: false
 
 > Например, если цена за 1 ГБ исходящего трафика сверх 10 ГБ до 1 ТБ в месяц составляет $0.016167, а за месяц было передано 283 ГБ исходящего трафика, то стоимость за месяц составит:
 > (283 - 10) × $0.016167 = 273 × $0.016167 = $4.413591
+
+{% endif %}
 
 {% endif %}

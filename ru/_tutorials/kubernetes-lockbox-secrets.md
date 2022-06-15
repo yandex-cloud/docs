@@ -17,7 +17,6 @@
    {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
 1. [Установите менеджер пакетов Helm]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %}.
-
 1. Установите утилиту `jq`:
 
    ```bash
@@ -35,7 +34,8 @@
    ```
 
 1. [Создайте кластер {{ managed-k8s-name }} ](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации.
-1. [Установите утилиту kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl/){% endif %} и [настройте ее на работу с созданным кластером](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md).
+
+1. {% include [Install and configure kubectl](../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Установите External Secrets Operator {#install-eso}
 

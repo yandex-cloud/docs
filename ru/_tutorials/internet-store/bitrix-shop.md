@@ -14,14 +14,10 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед тем, как разворачивать сервер, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака](https://console.cloud.yandex.ru/cloud).
-
- [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
-
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -31,6 +27,8 @@
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * плата за использование управляемой базы данных MySQL (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
 
+
+{% endif %}
 
 ## Создайте виртуальную машину в облаке {#create-vm}
 
@@ -43,7 +41,7 @@
    {% include [name-format](../../_includes/name-format.md) %}
 
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой должна находиться виртуальная машина.  Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-1. В блоке **Образы из {{ marketplace-name }}** выберите образ операционной системы [Ubuntu 18.04 lts]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}.
+1. В блоке **Образы из {{ marketplace-name }}** выберите образ операционной системы [Ubuntu 18.04 lts](/marketplace/products/f2e9qa7i4fmugh14tjnc).
 1. В блоке **Диски** выберите диск SSD размером 13 ГБ.
 1. В блоке **Вычислительные ресурсы** укажите конфигурацию, которая необходима для корректной работы 1С-Битрикс:
    * **Платформа** — Intel Ice Lake.

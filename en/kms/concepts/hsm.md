@@ -30,7 +30,7 @@ A cryptographic operation using the HSM includes the following steps:
 1. The {{ kms-name }} database supplies a user key in encrypted form.
 1. The encrypted key is forwarded to the HSM along with the user data.
 1. The HSM decrypts the user key using the HSM master key.
-1. The HSM  performs a cryptographic operation with the user data using the decrypted key.
+1. The HSM performs a cryptographic operation with the user data using the decrypted key.
 1. The HSM destroys the decrypted key.
 1. The data goes back to the user.
 

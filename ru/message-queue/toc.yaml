@@ -1,4 +1,8 @@
-title: Yandex Message Queue
+title:
+  - text: Yandex Message Queue
+    when: product == "yandex-cloud"
+  - text: Message Queue
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Начало работы
@@ -59,9 +63,11 @@ items:
         href: concepts/delay-queues.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Сравнение с Yandex Data Stream
+      - name: Сравнение с {{ yds-full-name }}
         href: concepts/yds-ymq-comparison.md
+        when: product == "yandex-cloud"
   - name: Практические руководства
+    when: product == "yandex-cloud"
     items:
       - name: Конвертация видео в GIF на Python
         href: tutorials/video-converting-queue.md
@@ -69,7 +75,7 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Yandex Message Queue API
+  - name: API {{ message-queue-full-name }}
     items:
       - name: Обзор
         href: api-ref/index.md
@@ -129,5 +135,6 @@ items:
         href: api-ref/common-errors.md
   - name: Публичные материалы
     href: public-talks.md
+    when: product == "yandex-cloud"
   - name: Вопросы и ответы
     href: qa/index.md

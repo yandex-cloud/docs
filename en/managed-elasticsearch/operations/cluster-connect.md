@@ -88,7 +88,7 @@ To use an encrypted connection, get an SSL certificate:
 
   ```bash
   mkdir ~/.elasticsearch && \
-  wget "https://crls.yandex.net/allCAs.pem" -O ~/.elasticsearch/root.crt && \
+  wget "{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
   chmod 0600 ~/.elasticsearch/root.crt
   ```
 
@@ -109,7 +109,7 @@ To use an encrypted connection, get an SSL certificate:
   {% if audience == "internal" %}
 
   ```powershell
-  mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt https://crls.yandex.net/allCAs.pem
+  mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt {{ pem-path }}
   ```
 
   {% else %}

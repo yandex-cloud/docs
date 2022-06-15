@@ -1,8 +1,14 @@
 # Creating {{ CH }} clusters
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 {{ CH }} clusters are one or more database hosts that replication can be configured between.
 
-The number of hosts to add to a cluster when it is created depends on the selected [storage type](../concepts/storage.md):
+The number of hosts that can be created together with a {{ CH }} cluster depends on the selected [type of storage](../concepts/storage.md):
 
 * When using **local SSD storage** (`local-ssd`), you can create a cluster with two or more hosts (a minimum of two hosts is required for fault tolerance).
 * When using network storage:
@@ -21,11 +27,11 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    {% if audience != "internal" %}
 
-   These hosts are taken into account when calculating the used-up cloud [resource quota]({{ link-console-quotas }}) and cluster [cost](../pricing.md#prices-zookeeper).
+   These hosts are taken into account when calculating the consumed cloud [resource quota]({{ link-console-quotas }}) and cluster [cost](../pricing.md#prices-zookeeper).
 
    {% else %}
 
-   These hosts are taken into account when calculating the used-up cloud [resource quota]({{ link-console-quotas }}).
+   These hosts are taken into account when calculating the consumed cloud [resource quota]({{ link-console-quotas }}).
 
    {% endif %}
 
@@ -37,20 +43,21 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 - Management console
 
-   1. In the management console, select the folder where you want to create a DB cluster.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
       {% if audience != "internal" %}
 
+      
    1. Select **{{ mch-name }}**.
       {% endif %}
    1. Click **Create cluster**.
    1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
+   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
+      * `PRODUCTION`: For stable versions of your apps.
+      * `PRESTABLE`: For testing, including the {{ mch-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
    1. Select the {{ CH }} version from the **Version** drop-down list to use for the {{ mch-name }} cluster:
       * For most clusters, it's recommended to select the latest LTS version.
       * If you plan to use hybrid storage in a cluster, it's recommended to select the latest version.
    1. If you are expecting to use data from a {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access), select a service account from the drop-down list or create a new one. For more information about setting up a service account to access data in a bucket, see [{#T}](s3-access.md).
-   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
-      * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing, including the {{ mch-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
    1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
    1. Under **Storage size**:
 
@@ -61,24 +68,25 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
       {% endif %}
+
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
    1. Under **Database**, specify the DB attributes:
 
       * DB name.
-      * User name.
-      * User password. At least 8 characters.
+      * Username.
+      * User password. Minimum of 8 characters.
 
    1. You can control cluster users and databases via SQL.
 
       {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
       * To [manage users via SQL](./cluster-users.md#sql-user-management) enable the **Manage users via SQL** option.
-      * To be able to [manage databases via SQL](./databases.md#sql-database-management) activate the **Manage users via SQL** and the **Manage databases via SQL** options.
+      * To be able to [manage databases via SQL](./databases.md#sql-database-management) activate the **User management via SQL** and the **Database management via SQL** options.
 
       When using these settings, enter the `admin` account password.
 
-   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need additionally to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
    1. Under **Hosts**, select the parameters of database hosts created together with the cluster. To change the added host, place the cursor on the host line and click ![image](../../_assets/pencil.svg).
 
@@ -120,20 +128,44 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       {% if audience != "internal" %}
 
+      {% if product == "yandex-cloud" %}
+      
       ```bash
       {{ yc-mdb-ch }} cluster create \
-         --name <cluster name> \
-         --environment <envrionment: prestable or production> \
-         --network-name <network name> \
-         --host type=<clickhouse or zookeeper>,zone-id=<availability zone>,subnet-id=<subnet ID> \
-         --clickhouse-resource-preset <host class> \
-         --clickhouse-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-         --clickhouse-disk-size <storage size in gigabytes> \
-         --user name=<user name>,password=<user password> \
-         --database name=<database name> \
-         --security-group-ids <security group ID list> \
-         --deletion-protection=<cluster delete protection: true or false>
+        --name <cluster name> \
+        --environment <environment: prestable or production> \
+        --network-name <network name> \
+        --host type=<clickhouse or zookeeper>,zone-id=<availability zone>,subnet-id=<subnet ID> \
+        --clickhouse-resource-preset <host class> \
+        --clickhouse-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+        --clickhouse-disk-size <storage size in gigabytes> \
+        --user name=<username>,password=<user password> \
+        --database name=<database name> \
+        --security-group-ids <security group ID list> \
+        --yandexquery-access=<access via {{ yq-full-name }}: true or false> \
+        --deletion-protection=<cluster deletion protection: true or false>
       ```
+      
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```bash
+      {{ yc-mdb-ch }} cluster create \
+        --name <cluster name> \
+        --environment <environment: prestable or production> \
+        --network-name <network name> \
+        --host type=<clickhouse or zookeeper>,zone-id=<availability zone>,subnet-id=<subnet ID> \
+        --clickhouse-resource-preset <host class> \
+        --clickhouse-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+        --clickhouse-disk-size <storage size in gigabytes> \
+        --user name=<username>,password=<user password> \
+        --database name=<database name> \
+        --security-group-ids <security group ID list> \
+        --deletion-protection=<cluster deletion protection: true or false>
+      ```
+
+      {% endif %}
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
@@ -141,30 +173,31 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       ```bash
       {{ yc-mdb-ch }} cluster create \
-         --name <cluster name> \
-         --environment <environment, prestable or production> \
-         --network-id ' ' \
-         --host type=<clickhouse or zookeeper>,zone-id=<availability zone> \
-         --clickhouse-resource-preset <host class> \
-         --clickhouse-disk-type local-ssd \
-         --clickhouse-disk-size <storage size in gigabytes> \
-         --user name=<use name>,password=<user password> \
-         --database name=<database name> \
-         --security-group-ids <security group ID list> \
-         --deletion-protection=<cluster delete protection: true or false>
+        --name <cluster name> \
+        --environment <environment, prestable or production> \
+        --network-id ' ' \
+        --host type=<clickhouse or zookeeper>,zone-id=<availability zone> \
+        --clickhouse-resource-preset <host class> \
+        --clickhouse-disk-type local-ssd \
+        --clickhouse-disk-size <storage size in gigabytes> \
+        --user name=<username>,password=<user password> \
+        --database name=<database name> \
+        --security-group-ids <security group ID list> \
+        --yandexquery-access=<access via {{ yq-full-name }}: true or false> \
+        --deletion-protection=<cluster deletion protection: true or false>
       ```
 
       {% endif %}
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Limitations of Deletion protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      You can control cluster users and databases via SQL.
+      You can manager cluster users and databases via SQL.
 
       {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
       1. To enable [SQL user management](./cluster-users.md#sql-user-management):
 
-         * Set `--enable-sql-user-management` to `true`.
+         * set `--enable-sql-user-management` to `true`.
          * Set a password for the `admin` user in the `--admin-password` parameter.
 
          ```bash
@@ -187,7 +220,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
             --admin-password "<admin account password>"
          ```
 
-      {% if audience != "internal" %}
+      {% if audience != "internal" and product == "yandex-cloud" %}
 
       1. To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the `--serverless-access` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
 
@@ -195,13 +228,13 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       1. To enable [{{ CK }}](../concepts/replication.md#ck) in a cluster:
 
-         * Specify a {{ CH }} version ({{ mch-ck-version }} or better) in the `--version` option.
+         * Specify a {{ CH }} version ({{ mch-ck-version }} or higher) in the `--version` option.
          * Set `--embedded-keeper` to `true`.
 
          ```bash
          {{ yc-mdb-ch }} cluster create \
             ...
-            --version "<{{ CH }} version: {{ mch-ck-version }} or higher>" \
+            --version "<{{ CH }} version: {{ versions.keeper }} or higher>" \
             --embedded-keeper true
          ```
 
@@ -215,9 +248,9 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 - Terraform
 
-  {% if audience != "internal" %}
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
-  {% endif %}
+   {% if audience != "internal" %}
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% endif %}
 
    To create a cluster:
 
@@ -227,7 +260,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
-      * Network: A description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will reside. If you already have a suitable network, you don't need to describe it again.
+      * Network: A description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be hosted. If you already have a suitable network, you don't need to describe it again.
       * Subnets: The [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
       Example structure of a configuration file that describes a cloud network with a single subnet:
@@ -248,7 +281,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       * Database cluster: Description of the cluster and its hosts. Also as required here:
          * Specify [DBMS settings](../concepts/settings-list.md).
-         * Enable delete protection.
+         * Enable deletion protection.
 
             {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -260,7 +293,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
         environment         = "<environment>"
         network_id          = yandex_vpc_network.<network name in {{ TF }}>.id
         security_group_ids  = ["<list of security group IDs>"]
-        deletion_protection = <cluster delete protection: true or false>
+        deletion_protection = <cluster deletion protection: true or false>
 
         clickhouse {
           resources {
@@ -294,7 +327,9 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       1. {% include [maintenance-window](../../_includes/mdb/mch/terraform-maintenance-window.md) %}
 
-      1. To enable access from other {{ yandex-cloud }} services and [SQL query execution from the management console](web-sql-query.md), add an `access` block with the necessary settings:
+      1. To enable access from other services and [SQL query execution from the management console](web-sql-query.md), add an `access` block with the necessary settings:
+
+         {% if product == "yandex-cloud" %}
 
          ```hcl
          resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
@@ -309,7 +344,24 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
          }
          ```
 
-      You can control cluster users and databases via SQL.
+         {% endif %}
+
+         {% if product == "cloud-il" %}
+
+         ```hcl
+         resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+           ...
+           access {
+             metrika    = <Access from Metrica and AppMetrika: true or false>
+             web_sql    = <Executing SQL queries from the management console: true or false>
+           }
+           ...
+         }
+         ```
+
+         {% endif %}
+
+      You can manager cluster users and databases via SQL.
 
       {% include notitle [SQL Management can't be switched off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
@@ -317,7 +369,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       * {% include notitle [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
 
-      For more information on resources that you are able to create with Terraform, please see the [provider documentation]({{ tf-provider-mch }}).
+      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-mch }}).
 
    1. Check the {{ TF }} configuration files for errors:
 
@@ -347,9 +399,11 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-   {% if audience != "internal" %}
+   {% if audience != "internal" and product == "yandex-cloud" %}
    To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
    {% endif %}
+
+   To allow cluster access from {{ yq-full-name }}, pass `true` for the `configSpec.access.yandexQuery` parameter.
 
    When creating a cluster with multiple hosts:
 
@@ -357,13 +411,13 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
-      To use {{ CK }}, your {{ CH }} version must be {{ mch-ck-version }} or higher. You can get a list of available {{ CH }} versions using the [list](../api-ref/Versions/list.md) API method.
+      To use {{ CK }}, your {{ CH }} version must be {{ versions.keeper }} or higher. You can get a list of available {{ CH }} versions using the [list](../api-ref/Versions/list.md) API method.
 
    * If `embeddedKeeper` is undefined or `false`, replication and query distribution will be managed using {{ ZK }}.
 
       {% if audience != "internal" %}
 
-      If the cluster [cloud network](../../vpc/concepts/network.md) has subnets in each [availability zone](../../overview/concepts/geo-scope.md), and {{ ZK }} host settings are not specified, a single such host will automatically be added to each subnet.
+      If the cluster [cloud network](../../vpc/concepts/network.md) has subnets in each [availability zone](../../overview/concepts/geo-scope.md), and {{ ZK }} host settings are not specified, one such host will automatically be added to each subnet.
 
       If only some availability zones in the cluster's network have subnets, explicitly specify the {{ ZK }} host settings.
 
@@ -373,7 +427,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 {% note warning %}
 
-If you specified a security group ID when you created the cluster, some additional [security group configuration](connect.md#configuring-security-groups) may be required before you can connect to it.
+If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
@@ -392,28 +446,28 @@ If you specified a security group ID when you created the cluster, some addition
    {% if audience != "internal" %}
 
    * Named `mych`.
-   * In the `production` environment.
-   * In the `default` network.
-   * In the security group `{{ security-group }}`.
-   * With a single `{{ host-class }}` class ClickHouse host in the `b0rcctk2rvtr8efcch64` subnet and `ru-central1-c` availability zone.
-   * With {{ CK }}.
-   * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
+   * Environment `production`.
+   * Network `default`.
+   * Security group `{{ security-group }}`.
+   * With a single {{ CH }} host of the `{{ host-class }}` class in the `b0rcctk2rvtr8efcch64` subnet and the `{{ region-id }}-a` availability zone.
+   * {{ CK }}.
+   * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
    * With one user, `user1`, with the password `user1user1`.
    * With one database, `db1`.
-   * With protection against accidental cluster deletion.
+   * Protection against accidental cluster deletion.
 
    {% else %}
 
    * Named `mych`.
-   * In the `production` environment.
-   * In the `default` network.
-   * In the security group `{{ security-group }}`.
-   * With one `{{host-class}}` class ClickHouse host in the `{{zone-id}}` availability zone.
-   * With {{ CK }}.
-   * With 20 GB of local SSD storage (`local-ssd`).
+   * Environment `production`.
+   * Network `default`.
+   * Security group `{{ security-group }}`.
+   * With a single {{ CH }} host of the `{{host-class}}` class in the `{{zone-id}}` availability zone.
+   * {{ CK }}.
+   * With 20 GB of local SSD storage (`local-ssd`).
    * With one user, `user1`, with the password `user1user1`.
    * With one database, `db1`.
-   * With protection against accidental cluster deletion.
+   * Protection against accidental cluster deletion.
 
    {% endif %}
 
@@ -427,8 +481,8 @@ If you specified a security group ID when you created the cluster, some addition
       --environment=production \
       --network-name default \
       --clickhouse-resource-preset {{ host-class }} \
-      --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
-      --version {{ mch-ck-version }} \
+      --host type=clickhouse,zone-id={{ region-id }}-a,subnet-id=b0cl69g98qumiqmtg12a \
+      --version {{ versions.keeper }} \
       --embedded-keeper true \
       --clickhouse-disk-size 20 \
       --clickhouse-disk-type {{ disk-type-example }} \
@@ -446,7 +500,7 @@ If you specified a security group ID when you created the cluster, some addition
       --environment=production \
       --clickhouse-resource-preset s2.nano \
       --host type=clickhouse,zone-id=man \
-      --version {{ mch-ck-version }} \
+      --version {{ versions.keeper }} \
       --embedded-keeper true \
       --clickhouse-disk-size 20 \
       --clickhouse-disk-type local-ssd \
@@ -464,20 +518,20 @@ If you specified a security group ID when you created the cluster, some addition
 
    * Named `mych`.
    * In the `PRESTABLE` environment.
-   * In the cloud with the ID `{{ tf-cloud-id }}`.
-   * In the folder with the ID `{{ tf-folder-id }}`.
+   * Cloud with the `{{ tf-cloud-id }}` ID.
+   * Folder with the `{{ tf-folder-id }}` ID.
    * In a new cloud network named `cluster-net`.
-   * As part of a new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the Internet) on ports `8443` and `9440`.
-   * With one `{{ host-class }}` class host on a new subnet called `cluster-subnet-ru-central1-c`.
+   * As part of a new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+   * With a single `{{ host-class }}` class host on a new subnet named `cluster-subnet-{{ region-id }}-a`.
 
       Subnet parameters:
-      * Address range: `172.16.3.0/24`.
+      * Address range: `172.16.1.0/24`.
       * Network: `cluster-net`.
-      * Availability zone: `{{ zone-id }}`.
+      * Availability zone: `{{ region-id }}-a`.
 
-   * With 20 GB of SSD network (`network-ssd`) storage.
-   * With a database named `db1`.
-   * With the username `user1` and password `user1user1`.
+   * With 32 GB of SSD network storage (`network-ssd`).
+   * Database name `db1`.
+   * With a user named `user1` with the password `user1user1`.
 
    The configuration files for this cluster look like this:
 
@@ -509,24 +563,24 @@ If you specified a security group ID when you created the cluster, some addition
 
    * Named `mych`.
    * In the `PRESTABLE` environment.
-   * In the cloud with the ID `{{ tf-cloud-id }}`.
-   * In the folder with the ID `{{ tf-folder-id }}`.
+   * Cloud with the `{{ tf-cloud-id }}` ID.
+   * Folder with the `{{ tf-folder-id }}` ID.
    * In a new cloud network named `cluster-net`.
 
-   * With three {{ CH }} hosts of the `{{ host-class }}` class and three {{ ZK }} hosts of the `{{ zk-host-class }}` class (to provide [replication](../concepts/replication.md)).
+   * With three {{ CH }} hosts of the `{{ host-class }}` class and three {{ ZK }} hosts of the `{{ zk-host-class }}` class (to ensure [replication](../concepts/replication.md)).
 
       One host of each type will be added to the new subnets:
-      * `cluster-subnet-ru-central1-a`: `172.16.1.0/24`, availability zone `ru-central1-a`.
-      * `cluster-subnet-ru-central1-b`: `172.16.2.0/24`, availability zone `ru-central1-b`.
-      * `cluster-subnet-ru-central1-c`: `172.16.3.0/24`, availability zone `ru-central1-c`.
+      * `cluster-subnet-{{ region-id }}-a`: `172.16.1.0/24`, availability zone `{{ region-id }}-a`.
+      * `cluster-subnet-{{ region-id }}-b`: `172.16.2.0/24`, availability zone `{{ region-id }}-b`.
+      * `cluster-subnet-{{ region-id }}-c`: `172.16.3.0/24`, availability zone `{{ region-id }}-c`.
 
       These subnets will belong to the `cluster-net` network.
 
-   * As part of a new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the Internet) on ports `8443` and `9440`.
-   * With 32 GB of SSD network storage (`network-ssd`) per {{ CH }} host of the cluster.
-   * With 32 GB of SSD network storage (`network-ssd`) per {{ ZK }} host of the cluster.
-   * With a database named `db1`.
-   * With the username `user1` and password `user1user1`.
+   * As part of a new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+   * With 32 GB of SSD network storage (`network-ssd`) per {{ CH }} host of the cluster.
+   * With 10 GB of SSD network storage (`network-ssd`) per {{ ZK }} host of the cluster.
+   * Database name `db1`.
+   * With a user named `user1` with the password `user1user1`.
 
    The configuration files for this cluster look like this:
 

@@ -62,7 +62,7 @@
           name: first-disk
           description: my first disk via yc
           type_id: network-hdd
-          zone_id: ru-central1-a
+          zone_id: {{ region-id }}-a
           size: "10737418240"
           status: READY
       - id: fhmo6rdqg5folrc3lsaf
@@ -71,7 +71,7 @@
           name: second-disk
           description: my second disk via yc
           type_id: network-hdd
-          zone_id: ru-central1-a
+          zone_id: {{ region-id }}-a
           size: "8589934592"
           product_ids:
           - f2en2dtd08b5la74mlde

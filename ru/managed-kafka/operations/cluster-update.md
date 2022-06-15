@@ -350,13 +350,16 @@
         {{ yc-mdb-kf }} cluster update <идентификатор или имя кластера> \
            --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
                                `day=<день недели для типа weekly>,`
-                               `hour=<час дня для типа weekly>
+                               `hour=<час дня для типа weekly> \
+           --datatransfer-access=<true или false> \
            --deletion-protection=<защита от удаления кластера: true или false>
         ```
 
     Вы можете изменить следующие настройки:
 
     * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
+
+    * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -403,19 +406,17 @@
 
     * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
 
+    * Настройки доступа к кластеру из сервиса [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) в Serverless-режиме в параметре `configSpec.access.dataTransfer`.
+
+        Это позволит через специальную сеть подключаться к {{ data-transfer-full-name }}, запущенному в {{ k8s }}. В результате будут быстрее выполняться, например, запуск и деактивация трансфера.
+
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
 
-    Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
-
-    {% note warning %}
-
-    Этот метод API сбросит все настройки кластера, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, обязательно передайте название полей, подлежащих изменению, в параметре `updateMask`.
-
-    {% endnote %}
+    Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки кластера, которые не были явно указаны в запросе.
 
 {% endlist %}
 
@@ -622,8 +623,4 @@
 
 {% endlist %}
 
-{% note warning %}
-
 Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для подключения к кластеру.
-
-{% endnote %}

@@ -349,7 +349,7 @@
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d '@body.json' \
-          "https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/certificates"
+          "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
       ```
 
 {% endlist %}
@@ -508,7 +508,7 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM-токен>" \
         -d '@body.json' \
-        https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
       ```
 
 {% endlist %}
@@ -563,7 +563,7 @@
 Фамилия | Используется для поиска в сервисах {{ yandex-cloud }}. | `lastName`
 Имя | Используется для поиска в сервисах {{ yandex-cloud }}. | `firstName`
 Полное имя | Отображается в сервисах {{ yandex-cloud }}. | `name`
-Телефон | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример: +71234567890 | `phone`
+Телефон | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример: {% if product == "yandex-cloud" %}+71234567890{% endif %}{% if product == "cloud-il" %}+972571234567{% endif %} | `phone`
 
 >Пример сопоставления атрибутов:
 >

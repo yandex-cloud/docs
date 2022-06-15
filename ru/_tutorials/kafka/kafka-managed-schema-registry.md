@@ -35,8 +35,8 @@
     ```bash
     sudo mkdir -p /usr/share/ca-certificates && \
     sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" \
-              -O /usr/share/ca-certificates/YandexCA.crt && \
-    sudo chmod 655 /usr/share/ca-certificates/YandexCA.crt
+              -O /usr/share/ca-certificates/{{ crt-local-file }} && \
+    sudo chmod 655 /usr/share/ca-certificates/{{ crt-local-file }}
     ```
 
 1. Создайте Python-скрипт потребителя.
@@ -61,7 +61,7 @@
             ]),
             "group.id": "avro-consumer",
             "security.protocol": "SASL_SSL",
-            "ssl.ca.location": "/usr/share/ca-certificates/YandexCA.crt",
+            "ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}",
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
             "sasl.password": "<пароль учетной записи user>",
@@ -157,7 +157,7 @@
                 "<FQDN N-го хоста-брокера>:9091",
             ]),
             "security.protocol": 'SASL_SSL',
-            "ssl.ca.location": '/usr/share/ca-certificates/YandexCA.crt',
+            "ssl.ca.location": '/usr/share/ca-certificates/{{ crt-local-file }}',
             "sasl.mechanism": 'SCRAM-SHA-512',
             "sasl.username": 'user',
             "sasl.password": '<пароль учетной записи user>',

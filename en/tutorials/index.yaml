@@ -1,8 +1,17 @@
-title: Yandex Cloud platform practical guidelines
+title:
+  - text: Yandex Cloud platform practical guidelines
+    when: product == "yandex-cloud"
+  - text: CloudIL platform practical guidelines
+    when: product == "cloud-il"
 description:
-  - >-
-    Detailed step-by-step instructions that will help you handle various tasks
-    using Yandex Cloud services.
+  - text: >-
+      Detailed step-by-step instructions that will help you handle various tasks
+      using Yandex Cloud services.
+    when: product == "yandex-cloud"
+  - text: >-
+      Detailed step-by-step instructions that will help you handle various tasks
+      using CloudIL services.
+    when: product == "cloud-il"
 meta:
   title: Practical guidelines
 links:
@@ -13,7 +22,7 @@ links:
     description: Open online stores on a variety of platforms
     href: internet-store/
   - title: Data archive
-    description: Set up data backups in Yandex Cloud
+    description: Set up data backups
     href: archive/
   - title: Test environment
     description: Test applications on VMs
@@ -32,6 +41,8 @@ links:
   - title: Data visualization and analytics
     description: Collect, visualize, and analyze data from various sources
     href: datalens/
+    when: product == "yandex-cloud"
   - title: Internet of things
     description: Manage your smart devices using the Yandex IoT Core service
     href: iot/
+    when: product == "yandex-cloud"

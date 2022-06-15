@@ -4,7 +4,7 @@ The host class determines the computing power allocated for each host in the clu
 
 {% if audience != "internal" %}
 
-The available storage doesn't depend on the host class. To learn more about storage limitations, see [{#T}](../limits.md).
+The available storage doesn't depend on the host class. For storage limitations, see [{#T}](../limits.md).
 
 {% endif %}
 
@@ -13,7 +13,7 @@ The available storage doesn't depend on the host class. To learn more about stor
 {% if audience == "internal" %}
 
 | Host class name | Number of CPUs | RAM, GB | I/O limit, MB/s | Maximum connection speed, MB/s |
-| ----- | ----- | ----- | ----- | ----- |
+----- | ----- | ----- | ----- | -----
 | **Sandy Bridge** |
 | db1.nano | 1 | 2 | 5 | 16 |
 | db1.micro | 1 | 8 | 20 | 16 |
@@ -47,14 +47,13 @@ The available storage doesn't depend on the host class. To learn more about stor
 {% else %}
 
 Hosts in {{ mch-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any of the platforms that {{ compute-name }} supports. For a detailed description of the platforms, see [{#T}](../../../compute/concepts/vm-platforms.md).
-
 The full list of possible host configurations on each platform is provided below.
 
 {% include [instance-types-code](../../../_includes/mdb/instance-types-code-deprecated-m1.md) %}
 
 | Host class name | Number of vCPUs | Guaranteed vCPU performance | RAM, GB |
-| ----- | ----- | ----- | ----- |
-| **Intel Broadwell** |  |
+----- | ----- | ----- | -----
+| **Intel Broadwell** | |
 | b1.nano | 2 | 5% | 2 |
 | b1.micro | 2 | 20% | 2 |
 | b1.medium | 2 | 50% | 4 |
@@ -64,7 +63,7 @@ The full list of possible host configurations on each platform is provided below
 | s1.medium | 8 | 100% | 32 |
 | s1.large | 16 | 100% | 64 |
 | s1.xlarge | 32 | 100% | 128 |
-| **Intel Cascade Lake** |  |  |
+| **Intel Cascade Lake** | | |
 | b2.nano | 2 | 5% | 2 |
 | b2.micro | 2 | 20% | 2 |
 | b2.medium | 2 | 50% | 4 |
@@ -92,4 +91,3 @@ The full list of possible host configurations on each platform is provided below
 | s2.6xlarge | 64 | 100% | 256 |
 
 {% endif %}
-

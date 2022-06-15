@@ -1,6 +1,6 @@
 # Пример использования {{ message-queue-full-name }} на Python
 
-Для работы с {{ message-queue-full-name }} из Python используется [boto3](https://aws.amazon.com/ru/sdk-for-python/) — комплект средств разработки для языка Python.
+Для работы с {{ message-queue-full-name }} из Python используется [boto3]{% if lang == "ru" %}(https://aws.amazon.com/ru/sdk-for-python/){% endif %}{% if lang == "en" %}(https://aws.amazon.com/sdk-for-python/){% endif %} — комплект средств разработки для языка Python.
 
 ## Установка {#install}
 
@@ -21,7 +21,7 @@ $ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 В этом примере:
 
 1. Устанавливается соединение с {{ message-queue-name }}. 
-1. Создается очередь с именем `ymq_example_boto3`. 
+1. Создается очередь с именем `mq_example_boto3`. 
 1. В очередь передается сообщение с текстом `boto3 sample message`. 
 1. Сообщение считывается из очереди и отображается в терминале.
 1. Полученное сообщение удаляется из очереди.
@@ -34,12 +34,12 @@ def main():
     # Create client
     client = boto3.client(
         service_name='sqs',
-        endpoint_url='https://message-queue.api.cloud.yandex.net',
-        region_name='ru-central1'
+        endpoint_url='https://message-queue.{{ api-host }}',
+        region_name='{{ region-id }}'
     )
 
     # Create queue and get its url
-    queue_url = client.create_queue(QueueName='ymq_example_boto3').get('QueueUrl')
+    queue_url = client.create_queue(QueueName='mq_example_boto3').get('QueueUrl')
     print('Created queue url is "{}"'.format(queue_url))
 
     # Send message to queue

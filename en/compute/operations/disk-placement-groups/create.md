@@ -45,13 +45,13 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
       yc compute disk-placement-group list
       ```
 
-      Output:
+      Result:
 
       ```text
       +----------------------+-------------+---------------+--------+
       |          ID          |    NAME     |     ZONE      | STATUS |
       +----------------------+-------------+---------------+--------+
-      | epd4sug6keskb72ub9m7 | first-group | ru-central1-b | READY  |
+      | epd4sug6keskb72ub9m7 | first-group | {{ region-id }}-b | READY  |
       +----------------------+-------------+---------------+--------+
       ```
 
@@ -62,7 +62,7 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
       --name first-group
       ```
 
-      Output:
+      Result:
 
       ```text
       id: epd4sug6keskb72ub9m7
@@ -70,7 +70,7 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
       created_at: "2021-03-23T12:49:59Z"
       name: first-group
       description: first disk placement group
-      zone_id: ru-central1-b
+      zone_id: {{ region-id }}-b
       status: READY
       spread_placement_strategy: {}
       ```

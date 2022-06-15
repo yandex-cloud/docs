@@ -34,7 +34,7 @@ No. Currently, you cannot upload your own images with Windows.
 
 #### Why do I need to specify the address when using Microsoft products? {#ms-licensing-address}
 
-As of January 24, 2022, to use Microsoft products, you need to specify user data and addresses of individuals and legal entities. These are the requirements of the Microsoft licensing policy. If the data isn't provided, you can't run Microsoft products.
+{% if product == "yandex-cloud" %}As of January 24, 2022, to use Microsoft{% endif %}{% if product == "cloud-il" %}To use Microsoft{% endif %} products, you need to specify user data and addresses of individuals and legal entities. These are the requirements of the Microsoft licensing policy. If the data isn't provided, you can't run Microsoft products.
 #### Can I deploy my own licenses in {{ compute-name }}? {#custom}
 
 Questions about Windows Server licensing are discussed in detail in [{#T}](../../compute/qa/licensing.md).
@@ -45,7 +45,7 @@ In the case of other software that you want to use inside the VM, read the licen
 
 #### Can I purchase Windows Server from {{ yandex-cloud }}? {#buy-windows-server}
 
-Yes, you can [purchase]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace?categories=databases&operationSystems=WINDOWS){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace?categories=databases&operationSystems=WINDOWS){% endif %} a VM with a pre-installed Windows Server 2012 R2, Windows Server 2016, or Windows Server 2019 image from {{ yandex-cloud }}. The Windows Server license is included in the {{ yandex-cloud }} service cost.
+Yes, you can [purchase](/marketplace?categories=databases&operationSystems=WINDOWS) a VM with a pre-installed Windows Server 2012 R2, Windows Server 2016, or Windows Server 2019 image from {{ yandex-cloud }}. The Windows Server license is included in the {{ yandex-cloud }} service cost.
 
 #### How do I activate Windows Server {#activate-windows-server}
 
@@ -55,9 +55,9 @@ You may have activation issues if the VM doesn't have internet access.
 1. Run the following commands in PowerShell as an administrator:
 
    ```powershell
-   Test-NetConnection kms.cloud.yandex.net -Port 1688
+   Test-NetConnection {{ ms-kms-host }} -Port {{ ms-kms-port }}
    cscript.exe C:\Windows\System32\slmgr.vbs /dli
-   cscript.exe C:\Windows\System32\slmgr.vbs /skms kms.cloud.yandex.net:1688
+   cscript.exe C:\Windows\System32\slmgr.vbs /skms {{ ms-kms-host }}:{{ ms-kms-port }}
    cscript.exe C:\Windows\System32\slmgr.vbs /ato
    Get-Date
    Get-TimeZone
@@ -73,4 +73,4 @@ No. According to the terms of use for Microsoft products, License Mobility does 
 
 #### Can I purchase other Microsoft products with licenses that can be deployed in Yandex Compute Cloud? {#buy-other-products}
 
-Yes. Currently, {{ yandex-cloud }} provides Windows Server, Microsoft SQL Server, and RDS licenses and transfers server software licenses under the [License Mobility through Software Assurance]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility){% endif %} program. Licensing of MSDN, Windows OS, Microsoft Office, and other products is not available.
+Yes. Currently, {{ yandex-cloud }} provides Windows Server{% if product == "yandex-cloud" %}, Microsoft SQL Server, and RDS{% endif %} licenses and transfers server software licenses under the [License Mobility through Software Assurance]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility){% endif %} program. Licensing of MSDN, Windows OS, Microsoft Office, and other products is not available.

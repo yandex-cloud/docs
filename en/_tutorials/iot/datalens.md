@@ -33,15 +33,11 @@ If you no longer need the created resources, [delete them](#cleanup).
 
 ## Before you start {#before-you-begin}
 
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
 If you don't have the {{ yandex-cloud }} command line interface yet, [install and initialize it](../../cli/quickstart.md#install).
 
-Make sure the billing account is active:
-
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder on the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -50,6 +46,8 @@ The cost includes:
 * Fee for the number of {{ iot-full-name }} messages (see [pricing](../../iot-core/pricing.md)).
 * Fee for the number of {{ sf-full-name }} function calls (see [pricing](../../functions/pricing.md).
 * Fee for computing resources and cluster storage in {{ mpg-full-name }} (see [pricing](../../managed-postgresql/pricing.md)).
+
+{% endif %}
 
 ## Create the necessary resources {{ iot-short-name }} {#resources-step}
 
@@ -294,8 +292,8 @@ To create a cluster:
 1. Under **Network**, select `default` in the list.
 1. Under **Hosts**, set up a connection to your database via a public IP address (this is necessary to access the database from {{ sf-full-name }}).
     1. On the right side of the availability zone line, click ![image](../../_assets/pencil.svg).
-    1. In the window that opens, select an **Availability zone**. For example, `ru-central1-a`.
-    1. Select a **Subnet**. For example, `default-ru-cetral1-a`.
+    1. In the window that opens, select an **Availability zone**. For example, `{{ region-id }}-a`.
+    1. Select a **Subnet**. For example, `default-{{ region-id }}-a`.
     1. Enable **Public access**.
     1. Click **Save**.
 1. Enable **DataLens access**.

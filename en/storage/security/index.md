@@ -1,6 +1,6 @@
 ---
-title: Access management in Yandex Object Storage (S3)
-description: "Access management in the service providing a scalable storage solution — Yandex Object Storage (S3). The section describes which resources can be assigned a role, which roles are active in the service."
+title: Access management in {{ objstorage-full-name }} (S3)
+description: "Access management in the service providing a scalable storage solution — {{ objstorage-full-name }} (S3). The section describes which resources can be assigned a role, which roles are active in the service."
 ---
 # Access management in {{ objstorage-name }}
 

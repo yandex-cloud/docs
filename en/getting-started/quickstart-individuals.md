@@ -6,13 +6,13 @@ A billing account is required even if you plan to use only free services. When y
 
 {% list tabs %}
 
-   - Trial period
+- Trial period
 
-      ![quickstart](../_assets/overview/individuals-trial-period.svg)
+   ![quickstart](../_assets/overview/individuals-trial-period.svg)
 
-   - Paid version
+- Paid version
 
-      ![quickstart](../_assets/overview/individuals-paid-version.svg)
+   ![quickstart](../_assets/overview/individuals-paid-version.svg)
 
 {% endlist %}
 
@@ -41,7 +41,7 @@ Provide details to create a billing account:
    {% endnote %}
 
    * When enabling the trial period, remember that after its expiration, your resources will be suspended. To resume operation, you will need to switch to the [paid version](free-trial/concepts/upgrade-to-paid.md).
-   * If you don't activate the trial period at this time, your account will be created as a paid account. In this case, after [using up the initial grant](usage-grant.md), you don't have to upgrade to the paid version.
+   * If you don't activate the trial period at this stage, your account will be created with paid consumption. In this case, after [using up the initial grant](usage-grant.md), you don't have to upgrade to the paid version.
 
 1. Click **Create**.
 

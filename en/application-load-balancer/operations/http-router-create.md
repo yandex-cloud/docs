@@ -53,12 +53,28 @@ To create an HTTP router and add a route to it:
       ```
 
    1. Create a virtual host, specifying the name of the HTTP router and the virtual host settings:
+
+      {% if product == "yandex-cloud" %}
+
       ```
       yc alb virtual-host create <virtual host name> \
         --http-router-name <HTTP router name> \
         --authority your-domain.foo.com \
         --modify-request-header name=Accept-Language,append=ru-RU
       ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```
+      yc alb virtual-host create <virtual host name> \
+        --http-router-name <HTTP router name> \
+        --authority your-domain.foo.com \
+        --modify-request-header name=Accept-Language,append=he-IL
+      ```
+
+      {% endif %}
 
       Where:
 
@@ -68,6 +84,9 @@ To create an HTTP router and add a route to it:
          * `append`: String to be added to the header value.
 
       Result:
+
+      {% if product == "yandex-cloud" %}
+
       ```
       name: test-virtual-host
       authority:
@@ -76,6 +95,21 @@ To create an HTTP router and add a route to it:
       - name: Accept-Language
         append: ru-RU
       ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```
+      name: test-virtual-host
+      authority:
+      - your-domain.foo.com
+      modify_request_headers:
+      - name: Accept-Language
+        append: he-IL
+      ```
+
+      {% endif %}
 
    1. View a description of the CLI command for adding a host:
       ```
@@ -113,5 +147,81 @@ To create an HTTP router and add a route to it:
       - name: Accept-Language
         append: ru-RU
       ```
+
+- Terraform
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. In the configuration file, specify the parameters of the HTTP router and virtual host:
+
+      ```hcl
+      resource "yandex_alb_http_router" "tf-router" {
+        name   = "<HTTP router name>"
+        labels = {
+          tf-label    = "tf-label-value"
+          empty-label = ""
+        }
+      }
+      
+      resource "yandex_alb_virtual_host" "my-virtual-host" {
+        name           = "<virtual host name>"
+        http_router_id = "${yandex_alb_http_router.tf-router.id}"
+        route {
+          name = "<route name>"
+          http_route {
+            http_route_action {
+              backend_group_id = "<backend group ID>"
+              timeout          = "3s"
+            }
+          }
+        }
+      }	 
+      ```
+
+      Where:
+      * `yandex_alb_virtual_host` is the HTTP router description:
+         * `name` is the HTTP router name. Name format:
+
+            {% include [name-format](../../_includes/name-format.md) %}
+
+         * `labels`: HTTP router [labels](https://cloud.yandex.ru/docs/overview/concepts/services#labels). Set a key-value pair.
+      * `yandex_alb_virtual_host` is the virtual host description:
+         * `name` is the virtual host name. Name format:
+
+            {% include [name-format](../../_includes/name-format.md) %}
+
+         * `http_router_id`: HTTP router ID.
+         * `route`: Description of the HTTP router's route. Specify the route name, backend group ID, and request processing time (defaults to 60 seconds).
+
+      For more information about Terraform resource parameters, see the provider documentation ([yandex_alb_http_router](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router) and [yandex_alb_virtual_host](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host)).
+
+   1. Make sure that the configuration files are correct.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
+
+         ```
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+
+   1. Deploy the cloud resources.
+
+      1. If the configuration doesn't contain any errors, run the command:
+
+         ```
+         terraform apply
+         ```
+
+      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+
+         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+
+         ```
+         yc alb http-router get <HTTP router ID>
+         ```
 
 {% endlist %}

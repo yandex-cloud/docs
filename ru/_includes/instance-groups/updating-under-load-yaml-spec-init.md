@@ -3,8 +3,8 @@ name: group-for-load # Имя группы ВМ, уникальным в рам�
 service_account_id: ajeab0cnib1pdefe21dm # Идентификатор сервисного аккаунта.
 allocation_policy: # Политика распределения ВМ в группе.
    zones:
-     - zone_id: ru-central1-a
-     - zone_id: ru-central1-b
+     - zone_id: {{ region-id }}-a
+     - zone_id: {{ region-id }}-b
 instance_template:
   service_account_id: ajeab0cnib1pdefe21dm # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
   platform_id: standard-v1 # Идентификатор платформы.

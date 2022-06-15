@@ -24,12 +24,12 @@ description: "В этом сценарии вы узнаете, как с пом
 
 ## Подготовьте окружение {#start}
 
-1. Перед тем как создавать Telegram-бота, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-    {% include [prepare-register-billing](../_tutorials/_common/prepare-register-billing.md) %}
 1. [Скачайте](https://storage.yandexcloud.net/doc-files/telegrambot.zip) архив с файлами, необходимыми для создания бота.
-1. Если у вас еще нет каталога, [создайте](../resource-manager/operations/folder/create.md) его.
 1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему роли `editor` и `serverless.functions.invoker` на ваш каталог. 
+
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -37,6 +37,8 @@ description: "В этом сценарии вы узнаете, как с пом
 * плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../functions/pricing.md));
 * плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик (см. [тарифы {{ objstorage-name }}](../storage/pricing.md));
 * плата за количество запросов к созданному API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../api-gateway/pricing.md)).
+
+{% endif %}
 
 ## Зарегистрируйте Telegram-бота {#create-bot}
 

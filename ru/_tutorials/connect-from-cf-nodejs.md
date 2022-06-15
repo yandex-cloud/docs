@@ -6,11 +6,9 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
-1. На [странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
-1. На [странице облака]({{ link-console-cloud }}) создайте или выберите каталог, в котором будут работать ваша функция и база данных.
+{% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
 
-    [Подробнее об облаках и каталогах](../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -18,6 +16,8 @@
 
 * плата за использование функции (см. [тарифы {{ sf-full-name }}](../functions/pricing.md));
 * плата за выполнение запросов к базе данных (см. [тарифы {{ ydb-full-name }}]{% if audience == "external" %}(../ydb/pricing/serverless.md){% else %}(https://cloud.yandex.ru/docs/ydb/pricing/serverless){% endif %}).
+
+{% endif %}
 
 ## Подготовьте окружение {#prepare-environment}
 

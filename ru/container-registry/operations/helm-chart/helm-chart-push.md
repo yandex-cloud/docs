@@ -21,13 +21,15 @@
      export HELM_EXPERIMENTAL_OCI=1
      ```
 
+  {% if product == "yandex-cloud" %}
+
   1. Аутентифицируйте свой клиент Helm в реестре {{ container-registry-name }} одним из способов.
      * С помощью OAuth-токена:
        1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).
        1. Выполните команду:
 
           ```bash
-          helm registry login cr.yandex -u oauth
+          helm registry login {{ registry }} -u oauth
           Password: <OAuth-токен>
           ```
 
@@ -36,7 +38,7 @@
        1. Выполните команду:
 
           ```bash
-          helm registry login cr.yandex -u iam
+          helm registry login {{ registry }} -u iam
           Password: <IAM-токен>
           ```
 
@@ -45,6 +47,27 @@
      ```bash
      Login succeeded
      ```
+
+  {% endif %}
+
+  {% if product == "cloud-il" %}
+
+  1. Аутентифицируйте свой клиент Helm в реестре {{ container-registry-name }} c помощью IAM-токена:
+     1. [Получите IAM-токен](../../../iam/operations/iam-token/create-for-federation.md).
+     1. Выполните команду:
+
+        ```bash
+        helm registry login {{ registry }} -u iam
+        Password: <IAM-токен>
+        ```
+
+        Результат выполнения команды:
+
+        ```bash
+        Login succeeded
+        ```
+
+  {% endif %}
 
   1. Сохраните Helm-чарт локально:
 
@@ -61,13 +84,13 @@
   1. Загрузите Helm-чарт в {{ container-registry-name }}:
 
      ```bash
-     helm push <имя Helm-чарта>-<версия>.tgz oci://cr.yandex/<ID реестра>
+     helm push <имя Helm-чарта>-<версия>.tgz oci://{{ registry }}/<ID реестра>
      ```
 
      Результат выполнения команды:
 
      ```bash
-     Pushed: cr.yandex/<ID реестра>/<имя Helm-чарта>:<версия>
+     Pushed: {{ registry }}/<ID реестра>/<имя Helm-чарта>:<версия>
      Digest: <SHA256...>
      ```
 

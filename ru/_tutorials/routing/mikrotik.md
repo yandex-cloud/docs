@@ -14,6 +14,8 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 {% note alert %}
@@ -27,12 +29,14 @@
 * плата за диски и постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 
+{% endif %}
+
 ## Создайте ВМ с Mikrotik Cloud Hosted Router {#create-router}
 
 1. Откройте ваш каталог и нажмите кнопку **Создать ресурс**. Выберите пункт **Виртуальная машина**.
 1. Укажите имя виртуальной машины, например `mikrotik-router`.
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой есть подсеть. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать** и выберите образ [Cloud Hosted Router]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2etgh9qd7e7h47jrvr4){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2etgh9qd7e7h47jrvr4){% endif %}.
+1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать** и выберите образ [Cloud Hosted Router](/marketplace/products/f2etgh9qd7e7h47jrvr4).
 1. В блоке **Вычислительные ресурсы**:
     - Выберите [платформу](../../compute/concepts/vm-platforms.md) виртуальной машины.
     - Укажите необходимое количество vCPU и объем RAM:

@@ -93,6 +93,8 @@
       * `days`: The number of days before the transition. Required parameter.
       * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
 
+      {% if product == "yandex-cloud" %}
+
       ```hcl
       provider "yandex" {
         cloud_id  = "<cloud ID>"
@@ -158,6 +160,79 @@
         }
       }
       ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```hcl
+      provider "yandex" {
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "<availability zone>"
+        endpoint  = "{{ api-host }}:443"
+        token     = "<static key of the service account>"
+        }
+
+      resource "yandex_storage_bucket" "bucket" {
+        bucket     = "<bucket name>"
+        acl        = "private"
+        access_key = "<key ID>"
+        secret_key = "<secret key>"
+
+        lifecycle_rule {
+          id      = "log"
+          enabled = true
+          prefix = "log/"
+
+          transition {
+            days          = 30
+            storage_class = "COLD"
+          }
+
+          expiration {
+            days = 90
+          }
+        }
+
+        lifecycle_rule {
+          id      = "tmp"
+          prefix  = "tmp/"
+          enabled = true
+
+          expiration {
+            date = "2020-12-21"
+          }
+        }
+      }
+
+      resource "yandex_storage_bucket" "versioning_bucket" {
+        bucket     = "<bucket name>"
+        acl        = "private"
+        access_key = "<key ID>"
+        secret_key = "<secret key>"
+
+        versioning {
+          enabled = true
+        }
+
+        lifecycle_rule {
+          prefix  = "config/"
+          enabled = true
+
+          noncurrent_version_transition {
+            days          = 30
+            storage_class = "COLD"
+          }
+
+          noncurrent_version_expiration {
+            days = 90
+          }
+        }
+      }
+      ```
+
+      {% endif %}
 
       For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
 

@@ -40,7 +40,7 @@ Sep 28 08:00:33 cl17bn514eluq62dj8jo-unar yc-container-daemon[952]:
 
 {% note warning %}
 
-Включить egress NAT для подсети можно только при наличии альфа флага для egress NAT на {{ yandex-cloud }}, который можно {% if region == "int" %}[запросить через поддержку](https://console.cloud.yandex.com/support/create-ticket){% else %}[запросить через поддержку](https://console.cloud.yandex.ru/support/create-ticket){% endif %}.
+Включить egress NAT для подсети можно только при наличии альфа флага для egress NAT на {{ yandex-cloud }}, который можно [запросить через поддержку]({{ link-console-support }}/create-ticket).
 
 {% endnote %}
 

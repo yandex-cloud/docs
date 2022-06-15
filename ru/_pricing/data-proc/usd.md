@@ -19,6 +19,8 @@
     | 100% vCPU           | $0.009577                    |
     | RAM (for 1 GB)      | $0.002538                    |
 
+{% if product == "yandex-cloud" %}
+
 - Dedicated hosts
 
     Dedicated hosts is charged as described in [{{ compute-full-name }} documentation](../../compute/pricing.md#prices-dedicated-host).
@@ -31,5 +33,7 @@
     | **Intel Ice Lake**                                                            |
     | 100% vCPU            | {{ sku|USD|mdb.dataproc.v3.cpu.c100|string }}          |
     | RAM (for 1 GB)       | {{ sku|USD|mdb.dataproc.v3.ram|string }}               |
+
+{% endif %}
 
 {% endlist %}

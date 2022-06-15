@@ -16,13 +16,15 @@
 
     Администратор может лишить прав доступа другого администратора, а владелец — отозвать у другого владельца его роль. Еще эти роли включают все разрешения роли `editor` — они позволяют создавать, изменять и удалять ресурсы.
 
-## Защитите свой аккаунт на Яндексе {#protect-account}
+## Защитите свой аккаунт {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %} {#protect-account}
 
-* {% include [yandex-account-2fa-warning.md](../../_includes/iam/yandex-account-2fa-warning.md) %}
+{% if product == "yandex-cloud" %}* {% endif %}{% include [yandex-account-2fa-warning.md](../../_includes/iam/yandex-account-2fa-warning.md) %}
+{% if product == "yandex-cloud" %}
 * Держите в секрете ваш [OAuth-токен](../concepts/authorization/oauth-token.md), с его помощью можно получить [IAM-токен](../concepts/authorization/iam-token.md) и выполнять любые операции в облаке от вашего имени.
 
     Если кто-то мог узнать ваш OAuth-токен, [отзовите его](https://yandex.ru/dev/oauth/doc/dg/reference/token-invalidate-docpage/) и выпустите новый.
 * Старайтесь не использовать OAuth-токен для аутентификации, если можно использовать IAM-токен. OAuth-токен действует 1 год, а IAM-токен — {{ iam-token-lifetime }}. Если ваш токен будет скомпрометирован, у злоумышленника будет ограниченное время, чтобы воспользоваться им.
+{% endif %}
 
 ## Используйте сервисные аккаунты {#use-sa}
 

@@ -1,0 +1,50 @@
+allowHTML: true
+lang: "en"
+
+ignore:
+  - "en/_api-ref/*"
+  - "en/_api-ref-grpc/*"
+  - "en/_cli-ref/*"
+  - "en/adaptive-vision/*"
+  - "en/api-gateway/*"
+  - "en/billing-folder-report/*"
+  - "en/cdn/*"
+  - "en/cloud-desktop/*"
+  - "en/cos/*"
+  - "en/data-proc/*"
+  - "en/data-streams/*"
+  - "en/datalens/*"
+  - "en/datasphere/*"
+  - "en/forms/*"
+  - "en/free-trial/*"
+  - "en/functions/*"
+  - "en/interconnect/*"
+  - "en/iot-core/*"
+  - "en/load-testing/*"
+  - "en/logging/*"
+  - "en/managed-elasticsearch/*"
+  - "en/managed-gitlab/*"
+  - "en/managed-greenplum/*"
+  - "en/managed-mongodb/*"
+  - "en/managed-redis/*"
+  - "en/managed-sqlserver/*"
+  - "en/marketplace/*"
+  - "en/mdb/*"
+  - "en/partner/*"
+  - "en/serverless-containers/*"
+  - "en/smartcaptcha/*"
+  - "en/speechkit/*"
+  - "en/speechkit-pro/*"
+  - "en/tracker/*"
+  - "en/translate/*"
+  - "en/vision/*"
+  - "en/wiki/*"
+  - "en/ydb/*"
+  - "ru/*"
+
+connector:
+    type: github
+    github: 
+        endpoint: https://api.github.com
+        owner: yandex-cloud
+        repo: docs

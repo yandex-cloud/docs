@@ -19,12 +19,22 @@ keywords:
 ## Перед началом работы {#before-you-begin}
 
 1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+{% if product == "yandex-cloud" %}
 1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+{% endif %}
 1. Если у вас еще нет каталога, [создайте его](../../resource-manager/operations/folder/create.md).
 
 ## Создайте виртуальную машину {#create-vm}
 
 {% include [create-instance-via-console-windows](../_includes_service/create-instance-via-console-windows.md) %}
+
+## Сбросьте пароль администратора {#reset-admin-password}
+
+Пароль администратора, указываемый при создании ВМ, сохраняется в метаданных в незашифрованном виде, поэтому рекомендуется сгенерировать вместо него новый пароль.
+
+Чтобы сбросить пароль:
+
+{% include [vm-reset-password-windows-console](../../_includes/compute/vm-reset-password-windows-console.md) %}
 
 ## Подключитесь к виртуальной машине {#connect-rdp}
 

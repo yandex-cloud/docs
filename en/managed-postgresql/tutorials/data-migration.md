@@ -14,7 +14,7 @@ There are three ways to migrate data from a third-party _source cluster_ to a {{
 
    To use this method, allow connecting to the source cluster from the internet.
 
-   For more information, see [What tasks is {{ data-transfer-full-name }} used for](../../data-transfer/concepts/use-cases.md).
+   For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
 * [{#T}](#logical-replication).
 
@@ -28,7 +28,7 @@ There are three ways to migrate data from a third-party _source cluster_ to a {{
 
    Use this method only if, for some reason, it's not possible to transfer data using any of the above methods.
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 [Create a {{ mpg-name }} cluster](../operations/cluster-create.md) with any suitable configuration. In this case:
 
@@ -272,11 +272,11 @@ The required amount of RAM and processor cores depends on the amount of data to 
 To prepare the virtual machine to restore the dump:
 {% if audience != "internal" %}
 
-1. In the management console, [create a new VM](../../compute/operations/vm-create/create-linux-vm.md) from an [Ubuntu 20.04] image{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eanb2gaki4us67hn9q){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eanb2gaki4us67hn9q){% endif %}. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
+1. In the management console, [create a new VM](../../compute/operations/vm-create/create-linux-vm.md) from an [Ubuntu 20.04](/marketplace/products/f2eanb2gaki4us67hn9q) image. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
 
 {% else %}
 
-1. In the management console, create a new VM from an [Ubuntu 20.04 image]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eanb2gaki4us67hn9q){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eanb2gaki4us67hn9q){% endif %}. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
+1. In the management console, create a new VM from an [Ubuntu 20.04](/marketplace/products/f2eanb2gaki4us67hn9q) image. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
 
 {% endif %}
 
@@ -288,19 +288,19 @@ To prepare the virtual machine to restore the dump:
 
    ```bash
    sudo apt install postgresql-client-common
-
+   
    # For PostgreSQL 10
    sudo apt install postgresql-client-10
-
+   
    # For PostgreSQL 11
    sudo apt install postgresql-client-11
-
+   
    # For PostgreSQL 12
    sudo apt install postgresql-client-12
-
+   
    # For PostgreSQL 13
    sudo apt install postgresql-client-13
-
+   
    # For PostgreSQL 14
    sudo apt install postgresql-client-14
    ```

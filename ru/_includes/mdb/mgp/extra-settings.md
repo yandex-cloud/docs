@@ -4,6 +4,8 @@
 
 * **Доступ из {{ datalens-name }}** — включите эту опцию, чтобы получить возможность анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../../datalens/concepts/index.md).
 
+* {% include [datatransfer access](../console/datatransfer-access.md) %}
+
 * **Защита от удаления** — включите эту опцию, чтобы защитить кластер от непреднамеренного удаления пользователем вашего облака.
 
     {% include [Ограничения защиты от удаления](../../mdb/deletion-protection-limits-db.md) %}

@@ -21,7 +21,10 @@ description: "From this article you will learn how to work with machine learning
 * [{#T}](projects/update.md)
 * [{#T}](projects/delete.md)
 * [{#T}](projects/work-with-git.md)
+{% if product == "yandex-cloud" %}
 * [{#T}](data-proc-integration.md)
+{% endif %}
+
 
 ## Working with data inside a project {#data-in-project}
 
@@ -38,8 +41,6 @@ description: "From this article you will learn how to work with machine learning
 * [{#T}](data/connect-to-postgresql.md)
 
 ## Deploying models {#deployment}
-
 * [{#T}](node-cell.md)
 * [{#T}](node-customization.md)
 * [{#T}](node-api.md)
-

@@ -1,29 +1,54 @@
 # Yandex Application Load Balancer
-title: "Yandex Application Load Balancer"
+title:
+  - text: "Yandex Application Load Balancer"
+    when: product == "yandex-cloud"
+  - text: "Application Load Balancer"
+    when: product == "cloud-il"
 description:
-  - "Yandex Application Load Balancer служит для распределения запросов по бэкендам ваших сетевых приложений и терминирования TLS-шифрования."
-  - "С помощью Application Load Balancer вы можете:"
-  - >-
-    <ul><li>Гибко распределять трафик между бэкендами ваших приложений.</li>
-    <li>Обрабатывать TLS-трафик: устанавливать соединения и терминировать TLS-сессии с помощью сертификатов из Yandex Сertificate Manager.</li>
-    <li>Анализировать поток запросов по access-логам L7-балансировщика.</li>
-    <li>Плавно переносить нагрузку с одной версии приложения на другую.</li>
-    <li>Создавать и модифицировать ответы на запросы прямо на L7-балансировщике.</li>
-    <li>Организовывать защиту ваших сервисов от злоумышленников с помощью ограничения поступающего трафика.</li></ul>
-  - "Инфраструктура Yandex Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ."
-  - >-
-      Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
-      об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-      документе <a href="https://yandex.ru/legal/cloud_sla_apploadbalancer">Уровень
-      обслуживания Yandex Application Load Balancer</a>.
+  - text:
+      - "Yandex Application Load Balancer служит для распределения запросов по бэкендам ваших сетевых приложений и терминирования TLS-шифрования."
+      - "С помощью Application Load Balancer вы можете:"
+      - >-
+        <ul><li>Гибко распределять трафик между бэкендами ваших приложений.</li>
+        <li>Обрабатывать TLS-трафик: устанавливать соединения и терминировать TLS-сессии с помощью сертификатов из Yandex Сertificate Manager.</li>
+        <li>Анализировать поток запросов по access-логам L7-балансировщика.</li>
+        <li>Плавно переносить нагрузку с одной версии приложения на другую.</li>
+        <li>Создавать и модифицировать ответы на запросы прямо на L7-балансировщике.</li>
+        <li>Организовывать защиту ваших сервисов от злоумышленников с помощью ограничения поступающего трафика.</li></ul>
+      - "Инфраструктура Yandex Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ."
+      - >-
+          Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+          об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+          документе <a href="https://yandex.ru/legal/cloud_sla_apploadbalancer">Уровень
+          обслуживания Yandex Application Load Balancer</a>.
+    when: product == "yandex-cloud"
+  - text:
+      - "Application Load Balancer служит для распределения запросов по бэкендам ваших сетевых приложений и терминирования TLS-шифрования."
+      - "С помощью Application Load Balancer вы можете:"
+      - >-
+        <ul><li>Гибко распределять трафик между бэкендами ваших приложений.</li>
+        <li>Обрабатывать TLS-трафик: устанавливать соединения и терминировать TLS-сессии с помощью сертификатов из Сertificate Manager.</li>
+        <li>Плавно переносить нагрузку с одной версии приложения на другую.</li>
+        <li>Создавать и модифицировать ответы на запросы прямо на L7-балансировщике.</li>
+        <li>Организовывать защиту ваших сервисов от злоумышленников с помощью ограничения поступающего трафика.</li></ul>
+    when: product == "cloud-il"
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
-  title: "Yandex Application Load Balancer"
+  title:
+    - text: "Yandex Application Load Balancer"
+      when: product == "yandex-cloud"
+    - text: "Application Load Balancer"
+      when: product == "cloud-il"
 # Блок со ссылками
 links:
 - title: "Начало работы"
   description: "Создайте первый программный балансировщик"
   href: "quickstart"
+  when: product == "yandex-cloud"
+- title: "Начало работы"
+  description: "Создайте первый программный балансировщик"
+  href: "quickstart.html"
+  when: product == "cloud-il"
 - title: "Пошаговые инструкции"
   description: "Инструкции по выполнению рутинных операций"
   href: "operations/"
@@ -36,9 +61,15 @@ links:
 - title: "Квоты и лимиты"
   description: "Технические и организационные ограничения сервиса"
   href: "concepts/limits"
+  when: product == "yandex-cloud"
+- title: "Квоты и лимиты"
+  description: "Технические и организационные ограничения сервиса"
+  href: "concepts/limits.html"
+  when: product == "cloud-il"
 - title: "Управление доступом"
   description: "Настройте права доступа для работы с сервисом"
   href: "security/"
 - title: "Правила тарификации"
   description: "Цены и правила расчета стоимости услуг сервиса"
   href: "pricing"
+  when: product == "yandex-cloud"

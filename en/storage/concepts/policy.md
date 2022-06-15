@@ -30,6 +30,8 @@ If a bucket has an access policy configured, access to the bucket via the {{ yan
 
 Example rule for a specific {{ yandex-cloud }} user:
 
+{% if product == "yandex-cloud" %}
+
 ```json
 {
   "Effect": "Allow",
@@ -48,6 +50,31 @@ Example rule for a specific {{ yandex-cloud }} user:
   }
 }
 ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+```json
+{
+  "Effect": "Allow",
+  "Principal": {
+    "CanonicalUser": "<user ID>"
+  },
+  "Action": "*",
+  "Resource": [
+    "arn:aws:s3:::<bucket name>/*",
+    "arn:aws:s3:::<bucket name>"
+  ],
+  "Condition": {
+    "StringLike": {
+      "aws:referer": "https://console.cloudil.co.il/folders/*/storage/buckets/your-bucket-name*"
+    }
+  }
+}
+```
+
+{% endif %}
 
 {% if audience != "internal" %}
 

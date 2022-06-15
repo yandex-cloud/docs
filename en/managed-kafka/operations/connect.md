@@ -2,8 +2,17 @@
 
 You can connect to {{ mkf-name }} cluster hosts:
 
-* Over the internet if you configured public access for the cluster [when creating it](cluster-create.md). You can only connect to such clusters over an [SSL connection](#get-ssl-cert).
+* Over the internet if you configured public access for the cluster [when creating it](cluster-create.md). You can only connect to this type of cluster using an [SSL connection](#get-ssl-cert).
+
+{% if audience != "internal" %}
+
 * From {{ yandex-cloud }} virtual machines located in the same [cloud network](../../vpc/concepts/network.md). If the cluster isn't publicly available, you don't need to use an SSL connection to connect to such VMs.
+
+{% else %}
+
+* From {{ yandex-cloud }} virtual machines located in the same cloud network. If the cluster isn't publicly available, you don't need to use an SSL connection to connect to such VMs.
+
+{% endif %}
 
 {% if audience != "internal" %}
 
@@ -17,12 +26,12 @@ You can connect to the {{ KF }} cluster using only encryption (`SASL_SSL`, port 
 
 To connect to an {{ KF }} cluster:
 
-1. [Create accounts](cluster-accounts.md#create-account) for clients (producers and consumers) with access to the necessary topics.
+1. [Create accounts](cluster-accounts.md#create-account) for clients (producers and consumers) with access to the required topics.
 1. Connect the clients to the cluster:
    * Producers using the [Kafka Producer API](https://kafka.apache.org/documentation/#producerapi).
    * Consumers using the [Kafka Consumer API](https://kafka.apache.org/documentation/#consumerapi).
 
-There are ready-made {{ KF }} API implementations for most popular programming languages. See code examples for connecting to a cluster in [{#T}](#connection-string).
+There are ready-made {{ KF }} API implementations for most popular programming languages. See [{#T}](#connection-string) for an example cluster connection code.
 
 ## Configuring security groups {#configuring-security-groups}
 
@@ -34,53 +43,75 @@ Settings of rules depend on the connection method you select:
 
 - Over the internet
 
-  [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port 9091 from any IP address. To do this, create the following rule for incoming traffic:
+   {% if audience != "internal" %}
 
-  * Protocol: `TCP`.
-  * Port range: `9091`.
-  * Source type: `CIDR`.
-  * Source: `0.0.0.0/0`.
+   [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) in your cluster to allow incoming traffic on port 9091 from any IP. To do this, create the following rule for incoming traffic:
 
-  To allow connections to [{{ mkf-msr }}](../concepts/managed-schema-registry.md), add a rule for incoming traffic:
+   {% else %}
 
-  * Protocol: `TCP`.
-  * Port range: `443`.
-  * Source type: `CIDR`.
-  * Source: `0.0.0.0/0`.
+   Configure all security groups in your cluster to allow incoming traffic on port 9091 from any IP. To do this, create the following rule for incoming traffic:
+
+   {% endif %}
+   * Port range: `9091`.
+   * Protocol: `TCP`.
+   * Source: `CIDR`.
+   * CIDR blocks: `0.0.0.0/0`.
+
+   To allow connections to [{{ mkf-msr }}](../concepts/managed-schema-registry.md), add a rule for incoming traffic:
+
+   * Port range: `443`.
+   * Protocol: `TCP`.
+   * Source: `CIDR`.
+   * CIDR blocks: `0.0.0.0/0`.
 
 - With a VM in {{ yandex-cloud }}
+   {% if audience != "internal" %}
 
-  1. [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on ports 9091, 9092 from the security group assigned to the VM. To do this, create the following rule for incoming traffic in these groups:
-     * Protocol: `TCP`.
-     * Port range: `9091`.
-     * Source type: `Security group`.
-     * Source: Security group assigned to the VM. If it is the same as the configured group, specify **Current**.
+   1. [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) in your cluster to allow incoming traffic on ports 9091 and 9092 from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
 
-     To allow connections to [{{ mkf-msr }}](../concepts/managed-schema-registry.md), add a rule for incoming traffic:
-       * Protocol: `TCP`.
-       * Port range: `443`.
-       * Source type: `CIDR`.
-       * Source: `0.0.0.0/0`.
+   {% else %}
 
-  1. [Set up the security group](../../vpc/operations/security-group-update.md#add-rule) assigned to the VM to allow connections to the VM and traffic between the VM and the cluster hosts.
+   1. Configure all security groups in your cluster to allow incoming traffic from the security group where the VM is located on ports 9091 and 9092. To do this, create the following rule for incoming traffic in these groups:
 
-     Example of rules for a VM:
+   {% endif %}
 
-     * For incoming traffic:
-       * Protocol: `TCP`.
-       * Port range: `22`.
-       * Source type: `CIDR`.
-       * Source: `0.0.0.0/0`.
+   * Port range: `9091-9092`.
+   * Protocol: `TCP`.
+   * Source: `Security group`.
+   * Security group: If a cluster and a VM are in the same security group, select `Self` (`Self`) as the value. Otherwise, specify the VM security group.
 
-       This rule lets you connect to the VM over SSH.
+   To allow connections to [{{ mkf-msr }}](../concepts/managed-schema-registry.md), add a rule for incoming traffic:
 
-     * For outgoing traffic:
-        * Protocol: `Any`.
-        * Port range: `0-65535`.
-        * Destination type: `CIDR`.
-        * Destination: `0.0.0.0/0`.
+        * Port range: `443`.
+        * Protocol: `TCP`.
+        * Source: `CIDR`.
+        * CIDR blocks: `0.0.0.0/0`.
+   {% if audience != "internal" %}
 
-       This rule allows any outgoing traffic: this lets you both connect to the cluster and install certificates and utilities you might need to connect to the cluster.
+   1. [Configure the security group](../../vpc/operations/security-group-update.md#add-rule) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
+
+   {% else %}
+
+   1. Configure the security group where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
+
+   {% endif %}
+   Example of rules for a VM:
+
+   * For incoming traffic:
+      * Port range: `22`.
+      * Protocol: `TCP`.
+      * Source: `CIDR`.
+      * CIDR blocks: `0.0.0.0/0`.
+
+      This rule lets you connect to the VM over SSH.
+
+   * For outgoing traffic:
+      * Protocol: ``Any``.
+      * Port range: `{{ port-any }}`.
+      * Source type: `CIDR`.
+      * CIDR blocks: `0.0.0.0/0`.
+
+      This rule allows any outgoing traffic: this lets you both connect to the cluster and install certificates and utilities you might need to connect to the cluster.
 
 {% endlist %}
 
@@ -104,25 +135,25 @@ To use an encrypted connection, get an SSL certificate:
 
 - Linux (Bash)
 
-  ```bash
-  sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-  sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-  sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
-  ```
+   ```bash
+   sudo mkdir -p {{ crt-local-dir }} && \
+   sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O {{ crt-local-dir }}{{ crt-local-file }} && \
+   sudo chmod 655 {{ crt-local-dir }}{{ crt-local-file }}
+   ```
 
 - Windows (PowerShell)
 
-  ```powershell
-  mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\YandexCA.crt https://{{ s3-storage-host }}{{ pem-path }}
-  ```
+   ```powershell
+   mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\{{ crt-local-file }} https://{{ s3-storage-host }}{{ pem-path }}
+   ```
 
 {% endlist %}
 
 {% else %}
 
 ```bash
-sudo wget "{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+sudo wget "{{ pem-path }}" -O {{ crt-local-dir }}{{ crt-local-file }} && \
+sudo chmod 655 {{ crt-local-dir }}{{ crt-local-file }}
 ```
 
 {% endif %}
@@ -133,8 +164,8 @@ The resulting SSL certificate is also used when working with [{{ mkf-msr }}](../
 
 {% include [conn-strings-environment](../../_includes/mdb/mkf-conn-strings-env.md) %}
 
-Before connecting to cluster hosts over an SSL connection, [prepare a certificate](#get-ssl-cert). The examples below assume that the `YandexCA.crt` certificate is located in the directory:
-* `/usr/local/share/ca-certificates/Yandex/` for Ubuntu.
+Prior to connecting to cluster hosts over an SSL connection, [generate a certificate](#get-ssl-cert). The examples below assume that the `{{ crt-local-file }}` certificate is located in the directory:
+* `{{ crt-local-dir }}` for Ubuntu;
 * `$HOME\.kafka\` for Windows.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}

@@ -1,4 +1,8 @@
-title: Security in Yandex Cloud
+title:
+  - text: Security in Yandex Cloud
+    when: product == "yandex-cloud"
+  - text: Security in CloudIL
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Key security principles
@@ -7,32 +11,36 @@ items:
     href: respons.md
   - name: Compliance
     href: conform.md
-  - name: Security measures on the Yandex Cloud side
+  - name: Security measures on the {{ yandex-cloud }} side
     href: standarts.md
   - name: Security tools available to cloud service users
     href: user-side.md
-  - name: Building a secure infrastructure
+  - name: Recommendations for securing your cloud infrastructure
     items:
       - name: Checklist
         href: domains/checklist.md
       - name: Network security
         href: domains/network.md
       - name: Authentication and access control
-        href: domains/access.md  
+        href: domains/access.md
       - name: Data encryption and key management
-        href: domains/encryption.md           
+        href: domains/encryption.md
       - name: Secure configuration
         href: domains/secure-config.md
-      - name: Audit logs
-        href: domains/audit-logs.md
       - name: Vulnerability management
         href: domains/vulnerability-management.md
+      - name: Audit logs
+        href: domains/audit-logs.md
       - name: Physical security
         href: domains/physical-security.md
+      - name: Kubernetes security
+        href: domains/kubernetes.md
   - name: Instructions
     items: 
-      - name: Deleting a passport account from an organization
+      - name: Deleting a passport account from {{ org-full-name }}
         href: operations/account-deletion.md
+        when: product == "yandex-cloud"
+    when: product == "yandex-cloud"
   - name: Rules for performing external security scans
     href: compliance/pentest.md
   - name: Security bulletins

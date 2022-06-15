@@ -1,11 +1,13 @@
 ---
-title: "Getting started with Yandex.Cloud"
-description: "With the help of this article, you will learn how to work with Yandex.Cloud cloud platform. Let's take a closer look at how to create Linux and Windows virtual machines, use Object Storage (S3) storage services, configure networking and load balancers, manage access to resources, and create database clusters."
+title: "Getting started with {{ yandex-cloud }}"
+description: "With the help of this article, you will learn how to work with {{ yandex-cloud }} cloud platform. Let's take a closer look at how to create Linux and Windows virtual machines, use {{ objstorage-name }} (S3) storage services, configure networking and load balancers, manage access to resources, and create database clusters."
 ---
 
 # Getting started
 
-The {{ yandex-cloud }} platform has several user interfaces, such as the [management console]({{ link-console-main }}) and the [command line interface](../cli/). To access any user interface, you will need a _user account_. This can be a personal Yandex account (Yandex ID) or a Yandex 360 account. For detailed instructions, see Help for [Yandex ID]{% if lang == "ru" %}(https://yandex.ru/support/passport/authorization/registration.html){% endif %}{% if lang == "en" %}(https://yandex.com/support/passport/authorization/registration.html){% endif %} and [Yandex 360]{% if lang == "ru" %}(https://yandex.ru/support/business/add-users.html){% endif %}{% if lang == "en" %}(https://yandex.com/support/business/add-users.html){% endif %}.
+{% if product == "yandex-cloud" %}
+
+The {{ yandex-cloud }} platform has several user interfaces, such as the [management console]({{ link-console-main }}) and the [command line interface](../cli/). To access any user interface, you will need a _user account_. This can be a personal Yandex account (Yandex ID) or a Yandex 360 account. For detailed instructions, see the Help for [Yandex ID]{% if lang == "ru" %}(https://yandex.ru/support/passport/authorization/registration.html){% endif %}{% if lang == "en" %}(https://yandex.com/support/passport/authorization/registration.html){% endif %} and [Yandex 360]{% if lang == "ru" %}(https://yandex.ru/support/business/add-users.html){% endif %}{% if lang == "en" %}(https://yandex.com/support/business/add-users.html){% endif %}.
 
 ## Creating a billing account {#new-account}
 
@@ -35,7 +37,7 @@ A billing account is required even if you plan to use only free services. When y
 
       {% endnote %}
 
-      * When enabling the trial period, remember that after its expiration, your resources will be discontinued. To resume operation, you will need to switch to the [paid version](../billing/operations/activate-commercial.md).
+      * When enabling the trial period, remember that after its expiration, your resources will be suspended. To resume operation, you will need to switch to the [paid version](../billing/operations/activate-commercial.md).
       * If you don't activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](../getting-started/usage-grant.md), you don't have to upgrade to the paid version.
 
 - Legal entity, individual entrepreneur or non-resident of Russia and Kazakhstan
@@ -49,7 +51,7 @@ A billing account is required even if you plan to use only free services. When y
 
       {% include [payment-card-types](../_includes/billing/payment-card-types.md) %}
 
-      {% include [payment-card-validation](../_includes/billing/payment-card-validation.md) %}
+      {% include [yandex-account](../_includes/billing/payment-card-validation.md) %}
 
    * If this is your first billing account in {{ yandex-cloud }}, a [trial period](../getting-started/free-trial/concepts/quickstart.md) is available to you.
 
@@ -59,7 +61,7 @@ A billing account is required even if you plan to use only free services. When y
 
       {% endnote %}
 
-      * When enabling the trial period, remember that after its expiration, your resources will be discontinued. To resume operation, you will need to switch to the [paid version](../billing/operations/activate-commercial.md).
+      * When enabling the trial period, remember that after its expiration, your resources will be suspended. To resume operation, you will need to switch to the [paid version](../billing/operations/activate-commercial.md).
       * If you don't activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](../getting-started/usage-grant.md), you don't have to upgrade to the paid version.
 
    * Click **Create**.
@@ -72,25 +74,25 @@ A billing account is required even if you plan to use only free services. When y
 
 ## FAQ {#qa}
 
-### Questions about a billing account and paid consumption {#billing-account}
+### Questions about billing accounts and paid accounts {#billing-account}
 
 #### Why do I need a billing account with a linked bank card?
 
 Billing accounts are used to identify users paying for {{ yandex-cloud }} resources. Even if you plan to use only free services, you still need a billing account: grants and promo codes are credited to it.
 
-To activate a billing account, we require you to link a bank card to make sure that you are a human and not a robot. When linking the card, a small amount will be debited and immediately returned. This way we verify that your card is real.
+To activate a billing account, we require you to link a bank card to make sure that you are a human and not a robot. When linking the card, a small amount will be debited and immediately returned. That is how we verify that your card is real.
 
 Payment for {{ yandex-cloud }} services and resources will be debited from your bank card only after you explicitly allow this, that is, after you switch to a paid account.
 
 #### What happens after the trial period ends? Will you start debiting money right away?
 
-{{ yandex-cloud }} doesn't debit money and doesn't invoice you until you have switched your account to paid consumption. Switching to a paid account never happens automatically.
+{{ yandex-cloud }} doesn't debit money and doesn't invoice you until you have switched to a paid account. The switching to paid consumption never happens automatically.
 
-However, if your [grant](../getting-started/usage-grant.md) expired, access to your resources will be blocked for 30 days or until you switch to a paid account. For more information about trial period expiration, see [{#T}](../getting-started/free-trial/concepts/trial-ending.md).
+However, if your [grant](../getting-started/usage-grant.md) has expired, access to your resources will be blocked for 30 days or until you switch to paid consumption. For more information about expiry of the trial period, see [{#T}](../getting-started/free-trial/concepts/trial-ending.md).
 
 ### Questions about the initial grant {#grant}
 
-#### I accidentally switched to paid consumption. Did I lose my initial grant? Can I get it back?
+#### I accidentally switched to a paid account. Did I lose my initial grant? Can I get it back?
 
 No, you can't switch back to the trial version, but the grant will not be lost. The initial grant will be spent first. For more information about the order in which funds are spent, see [{#T}](../billing/payment/billing-cycle.md).
 
@@ -104,34 +106,42 @@ The cloud may be blocked for a few reasons:
 
 #### I couldn't use up the initial grant in 60 days. Can I use {{ yandex-cloud }}?
 
-When the initial grant expires, the entire unspent amount is reset and access to your resources is suspended for 30 days. To continue using {{ yandex-cloud }}, switch to a paid account.
+When the initial grant expires, the total unused amount is offset, and the access to your resources is suspended for 30 days. To continue using {{ yandex-cloud }}, switch to a paid plan. 
 
-### Questions about documents {#documents}
+### About the {#documents} documents
 
-#### Is it safe to pay {{ yandex-cloud }}?
+#### Is it safe to pay to {{ yandex-cloud }}?
 
-The {{ yandex-cloud }} platform meets PCI DSS requirements, so it's safe to use cloud services for payment processing. For more information about PCI DSS certification, see [{#T}](../security/conform.md#pci-dss).
+The {{ yandex-cloud }} platform meets the PCI DSS requirements, that's why it's safe to use the cloud services for payment processing.  For more information about PCI DSS certification, see [{#T}](../security/conform.md#pci-dss).
 
-#### Where can I find my agreement with {{ yandex-cloud }}?
+#### Where do I find my agreement with {{ yandex-cloud }}?
 
 {% include [contract-concept](../_includes/billing/contract.md) %}
 
-There is no print form of the offer.
+No printed offer is provided.
 
-The invoice is not physically provided either, but you can generate it in the console and print it out.
+No physical invoice is provided, but you can generate and print it out from the console.
 
-#### I need an agreement signed by both parties, not an offer. Can I get it?
+#### I need a bilateral contract rather than an offer. Can I have it?
 
-Yes, businesses and individual entrepreneurs may conclude an agreement that is signed by both parties. To do this, submit a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the terms and conditions of signing the agreement.
+Yes, companies and individual entrepreneurs can sign a bilateral contract. Send a request using the [Message]({{ link-console-support }}) form. A {{ yandex-cloud }} manager will contact you to discuss the terms and conditions of signing the agreement.
 
-#### How can I get an invoice for payment?
+#### How do I get invoiced?
 
-To get an invoice for payment in the bank, use the instructions on [{#T}](../billing/operations/pay-the-bill.md#legal-entities).
+To get an invoice for paying at a bank office, use instructions at [{#T}](../billing/operations/pay-the-bill.md#legal-entities).
 
-{{ yandex-cloud }} doesn't provide paper documents for payment.
+{{ yandex-cloud }} doesn't provide paper payment documents.
 
 ## What's next? {#what-is-next}
 
 Start exploring {{ yandex-cloud }} services.
 
 {% include [quickstart-all-no-billing](../_includes/quickstart-all-no-billing.md) %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+An Intro to Cloud IL, re-written from scratch, will be posted here, and later translated into English. 
+
+{% endif %}

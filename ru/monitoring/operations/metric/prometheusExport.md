@@ -4,25 +4,39 @@
 Пример настройки сбора метрик из {{ monitoring-name }} в {{ prometheus-name }}:
 1. Выберите каталог, с которого вы хотите собирать данные.
 1. Выберите сервис из следующего списка:
-   - `compute` — {{ compute-name }};
-   - `storage` — {{ objstorage-name }};
-   - `managed-postgresql` — {{ mpg-name }};
-   - `managed-clickhouse` — {{ mch-name }};
-   - `managed-mongodb` — {{ mmg-name }};
-   - `managed-mysql` — {{ mmy-name }};
-   - `managed-redis` — {{ mrd-name }};
-   - `managed-kafka` — {{ mkf-name }};
-   - `managed-elasticsearch` — {{ mes-name }};
-   - `managed-sqlserver` — {{ mms-name }}
-   - `managed-kubernetes` — {{ managed-k8s-name }};
-   - `serverless-functions` — {{ sf-name }};
-   - `serverless_triggers_client_metrics` — триггеры {{ sf-name }};
-   - `ydb` — {{ ydb-name }};
-   - `interconnect` — {{ interconnect-name }};
-   - `certificate-manager` — {{ certificate-manager-name }};
-   - `data-transfer` — {{ data-transfer-name }};
-   - `data-proc` — {{ dataproc-name }};
-   - `serverless-apigateway` — {{ api-gw-name }}.
+   - `application-load-balancer` — {{ alb-name }}.
+   - `audit-trails` — {{ at-name }}.
+   - `certificate-manager` — {{ certificate-manager-name }}.
+   - `compute` — {{ compute-name }}.
+   - `container-registry` — {{ container-registry-name }}.
+   {% if product == "yandex-cloud" %}- `data-proc` — {{ dataproc-name }}.{% endif %}
+   {% if product == "yandex-cloud" %}- `data-streams` — {{ yds-name }}.{% endif %}
+   - `data-transfer` — {{ data-transfer-name }}.
+   - `iam` — {{ iam-name }}.
+   {% if product == "yandex-cloud" %}- `interconnect` — {{ interconnect-name }}.{% endif %}
+   - `kms` — {{ kms-name }}.
+   {% if product == "yandex-cloud" %}- `logging` — {{ cloud-logging-name }}.{% endif %}
+   - `managed-clickhouse` — {{ mch-name }}.
+   {% if product == "yandex-cloud" %}- `managed-elasticsearch` — {{ mes-name }}.{% endif %}
+   {% if product == "yandex-cloud" %} `managed-greenplum` — {{ mgp-name }}.{% endif %}
+   - `managed-kafka` — {{ mkf-name }}.
+   - `managed-kubernetes` — {{ managed-k8s-name }}.
+   {% if product == "yandex-cloud" %}- `managed-mongodb` — {{ mmg-name }}.{% endif %}
+   - `managed-mysql` — {{ mmy-name }}.
+   - `managed-postgresql` — {{ mpg-name }}.
+   {% if product == "yandex-cloud" %}- `managed-redis` — {{ mrd-name }}.{% endif %}
+   {% if product == "yandex-cloud" %}- `managed-sqlserver` — {{ mms-name }}.{% endif %}
+   - `message-queue` — {{ message-queue-name }}.
+   - `monitoring` — {{ monitoring-name }}.
+   - `network-load-balancer` — {{ network-load-balancer-name }}.
+   {% if product == "yandex-cloud" %}- `serverless-apigateway` — {{ api-gw-name }}.{% endif %}
+   {% if product == "yandex-cloud" %}- `serverless-containers` — {{ serverless-containers-name }}.{% endif %}
+   {% if product == "yandex-cloud" %}- `serverless-functions` — {{ sf-name }}.{% endif %}
+   {% if product == "yandex-cloud" %}- `speechkit` — {{ speechkit-name }}.{% endif %}
+   - `storage` — {{ objstorage-name }}.
+   {% if product == "yandex-cloud" %}- `translate` — {{ translate-name }}.{% endif %}
+   {% if product == "yandex-cloud" %}- `vision` — {{ vision-name }}.{% endif %}
+   {% if product == "yandex-cloud" %}- `ydb` — {{ ydb-name }}.{% endif %}
 1. Создайте статичный [API-ключ](../../../iam/operations/api-key/create.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts).
 1. [Назначьте сервисному аккаунту роль](../../../iam/operations/roles/grant#access-to-sa) `{{ roles-monitoring-viewer }}` на выбранный каталог.
 1. В [конфигурацию Prometheus](https://prometheus.io/docs/prometheus/latest/configuration/configuration) в секцию для сбора данных добавьте еще одну задачу (`job`):
@@ -41,7 +55,7 @@
        # Или через файл (рекомендуется):
        # bearer_token_file: '<имя файла с api_key>'
        static_configs:
-       - targets: ['monitoring.api.cloud.yandex.net']
+       - targets: ['monitoring.{{ api-host }}']
          labels:
            folderId: '<folderId>'
            service: '<serviceId>'

@@ -24,3 +24,5 @@ The **Total** row is displayed in the table. Values in the row are calculated us
 Values in the **Total** row are calculated only for measures. For dimensions, the row is empty.
 
 {% endnote %}
+
+Learn more about chart sections in [{#T}](../../concepts/chart/types.md#flat-table).

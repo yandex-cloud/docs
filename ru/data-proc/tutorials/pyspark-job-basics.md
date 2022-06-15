@@ -23,7 +23,7 @@
 
 1. {% include [Скачать и загрузить файл с тестовыми данными](../../_includes/data-proc/tutorials/sample-txt.md) %}
 
-1. Скачайте и загрузите в бакет для исходных данных файл с кодом программы анализа [word_count.py](https://storage.yandexcloud.net/examples/pyspark/word_count.py) на языке Python:
+1. Скачайте и загрузите в бакет для исходных данных файл с кодом программы анализа [word_count.py](https://{{ s3-storage-host }}/examples/pyspark/word_count.py) на языке Python:
 
     {% cut "word_count.py" %}
 

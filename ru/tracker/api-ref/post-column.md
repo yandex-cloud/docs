@@ -42,13 +42,13 @@ If-Match: "<номер версии>"
     OAuth 0c4181a7c2cf4521964a72ff57a34a07
     ```
 
-    {% if audience == "external" %}
+{% if audience == "external" %}
 
 - **X-Org-ID**
 
     Идентификатор организации.
 
-    {% endif %}
+{% endif %}
 
 - **If-Match**
 

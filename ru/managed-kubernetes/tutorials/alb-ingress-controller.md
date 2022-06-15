@@ -1,6 +1,6 @@
-# Настройка {{ alb-name }} Ingress-контроллера
+# Настройка {{ alb-full-name }} Ingress-контроллера
 
-Сервис [{{ alb-full-name }}](../../application-load-balancer/) используется для балансировки нагрузки и распределения трафика между приложениями. Чтобы с его помощью управлять трафиком к приложениям, запущенным в кластере {{ managed-k8s-name }}, необходим [Ingress-контроллер](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
+Сервис [{{ alb-name }}](../../application-load-balancer/) используется для балансировки нагрузки и распределения трафика между приложениями. Чтобы с его помощью управлять трафиком к приложениям, запущенным в кластере {{ managed-k8s-name }}, необходим [Ingress-контроллер](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
 Чтобы настроить доступ к запущенным в кластере приложениям через {{ alb-name }}:
 1. [{#T}](#create-namespace).
@@ -30,11 +30,17 @@
 
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
 1. Если у вас уже есть сертификат для доменной зоны, [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис {{ certificate-manager-name }}. Или [создайте новый сертификат от Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md).
+
 1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
+
 1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
-1. [Настройте группы безопасности кластера и группы узлов](../operations/security-groups.md). Группа безопасности группы узлов должна разрешать входящие TCP-соединения к портам 10501 и 10502 из подсетей балансировщика или из его группы безопасности (позже подсети и группу нужно будет указать для [создания Ingress-контроллера](#create-ingress-and-apps)).
+
+1. [Настройте группы безопасности кластера и группы узлов](../operations/connect/security-groups.md). Группа безопасности группы узлов должна разрешать входящие TCP-соединения к портам 10501 и 10502 из подсетей балансировщика или из его группы безопасности (позже подсети и группу нужно будет указать для [создания Ingress-контроллера](#create-ingress-and-apps)).
+
 1. {% include [k8s-ingress-controller-install-helm](../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
-1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install-links.md) %}
+
+1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Убедитесь, что вы можете подключиться к кластеру с помощью `kubectl`:
 
    ```bash
@@ -55,16 +61,16 @@ kubectl create namespace yc-alb-ingress
 
 ```bash
 export HELM_EXPERIMENTAL_OCI=1 && \
-cat sa-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin && \
-helm pull oci://cr.yandex/yc/yc-alb-ingress-controller-chart \
-     --version=v{{ alb-ingress-version }} \
-     --untar && \
+cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
+helm pull oci://{{ registry }}/yc/yc-alb-ingress-controller-chart \
+  --version=v{{ alb-ingress-version }} \
+  --untar && \
 helm install \
-     --namespace yc-alb-ingress \
-     --set folderId=<идентификатор каталога> \
-     --set clusterId=<идентификатор кластера> \
-     --set-file saKeySecretKey=sa-key.json \
-     yc-alb-ingress-controller ./yc-alb-ingress-controller-chart/
+  --namespace yc-alb-ingress \
+  --set folderId=<идентификатор каталога> \
+  --set clusterId=<идентификатор кластера> \
+  --set-file saKeySecretKey=sa-key.json \
+yc-alb-ingress-controller ./yc-alb-ingress-controller-chart/
 ```
 
 Идентификатор кластера можно [получить со списком кластеров в каталоге](../operations/kubernetes-cluster/kubernetes-cluster-list.md).
@@ -154,17 +160,13 @@ yc certificate-manager certificate list
 
      * `ingress.alb.yc.io/internal-alb-subnet` — подсеть для размещения внутреннего IP-адреса {{ alb-name }}. Обязательный параметр, если выбран параметр `ingress.alb.yc.io/internal-ipv4-address`.
      * `ingress.alb.yc.io/protocol` — протокол соединений между балансировщиком и бэкендами:
-         
        * `http` — HTTP/1.1. Значение по умолчанию.
        * `http2` — HTTP/2.
        * `grpc` — gRPC.
-         
      * `ingress.alb.yc.io/transport-security` — протокол шифрования соединений между балансировщиком и бэкендами:
-       
        * `tls` — TLS без проверки сертификата.
 
        Если аннотация не указана, балансировщик соединяется с бэкендами без шифрования.
-       
      * `ingress.alb.yc.io/prefix-rewrite` — замена пути на указанное значение.
      * `ingress.alb.yc.io/upgrade-types` — допустимые значения HTTP-заголовка `Upgrade`, например, `websocket`.
      * `ingress.alb.yc.io/request-timeout` — максимальный период, на который может быть установлено соединение.
@@ -552,7 +554,6 @@ yc certificate-manager certificate list
      * `spec.backends.tls` — сертификат удостоверяющего центра, которому балансировщик будет доверять при установке безопасного соединения с эндпоинтами бэкендов. Укажите содержимое сертификата в поле `trustedCa` в открытом виде.
 
      Подробнее см. в разделе [{#T}](../../application-load-balancer/concepts/backend-group.md).
-
   1. Создайте файл `ingress-http.yaml` и укажите в нем [делегированное ранее доменное имя](#before-you-begin), идентификатор сертификата и настройки для {{ alb-name }}:
 
      ```yaml
@@ -583,40 +584,38 @@ yc certificate-manager certificate list
                      name: example-backend-group
      ```
 
-      (Опционально) Укажите дополнительные настройки контроллера:
-      * `ingress.alb.yc.io/internal-ipv4-address` — предоставление внутреннего доступа к {{ alb-name }}. Укажите внутренний IP-адрес, либо установите значение `auto`, чтобы получить IP-адрес автоматически.
+     (Опционально) Укажите дополнительные настройки контроллера:
+     * `ingress.alb.yc.io/internal-ipv4-address` — предоставление внутреннего доступа к {{ alb-name }}. Укажите внутренний IP-адрес, либо установите значение `auto`, чтобы получить IP-адрес автоматически.
 
-        {% note info %}
+       {% note info %}
 
-        Вы можете одновременно использовать только один тип доступа к {{ alb-name }}: `ingress.alb.yc.io/external-ipv4-address` или `ingress.alb.yc.io/internal-ipv4-address`.
+       Вы можете одновременно использовать только один тип доступа к {{ alb-name }}: `ingress.alb.yc.io/external-ipv4-address` или `ingress.alb.yc.io/internal-ipv4-address`.
 
-        {% endnote %}
+       {% endnote %}
 
-      * `ingress.alb.yc.io/internal-alb-subnet` — подсеть для размещения внутреннего IP-адреса {{ alb-name }}. Обязательный параметр, если выбран параметр `ingress.alb.yc.io/internal-ipv4-address`.
-      * `ingress.alb.yc.io/protocol` — протокол соединений между балансировщиком и бэкендами:
+     * `ingress.alb.yc.io/internal-alb-subnet` — подсеть для размещения внутреннего IP-адреса {{ alb-name }}. Обязательный параметр, если выбран параметр `ingress.alb.yc.io/internal-ipv4-address`.
+     * `ingress.alb.yc.io/protocol` — протокол соединений между балансировщиком и бэкендами:
+       * `http` — HTTP/1.1. Значение по умолчанию.
+       * `http2` — HTTP/2.
+       * `grpc` — gRPC.
+     * `ingress.alb.yc.io/prefix-rewrite` — замена пути на указанное значение.
+     * `ingress.alb.yc.io/upgrade-types` — допустимые значения HTTP-заголовка `Upgrade`, например, `websocket`.
+     * `ingress.alb.yc.io/request-timeout` — максимальный период, на который может быть установлено соединение.
+     * `ingress.alb.yc.io/idle-timeout` — максимальный период, в течение которого соединение может простаивать без передачи данных.
 
-         * `http` — HTTP/1.1. Значение по умолчанию.
-         * `http2` — HTTP/2.
-         * `grpc` — gRPC.
+       Значения для `request-timeout` и `idle-timeout` следует указывать с единицами измерения, например: `300ms`, `1.5h`. Допустимые единицы измерения:
+       * `ns` — наносекунды.
+       * `us` — микросекунды.
+       * `ms` — миллисекунды.
+       * `s` — секунды.
+       * `m` — минуты.
+       * `h` — часы.
 
-      * `ingress.alb.yc.io/prefix-rewrite` — замена пути на указанное значение.
-      * `ingress.alb.yc.io/upgrade-types` — допустимые значения HTTP-заголовка `Upgrade`, например, `websocket`.
-      * `ingress.alb.yc.io/request-timeout` — максимальный период, на который может быть установлено соединение.
-      * `ingress.alb.yc.io/idle-timeout` — максимальный период, в течение которого соединение может простаивать без передачи данных.
+     {% note info %}
 
-        Значения для `request-timeout` и `idle-timeout` следует указывать с единицами измерения, например: `300ms`, `1.5h`. Допустимые единицы измерения:
-        * `ns` — наносекунды.
-        * `us` — микросекунды.
-        * `ms` — миллисекунды.
-        * `s` — секунды.
-        * `m` — минуты.
-        * `h` — часы.
+     Настройки действуют только на хосты этого контроллера, но не на всю группу Ingress.
 
-      {% note info %}
-
-      Настройки действуют только на хосты этого контроллера, но не на всю группу Ingress.
-
-      {% endnote %}
+     {% endnote %}
 
   1. Создайте Ingress-контроллер, объект `HttpBackendGroup` и приложение {{ k8s }}:
 

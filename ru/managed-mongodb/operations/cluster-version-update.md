@@ -14,6 +14,13 @@
 
 {% endif %}
 
+{% note alert %}
+
+* После обновления невозможно вернуть кластер к предыдущей версии.
+* Перед обновлением выполните подготовительные шаги.
+
+{% endnote %}
+
 ## Перед обновлением {#before-update}
 
 Перед обновлением кластера убедитесь, что это не нарушит работу ваших приложений:
@@ -40,19 +47,20 @@
   1. Получите список ваших кластеров {{ MG }} командой:
 
      ```bash
-     yc managed-mongodb cluster list
+     {{ yc-mdb-mg }} cluster list
      ```
 
   1. Получите информацию о нужном кластере и проверьте версию {{ MG }}, указанную в свойстве `config.version`:
 
      ```bash
-     yc managed-mongodb cluster get <id кластера>
+     {{ yc-mdb-mg }} cluster get <идентификатор или имя кластера>
      ```
 
   1. Запустите обновление {{ MG }}:
 
      ```bash
-     yc managed-mongodb cluster update <id кластера> --mongodb-version=<номер новой версии>
+     {{ yc-mdb-mg }} cluster update <идентификатор или имя кластера> \
+        --mongodb-version=<номер новой версии>
      ```
 
      После того, как обновление запущено, кластер переходит в статус **UPDATING**. Дождитесь окончания операции и проверьте версию кластера.
@@ -60,7 +68,8 @@
   1. После обновления все возможности MongoDB, у которых нет обратной совместимости с прежней версией, выключены. Чтобы снять это ограничение, выполните команду:
 
      ```bash
-     yc managed-mongodb cluster update <id кластера> --feature-compatibility-version=<номер новой версии>
+     {{ yc-mdb-mg }} cluster update <идентификатор или имя кластера> \
+        --feature-compatibility-version=<номер новой версии>
      ```
 
      Подробнее об обратной совместимости читайте в [документации MongoDB](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
@@ -104,7 +113,6 @@
 
 {% endlist %}
 
-
 ## Примеры {#examples}
 
 Допустим, нужно обновить кластер с версии 4.0 до версии 4.2.
@@ -113,9 +121,9 @@
 
 - CLI
 
-   1. Чтобы получить список кластеров и узнать идентификатор кластера, выполните команду:
+   1. Чтобы узнать идентификатор кластера, получите список всех кластеров в каталоге:
 
-      ```
+      ```bash
       {{ yc-mdb-mg }} cluster list
 
       +----------------------+---------------+---------------------+--------+---------+
@@ -127,7 +135,7 @@
 
    1. Чтобы получить информацию о кластере `c9qut3k64b2o9umqogr7`, выполните команду:
 
-      ```
+      ```bash
       {{ yc-mdb-mg }} cluster get c9qut3k64b2o9umqogr7
         id: c9qut3k64b2o9umqogr7
         folder_id: b1g0itj57rbjk9thrinv
@@ -137,7 +145,7 @@
         monitoring:
         - name: Console
           description: Console charts
-          link: https://console.cloud.yandex.ru/folders/b1g0itj57rbjk9thrinv/managed-mongodb/cluster/c9qut3k64b2o9umqogr7?section=monitoring
+          link: {{ link-console-main }}/folders/b1g0itj57rbjk9thrinv/managed-mongodb/cluster/c9qut3k64b2o9umqogr7?section=monitoring
         config:
           version: "4.0"
           feature_compatibility_version: "4.0"
@@ -147,13 +155,15 @@
    1. Для обновления кластера `c9qutgkd4b2o9umqog97` до версии 4.2, выполните команду:
 
       ```bash
-      $ yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --mongodb-version=4.2
+      {{ yc-mdb-mg }} cluster update c9qutgkd4b2o9umqog97 \
+          --mongodb-version=4.2
       ```
 
    1. Чтобы включить все возможности версии 4.2 в кластере `c9qutgkd4b2o9umqog97`, выполните команду:
 
       ```bash
-      $ yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --feature-compatibility-version=4.2
+      {{ yc-mdb-mg }} cluster update c9qutgkd4b2o9umqog97 \
+          --feature-compatibility-version=4.2
       ```
 
 {% endlist %}

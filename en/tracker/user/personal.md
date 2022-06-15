@@ -4,7 +4,7 @@ You can manage your issues more easily by adjusting the {{ tracker-name }} inter
 
 ## Customizing your home page {#sec_my_page}
 
-You can set {% if audience == "external" %}your [home page](startpage.md){% else %}the [**My page** tab](startpage.md){% endif %} to display any [filter](filters.md), [dashboard](dashboard.md), or [issue board](../manager/create-agile-board.md):
+You can set {% if audience == "external" %}your [home page](startpage.md){% else %}the [**My page** tab](startpage.md){% endif %} to display any [filter](create-filter.md), [dashboard](dashboard.md), or [issue board](../manager/create-agile-board.md):
 
 1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 

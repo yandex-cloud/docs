@@ -1,5 +1,11 @@
 # Статическая подготовка тома
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 Создайте [под](../../concepts/index.md#pod) со статически подготовленным [томом](../../concepts/volume.md):
 1. [Создайте объект PersistentVolume](#create-pv).
 1. [Создайте объект PersistentVolumeClaim](#create-claim).
@@ -24,13 +30,13 @@
    Результат выполнения команды:
 
    ```
-   +----------------------+------+--------------+---------------+--------+----------------------+-------------+
-   |          ID          | NAME |     SIZE     |     ZONE      | STATUS |     INSTANCE IDS     | DESCRIPTION |
-   +----------------------+------+--------------+---------------+--------+----------------------+-------------+
-   | ef3ouo4sgl86740ridn6 | k8s  |   4294967296 | ru-central1-c | READY  |                      |             |
-   | ef3qh55ckuu7md2kqhbt |      | 103079215104 | ru-central1-c | READY  | ef3sin41eksav1kn4gct |             |
-   | epd9vda1h0knttpcuhfu |      |  10737418240 | ru-central1-b | READY  | epdegdecs9o14r13gbad |             |
-   +----------------------+------+--------------+---------------+--------+----------------------+-------------+
+   +----------------------+------+--------------+-------------------+--------+----------------------+-------------+
+   |          ID          | NAME |     SIZE     |       ZONE        | STATUS |     INSTANCE IDS     | DESCRIPTION |
+   +----------------------+------+--------------+-------------------+--------+----------------------+-------------+
+   | ef3ouo4sgl86740ridn6 | k8s  |   4294967296 | {{ region-id }}-a | READY  |                      |             |
+   | ef3qh55ckuu7md2kqhbt |      | 103079215104 | {{ region-id }}-a | READY  | ef3sin41eksav1kn4gct |             |
+   | epd9vda1h0knttpcuhfu |      |  10737418240 | {{ region-id }}-a | READY  | epdegdecs9o14r13gbad |             |
+   +----------------------+------+--------------+-------------------+--------+----------------------+-------------+
    ```
 
 ## Создайте объект PersistentVolume {#create-pv}
@@ -80,6 +86,8 @@
 
    Результаты выполнения команды:
 
+   {% if product == "yandex-cloud" %}
+
    ```
    Name:            test-pv
    Labels:          <none>
@@ -89,6 +97,22 @@
    Status:          Available
    ...
    ```
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```
+   Name:            test-pv
+   Labels:          <none>
+   Annotations:     <none>
+   Finalizers:      [kubernetes.io/pv-protection]
+   StorageClass:    yc-network-ssd
+   Status:          Available
+   ...
+   ```
+
+   {% endif %}
 
 ## Создайте объект PersistentVolumeClaim {#create-claim}
 
@@ -130,6 +154,8 @@
 
       Результат выполнения команды:
 
+      {% if product == "yandex-cloud" %}
+
       ```
       Name:          test-claim
       Namespace:     default
@@ -138,6 +164,21 @@
       Volume:        test-pv
       ...
       ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```
+      Name:          test-claim
+      Namespace:     default
+      StorageClass:  yc-network-ssd
+      Status:        Bound
+      Volume:        test-pv
+      ...
+      ```
+
+      {% endif %}
 
 ## Создайте под со статически подготовленным томом {#create-pod}
 

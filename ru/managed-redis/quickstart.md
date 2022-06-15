@@ -101,7 +101,7 @@
        -p {{ port-mrd-tls }} \
        -a <пароль {{ RD }}> \
        --tls \
-       --cacert ~/.redis/YandexInternalRootCA.crt
+       --cacert ~/.redis/{{ crt-local-file }}
      ```
 
    - Шардированный кластер
@@ -121,7 +121,7 @@
        -p {{ port-mrd-tls }} \
        -a <пароль {{ RD }}> \
        --tls \
-       --cacert ~/.redis/YandexInternalRootCA.crt
+       --cacert ~/.redis/{{ crt-local-file }}
      ```
 
    {% endlist %}

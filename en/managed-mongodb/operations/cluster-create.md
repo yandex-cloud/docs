@@ -185,6 +185,8 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
       Example configuration file structure:
 
+      {% if product == "yandex-cloud" %}
+
       ```hcl
       terraform {
         required_providers {
@@ -209,7 +211,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
         deletion_protection = <deletion protection for the cluster: true or false>
 
         cluster_config {
-          version = "<MongoDB version: 4.0, 4.2, 4.4, or 5.0>"
+          version = "<{{ MG }} version: {{ versions.tf.str }}>"
         }
 
         database {
@@ -246,6 +248,75 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
         v4_cidr_blocks = ["<range>"]
       }
       ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```hcl
+      terraform {
+        required_providers {
+          yandex = {
+            source = "yandex-cloud/yandex"
+          }
+        }
+      }
+
+      provider "yandex" {
+        endpoint  = "{{ api-host }}:443"
+        token     = "<static key of the service account>"
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "<availability zone>"
+      }
+
+      resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+        name                = "<cluster name>"
+        environment         = "<environment: PRESTABLE or PRODUCTION>"
+        network_id          = "<network ID>"
+        security_group_ids  = [ "<list of security groups>" ]
+        deletion_protection = <deletion protection for the cluster: true or false>
+
+        cluster_config {
+          version = "<{{ MG }} version: {{ versions.tf.str }}>"
+        }
+
+        database {
+          name = "<database name>"
+        }
+
+        user {
+          name     = "<username>"
+          password = "<user password>"
+          permission {
+            database_name = "<database name>"
+            roles         = [ "<list of user roles>" ]
+          }
+        }
+
+        resources {
+          resource_preset_id = "<host class>"
+          disk_type_id       = "<storage type>"
+          disk_size          = <storage size, GB>
+        }
+
+        host {
+          zone_id   = "<availability zone>"
+          subnet_id = "<subnet ID>"
+        }
+      }
+
+      resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
+
+      resource "yandex_vpc_subnet" "<subnet name>" {
+        name           = "<network name>"
+        zone           = "<availability zone>"
+        network_id     = "<network ID>"
+        v4_cidr_blocks = ["<range>"]
+      }
+      ```
+
+      {% endif %}
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -351,7 +422,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    Let's say we need to create a {{ MG }} cluster and a network for it with the following characteristics:
 
    * Named `mymg`.
-   * Version `4.4`.
+   * Version `{{ versions.tf.latest }}`.
    * In the `PRODUCTION` environment.
    * In the cloud with the ID `{{ tf-cloud-id }}`.
    * In the folder with the ID `{{ tf-folder-id }}`.
@@ -364,6 +435,8 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With protection against accidental cluster deletion.
 
    The configuration file for the cluster looks like this:
+
+  {% if product == "yandex-cloud" %}
 
    ```hcl
    terraform {
@@ -389,7 +462,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      deletion_protection = true
 
      cluster_config {
-       version = "4.4"
+       version = "{{ versions.tf.latest }}"
      }
 
      database {
@@ -439,5 +512,87 @@ If you specified security group IDs when creating a cluster, you may also need t
      v4_cidr_blocks = ["10.5.0.0/24"]
    }
    ```
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```hcl
+   terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+   }
+
+   provider "yandex" {
+     endpoint  = "{{ api-host }}:443"
+     token     = "<static key of the service account>"
+     cloud_id  = "{{ tf-cloud-id }}"
+     folder_id = "{{ tf-folder-id }}"
+     zone      = "{{ zone-id }}"
+   }
+
+   resource "yandex_mdb_mongodb_cluster" "mymg" {
+     name                = "mymg"
+     environment         = "PRODUCTION"
+     network_id          = yandex_vpc_network.mynet.id
+     security_group_ids  = [ yandex_vpc_security_group.mymg-sg.id ]
+     deletion_protection = true
+
+     cluster_config {
+       version = "{{ versions.tf.latest }}"
+     }
+
+     database {
+       name = "db1"
+     }
+
+     user {
+       name     = "user1"
+       password = "user1user1"
+       permission {
+         database_name = "db1"
+       }
+     }
+
+     resources {
+       resource_preset_id = "{{ host-class }}"
+       disk_type_id       = "{{ disk-type-example }}"
+       disk_size          = 20
+     }
+
+     host {
+       zone_id   = "{{ zone-id }}"
+       subnet_id = yandex_vpc_subnet.mysubnet.id
+     }
+   }
+
+   resource "yandex_vpc_network" "mynet" {
+     name = "mynet"
+   }
+
+   resource "yandex_vpc_security_group" "mymg-sg" {
+     name       = "mymg-sg"
+     network_id = yandex_vpc_network.mynet.id
+
+     ingress {
+       description    = "MongoDB"
+       port           = {{ port-mmg }}
+       protocol       = "TCP"
+       v4_cidr_blocks = [ "0.0.0.0/0" ]
+     }
+   }
+
+   resource "yandex_vpc_subnet" "mysubnet" {
+     name           = "mysubnet"
+     zone           = "{{ zone-id }}"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.5.0.0/24"]
+   }
+   ```
+
+   {% endif %}
 
 {% endlist %}

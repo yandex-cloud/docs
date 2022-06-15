@@ -96,7 +96,7 @@ To use [Confluent Schema Registry](https://docs.confluent.io/platform/current/sc
     sudo keytool \
          -keystore /etc/schema-registry/client.truststore.jks \
          -alias CARoot \
-         -import -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+         -import -file {{ crt-local-dir }}{{ crt-local-file }} \
          -storepass <password for the secure certificate store> \
          --noprompt
     ```
@@ -204,7 +204,7 @@ To use [Confluent Schema Registry](https://docs.confluent.io/platform/current/sc
             ]),
             "group.id": "avro-consumer",
             "security.protocol": "SASL_SSL",
-            "ssl.ca.location": "/usr/local/share/ca-certificates/Yandex/YandexCA.crt",
+            "ssl.ca.location": "{{ crt-local-dir }}{{ crt-local-file }}",
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
             "sasl.password": "<password for the user account>",
@@ -298,7 +298,7 @@ To use [Confluent Schema Registry](https://docs.confluent.io/platform/current/sc
                 "<FQDN of the Nth broker host>:9091",
             ]),
             "security.protocol": "SASL_SSL",
-            "ssl.ca.location": "/usr/local/share/ca-certificates/Yandex/YandexCA.crt",
+            "ssl.ca.location": "{{ crt-local-dir }}{{ crt-local-file }}",
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
             "sasl.password": "<password for the user account>",

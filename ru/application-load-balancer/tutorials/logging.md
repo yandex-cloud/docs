@@ -28,13 +28,9 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Перед тем, как разворачивать балансировщик и настраивать запись его логов, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../../_tutorials/_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будут работать ваши ресурсы, на [странице облака](https://console.cloud.yandex.ru/cloud). Все действия сценария нужно производить в этом каталоге.
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -43,6 +39,8 @@
 * плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за вычислительные ресурсы, объем хранилища и резервных копий для кластера {{ PG }} (см. [тарифы {{ mpg-full-name }}](../../managed-postgresql/pricing.md));
 * плата за вызовы функции для обработки логов и вычислительные ресурсы, выделенные на выполнение функции (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
+
+{% endif %}
 
 ## Создайте облачную сеть {#create-network}
 

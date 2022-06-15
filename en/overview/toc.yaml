@@ -1,10 +1,15 @@
-title: Yandex Cloud overview
+title:
+  - text: Yandex Cloud overview
+    when: product == "yandex-cloud"
+  - text: CloudIL overview
+    when: product == "cloud-il"
 href: index.yaml
 items:
-  - name: Yandex Cloud services
+  - name: "{{ yandex-cloud }} services"
     href: concepts/services.md
   - name: Getting started
     href: quickstart.md
+    when: product == "yandex-cloud"
   - name: Mobile app
     items:
       - name: Overview
@@ -13,6 +18,7 @@ items:
         href: mobile-app/android.md
       - name: For iOS
         href: mobile-app/ios.md
+    when: product == "yandex-cloud"
   - name: Equivalent services on other platforms
     items:
       - name: Overview
@@ -27,8 +33,12 @@ items:
     items:
       - name: Overview
         href: concepts/geo-scope.md
-      - name: Deprecation of the ru-central1-c zone
+      - name: Deprecation of the {{ region-id }}-c zone
         href: concepts/ru-central1-c-deprecation.md
+    when: product == "yandex-cloud"
+  - name: Availability zones
+    href: concepts/geo-scope.md
+    when: product == "cloud-il"
   - name: Release stages
     href: concepts/launch-stages.md
   - name: Quotas and limits
@@ -41,5 +51,9 @@ items:
     href: concepts/data-deletion.md
   - name: SLA
     href: sla.md
+    when: product == "yandex-cloud"
+  - name: Revision history
+    href: release-notes.md
+    when: audience == "draft" and product == "yandex-cloud"
   - name: Questions and answers
     href: qa.md

@@ -18,7 +18,7 @@ When working with external devices or services, it's important to promptly save 
 
 ### Receiving data {#receiving}
 
-Data to {{ yds-short-name }} over [HTTP](../kinesisapi/api-ref.md). With [Yandex API Gateway](https://cloud.yandex.com/services/api-gateway), you can implement any protocol for receiving data. Once data is received by Yandex API Gateway, it can be sent to {{ yds-short-name }}.
+Data is transmitted to {{ yds-short-name }} over [HTTP](../kinesisapi/api-ref.md). Using [{{ api-gw-full-name}}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/api-gateway){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/api-gateway){% endif %}, you can implement any protocol for incoming data. Data received in {{ api-gw-name }} can be forwarded to {{ yds-short-name }} as well.
 
 {{ yds-short-name }} provides high scalability and can accept data from thousands of data sources at the same time.
 
@@ -36,7 +36,7 @@ Unlike message queues, data buses store data until the retention period expires 
 
 ### Multiple storage systems {#multiple}
 
-The same data is often stored in multiple storage systems at once: in {{ CH }} for fast analysis and in {{ objstorage-name }} for long-term storage. With data buses, you can easily handle this: as different apps can read data concurrently, you can set up sending the same data to both storage systems: {{ CH }} and {{ objstorage-name }}. This solution will also let you any time add the third storage system such as GreenPlum or Elastic.
+The same data is often stored in multiple storage systems at once: in {{ CH }} for fast analysis and in {{ objstorage-name }} for long-term storage. With data buses, you can easily handle this: as different apps can read data concurrently, you can set up sending the same data to both storage systems: {{ CH }} and {{ objstorage-name }}. This solution will also let you add a third storage system, such as {{ GP }} or {{ ES }}, at any time.
 
 The approach using multiple storage systems is very convenient to ensure compliance with Federal Law No. 152-FZ, PCI DSS, and other standards that stipulate that data shall be stored for at least a year. In this case, data for the past month can be sent to one storage system so that it can be accessed whenever required, while data to be stored for a long term can be sent to {{ objstorage-name }} cold storage.
 

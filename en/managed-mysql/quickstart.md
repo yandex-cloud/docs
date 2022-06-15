@@ -6,11 +6,11 @@ To get started with the service:
 
 {% if audience == "internal" %}
 
-For the internal MDB service, the [web interface](https://yc.yandex-team.ru) is deployed where you can manually create a database cluster. For more about [quotas]({{ link-console-quotas }}) and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
+For the internal MDB service, the [web interface](https://yc.yandex-team.ru) is deployed where you can manually create a database cluster. For more information about [quotas](link-console-quotas)and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
 
 ## Access to DB clusters {#access}
 
-The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and [for developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
+The rules for accessing MDB clusters are already given{% if product == "yandex-cloud" %} in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and for [developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651){% endif %}.
 
 If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ MY }} hosts, you need access to port 3306.
 
@@ -26,25 +26,25 @@ If you did everything correctly, the list clusters query should now work:
 
 {% else %}
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
-* To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)).
-* To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
+   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)).
+   * To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
 
-{% note info %}
+   {% note info %}
 
-The next step assumes that you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
+   The next step assumes that you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
 
-{% endnote %}
+   {% endnote %}
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
-1. Install the necessary dependencies and the MySQL client:
+1. Install the necessary dependencies and the {{ MY }} client:
 
    ```bash
    sudo apt update && sudo apt install -y mysql-client
@@ -81,7 +81,7 @@ The next step assumes that you connect to the cluster from a [Linux](../compute/
 
    1. Configure permissions to the certificate:
 
-      ```
+      ```bash
       chmod 0600 ~/.mysql/root.crt
       ```
 
@@ -114,8 +114,8 @@ The next step assumes that you connect to the cluster from a [Linux](../compute/
      --port=3306 \
      --ssl-ca=~/.mysql/root.crt \
      --ssl-mode=REQUIRED \
-     --user=<name of database user> \
-     --password <DB name>
+     --user=<DB user name> \
+     --password <DB user password>
    ```
 
 ## What's next {#whats-next}
