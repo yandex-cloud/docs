@@ -6,7 +6,7 @@
 
 1. [Создание и настройка SAML-приложения в Google Workspace](#gworkspace-settings).
 
-1. [Создание и настройкa федерации в {{org-full-name}}](#yc-settings).
+1. [Создание и настройка федерации в {{org-full-name}}](#yc-settings).
 
 1. [Настройка системы единого входа (SSO)](#sso-settings).
 
@@ -321,7 +321,7 @@
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d '@body.json' \
-          "https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/certificates"
+          "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
       ```
 
 {% endlist %}
@@ -398,7 +398,7 @@
 Имя | Отображается в сервисах {{yandex-cloud}}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 Полное имя | Отображается в сервисах {{yandex-cloud}}.<br>Пример: Иван Иванов | Атрибут недоступен
 Почта | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример:&nbsp;`ivanov@example.com` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
-Телефон | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример: +71234567890 | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone`
+Телефон | Используется для отправки уведомлений из сервисов {{yandex-cloud}}.<br>Пример: {% if product == "yandex-cloud" %}+71234567890{% endif %}{% if product == "cloud-il" %}+972571234567{% endif %} | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone`
 Аватар | Отображается в сервисах {{yandex-cloud}}. | Атрибут недоступен
 
 >Пример сопоставления атрибутов:
@@ -476,7 +476,7 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM-токен>" \
         -d '@body.json' \
-        https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
       ```
 
 {% endlist %}

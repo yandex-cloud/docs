@@ -28,13 +28,28 @@ For more detailed instructions, see [{#T}](quickstart.md) and [{#T}](s3/index.md
 
 You can store data in any format. {{ objstorage-full-name }} saves data in its original form without any modification.
 
+
+{% if product == "yandex-cloud" %}
+
 #### How can I leave feedback on {{ objstorage-full-name }}? {#qa-feedback}
 
 Use the feedback form on the support page in the management console.
 
+{% endif %}
+
 #### How do I contact technical support? {qa-support-channels}
 
+{% if product == "yandex-cloud" %}
+
 You can contact technical support in the management console under [Support]({{ link-console-support }}).
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [mail](../_includes/support/mail.md) %}
+
+{% endif %}
 
 #### How much data can I store? {#qa-storage-volume}
 
@@ -44,13 +59,18 @@ See [{#T}](concepts/limits.md).
 
 You can delete multiple objects via the {{ yandex-cloud }} management console or the API using the [deleteMultipleObjects](s3/api-ref/object/deletemultipleobjects.md) method.
 
-#### What does Yandex do with the data I store in {{ objstorage-full-name }}? {#qa-data-use-by-yandex}
+#### What does {{ yandex-cloud }} do with the data I store in {{ objstorage-full-name }}? {#qa-data-use-by-platform}
 
 The data is saved in the form in which it was transmitted by the user.
+
+{% if product == "yandex-cloud" %}
 
 #### Does Yandex use {{ objstorage-name }} to store its own data? {#qa-usage-by-yandex}
 
 Yes. {{ objstorage-name }} is used in the Yandex infrastructure. Several Yandex services store their websites' static data in the storage.
+
+{% endif %}
+
 
 #### What data consistency model does {{ objstorage-full-name }} use? {#qa-consistency}
 
@@ -65,11 +85,11 @@ For overwritable (PUT) and removable (DELETE) objects, the strong consistency mo
 
 #### Where is my data stored? {#qa-where}
 
-Data is stored in several geographically distributed data centers located in Russia.
+Data is stored {% if product == "yandex-cloud" %}in several geographically distributed data centers located in Russia{% endif %}{% if product == "cloud-il" %}in data centers located in Israel{% endif %}. For more information, see [{#T}](../overview/concepts/geo-scope.md).
 
 #### How is my data protected in {{ objstorage-full-name }}? {#qa-data-security}
 
-Physical media is located in Yandex data centers, wich are highly secure facilities.
+Physical media is located in {{ yandex-cloud }} data centers, wich are highly secure facilities.
 
 Data is stored in an encrypted format and none of those who have access to the physical media can read the data.
 
@@ -87,7 +107,11 @@ The {{ objstorage-name }} response time depends on multiple factors:
 
 This is why we can't specify a particular response time value. However, we do not consider a sharp increase in response time or a marked decrease in the speed of sending data to be the norm, and keep working to improve the technical characteristics of {{ objstorage-name }}.
 
+{% if product == "yandex-cloud" %}
+
 {% include [qa-fz-152.md](../_includes/qa-fz-152.md) %}
+
+{% endif %}
 
 {% include [qa-logs.md](../_includes/qa-logs.md) %}
 

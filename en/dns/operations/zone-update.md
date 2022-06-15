@@ -95,7 +95,7 @@ To update a DNS zone:
       The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
 
 
-   1. Confirm the changes: type `yes` into the terminal and press Enter.
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can make sure the DNS zone has been updated in the [management console]({{ link-console-main }}) or via the [CLI](../../cli/quickstart.md) command below:
 

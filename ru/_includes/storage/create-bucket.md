@@ -7,6 +7,9 @@
   1. Нажмите кнопку **Создать бакет**.
   1. На странице создания бакета:
       1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
+
+         По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../../storage/operations/hosting/certificate.md) в {{ objstorage-name }}.
+
       1. При необходимости ограничьте максимальный размер бакета.
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
@@ -27,12 +30,14 @@
      * `secret_key` — значение секретного ключа доступа.
      * `bucket` — имя создаваемого бакета. Необязательный параметр, если не указан — будет сгенерирована случайное уникальное имя бакета.
 
+     {% if product == "yandex-cloud" %}
+
      ```
      provider "yandex" {
        token     = "<OAuth>"
        cloud_id  = "<идентификатор облака>"
        folder_id = "<идентификатор каталога>"
-       zone      = "ru-central1-a"
+       zone      = "{{ region-id }}-a"
      }
 
      resource "yandex_storage_bucket" "test" {
@@ -42,7 +47,29 @@
      }
      ```
      
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```
+     provider "yandex" {
+       endpoint  = "{{ api-host }}:443"
+       token     = "<статический ключ сервисного аккаунта>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "{{ region-id }}-a"
+     }
+
+     resource "yandex_storage_bucket" "test" {
+       access_key = "<идентификатор статического ключа>"
+       secret_key = "<секретный ключ>"
+       bucket = "<имя бакета>"
+     }
+     ```
+
+     {% endif %}
+
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
 
   1. Проверьте корректность конфигурационных файлов.
 

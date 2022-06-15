@@ -2,8 +2,11 @@
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
-* Настройки подключения к [кластеру {{ mgp-full-name }}](#managed-service) или [пользовательской инсталляции](#on-premise), в т. ч. на базе виртуальных машин {{ compute-full-name }}. Эти параметры обязательные.
+* Настройки подключения к {% if product == "yandex-cloud" %}[кластеру {{ mgp-full-name }}](#managed-service) или {% endif %}[пользовательской инсталляции](#on-premise), в т. ч. на базе виртуальных машин {{ compute-full-name }}. Эти параметры обязательные.
 * [Дополнительные параметры](#additional-settings).
+
+
+{% if product == "yandex-cloud" %}
 
 ## Кластер {{ mgp-name }} {#managed-service}
 
@@ -16,6 +19,9 @@
     {% include [Managed Greenplum](../../../../_includes/data-transfer/necessary-settings/ui/managed-greenplum.md) %}
 
 {% endlist %}
+
+{% endif %}
+
 
 ## Пользовательская инсталляция {#on-premise}
 

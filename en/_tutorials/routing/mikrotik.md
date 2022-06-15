@@ -14,6 +14,8 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ### Required paid resources {#paid-resources}
 
 {% note alert %}
@@ -27,12 +29,14 @@ The cost of using a virtual router and test VM includes:
 * A fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
+{% endif %}
+
 ## Create a VM with Mikrotik Cloud Hosted Router {#create-router}
 
 1. Open your folder and click **Create resource**. Select **Virtual machine**.
 1. Enter a name for the VM, like `mikrotik-router`.
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) with a subnet. If you don't know which availability zone you need, leave the default.
-1. Under **Images from {{ marketplace-name }}**, click **Select** and choose the [Cloud Hosted Router]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2etgh9qd7e7h47jrvr4){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2etgh9qd7e7h47jrvr4){% endif %} image.
+1. Under **Images from {{ marketplace-name }}**, click **Select** and choose the [Cloud Hosted Router](/marketplace/products/f2etgh9qd7e7h47jrvr4) image.
 1. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.
     - Specify the number of vCPUs and amount of RAM:

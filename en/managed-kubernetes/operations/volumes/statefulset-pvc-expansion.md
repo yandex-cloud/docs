@@ -17,6 +17,8 @@ While the instruction is running, the number of the controller's [pods](../../co
 
    {% cut "sts.yaml" %}
 
+   {% if product == "yandex-cloud" %}
+
    ```yaml
    apiVersion: apps/v1
    kind: StatefulSet
@@ -50,6 +52,45 @@ While the instruction is running, the number of the controller's [pods](../../co
              storage: 1Gi
    ```
 
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+    ```yaml
+   apiVersion: apps/v1
+   kind: StatefulSet
+   metadata:
+     name: ubuntu-test
+   spec:
+     selector:
+       matchLabels:
+         app: ubuntu
+     serviceName: "ubuntu"
+     replicas: 3
+     template:
+       metadata:
+         labels:
+           app: ubuntu
+       spec:
+         terminationGracePeriodSeconds: 10
+         containers:
+         - name: ubuntu
+           image: ubuntu
+           command: ["/bin/sh"]
+           args: ["-c", "while true; do echo $(date -u) >> /data/out.txt; sleep 5; done"]
+     volumeClaimTemplates:
+     - metadata:
+         name: pvc-dynamic
+       spec:
+         accessModes: [ "ReadWriteOnce" ]
+         storageClassName: "yc-network-ssd"
+         resources:
+           requests:
+             storage: 1Gi
+   ```
+
+   {% endif %}
+
    {% endcut %}
 
 1. Create a controller:
@@ -68,6 +109,8 @@ While the instruction is running, the number of the controller's [pods](../../co
 
    Example command output:
 
+   {% if product == "yandex-cloud" %}
+
    ```text
    NAME                READY   STATUS    RESTARTS   AGE
    pod/ubuntu-test-0   1/1     Running   0          90s
@@ -80,6 +123,24 @@ While the instruction is running, the number of the controller's [pods](../../co
    persistentvolumeclaim/pvc-dynamic-ubuntu-test-2   Bound    pvc-f479c8aa-426a-4e43-9749-5e0fcb5dc140   1Gi        RWO            yc-network-hdd   73s
    ```
 
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```text
+   NAME                READY   STATUS    RESTARTS   AGE
+   pod/ubuntu-test-0   1/1     Running   0          90s
+   pod/ubuntu-test-1   1/1     Running   0          80s
+   pod/ubuntu-test-2   1/1     Running   0          72s
+
+   NAME                                              STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS     AGE
+   persistentvolumeclaim/pvc-dynamic-ubuntu-test-0   Bound    pvc-603ac129-fe56-400a-8481-feaad7fac9c0   1Gi        RWO            yc-network-ssd   91s
+   persistentvolumeclaim/pvc-dynamic-ubuntu-test-1   Bound    pvc-a6fb0761-0771-483c-abfb-d4a89ec4719f   1Gi        RWO            yc-network-ssd   81s
+   persistentvolumeclaim/pvc-dynamic-ubuntu-test-2   Bound    pvc-f479c8aa-426a-4e43-9749-5e0fcb5dc140   1Gi        RWO            yc-network-ssd   73s
+   ```
+
+   {% endif %}
+
 1. Make sure that for objects with the `k8s-csi` prefix, the disks have transitioned to `READY` status:
 
    ```bash
@@ -89,13 +150,13 @@ While the instruction is running, the number of the controller's [pods](../../co
    Example command output:
 
    ```text
-   +----------------------+--------------------------------------------------+-------------+---------------+--------+----------------------+-------------+
-   |          ID          |                       NAME                       |    SIZE     |     ZONE      | STATUS |     INSTANCE IDS     | DESCRIPTION |
-   +----------------------+--------------------------------------------------+-------------+---------------+--------+----------------------+-------------+
-   | ef3b5ln111s36h0ugf7c | k8s-csi-15319ac44278c2ff23f0df04ebdbe5a8aa6f4a49 |  1073741824 | ru-central1-c | READY  | ef3nrev9j72tpte4vtac |             |
-   | ef3e617rmqrijnesob0n | k8s-csi-336f16a11f750525075d7c155ad26ae3513dca01 |  1073741824 | ru-central1-c | READY  | ef3nrev9j72tpte4vtac |             |
-   | ef3rfleqkit01i3d2j41 | k8s-csi-ba784ddd49c7aabc63bcbfc45be3cc2e279fd3b6 |  1073741824 | ru-central1-c | READY  | ef3nrev9j72tpte4vtac |             |
-   +----------------------+--------------------------------------------------+-------------+---------------+--------+----------------------+-------------+
+   +----------------------+--------------------------------------------------+-------------+-------------------+--------+----------------------+-------------+
+   |          ID          |                       NAME                       |    SIZE     |       ZONE        | STATUS |     INSTANCE IDS     | DESCRIPTION |
+   +----------------------+--------------------------------------------------+-------------+-------------------+--------+----------------------+-------------+
+   | ef3b5ln111s36h0ugf7c | k8s-csi-15319ac44278c2ff23f0df04ebdbe5a8aa6f4a49 |  1073741824 | {{ region-id }}-a | READY  | ef3nrev9j72tpte4vtac |             |
+   | ef3e617rmqrijnesob0n | k8s-csi-336f16a11f750525075d7c155ad26ae3513dca01 |  1073741824 | {{ region-id }}-a | READY  | ef3nrev9j72tpte4vtac |             |
+   | ef3rfleqkit01i3d2j41 | k8s-csi-ba784ddd49c7aabc63bcbfc45be3cc2e279fd3b6 |  1073741824 | {{ region-id }}-a | READY  | ef3nrev9j72tpte4vtac |             |
+   +----------------------+--------------------------------------------------+-------------+-------------------+--------+----------------------+-------------+
    ```
 
 ## Make changes to controller settings {#upgrade-sts}
@@ -147,13 +208,13 @@ While the instruction is running, the number of the controller's [pods](../../co
    Example command output:
 
    ```text
-    +----------------------+--------------------------------------------------+-------------+---------------+--------+----------------------+-------------+
-    |          ID          |                       NAME                       |    SIZE     |     ZONE      | STATUS |     INSTANCE IDS     | DESCRIPTION |
-    +----------------------+--------------------------------------------------+-------------+---------------+--------+----------------------+-------------+
-    | ef3b5ln111s36h0ugf7c | k8s-csi-15319ac44278c2ff23f0df04ebdbe5a8aa6f4a49 |  1073741824 | ru-central1-c | READY  |                      |             |
-    | ef3e617rmqrijnesob0n | k8s-csi-336f16a11f750525075d7c155ad26ae3513dca01 |  1073741824 | ru-central1-c | READY  |                      |             |
-    | ef3rfleqkit01i3d2j41 | k8s-csi-ba784ddd49c7aabc63bcbfc45be3cc2e279fd3b6 |  1073741824 | ru-central1-c | READY  |                      |             |
-    +----------------------+--------------------------------------------------+-------------+---------------+--------+----------------------+-------------+
+    +----------------------+--------------------------------------------------+-------------+--------------------+--------+----------------------+-------------+
+    |          ID          |                       NAME                       |    SIZE     |        ZONE        | STATUS |     INSTANCE IDS     | DESCRIPTION |
+    +----------------------+--------------------------------------------------+-------------+--------------------+--------+----------------------+-------------+
+    | ef3b5ln111s36h0ugf7c | k8s-csi-15319ac44278c2ff23f0df04ebdbe5a8aa6f4a49 |  1073741824 | {{ region-id }}-a  | READY  |                      |             |
+    | ef3e617rmqrijnesob0n | k8s-csi-336f16a11f750525075d7c155ad26ae3513dca01 |  1073741824 | {{ region-id }}-a  | READY  |                      |             |
+    | ef3rfleqkit01i3d2j41 | k8s-csi-ba784ddd49c7aabc63bcbfc45be3cc2e279fd3b6 |  1073741824 | {{ region-id }}-a  | READY  |                      |             |
+    +----------------------+--------------------------------------------------+-------------+--------------------+--------+----------------------+-------------+
    ```
 
 1. Delete the current `ubuntu-test` StatefulSet controller:
@@ -210,9 +271,24 @@ While the instruction is running, the number of the controller's [pods](../../co
 
    Example command output:
 
+   {% if product == "yandex-cloud" %}
+
    ```text
    NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                               STORAGECLASS     REASON   AGE
    pvc-603ac129-fe56-400a-8481-feaad7fac9c0   2Gi        RWO            Delete           Bound    default/pvc-dynamic-ubuntu-test-0   yc-network-hdd            11m
    pvc-a6fb0761-0771-483c-abfb-d4a89ec4719f   2Gi        RWO            Delete           Bound    default/pvc-dynamic-ubuntu-test-1   yc-network-hdd            11m
    pvc-f479c8aa-426a-4e43-9749-5e0fcb5dc140   2Gi        RWO            Delete           Bound    default/pvc-dynamic-ubuntu-test-2   yc-network-hdd            11m
    ```
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```text
+   NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                               STORAGECLASS     REASON   AGE
+   pvc-603ac129-fe56-400a-8481-feaad7fac9c0   2Gi        RWO            Delete           Bound    default/pvc-dynamic-ubuntu-test-0   yc-network-ssd            11m
+   pvc-a6fb0761-0771-483c-abfb-d4a89ec4719f   2Gi        RWO            Delete           Bound    default/pvc-dynamic-ubuntu-test-1   yc-network-ssd            11m
+   pvc-f479c8aa-426a-4e43-9749-5e0fcb5dc140   2Gi        RWO            Delete           Bound    default/pvc-dynamic-ubuntu-test-2   yc-network-ssd            11m
+   ```
+
+   {% endif %}

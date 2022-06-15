@@ -130,11 +130,13 @@
 
         Пример структуры конфигурационного файла:
 
+        {% if product == "yandex-cloud" %}
+
         ```
         provider "yandex" {
             token     = "<OAuth или статический ключ сервисного аккаунта>"
             folder_id = "<идентификатор каталога>"
-            zone      = "ru-central1-a"
+            zone      = "{{ region-id }}-a"
         }
 
 		resource "yandex_function_scaling_policy" "my_scaling_policy" {
@@ -146,8 +148,32 @@
 		  	}
 		}
         ```
-      
-        Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+
+        {% endif %}
+
+        {% if product == "cloud-il" %}
+
+        ```
+        provider "yandex" {
+            endpoint  = "{{ api-host }}:443"
+            token     = "<статический ключ сервисного аккаунта>"
+            folder_id = "<идентификатор каталога>"
+            zone      = "{{ region-id }}-a"
+        }
+
+		resource "yandex_function_scaling_policy" "my_scaling_policy" {
+			function_id = "are1samplefu********"
+			policy {
+				tag = "$latest"
+				zone_instances_limit = 2
+				zone_requests_limit  = 1
+		  	}
+		}
+        ```
+
+        {% endif %}
+
+        Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
       
    1. Проверьте корректность конфигурационных файлов.
       

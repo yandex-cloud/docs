@@ -4,7 +4,9 @@
 * [{#T}](cluster-create.md)
 * [{#T}](update.md)
 * [{#T}](connect/index.md)
+{% if audience != "internal" %}
 * [{#T}](cluster-stop.md)
+{% endif %}
 * [{#T}](cluster-version-update.md)
 * [{#T}](hosts.md)
 * [{#T}](shards.md)

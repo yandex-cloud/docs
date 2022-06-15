@@ -2,15 +2,15 @@
 
 ### Общая информация {#info}
 
-В результате выполнения вкладки JavaScript должны быть экcпортированы данные для отрисовки (набора) геобъектов.
+В результате выполнения вкладки JavaScript должны быть экспортированы данные для отрисовки (набора) геобъектов.
 
 ### Доступные методы {#methods}
 
-* **`ChartEditor.getParams()`** - возвращает объект с нормализованными параметрами.
+* **`ChartEditor.getParams()`** — возвращает объект с нормализованными параметрами.
 
-* **`ChartEditor.getLoadedData()`** - возвращает объект с данными, запрошенными на вкладке Urls.
+* **`ChartEditor.getLoadedData()`** — возвращает объект с данными, запрошенными на вкладке Urls.
 
-* **`ChartEditor.updateHighchartsConfig(config)`** - доопределяет результат вкладки [Yandex.Maps](ymap.md) объектом `config`.
+* **`ChartEditor.updateHighchartsConfig(config)`** — доопределяет результат вкладки [Yandex.Maps](ymap.md) объектом `config`.
 
 ### Простые геобъекты {#simple-objects}
 
@@ -285,7 +285,7 @@ module.exports = [{
 
   * ### Области {#areas}
 
-    Описание [доступных параметров](https://github.com/yandex-shri-fx-team/ymaps-polygonmap/blob/v1.0.1/README.md#new-polygonmapdata-options).
+    Описание [доступных параметров](https://a.yandex-team.ru/arcadia/data-ui/ymaps-polygonmap/README.md).
     Доступные наборы полигонов, описывающие территориальное деление можно найти в папке `libs/ymaps`.
 
     #### Пример с точками {#areas-example-dots}
@@ -413,7 +413,7 @@ module.exports = [{
 
   * ### Сетка {#grid}
 
-    Описание [доступных параметров](https://github.com/yandex-shri-fx-team/ymaps-gridmap/blob/v1.0.0/README.md#new-gridmapdata-options).
+    Описание [доступных параметров](https://a.yandex-team.ru/arcadia/data-ui/ymaps-gridmap/README.md).
 
     #### Пример {#grid-example}
 

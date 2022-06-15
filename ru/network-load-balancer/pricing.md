@@ -3,6 +3,14 @@ editable: false
 ---
 # Правила тарификации для {{ network-load-balancer-name }}
 
+{% if product == "cloud-il" %}
+
+На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ network-load-balancer-name }} не тарифицируется.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 В рамках {{ network-load-balancer-full-name }} оплачиваются объем входящего трафика, обработанного балансировщиком, и количество сетевых балансировщиков.
@@ -58,5 +66,7 @@ editable: false
 {% if region == "int"%}
 
 {% include [usd.md](../_pricing/network-load-balancer/usd-balancer.md) %}
+
+{% endif %}
 
 {% endif %}

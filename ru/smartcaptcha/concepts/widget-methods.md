@@ -80,7 +80,6 @@
 
 {% endcut %}
 
-
 ## Расширенный метод подключения {#extended-method}
 
 В расширенном методе JS-скрипт, который выполняет загрузку виджета на странице пользователя, добавляется на страницу по ссылке:
@@ -122,7 +121,7 @@
 
 ```ts
 (
-  container: HTMLElement \| string,
+  container: HTMLElement | string,
   params: {
       sitekey: string;
       callback?: (token: string) => void;
@@ -143,17 +142,72 @@
 (widgetId: WidgetId | undefined) => string;
 ```
 
-В качестве аргумента метод принимает `widgetId`, уникальный идентификатор виджета. Если аргумент не передан, то будет возвращен результат первого отрисованного виджета.
+Аргумент `widgetId` – уникальный идентификатор виджета. Если аргумент не передан, будет возвращен результат первого отрисованного виджета.
 
 ### Метод reset {#reset}
 
 Метод `reset` сбрасывает состояние виджета до начального.
 
 ```ts
-(widgetId: WidgetId | undefined) => void
+(widgetId: WidgetId | undefined) => void;
 ```
 
-В качестве аргумента метод принимает `widgetId`, уникальный идентификатор виджета. Если аргумент не передан, то к начальному состоянию будет возвращен первый отрисованный виджет.
+Аргумент `widgetId` – уникальный идентификатор виджета. Если аргумент не передан, к начальному состоянию будет возвращен первый отрисованный виджет.
+
+### Метод destroy {#destroy}
+
+Метод `destroy` удаляет виджет и созданные им обработчики.
+
+```ts
+(widgetId: widgetId | undefined) => void;
+```
+
+Аргумент – `widgetId`, уникальный идентификатор виджета. Если аргумент не передан, будет удален первый отрисованный виджет.
+
+### Метод subscribe {#subscribe}
+
+Метод `subscribe` позволяет подписывать обработчики на определенные события виджета.
+Например, можно следить за открытием и закрытием всплывающего окна с заданием. Это может быть полезно для показа клавиатуры на мобильных устройствах.
+
+```ts
+type SubscribeEvent =
+  | 'challenge-visible'
+  | 'challenge-hidden'
+  | 'network-error'
+  | 'success';
+
+(widgetId: widgetId, event: SubscribeEvent, callback: Function) =>
+  UnsubscribeFunction;
+```
+
+Пример использования:
+
+```html
+<div id="container"></div>
+
+<script
+  src="https://captcha-api.yandex.ru/captcha.js?render=onload&onload=onloadFunction"
+  async
+  defer
+></script>
+
+<script>
+  function onload() {
+    if (window.smartCaptcha) {
+      const container = document.getElementById('container');
+      const widgetId = window.smartCaptcha.render(container, {
+        /* params */
+      });
+
+      const unsubscribe = window.smartCaptcha.subscribe(
+        widgetId,
+        'challenge-visible',
+        () => console.log('challenge is visible')
+      );
+    }
+  }
+</script>
+```
 
 {% cut "Пример встраивания виджета" %}
 

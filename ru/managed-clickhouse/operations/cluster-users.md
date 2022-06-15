@@ -37,7 +37,7 @@
   
   ```
   {{ yc-mdb-ch }} user list
-    --cluster-name=<имя кластера>
+     --cluster-name=<имя кластера>
   ```
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -89,12 +89,12 @@
   Чтобы создать пользователя в кластере, выполните команду:
   
   ```
-  {{ yc-mdb-ch }} user create <имя пользователя>
-    --cluster-name=<имя кластера>
-    --password=<пароль пользователя>
-    --permissions=<список баз, к которым пользователь должен иметь доступ>
-    --quota=<список настроек одной квоты для пользователя>
-    --settings=<список настроек {{ CH }} для пользователя>
+  {{ yc-mdb-ch }} user create <имя пользователя> \
+     --cluster-name=<имя кластера> \
+     --password=<пароль пользователя> \
+     --permissions=<список баз, к которым пользователь должен иметь доступ> \
+     --quota=<список настроек одной квоты для пользователя> \
+     --settings=<список настроек {{ CH }} для пользователя>
   ```
 
   {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
@@ -104,11 +104,11 @@
   Чтобы задать несколько квот, перечислите их, используя требуемое количество параметров `--quota` в команде:
   
   ```
-  {{ yc-mdb-ch }} user create <имя пользователя>
-    ...
-    --quota="<настройки квоты 0>"
-    --quota="<настройки квоты 1>"
-    ...
+  {{ yc-mdb-ch }} user create <имя пользователя> \
+     ...
+     --quota="<настройки квоты 0>" \
+     --quota="<настройки квоты 1>" \
+     ...
   ```
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -144,7 +144,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - SQL
 
@@ -183,9 +185,9 @@
   Чтобы изменить пароль пользователя, выполните команду:
 
   ```
-  {{ yc-mdb-ch }} user update <имя пользователя>
-    --cluster-name=<имя кластера>
-    --password=<новый пароль>
+  {{ yc-mdb-ch }} user update <имя пользователя> \
+     --cluster-name=<имя кластера> \
+     --password=<новый пароль>
   ```
 
   {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
@@ -223,7 +225,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - SQL
 
@@ -294,6 +298,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - SQL
 
     1. [Подключитесь](./connect.md) к кластеру от [имени пользователя `admin`](#sql-user-management).
@@ -350,9 +356,9 @@
   1. Чтобы настроить права пользователя на доступ к определенным базам данных, выполните команду, перечислив список имен баз данных с помощью параметра `--permissions`:
   
      ```
-     {{ yc-mdb-ch }} user update <имя пользователя>
-       --cluster-name=<имя кластера>
-       --permissions=<список баз, к которым пользователь должен иметь доступ>
+     {{ yc-mdb-ch }} user update <имя пользователя> \
+        --cluster-name=<имя кластера> \
+        --permissions=<список баз, к которым пользователь должен иметь доступ>
      ```
   
      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -364,14 +370,14 @@
   1. Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings) для пользователя, выполните команду, перечислив список всех квот, с помощью параметров `--quota` (один параметр на каждую квоту):
   
      ```
-     {{ yc-mdb-ch }} user update <имя пользователя>
-       --cluster-name=<имя кластера>
-       --quota=<настройки квоты 0 (без изменений)>
-       --quota=<настройки квоты 1 (без изменений)>
-       --quota=<настройки квоты 2 (с изменениями)>
-       --quota=<настройки квоты 3 (без изменений)>
-       --quota=<настройки квоты 4 (с изменениями)>
-       --quota=<настройки квоты 5 (новая квота)>       
+     {{ yc-mdb-ch }} user update <имя пользователя> \
+        --cluster-name=<имя кластера> \
+        --quota=<настройки квоты 0 (без изменений)> \
+        --quota=<настройки квоты 1 (без изменений)> \
+        --quota=<настройки квоты 2 (с изменениями)> \
+        --quota=<настройки квоты 3 (без изменений)> \
+        --quota=<настройки квоты 4 (с изменениями)> \
+        --quota=<настройки квоты 5 (новая квота)>
        ...
      ```
      
@@ -387,9 +393,9 @@
   1. Чтобы изменить [настройки {{ CH }}](../concepts/settings-list.md#dbms-user-settings) для пользователя, выполните команду, перечислив измененные настройки с помощью параметра `--settings`:
   
      ```
-     {{ yc-mdb-ch }} user update <имя пользователя>
-       --cluster-name=<имя кластера>
-       --settings=<список настроек {{ CH }}>    
+     {{ yc-mdb-ch }} user update <имя пользователя> \
+        --cluster-name=<имя кластера> \
+        --settings=<список настроек {{ CH }}>
      ```
      
      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -468,7 +474,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - SQL
 
@@ -512,8 +520,8 @@
   Чтобы удалить пользователя, выполните команду:
   
   ```
-  {{ yc-mdb-ch }} user delete <имя пользователя>
-    --cluster-name=<имя кластера>
+  {{ yc-mdb-ch }} user delete <имя пользователя> \
+     --cluster-name=<имя кластера>
   ```
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -534,7 +542,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - SQL
 
@@ -576,10 +586,10 @@
 
   ```
   {{ yc-mdb-ch }} user create "ro-user" \
-    --cluster-name="mych" \
-    --password="Passw0rd" \
-    --permissions="db1" \
-    --settings="readonly=1"
+     --cluster-name="mych" \
+     --password="Passw0rd" \
+     --permissions="db1" \
+     --settings="readonly=1"
   ```
   
     После создания пользователя проверьте, что он действительно работает в режиме «только чтение»:

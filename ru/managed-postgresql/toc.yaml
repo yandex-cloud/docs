@@ -1,4 +1,8 @@
-title: Yandex Managed Service for PostgreSQL
+title:
+  - text: Yandex Managed Service for PostgreSQL
+    when: product == "yandex-cloud"
+  - text: Managed Service for PostgreSQL
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Начало работы
@@ -24,6 +28,7 @@ items:
         href: operations/update.md
       - name: Подключение к DataLens
         href: operations/datalens-connect.md
+        when: product == "yandex-cloud"
       - name: Управление хостами PostgreSQL
         href: operations/hosts.md
       - name: Управление базами данных
@@ -44,33 +49,37 @@ items:
         href: operations/monitoring.md
   - name: Практические руководства
     items:
-      - name: Создание кластера PostgreSQL для 1С
+      - name: Создание кластера {{ PG }} для 1С
         href: tutorials/1c-postgresql
       - name: Выгрузка базы данных в {{ dataproc-full-name }}
-        when: audience != "internal"
+        when: audience != "internal" and product == "yandex-cloud"
         href: tutorials/sqoop.md
       - name: Анализ производительности и оптимизация
         href: tutorials/profiling.md
       - name: Репликация и миграция
         items:
-        - name: Логическая репликация PostgreSQL
+        - name: Логическая репликация {{ PG }}
           href: tutorials/replication-overview.md
-        - name: Миграция базы данных в Managed Service for PostgreSQL
+        - name: Миграция базы данных в {{ mpg-name }}
           href: tutorials/data-migration.md
-        - name: Миграция базы данных из Managed Service for PostgreSQL
+        - name: Миграция базы данных из {{ mpg-name }}
           href: tutorials/outbound-replication.md
         - name: >-
-            Создание логической реплики Amazon RDS для PostgreSQL в Managed
-            Service for PostgreSQL
+            Создание логической реплики Amazon RDS для {{ PG }} в {{ mpg-name }}
           when: audience != "internal"
           href: operations/logical-replica-from-rds.md
-      - name: Поставка данных с помощью Debezium
+      - name: >-
+          Поставка данных в {{ mkf-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: tutorials/kafka-cdc-data-transfer.md
+      - name: Поставка данных в {{ mkf-full-name }} с помощью Debezium
         href: tutorials/kafka-cdc.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
       - name: Классы хостов
+        when: product == "yandex-cloud"
         items:
           - name: Действующие классы хостов
             href: concepts/instance-types.md
@@ -80,6 +89,9 @@ items:
                 href: concepts/instance-types-archive/instance-types-01062020.md
           - name: Использование устаревших классов хостов
             href: concepts/using-deprecated-instances.md
+      - name: Классы хостов
+        when: product == "cloud-il"
+        href: concepts/instance-types.md
       - name: Сеть в Managed Service for PostgreSQL
         href: concepts/network.md
       - name: Квоты и лимиты
@@ -106,7 +118,7 @@ items:
     href: quotas.md
     when: audience == "internal"
   - name: Правила тарификации
-    when: audience != "internal"
+    when: product == "yandex-cloud" and audience != "internal"
     items:
       - name: Действующие правила
         href: pricing.md
@@ -118,6 +130,9 @@ items:
             href: pricing-archive/pricing-01032019.md
           - name: С 1 марта 2019 года до 1 февраля 2020 года
             href: pricing-archive/pricing-01022020.md
+  - name: Правила тарификации
+    when: product == "cloud-il"
+    href: pricing.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -134,6 +149,7 @@ items:
           path: en/_api-ref/mdb/postgresql/toc.yaml
   - name: История изменений
     href: release-notes.md
+    when: product == "yandex-cloud"
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

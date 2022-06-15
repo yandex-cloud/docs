@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-Приведённая инструкция описывает настройку внешней сборки CLI (из storage.yandexcloud.net) для работы с внутренним MDB. Это может быть удобным в случае, если вы используете CLI для работы и с внутренним MDB, и с внешним {{ yandex-cloud }}. В случае, если вам достаточно внутренней сборки CLI (из s3.mds.yandex.net), следуйте [этой инструкции](../../../cli/quickstart.md).
+Приведённая инструкция описывает настройку внешней сборки CLI (из {{ s3-storage-host }}) для работы с внутренним MDB. Это может быть удобным в случае, если вы используете CLI для работы и с внутренним MDB, и с внешним {{ yandex-cloud }}. В случае, если вам достаточно внутренней сборки CLI (из s3.mds.yandex.net), следуйте [этой инструкции](../../../cli/quickstart.md).
 
 Если у вас уже установлен CLI, вы можете понять, какая сборка у вас используется, с помощью команды `yc version`. Если в версии присутствует `+yandex`, то сборка внутренняя. В противном случае сборка внешняя.
 
@@ -12,9 +12,7 @@
 
 1. [Установите CLI](https://cloud.yandex.ru/docs/cli/quickstart#install).
 
-1. Убедитесь что у вас установлен [YandexInternalRootCA.crt](https://crls.yandex.net/YandexInternalRootCA.crt). Для платформ
-   Windows и Mac OS сертификат должен быть предустановлен при выдаче оборудования. Для Linux можно воспользоваться
-   следующей [инструкцией](https://wiki.yandex-team.ru/security/ssl/sslclientfix/#vcli-utilitax).
+1. Убедитесь что у вас установлен [YandexInternalRootCA.crt](https://crls.yandex.net/YandexInternalRootCA.crt). Для платформ Windows и Mac OS сертификат должен быть предустановлен при выдаче оборудования. Для Linux можно воспользоваться следующей [инструкцией](https://wiki.yandex-team.ru/security/ssl/sslclientfix/#vcli-utilitax).
 
 1. [Получите OAuth-токен](https://oauth.yandex-team.ru/authorize?response_type=token&client_id=8cdb2f6a0dca48398c6880312ee2f78d) для доступа CLI ко внутреннему MDB.
 

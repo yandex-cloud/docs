@@ -55,8 +55,9 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
       | ...                            |             |
       +--------------------------------+-------------+
       ```
-
-   1. Find out the user's ID from the login or email address. To assign a role to a service account or system group instead of a user, see the [examples](#examples) below.
+{% if product == "yandex-cloud" %}
+   
+   1. Find out the user ID from the login or email address. To assign a role to a service account or system group instead of a user, see the [examples](#examples) below.
 
       ```bash
       yc iam user-account get test-user
@@ -70,14 +71,34 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
           login: test-user
           default_email: test-user@yandex.ru
       ```
+      
+{% endif %}
+{% if product == "cloud-il" %}
 
-   1. Assign the `editor` role for the `my-cloud` cloud to a user named `test-user`. In the subject, specify the `userAccount` type and user ID:
+   1. [Get the user ID](../../../iam/operations/users/get.md).
+
+{% endif %}
+   1. Assign the `editor` role for the `my-cloud` cloud to a user named `test-user`. In the subject, specify the {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} type and user ID:
+
+{% if product == "yandex-cloud" %}
 
       ```bash
       yc resource-manager cloud add-access-binding my-cloud \
         --role editor \
         --subject userAccount:<user ID>
       ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+      ```bash
+      yc resource-manager cloud add-access-binding my-cloud \
+        --role editor \
+        --subject federatedUser:<user ID>
+      ```
+
+{% endif %}
 
 - API
 
@@ -87,7 +108,7 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
 
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
+          https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
       ```
 
       Result:
@@ -103,12 +124,14 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
        ]
       }
       ```
-
+   
+{% if product == "yandex-cloud" %}
+   
    1. Find out the user ID from the login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) method:
 
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+          https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
       ```
 
       Result:
@@ -123,7 +146,17 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
       }
       ```
 
-   1. Assign the user the `editor` role for the `my-cloud` cloud. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+   1. [Get the user ID](../../../iam/operations/users/get.md).
+
+{% endif %}
+
+   1. Assign the user the `editor` role for the `my-cloud` cloud. Set the `action` property to `ADD` and specify the {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} type and user ID in the `subject` property:
+     
+{% if product == "yandex-cloud" %}
 
       ```bash
       curl -X POST \
@@ -138,8 +171,29 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
                       "id": "<user ID>",
                       "type": "userAccount"
           }}}]}' \
-          https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
+          https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
       ```
+
+{% endif %}
+{% if product == "cloud-il" %}
+
+      ```bash
+      curl -X POST \
+          -H 'Content-Type: application/json' \
+          -H "Authorization: Bearer <IAM-TOKEN>" \
+          -d '{
+          "accessBindingDeltas": [{
+              "action": "ADD",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "<user ID>",
+                      "type": "federatedUser"
+          }}}]}' \
+          https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
+      ```
+
+{% endif %}
 
 - Terraform
 
@@ -149,9 +203,13 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
       * `cloud_id`: cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`.
       * `role`: Role to assign. You can get a list of roles using the [CLI](../../../cli/quickstart.md) command: `yc iam role list`. In one `yandex_resourcemanager_cloud_iam_binding` resource, you can assign only one role.
       * `members` section: List of users to assign the role to. Each entry may have one of the following values:
+{% if product == "yandex-cloud" %}
          * `userAccount:<user ID>`: [User ID](../../../iam/operations/users/get.md).
+{% endif %}
          * `serviceAccount:<ID of service account>`: [ID of the service account](../../../iam/operations/sa/get-id.md).
          * `federatedUser:<federated user ID>`: [ID of the federated user](../../../organization/users-get.md).
+
+{% if product == "yandex-cloud" %}
 
       ```hcl
       data "yandex_resourcemanager_cloud" "project1" {
@@ -166,8 +224,27 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
         ]
       }
       ```
+{% endif %}
 
-      For more detailed information on the parameters of the `yandex_resourcemanager_cloud_iam_binding` resource in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_cloud_iam_binding).
+{% if product == "cloud-il" %}
+
+      ```hcl
+      data "yandex_resourcemanager_cloud" "project1" {
+        name = "Project 1"
+      }
+
+      resource "yandex_resourcemanager_cloud_iam_binding" "editor" {
+        cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
+        role = "editor"
+        members = [
+          "federatedUser:<user ID>",
+        ]
+      }
+      ```
+
+{% endif %}
+
+      For more detailed information on the parameters of the `yandex_resourcemanager_cloud_iam_binding` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud_iam_binding).
    1. In the command line, go to the directory where you created the configuration file.
    1. Make sure the configuration file is correct using the command:
 
@@ -228,15 +305,30 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
 
    1. For example, assign a role to multiple users:
 
+{% if product == "yandex-cloud" %}
       ```bash
       yc resource-manager cloud set-access-bindings my-cloud \
         --access-binding role=editor,subject=userAccount:<first user ID>
         --access-binding role=viewer,subject=userAccount:<second user ID>
       ```
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+
+      ```bash
+      yc resource-manager cloud set-access-bindings my-cloud \
+      --access-binding role=editor,subject=federatedUser:<first user ID>
+      --access-binding role=viewer,subject=federatedUser:<second user ID>
+      ```
+
+{% endif %}
 
 - API
 
    Assign the `editor` role to one user and the `viewer` role to another user:
+
+{% if product == "yandex-cloud" %}
 
    ```bash
    curl -X POST \
@@ -260,8 +352,39 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
                    "id": "<second user ID>",
                    "type": "userAccount"
        }}}]}' \
-       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
+       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
    ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+  ```bash
+  curl -X POST \
+      -H 'Content-Type: application/json' \
+      -H "Authorization: Bearer <IAM-TOKEN>" \
+      -d '{
+      "accessBindingDeltas": [{
+          "action": "ADD",
+          "accessBinding": {
+              "roleId": "editor",
+              "subject": {
+                  "id": "<first user ID>",
+                  "type": "federatedUser"
+              }
+          }
+      },{
+          "action": "ADD",
+          "accessBinding": {
+              "roleId": "viewer",
+              "subject": {
+                  "id": "<second user ID>",
+                  "type": "federatedUser"
+      }}}]}' \
+      https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
+  ```
+
+{% endif %}
 
    You can also assign roles using the [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md).
 
@@ -270,6 +393,8 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
    The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
 
    {% endnote %}
+
+{% if product == "yandex-cloud" %}
 
    ```bash
    curl -X POST \
@@ -283,12 +408,35 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
            "roleId": "viewer",
            "subject": { "id": "<second user ID>", "type": "userAccount" }
        }]}' \
-       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:setAccessBindings
+       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:setAccessBindings
    ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+  ```bash
+  curl -X POST \
+      -H 'Content-Type: application/json' \
+      -H "Authorization: Bearer <IAM-TOKEN>" \
+      -d '{
+      "accessBindings": [{
+          "roleId": "editor",
+          "subject": { "id": "<first user ID>", "type": "federatedUser" }
+      },{
+          "roleId": "viewer",
+          "subject": { "id": "<second user ID>", "type": "federatedUser" }
+      }]}' \
+      https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:setAccessBindings
+  ```
+
+{% endif %}
 
 - Terraform
 
    1. Describe the properties of the cloud access rights in a configuration file. Assign the `editor` role to one user and the `viewer` role to another user:
+
+{% if product == "yandex-cloud" %}
 
       ```hcl
       data "yandex_resourcemanager_cloud" "project1" {
@@ -311,6 +459,34 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
         ]
       }
       ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+      ```hcl
+      data "yandex_resourcemanager_cloud" "project1" {
+        name = "Project 1"
+      }
+
+      resource "yandex_resourcemanager_cloud_iam_binding" "editor" {
+        cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
+        role = "editor"
+        members = [
+          "federatedUser:<first user ID>",
+        ]
+      }
+
+      resource "yandex_resourcemanager_cloud_iam_binding" "viewer" {
+        cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
+        role = "viewer"
+        members = [
+          "federatedUser:<second user ID>",
+        ]
+      }
+      ```
+
+{% endif %}
 
    1. In the command line, go to the directory where you created the configuration file.
    1. Make sure the configuration file is correct using the command:
@@ -384,7 +560,7 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
 
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
+          https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
       ```
 
       Result:
@@ -418,7 +594,7 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
                    "id": "<service account ID>",
                    "type": "serviceAccount"
        }}}]}' \
-       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
+       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
    ```
 
 - Terraform
@@ -506,7 +682,7 @@ For instance, allow any authenticated user to view information about the `my-clo
                    "id": "allAuthenticatedUsers",
                    "type": "system"
        }}}]}' \
-       https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
+       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
    ```
 
 - Terraform

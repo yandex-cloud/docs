@@ -1,18 +1,18 @@
 # yc operation
 
-Manage operations.
+Managing operations.
 
-#### Usage
+#### Command usage
 
 Syntax:
-  
+
 `yc operation <command>`
 
 Aliases:
-  
+
 - `yc operations <command>`.
 
 #### Commands
 
-- `yc operation get` — get operation.
-- `yc operation wait` — wait for operation to complete.
+- `yc operation get`: Get information about the operation.
+- `yc operation wait`: Wait for the operation to complete.

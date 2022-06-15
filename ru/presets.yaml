@@ -3,6 +3,7 @@ default:
   region: ru
   lang: ru
   audience: external
+  product: yandex-cloud
   iam-full-name: Yandex Identity and Access Management
   resmgr-full-name: Yandex Resource Manager
   compute-full-name: Yandex Compute Cloud
@@ -46,6 +47,7 @@ default:
   certificate-manager-full-name: Yandex Certificate Manager
   data-transfer-full-name: Yandex Data Transfer
   api-gw-full-name: Yandex API Gateway
+  lockbox-full-name: Yandex Lockbox
   ig-full-name: Yandex Instance Groups
   tracker-full-name: Yandex Tracker
   alb-full-name: Yandex Application Load Balancer
@@ -213,6 +215,12 @@ default:
   roles-cloud-owner: resource-manager.clouds.owner
   roles-cloud-member: resource-manager.clouds.member
   roles-mdb-admin: mdb.admin
+  roles:
+    mes:
+      admin: managed-elasticsearch.admin
+      auditor: managed-elasticsearch.auditor
+      editor: managed-elasticsearch.editor
+      viewer: managed-elasticsearch.viewer
   roles-admin: admin
   roles-owner: owner
   roles-editor: editor
@@ -222,6 +230,7 @@ default:
   subnet-id: b0rcctk2rvtr8efcch64
   s3-storage-host: storage.yandexcloud.net
   s3-web-host: website.yandexcloud.net
+  s3-objstorage-host: s3.yandex.net
   yc-k8s: yc managed-kubernetes
   yc-mdb-mg: yc managed-mongodb
   yc-mdb-ch: yc managed-clickhouse
@@ -236,9 +245,14 @@ default:
   yc-compute-instance: yc compute instance
   yc-ydb: yc ydb
   yc-dt: yc datatransfer
+  yc-dp: yc dataproc
   max-gpus: 4
   iam-token-lifetime: 12 часов
   pem-path: /cloud-certs/CA.pem
+  crt-local-dir: /usr/local/share/ca-certificates/Yandex/
+  crt-local-file: YandexCA.crt
+  crt-alias: YandexCA
+  mdb-host: mdb.cloud.yandex.net
   dns-zone: mdb.yandexcloud.net
   network-name: default
   zk-host-class: b2.medium
@@ -279,6 +293,7 @@ default:
   tag-sql: <code><b><small>SQL</small></b></code>
   tag-all: <code><b><small>Все интерфейсы</small></b></code>
   zone-id: ru-central1-c
+  region-id: ru-central1
 
   compute-ubuntu-lts-image-id: fd81hgrcv6lsnkremf32
 
@@ -455,6 +470,7 @@ default:
   link-console-support: https://console.cloud.yandex.ru/support
   link-cloud-calculator: https://cloud.yandex.ru/prices#calculator
   link-cloud-services: https://cloud.yandex.ru/services
+  link-cloud-services-infrastructure: https://cloud.yandex.ru/services#infrastructure-network
   link-cloud-marketplace: https://cloud.yandex.ru/marketplace
   link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=ru
   link-yandex-connect: https://connect.yandex.ru
@@ -473,6 +489,11 @@ default:
   link-tracker: https://tracker.yandex.ru/
   link-wiki: https://wiki.yandex.ru/
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
+  link-monitoring: https://monitoring.cloud.yandex.ru
+  link-support-mail: cloud@support.yandex.ru
+  links: # Ссылки
+    es: # ElasticSearch
+      reindex-api: https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html
   pg-docs: https://www.postgresql.org/docs/current
   link-datasphere-main: https://datasphere-preprod.cloud.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
@@ -525,28 +546,34 @@ default:
   k8s-api-link: https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
 
   # Провайдеры Terraform
-  tf-provider-dp: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/dataproc_cluster
-  tf-provider-dt-endpoint: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/datatransfer_endpoint
-  tf-provider-dt-transfer: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/datatransfer_transfer
-  tf-provider-k8s-cluster: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_cluster
-  tf-provider-k8s-nodegroup: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_node_group
-  tf-provider-mch: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster
-  tf-provider-mes: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_elasticsearch_cluster
-  tf-provider-mkf: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster
-  tf-provider-mmg: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster
-  tf-provider-mms: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_sqlserver_cluster
-  tf-provider-mmy: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster
-  tf-provider-mpg: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_postgresql_cluster
-  tf-provider-mrd: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_redis_cluster
-  tf-provider-alb-targetgroup: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_target_group
-  tf-provider-alb-backendgroup: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_backend_group
-  
+
+  tf-provider-link: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources
+  tf-provider-dt-endpoint: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/datatransfer_endpoint
+  tf-provider-dt-transfer: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/datatransfer_transfer
+  tf-provider-k8s-cluster: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_cluster
+  tf-provider-k8s-nodegroup: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_node_group
+  tf-provider-mch: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster
+  tf-provider-mes: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_elasticsearch_cluster
+  tf-provider-mkf: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster
+  tf-provider-mmg: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster
+  tf-provider-mms: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_sqlserver_cluster
+  tf-provider-mmy: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster
+  tf-provider-mpg: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_postgresql_cluster
+  tf-provider-mrd: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/mdb_redis_cluster
+  tf-provider-alb-targetgroup: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/alb_target_group
+  tf-provider-alb-backendgroup: https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/alb_backend_group
+
   # API
   # Подмены доменных имен происходят при сборке справочника API в TeamCity. См. шаг 20 в сборке: https://nda.ya.ru/t/JggZA6M-4zCi6E
   api-host: api.cloud.yandex.net
   api-host-kms-symcrypto: kms.yandex
   api-host-certmanager-certcontent: data.certificate-manager.api.cloud.yandex.net
   api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
+
+  dns-mx-host: mx.cloud.yandex.net
+
+  ms-kms-host: kms.cloud.yandex.net
+  ms-kms-port: 1688
 
   # Порты
   port-any: 0-65535
@@ -584,6 +611,9 @@ default:
 
   # Внешние ссылки
   link-saml: https://ru.wikipedia.org/wiki/SAML
+
+  # Container Registry
+  registry: cr.yandex
 
 internal:
   audience: internal
@@ -654,3 +684,98 @@ external:
   link-cloud-partners: https://partners.cloud.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1go92dnv7b9u8f21mnj
+cloud-il:
+  product: cloud-il
+  iam-full-name: Identity and Access Management
+  resmgr-full-name: Resource Manager
+  compute-full-name: Compute Cloud
+  objstorage-full-name: Object Storage
+  mpg-full-name: Managed Service for PostgreSQL
+  mch-full-name: Managed Service for ClickHouse
+  mmg-full-name: Managed Service for MongoDB
+  mmy-full-name: Managed Service for MySQL
+  mrd-full-name: Managed Service for Redis
+  mkf-full-name: Managed Service for Apache Kafka®
+  mes-full-name: Managed Service for Elasticsearch
+  mms-full-name: Managed Service for SQL Server
+  mgp-full-name: Managed Service for Greenplum®
+  mgl-full-name: Managed Service for GitLab
+  vpc-full-name: Virtual Private Cloud
+  ddos-protection-full-name: DDoS Protection
+  monitoring-full-name: Monitoring
+  unified-agent-full-name: Unified Agent
+  dsvm-full-name: Data Science Virtual Machine
+  translate-full-name: Translate
+  vision-full-name: Vision
+  ml-platform-full-name: DataSphere
+  speechkit-full-name: SpeechKit
+  speechkit-pro-full-name: SpeechKit Pro
+  brand-voice-full-name: SpeechKit Brand Voice
+  network-load-balancer-full-name: Network Load Balancer
+  message-queue-full-name: Message Queue
+  cloud-logs-full-name: Cloud Logs
+  cloud-logging-full-name: Cloud Logging
+  container-registry-full-name: Container Registry
+  dataproc-full-name: Data Proc
+  datalens-full-name: DataLens
+  managed-k8s-full-name: Managed Service for Kubernetes
+  iot-full-name: IoT Core
+  sf-full-name: Functions
+  ydb-full-name: Managed Service for YDB
+  kms-full-name: Key Management Service
+  interconnect-full-name: Interconnect
+  cos-full-name: Container Solution
+  certificate-manager-full-name: Certificate Manager
+  data-transfer-full-name: Data Transfer
+  api-gw-full-name: API Gateway
+  ig-full-name: Instance Groups
+  tracker-full-name: Tracker
+  alb-full-name: Application Load Balancer
+  dns-full-name: Cloud DNS
+  at-full-name: Audit Trails
+  yds-full-name: Data Streams
+  cdn-full-name: Cloud CDN
+  serverless-containers-full-name: Serverless Containers
+  org-full-name: Cloud Organization
+  forms-full-name: Forms
+  wiki-full-name: Wiki
+  load-testing-full-name: Load Testing
+  cloud-desktop-full-name: Cloud Desktop
+  marketplace-full-name: Marketplace
+  captcha-full-name: SmartCaptcha
+  lockbox-full-name: Lockbox
+  monitoring-name: Monitoring
+  iot-name: IoT Core
+  lockbox-name: Lockbox
+  iot-short-name: IoT Core
+  api-host: api.cloudil.com
+  ds-api-addr: datasphere.api.cloudil.com:443
+  s3-storage-host: storage.cloudil.com
+  s3-web-host: website.cloudil.com
+  s3-objstorage-host: s3.cloudil.com
+  link-console-billing: https://console.cloudil.co.il/billing
+  link-console-cloud: https://console.cloudil.co.il/cloud
+  link-console-main: https://console.cloudil.co.il
+  link-console-quotas: https://console.cloudil.co.il/cloud?section=quotas
+  link-console-access-management: https://console.cloudil.co.il/iam
+  link-console-iam-users: https://console.cloudil.co.il/iam?section=users
+  link-console-support: https://console.cloudil.co.il/support
+  link-cloud-services: https://cloudil.co.il/services
+  link-cloud-services-infrastructure: https://cloudil.co.il/services#infrastructure-network
+  link-cloud-notifications: https://console.cloudil.co.il/cloud?section=incident-notifications
+  link-monitoring: https://monitoring.cloudil.co.il
+  link-org-main: https://org.cloudil.co.il/
+  link-passport-login: https://accounts.google.com
+  link-support-mail: support@cloudil.co.il
+  dns-mx-host: mx.cloudil.com
+  ms-kms-host: 46.243.144.12
+  crt-local-dir: /usr/local/share/ca-certificates/CloudIL/
+  crt-local-file: CloudILCA.crt
+  crt-alias: CloudILCA
+  mdb-host: mdb.cloudil.com
+  yc-install-path: /cli/install.sh
+  yc-windows-path: /cli/install.ps1
+  dns-zone: mdb.cloudil.com
+  yandex-cloud: CloudIL
+  region-id: il1
+  registry: cr.cloudil.com

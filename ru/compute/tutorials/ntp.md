@@ -20,9 +20,14 @@ keywords:
 Рекомендуемые серверы синхронизации:
 * `ntp0.NL.net`
 * `clock.isc.org`
-* `ntp2.vniiftri.ru`
 * `ntps1-1.cs.tu-berlin.de`
+{% if product == "yandex-cloud" %}
+* `ntp2.vniiftri.ru`
 * `ntp.ix.ru`
+{% endif %}
+{% if product == "cloud-il" %}
+* `timeserver.iix.net.il`
+{% endif %}
 
 Список рекомендуемых серверов может меняться. О том, что вам нужно внести изменения в конфигурацию ВМ, {{ yandex-cloud }} сообщит за 72 часа.
 
@@ -41,10 +46,22 @@ keywords:
   Укажите запасные серверы в настройках системы:
 
   1. Перечислите запасные серверы в файле `/etc/systemd/timesyncd.conf`, в секции `[Time]` в параметре `FallbackNTP=`, например:
+     
+     {% if product == "yandex-cloud" %}
 
      ```bash
      FallbackNTP=ntp0.NL.net clock.isc.org ntp2.vniiftri.ru ntps1-0.eecsit.tu-berlin.de ntp.ix.ru
      ```
+
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```
+     FallbackNTP=ntp0.NL.net clock.isc.org ntps1-0.eecsit.tu-berlin.de timeserver.iix.net.il
+     ```
+     
+     {% endif %}
 
   1. Установите параметр `UseNTP=true` в конфигурационном файле сервиса `systemd.network`, обычно расположенном в каталоге `/etc/systemd/network` или `/var/lib/systemd/network`.
 
@@ -59,6 +76,8 @@ keywords:
   Укажите адреса нужных серверов в конфигурации `ntpd`:
 
   1. Укажите адреса рекомендуемых серверов в файле `/etc/ntp.conf`. Адреса серверов по умолчанию закомментируйте символом <q>#</q> в начале строки, например:
+     
+     {% if product == "yandex-cloud" %}
 
      ```text
      # Use servers from the NTP Pool Project. Approved by Ubuntu Technical Board
@@ -75,6 +94,26 @@ keywords:
      server ntp.ix.ru
      ```
 
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```text
+     # Use servers from the NTP Pool Project. Approved by Ubuntu Technical Board
+     # on 2011-02-08 (LP: #104525). See http://www.pool.ntp.org/join.html for
+     # more information.
+     # server 0.ubuntu.pool.ntp.org
+     # server 1.ubuntu.pool.ntp.org
+     # server 2.ubuntu.pool.ntp.org
+     # server 3.ubuntu.pool.ntp.org
+     server ntp0.NL.net
+     server clock.isc.org
+     server ntps1-0.eecsit.tu-berlin.de
+     server timeserver.iix.net.il
+     ```
+
+     {% endif %}
+
   2. Перезапустите сервис:
 
      ```bash
@@ -84,12 +123,27 @@ keywords:
 - Windows Server
 
   Укажите рекомендуемые серверы в настройках сервиса Windows Time, последовательно выполнив следующие команды в PowerShell или `cmd`:
+  
+  {% if product == "yandex-cloud" %}
 
   ```
   net stop w32time
-  w32tm /config /syncfromflags:manual /manualpeerlist:"ntp0.NL.net clock.isc.org ntp2.vniiftri.ru ntps1-0.eecsit.tu-berlin.de ntp.ix.ru"
+  w32tm /config /syncfromflags:manual /manualpeerlist:"ntp0.NL.net clock.isc.org ntps1-0.eecsit.tu-berlin.de timeserver.iix.net.il"
   w32tm /config /reliable:yes
   net start w32time
   ```
+
+  {% endif %}
+
+  {% if product == "cloud-il" %}
+
+  ```
+  net stop w32time
+  w32tm /config /syncfromflags:manual /manualpeerlist:"ntp0.NL.net clock.isc.org ntps1-0.eecsit.tu-berlin.de timeserver.iix.net.il"
+  w32tm /config /reliable:yes
+  net start w32time
+  ```
+
+  {% endif %}
 
 {% endlist %}

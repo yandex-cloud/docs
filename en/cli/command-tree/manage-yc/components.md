@@ -1,14 +1,14 @@
 # yc components
 
-Manage installed components.
+Managing the components installed
 
-#### Usage
+#### Command usage
 
 Syntax:
-  
+
 `yc components <command>`
 
 #### Commands
 
-- `yc components update` — ensure that the latest version of all installed components is installed.
-- `yc components restore` — restore the installation to its previous state.
+- `yc components update`: Check that all the components are installed in the latest version.
+- `yc components restore`: Restore the previous state of the components installed.

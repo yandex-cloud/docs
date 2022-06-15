@@ -2,7 +2,7 @@
 
 {% if audience != "internal" %}
 
-When creating a cluster, you can:
+ When creating a cluster, you can:
 
 * Set the network for the cluster itself.
 
@@ -14,7 +14,7 @@ You can create a cluster without specifying any subnets for the hosts, if the av
 
 {% else %}
 
-All clusters are created inside our network, which is [already accessible](../../mdb/access.md#network-access) from most networks and most employees. If you don't have access, request access to the macro `_PGAASINTERNALNETS_` in [Puncher](https://puncher.yandex-team.ru/). To connect to {{ PG }}, specify port 3306 in your request.
+All the clusters are established within our network which is already [accessible](../../mdb/access.md#network-access) from most networks and by most employees. If you have no access, request access in [Puncher](https://puncher.yandex-team.ru/) to a macro called `_PGAASINTERNALNETS_`. To connect to {{ PG }}, specify port 3306 in your request.
 
 {% endif %}
 
@@ -25,6 +25,7 @@ All clusters are created inside our network, which is [already accessible](../..
 {% if audience != "internal" %}
 
 You can use the FQDN to access the host within a single cloud network. Read more in the [{{ vpc-full-name }} documentation](../../vpc/).
+
 
 ## Public access to a host {#public-access-to-a-host}
 
@@ -45,4 +46,3 @@ When connecting to a cluster from within its cloud network, be sure to [configur
 {% endnote %}
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
-

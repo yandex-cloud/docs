@@ -21,12 +21,16 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+{% if product == "yandex-cloud" and audience != "internal" %}
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость входят:
 
 * плата за хранение данных в {{ objstorage-short-name }}, операции с ними и исходящий трафик (см. [тарифы {{ objstorage-short-name }}](../../storage/pricing.md));
 * плата за постоянно запущенный кластер {{ mch-name }} (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+
+{% endif %}
 
 ## Создайте бакет для хранения логов {#create-bucket}
 
@@ -79,7 +83,7 @@
      }
      ```
      
-     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/storage_bucket) провайдера Terraform.
+     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-link }}/storage_bucket) провайдера Terraform.
      
   1. Проверьте корректность настроек.
 
@@ -183,7 +187,7 @@
         --network-name <имя сети> \
         --host type=clickhouse,zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
         --clickhouse-resource-preset b2.nano \
-        --clickhouse-disk-type network-hdd \
+        --clickhouse-disk-type {{ disk-type-example }} \
         --clickhouse-disk-size 10 \
         --user name=user,password=<пароль пользователя> \
         --database name=s3_data \
@@ -206,7 +210,7 @@
        clickhouse {
          resources {
            resource_preset_id = "b2.nano"
-           disk_type_id       = "network-hdd"
+           disk_type_id       = "{{ disk-type-example }}"
            disk_size          = 10
          }
        }
@@ -313,7 +317,7 @@
                                     -- * <имя бакета>.website.yandexcloud.net.
      )
      ENGINE = S3(
-           'https://storage.yandexcloud.net/bucket-logs/s3-logs/*',
+           'https://{{ s3-storage-host }}/bucket-logs/s3-logs/*',
            'JSONEachRow'
         );
      ```

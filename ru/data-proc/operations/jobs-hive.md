@@ -15,13 +15,13 @@
     1. В поле **Тип задания** выберите `Hive`.
     1. Укажите **Настройки** в виде пары `ключ-значение`.
 
-       {% include [Особенности указания аргументов, свойств и настроек](../../_includes/data-proc/job-properties-requirements.md) %}
+       {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
 
     1. (опционально) Включите настройку **Продолжать при ошибке**.
     1. Укажите **Переменные скрипта** в виде пары `ключ-значение`.
     1. (опционально) Укажите пути к JAR-файлам, если они используются:
 
-        {% include [Допустимые пути к файлам](../../_includes/data-proc/jar-file-path-requirements.md) %}
+        {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
 
     1. Выберите один из типов драйвера и укажите, что использовать для запуска задания:
         * список запросов, которые необходимо выполнить;
@@ -54,7 +54,7 @@
 
         Пути к необходимым для выполнения задания файлам передавайте в формате:
 
-        {% include [Допустимые пути к файлам](../../_includes/data-proc/jar-file-path-requirements.md) %}
+        {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
 
     Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list).
 
@@ -80,6 +80,10 @@
 
 {% include [jobs-get-info](../../_includes/data-proc/jobs-get-info.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ## Получить логи выполнения задания {#get-logs}
 
 {% include [jobs-get-logs](../../_includes/data-proc/jobs-get-logs.md) %}
+
+{% endif %}

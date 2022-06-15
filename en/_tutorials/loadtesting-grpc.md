@@ -16,19 +16,17 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 ## Before you start {#before-begin}
 
-Before you run load testing, sign up for {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_tutorials/_common/prepare-register-billing.md) %}
-
-If you have an active billing account, go to the [management console]({{ link-console-main }}) and [create](../resource-manager/operations/folder/create.md) or choose a folder that your [test agent](../load-testing/concepts/agent.md) will run in.
-
-[Learn more about the resource hierarchy](../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
 If the agent is hosted on the {{ yandex-cloud }} platform, a fee is charged for computing resources (see [{{ compute-full-name }} pricing](../compute/pricing.md)).
 
 During the [Preview stage](../overview/concepts/launch-stages), {{ load-testing-name }} can be used free of charge.
+
+{% endif %}
 
 ## Prepare the test target {#target-prepare}
 
@@ -171,7 +169,7 @@ For a service hosted in a subnet and security group other than those of the agen
               enabled: true
               port: 1234
       uploader:
-        api_address: loadtesting.api.cloud.yandex.net:443
+        api_address: loadtesting.{{ api-host }}:443
         enabled: true
         job_dsc: grpc test
         job_name: '[pandora][config][grpc]'

@@ -42,6 +42,8 @@ items:
         href: operations/subcluster-update.md
       - name: Managing subclusters
         href: operations/subclusters.md
+      - name: Sqoop usage
+        href: operations/sqoop-usage.md
       - name: Managing jobs
         items:
           - name: All jobs
@@ -50,10 +52,10 @@ items:
             href: operations/jobs-spark.md
           - name: PySpark jobs
             href: operations/jobs-pyspark.md
-          - name: MapReduce jobs
-            href: operations/jobs-mapreduce.md
           - name: Hive jobs
             href: operations/jobs-hive.md
+          - name: MapReduce jobs
+            href: operations/jobs-mapreduce.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
       - name: Monitoring the state of a cluster and hosts
@@ -104,5 +106,12 @@ items:
         include:
           repo: docs
           path: en/_api-ref/dataproc/toc.yaml
+  - name: Releases
+    items:
+      - name: Service updates
+        href: release-notes/index.md
+        when: audience == "draft"
+      - name: Images
+        href: release-notes/images.md
   - name: Questions and answers
     href: qa/index.md

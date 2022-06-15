@@ -5,7 +5,9 @@
 * [С помощью CLI](#via-cli) — самый простой способ.
 * [С помощью JSON Web Token](#via-jwt). Этот способ подойдет для автоматизации работы через API.
 * [С помощью виртуальной машины](../../../compute/operations/vm-connect/auth-inside-vm.md) в сервисе {{ compute-name }}. Этот способ удобен, если ваше приложение запущено на виртуальной машине {{ yandex-cloud }}.
+{% if product == "yandex-cloud" %}
 * [С помощью функции](../../../functions/operations/function-sa.md) в сервисе {{ sf-name }}. Этот способ подойдет для получения IAM-токен из кода вашей функции.
+{% endif %}
 
 {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
 
@@ -34,7 +36,7 @@ yc iam create-token
 ### Перед началом {#before-you-begin}
 
 1. [Узнайте идентификатор сервисного аккаунта](../sa/get-id.md).
-1. [Создайте авторизованные ключи](../authorized-key/create.md), которые необходимы при создании JWT.
+1. [Создайте авторизованные ключи](../authorized-key/create.md), которые необходимы при создании JWT. Сохраните идентификатор открытого ключа.
 
 ### 1. Создать JWT {#jwt-create}
 
@@ -84,7 +86,7 @@ yc iam create-token
 
   Payload JWT для сервисного аккаунта должен содержать поля:
   * `iss` — идентификатор сервисного аккаунта, чьим ключом подписывается JWT.
-  * `aud` — ссылка, по которой будет запрашиваться IAM-токен: `https://iam.api.cloud.yandex.net/iam/v1/tokens`.
+  * `aud` — ссылка, по которой будет запрашиваться IAM-токен: `https://iam.{{ api-host }}/iam/v1/tokens`.
   * `iat` — время выписки токена в формате [Unix timestamp](https://en.wikipedia.org/wiki/Unix_time).
   * `exp` — время окончания действия токена в формате Unix timestamp. Время окончания действия не должно превышать время выписки больше чем на час, то есть `exp - iat ≤ 3600`.
 
@@ -93,7 +95,7 @@ yc iam create-token
   ```
   {
     "iss": "ajepg0mjt06siua65usm",
-    "aud": "https://iam.api.cloud.yandex.net/iam/v1/tokens",
+    "aud": "https://iam.{{ api-host }}/iam/v1/tokens",
     "iat": 1516239022,
     "exp": 1516240822
   }
@@ -123,15 +125,15 @@ yc iam create-token
   import time
   import jwt
 
-  service_account_id = "ajepg0mjt06siua65usm"
-  key_id = "lfkoe35hsk58aks301nl" # ID ресурса Key, который принадлежит сервисному аккаунту.
+  service_account_id = "<идентификатор_сервисного_аккаунта>"
+  key_id = "<идентификатор_открытого_ключа>" # ID ресурса Key, который принадлежит сервисному аккаунту.
 
-  with open("private.pem", 'r') as private:
+  with open("<файл_закрытого_ключа>", 'r') as private:
     private_key = private.read() # Чтение закрытого ключа из файла.
 
   now = int(time.time())
   payload = {
-          'aud': 'https://iam.api.cloud.yandex.net/iam/v1/tokens',
+          'aud': 'https://iam.{{ api-host }}/iam/v1/tokens',
           'iss': service_account_id,
           'iat': now,
           'exp': now + 360}
@@ -164,15 +166,15 @@ yc iam create-token
   public class JwtTest {
       public static void main(String[] args) throws Exception {
           PemObject privateKeyPem;
-          try (PemReader reader = new PemReader(new FileReader("private.pem"))) {
+          try (PemReader reader = new PemReader(new FileReader("<файл_закрытого_ключа>"))) {
               privateKeyPem = reader.readPemObject();
           }
 
           KeyFactory keyFactory = KeyFactory.getInstance("RSA");
           PrivateKey privateKey = keyFactory.generatePrivate(new PKCS8EncodedKeySpec(privateKeyPem.getContent()));
 
-          String serviceAccountId = "ajepg0mjt06siua65usm";
-          String keyId = "lfkoe35hsk58aks301nl";
+          String serviceAccountId = "<идентификатор_сервисного_аккаунта>";
+          String keyId = "<идентификатор_открытого_ключа>";
 
           Instant now = Instant.now();
 
@@ -180,7 +182,7 @@ yc iam create-token
           String encodedToken = Jwts.builder()
                   .setHeaderParam("kid", keyId)
                   .setIssuer(serviceAccountId)
-                  .setAudience("https://iam.api.cloud.yandex.net/iam/v1/tokens")
+                  .setAudience("https://iam.{{ api-host }}/iam/v1/tokens")
                   .setIssuedAt(Date.from(now))
                   .setExpiration(Date.from(now.plusSeconds(360)))
                   .signWith(privateKey, SignatureAlgorithm.PS256)
@@ -193,51 +195,95 @@ yc iam create-token
 
   Пример создания JWT с использованием [jose-jwt](https://www.nuget.org/packages/jose-jwt/).
 
-  ```c#
-  using System;
-  using System.Collections.Generic;
-  using System.IO;
-  using System.Security.Cryptography;
-  using Jose;
-  using Org.BouncyCastle.Crypto.Parameters;
-  using Org.BouncyCastle.OpenSsl;
-  using Org.BouncyCastle.Security;
+  * .NET 4.7+:
 
-  class Program
-  {
-      static void Main(string[] args)
-      {
-          var serviceAccountId = "ajepg0mjt06siua65usm";
-          var keyId = "lfkoe35hsk58aks301nl";
-          var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+    ```c#
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Security.Cryptography;
+    using Jose;
+    using Org.BouncyCastle.Crypto.Parameters;
+    using Org.BouncyCastle.OpenSsl;
+    using Org.BouncyCastle.Security;
 
-          var headers = new Dictionary<string, object>()
-          {
-              { "kid", keyId }
-          };
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var serviceAccountId = "<идентификатор_сервисного_аккаунта>";
+            var keyId = "<идентификатор_открытого_ключа>";
+            var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            var headers = new Dictionary<string, object>()
+            {
+                { "kid", keyId }
+            };
 
           var payload = new Dictionary<string, object>()
           {
-              { "aud", "https://iam.api.cloud.yandex.net/iam/v1/tokens" },
+              { "aud", "https://iam.{{ api-host }}/iam/v1/tokens" },
               { "iss", serviceAccountId },
               { "iat", now },
               { "exp", now + 3600 }
           };
 
-          RsaPrivateCrtKeyParameters privateKeyParams;
-          using (var pemStream = File.OpenText("private.pem"))
-          {
-              privateKeyParams = new PemReader(pemStream).ReadObject() as RsaPrivateCrtKeyParameters;
-          }
+            RsaPrivateCrtKeyParameters privateKeyParams;
+            using (var pemStream = File.OpenText("<файл_закрытого_ключа>"))
+            {
+                privateKeyParams = new PemReader(pemStream).ReadObject() as RsaPrivateCrtKeyParameters;
+            }
 
-          using (var rsa = new RSACryptoServiceProvider())
-          {
-              rsa.ImportParameters(DotNetUtilities.ToRSAParameters(privateKeyParams));
-              string encodedToken = Jose.JWT.Encode(payload, rsa, JwsAlgorithm.PS256, headers);
-          }
-      }
-  }
-  ```
+            using (var rsa = new RSACryptoServiceProvider())
+            {
+                rsa.ImportParameters(DotNetUtilities.ToRSAParameters(privateKeyParams));
+                string encodedToken = Jose.JWT.Encode(payload, rsa, JwsAlgorithm.PS256, headers);
+            }
+        }
+    }
+    ```
+
+  * .NET 5.0+ и .NET Core 2.2+:
+
+    ```c#
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Security.Cryptography;
+    using Jose;
+
+    namespace ConsoleApp
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                var serviceAccountId = "<идентификатор_сервисного_аккаунта>";
+                var keyId = "<идентификатор_открытого_ключа>";
+                var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+                var headers = new Dictionary<string, object>()
+                {
+                    { "kid", keyId }
+                };
+
+                var payload = new Dictionary<string, object>()
+                {
+                    { "aud", "https://iam.api.cloud.yandex.net/iam/v1/tokens" },
+                    { "iss", serviceAccountId },
+                    { "iat", now },
+                    { "exp", now + 3600 }
+                };
+
+                using (var rsa = RSA.Create())
+                {
+                    rsa.ImportFromPem(File.ReadAllText("<файл_закрытого_ключа>").ToCharArray());
+                    string encodedToken = Jose.JWT.Encode(payload, rsa, JwsAlgorithm.PS256, headers);
+                }
+            }
+        }
+    }
+    ```
 
 - Go
 
@@ -253,9 +299,9 @@ yc iam create-token
   )
 
   const (
-  	keyID            = "lfkoe35hsk58aks301nl"
-  	serviceAccountID = "ajepg0mjt06siua65usm"
-  	keyFile          = "private.pem"
+  	keyID            = "<идентификатор_открытого_ключа>"
+  	serviceAccountID = "<идентификатор_сервисного_аккаунта>"
+  	keyFile          = "<файл_закрытого_ключа>"
   )
 
   // Формирование JWT.
@@ -265,7 +311,7 @@ yc iam create-token
             ExpiresAt: jwt.NewNumericDate(time.Now().Add(1 * time.Hour)),
             IssuedAt:  jwt.NewNumericDate(time.Now()),
             NotBefore: jwt.NewNumericDate(time.Now()),
-            Audience:  []string{"https://iam.api.cloud.yandex.net/iam/v1/tokens"},
+            Audience:  []string{"https://iam.{{ api-host }}/iam/v1/tokens"},
   	}
   	token := jwt.NewWithClaims(jwt.SigningMethodPS256, claims)
   	token.Header["kid"] = keyID
@@ -299,13 +345,13 @@ yc iam create-token
   var jose = require('node-jose');
   var fs = require('fs');
 
-  var key = fs.readFileSync(require.resolve('private.pem'));
+  var key = fs.readFileSync(require.resolve('<файл_закрытого_ключа>'));
 
-  var serviceAccountId = 'ajepg0mjt06siua65usm';
-  var keyId = 'lfkoe35hsk58aks301nl';
+  var serviceAccountId = '<идентификатор_сервисного_аккаунта>';
+  var keyId = '<идентификатор_открытого_ключа>';
   var now = Math.floor(new Date().getTime() / 1000);
 
-  var payload = { aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens",
+  var payload = { aud: "https://iam.{{ api-host }}/iam/v1/tokens",
                   iss: serviceAccountId,
                   iat: now,
                   exp: now + 3600 };
@@ -333,8 +379,8 @@ yc iam create-token
   use Jose\Component\Signature\Algorithm\PS256;
   use Jose\Component\Signature\Serializer\CompactSerializer;
 
-  $service_account_id = 'ajepg0mjt06siua65usm';
-  $key_id = 'lfkoe35hsk58aks301nl';
+  $service_account_id = '<идентификатор_сервисного_аккаунта>';
+  $key_id = '<идентификатор_открытого_ключа>';
 
   $jsonConverter = new StandardConverter();
   $algorithmManager = AlgorithmManager::create([
@@ -346,7 +392,7 @@ yc iam create-token
   $now = time();
 
   $claims = [
-      'aud' => 'https://iam.api.cloud.yandex.net/iam/v1/tokens',
+      'aud' => 'https://iam.{{ api-host }}/iam/v1/tokens',
       'iss' => $service_account_id,
       'iat' => $now,
       'exp' => $now + 360
@@ -358,7 +404,7 @@ yc iam create-token
       'kid' => $key_id
   ];
 
-  $key = JWKFactory::createFromKeyFile('private.pem');
+  $key = JWKFactory::createFromKeyFile('<файл_закрытого_ключа>');
 
   $payload = $jsonConverter->encode($claims);
 
@@ -388,15 +434,15 @@ yc iam create-token
 
   int main(int argc, char *argv[])
   {
-      std::ifstream priv_key_file("private.pem");
-      std::ifstream pub_key_file("public.pem");
+      std::ifstream priv_key_file("<файл_закрытого_ключа>");
+      std::ifstream pub_key_file("<файл_открытого_ключа>");
 
       auto now = std::chrono::system_clock::now();
       auto expires_at = now + std::chrono::hours(1);
-      auto serviceAccountId = "ajepg0mjt06siua65usm";
-      auto keyId = "lfkoe35hsk58aks301nl";
+      auto serviceAccountId = "<идентификатор_сервисного_аккаунта>";
+      auto keyId = "<идентификатор_открытого_ключа>";
       std::set<std::string> audience;
-      audience.insert("https://iam.api.cloud.yandex.net/iam/v1/tokens");
+      audience.insert("https://iam.{{ api-host }}/iam/v1/tokens");
       auto algorithm = jwt::algorithm::ps256(
           std::string(std::istreambuf_iterator<char>{pub_key_file}, {}),
           std::string(std::istreambuf_iterator<char>{priv_key_file}, {}));
@@ -419,20 +465,20 @@ yc iam create-token
   ```ruby
   require 'jwt'
 
-  privateKey = OpenSSL::PKey::RSA.new(File.read('private.pem'))
+  privateKey = OpenSSL::PKey::RSA.new(File.read('<файл_закрытого_ключа>'))
 
   issuedAt = Time.now.to_i
   expirationTime = issuedAt + 360
 
-  serviceAccountId = "ajefnghf8o71512u5o8d"
+  serviceAccountId = "<идентификатор_сервисного_аккаунта>"
 
   # ID ресурса Key, который принадлежит сервисному аккаунту.
-  keyId = "ajecsls45da39r33kngg"
+  keyId = "<идентификатор_открытого_ключа>"
 
   headers = { kid: keyId }
   payload = {
       typ: 'JWT',
-      aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens",
+      aud: "https://iam.{{ api-host }}/iam/v1/tokens",
       iss: serviceAccountId,
       iat: issuedAt,
       exp: expirationTime,
@@ -468,11 +514,11 @@ yc iam create-token
   ```
   curl -X POST \
       -H 'Content-Type: application/json' \
-      -d '{"jwt": "<SIGNED-JWT>"}' \
-      https://iam.api.cloud.yandex.net/iam/v1/tokens
+      -d '{"jwt": "<SIGNED_JWT>"}' \
+      https://iam.{{ api-host }}/iam/v1/tokens
   ```
 
-  где `<SIGNED-JWT>` — токен в формате JWT, полученный на предыдущем шаге.
+  где `<SIGNED_JWT>` — токен в формате JWT, полученный на предыдущем шаге.
 
 
 - Go
@@ -492,7 +538,7 @@ yc iam create-token
   	jot := signedToken()
   	fmt.Println(jot)
   	resp, err := http.Post(
-  		"https://iam.api.cloud.yandex.net/iam/v1/tokens",
+  		"https://iam.{{ api-host }}/iam/v1/tokens",
   		"application/json",
   		strings.NewReader(fmt.Sprintf(`{"jwt":"%s"}`, jot)),
   	)

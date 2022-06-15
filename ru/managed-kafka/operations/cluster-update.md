@@ -87,7 +87,7 @@
 
 Вы можете изменить:
 * класс и количество хостов-брокеров {{ KF }};
-* класс хостов {{ ZK }}. 
+* класс хостов {{ ZK }}.
 
 {% note warning %}
 
@@ -193,7 +193,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 {% if api != "noshow" %}
 
@@ -297,7 +299,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 {% if api != "noshow" %}
 
@@ -346,13 +350,16 @@
         {{ yc-mdb-kf }} cluster update <идентификатор или имя кластера> \
            --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
                                `day=<день недели для типа weekly>,`
-                               `hour=<час дня для типа weekly>
+                               `hour=<час дня для типа weekly> \
+           --datatransfer-access=<true или false> \
            --deletion-protection=<защита от удаления кластера: true или false>
         ```
 
     Вы можете изменить следующие настройки:
 
     * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
+
+    * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -366,7 +373,7 @@
 
         О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
 
-    1. {% include [maintenance-window](../../_includes/mdb/mkf/terraform-maintenance-window.md) %}
+    1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
     1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
@@ -389,6 +396,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mkf }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
 - API
 
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
@@ -397,19 +406,17 @@
 
     * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
 
+    * Настройки доступа к кластеру из сервиса [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) в Serverless-режиме в параметре `configSpec.access.dataTransfer`.
+
+        Это позволит через специальную сеть подключаться к {{ data-transfer-full-name }}, запущенному в {{ k8s }}. В результате будут быстрее выполняться, например, запуск и деактивация трансфера.
+
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
 
-    Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
-
-    {% note warning %}
-
-    Этот метод API сбросит все настройки кластера, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, обязательно передайте название полей, подлежащих изменению, в параметре `updateMask`.
-
-    {% endnote %}
+    Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки кластера, которые не были явно указаны в запросе.
 
 {% endlist %}
 
@@ -482,7 +489,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    Подробнее см. в [документации провайдера Terraform]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 {% if api != "noshow" %}
 
@@ -504,15 +513,46 @@
 
 {% list tabs %}
 
-{% if api != "noshow" %}
+{% if audience == "draft" %}
+
+- Консоль управления
+
+    1. Перейдите на страницу каталога и выберите сервис **{{ mkf-name }}**.
+    1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) справа в строке кластера, который вы хотите переместить.
+    1. Выберите пункт **Переместить**.
+    1. Выберите каталог, в который вы хотите переместить кластер.
+    1. Нажмите кнопку **Переместить**.
+
+{% endif %}
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы переместить кластер:
+
+    1. Посмотрите описание команды CLI для перемещения кластера:
+
+        ```bash
+        {{ yc-mdb-kf }} cluster move --help
+        ```
+
+    1. Укажите каталог назначения в команде перемещения кластера:
+
+        ```bash
+        {{ yc-mdb-kf }} cluster move <идентификатор кластера> \
+           --destination-folder-name=<имя каталога назначения>
+        ```
+
+        Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - API
 
   Воспользуйтесь методом API [move](../api-ref/Cluster/move.md) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Идентификатор каталога назначения в параметре `destinationFolderId`.
-
-{% endif %}
 
 {% endlist %}
 
@@ -543,8 +583,8 @@
   1. Укажите нужные группы безопасности в команде изменения кластера:
 
       ```
-      {{ yc-mdb-kf }} cluster update <имя кластера>
-        --security-group-ids <список групп безопасности>
+      {{ yc-mdb-kf }} cluster update <имя кластера> \
+         --security-group-ids <список групп безопасности>
       ```
 
 - Terraform
@@ -570,7 +610,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    Подробнее см. в [документации провайдера Terraform]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 - API
 
@@ -581,8 +623,4 @@
 
 {% endlist %}
 
-{% note warning %}
-
 Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для подключения к кластеру.
-
-{% endnote %}

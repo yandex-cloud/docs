@@ -1,6 +1,6 @@
 # Idempotency
 
-Yandex Cloud services support [idempotency](https://en.wikipedia.org/wiki/Idempotence). An idempotent operation returns the same result for multiple calls.
+{{ yandex-cloud }} services support [idempotency](https://en.wikipedia.org/wiki/Idempotence). An idempotent operation returns the same result for multiple calls.
 
 By default, some operations in the API are not idempotent (for example, operations that change the state of resources). To make them work in an idempotent manner, specify the `Idempotency-Key` header in requests. The header must contain the UUID. Generate the UUIDs for each operation separately.
 
@@ -14,7 +14,7 @@ When the service receives your request with the `Idempotency-Key` header, it che
 
 ## Examples {#examples}
 
-The examples below show how to use the idempotency mechanism when working with the Yandex API.Clouds.
+The examples below show how to use the idempotency mechanism when working with the {{ yandex-cloud }} API.
 
 ### Example 1 {#example-1}
 
@@ -23,7 +23,7 @@ Let's say you send a start VM request:
 ```
 POST /compute/v1/instances/e0m97h0gbq0foeuis03:start
 HTTP/1.1
-Host: compute.api.cloud.yandex.net
+Host: compute.{{ api-host }}
 Idempotency-Key: c1700de3-b8cb-4d8a-9990-e4ebf052e9aa
 ```
 

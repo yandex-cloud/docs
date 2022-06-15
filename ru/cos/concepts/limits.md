@@ -1,6 +1,6 @@
 ---
 title: Квоты и лимиты в Container Optimized Image
-description: 'При работе с образом Container Optimized Image учитываются ограничения Compute Cloud и Container Registry.'
+description: 'При работе с образом Container Optimized Image учитываются ограничения {{ compute-name }} и {{ container-registry-name }}.'
 ---
 
 # Квоты и лимиты

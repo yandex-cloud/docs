@@ -25,8 +25,8 @@ description: "Из статьи вы узнаете, как добавлять �
   Чтобы получить список пользователей кластера, выполните команду:
   
   ```
-  {{ yc-mdb-mg }} user list
-    --cluster-name <имя кластера>
+  $ {{ yc-mdb-mg }} user list
+       --cluster-name <имя кластера>
   ```
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -73,16 +73,16 @@ description: "Из статьи вы узнаете, как добавлять �
   1. Посмотрите описание команды CLI для создания пользователя:
   
      ```
-     {{ yc-mdb-mg }} user create --help
+     $ {{ yc-mdb-mg }} user create --help
      ```
   
   1. Укажите свойства пользователя в команде создания:
      ```
-     {{ yc-mdb-mg }} user create <имя пользователя>
-       --cluster-name <имя кластера>
-       --password <пароль для пользователя>
-       --permission database=<имя БД>,role=<роль>,role=<другая роль>,...
-       --permission database=<имя другой БД>,role=<роль>,...
+     $ {{ yc-mdb-mg }} user create <имя пользователя>
+        --cluster-name <имя кластера>
+        --password <пароль для пользователя>
+        --permission database=<имя БД>,role=<роль>,role=<другая роль>,...
+        --permission database=<имя другой БД>,role=<роль>,...
      ```
   
      {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
@@ -121,7 +121,9 @@ description: "Из статьи вы узнаете, как добавлять �
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
   
@@ -162,16 +164,16 @@ description: "Из статьи вы узнаете, как добавлять �
   1. Посмотрите описание команды CLI для изменения пользователя:
   
      ```
-     {{ yc-mdb-mg }} user update --help
+     $ {{ yc-mdb-mg }} user update --help
      ```
   
   1. Укажите свойства пользователя в команде изменения:
      ```
-     {{ yc-mdb-mg }} user update <имя пользователя>
-       --cluster-name <имя кластера>
-       --password <пароль для пользователя>
-       --permission database=<имя БД>,role=<роль>,role=<другая роль>,...
-       --permission database=<имя другой БД>,role=<роль>,...
+     $ {{ yc-mdb-mg }} user update <имя пользователя>
+        --cluster-name <имя кластера>
+        --password <пароль для пользователя>
+        --permission database=<имя БД>,role=<роль>,role=<другая роль>,...
+        --permission database=<имя другой БД>,role=<роль>,...
      ```
   
      {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
@@ -190,7 +192,7 @@ description: "Из статьи вы узнаете, как добавлять �
      {{ yc-mdb-mg }} user grant-permission <имя пользователя> \
         --cluster-name <имя кластера> \
         --database <имя БД> \
-        --permissions <набор ролей через запятую>
+        --role <набор ролей через запятую>
      ```
 
   Чтобы отозвать доступ у пользователя к базе данных:
@@ -246,7 +248,9 @@ description: "Из статьи вы узнаете, как добавлять �
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
   
@@ -280,8 +284,8 @@ description: "Из статьи вы узнаете, как добавлять �
   Чтобы удалить пользователя, выполните команду:
   
   ```
-  {{ yc-mdb-mg }} user delete <имя пользователя>
-    --cluster-name <имя кластера>
+  $ {{ yc-mdb-mg }} user delete <имя пользователя>
+       --cluster-name <имя кластера>
   ```
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -302,7 +306,9 @@ description: "Из статьи вы узнаете, как добавлять �
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
   

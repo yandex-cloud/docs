@@ -8,7 +8,7 @@
 
 ## Вставка данных с указанием схемы формата данных {#insert-with-format-schema}
 
-{% include [mch-format-schemas-intro](../../_includes/mdb/mch-format-schemas-intro.md) %}
+{% include [Format schemas intro](../../_includes/mdb/mch/format-schemas-intro.md) %}
 
 ## Пример работы со схемой формата при вставке данных {#example}
 
@@ -41,7 +41,7 @@
    
    Подробнее о поддерживаемых типах данных см. в документации [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3) и [{{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/data-types/).
 
-1. [Подключитесь к кластеру](connect.md) и cоздайте таблицу `db1.users` нужного вида, если ее еще не существует:
+1. [Подключитесь к кластеру](connect.md) и создайте таблицу `db1.users` нужного вида, если ее еще не существует:
 
    ```sql
    CREATE TABLE IF NOT EXISTS db1.users (id UInt64, name String)
@@ -119,7 +119,7 @@ pip3 install protobuf varint pycapnp
 {% endnote %}
 
 Чтобы подготовить скрипты:
-1. Cкомпилируйте файл схемы Protobuf `user.proto` для Python:
+1. Скомпилируйте файл схемы Protobuf `user.proto` для Python:
    
    ```bash
    protoc user.proto --python_out .
@@ -144,7 +144,7 @@ pip3 install protobuf varint pycapnp
      DB_NAME="db1"
      DB_USER="<имя пользователя БД>"
      DB_PASS="<пароль пользователя БД>"
-     CA_CERT="/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt"
+     CA_CERT="{{ crt-local-dir }}{{ crt-local-file }}"
 
      SCHEMA_NAME = 'schema-capnproto'
      SCHEMA_TYPE = "CapnProto"
@@ -210,7 +210,7 @@ pip3 install protobuf varint pycapnp
      DB_NAME="db1"
      DB_USER="<имя пользователя БД>"
      DB_PASS="<пароль пользователя БД>"
-     CA_CERT="/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt"
+     CA_CERT="{{ crt-local-dir }}{{ crt-local-file }}"
 
      SCHEMA_NAME = 'schema-protobuf'
      SCHEMA_TYPE = "Protobuf"

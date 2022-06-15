@@ -93,6 +93,8 @@ items:
         href: function-ref/ATAN2.md
       - name: CEILING
         href: function-ref/CEILING.md
+      - name: COMPARE
+        href: function-ref/COMPARE.md
       - name: COS
         href: function-ref/COS.md
       - name: COT

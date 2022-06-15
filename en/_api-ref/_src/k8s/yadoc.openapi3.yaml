@@ -1102,6 +1102,28 @@ components:
             Acceptable values are 0 to 4398046511104, inclusive.
           type: string
           format: int64
+    DnsRecordSpec:
+      type: object
+      properties:
+        fqdn:
+          description: |-
+            Required.
+            FQDN (required).
+          type: string
+        dnsZoneId:
+          description: DNS zone id (optional, if not set, private zone is used).
+          type: string
+        ttl:
+          description: |-
+            DNS record ttl, values in 0-86400 (optional).
+
+            Acceptable values are 0 to 86400, inclusive.
+          type: string
+          format: int64
+        ptr:
+          description: When set to true, also create PTR DNS record (optional).
+          type: boolean
+          format: boolean
     Empty:
       description: Empty JSON object `` {} ``.
       type: object
@@ -1473,6 +1495,11 @@ components:
       properties:
         oneToOneNatSpec:
           $ref: '#/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec'
+        dnsRecordSpecs:
+          description: Internal DNS configuration.
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecordSpec'
     NodeCloudStatus:
       description: Cloud instance info
       type: object
@@ -1665,6 +1692,19 @@ components:
     NodeTemplate:
       type: object
       properties:
+        name:
+          description: |-
+            Name of the instance.
+            In order to be unique it must contain at least on of instance unique placeholders:
+              {instance.short_id}
+              {instance.index}
+              combination of {instance.zone_id} and {instance.index_in_zone}
+            Example: my-instance-{instance.index}
+            If not set, default is used: {instance_group.id}-{instance.short_id}
+            It may also contain another placeholders, see metadata doc for full list.
+
+            The maximum string length in characters is 128.
+          type: string
         platformId:
           description: ID of the hardware platform configuration for the node.
           type: string
@@ -2242,6 +2282,19 @@ components:
         Node template for creating the node group.
       type: object
       properties:
+        name:
+          description: |-
+            Name of the instance.
+            In order to be unique it must contain at least on of instance unique placeholders:
+              {instance.short_id}
+              {instance.index}
+              combination of {instance.zone_id} and {instance.index_in_zone}
+            Example: my-instance-{instance.index}
+            If not set, default is used: {instance_group.id}-{instance.short_id}
+            It may also contain another placeholders, see metadata doc for full list.
+
+            The maximum string length in characters is 128.
+          type: string
         platformId:
           description: ID of the hardware platform configuration for the node.
           type: string
@@ -2474,6 +2527,11 @@ components:
       properties:
         oneToOneNatSpec:
           $ref: '#/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec'
+        dnsRecordSpecs:
+          description: Internal DNS configuration.
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecordSpec'
     NodeAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec:
       description: Primary IPv6 address that is assigned to the instance for this
         network interface.
@@ -2481,6 +2539,11 @@ components:
       properties:
         oneToOneNatSpec:
           $ref: '#/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec'
+        dnsRecordSpecs:
+          description: Internal DNS configuration.
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecordSpec'
     NetworkPolicyProvider_in_NetworkPolicy_provider:
       type: string
       enum:
@@ -2596,6 +2659,19 @@ components:
         for the node group.
       type: object
       properties:
+        name:
+          description: |-
+            Name of the instance.
+            In order to be unique it must contain at least on of instance unique placeholders:
+              {instance.short_id}
+              {instance.index}
+              combination of {instance.zone_id} and {instance.index_in_zone}
+            Example: my-instance-{instance.index}
+            If not set, default is used: {instance_group.id}-{instance.short_id}
+            It may also contain another placeholders, see metadata doc for full list.
+
+            The maximum string length in characters is 128.
+          type: string
         platformId:
           description: ID of the hardware platform configuration for the node.
           type: string
@@ -2857,6 +2933,11 @@ components:
       properties:
         oneToOneNatSpec:
           $ref: '#/components/schemas/OneToOneNatSpec_in_NodeAddressSpec_oneToOneNatSpec'
+        dnsRecordSpecs:
+          description: Internal DNS configuration.
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecordSpec'
     SchedulingPolicy_in_NodeTemplate_schedulingPolicy:
       description: Scheduling policy configuration.
       type: object
@@ -2947,6 +3028,19 @@ components:
         Change may trigger nodes rolling reboot or recreate.
       type: object
       properties:
+        name:
+          description: |-
+            Name of the instance.
+            In order to be unique it must contain at least on of instance unique placeholders:
+              {instance.short_id}
+              {instance.index}
+              combination of {instance.zone_id} and {instance.index_in_zone}
+            Example: my-instance-{instance.index}
+            If not set, default is used: {instance_group.id}-{instance.short_id}
+            It may also contain another placeholders, see metadata doc for full list.
+
+            The maximum string length in characters is 128.
+          type: string
         platformId:
           description: ID of the hardware platform configuration for the node.
           type: string

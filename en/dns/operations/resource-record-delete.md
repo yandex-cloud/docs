@@ -10,7 +10,7 @@ To delete a [resource record](../concepts/resource-record.md):
    1. Select **{{ dns-name }}**.
    1. Select the zone from the list.
    1. Click ![image](../../_assets/options.svg) in the row next to the record to delete.
-   1. In the menu that opens, click **Delete**.
+   1. In the resulting menu, click **Delete**.
    1. In the window that opens, click **Delete**.
 
 - CLI
@@ -86,7 +86,7 @@ To delete a [resource record](../concepts/resource-record.md):
       terraform apply
       ```
 
-   1. Confirm the changes: type `yes` into the terminal and press Enter.
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 

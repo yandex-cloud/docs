@@ -1,6 +1,12 @@
 # Pushing a Helm chart to a registry
 
-You can push [Helm charts](https://helm.sh/docs/topics/charts/) to a {{ container-registry-name }} repository. {{ container-registry-name }} stores Helm charts the same way as conventional [Docker images](../../concepts/docker-image.md).
+You can push [Helm Charts](https://helm.sh/docs/topics/charts/) to a {{ container-registry-name }} repository. {{ container-registry-name }} stores Helm charts the same way as conventional [Docker Images](../../concepts/docker-image.md).
+
+{% note info %}
+
+If you are using a Helm version lower than 3.7.1, re-upload the charts to the {{ container-registry-name }} repository when upgrading to a newer version.
+
+{% endnote %}
 
 To push a Helm chart:
 
@@ -8,77 +14,84 @@ To push a Helm chart:
 
 - CLI
 
-  1. [Install]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %} Helm client, Version 3.
+   1. [Install](https://helm.sh/ru/docs/intro/install/) the Helm client version 3.7.1 or higher.
+   1. Enable [Open Container Initiative](https://opencontainers.org/) support in the Helm client:
 
-  1. Enable [Open Container Initiative](https://opencontainers.org/) support in the Helm client:
+      ```bash
+      export HELM_EXPERIMENTAL_OCI=1
+      ```
 
-     ```bash
-     export HELM_EXPERIMENTAL_OCI=1
-     ```
+   {% if product == "yandex-cloud" %}
 
-  1. Authenticate your Helm client in the {{ container-registry-name }} registry using one of the available methods.
+   1. Authenticate your Helm client in the {{ container-registry-name }} registry using one of the available methods.
+      * With an OAuth token:
+         1. If you don't have an OAuth token, get one by following this [link]({{ link-cloud-oauth }}).
+         1. Run the command:
 
-     * With an OAuth token:
+            ```bash
+            helm registry login {{ registry }} -u oauth
+            Password: <OAuth token>
+            ```
 
-       1. If you don't have an OAuth token, [get one via the link]({{ link-cloud-oauth }}).
+      * Using an IAM token:
+         1. [Get an IAM token](../../../iam/operations/iam-token/create.md).
+         1. Run the command:
 
-       1. Run the command:
+            ```bash
+            helm registry login {{ registry }} -u iam
+            Password: <IAM token>
+            ```
 
-          ```bash
-          helm registry login cr.yandex -u oauth
-          Password: <OAuth token>
-          ```
+      The output of any command:
 
-     * Using an IAM token:
+      ```bash
+      Login succeeded
+      ```
 
-       1. [Get an IAM token](../../../iam/operations/iam-token/create.md).
+   {% endif %}
 
-       1. Run the command:
+   {% if product == "cloud-il" %}
 
-          ```bash
-          helm registry login cr.yandex -u iam
-          Password: <IAM token>
-          ```
+   1. Authenticate your Helm client in the {{ container-registry-name }} registry using an IAM token:
+      1. [Get an IAM token](../../../iam/operations/iam-token/create-for-federation.md).
+      1. Run the command:
 
-     The output of any command:
+         ```bash
+         helm registry login {{ registry }} -u iam
+         Password: <IAM token>
+         ```
 
-     ```bash
-     Login succeeded
-     ```
+         Command output:
 
-  1. Save the Helm chart locally:
+         ```bash
+         Login succeeded
+         ```
 
-     ```bash
-     helm chart save . cr.yandex/<registry ID>/<Helm chart name>:<version>
-     ```
+   {% endif %}
 
-     Command output:
+   1. Save the Helm chart locally:
 
-     ```bash
-     ref:     cr.yandex/<registry ID>/<Helm chart name>:<version>
-     digest:  f3c306aa678756aec30ef11a9483e45d1d0c1e5bab921fe86e8716957203239c
-     size:    4.7 KiB
-     name:    <Helm chart name>
-     version: 5
-     <version>: saved
-     ```
+      ```bash
+      helm package . --version <Helm chart version>
+      ```
 
-  1. Push the Helm chart to {{ container-registry-name }}:
+      Command output:
 
-     ```bash
-     helm chart push cr.yandex/<registry ID>/<Helm chart name>:<version>
-     ```
+      ```bash
+      Successfully packaged chart and saved it to: /<path>/<Helm chart name>-<version>.tgz
+      ```
 
-     Command output:
+   1. Push the Helm chart to {{ container-registry-name }}:
 
-     ```bash
-     The push refers to repository [cr.yandex/<registry ID>/<Helm chart name>]
-     ref:     cr.yandex/<registry ID>/<Helm chart name>:<version>
-     digest:  f3c306aa678756aec30ef11a9483e45d1d0c1e5bab921fe86e8716957203239c
-     size:    4.7 KiB
-     name:    <Helm chart name>
-     version: 5
-     <version>: pushed to remote (1 layer, 4.7 KiB total)
-     ```
+      ```bash
+      helm push <Helm chart name>-<version>.tgz oci://{{ registry }}/<registry ID>
+      ```
+
+      Command output:
+
+      ```bash
+      Pushed: {{ registry }}/<registry ID>/<Helm chart name>:<version>
+      Digest: <SHA256...>
+      ```
 
 {% endlist %}

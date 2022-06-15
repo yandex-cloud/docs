@@ -124,6 +124,8 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
 
       Example configuration file structure:
 
+      {% if product == "yandex-cloud" %}
+
       ```hcl
       terraform {
         required_providers {
@@ -157,7 +159,47 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
       }
       ```
 
-      For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource).
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```hcl
+      terraform {
+        required_providers {
+          yandex = {
+            source  = "yandex-cloud/yandex"
+            version = "0.69.0"
+          }
+        }
+      }
+
+      provider "yandex" {
+        endpoint  = "{{ api-host }}:443"
+        token     = "<static key of the service account>"
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "<availability zone>"
+      }
+
+      resource "yandex_cdn_resource" "my_resource" {
+          cname               = "cdn1.yandex-example.ru"
+          active              = false
+          origin_protocol     = "https"
+          secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
+          origin_group_id     = yandex_cdn_origin_group.my_group.id
+          options {
+            cache_http_headers = ["GET","PUT"]
+            cors                 = ["*"]
+            static_response_headers = { "world2" = "2hello" }
+
+          }
+
+      }
+      ```
+
+      {% endif %}
+
+      For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 
    1. In the command line, go to the directory with the Terraform configuration file.
 

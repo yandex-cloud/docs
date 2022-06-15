@@ -57,13 +57,22 @@
   1. [Получите идентификатор пользователя](users-get.md).
 
   1. Назначьте роль с помощью команды:
+{% if product == "yandex-cloud" %}
 
       ```bash
       yc <SERVICE-NAME> <RESOURCE> add-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
           --role <ROLE-ID> \
           --subject userAccount:<USER-ACCOUNT-ID>
       ```
+{% endif %}
+{% if product == "cloud-il" %}
 
+      ```bash
+      yc <SERVICE-NAME> <RESOURCE> add-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
+          --role <ROLE-ID> \
+          --subject federatedUser:<USER-ACCOUNT-ID>
+      ```
+{% endif %}
       * `<SERVICE-NAME>` — имя сервиса, на чей ресурс назначается роль, например `organization-manager`.
       * `<RESOURCE>` — категория ресурса. Для организации всегда имеет значение `organization`.
       * `<RESOURCE-NAME>` — имя ресурса. Для организации в качестве имени используйте [техническое название](#org-profile.md).
@@ -72,13 +81,22 @@
       * `<USER-ACCOUNT-ID>` — идентификатор аккаунта пользователя, которому назначается роль.
 
       Например, назначьте роль администратора для организации с идентификатором `bpf3crucp1v28b74p3rk`:
+{% if product == "yandex-cloud" %}
 
       ```bash
       yc organization-manager organization add-access-binding bpf3crucp1v28b74p3rk \
           --role organization-manager.admin \
           --subject userAccount:aje6o61dvog2h6g9a33s
       ```
+{% endif %}
+{% if product == "cloud-il" %}
 
+      ```bash
+      yc organization-manager organization add-access-binding bpf3crucp1v28b74p3rk \
+          --role organization-manager.admin \
+          --subject federatedUser:aje6o61dvog2h6g9a33s
+      ```
+{% endif %}
 - API
 
   Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
@@ -87,7 +105,8 @@
 
   1. [Получите идентификатор пользователя](users-get.md).
 
-  1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
+  1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} и идентификатор пользователя:
+{% if product == "yandex-cloud" %}
 
       Пример файла `body.json`:
 
@@ -106,6 +125,27 @@
       }
       ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+      Пример файла `body.json`:
+
+      ```json
+      {
+        "accessBindingDeltas": [{
+          "action": "ADD",
+          "accessBinding": {
+            "roleId": "organization-manager.admin",
+            "subject": {
+              "id": "gfei8n54hmfhuk5nogse",
+              "type": "federatedUser"
+            }
+          }
+        }]
+      }
+      ```
+
+{% endif %}
   1. Назначьте роль. Например, для организации с идентификатором `bpf3crucp1v28b74p3rk`:
 
     ```bash
@@ -114,7 +154,7 @@
     curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \	"https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+        -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
     ```
 
   Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса в документации {{ iam-full-name }} и {{ resmgr-full-name }}:
@@ -129,9 +169,11 @@
   1. Опишите в конфигурационном файле параметры назначаемых ролей:
 
      * `organization_id` — идентификатор организации.
-     * `role` — роль, которую хотите назначить. Описание ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../iam/concepts/access-control/roles.md). Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`. 
+     * `role` — роль, которую хотите назначить. Описание ролей можно найти в документации {{ iam-full-name }} в разделе [{#T}](../iam/concepts/access-control/roles.md). Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`.
      * `members` — массив идентификаторов пользователей, которым будет назначена роль: 
-       * `userAccount:{user_id}` — идентификатор аккаунта пользователя на Яндексе. 
+{% if product == "yandex-cloud" %}
+       * `userAccount:{user_id}` — идентификатор аккаунта пользователя {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}.
+{% endif %}
        * `serviceAccount:{service_account_id}` — идентификатор сервисного аккаунта.
        * `federatedUser:{federated_user_id}` —  идентификатор федеративного пользователя.
 
@@ -147,7 +189,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
 
   2. Проверьте корректность конфигурационных файлов.
     
@@ -215,6 +257,7 @@
       ```
 
       Результат:
+{% if product == "yandex-cloud" %}
 
       ```bash
       +------------------------------------------+--------------+----------------------+
@@ -224,6 +267,20 @@
       | organization-manager.admin               | userAccount  | aje6o61dvog2h6g9a33s |
       +------------------------------------------+--------------+----------------------+
       ```
+
+{% endif %}
+{% if product == "cloud-il" %}
+
+      ```bash
+      +------------------------------------------+---------------+----------------------+
+      |                 ROLE ID                  |  SUBJECT TYPE |      SUBJECT ID      |
+      +------------------------------------------+---------------+----------------------+
+      | organization-manager.organizations.owner | federatedUser | aje3r40rsemj2f5b5jkk |
+      | organization-manager.admin               | federatedUser | aje6o61dvog2h6g9a33s |
+      +------------------------------------------+---------------+----------------------+
+      ```
+
+{% endif %}
 
   1. Чтобы удалить привязку прав доступа, выполните команду:
 
@@ -238,6 +295,7 @@
       * `<SUBJECT-ID>` — идентификатор субъекта.
 
       Например, чтобы отозвать роль у пользователя с идентификатором `aje6o61dvog2h6g9a33s`:
+{% if product == "yandex-cloud" %}
 
       ```bash
       yc organization-manager organization remove-access-binding bpf3crucp1v28b74p3rk \
@@ -245,6 +303,16 @@
           --subject userAccount:aje6o61dvog2h6g9a33s
       ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+      ```bash
+      yc organization-manager organization remove-access-binding bpf3crucp1v28b74p3rk \
+          --role organization-manager.admin \
+          --subject federatedUser:aje6o61dvog2h6g9a33s
+      ```
+
+{% endif %}
 - API
 
   Чтобы отозвать роль у субъекта на ресурс, удалите соответствующую привязку прав доступа:
@@ -254,10 +322,11 @@
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
       export IAM_TOKEN=CggaATEVAgA...
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
+      curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
       ```
 
       Результат:
+{% if product == "yandex-cloud" %}
 
       ```bash
       {
@@ -273,9 +342,28 @@
       }
       ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+      ```bash
+      {
+      "accessBindings": [
+      {
+        "subject": {
+        "id": "aje6o61dvog2h6g9a33s",
+        "type": "federatedUser"
+        },
+        "roleId": "organization-manager.admin"
+      }
+      ]
+      }
+      ```
+
+{% endif %}
   1. Сформируйте тело запроса, например в файле `body.json`. В теле запроса укажите, какую привязку прав доступа необходимо удалить. Например, отзовите у пользователя `aje6o61dvog2h6g9a33s` роль `organization-manager.admin`:
 
       Пример файла `body.json`:
+{% if product == "yandex-cloud" %}
 
       ```json
       {
@@ -292,6 +380,25 @@
       }
       ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+      ```json
+      {
+        "accessBindingDeltas": [{
+          "action": "REMOVE",
+          "accessBinding": {
+            "roleId": "organization-manager.admin",
+            "subject": {
+              "id": "aje6o61dvog2h6g9a33s",
+              "type": "federatedUser"
+            }
+          }
+        }]
+      }
+      ```
+
+{% endif %}
   1. Отзовите роль, удалив указанную привязку прав доступа:
 
     ```bash
@@ -300,7 +407,7 @@
     curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \	"https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+        -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
     ```
 
 {% endlist %}

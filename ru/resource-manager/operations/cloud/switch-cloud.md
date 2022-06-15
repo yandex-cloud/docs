@@ -1,5 +1,6 @@
 # Переключение на другое облако
 
+{% if product == "yandex-cloud" %}
 {% note info %}
 
 В [консоли управления]({{ link-console-main }}) доступен выбор интерфейса навигации между ресурсами и сервисами. Чтобы сменить способ навигации, в блоке с информацией аккаунта нажмите кнопку ![image](../../../_assets/settings.svg), затем выберите ![image](../../../_assets/experiments.svg) **Эксперименты** и включите опцию **Новая навигация**.
@@ -25,6 +26,22 @@
 {% endlist %}
 
 {% list tabs %}
+{% endif %}
+{% if product == "cloud-il" %}
+{% note info %}
+
+   На стадии [Preview](../../../overview/concepts/launch-stages.md) действует ограничение: доступна только 1 организация и 1 облако.
+
+{% endnote %}
+
+{% list tabs %}
+
+- Консоль управления
+
+  В [консоли управления]({{ link-console-main }}) в списке слева выберите нужное облако или каталог.
+
+  ![image](../../../_assets/resource-manager/switch-cloud-n-n.png)
+{% endif %}
 
 - CLI
 

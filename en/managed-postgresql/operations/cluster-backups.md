@@ -26,48 +26,48 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - Management console
 
-  To restore an existing cluster from a backup:
-  1. Go to the folder page and select **{{ mpg-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Backup copies**.
-  1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup and click **Restore cluster**.
-  1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-  1. To restore the cluster state from a desired point of time after creating this backup, configure the **Date and time of recovery (UTC)** setting. You can enter the value manually or select it from the drop-down calendar.
+   To restore an existing cluster from a backup:
+   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the desired backup and click **Restore cluster**.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+   1. To restore the cluster state from a desired point of time after creating this backup, configure the **Date and time of recovery (UTC) setting**. You can enter the value manually or select it from the drop-down calendar.
 
-     If you don't change the setting, the cluster is restored to the state when the backup was completed.
-  1. Click **Restore cluster**.
+      If you don't change the setting, the cluster is restored to the state when the backup was completed.
+   1. Click **Restore cluster**.
 
-  To restore a previously deleted cluster from a backup:
-  1. Go to the folder page and select **{{ mpg-name }}**.
-  1. Click the **Backups** tab.
-  1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
-  1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the backup and click **Restore cluster**.
-  1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-  1. To restore the cluster state from a desired point of time after creating this backup, configure the **Date and time of recovery (UTC)** setting. You can enter the value manually or select it from the drop-down calendar.
+   To restore a previously deleted cluster from a backup:
+   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Click the **Backups** tab.
+   1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the desired backup and click **Restore cluster**.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+   1. To restore the cluster state from a desired point of time after creating this backup, configure the **Date and time of recovery (UTC) setting**. You can enter the value manually or select it from the drop-down calendar.
 
-     If you don't change the setting, the cluster is restored to the state when the backup was completed.
-  1. Click **Restore cluster**.
+      If you don't change the setting, the cluster is restored to the state when the backup was completed.
+   1. Click **Restore cluster**.
 
-  {{ mpg-name }} launches the operation to create a cluster from the backup.
+   {{ mpg-name }} launches the operation to create a cluster from the backup.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To restore a cluster from a backup:
+   To restore a cluster from a backup:
 
-  1. View a description of the CLI restore {{ PG }} cluster command:
+   1. View a description of the CLI restore {{ PG }} cluster command:
 
       ```
       $ {{ yc-mdb-pg }} cluster restore --help
       ```
 
-  1. Getting a list of available {{ PG }} cluster backups:
+   1. Getting a list of available {{ PG }} cluster backups:
 
       ```
       $ {{ yc-mdb-pg }} backup list
-      
+
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -75,9 +75,9 @@ When restoring to the current state, the new cluster will reflect the state of:
       | ...                                                                                           |
       +--------------------------+----------------------+----------------------+----------------------+
       ```
-     The time when the backup was completed is shown in the `CREATED AT` column of a list of available backups, in `yyyy-mm-ddThh:mm:ssZ` format (`2020-08-10T12:00:00Z` in the example above). You can restore a cluster to any state from the specified point in time to the current time.
+      The time when the backup was completed is shown in the `CREATED AT` column of a list of available backups, in `yyyy-mm-ddThh:mm:ssZ` format (`2020-08-10T12:00:00Z` in the example above). You can restore a cluster to any state from the specified point in time to the current time.
 
-  1. Request the creation of a cluster from a backup:
+   1. Request the creation of a cluster from a backup:
 
       ```bash
       $ {{ yc-mdb-pg }} cluster restore \
@@ -94,7 +94,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
       In the `--time` parameter, specify the time point from which you want to restore the original state of the {{ PG }} cluster, in `yyyy-mm-ddThh:mm:ssZ` format.
 
-      In the example above, the cluster will be restored to the state it was 10 seconds after the `c9qlk4v13uq79r9cgcku...` backup was created. This backup was selected as the starting point for recovery (the `--time 2020-08-10T12:00:10Z` parameter).
+      In the example above, the cluster will be restored to the state it was 10 seconds after the `c9qlk4v13uq79r9cgcku...` backup was created. This backup was selected as the starting point for recovery (the `--time 2020-08-10T12:00:10Z parameter`).
 
       This results in a new {{ PG }} cluster with the following characteristics:
 
@@ -105,29 +105,32 @@ When restoring to the current state, the new cluster will reflect the state of:
       - In the `{{ network-name }}` network.
       - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With databases and users that existed in the cluster at the time of recovery.
-      - With 20 GB of SSD network storage (`{{ disk-type-example }}`).
+      - With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
 
       {% else %}
 
       - Named `mynewpg`.
       - In the `PRODUCTION` environment.
-      - With one `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
+      - With a single `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
       - With databases and users that existed in the cluster at the time of recovery.
-      - With 20 GB of SSD network storage (`network-ssd`).
+      - With 20 GB of SSD network (`network-ssd`) storage.
 
       {% endif %}
 
 - Terraform
 
-  Use Terraform to restore:
+   Use Terraform to restore:
+
    * An existing cluster from a backup.
    * A cluster created and deleted via the management console, CLI, or API.
 
-   To restore a cluster, you'll need the backup ID. Get a list of available {{ PG }} cluster backups [using the CLI](#list-backups):
+   To restore a cluster, you'll need the backup ID. Retrieve a list of available {{ PG }} cluster backups [using the CLI](#list-backups):
 
    ```bash
    {{ yc-mdb-pg }} backup list
-   
+   ```
+
+   ```text
    +--------------------------+----------------------+----------------------+----------------------+
    |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
    +--------------------------+----------------------+----------------------+----------------------+
@@ -136,70 +139,98 @@ When restoring to the current state, the new cluster will reflect the state of:
    +--------------------------+----------------------+----------------------+----------------------+
    ```
 
+   {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+
    **To restore an existing cluster from a backup:**
 
    1. Create a [Terraform configuration file](cluster-create.md#create-cluster) for a new cluster.
 
-      {% note info %}
+      Leave the settings under `database` and `user` empty, they will be restored from the backup:
 
-      Do not specify DB and user settings under `database` and `user`, they will be restored from the backup.
-
-      {% endnote %}
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+        ...
+        }
+        database {
+          name  = ""
+          owner = ""
+        }
+        user {
+          name     = ""
+          password = ""
+        }
+      ```
 
    1. Add a block named `restore` to the configuration file:
-
-       ```hcl
-       resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
-         ...
-         restore {
-           backup_id = "<name of the desired backup>"
-           time      = "<timestamp of the time of recovery in yyyy-mm-ddThh:mm:ssZ format>"
-         }
-       }
-       ```
-
-       In the `time` parameter, specify the time point from which you want to restore the state of the {{ PG }} cluster, starting from the time when the selected backup was created to the current time.
-
-       {% note info %}
-
-       If you don't specify the `time` parameter, the cluster is restored to the state when the backup was completed.
-
-       {% endnote %}
-
-  1. Make sure the settings are correct.
-
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-  1. Confirm the update of resources.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-  Terraform creates a copy of the existing cluster. The databases and users are deployed from the selected backup.
-
-  **To restore a previously deleted cluster from a backup:**
-
-  1. Create a [Terraform configuration file](cluster-create.md#create-cluster) for a new cluster.
-
-      {% note info %}
-
-      Do not specify DB and user settings under `database` and `user`, they will be restored from the backup.
-
-      {% endnote %}
-
-  1. In the configuration file, add a `restore` block with the name of the backup to restore the cluster from:
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
         ...
         restore {
-            backup_id = "<ID of the deleted cluster's backup"
+          backup_id = "<desired backup name>"
+          time      = "<restore time stamp in yyyy-mm-ddThh:mm:ss format>"
         }
       }
       ```
 
-  Terraform creates a new cluster. The databases and users are deployed from the backup.
+      In the `time` parameter, specify the time point from which you want to restore the state of the {{ PG }} cluster, starting from the time when the selected backup was created to the current time.
 
-  For more information, see [provider documentation {{ TF }}]({{ tf-provider-mpg }}).
+      {% note info %}
+
+      If you don't specify the `time` parameter, the cluster is restored to the state when the backup was completed.
+
+      {% endnote %}
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   Terraform creates a copy of the existing cluster. The databases and users are deployed from the selected backup.
+
+   **To restore a previously deleted cluster from a backup:**
+
+   1. Create a [Terraform configuration file](cluster-create.md#create-cluster) for a new cluster.
+
+      Leave the settings under `database` and `user` empty, they will be restored from the backup:
+
+      ```hcl
+       resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+         ...
+         database {
+           name  = ""
+           owner = ""
+         }
+         user {
+           name     = ""
+           password = ""
+         }
+       }
+      ```
+
+   1. In the configuration file, add a `restore` block with the name of the backup to restore the cluster from:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+        ...
+        restore {
+            backup_id = "<remote cluster backup ID>"
+        }
+      }
+      ```
+
+   1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+   1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   Terraform creates a new cluster. The databases and users are deployed from the backup.
 
 {% endlist %}
 
@@ -209,24 +240,24 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - Management console
 
-  1. Go to the folder page and select **{{ mpg-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Backup copies**.
-  1. Click **Create backup**.
+   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click **Create backup**.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To create a cluster backup:
+   To create a cluster backup:
 
-  1. View a description of the CLI create {{ PG }} backup command:
+   1. View a description of the CLI create {{ PG }} backup command:
 
       ```
       $ {{ yc-mdb-pg }} cluster backup --help
       ```
-  1. Request the creation of a backup specifying the cluster name or ID:
+   1. Request the creation of a backup specifying the cluster name or ID:
 
       ```
       $ {{ yc-mdb-pg }} cluster backup my-pg-cluster
@@ -243,32 +274,32 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - Management console
 
-  To get a list of cluster backups:
-  1. Go to the folder page and select **{{ mpg-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   To get a list of cluster backups:
+   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
-  To get a list of all backups in a folder:
-  1. Go to the folder page and select **{{ mpg-name }}**.
-  1. Click the **Backups** tab.
+   To get a list of all backups in a folder:
+   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Click the **Backups** tab.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of {{ PG }} cluster backups available in the default folder, run the command:
+   To get a list of {{ PG }} cluster backups available in the default folder, run the command:
 
-  ```
-  $ {{ yc-mdb-pg }} backup list
-  
-  +----------+----------------------+----------------------+----------------------+
-  |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
-  +----------+----------------------+----------------------+----------------------+
-  | c9qlk... | 2020-08-10T12:00:00Z | c9qlk4v13uq79r9cgcku | 2020-08-10T11:55:17Z |
-  | c9qpm... | 2020-08-09T22:01:04Z | c9qpm90p3pcg71jm7tqf | 2020-08-09T21:30:00Z |
-  +----------+----------------------+----------------------+----------------------+
-  ```
+   ```
+   $ {{ yc-mdb-pg }} backup list
+
+   +----------+----------------------+----------------------+----------------------+
+   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
+   +----------+----------------------+----------------------+----------------------+
+   | c9qlk... | 2020-08-10T12:00:00Z | c9qlk4v13uq79r9cgcku | 2020-08-10T11:55:17Z |
+   | c9qpm... | 2020-08-09T22:01:04Z | c9qpm90p3pcg71jm7tqf | 2020-08-09T21:30:00Z |
+   +----------+----------------------+----------------------+----------------------+
+   ```
 
 {% endlist %}
 
@@ -279,27 +310,27 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - Management console
 
-  To get information about the backup of an existing cluster:
-  1. Go to the folder page and select **{{ mpg-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   To get information about the backup of an existing cluster:
+   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
-  To get information about the backup of a previously deleted cluster:
-  1. Go to the folder page and select **{{ mpg-name }}**.
-  1. Click the **Backups** tab.
+   To get information about the backup of a previously deleted cluster:
+   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Click the **Backups** tab.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get information about a {{ PG }} cluster backup, run the command:
+   To get information about a {{ PG }} cluster backup, run the command:
 
-  ```
-  $ {{ yc-mdb-pg }} backup get <backup ID>
-  ```
+   ```
+   $ {{ yc-mdb-pg }} backup get <backup ID>
+   ```
 
-  The backup ID can be retrieved with the [list of backups](#list-backups).
+   You can retrieve the backup ID with the [backup list](#list-backups).
 
 {% endlist %}
 
@@ -309,63 +340,65 @@ When restoring to the current state, the new cluster will reflect the state of:
 
 - Management console
 
-  In the management console, you can set the backup start time when [creating](cluster-create.md) or [updating](update.md) a cluster.
+   In the management console, you can set the backup start time when [creating](cluster-create.md) or [updating a cluster](update.md).
 
 - CLI
 
-  To set the backup start time, use the `-- backup-window-start` flag. Time is given in `HH:MM:SS` format.
+   To set the backup start time, use the `-- backup-window-`start flag. Time is given in `HH:MM:SS` format.
 
-  ```bash
-  $ {{ yc-mdb-pg }} cluster create \
-     --cluster-name <cluster name> \
-     --environment <prestable or production> \
-     --network-name <network name> \
-     --host zone-id=<availability zone>,subnet-id=<subnet ID> \
-     --resource-preset <host class> \
-     --user name=<username>,password=<user password> \
-     --database name=<database name>,owner=<database owner name> \
-     --disk-size <storage size in GB>
-     --backup-window-start 10:00:00
-  ```
+   ```bash
+   $ {{ yc-mdb-pg }} cluster create \
+      --cluster-name <cluster name> \
+      --environment <environment, prestable or production> \
+      --network-name <network name> \
+      --host zone-id=<availability zone>,subnet-id=<subnet ID> \
+      --resource-preset <host class> \
+      --user name=<user name>,password=<user password> \
+      --database name=<database name>,owner=<DB owner name> \
+      --disk-size <storage size, GB>
+      --backup-window-start 10:00:00
+   ```
 
-  To change the backup start time in an existing cluster, use the `update` command:
+   To change the backup start time in an existing cluster, use the `update` command:
 
-  ```bash
-  {{ yc-mdb-pg }} cluster update \
-     --cluster-name <cluster name> \
-     --backup-window-start 11:25:00
-  ```
+   ```bash
+   {{ yc-mdb-pg }} cluster update \
+      --cluster-name <cluster name> \
+      --backup-window-start 11:25:00
+   ```
 
 - Terraform
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-       For information about how to create this file, see [{#T}](cluster-create.md).
+      For more information about creating this file, see [{#T}](cluster-create.md).
 
-    1. Add a block named `backup_window_start` to the {{ mpg-name }} cluster description under `config`:
+      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-        ```hcl
-        resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+   1. Add a block named `backup_window_start` to the {{ mpg-name }} cluster description under `config`:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+        ...
+        config {
           ...
-          config {
-            ...
-            backup_window_start {
-              hours   = <backup starting hour (UTC)>
-              minutes = <backup starting minute (UTC)>
-            }
-            ...
+          backup_window_start {
+            hours   = <backup start hour (UTC)>
+            minutes = <backup start minute (UTC)>
           }
           ...
-        ```
+        }
+        ...
+      ```
 
-    1. Make sure the settings are correct.
+   1. Make sure the settings are correct.
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm the update of resources.
+   1. Confirm the update of resources.
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [provider's documentation]({{ tf-provider-mpg }}).
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
 
 {% endlist %}

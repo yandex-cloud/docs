@@ -1,18 +1,17 @@
 # {{ PG }} settings
 
-For {{ mpg-name }} clusters, you can configure settings that relate to {{ PG }}. Some settings are set [at the cluster level](#dbms-cluster-settings) and others [at the user level](#user-level-settings).
+For {{ mpg-name }} clusters, you can configure settings that relate to {{ PG }}. Some settings are configured [at the cluster level](#dbms-cluster-settings) and some [at the user level](#user-level-settings).
 
 The label next to the setting name lets you determine which interface is used to set the value of this setting: the management console, CLI, API, SQL, or Terraform. The {{ tag-all }} label indicates that all of the above interfaces are supported.
 
 Depending on the selected interface, the same setting is represented in a different way, for example:
-
 - **Backend flush after** in the management console corresponds to:
-  - `backend_flush_after` in the gRPC API, CLI, Terraform, and SQL.
-  - `backendFlushAfter` in the REST API.
+   - `backend_flush_after` in the gRPC API, CLI, Terraform, and SQL.
+   - `backendFlushAfter` in the REST API.
 - **Default transaction isolation** in the user-level settings in the management console corresponds to:
-  - `--default-transaction-isolation` in the CLI.
-  - `default_transaction_isolation` in the gRPC API.
-  - `defaultTransactionIsolation` in the REST API.
+   - `--default-transaction-isolation` in the CLI.
+   - `default_transaction_isolation` in the gRPC API.
+   - `defaultTransactionIsolation` in the REST API.
 
 ## Settings dependency on the host class and storage size {#settings-instance-dependent}
 
@@ -28,24 +27,21 @@ List of settings that depend on the host class:
 - [Autovacuum vacuum cost limit](#setting-autovacuum-vacuum-cost-limit).
 - [Conn limit](#setting-conn-limit).
 - [Max connections](#setting-max-connections).
-- [Shared buffers](#setting-shared-buffers).
+- [Shared buffers](#setting-shared-buffers)
 
 List of settings that depend on the storage size:
 
-- [Max wal size](#setting-max-wal-size).
-- [Min wal size](#setting-min-wal-size).
+- [Max wal size](#setting-max-wal-size)
+- [Min wal size](#setting-min-wal-size)
 
-## Cluster-level DBMS settings {#dbms-cluster-settings}
+## Cluster-level settings {#dbms-cluster-settings}
 
 You can use the following settings:
 
 {% include [mpg-dbms-settings](../../_includes/mdb/mpg-dbms-settings.md) %}
 
-## Custom settings {#dbms-user-settings}
+## User-level settings {#dbms-user-settings}
 
 These settings affect the behavior of {{ PG }} when handling user queries.
 
-You can use the following settings:
-
 {% include [mpg-dbms-user-settings](../../_includes/mdb/mpg-dbms-user-settings.md) %}
-

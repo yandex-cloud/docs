@@ -7,7 +7,7 @@
 - Консоль управления
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан реестр.
-  1. В списке сервисов выберите **Container Registry**.
+  1. В списке сервисов выберите **{{ container-registry-name }}**.
   1. Задайте имя реестра.
 
      {% include [name-format](../../../_includes/name-format.md) %}
@@ -83,7 +83,7 @@
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  1. Добавьте в конфигурационный файл параметры реестра, который необходимо создать. Например, файл с названием `example.tf` в директории `~/yandex-cloud-terraform`:
+  1. Добавьте в конфигурационный файл параметры реестра, который необходимо создать. Например, файл с названием `example.tf` в директории `~/cloud-terraform`:
 
      ```
      resource "yandex_container_registry" "my-reg" {
@@ -100,14 +100,13 @@
      * `folder_id` — идентификатор каталога.
      * `labels` — набор [меток](../../../overview/concepts/services.md#labels).
 
-     Более подробную информацию о ресурсах, которые можно создать с помощью Terraform, смотрите в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+     Более подробную информацию о ресурсах, которые можно создать с помощью Terraform, смотрите в [документации провайдера]({{ tf-provider-link }}/).
 
   1. Проверьте корректность конфигурационного файла.
-
      1. В командной строке перейдите в директорию, где вы сохранили конфигурационный файл:
 
         ```bash
-        cd /Users/<имя пользователя>/yandex-cloud-terraform
+        cd /Users/<имя пользователя>/cloud-terraform
         ```
 
      1. Выполните проверку с помощью команды:
@@ -129,7 +128,6 @@
         ```
 
   1. Создайте реестр.
-
      1. Выполните команду:
 
         ```bash
@@ -145,7 +143,7 @@
         ...
           Terraform will perform the actions described above.
           Only 'yes' will be accepted to approve.
-        
+
           Enter a value:
         ```
 
@@ -160,12 +158,12 @@
         ```bash
         yandex_container_registry.default: Creating...
         yandex_container_registry.default: Creation complete after 4s [id=crpuljdfqoj3ve9mtbt1]
-        
+
         Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
-        ```      
+        ```
 
         В каталоге будет создан реестр с именем `my-registry`.
-  
+
      1. Проверьте ресурсы и их настройки в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}

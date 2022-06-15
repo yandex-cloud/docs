@@ -26,12 +26,14 @@
      * `secret_key`: The value of the private access key.
      * `bucket`: The name of the bucket being created. Optional parameter. If omitted, a random unique bucket name is generated.
 
+     {% if product == "yandex-cloud" %}
+
      ```
      provider "yandex" {
        token     = "<OAuth>"
        cloud_id  = "<cloud ID>"
        folder_id = "<folder ID>"
-       zone      = "ru-central1-a"
+       zone      = "{{ region-id }}-a"
      }
      
      resource "yandex_storage_bucket" "test" {
@@ -41,7 +43,29 @@
      }
      ```
 
-     For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```
+     provider "yandex" {
+       endpoint  = "{{ api-host }}:443"
+       token     = "<static key of the service account>"
+       cloud_id  = "<cloud ID>"
+       folder_id = "<folder ID>"
+       zone      = "{{ region-id }}-a"
+     }
+
+     resource "yandex_storage_bucket" "test" {
+       access_key = "<static key identifier>"
+       secret_key = "<secret key>"
+       bucket = "<bucket name>"
+     }
+     ```
+
+     {% endif %}
+
+     For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
 
   1. Make sure that the configuration files are correct.
 

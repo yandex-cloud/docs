@@ -42,9 +42,9 @@ In this tutorial, you'll create your first [dataset](concepts/dataset/index.md),
 
     ![create-chart-1](../_assets/datalens/quickstart/04-create-column-chart.png)
 
-## Create an area chart {#create-area-chart}
+## Create an stacked area chart {#create-area-chart}
 
-1. In the created chart, select **Area chart** as the visualization type.
+1. In the created chart, select **Stacked area chart** as the visualization type.
 1. Replace the product subcategories with the order date on the X-axis. From the **Dimensions** section, drag the **OrderDate** field to the **X** section and hold it over the **ProductSubcategory** field until it turns red.
 1. Add the product category to the chart. To do this, drag the **ProductCategory** field from the **Dimensions** section to the **Colors** section.
 1. Display the chart by week.

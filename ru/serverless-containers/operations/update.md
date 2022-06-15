@@ -76,7 +76,7 @@
      ...
      ```
 
-	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/serverless_container).
+	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
 
   1. Проверьте конфигурацию командой:
      ```
@@ -173,7 +173,7 @@
      ...
      ```
 
-	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/serverless_container).
+	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
 
   1. Проверьте конфигурацию командой:
      ```
@@ -198,7 +198,7 @@
      terraform apply
      ```
      
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите Enter.
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
   Проверить создание меток для контейнера можно в [CLI](../../cli/):
 
@@ -265,7 +265,7 @@
      ...
      ```
 
-	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/serverless_container).
+	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
 
   1. Проверьте конфигурацию командой:
      ```
@@ -347,7 +347,7 @@
      ...
      ```
 
-	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/serverless_container).
+	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
 
   1. Проверьте конфигурацию командой:
      ```

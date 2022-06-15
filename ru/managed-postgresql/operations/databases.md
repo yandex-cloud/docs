@@ -139,7 +139,7 @@
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
@@ -169,7 +169,8 @@
   Чтобы удалить базу данных, выполните команду:
 
   ```bash
-  {{ yc-mdb-pg }} database delete <имя базы данных> --cluster-name=<имя кластера>
+  {{ yc-mdb-pg }} database delete <имя базы данных> \
+     --cluster-name <имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
@@ -192,7 +193,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 

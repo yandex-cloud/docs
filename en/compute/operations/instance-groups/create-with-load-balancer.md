@@ -25,18 +25,18 @@ To create an instance group with an L7 load balancer:
 
       * Select a [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete group instances, assign the `editor` role to the service account. All operations in {{ ig-name }} are performed on behalf of the service account.
       * Enable **Deletion protection** if needed. You can't delete a group with this option enabled.
-   1. In the **Allocation** section, select the desired **availability zones**. Group instances may reside in different availability zones and regions. [More about the geo scope of {{ yandex-cloud }}](../../../overview/concepts/geo-scope.md).
-   1. In the **Instance template** section, click **Set** to set the basic instance configuration:
+   1. In the **Allocation** section, select the desired **availability zones**. {% if product == "yandex-cloud" %}Group instances may reside in different availability zones and regions. {% endif %}[More about the geo scope of {{ yandex-cloud }}](../../../overview/concepts/geo-scope.md).
+   1. In the **Instance template** section, click **Define** to set the base instance configuration:
       * Under **Basic parameters**, enter the template **Description**:
       * Under **Image/boot disk selection**, select a system to be deployed on the VM instance's boot disk.
       * In the **Disks** section:
          * Select the [disk type](../../concepts/disk.md#disks_types).
          * Specify the **Size** of the disk.
-         * Specify disk **Contents**.
+         * Specify the disk **Contents**.
          * (optional) To add more disks, click **Add disk**.
       * Under **Computing resources**:
          * Choose a [platform](../../concepts/vm-platforms.md).
-         * Enter the requisite number of **vCPUs**, [guaranteed vCPU performance](../../concepts/performance-levels.md), and the amount of **RAM**.
+         * Enter the required number of **vCPUs**, [guaranteed vCPU performance](../../concepts/performance-levels.md), and the amount of **RAM**.
          * {% include [include](../../../_includes/instance-groups/specify-preemptible-vm.md) %}
       * Under **Network settings**:
          * Select a [cloud network](../../../vpc/concepts/network.md#network) from the list or enter a cloud network ID. If you don't have a network, click **Create a new network** to create one:
@@ -45,7 +45,7 @@ To create an instance group with an L7 load balancer:
             * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
             * **No address**: Don't assign a public IP address.
          * Select [appropriate security groups](../../../vpc/concepts/security-groups.md) (if there is no corresponding field, the virtual machine will be enabled for all incoming and outgoing traffic).
-         * (optional) Create a record for the VM in the [DNS zone](../../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section and specify the zone, FQDN, and TTL for the record. For more detail, please see [Cloud DNS integration with Compute Cloud](../../../dns/concepts/compute-integration.md).
+         * (optional) Create a record for the VM in the [DNS zone](../../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section and specify the zone, FQDN, and TTL for the record. For more information, see [Cloud DNS integration with Compute Cloud](../../../dns/concepts/compute-integration.md).
       * Under **Access**, specify the data required to access the VM:
          * Specify a **Service account** to be linked to the instance.
          * If you selected a Linux image, fill out **Login** and **SSH key**. As the key, use the [public key](../vm-connect/ssh.md#creating-ssh-keys) file contents.
@@ -97,7 +97,7 @@ To create an instance group with an L7 load balancer:
 
       If there aren't any, [create one](../../../vpc/operations/network-create.md).
 
-   1. Select a [public image](../images-with-pre-installed-software/get-list.md) (such as, [CentOS 7]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}).
+   1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) (for example, [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo)).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
@@ -151,7 +151,7 @@ To create an instance group with an L7 load balancer:
          | `platform_id` | Platform ID. |
          | `memory` | Amount of memory (RAM). |
          | `cores` | Number of processor cores (vCPUs). |
-         | `mode` | Disk access mode.</br> - `READ_ONLY`: read-only access.</br>- `READ_WRITE`: read and write access. |
+         | `mode` | Disk access mode.</br> - `READ_ONLY`: Read-only access.</br>- `READ_WRITE`: Read and write access. |
          | `image_id` | ID of the public image. |
          | `type_id` | Disk type. |
          | `size` | Disk size. |
@@ -170,7 +170,7 @@ To create an instance group with an L7 load balancer:
                  size: 3
          allocation_policy:
              zones:
-                 - zone_id: ru-central1-a
+                 - zone_id: {{ region-id }}-a
          ```
 
          Keys:
@@ -224,7 +224,7 @@ To create an instance group with an L7 load balancer:
                  size: 3
          allocation_policy:
              zones:
-                 - zone_id: ru-central1-a
+                 - zone_id: {{ region-id }}-a
          application_load_balancer_spec:
              target_group_spec:
                  name: first-target-group
@@ -241,16 +241,16 @@ To create an instance group with an L7 load balancer:
       * Named `first-fixed-group-with-l7-balancer`.
       * Running CentOS 7.
       * In the `default-net` network.
-      * In the `ru-central1-a` availability zone.
+      * In the `{{ region-id }}-a` availability zone.
       * With 2 vCPUs and 2 GB of RAM.
       * With a 32 GB network HDD.
       * With a target group named `first-target-group`.
 
-   After that, you can add the `first-target-group` target group to a [new](../../../application-load-balancer/operations/backend-group-create.md) or [existing group of backends](../../../application-load-balancer/operations/backend-group-update.md) {{ alb-name }}, a backend group to a [new](../../../application-load-balancer/operations/http-router-create.md) or [existing HTTP router](../../../application-load-balancer/operations/http-router-update.md), and a router to a [new](../../../application-load-balancer/operations/application-load-balancer-create.md) or [existing L7 load balancer](../../../application-load-balancer/operations/application-load-balancer-update.md.).
+   After that, you can add the `first-target-group` target group to a [new](../../../application-load-balancer/operations/backend-group-create.md) or [existing group of {{ alb-name }} backends](../../../application-load-balancer/operations/backend-group-update.md), a backend group to a [new](../../../application-load-balancer/operations/http-router-create.md) or [existing HTTP router](../../../application-load-balancer/operations/http-router-update.md), and a router to a [new](../../../application-load-balancer/operations/application-load-balancer-create.md) or [existing L7 load balancer](/../application-load-balancer/operations/application-load-balancer-update.md.).
 
 - API
 
-   Use the API [create](../../api-ref/InstanceGroup/create.md) method.
+   Use the API [Create](../../api-ref/InstanceGroup/create.md) method.
 
 - Terraform
 
@@ -327,7 +327,7 @@ To create an instance group with an L7 load balancer:
         instance_template {
           platform_id = "standard-v3"
           resources {
-            memory = <RAM amount in GB>
+            memory = <amount of RAM in GB>
             cores  = <number of vCPU cores>
           }
       
@@ -344,7 +344,7 @@ To create an instance group with an L7 load balancer:
           }
       
           metadata = {
-            ssh-keys = "<user name>:<SSH key content>"
+            ssh-keys = "<username>:<SSH key contents>"
           }
         }
       
@@ -355,7 +355,7 @@ To create an instance group with an L7 load balancer:
         }
       
         allocation_policy {
-          zones = ["ru-central1-a"]
+          zones = ["{{ region-id }}-a"]
         }
       
         deploy_policy {
@@ -375,13 +375,13 @@ To create an instance group with an L7 load balancer:
       
       resource "yandex_vpc_subnet" "subnet-1" {
         name           = "subnet1"
-        zone           = "ru-central1-a"
+        zone           = "{{ region-id }}-a"
         network_id     = "${yandex_vpc_network.network-1.id}"
         v4_cidr_blocks = ["192.168.10.0/24"]
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
 

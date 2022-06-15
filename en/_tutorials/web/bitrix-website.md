@@ -18,11 +18,9 @@ To deploy and configure 1C-Bitrix:
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to run your VM in. Go to the [{{ yandex-cloud }} home page](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a VM for your server. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources
 
@@ -33,13 +31,15 @@ The cost for maintaining the 1C-Bitrix server includes:
 
 The current scenario uses the trial version of 1C-Bitrix with a trial period of 30 days. You can check the cost the product software versions on the [1C-Bitrix official website](https://www.1c-bitrix.ru).
 
+{% endif %}
+
 ## Create a VM in the cloud {#create-vm}
 
 To create a VM:
 1. On the **Folder dashboard** folder page, in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
 1. In the **Name** field, enter a name for the VM, such as `bitrixwebsite`.
 1. Leave the default availability zone.
-1. Under **Images from {{ marketplace-name }}**, select the [Ubuntu 18.04 lts]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %} image.
+1. Under **Images from {{ marketplace-name }}**, select the [Ubuntu 18.04 lts](/marketplace/products/f2e9qa7i4fmugh14tjnc) image.
 1. Under **Disks**, select an SSD with 20 GB.
 1. Under **Computing resources**:
    * Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.
@@ -171,7 +171,7 @@ To configure the server to work with 1C-Bitrix:
    root@bitrixwebsite:/var/www/html# nano /etc/php/7.2/apache2/php.ini
    ```
 
-   To find the parameter you need in the `nano` editor, press `Ctrl+W`. Look for the required parameter in the table above and save the changes using `Ctrl+O`. To exit the editor, press `Ctrl+X`.
+   To find the parameter you need in the `nano` editor, press **Ctrl** + **W**. Look for the required parameter in the table above and save the changes using **Ctrl** + **O**. To exit the editor, press **Ctrl** + **X**.
 
 1. Configure the Apache server. In accordance with the information system requirements, you need to edit the `/etc/apache2/sites-enabled/000-default.conf` file.
 

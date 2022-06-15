@@ -95,7 +95,7 @@ For example, allow any authenticated user to view information about a folder and
 
       {% endcut %}
 
-      For more detailed information about the `yandex_resourcemanager_folder_iam_binding` resource parameters in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_folder_iam_binding).
+      For more detailed information about the `yandex_resourcemanager_folder_iam_binding` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
 
    1. Check the configuration using the command:
 

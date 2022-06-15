@@ -18,6 +18,12 @@
 
 ## Создать учетную запись {#create-account}
 
+{% note info %}
+
+Если в кластере {{ mkf-name }} включена настройка **Управление топиками через API**, то для создания учетной записи администратора воспользуйтесь интерфейсами командной строки, API или {{ TF }}.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Консоль управления
@@ -33,18 +39,6 @@
       {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
 
   1. [Выдайте права доступа](#grant-permission) к нужным топикам.
-  1. Нажмите кнопку **Добавить**.
-
-  Чтобы создать [учетную запись администратора](../concepts/topics.md#management) для управления топиками в кластере с включенной настройкой **Управление топиками через API**:
-
-  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ mkf-name }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **Пользователи**.
-  1. Нажмите кнопку **Добавить**.
-  1. Введите имя учетной записи (имя пользователя) и пароль (от 8 до 128 символов).
-  1. Нажмите кнопку **Добавить топик** и выберите нужный топик.
-  1. Нажмите на значок ![plus](../../_assets/plus.svg) в колонке **Роли**.
-  1. Выберите роль `ACCESS_ROLE_ADMIN`.
   1. Нажмите кнопку **Добавить**.
 
 - CLI
@@ -119,7 +113,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 {% if api != "noshow" %}
 
@@ -204,9 +200,11 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
 
-{% if api != "noshow" %}  
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
+{% if api != "noshow" %}
 
 - API
 
@@ -258,7 +256,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 {% if api != "noshow" %}
 
@@ -302,10 +302,6 @@
   1. Нажмите на значок ![image](../../_assets/plus.svg) в столбце **Роли** для нужного топика и выберите роль:
      * `ACCESS_ROLE_CONSUMER`: потребителям, которые используют эту учетную запись, будет разрешен доступ к топику.
      * `ACCESS_ROLE_PRODUCER`: производителям, которые используют эту учетную запись, будет разрешен доступ к топику.
-     * `ACCESS_ROLE_ADMIN`: учетной записи предоставляются права для [управления топиками](../concepts/topics.md#management). Эта роль доступна, если:
-
-         * В кластере включено управление топиками через API.
-         * Роль назначается для всех топиков (`*`).
 
      Вы можете выбрать роли `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER` одновременно — тогда учетная запись будет подходить и производителям, и потребителям.
 
@@ -384,7 +380,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 {% if api != "noshow" %}
 
@@ -401,11 +399,7 @@
 
 ## Отозвать права у учетной записи {#revoke-permission}
 
-{% note warning %}
-
 Если в кластере с включенной настройкой **Управление топиками через API** отозвать у [учетной записи администратора](../concepts/topics.md#management) роль `ACCESS_ROLE_ADMIN`, то будет потеряна возможность управлять топиками. Не отзывайте эту роль или выдайте ее другой учетной записи.
-
-{% endnote %}
 
 {% list tabs %}
 
@@ -452,7 +446,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 {% if api != "noshow" %}
 
@@ -463,17 +459,13 @@
   * Имя учетной записи в параметре `userName`. Чтобы узнать имя, [получите список учетных записей в кластере](#list-accounts).
   * Право на доступ к топику, которое требуется отозвать, в параметре `permission`.
 
-{% endif %}  
+{% endif %}
 
 {% endlist %}
 
 ## Удалить учетную запись {#delete-account}
 
-{% note warning %}
-
 Если в кластере с включенной настройкой **Управление топиками через API** удалить [учетную запись администратора](../concepts/topics.md#management) с ролью `ACCESS_ROLE_ADMIN`, то будет потеряна возможность управлять топиками. Перед удалением выдайте эту роль другой учетной записи.
-
-{% endnote %}
 
 {% list tabs %}
 
@@ -512,7 +504,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 {% if api != "noshow" %}
 

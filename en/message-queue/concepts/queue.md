@@ -1,6 +1,6 @@
 # Message queues
 
-Message queues enable messaging between components of  distributed applications. Messages can be sent to queues using the [API](../api-ref/index.md) or any of the [supported tools](../instruments/index.md).
+Message queues enable messaging between components of distributed applications. Messages can be sent to queues using the [API](../api-ref/index.md) or any of the [supported tools](../instruments/index.md).
 
 Enqueued messages are read by consumers, i.e., applications configured to receive messages from particular queues. Once a message is processed, the consumer deletes it from the queue.
 
@@ -26,7 +26,6 @@ FIFO queues deduplicate messages being enqueued by their deduplication ID or con
 
 {% note info %}
 
-Yandex Message Queue automatically deletes messages that are in a queue beyond the retention period. The standard message retention period is 4 days. It can be changed within the range of 60 seconds to 14 days. You can change it when creating a queue or by using the [SetQueueAttributes](../api-ref/queue/SetQueueAttributes.md) method.
+{{ message-queue-full-name }} automatically deletes messages that are in a queue beyond the retention period. The standard message retention period is 4 days. It can be changed within the range of 60 seconds to 14 days. You can change it when creating a queue or by using the [SetQueueAttributes](../api-ref/queue/SetQueueAttributes.md) method.
 
 {% endnote %}
-

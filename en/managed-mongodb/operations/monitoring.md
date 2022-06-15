@@ -1,25 +1,21 @@
-# Monitoring the state of a cluster and hosts
+# Monitoring the state of clusters and hosts
 
-Using monitoring tools in the management console, you can track the status of a {{ mmg-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.
+{% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
-{% if audience == "external" %} Cluster metric values are collected and charts are displayed by [{{ monitoring-name }}](../../monitoring/concepts/index.md). {% endif %} To get started with {{ monitoring-name }} metrics, dashboards, or alerts, click **Open in Monitoring** in the top panel.
+{% include [monitoring-period](../../_includes/mdb/monitoring-freq.md) %}
 
-To modify the time interval that charts are displayed for, specify the interval boundaries or select one of the built-in options (hour, day, week, month).
+{% include [monitoring-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
 
-{% include [monitoring-freq](../../_includes/mdb/monitoring-freq.md) %}
-
-{% note info %}
-
-The most appropriate multiple units (MB, GB, and more) are automatically used in charts.
-
-{% endnote %}
+{% include [alerts](../../_includes/mdb/alerts.md) %}
 
 ## Monitoring cluster status {#cluster}
 
 To view detailed information about the {{ mmg-name }} cluster status:
 
-1. Go to the folder page and select **{{ mmg-name }}**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
 1. Click on the name of the cluster and open the **Monitoring** tab.
+
+1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
 The following charts open on the page:
 
@@ -54,14 +50,14 @@ The following charts open on the page:
 * **Queries on primary**: The average number of queries of each type on primary replicas.
 * **Read operations count, top 5 collections**: 5 collections with the longest time spent in reads.
 * **Readers/writers active queue per host, top 5**: The total size of the 5 largest queues for each host:
-    * With read requests.
-    * With write requests.
+   * With read requests.
+   * With write requests.
 * **Replicated queries**: The average number of replicated queries in the cluster.
 * **Replication lag per host and write_concern wait**: Replication lag on each host and waiting time for [write concern](https://docs.mongodb.com/manual/reference/write-concern/) (in seconds).
 * **Scan and order per host**: The number of data sorts without index usage on each host.
 * **Scanned / returned**: Shows the following ratios:
-    * `scanned_docs / returned_docs`: Documents scanned to documents returned.
-    * `scanned_keys / returned_docs`: Index keys scanned to documents returned.
+   * `scanned_docs / returned_docs`: Documents scanned to documents returned.
+   * `scanned_keys / returned_docs`: Index keys scanned to documents returned.
 * **TTL indexes activity**: The use of indexes for processing documents with expired Time to Life (TTL).
 * **TTL indexes total**: The total number of [TTL indexes](https://docs.mongodb.com/manual/core/index-ttl/).
 * **Total operations count on cluster**: The total number of operations performed in the cluster.
@@ -76,9 +72,9 @@ The following charts open on the page:
 
 ## Monitoring the state of hosts {#hosts}
 
-To view detailed information about the status of individual {{ mmg-name }} hosts:
+To view detailed information about the state of individual {{ mmg-name }} hosts:
 
-1. Go to the folder page and select **{{ mmg-name }}**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
 1. Click the name of the desired cluster and select **Hosts** → **Monitoring**.
 1. Select the host from the drop-down list. You'll see the host role (`PRIMARY` or `SECONDARY`) and type (`MONGOCFG`, `MONGOD`, `MONGOINFRA`, or `MONGOS`) next to the host name.
 
@@ -86,7 +82,7 @@ This page displays charts showing the load on an individual host in the cluster:
 
 * **CPU**: The load on processor cores. As the load goes up, the **Idle** value goes down.
 * **Memory**: The use of RAM in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
-* **Disk Bytes**: The speed of disk operations (bytes per second).
+* **Disk bytes**: The speed of disk operations (bytes per second).
 * **Disk IOPS**: The number of disk operations per second.
 * **Network Bytes**: The speed of data exchange over the network (bytes per second).
 * **Network Packets**: The number of packets exchanged over the network per second.
@@ -95,33 +91,39 @@ This page displays charts showing the load on an individual host in the cluster:
 
 To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
 
-1. In the Management console, select the folder with the cluster you wish to configure alerts for.
+1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+
 1. Click the ![image](../../_assets/ugly-sandwich.svg) icon and select **Monitoring**.
+
 1. Under **Service dashboards**, select **{{ mmg-name }}**.
+
 1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
-1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. {% if audience == "external" %}For more on the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).{% endif %}
+
+1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. {% if audience == "external" %}For more on the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). {% endif %}
+
 1. Set the `Alarm` and `Warning` notification threshold values.
+
 1. Click **Create alert**.
 
 To have other cluster health indicators monitored automatically:
 
 {% if audience == "external" %}
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
-{% else %}
+   {% else %}
 1. Create an alert.
-{% endif %}
+   {% endif %}
 1. Add a status metric.
 1. Set the alert threshold values in the alert settings.
 
 Recommended threshold values:
 
-| Metric                          | Parameter                       | `Alarm`                  | `Warning`                |
+| Metric | Parameter                      | `Alarm`                   | `Warning`                 |
 |---------------------------------|:-------------------------------:|:------------------------:|:------------------------:|
-| DB write availability           | `can_write`                     | `Equal to 0`             | —                        |
-| Replication delay               | `replset_status-replicationLag` | `180`                    | `30`                     |
-| Storage space used              | `disk.used_bytes`               | 90% of storage size      | 70% of storage size      |
+| DB write availability | `can_write`                      | `Equal to 0`                 | —                         |
+| Replication delay              | `replset_status-replicationLag` | `180` | `30` |
+| Storage space used | `disk.used_bytes`                | 90% of storage size  | 70% of storage size  |
 
-The current storage size can be viewed in [detailed information about the cluster](cluster-list.md#get-cluster).
+You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
 
 ## Cluster state and status {#cluster-health-and-status}
 
@@ -129,8 +131,8 @@ The current storage size can be viewed in [detailed information about the cluste
 
 To view a cluster's state and status:
 
-1. Go to the folder page and select **{{ mmg-name }}**.
-1. Hover over the indicator in the **Status** column in the row of the cluster you need.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
+1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
 
 ### Cluster states {#cluster-health}
 
@@ -139,3 +141,4 @@ To view a cluster's state and status:
 ### Cluster statuses {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
+

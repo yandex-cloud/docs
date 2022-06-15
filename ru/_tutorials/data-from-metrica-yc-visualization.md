@@ -20,9 +20,9 @@
 1. [Подключите {{ datalens-short-name }} и создайте чарты](#datalens-connection-chart-creation)
     1. [Подключитесь к {{ datalens-short-name }}](#datalens-connection)
     1. [Создайте подключение к {{ CH }} в {{ datalens-short-name }}](#creation-datalens-connection-to-ch)
-    1. [Cоздайте датасет на базе подключения](#creating-dataset-based-on-connection)
-    1. [Создайте чарт — диаграмма с областями](#creating-area-chart)
-    1. [Создайте чарт — cводная таблица](#creating-pivot-table)
+    1. [Создайте датасет на базе подключения](#creating-dataset-based-on-connection)
+    1. [Создайте чарт — накопительная диаграмма с областями](#creating-area-chart)
+    1. [Создайте чарт — сводная таблица](#creating-pivot-table)
 1. [Создайте и настройте дашборд в {{ datalens-short-name }}](#creating-configuring-dashboard)
     1. [Создайте дашборд](#creating-dashboard)
     1. [Настройте дашборд](#configuring-dashboard)
@@ -43,7 +43,7 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+{% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
 
 ## 1. Подключите {{ CH }} и {{ ml-platform-short-name }} {#ch-datasphere-connection}
 
@@ -176,7 +176,7 @@
     
    1. После проверки подключения в правом верхнем углу нажмите кнопку **Создать**.
 
-### 3.3 Cоздайте датасет на базе подключения {#creating-dataset-based-on-connection}
+### 3.3 Создайте датасет на базе подключения {#creating-dataset-based-on-connection}
 
 1. В правом верхнем углу нажмите **Создать датасет**.
 1. Выберите таблицу `metrica_data.hits` в качестве источника. Для этого перетащите таблицу из списка слева в область редактирования.
@@ -191,7 +191,7 @@
 1. В правом верхнем углу нажмите кнопку **Сохранить**.
 1. Назовите датасет `ch_metrica_data_hits` и нажмите кнопку **Создать**.
 
-### 3.4 Создайте чарт — диаграмма с областями {#creating-area-chart}
+### 3.4 Создайте чарт — накопительная диаграмма с областями {#creating-area-chart}
 
 Перейдите к созданию чартов.
 
@@ -200,7 +200,7 @@
     * Перетащите поле **EventDate** в область **X**.
     * Перетащите поле **Браузер** в область **Цвета**.
     * Перетащите поле **Хиты** в область **Y**.
-1. Измените тип чарта на диаграмму с областями. 
+1. Измените тип чарта на **Накопительная диаграмма с областями**. 
 
     ![image](../_assets/datalens/solution-11/10-change-diagram.png =300x482)
     
@@ -210,7 +210,7 @@
    
 1. В появившемся окне укажите имя чарта `ch_metrica_data_hits_area` и нажмите кнопку **Сохранить**.
 
-### 3.5 Создайте чарт — cводная таблица {#creating-pivot-table}
+### 3.5 Создайте чарт — сводная таблица {#creating-pivot-table}
 
 Создайте на основе готового чарта еще один чарт – сводную таблицу.
 

@@ -6,9 +6,9 @@ The following issues normally impact {{ mmy-name }} cluster performance:
 * [Inefficient query execution in {{ MY }}](#inefficient-queries).
 * [Locks](#localize-locking-issues).
 
-[Monitoring](../operations/monitoring.md) tools for {{ MY }} to troubleshoot [performance issues](../operations/performance-diagnostics.md) in {{ mmy-name }} clusters and special {{ MY }} queries will help detect these problems.
+[Monitoring](../operations/monitoring.md) tools for {{ MY }} to [troubleshoot performance issues](../operations/performance-diagnostics.md) in {{ mmy-name }} clusters and special {{ MY }} queries will help detect these problems.
 
-## Before you start {#before-start}
+## Before you begin {#before-start}
 
 1. Select databases to troubleshoot.
 1. [Enable statistics collection](../operations/performance-diagnostics.md).
@@ -85,7 +85,7 @@ The query returns the 10 longest running queries in the entire server history.
 
 You should pay attention to queries with high `ROWS_EXAMINED`, `ROWS_SORTED`, or the `FULL_SCAN` flag.
 
-For more on the information returned by queries, see the [{{ MY }} documentation](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
+To learn more about the information in the output, see the [{{ MY }} documentation](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
 
 ## Detecting locks {#localize-locking-issues}
 
@@ -93,17 +93,17 @@ Cluster performance may degrade because of locks obtained when there are multipl
 
 To troubleshoot, check lock queues in queries:
 
-  - Table-level lock queue:
+- Table-level lock queue:
 
-    ```sql
-    SELECT * FROM sys.schema_table_lock_waits 
-    ```
+   ```sql
+   SELECT * FROM sys.schema_table_lock_waits 
+   ```
 
-  - Individual row-level lock queue:
+- Individual row-level lock queue:
 
-    ```sql
-    SELECT * FROM sys.innodb_lock_waits
-    ```
+   ```sql
+   SELECT * FROM sys.innodb_lock_waits
+   ```
 
 ## Solving problems {#solving}
 
@@ -113,5 +113,4 @@ You can try to tune any problematic queries identified in the course of troubles
 
 - [Optimize InnoDB tables](https://dev.mysql.com/doc/refman/5.7/en/optimizing-innodb.html) to reduce disk workload.
 
-If you can't optimize the identified problematic queries or make do without them, [elevate the class of the host](../operations/update#change-resource-preset).
-
+If you can't optimize the identified problem queries or manage without them, you can [raise the host class](../operations/update#change-resource-preset).

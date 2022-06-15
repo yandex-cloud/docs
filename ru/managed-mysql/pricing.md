@@ -4,6 +4,14 @@ editable: false
 
 # Правила тарификации для {{ mmy-name }}
 
+{% if product == "cloud-il" %}
+
+На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ mmy-name }} не тарифицируется.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
@@ -33,7 +41,7 @@ editable: false
 * Объем хранилища, выделенный для кластеров БД.
 
     * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами и более:
-        * для платформ **Intel Broadwell** и **Intel Cascade Lake** — с шагом 100 ГБ;
+      {% if product == "yandex-cloud" %}* для платформ **Intel Broadwell** и **Intel Cascade Lake** — с шагом 100 ГБ;{% endif %}
         * для платформы **Intel Ice Lake** — с шагом {{ local-ssd-v3-step }}.
 
     * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя хостами и более, с шагом 93 ГБ.
@@ -131,6 +139,8 @@ editable: false
 {% if region == "int" %}
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}
 
 {% endif %}
 

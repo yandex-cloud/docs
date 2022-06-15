@@ -22,10 +22,10 @@ Field | Description
 --- | ---
 id | **string**<br><p>ID of the backup.</p> 
 folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp (i.e. when the backup operation was completed).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdAt | **string** (date-time)<br><p>Time when the backup operation was completed.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 sourceClusterId | **string**<br><p>ID of the SQL Server cluster that the backup was created for.</p> 
 startedAt | **string** (date-time)<br><p>Time when the backup operation was started.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-databases[] | **string**<br><p>List databases included in the backup</p> 
+databases[] | **string**<br><p>List of databases included in the backup.</p> 
 
 ## Methods {#methods}
 Method | Description

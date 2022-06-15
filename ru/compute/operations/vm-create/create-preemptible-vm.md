@@ -25,11 +25,11 @@
 
   1. В блоке **Выбор образа/загрузочного диска** выберите один из [образов](../../operations/images-with-pre-installed-software/get-list.md).
 
-  1. (опционально) В блоке **Диски и файловые хранилища** на вкладке **Диски** настройте загрузочный диск:
+  1. (опционально) В блоке **Диски{% if product == "yandex-cloud" %} и файловые хранилища{% endif %}** на вкладке **Диски** настройте загрузочный диск:
       * Выберите [тип диска](../../concepts/disk.md#disks_types).
       * Укажите нужный размер диска.
 
-          Если вы хотите создать виртуальную машину из существующего диска, в блоке **Диски и файловые хранилища** [добавьте диск](./create-from-disks.md):
+          Если вы хотите создать виртуальную машину из существующего диска, в блоке **Диски{% if product == "yandex-cloud" %} и файловые хранилища{% endif %}** [добавьте диск](./create-from-disks.md):
           * Нажмите кнопку **Добавить диск**.
           * Введите имя диска.
           * Выберите [тип диска](../../concepts/disk.md#disks_types).
@@ -39,11 +39,13 @@
           * Выберите наполнение `Диск`.
           * Нажмите кнопку **Добавить**.
 
+  {% if product == "yandex-cloud" %}
   1. (опционально) В блоке **Диски и файловые хранилища** на вкладке **Файловые хранилища** подключите [файловое хранилище](../../concepts/filesystem.md):
       * Нажмите кнопку **Подключить файловое хранилище**.
       * В открывшемся окне выберите файловое хранилище.
       * Введите имя устройства.
       * Нажмите кнопку **Подключить файловое хранилище**.
+  {% endif %}
 
   1. В блоке **Вычислительные ресурсы**:
       * Выберите [платформу](../../concepts/vm-platforms.md).
@@ -59,7 +61,7 @@
           * Нажмите **Создать**.
           У каждой сети должна быть как минимум одна [подсеть](../../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **Добавить подсеть**.
       * В поле **Публичный адрес** выберите способ назначения адреса:
-          * **Автоматически** — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}. В этом случае можно включить [защиту от DDoS-атак](../../../vpc/ddos-protection/index.md) при помощи опции ниже.
+          * **Автоматически** — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}. {% if product == "yandex-cloud" %}В этом случае можно включить [защиту от DDoS-атак](../../../vpc/ddos-protection/index.md) при помощи опции ниже.{% endif %}
           * **Список** — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../../vpc/operations/set-static-ip.md).
           * **Без адреса** — чтобы не назначать публичный IP-адрес.
       * В поле **Внутренний адрес** выберите способ назначения внутренних адресов: **Автоматически** или **Вручную**.
@@ -96,7 +98,7 @@
       ```
 
   1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на виртуальную машину.
-  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) на базе операционной системы Linux (например, [CentOS 7]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}).
+  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) на базе операционной системы Linux (например, [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo)).
 
       {% include [standard-images](../../../_includes/standard-images.md) %}
 
@@ -105,7 +107,7 @@
       ```
       yc compute instance create \
         --name first-preemptible-instance \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
         --preemptible \
         --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
@@ -116,7 +118,7 @@
 
       * С именем `first-preemptible-instance`.
       * С OC CentOS 7.
-      * В зоне доступности `ru-central1-a`.
+      * В зоне доступности `{{ region-id }}-a`.
       * В подсети `default-a`.
       * С публичным IP.
 
@@ -199,7 +201,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -290,7 +292,7 @@
      folder_id: b1ghgf288nvg541tgu73
      created_at: "2022-04-12T08:40:09Z"
      name: first-instance
-     zone_id: ru-central1-b
+     zone_id: {{ region-id }}-b
      platform_id: standard-v1
      resources:
        memory: "1073741824"
@@ -310,7 +312,7 @@
          address: 10.2.0.14
          one_to_one_nat:
            ip_version: IPV4
-     fqdn: example-instance.ru-central1.internal
+     fqdn: example-instance.{{ region-id }}.internal
      scheduling_policy: {}
      network_settings:
        type: STANDARD
@@ -331,7 +333,7 @@
      folder_id: b1ghgf288nvg541tgu73
      created_at: "2022-04-12T08:40:09Z"
      name: first-instance
-     zone_id: ru-central1-b
+     zone_id: {{ region-id }}-b
      platform_id: standard-v1
      resources:
        memory: "1073741824"
@@ -352,7 +354,7 @@
          one_to_one_nat:
            address: 51.250.97.205
            ip_version: IPV4
-     fqdn: example-instance.ru-central1.internal
+     fqdn: example-instance.{{ region-id }}.internal
      scheduling_policy: {}
      network_settings:
        type: STANDARD
@@ -377,7 +379,7 @@
 
   1. Удалите поле `scheduling_policy` со значением `preemptible = true`:
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
 
   1. Проверьте корректность конфигурационных файлов.
 

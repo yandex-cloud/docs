@@ -58,7 +58,7 @@ Take a look at different {{ cloud-stt-api-name }} use cases:
     %pip install grpcio-tools
     ```
 
-1. Run this cell. To do this, choose **Run → Run Selected Cells** or press _Shift+Enter_.
+1. Run this cell. To do this, choose **Run → Run Selected Cells** or press **Shift** + **Enter**.
 
     {% include [safe-state](../_includes/datasphere/safe-state.md) %}
 
@@ -102,7 +102,7 @@ In the **Streaming audio recognition** section, the files from the folder with a
 
 To start streaming speech recognition:
 
-1. Select all the cells in the **Streaming audio recognition** section by holding _Shift_ and clicking to the left of the desired cells.
+1. Select all the cells in the **Streaming audio recognition** section by holding **Shift** and clicking to the left of the desired cells.
 1. Run the selected cells.
 1. Wait for the operation to complete.
 

@@ -41,11 +41,13 @@
        * `kms_master_key_id` — идентификатор мастер ключа KMS, используемый для шифрования.
        * `sse_algorithm` — используемый алгоритм шифрования на стороне сервера. Поддерживается только значение `aws:kms`.
 
+     {% if product == "yandex-cloud" %}
+
      ```
      provider "yandex" {
        cloud_id  = "<идентификатор облака>"
        folder_id = "<идентификатор каталога>"
-       zone      = "ru-central1-a"
+       zone      = "{{ region-id }}-a"
        service_account_key_file = "key.json"
        }
      
@@ -71,6 +73,44 @@
        }
      }
      ```
+
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```
+     provider "yandex" {
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "{{ region-id }}-a"
+       service_account_key_file = "key.json"
+       endpoint  = "{{ api-host }}:443"
+       }
+     
+     
+     resource "yandex_kms_symmetric_key" "key-a" {
+       name              = "<имя ключа>"
+       description       = "<описание ключа>"
+       default_algorithm = "AES_128"
+       rotation_period   = "8760h" // 1 год
+     }
+     
+     resource "yandex_storage_bucket" "test" {
+       bucket = "<имя бакета>"
+       access_key = "<идентификатор статического ключа>"
+       secret_key = "<секретный ключ>"
+       server_side_encryption_configuration {
+         rule {
+           apply_server_side_encryption_by_default {
+             kms_master_key_id = yandex_kms_symmetric_key.key-a.id
+             sse_algorithm     = "aws:kms"
+           }
+         }
+       }
+     }
+     ```
+
+     {% endif %}
 
   1. Проверьте корректность конфигурационных файлов.
 

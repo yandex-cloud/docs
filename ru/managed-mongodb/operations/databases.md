@@ -21,8 +21,8 @@
   Чтобы получить список баз данных в кластере, выполните команду:
 
   ```
-  {{ yc-mdb-mg }} database list
-    --cluster-name <имя кластера>
+  $ {{ yc-mdb-mg }} database list
+       --cluster-name <имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -66,8 +66,8 @@
   Выполните команду создания БД, задав имя новой базы:
 
   ```
-  {{ yc-mdb-mg }} database create <имя базы данных>
-    --cluster-name <имя кластера>
+  $ {{ yc-mdb-mg }} database create <имя базы данных>
+      --cluster-name <имя кластера>
   ```
 
   {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
@@ -105,7 +105,9 @@
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 
@@ -133,8 +135,8 @@
   Чтобы удалить базу данных, выполните команду:
 
   ```
-  {{ yc-mdb-mg }} database delete <имя базы данных>
-    --cluster-name <имя кластера>
+  $ {{ yc-mdb-mg }} database delete <имя базы данных>
+       --cluster-name <имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -155,7 +157,9 @@
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 

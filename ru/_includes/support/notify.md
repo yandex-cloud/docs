@@ -8,7 +8,7 @@
 
 {% note info %}
 
-Добавлять можно пользователей с [аккаунтом на Яндексе](../../iam/concepts/index.md#passport) и [федеративных пользователей](../../iam/concepts/index.md#saml-federation). Федеративные пользователи должны в собственных настройках учетной записи указать адрес электронной почты.
+Добавлять можно пользователей с [аккаунтом {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}](../../iam/concepts/index.md#passport) и [федеративных пользователей](../../iam/concepts/index.md#saml-federation). Федеративные пользователи должны в собственных настройках учетной записи указать адрес электронной почты.
 
 {% endnote %}
 
@@ -25,8 +25,10 @@
 * кластеры баз данных (идентификатор кластера):
   * PostgreSQL;
   * MySQL;
+{% if product == "yandex-cloud" %}
   * MongoDB;
   * Redis;
+{% endif %}
   * ClickHouse.
 
 ## Планируемые технические работы

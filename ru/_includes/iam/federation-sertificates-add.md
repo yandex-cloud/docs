@@ -54,7 +54,7 @@
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d '@body.json' \
-          "https://iam.api.cloud.yandex.net/iam/v1/saml/certificates"
+          "https://iam.{{ api-host }}/iam/v1/saml/certificates"
       ```
 
 {% endlist %}

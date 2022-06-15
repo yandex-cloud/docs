@@ -6,4 +6,3 @@ The following clients are supported:
 
 - Any clients using `libpq`: `psql`, `pqxx`, `psycopg2`, and so on.
 - [JDBC Driver](https://jdbc.postgresql.org).
-

@@ -1,4 +1,4 @@
-# Как начать работать cо {{ speechkit-short-name }}
+# Как начать работать со {{ speechkit-short-name }}
 
 Если вы хотите попробовать, как сервис синтезирует или распознает речь, воспользуйтесь демо на [странице сервиса]{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit#demo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/speechkit#demo){% endif %}.
 
@@ -35,7 +35,7 @@ curl -X POST \
    -H "Authorization: Bearer ${IAM_TOKEN}" \
    --data-urlencode "text=${TEXT}" \
    -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}" \
-   "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
+   "https://tts.{{ api-host }}/speech/v1/tts:synthesize" > speech.ogg
 ```
 
 {% note info %}
@@ -62,7 +62,7 @@ curl -X POST \
 curl -X POST \
    -H "Authorization: Bearer ${IAM_TOKEN}" \
    --data-binary "@speech.ogg" \
-   "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?folderId=${FOLDER_ID}&lang=ru-RU"
+   "https://stt.{{ api-host }}/speech/v1/stt:recognize?folderId=${FOLDER_ID}&lang=ru-RU"
 ```
 
 В ответе сервис вернет распознанный текст:

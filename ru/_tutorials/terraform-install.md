@@ -1,6 +1,6 @@
-### Из зеркала {{ yandex-cloud }} {#from-yc-mirror}
+### Из зеркала {#from-yc-mirror}
 
-Вы можете скачать дистрибутив Terraform для вашей платформы из [зеркала {{ yandex-cloud }}](https://hashicorp-releases.website.yandexcloud.net/terraform/). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`: 
+Вы можете скачать дистрибутив Terraform для вашей платформы из [зеркала](https://hashicorp-releases.website.yandexcloud.net/terraform/). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`: 
 
 ```
 export PATH=$PATH:/path/to/terraform
@@ -15,7 +15,7 @@ export PATH=$PATH:/path/to/terraform
   Используйте один из способов:
 
   * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
-  * Установите Terraform с помощью пакетного менеджера [Сhocolatey](https://chocolatey.org/install), используя команду:
+  * Установите Terraform с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду:
 
      ```
      choco install terraform

@@ -55,6 +55,7 @@
       | ...                            |             |
       +--------------------------------+-------------+
       ```
+{% if product == "yandex-cloud" %}
 
   1. Узнайте идентификатор пользователя по логину или адресу электронной почты. Чтобы назначить роль не пользователю, а сервисному аккаунту или системной группе используйте [примеры](#examples) ниже.
 
@@ -71,7 +72,14 @@
           default_email: test-user@yandex.ru
       ```
 
-  1. Назначьте пользователю `test-user` роль `editor` на облако `my-cloud`. В субъекте укажите тип `userAccount` и идентификатор пользователя:
+{% endif %}
+{% if product == "cloud-il" %}
+
+  1. [Получите идентификатор пользователя](../../../iam/operations/users/get.md).
+
+{% endif %}
+  1. Назначьте пользователю `test-user` роль `editor` на облако `my-cloud`. В субъекте укажите тип {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} и идентификатор пользователя:
+{% if product == "yandex-cloud" %}
 
       ```bash
       yc resource-manager cloud add-access-binding my-cloud \
@@ -79,6 +87,16 @@
         --subject userAccount:<идентификатор пользователя>
       ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+      ```bash
+      yc resource-manager cloud add-access-binding my-cloud \
+        --role editor \
+        --subject federatedUser:<идентификатор пользователя>
+      ```
+
+{% endif %}
 - API
 
   Воспользуйтесь методом [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md). Вам понадобится идентификатор облака и идентификатор пользователя, которому назначается роль на облако.
@@ -87,7 +105,7 @@
 
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds
+          https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
       ```
       
       Результат:
@@ -103,12 +121,13 @@
        ]
       }
       ```
+{% if product == "yandex-cloud" %}
 
   1. Узнайте идентификатор пользователя по логину с помощью метода [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
 
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+          https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
       ```
       
       Результат:
@@ -123,7 +142,14 @@
       }
       ```
 
-  1. Назначьте пользователю роль `editor` на облако `my-cloud`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
+{% endif %}
+{% if product == "cloud-il" %}
+
+  1. [Получите идентификатор пользователя](../../../iam/operations/users/get.md).
+
+{% endif %}
+  1. Назначьте пользователю роль `editor` на облако `my-cloud`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} и идентификатор пользователя:
+{% if product == "yandex-cloud" %}
 
       ```bash
       curl -X POST \
@@ -138,9 +164,29 @@
                       "id": "<идентификатор пользователя>",
                       "type": "userAccount"
           }}}]}' \
-          https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
+          https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
       ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+      ```bash
+      curl -X POST \
+          -H 'Content-Type: application/json' \
+          -H "Authorization: Bearer <IAM-TOKEN>" \
+          -d '{
+          "accessBindingDeltas": [{
+              "action": "ADD",
+              "accessBinding": {
+                  "roleId": "editor",
+                  "subject": {
+                      "id": "<идентификатор пользователя>",
+                      "type": "federatedUser"
+          }}}]}' \
+          https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
+      ```
+
+{% endif %}
 - Terraform
 
   Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -149,9 +195,12 @@
       * `cloud_id` — идентификатор облака. Получить список доступных облаков можно с помощью команды [CLI](../../../cli/quickstart.md): `yc resource-manager cloud list`.
       * `role` — роль, которую нужно назначить. Перечень ролей можно получить с помощью команды [CLI](../../../cli/quickstart.md): `yc iam role list`. В одном ресурсе `yandex_resourcemanager_cloud_iam_binding` можно назначить только одну роль.
       * блок `members` — список пользователей, которым нужно назначить роль. Каждая запись может иметь одно из следующих значений:
+{% if product == "yandex-cloud" %}
         * `userAccount:<идентификатор пользователя>` — [идентификатор пользователя](../../../iam/operations/users/get.md).
+{% endif %}
         * `serviceAccount:<идентификатор сервисного аккаунта>` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md).
         * `federatedUser:<идентификатор федеративного аккаунта>` — [идентификатор федеративного аккаунта](../../../organization/users-get.md).
+{% if product == "yandex-cloud" %}
 
       ```hcl
       data "yandex_resourcemanager_cloud" "project1" {
@@ -167,7 +216,27 @@
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_cloud_iam_binding).
+{% endif %}
+users-get.md).
+{% if product == "cloud-il" %}
+
+      ```hcl
+      data "yandex_resourcemanager_cloud" "project1" {
+        name = "Project 1"
+      }
+
+      resource "yandex_resourcemanager_cloud_iam_binding" "editor" {
+        cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
+        role = "editor"
+        members = [
+          "federatedUser:<идентификатор пользователя>",
+        ]
+      }
+      ```
+
+{% endif %}
+
+      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_cloud_iam_binding).
   1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
   1. Проверьте корректность конфигурационного файла с помощью команды:
       
@@ -227,6 +296,7 @@
       ```
 
   1. Например, назначьте роль нескольким пользователям:
+{% if product == "yandex-cloud" %}
 
       ```bash
       yc resource-manager cloud set-access-bindings my-cloud \
@@ -234,9 +304,20 @@
         --access-binding role=viewer,subject=userAccount:<идентификатор второго пользователя>
       ```
 
+{% endif %}
+{% if product == "yandex-cloud" %}
+
+      ```bash
+      yc resource-manager cloud set-access-bindings my-cloud \
+        --access-binding role=editor,subject=federatedUser:<идентификатор первого пользователя>
+        --access-binding role=viewer,subject=federatedUser:<идентификатор второго пользователя>
+      ```
+
+{% endif %}
 - API
 
   Назначьте одному пользователю роль `editor`, а другому `viewer`:
+{% if product == "yandex-cloud" %}
 
   ```bash
   curl -X POST \
@@ -260,9 +341,38 @@
                   "id": "<идентификатор второго пользователя>",
                   "type": "userAccount"
       }}}]}' \
-      https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
+      https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
   ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+  ```bash
+  curl -X POST \
+      -H 'Content-Type: application/json' \
+      -H "Authorization: Bearer <IAM-TOKEN>" \
+      -d '{
+      "accessBindingDeltas": [{
+          "action": "ADD",
+          "accessBinding": {
+              "roleId": "editor",
+              "subject": {
+                  "id": "<идентификатор первого пользователя>",
+                  "type": "federatedUser"
+              }
+          }
+      },{
+          "action": "ADD",
+          "accessBinding": {
+              "roleId": "viewer",
+              "subject": {
+                  "id": "<идентификатор второго пользователя>",
+                  "type": "federatedUser"
+      }}}]}' \
+      https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
+  ```
+
+{% endif %}
   Вы также можете назначать роли с помощью метода [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md).
 
   {% note alert %}
@@ -270,6 +380,7 @@
   Метод `setAccessBindings` полностью перезаписывает права доступа к ресурсу! Все текущие роли на ресурс будут удалены.
 
   {% endnote %}
+{% if product == "yandex-cloud" %}
 
   ```bash
   curl -X POST \
@@ -283,12 +394,32 @@
           "roleId": "viewer",
           "subject": { "id": "<идентификатор второго пользователя>", "type": "userAccount" }
       }]}' \
-      https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:setAccessBindings
+      https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:setAccessBindings
   ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+  ```bash
+  curl -X POST \
+      -H 'Content-Type: application/json' \
+      -H "Authorization: Bearer <IAM-TOKEN>" \
+      -d '{
+      "accessBindings": [{
+          "roleId": "editor",
+          "subject": { "id": "<идентификатор первого пользователя>", "type": "federatedUser" }
+      },{
+          "roleId": "viewer",
+          "subject": { "id": "<идентификатор второго пользователя>", "type": "federatedUser" }
+      }]}' \
+      https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:setAccessBindings
+  ```
+
+{% endif %}
 - Terraform
 
   1. Опишите в конфигурационном файле параметры прав доступа к облаку. Назначьте одному пользователю роль `editor`, а другому `viewer`:
+{% if product == "yandex-cloud" %}
 
       ```hcl
       data "yandex_resourcemanager_cloud" "project1" {
@@ -312,6 +443,32 @@
       }
       ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+      ```hcl
+      data "yandex_resourcemanager_cloud" "project1" {
+        name = "Project 1"
+      }
+
+      resource "yandex_resourcemanager_cloud_iam_binding" "editor" {
+        cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
+        role = "editor"
+        members = [
+          "federatedUser:<идентификатор первого пользователя>",
+        ]
+      }
+
+      resource "yandex_resourcemanager_cloud_iam_binding" "viewer" {
+        cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
+        role = "viewer"
+        members = [
+          "federatedUser:<идентификатор второго пользователя>",
+        ]
+      }
+      ```
+
+{% endif %}
   1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
   1. Проверьте корректность конфигурационного файла с помощью команды:
       
@@ -384,7 +541,7 @@
 
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
-          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
+          https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
       ```
 
       Результат:
@@ -418,7 +575,7 @@
                   "id": "<идентификатор сервисного аккаунта>",
                   "type": "serviceAccount"
       }}}]}' \
-      https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
+      https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
   ```
 
 - Terraform
@@ -506,7 +663,7 @@
                   "id": "allAuthenticatedUsers",
                   "type": "system"
       }}}]}' \
-      https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
+      https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
   ```
 
 - Terraform

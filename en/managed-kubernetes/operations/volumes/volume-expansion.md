@@ -6,6 +6,8 @@ To expand a [volume](../../concepts/volume.md) for [pods](../../concepts/index.m
 
 To enable the volume expansion feature, make sure the [storage class](manage-storage-class.md) (`StorageClass`) description contains `allowVolumeExpansion: true`. In {{ managed-k8s-name }} storage, this feature is enabled by default:
 
+{% if product == "yandex-cloud" %}
+
 ```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
@@ -20,11 +22,33 @@ allowVolumeExpansion: true
 reclaimPolicy: Delete
 ```
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+```yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: yc-network-ssd
+provisioner: disk-csi-driver.mks.ycloud.io
+volumeBindingMode: WaitForFirstConsumer
+parameters:
+  type: network-hdd
+  csi.storage.k8s.io/fstype: ext4
+allowVolumeExpansion: true
+reclaimPolicy: Delete
+```
+
+{% endif %}
+
 ## Create a PersistentVolumeClaim object {#create-pvc}
 
 1. Save the following [PersistentVolumeClaim creation specification](dynamic-create-pv.md) to a YAML file named `pvc-expansion.yaml`.
 
    For more on specifications for creating `PersistentVolumeClaim` objects, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+
+   {% if product == "yandex-cloud" %}
 
    ```yaml
    apiVersion: v1
@@ -39,6 +63,26 @@ reclaimPolicy: Delete
        requests:
          storage: 1Gi
    ```
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```yaml
+   apiVersion: v1
+   kind: PersistentVolumeClaim
+   metadata:
+     name: pvc-expansion
+   spec:
+     accessModes:
+       - ReadWriteOnce
+     storageClassName: yc-network-ssd
+     resources:
+       requests:
+         storage: 1Gi
+   ```
+
+   {% endif %}
 
 1. Create a `PersistentVolumeClaim`:
 
@@ -75,7 +119,7 @@ reclaimPolicy: Delete
      volumes:
      - name: persistent-storage
        persistentVolumeClaim:
-         claimName:  pvc-expansion
+         claimName: pvc-expansion
    ```
 
 1. Create a pod:

@@ -5,7 +5,7 @@
 ## HTTP-запрос {#http_request}
 
 ```
-POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
+POST https://tts.{{ api-host }}/speech/v1/tts:synthesize
 ```
 
 ## Параметры в теле запроса {#body_params}
@@ -21,7 +21,7 @@ lang | **string**<br>Язык.<br/>Допустимые значения: `ru-RU
 voice | **string**<br>Желаемый голос для синтеза речи из [списка](voices.md). Значение параметра по умолчанию: `oksana`.<br/>Подробнее о выборе голоса читайте в разделе [{#T}](./index.md#voices).
 emotion | **string**<br>Амплуа или эмоциональная окраска голоса. Поддерживается только при выборе русского языка (`ru-RU`). Допустимые комбинации голоса и эмоциональной окраски см. в разделе [{#T}](voices.md).
 speed | **string**<br>Скорость (темп) синтезированной речи.<br/>Скорость речи задается дробным числом в диапазоне от `0.1` до `3.0`. Где:<ul><li>`3.0` — самый быстрый темп;</li><li>`1.0` (по умолчанию) — средняя скорость человеческой речи;</li><li>`0.1` — самый медленный темп.</li></ul>
-format | **string**<br>Формат синтезируемого аудио.<br/>Допустимые значения:<ul><li>`lpcm` — аудиофайл синтезируется в формате [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) без WAV-заголовка. Характеристики аудио:<ul><li>Дискретизация — 8, 16 или 48 кГц в зависимости от значения параметра `sampleRateHertz`.</li><li>Разрядность квантования — 16 бит.</li><li>Порядок байтов — обратный (little-endian).</li><li>Аудиоданные хранятся как знаковые числа (signed integer).</li></ul></li><li>`oggopus` (по умолчанию) — данные в аудиофайле кодируются с помощью аудиокодека OPUS и упаковываются в контейнер OGG ([OggOpus](https://wiki.xiph.org/OggOpus)).</li> <li>`mp3` — доступен только для премиум-голосов.</li></ul>
+format | **string**<br>Формат синтезируемого аудио.<br/>Допустимые значения:<ul><li>`lpcm` — аудиофайл синтезируется в формате [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) без WAV-заголовка. Характеристики аудио:<ul><li>Дискретизация — 8, 16 или 48 кГц в зависимости от значения параметра `sampleRateHertz`.</li><li>Разрядность квантования — 16 бит.</li><li>Порядок байтов — обратный (little-endian).</li><li>Аудиоданные хранятся как знаковые числа (signed integer).</li></ul></li><li>`oggopus` (по умолчанию) — данные в аудиофайле кодируются с помощью аудиокодека OPUS и упаковываются в контейнер OGG ([OggOpus](https://wiki.xiph.org/OggOpus)).</li> <li>`mp3` — данные в аудиофайле кодируются с помощью аудиокодека MPEG-1/2/2.5 Layer III и упаковываются в контейнер [MP3]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/MP3){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/MP3){% endif %}.</li></ul>
 sampleRateHertz | **string**<br>Частота дискретизации синтезируемого аудио.<br/>Применяется, если значение `format` равно `lpcm`. Допустимые значения:<ul><li>`48000` (по умолчанию) — частота дискретизации 48 кГц;</li><li>`16000` — частота дискретизации 16 кГц;</li><li>`8000` — частота дискретизации 8 кГц.</li></ul>
 folderId | **string**<br><p>[Идентификатор каталога](../../resource-manager/operations/folder/get-id.md), к которому у вас есть доступ. Требуется для авторизации с пользовательским аккаунтом (см. ресурс [{#T}](../api-ref/authentication.md)). Не используйте это поле, если вы делаете запрос от имени сервисного аккаунта.</p> <p>Максимальная длина строки в символах — 50.</p>
 
@@ -60,7 +60,7 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
      -H "Authorization: Bearer ${IAM_TOKEN}" \
      --data-urlencode "text=${TEXT}" \
      -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}" \
-    "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
+    "https://tts.{{ api-host }}/speech/v1/tts:synthesize" > speech.ogg
   ```
 
 - C#
@@ -96,7 +96,7 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
           { "folderId", folderId }
         };
         var content = new FormUrlEncodedContent(values);
-        var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
+        var response = await client.PostAsync("https://tts.{{ api-host }}/speech/v1/tts:synthesize", content);
         var responseBytes = await response.Content.ReadAsByteArrayAsync();
         File.WriteAllBytes("speech.ogg", responseBytes);
       }
@@ -114,7 +114,7 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
 
 
       def synthesize(folder_id, iam_token, text):
-          url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
+          url = 'https://tts.{{ api-host }}/speech/v1/tts:synthesize'
           headers = {
               'Authorization': 'Bearer ' + iam_token,
           }
@@ -163,7 +163,7 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
   $token = '<IAM-токен>'; # Укажите IAM-токен.
   $folderId = "<идентификатор каталога>"; # Укажите идентификатор каталога.
   
-  $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
+  $url = "https://tts.{{ api-host }}/speech/v1/tts:synthesize";
   $headers = ['Authorization: Bearer ' . $token];
   $post = array(
       'text' => "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!",
@@ -226,7 +226,7 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
         -o speech.raw \
         --data-urlencode "text=${TEXT}" \
         -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000" \
-        https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
+        https://tts.{{ api-host }}/speech/v1/tts:synthesize
       ```
 
     - C#
@@ -264,7 +264,7 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
               { "sampleRateHertz", "48000" }
             };
             var content = new FormUrlEncodedContent(values);
-            var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
+            var response = await client.PostAsync("https://tts.{{ api-host }}/speech/v1/tts:synthesize", content);
             var responseBytes = await response.Content.ReadAsByteArrayAsync();
             File.WriteAllBytes("speech.raw", responseBytes);
           }
@@ -282,7 +282,7 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
 
 
           def synthesize(folder_id, iam_token, text):
-              url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
+              url = 'https://tts.{{ api-host }}/speech/v1/tts:synthesize'
               headers = {
                   'Authorization': 'Bearer ' + iam_token,
               }
@@ -333,7 +333,7 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
       $token = '<IAM-токен>'; # Укажите IAM-токен.
       $folderId = "<идентификатор каталога>"; # Укажите идентификатор каталога.
       
-      $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
+      $url = "https://tts.{{ api-host }}/speech/v1/tts:synthesize";
       $headers = ['Authorization: Bearer ' . $token];
       $post = array(
           'text' => "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!",
@@ -373,7 +373,7 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
 
     {% endlist %}
 
-1. Cконвертируйте полученный файл в формат WAV с помощью утилиты [SoX](http://sox.sourceforge.net/).
+1. Сконвертируйте полученный файл в формат WAV с помощью утилиты [SoX](http://sox.sourceforge.net/).
 
     ```bash
     sox -r 48000 -b 16 -e signed-integer -c 1 speech.raw speech.wav
@@ -402,7 +402,7 @@ folderId | **string**<br><p>[Идентификатор каталога](../../
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           --data-urlencode "ssml=`cat text.xml`" \
           -d "lang=ru-RU&folderId=${FOLDER_ID}" \
-          "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
+          "https://tts.{{ api-host }}/speech/v1/tts:synthesize" > speech.ogg
         ```
 
 {% endlist %}

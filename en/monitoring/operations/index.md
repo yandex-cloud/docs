@@ -1,7 +1,6 @@
 # Step-by-step instructions for {{ monitoring-full-name }}
 
 ## Working with metrics {#working-with-metrics}
-
 - [{#T}](unified-agent/linux_metrics.md)
 - [{#T}](unified-agent/pull_prometheus.md)
 - [{#T}](unified-agent/haproxy.md)

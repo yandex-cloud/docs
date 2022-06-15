@@ -129,5 +129,5 @@
 
     The minimum value is `14`. Defaults to `1073741824` (1 GB).
 
-    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#topicconfigs_segment.bytes).
+    For more information, see [{#T}](../../../managed-kafka/concepts/storage.md#maximum-log-segment-size) and the [{{ KF }} documentation](https://kafka.apache.org/documentation/#topicconfigs_segment.bytes).
 

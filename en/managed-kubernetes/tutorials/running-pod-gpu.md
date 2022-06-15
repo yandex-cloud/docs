@@ -27,40 +27,12 @@ To run workloads with GPUs on {{ k8s }} cluster pods:
            --name k8s-gpu-cluster \
            --service-account-name k8s \
            --node-service-account-name docker \
-           --zone ru-central1-a \     
+           --zone {{ region-id }}-a \     
            --network-name k8s-gpu
        done (6m9s)
        id: catsk2s5f0fmb5h0pd94
        folder_id: b1g12ga82mev0cljderg
-       created_at: "2020-08-17T11:41:28Z"
-       name: k8s-gpu-cluster
-       status: RUNNING
-       health: HEALTHY
-       network_id: enpph0rfondivd3jflu4
-       master:
-        zonal_master:
-          zone_id: ru-central1-a
-          internal_v4_address: 10.0.0.32
-        version: "1.16"
-        endpoints:
-          internal_v4_endpoint: https://10.0.0.32
-        master_auth:
-          cluster_ca_certificate: |
-            -----BEGIN CERTIFICATE-----
-            MIICyDCCAbCgAwIBAgIBADANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwprdWJl
-            ...
-            piOjXzqDCLzCkfFuNimHejsSvVFN4N1bYYBCBMkhaYDzV5Ypfy/Jy0aHJ9U=
-            -----END CERTIFICATE-----
-        version_info:
-          current_version: "1.16"
-        maintenance_policy:
-          auto_upgrade: true
-          maintenance_window:
-            anytime: {}
-       ip_allocation_policy:
-        cluster_ipv4_cidr_block: 10.112.0.0/16
-        node_ipv4_cidr_mask_size: "24
-        service_ipv4_cidr_block: 10.96.0.0/16
+       ...
        service_account_id: ajedclfluactb5868n99
        node_service_account_id: ajeo8f063dmnicot7t7j
        release_channel: REGULAR
@@ -114,8 +86,14 @@ To run workloads with GPUs on {{ k8s }} cluster pods:
          - In the **Public IP** field, choose a method for assigning an IP address:
              - **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
              - **No address**: Don't assign a public IP address.
-         - Specify how nodes should be distributed across availability zones and networks.
+         - Specify how nodes should be distributed across {% if product == "yandex-cloud" %}availability zones and {% endif %}networks.
+
+         {% if product == "yandex-cloud" %}
+
          - (optional) Click **Add location** and specify an additional availability zone and network to create nodes in different zones.
+
+         {% endif %}
+
      1. Under **Access**, specify the information required to access the node:
          - Enter the username in the **Login** field.
          - In the **SSH key** field, paste the contents of the [public key](../operations/node-connect-ssh.md#creating-ssh-keys) file.
@@ -141,7 +119,7 @@ To run workloads with GPUs on {{ k8s }} cluster pods:
       --cluster-name k8s-gpu-cluster \
       --gpus 1 \  
       --public-ip \
-      --location zone=ru-central1-a \  
+      --location zone={{ region-id }}-a \  
       --fixed-size 1
      done (3m53s)
      id: cat3rmrrna8p93kafdce
@@ -168,7 +146,7 @@ To run workloads with GPUs on {{ k8s }} cluster pods:
          size: "1"
      allocation_policy:
        locations:
-       - zone_id: ru-central1-a
+       - zone_id: {{ region-id }}-a
          subnet_id: e9bl18jrs4f4smm67ma6
      deploy_policy:
        max_expansion: "3"
@@ -189,7 +167,7 @@ To run workloads with GPUs on {{ k8s }} cluster pods:
      - `--cluster-name`: Name of the {{ k8s }} cluster where the node group is created.
      - `--gpus`: Number of GPUs for the nodes.
      - `--public-ip`: The flag that is specified if the node group needs a public IP address.
-     - `--location`: Availability zone to host the nodes in. You can specify several options.
+     - `--location`: Availability zone to host the nodes in.{% if product == "yandex-cloud" %} You can specify several options.{% endif %}
      - `--fixed-size`: Number of nodes in the group.
 
    - API

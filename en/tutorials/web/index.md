@@ -9,4 +9,6 @@
 * [WordPress website on a MySQL database cluster](wordpress-mysql.md)
 * [Transferring a WordPress website from a different hosting provider to Yandex.Cloud](wordpress-transfer.md)
 * [1C-Bitrix website](bitrix-website.md)
+{% if product == "yandex-cloud" %}
 * [Enabling blue-green and canary deployment of web service versions](blue-green-canary-deployment.md)
+{% endif %}

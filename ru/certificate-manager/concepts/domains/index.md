@@ -2,7 +2,7 @@
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}
 
-Домен — уникальное доменное имя, которое можно использовать в [различных сервисах {{ yandex-cloud }}](services.md), которым требуется подтверждение прав пользователя на домен. 
+Домен — уникальное доменное имя, которое можно использовать в {% if product == "yandex-cloud" %}[сервисах {{ yandex-cloud }}](services.md){% endif %}{% if product == "cloud-il" %}сервисах {{ yandex-cloud }}{% endif %}, которым требуется подтверждение прав пользователя на домен. 
 
 ## Подтверждение прав на домен {#confirmation}
 
@@ -27,5 +27,7 @@
 
 #### См. также {#see-also}
 
+{% if product == "yandex-cloud" %}
 - [Сервисы, интегрированные с системой управления доменами](services.md)
+{% endif %}
 - [Проверка прав на домен](../challenges.md)

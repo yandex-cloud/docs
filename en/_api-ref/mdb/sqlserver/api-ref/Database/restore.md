@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method restore
-Creates a new SQL Server database in the specified cluster from a backup
+Creates a new SQL Server database in the specified cluster from a backup.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}/databases:
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the SQL Server cluster to restore a database in. To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request  The maximum string length in characters is 50.
+clusterId | Required. ID of the SQL Server cluster to restore a database in.  To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -32,10 +32,10 @@ clusterId | Required. Required. ID of the SQL Server cluster to restore a databa
  
 Field | Description
 --- | ---
-databaseName | **string**<br><p>Required. Name of the SQLServer database that is being restored.</p> 
-fromDatabase | **string**<br><p>Required. name of the database which backup will be used to restore the database</p> 
-backupId | **string**<br><p>Required. ID of a backup to be used</p> 
-time | **string** (date-time)<br><p>Required. Timestamp which is used for Point-in-Time recovery</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+databaseName | **string**<br><p>Required. Name of the SQL Server database that is being restored.</p> 
+fromDatabase | **string**<br><p>Required. Name of the database which backup is used to restore the database.</p> 
+backupId | **string**<br><p>Required. ID of a backup to be used.</p> 
+time | **string** (date-time)<br><p>Required. Timestamp which is used for Point-in-Time recovery.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

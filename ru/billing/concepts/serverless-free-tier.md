@@ -1,19 +1,31 @@
-#  Уровень нетарифицируемого использования (free tier) для сервисов экосистемы бессерверных вычислений
+#  Уровень нетарифицируемого использования (free tier) для сервисов {% if product == "yandex-cloud" %}экосистемы бессерверных вычислений{% endif %}{% if product == "cloud-il" %}{{ yandex-cloud }}{% endif %}
 
-На сервисы экосистемы бессерверных вычислений действуют специальные тарифы, в рамках которых определенный объем услуг не тарифицируется. Объем рассчитан так, чтобы у вас была возможность разработать и запустить небольшой сервис, сайт или приложение.
+{% if product == "cloud-il" %}
+
+{% note info %}
+
+На стадии [Preview](../../overview/concepts/launch-stages.md) сервисы {{ yandex-cloud }} не тарифицируются, поэтому уровень нетарифицируемого использования сервисов носит ознакомительный характер.
+
+{% endnote %}
+
+{% endif %}
+
+На {% if product == "cloud-il" %}некоторые сервисы {{ yandex-cloud }}{% endif %}{% if product == "yandex-cloud" %}сервисы экосистемы бессерверных вычислений{% endif %} действуют специальные тарифы, в рамках которых определенный объем услуг не тарифицируется. Объем рассчитан так, чтобы у вас была возможность разработать и запустить небольшой сервис, сайт или приложение.
 
 {% if audience != "internal" %}
 
 Free tier распространяется на сервисы:
-* [{{ api-gw-full-name }}](#api-gw)
-* [{{ sf-full-name }}](#sf)
-* [{{ ydb-full-name }}](#ydb)
+{% if product == "yandex-cloud" %}* [{{ api-gw-full-name }}](#api-gw){% endif %}
+{% if product == "yandex-cloud" %}* [{{ sf-full-name }}](#sf){% endif %}
+{% if product == "yandex-cloud" %}* [{{ ydb-full-name }}](#ydb){% endif %}
 * [{{ objstorage-full-name }}](#objstorage)
 * [{{ message-queue-full-name }}](#message-queue)
-* [{{ iot-full-name }}](#iot)
+{% if product == "yandex-cloud" %}* [{{ iot-full-name }}](#iot){% endif %}
 * [{{ vpc-full-name }}](#vpc)
-* [{{ yds-full-name }}](#yds)
-* [{{ serverless-containers-full-name }}](#serverless-containers)
+{% if product == "yandex-cloud" %}* [{{ yds-full-name }}](#yds){% endif %}
+{% if product == "yandex-cloud" %}* [{{ serverless-containers-full-name }}](#serverless-containers){% endif %}
+
+{% if product == "yandex-cloud" %}
 
 ## {{ api-gw-full-name }} {#api-gw}
 
@@ -23,6 +35,10 @@ Free tier распространяется на сервисы:
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 ## {{ sf-full-name }} {#sf}
 
 {% include [not-charged-functions.md](../../_includes/pricing/price-formula/not-charged-functions.md) %}
@@ -31,6 +47,10 @@ Free tier распространяется на сервисы:
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 ## Бессерверный режим {{ ydb-full-name }} {#ydb}
 
 {% include [not-charged-database.md](../../_includes/pricing/price-formula/not-charged-database.md) %}
@@ -38,6 +58,8 @@ Free tier распространяется на сервисы:
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../ydb/pricing/serverless.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+
+{% endif %}
 
 ## {{ objstorage-full-name }} {#objstorage}
 
@@ -55,6 +77,8 @@ Free tier распространяется на сервисы:
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ## {{ iot-full-name }} {#iot}
 
 {% include [not-charged-iot.md](../../_includes/pricing/price-formula/not-charged-iot.md) %}
@@ -62,6 +86,8 @@ Free tier распространяется на сервисы:
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../iot-core/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+
+{% endif %}
 
 ## {{ vpc-full-name }} {#vpc}
 
@@ -71,6 +97,8 @@ Free tier распространяется на сервисы:
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ## {{ yds-full-name }} {#yds}
 
 {% include [not-charged-streams.md](../../_includes/pricing/price-formula/not-charged-streams.md) %}
@@ -79,6 +107,10 @@ Free tier распространяется на сервисы:
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 ## {{ serverless-containers-full-name }} {#serverless-containers}
 
 {% include [not-charged-streams.md](../../_includes/pricing/price-formula/not-charged-serverless-containers.md) %}
@@ -86,5 +118,7 @@ Free tier распространяется на сервисы:
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../serverless-containers/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+
+{% endif %}
 
 {% endif %}

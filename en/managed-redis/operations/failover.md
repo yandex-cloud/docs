@@ -1,43 +1,59 @@
-# Changing the master
+# Switching the master
 
-If a cluster consists of multiple hosts, you can make a replica of the master if necessary. It takes about two minutes on average to switch, and the cluster is available during that time.
+In a failover {{ mrd-name }} cluster with multiple hosts, you can switch the master role from the current master host to the replica host. After this operation, the current master host becomes the replica host of the new master.
 
-{% note info %}
+It takes several minutes on average to switch, and the cluster is available during that time.
 
-You can only select a different master in an unsharded cluster.
-
-{% endnote %}
+A [sharded cluster](../concepts/sharding.md) contains three or more master hosts: one per [shard](../concepts/sharding.md#redis-cluster-structure). Switching the master for a sharded cluster is done for each shard one by one.
 
 {% list tabs %}
 
 - Management console
 
-    1. Go to the folder page and select **{{ mrd-name }}**.
+   To switch the master in a non-sharded cluster:
 
-    1. Select the cluster and click **Switch master** on the top panel.
+   1. In the [management console]({{ link-console-main }}), go to the folder containing a non-sharded cluster.
+   1. Select **{{ mrd-name }}**.
+   1. Click on the name of the cluster you need and select the **Hosts** tab.
+   1. In the line of the host with the `MASTER` role, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Switch master**.
+   1. In the resulting window, select **I want to switch the master** and click **Switch**.
 
-        You can also switch masters using the **Switch master** button on the **Hosts** tab.
+   To switch the master in a sharded cluster:
 
-    1. In the resulting window, select **I want to switch the master** and click **Switch**.
+   1. In the [management console]({{ link-console-main }}), go to the folder containing a sharded cluster.
+   1. Select **{{ mrd-name }}**.
+   1. Click on the name of the cluster you need and select the **Hosts** tab.
+   1. In the line of the host with the `MASTER` role, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Switch master**.
+   1. In the window that opens, click **Switch**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To switch the master, run the command:
+   To switch the master in a non-sharded cluster, run the command:
 
-    ```bash
-    {{ yc-mdb-rd }} cluster start-failover \
-       --name <cluster name>
-    ```
+   ```bash
+   {{ yc-mdb-rd }} cluster start-failover \
+     --name <cluster name>
+   ```
 
-    You can get the cluster name using a [folder cluster list](cluster-list.md).
+   To switch the master in a sharded cluster, run the command:
+
+   ```bash
+   {{ yc-mdb-rd }} cluster start-failover \
+     --name <cluster name> \
+     --hostnames <name of current master host>
+   ```
+
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md) and the name of the master host for the desired shard with a [list of hosts in the cluster](hosts.md#list).
 
 - API
 
-    You can switch masters in a cluster using the [startFailover](../api-ref/Cluster/startFailover.md) method.
+   Use the API [startFailover](../api-ref/Cluster/startFailover.md) method and pass the following in the request:
+
+   * In the `clusterId` parameter, the ID of the cluster where you want to switch the master. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md).
+   * For a sharded cluster only: the name of the current master host of the desired shard in the `hostNames` parameter. To find out the name, request a [list of hosts in the cluster](hosts.md#list).
 
 {% endlist %}
-

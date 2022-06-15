@@ -22,7 +22,7 @@
   1. Download the configuration file for `clickhouse-client`:
 
      ```bash
-     mkdir -p ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
+     mkdir -p ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
      ```
 
   **Connecting via SSL:**
@@ -55,7 +55,7 @@
   **Connecting via SSL:**
 
   ```bash
-  curl --cacert /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
+  curl --cacert {{ crt-local-dir }}{{ crt-local-file }} \
        -H "X-ClickHouse-User: <DB username>" \
        -H "X-ClickHouse-Key: <DB user password>" \
        'https://<FQDN of any {{ CH }} host>:8443/?database=<DB name>&query=SELECT%20version()'
@@ -95,7 +95,7 @@
           'X-ClickHouse-Key': '<DB user password>',
       }
   
-  cacert = '/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt'
+  cacert = '{{ crt-local-dir }}{{ crt-local-file }}'
   
   rs = requests.get(url, headers=auth, verify=cacert)
   rs.raise_for_status()
@@ -171,7 +171,7 @@
     ];
   
     $ssl = [
-        'cafile' => '/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt',
+        'cafile' => '{{ crt-local-dir }}{{ crt-local-file }}',
         'verify_peer' => true,
     ];
   
@@ -248,84 +248,85 @@
      {% cut "pom.xml" %}
 
      ```xml
-     <?xml version="1.0" encoding="UTF-8"?>
-     <project
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-         <modelVersion>4.0.0</modelVersion>
-         <groupId>com.example</groupId>
-         <artifactId>app</artifactId>
-         <packaging>jar</packaging>
-         <version>0.1.0</version>
-         <properties>
-     	     <maven.compiler.source>1.8</maven.compiler.source>
-     	     <maven.compiler.target>1.8</maven.compiler.target>
-         </properties>
-         <dependencies>
-     	     <dependency>
-     		     <groupId>ru.yandex.clickhouse</groupId>
-                 <artifactId>clickhouse-jdbc</artifactId>
-                 <version>0.2.4</version>
-     	     </dependency>
-             <dependency>
-               <groupId>org.slf4j</groupId>
-               <artifactId>slf4j-simple</artifactId>
-               <version>1.7.30</version>
-             </dependency>
-     	</dependencies>
-     	<build>
-         	<finalName>${project.artifactId}-${project.version}</finalName>
-         	<sourceDirectory>src</sourceDirectory>
-     		<resources>
-         		<resource>
-     		     	<directory>src</directory>
-         		</resource>
-         	</resources>
-        	<plugins>
-        		<plugin>
-     	    		<groupId>org.apache.maven.plugins</groupId>
-     	    		<artifactId>maven-assembly-plugin</artifactId>
-     	    		<executions>
-     	    			<execution>
-     	    				<goals>
-     		    				<goal>attached</goal>
-     	    				</goals>
-     		    			<phase>package</phase>
-     		    			<configuration>
-     			    			<descriptorRefs>
-     				    			<descriptorRef>jar-with-dependencies</descriptorRef>
-     			    			</descriptorRefs>
-     				    		<archive>
-     				    			<manifest>
-     				    				<mainClass>com.example.App</mainClass>
-     				    			</manifest>
-     		    				</archive>
-     		    			</configuration>
-     		    		</execution>
-     	    		</executions>
-        		</plugin>
-     			<plugin>
-         			<groupId>org.apache.maven.plugins</groupId>
-     	    		<artifactId>maven-jar-plugin</artifactId>
-         			<version>3.1.0</version>
-        			<configuration>
-     	    			<archive>
-     	    				<manifest>
-     	     					<mainClass>com.example.App</mainClass>
-     	 	     			</manifest>
-     		    		</archive>
-        			</configuration>
-        		</plugin>
-     		</plugins>
-     	</build>
-     </project>     
+     <?xml version="1.0" encoding="utf-8"?>
+     <project xmlns="http://maven.apache.org/POM/4.0.0"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+       <modelVersion>4.0.0</modelVersion>
+       <groupId>com.example</groupId>
+       <artifactId>app</artifactId>
+       <packaging>jar</packaging>
+       <version>0.1.0</version>
+       <properties>
+         <maven.compiler.source>1.8</maven.compiler.source>
+         <maven.compiler.target>1.8</maven.compiler.target>
+       </properties>
+       <dependencies>
+         <dependency>
+           <groupId>com.clickhouse</groupId>
+           <artifactId>clickhouse-jdbc</artifactId>
+           <version>0.3.2</version>
+         </dependency>
+         <dependency>
+           <groupId>org.slf4j</groupId>
+           <artifactId>slf4j-simple</artifactId>
+           <version>1.7.30</version>
+         </dependency>
+       </dependencies>
+       <build>
+         <finalName>${project.artifactId}-${project.version}</finalName>
+         <sourceDirectory>src</sourceDirectory>
+         <resources>
+           <resource>
+             <directory>src</directory>
+           </resource>
+         </resources>
+         <plugins>
+           <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-assembly-plugin</artifactId>
+             <executions>
+               <execution>
+                 <goals>
+                   <goal>attached</goal>
+                 </goals>
+                 <phase>package</phase>
+                 <configuration>
+                   <descriptorRefs>
+                     <descriptorRef>
+                     jar-with-dependencies</descriptorRef>
+                   </descriptorRefs>
+                   <archive>
+                     <manifest>
+                       <mainClass>com.example.App</mainClass>
+                     </manifest>
+                   </archive>
+                 </configuration>
+               </execution>
+             </executions>
+           </plugin>
+           <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-jar-plugin</artifactId>
+             <version>3.1.0</version>
+             <configuration>
+               <archive>
+                 <manifest>
+                   <mainClass>com.example.App</mainClass>
+                 </manifest>
+               </archive>
+             </configuration>
+           </plugin>
+         </plugins>
+       </build>
+     </project>
      ```
 
      {% endcut %}
 
      Up-to-date versions of dependencies for Maven:
-     - [clickhouse-jdbc](https://mvnrepository.com/artifact/ru.yandex.clickhouse/clickhouse-jdbc)
+     - [clickhouse-jdbc](https://mvnrepository.com/artifact/com.clickhouse/clickhouse-jdbc)
      - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
 
   **Code example for connecting via SSL:**
@@ -344,12 +345,12 @@
       String DB_USER    = "<DB username>";
       String DB_PASS    = "<DB user password>";
   
-      String CACERT     = "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt";
+      String CACERT     = "{{ crt-local-dir }}{{ crt-local-file }}";
   
       String DB_URL = String.format("jdbc:clickhouse://%s:8443/%s?ssl=1&sslmode=strict&sslrootcert=%s", DB_HOST, DB_NAME, CACERT);
   
       try {
-        Class.forName("ru.yandex.clickhouse.ClickHouseDriver");
+        Class.forName("com.clickhouse.jdbc.ClickHouseDriver");
   
         Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
         ResultSet rs = conn.createStatement().executeQuery("SELECT version()");
@@ -381,7 +382,7 @@
       String DB_URL = String.format("jdbc:clickhouse://%s:8123/%s", DB_HOST, DB_NAME);
   
       try {
-        Class.forName("ru.yandex.clickhouse.ClickHouseDriver");
+        Class.forName("com.clickhouse.jdbc.ClickHouseDriver");
   
         Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
         ResultSet rs = conn.createStatement().executeQuery("SELECT version()");
@@ -425,7 +426,7 @@
   const DB_USER = "<DB username>";
   const DB_PASS = "<DB user password>";
   
-  const CACERT = "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt";
+  const CACERT = "{{ crt-local-dir }}{{ crt-local-file }}";
   
   const options = {
       'method': 'GET',
@@ -527,7 +528,7 @@
       const DB_USER = "<DB username>"
       const DB_PASS = "<DB user password>"
   
-      const CACERT = "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt"
+      const CACERT = "{{ crt-local-dir }}{{ crt-local-file }}"
   
       caCert, err := ioutil.ReadFile(CACERT)
       if err != nil {
@@ -650,7 +651,7 @@
   req.add_field("X-ClickHouse-Key", DB_PASS)
   
   conn = Net::HTTP.new(uri.host, uri.port)
-  conn.ca_file = "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt"
+  conn.ca_file = "{{ crt-local-dir }}{{ crt-local-file }}"
   conn.use_ssl = true
   conn.verify_mode = OpenSSL::SSL::VERIFY_PEER
   
@@ -758,7 +759,7 @@
   Port = 8443
   Proto = https
   SSLMode = allow
-  CertificateFile = /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+  CertificateFile = {{ crt-local-dir }}{{ crt-local-file }}
   ```
 
   **Example of settings in the `odbc.ini` file for connecting without SSL:**

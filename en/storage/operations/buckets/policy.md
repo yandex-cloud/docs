@@ -66,7 +66,7 @@ To apply or edit a bucket access policy:
    1. Run the command:
 
       ```bash
-      aws --endpoint https://storage.yandexcloud.net s3api put-bucket-policy \
+      aws --endpoint https://{{ s3-storage-host }} s3api put-bucket-policy \
         --bucket <bucket name> \
         --policy file://policy.json
       ```
@@ -116,7 +116,7 @@ To apply or edit a bucket access policy:
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
 
    1. Make sure that the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
@@ -163,7 +163,7 @@ To view the access policy applied to a bucket:
    Run the command:
 
    ```bash
-   aws --endpoint https://storage.yandexcloud.net s3api get-bucket-policy \
+   aws --endpoint https://{{ s3-storage-host }} s3api get-bucket-policy \
      --bucket <bucket name> \
      --output text
    ```
@@ -204,7 +204,7 @@ To delete a bucket policy:
    Run the command:
 
    ```bash
-   aws --endpoint https://storage.yandexcloud.net s3api delete-bucket-policy \
+   aws --endpoint https://{{ s3-storage-host }} s3api delete-bucket-policy \
      --bucket <bucket name>
    ```
 

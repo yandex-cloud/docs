@@ -12,7 +12,7 @@ You can create a cluster without specifying any subnets for the hosts, if the av
 
 {% else %}
 
-All clusters are created inside our network, which is [already accessible](../../mdb/access.md#network-access) from most networks and most employees. If you don't have access, request access to the macro `_PGAASINTERNALNETS_` in [Puncher](https://puncher.yandex-team.ru/). To connect to {{ MY }}, specify port 3306 in your request.
+All of the clusters are created inside our network, which is [accessible](../../mdb/access.md#network-access) from most networks and by most employees. If you don't have access, request access to the macro `_PGAASINTERNALNETS_` in [Puncher](https://puncher.yandex-team.ru/). To connect to {{ MY }}, specify port 3306 in your request.
 
 {% endif %}
 
@@ -34,7 +34,7 @@ When deleting a host with a public FQDN, the assigned IP address is revoked.
 
 ## Connecting to cluster hosts {#cluster-connect}
 
-[You can connect to {{ mmy-short-name }} cluster hosts](../operations/connect.md):
+You can [connect to {{ mmy-short-name }} cluster hosts](../operations/connect.md):
 
 {% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
 

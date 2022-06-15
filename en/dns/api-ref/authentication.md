@@ -1,6 +1,6 @@
 ---
-title: "Authentication in the Yandex Cloud DNS API"
-description: "To perform operations via the API in the DNS zone management service - Yandex Cloud DNS, you need to get an IAM token for a service, federated or Yandex account."
+title: "Authentication in the {{ dns-full-name }} API"
+description: "To perform operations via the API in the DNS zone management service - {{ dns-full-name }}, you need to get an IAM token for your account."
 ---
-{% include [auth](../../_includes/authentication.md) %}
 
+{% include [auth](../../_includes/authentication.md) %}

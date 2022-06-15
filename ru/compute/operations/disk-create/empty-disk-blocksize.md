@@ -1,4 +1,4 @@
-# Создать пустой диcк с блоком большого размера
+# Создать пустой диск с блоком большого размера
 
 {% include [default-catalogue](../../../_includes/compute/disk-blocksize.md) %}
 
@@ -46,7 +46,7 @@
            name: big-disk
            description: 8k blocksize disk
            type_id: network-hdd
-           zone_id: ru-central1-a
+           zone_id: {{ region-id }}-a
            size: "42949672960"
            block_size: "8192"
            status: READY

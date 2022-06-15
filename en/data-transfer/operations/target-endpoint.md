@@ -6,7 +6,7 @@
 
 {% list tabs %}
 
-* Management console
+- Management console
 
     1. Go to the folder page and select **{{ data-transfer-name}}**.
 
@@ -36,7 +36,7 @@
 
 {% list tabs %}
 
-* Management console
+- Management console
 
     1. Go to the folder page and select **{{ data-transfer-name }}**.
 
@@ -97,9 +97,27 @@
     {% include [Required MongoDB settings](../../_includes/data-transfer/necessary-settings/mongodb.md) %}
 
 * Additional settings:
+
+    {% if audience != "internal" %}
+
     * {% include [Field Subnet ID](../../_includes/data-transfer/fields/subnet-id.md) %}
+{% endif %}
+
     * **CA Certificate**: To encrypt transferred data, upload the [PEM certificate](../../managed-mongodb/operations/connect.md#get-ssl-cert) file or add its contents as text.
+
     * {% include [Field Cleanup policy](../../_includes/data-transfer/fields/cleanup-policy-disabled-drop-truncate.md) %}
+
+        {% note warning %}
+
+        By default, {{ data-transfer-name }} transfers collections without sharding. If you are transferring data to a sharded target cluster and want your collections to be sharded:
+
+        1. [Prepare the target cluster](../../data-transfer/operations/prepare.md#target-mg) to shard collections.
+
+        1. Select `DISABLED` or `TRUNCATE` as your cleanup policy.
+
+            Selecting the `DROP` policy will result in the service deleting all the data from the target database, including sharded collections, and replacing them with new unsharded ones when a transfer is activated.
+
+        {% endnote %}
 
 ### {{ MY }} {#settings-mysql}
 
@@ -125,9 +143,19 @@
 
 ### {{ objstorage-name }} {#settings-storage}
 
+{% if audience != "internal" %}
+
 * **Bucket**: The name of the [bucket](../../storage/concepts/bucket.md) that data from the source will be loaded to.
 
 * **SA Account**: A [service account](../../iam/concepts/users/service-accounts.md) with the `storage.uploader` role that you will access [{{ yds-full-name }}](../../data-streams/) as.
+
+{% else %}
+
+* **Bucket**: The name of the bucket to upload source data to.
+
+* **SA Account**: The service account with the `storage.uploader` role that will be used to access [{{ yds-full-name }}](../../data-streams).
+
+{% endif %}
 
 * **Output format**: The format that data will be written to the bucket in: `JSON` or `CSV`.
 
@@ -147,9 +175,13 @@
 
 * Additional settings:
 
+    {% if audience != "internal" %}
+
     * **Network interface for the endpoint**: Select or [create](../../vpc/operations/subnet-create.md) a subnet in the desired [availability zone](../../overview/concepts/geo-scope.md).
 
         If the source and target are geographically close, connecting over the selected subnet speeds up the transfer.
+
+    {% endif %}
 
     * {% include [Field Cleanup policy](../../_includes/data-transfer/fields/cleanup-policy-disabled-drop-truncate.md) %}
 
@@ -157,7 +189,7 @@
 
         {% note warning %}
 
-        This feature is at the [Preview stage](../../overview/concepts/launch-stages.md) stage.
+        This feature is at the {% if audience != "internal" %}[Preview](../../overview/concepts/launch-stages.md){% else %}Preview{% endif %} stage.
 
         {% endnote %}
 
@@ -185,13 +217,17 @@ Additional settings:
 
     * **Split by column**: Split (_partition_) a table by the column's values. The column must be of the <q>time</q> type.
 
-        For more information about partitioning tables, see the [{{ ydb-full-name }}](../../ydb/concepts/datamodel.md#partitioning) documentation
+        {% if audience != "internal" %}
+
+        For more information about partitioning tables, see the [{{ ydb-full-name }}](../../ydb/concepts/datamodel.md#partitioning) documentation.
+
+        {% endif %}
 
     If this setting is used, the specified number of tables for data for different time intervals is created in the target database. The name of each table is selected automatically by the date and time of the start of the interval. Depending on the values in the specified column of the source table, the original rows are distributed across the corresponding tables in the target database.
 
 * **Override table names**: Fill in if you need to rename tables in the source database when transferring to the target database.
 
-* **Subfolder to place tables**: Specify a [subfolder](../../ydb/concepts/databases.md#directory) to place tables.
+* **Subfolder to host tables**: Specify a {% if audience != "internal" %}[subfolder](../../ydb/concepts/databases.md#directory){% else %}subfolder{% endif %} to host your tables.
 
     Final table placement path: `<Path in YDB>/<Subfolder>/<Table>`.
 

@@ -1,6 +1,9 @@
 # Изменение версии {{ CH }}
 
-Вы можете изменить версию {{ CH }}, которую использует кластер, на любую из [поддерживаемых {{ mch-name }} версий](../concepts/update-policy.md#versioning-policy).
+Вы можете изменить версию {{ CH }}, которую использует кластер, на любую из [поддерживаемых {{ mch-name }} версий](../concepts/update-policy.md#versioning-policy), но при этом запрещен переход:
+
+* c версии 22.0 и выше на версию ниже 22.0;
+* на версию ниже {{ mch-ck-version }}, если кластер создан с поддержкой {{ CK }}.
 
 Об обновлениях в рамках одной версии и обслуживании хостов см. в разделе [{#T}](../concepts/maintenance.md).
 
@@ -63,7 +66,8 @@
     1. Получите список ваших кластеров {{ CH }}:
 
         ```bash
-        yc managed-clickhouse cluster list
+        {{ yc-mdb-ch }} cluster list
+
         +----------------------+---------------+---------------------+--------+---------+
         |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
         +----------------------+---------------+---------------------+--------+---------+
@@ -74,8 +78,7 @@
     1. Получите информацию о нужном кластере и проверьте версию {{ CH }} в вашем кластере, указанную в свойстве `config.version`:
 
         ```bash
-        yc managed-clickhouse cluster get c9q8p8j2gaih8iti42mh
-        
+        {{ yc-mdb-ch }} cluster get c9q8p8j2gaih8iti42mh
         id: c9q8p8j2gaih8iti42mh
         folder_id: b1gqs1teo2q2a4vnmi2t
         created_at: "2019-04-23T12:44:17.929853Z"
@@ -84,7 +87,7 @@
         monitoring:
         - name: Console
             description: Console charts
-            link: https://console.cloud.yandex.ru/folders/b1gqs1teo2q2a4vnmi2t/managed-clickhouse/cluster/c9q8p8j2gaih8iti42mh?section=monitoring
+            link: {{ link-console-main }}/folders/b1gqs1teo2q2a4vnmi2t/managed-clickhouse/cluster/c9q8p8j2gaih8iti42mh?section=monitoring
         config:
             version: "19.1"
             ...
@@ -93,9 +96,7 @@
     1. Запустите изменение версии {{ CH }}:
 
         ```bash
-        yc managed-clickhouse cluster update 
-          --id c9q8p8j2gaih8iti42mh
-          --version 19.4
+        {{ yc-mdb-ch }} cluster update --id c9q8p8j2gaih8iti42mh --version 19.4
         ```
 
     После того, как изменение версии запущено, кластер переходит в статус **UPDATING**. Дождитесь окончания операции и проверьте версию кластера.
@@ -123,7 +124,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

@@ -20,8 +20,8 @@
   Чтобы получить список групп шардов в кластере, выполните команду:
 
   ```
-  {{ yc-mdb-ch }} shard-groups list
-    --cluster-name=<имя кластера>
+  {{ yc-mdb-ch }} shard-groups list \
+     --cluster-name=<имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -53,9 +53,9 @@
   Чтобы получить детальную информацию о группе шардов в кластере, выполните команду:
 
   ```
-  {{ yc-mdb-ch }} shard-groups get
-    --cluster-name=<имя кластера>
-    --name=<имя группы шардов>
+  {{ yc-mdb-ch }} shard-groups get \
+     --cluster-name=<имя кластера> \
+     --name=<имя группы шардов>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -88,11 +88,11 @@
   Чтобы создать группу шардов в кластере, выполните команду:
 
   ```
-  {{ yc-mdb-ch }} shard-groups create
-    --cluster-name=<имя кластера>
-    --name=<имя группы шардов>
-    --description=<описание группы шардов>
-    --shards=<список имен шардов, которые нужно включить в группу>
+  {{ yc-mdb-ch }} shard-groups create \
+     --cluster-name=<имя кластера> \
+     --name=<имя группы шардов> \
+     --description=<описание группы шардов> \
+     --shards=<список имен шардов, которые нужно включить в группу>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -131,7 +131,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -162,11 +164,11 @@
   Чтобы изменить группу шардов в кластере, выполните команду:
 
   ```
-  {{ yc-mdb-ch }} shard-groups update
-    --cluster-name=<имя кластера>
-    --name=<имя группы шардов>
-    --description=<новое описание группы шардов>
-    --shards=<новый список имен шардов, которые нужно включить в группу>
+  {{ yc-mdb-ch }} shard-groups update \
+     --cluster-name=<имя кластера> \
+     --name=<имя группы шардов> \
+     --description=<новое описание группы шардов> \
+     --shards=<новый список имен шардов, которые нужно включить в группу>
   ```
 
   Эта команда заменяет существующий список шардов в группе новым, который был передан команде в параметре `--shards`. Перед выполнением команды убедитесь, что вы включили в новый список все необходимые шарды.
@@ -209,7 +211,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -245,9 +249,9 @@
   Чтобы удалить группу шардов в кластере, выполните команду:
 
   ```
-  {{ yc-mdb-ch }} shard-groups delete
-    --cluster-name=<имя кластера>
-    --name=<имя группы шардов>
+  {{ yc-mdb-ch }} shard-groups delete \
+     --cluster-name=<имя кластера> \
+     --name=<имя группы шардов>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -270,7 +274,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

@@ -61,6 +61,8 @@
      * `max_age_seconds`: Time in seconds during which the results of requests to an object are cached by the browser. Optional.
      * `server_side_encryption_configuration`: Bucket encryption settings on the server side. Optional.
 
+     {% if product == "yandex-cloud" %}
+
      ```hcl
      provider "yandex" {
        cloud_id  = "<cloud ID>"
@@ -86,7 +88,39 @@
      }
      ```
 
-     For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```hcl
+     provider "yandex" {
+       cloud_id  = "<cloud ID>"
+       folder_id = "<folder ID>"
+       zone      = "<availability zone>"
+       endpoint  = "{{ api-host }}:443"
+       token     = "<static key of the service account>"
+       }
+     
+     resource "yandex_storage_bucket" "b" {
+       bucket = "s3-website-test.hashicorp.com"
+       acl    = "public-read"
+     
+       access_key = "<key ID>"
+       secret_key = "<secret key>"
+
+       cors_rule {
+         allowed_headers = ["*"]
+         allowed_methods = ["PUT", "POST"]
+         allowed_origins = ["https://s3-website-test.hashicorp.com"]
+         expose_headers  = ["ETag"]
+         max_age_seconds = 3000
+       }
+     }
+     ```
+
+     {% endif %}
+
+     For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
 
   1. Make sure that the configuration files are correct.
 

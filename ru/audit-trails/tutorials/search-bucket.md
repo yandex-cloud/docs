@@ -12,22 +12,30 @@
    Пример команды для поиска событий по типу:
 
     ```bash
-    find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "yandex.cloud.audit.iam.CreateServiceAccount")'
+    find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "{{ yandex-dot-cloud }}.audit.iam.CreateServiceAccount")'
     ```
-
 
 1. Чтобы найти, кто удалил [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) в облаке, необходимо искать по полю `eventType` (_тип события_) по всем файлам за период с фильтром по идентификатору каталога:
 
    ```bash
-   find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "yandex.cloud.audit.resourcemanager.DeleteFolder" and .details.folder_id == "<идентификатор каталога>") | .authentication'
+   find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "{{ yandex-dot-cloud }}.audit.resourcemanager.DeleteFolder" and .details.folder_id == "<идентификатор каталога>") | .authentication'
    ```
 
 1. Чтобы найти, кто создал/остановил/перезапустил/удалил виртуальную машину, необходимо искать по полю `eventType` по всем файлам за период с фильтром по идентификатору ВМ:
+{% if product == "yandex-cloud" %}
 
    ```bash
    find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select((.event_type | test("yandex\\.cloud\\.audit\\.compute\\..*Instance")) and .details.instance_id == "<идентификатор ВМ>") | .authentication'
    ```
 
+{% endif %}
+{% if product == "cloud-il" %}
+
+   ```bash
+   find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select((.event_type | test("cloudil\\.audit\\.compute\\..*Instance")) and .details.instance_id == "<идентификатор ВМ>") | .authentication'
+   ```
+
+{% endif %}
 3. Чтобы найти, какие действия совершал пользователь за период времени, необходимо искать по идентификатору субъекта:
 
    ```bash

@@ -1,6 +1,6 @@
 ---
-title: Access management in Yandex Identity and Access Management (IAM)
-description: "Access management in the service of identification and access control — Yandex Identity and Access Management (IAM). The section describes which resources you can assign a role to, which roles act in the service, which roles are required for a particular action."
+title: Access management in  {{ iam-full-name }} ({{ iam-short-name }}
+description: "Access management in the service of identification and access control — {{ iam-full-name }} ({{ iam-short-name }}). The section describes which resources you can assign a role to, which roles act in the service, which roles are required for a particular action."
 ---
 
 # Access management in {{ iam-name }}
@@ -45,8 +45,8 @@ The table below lists the roles needed to perform a given action. You can always
 | Action | Methods | Required roles |
 | ----- | ----- | ----- |
 | **View data** |  |
-| [Get an IAM token](../operations/iam-token/create.md) | `create` | no roles needed, only authentication |
-| [View user data](../operations/users/get.md) | `get`, `getByLogin` | no roles needed, only authentication |
+| [Get an IAM token]{% if product == "yandex-cloud" %}(../operations/iam-token/create.md){% endif %}{% if product == "cloud-il" %}(../operations/iam-token/create-for-federation.md){% endif %} | `create` | no roles needed, only authentication |
+| [View user data](../operations/users/get.md) | `get`{% if product == "yandex-cloud" %}, `getByLogin`{% endif %} | no roles needed, only authentication |
 | [View service account data](../operations/sa/get-id.md) | `get`, `list`, `listOperations` | `iam.serviceAccounts.user` or `viewer` for the service account |
 | View information about any resource | `get`, `list` | `viewer` for this resource |
 | **Manage resources** |  |

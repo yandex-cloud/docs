@@ -51,7 +51,7 @@ sudo apt update && sudo apt install -y kafkacat
                  -X sasl.mechanisms=SCRAM-SHA-512 \
                  -X sasl.username="<consumer username>" \
                  -X sasl.password="<consumer password>" \
-                 -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:
+                 -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
         ```
 
        The command will continuously read new messages from the topic.
@@ -67,7 +67,7 @@ sudo apt update && sudo apt install -y kafkacat
               -X sasl.mechanisms=SCRAM-SHA-512 \
               -X sasl.username="<producer username>" \
               -X sasl.password="<producer password>" \
-              -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z
+              -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
         ```
 
 {% endlist %}
@@ -213,7 +213,7 @@ Before connecting:
                         while (true)
                         {
                             var cr = consumer.Consume();
-                            Console.WriteLine(cr.Message.Value);
+                            Console.WriteLine($"{cr.Message.Key}:{cr.Message.Value}");
                         }
                     }
                     catch (OperationCanceledException)
@@ -264,7 +264,7 @@ Before connecting:
                     string TOPIC = "<topic name>";
                     string USER = "<producer name>";
                     string PASS = "<producer password>";
-                    string CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexCA.crt";
+                    string CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
         
                     var producerConfig = new ProducerConfig(
                         new Dictionary<string,string>{
@@ -319,7 +319,7 @@ Before connecting:
                     string TOPIC = "<topic name>";
                     string USER = "<consumer name>";
                     string PASS = "<consumer password>";
-                    string CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexCA.crt";
+                    string CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
         
                     var consumerConfig = new ConsumerConfig(
                         new Dictionary<string,string>{
@@ -340,7 +340,7 @@ Before connecting:
                         while (true)
                         {
                             var cr = consumer.Consume();
-                            Console.WriteLine(cr.Message.Value);
+                            Console.WriteLine($"{cr.Message.Key}:{cr.Message.Value}");
                         }
                     }
                     catch (OperationCanceledException)
@@ -631,7 +631,7 @@ Before connecting:
               conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
         
               certs := x509.NewCertPool()
-              pemPath := "/usr/local/share/ca-certificates/Yandex/YandexCA.crt"
+              pemPath := "{{ crt-local-dir }}{{ crt-local-file }}"
               pemData, err := ioutil.ReadFile(pemPath)
               if err != nil {
                       fmt.Println("Couldn't load cert: ", err.Error())
@@ -706,7 +706,7 @@ Before connecting:
               conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
         
               certs := x509.NewCertPool()
-              pemPath := "/usr/local/share/ca-certificates/Yandex/YandexCA.crt"
+              pemPath := "{{ crt-local-dir }}{{ crt-local-file }}"
               pemData, err := ioutil.ReadFile(pemPath)
               if err != nil {
                   fmt.Println("Couldn't load cert: ", err.Error())
@@ -1251,7 +1251,7 @@ npm install node-rdkafka
           consumer.consume();
         })
         .on('data', function(data) {
-          console.log(data.value.toString());
+          console.log(data.key + ":" + data.value.toString());
         });
       
       process.on('SIGINT', () => {
@@ -1286,7 +1286,7 @@ npm install node-rdkafka
       const TOPIC = "<topic name>";
       const USER = "<producer name>";
       const PASS = "<producer password>";
-      const CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexCA.crt";
+      const CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
       
       const producer = new Kafka.Producer({
         'bootstrap.servers': HOST,
@@ -1330,7 +1330,7 @@ npm install node-rdkafka
       const TOPIC = "<topic name>";
       const USER = "<consumer name>";
       const PASS = "<consumer password>";
-      const CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexCA.crt";
+      const CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
       
       const consumer = new Kafka.Consumer({
         'bootstrap.servers': HOST,
@@ -1350,7 +1350,7 @@ npm install node-rdkafka
           consumer.consume();
         })
         .on('data', function(data) {
-          console.log(data.value.toString());
+          console.log(data.key + ":" + data.value.toString());
         });
       
       process.on('SIGINT', () => {
@@ -1429,8 +1429,8 @@ Before connecting:
   1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ KF }} driver can use this certificate for secure connections to the cluster hosts. Set the password using the `--storepass` parameter for additional storage protection:
 
      ```powershell
-     keytool.exe -importcert -alias YandexCA `
-       --file $HOME\.kafka\YandexCA.crt `
+     keytool.exe -importcert -alias {{ crt-alias }} `
+       --file $HOME\.kafka\{{ crt-local-file }} `
        --keystore $HOME\.kafka\ssl `
        --storepass <certificate store password> `
        --noprompt
@@ -1551,7 +1551,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
           sasl_mechanism="SCRAM-SHA-512",
           sasl_plain_password='<producer password>',
           sasl_plain_username='<producer username>',
-          ssl_cafile="/usr/local/share/ca-certificates/Yandex/YandexCA.crt")
+          ssl_cafile="{{ crt-local-dir }}{{ crt-local-file }}")
       
       producer.send('<topic name>', b'test message', b'key')
       producer.flush()
@@ -1572,7 +1572,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
           sasl_mechanism="SCRAM-SHA-512",
           sasl_plain_password='<consumer password>',
           sasl_plain_username='<consumer name>',
-          ssl_cafile="/usr/local/share/ca-certificates/Yandex/YandexCA.crt")
+          ssl_cafile="{{ crt-local-dir }}{{ crt-local-file }}")
       
       print("ready")
       

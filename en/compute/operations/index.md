@@ -12,8 +12,8 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](vm-create/create-from-disks.md)
 * [{#T}](vm-create/create-from-snapshots.md)
 * [{#T}](vm-create/create-from-user-image.md)
-* [{#T}](vm-create/create-preemptible-vm.md)
 * [{#T}](vm-create/create-vm-with-gpu.md)
+* [{#T}](vm-create/create-preemptible-vm.md)
 
 ## DSVM {#dsvm}
 
@@ -48,6 +48,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](vm-control/vm-change-zone.md)
 * [{#T}](vm-control/vm-change-folder.md)
 * [{#T}](vm-control/vm-attach-public-ip.md)
+* [{#T}](vm-control/vm-detach-public-ip.md)
 * [{#T}](vm-control/vm-set-static-ip.md)
 * [{#T}](vm-control/vm-update.md)
 * [{#T}](vm-control/vm-update-resources.md)
@@ -66,7 +67,9 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
+   {% if product == "yandex-cloud" %}
 * [{#T}](disk-create/nonreplicated.md)
+   {% endif %}
 
 ## Disk management {#disk-control}
 
@@ -76,10 +79,14 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](disk-control/delete.md)
 * [{#T}](snapshot-control/delete.md)
 
+{% if product == "yandex-cloud" %}
+
 ## Disk placement groups {#placement-groups}
 
 * [{#T}](disk-placement-groups/create.md)
 * [{#T}](disk-placement-groups/remove-disk.md)
+
+{% endif %}
 
 ## Creating an image {#image-create}
 
@@ -91,7 +98,10 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 ## Managing images {#image-control}
 
+* [{#T}](image-control/get-list.md)
 * [{#T}](image-control/delete.md)
+
+{% if product == "yandex-cloud" %}
 
 ## File storage {#filesystem}
 
@@ -100,6 +110,8 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](filesystem/detach-from-vm.md)
 * [{#T}](filesystem/update.md)
 * [{#T}](filesystem/delete.md)
+
+{% endif %}
 
 ## Managing the serial console {#serial-console}
 
@@ -115,7 +127,9 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](instance-groups/create-with-balancer.md)
 * [{#T}](instance-groups/create-with-load-balancer.md)
 * [{#T}](instance-groups/create-autoscaled-group.md)
+   {% if product == "yandex-cloud" %}
 * [{#T}](instance-groups/create-with-coi.md)
+   {% endif %}
 * [{#T}](instance-groups/create-from-yaml.md)
 
 ## Getting information about instance groups {#ig-info}
@@ -137,7 +151,11 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](instance-groups/start.md)
 * [{#T}](instance-groups/delete.md)
 
+{% if product == "yandex-cloud" %}
+
 ## Dedicated hosts {#dedicated-host}
 
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)
+
+{% endif %}

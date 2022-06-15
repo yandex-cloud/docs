@@ -14,6 +14,7 @@ items:
       - name: Подключение к кластеру
         href: operations/cluster-connect.md
       - name: Остановка и запуск кластера
+        when: audience != "internal"
         href: operations/cluster-stop.md
       - name: Изменение настроек кластера
         href: operations/cluster-update.md
@@ -39,8 +40,12 @@ items:
         href: operations/monitoring.md
   - name: Практические руководства
     items:
-      - name: Миграция в Managed Service for Elasticsearch с помощью снапшотов
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: Миграция в {{ mes-name }} с помощью снапшотов
         href: tutorials/migration-via-snapshots.md
+      - name: Миграция в {{ mes-name }} с помощью Reindex API
+        href: tutorials/migration-via-reindex-api.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -66,14 +71,17 @@ items:
       - name: Шардирование и репликация
         href: concepts/scalability-and-resilience.md
       - name: Поддержка словарей
-        href: concepts/dictionaries.md      
+        href: concepts/dictionaries.md
       - name: Политика управления версиями Elasticsearch
         href: concepts/update-policy.md
+      - name: Настройки {{ ES }}
+        href: concepts/settings-list.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
+    when: audience != "internal"
     href: pricing.md
   - name: Справочник API
     items:

@@ -1,5 +1,11 @@
 # Управление хостами кластера
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 Вы можете добавлять и удалять хосты кластера, а также управлять настройками {{ CH }} для отдельных кластеров.
 
 {% note warning %}
@@ -37,8 +43,8 @@
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------------+--------------+---------+--------+---------------+
-  | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | ru-central1-b |
-  | rc1c...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | ru-central1-c |
+  | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | {{ region-id }}-b |
+  | rc1c...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | {{ region-id }}-c |
   +----------------------------+--------------+---------+--------+---------------+
   ```
 
@@ -48,8 +54,8 @@
   +----------------------+--------------+---------+--------+---------------+
   |         NAME         |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------+--------------+---------+--------+---------------+
-  | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | ru-central1-b |
-  | rc1c...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | ru-central1-c |
+  | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | {{ region-id }}-b |
+  | rc1c...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | {{ region-id }}-c |
   +----------------------+--------------+---------+--------+---------------+
   ```
 
@@ -108,10 +114,10 @@
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
-      | b0cl69... | default-c | enp6rq7... | ru-central1-c | [172.16.0.0/20]  |
-      | e2lkj9... | default-b | enp6rq7... | ru-central1-b | [10.10.0.0/16]   |
-      | e9b0ph... | a-2       | enp6rq7... | ru-central1-a | [172.16.32.0/20] |
-      | e9b9v2... | default-a | enp6rq7... | ru-central1-a | [172.16.16.0/20] |
+      | b0cl69... | default-c | enp6rq7... | {{ region-id }}-c | [172.16.0.0/20]  |
+      | e2lkj9... | default-b | enp6rq7... | {{ region-id }}-b | [10.10.0.0/16]   |
+      | e9b0ph... | a-2       | enp6rq7... | {{ region-id }}-a | [172.16.32.0/20] |
+      | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |
       +-----------+-----------+------------+---------------+------------------+
       ```
   
@@ -194,7 +200,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -348,7 +356,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

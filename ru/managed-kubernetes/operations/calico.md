@@ -5,7 +5,6 @@
 ## Создайте кластер {{ k8s }} с поддержкой Calico {#create-cluster}
 
 При создании кластера {{ k8s }} задействуйте контроллер сетевых политик Calico:
-
 * В консоли управления, выбрав опцию **Включить сетевые политики**.
 * С помощью CLI, указав флаг `--enable-network-policy`.
 * С помощью метода [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster).
@@ -16,33 +15,33 @@
 
 - Консоль управления
 
-    {% include [create-cluster](../../_includes/managed-kubernetes/cluster-create.md) %}
+  {% include [create-cluster](../../_includes/managed-kubernetes/cluster-create.md) %}
 
 - CLI
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   Создайте кластер {{ k8s }}:
+  Создайте кластер {{ k8s }}:
 
-   ```
-   yc managed-kubernetes cluster create
-     --name cluster-np \
-     --service-account-name k8s \
-     --node-service-account-name docker \
-     --zone ru-central1-a \
-     --network-name network \
-     --enable-network-policy
-   ```
+  ```bash
+  yc managed-kubernetes cluster create
+    --name cluster-np \
+    --service-account-name k8s \
+    --node-service-account-name docker \
+    --zone {{ region-id }}-a \
+    --network-name network \
+    --enable-network-policy
+  ```
 
-   Где:
-   - `--name` — имя кластера {{ k8s }}.
-   - `--service-account-id` — уникальный идентификатор сервисного аккаунта для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
-   - `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для узлов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
-   - `--zone` — зона доступности.
-   - `--network-name` — имя сети.
-   - `--enable-network-policy` — опция включения сетевых политик.
+  Где:
+  * `--name` — имя кластера {{ k8s }}.
+  * `--service-account-id` — уникальный идентификатор сервисного аккаунта для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
+  * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для узлов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
+  * `--zone` — зона доступности.
+  * `--network-name` — имя сети.
+  * `--enable-network-policy` — опция включения сетевых политик.
 
    Результат выполнения команды:
 
@@ -50,37 +49,7 @@
    done (8m52s)
    id: abcdef1ghi23jklmno4
    folder_id: p5q67rs89tuv1wxyzab
-   created_at: "2020-09-14T15:56:31Z"
-   name: k8s-np
-   status: RUNNING
-   health: HEALTHY
-   network_id: cdefghig01klmnopqrs1
-   master:
-     zonal_master:
-       zone_id: ru-central1-a
-       internal_v4_address: 10.130.0.24
-     version: "1.17"
-     endpoints:
-       internal_v4_endpoint: https://10.130.0.24
-     master_auth:
-       cluster_ca_certificate: |
-         -----BEGIN CERTIFICATE-----
-         MIICyDCCAbCgAwIBAgIBADANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwprdWJl
-         ...
-         IyO849nznkMKNHzxvQKnXSNNTmbPu9DmPx8MsdI2vcklBbtkiHtc6U3y25I=
-         -----END CERTIFICATE-----
-     version_info:
-       current_version: "1.17"
-     maintenance_policy:
-       auto_upgrade: true
-       maintenance_window:
-         anytime: {}
-   ip_allocation_policy:
-     cluster_ipv4_cidr_block: 10.112.0.0/16
-     node_ipv4_cidr_mask_size: "24"
-     service_ipv4_cidr_block: 10.96.0.0/16
-   service_account_id: ajedclfluactb5868n99
-   node_service_account_id: ajeo8f063dmnicot7t7j
+   ...
    release_channel: REGULAR
    network_policy:
      provider: CALICO
@@ -88,13 +57,13 @@
 
 - API
 
-   Чтобы создать  кластер {{ k8s }}, воспользуйтесь методом [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster).
+  Чтобы создать кластер {{ k8s }}, воспользуйтесь методом [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster).
 
 {% endlist %}
 
 {% endcut %}
 
-## Создайте пространство имен {{ k8s }} {#сonfigure-namespace}
+## Создайте пространство имен {{ k8s }} {#configure-namespace}
 
 Создайте пространство имен с помощью объект API {{ k8s }} [Namespace]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/concepts/overview/working-with-objects/namespaces/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/){% endif %}:
 
@@ -111,7 +80,6 @@ namespace/policy-test created
 ## Создайте сервис nginx {#create-pod}
 
 Чтобы создать под, используйте объект API {{ k8s }} [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/).
-
 1. Создайте под с веб-сервером nginx в пространстве имен `policy-test`:
 
    ```
@@ -161,25 +129,7 @@ namespace/policy-test created
    <!DOCTYPE html>
    <html>
    <head>
-   <title>Welcome to nginx!</title>
-   <style>
-       body {
-           width: 35em;
-           margin: 0 auto;
-           font-family: Tahoma, Verdana, Arial, sans-serif;
-       }
-   </style>
-   </head>
-   <body>
-   <h1>Welcome to nginx!</h1>
-   <p>If you see this page, the nginx web server is successfully installed and
-   working. Further configuration is required.</p>
-   
-   <p>For online documentation and support please refer to
-   <a href="http://nginx.org/">nginx.org</a>.<br/>
-   Commercial support is available at
-   <a href="http://nginx.com/">nginx.com</a>.</p>
-   
+   ...
    <p><em>Thank you for using nginx.</em></p>
    </body>
    </html>
@@ -341,10 +291,9 @@ networkpolicy.networking.k8s.io/default-deny created
    pod "access" deleted
    ```
 
-### Проверьте, что сетевая изоляция для других подов работает {#сheck-isolation}
+### Проверьте, что сетевая изоляция для других подов работает {#check-isolation}
 
 В созданных сетевых политиках `access-nginx` разрешено подключаться подам с меткой `run: access`.
-
 1. Создайте под без метки `run: access`:
 
    ```

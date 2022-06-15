@@ -9,7 +9,7 @@ To delete an endpoint:
 {% list tabs %}
 
 - Management console
-    1. Go to the folder page and select **{{ data-transfer-name }}**.
+    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-name }}**.
     1. Select the endpoint to delete.
     1. Click **Delete** on the panel above.
     1. In the window that opens, click **Delete**.

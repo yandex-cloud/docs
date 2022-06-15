@@ -2,9 +2,13 @@
 
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}
 
+{% if product == "yandex-cloud" %}
+
 #### Можно ли самостоятельно сохранять логи? {#auto-logging}
 
 Для сбора и хранения логов используйте [Fluent Bit](../tutorials/fluent-bit-logging.md).
+
+{% endif %}
 
 #### Есть ли поддержка Horizontal Pod Autoscaler? {#horizontal-pod-autoscaler}
 

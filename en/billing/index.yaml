@@ -1,34 +1,55 @@
 title: Billing
 description:
-  - >-
-    The Billing service is where you can get information about the amount of
-    resources used, monitor your costs, and pay for resource consumption.
-  - >-
-    In Yandex Cloud, you only pay for the resources you have consumed and the
-    time of their actual usage.
+  - text:
+    - >-
+      The Billing service is where you can get information about the amount of resources used,
+       monitor your costs, and pay for resource consumption.
+    - >-
+      In Yandex Cloud, you only pay for resources consumed and the time of their
+       actual usage.
+    when: product == "yandex-cloud"
+  - text:
+    - >-
+      The Billing service is where you can get information about the amount of resources used,
+       monitor your costs, and pay for resource consumption.
+    - >-
+      CloudIL is available at the <a href="/docs/overview/concepts/launch-stages\">Preview</a> stage,
+       so you can use services free of charge. The Billing service lets you estimate the amount of resources consumed and the time of their
+      actual usage.
+    when: product == "cloud-il"
+
 meta:
   title: Billing
 links:
   - title: Getting started
     description: Create your first billing account
     href: quickstart/
+    when: product == "yandex-cloud"
   - title: Step-by-step instructions
     description: Instructions on how to perform routine operations
     href: operations/
   - title: Concepts
     description: Introduction to the terms and concepts used in the service
     href: concepts/
-  - title: Resource payments
+    when: product == "yandex-cloud"
+  - title: Concepts
+    description: Introduction to the terms and concepts used in the service
+    href: concepts/billing-account.html
+    when: product == "cloud-il"
+  - title: Paying for resources
     description: >-
-      Find out about payment methods and billing cycles for individuals,
-      businesses, and individual entrepreneurs
+      Find out about payment methods and billing cycles for individuals, businesses, and
+      individual entrepreneurs
     href: payment/
+    when: product == "yandex-cloud"
   - title: Access management
     description: Set up access rights to manage your billing account
     href: security/
   - title: Pricing policy
     description: Prices and rates of Yandex Cloud services
     href: pricing
+    when: product == "yandex-cloud"
   - title: API Billing reference
     description: HTTP API method descriptions
     href: api-ref/
+    when: product == "yandex-cloud"

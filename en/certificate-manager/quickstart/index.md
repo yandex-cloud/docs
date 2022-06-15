@@ -81,7 +81,7 @@ To get started with {{ certificate-manager-name }}, you need:
     1. Select a certificate with the `Validating` status in the list and click it.
     1. Under **Check rights for domains**:
         1. Copy the link from the **Link for hosting file** field:
-            * The part of the link that looks like `http://example.ru/.well-known/acme-challenge/` is the path to host the file at.
+            * The part of the link that looks like `http://example.com/.well-known/acme-challenge/` is the path to host the file at.
             * The second part of the link, `rG1Mm1bJ...`, is the file name that you should use.
         1. Copy the contents of the file from the **Contents** field.
 

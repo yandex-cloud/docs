@@ -1,4 +1,8 @@
-title: Yandex Object Storage
+title:
+  - text: Yandex Object Storage
+    when: product == "yandex-cloud"
+  - text: Object Storage
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Getting started
@@ -31,6 +35,7 @@ items:
             href: operations/buckets/edit-acl.md
           - name: Enabling logging
             href: operations/buckets/enable-logging.md
+            when: product == "yandex-cloud"
       - name: Objects
         items:
           - name: Uploading an object
@@ -67,18 +72,23 @@ items:
     items:
       - name: Getting object query statistics with S3 Select
         href: tutorials/server-logs.md
+        when: product == "yandex-cloud"
       - name: Getting website traffic statistics with S3 Select
         href: tutorials/user-agent-statistics.md
+        when: product == "yandex-cloud"
       - name: Generating a billing report with resource break-down using S3 Select
         href: tutorials/billing-resource-detailing.md
       - name: Server-side encryption
         href: tutorials/server-side-encryption.md
       - name: Integrating an L7 load balancer with the CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
+        when: product == "yandex-cloud"
       - name: Blue-green and canary deployment
         href: tutorials/blue-green-canary-deployment.md
+        when: product == "yandex-cloud"
       - name: Analyzing logs in DataLens
         href: tutorials/storage-logs-analysis.md
+        when: product == "yandex-cloud"
   - name: Concepts
     items:
       - name: Overview
@@ -109,6 +119,7 @@ items:
         href: concepts/storage-class.md
       - name: Logging actions with a bucket
         href: concepts/server-logs.md
+        when: product == "yandex-cloud"
       - name: Backups
         href: concepts/backup.md
       - name: TLS protocol
@@ -197,8 +208,10 @@ items:
                     href: s3/api-ref/bucket/getBucketVersioning.md
                   - name: putBucketLogging
                     href: s3/api-ref/bucket/putBucketLogging.md
+                    when: product == "yandex-cloud"
                   - name: getBucketLogging
                     href: s3/api-ref/bucket/getBucketLogging.md
+                    when: product == "yandex-cloud"
                   - name: listObjectVersions
                     href: s3/api-ref/bucket/listObjectVersions.md
               - name: Object
@@ -328,6 +341,7 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
+    when: product == "yandex-cloud"
     items:
       - name: Current pricing policy
         href: pricing.md
@@ -337,5 +351,8 @@ items:
             href: pricing-archive/pricing-01012019.md
           - name: From January 1 to March 1, 2019
             href: pricing-archive/pricing-01032019.md
+  - name: Pricing policy
+    when: product == "cloud-il"
+    href: pricing.md
   - name: Questions and answers
     href: qa.md

@@ -19,7 +19,6 @@ Metrics Provider — связующий элемент между объекто
 ## Создание сервисного аккаунта и статического ключа доступа {#create-sa-key}
 
 Для работы провайдера нужно создать [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и получить для него ключ.
-
 1. Установите [утилиту потоковой обработки JSON-файлов `jq`](https://stedolan.github.io/jq/):
 
    ```bash
@@ -39,7 +38,7 @@ Metrics Provider — связующий элемент между объекто
      -o key.json
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    {
@@ -72,7 +71,7 @@ Metrics Provider — связующий элемент между объекто
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
    * **Название приложения** — укажите название приложения.
    * **Идентификатор каталога** — укажите [идентификатор каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать Metrics Provider.
-   * **Ширина временного окна** — укажите ширину временного окна, за которую будут собираться метрики (в формате `DdHhMmSs`, например `5d10h30m20s`).
+   * **Ширина временного окна** — укажите ширину временного окна, за которую будут собираться метрики (в формате `DdHhMmSs`, например, `5d10h30m20s`).
    * (опционально) **Отключение прореживания** — выберите эту опцию, чтобы не применять к данным [функцию прореживания](../../../monitoring/concepts/decimation.md).
    * (опционально) **Функция агрегации** — выберите [функцию агрегации](../../../monitoring/concepts/querying.md#combine-functions) данных. Значение по умолчанию — `AVG`.
    * (опционально) **Заполнение данных** — выберите настройки заполнения пропусков в данных:
@@ -98,7 +97,7 @@ Metrics Provider — связующий элемент между объекто
 ## Установка с помощью Helm-чарта {#helm-install}
 
 1. [Установите kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl){% endif %} и [настройте](../kubernetes-cluster/kubernetes-cluster-get-credetials.md) его на работу с вашим кластером.
-1. Установите менеджер пакетов {{ k8s }} [Нelm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %}.
+1. Установите менеджер пакетов {{ k8s }} [Helm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %}.
 1. Добавьте репозиторий `metric-provider`:
 
    ```bash

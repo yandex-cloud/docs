@@ -1,5 +1,11 @@
 # Развертывание группы доступности Always On с внутренним сетевым балансировщиком
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 Сценарий описывает развертывание в {{ yandex-cloud }} группы доступности Always On с балансировкой нагрузки между узлами с помощью внутреннего сетевого балансировщика. Несколько подсетей будут объединены в одну общую подсеть путем настройки сетевых интерфейсов. Благодаря этому не потребуется использование [Multisubnet Failover]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15){% endif %}. Основной IP-адрес будет назначаться реплике, в которую ведется запись. У этой же реплики будет открыт порт, на который балансировщик будет направлять трафик. Поскольку порт, указанный для подключения к балансировщику, становится недоступным, для приема трафика будет использоваться дополнительный нестандартный порт.
 
 Чтобы создать и настроить группу доступности Always On с внутренним сетевым балансировщиком:
@@ -14,15 +20,11 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Перед тем, как разворачивать группу доступности, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
-
-{% include [prepare-register-billing](../includes/prepare-register-billing.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 {% include [ms-additional-data-note](../includes/ms-additional-data-note.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака]{% if lang == "ru" %}(https://console.cloud.yandex.ru/cloud){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/cloud){% endif %}.
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -33,6 +35,8 @@
 * плата за использование динамического или статического публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 Вы можете воспользоваться [мобильностью лицензий](../../compute/qa/licensing.md) и использовать собственную лицензию MSSQL Server в {{ yandex-cloud }}.
+
+{% endif %}
 
 ## Создайте сетевую инфраструктуру {#prepare-network}
 
@@ -83,23 +87,23 @@
       1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать подсети.
       1. Выберите сеть `ya-network`.
       1. Нажмите кнопку ![image](../../_assets/plus.svg)**Добавить подсеть**.
-      1. Заполните форму: введите имя подсети `ya-sqlserver-rc1a`, выберите зону доступности `ru-central1-a` из выпадающего списка.
+      1. Заполните форму: введите имя подсети `ya-sqlserver-rc1a`, выберите зону доступности `{{ region-id }}-a` из выпадающего списка.
       1. Введите CIDR подсети: IP-адрес и маску подсети: `192.168.1.0/28`.
       1. Нажмите кнопку **Создать подсеть**.
 
       Повторите шаги для подсетей со следующими именами и CIDR:
 
-      * `ya-sqlserver-rc1b` в зоне доступности `ru-central1-b` — `192.168.1.16/28`;
-      * `ya-sqlserver-rc1c` в зоне доступности `ru-central1-c` — `192.168.1.32/28`;
-      * `ya-ilb-rc1a` в зоне доступности `ru-central1-a` — `192.168.1.48/28`;
-      * `ya-ad-rc1a` в зоне доступности `ru-central1-a` — `10.0.0.0/28`.
+      * `ya-sqlserver-rc1b` в зоне доступности `{{ region-id }}-b` — `192.168.1.16/28`;
+      * `ya-sqlserver-rc1c` в зоне доступности `{{ region-id }}-c` — `192.168.1.32/28`;
+      * `ya-ilb-rc1a` в зоне доступности `{{ region-id }}-a` — `192.168.1.48/28`;
+      * `ya-ad-rc1a` в зоне доступности `{{ region-id }}-a` — `10.0.0.0/28`.
 
     - Bash
 
       ```
       yc vpc subnet create \
          --name ya-sqlserver-rc1a \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --range 192.168.1.0/28 \
          --network-name ya-network
       ```
@@ -107,7 +111,7 @@
       ```
       yc vpc subnet create \
 		 --name ya-sqlserver-rc1b \
-         --zone ru-central1-b \
+         --zone {{ region-id }}-b \
          --range 192.168.1.16/28 \
          --network-name ya-network
       ```
@@ -115,7 +119,7 @@
       ```
       yc vpc subnet create \
          --name ya-sqlserver-rc1c \
-         --zone ru-central1-c \
+         --zone {{ region-id }}-c \
          --range 192.168.1.32/28 \
          --network-name ya-network
       ```
@@ -123,7 +127,7 @@
       ```
       yc vpc subnet create \
          --name ya-ilb-rc1a \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --range 192.168.1.48/28 \
          --network-name ya-network
       ```
@@ -131,7 +135,7 @@
       ```
       yc vpc subnet create \
 		 --name ya-ad-rc1a \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --range 10.0.0.0/28 \
          --network-name ya-network
       ```
@@ -141,7 +145,7 @@
       ```
       yc vpc subnet create `
          --name ya-sqlserver-rc1a `
-         --zone ru-central1-a `
+         --zone {{ region-id }}-a `
          --range 192.168.1.0/28 `
          --network-name ya-network
       ```
@@ -149,7 +153,7 @@
       ```
       yc vpc subnet create `
          --name ya-sqlserver-rc1b `
-         --zone ru-central1-b `
+         --zone {{ region-id }}-b `
          --range 192.168.1.16/28 `
          --network-name ya-network
       ```
@@ -157,7 +161,7 @@
       ```
       yc vpc subnet create `
          --name ya-sqlserver-rc1c `
-         --zone ru-central1-c `
+         --zone {{ region-id }}-c `
          --range 192.168.1.32/28 `
          --network-name ya-network
       ```
@@ -165,7 +169,7 @@
       ```
       yc vpc subnet create `
          --name ya-ilb-rc1a `
-         --zone ru-central1-a `
+         --zone {{ region-id }}-a `
          --range 192.168.1.48/28 `
          --network-name ya-network
       ```
@@ -173,7 +177,7 @@
       ```
       yc vpc subnet create `
 		 --name ya-ad-rc1a `
-         --zone ru-central1-a `
+         --zone {{ region-id }}-a `
          --range 10.0.0.0/28 `
          --network-name ya-network
       ```
@@ -353,7 +357,7 @@
   yc compute instance create \
      --name ya-jump1 \
      --hostname ya-jump1 \
-     --zone ru-central1-a \
+     --zone {{ region-id }}-a \
      --memory 4 \
      --cores 2 \
      --metadata-from-file user-data=setpass \
@@ -370,7 +374,7 @@
   yc compute instance create `
      --name ya-jump1 `
      --hostname ya-jump1 `
-     --zone ru-central1-a `
+     --zone {{ region-id }}-a `
      --memory 4 `
      --cores 2 `
      --metadata-from-file user-data=setpass `
@@ -393,7 +397,7 @@
   yc compute instance create \
      --name ya-ad \
      --hostname ya-ad \
-     --zone ru-central1-a \
+     --zone {{ region-id }}-a \
      --memory 6 \
      --cores 2 \
      --metadata-from-file user-data=setpass \
@@ -410,7 +414,7 @@
   yc compute instance create `
      --name ya-ad `
      --hostname ya-ad `
-     --zone ru-central1-a `
+     --zone {{ region-id }}-a `
      --memory 6 `
      --cores 2 `
      --metadata-from-file user-data=setpass `
@@ -435,7 +439,7 @@
   yc compute instance create \
      --name ya-mssql1 \
      --hostname ya-mssql1 \
-     --zone ru-central1-a \
+     --zone {{ region-id }}-a \
      --memory 16 \
      --cores 4 \
      --metadata-from-file user-data=setpass \
@@ -452,7 +456,7 @@
   yc compute instance create \
      --name ya-mssql2 \
      --hostname ya-mssql2 \
-     --zone ru-central1-b \
+     --zone {{ region-id }}-b \
      --memory 16 \
      --cores 4 \
      --metadata-from-file user-data=setpass \
@@ -469,7 +473,7 @@
   yc compute instance create \
      --name ya-mssql3 \
      --hostname ya-mssql3 \
-     --zone ru-central1-c \
+     --zone {{ region-id }}-c \
      --memory 16 \
      --cores 4 \
      --metadata-from-file user-data=setpass \
@@ -488,7 +492,7 @@
   yc compute instance create `
      --name ya-mssql1 `
      --hostname ya-mssql1 `
-     --zone ru-central1-a `
+     --zone {{ region-id }}-a `
      --memory 16 `
      --cores 4 `
      --metadata-from-file user-data=setpass `
@@ -505,7 +509,7 @@
   yc compute instance create `
      --name ya-mssql2 `
      --hostname ya-mssql2 `
-     --zone ru-central1-b `
+     --zone {{ region-id }}-b `
      --memory 16 `
      --cores 4 `
      --metadata-from-file user-data=setpass `
@@ -522,7 +526,7 @@
   yc compute instance create `
      --name ya-mssql3 `
      --hostname ya-mssql3 `
-     --zone ru-central1-c `
+     --zone {{ region-id }}-c `
      --memory 16 `
      --cores 4 `
      --metadata-from-file user-data=setpass `
@@ -580,12 +584,12 @@
     - PowerShell
 
        ```
-       Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName 'ru-central1'
-       New-ADReplicationSubnet -Name '10.0.0.0/28'  -Site 'ru-central1'
-       New-ADReplicationSubnet -Name '192.168.1.0/28'  -Site 'ru-central1'
-       New-ADReplicationSubnet -Name '192.168.1.16/28' -Site 'ru-central1'
-       New-ADReplicationSubnet -Name '192.168.1.32/28' -Site 'ru-central1'
-       New-ADReplicationSubnet -Name '192.168.1.48/28' -Site 'ru-central1'
+       Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName '{{ region-id }}'
+       New-ADReplicationSubnet -Name '10.0.0.0/28'  -Site '{{ region-id }}'
+       New-ADReplicationSubnet -Name '192.168.1.0/28'  -Site '{{ region-id }}'
+       New-ADReplicationSubnet -Name '192.168.1.16/28' -Site '{{ region-id }}'
+       New-ADReplicationSubnet -Name '192.168.1.32/28' -Site '{{ region-id }}'
+       New-ADReplicationSubnet -Name '192.168.1.48/28' -Site '{{ region-id }}'
        ```
 
     {% endlist %}
@@ -1544,7 +1548,7 @@
 
     {% endlist %}
 
-1. Cнова проверьте имя основной реплики:
+1. Снова проверьте имя основной реплики:
 
     {% list tabs %}
 

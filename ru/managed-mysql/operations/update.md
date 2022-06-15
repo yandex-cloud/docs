@@ -1,5 +1,11 @@
 # Изменение настроек кластера
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 После создания кластера вы можете:
 
 * [Изменить класс хостов](#change-resource-preset).
@@ -15,6 +21,8 @@
     {% endnote %}
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
+
+* [Переместить кластер](#move-cluster) в другой каталог.
 
 * [{#T}](#change-sg-set).
 
@@ -44,7 +52,7 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
       ```
-      {{ yc-mdb-my }} cluster update --help
+      $ {{ yc-mdb-my }} cluster update --help
       ```
 
   1. Запросите список доступных классов хостов (в колонке `ZONES` указаны зоны доступности, в которых можно выбрать соответствующий класс):
@@ -52,13 +60,13 @@
      {% if audience != "internal" %}
 
      ```
-     {{ yc-mdb-my }} resource-preset list
+     $ {{ yc-mdb-my }} resource-preset list
 
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
-     | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
-     |           | ru-central1-c                  |       |          |
+     | s1.micro  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 8.0 GB   |
+     |           | {{ region-id }}-c                  |       |          |
      | ...                                                           |
      +-----------+--------------------------------+-------+----------+
      ```
@@ -80,8 +88,8 @@
   1. Укажите нужный класс в команде изменения кластера:
 
       ```
-      {{ yc-mdb-my }} cluster update <имя кластера>
-        --resource-preset <ID класса>
+      $ {{ yc-mdb-my }} cluster update <имя кластера>
+           --resource-preset <ID класса>
       ```
 
       {{ mmy-short-name }} запустит операцию изменения класса хостов для кластера.
@@ -114,7 +122,7 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -191,7 +199,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -230,7 +238,7 @@
   1. Посмотрите описание команды CLI для изменения конфигурации кластера:
 
       ```
-      {{ yc-mdb-my }} cluster update-config --help
+      $ {{ yc-mdb-my }} cluster update-config --help
       ```
 
   1. Установите нужные значения параметров.
@@ -238,8 +246,8 @@
      Все поддерживаемые параметры перечислены в [формате запроса для метода update](../api-ref/Cluster/update.md), в поле `mysql_config_5_7`. Чтобы указать имя параметра в вызове CLI, преобразуйте его имя из вида <q>lowerCamelCase</q> в <q>snake_case</q>, например, параметр `logMinDurationStatement` из запроса к API преобразуется в `log_min_duration_statement` для команды CLI:
 
      ```
-     {{ yc-mdb-my }} cluster update-config <имя кластера>
-       --set log_min_duration_statement=100,<имя параметра>=<значение>,...
+     $ {{ yc-mdb-my }} cluster update-config <имя кластера>
+          --set log_min_duration_statement=100,<имя параметра>=<значение>,...
      ```
 
      {{ mmy-short-name }} запустит операцию по изменению настроек кластера.
@@ -270,9 +278,9 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster#mysql-config).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mysql_cluster#mysql-config).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -328,7 +336,7 @@
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    * `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
+    {% if product == "yandex-cloud" %}* `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).{% endif %}
 
     * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
@@ -359,21 +367,23 @@
       }
       ```
   
-  1. Чтобы активировать доступ к [SQL-запросам из консоли управления](web-sql-query.md) и доступ из [DataLens](datalens-connect.md), добавьте к описанию кластера {{ mmy-name }} блок `access`:
-
+  1. Чтобы активировать доступ к [SQL-запросам из консоли управления](web-sql-query.md){% if product == "yandex-cloud" %} и доступ из [DataLens](datalens-connect.md){% endif %}, добавьте к описанию кластера {{ mmy-name }} блок `access`:
+ 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
         ...
         access {
           web_sql   = <true или false>
+     {% if product == "yandex-cloud" %}
           data_lens = <true или false>
+     {% endif %}
           ...
         }
         ...
       }
       ```
 
-  1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform-maintenance-window.md) %}
+  1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
   1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
@@ -396,7 +406,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -414,7 +424,53 @@
 
         {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
 
+    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+
     Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+{% endlist %}
+
+## Переместить кластер {#move-cluster}
+
+{% list tabs %}
+
+- Консоль управления
+
+    1. Перейдите на страницу каталога и выберите сервис **{{ mmy-name }}**.
+    1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) справа в строке кластера, который вы хотите переместить.
+    1. Выберите пункт **Переместить**.
+    1. Выберите каталог, в который вы хотите переместить кластер.
+    1. Нажмите кнопку **Переместить**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы переместить кластер:
+
+    1. Посмотрите описание команды CLI для перемещения кластера:
+
+        ```bash
+        {{ yc-mdb-my }} cluster move --help
+        ```
+
+    1. Укажите каталог назначения в команде перемещения кластера:
+
+        ```bash
+        {{ yc-mdb-my }} cluster move <идентификатор кластера> \
+           --destination-folder-name=<имя каталога назначения>
+        ```
+
+        Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- API
+
+    Воспользуйтесь методом API [move](../api-ref/Cluster/move.md) и передайте в запросе:
+    
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Идентификатор каталога назначения в параметре `destinationFolderId`.
 
 {% endlist %}
 
@@ -474,7 +530,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 

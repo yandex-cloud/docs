@@ -1,4 +1,8 @@
-title: Yandex Compute Cloud
+title:
+  - text: Yandex Compute Cloud
+    when: product == "yandex-cloud"
+  - text: Compute Cloud
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Getting started
@@ -23,14 +27,14 @@ items:
             href: operations/vm-create/create-windows-vm.md
           - name: Creating a VM from a set of disks
             href: operations/vm-create/create-from-disks.md
-          - name: Creating a VM with disks restored from snapshots
+          - name: Creating a VM with disks from snapshots
             href: operations/vm-create/create-from-snapshots.md
           - name: Creating a VM from a custom image
             href: operations/vm-create/create-from-user-image.md
-          - name: Creating a preemptible VM
-            href: operations/vm-create/create-preemptible-vm.md
           - name: Creating a VM with a GPU
             href: operations/vm-create/create-vm-with-gpu.md
+          - name: Making a VM preemptible
+            href: operations/vm-create/create-preemptible-vm.md
       - name: DSVM
         items:
           - name: Overview
@@ -47,7 +51,7 @@ items:
             href: operations/placement-groups/create-vm-in-pg.md
           - name: Adding a VM to a placement group
             href: operations/placement-groups/add-vm.md
-          - name: Removing a VM instance from a placement group
+          - name: Removing a VM from a placement group
             href: operations/placement-groups/delete-vm.md
       - name: Images with pre-installed software
         items:
@@ -55,7 +59,7 @@ items:
             href: operations/images-with-pre-installed-software/create.md
           - name: Configuring software
             href: operations/images-with-pre-installed-software/setup.md
-          - name: Working with a VM based on a public image
+          - name: Running a VM based on a public image
             href: operations/images-with-pre-installed-software/operate.md
           - name: Getting a list of public images
             href: operations/images-with-pre-installed-software/get-list.md
@@ -63,7 +67,7 @@ items:
         items:
           - name: Getting information about a VM
             href: operations/vm-info/get-info.md
-          - name: Getting serial port output
+          - name: Getting serial port's output
             href: operations/vm-info/get-serial-port-output.md
       - name: Managing VMs
         items:
@@ -79,6 +83,8 @@ items:
             href: operations/vm-control/vm-change-folder.md
           - name: Attaching a public IP address to a VM
             href: operations/vm-control/vm-attach-public-ip.md
+          - name: Detaching a public IP address from a VM
+            href: operations/vm-control/vm-detach-public-ip.md
           - name: Making a VM's public IP address static
             href: operations/vm-control/vm-set-static-ip.md
           - name: Updating a VM
@@ -129,7 +135,7 @@ items:
             href: operations/disk-placement-groups/remove-disk.md
       - name: Creating new images
         items:
-          - name: Preparing your disk image
+          - name: Preparing a disk image
             href: operations/image-create/custom-image.md
           - name: Uploading your image
             href: operations/image-create/upload.md
@@ -141,9 +147,12 @@ items:
             href: operations/image-create/create-from-image.md
       - name: Managing images
         items:
+          - name: Getting a list of images
+            href: operations/image-control/get-list.md
           - name: Deleting a disk image
             href: operations/image-control/delete.md
       - name: File storage
+        when: product == "yandex-cloud"
         items:
           - name: Creating file storage
             href: operations/filesystem/create.md
@@ -163,7 +172,7 @@ items:
             href: operations/serial-console/connect-ssh.md
           - name: Connecting to a serial console via CLI
             href: operations/serial-console/connect-cli.md
-          - name: Start your terminal in the Windows SAC
+          - name: Starting your terminal in the Windows serial console (SAC)
             href: operations/serial-console/windows-sac.md
           - name: Disabling access to the serial console
             href: operations/serial-console/disable.md
@@ -179,6 +188,7 @@ items:
             href: operations/instance-groups/create-autoscaled-group.md
           - name: Creating an instance group from a Container Optimized Image
             href: operations/instance-groups/create-with-coi.md
+            when: product == "yandex-cloud"
           - name: Creating an instance group based on the YAML specification
             href: operations/instance-groups/create-from-yaml.md
       - name: Getting information about instance groups
@@ -193,13 +203,13 @@ items:
         items:
           - name: Editing an instance group
             href: operations/instance-groups/update.md
-          - name: Editing an instance group based on the YAML specification
+          - name: Edit an instance group based on the YAML specification
             href: operations/instance-groups/update-from-yaml.md
           - name: Configuring application health check on the VM
             href: operations/instance-groups/enable-autohealing.md
-          - name: Updating a instance group
+          - name: Updating a group
             items:
-              - name: Incremental updates
+              - name: Incremental update
                 href: operations/instance-groups/deploy/rolling-update.md
               - name: Uninterrupted updates
                 href: operations/instance-groups/deploy/zero-downtime.md
@@ -214,27 +224,32 @@ items:
           - name: Deleting an instance group
             href: operations/instance-groups/delete.md
       - name: Dedicated hosts
+        when: product == "yandex-cloud"
         items:
           - name: Creating a VM in a group of dedicated hosts
             href: operations/dedicated-host/running-host-group-vms.md
           - name: Creating a VM on a dedicated host
             href: operations/dedicated-host/running-host-vms.md
-  - name: Yandex Container Optimized Solutions
+  - name: Yandex Container Solution
     href: ../cos/
+    when: product == "yandex-cloud"
   - name: Practical guidelines
     items:
       - name: Configuring NTP time synchronization
         href: tutorials/ntp.md
       - name: Running instance groups with auto scaling
         href: tutorials/vm-autoscale.md
+        when: product == "yandex-cloud"
       - name: Automatically scaling an instance group for handling messages from a queue
         href: tutorials/autoscale-monitoring.md
       - name: Updating an instance group under load
         href: tutorials/updating-under-load.md
+        when: product == "yandex-cloud"
       - name: Deploying Remote Desktop Gateway
         href: tutorials/rds-gw.md
       - name: Transferring logs from a VM instance to Yandex Cloud Logging
         href: tutorials/vm-fluent-bit-logging.md
+        when: product == "yandex-cloud"
   - name: Concepts
     items:
       - name: Relationship between resources
@@ -261,9 +276,10 @@ items:
             href: concepts/vm-statuses.md
           - name: Metadata
             href: concepts/vm-metadata.md
-      - name: Graphics accelerators (GPUs and vGPUs)
+      - name: Graphics accelerators
         href: concepts/gpus.md
       - name: Disks and file storage
+        when: product == "yandex-cloud"
         items:
           - name: Overview
             href: concepts/storage-overview.md
@@ -275,6 +291,17 @@ items:
             href: concepts/disk-placement-group.md
           - name: File storage
             href: concepts/filesystem.md
+          - name: Read and write operations
+            href: concepts/storage-read-write.md
+      - name: Disks
+        when: product == "cloud-il"
+        items:
+          - name: Overview
+            href: concepts/disk.md
+          - name: Disk snapshots
+            href: concepts/snapshot.md
+          - name: Non-replicated disk placement groups
+            href: concepts/disk-placement-group.md
           - name: Read and write operations
             href: concepts/storage-read-write.md
       - name: Images
@@ -313,7 +340,7 @@ items:
                 href: concepts/instance-groups/deploy/zones.md
               - name: Deployment algorithm
                 href: concepts/instance-groups/deploy/deploy.md
-              - name: Rules for updating instance groups
+              - name: Rules for updating virtual machines
                 href: concepts/instance-groups/deploy/instance.md
               - name: Changing secondary disks in an instance template
                 href: concepts/instance-groups/deploy/secondary-disk.md
@@ -323,6 +350,7 @@ items:
             href: concepts/instance-groups/statuses.md
       - name: Dedicated host
         href: concepts/dedicated-host.md
+        when: product == "yandex-cloud"
       - name: Backups
         href: concepts/backups.md
       - name: Quotas and limits
@@ -330,6 +358,7 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
+    when: product == "yandex-cloud"
     items:
       - name: Current pricing policy
         href: pricing.md
@@ -341,7 +370,10 @@ items:
             href: pricing-archive/pricing-01032019.md
           - name: From March 1 to May 1, 2019
             href: pricing-archive/pricing-30042019.md
-  - name: Compute API reference
+  - name: Pricing policy
+    when: product == "cloud-il"
+    href: pricing.md
+  - name: API reference
     items:
       - name: Authentication in the API
         href: api-ref/authentication.md
@@ -365,6 +397,8 @@ items:
         href: qa/connection.md
       - name: Disks, snapshots, and images
         href: qa/disks.md
+      - name: Disaster recovery
+        href: qa/disaster-recovery.md
       - name: Monitoring
         href: qa/monitoring.md
       - name: Licensing

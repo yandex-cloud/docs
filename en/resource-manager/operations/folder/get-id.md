@@ -3,11 +3,11 @@
 {% list tabs %}
 
 - Management console
-  1. Open the folder page. You can select a folder on the [Home page]({{ link-console-main }}) of the management console. This page displays folders for the selected cloud. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
+  1. Open the folder page. You can select a folder on the [Home page]({{ link-console-main }}) of the management console. This page displays folders for the selected cloud.{% if product == "yandex-cloud" %} If necessary, [switch to another cloud](../cloud/switch-cloud.md).{% endif %}
   1. Get the folder ID from the URL of the folder page in the management console:
 
       ```
-      https://console.cloud.yandex.com/folders/b1gd129pp9ha0vnvf5g7
+      {{ link-console-main }}/folders/b1gd129pp9ha0vnvf5g7
       ```
 
       `b1gd129pp9ha0vnvf5g7` is the folder ID.
@@ -17,7 +17,7 @@
   If you know the folder name, get its ID using the `get` command:
 
   ```
-  $ yc resource-manager folder get my-folder
+  yc resource-manager folder get my-folder
 
   id: b1gd129pp9ha0vnvf5g7
   ...
@@ -26,7 +26,7 @@
   If you don't, get a list of folders with IDs for the default cloud:
 
   ```
-  $ yc resource-manager folder list
+  yc resource-manager folder list
 
   +----------------------+--------------------+------------------+--------+
   |          ID          |        NAME        |      LABELS      | STATUS |
@@ -39,7 +39,7 @@
   To view the list of folders in a different cloud, specify the folder ID in `cloud-id`:
 
   ```
-  $ yc resource-manager folder list --cloud-id b1glku4lgd6g31h5onqs
+  yc resource-manager folder list --cloud-id b1glku4lgd6g31h5onqs
   ```
 
 - API

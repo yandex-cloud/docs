@@ -1,34 +1,53 @@
 ---
-title: Yandex Audit Trails. Обзор сервиса
-description: 'Yandex Audit Trails позволяет собирать аудитные логи о происходящих с ресурсами Yandex Cloud событиях и загружать эти логи в бакет или лог-группу для дальнейшего анализа или экспорта.'
+title: {{ at-full-name }}. Обзор сервиса
+description: '{{ at-full-name }} позволяет собирать аудитные логи о происходящих с ресурсами {{ yandex-cloud }} событиях и выгружать эти логи для дальнейшего анализа или экспорта.'
 ---
 
 # Обзор сервиса {{ at-full-name }}
 
-{{ at-full-name }} позволяет собирать аудитные логи ресурсов {{ yandex-cloud }} и загружать их в бакет {{ objstorage-name }} или в лог-группу {{ cloud-logging-name }}:
+{{ at-full-name }} позволяет собирать аудитные логи ресурсов {{ yandex-cloud }} и загружать их в бакет {{ objstorage-name }}{% if product == "yandex-cloud" %} или в лог-группу {{ cloud-logging-name }}{% endif %}:
 
-* [Загрузка аудитных логов в бакет](../operations/export-bucket.md)
-* [Загрузка аудитных логов в Cloud Logging](../operations/export-cloud-logging.md). 
+* [Загрузка аудитных логов в бакет](../operations/export-bucket.md).
+{% if product == "yandex-cloud" %}
+* [Загрузка аудитных логов в Cloud Logging](../operations/export-cloud-logging.md).
+{% endif %}
 
 Сбор аудитных логов позволяет применять инструменты анализа и оперативного реагирования на события уровня сервисов {{ yandex-cloud }}:
 
 * [Поиск по аудитным логам в бакете](../tutorials/search-bucket.md)
+{% if product == "yandex-cloud" %}
 * [Поиск по аудитным логам в лог-группе](../tutorials/search-cloud-logging.md)
+{% endif %}
 * [Загрузка аудитных логов в SIEM](./export-siem.md)
 * [Настройка алертов в {{ monitoring-full-name }}](../tutorials/alerts-monitoring.md)
 
 Сервисы {{ yandex-cloud }}, аудитные логи которых собирает {{ at-name }}:
 
 * {{ at-full-name }}
+* {{ certificate-manager-full-name }}
+{% if product == "yandex-cloud" %}
 * {{ cloud-logging-full-name }}
+{% endif %}
 * {{ compute-full-name }}
-* {{ ydb-full-name }}
 * {{ iam-full-name }}
 * {{ kms-full-name }}
-* {{ lockbox-name }}
+* {{ lockbox-full-name }}
+* {{ mch-full-name }}
+{% if product == "yandex-cloud" %}
+* {{ mmg-full-name }}
+{% endif %}
+* {{ mmy-full-name }}
+* {{ mpg-full-name }}
+{% if product == "yandex-cloud" %}
+* {{ mrd-full-name }}
+{% endif %}
 * {{ network-load-balancer-full-name }}
 * {{ objstorage-full-name }}
+* {{ resmgr-full-name }}
 * {{ vpc-full-name }}
+{% if product == "yandex-cloud" %}
+* {{ ydb-full-name }}
+{% endif %}
 
 Логируются следующие события:
 

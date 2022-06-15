@@ -1,4 +1,8 @@
-title: Yandex Identity and Access Management
+title:
+  - text: Yandex Identity and Access Management
+    when: product == "yandex-cloud"
+  - text: Identity and Access Management
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Getting started
@@ -47,6 +51,7 @@ items:
         items:
           - name: Getting an IAM token for a Yandex account
             href: operations/iam-token/create.md
+            when: product == "yandex-cloud"
           - name: Getting an IAM token for a service account
             href: operations/iam-token/create-for-sa.md
           - name: Getting an IAM token for a federated account
@@ -84,6 +89,7 @@ items:
             href: concepts/authorization/iam-token.md
           - name: OAuth token
             href: concepts/authorization/oauth-token.md
+            when: product == "yandex-cloud"
           - name: API key
             href: concepts/authorization/api-key.md
           - name: Authorized keys
@@ -96,7 +102,7 @@ items:
         href: concepts/federations.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: How to use Yandex Cloud securely
+  - name: How to use {{ yandex-cloud }} securely
     href: best-practices/using-iam-securely.md
   - name: Access management
     href: security/index.md

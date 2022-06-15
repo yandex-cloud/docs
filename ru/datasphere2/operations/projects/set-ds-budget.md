@@ -15,7 +15,7 @@
   ```bash
   grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \ 
       -d '{"folder_id": "<folder_id>"}' \ 
-      datasphere.api.cloud.yandex.net:443 \ 
+      datasphere.{{ api-host }}:443 \ 
       yandex.cloud.datasphere.v1.FolderBudgetService/Get
   ```
 
@@ -24,7 +24,7 @@
   ```bash
   grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \ 
       -d '{"folder_id": "<folder_id>", "set_mask": {"paths": ["unit_balance"]}, "unit_balance":10}' \ 
-      datasphere.api.cloud.yandex.net:443 \ 
+      datasphere.{{ api-host }}:443 \ 
       yandex.cloud.datasphere.v1.FolderBudgetService/Set
   ```
 
@@ -33,7 +33,7 @@
   ```bash
   grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \ 
       -d '{"folder_id": "<folder_id>", "set_mask": {"paths": ["unit_balance"]}}' \ 
-      datasphere.api.cloud.yandex.net:443 \ 
+      datasphere.{{ api-host }}:443 \ 
       yandex.cloud.datasphere.v1.FolderBudgetService/Set
   ```
 
@@ -42,7 +42,7 @@
   ```bash
   grpcurl -rpc-header "Authorization: Bearer <IAM-токен>>" \ 
       -d '{"folder_id": "<folder_id>"}' \ 
-      datasphere.api.cloud.yandex.net:443 \ 
+      datasphere.{{ api-host }}:443 \ 
       yandex.cloud.datasphere.v1.FolderBudgetService/Set
   ```
 

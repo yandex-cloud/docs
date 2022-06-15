@@ -29,7 +29,9 @@ keywords:
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-{% include [prepare-register-billing](../_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -39,6 +41,8 @@ keywords:
 * плата за кластер базы данных MySQL (см. [тарифы {{ mmy-full-name }}](../../managed-mysql/pricing.md));
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 * плата за публичные DNS-запросы и зоны (см. [тарифы {{ dns-full-name }}](../../dns/pricing.md)).
+
+{% endif %}
 
 ## Создайте виртуальную машину для WordPress {#create-vm}
 
@@ -50,7 +54,7 @@ keywords:
 
 3. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 
-4. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [Debian 11]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/debian-11){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/yc/debian-11){% endif %}, [Ubuntu 20.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %} или [CentOS 7]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}.
+4. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [Debian 11](/marketplace/products/yc/debian-11), [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) или [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo).
 
 5. В блоке **Вычислительные ресурсы**:
     - Выберите [платформу](../../compute/concepts/vm-platforms.md).
@@ -99,7 +103,9 @@ keywords:
 1. В блоке **Сетевые настройки**:
     - В списке **Сеть** выберите сеть, к которой будет подключен кластер.
 
+{% if product == "yandex-cloud" %}
 1. В блоке **Хосты** добавьте еще два хоста в других зонах доступности. При создании хостов не включайте для них **Публичный доступ**.
+{% endif %}
 
 1. В блоке **Настройки СУБД** нажмите кнопку **Настроить**. 
 
@@ -401,8 +407,8 @@ keywords:
 			+-----------------------------+----------------------+---------+--------+---------------+-----------+ 
 			|             NAME            |      CLUSTER ID      |  ROLE   | HEALTH |    ZONE ID    | PUBLIC IP | 
 			+-----------------------------+----------------------+---------+--------+---------------+-----------+ 
-			| rc1a-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | MASTER  | ALIVE  | ru-central1-a | false     | 
-			| rc1b-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | REPLICA | ALIVE  | ru-central1-b | false     | 
+			| rc1a-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | MASTER  | ALIVE  | {{ region-id }}-a | false     | 
+			| rc1b-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | REPLICA | ALIVE  | {{ region-id }}-b | false     | 
 			+-----------------------------+----------------------+---------+--------+---------------+-----------+ 
 			```
 
@@ -412,8 +418,8 @@ keywords:
 			+-----------------------+----------------------+---------+--------+---------------+-----------+ 
 			|          NAME         |      CLUSTER ID      |  ROLE   | HEALTH |    ZONE ID    | PUBLIC IP | 
 			+-----------------------+----------------------+---------+--------+---------------+-----------+ 
-			| rc1a-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | MASTER  | ALIVE  | ru-central1-a | false     | 
-			| rc1b-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | REPLICA | ALIVE  | ru-central1-b | false     | 
+			| rc1a-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | MASTER  | ALIVE  | {{ region-id }}-a | false     | 
+			| rc1b-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | REPLICA | ALIVE  | {{ region-id }}-b | false     | 
 			+-----------------------+----------------------+---------+--------+---------------+-----------+ 
 			```
 

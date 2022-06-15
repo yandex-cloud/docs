@@ -63,6 +63,71 @@
   created_at: "2019-05-29T16:40:48.230Z"
   ```
 
+- Terraform
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  
+  Подробнее о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы добавить сертификат реестру, созданному с помощью Terraform:
+
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+      * `yandex_iot_core_registry` — параметры реестра:
+        * `name` — имя реестра.
+        * `description` — описание реестра.
+        * `certificates` — список сертификатов реестра для авторизации с помощью [сертификатов](../../concepts/authorization.md#certs).
+
+      Пример описания реестра в конфигурации Terraform:
+
+      ```hcl
+      resource "yandex_iot_core_registry" "my_registry" {
+        name        = "test-registry"
+        description = "test registry for terraform provider documentation"
+      ...
+        certificates = [
+          file("<путь_к_первому_файлу_с_сертификатом>"),
+          file("<путь_ко_второму_файлу_с_сертификатом>")
+        ]
+      ...
+      }
+      ```
+
+      Более подробную информацию о параметрах ресурса `yandex_iot_core_registry` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iot_core_registry).
+  1. В командной строке перейдите в папку, где вы отредактировали конфигурационный файл.
+  1. Проверьте корректность конфигурационного файла с помощью команды:
+
+      ```bash
+      terraform validate
+      ```
+     
+      Если конфигурация является корректной, появится сообщение:
+     
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+  1. Выполните команду:
+
+      ```bash
+      terraform plan
+      ```
+  
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+  1. Примените изменения конфигурации:
+
+      ```bash
+      terraform apply
+      ```
+     
+  1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+      Проверить сертификаты реестра можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+      ```bash
+      yc iot registry certificate list --registry-name <имя_реестра>
+      ```
+
 {% endlist %}
 
 ## Удалить сертификат {#delete-cert}
@@ -90,7 +155,7 @@
       yc iot registry certificate delete --registry-name my-registry --fingerprint 0f...
       ```
 
-  2. Проверьте, что сертификат действительно удален:
+  1. Проверьте, что сертификат действительно удален:
 
       ```
       yc iot registry certificate list --registry-name my-registry
@@ -105,5 +170,64 @@
       +-------------+------------+
       ```
 
-{% endlist %}
+- Terraform
 
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+  
+  Подробнее о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы удалить сертификат реестра, созданного с помощью Terraform:
+
+  1. Откройте файл конфигурации Terraform и удалите значение сертификата в блоке `certificates`, во фрагменте с описанием реестра. Чтобы удалить все сертификаты, удалите блок `certificates` целиком.
+
+      Пример описания реестра в конфигурации Terraform:
+
+      ```hcl
+      resource "yandex_iot_core_registry" "my_registry" {
+        name        = "test-registry"
+        description = "test registry for terraform provider documentation"
+      ...
+        certificates = [
+          file("<путь_к_первому_файлу_с_сертификатом>"),
+          file("<путь_ко_второму_файлу_с_сертификатом>")
+        ]
+      ...
+      }
+      ```
+
+      Более подробную информацию о параметрах ресурса `yandex_iot_core_registry` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iot_core_registry).
+  1. В командной строке перейдите в папку, где вы отредактировали конфигурационный файл.
+  1. Проверьте корректность конфигурационного файла с помощью команды:
+
+      ```bash
+      terraform validate
+      ```
+     
+      Если конфигурация является корректной, появится сообщение:
+     
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+  1. Выполните команду:
+
+      ```bash
+      terraform plan
+      ```
+  
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+  1. Примените изменения конфигурации:
+
+      ```bash
+      terraform apply
+      ```
+     
+  1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+      Проверить сертификаты реестра можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+      ```bash
+      yc iot registry certificate list --registry-name <имя_реестра>
+      ```
+
+{% endlist %}

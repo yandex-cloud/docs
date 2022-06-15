@@ -6,7 +6,7 @@ For disk limitations, see [{#T}](../concepts/limits.md).
 
 #### How do I change the disk size {#disk-resize}
 
-If you need to increase the disk size, see [{#T}](../operations/disk-control/update.md#change-disk-size) within the set [limits](../concepts/limits.md#limits-disks). The data on the disk is kept. Make sure to wait until the operation is complete.
+You can resize your disk within the set [limits](../concepts/limits.md#limits-disks) using the instructions [{#T}](../operations/disk-control/update.md#change-disk-size). The data on the disk is kept. Make sure to wait until the operation is complete.
 
 Reducing the disk size is impossible: this is an architectural feature of {{ yandex-cloud }} technologies. It's also impossible to create from the snapshot a disk smaller than the parent disk.
 
@@ -43,20 +43,21 @@ The best solution for increasing the available memory is to expand the vRAM on t
 This happens because occupied sectors remain on the disk after deleting the files.
 
 The solution is to write a file consisting of zeros to the entire unoccupied disk space, then flush the cache to the disk and delete the record about this file.
-* For Windows: stop disk operations and use the `SDelete` utility. You can find out how it works and download it in [the Microsoft documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sysinternals/downloads/sdelete){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sysinternals/downloads/sdelete){% endif %}.
-* For Linux: stop disk operations and enter the following commands one by one:
 
-  ```bash
-  dd if=/dev/zero | pv > full.disk
-  ```
+1. For Windows: stop disk operations and use the `SDelete` utility. You can find out how it works and download it in the [Microsoft documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sysinternals/downloads/sdelete){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sysinternals/downloads/sdelete){% endif %}.
+1. For Linux: stop disk operations and enter the following commands one by one:
 
-  ```bash
-  sync
-  ```
+   ```bash
+   dd if=/dev/zero | pv > full.disk
+   ```
 
-  ```bash
-  rm full.disk
-  ```
+   ```bash
+   sync
+   ```
+
+   ```bash
+   rm full.disk
+   ```
 
 The "empty" space on the disk then becomes truly empty and you can create a disk snapshot. Its size is similar to the current occupied disk space.
 
@@ -71,34 +72,40 @@ This approach of counting the quota doesn't affect the pricing: snapshots are ch
 1. Grant rights in your cloud to a user from another cloud:
    * Role for the cloud: `resource-manager.clouds.member`.
    * Role for the folder: `viewer` or `compute.images.user`.
+      
 
-   See [{#T}](../../iam/operations/roles/grant.md).
+   See the instructions [{#T}](../../iam/operations/roles/grant.md).
 1. Create an image from your snapshot under **Disk snapshots** or from the disk itself under **Disks**.
 
 A user in another cloud must:
-1. Run the command in the [CLI](../../cli/):
+1. Run the [CLI](../../cli/) command below:
 
    ```bash
-   yc compute image create --source-image-id=<your_image_id>
+   yc compute image create --source-image-id=<your_image_ID>
    ```
 
 1. When creating a VM, specify this image as a boot disk.
+   
 
 #### How do I attach a new disk to a VM {#attach-disk-to-vm}
 
 After creating and connecting a new disk to the VM, you need to mount it or assign it a letter, depending on the operating system. See: [{#T}](../operations/vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid).
 
-#### How do I set up automatic snapshots {#set-up-automatic-snapshot-creation}
+#### How do I set up automatic backups {#set-up-automatic-snapshot-creation}
 
-{{ compute-name }} does not currently offer a ready-made solution for automatic backups. However, you can use {{ sf-full-name }} to create scheduled snapshots on a [timer](../../functions/concepts/trigger/timer.md).
+Currently, {{ compute-name }} doesn't have a ready-made solution for automatic backups, but you can use the approach described in our blog: [Creating scheduled disk snapshots with {{ sf-full-name }}](https://cloud.yandex.ru/blog/posts/2020/01/snapshot-triggers).
+
+Note that the code is provided as is. Its further modification is outside the scope of {{ yandex-cloud }}.
+
+To back up the data manually, [use disk snapshots](../concepts/backups.md).
 
 #### What happens to my data when a VM is deleted? {#delete-vm}
 
-When you select a disk to attach to a VM, you can specify whether the disk should be deleted along with the VM. You can choose this option when creating a VM, updating it, or attaching a new disk to it.
+When selecting a disk to attach to a VM, you can specify whether the disk should be deleted along with the VM. You can choose this option when creating a VM, reconfiguring it, or attaching a new disk.
 
-If previously created disks are attached to the VM, they will be detached when the VM is deleted. The disk data is preserved and this disk can be attached to another VM in the future.
+If a VM had previously created disks attached, they will be detached when you delete the VM. The disk data is preserved and this disk can be attached to another VM in the future.
 
-If you want a disk to be deleted with a VM, specify this during one of the following operations: when creating the VM, updating it, or attaching the disk to it. Such disks will be deleted when you delete the VM.
+If you would like to delete a disk with a VM, specify this option when creating the VM, reconfiguring it, or attaching the disk. Such disks will be deleted along with the VM.
 
 #### Do I need to stop a VM to create disk snapshots? Do I have to wait until disk snapshots are created before I start a VM? {#create-snapshot}
 

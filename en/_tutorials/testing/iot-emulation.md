@@ -33,17 +33,11 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 ## Before you start {#before-begin}
 
-Before you deploy the device emulation infrastructure, register in {{ yandex-cloud }} and create a billing account:
-
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can go to the [cloud page]({{ link-console-cloud }}) to select or create the folder where you will be deploying your infrastructure.
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 ## Install Terraform {#install-terraform}
 
-By using Terraform in {{ yandex-cloud }}, you can create all kinds of cloud resources, such as VMs, disks, and images. For more information about resources that can be created with Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+By using Terraform in {{ yandex-cloud }}, you can create all kinds of cloud resources, such as VMs, disks, and images. For more information about resources that can be created with Terraform, see the [provider's documentation]({{ tf-provider-link }}).
 
 {% include [terraform_install](../terraform-install.md) %}
 
@@ -131,7 +125,7 @@ By using Terraform in {{ yandex-cloud }}, you can create all kinds of cloud reso
    terraform apply
    ```
 
-1. Confirm the resource creation: type `yes` in the terminal and press Enter.
+1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
    Result:
 

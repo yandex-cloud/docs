@@ -1,6 +1,6 @@
 * **Background pool size**{#setting-background-pool-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-    Количество потоков для выполнения фоновых операций слияния и [мутаций](https://{{ ch-domain }}/docs/ru/sql-reference/statements/alter/#mutations) в таблицах семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}.
+    Количество потоков для выполнения фоновых операций слияния и [мутаций]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/alter/#mutations){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/#mutations){% endif %} в таблицах семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}.
 
     По умолчанию выбрано значение `16`.
 
@@ -189,7 +189,7 @@
     Правила сжатия данных для таблиц семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}. Для каждого правила указываются:
 
     * **Method** — метод сжатия. Доступно два метода: [LZ4](https://lz4.github.io/lz4/) и [zstd](https://facebook.github.io/zstd/).
-    * **Min part size** — минимальный размер [куска данных]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %} (в байтах).
+    * **Min part size** — минимальный размер [куска данных]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %} (в байтах).
     * **Min part size ratio** — отношение размера наименьшего куска таблицы к полному размеру таблицы. {{ CH }} будет применять правило только к тем таблицам, у которых такое отношение больше или равно значению **Min part size ratio**.
 
     Вы можете добавить несколько правил сжатия. {{ CH }} проверит условия **Min part size** и **Min part size ratio** и применит правила к тем таблицам, для которых выполнены оба условия. Если к одной таблице подходит несколько правил, {{ CH }} применит первое из них. Если ни одно из правил не подходит, {{ CH }} применит метод сжатия [LZ4](https://lz4.github.io/lz4/).
@@ -279,6 +279,7 @@
 
 * **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-        Глобальные настройки аутентификации для [интеграции с {{ RMQ }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/integrations/rabbitmq/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/rabbitmq/){% endif %}:
-        * **Password** — пароль учетной записи {{ RMQ }}.
-        * **Username** — имя учетной записи {{ RMQ }}.
+    Глобальные настройки аутентификации для [интеграции с {{ RMQ }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/integrations/rabbitmq/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/rabbitmq/){% endif %}:
+
+    * **Password** — пароль учетной записи {{ RMQ }}.
+    * **Username** — имя учетной записи {{ RMQ }}.

@@ -1,5 +1,7 @@
 # Equivalents for Amazon Web Services
 
+{% if product == "yandex-cloud" %}
+
 | Amazon Web Services | {{ yandex-cloud }} |
 |----|----|
 | Amazon API Gateway | [{{ api-gw-full-name }}](../../api-gateway/) |
@@ -7,7 +9,7 @@
 | Amazon CloudFront | [{{ cdn-full-name }}](../../cdn/) |
 | Amazon DocumentDB (with MongoDB compatibility) | [{{ mmg-full-name }}](../../managed-mongodb/) |
 | Amazon DynamoDB | [{{ ydb-full-name }}](../../ydb/) |
-| Amazon EC2 Auto Scaling | [Yandex Instance Groups](../../compute/concepts/instance-groups/) |
+| Amazon EC2 Auto Scaling | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
 | Amazon Elastic Compute Cloud | [{{ compute-full-name }}](../../compute/) |
 | Amazon Elastic Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | Amazon Elastic Kubernetes Service | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
@@ -44,3 +46,34 @@
 | AWS Shield | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
 | Elastic Load Balancing: Application Load Balancer | [{{ alb-full-name }}](../../application-load-balancer/) |
 | Elastic Load Balancing: Network Load Balancer | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+| Amazon Web Services | {{ yandex-cloud }} |
+|----|----|
+| Amazon CloudWatch | [{{ monitoring-full-name }}](../../monitoring/) |
+| Amazon EC2 Auto Scaling | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
+| Amazon Elastic Compute Cloud | [{{ compute-full-name }}](../../compute/) |
+| Amazon Elastic Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
+| Amazon Elastic Kubernetes Service | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
+| Amazon MSK | [{{ mkf-full-name }}](../../managed-kafka/) |
+| Amazon RDS for MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
+| Amazon RDS for PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
+| Amazon Route 53 | [{{ dns-full-name }}](../../dns/) |
+| Amazon S3 | [{{ objstorage-full-name }}](../../storage/) |
+| Amazon Simple Queue Service | [{{ message-queue-full-name }}](../../message-queue/) |
+| Amazon Virtual Private Cloud | [{{ vpc-full-name }}](../../vpc/) |
+| AWS Certificate Manager | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
+| AWS Config | [{{ at-full-name }}](../../audit-trails/) |
+| AWS Database Migration Service | [{{ data-transfer-full-name }}](../../data-transfer/) |
+| AWS Identity and Access Management, AWS Cognito | [{{ iam-full-name }}](../../iam/) |
+| AWS Key Management Service | [{{ kms-full-name }}](../../kms/) |
+| AWS Organizations | [{{ org-full-name }}](../../organization/) |
+| AWS Resource Access Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
+| AWS Secrets Manager | [{{ lockbox-name }}](../../lockbox/) |
+| Elastic Load Balancing: Application Load Balancer | [{{ alb-full-name }}](../../application-load-balancer/) |
+| Elastic Load Balancing: Network Load Balancer | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
+
+{% endif %}

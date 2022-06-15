@@ -6,8 +6,10 @@
 ## Перед началом работы {#before-you-begin}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+{% if product == "yandex-cloud" %}
 1. На [странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
-1. На [странице облака](https://console.cloud.yandex.ru/cloud) создайте или выберите каталог, в котором будут работать ваш запрос и бакет с данными.
+{% endif %}
+1. На [странице облака]({{ link-console-cloud }}) создайте или выберите каталог, в котором будут работать ваш запрос и бакет с данными.
 
     [Подробнее об облаках и каталогах](../resource-manager/concepts/resources-hierarchy.md).
 

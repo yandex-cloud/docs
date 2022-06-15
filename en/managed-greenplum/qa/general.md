@@ -21,7 +21,7 @@ For the created and running databases, {{ mgp-short-name }} automatically create
 
 _A database host_ is an isolated database environment in the cloud infrastructure with dedicated computing resources and reserved data storage.
 
-_A database cluster_ is one or more database hosts that replication can be configured between.
+_A database cluster_ is one or more database hosts between which replication can be configured.
 
 ## How do I get started with {{ mgp-short-name }}? {#quickstart}
 
@@ -40,8 +40,8 @@ For detailed instructions, see [{#T}](../quickstart.md).
 
 The minimum number of hosts depends on the selected type of [storage](../concepts/storage.md):
 
-* If you use non-replicated network storage (`ssd-network-nonreplicated`) or fast local storage (`local-ssd`), the minimum number of hosts is 3.
-* If you select the `network-ssd` or `network-hdd` storage type, you can create single-host clusters.
+* When using non-replicated (`ssd-network-nonreplicated`) or local SSD storage (`local-ssd`), the minimum number of hosts is 3.
+* when using network HDD (`network-hdd`) or network SSD storage (`network-ssd`), you can create a cluster containing a single host.
 
 The maximum number of hosts in a cluster is limited by the selected {{ MS }} edition, the requested computing resources, and the size of the storage for the cluster.
 
@@ -116,8 +116,8 @@ For all DBMS types, you can track:
 
 For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ MS }}, you can track:
 
-* Average query execution time.
-* Number of queries per second.
+* Average query execution time
+* Number of queries per second
 * Number of errors in logs, etc.
 
 Monitoring can be performed with a minimum granularity of 5 seconds.

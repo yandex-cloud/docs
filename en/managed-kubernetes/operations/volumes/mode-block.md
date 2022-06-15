@@ -8,11 +8,15 @@ To mount a volume in `volumeMode: Block` [mode](../../concepts/volume.md#block),
 
    Save the following [PersistentVolumeClaim](dynamic-create-pv.md) creation specification to a YAML file named `pvc-block.yaml`.
 
+   {% if product == "yandex-cloud" %}
+
    {% note info %}
 
-    If the `storageClassName` parameter is not specified, the default storage class (`yc-network-hdd`) is used. To change the default class, see [{#T}](manage-storage-class.md#sc-default).
+   If the `storageClassName` parameter is not specified, the default storage class (`yc-network-hdd`) is used. To change the default class, see [{#T}](manage-storage-class.md#sc-default).
 
-    {% endnote %}
+   {% endnote %}
+
+   {% endif %}
 
    To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
@@ -67,7 +71,7 @@ To mount a volume in `volumeMode: Block` [mode](../../concepts/volume.md#block),
      volumes:
      - name: persistent-storage
        persistentVolumeClaim:
-         claimName:  pvc-block
+         claimName: pvc-block
    ```
 
 1. Run the command:

@@ -1,1 +1,0 @@
-[Установите kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/){% else %}(https://kubernetes.io/docs/tasks/tools/install-kubectl/){% endif %} и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md).

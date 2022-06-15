@@ -1,5 +1,11 @@
 # Integration with a corporate DNS zone
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, follow the steps below:
 
 1. Set up a work environment.
@@ -16,7 +22,7 @@ To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, foll
 
 1. Configure the DNS server.
 
-   In this scenario's examples, the DNS server has the address `10.129.0.3`, the name `ns.example.com`, and serves a zone called `example.com`. Your DNS servers can be part of {{ vpc-name }} or be accessible via a VPN or {{ interconnect-name }}. IP connectivity between the {{ k8s }} cluster nodes and the DNS servers is required.
+   In this scenario's examples, the DNS server has the address `10.129.0.3`, the name `ns.example.com`, and serves a zone called `example.com`. Your DNS servers can be part of {{ vpc-name }} or be accessible via a VPN{% if product == "yandex-cloud" %} or {{ interconnect-name }}{% endif %}. IP connectivity between the {{ k8s }} cluster nodes and the DNS servers is required.
 
 1. Create a {{ k8s }} cluster and a group of nodes.
 
@@ -36,7 +42,7 @@ To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, foll
      --service-account-name <service_account_name> \
      --node-service-account-name <service_account_name> \
      --public-ip \
-     --zone ru-central1-a \
+     --zone {{ region-id }}-a \
      --network-name <cloud_network_name>
    ```
 
@@ -53,7 +59,7 @@ To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, foll
    yc managed-kubernetes node-group create \
      --name custom-dns-group \
      --cluster-name custom-dns-cluster \
-     --location zone=ru-central1-b \
+     --location zone={{ region-id }}-a \
      --public-ip \
      --fixed-size 1
    ```

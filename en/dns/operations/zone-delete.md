@@ -9,7 +9,7 @@ To delete a [DNS zone](../concepts/dns-zone.md):
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to delete a DNS zone.
    1. Select **{{ dns-name }}**.
    1. Click ![image](../../_assets/options.svg) in the row next to the zone to delete it.
-   1. In the menu that opens, click **Delete**.
+   1. In the resulting menu, click **Delete**.
    1. In the window that opens, click **Delete**.
 
 - CLI
@@ -87,7 +87,7 @@ To delete a [DNS zone](../concepts/dns-zone.md):
       terraform apply
       ```
 
-   1. Confirm the changes: type `yes` into the terminal and press Enter.
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can make sure the DNS zone has been deleted in the [management console]({{ link-console-main }}) or via the [CLI](../../cli/quickstart.md) command below:
 

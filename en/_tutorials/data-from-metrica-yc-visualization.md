@@ -54,7 +54,7 @@ To visualize and explore data, [set up your cloud](#before-you-begin), then foll
 
 ## Before you start {#before-you-begin}
 
-Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+{% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
 
 ## 1. Connect {{ CH }} and {{ ml-platform-short-name }} {#ch-datasphere-connection}
 
@@ -219,7 +219,7 @@ Now create charts.
    * Drag the **Browser** field to the **Colors** section.
    * Drag the **Hits** field to the **Y** section.
 
-1. Change the chart type to Area chart.
+1. Change the chart type to **Stacked area chart**.
 
    ![image](../_assets/datalens/solution-11/10-change-diagram.png =300x482)
 

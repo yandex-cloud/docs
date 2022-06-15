@@ -16,12 +16,10 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед тем, как разворачивать сервер, нужно войти в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина. Перейдите на [страницу облака](https://console.cloud.yandex.ru/cloud) и выберите или создайте каталог, в котором вы хотите создать ВМ для вашего сервера. [Подробнее об иерархии ресурсов {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
-
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы
 
@@ -31,6 +29,8 @@
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 * если планируется настройка управляемой базы данных, в стоимость также войдет плата за кластер БД (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
 
+
+{% endif %}
 
 ## Создайте виртуальную машину с платформой OpenCart {#create-vm}
 
@@ -42,7 +42,7 @@
    {% include [name-format](../../_includes/name-format.md) %}
 
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой должна находиться виртуальная машина.
-1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [OpenCart]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2ent1o0am6abue061ph){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2ent1o0am6abue061ph){% endif %}.
+1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [OpenCart](/marketplace/products/f2ent1o0am6abue061ph).
 
    На загрузочном диске будет предустановлена платформа OpenCart и необходимые для ее работы компоненты, включая PHP и MySQL.
 

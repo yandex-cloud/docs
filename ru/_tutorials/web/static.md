@@ -16,12 +16,10 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед использованием {{ objstorage-full-name }} нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет находиться ваш бакет. Перейдите на [страницу облака](https://console.cloud.yandex.ru/cloud) и выберите или создайте каталог, в котором вы хотите создать бакет. [Подробнее об иерархии ресурсов {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
-
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -32,6 +30,8 @@
 * стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-traffic)).
 * плата за публичные DNS-запросы и зоны (см. [тарифы {{ dns-full-name }}](../../dns/pricing.md)).
 
+
+{% endif %}
 
 ## Создайте публичный бакет {#create-public-bucket}
 
@@ -125,21 +125,37 @@
 
 ### Делегируйте доменное имя {#delegate-domain}
 
-Делегирование — это перенос ответственности с серверов регистратора на ваши серверы. Для домена создаются ресурсные записи [типа NS](../../dns/concepts/resource-record.md#ns) (`ns1.yandexcloud.net` и `ns2.yandexcloud.net`).
+Делегирование — это перенос ответственности с серверов регистратора на ваши серверы. Для домена создаются ресурсные записи [типа NS](../../dns/concepts/resource-record.md#ns) ({% if product == "yandex-cloud" %}`ns1.yandexcloud.net` и `ns2.yandexcloud.net`{% endif %}{% if product == "cloud-il" %}`ns1.cloudil.com` и `ns2.cloudil.com`{% endif %}).
 
 Чтобы делегировать домен, укажите для него DNS-серверы в личном кабинете регистратора.
 
 Делегирование происходит не сразу. Серверы интернет-провайдеров обычно обновляют записи до 24 часов (86400 секунд). Это обусловлено значением TTL, в течение которого кэшируются записи для доменов.
 
 Проверить делегирование домена можно с помощью [сервиса Whois]{% if lang == "ru" %}(https://www.reg.ru/whois/check_site){% endif %}{% if lang == "en" %}(https://www.reg.com/whois/check_site){% endif %} или утилиты `dig`:
+
 ```bash
 dig +short NS example.com
 ```
+
 Результат:
+
+{% if product == "yandex-cloud" %}
+
 ```
 ns2.yandexcloud.net.
 ns1.yandexcloud.net.
 ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+```
+ns2.cloudil.com.
+ns1.cloudil.com.
+```
+
+{% endif %}
 
 ## Загрузите файлы веб-сайта {#upload-files}
 
@@ -150,8 +166,8 @@ ns1.yandexcloud.net.
 
 Чтобы проверить работу сайта, используйте один из стандартных адресов {{ objstorage-name }}:
 
-* `http://www.example.com.website.yandexcloud.net`
-* `http://website.yandexcloud.net/www.example.com`
+* `http://www.example.com.{{ s3-web-host }}`
+* `http://{{ s3-web-host }}/www.example.com`
 
 Если вы настроили собственный домен, используйте адрес `http://www.example.com`.
 

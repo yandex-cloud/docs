@@ -26,7 +26,7 @@
       export APIKEY_ID=ajeke74kbp5bfq7m6ka2
       export IAM_TOKEN=CggaATEVAgA...
       curl -X DELETE -H "Authorization: Bearer $IAM_TOKEN" \
-        https://iam.api.cloud.yandex.net/iam/v1/apiKeys/$APIKEY_ID
+        https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
       ```
 
 - Terraform
@@ -47,7 +47,7 @@
 
     1. Удалите запись с информацией о ресурсе.
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/iam_service_account_api_key).
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_api_key).
 
     1. Проверьте корректность конфигурационных файлов.
 

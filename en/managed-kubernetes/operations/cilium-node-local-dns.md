@@ -252,7 +252,6 @@ To set up a local DNS in a {{ k8s }} cluster:
    ```text
    ciliumlocalredirectpolicy.cilium.io/Node Local DNS created
    ```
-
 ## Create a test environment {#create-test-environment}
 
 To test the local DNS, a [pod](../concepts/index.md#pod) with `nettool` will be launched in your cluster containing the `dnsutils` network utility suite.
@@ -334,7 +333,6 @@ To test the local DNS from the `nettool` pod, several DNS requests will be execu
 
    Name:    kubernetes.default.svc.cluster.local
    Address: 10.2.0.1
-
    Server:  10.2.0.2
    Address: 10.2.0.2#53
 

@@ -1,5 +1,11 @@
 # Изменение настроек кластера
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 После создания кластера вы можете:
 
 * [Изменить класс хостов](#change-resource-preset).
@@ -10,7 +16,9 @@
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 
-* [Вручную переключать мастер в кластере](#start-manual-failover).
+* [{#T}](#start-manual-failover).
+
+* [Переместить кластер](#move-cluster) в другой каталог.
 
 * [Изменить группы безопасности кластера](#change-sg-set).
 
@@ -63,8 +71,8 @@
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
-     | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
-     |           | ru-central1-c                  |       |          |
+     | s1.micro  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 8.0 GB   |
+     |           | {{ region-id }}-c                  |       |          |
      | ...                                                           |
      +-----------+--------------------------------+-------+----------+
      ```
@@ -125,7 +133,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
@@ -209,7 +217,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
@@ -308,7 +316,7 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
@@ -326,7 +334,7 @@
   1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
   1. Измените дополнительные настройки кластера:
 
-     {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
+     {% include [mpg-extra-settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
 
 - CLI
 
@@ -361,11 +369,12 @@
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    * `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [{#T}](datalens-connect.md).
+    {% if product == "yandex-cloud" %}* `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [{#T}](datalens-connect.md).{% endif %}
 
     * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
     * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
+    {% if product == "yandex-cloud" %}
     {% if audience != "internal" %}
 
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
@@ -374,6 +383,7 @@
 
     * `--serverless-access` — разрешает доступ к кластеру из сервиса {{ sf-full-name }}. Значение по умолчанию — `false`.
 
+    {% endif %}
     {% endif %}
 
     * `--connection-pooling-mode` — указывает [режим работы менеджера соединений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
@@ -437,7 +447,7 @@
       }
       ```
 
-  1. {% include [maintenance-window](../../_includes/mdb/mkf/terraform-maintenance-window.md) %}
+  1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
   1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
@@ -458,7 +468,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
@@ -483,6 +493,7 @@
 
     {% endnote %}
 
+  {% if product == "yandex-cloud" %}
   {% if audience != "internal" %}
 
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
@@ -492,17 +503,20 @@
   Чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}, передайте значение `true` для параметра `configSpec.access.serverless`.
 
   {% endif %}
+  {% endif %}
+
+  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
 {% endlist %}
 
-## Переключить мастер {#start-manual-failover}
+## Вручную переключить хост-мастер {#start-manual-failover}
 
-В отказоустойчивом кластере {{ PG }} из нескольких хостов вы можете переключить роль мастера с текущего хоста-мастера на хост-реплику в кластере. После этой операции текущий хост-мастер станет хостом-репликой для нового мастера.
+В отказоустойчивом кластере {{ mpg-name }} из нескольких хостов вы можете переключить роль мастера с текущего хоста-мастера на одну из реплик. После этой операции текущий хост-мастер станет хостом-репликой для нового мастера.
 
 Особенности переключения мастера в {{ mpg-name }}:
 
-1. Переключить мастер на реплику, для которой явно указан источник потока репликации, нельзя.
-1. Если явно не указать имя хоста-реплики, мастер переключится на одну из кворумных реплик.
+* Нельзя сделать мастером реплику, для которой явно указан источник потока репликации.
+* Если явно не указать имя хоста-реплики, мастер переключится на одну из кворумных реплик.
 
 Подробнее см. в разделе [{#T}](../concepts/replication.md).
 
@@ -513,10 +527,10 @@
 - Консоль управления
 
   1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
-  1. Нажмите кнопку **Переключить мастер**.
-  1. Чтобы переключить мастер на одну из кворумных реплик, оставьте опцию **Выбрать хост-мастер автоматически** включенной.
-  1. Чтобы переключить мастер на конкретную реплику, выключите опцию **Выбрать хост-мастер автоматически** и затем выберите нужную реплику из выпадающего списка.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![icon-hosts.svg](../../_assets/mdb/hosts.svg) **Хосты**.
+  1. Нажмите кнопку ![icon-autofailover.svg](../../_assets/mdb/autofailover.svg) **Переключить мастер**.
+      * Чтобы переключить мастер на одну из кворумных реплик, оставьте опцию **Выбрать хост-мастер автоматически** включенной.
+      * Чтобы переключить мастер на конкретную реплику, выключите опцию **Выбрать хост-мастер автоматически** и затем выберите нужную реплику из выпадающего списка.
   1. Нажмите кнопку **Переключить**.
 
 - CLI
@@ -546,9 +560,8 @@
 
         ```hcl
         resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
-            ...
-            host_master_name = "<имя хоста-реплики: атрибут name соответствующего блока host>"
-          }
+          ...
+          host_master_name = "<имя хоста-реплики: атрибут name соответствующего блока host>"
         }
         ```
 
@@ -560,16 +573,60 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
-  Воспользуйтесь методом API [startFailover](../api-ref/Cluster/startFailover.md) и передайте в запросе:
-  1. Идентификатор кластера, в котором нужно переключить мастер, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  1. Имя хоста-реплики, на которую нужно переключиться, в параметре `hostName`. Чтобы узнать имя, [получите список хостов в кластере](hosts.md#list).
+    Воспользуйтесь методом API [startFailover](../api-ref/Cluster/startFailover.md) и передайте в запросе:
+
+    * Идентификатор кластера, в котором нужно переключить мастер, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * (Опционально) Имя хоста-реплики, которую нужно сделать мастером, в параметре `hostName`. Чтобы узнать имя, [получите список хостов в кластере](hosts.md#list).
 
 {% endlist %}
 
+## Переместить кластер {#move-cluster}
+
+{% list tabs %}
+
+- Консоль управления
+
+    1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
+    1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) справа в строке кластера, который вы хотите переместить.
+    1. Выберите пункт **Переместить**.
+    1. Выберите каталог, в который вы хотите переместить кластер.
+    1. Нажмите кнопку **Переместить**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы переместить кластер:
+
+    1. Посмотрите описание команды CLI для перемещения кластера:
+
+        ```bash
+        {{ yc-mdb-pg }} cluster move --help
+        ```
+
+    1. Укажите каталог назначения в команде перемещения кластера:
+
+        ```bash
+        {{ yc-mdb-pg }} cluster move <идентификатор кластера> \
+           --destination-folder-name=<имя каталога назначения>
+        ```
+
+        Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- API
+
+    Воспользуйтесь методом API [move](../api-ref/Cluster/move.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Идентификатор каталога назначения в параметре `destinationFolderId`.
+
+{% endlist %}
 
 ## Изменить группы безопасности {#change-sg-set}
 
@@ -627,7 +684,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 

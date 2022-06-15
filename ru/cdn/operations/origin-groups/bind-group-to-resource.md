@@ -143,6 +143,8 @@
 
      Пример структуры конфигурационного файла:
 
+     {% if product == "yandex-cloud" %}
+
      ```
      provider "yandex" {
        token     = "<OAuth>"
@@ -158,8 +160,31 @@
 	    origin_group_id = <идентификатор группы источников>
      }
      ```
+
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```
+     provider "yandex" {
+       endpoint  = "{{ api-host }}:443"
+       token     = "<статический ключ сервисного аккаунта>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "<зона доступности по умолчанию>"
+     }
+
+     resource "yandex_cdn_resource" "my_resource" {
+       cname = "<доменное имя ресурса>"
+       active = true
+       origin_protocol = "https"
+	    origin_group_id = <идентификатор группы источников>
+     }
+     ```
+
+     {% endif %}
      
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_origin_group).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/cdn_origin_group).
 
   1. Проверьте корректность настроек.
 

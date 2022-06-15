@@ -1,3 +1,4 @@
+
 # Creating an image from a disk
 
 To create an image from a disk:
@@ -73,7 +74,7 @@ To create an image from a disk:
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
 
@@ -101,7 +102,7 @@ To create an image from a disk:
 - API
 
    1. Retrieve a list of disks using the [DiskService/List](../../api-ref/grpc/disk_service.md#List) gRPC API method or the [list](../../api-ref/Disk/list.md) method of the REST API `Disk` resource.
-   1. Create an image using the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API method or the [create](../../api-ref/Image/create.md) method of the REST API `Image` resource. Specify the disk ID in your request.
+   1. Create an image using the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API method or the [Create](../../api-ref/Image/create.md) method of the REST API `Image` resource. Specify the disk ID in your request.
 
 {% endlist %}
 

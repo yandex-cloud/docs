@@ -10,11 +10,9 @@ To set up backups in {{ objstorage-name }} via Acronis Backup Gateway:
 
 ## Before you start {#before-you-begin}
 
-Before using {{ objstorage-full-name }}, sign up for {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to place your bucket in. Go to the [{{ yandex-cloud }} homepage](https://console.cloud.yandex.ru/cloud) and select or create a folder where you want to create a bucket. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -23,6 +21,8 @@ The cost for backup and recovery includes:
 * A fee for data storage (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-storage)).
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
+{% endif %}
 
 ## Create a bucket {#create-bucket}
 

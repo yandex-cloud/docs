@@ -5,7 +5,7 @@ default:
   #названия сервиса и главную ссылку вынес в ru/presets.yaml
   #org-full-name: Yandex Cloud Organization
   #org-name: Organization
-  #link-org-main: https://org.cloud.yandex.com
+  #link-org-main: https://org.cloud.yandex.ru
   
   #Ссылки на разделы сервиса Organization
   link-org-users: https://org.cloud.yandex.com/users
@@ -29,3 +29,13 @@ default:
 
   #Ссылки на справку на yandex.ru/support
   support-passport-create: https://yandex.com/support/id/authorization/registration.html
+
+cloud-il:
+  service-name: Cloud Organization
+  link-org-users: https://org.cloudil.co.il/users
+  link-org-settings: https://org.cloudil.co.il/settings
+  link-org-federations: https://org.cloudil.co.il/federations
+  link-org-services: https://org.cloudil.co.il/services
+  link-passport: https://accounts.google.com/
+  login-example: login@gmail.com
+  yandex-domain: example.com

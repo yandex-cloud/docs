@@ -3,30 +3,27 @@ editable: false
 ---
 # prometheusMetrics method
 
-Exports Yandex Monitoring metrics in [Prometheus format](https://prometheus.io/docs/instrumenting/exposition_formats/). All the metrics from the folder are exported.
+Exports service metrics in [Prometheus format](https://prometheus.io/docs/instrumenting/exposition_formats/). All the metrics from the folder are exported.
 
 ## HTTP request {#https-request}
-
-```bash
+```
 GET https://monitoring.api.cloud.yandex.net/monitoring/v2/prometheusMetrics
 Authorization: Bearer <API key>
 ```
 
 ## Headers {#headers}
-
 | Header | Description |
-| --- | --- |
+--- | ---
 | Authorization | Service account API key. Use `Bearer` rather than `Api-Key` as the prefix. |
 
 ## Query parameters {#query_params}
 
 | Parameter | Description |
-| --- | --- |
-| folderId | Required field. ID of the folder you want to export metrics from.  Maximum string length: 50 characters. |
+--- | ---
+| folderId | Required field. ID of the folder you want to export metrics from. Maximum string length: 50 characters. |
 | service | ID of the service you want to export metrics from. |
 
 ## Response {#responses}
-
 **HTTP Code: 200 - OK**
 
 Metrics from the service in Prometheus format.
@@ -40,3 +37,4 @@ disk_read_ops_in_flight{device="fhm4madvd612357ao6vf", resource_id="fhmpnl2v1rsj
 target_instances_count{resource_id="cl11231oqcpuqlqvqh83", resource_type="instance_group"} 1.0
 ...
 ```
+

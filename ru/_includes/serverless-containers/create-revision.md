@@ -71,12 +71,14 @@
 
   1. Обновите в конфигурационном файле параметры работы ресурса `yandex_serverless_container`:
 
+     {% if product == "yandex-cloud" %}
+
      ```hcl
      provider "yandex" {
        token     = "<OAuth>"
        cloud_id  = "<идентификатор облака>"
        folder_id = "<идентификатор каталога>"
-       zone      = "ru-central1-a"
+       zone      = "{{ region-id }}-a"
      }
      
      resource "yandex_serverless_container" "test-container" {
@@ -89,7 +91,32 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/serverless_container).
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```hcl
+     provider "yandex" {
+       endpoint  = "{{ api-host }}:443"
+       token     = "<статический ключ сервисного аккаунта>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "{{ region-id }}-a"
+     }
+     
+     resource "yandex_serverless_container" "test-container" {
+        name               = "<имя контейнера>"
+        memory             = <объем памяти>
+        service_account_id = "<идентификатор сервисного аккаунта>"
+        image {
+            url = "<URL Docker-образа>"
+        }
+     }
+     ```
+
+     {% endif %}
+
+     Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
 
   1. Проверьте корректность конфигурационных файлов.
 

@@ -16,8 +16,9 @@
 ## Подготовьте тестовое окружение {#create-pvc-pod}
 
 Для проверки работы со снапшотами будет создан [PersistentVolumeClaim](../concepts/volume.md#persistent-volume) и [под](../concepts/index.md#pod), имитирующий рабочую нагрузку.
-
 1. Создайте файл `01-pvc.yaml` с манифестом `PersistentVolumeClaim`:
+
+   {% if product == "yandex-cloud" %}
 
    ```yaml
    ---
@@ -33,6 +34,27 @@
        requests:
          storage: 5Gi
    ```
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```yaml
+   ---
+   apiVersion: v1
+   kind: PersistentVolumeClaim
+   metadata:
+     name: pvc-dynamic
+   spec:
+     accessModes:
+       - ReadWriteOnce
+     storageClassName: yc-network-ssd
+     resources:
+       requests:
+         storage: 5Gi
+   ```
+
+   {% endif %}
 
 1. Создайте `PersistentVolumeClaim`:
 
@@ -141,6 +163,8 @@
 Чтобы восстановить снапшот:
 1. Создайте файл `04-restore-snapshot.yaml` с манифестом нового `PersistentVolumeClaim`:
 
+   {% if product == "yandex-cloud" %}
+
    ```yaml
    ---
    apiVersion: v1
@@ -159,6 +183,31 @@
        requests:
          storage: 10Gi
    ```
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```yaml
+   ---
+   apiVersion: v1
+   kind: PersistentVolumeClaim
+   metadata:
+     name: pvc-restore
+   spec:
+     storageClassName: yc-network-ssd
+     dataSource:
+       name: new-snapshot-test
+       kind: VolumeSnapshot
+       apiGroup: snapshot.storage.k8s.io
+     accessModes:
+       - ReadWriteOnce
+     resources:
+       requests:
+         storage: 10Gi
+   ```
+
+   {% endif %}
 
    {% note tip %}
 

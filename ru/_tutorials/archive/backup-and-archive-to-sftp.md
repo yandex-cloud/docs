@@ -20,12 +20,10 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед тем, как разворачивать сервер, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина. Перейдите на [страницу облака](https://console.cloud.yandex.ru/cloud) и выберите или создайте каталог, в котором вы хотите создать виртуальную машину для вашего сервера. [Подробнее об иерархии ресурсов {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
-
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы
 
@@ -37,6 +35,8 @@
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
+{% endif %}
+
 ## Создайте виртуальную машину для SFTP-сервера {#create-vm-sftp-server}
 
 Чтобы создать виртуальную машину:
@@ -47,7 +47,7 @@
     {% include [name-format](../../_includes/name-format.md) %}
 
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой должна находиться виртуальная машина.
-1. В блоке **Образы из {{ marketplace-name }}** выберите образ [CentOS 7]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}.
+1. В блоке **Образы из {{ marketplace-name }}** выберите образ [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo).
    
 1. В блоке **Вычислительные ресурсы** выберите следующую конфигурацию:
    * **Платформа** — Intel Cascade Lake.
@@ -207,7 +207,7 @@
     Your identification has been saved in /home/fuser/.ssh/id_rsa.
     Your public key has been saved in /home/fuser/.ssh/id_rsa.pub.
     The key fingerprint is:
-    SHA256:S2jRD3/A6ClHW/RZUOeOrl6BsK3pfWdhusGBGZiHE44 fuser@ftp-server.ru-central1.internal
+    SHA256:S2jRD3/A6ClHW/RZUOeOrl6BsK3pfWdhusGBGZiHE44 fuser@ftp-server.{{ region-id }}.internal
     The key's randomart image is:
     +---[RSA 2048]----+
     |         .. .oo .|
@@ -359,7 +359,7 @@
     * `$SFTP_SERVER` – переменная, которая автоматически примет значение IP адреса SFTP-сервера.
     * `backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz` — добавить к названию архива название компьютера, а также дату и время, когда был создан архив. Это позволит не потеряться в навигации по списку резервных копий на сервере.
     
-      Например, имя архива на сервере может выглядеть так: `backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz`. 
+      Например, имя архива на сервере может выглядеть так: `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz`. 
     
     * `--insecure` — отключить проверку SSL сертификатов со стороны SFTP-сервера. При этом трафик в рамках SSH-сессии все равно шифруется.
     * `$SFTP_USER` – переменная, которая автоматически примет значение SFTP-пользователя.
@@ -402,7 +402,7 @@ $ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --nu
    $ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
     ```
 
-1. Зайдите на SFTP-сервер и убедитесь, что файл вида `backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz` появился в домашнем каталоге SFTP-пользователя. Для этого на SFTP-сервере запустите команду:
+1. Зайдите на SFTP-сервер и убедитесь, что файл вида `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz` появился в домашнем каталоге SFTP-пользователя. Для этого на SFTP-сервере запустите команду:
 
    ```bash
    $ sudo ls /var/sftp/backups
@@ -420,12 +420,12 @@ $ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --nu
 
 Чтобы восстановить настройки из резервной копии:
 
-1. На SFTP-сервере в папке `/var/sftp/backups` выберите резервную копию, из которой следует восстановить конфигурационные файлы. Например, это будет `backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz`.
+1. На SFTP-сервере в папке `/var/sftp/backups` выберите резервную копию, из которой следует восстановить конфигурационные файлы. Например, это будет `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz`.
 
 1. На SFTP-клиенте сделайте переменную окружения для названия файла резервной копии:
 
     ```bash
-    SFTP_BACKUP='backup_ftp-server.ru-central1.internal_20190803_180228.tar.gz'
+    SFTP_BACKUP='backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz'
     ```
 
 1. Скачайте резервную копию с SFTP-сервера на SFTP-клиент:

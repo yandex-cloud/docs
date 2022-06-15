@@ -31,6 +31,9 @@
      ```
 
      Результат:
+     
+     {% if product == "yandex-cloud" %}
+     
      ```
      id: a5dld80l32edg407nsti
      name: new-http-router
@@ -54,6 +57,37 @@
          append: ru-RU
      created_at: "2021-02-11T21:31:01.676592016Z"
      ```
+     
+     {% endif %}
+ 
+     {% if product == "cloud-il" %}
+
+     ```
+     id: a5dld80l32edg407nsti
+     name: new-http-router
+     folder_id: aoe197919j8elpeg1lkp
+     virtual_hosts:
+     - name: test-virtual-host
+       authority:
+       - your-domain.foo.com
+       routes:
+       - name: test-route
+         http:
+           match:
+             path:
+               prefix_match: /
+           route:
+             backend_group_id: a5d4db973944t2fh8gor
+             timeout: 2s
+             idle_timeout: 3s
+       modify_request_headers:
+       - name: Accept-Language
+         append: he-IL
+     created_at: "2021-02-11T21:31:01.676592016Z"
+     ```
+
+     {% endif %}
+ 
 
 - Terraform
 
@@ -73,7 +107,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_http_router` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router).
+     Более подробную информацию о параметрах ресурса `yandex_alb_http_router` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/alb_http_router).
 
   1. Чтобы добавить, изменить или удалить виртуальные хосты HTTP-роутера, используйте ресурс `yandex_alb_virtual_host` с указанием на роутер в поле `http_router_id`:
 
@@ -93,7 +127,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
+     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/alb_virtual_host).
 
   1. Проверьте конфигурацию командой:
 
@@ -344,7 +378,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
+     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/alb_virtual_host).
 
      Порядок маршрутов важен в описании виртуального хоста. Более подробную информацию см. в [концепции](../../application-load-balancer/concepts/http-router.md#virtual-host).
 

@@ -14,51 +14,52 @@ It's easier to manage a cloud infrastructure so you can focus on your business c
 #### What can I do with {{ yandex-cloud }} VMs? {#what-can-i-do}
 
 * Use only those computing resources which are necessary to meet your needs. If you need expensive powerful systems, you don't have to buy them. You can create a VM in {{ yandex-cloud }} and use it whenever necessary.
-* Quickly scale processing capacity to meet your needs. You can start additional VMs during peak times and stop them when the load is low.
-* Use your VMs to deploy applications that must be always available. You don't need to worry about guaranteeing server uptime: {{ yandex-cloud }} will keep it running smoothly. Focus on creating applications that work.
+* Quickly scale processing capacity to meet your needs. You can start additional VMs during peak times and stop them when the load decreases.
+* Use your VMs to deploy applications that must always be available. You don't need to worry about guaranteeing server uptime: {{ yandex-cloud }} will keep it running smoothly. Focus on creating applications that work.
 * Configure backups to make it easier to restore your data in the event of loss.
 * Create and distribute VM disk images. You can use images to quickly deploy your software on other VMs.
-* Automate VM management using the API and scripts in the command line interface.
+* Automate VM management using the API and scripts in the command-line interface.
 
 For more information about {{ yandex-cloud }} VMs, see [{#T}](../concepts/vm.md).
 
 #### How do {{ yandex-cloud }} VMs differ from regular hosting? {#better-than-hosting}
 
-Traditional hosting offers you resources on lease with pre-agreed performance for a fixed time. {{ yandex-cloud }} VMs let you use cloud resources like your personal data center. At the same time, you receive all the advantages of the resilient infrastructure of Yandex's data centers.
+Traditional hosting offers you resources on lease with pre-agreed performance for a fixed time. {{ yandex-cloud }} VMs let you use cloud resources as your personal data center. At the same time, you receive all the advantages of the resilient infrastructure of Yandex's data centers.
 
 You can scale your cloud infrastructure as your performance requirements change. This way you can control how many resources you are using at any given time and how much you pay for them.
 
-You also get full control over the status of your VMs. You can start and stop VMs when you need to. You can set up your VM software configuration and change it as necessary. Disk images and snapshots let you easily transfer data between your VMs.
+You will also have complete control over the VM status. You can start and stop VMs when you need to. You can set up your VM software configuration and change it as necessary. Disk images and snapshots let you easily transfer data between your VMs.
 
 #### How do I get started with {{ yandex-cloud }} VMs? {#get-started}
 
-You can create your first VM using one of the methods described in [{#T}](../quickstart/index.md).
+You can create your first VM by following one of the scenarios described in [{#T}](../quickstart/index.md).
 
 #### How do I get access to a VM? {#access-ssh}
 
-You can connect to a VM from another VM in the same cloud network. Use the VM's internal IP address or FQDN to do this.
+You can connect to a VM from another VM on the same cloud network. Use the VM's internal IP address or FQDN to do this.
 
-If a public IP address was assigned to the VM when it was created, you can use it to connect to the VM from the internet.
+If you assigned a VM a public IP during creation, you can use that IP to connect to the VM from the internet.
 
-You can find out the IP addresses, FQDN and other information in the management console (go to the **Network** section on the virtual machine's page).
+You can get the IP addresses, FQDNs, and other information in the management console in to the **Network** section on the VM's page.
 
 For more information, see [{#T}](../concepts/network.md).
 
-To connect to Linux VMs, [use SSH](../operations/vm-connect/ssh.md). Connect to Windows VMs over RDP.
+[Use SSH](../operations/vm-connect/ssh.md) to connect to a Linux VM. Use RDP to connect to a Windows VM.
 
 #### How quickly can I change the performance of my information systems? {#scalability}
 
 You can change the performance of your information system in one of the following ways:
-* Create VMs in advance with the appropriate characteristics and pre-installed software. During peak times, you will just need to start these VMs to increase the performance of the information system. When the load drops, you can stop some of the VMs so that you will not have to pay for consuming extra resources.
+* Create VMs in advance with the appropriate characteristics and pre-installed software. During peak times, all you have to do is start these VMs to increase the performance of the information system. When the load decreases, you can stop some of the VMs to avoid paying for extra resources.
 * If you frequently need new VMs with the same configuration, you can create a boot disk image and use it when creating VMs.
 
 #### Why is the VM running slowly? {#why-vm-slowly}
 
-As for any servers, including physical ones, the VM performance depends on the performance of the:
-* CPU.
+
+Just like any other server, including physical ones, VM performance depends on the performance of:
+* The CPU.
 * RAM.
 * Disks.
-* Networks.
+* The network.
 
 Note that the physical core thread allocated to your VM handles, in addition to the vCPU itself, the qemu virtualization process and I/O operations (networks and disks).
 
@@ -69,21 +70,32 @@ General recommendations for improving VM performance:
 1. Never use the swap file. It causes a significant drop in performance. The best solution is simply to expand the vRAM if there isn't enough memory. With Linux, it's acceptable to use the `zram-config` utility.
 1. Use large network SSDs. The weak point of the system may be network drives. They are subject to the limits of IOPS and bandwidth, which depend on the disk type and size. For more information, see [{#T}](../concepts/limits.md#compute-limits-disks).
 
-   Also keep in mind that disk performance depends on the size of the write and read request. See [{#T}](../concepts/storage-read-write.md).
+   Keep in mind that disk performance also depends on the read and write request size. See [{#T}](../concepts/storage-read-write.md).
 
    You should read and write data in several threads.
 1. Remember that network computing depends on the vCPU performance. Run synthetic tests that don't affect disk usage to diagnose network problems. If it does have to do with a slow network, we recommend adding a vCPU and retesting it.
+   
 
 #### What operating systems are supported by {{ yandex-cloud }} VMs? {#os}
 
-Linux and Windows operating systems are supported.
+Linux and Windows-based operating systems are supported.
 
 Public boot disk images that have been tested in {{ yandex-cloud }} are available for popular distributions of these systems.
 
+
+{% if product == "yandex-cloud" %}
+
 {% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+
+{% endif %}
+
 
 #### How do I contact technical support? {#support-channels}
 
-You can contact technical support in the management console under [Support]({{ link-console-support }}).
+You can contact technical support under [Support]({{ link-console-support }}) in the management console.
 
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}
+
+#### How do I find out the cost? {#pricing}
+
+You can find the cost of using the service in [{#T}](../pricing.md). You can also use [our calculator]({{ link-cloud-calculator }}).

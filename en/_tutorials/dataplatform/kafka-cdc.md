@@ -162,7 +162,7 @@ If you no longer need these resources, [delete them](#clear-out).
       name=debezium-mpg
       connector.class=io.debezium.connector.postgresql.PostgresConnector
       plugin.name=pgoutput
-      database.hostname=c-<cluster ID>.rw.mdb.yandexcloud.net
+      database.hostname=c-<cluster ID>.rw.{{ dns-zone }}
       database.port=6432
       database.user=user1
       database.password=<user1 password>
@@ -212,7 +212,7 @@ The target cluster settings depend on the source cluster type:
 
    1. Create the `__debezium-heartbeat.mpg` service topic with the `compact` cleanup policy.
 
-      Names for service topics follow the [conventions ](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-property-heartbeat-topics-prefix): `<prefix for heartbeat>.<server name>`.
+      Names for service topics follow the [conventions](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-property-heartbeat-topics-prefix): `<prefix for heartbeat>.<server name>`.
 
       According to the [Debezium configuration file](#setup-debezium):
 
@@ -221,7 +221,7 @@ The target cluster settings depend on the source cluster type:
 
       If you need data from multiple source clusters, create a separate service topic for each of them.
 
-   1. [Create a ](../../managed-kafka/operations/cluster-accounts.md#create-account) `debezium` account with a password specified in the [worker settings file](#setup-debezium).
+   1. [Create a](../../managed-kafka/operations/cluster-accounts.md#create-account) `debezium` account with a password specified in the [worker settings file](#setup-debezium).
 
       [Grant to it](../../managed-kafka/operations/cluster-accounts.md#grant-permission) the rights to the created topics:
 

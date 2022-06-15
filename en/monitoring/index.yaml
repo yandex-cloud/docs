@@ -1,15 +1,36 @@
-title: Yandex Monitoring
+title:
+  - text: Yandex Monitoring
+    when: product == "yandex-cloud"
+  - text: Monitoring
+    when: product == "cloud-il"
 description:
-  - >-
-    Yandex Monitoring lets you collect and store metrics and display them as charts on dashboards.
-  - >-
-    The service is subject to the <a href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The service level is defined in the <a href="https://yandex.com/legal/cloud_sla_ym">Service Level for Yandex Monitoring</a>.
+  - text:
+      - >-
+        Yandex Monitoring lets you collect and store metrics and display them as charts on dashboards.
+      - >-
+        The service is subject to the <a href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The service level is defined in the
+        <a href="https://yandex.com/legal/cloud_sla_ym">Service Level for Yandex Monitoring</a>.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        Monitoring lets you collect and store metrics and display
+        them as charts on dashboards.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Monitoring
+  title:
+    - text: Yandex Monitoring
+      when: product == "yandex-cloud"
+    - text: Monitoring
+      when: product == "cloud-il"
 links:
   - title: Getting started
     description: Start monitoring your metrics
     href: quickstart
+    when: product == "yandex-cloud"
+  - title: Getting started
+    description: Start monitoring your metrics
+    href: quickstart.html
+    when: product == "cloud-il"
   - title: Step-by-step instructions
     description: Instructions on how to perform routine operations
     href: operations/
@@ -18,28 +39,49 @@ links:
     href: concepts/
   - title: Agent for delivering metrics
     description: Set up delivery of system metrics or application metrics via Yandex Unified Agent
-    href: concepts/data-collection/unified-agent/index
+    href: concepts/data-collection/unified-agent/
   - title: Query language
     description: Description of query language for converting metrics
     href: concepts/querying
+    when: product == "yandex-cloud"
+  - title: Query language
+    description: Description of query language for converting metrics
+    href: concepts/querying.html
+    when: product == "cloud-il"
   - title: Alerting
     description: Set up metric change alerts
     href: concepts/alerting
+    when: product == "yandex-cloud"
+  - title: Alerting
+    description: Set up metric change alerts
+    href: concepts/alerting.html
+    when: product == "cloud-il"
   #- title: Metric reference
-    ##  description: Description of metrics for services {{ yandex-cloud }}
-    ##  href: metrics-ref/
+    ## description: Description of metrics for services {{ yandex-cloud }}
+    ## href: metrics-ref/
   - title: API reference
     description: HTTP API method descriptions
     href: api-ref/
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits
+    when: product == "yandex-cloud"
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Access management
-    description: Configure access rights to work with the service
+    description: Permissions required for using the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+    when: product == "yandex-cloud"
   - title: Questions and answers
-    description: Answers to frequently asked questions about the service
+    description: Answers to frequently asked questions
     href: qa/all
+    when: product == "yandex-cloud"
+  - title: Questions and answers
+    description: Answers to frequently asked questions
+    href: qa/all.html
+    when: product == "cloud-il"

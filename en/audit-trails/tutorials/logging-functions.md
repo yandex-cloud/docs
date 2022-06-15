@@ -7,10 +7,10 @@ You can configure [{{ sf-name }}](../../functions/index.yaml) to automatically r
 In general, you will require the following components to configure a response via {{ sf-name }}:
 
 1. A trail uploads [audit logs to a log group](../operations/export-cloud-logging.md).
-1. A [log group](../../logging/concepts/log-group.md) acts as an interface between a trail and a {{ sf-name }} trigger.
-1. A [{{ cloud-logging-full-name }} trigger](../../functions/concepts/trigger/cloud-logging-trigger.md) calls the function when adding an entry to a log group.
-1. A [{{ sf-name }} function](../../functions/concepts/function.md) to execute the response logic.
-1. An optional auxiliary component, such as a Telegram bot or mail server.
+2. A [log group](../../logging/concepts/log-group.md) acts as an interface between a trail and a {{ sf-name }} trigger.
+3. A [{{ cloud-logging-full-name }} trigger](../../functions/concepts/trigger/cloud-logging-trigger.md) calls the function when adding an entry to a log group.
+4. A [{{ sf-name }} function](../../functions/concepts/function.md) to execute the response logic.
+5. An optional auxiliary component, such as a Telegram bot or mail server.
 
 ## Example implementation {#example}
 

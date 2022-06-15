@@ -4,20 +4,12 @@
 
 {% note info %}
 
-Если хранилище баз данных заполнится на 95%, кластер перейдет в режим только чтения. Рассчитывайте и увеличивайте необходимый размер хранилища заранее.
+* Количество хостов, которые можно создать вместе с кластером {{ MS }}, зависит от выбранного {% if audience != "internal" %}[типа хранилища](../concepts/storage.md#storage-type-selection){% else %}[типа хранилища](../concepts/storage.md){% endif %} и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
 
-{% if audience != "internal" %}
-
-Количество хостов, которые можно создать вместе с кластером {{ MS }}, зависит от выбранного [типа хранилища](../concepts/storage.md):
-
-* При использовании хранилища на **локальных SSD-дисках** или на **нереплицируемых SSD-дисках** вы можете создать кластер из трех или более хостов (минимум три хоста необходимо, чтобы обеспечить отказоустойчивость).
-* При использовании хранилища на **сетевых HDD-дисках** или на **сетевых SSD-дисках** вы можете добавить любое количество хостов в пределах [текущей квоты](../concepts/limits.md).
-
-После создания кластера в него можно добавить дополнительные хосты, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
-
-{% endif %}
+Если хранилище баз данных заполнится на 95%, кластер перейдет в режим только чтения. Рассчитывайте и увеличивайте необходимый размер хранилища заранее.
 
 {% include [ms-licensing-personal-data](../../_includes/ms-licensing-personal-data.md) %}
 
@@ -72,7 +64,7 @@
 
           {% endnote %}
 
-      {% if audience != "internal" %}
+      {% if product == "yandex-cloud" and audience != "internal" %}
 
       1. (Опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер.
 
@@ -119,7 +111,7 @@
 
         ```bash
         {{ yc-mdb-ms }} cluster create <имя кластера> \
-           --sqlserver-version=<версия {{ MS }}> \
+           --sqlserver-version=<версия {{ MS }}: {{ versions.cli.str }}> \
            --environment=<окружение: PRESTABLE или PRODUCTION> \
            --host zone-id=<зона доступности>,`
                  `subnet-id=<идентификатор подсети>,`
@@ -170,7 +162,7 @@
 
         ```bash
         {{ yc-mdb-ms }} cluster create <имя кластера> \
-           --sqlserver-version=<версия {{ MS }}> \
+           --sqlserver-version=<версия {{ MS }}: {{ versions.cli.str }}> \
            --environment=<окружение: PRESTABLE или PRODUCTION> \
            --host zone-id=<зона доступности> \
            --network-name=<имя сети> \
@@ -218,9 +210,9 @@
            --backup-window-start=<время начала резервного копирования>
         ```
 
-    {% if audience != "internal" %}
+    {% if product == "yandex-cloud" and audience != "internal" %}
 
-    1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids` при создании кластера:
+    1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids`:
 
         ```bash
         {{ yc-mdb-ms }} cluster create <имя кластера> \
@@ -230,6 +222,14 @@
 
         {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
 
+    1. Чтобы привязать к кластеру [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для настройки взаимодействия с другими ресурсами {{ yandex-cloud }}, передайте его [идентификатор](../../iam/operations/sa/get-id.md) в параметре `--service-account-id`:
+
+        ```bash
+        {{ yc-mdb-ms }} cluster create <имя кластера> \
+           ...
+           --service-account-id=<идентификатор сервисного аккаунта>
+        ```
+       
     {% endif %}
 
 - Terraform
@@ -255,7 +255,7 @@
           name                = "<имя кластера>"
           environment         = "<окружение: PRESTABLE или PRODUCTION>"
           network_id          = "<идентификатор сети>"
-          version             = "<версия {{ MS }}>"
+          version             = "<версия {{ MS }}: {{ versions.tf.str }}>"
           security_groups_id  = ["<список идентификаторов групп безопасности>"]
           deletion_protection = <защита от удаления кластера: true или false>
 
@@ -300,8 +300,10 @@
         }
         ```
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+        {% if product == "yandex-cloud" %}
+       
         1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), добавьте к описанию кластера поле `host_group_ids` и укажите в нем через запятую идентификаторы нужных групп:
 
             ```hcl
@@ -313,6 +315,8 @@
             ```
 
             {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
+ 
+        {% endif %}
 
         Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mms }}).
 
@@ -325,6 +329,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся IP-адреса виртуальных машин. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+        {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
 
 - API
 
@@ -339,15 +345,17 @@
   * Имя параметров сортировки баз данных кластера в параметре `sqlcollation`.
   * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
-      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-  {% if audience != "internal" %}
+  {% if product == "yandex-cloud" and audience != "internal" %}
 
   Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
 
-  {% endif %}
-
   {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
+
+  Чтобы привязать к кластеру [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), передайте его [идентификатор](../../iam/operations/sa/get-id.md) в параметре `serviceAccountId`.
+
+  {% endif %}
 
 {% endlist %}
 
@@ -372,7 +380,7 @@
     {% if audience != "internal" %}
 
     * С именем `mssql-1`.
-    * Версии `2016 SP2 Standard Edition`.
+    * Версии `{{ versions.cli.latest.long-std }}`.
     * В окружении `PRODUCTION`.
     * В сети `default`.
     * В группе безопасности `{{ security-group }}`.
@@ -385,7 +393,7 @@
     {% else %}
 
     * С именем `mssql-1`.
-    * Версии `2016 SP2 Standard Edition`
+    * Версии `{{ versions.cli.latest.long-std }}`
     * В окружении `PRODUCTION`.
     * В группе безопасности `{{ security-group }}`.
     * С одним хостом класса `db1.micro`, в зоне доступности `man`.
@@ -403,7 +411,7 @@
     ```bash
     {{ yc-mdb-ms }} cluster create \
        --name=mssql-1 \
-       --sqlserver-version=2016sp2std \
+       --sqlserver-version={{ versions.cli.latest.std }} \
        --environment=PRODUCTION \
        --network-name=default \
        --resource-preset=s2.small \
@@ -423,7 +431,7 @@
     ```bash
     {{ yc-mdb-ms }} cluster create \
        --name=mssql-1 \
-       --sqlserver-version=2016sp2std \
+       --sqlserver-version={{ versions.cli.latest.std }} \
        --environment=PRODUCTION \
        --network-id=' ' \
        --host zone-id=man \
@@ -444,7 +452,7 @@
 
     * С именем `mssql-1`.
     * В окружении `PRODUCTION`.
-    * С версией {{ MS }} `2016 ServicePack 2` и редакцией `Standard Edition`.
+    * С версией {{ MS }} `{{ versions.tf.latest.long-std }}`.
     * В облаке с идентификатором `{{ tf-cloud-id }}`.
     * В каталоге с идентификатором `{{ tf-folder-id }}`.
     * В новой сети `mynet`.
@@ -456,6 +464,8 @@
     * С защитой от случайного удаления кластера.
 
     Конфигурационный файл для такого кластера выглядит так:
+
+    {% if product == "yandex-cloud" %}
 
     ```hcl
     terraform {
@@ -476,7 +486,7 @@
     resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
       name                = "mssql-1"
       environment         = "PRODUCTION"
-      version             = "2016sp2std"
+      version             = "{{ versions.tf.latest.std }}"
       network_id          = yandex_vpc_network.mynet.id
       security_group_ids  = [yandex_vpc_security_group.ms-sql-sg.id]
       deletion_protection = true
@@ -528,5 +538,84 @@
       }
     }
     ```
+
+    {% endif %}
+
+    {% if product == "cloud-il" %}
+
+    ```hcl
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+      }
+    }
+
+    provider "yandex" {
+      endpoint  = "{{ api-host }}:443"
+      token     = "<статический ключ сервисного аккаунта>"
+      cloud_id  = "{{ tf-cloud-id }}"
+      folder_id = "{{ tf-folder-id }}"
+      zone      = "{{ zone-id }}"
+    }
+
+    resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
+      name                = "mssql-1"
+      environment         = "PRODUCTION"
+      version             = "{{ versions.tf.latest.std }}"
+      network_id          = yandex_vpc_network.mynet.id
+      security_group_ids  = [yandex_vpc_security_group.ms-sql-sg.id]
+      deletion_protection = true
+
+      resources {
+        resource_preset_id = "s2.small"
+        disk_type_id       = "network-ssd"
+        disk_size          = 32
+      }
+
+      host {
+        zone             = "{{ zone-id }}"
+        subnet_id        = yandex_vpc_subnet.mysubnet.id
+        assign_public_ip = true
+      }
+
+      database {
+        name = "db1"
+      }
+
+      user {
+        name     = "user1"
+        password = "user1user1"
+        permission {
+          database_name = "db1"
+          roles         = ["OWNER"]
+        }
+      }
+    }
+
+    resource "yandex_vpc_network" "mynet" { name = "mynet" }
+
+    resource "yandex_vpc_subnet" "mysubnet" {
+      name           = "mysubnet"
+      zone           = "{{ zone-id }}"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+
+    resource "yandex_vpc_security_group" "ms-sql-sg" {
+      name       = "ms-sql-sg"
+      network_id = yandex_vpc_network.mynet.id
+
+      ingress {
+        description    = "Public access to SQL Server"
+        port           = {{ port-mms }}
+        protocol       = "TCP"
+        v4_cidr_blocks = ["0.0.0.0/0"]
+      }
+    }
+    ```
+
+    {% endif %}
 
 {% endlist %}

@@ -1,6 +1,6 @@
 # Распознавание речи в формате OggOpus
 
-Чтобы распознать речь в формате [OggOpus](../formats.md#oggopus), достаточно указать в конфигурации язык распознавания в поле `languageCode`. По умолчанию будет использована языковая модель `general`.
+Чтобы распознать речь в формате [OggOpus](../../formats.md#oggopus), достаточно указать в конфигурации язык распознавания в поле `languageCode`. По умолчанию будет использована языковая модель `general`.
 
 {% list tabs %}
 
@@ -26,7 +26,7 @@
        curl -X POST \
            -H "Authorization: Bearer ${IAM_TOKEN}" \
            -d '@body.json' \
-           https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
+           https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
  
        {
            "done": false,
@@ -43,7 +43,7 @@
 
        ```bash
        curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-           https://operation.api.cloud.yandex.net/operations/e03sup6d5h1qr574ht99
+           https://operation.{{ api-host }}/operations/e03sup6d5h1qr574ht99
  
        {
         "done": true,
@@ -84,7 +84,7 @@
        key = '<API key>'
        filelink = 'https://storage.yandexcloud.net/speechkit/speech.ogg'
  
-       POST = "https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize"
+       POST = "https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize"
  
        body ={
            "config": {
@@ -112,7 +112,7 @@
  
            time.sleep(1)
  
-           GET = "https://operation.api.cloud.yandex.net/operations/{id}"
+           GET = "https://operation.{{ api-host }}/operations/{id}"
            req = requests.get(GET.format(id=id), headers=header)
            req = req.json()
  

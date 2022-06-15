@@ -198,7 +198,7 @@ Let's say we want to build a chart with the total number of times streams were l
 
    ![image](../_assets/datalens/solution-10/17-dataset-podcasts.png)
 
-1. Select **Area chart** as the visualization type.
+1. Select **Stacked area chart** as the visualization type.
 1. Add a dimension named **Listening date** to the **X** section.
 1. Add a measure named **Listeners** to the **Y** section.
 1. Add the **Listening date** dimension to the **Chart filters** section.

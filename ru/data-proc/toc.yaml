@@ -4,6 +4,8 @@ href: index.yaml
 items:
   - name: Практические руководства
     items:
+      - name: Все практические руководства
+        href: tutorials/index.md
       - name: Работа с заданиями
         items:
           - name: Обзор
@@ -30,6 +32,10 @@ items:
         href: tutorials/exchange-data-with-mch.md
       - name: Импорт базы данных с использованием Sqoop
         href: tutorials/sqoop.md
+      - name: >-
+          Использование скриптов инициализации для настройки GeeseFS в
+          {{ dataproc-name }}
+        href: tutorials/geesefs-init-actions.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -66,6 +72,7 @@ items:
         href: operations/cluster-delete.md
       - name: Работа с логами
         href: operations/logging.md
+        when: product == "yandex-cloud"
       - name: Мониторинг состояния кластера и хостов
         href: operations/monitoring.md
   - name: Концепции
@@ -90,10 +97,15 @@ items:
         href: concepts/maintenance.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Хранилище в {{ dataproc-name }}
+        href: concepts/storage.md
       - name: Свойства компонентов
         href: concepts/settings-list.md
       - name: Логи в Data Proc
         href: concepts/logs.md
+        when: product == "yandex-cloud"
+      - name: Скрипты инициализации
+        href: concepts/init-action.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

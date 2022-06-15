@@ -1,50 +1,111 @@
-title: Yandex Cloud overview
+title:
+  - text: Yandex Cloud overview
+    when: product == "yandex-cloud"
+  - text: CloudIL overview
+    when: product == "cloud-il"
 description:
-  - >-
-    Yandex Cloud is a service suite that lets you quickly and securely get as
-    much computing power as you need on a pay-as-you-go model. Computing power
-    is accessed over the internet. This approach to computing resource usage is
-    called <i>cloud computing</i>.
-  - >-
-    Cloud computing can replace or supplement traditional data centers and local
-    servers on the consumer's premises. Yandex Cloud assumes all responsibility
-    for maintaining the health and performance of cloud platform hardware and
-    software.
-  - >-
-    Yandex Cloud offers different categories of cloud resources, such as virtual
-    machines, block storage, and databases. You can manage resources in each
-    category using the appropriate service.
-  - >-
-    The Yandex Cloud infrastructure <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">fully
-    complies</a> with the Russian Federal Law on Personal Data (No. 152-FZ).
+  - text:
+    - >-
+      Yandex Cloud is a suite of services that lets you quickly and
+      securely get as much computing power as you
+      need on a pay-as-you-go basis. Computing power is accessed
+      over the internet. This approach to computing resource usage
+      is called <i>cloud computing</i>.
+    - >-
+      Cloud computing can replace or supplement traditional data centers and local servers
+      on the consumer's premises. Yandex Cloud assumes all responsibility
+      for maintaining the health and performance of cloud platform
+      hardware and software.
+    - >-
+      Yandex Cloud offers different categories of cloud resources, such as
+      virtual machines, block storage, and databases. You can manage resources in each category
+      using the appropriate service.
+    - >-
+      The Yandex Cloud infrastructure <a
+      href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">is protected</a>
+      pursuant to Russian Federal Law 152-FZ "On personal data".
+    when: product == "yandex-cloud"
+  - text:
+    - >-
+      CloudIL is a suite of services that lets you quickly and
+      securely get as much computing power as you
+      need on a pay-as-you-go basis. Computing power is accessed
+      over the internet. This approach to computing resource usage
+      is called <i>cloud computing</i>.
+    - >-
+      Cloud computing can replace or supplement traditional data centers and local servers
+      on the consumer's premises. CloudIL assumes all responsibility
+       for maintaining the health and performance of cloud platformhardware and
+       software.
+    - >-
+      CloudIL offers different categories of cloud resources, such as
+       virtual machines, block storage, and databases. You can manage resources in each category
+      using the appropriate service.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Cloud overview
+  title:
+    - text: Yandex Cloud overview
+      when: product == "yandex-cloud"
+    - text: CloudIL overview
+      when: product == "cloud-il"
 links:
-  - title: Yandex Cloud services
+  - title: Yandex.Cloud services
     description: ''
     href: concepts/services
+    when: product == "yandex-cloud"
+  - title: CloudIL services
+    description: ''
+    href: concepts/services.html
+    when: product == "cloud-il"
   - title: Mobile app
     description: ''
     href: mobile-app/
+    when: product == "yandex-cloud"
   - title: Availability zones
     description: ''
     href: concepts/geo-scope
+    when: product == "yandex-cloud"
+  - title: Availability zones
+    description: ''
+    href: concepts/geo-scope.html
+    when: product == "cloud-il"
   - title: Getting started
     description: ''
     href: quickstart
+    when: product == "yandex-cloud"
   - title: Release stages
     description: ''
     href: concepts/launch-stages
+    when: product == "yandex-cloud"
+  - title: Release stages
+    description: ''
+    href: concepts/launch-stages.html
+    when: product == "cloud-il"
   - title: Quotas and limits
     description: ''
     href: concepts/quotas-limits
+    when: product == "yandex-cloud"
+  - title: Quotas and limits
+    description: ''
+    href: concepts/quotas-limits.html
+    when: product == "cloud-il"
   - title: API
     description: ''
     href: api
+    when: product == "yandex-cloud"
+  - title: API
+    description: ''
+    href: api.html
+    when: product == "cloud-il"
   - title: Service Level Agreement
     description: ''
     href: sla
+    when: product == "yandex-cloud"
   - title: Questions and answers
     description: ''
     href: qa
+    when: product == "yandex-cloud"
+  - title: Questions and answers
+    description: ''
+    href: qa.html
+    when: product == "cloud-il"

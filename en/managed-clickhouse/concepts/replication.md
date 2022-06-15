@@ -5,7 +5,7 @@ With {{ mch-name }}, you can use one of the following mechanisms to manage repli
 * [{#T}](#ck).
 * [{#T}](#zk) (default).
 
-This allows you to use [replicated tables](#replicated-tables) in a cluster with multiple hosts in a [shard](./sharding.md). At the same time, replication is managed automatically.
+This lets you use [replicated tables](#replicated-tables) in a cluster with multiple hosts in a [shard](./sharding.md). At the same time, replication is managed automatically.
 
 {% include [Non replicated hosts](../../_includes/mdb/non-replicating-hosts.md) %}
 
@@ -22,7 +22,7 @@ Using {{ CK }} is associated with the following limitations:
 * To use {{ CK }}, you need {{ CH }} {{ mch-ck-version }} or higher.
 * Clusters using {{ ZK }} hosts cannot be changed to use {{ CK }}.
 
-For more information about {{ CK }}, see [документации {{ CH }}]({% if lang == "ru" %}https://{{ ch-domain }}/docs/ru/operations/clickhouse-keeper/{% endif %}{% if lang == "en" %}https://{{ ch-domain }}/docs/en/operations/clickhouse-keeper/{% endif %}).
+For more information about {{ CK }}, see the [{{ CH }} documentation]({% if lang == "ru" %}https://{{ ch-domain }}/docs/ru/operations/clickhouse-keeper/{% endif %}{% if lang == "en" %}https://{{ ch-domain }}/docs/en/operations/clickhouse-keeper/{% endif %}).
 
 ## {{ ZK }} {#zk}
 
@@ -35,7 +35,6 @@ You can enable fault tolerance and configure {{ ZK }} hosts [after creating a cl
 You can also configure {{ ZK }} hosts immediately when creating a cluster with multiple hosts. In this case:
 
 * If a cluster in the [virtual network](../../vpc/concepts/network.md) has subnets in each of the [availability zones](../../overview/concepts/geo-scope.md), one {{ ZK }} host is automatically added to each subnet if you don't explicitly specify the settings for these hosts. If necessary, you can explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
-
 * If a cluster in the virtual network has subnets only in certain availability zones, you need to explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
 
 * If you didn't specify any subnets for these hosts, {{ mch-short-name }} automatically distributes them among the subnets of the network that the {{ CH }} cluster is connected to.
@@ -48,14 +47,14 @@ By default, for {{ ZK }}, hosts with a [minimal class](./instance-types.md) are 
 
 Note:
 
-* {{ ZK }} hosts, if any, are taken into account when calculating [resource quotas]({{ link-console-quotas }}) and the cost of the cluster.
+* {{ ZK }} hosts, if any, are taken into account when calculating [resource usage]({{ link-console-quotas }}) and the cost of the cluster.
 * In shards with multiple hosts, if you created a cluster and then enabled fault tolerance, you won't be able to reduce the number of hosts to one.
 
 {% endnote %}
 
 ## Replicated tables {#replicated-tables}
 
-{{ CH }} supports automatic replication only for tables on [the ReplicatedMergeTree engine]({% if lang == "ru" %}https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/replication/{% endif %}{% if lang == "en" %}https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/replication/{% endif %}). To enable replication, you can create the tables on each host separately or use a distributed DDL query.
+{{ CH }} only supports automatic replication for tables on the [ReplicatedMergeTree](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/replication/) engine. To enable replication, you can create the tables on each host separately or use a distributed DDL query.
 
 {% note warning %}
 
@@ -82,7 +81,7 @@ Where:
 * `/table_01` is the path to the table in {{ ZK }} or {{ CK }}, which must start with the forward slash <q>/</q>.
 * `{replica}` is the host ID macro.
 
-To create replicated tables on all cluster hosts, send [a distributed DDL request](https://{{ ch-domain }}/docs/en/sql-reference/distributed-ddl/):
+To create replicated tables on all cluster hosts, make a [distributed DDL query](https://{{ ch-domain }}/docs/en/sql-reference/distributed-ddl/):
 
 ```sql
 CREATE TABLE db_01.table_01 ON CLUSTER '{cluster}' (
@@ -97,4 +96,3 @@ ORDER BY
 The `'{cluster}'` argument is automatically resolved to the {{ CH }} cluster ID.
 
 To learn more about organizing interaction between replicated and distributed tables in a {{ CH }} cluster, see [{#T}](sharding.md).
-

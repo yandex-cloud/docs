@@ -18,11 +18,15 @@ _API-ключ_ — секретный ключ, используемый для 
 Authorization: Api-Key <API-ключ>
 ```
 
+{% if product == "yandex-cloud" %}
+
 ## Сервисы, поддерживающие этот способ аутентификации {#supported-services}
 
 * [{{ speechkit-name }}](../../../speechkit/concepts/auth.md)
 * [{{ translate-name }}](../../../translate/api-ref/authentication.md)
 * [{{ vision-name }}](../../../vision/api-ref/authentication.md)
+
+{% endif %}
 
 #### См. также {#see-also}
 

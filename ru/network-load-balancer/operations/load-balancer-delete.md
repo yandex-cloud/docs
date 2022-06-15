@@ -59,22 +59,74 @@
 
   Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  Если вы создавали сетевой балансировщик с помощью Terraform, вы можете удалить его:
+  Чтобы удалить сетевой балансировщик, созданный с помощью Terraform:
 
-   1. В командной строке перейдите в папку, где расположен конфигурационный файл Terraform.
-   1. Удалите ресурсы с помощью команды:
+  1. Откройте файл конфигурации Terraform и удалите фрагмент с описанием сетевого балансировщика.
+     
+     {% cut "Пример описания сетевого балансировщика в конфигурации Terraform" %}
 
-      ```
-      terraform destroy
-      ```
-      
-      {% note alert %}
-      
-      Terraform удалит все ресурсы, созданные в текущей конфигурации: кластеры, сети, подсети, виртуальные машины и т. д.
-      
-      {% endnote %}
-    
-    3. Подтвердите удаление ресурсов.
+     ```hcl
+     ...
+     resource "yandex_lb_network_load_balancer" "foo" {
+       name = "my-network-load-balancer"
+       listener {
+         name = "my-listener"
+		 port = 9000
+         external_address_spec {
+           ip_version = "ipv4"
+         }
+       }
+	   attached_target_group {
+         target_group_id = "${yandex_lb_target_group.my-target-group.id}"
+         healthcheck {
+           name = "http"
+             http_options {
+               port = 9000
+               path = "/ping"
+             }
+         }
+       }
+     }
+     ...
+     ```
+
+     {% endcut %}
+
+  1. В командной строке перейдите в папку, где расположен файл конфигурации Terraform.
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc load-balancer network-load-balancer list
+     ```
 
 {% endlist %}
 

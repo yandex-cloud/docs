@@ -1,12 +1,22 @@
 # {{ yandex-cloud }} resource hierarchy
 
-When you get access to Yandex Cloud, you are allocated a separate workspace: a _cloud_. This is where you will create folders.
+{% note info %}
+
+At the [Preview](../../overview/concepts/launch-stages.md) stage, there is a restriction: only 1 organization and 1 cloud are available.
+
+{% endnote %}
+
+When you get access to {{ yandex-cloud }}, you are allocated a separate workspace: a _cloud_. This is where you will create folders.
 
 Folders contain resources such as virtual machines, disks, and others. When you create a resource, you specify a folder where it is created. Nested folders are not supported for now.
+
+{% if product == "yandex-cloud" %}
 
 {{ resmgr-name }} provides the standard resource model shown in the following image. This model is used in most of the Yandex Cloud services.
 
 ![image](../../_assets/resource-structure.png)
+
+{% endif %}
 
 All resources inside the cloud are isolated from outside users by default. The cloud owner can manage access rights for the cloud and its resources.
 
@@ -34,7 +44,7 @@ A cloud must have at least one owner. The sole owner of a cloud may not give up 
 
 The cloud member is a user assigned the `{{ roles-cloud-member }}` role for this cloud.
 
-A user with a Yandex account requires the cloud member role to manipulate perform operations in a cloud not owned by the organization. The exception is resources with [public access](#public-access).
+A user with a {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %} account requires the cloud member role to manipulate perform operations in a cloud not owned by the organization. The exception is resources with [public access](#public-access).
 
 > For example, if a cloud member is assigned the `{{ roles-editor }}` role for a folder inside the cloud, such user can create resources in that folder. If the cloud member role is revoked for a user, the user can no longer perform any operations.
 
@@ -60,10 +70,9 @@ You can manage access rights for all resources in the folder at once. Let's say 
 
 You can view the contents of the folder in the management console. To find out which folder hosts a given resource, use the API or CLI `Get` method for this resource (the `get` command in the CLI).
 
-
 ## Inheritance of access rights {#access-rights-inheritance}
 
-When a user (subject) performs an operation with a resource, Yandex Identity and Access Management (IAM) service checks whether the user has the applicable access rights for this resource.
+When a user (subject) performs an operation with a resource,  {{ iam-full-name }} ({{ iam-short-name }}) service checks whether the user has the applicable access rights for this resource.
 
 Rights to access resources inside the cloud are inherited based on the following hierarchy: Cloud → Folder → Resource.
 

@@ -26,5 +26,5 @@ These services and utilities can request an IAM token automatically, so you can 
 
 #### See also {#see-also}
 
-* [Learn more about Yandex.OAuth ](https://tech.yandex.com/oauth/).
+* [Learn more about Yandex.OAuth](https://tech.yandex.com/oauth/).
 

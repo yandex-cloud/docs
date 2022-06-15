@@ -72,7 +72,7 @@
     1. Подключите бакет в качестве репозитория снапшотов на кластере-источнике:
     1. Добавьте сведения о ключе статического доступа в [хранилище ключей](https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-keystore.html) (keystore) {{ ES }}.
 
-        Процедуру нужно выполнить на **всех хостах** кластера-источника.
+        Выполните процедуру на **всех хостах** кластера-источника.
 
         Добавьте:
 
@@ -110,7 +110,7 @@
                  "type": "s3",
                  "settings": {
                    "bucket": "<имя бакета>",
-                   "endpoint": "storage.yandexcloud.net"
+                   "endpoint": "{{ s3-storage-host }}"
                  }
                }
         '
@@ -125,13 +125,13 @@
     Пример создания снапшота всего кластера:
 
     ```bash
-    curl -X PUT "http://<FQDN кластера-источника>:9200/_snapshot/<имя репозитория>/snapshot_1?wait_for_completion=true&pretty"
+    curl --request PUT "http://<FQDN кластера-источника>:9200/_snapshot/<имя репозитория>/snapshot_1?wait_for_completion=true&pretty"
     ```
 
     Начнется создание снапшота. Этот процесс может занять длительное время. Отслеживайте ход выполнения операции [с помощью инструментов {{ ES }}](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), например:
 
     ```bash
-    curl -X GET "http://<FQDN кластера-источника>:9200/_snapshot/_status?pretty"
+    curl --request GET "http://<FQDN кластера-источника>:9200/_snapshot/_status?pretty"
     ```
 
 ## Запустите восстановление из снапшота на кластере-приемнике {#restore-from-snapshot}
@@ -156,7 +156,7 @@
 
     ```bash
     curl --cacert ~/.elasticsearch/root.crt \
-         -X POST \
+         --request POST \
          "https://admin:<пароль admin>@<FQDN кластера-приемника>:9200/_all/_close?pretty"
     ```
 
@@ -166,7 +166,7 @@
 
     ```bash
     curl --cacert ~/.elasticsearch/root.crt \
-         -X POST \
+         --request POST \
          "https://admin:<пароль admin>@<FQDN кластера-приемника>:9200/_snapshot/<имя репозитория>/snapshot_1/_restore"
     ```
 
@@ -174,7 +174,7 @@
 
     ```bash
     curl --cacert ~/.elasticsearch/root.crt \
-         -X GET \
+         --request GET \
          "https://admin:<пароль admin>@<FQDN кластера-приемника>:9200/_snapshot/_status?pretty"
     ```
 
@@ -184,7 +184,7 @@
 
     ```bash
     curl --cacert ~/.elasticsearch/root.crt \
-         -X POST \
+         --request POST \
          "https://admin:<пароль admin>@<FQDN кластера-приемника>:9200/_all/_open?pretty"
     ```
 

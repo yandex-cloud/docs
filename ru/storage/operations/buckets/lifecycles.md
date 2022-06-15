@@ -93,6 +93,8 @@
      * `days` — количество дней до перехода. Обязательный параметр.
      * `storage_class` — класс хранения, в который будет перенесен объект. Может быть только `COLD` или `STANDARD_IA`. Обязательный параметр.
 
+     {% if product == "yandex-cloud" %}
+
      ```hcl
      provider "yandex" {
        cloud_id  = "<идентификатор облака>"
@@ -159,7 +161,80 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```hcl
+     provider "yandex" {
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "<зона доступности>"
+       endpoint  = "{{ api-host }}:443"
+       token     = "<статический ключ сервисного аккаунта>"
+       }
+
+     resource "yandex_storage_bucket" "bucket" {
+       bucket     = "<имя бакета>"
+       acl        = "private"
+       access_key = "<идентификатор ключа>"
+       secret_key = "<секретный ключ>"
+
+       lifecycle_rule {
+         id      = "log"
+         enabled = true
+         prefix = "log/"
+
+         transition {
+           days          = 30
+           storage_class = "COLD"
+         }
+
+         expiration {
+           days = 90
+         }
+       }
+
+       lifecycle_rule {
+         id      = "tmp"
+         prefix  = "tmp/"
+         enabled = true
+
+         expiration {
+           date = "2020-12-21"
+         }
+       }
+     }
+
+     resource "yandex_storage_bucket" "versioning_bucket" {
+       bucket     = "<имя бакета>"
+       acl        = "private"
+       access_key = "<идентификатор ключа>"
+       secret_key = "<секретный ключ>"
+
+       versioning {
+         enabled = true
+       }
+
+       lifecycle_rule {
+         prefix  = "config/"
+         enabled = true
+
+         noncurrent_version_transition {
+           days          = 30
+           storage_class = "COLD"
+         }
+
+         noncurrent_version_expiration {
+           days = 90
+         }
+       }
+     }
+     ```
+
+     {% endif %}
+
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
 
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.

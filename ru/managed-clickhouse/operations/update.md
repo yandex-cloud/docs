@@ -1,5 +1,11 @@
 # Изменение настроек кластера
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 После создания кластера вы можете:
 
 * [Изменить настройки сервисного аккаунта](#change-service-account).
@@ -13,6 +19,8 @@
 * [Настроить серверы](#change-clickhouse-config) {{ CH }} согласно [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/server_settings/settings/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/server_settings/settings/){% endif %}.
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
+
+* [Переместить кластер](#move-cluster) в другой каталог.
 
 * [Изменить группы безопасности кластера](#change-sg-set).
 
@@ -45,6 +53,8 @@
 В кластерах с поддержкой {{ CK }} хосты {{ ZK }} не используются. Подробнее см. в разделе [{#T}](../concepts/replication.md).
 
 {% endnote %}
+
+Класс хостов влияет на количество оперативной памяти, доступной для использования {{ CH }}. Подробнее см. в разделе [{#T}](../concepts/memory-management.md).
 
 {% list tabs %}
 
@@ -85,8 +95,8 @@
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
-     | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
-     |           | ru-central1-c                  |       |          |
+     | s1.micro  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 8.0 GB   |
+     |           | {{ region-id }}-c                  |       |          |
      | ...                                                           |
      +-----------+--------------------------------+-------+----------+
      ```
@@ -113,8 +123,8 @@
   1. Укажите нужный класс в команде изменения кластера:
 
      ```
-     {{ yc-mdb-ch }} cluster update <имя кластера>
-       --clickhouse-resource-preset <ID класса>
+     {{ yc-mdb-ch }} cluster update <имя кластера> \
+        --clickhouse-resource-preset=<ID класса>
      ```
 
      {{ mch-short-name }} запустит операцию изменения класса хостов для кластера.
@@ -155,7 +165,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -245,7 +257,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -331,6 +345,8 @@
 
     Подробнее см. в [документации провайдера Terraform]({{ tf-provider-mch }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе нужные значения в параметре `configSpec.clickhouse.config`:
@@ -341,6 +357,14 @@
 {% endlist %}
 
 ## Изменить настройки {{ CH }} {#change-clickhouse-config}
+
+{% note info %}
+
+Изменить значение настройки [Max server memory usage]({% if lang=="ru" %}https://{{ ch-domain }}/docs/ru/operations/server-configuration-parameters/settings/#max_server_memory_usage{% else %}https://{{ ch-domain }}/docs/en/operations/server-configuration-parameters/settings/#max_server_memory_usage{% endif %}) можно только [изменив класс хостов {{ CH }}](#change-resource-preset).
+
+Подробнее см. в разделе [{#T}](../concepts/memory-management.md).
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -448,7 +472,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера Terraform]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -490,28 +516,30 @@
 
         ```bash
         {{ yc-mdb-ch }} cluster update <идентификатор или имя кластера> \
-          --backup-window-start <время начала резервного копирования> \
-          --datalens-access=<true или false> \
-          --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
-                              `day=<день недели для типа weekly>,`
-                              `hour=<час дня для типа weekly> \
-          --metrika-access=<true или false> \
-          --websql-access=<true или false> \
-          --deletion-protection=<защита от удаления кластера: true или false> \
-          --serverless-access=<true или false>
+           --backup-window-start <время начала резервного копирования> \
+           --datalens-access=<true или false> \
+           --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
+                               `day=<день недели для типа weekly>,`
+                               `hour=<час дня для типа weekly> \
+           --metrika-access=<true или false> \
+           --websql-access=<true или false> \
+           --serverless-access=<true или false> \
+           --datatransfer-access=<true или false> \
+           --deletion-protection=<защита от удаления кластера: true или false>
         ```
 
     Вы можете изменить следующие настройки:
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    * `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [{#T}](datalens-connect.md).
+    {% if product == "yandex-cloud" %}* `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [{#T}](datalens-connect.md).{% endif %}
 
     * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
     * `--metrika-access` — разрешает [импорт данных из AppMetrika в кластер]{% if lang == "ru" %}(https://appmetrica.yandex.ru/docs/cloud/index.html){% endif %}{% if lang == "en" %}(https://appmetrica.yandex.com/docs/cloud/index.html){% endif %}. Значение по умолчанию — `false`.
 
     * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
+    {% if product == "yandex-cloud" %}
     {% if audience != "internal" %}
 
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
@@ -521,6 +549,9 @@
     * `--serverless-access` — разрешает доступ к кластеру из сервиса {{ sf-full-name }}. Значение по умолчанию — `false`.
 
     {% endif %}
+    {% endif %}
+
+    * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
 
     * {% include [Защита от удаления кластера](../../_includes/mdb/cli/deletion-protection.md) %}
 
@@ -547,8 +578,10 @@
         }
         ```
 
-    1. Чтобы разрешить доступ из других сервисов {{ yandex-cloud }} и [выполнение SQL-запросов из консоли управления](web-sql-query.md), измените значения соответствующих полей в блоке `access`:
+    1. Чтобы разрешить доступ из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md), измените значения соответствующих полей в блоке `access`:
 
+        {% if product == "yandex-cloud" %}
+       
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
           ...
@@ -561,8 +594,25 @@
           ...
         }
         ```
+       
+        {% endif %}
+ 
+        {% if product == "cloud-il" %}
 
-    1. {% include [maintenance-window](../../_includes/mdb/mch/terraform-maintenance-window.md) %}
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          access {
+            metrika    = <Доступ из Метрики и AppMetrika: true или false>
+            web_sql    = <Выполнение SQL-запросов из консоли управления: true или false>
+          }
+          ...
+        }
+        ```
+       
+        {% endif %}
+
+    1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
     1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
@@ -583,7 +633,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера Terraform]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -607,6 +659,7 @@
 
     {% endnote %}
     
+  {% if product == "yandex-cloud" %}
   {% if audience != "internal" %}
 
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
@@ -616,8 +669,55 @@
   Чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}, передайте значение `true` для параметра `configSpec.access.serverless`.
 
   {% endif %}
+  {% endif %}
+
+  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
   Чтобы разрешить доступ к кластеру из сервиса {{ yq-full-name }}, передайте значение `true` для параметра `configSpec.access.yandexQuery`.
+
+{% endlist %}
+
+## Переместить кластер {#move-cluster}
+
+{% list tabs %}
+
+- Консоль управления
+
+    1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
+    1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) справа в строке кластера, который вы хотите переместить.
+    1. Выберите пункт **Переместить**.
+    1. Выберите каталог, в который вы хотите переместить кластер.
+    1. Нажмите кнопку **Переместить**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы переместить кластер:
+
+    1. Посмотрите описание команды CLI для перемещения кластера:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster move --help
+        ```
+
+    1. Укажите каталог назначения в команде перемещения кластера:
+
+        ```bash
+        {{ yc-mdb-ch }} cluster move <идентификатор кластера> \
+           --destination-folder-name=<имя каталога назначения>
+        ```
+
+        Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- API
+
+    Воспользуйтесь методом API [move](../api-ref/Cluster/move.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Идентификатор каталога назначения в параметре `destinationFolderId`.
 
 {% endlist %}
 
@@ -648,8 +748,8 @@
   1. Укажите нужные группы безопасности в команде изменения кластера:
 
       ```
-      {{ yc-mdb-ch }} cluster update <имя кластера>
-        --security-group-ids <список идентификаторов групп безопасности>
+      {{ yc-mdb-ch }} cluster update <имя кластера> \
+         --security-group-ids <список идентификаторов групп безопасности>
       ```
 
 - Terraform
@@ -675,7 +775,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера Terraform]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

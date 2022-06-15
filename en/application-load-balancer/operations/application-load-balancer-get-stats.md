@@ -10,17 +10,17 @@ To view the statistics:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) select the folder where the load balancer was created.
+   1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ alb-name }}**.
    1. Click on the name of the load balancer you need.
    1. Go to the **Monitoring** tab.
-   1. Select the time period for which you wish to view statistics.
+   1. Select the time period to view statistics for: 1 hour, 3 hours, 1 day, 1 week, or 1 month.
 
 {% endlist %}
 
-## View statistics itemized by resources {#resources}
+## Viewing statistics itemized by resources {#resources}
 
-{{ monitoring-name }} provides load balancer runtime statistics itemized by associated load balancer resources, such as HTTP routers, virtual hosts, routes and so on.
+{{ monitoring-name }} provides load balancer runtime statistics itemized by associated load balancer resources, such as HTTP routers, virtual hosts, routes, and so on.
 
 To view the statistics:
 
@@ -28,12 +28,13 @@ To view the statistics:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}) select the folder where the load balancer was created.
+   1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
    1. Select **{{ alb-name }}**.
    1. Click on the name of the load balancer you need.
    1. Go to the **Monitoring** tab.
    1. Click **Open in Monitoring**.
    1. Select the resources for which you wish to view statistics:
+
       * **HTTP Router**: [HTTP router](../concepts/http-router.md).
       * **Virtual Host**: HTTP router virtual host.
       * **Route**: Virtual host route.
@@ -42,6 +43,7 @@ To view the statistics:
       * **Zone**: Availability zone where the load balancer nodes are located. For more information, see [{#T}](../concepts/application-load-balancer.md#lb-location).
 
       If `*` is the value selected in the field, the dashboard will display aggregate statistics for all resources of the relevant type, such as all HTTP routers.
+
    1. Select the time period for which you wish to view statistics.
    1. If you need to configure the dashboard to autoupdate, click ![](../../_assets/monitoring/autorefresh.svg).
 

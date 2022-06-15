@@ -18,13 +18,7 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Перед тем, как создавать балансировщик, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
-
-{% include [prepare-register-billing](../../_tutorials/_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака](https://console.cloud.yandex.ru/cloud). Все действия сценария нужно производить в этом каталоге.
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 ## Создайте облачную сеть {#create-network}
 
@@ -63,7 +57,7 @@
      yc vpc subnet create \
        --name ddos-network-ru-a \
        --network-name ddos-network \
-       --zone ru-central1-a \
+       --zone {{ region-id }}-a \
        --range 192.168.0.0/24
      ```
 
@@ -71,7 +65,7 @@
      yc vpc subnet create \
        --name ddos-network-ru-b \
        --network-name ddos-network \
-       --zone ru-central1-b \
+       --zone {{ region-id }}-b \
        --range 192.168.1.0/24
      ```
 
@@ -79,7 +73,7 @@
      yc vpc subnet create \
        --name ddos-network-ru-c \
        --network-name ddos-network \
-       --zone ru-central1-c \
+       --zone {{ region-id }}-c \
        --range 192.168.2.0/24
      ```
 
@@ -110,7 +104,7 @@
    
         | Направление<br/>трафика | Описание | Диапазон<br/>портов | Протокол | Тип источника /<br/>назначения | Источник /<br/>назначение |
         | --- | --- | --- | --- | --- | --- |
-        | Исходящий | any | Весь | Любой | СIDR | 0.0.0.0/0 |
+        | Исходящий | any | Весь | Любой | CIDR | 0.0.0.0/0 |
         | Входящий | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
         | Входящий | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
         | Входящий | healthchecks | 30080 | TCP | CIDR | 198.18.235.0/24<br/>198.18.248.0/24 |
@@ -227,7 +221,7 @@
      service_account_id: <идентификатор сервисного аккаунта>
      description: "DDoS alb scenario"
      instance_template:
-         platform_id: standard-v2
+         platform_id: standard-v3
          resources_spec:
              memory: 1g
              cores: 2
@@ -241,9 +235,9 @@
          network_interface_specs:
              - network_id: <идентификатор облачной сети>
                subnet_ids:
-                 - <идентификатор подсети в зоне ru-central1-a>
-                 - <идентификатор подсети в зоне ru-central1-b>
-                 - <идентификатор подсети в зоне ru-central1-c>
+                 - <идентификатор подсети в зоне {{ region-id }}-a>
+                 - <идентификатор подсети в зоне {{ region-id }}-b>
+                 - <идентификатор подсети в зоне {{ region-id }}-c>
                primary_v4_address_spec: {}
                security_group_ids: 
                  - <идентификатор группы безопасности ddos-sg-vms>
@@ -255,9 +249,9 @@
              size: 2
      allocation_policy:
          zones:
-             - zone_id: ru-central1-a
-             - zone_id: ru-central1-b
-             - zone_id: ru-central1-c
+             - zone_id: {{ region-id }}-a
+             - zone_id: {{ region-id }}-b
+             - zone_id: {{ region-id }}-c
      application_load_balancer_spec:
          target_group_spec:
              name: tg-ddos
@@ -310,9 +304,9 @@
        strategy: PROACTIVE
      allocation_policy:
        zones:
-       - zone_id: ru-central1-a
-       - zone_id: ru-central1-b
-       - zone_id: ru-central1-c
+       - zone_id: {{ region-id }}-a
+       - zone_id: {{ region-id }}-b
+       - zone_id: {{ region-id }}-c
      load_balancer_state: {}
      managed_instances_state:
        target_size: "2"
@@ -570,9 +564,9 @@
       ```bash
       yc alb load-balancer create ddos-protect-alb \
         --network-name ddos-network \
-        --location subnet-name=ddos-network-ru-a,zone=ru-central1-a \
-        --location subnet-name=ddos-network-ru-b,zone=ru-central1-b \
-        --location subnet-name=ddos-network-ru-c,zone=ru-central1-c
+        --location subnet-name=ddos-network-ru-a,zone={{ region-id }}-a \
+        --location subnet-name=ddos-network-ru-b,zone={{ region-id }}-b \
+        --location subnet-name=ddos-network-ru-c,zone={{ region-id }}-c
       ```
 
       Подробнее о команде `yc alb load-balancer create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/create.md).

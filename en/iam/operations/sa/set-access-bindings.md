@@ -66,8 +66,9 @@ You can't set service account access rights via the management console. You can 
       | ...                            |             |
       +--------------------------------+-------------+
       ```
-
-   1. Find out the user's ID from the login or email address. To assign a role to a service account or group of users rather than one user, see the [examples](#examples) below.
+      
+{% if product == "yandex-cloud" %}
+    1. Find out the user's ID from the login or email address. To assign a role to a service account or group of users rather than one user, see the [examples](#examples) below.
 
       ```bash
       yc iam user-account get test-user
@@ -81,15 +82,27 @@ You can't set service account access rights via the management console. You can 
           login: test-user
           default_email: test-user@yandex.ru
       ```
+{% endif %}
+{% if product == "cloud-il" %}
+   1. [Get user ID](../users/get.md).
+{% endif %}
 
-   1. Assign a user named `test-user` the `editor` role for the `my-robot` service account. In the subject, specify the `userAccount` type and user ID:
+   1. Assign a user named {% if product == "yandex-cloud" %}`test-user`{% endif %} the `editor` role for the `my-robot` service account. In the subject, specify the {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} type and user ID:
 
+     {% if product == "yandex-cloud" %}
       ```bash
       yc iam service-account add-access-binding my-robot \
         --role editor \
         --subject userAccount:gfei8n54hmfhuk5nogse
       ```
-
+      {% endif %}
+      {% if product == "cloud-il" %}
+      ```bash
+      yc iam service-account add-access-binding my-robot \
+        --role editor \
+        -subject federatedUser:<ID пользователя>
+      ```
+      {% endif %}
 - API
 
    Use the [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource. You will need the service account ID and the ID of the user who is assigned the role for the service account.
@@ -98,7 +111,7 @@ You can't set service account access rights via the management console. You can 
 
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
       ```
 
       Result:
@@ -116,12 +129,12 @@ You can't set service account access rights via the management console. You can 
       ]
       }
       ```
-
+{% if product == "yandex-cloud" %}
    1. Find out the user ID from the login using the [getByLogin](../../api-ref/YandexPassportUserAccount/getByLogin.md):
 
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+        https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
       ```
 
       Result:
@@ -135,9 +148,19 @@ You can't set service account access rights via the management console. You can 
       }
       }
       ```
+{% endif %}
+{% if product == "cloud-il" %}
 
-   1. Assign the user the `editor` role for the `my-robot` service account. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
+{% endif %}
+{% if product == "cloud-il" %}
 
+    1. [Get user ID](../users/get.md).
+
+{% endif %}
+
+    1. Assign the user the `editor` role for the `my-robot` service account. Set the `action` property to `ADD` and specify the {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} type and user ID the `subject` property:
+
+{% if product == "yandex-cloud" %}
       ```bash
       curl -X POST \
         -H 'Content-Type: application/json' \
@@ -151,9 +174,9 @@ You can't set service account access rights via the management console. You can 
                     "id": "gfei8n54hmfhuk5nogse",
                     "type": "userAccount"
         }}}]}' \
-        https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
       ```
-
+{% endif %}
 {% endlist %}
 
 ## Examples {#examples}
@@ -183,17 +206,26 @@ You can't set service account access rights via the management console. You can 
       ```
 
    1. For example, assign a role to multiple users:
-
+{% if product == "yandex-cloud" %}
       ```bash
       yc iam service-account set-access-bindings my-robot \
         --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
         --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
       ```
+{% endif %}
+{% if product == "cloud-il" %}
 
+        ```bash
+        yc iam service-account set-access-bindings my-robot \
+          --access-binding role=editor,subject=federatedUser:gfei8n54hmfhuk5nogse
+          --access-binding role=viewer,subject=federatedUser:helj89sfj80aj24nugsz
+        ```
+
+{% endif %}
 - API
 
    Assign the `editor` role to one user and the `viewer` role to another user:
-
+{% if product == "yandex-cloud" %}
    ```bash
    curl -X POST \
        -H 'Content-Type: application/json' \
@@ -216,9 +248,37 @@ You can't set service account access rights via the management console. You can 
                    "id": "helj89sfj80aj24nugsz",
                    "type": "userAccount"
        }}}]}' \
-       https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+       https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
    ```
+{% endif %}
+{% if product == "cloud-il" %}
 
+    ```bash
+    curl -X POST \
+        -H 'Content-Type: application/json' \
+        -H "Authorization: Bearer <IAM-TOKEN>" \
+        -d '{
+        "accessBindingDeltas": [{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "editor",
+                "subject": {
+                    "id": "gfei8n54hmfhuk5nogse",
+                    "type": "federatedUser"
+                }
+            }
+        },{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "viewer",
+                "subject": {
+                    "id": "helj89sfj80aj24nugsz",
+                    "type": "federatedUser"
+        }}}]}' \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+    ```
+
+{% endif %}
    You can also assign roles using the [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md).
 
    {% note alert %}
@@ -226,7 +286,7 @@ You can't set service account access rights via the management console. You can 
    The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
 
    {% endnote %}
-
+{% if product == "yandex-cloud" %}
    ```bash
    curl -X POST \
        -H 'Content-Type: application/json' \
@@ -239,9 +299,27 @@ You can't set service account access rights via the management console. You can 
            "roleId": "viewer",
            "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
        }]}' \
-       https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
+       https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
    ```
+{% endif %}
+{% if product == "cloud-il" %}
 
+    ```bash
+    curl -X POST \
+        -H 'Content-Type: application/json' \
+        -H "Authorization: Bearer <IAM-TOKEN>" \
+        -d '{
+        "accessBindings": [{
+            "roleId": "editor",
+            "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "federatedUser" }
+        },{
+            "roleId": "viewer",
+            "subject": { "id": "helj89sfj80aj24nugsz", "type": "federatedUser" }
+        }]}' \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
+    ```
+
+{% endif %}
 {% endlist %}
 
 ### Access from one service account to another service account {#access-to-sa}
@@ -283,7 +361,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
-        https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yysaplct532
       ```
 
       Result:
@@ -323,7 +401,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
                       "id": "ajebqtreob2dpblin8pe",
                       "type": "serviceAccount"
           }}}]}' \
-          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+          https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
       ```
 
 {% endlist %}
@@ -363,7 +441,7 @@ For example, allow any authenticated user to view information about the `my-robo
                    "id": "allAuthenticatedUsers",
                    "type": "system"
        }}}]}' \
-       https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+       https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
    ```
 
 {% endlist %}

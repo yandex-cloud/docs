@@ -21,13 +21,9 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед тем, как разворачивать приложения, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака](https://console.cloud.yandex.ru/cloud).
- 
- [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -36,6 +32,8 @@
 * плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за хранение созданных образов (см. [тарифы {{ compute-full-name }}](../../compute/pricing#prices-storage));
 * плата за использование динамических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+
+{% endif %}
 
 ## Настройте окружение {#prepare}
 
@@ -78,7 +76,7 @@ Jenkins будет получать изменения в конфигураци
 1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
 1. В поле **Имя** введите имя виртуальной машины: `jenkins-tutorial`.
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
-1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ [Jenkins]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/jenkins-2-204-2){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/marketplace/products/yc/jenkins-2-204-2){% endif %}.
+1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ [Jenkins](/marketplace/products/yc/jenkins-2-204-2).
 
     {% note info %}
 
@@ -269,10 +267,10 @@ Packer позволяет создавать [образы дисков вирт
    mv terraform.tfvars_example terraform.tfvars
    ```
 
-1. Заполните поля файла требуемыми значениями. См. также документацию [Terraform](https://www.terraform.io/language#about-the-terraform-language) и [провайдера {{ yandex-cloud }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs).
-1. Инициализируйте провайдера Terraform командой `terraform init`.
-1. Выполните команду `terraform plan -var-file="terraform.tfvars"`. Проверьте созданную конфигурацию.
-1. Выполните команду `terraform apply` и подтвердите создание инфраструктуры, введя `yes` в терминале.
+2. Заполните поля файла требуемыми значениями. См. также документацию [Terraform](https://www.terraform.io/language#about-the-terraform-language) и [провайдера {{ yandex-cloud }}]({{ tf-provider-link }}).
+3. Инициализируйте провайдера Terraform командой `terraform init`.
+4. Выполните команду `terraform plan -var-file="terraform.tfvars"`. Проверьте созданную конфигурацию.
+5. Выполните команду `terraform apply` и подтвердите создание инфраструктуры, введя `yes` в терминале.
 
 После этого будут созданы: 
 

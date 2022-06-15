@@ -40,5 +40,5 @@
 В качестве примера отправим REST запрос на получение списка дисков, у которых имя равно <q>test</q>:
 >??? Как в REST?
 >```
->GET https://compute.api.cloud.yandex.net/compute/v1/disks?folderId=a3s17h9sbq5asdgss12&name=test%20and%20name=dev
+>GET https://compute.{{ api-host }}/compute/v1/disks?folderId=a3s17h9sbq5asdgss12&name=test%20and%20name=dev
 >```

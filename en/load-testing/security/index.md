@@ -36,4 +36,4 @@ Active roles in the service:
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [For more information about role inheritance, ](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [For more information about role inheritance,](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

@@ -1,4 +1,8 @@
-title: Yandex Managed Service for ClickHouse
+title:
+  - text: Yandex Managed Service for ClickHouse
+    when: product == "yandex-cloud"
+  - text: Managed Service for ClickHouse
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Getting started
@@ -9,11 +13,15 @@ items:
         href: operations/index.md
       - name: Information about existing clusters
         href: operations/cluster-list.md
+      - name: Quota management
+        href: operations/quotas-control.md
+        when: audience == "internal"
       - name: Creating clusters
         href: operations/cluster-create.md
-      - name: How to connect to a database
+      - name: Connecting to a database
         href: operations/connect.md
       - name: Stopping and starting clusters
+        when: audience != "internal"
         href: operations/cluster-stop.md
       - name: SQL queries in the management console
         href: operations/web-sql-query.md
@@ -31,13 +39,14 @@ items:
         href: operations/format-schemas.md
       - name: Connecting to DataLens
         href: operations/datalens-connect.md
+        when: product == "yandex-cloud"
       - name: Changing ClickHouse versions
         href: operations/cluster-version-update.md
-      - name: Managing ClickHouse hosts
-        href: operations/hosts.md
       - name: Managing ZooKeeper hosts
         href: operations/zk-hosts.md
-      - name: Database management
+      - name: Managing ClickHouse hosts
+        href: operations/hosts.md
+      - name: Managing databases
         href: operations/databases.md
       - name: Managing database users
         href: operations/cluster-users.md
@@ -49,7 +58,7 @@ items:
         href: operations/shard-groups.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
-      - name: Monitoring the state of a cluster and hosts
+      - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
   - name: Practical guidelines
     items:
@@ -66,16 +75,24 @@ items:
         href: tutorials/fetch-data-from-mkf.md
       - name: Getting data from RabbitMQ
         href: tutorials/fetch-data-from-rabbitmq.md
+      - name: Exchanging data with Data Proc
+        when: audience != "internal" and audience == "draft" and product == "yandex-cloud"
+        href: tutorials/exchange-data-with-dp.md
       - name: >-
-          Configuring {{ dns-full-name }} for cluster access from other cloud networks
+          Configuring {{ dns-full-name }} for accessing clusters from other cloud networks
         href: tutorials/dns-peering.md
       - name: Analyzing Object Storage logs in DataLens
         href: tutorials/storage-logs-analysis.md
+        when: product == "yandex-cloud"
+      - name: Configuring a cluster for Graphite
+        href: tutorials/clickhouse-for-graphite.md
+        when: audience == "draft" and product == "yandex-cloud"
   - name: Concepts
     items:
-      - name: Relationship between service resources
+      - name: Relationships between service resources
         href: concepts/index.md
       - name: Host classes
+        when: product == "yandex-cloud"
         items:
           - name: Active host classes
             href: concepts/instance-types.md
@@ -85,7 +102,10 @@ items:
                 href: concepts/instance-types-archive/instance-types-01062020.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
-      - name: Network in Yandex Managed Service for ClickHouse
+      - name: Host classes
+        when: product == "cloud-il"
+        href: concepts/instance-types.md
+      - name: Network in {{ mch-full-name }}
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -99,15 +119,23 @@ items:
         href: concepts/dictionaries.md
       - name: Sharding
         href: concepts/sharding.md
+      - name: Maintenance
+        href: concepts/maintenance.md
       - name: Supported clients
         href: concepts/supported-clients.md
+      - name: Memory management in {{ mch-name }}
+        href: concepts/memory-management.md
       - name: ClickHouse versioning policy
         href: concepts/update-policy.md
       - name: ClickHouse settings
         href: concepts/settings-list.md
   - name: Access management
     href: security/index.md
+  - name: Resources and quotas
+    href: quotas.md
+    when: audience == "internal"
   - name: Pricing policy
+    when: product == "yandex-cloud" and audience != "internal"
     items:
       - name: Current pricing policy
         href: pricing.md
@@ -115,10 +143,13 @@ items:
         items:
           - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
-          - name: From January 1 to March 1, 2019
+          - name: From January, 1 to March 1, 2019
             href: pricing-archive/pricing-01032019.md
           - name: From March 1, 2019 to February 1, 2020
             href: pricing-archive/pricing-01022020.md
+  - name: Pricing policy
+    when: product == "cloud-il"
+    href: pricing.md
   - name: API reference
     items:
       - name: Authentication in the API
@@ -133,11 +164,24 @@ items:
         include:
           repo: docs
           path: en/_api-ref/mdb/clickhouse/toc.yaml
+  - name: Revision history
+    href: release-notes.md
+    when: product == "yandex-cloud"
   - name: Questions and answers
     items:
       - name: General questions
         href: qa/general.md
       - name: Questions about ClickHouse
         href: qa/clickhouse.md
-      - name: All questions on the same page
+      - name: Connection
+        href: qa/connection.md
+      - name: Updating clusters
+        href: qa/cluster-update.md
+      - name: Cluster configuration
+        href: qa/cluster-settings.md
+      - name: Moving and restoring a cluster
+        href: qa/cluster-backups.md
+      - name: Monitoring and logs
+        href: qa/monitoring.md
+      - name: All questions on one page
         href: qa/all.md

@@ -1,9 +1,15 @@
-title: Yandex Resource Manager
+title:
+  - text: Yandex Resource Manager
+    when: product == "yandex-cloud"
+  - text: Resource Manager
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Начало работы
+    when: audience != "internal"
     href: quickstart.md
   - name: Пошаговые инструкции
+    when: audience != "internal"
     items:
       - name: Все инструкции
         href: operations/index.md
@@ -40,16 +46,27 @@ items:
           - name: Уведомления об инцидентах в каталоге
             href: operations/folder/notify.md
   - name: Концепции
+    when: audience != "internal"
     items:
       - name: Иерархия ресурсов Yandex Cloud
         href: concepts/resources-hierarchy.md
+        when: product == "yandex-cloud"
+      - name: Иерархия ресурсов CloudIL
+        href: concepts/resources-hierarchy.md
+        when: product == "cloud-il"
       - name: Оповещения от Yandex Cloud
         href: concepts/notify.md
+        when: product == "yandex-cloud"
+      - name: Оповещения от CloudIL
+        href: concepts/notify.md
+        when: product == "cloud-il"
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
+    when: audience != "internal"
     href: security/index.md
   - name: Правила тарификации
+    when: audience != "internal"
     href: pricing.md
   - name: Справочник API
     items:
@@ -66,4 +83,5 @@ items:
           repo: docs
           path: en/_api-ref/resourcemanager/toc.yaml
   - name: Вопросы и ответы
+    when: audience != "internal"
     href: qa/index.md

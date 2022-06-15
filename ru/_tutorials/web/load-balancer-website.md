@@ -13,13 +13,9 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед тем, как разворачивать сервер, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака]({{ link-console-cloud }}).
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -29,13 +25,15 @@
 * плата за использование динамических внешних IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * плата за сетевые балансировщики и балансировку трафика (см. [тарифы {{ network-load-balancer-full-name}}](../../network-load-balancer/pricing.md)).
 
+{% endif %}
+
 ## Подготовьте сетевую инфраструктуру {#prepare-network}
 
 Перед тем, как создавать ВМ:
 
 1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите каталог, в котором будете выполнять операции.
 
-1. Убедитесь, что в выбранном каталоге есть сеть с подсетями в зонах доступности `ru-cental1-a` и `ru-central1-b`. Для этого на странице каталога выберите сервис **{{ vpc-name }}**. Если нужной [сети](../../vpc/operations/network-create.md) или [подсетей](../../vpc/operations/subnet-create.md) нет, создайте их.
+1. Убедитесь, что в выбранном каталоге есть сеть с подсетями в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b`. Для этого на странице каталога выберите сервис **{{ vpc-name }}**. Если нужной [сети](../../vpc/operations/network-create.md) или [подсетей](../../vpc/operations/subnet-create.md) нет, создайте их.
 
 ## Создайте группу ВМ {#create-vms}
 
@@ -47,12 +45,12 @@
    * Введите имя группы ВМ, например `nlb-vm-group`.
    * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту роль `editor`. По умолчанию все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
 
-1. В блоке **Распределение** выберите зоны доступности `ru-cental1-a` и `ru-central1-b`, чтобы обеспечить отказоустойчивость хостинга.
+1. В блоке **Распределение** выберите зоны доступности `{{ region-id }}-a` и `{{ region-id }}-b`, чтобы обеспечить отказоустойчивость хостинга.
 1. В блоке **Шаблон виртуальной машины** нажмите кнопку **Задать** и укажите конфигурацию базовой ВМ:
    * В блоке **Базовые параметры** введите **Описание** шаблона.
    * В блоке **Выбор образа/загрузочного диска** откройте вкладку **Cloud Marketplace** и нажмите кнопку **Посмотреть больше**. Выберите продукт:
-     * [LEMP]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/lemp){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/yc/lemp){% endif %} для Linux, nginx, MySQL, PHP;
-     * [LAMP]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/lamp){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/yc/lamp){% endif %} для Linux, Apache, MySQL, PHP.
+     * [LEMP](/marketplace/products/yc/lemp) для Linux, nginx, MySQL, PHP;
+     * [LAMP](/marketplace/products/yc/lamp) для Linux, Apache, MySQL, PHP.
      
      Нажмите кнопку **Использовать**.
    * В блоке **Диски** укажите:

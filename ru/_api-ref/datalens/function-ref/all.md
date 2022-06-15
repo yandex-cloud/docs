@@ -375,6 +375,17 @@ END`<br/>или<br/>`IF(
 
 
 
+## [COMPARE](COMPARE.md)
+
+**Синтаксис:**`COMPARE( left, right, epsilon )`
+
+Возвращает:
+* 0, если `left` и `right` отличаются не более чем на `epsilon`.
+* -1, если `left` меньше `right` более чем на `epsilon`.
+* 1, если `left` больше `right` более чем на `epsilon`.
+
+
+
 ## [CONCAT](CONCAT.md)
 
 **Синтаксис:**`CONCAT( arg_1, arg_2, arg_3 [ , ... ] )`
@@ -762,13 +773,12 @@ END`<br/>или<br/>`IF(
 
 **Синтаксис:**`GEOCODE( address )`
 
-Преобразует адрес `address` в координаты.
-
-Результаты выполнения функции кешируются, поэтому при повторном запросе {{ datalens-short-name }} не выполнит геокодирование. Время хранения кеша — 30 дней.
-После 30 дней {{ datalens-short-name }} автоматически вызовет функцию `GEOCODE` для преобразования адреса.
-
-Вычисляемое поле с этой функцией создается на уровне датасета.
-Чтобы подключить функцию, перейдите на страницу [Настройки сервиса]({{ link-datalens-settings }}).
+{% if audience == "internal" %} Устаревшая функция. С 1 июня поля с этой функцией перестанут обновляться. Вместо значений будет возвращаться NULL. Подробности https://clubs.at.yandex-team.ru/datalens/132.{% endif %}
+{% if audience == "internal" %} Преобразует адрес `address` в координаты. {% endif %}
+{% if audience == "internal" %} Результаты выполнения функции кешируются, поэтому при повторном запросе {{ datalens-short-name }} не выполнит геокодирование. Время хранения кеша — 30 дней.
+{% endif %} {% if audience == "internal" %} После 30 дней {{ datalens-short-name }} автоматически вызовет функцию `GEOCODE` для преобразования адреса. {% endif %}
+{% if audience == "internal" %} Вычисляемое поле с этой функцией создается на уровне датасета. {% endif %}
+{% if audience == "internal" %} Чтобы подключить функцию, перейдите на страницу [Настройки сервиса]({{ link-datalens-settings }}). {% endif %}
 
 
 
@@ -776,16 +786,15 @@ END`<br/>или<br/>`IF(
 
 **Синтаксис:**`GEOINFO( address, scale )`
 
-Преобразует `address` в название географического объекта (топоним), который соответствует указанному масштабу `scale`.
-
-Допустимые значения параметра`scale`:
-- `"country"`;
-- `"country_code"`;
-- `"region"`;
-- `"locality"`.
-
-Вычисляемое поле с этой функцией создается на уровне датасета.
-Чтобы подключить функцию, перейдите на страницу [Настройки сервиса]({{ link-datalens-settings }}).
+{% if audience == "internal" %} Устаревшая функция. С 1 июня поля с этой функцией перестанут обновляться. Вместо значений будет возвращаться NULL. Подробности https://clubs.at.yandex-team.ru/datalens/132. {% endif %}
+{% if audience != "internal" %} Преобразует `address` в название географического объекта (топоним), который соответствует указанному масштабу `scale`. {% endif %}
+{% if audience == "internal" %} Допустимые значения параметра `scale`:
+{% endif %} {% if audience == "internal" %} - `"country"`; {% endif %}
+{% if audience == "internal" %} - `"country_code"`; {% endif %}
+{% if audience == "internal" %} - `"region"`; {% endif %}
+{% if audience == "internal" %} - `"locality"`. {% endif %}
+{% if audience == "internal" %} Вычисляемое поле с этой функцией создается на уровне датасета. {% endif %}
+{% if audience == "internal" %} Чтобы подключить функцию, перейдите на страницу [Настройки сервиса]({{ link-datalens-settings }}). {% endif %}
 
 
 
@@ -1820,8 +1829,9 @@ END`<br/>или<br/>`IF(
 
 **Синтаксис:**`TOPONYM_TO_GEOPOINT( name )`
 
-Преобразует топоним (название города, региона или страны) `name` в формат `Геоточка`.
-См. полный [список топонимов]({{ geopoints-list-link }}).
+{% if audience == "internal" %} Устаревшая функция. С 1 июня поля с этой функцией перестанут обновляться. Вместо значений будет возвращаться NULL. Подробности https://clubs.at.yandex-team.ru/datalens/132. {% endif %}
+{% if audience != "internal" %} Преобразует топоним (название города, региона или страны) `name` в формат `Геоточка`. {% endif %}
+{% if audience != "internal" %} См. полный [список топонимов]({{ geopoints-list-link }}). {% endif %}
 
 
 
@@ -1829,8 +1839,9 @@ END`<br/>или<br/>`IF(
 
 **Синтаксис:**`TOPONYM_TO_GEOPOLYGON( name )`
 
-Преобразует топоним (название города, региона или страны) `name` в формат `Геополигон`.
-См. полный [список топонимов]({{ geopolygons-list-link }}).
+{% if audience == "internal" %} Устаревшая функция. С 1 июня поля с этой функцией перестанут обновляться. Вместо значений будет возвращаться NULL. Подробности https://clubs.at.yandex-team.ru/datalens/132. {% endif %}
+{% if audience != "internal" %} Преобразует топоним (название города, региона или страны) `name` в формат `Геополигон`. {% endif %}
+{% if audience != "internal" %} См. полный [список топонимов]({{ geopolygons-list-link }}). {% endif %}
 
 
 

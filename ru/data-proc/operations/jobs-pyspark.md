@@ -13,12 +13,12 @@
     1. В поле **Тип задания** выберите `PySpark`.
     1. В поле **Main python файл** укажите путь к основному PY-файлу приложения в формате:
 
-        {% include [Допустимые пути к файлам](../../_includes/data-proc/jar-file-path-requirements.md) %}
+        {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
 
     1. (опционально) Укажите пути к PY-файлам, если они используются.
     1. Укажите аргументы задания.
 
-       {% include [Особенности указания аргументов, свойств и настроек](../../_includes/data-proc/job-properties-requirements.md) %}
+       {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
 
     1. (опционально) Укажите пути к JAR-файлам, если они используются.
     1. (опционально) Задайте продвинутые настройки:
@@ -59,7 +59,7 @@
 
         Пути к необходимым для выполнения задания файлам передавайте в формате:
 
-        {% include [Допустимые пути к файлам](../../_includes/data-proc/jar-file-path-requirements.md) %}
+        {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
 
     Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list).
 
@@ -87,6 +87,10 @@
 
 {% include [jobs-get-info](../../_includes/data-proc/jobs-get-info.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ## Получить логи выполнения задания {#get-logs}
 
 {% include [jobs-get-logs](../../_includes/data-proc/jobs-get-logs.md) %}
+
+{% endif %}

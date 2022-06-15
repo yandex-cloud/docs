@@ -13,7 +13,7 @@ _A folder_ is an isolated space where {{ yandex-cloud }} resources are created a
   1. See a description of the create folder command:
 
       ```
-      $ yc resource-manager folder create --help
+      yc resource-manager folder create --help
       ```
 
   2. Create a new folder:
@@ -21,7 +21,7 @@ _A folder_ is an isolated space where {{ yandex-cloud }} resources are created a
       * with a name and without a description:
 
           ```
-          $ yc resource-manager folder create \
+          yc resource-manager folder create \
               --name new-folder
           ```
 
@@ -30,14 +30,14 @@ _A folder_ is an isolated space where {{ yandex-cloud }} resources are created a
       * with a name and description:
 
           ```
-          $ yc resource-manager folder create \
+          yc resource-manager folder create \
               --name new-folder \
               --description "my first folder with description"
           ```
 
 - API
 
-  To create a folder, use the [create](../../api-ref/Folder/create.md) method for the[Folder](../../api-ref/Folder/index.md) resource.
+  To create a folder, use the [create](../../api-ref/Folder/create.md) method for the [Folder](../../api-ref/Folder/index.md) resource.
 
 {% endlist %}
 

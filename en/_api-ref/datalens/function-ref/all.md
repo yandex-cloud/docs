@@ -373,6 +373,17 @@ Converts the numeric representation of an ASCII character to a value.
 
 
 
+## [COMPARE](COMPARE.md)
+
+**Syntax:**`COMPARE( left, right, epsilon )`
+
+Returns:
+* 0 if `left` and `right` differs by not more than `epsilon`.
+* -1 if `left` is less than `right` by more than `epsilon`.
+* 1 if `left` is greater than `right` by more than `epsilon`.
+
+
+
 ## [CONCAT](CONCAT.md)
 
 **Syntax:**`CONCAT( arg_1, arg_2, arg_3 [ , ... ] )`
@@ -757,13 +768,14 @@ Rounds the value down to the nearest integer.
 
 **Syntax:**`GEOCODE( address )`
 
-Converts `address` to its geographical coordinates.
-
-{{ datalens-short-name }} caches the function result. When the function is invoked again, {{ datalens-short-name }} doesn't perform geocoding.
-The cache lifetime is 30 days. After 30 days, {{ datalens-short-name }} automatically invokes `GEOCODE` to convert addresses in the dataset.
-
-The calculated field using this function must be created at the dataset level.
-To enable the function, go to the [Service Settings]({{ link-datalens-settings }}) page.
+{% if audience == "internal" %} It is a deprecated function. {% endif %}
+{% if audience == "internal" %} Starting from 01.07.2022 this function will always return Null. {% endif %}
+{% if audience == "internal" %} See also https://clubs.at.yandex-team.ru/datalens/132 {% endif %}
+{% if audience != "internal" %} Converts `address` to its geographical coordinates. {% endif %}
+{% if audience != "internal" %} {{ datalens-short-name }} caches the function result. When the function is {% endif %} {% if audience != "internal" %} invoked again, {{ datalens-short-name }} doesn't perform geocoding. {% endif %}
+{% if audience != "internal" %} The cache lifetime is 30 days. After 30 days, {{ datalens-short-name }} {% endif %}{% if audience != "internal" %} automatically invokes `GEOCODE` to convert addresses in the dataset. {% endif %}
+{% if audience != "internal" %} The calculated field using this function must be created at the dataset level. {% endif %}
+{% if audience != "internal" %} To enable the function, go to the [Service Settings]({{ link-datalens-settings }}) page. {% endif %}
 
 
 
@@ -771,16 +783,17 @@ To enable the function, go to the [Service Settings]({{ link-datalens-settings }
 
 **Syntax:**`GEOINFO( address, scale )`
 
-Converts `address` to geographical name corresponding to the specified `scale`.
-
-Possible values for `scale` parameter:
-- `"country"`;
-- `"country_code"`;
-- `"region"`;
-- `"locality"`.
-
-The calculated field using this function must be created at the dataset level.
-To enable the function, go to the [Service Settings]({{ link-datalens-settings }}) page.
+{% if audience == "internal" %} It is a deprecated function. {% endif %}
+{% if audience == "internal" %} Starting from 01.07.2022 this function will always return Null. {% endif %}
+{% if audience == "internal" %} See also https://clubs.at.yandex-team.ru/datalens/132 {% endif %}
+{% if audience != "internal" %} Converts `address` to geographical name corresponding to the specified `scale`. {% endif %}
+{% if audience != "internal" %} Possible values for `scale` parameter: {% endif %}
+{% if audience != "internal" %} - `"country"`; {% endif %}
+{% if audience != "internal" %} - `"country_code"`; {% endif %}
+{% if audience != "internal" %} - `"region"`; {% endif %}
+{% if audience != "internal" %} - `"locality"`. {% endif %}
+{% if audience != "internal" %} The calculated field using this function must be created at the dataset level. {% endif %}
+{% if audience != "internal" %} To enable the function, go to the [Service Settings]({{ link-datalens-settings }}) page. {% endif %}
 
 
 
@@ -1810,8 +1823,11 @@ Returns a string that contains top `amount` grouped values of `expression` delim
 
 **Syntax:**`TOPONYM_TO_GEOPOINT( name )`
 
-Converts the name of a geographical entity (country, region, city) `name` to the `Geopoint` type.
-See the full [list of toponyms]({{ geopoints-list-link }}).
+{% if audience == "internal" %} It is a deprecated function. {% endif %}
+{% if audience == "internal" %} Starting from 01.07.2022 this function will always return Null. {% endif %}
+{% if audience == "internal" %} See also https://clubs.at.yandex-team.ru/datalens/132 {% endif %}
+{% if audience != "internal" %} Converts the name of a geographical entity (country, region, city) `name` to the `Geopoint` type. {% endif %}
+{% if audience != "internal" %} See the full [list of toponyms]({{ geopoints-list-link }}). {% endif %}
 
 
 
@@ -1819,8 +1835,11 @@ See the full [list of toponyms]({{ geopoints-list-link }}).
 
 **Syntax:**`TOPONYM_TO_GEOPOLYGON( name )`
 
-Converts the name of a geographical entity (country, region, city) `name` to the `Geopolygon` type.
-See the full [list of toponyms]({{ geopolygons-list-link }}).
+{% if audience == "internal" %} It is a deprecated function. {% endif %}
+{% if audience == "internal" %} Starting from 01.07.2022 this function will always return Null. {% endif %}
+{% if audience == "internal" %} See also https://clubs.at.yandex-team.ru/datalens/132 {% endif %}
+{% if audience != "internal" %} Converts the name of a geographical entity (country, region, city)`name` to the `Geopolygon` type. {% endif %}
+{% if audience != "internal" %} See the full [list of toponyms]({{ geopolygons-list-link }}). {% endif %}
 
 
 

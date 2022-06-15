@@ -1,6 +1,6 @@
 ---
-title: Key Management Service. Обзор сервиса
-description: 'Key Management Service — сервис для создания ключей шифрования в Yandex Cloud и управления ими. Современные алгоритмы шифрования открыты. Без доступа к ключу знания шифртекста и алгоритма шифрования недостаточно для расшифровки данных. Таким образом задача безопасного хранения данных сводится к задаче безопасного хранения ключей шифрования.'
+title: {{ kms-name }}. Обзор сервиса
+description: '{{ kms-name }} — сервис для создания ключей шифрования в {{ yandex-cloud }} и управления ими. Современные алгоритмы шифрования открыты. Без доступа к ключу знания шифртекста и алгоритма шифрования недостаточно для расшифровки данных. Таким образом задача безопасного хранения данных сводится к задаче безопасного хранения ключей шифрования.'
 ---
 
 # Обзор сервиса {{ kms-name }}
@@ -18,7 +18,9 @@ description: 'Key Management Service — сервис для создания к
 Для взаимодействия с {{ kms-short-name }} можно использовать:
 * [Консоль управления]({{ link-console-main }}).
 * [Интерфейс командной строки (CLI)](../../cli/).
+{% if product == "yandex-cloud" %}
 * SDK: на [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk) или [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
+{% endif %}
 * API: [REST](../api-ref/) или [gRPC](../grpc/).
 
 ## Управление ключами {#keys-control}
@@ -36,15 +38,19 @@ description: 'Key Management Service — сервис для создания к
   * [Managed Service for Kubernetes](../../managed-kubernetes/).
   * [Certificate Manager](../../certificate-manager/).
 * При работе с [Terraform](../tutorials/terraform-key.md).
+{% if product == "yandex-cloud" %}
 * В библиотеках шифрования:
   * [AWS Encryption SDK](../tutorials/encrypt/aws-encryption-sdk.md).
   * [Google Tink](../tutorials/encrypt/google-tink.md).
+{% endif %}
 
 ### Безопасное хранение ключей {#keys-storage}
 
 Криптоматериал ключей хранится в зашифрованном виде и недоступен в открытом виде вне сервиса {{ kms-short-name }}. При использовании API сервиса вы можете зашифровать или расшифровать переданные данные определенным ключом, но не можете получить криптоматериал в явном виде. Он восстанавливается исключительно в оперативную память и только на время выполнения операций с соответствующим ключом.
 
+{% if product == "yandex-cloud" %}
 В случае использования [аппаратного модуля безопасности (HSM)](hsm.md) ключи пользователя в открытом виде никогда не покидают HSM. Создание ключа так же происходит внутри HSM. 
+{% endif %}
 
 Для ключей доступны все возможности управления доступом, предоставляемые {{ iam-name }}. Подробнее об управлении доступом и назначении ролей читайте в разделе [{#T}](../security/index.md).
 

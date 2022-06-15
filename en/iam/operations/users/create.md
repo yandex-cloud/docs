@@ -1,16 +1,18 @@
 # Adding a user to a cloud
 
+{% if product == "yandex-cloud" %}
+
 To add users to the cloud, first invite them to the [organization](../../../organization/enable-org.md) assigned for the cloud.
 
-You can add [users with a Yandex account](#passport-user) and [federated users](#federated-user).
+You can add [users with a {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %} account](#passport-user) and [federated users](#federated-user).
 
-## Add a user with a Yandex account {#passport-user}
+## Add a user with a {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %} account {#passport-user}
 
 1. [Log in to the account]({{ link-passport-login }}) your organization's administrator.
 1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-1. In the left panel, select [Users](https://org.cloud.yandex.com/users) ![icon-users](../../../_assets/organization/icon-users.png).
+1. In the left panel, select [Users]({{ link-org-main }}/users) ![icon-users](../../../_assets/organization/icon-users.png).
 1. In the upper-right corner, click **Add user**.
-1. Enter the Yandex user's email address.
+1. Enter the {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %} user's email address.
 1. Click **Add**. The user will be added to the organization and get access to its services.
 
 {% note info %}
@@ -18,6 +20,16 @@ You can add [users with a Yandex account](#passport-user) and [federated users](
 {% include [yandex-account-2fa-warning.md](../../../_includes/iam/yandex-account-2fa-warning.md) %}
 
 {% endnote %}
+
+{% endif %}
+{% if product == "cloud-il" %}
+{% note info %}
+
+For [Preview](../../../overview/concepts/launch-stages.md) release, you can add only [federated users](../../concepts/federations.md).
+
+{% endnote %}
+
+{% endif %}
 
 ## Add federated users {#federated-user}
 
@@ -31,7 +43,7 @@ To add federation users to an organization:
 
   1. [Log in to the account]({{ link-passport-login }}) your organization's administrator.
   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-  1. In the left panel, select [Users](https://org.cloud.yandex.com/users) ![icon-users](../../../_assets/organization/icon-users.png).
+  1. In the left panel, select [Users]({{ link-org-main }}/users) ![icon-users](../../../_assets/organization/icon-users.png).
   1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
   1. Select the identity federation to add users from.
   1. List the Name IDs of users, separating them with line breaks.
@@ -79,7 +91,7 @@ To add federation users to an organization:
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM token>" \
         -d '@body.json' \
-        https://iam.api.cloud.yandex.net/iam/v1/saml/federations/<federation ID>:addUserAccounts
+        https://iam.{{ api-host }}/iam/v1/saml/federations/<federation ID>:addUserAccounts
       ```
 
 {% endlist %}

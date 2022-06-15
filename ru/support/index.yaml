@@ -1,31 +1,58 @@
-title: Техническая поддержка Yandex Cloud
-description: >-
-  Техническая поддержка Yandex Cloud предоставляется в соответствии с <a
-  href="https://yandex.ru/legal/cloud_technicalregulations">Регламентом
-  технического обслуживания</a> на русском и английском языках.
+title:
+  - text: Техническая поддержка Yandex Cloud
+    when: product == "yandex-cloud"
+  - text: Техническая поддержка CloudIL
+    when: product == "cloud-il"
+description:
+  - text:
+      - >-
+        Техническая поддержка Yandex Cloud предоставляется в соответствии с <a
+        href="https://yandex.ru/legal/cloud_technicalregulations">Регламентом
+        технического обслуживания</a> на русском и английском языках.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        Техническая поддержка CloudIL предоставляется на английском языке.
+    when: product == "cloud-il"
 meta:
-  title: Техническая поддержка Yandex Cloud
+  title:
+    - text: Техническая поддержка Yandex Cloud
+      when: product == "yandex-cloud"
+    - text: Техническая поддержка CloudIL
+      when: product == "cloud-il"
 links:
   - title: Порядок оказания технической поддержки
     description: Как обратиться в службу технической поддержки
     href: overview
-    when: audience != "internal"
+    when: audience != "internal" and product == "yandex-cloud"
+  - title: Порядок оказания технической поддержки
+    description: Как обратиться в службу технической поддержки
+    href: overview.html
+    when: audience != "internal" and product == "cloud-il"
   - title: Как получить техническую поддержку
     href: overview
     when: audience == "internal"
   - title: Оповещения от поддержки Yandex Cloud
     description: О каких событиях и каким образом оповещает вас техническая поддержка
     href: notify
-    when: audience != "internal"
+    when: audience != "internal" and product == "yandex-cloud"
   - title: Запросы данных
     description: Какие данные можно запросить у технической поддержки
     href: request
-    when: audience != "internal"
+    when: audience != "internal" and product == "yandex-cloud"
+  - title: Запросы данных
+    description: Какие данные можно запросить у технической поддержки
+    href: request.html
+    when: audience != "internal" and product == "cloud-il"
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг технической поддержки
     href: pricing
-    when: audience != "internal"
+    when: audience != "internal" and product == "yandex-cloud"
   - title: Вопросы и ответы
     description: Ответы на частые вопросы про техническую поддержку
     href: qa
-    when: audience != "internal"
+    when: audience != "internal" and product == "yandex-cloud"
+  - title: Вопросы и ответы
+    description: Ответы на частые вопросы про техническую поддержку
+    href: qa.html
+    when: audience != "internal" and product == "cloud-il"

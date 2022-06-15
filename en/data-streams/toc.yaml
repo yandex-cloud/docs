@@ -55,6 +55,14 @@ items:
         href: concepts/glossary.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Practical guidelines
+    items:
+      - name: Entering data into storage systems
+        href: tutorials/data-ingestion.md
+      - name: Smart log processing
+        href: tutorials/log-ingestion.md
+      - name: Transferring data within microservice architectures
+        href: tutorials/message-broker.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

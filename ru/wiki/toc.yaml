@@ -127,7 +127,7 @@ items:
       href: actions/forms.md
     - name: Задачи из Yandex Tracker 
       href: actions/tracker.md
-    - name: Cчетчик Яндекс.Метрики
+    - name: Cчетчик Яндекс Метрики
       href: add-metrika.md
     - name: Графики из {{ datalens-full-name }}
       when: audience == "internal"

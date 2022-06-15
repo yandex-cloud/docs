@@ -12,8 +12,13 @@ You will learn how to:
 
 ## Before you start {#before-you-begin}
 
-1. If you aren't registered at {{ yandex-cloud }}, go to the [management console](https://console.cloud.yandex.com).
-1. [On the billing page](https://console.cloud.yandex.com/billing), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+{% if product == "yandex-cloud" %}
+1. Open the [management console]({{ link-console-main }}). If you aren't registered at {{ yandex-cloud }}, go to the [management console]({{ link-console-main }}) and follow the instructions.
+2. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+{% endif %}
+{% if product == "cloud-il" %}
+Open the [management console]({{ link-console-main }}). If you aren't registered at {{ yandex-cloud }}, go to the [management console]({{ link-console-main }}) and follow the instructions.
+{% endif %}
 
 ## Create a service account {#create-sa}
 

@@ -64,7 +64,7 @@
 
 * **Uncompressed cache size**: Cache size in bytes for uncompressed data used by the MergeTree table engines. To learn more, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/server_settings/settings/#server-settings-uncompressed_cache_size).
 
-* **Compression**: Rules for compressing data in [MergeTree]( https://{{ ch-domain }}/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree) tables.
+* **Compression**: Rules for compressing data in [MergeTree](https://{{ ch-domain }}/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree) tables.
    * **Method**: Compression method. Two methods are available: [LZ4](https://lz4.github.io/lz4/) and [zstd](https://facebook.github.io/zstd/).
    * **Min part size**: Minimum size (in bytes) of a [data part](https://{{ ch-domain }}/docs/en/operations/table_engines/mergetree/#mergetree-data-storage) in a table. {{ CH }} only applies the rule to tables with data parts greater than or equal to the **Min part size** value.
    * **Min part size ratio**: Minimum ratio of table part size to total table size. {{ CH }} only applies the rule to tables in which this ratio is greater than or equal to the **Min part size ratio** value.

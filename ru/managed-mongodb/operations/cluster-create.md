@@ -6,7 +6,7 @@
 
 {% note info %}
 
-* Количество хостов, которые можно создать вместе с {{ MG }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Количество хостов, которые можно создать вместе с {{ MG }}-кластером, зависит от выбранного {% if audience != "internal" %}[типа хранилища](../concepts/storage.md#storage-type-selection){% else %}[типа хранилища](../concepts/storage.md){% endif %} и [класса хостов](../concepts/instance-types.md#available-flavors).
 * Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
@@ -72,7 +72,7 @@
   1. В блоке **Сетевые настройки** выберите:
 
       * Облачную сеть для размещения кластера.
-      * Группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
+      * Группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
   1. В блоке **Хосты** добавьте хосты БД, создаваемые вместе с кластером:
 
@@ -92,10 +92,10 @@
      
      {% endif %}
 
-     Чтобы обеспечить отказоустойчивость, для типов хранилищ `local-ssd` и `network-ssd-nonreplicated` необходимо как минимум 3 хоста. Подробнее см. в разделе [Хранилище](../concepts/storage.md).
+     Чтобы обеспечить отказоустойчивость, для типов хранилищ `local-ssd`{% if audience != "internal" %} и `network-ssd-nonreplicated`{% endif %} необходимо как минимум 3 хоста. Подробнее см. в разделе [Хранилище](../concepts/storage.md).
 
      По умолчанию хосты создаются в разных зонах доступности. См. подробнее об [управлении хостами](hosts.md).
-
+  
   1. При необходимости задайте дополнительные настройки кластера:
 
       {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
@@ -119,7 +119,7 @@
   1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
      ```
-     yc vpc subnet list
+     $ yc vpc subnet list
      ```
 
      Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
@@ -129,7 +129,7 @@
   1. Посмотрите описание команды CLI для создания кластера:
 
       ```
-      {{ yc-mdb-mg }} cluster create --help
+      $ {{ yc-mdb-mg }} cluster create --help
       ```
 
   1. Укажите параметры кластера в команде создания (в примере приведены не все параметры):
@@ -163,7 +163,7 @@
         --mongod-resource-preset <класс хоста> \
         --user name=<имя пользователя>,password=<пароль пользователя> \
         --database name=<имя базы данных> \
-        --mongod-disk-type local-ssd \
+        --mongod-disk-type <local-ssd | local-hdd> \
         --mongod-disk-size <размер хранилища в гигабайтах> \
         --deletion-protection=<защита от удаления кластера: true или fasle>
       ```
@@ -196,6 +196,8 @@
 
      Пример структуры конфигурационного файла:
 
+     {% if product == "yandex-cloud" %}
+
      ```hcl
      terraform {
        required_providers {
@@ -220,7 +222,7 @@
        deletion_protection = <защита от удаления кластера: true или false>
 
        cluster_config {
-         version = "<версия MongoDB>"
+         version = "<версия {{ MG }}: {{ versions.tf.str }}>"
        }
 
        database {
@@ -258,9 +260,78 @@
      }
      ```
 
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```hcl
+     terraform {
+       required_providers {
+         yandex = {
+           source = "yandex-cloud/yandex"
+         }
+       }
+     }
+
+     provider "yandex" {
+       endpoint  = "{{ api-host }}:443"
+       token     = "<статический ключ сервисного аккаунта>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "<зона доступности>"
+     }
+
+     resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+       name                = "<имя кластера>"
+       environment         = "<окружение: PRESTABLE или PRODUCTION>"
+       network_id          = "<идентификатор сети>"
+       security_group_ids  = [ "<список групп безопасности>" ]
+       deletion_protection = <защита от удаления кластера: true или false>
+
+       cluster_config {
+         version = "<версия {{ MG }}: {{ versions.tf.str }}>"
+       }
+
+       database {
+         name = "<имя базы данных>"
+       }
+
+       user {
+         name     = "<имя пользователя>"
+         password = "<пароль пользователя>"
+         permission {
+           database_name = "<имя базы данных>"
+           roles         = [ "<список ролей пользователя>" ]
+         }
+       }
+
+       resources {
+         resource_preset_id = "<класс хоста>"
+         disk_type_id       = "<тип хранилища>"
+         disk_size          = <размер хранилища, ГБ>
+       }
+
+       host {
+         zone_id   = "<зона доступности>"
+         subnet_id = "<идентификатор подсети>"
+       }
+     }
+
+     resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
+
+     resource "yandex_vpc_subnet" "<имя подсети>" {
+       name           = "<имя подсети>"
+       zone           = "<зона доступности>"
+       network_id     = "<идентификатор сети>"
+       v4_cidr_blocks = ["<диапазон>"]
+     }
+     ```
+
+     {% endif %}
+
      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-     1. {% include [maintenance-window](../../_includes/mdb/mmg/terraform-maintenance-window.md) %}
+     1. {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-mmg }}).
 
@@ -274,11 +345,13 @@
 
       После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся IP-адреса виртуальных машин. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
+      {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 {% endlist %}
 
 {% note warning %}
 
-Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups).
+Если вы указали идентификаторы групп безопасности при создании кластера, то для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups).
 
 {% endnote %}
 
@@ -362,7 +435,7 @@
   Допустим, нужно создать {{ MG }}-кластер и сеть для него со следующими характеристиками:
 
     * С именем `mymg`.
-    * Версии `4.4`.
+    * Версии `{{ versions.tf.latest }}`.
     * В окружении `PRODUCTION`.
     * В облаке с идентификатором `{{ tf-cloud-id }}`.
     * В каталоге с идентификатором `{{ tf-folder-id }}`.
@@ -375,6 +448,8 @@
     * С защитой от случайного удаления кластера.
 
   Конфигурационный файл для такого кластера выглядит так:
+
+  {% if product == "yandex-cloud" %}
 
   ```hcl
   terraform {
@@ -400,7 +475,7 @@
     deletion_protection = true
 
     cluster_config {
-      version = "4.4"
+      version = "{{ versions.tf.latest }}"
     }
 
     database {
@@ -450,5 +525,87 @@
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```
+
+  {% endif %}
+
+  {% if product == "cloud-il" %}
+
+  ```hcl
+  terraform {
+    required_providers {
+      yandex = {
+        source = "yandex-cloud/yandex"
+      }
+    }
+  }
+
+  provider "yandex" {
+    endpoint  = "{{ api-host }}:443"
+    token     = "<статический ключ сервисного аккаунта>"
+    cloud_id  = "{{ tf-cloud-id }}"
+    folder_id = "{{ tf-folder-id }}"
+    zone      = "{{ zone-id }}"
+  }
+
+  resource "yandex_mdb_mongodb_cluster" "mymg" {
+    name                = "mymg"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.mynet.id
+    security_group_ids  = [ yandex_vpc_security_group.mymg-sg.id ]
+    deletion_protection = true
+
+    cluster_config {
+      version = "{{ versions.tf.latest }}"
+    }
+
+    database {
+      name = "db1"
+    }
+
+    user {
+      name     = "user1"
+      password = "user1user1"
+      permission {
+        database_name = "db1"
+      }
+    }
+
+    resources {
+      resource_preset_id = "{{ host-class }}"
+      disk_type_id       = "{{ disk-type-example }}"
+      disk_size          = 20
+    }
+
+    host {
+      zone_id   = "{{ zone-id }}"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+    }
+  }
+
+  resource "yandex_vpc_network" "mynet" {
+    name = "mynet"
+  }
+
+  resource "yandex_vpc_security_group" "mymg-sg" {
+    name       = "mymg-sg"
+    network_id = yandex_vpc_network.mynet.id
+
+    ingress {
+      description    = "MongoDB"
+      port           = {{ port-mmg }}
+      protocol       = "TCP"
+      v4_cidr_blocks = [ "0.0.0.0/0" ]
+    }
+  }
+
+  resource "yandex_vpc_subnet" "mysubnet" {
+    name           = "mysubnet"
+    zone           = "{{ zone-id }}"
+    network_id     = yandex_vpc_network.mynet.id
+    v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+  ```
+
+  {% endif %}
 
 {% endlist %}

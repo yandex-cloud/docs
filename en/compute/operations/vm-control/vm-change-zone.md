@@ -7,4 +7,3 @@ To change the availability zone of a VM:
 1. Create a snapshot of each of the VM's disks, see [{#T}](../disk-control/create-snapshot.md).
 1. Create a VM in a different availability zone with the disks from the snapshots, see [{#T}](../vm-create/create-from-snapshots.md).
 1. Delete the original VM, see [{#T}](vm-delete.md).
-

@@ -1,5 +1,6 @@
 #### Quotas {#compute-quotas}
 
+{% if product == "yandex-cloud" %}
 Type of limit | Value
 --- | ---
 Number of virtual machines per cloud | 12
@@ -23,14 +24,38 @@ Number of concurrent [operations](../api-design-guide/concepts/operation.md) per
 Maximum number of [placement groups](../compute/concepts/placement-groups.md) per cloud | 2
 Number of dedicated hosts per dedicated host group^1^ | 0
 Number of dedicated host groups per cloud | 0
+{% endif %}
 
-^1^ To increase [quotas]({{ link-console-quotas }}) for file storage, virtual machines with GPUs, deployment-optimized images, or dedicated hosts, please contact [technical support]({{ link-console-support }}).
+{% if product == "cloud-il" %}
+Type of limit | Value
+--- | ---
+Number of virtual machines per cloud | 12
+Total number of vCPUs for all VMs per cloud | 32
+Total virtual memory for all VMs per cloud | 128 GB
+Total number of disks per cloud | 32
+Total HDD storage capacity per cloud | 500 GB
+Total SSD storage capacity per cloud | 200 GB
+Total SSD storage capacity per cloud | 558 GB
+Number of non-replicated disk placement groups per cloud | 5
+Total number of disk snapshots per cloud | 32
+Total storage capacity of all disk snapshots per cloud | 400 GB
+Number of images per cloud | 8
+Number of images optimized for deployment per cloud^1^ | 0
+Number of instance groups per cloud | 10
+Total number of GPUs and vGPUs for all VMs per cloud^1^ | 0
+Number of concurrent [operations](../api-design-guide/concepts/operation.md) per folder | 15
+Maximum number of [placement groups](../compute/concepts/placement-groups.md) per cloud | 2
+{% endif %}
+
+^1^ To increase [quotas]({{ link-console-quotas }}) for {% if product == "yandex-cloud" %}file storage, {% endif %}virtual machines with GPUs, deployment-optimized images, {% if product == "yandex-cloud" %}or dedicated hosts, {% endif %}please contact [technical support]({{ link-console-support }}).
 
 #### VM limits {#compute-limits-vm}
 
 Limits per virtual machine depend on the virtual machine [platform](../compute/concepts/vm-platforms.md):
 
 {% list tabs %}
+
+{% if product == "yandex-cloud" %}
 
 - Intel Broadwell
 
@@ -55,13 +80,15 @@ Limits per virtual machine depend on the virtual machine [platform](../compute/c
   Maximum number of security groups per interface | 5
   Maximum number of VM instances in a [placement group](../compute/concepts/placement-groups.md) | 5
 
+{% endif %}
+
 - Intel Ice Lake
 
   Limits | Value
   --- | ---
   Maximum number of vCPUs per VM | 96
   Maximum virtual memory per VM | 640 GB
-  Maximum number of disks and file stores attached to a single VM^2^ | Less than 32 vCPUs: 8<br>From 32 vCPUs: 16^3^
+  Maximum number of disks {% if product == "yandex-cloud" %}and file stores {% endif %}attached to a single VM^2^ | Less then or equal to 32 vCPUs: 8<br>From 32 vCPUs: 16^3^
   Maximum number of security groups per interface | 5
   Maximum number of VM instances in a [placement group](../compute/concepts/placement-groups.md) | 5
 
@@ -75,13 +102,13 @@ Limits per virtual machine depend on the virtual machine [platform](../compute/c
 
 Type of limit | Value
 --- | ---
-Total number of non-replicated SSDs per placement group | 5
+Total number of non-replicated SSDs per placement group | 8
 Maximum^4^ [IOPS](../compute/concepts/storage-read-write.md) per vCPU | 10,000
 Maximum^4^ IOPS per VM | 100,000
 Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 100 MB/s
 Maximum^5^ bandwidth per VM | 1 GB/s
 
-#### Disk and file storage limits {#compute-limits-disks}
+#### Disk {% if product == "yandex-cloud" %}and file storage {% endif %}limits {#compute-limits-disks}
 
 {% list tabs %}
 
@@ -132,6 +159,8 @@ Maximum^5^ bandwidth per VM | 1 GB/s
 
 {% endlist %}
 
+{% if product == "yandex-cloud" %}
+
 {% list tabs %}
 
 - SSD storage
@@ -153,6 +182,8 @@ Maximum^5^ bandwidth per VM | 1 GB/s
   Maximum size of one file in storage | 300 GB
 
 {% endlist %}
+
+{% endif %}
 
 Read and write operations utilize the same disk resource. The more read operations you do, the fewer write operations you can do, and vice versa. For more information, see [{#T}](../compute/concepts/storage-read-write.md).
 

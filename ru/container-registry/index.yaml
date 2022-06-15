@@ -1,15 +1,30 @@
-title: Yandex Container Registry
+title:
+  - text: Yandex Container Registry
+    when: product == "yandex-cloud"
+  - text: Container Registry
+    when: product == "cloud-il"
 description:
-  - >-
-    Yandex Container Registry — сервис для хранения и распространения
-    Docker-образов.
-  - >-
-    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
-    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-    документе <a href="https://yandex.ru/legal/cloud_sla_ycr">Уровень
-    обслуживания Yandex Container Registry</a>.
+  - text:
+      - >-
+        Yandex Container Registry — сервис для хранения и распространения
+        Docker-образов.
+      - >-
+        Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+        об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+        документе <a href="https://yandex.ru/legal/cloud_sla_ycr">Уровень
+        обслуживания Yandex Container Registry</a>.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        Container Registry — сервис для хранения и распространения
+        Docker-образов.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Container Registry
+  title:
+    - text: Yandex Container Registry
+      when: product == "yandex-cloud"
+    - text: Container Registry
+      when: product == "cloud-il"
 links:
   - title: Начало работы
     description: Создайте первый реестр
@@ -31,9 +46,15 @@ links:
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
+    when: product == "yandex-cloud"
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+    when: product == "yandex-cloud"

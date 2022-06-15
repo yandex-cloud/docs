@@ -1,20 +1,21 @@
-{% note warning %}
-
-Data is processed in the following order:
-
-1. Transformation.
-1. Conversion.
-
-{% endnote %}
-
+{% if product == "yandex-cloud" %}
 * **Transformation rules**:
-
     * **Processing function**: Select one of the functions created in [{{ sf-full-name }}](../../functions/).
-    * **SA Account**: Select or [create](../../iam/operations/sa/create.md) [a service account](../../iam/concepts/users/service-accounts.md) that the processing function will start under.
+
+        {% if audience != "internal" %}
+
+        * **SA Account**: Select or [create](../../iam/operations/sa/create.md) a [service account](../../iam/concepts/users/service-accounts.md) that the processing function will start under.
+
+        {% else %}
+
+        * **SA Account**: Select or create a service account that the processing function will start under.
+
+        {% endif %}
+
     * **Number of attempts**: Set the number of attempts to invoke the processing function.
     * **Buffer size to send**: Set the size of the buffer (in bytes) which when full data will be transferred to the processing function.
 
-        The maximum buffer size is 3.5 MB. For more information about restrictions that apply when working with functions in {{ sf-name }}, see the [corresponding section](../../functions/concepts/limits.md).
+        The maximum buffer size is 3.5 MB.{% if audience != "internal" %} For more information about restrictions that apply when working with functions in {{ sf-name }}, see the [corresponding section](../../functions/concepts/limits.md).{% endif %}
 
     * **Sending interval**: Set the duration of the interval (in seconds) after the expiration of which the data from the stream should be transferred to the processing function.
 
@@ -31,10 +32,12 @@ Data is processed in the following order:
     Values in the **Sending interval** and **Call timeout** fields are specified with the `s` postfix, for example, `10s`.
 
     {% endnote %}
-
+    
+{% endif %}
 * **Conversion rules**:
+
     * **Data format**: Select one of the available formats:
         * `Json`
         * `CSV`
-    * **Data schema**: Specify the schema as a list of fields or upload a file with a description of the schema in JSON format.
 
+    * **Data schema**: Specify the schema as a list of fields or upload a file with a description of the schema in JSON format.

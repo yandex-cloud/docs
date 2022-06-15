@@ -1,5 +1,11 @@
 # Создать автоматически масштабируемую группу виртуальных машин
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 Вы можете создать автоматически масштабируемую группу однотипных виртуальных машин. Управление размером такой группой будет осуществляться автоматически. Подробнее читайте в разделе [{#T}](../../concepts/instance-groups/scale.md#auto-scale).
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
@@ -34,7 +40,7 @@
 
       Если ни одной сети нет, [создайте ее](../../../vpc/operations/network-create.md).
 
-  1. Выберите один из [публичных образов](../images-with-pre-installed-software/get-list.md) (например, [CentOS 7]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}).
+  1. Выберите один из [публичных образов](../images-with-pre-installed-software/get-list.md) (например, [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo)).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
@@ -113,7 +119,7 @@
                   cpu_utilization_rule: 0.75
           allocation_policy:
               zones:
-                  - zone_id: ru-central1-a
+                  - zone_id: {{ region-id }}-a
           ```
 
           Ключи:
@@ -159,7 +165,7 @@
                       utilization_target: 75
           allocation_policy:
               zones:
-                  - zone_id: ru-central1-a
+                  - zone_id: {{ region-id }}-a
           ```
 
   1. Создайте группу виртуальных машин в каталоге по умолчанию:
@@ -173,7 +179,7 @@
       * С именем `first-autoscaled-group`.
       * С OC CentOS 7.
       * В сети `default-net`.
-      * В зоне доступности `ru-central1-a`.
+      * В зоне доступности `{{ region-id }}-a`.
       * С 2 vCPU и 2 ГБ RAM.
       * С сетевым HDD-диском объемом 32 ГБ.
 
@@ -283,7 +289,7 @@
        }
 
        allocation_policy {
-         zones = ["ru-central1-a"]
+         zones = ["{{ region-id }}-a"]
        }
 
        deploy_policy {
@@ -298,13 +304,13 @@
 
      resource "yandex_vpc_subnet" "subnet-1" {
        name           = "subnet1"
-       zone           = "ru-central1-a"
+       zone           = "{{ region-id }}-a"
        network_id     = "${yandex_vpc_network.network-1.id}"
        v4_cidr_blocks = ["192.168.10.0/24"]
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
 
   1. Проверьте корректность конфигурационных файлов.
 

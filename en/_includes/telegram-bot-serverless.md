@@ -24,12 +24,12 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Prepare the environment {#start}
 
-1. Before creating a Telegram bot, sign up for {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-    {% include [prepare-register-billing](../_tutorials/_common/prepare-register-billing.md) %}
 1. [Download](https://storage.yandexcloud.net/doc-files/telegrambot.zip) the file archive needed to create the bot.
-1. If you don't have a folder, [create](../resource-manager/operations/folder/create.md) one.
 1. [Create](../iam/operations/sa/create.md) a service account and [assign](../iam/operations/sa/assign-role-for-sa.md) it the `editor` and the `serverless.functions.invoker` roles for your folder.
+
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -37,6 +37,8 @@ The cost of Telegram bot support includes:
 * Payment for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-name }} pricing](../functions/pricing.md)).
 * Payment for the amount of stored data, the number of data transactions, and outgoing traffic (see [{{ objstorage-name }} pricing](../storage/pricing.md)).
 * Payment for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../api-gateway/pricing.md)).
+
+{% endif %}
 
 ## Register the Telegram bot {#create-bot}
 

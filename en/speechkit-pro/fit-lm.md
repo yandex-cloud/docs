@@ -56,7 +56,7 @@ Requirements for audio markup texts and the source dataset:
 
 To generate a TSV file from the source dataset that meets the requirements listed above:
 
-1. Select all cells with code in the **Preparing texts** section by holding _Shift_ and clicking to the left of the desired cells:
+1. Select all cells with code in the **Preparing texts** section by holding **Shift** and clicking to the left of the desired cells:
 
     ```python
     import nltk
@@ -66,7 +66,7 @@ To generate a TSV file from the source dataset that meets the requirements liste
     ...
     ```
 
-1. Run the selected cells. To do this, choose **Run → Run Selected Cells** or press _Shift+Enter_.
+1. Run the selected cells. To do this, choose **Run → Run Selected Cells** or press **Shift** + **Enter**.
 
     {% include [safe-state](../_includes/datasphere/safe-state.md) %}
 

@@ -19,7 +19,7 @@
   * настройка **Доступно:** установлена в значение **Всем пользователям**;
   * настройка **Доступно:** установлена в значение **Администраторам**, и вы имеете роль администратора.
 
-  Чтобы посмотреть роли [пользователя с аккаунтом на Яндексе](../../concepts/index.md#passport), [федеративного пользователя](../../concepts/index.md#saml-federation) или [сервисного аккаунта](../../concepts/users/service-accounts.md):
+  Чтобы посмотреть роли [пользователя с аккаунтом {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}](../../concepts/index.md#passport), [федеративного пользователя](../../concepts/index.md#saml-federation) или [сервисного аккаунта](../../concepts/users/service-accounts.md):
 
     {% include [include](../../../_includes/iam/configure-roles-console.md) %}
 
@@ -35,7 +35,7 @@
 
   1. Получите идентификатор аккаунта:
       1. [Инструкция](../sa/get-id.md) для сервисных аккаунтов.
-      1. [Инструкция](../users/get.md) для пользователей с аккаунтом на Яндексе и федеративных пользователей.
+      1. [Инструкция](../users/get.md) для пользователей с аккаунтом {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %} и федеративных пользователей.
   1. Получите идентификатор или имя желаемого ресурса.
   1. {% include [include](../../../_includes/iam/list-access-bindings-via-cli.md) %}
 
@@ -46,7 +46,7 @@
 
     1. Получите идентификатор аккаунта:
         1. [Инструкция](../sa/get-id.md) для сервисных аккаунтов.
-        1. [Инструкция](../users/get.md) для пользователей с аккаунтом на Яндексе и федеративных пользователей.
+        1. [Инструкция](../users/get.md) для пользователей с аккаунтом {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %} и федеративных пользователей.
     1. Получите идентификатор или имя желаемого ресурса.
     1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
 

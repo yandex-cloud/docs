@@ -1,0 +1,15 @@
+---
+title:
+  - text: Yandex Cloud legal documents
+    when: product == "yandex-cloud"
+  - text: CloudIL legal documents
+    when: product == "cloud-il"
+href: index.yaml
+items:
+  - name: Privacy Policy
+    href: privacy.md
+  - name: Terms of Use
+    href: terms.md
+  - name: Marketplace Terms of Use
+    href: marketplace-terms.md
+

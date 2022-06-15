@@ -1,12 +1,27 @@
-title: Yandex Certificate Manager
+title:
+  - text: Yandex Certificate Manager
+    when: product == "yandex-cloud"
+  - text: Certificate Manager
+    when: product == "cloud-il"
 description:
-  - >-
-    Yandex Certificate Manager — сервис для получения и обновления
-    TLS-сертификатов от Let's Encrypt<sup>®</sup>, а также для загрузки
-    собственных сертификатов, которые можно использовать для доступа к
-    статическим сайтам по протоколу HTTPS.
+  - text: >-
+      Yandex Certificate Manager — сервис для получения и обновления
+      TLS-сертификатов от Let's Encrypt<sup>®</sup>, а также для загрузки
+      собственных сертификатов, которые можно использовать для доступа к
+      статическим сайтам по протоколу HTTPS.
+    when: product == "yandex-cloud"
+  - text: >-
+      Certificate Manager — сервис для получения и обновления
+      TLS-сертификатов от Let's Encrypt<sup>®</sup>, а также для загрузки
+      собственных сертификатов, которые можно использовать для доступа к
+      статическим сайтам по протоколу HTTPS.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Certificate Manager
+  title:
+    - text: Yandex Certificate Manager
+      when: product == "yandex-cloud"
+    - text: Certificate Manager
+      when: product == "cloud-il"
 links:
   - title: Начало работы
     description: Создайте первый сертификат
@@ -20,9 +35,15 @@ links:
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
+    when: product == "yandex-cloud"
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Управление доступом
     description: Какие права доступа нужны для работы с сервисом
     href: security/
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+    when: product == "yandex-cloud"

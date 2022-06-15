@@ -6,36 +6,38 @@ items:
     items:
       - name: All tutorials
         href: web/index.md
-      - name: Static website in Object Storage
+      - name: Static website in {{ objstorage-name }}
         href: web/static.md
       - name: Website on LAMP or LEMP stack
         href: web/lamp-lemp.md
       - name: >-
-          Fault-tolerant website with load balancing by Network Load
-          Balancer
+          Fault-tolerant website with load balancing by {{ network-load-balancer-name }}
         href: web/load-balancer-website.md
       - name: Fault-tolerant website using DNS load balancing
         href: web/dns-load-balancer.md
-      - name: Joomla website with PostgreSQL
+      - name: Joomla website with {{ PG }}
         href: web/joomla-postgresql.md
       - name: WordPress website
         href: web/wordpress.md
-      - name: WordPress website on a MySQL database
+      - name: WordPress website on a {{ MY }} database
         href: web/wordpress-mysql.md
-      - name: Transferring a WordPress website from a different hosting provider to Yandex Cloud
+      - name: Transferring a WordPress website from a different hosting provider to {{ yandex-cloud }}
         href: web/wordpress-transfer.md
       - name: 1C-Bitrix website
         href: web/bitrix-website.md
-      - name: Integrating an L7 load balancer with the CDN and Object Storage
+      - name: Integrating an L7 load balancer with the {{ cdn-name }} and {{ objstorage-name }}
         href: web/cdn-storage-integration.md
+        when: product == "yandex-cloud"
       - name: Blue-green and canary deployment of service versions
         href: web/blue-green-canary-deployment.md
+        when: product == "yandex-cloud"
   - name: Online stores
     items:
       - name: All tutorials
         href: internet-store/index.md
       - name: 1C-Bitrix online store
         href: internet-store/bitrix-shop.md
+        when: product == "yandex-cloud"
       - name: Opencart online store
         href: internet-store/opencart.md
   - name: Data archive
@@ -46,18 +48,19 @@ items:
         href: archive/single-node-file-server.md
       - name: Configuring an SFTP server on Centos 7
         href: archive/backup-and-archive-to-sftp.md
-      - name: Backup to Object Storage via Acronis Backup
+      - name: Backup to {{ objstorage-name }} via Acronis Backup
         href: archive/object-storage-acronis.md
-      - name: Backup to Object Storage via CloudBerry Desktop Backup
+      - name: Backup to {{ objstorage-name }} via CloudBerry Desktop Backup
         href: archive/object-storage-cloudberry.md
-      - name: Backup to Object Storage via Duplicati
+      - name: Backup to {{ objstorage-name }} via Duplicati
         href: archive/object-storage-duplicati.md
-      - name: Backup to Object Storage via Bacula
+      - name: Backup to {{ objstorage-name }} via Bacula
         href: archive/backup-with-bacula.md
-      - name: Backup to Object Storage via Veritas Backup Exec
+      - name: Backup to {{ objstorage-name }} via Veritas Backup Exec
         href: archive/object-storage-veritas.md
-      - name: Digitizing archives in Yandex Vision
+      - name: Digitizing archives in {{ vision-full-name }}
         href: archive/archive-from-vision-to-object-storage.md
+        when: product == "yandex-cloud"
   - name: Test environment
     items:
       - name: All tutorials
@@ -70,17 +73,23 @@ items:
         href: testing/hpc-on-preemptible.md
       - name: Emulating multiple IoT devices
         href: testing/iot-emulation.md
+        when: product == "yandex-cloud"
       - name: gRPC service load testing
         href: testing/loadtesting-grpc.md
+        when: product == "yandex-cloud"
       - name: Using Phantom to run a fixed-load HTTPS test
         href: testing/loadtesting-https-phantom.md
+        when: product == "yandex-cloud"
+      - name: Using Pandora to run a step-load HTTPS test
+        href: testing/loadtesting-https-pandora.md
+        when: product == "yandex-cloud"
   - name: Performing infrastructure management
     items:
       - name: All tutorials
         href: infrastructure-management/index.md
-      - name: Getting started with Terraform
+      - name: Getting started with {{ TF }}
         href: infrastructure-management/terraform-quickstart.md
-      - name: Uploading Terraform states to Object Storage
+      - name: Uploading {{ TF }} states to {{ objstorage-name }}
         href: infrastructure-management/terraform-state-storage.md
       - name: Getting started with Packer
         href: infrastructure-management/packer-quickstart.md
@@ -90,32 +99,42 @@ items:
           Continuous deployment of containerized applications using GitLab
         href: infrastructure-management/gitlab-containers.md
       - name: >-
-          Creating a cluster of 1C:Enterprise Linux servers with a Managed Service for PostgreSQL cluster
+          Creating a cluster of 1C:Enterprise Linux servers with a {{ mpg-name }} cluster
         href: infrastructure-management/1c-postgresql-linux.md
       - name: >-
-          Creating a cluster of 1C:Enterprise Windows servers with MS SQL Server
+          Creating a cluster of 1C:Enterprise Windows servers with {{ MS }}
         href: infrastructure-management/1c-mssql-windows.md
-      - name: Migrating to Yandex Cloud using Hystax Acura
+      - name: Migrating to {{ yandex-cloud }} using Hystax Acura
         href: infrastructure-management/hystax-migration.md
-      - name: Emergency recovery in Yandex Cloud using Hystax Acura
+      - name: Emergency recovery in {{ yandex-cloud }} using Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
-      - name: Configuring a fault-tolerant architecture in Yandex Cloud
+        when: product == "yandex-cloud"
+      - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
         href: infrastructure-management/fault-tolerance.md
+        when: product == "yandex-cloud"
   - name: Building a data platform
     items:
       - name: All tutorials
         href: dataplatform/index.md
       - name: Syncing MySQL data using Yandex DataTransfer
         href: dataplatform/sync-mysql.md
-      - name: >-
-          Using Confluent Schema Registry with Yandex Managed Service for Apache Kafka®
+      - name: Using schema registries with Managed Service for Apache Kafka®
+        items:
+        - name: Overview
+          href: dataplatform/schema-registry-overview.md
+        - name: Using {{ mkf-msr }} with Yandex Managed Service for Apache Kafka®
+          href: dataplatform/managed-schema-registry.md
+        - name: Using Confluent Schema Registry with Yandex Managed Service for Apache Kafka®
         href: dataplatform/confluent-schema-registry.md
       - name: Delivering data using Debezium
         href: dataplatform/kafka-cdc.md
-      - name: Migrating databases to Managed Service for Microsoft SQL Server
-        href: dataplatform/mssql-data-migration.md
       - name: Migrating databases from Yandex Managed Service for MySQL to MySQL
         href: dataplatform/mmy-to-mysql-migration.md
+      - name: Migrating databases to Managed Service for Microsoft SQL Server
+        href: dataplatform/mssql-data-migration.md
+        when: product == "yandex-cloud"
+      - name: Transferring data from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}
+        href: dataplatform/rdbms-to-clickhouse.md
       - name: >-
           Configuring {{ dns-full-name }} for accessing managed database clusters from other cloud networks
         href: dataplatform/mdb-dns-peering.md
@@ -153,6 +172,7 @@ items:
       - name: Creating a VPN connection using OpenVPN
         href: routing/openvpn.md
   - name: Data visualization and analytics
+    when: product == "yandex-cloud"
     items:
       - name: All tutorials
         href: datalens/index.md
@@ -160,11 +180,11 @@ items:
         href: datalens/data-from-csv-visualization.md
       - name: Creating and publishing a chart with a map of Moscow from a CSV file
         href: datalens/data-from-csv-to-public-visualization.md
-      - name: Analyzing a store chain's sales based on data from a ClickHouse DB
+      - name: Analyzing a store chain's sales based on data from a {{ CH }} DB
         href: datalens/data-from-ch-visualization.md
       - name: Analyzing open data on road accidents in Russia
         href: datalens/data-from-csv-geo-visualization.md
-      - name: Analyzing sales and locations of pizzerias based on data from Clickhouse DB and Marketplace
+      - name: Analyzing sales and locations of pizzerias based on data from {{ CH }} DB and {{ marketplace-short-name }}
         href: datalens/data-from-ch-to-geolayers-visualization.md
       - name: Web analytics with a connection to Yandex.Metrica
         href: datalens/data-from-metrica-visualization.md
@@ -178,10 +198,11 @@ items:
         href: datalens/data-from-ch-to-sql-chart.md
       - name: Mobile app customer journey analytics based on AppMetrica data
         href: datalens/data-from-appmetrica-yc-visualization.md
-      - name: Analyzing Object Storage logs in DataLens
+      - name: Analyzing {{ objstorage-name }} logs in {{ datalens-name }}
         when: audience == "external"
         href: datalens/storage-logs-analysis.md
   - name: Internet of things
+    when: product == "yandex-cloud"
     items:
       - name: Tutorials for the internet of things
         href: iot/index.md
@@ -190,6 +211,14 @@ items:
       - name: Monitoring sensor readings and event notifications
         href: iot/monitoring.md
   - name: Serverless technologies
+    when: product == "yandex-cloud"
     items:
       - name: URL shortener
         href: serverless/serverless-url-shortener.md
+        when: audience == "external"
+      - name: Entering data into storage systems
+        href: serverless/data-ingestion.md
+        when: audience == "external"
+      - name: Storing application runtime logs
+        href: serverless/log-ingestion.md
+        when: audience == "external"

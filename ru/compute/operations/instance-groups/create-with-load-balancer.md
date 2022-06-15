@@ -25,7 +25,7 @@
 
       * Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять виртуальные машины в группе, назначьте сервисному аккаунту роль `editor`. По умолчанию все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
       * Включите опцию **Защита от удаления** при необходимости. Пока опция включена, невозможно удалить группу.
-  1. В блоке **Распределение** выберите нужные **Зоны доступности**. Виртуальные машины группы могут находиться в разных зонах и регионах доступности. [Подробнее о географии {{ yandex-cloud }}](../../../overview/concepts/geo-scope.md).
+  1. В блоке **Распределение** выберите нужные **Зоны доступности**. {% if product == "yandex-cloud" %}Виртуальные машины группы могут находиться в разных зонах и регионах доступности. {% endif %}[Подробнее о географии {{ yandex-cloud }}](../../../overview/concepts/geo-scope.md).
   1. В блоке **Шаблон виртуальной машины** нажмите кнопку **Задать**, чтобы задать конфигурацию базовой виртуальной машины:
       * В блоке **Базовые параметры** введите **Описание** шаблона.
       * В блоке **Выбор образа/загрузочного диска** выберите, какую систему развернуть на загрузочном диске ВМ.
@@ -97,7 +97,7 @@
 
       Если ни одной сети нет, [создайте ее](../../../vpc/operations/network-create.md).
 
-  1. Выберите один из [публичных образов](../images-with-pre-installed-software/get-list.md) (например, [CentOS 7]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}).
+  1. Выберите один из [публичных образов](../images-with-pre-installed-software/get-list.md) (например, [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo)).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
@@ -170,7 +170,7 @@
                   size: 3
           allocation_policy:
               zones:
-                  - zone_id: ru-central1-a
+                  - zone_id: {{ region-id }}-a
           ```
 
           Ключи:
@@ -224,7 +224,7 @@
                   size: 3
           allocation_policy:
               zones:
-                  - zone_id: ru-central1-a
+                  - zone_id: {{ region-id }}-a
           application_load_balancer_spec:
               target_group_spec:
                   name: first-target-group
@@ -241,7 +241,7 @@
       * С именем `first-fixed-group-with-l7-balancer`.
       * С OC CentOS 7.
       * В сети `default-net`.
-      * В зоне доступности `ru-central1-a`.
+      * В зоне доступности `{{ region-id }}-a`.
       * С 2 vCPU и 2 ГБ RAM.
       * С сетевым HDD-диском объемом 32 ГБ.
       * С целевой группой `first-target-group`.
@@ -355,7 +355,7 @@
        }
 
        allocation_policy {
-         zones = ["ru-central1-a"]
+         zones = ["{{ region-id }}-a"]
        }
 
        deploy_policy {
@@ -375,13 +375,13 @@
 
      resource "yandex_vpc_subnet" "subnet-1" {
        name           = "subnet1"
-       zone           = "ru-central1-a"
+       zone           = "{{ region-id }}-a"
        network_id     = "${yandex_vpc_network.network-1.id}"
        v4_cidr_blocks = ["192.168.10.0/24"]
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
 
   1. Проверьте корректность конфигурационных файлов.
 

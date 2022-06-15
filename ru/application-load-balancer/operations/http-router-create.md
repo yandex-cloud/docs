@@ -53,12 +53,28 @@
      ```
 
   1. Создайте виртуальный хост, указав имя HTTP-роутера и настройки виртуального хоста:
+     
+     {% if product == "yandex-cloud" %}
+     
      ```
      yc alb virtual-host create <имя виртуального хоста> \
        --http-router-name <имя HTTP-роутера> \
        --authority your-domain.foo.com \
        --modify-request-header name=Accept-Language,append=ru-RU
      ```
+     
+     {% endif %}
+ 
+     {% if product == "cloud-il" %}
+
+     ```
+     yc alb virtual-host create <имя виртуального хоста> \
+       --http-router-name <имя HTTP-роутера> \
+       --authority your-domain.foo.com \
+       --modify-request-header name=Accept-Language,append=he-IL
+     ```
+
+     {% endif %}
 
      Где:
 
@@ -68,6 +84,9 @@
        * `append` — строка, которая будет добавлена к значению заголовка.
 
      Результат:
+     
+     {% if product == "yandex-cloud" %}
+     
      ```
      name: test-virtual-host
      authority:
@@ -76,6 +95,21 @@
      - name: Accept-Language
        append: ru-RU
      ```
+     
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```
+     name: test-virtual-host
+     authority:
+     - your-domain.foo.com
+     modify_request_headers:
+     - name: Accept-Language
+       append: he-IL
+     ```
+
+     {% endif %}
 
   1. Посмотрите описание команды CLI для добавления маршрута:
      ```
@@ -161,7 +195,7 @@
        * `http_router_id` — идентификатор HTTP-роутера.
        * `route` — описание маршрута HTTP-роутера. Укажите имя маршрута, идентификатор группы бэкендов и время для обработки запроса (по умолчанию 60 секунд).
 
-     Более подробную информацию о параметрах ресурсов в Terraform см. в документации провайдера ([yandex_alb_http_router](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router) и [yandex_alb_virtual_host](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host)).
+     Более подробную информацию о параметрах ресурсов в Terraform см. в документации провайдера ([yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) и [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host)).
 
   1. Проверьте корректность конфигурационных файлов.
 

@@ -29,7 +29,7 @@
    stringData:
      accessKeyID: <идентификатор ключа доступа>
      secretAccessKey: <секретный ключ>
-     endpoint: https://storage.yandexcloud.net
+     endpoint: https://{{ s3-storage-host }}
    ```
 
    В полях `accessKeyID` и `secretAccessKey` укажите [полученные ранее](#create-environment) идентификатор и значение секретного ключа.
@@ -218,7 +218,7 @@
 Чтобы использовать {{ CSI }} совместно со статическим `PersistentVolumeClaim`:
 1. Создайте `PersistentVolumeClaim`:
    1. [Настройте {{ CSI }}](#configure-csi).
-   1. Создайте файл `pvс-static.yaml`, содержащий описание статического `PersistentVolumeClaim`:
+   1. Создайте файл `pvc-static.yaml`, содержащий описание статического `PersistentVolumeClaim`:
 
       {% cut "pvc-static.yaml" %}
 

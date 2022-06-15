@@ -113,7 +113,7 @@ description: "Вы можете создавать резервные копии
       - В окружении `PRODUCTION`.
       - С одним хостом класса `{{ host-class }}` в зоне доступности `{{ zone-id }}`.
       - С базами данных и пользователями, которые существовали в кластере на момент восстановления.
-      - С хранилищем на сетевых SSD-дисках (`network-ssd`) объемом 20 ГБ.
+      - С хранилищем на локальных SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
 
       {% endif %}
 
@@ -139,7 +139,7 @@ description: "Вы можете создавать резервные копии
    +--------------------------+----------------------+----------------------+----------------------+
    ```
 
-   {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
    **Чтобы восстановить из резервной копии существующий кластер:**
 
@@ -399,6 +399,6 @@ description: "Вы можете создавать резервные копии
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 {% endlist %}

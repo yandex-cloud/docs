@@ -1,32 +1,83 @@
-title: Yandex Data Transfer
+title:
+  - text: Yandex Data Transfer
+    when: product == "yandex-cloud"
+  - text: Data Transfer
+    when: product == "cloud-il"
 description:
-  - >-
-    Yandex Data Transfer is designed for logically transferring data between
-    storages. The service helps you quickly and safely perform logical
-    migrations of your databases between other cloud platforms or local
-    databases and Yandex Cloud managed database services.
-  - >-
-    It supports several data transfer scenarios, with every scenario run at the
-    logical level. This allows you to keep your source database running and
-    minimize the downtime of applications that use it.
+  - text:
+      - >-
+        Yandex Data Transfer is designed for logically transferring data between sources and targets.
+        These can be DBMS, object stores, or message brokers.
+      - >-
+        With Yandex Data Transfer, you can:
+        <ul>
+        <li>Transfer your databases to a cloud, including both managed database services and custom installations based on Yandex Compute Cloud VMs.</li>
+        <li>Create remote DB replicas.</li>
+        <li>Aggregate data from a variety of sources in a single Data Warehouse powered by ClickHouse.</li>
+        <li>Back up and save data from any available source to Yandex Object Storage.</li>
+        <li>Save arbitrary data received from message brokers to cloud storage.</li>
+      - >-
+        Data Transfer supports several data transfer scenarios, all helping keep track of a source's running state and minimize the downtime of applications using the source.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        Data Transfer is designed for logically transferring data between sources and targets.
+        These can be DBMS, object stores, or message brokers.
+      - >-
+        With Data Transfer, you can:
+        <ul>
+        <li>Transfer your databases to a cloud, including both managed database services and custom installations based on Compute Cloud VMs.</li>
+        <li>Create remote DB replicas.</li>
+        <li>Aggregate data from a variety of sources in a single Data Warehouse powered by ClickHouse.</li>
+        <li>Back up and save data from any available source to Object Storage.</li>
+        <li>Save arbitrary data received from message brokers to cloud storage.</li>
+      - >-
+        Data Transfer supports several data transfer scenarios, all helping keep track of a source's running state and minimize the downtime of applications using the source.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Data Transfer
+  title:
+    - text: Yandex Data Transfer
+      when: product == "yandex-cloud"
+    - text: Data Transfer
+      when: product == "cloud-il"
 links:
   - title: Getting started
     description: Create your first project
     href: quickstart
+    when: product == "yandex-cloud"
+  - title: Getting started
+    description: Create your first project
+    href: quickstart.html
+    when: product == "cloud-il"
+  - title: Available transfers
+    description: List of supported transfer types
+    href: concepts/index#transfer
+    when: product == "yandex-cloud"
+  - title: Available transfers
+    description: List of supported transfer types
+    href: concepts/index.html#transfer
+    when: product == "cloud-il"
   - title: Step-by-step instructions
     description: Instructions on how to perform routine operations
     href: operations/
   - title: Concepts
     description: Learn about basic concepts and service functions
     href: concepts/
+  - title: API reference
+    description: HTTP API method descriptions
+    href: api-ref/
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits
+    when: product == "yandex-cloud"
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Access management
     description: Configure access rights to work with the service
     href: security/
   - title: Pricing policy
     description: Prices and rules for calculating the service cost
     href: pricing
+    when: product == "yandex-cloud"

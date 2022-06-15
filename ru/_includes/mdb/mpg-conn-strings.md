@@ -33,14 +33,7 @@ sudo apt update && sudo apt install -y postgresql-client
 
   1. Подключитесь к базе данных:
 
-      ```bash
-      psql "host=c-<идентификатор кластера>.rw.{{ dns-zone }} \
-          port=6432 \
-          sslmode=verify-full \
-          dbname=<имя БД> \
-          user=<имя пользователя> \
-          target_session_attrs=read-write"
-      ```
+      {% include [default-connstring](./mpg/default-connstring.md) %}
 
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
@@ -683,9 +676,9 @@ sudo apt update && sudo apt install -y php php-pgsql
 
      ```powershell
      & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
-           -h c-<идентификатор кластера>.rw.{{ dns-zone }} `
-           -p {{ port-mpg }} `
-           -U <имя пользователя> `
+           --host=c-<идентификатор кластера>.rw.{{ dns-zone }} `
+           --port={{ port-mpg }} `
+           --username=<имя пользователя> `
            <имя БД>
      ```
 
@@ -709,9 +702,9 @@ sudo apt update && sudo apt install -y php php-pgsql
 
       ```powershell
       & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
-        -h c-<идентификатор кластера>.rw.{{ dns-zone }} `
-        -p {{ port-mpg }} `
-        -U <имя пользователя> `
+        --host=c-<идентификатор кластера>.rw.{{ dns-zone }} `
+        --port={{ port-mpg }} `
+        --username<имя пользователя> `
         <имя БД>
       ```
 

@@ -4,14 +4,14 @@
 
   {% if audience == "internal" %}
   
-  1. Скачайте и установите [сертификат](https://crls.yandex.net/allCAs.pem) в браузер.
+  1. Скачайте и установите [сертификат]({{ pem-path }}) в браузер.
   1. Интерфейс вашего инстанса Kibana доступен по ссылке `https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}`. Идентификатор кластера можно получить [со списком кластеров в каталоге](../../managed-elasticsearch/operations/cluster-list#list-clusters).
   1. Введите имя пользователя и пароль.
   
   {% else %}
 
   **Если хосту с ролью _Data node_ назначен публичный IP-адрес:**
-  1. Перед подключением установите [SSL-сертификат](https://storage.yandexcloud.net/cloud-certs/CA.pem) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
+  1. Перед подключением установите [SSL-сертификат](https://{{ s3-storage-host }}{{ pem-path }}) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
   1. В браузере перейдите по одному из адресов:
      - `https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}`, если публичный IP-адрес назначен всем хостам с этой ролью. Идентификатор кластера можно получить [со списком кластеров в каталоге](../../managed-elasticsearch/operations/cluster-list#list-clusters).
      - `https://<имя любого хоста с ролью Data node и публичным IP>.{{ dns-zone }}`
@@ -89,49 +89,18 @@
 
   **Пример команды для подключения с использованием SSL-соединения :**
 
-  {% if audience == "internal" %}
-
-  ```bash
-   curl \
-     --user <имя пользователя>:<пароль> \
-     --cacert ~/.elasticsearch/root.crt \
-     -X GET 'https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200/'
-   ```
-   
-   {% else %}
-   
-  ```bash
-   curl \
-     --user <имя пользователя>:<пароль> \
-     --cacert ~/.elasticsearch/root.crt \
-     -X GET 'https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200/'
-   ```
-
-  {% endif %}
+  {% include [default-connstring](./mes/default-connstring.md) %}
 
 - PowerShell
 
   **Пример команды для подключения с использованием SSL-соединения :**
 
-  {% if audience == "internal" %}
-
   ```powershell
    curl `
      -Certificate <абсолютный путь к файлу сертификата> `
      -Uri https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200 `
      -Credential <имя пользователя>
    ```
-
-   {% else %}
-
-  ```powershell
-   curl `
-     -Certificate <абсолютный путь к файлу сертификата> `
-     -Uri https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}:9200 `
-     -Credential <имя пользователя>
-   ```
-
-  {% endif %}
 
    В открывшемся окне введите пароль пользователя.
 
@@ -140,7 +109,7 @@
   **Перед подключением установите зависимости:**
   
   ```bash
-  sudo apt update && sudo apt install -y python3 python3-pip && \
+  sudo apt update && sudo apt install --yes python3 python3-pip && \
   pip3 install elasticsearch==7.17.2
   ```
 

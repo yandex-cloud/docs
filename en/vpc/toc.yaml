@@ -1,4 +1,8 @@
-title: Yandex Virtual Private Cloud
+title:
+  - text: Yandex Virtual Private Cloud
+    when: product == "yandex-cloud"
+  - text: Virtual Private Cloud
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Getting started
@@ -53,6 +57,7 @@ items:
       - name: Enable a software-accelerated network
         href: operations/enable-software-accelerated-network.md
       - name: Protection from DDoS attacks
+        when: product == "yandex-cloud"
         items:
           - name: Enable protection from DDoS attacks
             href: operations/enable-ddos-protection.md
@@ -86,9 +91,15 @@ items:
         href: concepts/limits.md
   - name: DDoS Protection
     href: ddos-protection/index.md
+    when: product == "yandex-cloud"
+  - name: Recommendations
+    items:
+      - name: Using public IP addresses
+        href: best-practices/public-ip-recommendations.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
+    when: product == "yandex-cloud"
     items:
       - name: Current pricing policy
         href: pricing.md
@@ -96,6 +107,9 @@ items:
         items:
           - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
+  - name: Pricing policy
+    when: product == "cloud-il"
+    href: pricing.md
   - name: API reference
     items:
       - name: Authentication in the API

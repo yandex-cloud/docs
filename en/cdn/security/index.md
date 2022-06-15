@@ -46,7 +46,7 @@ The table below lists the roles needed to perform a given action. You can always
 | [Pre-fetch files to CDN servers](../operations/resources/prefetch-files.md) | `cdn.editor` for the folder with CDN resources |
 | [Clear a resource cache](../operations/resources/purge-cache.md) | `cdn.editor` for the folder with CDN resources |
 | [Configure HTTP Request and Response headers](../operations/resources/configure-headers.md) | `cdn.editor` for the folder with CDN resources |
-| [Configure CORS responses to clients ](../operations/resources/configure-cors.md) | `cdn.editor` for the folder with CDN resources |
+| [Configure CORS responses to clients](../operations/resources/configure-cors.md) | `cdn.editor` for the folder with CDN resources |
 | [Configure HTTP methods](../operations/resources/configure-http.md) | `cdn.editor` for the folder with CDN resources |
 | [Enable file compression](../operations/resources/enable-compression.md) | `cdn.editor` for the folder with CDN resources |
 | [Enable file segmentation](../operations/resources/enable-segmentation.md) | `cdn.editor` for the folder with CDN resources |

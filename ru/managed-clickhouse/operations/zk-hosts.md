@@ -1,5 +1,11 @@
 # Управление хостами {{ ZK }}
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 [Шарды](../concepts/sharding.md) из одного хоста не отказоустойчивы и не обеспечивают репликацию данных. Чтобы сделать такие шарды отказоустойчивыми, нужно добавить в них еще один или несколько хостов. Если в кластере уже есть шард из нескольких хостов, то можно сразу [добавлять хосты {{ CH }}](./hosts.md#add-host) в нужный шард, в противном случае сначала нужно [включить отказоустойчивость](#add-zk) и только потом добавлять хосты {{ CH }}.
 
 Подробнее см. в разделе [{#T}](../concepts/sharding.md).
@@ -45,10 +51,10 @@
   1. Запустите операцию с характеристиками хостов по умолчанию:
 
      ```bash
-     yc managed-clickhouse cluster add-zookeeper <имя кластера> \
-       --host zone-id=ru-central1-c,subnet-name=default-c \
-       --host zone-id=ru-central1-a,subnet-name=default-a \
-       --host zone-id=ru-central1-b,subnet-name=default-b
+     {{ yc-mdb-ch }} cluster add-zookeeper <имя кластера> \
+        --host zone-id={{ region-id }}-c,subnet-name=default-c \
+        --host zone-id={{ region-id }}-a,subnet-name=default-a \
+        --host zone-id={{ region-id }}-b,subnet-name=default-b
      ```
 
      Если в сети, в которой расположен кластер, ровно 3 подсети, по одной в каждой зоне доступности, то явно указывать подсети для хостов необязательно: {{ mch-name }} автоматически распределит хосты по этим подсетям. 
@@ -68,25 +74,25 @@
           name = "<имя сети>"
         }
 
-        resource "yandex_vpc_subnet" "<имя подсети в зоне ru-central1-a>" {
-          name           = "<имя подсети в зоне ru-central1-a>"
-          zone           = "ru-central1-a"
+        resource "yandex_vpc_subnet" "<имя подсети в зоне {{ region-id }}-a>" {
+          name           = "<имя подсети в зоне {{ region-id }}-a>"
+          zone           = "{{ region-id }}-a"
           network_id     = yandex_vpc_network.<имя сети>.id
-          v4_cidr_blocks = [ "<диапазон адресов подсети в зоне ru-central1-a>" ]
+          v4_cidr_blocks = [ "<диапазон адресов подсети в зоне {{ region-id }}-a>" ]
         }
 
-        resource "yandex_vpc_subnet" "<имя подсети в зоне ru-central1-b>" {
-          name           = "<имя подсети в зоне ru-central1-b>"
-          zone           = "ru-central1-b"
+        resource "yandex_vpc_subnet" "<имя подсети в зоне {{ region-id }}-b>" {
+          name           = "<имя подсети в зоне {{ region-id }}-b>"
+          zone           = "{{ region-id }}-b"
           network_id     = yandex_vpc_network.<имя сети>.id
-          v4_cidr_blocks = [ "<диапазон адресов подсети в зоне ru-central1-b>" ]
+          v4_cidr_blocks = [ "<диапазон адресов подсети в зоне {{ region-id }}-b>" ]
         }
 
-        resource "yandex_vpc_subnet" "<имя подсети в зоне ru-central1-c>" {
-          name           = "<имя подсети в зоне ru-central1-c>"
-          zone           = "ru-central1-c"
+        resource "yandex_vpc_subnet" "<имя подсети в зоне {{ region-id }}-c>" {
+          name           = "<имя подсети в зоне {{ region-id }}-c>"
+          zone           = "{{ region-id }}-c"
           network_id     = yandex_vpc_network.<имя сети>.id
-          v4_cidr_blocks = [ "<диапазон адресов подсети в зоне ru-central1-c>" ]
+          v4_cidr_blocks = [ "<диапазон адресов подсети в зоне {{ region-id }}-c>" ]
         }
         ```
 
@@ -113,8 +119,8 @@
           ...
           host {
             type      = "CLICKHOUSE"
-            zone      = "ru-central1-a"
-            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности ru-central1-a>.id
+            zone      = "{{ region-id }}-a"
+            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности {{ region-id }}-a>.id
           }
           ...
         }
@@ -126,7 +132,7 @@
 
         * в каждой зоне доступности должно быть минимум по одному хосту;
         * минимальный класс хоста — `b1.medium`;
-        * тип хранилища — `network-ssd`;
+        * тип хранилища — `{{ disk-type-example }}`;
         * минимальный размер хранилища — 10 гигабайт.
 
         ```hcl
@@ -135,25 +141,25 @@
           zookeeper {
             resources {
               resource_preset_id = "<класс хоста: b1.medium или выше>"
-              disk_type_id       = "network-ssd"
+              disk_type_id       = "{{ disk-type-example }}"
               disk_size          = <размер хранилища, ГБ>
             }
           }
           ...
           host {
             type      = "ZOOKEEPER"
-            zone      = "ru-central1-a"
-            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности ru-central1-a>.id
+            zone      = "{{ region-id }}-a"
+            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности {{ region-id }}-a>.id
           }
           host {
             type      = "ZOOKEEPER"
-            zone      = "ru-central1-b"
-            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности ru-central1-b>.id
+            zone      = "{{ region-id }}-b"
+            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности {{ region-id }}-b>.id
           }
           host {
             type      = "ZOOKEEPER"
-            zone      = "ru-central1-c"
-            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности ru-central1-c>.id
+            zone      = "{{ region-id }}-c"
+            subnet_id = yandex_vpc_subnet.<имя подсети в зоне доступности {{ region-id }}-c>.id
           }
         }
         ```
@@ -168,6 +174,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом [addZookeeper](../api-ref/Cluster/addZookeeper.md). При добавлении укажите настройки для трех хостов {{ ZK }}, перечислив их в параметре `hostSpecs`.
@@ -178,7 +186,7 @@
 
 По умолчанию для хостов {{ ZK }} задаются следующие характеристики:
 * класс хоста `b2.medium`;
-* [хранилище](../concepts/storage.md) на сетевых SSD-дисках (`network-ssd`) объемом 10 ГБ.
+* [хранилище](../concepts/storage.md) на {% if audience != "internal" %}сетевых{% else %}локальных{% endif %} SSD-дисках (`{{ disk-type-example }}`) объемом 10 ГБ.
 
 {% endnote %}
 
@@ -230,8 +238,8 @@
   
      ```
      {{ yc-mdb-ch }} hosts add \
-       --cluster-name <имя кластера> \
-       --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети>,type=zookeeper
+        --cluster-name <имя кластера> \
+        --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети>,type=zookeeper
      ```
 
 - Terraform
@@ -262,7 +270,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -293,7 +303,7 @@
   
   ```
   {{ yc-mdb-ch }} hosts delete <имя хоста> \
-    --cluster-name=<имя кластера>
+     --cluster-name=<имя кластера>
   ```
 
   Имя хоста можно запросить со [списком хостов в кластере](hosts.md#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -314,7 +324,9 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

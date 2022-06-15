@@ -143,7 +143,9 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
 
       Example configuration file structure:
 
-      ```
+      {% if product == "yandex-cloud" %}
+
+      ```hcl
       provider "yandex" {
         token     = "<OAuth>"
         cloud_id  = "<cloud ID>"
@@ -155,17 +157,40 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
         cname = "<resource domain name>"
         active = true
         origin_protocol = "https"
-         origin_group_id = <origin group ID>
+        origin_group_id = <origin group ID>
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_origin_group).
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```hcl
+      provider "yandex" {
+        endpoint  = "{{ api-host }}:443"
+        token     = "<static key of the service account>"
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "<default availability zone>"
+      }
+
+      resource "yandex_cdn_resource" "my_resource" {
+        cname = "<resource domain name>"
+        active = true
+        origin_protocol = "https"
+        origin_group_id = <origin group ID>
+      }
+      ```
+
+      {% endif %}
+
+      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
 
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   1. Create an origin group.
+   2. Create an origin group.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

@@ -26,7 +26,7 @@
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-    Подробнее см. в разделе [Правила тарификации для {{ mes-name }}](../pricing.md#rules-storage).
+    {% if audience != "internal" %}Подробнее см. в разделе [Правила тарификации для {{ mes-name }}](../pricing.md#rules-storage).{% endif %}
 
 ## Проверка резервной копии {#verify}
 

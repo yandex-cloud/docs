@@ -4,7 +4,9 @@
 
 Для подтверждения прав на домен к нему необходимо привязать [сертификат от Let's Encrypt](../../concepts/managed-certificate.md).
 
+{% if product == "yandex-cloud" %}
 Привязанный к домену сертификат будет использован для обеспечения TLS-соединения в [интегрированных облачных сервисах](../../concepts/domains/services.md).
+{% endif %}
 
 {% list tabs %}
 

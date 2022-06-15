@@ -1,1 +1,1 @@
-**Сертификат CA** — для шифрования передаваемых данных загрузите файл [PEM-сертификата](../../../../../managed-mongodb/operations/connect.md#get-ssl-cert) или добавьте его содержимое в текстовом виде.
+**Сертификат CA** — для шифрования передаваемых данных загрузите файл {% if product == "yandex-cloud" %}[PEM-сертификата](../../../../../managed-mongodb/operations/connect/index.md#get-ssl-cert){% endif %}{% if product == "cloud-il" %}PEM-сертификата{% endif %} или добавьте его содержимое в текстовом виде.

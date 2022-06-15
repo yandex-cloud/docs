@@ -10,9 +10,24 @@ The agreement only provides for a discount on a certain volume of services withi
 
 ## Discount amount {#amount}
 
+The amount of the guaranteed discount depends on the amount of service resources that you plan to use and the CVoS validity period. The longer the CVoS validity period, the greater the discount. If you have any questions, we'll help you calculate the benefits of committing to a certain volume of resources. Email us at [cloud-sales@yandex-team.ru](mailto:cloud-sales@yandex-team.ru). For more information about pricing rules for all services, see the [Pricing](https://cloud.yandex.com/prices) page.
+
+{% if audience == "cvos" %}
+
 The amount of the guaranteed discount depends on the amount of service resources that you plan to use and the CVoS validity period. The longer the CVoS validity period, the greater the discount. For more information about pricing rules for all services, see the [Pricing](https://cloud.yandex.com/prices) page. If you have any questions, we'll help you calculate the benefits of committing to a certain volume of resources. Email us at [cloud-sales@yandex-team.ru](mailto:cloud-sales@yandex-team.ru).
 
+{% endif %}
+
 ## Purchase and validity period {#how-to-enable}
+
+To purchase CVoS please contact your account-manager or [technical support]({{ link-console-support }}).
+
+When purchasing a CVoS, you choose the following on your own:
+
+* Validity period: 1 or 3 years.
+* Start date: The next calendar day or desired date.
+
+{% if audience == "cvos" %}
 
 You can view the available offers and purchase a CVoS in the management console under **Commitments**.
 
@@ -21,7 +36,9 @@ When [purchasing a CVoS](../operations/purchase-cvos.md), you choose the followi
 * Validity period: 1 or 3 years.
 * Start date: The next calendar day or desired date.
 
-Once the CVoS is purchased and the offer is accepted, both parties start acting under the agreement in accordance with the Civil Code of the Russian Federation. You can learn more about the terms and conditions of the agreement in [Yandex Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en).
+{% endif %}
+
+Once the CVoS is purchased and the offer is accepted, both parties start acting under the agreement in accordance with the Civil Code of the Russian Federation. You can learn more about the terms and conditions of the agreement in [Yandex Legal documents]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %}.
 
 Information about CVoS usage and its expiration is displayed in the management console.
 
@@ -83,13 +100,32 @@ The amount charged for the CVoS is determined using the following formulas:
 
 The total amount charged depends on whether any {{ yandex-cloud }} services that are not covered by the CVoS terms were used during the billing period. For more information, see [How to pay for resources](../payment/index.md).
 
+{% if audience == "cvos" %}
+
 ## Changes and extensions {#how-to-update}
 
 According to the agreement, you may not change the terms of the purchased CVoS, extend it, or cancel it.
 
 However, you can purchase a new CVoS if you have any offers available in the management console. For detailed instructions, see [Purchase a CVoS](../operations/purchase-cvos.md).
 
+{% endif %}
+
+
 ## Services that you can purchase a CVoS for {#cvos-services}
+
+Services that you can purchase a CVoS for:
+
+* {{ mch-name }}
+* {{ mmg-name }}
+* {{ mes-name }}
+* {{ mgp-name }}
+* {{ mmy-name }}
+* {{ mpg-name }}
+* {{ mrd-name }}
+* {{ mkf-name }}
+* {{ ydb-name }}
+
+{% if audience == "cvos" %}
 
 Prices for services that you can purchase a CVoS for:
 
@@ -100,3 +136,4 @@ Prices for services that you can purchase a CVoS for:
 * [{{ mrd-name }}](../../managed-redis/pricing.md#cvos)
 * [{{ mkf-name }}](../../managed-kafka/pricing.md#cvos)
 
+{% endif %}

@@ -1,6 +1,6 @@
 ---
-title: "Yandex DataLens. Ответы на вопросы"
-description: "Как получить логи моей работы в сервисе Yandex DataLens? Ответы на этот и другие вопросы в данной статье."
+title: "{{ datalens-full-name }}. Ответы на вопросы"
+description: "Как получить логи моей работы в сервисе {{ datalens-full-name }}? Ответы на этот и другие вопросы в данной статье."
 ---
 
 # Общие вопросы
@@ -143,6 +143,8 @@ description: "Как получить логи моей работы в серв
 
 {% include [calculate-cumulative-sum](../../_includes/datalens/qa/calculating-cumulative-sum.md) %}
 
+{% include [calculate-ifnull-zn-nan](../../_includes/datalens/qa/calculating-ifnull-zn-nan.md) %}
+
 ## Дашборды {#dashboards}
 
 {% include [configure-link-between-selectors](../../_includes/datalens/qa/configure-link-between-selectors.md) %}
@@ -152,6 +154,14 @@ description: "Как получить логи моей работы в серв
 {% include [configure-selectors](../../_includes/datalens/qa/configure-selectors.md) %}
 
 {% include [making-available-chart](../../_includes/datalens/qa/making-available-chart.md) %}
+
+### Как сделать публичным дашборд, содержащий данные Метрики или AppMetrica? {#how-metrica-appmetrica-share}
+
+Датасеты на основе подключения к Metrica API и AppMetrica не поддерживают материализацию, поэтому опубликовать такой дашборд нельзя.
+
+Чтобы поделиться дашбордом, содержащим данные Метрики или AppMetrica, воспользуйтесь одним из способов:
+
+{% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
 
 ## Другое {#other}
 
@@ -175,7 +185,7 @@ description: "Как получить логи моей работы в серв
 
 - Наличие задолженности за использование платных сервисов {{ yandex-cloud }}, которые находятся в том же облаке, что и {{ datalens-short-name }}.
 - Пробный период за использование платных сервисов {{ yandex-cloud }} завершен.
-- При нарушении [условий использования]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_termsofuse/){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_termsofuse/?lang=en){% endif %} {{ yandex-cloud }}.
+- При нарушении [условий использования]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_termsofuse/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_termsofuse/?lang=en){% endif %} {{ yandex-cloud }}.
 
 После блокировки облака ваш экземпляр {{ datalens-short-name }} будет недоступен. Работа с {{ datalens-short-name }} будет невозможна до восстановления облака.
 

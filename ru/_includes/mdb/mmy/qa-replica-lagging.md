@@ -1,4 +1,4 @@
-#### Реплика отстает {#replica-lagging}
+#### Почему отстает реплика? {#replica-lagging}
 
 1. Проверьте, установлено ли параметру `slave_rows_search_algorithms` значение `INDEX_SCAN,HASH_SCAN`.
 1. Вместо выполнения операции `ALTER TABLE` над объемными таблицами рекомендуется использовать утилиту `pt-online-schema-change` из пакета Percona Toolkit — это обеспечит отсутствие блокировок.

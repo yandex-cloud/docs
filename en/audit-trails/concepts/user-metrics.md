@@ -2,12 +2,12 @@
 
 {% if audience == "external" %}
 
-You can track the status of [trails](./trail.md) using [{{ monitoring-full-name }}](../../monitoring/concepts/index.md), which is a service for collecting and storing {{ yandex-cloud }} resource metrics.
+You can track the status of [trails](./trail.md) using [{{ monitoring-full-name }}](../../monitoring/concepts/index.md), a service for collecting and storing {{ yandex-cloud }} resource metrics.
 
 ## {{ at-name }} metrics {#metrics}
 
 | Metric name | Description | Labels |
-| --- | --- | --- |
+--- | --- | ---
 | `trail.status` | Current trail [status](./trail.md#status). You can use the metric to create an alert for a trail transitioning to an inactive state | trail, status |
 | `trail.processed_events_count` | Frequency of events received for processing from audit log [collection scope](./trail.md#collecting-area) | trail, event_type, event_source |
 | `trail.unauthorized_events_count` | Frequency of failed authorization events. You can use the metric to create an alert for attempts of unauthorized access to resources | trail, event_type, event_source |
@@ -18,7 +18,7 @@ You can track the status of [trails](./trail.md) using [{{ monitoring-full-name 
 ## Labels {#label}
 
 | Label name | Description |
-| --- | --- |
+--- | --- 
 | `trail` | Trail ID |
 | `status` | Trail status |
 | `event_type` | Event type |

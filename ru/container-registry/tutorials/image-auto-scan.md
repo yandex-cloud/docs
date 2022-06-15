@@ -15,7 +15,7 @@ _Сервис сканирования находится на стадии [Pre
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан реестр.
-     1. В списке сервисов выберите **Container Registry**.
+     1. В списке сервисов выберите **{{ container-registry-name }}**.
      1. Задайте имя реестра.
      1. Нажмите кнопку **Создать реестр**.
 
@@ -306,25 +306,25 @@ _Сервис сканирования находится на стадии [Pre
         В конфигурационном файле `/home/<user>/.docker/config.json` должна появиться строка:
 
         ```json
-        "cr.yandex": "yc"
+        "{{ registry }}": "yc"
         ```
 
      1. Docker готов к использованию, например, для [загрузки Docker-образов](../operations/docker-image/docker-image-push.md). При этом выполнять команду `docker login` не надо.
 
-   - С помощью OAuth-токена
+   {% if product == "yandex-cloud" %}- С помощью OAuth-токена
 
      1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).
      1. Выполните команду:
 
         ```bash
-        echo <oauth-токен> | docker login --username oauth --password-stdin cr.yandex
+        echo <oauth-токен> | docker login --username oauth --password-stdin {{ registry }}
         ```
 
         Результат выполнения команды:
 
         ```bash
         Login Succeeded
-        ```
+        ```{% endif %}
 
    - С помощью IAM-токена
 
@@ -338,7 +338,7 @@ _Сервис сканирования находится на стадии [Pre
      1. Выполните команду:
 
         ```bash
-        yc iam create-token | docker login --username iam --password-stdin cr.yandex
+        yc iam create-token | docker login --username iam --password-stdin {{ registry }}
         ```
 
         Результат выполнения команды:
@@ -367,19 +367,19 @@ _Сервис сканирования находится на стадии [Pre
 1. Присвойте тег Docker-образу:
 
    ```bash
-   docker tag ubuntu:20.04 cr.yandex/<идентификатор реестра>/ubuntu:20.04
+   docker tag ubuntu:20.04 {{ registry }}/<идентификатор реестра>/ubuntu:20.04
    ```
 
 1. Загрузите Docker-образ в {{ container-registry-name }}:
 
    ```bash
-   docker push cr.yandex/<идентификатор реестра>/ubuntu:20.04
+   docker push {{ registry }}/<идентификатор реестра>/ubuntu:20.04
    ```
 
    Результат выполнения команды:
 
    ```bash
-   The push refers to repository [cr.yandex/crpu20rpdc2foid8p8b0/ubuntu]
+   The push refers to repository [{{ registry }}/crpu20rpdc2foid8p8b0/ubuntu]
    2f140462f3bc: Layer already exists
    63c99163f472: Layer already exists
    ccdbb80308cc: Layer already exists
@@ -411,12 +411,12 @@ _Сервис сканирования находится на стадии [Pre
      Результат выполнения команды:
 
      ```bash
-     2021-05-18 09:27:43     START RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad Version: b09i2s85a0c1fisjboft
-     2021-05-18 09:27:43     END RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad
-     2021-05-18 09:27:43     REPORT RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad Duration: 538.610 ms Billed Duration: 538.700 ms Memory Size: 128 MB Max Memory Used: 13 MB
-     2021-05-18 09:29:25     START RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f279394ef Version: b09i2s85a0c1fisjboft
-     2021-05-18 09:29:26     END RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f279394ef
-     2021-05-18 09:29:26     REPORT RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f279394ef Duration: 554.904 ms Billed Duration: 555.000 ms Memory Size: 128 MB Max Memory Used: 13 MB
+     2021-05-18 09:27:43  START RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad Version: b09i2s85a0c1fisjboft
+     2021-05-18 09:27:43  END RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad
+     2021-05-18 09:27:43  REPORT RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad Duration: 538.610 ms Billed Duration: 538.700 ms Memory Size: 128 MB Max Memory Used: 13 MB
+     2021-05-18 09:29:25  START RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f279394ef Version: b09i2s85a0c1fisjboft
+     2021-05-18 09:29:26  END RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f279394ef
+     2021-05-18 09:29:26  REPORT RequestID: 5b6a3779-dcc8-44ec-8ee2-2e7f279394ef Duration: 554.904 ms Billed Duration: 555.000 ms Memory Size: 128 MB Max Memory Used: 13 MB
      ...
      ```
 

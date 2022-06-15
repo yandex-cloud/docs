@@ -2,9 +2,9 @@
 
 ## Testing {{ yandex-cloud }} {#testing}
 
-{{ data-transfer-name }} allows you to test working with [{{ mmy-full-name }}](../../managed-mysql/), [{{ mpg-full-name }}](../../managed-postgresql/), and [{{ mmg-full-name }}](../../managed-mongodb/) using real data.
+{{ data-transfer-name }} lets you test working with {% if product == "yandex-cloud" %}[{{ mmg-full-name }}](../../managed-mongodb/), {% endif %}[{{ mmy-full-name }}](../../managed-mysql/), and [{{ mpg-full-name }}](../../managed-postgresql/) on real data.
 
-For example, using {{ data-transfer-name }}, you can connect copies of databases hosted in these services to your application. {{ data-transfer-name }} will keep copies up-to-date.
+For example, using {{ data-transfer-name }}, you can connect copies of databases hosted in these services to your application. {{ data-transfer-name }} will keep these copies up-to-date.
 
 ## Migrating databases to {{ yandex-cloud }} {#migration}
 
@@ -31,4 +31,3 @@ Using {{ data-transfer-name }}, you can:
 * During migration, combine all the data into a single database hosted in one of the managed database services.
 
 For more information, see [Compatibility of sources and targets](./index.md#connectivity-matrix).
-

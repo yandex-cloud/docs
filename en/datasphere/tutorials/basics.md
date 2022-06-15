@@ -10,41 +10,40 @@ To get started with the service:
 1. [{#T}](#load-dataset).
 1. [{#T}](#analyze-dataset).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-1. [Create an empty project](../operations/projects/create) in **{{ ml-platform-name }}** and open it.
-
+1. [Create a new empty project](../operations/projects/create) in **{{ ml-platform-name }}** and open it.
 1. [Clone](../operations/projects/work-with-git.md#clone) the Git repository that contains the prepared notebook with the dataset:
 
-    ```text
-    https://github.com/dalyona/Yandex_Scale_DataSphere_demo
-    ```
+   ```text
+   https://github.com/dalyona/Yandex_Scale_DataSphere_demo
+   ```
 
-    Wait until the cloning is complete. It may take some time. Once the operation is completed, in the ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section, a folder of the cloned repository will appear.
+   Wait until the cloning is complete. It may take some time. Once the operation is complete, the folder of the cloned repository will appear in the ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section.
 
 1. Open the **Yandex_Scale_DataSphere_demo** folder and review the contents of the **kaggle2017.ipynb** notebook.
 
-    {% include [safe-state-warn](../../_includes/datasphere/safe-state.md) %}
+   {% include [safe-state-warn](../../_includes/datasphere/safe-state.md) %}
 
 ## Check the current directory {#get-cwd}
 
 1. Select the first cell with the code:
 
-    ```python
-    # Let's check our current directory and change it
-    import os
-    os.getcwd()
-    ```
+   ```python
+   # Let's check our current directory and change it
+   import os
+   os.getcwd()
+   ```
 
-    Invoking the `getcwd()` function from the `os` module returns the name of the current directory.
+   Invoking the `getcwd()` function from the `os` module returns the name of the current folder.
 
-1. Run this cell. To do this, choose **Run → Run Selected Cells** or press _Shift+Enter_.
+1. Run this cell. To do this, choose **Run → Run Selected Cells** or press **Shift** + **Enter**.
 
-    {% note info %}
+   {% note info %}
 
-    By default, all cells are run in the [<q>c1.4</q> configuration](../concepts/configurations.md) with minimum computing resources. You can run one or more cells (or even the entire notebook) in different configurations, and the state of the notebook is saved, meaning that no variables or computation results are reset. For more information, see [{#T}](../operations/projects/control-compute-resources.md).
+   By default, all cells are run in the [<q>c1.4</q> configuration](../concepts/configurations.md) with minimum computing resources. You can run one or more cells (or even the entire notebook) in different configurations, and the state of the notebook is saved, meaning that no variables or computation results are reset. For more information, see [{#T}](../operations/projects/control-compute-resources.md).
 
-    {% endnote %}
+   {% endnote %}
 
 1. Wait for the operation to complete.
 
@@ -60,12 +59,11 @@ To get started with the service:
 
 1. Change the value of the `fname` variable in the cell:
 
-    ```bash
-    fname=./input.zip
-    ```
+   ```bash
+   fname='./input.zip'
+   ```
 
 1. Run this cell with the code.
-
 1. Wait for the operation to complete.
 
 This extracts files from the `input.zip` archive to the `input` directory inside the current directory.
@@ -74,15 +72,15 @@ This extracts files from the `input.zip` archive to the `input` directory inside
 
 1. Select and run the cell with the code in the **Introduction for this demo and Kaggle data** section:
 
-    ```python
-    # Let's start with import and install all necessary libraries and packages
-    # Import packages that are pre-installed already and install through %pip packages that are not in the list, although requires
-    import pandas as pd
-    %pip install seaborn
-    import seaborn as sns
-    import matplotlib.pyplot as plt
-    ...
-    ```
+   ```python
+   # Let's start with import and install all necessary libraries and packages
+   # Import packages that are pre-installed already and install through %pip packages that are not in the list, although requires
+   import pandas as pd
+   %pip install seaborn
+   import seaborn as sns
+   import matplotlib.pyplot as plt
+   ...
+   ```
 
 1. Wait for the operation to complete.
 
@@ -92,17 +90,17 @@ Some packages are already installed and imported using the `import` command. Oth
 
 In this use case, you'll upload data from a file named `input/multipleChoiceResponses.csv` and output the first few rows from it using the Pandas library. To upload the dataset and get its first five rows:
 
-1. Select the following two cells with code by holding _Shift_ and clicking to the left of these cells:
+1. Select the following two cells with code by holding **Shift** and clicking to the left of these cells:
 
-    ```python
-    response=pd.read_csv('input/multipleChoiceResponses.csv',encoding='ISO-8859-1')
-    ```
+   ```python
+   response=pd.read_csv('input/multipleChoiceResponses.csv',encoding='ISO-8859-1')
+   ```
 
-    ```python
-    response.head()
-    ```
+   ```python
+   response.head()
+   ```
 
-    For more information about the `head()` method, see the [Pandas documentation](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.head.html#pandas.DataFrame.head).
+   For more information about the `head()` method, see the [Pandas documentation](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.head.html#pandas.DataFrame.head).
 
 1. Run these cells.
 
@@ -112,12 +110,12 @@ In this use case, you'll upload data from a file named `input/multipleChoiceResp
 
 1. Select a cell in the **Some Basic Analysis** section:
 
-    ```python
-    print('The total number of respondents:',response.shape[0])
-    print('Total number of Countries with respondents:',response['Country'].nunique())
-    print('Country with highest respondents:',response['Country'].value_counts().index[0],'with',response['Country'].value_counts().values[0],'respondents')
-    print('Youngest respondent:',response['Age'].min(),' and Oldest respondent:',response['Age'].max())
-    ```
+   ```python
+   print('The total number of respondents:',response.shape[0])
+   print('Total number of Countries with respondents:',response['Country'].nunique())
+   print('Country with highest respondents:',response['Country'].value_counts().index[0],'with',response['Country'].value_counts().values[0],'respondents')
+   print('Youngest respondent:',response['Age'].min(),' and Oldest respondent:',response['Age'].max())
+   ```
 
 1. Run this cell and all cells below. To do this, choose **Run → Run Selected Cell and All Below**.
 
@@ -128,4 +126,3 @@ In this use case, you'll upload data from a file named `input/multipleChoiceResp
 You can [share](../operations/projects/publication.md) the available notebook containing the computations or [export the entire project](../operations/projects/export.md).
 
 {% endnote %}
-

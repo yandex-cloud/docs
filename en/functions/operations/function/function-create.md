@@ -78,11 +78,13 @@
 
         Example configuration file structure:
 
-        ```
+        {% if product == "yandex-cloud" %}
+
+        ```hcl
         provider "yandex" {
-            token = "<OAuth or static key of service account>"
+            token     = "<OAuth or static key of service account>"
             folder_id = "<folder ID>"
-            zone      = "ru-central1-a"
+            zone      = "{{ region-id }}-a"
         }
         
         resource "yandex_function" "test-function" {
@@ -104,8 +106,42 @@
             value = "${yandex_function.test-function.id}"
         }
         ```
-        
-        For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+
+        {% endif %}
+
+        {% if product == "cloud-il" %}
+
+        ```hcl
+        provider "yandex" {
+            endpoint  = "{{ api-host }}:443"
+            token     = "<static key of the service account>"
+            folder_id = "<folder ID>"
+            zone      = "{{ region-id }}-a"
+        }
+
+        resource "yandex_function" "test-function" {
+            name               = "test-function"
+            description        = "Test function"
+            user_hash          = "first-function"
+            runtime            = "python37"
+            entrypoint         = "main"
+            memory             = "128"
+            execution_timeout  = "10"
+            service_account_id = "<service account ID>"
+            tags               = ["my_tag"]
+            content {
+                zip_filename   = "<path to ZIP archive>"
+            }
+        }
+
+        output "yandex_function_test-function" {
+            value = "${yandex_function.test-function.id}"
+        }
+        ```
+
+        {% endif %}
+
+        For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
 
     2. Make sure that the configuration files are correct.
         1. In the command line, go to the directory where you created the configuration file.

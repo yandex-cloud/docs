@@ -30,6 +30,8 @@
 
 Пример правила для конкретного пользователя {{ yandex-cloud }}:
 
+{% if product == "yandex-cloud" %}
+
 ```json
 {
   "Effect": "Allow",
@@ -48,6 +50,31 @@
   }
 }
 ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+```json
+{
+  "Effect": "Allow",
+  "Principal": {
+    "CanonicalUser": "<идентификатор пользователя>"
+  },
+  "Action": "*",
+  "Resource": [
+    "arn:aws:s3:::<имя бакета>/*",
+    "arn:aws:s3:::<имя бакета>"
+  ],
+  "Condition": {
+    "StringLike": {
+      "aws:referer": "https://console.cloudil.co.il/folders/*/storage/buckets/your-bucket-name*"
+    }
+  }
+}
+```
+
+{% endif %}
 
 {% if audience != "internal" %}
 

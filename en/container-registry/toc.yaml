@@ -1,4 +1,8 @@
-title: Yandex Container Registry
+title:
+  - text: Yandex Container Registry
+    when: product == "yandex-cloud"
+  - text: Container Registry
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Getting started
@@ -7,7 +11,7 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Authenticating in Yandex Container Registry
+      - name: Authentication in {{ container-registry-name }}
         href: operations/authentication.md
       - name: Managing a Docker image
         items:
@@ -45,7 +49,9 @@ items:
         items:
           - name: Getting information about existing repositories
             href: operations/repository/repository-list.md
-      - name: Managing policies for automatically deleting Docker images
+          - name: Creating a repository
+            href: operations/repository/repository-create.md
+      - name: Managing Docker image lifecycle policies
         items:
           - name: Getting information about existing lifecycle policies
             href: operations/lifecycle-policy/lifecycle-policy-list.md
@@ -59,6 +65,7 @@ items:
             href: operations/lifecycle-policy/lifecycle-policy-delete.md
       - name: Scanning Docker images for vulnerabilities
         href: operations/scanning-docker-image.md
+        when: product == "yandex-cloud"
       - name: Working with roles
         items:
           - name: Assigning a role
@@ -67,16 +74,21 @@ items:
             href: operations/roles/get-assigned-roles.md
           - name: Revoking a role
             href: operations/roles/revoke.md
-  - name: Yandex Container Solution
+  - name: "{{ cos-full-name }}"
     href: ../cos/
+    when: product == "yandex-cloud"
   - name: Practical guidelines
     items:
       - name: All tutorials
         href: tutorials/index.md
       - name: Running a Docker image on a VM
         href: tutorials/run-docker-on-vm.md
+      - name: Creating a trigger with {{ sf-full-name }}
+        href: tutorials/trigger-create.md
+        when: product == "yandex-cloud"
       - name: Setting up automatic scanning of a Docker image
         href: tutorials/image-auto-scan.md
+        when: product == "yandex-cloud"
   - name: Concepts
     items:
       - name: Overview
@@ -89,10 +101,14 @@ items:
         href: concepts/registry.md
       - name: Repository
         href: concepts/repository.md
-      - name: Docker policies for automatically deleting Docker images
+      - name: Docker image lifecycle policies
         href: concepts/lifecycle-policy.md
       - name: Vulnerability scanner
         href: concepts/vulnerability-scanner.md
+        when: product == "yandex-cloud"
+      - name: "{{ sf-full-name }} trigger"
+        href: concepts/trigger.md
+        when: product == "yandex-cloud"
       - name: Backups
         href: concepts/backup.md
       - name: Quotas and limits

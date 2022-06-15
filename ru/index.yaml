@@ -1,16 +1,28 @@
-title: Документация Yandex Cloud
+title:
+  - text: Документация Yandex Cloud
+    when: product == "yandex-cloud"
+  - text: Документация CloudIL
+    when: product == "cloud-il"
 meta:
-  title: Yandex Cloud
+  title:
+    - text: Yandex Cloud
+      when: product == "yandex-cloud"
+    - text: CloudIL
+      when: product == "cloud-il"
   noIndex: true
 links:
   - title: API Yandex Cloud
     description: Архитектура API Yandex Cloud
     href: api-design-guide/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
+  - title: API CloudIL
+    description: Архитектура API CloudIL
+    href: api-design-guide/
+    when: audience == "external" and product == "cloud-il"
   - title: API Gateway
     description: Интеграция с сервисами Yandex Cloud при помощи API
     href: api-gateway/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: Application Load Balancer
     description: Балансировщики нагрузки уровня приложения
     href: application-load-balancer/
@@ -26,10 +38,15 @@ links:
   - title: CLI Yandex Cloud
     description: Интерфейс командной строки
     href: cli/
+    when: product == "yandex-cloud"
+  - title: CLI CloudIL
+    description: Интерфейс командной строки
+    href: cli/
+    when: product == "cloud-il"
   - title: Cloud Logging
     description: Логи сервисов и пользовательских приложений
     href: logging/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: Compute Cloud
     description: Виртуальные машины и диски
     href: compute/
@@ -41,25 +58,26 @@ links:
   - title: Container Solution
     description: Сценарии использования виртуальных машин
     href: cos/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: Data Proc
     description: Управление кластерами Apache Hadoop®
     href: data-proc/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: DataLens
     description: Визуализация и анализ данных
     href: datalens/
+    when: product == "yandex-cloud"
   - title: DataLens Partner API
     description: Сервис партнерских подключений для загрузки данных
     href: datalens-api/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: Data Transfer
     description: Инструмент для миграции баз данных
     href: data-transfer/
   - title: DataSphere
     description: Запуск моделей машинного обучения
     href: datasphere/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: Cloud DNS
     description: Управление доменными именами
     href: dns/
@@ -67,11 +85,11 @@ links:
   - title: Пробный период
     description: Описание пробного периода использования Yandex Cloud
     href: getting-started\free-trial\concepts\quickstart.md
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: Cloud Functions
     description: Запуск вашего кода в виде функции
     href: functions/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: Identity and Access Management
     description: Идентификация и контроль доступа к облачным ресурсам
     href: iam/
@@ -79,7 +97,7 @@ links:
   - title: IoT Core
     description: Решения для интернета вещей
     href: iot-core/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: Key Management Service
     description: Управление ключами шифрования
     href: kms/
@@ -87,13 +105,18 @@ links:
   - title: Yandex Lockbox
     description: Создание и хранение секретов
     href: lockbox/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
+  - title: Lockbox
+    description: Создание и хранение секретов
+    href: lockbox/
+    when: audience == "external" and product == "cloud-il"
   - title: Managed Service for ClickHouse
     description: Управление базой данных ClickHouse
     href: managed-clickhouse/
   - title: Managed Service for Elasticsearch
     description: Управление кластерами Elasticsearch
     href: managed-elasticsearch/
+    when: product == "yandex-cloud"
   - title: Managed Service for Apache Kafka®
     description: Управление кластерами Apache Kafka®
     href: managed-kafka/
@@ -104,6 +127,7 @@ links:
   - title: Managed Service for MongoDB
     description: Управление базой данных MongoDB
     href: managed-mongodb/
+    when: product == "yandex-cloud"
   - title: Managed Service for MySQL®
     description: Управление базой данных MySQL
     href: managed-mysql/
@@ -113,17 +137,19 @@ links:
   - title: Managed Service for Redis™
     description: Управление базой данных Redis
     href: managed-redis/
+    when: product == "yandex-cloud"
   - title: Managed Service for SQL Server™
     description: Управление базой данных SQL Server™
     href: managed-sqlserver/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: Кабинет партнера Marketplace
     description: Кабинет партнера Marketplace
     href: marketplace/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: MDB
     description: Группа сервисов для управления базами данных
     href: mdb/
+    when: product == "yandex-cloud"
   - title: Message Queue
     description: Очереди для обмена сообщениями между приложениями
     href: message-queue/
@@ -147,27 +173,34 @@ links:
   - title: Обзор платформы Yandex Cloud
     description: Обзор облачных ресурсов Yandex Cloud
     href: overview/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
+  - title: Обзор платформы CloudIL
+    description: Обзор облачных ресурсов CloudIL
+    href: overview/
+    when: audience == "external" and product == "cloud-il"
   - title: Партнерская программа Yandex Cloud
     description: Описание партнерской программы
     href: partner/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: Resource Manager
     description: Управление ресурсами в каталогах и облаках
     href: resource-manager/
-    when: audience == "external"
   - title: Serverless Containers
     description: Запуск контейнеров без Kubernetes®
     href: serverless-containers/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: Практические руководства платформы Yandex Cloud
     description: Инструкции по решению различных задач с помощью облачных сервисов
     href: tutorials/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
+  - title: Практические руководства платформы CloudIL
+    description: Инструкции по решению различных задач с помощью облачных сервисов
+    href: tutorials/
+    when: audience == "external" and product == "cloud-il"
   - title: SpeechKit
     description: Комплекс технологий распознавания и синтеза речи
     href: speechkit/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: Object Storage
     description: Масштабируемое хранилище данных
     href: storage/
@@ -175,18 +208,23 @@ links:
   - title: Техническая поддержка Yandex Cloud
     description: Техническая поддержка
     href: support/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
+  - title: Техническая поддержка CloudIL
+    description: Техническая поддержка
+    href: support/
+    when: audience == "external" and product == "cloud-il"
   - title: Tracker
     description: Инструмент для организации работы команды
     href: tracker/
+    when: product == "yandex-cloud"
   - title: Translate
     description: Машинный перевод с поддержкой более 90 языков
     href: translate/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: Vision
     description: Анализ изображений с помощью моделей машинного обучения
     href: vision/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: Virtual Private Cloud
     description: Управление сетями в облаке
     href: vpc/
@@ -194,4 +232,4 @@ links:
   - title: Yandex Managed Service for YDB
     description: Распределенная отказоустойчивая NewSQL СУБД
     href: ydb/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"

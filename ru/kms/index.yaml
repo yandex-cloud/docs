@@ -1,11 +1,27 @@
-title: Yandex Key Management Service
+title:
+  - text: Yandex Key Management Service
+    when: product == "yandex-cloud"
+  - text: Key Management Service
+    when: product == "cloud-il"
 description:
-  - >-
-    Yandex Key Management Service — сервис для создания и управления ключами
-    шифрования, которые можно использовать для защиты данных в инфраструктуре
-    Yandex Cloud, а также шифрования и расшифровки любых ваших данных.
+  - text:
+      - >-
+        Yandex Key Management Service — сервис для создания и управления ключами
+        шифрования, которые можно использовать для защиты данных в инфраструктуре
+        Yandex Cloud, а также шифрования и расшифровки любых ваших данных.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        Key Management Service — сервис для создания и управления ключами
+        шифрования, которые можно использовать для защиты данных в инфраструктуре
+        CloudIL, а также шифрования и расшифровки любых ваших данных.
+    when: product == "cloud-il"
 meta:
-  title: Yandex Key Management Service
+  title:
+    - text: Yandex Key Management Service
+      when: product == "yandex-cloud"
+    - text: Key Management Service
+      when: product == "cloud-il"
 links:
   - title: Начало работы
     description: Зашифруйте и расшифруйте текст ключом KMS
@@ -25,9 +41,15 @@ links:
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
+    when: product == "yandex-cloud"
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+    when: product == "yandex-cloud"

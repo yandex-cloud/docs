@@ -1,4 +1,8 @@
-title: "Yandex Application Load Balancer"
+title:
+  - text: "Yandex Application Load Balancer"
+    when: product == "yandex-cloud"
+  - text: "Application Load Balancer"
+    when: product == "cloud"
 href: index.yaml
 items:
   - name: Начало работы
@@ -41,8 +45,10 @@ items:
             href: operations/application-load-balancer-get-stats.md
           - name: Посмотреть логи L7-балансировщика
             href: operations/application-load-balancer-get-logs.md
+            when: product == "yandex-cloud"
           - name: Получить идентификатор лог-группы L7-балансировщика
             href: operations/application-load-balancer-get-log-group-id.md
+            when: product == "yandex-cloud"
           - name: Остановить и запустить L7-балансировщик
             href: operations/application-load-balancer-stop-and-start.md
           - name: Удалить L7-балансировщик
@@ -59,14 +65,18 @@ items:
         href: tutorials/virtual-hosting.md
       - name: Создание балансировщика с защитой от DDoS
         href: tutorials/alb-with-ddos-protection.md
+        when: product == "yandex-cloud"
       - name: Интеграция L7-балансировщика с CDN и Object Storage
         href: tutorials/cdn-storage-integration.md
+        when: product == "yandex-cloud"
       - name: Сине-зеленое и канареечное развертывание версий сервиса
         href: tutorials/l7-bluegreen-deploy.md
+        when: product == "yandex-cloud"
       - name: Терминирование TLS-соединений
         href: tutorials/tls-termination.md
       - name: Запись логов балансировщика в {{ PG }}
         href: tutorials/logging.md
+        when: product == "yandex-cloud"
   - name: Концепции
     items:
       - name: Обзор
@@ -123,3 +133,4 @@ items:
         href: k8s-ref/service.md
   - name: Справочник логов
     href: logs-ref.md
+    when: product == "yandex-cloud"

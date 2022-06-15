@@ -1,6 +1,6 @@
 ---
-title: "Managed Service for PostgreSQL. FAQ"
-description: "What is Managed Service for PostgreSQL? For what tasks is it worth using Managed Service for PostgreSQL, and for which virtual machines with databases? What part of the management and maintenance of databases does Managed Service for PostgreSQL take on? Answers to these and other questions in this article."
+title: "{{ mpg-name }}. Ответы на вопросы"
+description: "Что такое {{ mpg-name }}? Для каких задач стоит использовать {{ mpg-name }}, а для каких виртуальные машины с базами данных? Какую часть работы по управлению и сопровождению баз данных берет на себя {{ mpg-name }}? Ответы на эти и другие вопросы в данной статье."
 ---
 
 # General questions about {{ mpg-name }}
@@ -30,7 +30,7 @@ For the created and running databases, {{ mpg-short-name }} automatically create
 
 {{ mpg-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
 
-#### When should I use {{ mpg-short-name }} and when should I use VMs with databases? {#mdb-advantage}
+#### Which tasks should I use {{ mpg-short-name }} for and for which VMs with databases? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 * {{ mpg-short-name }} allows you to operate template databases with no need to worry about administration.
@@ -38,9 +38,9 @@ For the created and running databases, {{ mpg-short-name }} automatically create
 
 #### What is a database host and database cluster? {#what-is-cluster}
 
-_A database host_ is an isolated database environment in the cloud infrastructure with dedicated computing resources and reserved data storage.
+A _database host_ is an isolated database environment in the cloud infrastructure with dedicated computing resources and reserved data storage.
 
-_A database cluster_ is one or more database hosts between which replication can be configured.
+A _database cluster_ is one or more database hosts between which replication can be configured.
 
 #### How do I get started with {{ mpg-short-name }}? {#quickstart}
 
@@ -77,17 +77,20 @@ MDB technical and organizational limits are given in [{#T}](../concepts/limits.m
 #### How do I maintain database clusters? {#service-window}
 
 Maintenance in {{ mpg-short-name }} implies:
-* Automatic installation of DBMS updates and fixes for your database hosts.
+
+* Automatic installation of DBMS updates and revisions for DB hosts (including disabled clusters).
 * Changes to the host class and storage size.
 * Other {{ mpg-short-name }} maintenance activities.
 
+For more information, see [{#T}](../concepts/maintenance.md).
+
 #### Which version of {{ PG }} does {{ mpg-short-name }} use? {#dbms-version}
 
-{{ mpg-short-name }} supports {{ PG }} 10, 11, 12, 13 and 14 as well as PostgreSQL 10, 11, and 12 for 1C.
+{{ mpg-short-name }} supports {{ PG }} 10, 11, 12, 13, and 14, as well as PostgreSQL 10, 11, and 12 for 1C.
 
-#### Which {{ PG }} version and settings are best suited when creating databases for 1C? {#1c-version}
+#### Which {{ PG }} version and settings are best suited when creating databases for 1С? {#1c-version}
 
-We recommend using {{ PG }} Version 12-1c (current as of March 2022). This version was tested with 1C version 8.3.18: compatibility with earlier 1C versions is not guaranteed.
+We recommend using {{ PG }} version 12-1c (current as of March 2022). This version was tested with 1С version 8.3.18: compatibility with earlier 1С versions is not guaranteed.
 
 Please contact 1C tech support for settings optimized for cluster operation.
 
@@ -104,10 +107,11 @@ New hosts can no longer be created using deprecated DBMS versions. Database clus
 #### How is the cost of usage calculated for a database host? {#db-cost}
 
 In {{ mpg-short-name }}, the usage cost is calculated based on the following parameters:
+
 * Selected host class.
 * Size of the storage reserved for the database host.
-* Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at special [rates](../pricing.md).
-* Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../pricing.md).
+* Size of the database cluster backups. {% if audience != "internal" %}Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../pricing.md).{% endif %}
+* Number of hours of database host operation. Partial hours are rounded to an integer value. {% if audience != "internal" %}The cost per hour of operation for each host class is given in [{#T}](../pricing.md).{% endif %}
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
@@ -142,8 +146,8 @@ For all DBMS types, you can track:
 * The amount of data in the DB cluster and the remaining free space in data storage.
 
 For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ PG }}, you can track:
-* Average query execution time.
-* Number of queries per second.
+* Average query execution time
+* Number of queries per second
 * Number of errors in logs.
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
@@ -152,7 +156,7 @@ Monitoring can be performed with a minimum granularity of 5 seconds.
 
 #### What limitations are imposed on {{ PG }} database clusters? {#instance-limitations}
 
-For more information about {{ mpg-short-name }} limitations, see [{#T}](../concepts/limits.md). Characteristics of clusters that can be created using {{ mpg-short-name }} are given in [{#T}](../concepts/instance-types.md).
+For more information about {{ mpg-short-name }} limits, see [{#T}](../concepts/limits.md). Characteristics of clusters that can be created using {{ mpg-short-name }} are given in [{#T}](../concepts/instance-types.md).
 
 #### What {{ PG }} extensions are supported in {{ mpg-short-name }}? {#pg-extension}
 
@@ -162,4 +166,10 @@ The list of supported {{ PG }} extensions is provided in [{#T}](../operations/cl
 
 Cluster backups are stored and available in all three data centers.
 
+
+{% if product == "yandex-cloud" %}
+
 {% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+
+{% endif %}
+

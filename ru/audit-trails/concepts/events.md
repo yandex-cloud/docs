@@ -4,29 +4,44 @@
 
 Общий вид значения:
 
+{% if product == "yandex-cloud" %}
 ```text
 yandex.cloud.audit.<имя сервиса>.<имя события>
 ```
+{% endif %}
+{% if product == "cloud-il" %}
+```text
+cloudil.audit.<имя сервиса>.<имя события>
+```
+{% endif %}
 
 Ниже описаны события для сервисов:
 
 * [{{ at-name }}](#audit-trails)
 * [{{ certificate-manager-name }}](#certificate-manager)
+{% if product == "yandex-cloud" %}
 * [{{ cloud-logging-name }}](#cloud-logging-name)
+{% endif %}
 * [{{ compute-name }}](#compute)
 * [{{ iam-name }}](#iam)
 * [{{ kms-name }}](#kms)
 * [{{ lockbox-name }}](#lockbox)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
+{% if product == "yandex-cloud" %}
 * [{{ mmg-short-name }}](#managed-service-for-mongodb)
+{% endif %}
 * [{{ mmy-short-name }}](#managed-service-for-mysql)
 * [{{ mpg-short-name }}](#managed-service-for-postgresql)
+{% if product == "yandex-cloud" %}
 * [{{ mrd-short-name }}](#managed-service-for-redis)
+{% endif %}
 * [{{ network-load-balancer-name }}](#network-load-balancer)
 * [{{ objstorage-name }}](#objstorage)
 * [{{ resmgr-name }}](#resmgr)
 * [{{ vpc-name }}](#vpc)
+{% if product == "yandex-cloud" %}
 * [{{ ydb-short-name }}](#ydb)
+{% endif %}
 
 ## {{ at-name }} {#audit-trails}
 
@@ -52,6 +67,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `UpdateCertificateAccessBindings` | Обновление привязок прав доступа для сертификата
 `SetCertificateAccessBindings` | Назначение привязок прав доступа для сертификата
 
+{% if product == "yandex-cloud" %}
 ## {{ cloud-logging-name }} {#cloud-logging-name}
 
 Имя сервиса — `logging`.
@@ -63,6 +79,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `DeleteLogGroup` | Удаление лог-группы
 `SetLogGroupAccessBindings` | Назначение привязок прав доступа для лог-группы
 `UpdateLogGroupAccessBindings` | Обновление привязок прав доступа для лог-группы
+{% endif %}
 
 ## {{ compute-name }} {#compute}
 
@@ -73,6 +90,8 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `AddInstanceOneToOneNat` | Добавление публичного IP-адреса виртуальной машине
 `AttachInstanceDisk` | Подключение диска к ВМ
 `AttachInstanceFilesystem` | Подключение файловой системы к ВМ
+`ChangeDiskStatus` | Изменение статуса диска
+`CrashInstance` | Аварийное отключение ВМ
 `CreateDisk` | Создание диска
 `CreateFilesystem` | Создание файловой системы
 `CreateImage` | Создание образа диска
@@ -84,7 +103,9 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `DeleteInstance` | Удаление ВМ
 `DeleteSnapshot` | Удаление снимка диска
 `DetachInstanceDisk` | Отключение диска от ВМ
-`DetachInstanceFilesystem` | Отключение файловой системы к ВМ
+`DetachInstanceFilesystem` | Отключение файловой системы от ВМ
+`GuestStopInstance` | Остановка ВМ по команде из этой ВМ
+`PreemptInstance` | Прерывание работы ВМ
 `RemoveInstanceOneToOneNat` | Удаление публичного IP-адреса ВМ
 `RestartInstance` | Перезагрузка ВМ
 `StartInstance` | Запуск ВМ
@@ -127,6 +148,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `DeleteCertificate` | Удаление сертификата для федерации
 `DeleteFederation` | Удаление федерации
 `DeleteKey` | Удаление пары ключей для сервисного аккаунта
+`DetectLeakedCredential` | Удаление секретов, которые обнаружены в открытом доступе
 `DeleteServiceAccount` | Удаление сервисного аккаунта
 `UpdateAccessKey` | Обновление ключа доступа
 `UpdateApiKey` | Обновление API-ключа
@@ -216,6 +238,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `UpdateShardGroup` | Изменение группы шардов
 `UpdateUser` | Изменение пользователя базы данных
 
+{% if product == "yandex-cloud" %}
 ## {{ mmg-short-name }} {#managed-service-for-mongodb}
 
 Имя сервиса — `mdb.mongodb`.
@@ -243,6 +266,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `UpdateCluster` | Изменение кластера
 `UpdateUser` | Изменение пользователя базы данных
 
+{% endif %}
 ## {{ mmy-short-name }} {#managed-service-for-mysql}
 
 Имя сервиса — `mdb.mysql`.
@@ -296,6 +320,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `UpdateDatabase` | Изменение базы данных
 `UpdateUser` | Изменение пользователя базы данных
 
+{% if product == "yandex-cloud" %}
 ## {{ mrd-short-name }} {#managed-service-for-redis}
 
 Имя сервиса — `mdb.redis`.
@@ -317,6 +342,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
 
+{% endif %}
 ## {{ network-load-balancer-name }} {#network-load-balancer}
 
 Имя сервиса — `loadbalancer`.
@@ -384,26 +410,35 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 Имя события | Описание
 --- | ---
 `CreateAddress` | Создание адреса облачных ресурсов
+`CreateGateway` | Создание шлюза
 `CreateNetwork` | Создание облачной сети
 `CreateRouteTable` | Создание таблицы маршрутизации
 `CreateSecurityGroup` | Создание группы безопасности
 `CreateSubnet` | Создание облачной подсети
 `DeleteAddress` | Удаление адреса облачных ресурсов
+`DeleteGateway` | Удаление шлюза
 `DeleteNetwork` | Удаление облачной сети
 `DeleteRouteTable` | Удаление таблицы маршрутизации
 `DeleteSecurityGroup` | Удаление группы безопасности
 `DeleteSubnet` | Удаление облачной подсети
-`MoveAddress` | Перещение адреса облачных ресурсов в другой каталог
+`GatewayAttached` | Добавление шлюза
+`GatewayDetached` | Отсоединение шлюза
+`MoveAddress` | Перемещение адреса облачных ресурсов в другой каталог
+`MoveGateway` | Перемещение шлюза в другой каталог
 `MoveNetwork` | Перемещение облачной сети в другой каталог
 `MoveRouteTable` | Перемещение таблицы маршрутизации в другой каталог
 `MoveSecurityGroup` | Перемещение группы безопасности в другой каталог
 `MoveSubnet` | Перемещение облачной подсети в другой каталог
+`RouteTableAttached` | Добавление таблицы маршрутизации к подсети
+`RouteTableDetached` | Отсоединение таблицы маршрутизации от подсети
 `UpdateAddress` | Изменение адреса облачных ресурсов
+`UpdateGateway` | Изменение шлюза
 `UpdateNetwork` | Изменение облачной сети
 `UpdateRouteTable` | Изменение таблицы маршрутизации
 `UpdateSecurityGroup` | Изменение группы безопасности
 `UpdateSubnet` | Изменение облачной подсети
 
+{% if product == "yandex-cloud" %}
 ## {{ ydb-short-name }} {#ydb}
 
 Имя сервиса — `ydb`.
@@ -418,3 +453,4 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `StartDatabase` | Запуск базы данных 
 `StopDatabase` | Остановка базы данных
 `UpdateDatabase` | Изменение базы данных
+{% endif %}

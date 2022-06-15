@@ -12,9 +12,9 @@ To create an [origin group](../../concepts/origins.md):
    1. Click **Create origin group**.
    1. Enter the name of the group.
    1. Configure **Origins**:
-      * Specify the **Origin type**: `Server`, `Bucket`, or `L7 load balancer`.
+      * Specify the **Origin type**: `Server`, `Bucket`, or `L7 load balancer`. For more information about types, see [{#T}](../../concepts/origins.md).
       * Specify an origin.
-      * Select the **Priority**: `Active` or `Backup`.
+      * Select the **Priority**: `Active` or `Backup`. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
       * Add other origins if needed.
    1. Click **Create**.
 
@@ -43,7 +43,7 @@ To create an [origin group](../../concepts/origins.md):
       * `origin`: The origin specification:
          * `source`: The origin IP address or domain name.
          * `enabled`: Flag indicating whether an origin is enabled.
-         * `backup`: Flag indicating whether an origin is a backup.
+         * `backup`: Flag indicating whether an origin is a backup. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
 
       Result:
 
@@ -74,7 +74,9 @@ To create an [origin group](../../concepts/origins.md):
 
       Example configuration file structure:
 
-      ```
+      {% if product == "yandex-cloud" %}
+
+      ```hcl
       provider "yandex" {
         token     = "<OAuth>"
         cloud_id  = "<cloud ID>"
@@ -98,7 +100,38 @@ To create an [origin group](../../concepts/origins.md):
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_origin_group).
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```hcl
+      provider "yandex" {
+        endpoint  = "{{ api-host }}:443"
+        token     = "<static key of the service account>"
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "<default availability zone>"
+      }
+
+      resource "yandex_cdn_origin_group" "my_group" {
+        name = "<group name>"
+        use_next = true
+        origin {
+         source = "<origin 1 IP address or domain name>"
+        }
+        origin {
+         source = "<origin 2 IP address or domain name>"
+        }
+        origin {
+         source = "<origin 3 IP address or domain name>"
+         backup = false
+        }
+      }
+      ```
+
+      {% endif %}
+
+      For more information about resources that you can create with Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
 
    1. Make sure the settings are correct.
 

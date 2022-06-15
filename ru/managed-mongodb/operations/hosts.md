@@ -21,9 +21,8 @@
   Чтобы получить список хостов в кластере, выполните команду:
 
   ```
-  {{ yc-mdb-mg }} host list
-    --cluster-name <имя кластера>
-  ```
+  {{ yc-mdb-mg }} host list \
+     --cluster-name <имя кластера>
 
   {% if audience == "external" %}
 
@@ -31,8 +30,8 @@
   +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
   |            NAME            |  CLUSTER ID  |  TYPE  | SHARD NAME |     ROLE     |  HEALTH  |    ZONE ID    | PUBLIC IP |
   +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
-  | rc1b...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | PRIMARY      | ALIVE    | ru-central1-b | false     |
-  | rc1c...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | ru-central1-c | false     |
+  | rc1b...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | PRIMARY      | ALIVE    | {{ region-id }}-b | false     |
+  | rc1c...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | {{ region-id }}-c | false     |
   +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
   ```
 
@@ -42,8 +41,8 @@
   +----------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
   |         NAME         |  CLUSTER ID  |  TYPE  | SHARD NAME |     ROLE     |  HEALTH  |    ZONE ID    | PUBLIC IP |
   +----------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
-  | rc1b...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | PRIMARY      | ALIVE    | ru-central1-b | false     |
-  | rc1c...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | ru-central1-c | false     |
+  | rc1b...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | PRIMARY      | ALIVE    | {{ region-id }}-b | false     |
+  | rc1c...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | {{ region-id }}-c | false     |
   +----------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
   ```
 
@@ -85,16 +84,12 @@
 
   1. Нажмите кнопку **Добавить хост**.
 
-  {% if audience != "internal" %}
-
   1. Укажите параметры хоста:
 
       * зону доступности;
-      * подсеть (если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md));
+      * подсеть (если нужной подсети в списке нет, создайте ее);
       * выберите опцию **Публичный доступ**, если хост должен быть доступен извне {{ yandex-cloud }};
       * тип хоста и название шарда, если в кластере включено [шардирование](../concepts/sharding.md).
-
-  {% endif %}
 
   1. Нажмите **Сохранить**.
 
@@ -106,36 +101,35 @@
 
   Чтобы добавить хост в кластере:
 
-  {% if audience != "internal" %}
   1. Запросите список подсетей кластера, чтобы выбрать подсеть для нового хоста:
 
-      ```
+      ```bash
       yc vpc subnet list
 
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
-      | b0cl69... | default-c | enp6rq7... | ru-central1-c | [172.16.0.0/20]  |
-      | e2lkj9... | default-b | enp6rq7... | ru-central1-b | [10.10.0.0/16]   |
-      | e9b0ph... | a-2       | enp6rq7... | ru-central1-a | [172.16.32.0/20] |
-      | e9b9v2... | default-a | enp6rq7... | ru-central1-a | [172.16.16.0/20] |
+      | b0cl69... | default-c | enp6rq7... | {{ region-id }}-c | [172.16.0.0/20]  |
+      | e2lkj9... | default-b | enp6rq7... | {{ region-id }}-b | [10.10.0.0/16]   |
+      | e9b0ph... | a-2       | enp6rq7... | {{ region-id }}-a | [172.16.32.0/20] |
+      | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |
       +-----------+-----------+------------+---------------+------------------+
       ```
 
-     Если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md). {% endif %}
+     Если нужной подсети в списке нет, создайте ее.
 
   1. Посмотрите описание команды CLI для добавления хостов:
 
-     ```
+     ```bash
      {{ yc-mdb-mg }} host add --help
      ```
 
   1. Выполните команду добавления хоста:
 
-      ```
-      {{ yc-mdb-mg }} host add
-        --cluster-name <имя кластера>
-        --host zone-id=<зона доступности>,subnet-id=<ID подсети>
+      ```bash
+      {{ yc-mdb-mg }} host add \
+         --cluster-name <имя кластера> \
+         --host zone-id=<зона доступности>,subnet-id=<ID подсети>
       ```
 
       {{ mmg-short-name }} запустит операцию добавления хоста.
@@ -175,7 +169,9 @@
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 
@@ -185,7 +181,7 @@
 
 {% note warning %}
 
-Если после добавления хоста к нему невозможно [подключиться](connect.md), убедитесь, что [группа безопасности](../concepts/network.md#security-groups) кластера настроена корректно для подсети, в которую помещен хост.
+Если после добавления хоста к нему невозможно [подключиться](connect/index.md), убедитесь, что [группа безопасности](../concepts/network.md#security-groups) кластера настроена корректно для подсети, в которую помещен хост.
 
 {% endnote %}
 
@@ -217,8 +213,8 @@
   Чтобы удалить хост из кластера, выполните команду:
 
   ```
-  {{ yc-mdb-mg }} host delete <имя хоста>
-    --cluster-name <имя кластера>
+  $ {{ yc-mdb-mg }} host delete <имя хоста>
+       --cluster-name <имя кластера>
   ```
 
   Имя хоста можно запросить со [списком хостов в кластере](#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -241,7 +237,9 @@
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
-  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_mongodb_cluster).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 
@@ -291,8 +289,8 @@
   Чтобы запустить принудительную ресинхронизацию хоста, выполните команду:
 
   ```
-  {{ yc-mdb-mg }} hosts resetup <имя_хоста>
-    --cluster-name <имя кластера>
+  $ {{ yc-mdb-mg }} hosts resetup <имя_хоста>
+     --cluster-name <имя кластера>
   ```
 
   Имя хоста можно запросить со [списком хостов в каталоге](hosts.md#list-hosts). Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).

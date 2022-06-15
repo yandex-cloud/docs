@@ -32,7 +32,9 @@ Instructions for managing identity federations are now included in the [document
 
 ## IAM tokens {#iam-tokens}
 
+{% if product == "yandex-cloud" %}
 - [{#T}](iam-token/create.md)
+{% endif %}
 - [{#T}](iam-token/create-for-sa.md)
 - [{#T}](iam-token/create-for-federation.md)
 

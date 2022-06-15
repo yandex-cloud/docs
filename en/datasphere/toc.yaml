@@ -1,4 +1,8 @@
-title: Yandex DataSphere
+title:
+  - text: Yandex DataSphere
+    when: product == "yandex-cloud"
+  - text: DataSphere
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Getting started
@@ -11,6 +15,8 @@ items:
         items:
         - name: Creating a project
           href: operations/projects/create.md
+        - name: Choosing a Python version
+          href: operations/projects/python-version.md
         - name: Installing dependencies
           href: operations/projects/install-dependencies.md
         - name: Managing computing resources
@@ -57,13 +63,14 @@ items:
             href: operations/data/connect-to-s3.md
       - name: Setting up integration with Data Proc
         href: operations/data-proc-integration.md
+        when: product == "yandex-cloud"
       - name: Working with confidential data
         items:
           - name: Creating a secret
             href: operations/data/secret-create.md
           - name: Referencing a secret
             href: operations/data/secret-call.md
-          - name: Editing a secret
+          - name: Updating a secret
             href: operations/data/secret-change.md
           - name: Copying a secret
             href: operations/data/secret-copy.md
@@ -71,6 +78,7 @@ items:
             href: operations/data/secret-delete.md
       - name: Launching distributed training
         href: operations/taas-run.md
+        when: product == "yandex-cloud"
       - name: Deploying models
         items:
           - name: Creating a node from a Python code cell
@@ -99,6 +107,7 @@ items:
         href: concepts/save-state.md
       - name: Integration with Data Proc
         href: concepts/data-proc.md
+        when: product == "yandex-cloud"
       - name: Background operations
         href: concepts/async.md
       - name: Datasets
@@ -111,8 +120,13 @@ items:
         href: concepts/tensorboard.md
       - name: Distributed training
         href: concepts/taas.md
+        when: product == "yandex-cloud"
       - name: Cost management
         href: concepts/budget.md
+        when: product == "yandex-cloud"
+      - name: The limit on resources used
+        href: concepts/budget.md
+        when: product == "cloud-il"
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Early access
@@ -131,7 +145,7 @@ items:
         href: tutorials/speech-recognition.md
       - name: Evaluating the quality of STT models
         href: tutorials/estimate-quality.md
-      - name: Marking up audio files
+      - name: Labeling audio files
         href: tutorials/markup.md
       - name: Classification of images in video frames
         href: tutorials/video-recognition.md
@@ -153,7 +167,11 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: Public materials
+    href: public-talks.md
+    when: product == "yandex-cloud"
   - name: Releases
     href: release-notes.md
+    when: product == "yandex-cloud"
   - name: Questions and answers
     href: qa/index.md

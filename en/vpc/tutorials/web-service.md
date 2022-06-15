@@ -1,5 +1,11 @@
 # Architecture and protection of a basic internet service
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 This scenario describes how the infrastructure of a basic internet service with multiple VMs is built. Access to VMs will be restricted using security groups. A network load balancer will distribute the load across web app servers.
 
 To create the infrastructure of an internet service:
@@ -19,15 +25,11 @@ If you no longer need the infrastructure, [delete](#clear-out) the created resou
 
 ## Before you start {#before-begin}
 
-Before deploying your infrastructure, register in {{ yandex-cloud }} and create a billing account:
-
-{% include [prepare-register-billing](../../_tutorials/_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 Create a virtual network with `subnet-a`, `subnet-b`, and `subnet-c` in the respective availability zones.
+
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -36,6 +38,8 @@ The cost of internet service support includes:
 * A fee for continuously running VMs (see [pricing {{ compute-full-name }}](../../compute/pricing.md)).
 * A fee for using static public IP addresses (see [{{ vpc-full-name }} pricing](../pricing.md)).
 * A fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
+
+{% endif %}
 
 ## Reserve two static public IP addresses {#reserve-ips}
 
@@ -46,9 +50,9 @@ For your internet service to run, you need two static public IP addresses: one t
 - Management console
     1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}** in the folder where you want to reserve the IP addresses.
     1. Go to the **IP addresses** tab. Click **Reserve address**.
-    1. In the window that opens, select the `ru-central1-b` availability zone. Click **Reserve**.
+    1. In the window that opens, select the `{{ region-id }}-b` availability zone. Click **Reserve**.
     1. Click **Reserve address** once again.
-    1. In the window that opens, select the `ru-central1-a` availability zone. Click **Reserve**.
+    1. In the window that opens, select the `{{ region-id }}-a` availability zone. Click **Reserve**.
 
 {% endlist %}
 
@@ -59,12 +63,12 @@ For your internet service to run, you need two static public IP addresses: one t
 - Management console
     1. In the [management console]({{ link-console-main }}), open your folder and click **Create resource**. Select **Virtual machine**.
     1. Enter the VM name: `web-node-a`.
-    1. Select the `ru-central1-a` availability zone.
-    1. Under **Images from {{ marketplace-name }}**, click **Select** and select the [Drupal]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e90bncf96u25a9cirp){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e90bncf96u25a9cirp){% endif %} image.
+    1. Select the `{{ region-id }}-a` availability zone.
+    1. Under **Images from {{ marketplace-name }}**, click **Select** and select the [Drupal](/marketplace/products/f2e90bncf96u25a9cirp) image.
     1. Under **Network settings**, select `subnet-a`. Under **Public address**, select **No address**.
     1. In the **Access** field, enter the login and SSH key to access the VM.
     1. Click **Create VM**.
-    1. Repeat the steps for VMs named `web-node-b` and `web-node-c`. Create them in the `ru-central1-b` and `ru-central1-c` availability zones and connect them to `subnet-b` and `subnet-c`, respectively.
+    1. Repeat the steps for VMs named `web-node-b` and `web-node-c`. Create them in the `{{ region-id }}-b` and `{{ region-id }}-c` availability zones and connect them to `subnet-b` and `subnet-c`, respectively.
 
 {% endlist %}
 
@@ -77,8 +81,8 @@ To provide secure access to your resources, create an IPSec instance.
 - Management console
     1. In the [management console]({{ link-console-main }}), open your folder and click **Create resource**. Select **Virtual machine**.
     1. Enter the VM name: `vpn`.
-    1. Select the `ru-central1-a` availability zone.
-    1. In the **Images from {{ marketplace-name }}** section, click **Select** and choose the [IPSec instance]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e70ohdvsd0jgp2302j){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/f2e70ohdvsd0jgp2302j){% endif %} image.
+    1. Select the `{{ region-id }}-a` availability zone.
+    1. In the **Images from {{ marketplace-name }}** section, click **Select** and choose the [IPSec instance](/marketplace/products/f2e70ohdvsd0jgp2302j) image.
     1. Under **Network settings**, select `subnet-a`. Under **Public address**, select a reserved IP address from the list.
     1. In the **Access** field, enter the login and SSH key to access the VM.
     1. Click **Create VM**.

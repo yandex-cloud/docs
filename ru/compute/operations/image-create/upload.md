@@ -1,6 +1,6 @@
 ---
 title: Загрузка образа диска в облако
-description: Эта инструкция описывает, как загрузить файл образа диска в хранилище Object Storage с ОС Linux, а также создать из него образ и виртуальную машину в сервисе Compute Cloud.
+description: Эта инструкция описывает, как загрузить файл образа диска в хранилище {{ objstorage-name }} с ОС Linux, а также создать из него образ и виртуальную машину в сервисе {{ compute-name }}.
 keywords:
   - загрузка образа
   - загрузка образа диска
@@ -76,7 +76,7 @@ keywords:
     --name ubuntu-cosmic \
     --description "Ubuntu Server 18.10 (Cosmic Cuttlefish)" \
     --family ubuntu \
-    --source-uri "https://storage.yandexcloud.net/mybucket/cosmic-server-cloudimg-amd64.vmdk"
+    --source-uri "https://{{ s3-storage-host }}/mybucket/cosmic-server-cloudimg-amd64.vmdk"
   ```
 
   Если вы знаете минимальные требования к размеру диска, который будет создан из этого образа, укажите размер в гигабайтах:
@@ -85,7 +85,7 @@ keywords:
   yc compute image create \
     --name big-image \
     --min-disk-size 20 \
-    --source-uri "https://storage.yandexcloud.net/mybucket/cosmic-server-cloudimg-amd64.vmdk"
+    --source-uri "https://{{ s3-storage-host }}/mybucket/cosmic-server-cloudimg-amd64.vmdk"
   ```
 
   {% include [min-disk-size](../../_includes_service/min-disk-size.md) %}
@@ -109,7 +109,7 @@ keywords:
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
 
   1. Проверьте корректность конфигурационных файлов.
 

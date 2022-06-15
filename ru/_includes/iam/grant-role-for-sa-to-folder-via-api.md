@@ -5,12 +5,13 @@
     export FOLDER_ID=b1gvmob95yysaplct532
     export IAM_TOKEN=CggaATEVAgA...
     curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-      "https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
+      "https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
     ```
 
     Результат:
 
-    ```
+
+    ```json
     {
      "serviceAccounts": [
       {

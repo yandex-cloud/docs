@@ -10,7 +10,7 @@
 * сохраняет принятые данные у себя;
 * формирует пакеты данных и отправляет их в принимающие системы , снижая нагрузку на них.
 
-![data-ingestion](../../_assets/data-streams/data-ingestion.png)
+![data-ingestion](../../_assets/data-streams/data-ingestion.svg)
 
 ## Преимущества {#advantages}
 
@@ -18,7 +18,7 @@
 
 ### Прием данных {#receiving}
 
-Данные в {{ yds-short-name }}  по [HTTP-протоколу](../kinesisapi/api-ref.md). С помощью сервиса [Yandex API Gateway](https://cloud.yandex.ru/services/api-gateway) можно реализовать любой протокол приема данных. Принятые в API Gateway данные можно уже отправить в {{ yds-short-name }}.
+Данные в {{ yds-short-name }} передаются по [HTTP-протоколу](../kinesisapi/api-ref.md). С помощью сервиса [{{ api-gw-full-name}}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/api-gateway){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/api-gateway){% endif %} можно реализовать любой протокол приема данных. Принятые в {{ api-gw-name }} данные можно уже отправить в {{ yds-short-name }}.
 
 {{ yds-short-name }} хорошо масштабируется и позволяет принимать данные от тысяч источников данных одновременно.
 
@@ -36,9 +36,9 @@
 
 ### Несколько систем хранения {#multiple}
 
-Часто одни и те же данные хранят сразу в нескольких системах хранения: в {{ CH }} для быстрой аналитики и в {{ objstorage-name }} для долговременного хранения. С помощью шин данных это легко решается: за счет возможности одновременно читать данные разным приложениям можно настроить отправку одних и тех же данных сразу в обе системы хранения данных: {{ CH }} и {{ objstorage-name }}. Это же решение позволит в любой момент добавить третью систему хранения, например GreenPlum или Elastic.
+Часто одни и те же данные хранят сразу в нескольких системах хранения: в {{ CH }} для быстрой аналитики и в {{ objstorage-name }} для долговременного хранения. С помощью шин данных это легко решается: за счет возможности одновременно читать данные разным приложениям можно настроить отправку одних и тех же данных сразу в обе системы хранения данных: {{ CH }} и {{ objstorage-name }}. Это же решение позволит в любой момент добавить третью систему хранения, например {{ GP }} или {{ ES }}.
 
-Подход с несколькими системами хранения очень удобен для соответствия compliance: ФЗ-152, PCI DSS и других — где нужно хранить данные не менее года. В этом случае данные за последний месяц для оперативного доступа можно отправлять в одну систему хранения, а данные для долгого хранения отправлять в "холодное" хранилище {{ objstorage-name }}.
+Подход с несколькими системами хранения очень удобен для соответствия compliance: ФЗ-152, PCI DSS и других — где нужно хранить данные не менее года. В этом случае данные за последний месяц для оперативного доступа можно отправлять в одну систему хранения, а данные для долгого хранения отправлять в «холодное» хранилище {{ objstorage-name }}.
 
 ### Маскирование и обработка логов {#mask}
 
@@ -56,15 +56,15 @@
 
 Чтобы настроить ввод данных в системы хранения:
 
-1. [Создайте поток данных](../quickstart/create-stream) {{ yds-short-name }}.
-2. [Настройте](../quickstart/index.md) AWS SDK.
-3. Настройте {{ data-transfer-full-name }} для передачи данных в выбранную систему хранения.
+1. [Создайте поток данных](../quickstart/create-stream.md) {{ yds-short-name }}.
+1. [Настройте](../quickstart/index.md) AWS SDK.
+1. Настройте {{ data-transfer-full-name }} для передачи данных в выбранную систему хранения.
 
-    Пример настройки поставки данных из {{ yds-short-name }} приведен в [инструкции по сохранению данных в {{ CH }}](https://cloud.yandex.ru/docs/data-streams/quickstart/send-to-clickhouse).
-4. Подключите произвольную функцию обработки данных к {{ data-transfer-full-name }}. Код функции приведен в [примере](https://github.com/yandex-cloud/examples/tree/master/ydt/nginx-logs) или используйте SDK для прямого чтения данных из {{ yds-short-name }}:
+    Пример настройки поставки данных из {{ yds-short-name }} приведен в [инструкции по сохранению данных в {{ CH }}](../quickstart/send-to-clickhouse.md).
+1. Подключите произвольную функцию обработки данных к {{ data-transfer-full-name }}. Код функции приведен в [примере](https://github.com/yandex-cloud/examples/tree/master/ydt/nginx-logs) или используйте SDK для прямого чтения данных из {{ yds-short-name }}:
     * [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/kinesis/).
     * [C++](https://sdk.amazonaws.com/cpp/api/LATEST/class_aws_1_1_kinesis_1_1_kinesis_client.html).
     * [Java](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/AmazonKinesisClient.html).
     * [JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/index.html).
     * [Python](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis.html).
-    * [HTTP Kinesis Data Streams API](../kinesisapi/api-ref).
+    * [HTTP Kinesis Data Streams API](../kinesisapi/api-ref.md).

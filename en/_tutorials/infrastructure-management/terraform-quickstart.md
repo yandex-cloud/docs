@@ -5,6 +5,9 @@
 To create your first infrastructure in {{ yandex-cloud }} using Terraform:
 
 1. [Before you start](#before-you-begin).
+{% if product == "cloud-il" %}
+1. [Create a service account](#create-sa).
+{% endif %}
 1. [Install Terraform](#install-terraform).
 1. [Create a Terraform configuration file](#configure-terraform).
 1. [Configure a provider](#configure-provider).
@@ -16,13 +19,9 @@ If you no longer need the resources, [delete them](#delete-resources).
 
 ## Before you start {#before-you-begin}
 
-Before deploying your infrastructure, register in {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page]{% if lang == "ru" %}(https://console.cloud.yandex.ru/cloud){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/cloud){% endif %}.
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -30,6 +29,17 @@ The cost of Terraform-created resources includes:
 
 * A fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+## Create a service account {#create-sa}
+
+1. [Create a service account](../../iam/operations/sa/create.md) and [assign roles](../../iam/operations/sa/assign-role-for-sa.md), for a resource {{ yandex-cloud }}. List of roles for services see into [{#T}](../../iam/concepts/access-control/roles.md).
+1. [Create static access keys](../../iam/operations/sa/create-access-key.md) for a service account. Immediately save the ID `key_id` and the secret key `secret'. It will be impossible to get the key value again.
+
+{% endif %}
 
 ## Install Terraform {#install-terraform}
 
@@ -45,7 +55,7 @@ The cost of Terraform-created resources includes:
 
 ## Prepare an infrastructure plan {#prepare-plan}
 
-Using Terraform in {{ yandex-cloud }}, you can create all types of cloud resources, including virtual machines, disks, and images. For more information about resources you can create using Terraform, please see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+Using Terraform in {{ yandex-cloud }}, you can create all types of cloud resources, including virtual machines, disks, and images. For more information about resources you can create using Terraform, please see the [provider documentation]({{ tf-provider-link }}).
 
 To create a resource, specify a set of required and optional parameters that define the resource properties. Such resource descriptions make up an infrastructure plan.
 
@@ -55,13 +65,15 @@ Resource names must meet the following requirements:
 
 {% include [names](../../_includes/name-format.md) %}
 
-The machines will have different vCPU and memory configurations: 2 vCPUs and 2 GB of RAM for `terraform1` and 4 vCPUs and 4 GB of RAM for `terraform2`. The VMs will automatically get public and private IP addresses from the `192.168.10.0/24` range in the `subnet-1` subnet located in the `ru-central1-a` availability zone and belonging to the `network-1` cloud network. The Ubuntu OS will be installed on the VMs and the public part of the key used to access the VMs via SSH will be stored on them.
+The machines will have different vCPU and memory configurations: 2 vCPUs and 2 GB of RAM for `terraform1` and 4 vCPUs and 4 GB of RAM for `terraform2`. The VMs will automatically get public and private IP addresses from the `192.168.10.0/24` range in the `subnet-1` subnet located in the `{{ region-id }}-a` availability zone and belonging to the `network-1` cloud network. The Ubuntu OS will be installed on the VMs and the public part of the key used to access the VMs via SSH will be stored on them.
 
 In the VM configuration, you'll need to specify the boot disk image ID. You can retrieve a list of available public images by using the [CLI](../../cli/quickstart.md) command `yc compute image list --folder-id standard-images`.
 
 To access the VMs over SSH, you will need to [generate an SSH key pair](../../compute/operations/vm-connect/ssh#creating-ssh-keys) and pass the public key to the virtual machine in the `ssh-keys` parameter in the `metadata` section.
 
 Resource configurations are specified immediately after the provider's configuration:
+
+{% if product == "yandex-cloud" %}
 
 ```hcl
 terraform {
@@ -73,16 +85,43 @@ terraform {
 }
 
 provider "yandex" {
-  token     = "OAuth_token"
-  cloud_id  = "cloud-id"
-  folder_id = "folder-id"
-  zone      = "ru-central1-a"
+  token     = "<OAuth>"
+  cloud_id  = "<cloud-id>"
+  folder_id = "<folder-id>"
+  zone      = "<{{ region-id }}-a>"
 }
 
 resource "yandex_compute_instance" "vm-1" {
   name = "terraform1"
 }
 ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+```hcl
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+    }
+  }
+}
+
+provider "yandex" {
+  endpoint  = "{{ api-host }}:443"
+  token     = "OAuth_token"
+  cloud_id  = "cloud-id"
+  folder_id = "folder-id"
+  zone      = "{{ region-id }}-a"
+}
+
+resource "yandex_compute_instance" "vm-1" {
+  name = "terraform1"
+}
+```
+{% endif %}
 
 {% list tabs %}
 

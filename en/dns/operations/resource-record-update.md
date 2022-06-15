@@ -82,7 +82,7 @@ You can update the value of a [resource record](../concepts/resource-record.md).
       terraform apply
       ```
 
-   1. Confirm the changes: type `yes` into the terminal and press Enter.
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can verify that the DNS record has been updated in the [management console]({{ link-console-main }}) or using the [CLI](../../cli/quickstart.md) command below:
 
@@ -91,3 +91,4 @@ You can update the value of a [resource record](../concepts/resource-record.md).
       ```
 
 {% endlist %}
+

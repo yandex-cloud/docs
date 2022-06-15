@@ -8,6 +8,9 @@
 * [{#T}](#change-additional-settings).
 * [Переместить кластер](#move-cluster) в другой каталог.
 * [Изменить группы безопасности кластера](#change-sg-set).
+{% if audience != "internal" %}
+* [{#T}](#service-account).
+{% endif %}
 
 {% note warning %}
 
@@ -52,10 +55,10 @@
         +---------------+--------------------------------+-------+----------+
         |      ID       |            ZONE IDS            | CORES |  MEMORY  |
         +---------------+--------------------------------+-------+----------+
-        | hm2.128xlarge | ru-central1-a, ru-central1-b,  |     8 | 128.0 GB |
-        |               | ru-central1-c                  |       |          |
-        | hm2.160xlarge | ru-central1-a, ru-central1-b,  |    10 | 160.0 GB |
-        |               | ru-central1-c                  |       |          |
+        | hm2.128xlarge | {{ region-id }}-a, {{ region-id }}-b,  |     8 | 128.0 GB |
+        |               | {{ region-id }}-c                  |       |          |
+        | hm2.160xlarge | {{ region-id }}-a, {{ region-id }}-b,  |    10 | 160.0 GB |
+        |               | {{ region-id }}-c                  |       |          |
         | ...                                                               |
         +---------------+--------------------------------+-------+----------+
         ```
@@ -116,6 +119,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
@@ -139,8 +144,6 @@
 * Что нужный кластер использует хранилище на сетевых HDD-дисках или на сетевых SSD-дисках. Увеличить размер хранилища на локальных SSD-дисках или на нереплицируемых SSD-дисках невозможно.
 * Что в облаке хватает квоты на увеличение хранилища. Откройте страницу [Квоты]({{ link-console-quotas }}) для вашего облака и проверьте, что в секции **Managed Databases** не исчерпано место в строке **Объем HDD-хранилищ** или **Объем SSD-хранилищ**.
 {% endif %}
-
-Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты]({{link-console-quotas}}) для вашего облака и проверьте, что в секции **Managed Databases** не исчерпано место в строке **Объем HDD-хранилищ** или **Объем SSD-хранилищ**.
 
 {% list tabs %}
 
@@ -207,6 +210,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
 
 - API
 
@@ -290,6 +295,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
 
 - API
 
@@ -392,6 +399,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
@@ -406,6 +415,8 @@
   {% endnote %}
 
 {% endlist %}
+
+{% if audience == "draft" %}
 
 ## Переместить кластер {#move-cluster}
 
@@ -426,6 +437,8 @@
   * Идентификатор каталога назначения в параметре `destinationFolderId`.
 
 {% endlist %}
+
+{% endif %}
 
 ## Изменить группы безопасности {#change-sg-set}
 
@@ -485,6 +498,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
@@ -502,3 +517,46 @@
 Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для подключения к кластеру.
 
 {% endnote %}
+
+{% if audience != "internal" %}
+
+## Привязать сервисный аккаунт {#service-account}
+
+{% list tabs %}
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы привязать к кластеру [сервисный аккаунт](../../iam/concepts/users/service-accounts.md):
+
+    1. Посмотрите описание команды CLI для изменения кластера:
+
+        ```bash
+        {{ yc-mdb-ms }} cluster update --help
+        ```
+
+    1. Передайте идентификатор сервисного аккаунта в параметре `--service-account-id` в команде изменения кластера:
+
+        ```bash
+        {{ yc-mdb-ms }} cluster update <идентификатор или имя кластера> \
+           --service-account-id=<идентификатор сервисного аккаунта>
+        ```
+
+        Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters). Чтобы узнать идентификатор сервисного аккаунта, воспользуйтесь [инструкцией](../../iam/operations/sa/get-id.md).
+
+- API
+
+    Чтобы привязать к кластеру [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Идентификатор сервисного аккаунта в параметре `serviceAccountId`. Чтобы получить идентификатор, воспользуйтесь [инструкцией](../../iam/operations/sa/get-id.md).
+    * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+
+    {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+
+{% endlist %}
+
+{% endif %}

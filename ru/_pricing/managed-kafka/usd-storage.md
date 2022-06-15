@@ -7,4 +7,8 @@
 | Fast network storage           | {{ sku|USD|mdb.cluster.network-nvme.kafka|month|string }}              |
 | Fast local storage             | {{ sku|USD|mdb.cluster.local-nvme.kafka|month|string }} *              |
 
+{% if product == "yandex-cloud" %}
+
 \* If you use dedicated hosts, then this storage class is charged as described in [Yandex Compute Cloud documentation](../../compute/pricing.md#prices).
+
+{% endif %}

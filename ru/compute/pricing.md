@@ -4,6 +4,14 @@ editable: false
 
 # Правила тарификации для {{ compute-name }}
 
+{% if product == "cloud-il" %}
+
+На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ compute-name }} не тарифицируется.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -101,7 +109,7 @@ editable: false
 
 Использование компонента {{ ig-name }} не тарифицируется. Вы можете создавать группы ВМ, пользоваться хранилищем и вычислительными ресурсами в рамках [доступных лимитов](concepts/limits.md).
 
-Все остальные услуги {{ yandex-cloud }}, например, создание ВМ или выделение внешних IP-адресов, [тарифицируются обычным образом](../billing/pricing.md). Исходящий трафик [тарифицируется](#prices-traffic) аналогично другим сервисам.
+Все остальные услуги {{ yandex-cloud }}, например, создание ВМ или выделение внешних IP-адресов, тарифицируются обычным образом. Исходящий трафик [тарифицируется](#prices-traffic) аналогично другим сервисам.
 
 ### Использование выделенных хостов {#dedicated-hosts}
 
@@ -116,6 +124,16 @@ vCPU и память ВМ, запущенных на выделенном хос
 Цена указывается за 1 час использования (для локальных дисков — за месяц). Тарификация посекундная.
 
 ## Цены {#prices}
+
+{% if region != "int" %}
+
+Все цены указаны с включением НДС.
+
+{% else %}
+
+Все цены указаны без включения НДС.
+
+{% endif %}
 
 ### Вычислительные ресурсы ВМ {#prices-instance-resources}
 
@@ -286,5 +304,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 {% if region == "int" %}
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}
 
 {% endif %}

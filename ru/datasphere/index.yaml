@@ -1,25 +1,46 @@
-title: Yandex DataSphere
+title:
+  - text: Yandex DataSphere
+    when: product == "yandex-cloud"
+  - text: DataSphere
+    when: product == "cloud-il"
 description:
-  - >-
-    Yandex DataSphere — среда для ML-разработки, которая сочетает в себе
-    привычный интерфейс Jupyter® Notebook, технологию бессерверных вычислений и
-    возможность бесшовного использования разных конфигураций вычислительных
-    ресурсов.
-  - >-
-    Yandex DataSphere помогает значительно сократить стоимость машинного
-    обучения по сравнению с вычислениями на собственном оборудовании или на
-    других облачных платформах.
-  - >-
-    Инфраструктура Yandex Cloud <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
-    в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
-  - >-
-    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
-    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-    документе <a href="https://yandex.ru/legal/cloud_sla_yds">Уровень
-    обслуживания Yandex DataSphere</a>.
+  - text:
+      - >-
+        Yandex DataSphere — среда для ML-разработки, которая сочетает в себе
+        привычный интерфейс Jupyter® Notebook, технологию бессерверных вычислений и
+        возможность бесшовного использования разных конфигураций вычислительных
+        ресурсов.
+      - >-
+        Yandex DataSphere помогает значительно сократить стоимость машинного
+        обучения по сравнению с вычислениями на собственном оборудовании или на
+        других облачных платформах.
+      - >-
+        Инфраструктура Yandex Cloud <a
+        href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+        в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
+      - >-
+        Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+        об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+        документе <a href="https://yandex.ru/legal/cloud_sla_yds">Уровень
+        обслуживания Yandex DataSphere</a>.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        DataSphere — среда для ML-разработки, которая сочетает в себе
+        привычный интерфейс Jupyter® Notebook, технологию бессерверных вычислений и
+        возможность бесшовного использования разных конфигураций вычислительных
+        ресурсов.
+      - >-
+        DataSphere помогает значительно сократить стоимость машинного
+        обучения по сравнению с вычислениями на собственном оборудовании или на
+        других облачных платформах.
+    when: product == "cloud-il"
 meta:
-  title: Yandex DataSphere
+  title:
+    - text: Yandex DataSphere
+      when: product == "yandex-cloud"
+    - text: DataSphere
+      when: product == "cloud-il"
 links:
   - title: Начало работы
     description: Создайте свой первый проект
@@ -39,3 +60,4 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+    when: product == "yandex-cloud"

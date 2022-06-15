@@ -28,7 +28,7 @@
   1. Нажмите кнопку **Сохранить**. Если требуется, добавьте другие правила.
   1. Нажмите кнопку **Сохранить**.
 
-- СLI
+- CLI
   
   При создании группы безопасности можно использовать следующие параметры:
 
@@ -68,11 +68,13 @@
             
      Пример структуры конфигурационного файла:
 
+     {% if product == "yandex-cloud" %}
+
      ```
      provider "yandex" {
        token     = "<OAuth или статический ключ сервисного аккаунта>"
        folder_id = "<идентификатор каталога>"
-       zone      = "ru-central1-a"
+       zone      = "{{ region-id }}-a"
      }
 
      resource "yandex_vpc_security_group" "test-sg" {
@@ -97,7 +99,43 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```
+     provider "yandex" {
+       endpoint  = "{{ api-host }}:443"
+       token     = "<статический ключ сервисного аккаунта>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "{{ region-id }}-a"
+     }
+
+     resource "yandex_vpc_security_group" "test-sg" {
+       name        = "Test security group"
+       description = "Description for security group"
+       network_id  = "<Идентификатор сети>"
+
+       ingress {
+         protocol       = "TCP"
+         description    = "Rule description 1"
+         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
+         port           = 8080
+       }
+
+       egress {
+         protocol       = "ANY"
+         description    = "Rule description 2"
+         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
+         from_port      = 8090
+         to_port        = 8099
+       }
+     }
+     ```
+
+     {% endif %}
+
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
      
   2. Проверьте корректность конфигурационных файлов.
      

@@ -1,4 +1,8 @@
-title: Yandex Container Registry
+title:
+  - text: Yandex Container Registry
+    when: product == "yandex-cloud"
+  - text: Container Registry
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Начало работы
@@ -7,7 +11,7 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Аутентифицироваться в Container Registry
+      - name: Аутентифицироваться в {{ container-registry-name }}
         href: operations/authentication.md
       - name: Управление Docker-образом
         items:
@@ -61,6 +65,7 @@ items:
             href: operations/lifecycle-policy/lifecycle-policy-delete.md
       - name: Сканирование Docker-образа на наличие уязвимостей
         href: operations/scanning-docker-image.md
+        when: product == "yandex-cloud"
       - name: Работа с ролями
         items:
           - name: Назначить роль
@@ -69,18 +74,21 @@ items:
             href: operations/roles/get-assigned-roles.md
           - name: Отозвать роль
             href: operations/roles/revoke.md
-  - name: Yandex Container Solution
+  - name: "{{ cos-full-name }}"
     href: ../cos/
+    when: product == "yandex-cloud"
   - name: Практические руководства
     items:
       - name: Все руководства
         href: tutorials/index.md
       - name: Запуск Docker-образа на виртуальной машине
         href: tutorials/run-docker-on-vm.md
-      - name: Создание триггера с помощью Yandex Cloud Functions
+      - name: Создание триггера с помощью {{ sf-full-name }}
         href: tutorials/trigger-create.md
+        when: product == "yandex-cloud"
       - name: Настройка автоматического сканирования Docker-образа
         href: tutorials/image-auto-scan.md
+        when: product == "yandex-cloud"
   - name: Концепции
     items:
       - name: Обзор
@@ -97,8 +105,10 @@ items:
         href: concepts/lifecycle-policy.md
       - name: Сканер уязвимостей
         href: concepts/vulnerability-scanner.md
-      - name: Триггер Yandex Cloud Functions
+        when: product == "yandex-cloud"
+      - name: Триггер {{ sf-full-name }}
         href: concepts/trigger.md
+        when: product == "yandex-cloud"
       - name: Резервное копирование
         href: concepts/backup.md
       - name: Квоты и лимиты

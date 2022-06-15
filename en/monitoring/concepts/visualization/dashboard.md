@@ -1,6 +1,6 @@
 ---
-title: Dashboard in Yandex Monitoring
-description: "Dashboard in Yandex Monitoring — a set of widgets, graphs, texts and headers. Metrics on dashboard charts are displayed for a specific time interval, common for all charts. Parameters allow you to create interactive dashboards, the content of which changes depending on the user's choice. For example, a dashboard showing a summary of the state of a virtual machine can be parameterized with the virtual machine ID."
+title: Dashboard in {{ monitoring-full-name }}
+description: "Dashboard in {{ monitoring-full-name }} — a set of widgets, graphs, texts and headers. Metrics on dashboard charts are displayed for a specific time interval, common for all charts. Parameters allow you to create interactive dashboards, the content of which changes depending on the user's choice. For example, a dashboard showing a summary of the state of a virtual machine can be parameterized with the virtual machine ID."
 ---
 
 # Dashboards in Yandex Monitoring
@@ -20,7 +20,6 @@ Parameters let you create interactive dashboards whose content changes depending
 Parameters are displayed as drop-down menus above dashboard widgets. When you select a parameter value, the dashboard is updated and the selected value is substituted in data queries.
 
 The following types of dashboards are available:
-
 - _Label value_ — The parameter takes a set of values of the specified label.
 - _Set of values_ — The parameter takes a set of fixed comma-separated values.
 - _Text field_ — The parameter takes the only value specified in the text field.
@@ -31,11 +30,11 @@ For all parameter types, you can set the _Default value_ that will be used when 
 
 Creating a new dashboard parameter looks like this:
 
-![Creating a new dashboard parameter](../../../_assets/monitoring/dashboard-new-parameter.png "Creating a new dashboard parameter")
+![Creating a new dashboard parameter](../../../_assets/monitoring/dashboard-new-parameter.png)
 
 ### Parameter substitution {#templates}
 
-Dashboard parameter values are used in widget headings and queries to metrics to filter label values. Parameter values are substituted using [mustache templates](https://mustache.github.io/).
+Dashboard parameter values are used in widget headings and queries to metrics to filter label values. Parameter values are substituted using [mustache template](https://mustache.github.io/).
 
 {% note info %}
 
@@ -46,15 +45,14 @@ You can only use parameter value substitution in label values when making querie
 #### Examples of parameter value substitution {#templates-examples}
 
 - Substituting values in widget headings.
-
-    > In the `CPU usage on not_var{{host}}` widget heading, the `host` parameter value is substituted.
+   > In the `CPU usage on not_var{{host}}` widget heading, the `host` parameter value is substituted.
 - Substituting label values in queries.
-
-    > In the `"cpu.iowait"{folderId="aoe6mk1r3b47lu994prn", service="not_var{{myparm}}", host="*"}` query, the `service` label value is substituted with the `myparm` parameter value.
+   > In the `"cpu.iowait"{folderId="aoe6mk1r3b47lu994prn", service="not_var{{myparm}}", host="*"}` query, the `service` label value is substituted with the `myparm` parameter value.
 
 Substituting parameter values in query strings looks like this:
 
-![Substituting parameter values in query strings](../../../_assets/monitoring/query-string-templating.png "Substituting parameter values in query strings")
+![Substituting parameter values in query strings](../../../_assets/monitoring/query-string-templating.png)
+
 
 ### Label value filter {#common-labels-filter}
 
@@ -65,26 +63,22 @@ The label value filter lets you limit the list of possible parameter values with
 Let's say a dashboard has a _Label value_ type parameter set for the `cluster` label that takes the `prod`, `preprod-1`, `preprod-2`, and `testing` values.
 
 Filtering settings and result:
-
 - The `cluster=*prod*` filter limits parameter values to the list of `prod` and `preprod-1` values.
 - The `cluster=preprod-1|preprod-2` filter limits the values with the list of `preprod-1` and `preprod-2`.
 - The `cluster=testing` filter limits the values to a single `testing` value.
 
-Below is a more complex example. Let's say the system has the following metrics:
 
-- `usage{cluster="prod", account="prodaccount"}`.
-- `usage{cluster="preprod", account="preprodaccount"}`.
-- `usage{cluster="testing", account="testingaccount"}`.
-- `usage{cluster="prod", account="multiaccount"}`.
+Below is a more complex example. Let's say the system has the following metrics:
+- `usage{cluster="prod", account="prodaccount"}`;
+- `usage{cluster="preprod", account="preprodaccount"}`;
+- `usage{cluster="testing", account="testingaccount"}`;
+- `usage{cluster="prod", account="multiaccount"}`;
 - `usage={cluster="testing", account="multiaccount"}`.
 
 Filtering settings:
-
 - The filter contains the `cluster=*prod*` value.
 - A dashboard has _Label value_ type parameters set for the `cluster` and `account` labels.
 
 Result:
-
 - Possible values of the `cluster` parameter are limited to `prod` and `preprod`. The `testing` value is excluded as not matching the `cluster=*prod*` rule.
 - Possible values of the `account` parameter will be limited to `prodaccount`, `preprodaccount`, and `multiaccount`. The `testingaccount` value is excluded as there is no metric with a combination of `account="testingaccount"` and `cluster` labels matching the `cluster=*prod*` rule (while this combination exists for `multiaccount`).
-

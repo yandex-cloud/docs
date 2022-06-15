@@ -70,7 +70,7 @@ To add multiple issues to a project at once, use the [bulk change](bulk-change.m
 
 1. Make sure that all queues associated with the issues you want to add are linked to the project.
 
-1. Select the issues you need using [filters](../user/filters.md).
+1. Select the issues you need using [filters](../user/create-filter.md).
 
 1. Choose the issues you want to add to the project and click **Edit fields** on the bottom panel.
 

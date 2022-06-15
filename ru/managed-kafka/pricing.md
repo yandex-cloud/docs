@@ -4,6 +4,14 @@ editable: false
 
 # Правила тарификации для {{ mkf-name }}
 
+{% if product == "cloud-il" %}
+
+На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ mkf-name }} не тарифицируется.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Статус кластера {#running-stopped}
@@ -39,7 +47,7 @@ editable: false
 
     Стоимость начисляется за каждый час работы хоста в соответствии с выделенными для него вычислительными ресурсами.
 
-{% if audience != "internal" %}
+{% if product == "yandex-cloud" and audience != "internal" %}
 * Выделенные хосты
 
     {% include [Dedicated hosts prices](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
@@ -59,7 +67,7 @@ editable: false
 Оплачивается объем хранилища, выделенный для кластеров.
 
   * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами-брокерами и более:
-      * для платформы Intel Cascade Lake — с шагом 100 ГБ;
+    {% if product == "yandex-cloud" %}* для платформы Intel Cascade Lake — с шагом 100 ГБ;{% endif %}
       * для платформы Intel Ice Lake — с шагом {{ local-ssd-v3-step }}.
   * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя хостами-брокерами и более, с шагом 93 ГБ.
 
@@ -130,7 +138,7 @@ editable: false
     {% if region == "kz" %} {% include notitle [KZT: standard broker hosts](../_pricing/managed-kafka/kzt-hosts-standard.md) %}{% endif %}
     {% if region == "int" %}{% include notitle [USD: standard broker hosts](../_pricing/managed-kafka/usd-hosts-standard.md) %}{% endif %}
 
-{% if audience != "internal" %}
+{% if product == "yandex-cloud" and audience != "internal" %}
 
 * Выделенные хосты
 
@@ -160,7 +168,7 @@ editable: false
     {% if region == "kz" %} {% include notitle [KZT: standard ZooKeeper hosts](../_pricing/managed-kafka/kzt-hosts-zk-standard.md) %}{% endif %}
     {% if region == "int" %}{% include notitle [USD: standard ZooKeeper hosts](../_pricing/managed-kafka/usd-hosts-zk-standard.md) %}{% endif %}
 
-{% if audience != "internal" %}
+{% if product == "yandex-cloud" and audience != "internal" %}
 
 * Выделенные хосты
 
@@ -204,3 +212,4 @@ editable: false
 
 {% endif %}
 
+{% endif %}

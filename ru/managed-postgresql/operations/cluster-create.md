@@ -4,20 +4,11 @@
 
 {% note info %}
 
-Если хранилище баз данных заполнится на 95%, кластер перейдет в режим только чтения. Рассчитывайте и увеличивайте необходимый размер хранилища заранее.
+* Количество хостов, которые можно создать вместе с {{ PG }}-кластером, зависит от выбранного {% if audience != "internal" %}[типа хранилища](../concepts/storage.md#storage-type-selection){% else %}[типа хранилища](../concepts/storage.md){% endif %} и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
+* Если хранилище баз данных заполнится на 95%, кластер перейдет в режим только чтения. Рассчитывайте и увеличивайте необходимый размер хранилища заранее.
 
 {% endnote %}
-
-{% if audience != "internal" %}
-
-Количество хостов, которые можно создать вместе с {{ PG }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md):
-
-* При использовании хранилища на **локальных SSD-дисках** или на  **нереплицируемых SSD-дисках** вы можете создать кластер из трех или более хостов (минимум три хоста необходимо, чтобы обеспечить отказоустойчивость).
-* При использовании хранилища на **сетевых HDD-дисках** или на **сетевых SSD-дисках** вы можете добавить любое количество хостов в пределах [текущей квоты](../concepts/limits.md).
-
-После создания кластера в него можно добавить дополнительные хосты, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
-
-{% endif %}
 
 По умолчанию {{ mpg-short-name }} выставляет максимально возможное количество подключений к каждому хосту {{ PG }}-кластера. Этот максимум не может быть больше значения настройки [Max connections](../concepts/settings-list.md#setting-max-connections).
 
@@ -49,13 +40,13 @@
   1. Выберите класс хостов — он определяет технические характеристики виртуальных машин, на которых будут развернуты хосты баз данных. Все доступные варианты перечислены в разделе [{#T}](../concepts/instance-types.md). При изменении класса хостов для кластера меняются характеристики всех уже созданных хостов.
   1. В блоке **Размер хранилища**:
 
-{% if audience != "internal" %}
+      {% if audience != "internal" %}
 
       * Выберите [тип хранилища](../concepts/storage.md).
 
           {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
-{% endif %}
+      {% endif %}
 
       * Выберите объем, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [{#T}](../concepts/backup.md).
 
@@ -72,11 +63,11 @@
 
   1. В блоке **Хосты** выберите параметры хостов баз данных, создаваемых вместе с кластером. Открыв блок **Расширенные настройки**, вы можете выбрать конкретные подсети для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
 
-      При настройке параметров хостов обратите внимание, что если в блоке **Хранилище** выбран `local-ssd` или `network-ssd-nonreplicated`, то необходимо добавить не менее трех хостов в кластер.
+      При настройке параметров хостов обратите внимание, что если в блоке **Хранилище** выбран `local-ssd`{% if audience != "internal" %} или `network-ssd-nonreplicated`{% endif %}, то необходимо добавить не менее трех хостов в кластер.
 
   1. При необходимости задайте дополнительные настройки кластера:
 
-     {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
+     {% include [Additional cluster settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
 
   1. При необходимости задайте [настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
   
@@ -135,7 +126,7 @@
          --serverless-access
       ```
 
-      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано две и более подсети.
+      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
   {% else %}
 
@@ -165,6 +156,8 @@
         * Хост с наибольшим значением приоритета в кластере становится синхронной репликой.
         * Если в кластере есть несколько хостов с наибольшим приоритетом, то среди них проводятся выборы мастера.
         * Наименьший приоритет — `0` (по умолчанию), наивысший — `100`.
+
+      {% if product == "yandex-cloud" %}
       {% if audience != "internal" %}
 
       Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
@@ -173,6 +166,7 @@
 
       Чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}, передайте параметр `--serverless-access`.
 
+      {% endif %}
       {% endif %}
 
 - Terraform
@@ -200,6 +194,8 @@
 
      Пример структуры конфигурационного файла:
 
+     {% if product == "yandex-cloud" %}
+
      ```hcl
      terraform {
        required_providers {
@@ -224,7 +220,7 @@
        deletion_protection = <защита от удаления кластера: true или false>
 
        config {
-         version = "<версия PostgreSQL>"
+         version = "<версия {{ PG }}: {{ versions.tf.str }}>"
          resources {
            resource_preset_id = "<класс хоста>"
            disk_type_id       = "<тип хранилища>"
@@ -266,9 +262,82 @@
      }
      ```
 
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```hcl
+     terraform {
+       required_providers {
+         yandex = {
+           source = "yandex-cloud/yandex"
+         }
+       }
+     }
+
+     provider "yandex" {
+       endpoint  = "{{ api-host }}:443"
+       token     = "<статический ключ сервисного аккаунта>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "<зона доступности>"
+     }
+
+     resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+       name                = "<имя кластера>"
+       environment         = "<окружение, PRESTABLE или PRODUCTION>"
+       network_id          = "<идентификатор сети>"
+       security_group_ids  = [ "<список групп безопасности>" ]
+       deletion_protection = <защита от удаления кластера: true или false>
+
+       config {
+         version = "<версия {{ PG }}: {{ versions.tf.str }}>"
+         resources {
+           resource_preset_id = "<класс хоста>"
+           disk_type_id       = "<тип хранилища>"
+           disk_size          = <объем хранилища, ГБ>
+         }
+         pooler_config {
+           pool_discard = <параметр Odyssey pool_discard: true или false>
+           pooling_mode = "<режим работы: SESSION, TRANSACTION или STATEMENT>"
+         }
+         ...
+       }
+
+       database {
+         name  = "<имя базы данных>"
+         owner = "<имя владельца базы данных>"
+       }
+
+       user {
+         name     = "<имя пользователя>"
+         password = "<пароль пользователя>"
+         permission {
+           database_name = "<имя базы данных>"
+         }
+       }
+
+       host {
+         zone      = "<зона доступности>"
+         subnet_id = "<идентификатор подсети>"
+       }
+     }
+
+     resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
+
+     resource "yandex_vpc_subnet" "<имя подсети>" {
+       name           = "<имя подсети>"
+       zone           = "<зона доступности>"
+       network_id     = "<идентификатор сети>"
+       v4_cidr_blocks = ["<диапазон>"]
+     }
+     ```
+
+     {% endif %}
+
      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-     {% include [maintenance-window](../../_includes/mdb/mpg/terraform-maintenance-window.md) %}
+     {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
      Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
@@ -280,7 +349,7 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-     {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+     {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
@@ -295,6 +364,10 @@
     * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
     * Конфигурацию баз данных в одном или нескольких параметрах `databaseSpecs`.
     * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
+
+  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+
+  {% if product == "yandex-cloud" %}
   {% if audience != "internal" %}
 
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
@@ -303,6 +376,7 @@
 
   Чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}, передайте значение `true` для параметра `configSpec.access.serverless`.
 
+  {% endif %}
   {% endif %}
 
 {% endlist %}
@@ -390,8 +464,9 @@
 - Terraform
 
   Допустим, нужно создать {{ PG }}-кластер и сеть для него со следующими характеристиками:
+
   * С именем `mypg`.
-  * Версии `14`.
+  * Версии `{{ versions.tf.latest }}`.
   * В окружении `PRESTABLE`.
   * В облаке с идентификатором `{{ tf-cloud-id }}`.
   * В каталоге с идентификатором `{{ tf-folder-id }}`.
@@ -404,6 +479,8 @@
   * С защитой от случайного удаления кластера.
 
   Конфигурационный файл для такого кластера выглядит так:
+
+  {% if product == "yandex-cloud" %}
 
   ```hcl
   terraform {
@@ -429,7 +506,7 @@
     deletion_protection = true
 
     config {
-      version = 14
+      version = {{ versions.tf.latest }}
       resources {
         resource_preset_id = "{{ host-class }}"
         disk_type_id       = "{{ disk-type-example }}"
@@ -479,5 +556,87 @@
     }
   }
   ```
+
+  {% endif %}
+
+  {% if product == "cloud-il" %}
+
+  ```hcl
+  terraform {
+    required_providers {
+      yandex = {
+        source = "yandex-cloud/yandex"
+      }
+    }
+  }
+
+  provider "yandex" {
+    endpoint  = "{{ api-host }}:443"
+    token     = "<статический ключ сервисного аккаунта>"
+    cloud_id  = "{{ tf-cloud-id }}"
+    folder_id = "{{ tf-folder-id }}"
+    zone      = "{{ zone-id }}"
+  }
+
+  resource "yandex_mdb_postgresql_cluster" "mypg" {
+    name                = "mypg"
+    environment         = "PRESTABLE"
+    network_id          = yandex_vpc_network.mynet.id
+    security_group_ids  = [ yandex_vpc_security_group.pgsql-sg.id ]
+    deletion_protection = true
+
+    config {
+      version = {{ versions.tf.latest }}
+      resources {
+        resource_preset_id = "{{ host-class }}"
+        disk_type_id       = "{{ disk-type-example }}"
+        disk_size          = "20"
+      }
+    }
+
+    database {
+      name  = "db1"
+      owner = "user1"
+    }
+
+    user {
+      name     = "user1"
+      password = "user1user1"
+      permission {
+        database_name = "db1"
+      }
+    }
+
+    host {
+      zone      = "{{ zone-id }}"
+      subnet_id = yandex_vpc_subnet.mysubnet.id
+    }
+  }
+
+  resource "yandex_vpc_network" "mynet" {
+    name = "mynet"
+  }
+
+  resource "yandex_vpc_subnet" "mysubnet" {
+    name           = "mysubnet"
+    zone           = "{{ zone-id }}"
+    network_id     = yandex_vpc_network.mynet.id
+    v4_cidr_blocks = ["10.5.0.0/24"]
+  }
+
+  resource "yandex_vpc_security_group" "pgsql-sg" {
+    name       = "pgsql-sg"
+    network_id = yandex_vpc_network.mynet.id
+
+    ingress {
+      description    = "PostgreSQL"
+      port           = 6432
+      protocol       = "TCP"
+      v4_cidr_blocks = [ "0.0.0.0/0" ]
+    }
+  }
+  ```
+
+  {% endif %}
 
 {% endlist %}

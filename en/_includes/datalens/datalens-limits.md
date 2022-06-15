@@ -1,11 +1,16 @@
+#### Quotas {#datalens-quotas}
+
+There are no quotas for {{ datalens-short-name }}.
+
 #### General limits {#datalens-common-limits}
 
 | Type of limit | Value |
 | ----- | ----- |
-| Number of DataLens instances per cloud | 1 |
+| Number of DataLens instances per organization or cloud | 1 |
 | Maximum CSV file size | 200 MB |
 | Maximum number of rows of persisted data<br>per dataset | 100,000,000 |
 | Maximum number of tables in a single dataset | 32 |
+| Maximum number of fields in a single dataset | 500 |
 
 #### Chart data limits {#datalens-chart-data-limits}
 
@@ -20,7 +25,7 @@ You can modify the amount of data returned. Modify the query parameters to filte
 | ----- | ----- |
 | **Charts** |
 | Line chart | 75,000 rows |
-| Area chart<br/>Stacked area chart | 75,000 rows |
+| Stacked area chart<br/>Normalized stacked area chart | 75,000 rows |
 | Column chart<br/>Normalized column chart | 75,000 rows |
 | Bar chart<br/>Normalized bar chart | 75,000 rows |
 | Scatter chart | 75,000 rows |
@@ -32,6 +37,6 @@ You can modify the amount of data returned. Modify the query parameters to filte
 | Pivot table | 800 columns |
 | **Geomaps** |
 | Point map | 40,000 rows |
-| Choropleth map | 40,000 rows |
+| Background map | 40,000 rows |
 | Heat map | 40,000 rows |
 | Polyline map | 40,000 rows |

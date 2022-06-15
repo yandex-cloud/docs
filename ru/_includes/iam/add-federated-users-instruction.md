@@ -53,7 +53,7 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM-токен>" \
         -d '@body.json' \
-        https://iam.api.cloud.yandex.net/iam/v1/saml/federations/<ID федерации>:addUserAccounts
+        https://iam.{{ api-host }}/iam/v1/saml/federations/<ID федерации>:addUserAccounts
       ```
 
 

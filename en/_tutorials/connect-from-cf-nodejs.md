@@ -6,11 +6,9 @@ The application creates a {{ ydb-short-name }} database connection driver, a ses
 
 ## Before you start {#before-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
-1. On the [billing page]({{ link-console-billing }}), make sure you have activated a [billing account](../billing/concepts/billing-account.md), and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md).
-1. On the [cloud page]({{ link-console-cloud }}), create or select a folder for your function and database to run in.
+{% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
 
-    [Learn more about clouds and folders](../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -18,6 +16,8 @@ The infrastructure support cost for this scenario includes:
 
 * A fee for using the function (see [{{ sf-full-name }} pricing](../functions/pricing.md).
 * A fee for querying the database (see [{{ ydb-full-name }} pricing]{% if audience == "external" %}(../ydb/pricing/serverless.md){% else %}(https://cloud.yandex.ru/docs/ydb/pricing/serverless){% endif %}).
+
+{% endif %}
 
 ## Prepare the environment {#prepare-environment}
 

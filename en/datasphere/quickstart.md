@@ -4,14 +4,16 @@
 
 In this section, you'll learn how to:
 
-1. [Create projects](#create-project) where you'll work in the JupyterLab environment.
-1. [Install required packages](#install-dependencies).
+1. [Create projects](#create-project) for the JupyterLab environment.
+1. [Install packages](#install-dependencies) you need.
 1. [Manage computing resources](#control-compute-resources) by changing their configurations.
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
-1. On the [Billing]({{ link-console-billing }}), make sure that a [billing account](../billing/concepts/billing-account.md) is linked and that its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+   {% if product == "yandex-cloud" %}
+1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+   {% endif %}
 
 ## Assign roles for using DataSphere {#roles}
 
@@ -21,7 +23,7 @@ In the management console on the [Access management]({{ link-console-access-mana
 
 * To create, edit, and delete projects, you need the `datasphere.admin` role or higher.
 
-Learn more about [access management](security/index.md).
+Read more about [access management](security/index.md).
 
 ## Create a project {#create-project}
 
@@ -48,4 +50,3 @@ Learn more about [access management](security/index.md).
 - [Learn about service features](concepts/index.md).
 - [Share a link to the notebook with all the results](operations/projects/publication.md).
 - [See other instructions on how to use the service](operations/index.md).
-

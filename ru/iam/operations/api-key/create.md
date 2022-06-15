@@ -81,7 +81,7 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer $IAM_TOKEN" \
         -d "{ \"serviceAccountId\": \"$SERVICEACCOUNT_ID\" }" \
-        https://iam.api.cloud.yandex.net/iam/v1/apiKeys
+        https://iam.{{ api-host }}/iam/v1/apiKeys
       ```
 
 - Terraform
@@ -102,7 +102,7 @@
        }
        ```
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/iam_service_account_api_key).
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_api_key).
 
     1. Проверьте корректность конфигурационных файлов.
 
@@ -160,7 +160,7 @@
         \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
         \"description\": \"this API-key is for my-robot\"
     }" \
-    https://iam.api.cloud.yandex.net/iam/v1/apiKeys
+    https://iam.{{ api-host }}/iam/v1/apiKeys
   ```
 
 - Terraform
@@ -181,7 +181,7 @@
 
        {% endcut %}
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs).
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_api_key).
 
     1. Проверьте корректность конфигурационных файлов.
 

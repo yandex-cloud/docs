@@ -9,6 +9,8 @@
 
 {% endnote %}
 
+{% if product == "yandex-cloud" %}
+
 Имя | Количество vCPU | Количество GPU | RAM, ГБ
 ---- | ---- | ---- | ----
 **Конфигурации с vCPU на [платформе Intel Cascade Lake](../../compute/concepts/performance-levels.md)**
@@ -26,6 +28,20 @@
 **g2.2** (доступна по запросу в техническую поддержку) | 56 | 2 | 238
 **g2.4** (доступна по запросу в техническую поддержку) | 112 | 4 | 476
 **g2.8** (доступна по запросу в техническую поддержку) | 224 | 8 | 952
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+Имя | Количество юнитов | Количество vCPU | Количество GPU | RAM, ГБ
+---- | ---- | ---- | ---- | ----
+**Конфигурации с vCPU на [платформе Ice Lake](../../compute/concepts/performance-levels.md)**
+**c1.4** (по умолчанию) | 4 | 4 | 0 | 32
+**c1.8** | 8 | 8 | 0 | 64
+**Конфигурации с vCPU на [платформе AMD EPYC™](../../compute/concepts/gpus.md) и GPU [NVIDIA® Ampere® A100]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/a100/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/a100/){% endif %}**
+**g2.1** (доступна по запросу в техническую поддержку)  | 116 | 28 | 1 | 119
+
+{% endif %}
 
 #### См. также {#see-also}
 

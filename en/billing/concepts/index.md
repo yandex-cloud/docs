@@ -13,6 +13,4 @@ description: "The following basic concepts are used in {{ yandex-cloud }} billin
 * [{#T}](billing-account.md)
 * [{#T}](promo-code.md)
 * [{#T}](trial-period.md)
-{% if audience == "cvos" %}
 * [{#T}](cvos.md)
-{% endif %}

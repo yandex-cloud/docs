@@ -8,31 +8,32 @@ _Каталог_  — это пространство, в котором соз�
 
   {% include [create-folder](../../../_includes/create-folder.md) %}
 
-
 - CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
   1. Посмотрите описание команды создания каталога:
 
-      ```
-      $ yc resource-manager folder create --help
+      ```bash
+      yc resource-manager folder create --help
       ```
 
   2. Создайте новый каталог:
 
       * с именем и без описания:
-          ```
-          $ yc resource-manager folder create \
-              --name new-folder
+          ```bash
+          yc resource-manager folder create \
+            --name new-folder
           ```
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
       * с именем и описанием:
 
-          ```
-          $ yc resource-manager folder create \
-              --name new-folder \
-              --description "my first folder with description"
+          ```bash
+          yc resource-manager folder create \
+            --name new-folder \
+            --description "my first folder with description"
           ```
 
 - API
@@ -61,7 +62,7 @@ _Каталог_  — это пространство, в котором соз�
 
      * `description` — описание каталога. Необязательный параметр.
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder` в Terraform, см. в [документации провайдера](https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_folder).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder).
 
   1. Проверьте корректность конфигурационных файлов.
 

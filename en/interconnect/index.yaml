@@ -15,7 +15,7 @@ meta:
   title: Yandex Cloud Interconnect
 links:
   - title: Concepts
-    description: Learn about the resources of the service
+    description: Learn about service features
     href: concepts/index
   - title: Pricing policy
     description: Service pricing and cost calculations

@@ -31,4 +31,4 @@
 
 ### Принудительное сохранение состояния {#forced-save}
 
-Для принудительного сохранения состояния в режиме автоматического сохранения нажмите значок ![plus-sign](../../_assets/plus-sign.svg) в правом верхнем углу вкладки ![checkpoints-panel](../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints**. Также вы можете сохранить состояние, используя сочетания клавиш _CMD+K_ или _Ctrl+K_.
+Для принудительного сохранения состояния в режиме автоматического сохранения нажмите значок ![plus-sign](../../_assets/plus-sign.svg) в правом верхнем углу вкладки ![checkpoints-panel](../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints**. Также вы можете сохранить состояние, используя сочетания клавиш **Cmd** + **K** или **Ctrl** + **K**.

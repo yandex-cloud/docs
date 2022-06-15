@@ -16,7 +16,8 @@
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. [Установите инструмент командной строки kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl){% endif %}.
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Выберите [последнюю версию клиентской части Velero](https://github.com/vmware-tanzu/velero/releases) для своей платформы.
 1. Скачайте клиентскую часть Velero, распакуйте архив и установите программу. Подробнее об установке программы читайте в [документации Velero](https://velero.io/docs/v1.5/basic-install/#install-the-cli).
 1. Посмотрите описание любой команды Velero:
@@ -38,7 +39,7 @@
    yc iam access-key create --service-account-name velero-sa
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```bash
    access_key:
@@ -67,33 +68,35 @@
 
 Чтобы выполнить резервное копирование данных группы узлов:
 1. [Создайте кластер {{ managed-k8s-name }} ](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации. При создании группы узлов выберите автоматический способ назначения IP-адреса.
-1. [Настройте kubectl](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) на работу с созданным кластером.
+
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Установите серверную часть Velero в кластер {{ managed-k8s-name }}:
 
    ```bash
    kubectl label volumesnapshotclasses.snapshot.storage.k8s.io yc-csi-snapclass \
    velero.io/csi-volumesnapshot-class="true" && \
    velero install \
-     --backup-location-config s3Url=https://storage.yandexcloud.net,region=ru-central1 \
+     --backup-location-config s3Url=https://{{ s3-storage-host }},region={{ region-id }} \
      --bucket velero-backup \
      --plugins velero/velero-plugin-for-aws:v1.3.0,velero/velero-plugin-for-csi:v0.2.0 \
      --provider aws \
      --secret-file ./credentials \
      --features=EnableCSI \
      --use-volume-snapshots=true \
-     --snapshot-location-config region=ru-central1
+     --snapshot-location-config region={{ region-id }}
    ```
 
    Где:
-   * `--backup-location-config` — параметры хранилища резервных копий. URL-адрес хранилища {{ objstorage-name }} и [зоны доступности](../../overview/concepts/geo-scope.md).
+   * `--backup-location-config` — параметры хранилища резервных копий. URL-адрес хранилища {{ objstorage-name }} и регион.
    * `--bucket` — имя бакета для хранения резервных копий.
    * `--plugins` — образы плагина для совместимости с AWS API.
    * `--provider` — имя провайдера объектного хранилища.
    * `--secret-file` — полный путь к файлу с данными статического ключа доступа.
    * `--features` — список активных функциональных возможностей.
-   * `--snapshot-location-config` — зона доступности, в которой будут размещены снимки дисков.
+   * `--snapshot-location-config` — регион, в котором будут размещены снимки дисков.
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    CustomResourceDefinition/backups.velero.io: attempting to create resource
@@ -115,7 +118,7 @@
    velero backup create my-backup
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    Backup request "my-backup" submitted successfully.
@@ -128,7 +131,7 @@
    velero backup get
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    NAME       STATUS     ERRORS  WARNINGS  CREATED                        EXPIRES  STORAGE LOCATION  SELECTOR
@@ -139,33 +142,33 @@
 
 Чтобы восстановить данные группы узлов кластера {{ managed-k8s-name }}:
 1. [Создайте новый кластер {{ managed-k8s-name }} ](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации. При создании группы узлов выберите автоматический способ назначения IP-адреса.
-1. [Настройте kubectl](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) на работу с новым кластером.
+1. [Настройте kubectl](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) на работу с новым кластером.
 1. Установите серверную часть Velero в кластер {{ managed-k8s-name }}:
 
    ```bash
    kubectl label volumesnapshotclasses.snapshot.storage.k8s.io yc-csi-snapclass \
    velero.io/csi-volumesnapshot-class="true" && \
    velero install \
-     --backup-location-config s3Url=https://storage.yandexcloud.net,region=ru-central1 \
+     --backup-location-config s3Url=https://{{ s3-storage-host }},region={{ region-id }} \
      --bucket velero-backup \
      --plugins velero/velero-plugin-for-aws:v1.3.0,velero/velero-plugin-for-csi:v0.2.0 \
      --provider aws \
      --secret-file ./credentials \
      --features=EnableCSI \
      --use-volume-snapshots=true \
-     --snapshot-location-config region=ru-central1
+     --snapshot-location-config region={{ region-id }}
    ```
 
    Где:
-   * `--backup-location-config` — параметры хранилища резервных копий. URL-адрес хранилища {{ objstorage-name }} и [зоны доступности](../../overview/concepts/geo-scope.md).
+   * `--backup-location-config` — параметры хранилища резервных копий. URL-адрес хранилища {{ objstorage-name }} и регион.
    * `--bucket` — имя бакета для хранения резервных копий.
    * `--plugins` — образы плагина для совместимости с AWS API.
    * `--provider` — имя провайдера объектного хранилища.
    * `--secret-file` — полный путь к файлу с данными статического ключа доступа.
    * `--features` — список активных функциональных возможностей.
-   * `--snapshot-location-config` — выбор зоны доступности для расположения снимков дисков.
+   * `--snapshot-location-config` — выбор региона для расположения снимков дисков.
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    CustomResourceDefinition/backups.velero.io: attempting to create resource
@@ -187,7 +190,7 @@
    velero backup get
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    NAME       STATUS     ERRORS  WARNINGS  CREATED                        EXPIRES  STORAGE LOCATION  SELECTOR
@@ -204,7 +207,7 @@
    * `--exclude-namespaces` — флаг, позволяющий не восстанавливать объекты из пространства имен `velero`.
    * `--from-backup` — имя бакета, в котором хранится резервная копия.
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    Restore request "my-restore" submitted successfully.
@@ -217,7 +220,7 @@
    velero get restore
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат выполнения команды:
 
    ```text
    NAME        BACKUP     STATUS     STARTED                        COMPLETED                      ERRORS  WARNINGS  CREATED                        SELECTOR

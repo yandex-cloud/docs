@@ -10,15 +10,7 @@
 
   **Подключение с использованием SSL-соединения:**
   
-  ```bash
-  mysql --host=<FQDN хоста {{ MY }}> \
-        --port=3306 \
-        --ssl-ca=~/.mysql/root.crt \
-        --ssl-mode=VERIFY_IDENTITY \
-        --user=<имя пользователя> \
-        --password \
-        <имя БД>
-  ```
+  {% include [default-connstring](./mmy/default-connstring.md) %}
   
   **Подключение без использования SSL-соединения:**
   

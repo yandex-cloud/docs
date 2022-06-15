@@ -29,7 +29,7 @@
 
     {% note tip %}
 
-    Если через форму нужно создать задачу с [чеклиcтом](../user/checklist.md), используйте интеграцию [<q>HTTP.Запрос в ручку</q>](https://doc.yandex-team.ru/forms/external/http-request.html#http-request__resolve-problems-checklist).
+    Если через форму нужно создать задачу с [чеклистом](../user/checklist.md), используйте интеграцию [<q>HTTP.Запрос в ручку</q>](https://doc.yandex-team.ru/forms/external/http-request.html#http-request__resolve-problems-checklist).
 
     {% endnote %}
 

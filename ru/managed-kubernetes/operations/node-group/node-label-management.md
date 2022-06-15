@@ -34,7 +34,7 @@
         * В поле **Публичный адрес** выберите способ назначения адреса:
           * **Автоматически** — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}.
           * **Без адреса** — чтобы не назначать публичный IP-адрес.
-        * Укажите расположение узлов по зонам доступности и сетям.
+        * Укажите расположение узлов по {% if product == "yandex-cloud" %}зонам доступности и {% endif %}сетям.
      1. В блоке **Доступ** укажите данные для доступа на узел:
         * В поле **Логин** введите имя пользователя.
         * В поле **SSH-ключ** вставьте содержимое файла [публичного ключа](../../operations/node-connect-ssh.md#creating-ssh-keys).
@@ -93,7 +93,7 @@
          size: "1"
      allocation_policy:
        locations:
-       - zone_id: ru-central1-a
+       - zone_id: {{ region-id }}-a
          subnet_id: e9bm87gkjd81eroc6dqg
      deploy_policy:
        max_expansion: "3"
@@ -196,7 +196,7 @@
                          beta.kubernetes.io/instance-type=standard-v2
                          beta.kubernetes.io/os=linux
                          environment=production
-                         failure-domain.beta.kubernetes.io/zone=ru-central1-a
+                         failure-domain.beta.kubernetes.io/zone={{ region-id }}-a
                          kubernetes.io/arch=amd64
                          kubernetes.io/hostname=catkuapro07enihqmk51-hgjd
                          kubernetes.io/os=linux

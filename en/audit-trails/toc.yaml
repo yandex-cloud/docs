@@ -1,4 +1,8 @@
-title: Yandex Audit Trails
+title:
+  - text: Yandex Audit Trails
+    when: product == "yandex-cloud"
+  - text: Audit Trails
+    when: product == "cloud-il"
 stage: preview
 href: index.yaml
 items:
@@ -11,7 +15,7 @@ items:
         href: concepts/index.md
       - name: Trail
         href: concepts/trail.md
-      - name: Audit event log
+      - name: Audit log of events
         href: concepts/format.md
       - name: Event reference
         href: concepts/events.md
@@ -25,6 +29,7 @@ items:
     items:
       - name: Uploading audit logs to a log group
         href: operations/export-cloud-logging.md
+        when: product == "yandex-cloud"
       - name: Uploading audit logs to a bucket
         href: operations/export-bucket.md
   - name: Practical guidelines
@@ -33,10 +38,12 @@ items:
         href: tutorials/search-bucket.md
       - name: Searching a log group
         href: tutorials/search-cloud-logging.md
+        when: product == "yandex-cloud"
       - name: Setting up alerts in {{ monitoring-name }}
         href: tutorials/alerts-monitoring.md
       - name: Configuring a response in Cloud Functions
         href: tutorials/logging-functions.md
+        when: product == "yandex-cloud"
   - name: Access management
     href: security/index.md
   - name: Pricing policy

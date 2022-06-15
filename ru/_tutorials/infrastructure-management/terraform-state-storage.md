@@ -26,11 +26,9 @@ Terraform и его провайдеры распространяются под
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Для развертывания инфраструктуры с помощью Terraform нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -48,13 +46,15 @@ Terraform и его провайдеры распространяются под
 * плата за диски и постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)). 
 
+{% endif %}
+
 ## Установите Terraform {#install-terraform}
 
 {% include [terraform-install](../../_tutorials/terraform-install.md) %}
 
 ## Создайте файл конфигурации Terraform {#configure-terraform}
 
-1. Создайте директорию с произвольным названием, например `yandex-cloud-terraform`. В ней будут храниться конфигурационные файлы Terraform.
+1. Создайте директорию с произвольным названием, например `cloud-terraform`. В ней будут храниться конфигурационные файлы Terraform.
 1. Создайте в этой директории конфигурационный файл с расширением `.tf`, например, `example.tf`. 
 
 ## Настройте провайдер {#configure-provider}
@@ -74,6 +74,8 @@ Terraform и его провайдеры распространяются под
 
 Чтобы сохранить состояние Terraform в {{ objstorage-name }}, укажите настройки провайдера и бэкенда:
 
+{% if product == "yandex-cloud" %}
+
 ```hcl
 terraform {
   required_providers {
@@ -85,7 +87,7 @@ terraform {
   backend "s3" {
     endpoint   = "storage.yandexcloud.net"
     bucket     = "<имя бакета>"
-    region     = "ru-central1"
+    region     = "{{ region-id }}"
     key        = "<путь к файлу состояния в бакете>/<имя файла состояния>.tfstate"
     access_key = "<идентификатор статического ключа>"
     secret_key = "<секретный ключ>"
@@ -103,15 +105,53 @@ provider "yandex" {
 }
 ```
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+```hcl
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+    }
+  }
+
+  backend "s3" {
+    endpoint   = "storage.cloudil.com"
+    bucket     = "<имя бакета>"
+    region     = "{{ region-id }}"
+    key        = "<путь к файлу состояния в бакете>/<имя файла состояния>.tfstate"
+    access_key = "<идентификатор статического ключа>"
+    secret_key = "<секретный ключ>"
+
+    skip_region_validation      = true
+    skip_credentials_validation = true
+  }
+}
+
+provider "yandex" {
+  endpoint  = "{{ api-host }}:443"
+  token     = "<статический ключ сервисного аккаунта>"
+  cloud_id  = "<идентификатор облака>"
+  folder_id = "<идентификатор каталога>"
+  zone      = "<зона доступности по умолчанию>"
+}
+```
+
+{% endif %}
+
 Подробнее о бэкенде для хранения состояний читайте на [сайте Terraform](https://www.terraform.io/docs/backends/types/s3.html).
 
 ## Разверните конфигурацию {#deploy}
 
-В этом примере будут созданы две виртуальные машины: `terraform1` и `terraform2`. Они будут подключены к подсети `subnet-1` в зоне доступности `ru-central1-a`. Подсеть будет принадлежать облачной сети `network-1`.
+В этом примере будут созданы две виртуальные машины: `terraform1` и `terraform2`. Они будут подключены к подсети `subnet-1` в зоне доступности `{{ region-id }}-a`. Подсеть будет принадлежать облачной сети `network-1`.
 
 У машин будут разные количества ядер и объемы памяти: 1 ядро и 2 Гб оперативной памяти у `terraform1` и 2 ядра и 4 Гб оперативной памяти у `terraform2`. Машины автоматически получат публичные IP-адреса и приватные IP-адреса из диапазона `192.168.10.0/24` в подсети `subnet-1`. На виртуальных машинах будет установлена операционная система Ubuntu и размещена публичная часть ключа для доступа к машинам по SSH.
 
 1. Сохраните следующую конфигурацию в файл `example.tf`:
+
+   {% if product == "yandex-cloud" %}
 
    ```hcl
    terraform {
@@ -124,7 +164,7 @@ provider "yandex" {
      backend "s3" {
        endpoint   = "storage.yandexcloud.net"
        bucket     = "<имя бакета>"
-       region     = "ru-central1"
+       region     = "{{ region-id }}"
        key        = "<путь к файлу состояния в бакете>/<имя файла состояния>.tfstate"
        access_key = "<идентификатор статического ключа>"
        secret_key = "<секретный ключ>"
@@ -138,7 +178,7 @@ provider "yandex" {
      token     = "<OAuth или статический ключ сервисного аккаунта>"
      cloud_id  = "<идентификатор облака>"
      folder_id = "<идентификатор каталога>"
-     zone      = "ru-central1-a"
+     zone      = "{{ region-id }}-a"
    }
 
    resource "yandex_compute_instance" "vm-1" {
@@ -195,7 +235,7 @@ provider "yandex" {
 
    resource "yandex_vpc_subnet" "subnet-1" {
      name           = "subnet1"
-     zone           = "ru-central1-a"
+     zone           = "{{ region-id }}-a"
      network_id     = yandex_vpc_network.network-1.id
      v4_cidr_blocks = ["192.168.10.0/24"]
    }
@@ -221,6 +261,121 @@ provider "yandex" {
    }
    ```
 
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```hcl
+   terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+
+     backend "s3" {
+       endpoint   = "storage.cloudil.com"
+       bucket     = "<имя бакета>"
+       region     = "{{ region-id }}"
+       key        = "<путь к файлу состояния в бакете>/<имя файла состояния>.tfstate"
+       access_key = "<идентификатор статического ключа>"
+       secret_key = "<секретный ключ>"
+
+       skip_region_validation      = true
+       skip_credentials_validation = true
+     }
+   }
+
+   provider "yandex" {
+     endpoint  = "{{ api-host }}:443"
+     token     = "<статический ключ сервисного аккаунта>"
+     cloud_id  = "<идентификатор облака>"
+     folder_id = "<идентификатор каталога>"
+     zone      = "{{ region-id }}-a"
+   }
+
+   resource "yandex_compute_instance" "vm-1" {
+     name = "terraform1"
+
+     resources {
+       cores  = 2
+       memory = 2
+     }
+
+     boot_disk {
+       initialize_params {
+         image_id = "fd87va5cc00gaq2f5qfb"
+       }
+     }
+
+     network_interface {
+       subnet_id = yandex_vpc_subnet.subnet-1.id
+       nat       = true
+     }
+
+     metadata = {
+       ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
+     }
+   }
+
+   resource "yandex_compute_instance" "vm-2" {
+     name = "terraform2"
+
+     resources {
+       cores  = 2
+       memory = 4
+     }
+
+     boot_disk {
+       initialize_params {
+         image_id = "fd87va5cc00gaq2f5qfb"
+       }
+     }
+
+     network_interface {
+       subnet_id = yandex_vpc_subnet.subnet-1.id
+       nat       = true
+     }
+
+     metadata = {
+       ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
+     }
+   }
+
+   resource "yandex_vpc_network" "network-1" {
+     name = "network1"
+   }
+
+   resource "yandex_vpc_subnet" "subnet-1" {
+     name           = "subnet1"
+     zone           = "{{ region-id }}-a"
+     network_id     = yandex_vpc_network.network-1.id
+     v4_cidr_blocks = ["192.168.10.0/24"]
+   }
+
+   output "internal_ip_address_vm_1" {
+     value = yandex_compute_instance.vm-1.network_interface.0.ip_address
+   }
+
+   output "internal_ip_address_vm_2" {
+     value = yandex_compute_instance.vm-2.network_interface.0.ip_address
+   }
+
+   output "external_ip_address_vm_1" {
+     value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
+   }
+
+   output "external_ip_address_vm_2" {
+     value = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
+   }
+
+   output "subnet-1" {
+     value = yandex_vpc_subnet.subnet-1.id
+   }
+   ```
+
+   {% endif %}
+
 1. Проверьте конфигурацию c помощью команды `terraform plan`. 
 1. Разверните конфигурацию с помощью команды `terraform apply`.
 
@@ -242,6 +397,8 @@ provider "yandex" {
 1. Создайте директорию `remote-state`.
 1. Перейдите в созданную директорию и создайте конфигурацию `remote-state.tf`:
 
+   {% if product == "yandex-cloud" %}
+
    ```hcl
    terraform {
      required_providers {
@@ -255,7 +412,7 @@ provider "yandex" {
      token     = "<OAuth или статический ключ сервисного аккаунта>"
      cloud_id  = "cloud-id"
      folder_id = "folder-id"
-     zone      = "ru-central1-a"
+     zone      = "{{ region-id }}-a"
    }
 
    data "terraform_remote_state" "vpc" {
@@ -263,7 +420,7 @@ provider "yandex" {
      config = {
        endpoint   = "storage.yandexcloud.net"
        bucket     = "<имя бакета>"
-       region     = "ru-central1"
+       region     = "{{ region-id }}"
        key        = "<путь к файлу состояния в бакете>/<имя файла состояния>.tfstate"
        access_key = "<идентификатор статического ключа>"
        secret_key = "<секретный ключ>"
@@ -297,7 +454,70 @@ provider "yandex" {
      }
    }
    ```
-  
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```hcl
+   terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+   }
+
+   provider "yandex" {
+     endpoint  = "{{ api-host }}:443"
+     token     = "<статический ключ сервисного аккаунта>"
+     cloud_id  = "cloud-id"
+     folder_id = "folder-id"
+     zone      = "{{ region-id }}-a"
+   }
+
+   data "terraform_remote_state" "vpc" {
+     backend = "s3"
+     config = {
+       endpoint   = "storage.cloudil.com"
+       bucket     = "<имя бакета>"
+       region     = "{{ region-id }}"
+       key        = "<путь к файлу состояния в бакете>/<имя файла состояния>.tfstate"
+       access_key = "<идентификатор статического ключа>"
+       secret_key = "<секретный ключ>"
+
+       skip_region_validation      = true
+       skip_credentials_validation = true
+     }
+   }
+
+   resource "yandex_compute_instance" "vm-3" {
+     name = "terraform3"
+
+     resources {
+       cores  = 2
+       memory = 2
+     }
+
+     boot_disk {
+       initialize_params {
+         image_id = "fd87va5cc00gaq2f5qfb"
+       }
+     }
+
+     network_interface {
+       subnet_id = data.terraform_remote_state.vpc.outputs.subnet-1
+       nat       = true
+     }
+
+     metadata = {
+       ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
+     }
+   }
+   ```
+
+   {% endif %}
+
 1. Выполните команду `terraform init`. 
 1. Выполните команду `terraform plan`. В терминале должен отобразиться план создания одной виртуальной машины.
 1. Выполните команду `terraform apply`.

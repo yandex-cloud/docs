@@ -128,34 +128,23 @@
 
 Чтобы использовать шифрованное соединение, получите SSL-сертификат:
 
-{% if audience != "internal" %}
-
 {% list tabs %}
 
 - Linux (Bash)
 
-  ```bash
-  sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-  sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-  sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
-  ``` 
+  {% include [install-certificate](../../_includes/mdb/mkf/install-certificate.md) %}
+
+{% if audience != "internal" %}
 
 - Windows (PowerShell)
 
   ```powershell
-  mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\YandexCA.crt https://{{ s3-storage-host }}{{ pem-path }}
+  mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\{{ crt-local-file }} https://{{ s3-storage-host }}{{ pem-path }}
   ```
 
-{% endlist %}
-
-{% else %}
-
-```bash
-sudo wget "{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
-```
-
 {% endif %}
+
+{% endlist %}
 
 Полученный SSL-сертификат также используется при работе с [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
 
@@ -163,8 +152,8 @@ sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
 
 {% include [conn-strings-environment](../../_includes/mdb/mkf-conn-strings-env.md) %}
 
-Перед подключением к хостам кластера с использованием SSL-соединения, [подготовьте сертификат](#get-ssl-cert). В примерах ниже предполагается, что сертификат `YandexCA.crt` расположен в директории:
-* `/usr/local/share/ca-certificates/Yandex/` для Ubuntu;
+Перед подключением к хостам кластера с использованием SSL-соединения, [подготовьте сертификат](#get-ssl-cert). В примерах ниже предполагается, что сертификат `{{ crt-local-file }}` расположен в директории:
+* `{{ crt-local-dir }}` для Ubuntu;
 * `$HOME\.kafka\` для Windows.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}

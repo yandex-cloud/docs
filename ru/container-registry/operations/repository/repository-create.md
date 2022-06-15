@@ -1,4 +1,4 @@
-#  Создать репозиторий
+# Создать репозиторий
 
 Чтобы создать [репозиторий](../../concepts/repository.md):
 
@@ -7,7 +7,6 @@
 - {{ TF }}
 
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
   1. Опишите в конфигурационном файле параметры ресурса `yandex_container_repository`:
      * `name` — имя репозитория в формате `<id реестра>/<имя Docker-образа>`. Вы можете получить идентификатор [реестра](../../concepts/registry.md) из [списка реестров в каталоге](../registry/registry-list.md#registry-list).
 
@@ -19,7 +18,7 @@
      >}
      >```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/container_repository).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/container_repository).
 
   1. Выполните проверку с помощью команды:
 

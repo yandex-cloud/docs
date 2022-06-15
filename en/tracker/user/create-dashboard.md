@@ -16,7 +16,7 @@ To create a dashboard:
 
     {% if audience == "external" %}- [Invitation form](widgets.md#invite_form): This type of widget lets you invite your colleagues to {{ tracker-name }}.{% endif %}
 
-    Most widgets contain information about a specific set of issues. The list of issues to include in the widget is set using a [filter](filters.md). You can set a filter via a [direct link](filters.md), a [name](create-filter.md), or the [query language](query-filter.md).
+    Most widgets contain information about a specific set of issues. The list of issues to include in the widget is set using a filter. You can set a filter via a [direct link](create-filter.md), a [name](create-filter.md), or the [query language](query-filter.md).
 
 1. Arrange the widgets however you like and click **Save**.
 

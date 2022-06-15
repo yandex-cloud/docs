@@ -1,5 +1,9 @@
 ---
-title: Yandex Managed Service for Apache Kafka®
+title:
+  - text: Yandex Managed Service for Apache Kafka®
+    when: product == "yandex-cloud"
+  - text: Managed Service for Apache Kafka®
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Getting started
@@ -12,10 +16,12 @@ items:
         href: operations/cluster-list.md
       - name: Creating clusters
         href: operations/cluster-create.md
-      - name: Connecting to clusters
+      - name: Connecting to a cluster
         href: operations/connect.md
       - name: Stopping and starting clusters
         href: operations/cluster-stop.md
+      - name: Upgrading the Apache Kafka® version
+        href: operations/cluster-version-update.md
       - name: Changing cluster settings
         href: operations/cluster-update.md
       - name: Managing Apache Kafka® hosts
@@ -28,13 +34,13 @@ items:
         href: operations/cluster-connector.md
       - name: Viewing cluster logs
         href: operations/cluster-logs.md
-      - name: Deleting a cluster
+      - name: Deleting clusters
         href: operations/cluster-delete.md
-      - name: Monitoring the state of a cluster and hosts
-        href: operations/monitoring.md        
+      - name: Monitoring the state of clusters and hosts
+        href: operations/monitoring.md
   - name: Practical guidelines
     items:
-      - name: All use cases
+      - name: All tutorials
         href: tutorials/index.md
       - name: Data delivery in Managed Service for ClickHouse
         href: tutorials/send-data-to-mch.md
@@ -42,16 +48,19 @@ items:
         href: tutorials/kafka-connect.md
       - name: Data delivery in ksqlDB
         href: tutorials/use-ksqldb-with-mkf.md
-      - name: >-
-          Using Confluent Schema Registry with Managed Service for Apache Kafka®
-        href: tutorials/confluent-schema-registry.md
-      - name: Migrating with MirrorMaker 2.0
-        href: tutorials/mirrormaker-unmanaged-topics.md
+      - name: Using schema registries with Managed Service for Apache Kafka®
+        items:
+        - name: Overview
+          href: tutorials/schema-registry-overview.md
+        - name: Working with the managed schema registry
+          href: tutorials/managed-schema-registry.md
+        - name: Working with Confluent Schema Registry
+          href: tutorials/confluent-schema-registry.md
       - name: Delivering data using Debezium
         href: tutorials/kafka-cdc.md
   - name: Concepts
     items:
-      - name: Relationship between service resources
+      - name: Relationships between service resources
         href: concepts/index.md
       - name: Topics and partitions
         href: concepts/topics.md
@@ -71,6 +80,8 @@ items:
         href: concepts/storage.md
       - name: Connectors
         href: concepts/connectors.md
+      - name: Maintenance
+        href: concepts/maintenance.md
       - name: Apache Kafka® settings
         href: concepts/settings-list.md
   - name: Access management
@@ -92,5 +103,8 @@ items:
         include:
           repo: docs
           path: en/_api-ref/mdb/kafka/toc.yaml
+  - name: Revision history
+    href: release-notes.md
+    when: product == "yandex-cloud"
   - name: Questions and answers
     href: qa/index.md

@@ -129,18 +129,18 @@
     ```
     на
     ```
-    https://validation.certificate-manager.api.cloud.yandex.net/<Идентификатор сертификата>/*
+    https://validation.certificate-manager.{{ api-host }}/<Идентификатор сертификата>/*
     ```
 
 Пример настройки перенаправления в nginx-конфигурации:
 ```
 server {
   location ~ ^/.well-known/acme-challenge/([a-zA-Z0-9-_]+)$ {
-    return 301 https://validation.certificate-manager.api.cloud.yandex.net/<Идентификатор сертификата>/$1;
+    return 301 https://validation.certificate-manager.{{ api-host }}/<Идентификатор сертификата>/$1;
   }
 }
 ```
 
 #### См. также {#see-also}
 
-* [Документация Let's Encrypt. Виды проверок](https://letsencrypt.org/ru/docs/challenge-types/)
+* [Документация Let's Encrypt. Виды проверок]{% if lang == "ru" %}(https://letsencrypt.org/ru/docs/challenge-types/){% else %}(https://letsencrypt.org/docs/challenge-types/){% endif %}

@@ -6,14 +6,17 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+1. Improved surname recognition and punctuation quality in `general:rc` model. 
+1. [Previous release](#250422) changes available in `general` model.
+
+## Previous versions {#previous}
+
 ### Release 25.04.22 {#250422}
 
 Changes to the `general:rc` model:
 
 1. Improved recognition of such words as gasification and regasification.
 1. Added service feedback when processing OGG-OPUS format was added. If a stream isn't valid audio in OPUS format, the service returns `Invalid_Argument`.
-
-## Previous versions {#previous}
 
 ### Release 19.04.22 {#190422}
 

@@ -1,5 +1,11 @@
 # Управление хостами кластера
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 Вы можете добавлять и удалять хосты кластера, а также управлять их настройками.
 
 ## Получить список хостов в кластере {#list}
@@ -30,8 +36,8 @@
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------------+--------------+---------+--------+---------------+
-  | rc1b...{{ dns-zone }} | c9q5k4ve7... | MASTER  | ALIVE  | ru-central1-b |
-  | rc1c...{{ dns-zone }} | c9q5k4ve7... | REPLICA | ALIVE  | ru-central1-c |
+  | rc1b...{{ dns-zone }} | c9q5k4ve7... | MASTER  | ALIVE  | {{ region-id }}-b |
+  | rc1c...{{ dns-zone }} | c9q5k4ve7... | REPLICA | ALIVE  | {{ region-id }}-c |
   +----------------------------+--------------+---------+--------+---------------+
   ```
 
@@ -41,8 +47,8 @@
   +----------------------+--------------+---------+--------+---------------+
   |         NAME         |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------+--------------+---------+--------+---------------+
-  | rc1b...{{ dns-zone }} | c9q5k4ve7... | MASTER  | ALIVE  | ru-central1-b |
-  | rc1c...{{ dns-zone }} | c9q5k4ve7... | REPLICA | ALIVE  | ru-central1-c |
+  | rc1b...{{ dns-zone }} | c9q5k4ve7... | MASTER  | ALIVE  | {{ region-id }}-b |
+  | rc1c...{{ dns-zone }} | c9q5k4ve7... | REPLICA | ALIVE  | {{ region-id }}-c |
   +----------------------+--------------+---------+--------+---------------+
   ```
 
@@ -93,15 +99,15 @@
   1. Запросите список подсетей кластера, чтобы выбрать подсеть для нового хоста:
 
       ```
-      yc vpc subnet list
+      $ yc vpc subnet list
 
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
-      | b0cl69... | default-c | enp6rq7... | ru-central1-c | [172.16.0.0/20]  |
-      | e2lkj9... | default-b | enp6rq7... | ru-central1-b | [10.10.0.0/16]   |
-      | e9b0ph... | a-2       | enp6rq7... | ru-central1-a | [172.16.32.0/20] |
-      | e9b9v2... | default-a | enp6rq7... | ru-central1-a | [172.16.16.0/20] |
+      | b0cl69... | default-c | enp6rq7... | {{ region-id }}-c | [172.16.0.0/20]  |
+      | e2lkj9... | default-b | enp6rq7... | {{ region-id }}-b | [10.10.0.0/16]   |
+      | e9b0ph... | a-2       | enp6rq7... | {{ region-id }}-a | [172.16.32.0/20] |
+      | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |
       +-----------+-----------+------------+---------------+------------------+
       ```
       {% if audience != "internal" %}
@@ -117,7 +123,7 @@
   1. Посмотрите описание команды CLI для добавления хостов:
 
      ```
-     {{ yc-mdb-my }} host add --help
+     $ {{ yc-mdb-my }} host add --help
      ```
 
   1. Выполните команду добавления хоста (в примере приведены не все доступные параметры):
@@ -167,7 +173,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -268,7 +274,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -314,7 +320,7 @@
      --cluster-name=<имя кластера>
   ```
 
-  Имя хоста можно запросить со [списком хостов в кластере](#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  Имя хоста можно запросить со [списком хостов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - Terraform
 
@@ -334,7 +340,7 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 

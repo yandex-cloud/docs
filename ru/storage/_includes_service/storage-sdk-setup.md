@@ -10,7 +10,7 @@
 - Регион по умолчанию в файле `.aws/config`:
    ```
    [default]
-               region=ru-central1
+               region={{ region-id }}
    ```
    {% note info %}
 

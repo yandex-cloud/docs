@@ -1,19 +1,22 @@
 # Monitoring the state of a cluster and hosts
 
-Using monitoring tools in the management console, you can track the status of a{{ mms-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.
-
-{% include [monitoring-provides](../../_includes/mdb/monitoring-provides.md) %}
+{% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
 New data for charts is received every {{ graph-update }}.
 
 {% include [note-info-monitoring-auto-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
+
+{% include [alerts](../../_includes/mdb/alerts.md) %}
 
 ## Monitoring cluster status {#monitoring-cluster}
 
 To view detailed information about the {{ mms-name }} cluster status:
 
 1. Go to the folder page and select **{{ mms-name }}**.
-1. Click on the name of the cluster and open the **Monitoring** tab.
+
+1. Click on the name of a cluster and open the **Monitoring** tab.
+
+1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
 The following charts open on the page:
 
@@ -21,7 +24,7 @@ The following charts open on the page:
 
 * **Batch Requests/sec**: The number of batch operations performed on each host per second. For more information about batch operations, see the [documentation {{ MS }}]({% if lang=="ru" %}https://docs.microsoft.com/ru-ru/sql/odbc/reference/develop-app/batches-of-sql-statements{% endif %}{% if lang=="en" %}https://docs.microsoft.com/en-us/sql/odbc/reference/develop-app/batches-of-sql-statements{% endif %}).
 
-* **CPU**: The loading of processor cores. As the load goes up, the `percent_idle_time` value goes down.
+* **CPU**: The load on processor cores. As the load goes up, the `percent_idle_time` value goes down.
 
 * **Disk capacity on primary, [bytes]**: Disk space usage on the [primary replica](../concepts/replication.md) (in bytes).
 
@@ -45,7 +48,7 @@ The following charts open on the page:
 
 ## Monitoring the state of hosts {#monitoring-hosts}
 
-To view detailed information about the status of individual {{ mms-name }} hosts:
+To view detailed information about the state of individual {{ mms-name }} hosts:
 
 1. Go to the folder page and select **{{ mms-name }}**.
 1. Click the name of the desired cluster and select **Hosts** → **Monitoring**.
@@ -53,27 +56,22 @@ To view detailed information about the status of individual {{ mms-name }} hosts
 
 This page displays the following charts:
 
-* **Active Transactions [count]**: The number of active transactions per database.
+* **Active Transactions**: The number of active transactions per database.
 
-* **Bytes send/received**: The average number of bytes per second:
-    * **bytes_received_persec**: Bytes received from the network.
-    * **bytes_sent_persec**: Bytes sent.
+* **Bytes send/received**: The speed of data exchange over the network (bytes per second).
 
-* **CPU (processor time)**: vCPU usage (%):
-    * **Interrupt Time**: Handling interrupts.
-    * **User Time**: Operation in user mode.
-    * **Privileged Time**: Operation in kernel mode.
+* **CPU (processor time)**: CPU usage.
 
-* **Disk Latency**: The delay in storage response (ms):
-    * **avg._disk_sec/transfer**: The average time it takes to perform I/O operations.
-    * **avg._disk_sec/write**: The average data write time.
-    * **avg._disk_sec/read**: The average data read time.
-	
-* **Disk Bytes**: The average size of data written to and read from the storage (in bytes).
+* **Disk Latency**: Waiting time for disk operations:
+    * **avg.\_disk_sec/transfer**: The average time it takes to perform disk operations.
+    * **avg.\_disk_sec/write**: The average data write time.
+    * **avg.\_disk_sec/read**: The average data read time.
 
-* **Disk read/write time**: The average amount of time it takes to write data to or read it from storage (in milliseconds).
+* **Disk bytes**: The speed of disk operations (bytes per second).
 
-* **Memory Grants Pending**: The number of queries waiting for a memory grant on the host.
+* **Disk read/write time**: Disk usage (%).
+
+* **Memory Grants Pending**: The number of queries waiting for a memory grant.
 
 * **Packets send/received**: The number of processed network packets:
 
@@ -104,5 +102,60 @@ This page displays the following charts:
     * **Total**: The total number of errors on the host.
 
 * **Space used/available**: Shows how much disk space is used and available (in bytes).
+    * **avg._disk_sec/transfer**: The average time it takes to perform I/O operations.
+    * **avg._disk_sec/write**: The average data write time.
+    * **avg._disk_sec/read**: The average data read time.
 
 * **User connections**: The number of host connections. Some connections will always be active. They are used by the cluster itself and the {{ yandex-cloud }} monitoring services.
+
+## Integration with {{ monitoring-full-name }} {#monitoring-integration}
+
+To set up [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
+
+1. In the Management console, select the folder with the cluster you wish to configure alerts for.
+1. Click the ![image](../../_assets/ugly-sandwich.svg) icon and select **Monitoring**.
+1. Under **Service dashboards**, select:
+    * **{{ mms-name }} — Cluster Overview** to configure cluster alerts.
+    * **{{ mms-name }} — Host Overview** to configure host alerts.
+1. On the desired metrics chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. {% if audience == "external" %}For more on the query language, [see the {{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). {% endif %}
+1. Set the `Alarm` and `Warning` notification threshold values.
+1. Click **Create alert**.
+
+To have other cluster health indicators monitored automatically:
+
+{% if audience == "external" %}
+
+1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
+{% else %}
+1. Create an alert. {% endif %}
+1. Add a status metric.
+1. Set the alert threshold values in the alert settings.
+
+Recommended threshold values:
+
+| Metric                                       | Parameter                                       | `Alarm`                     | `Warning`                  |
+| ---------------------------------------------: | :------------------------------------------------: | :--------------------------: | :--------------------------: |
+| Storage space used | `mdb_volume_space.available_space_bytes`          | `10% of storage size` | `20% of storage size` |
+| CPU usage                                | `win_cpu.percent_idle_time`                       | `10`                        | `20`                        |
+| The number of queries waiting for a memory grant | `mdb_performance_counters.memory_grants_pending` | `2`                         | `1`                         |
+
+For the current storage size, see [detailed information about the cluster](cluster-list.md#get-cluster).
+
+## Cluster state and status {#cluster-health-and-status}
+
+{% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
+
+To view a cluster's state and status:
+
+1. Go to the folder page and select **{{ mms-name }}**.
+1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
+
+### Cluster states {#cluster-health}
+
+{% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
+
+### Cluster statuses {#cluster-status}
+
+{% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
+

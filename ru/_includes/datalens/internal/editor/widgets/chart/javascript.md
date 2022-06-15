@@ -6,13 +6,13 @@
 
 ### Доступные методы {#available-methods-javascript}
 
-* **`ChartEditor.getParams()`** - возвращает объект с нормализованными параметрами.
+* **`ChartEditor.getParams()`** — возвращает объект с нормализованными параметрами.
 
-* **`ChartEditor.getLoadedData()`** - возвращает объект с данными, запрошенными на вкладке Urls.
+* **`ChartEditor.getLoadedData()`** — возвращает объект с данными, запрошенными на вкладке Urls.
 
-* **`ChartEditor.updateConfig(config)`** - доопределяет результат вкладки [Config](#config) аргументом `config`.
+* **`ChartEditor.updateConfig(config)`** — доопределяет результат вкладки [Config](config.md) аргументом `config`.
 
-* **`ChartEditor.updateHighchartsConfig(config)`** - доопределяет результат вкладки [Highcharts](#highcharts) аргументом `config`.
+* **`ChartEditor.updateHighchartsConfig(config)`** — доопределяет результат вкладки [Highcharts](highcharts.md) аргументом `config`.
 
 ### Форматы данных {#data-formats-javascript}
 

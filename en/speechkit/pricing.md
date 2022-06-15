@@ -22,14 +22,7 @@ The cost of using {{ speechkit-name }} for speech recognition depends on the rec
 
 #### Streaming speech recognition {#rules-stt-streaming}
 
-{% if audience == "test" %}
-
-The cost of [streaming recognition](stt/streaming.md) depends on the version of the API used.
-
-The billing unit when using {{ speechkit-name }} [API v3](v3/api-ref/grpc/index.md) is a request to the model. Cost is calculated for a calendar month [(Reporting period](../billing/concepts/glossary#period)).
-{% endif %}
-
-The cost of using {{ speechkit-name }} [API v2](stt/api/streaming-api.md) is calculated based on the [pricing rules for synchronous recognition](#rules-stt-short).
+The cost of using {{ speechkit-name }} streaming recognition is calculated based on the [pricing rules for synchronous recognition](#rules-stt-short).
 
 #### Synchronous recognition {#rules-stt-short}
 
@@ -74,12 +67,6 @@ The minimum billable amount is 15 seconds for every pair of channels. Audio that
 ## Pricing {#prices}
 
 ### Speech synthesis {#prices-tts}
-
-{% note warning %}
-
-From April 13, 2022, the usage of voices `oksana`, `ermil`, `jane`, `omazh`, `zahar` is calculated like usage of premium voices.
-
-{% endnote %}
 
 {% if region == "ru"%}
 

@@ -15,16 +15,18 @@ To create a VM:
 
    {% include [gpu-os](../gpu-os.md) %}
 
-1. (optional) Under **Disks and file storage**, configure a boot disk:
+1. (optional) Under **Disks{% if product == "yandex-cloud" %} and file storage{% endif %}**, configure a boot disk:
    * Select the [disk type](../../../compute/concepts/disk.md#disks_types).
    * Specify the necessary disk size.
 
+{% if product == "yandex-cloud" %}
 1. (optional) Under **Disks and file storage**, select the **File storage** tab, connect a [file store](../../../compute/concepts/filesystem.md), and enter the device name.
+{% endif %}
 
 1. Under **Computing resources**:
    * Choose a [platform](../../../compute/concepts/vm-platforms.md#gpu-platforms):
-      * {{ v100-broadwell }}.
-      * {{ v100-cascade-lake }}.
+      {% if product == "yandex-cloud" %}* {{ v100-broadwell }}.{% endif %}
+      {% if product == "yandex-cloud" %}* {{ v100-cascade-lake }}.{% endif %}
       * {{ a100-epyc }}.
    * Select a virtual machine [configuration](../../../compute/concepts/gpus.md#config) specifying the required number of GPUs.
    * If necessary, make your VM [preemptible](../../../compute/concepts/preemptible-vm.md).
@@ -37,7 +39,7 @@ To create a VM:
       * Click **Create**.
          Each network must have at least one [subnet](../../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **Add subnet**.
    * In the **Public IP** field, choose a method for assigning an IP address:
-      * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool. With this, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md) using the option below.
+      * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool. {% if product == "yandex-cloud" %}With this, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md) using the option below.{% endif %}
       * **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
       * **No address**: Don't assign a public IP address.
    * In the **Internal address** field, select the method for assigning internal addresses: **Auto** or **Manual**.

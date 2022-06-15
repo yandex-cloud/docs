@@ -45,7 +45,7 @@ Sample gRPC description of the [List](https://github.com/yandex-cloud/cloudapi/b
 Sample REST request used to get a list of disks in the folder:
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/disks?folderId=a3s17h9sbq5asdgss12&pageToken=1acdeb26078146e6
+GET https://compute.{{ api-host }}/compute/v1/disks?folderId=a3s17h9sbq5asdgss12&pageToken=1acdeb26078146e6
 ```
 
 Response:
@@ -58,7 +58,7 @@ Response:
       "createdAt": "2018-08-09T12:54:53+00:00",
       "id": "de019dv504rmhoinn3nk",
       "name": "development",
-      "zoneId" : "ru-central1-a",
+      "zoneId" : "{{ region-id }}-a",
       "typeId" : "network-ssd",
       "size" : 5368709120 
     },

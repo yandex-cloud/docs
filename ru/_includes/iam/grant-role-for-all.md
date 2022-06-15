@@ -18,13 +18,15 @@
 
 - CLI
 
-    Назначьте роль `viewer` на каталог `my-folder`. В качестве субъекта укажите тип `system` и идентификатор `allAuthenticatedUsers`:
+  {% include [cli-install](../cli-install.md) %}
 
-    ```bash
-    yc resource-manager folder add-access-binding my-folder \
-      --role viewer \
-      --subject system:allAuthenticatedUsers
-    ```
+  Назначьте роль `viewer` на каталог `my-folder`. В качестве субъекта укажите тип `system` и идентификатор `allAuthenticatedUsers`:
+
+  ```bash
+  yc resource-manager folder add-access-binding my-folder \
+    --role viewer \
+    --subject system:allAuthenticatedUsers
+  ```
 
 - API
 
@@ -95,7 +97,7 @@
     
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/resourcemanager_folder_iam_binding).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
   
   1. Проверьте конфигурацию командой:
      ```

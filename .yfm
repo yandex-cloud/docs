@@ -13,6 +13,7 @@ ignore:
   - "ru/ydb/ydb-docs-core/en/toc.yaml"
   - "en/ydb/ydb-docs-core/ru/toc.yaml"
   - "en/ydb/ydb-docs-core/en/toc.yaml"
+  - "en/legal/*"
 
 connector:
     type: github

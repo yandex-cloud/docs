@@ -1,4 +1,4 @@
-# Getting an IAM token for a Yandex account
+# Getting an IAM token for a {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %} account
 
 {% note info %}
 

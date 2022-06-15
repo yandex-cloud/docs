@@ -1,42 +1,82 @@
-title: Yandex Object Storage
+title:
+  - text: Yandex Object Storage
+    when: product == "yandex-cloud"
+  - text: Object Storage
+    when: product == "cloud-il"
 description:
-  - >-
-    Yandex Object Storage is a universal, scalable solution for data storage. It
-    is the perfect choice both for high-load services that require reliable and
-    fast access to data, and for projects with minimal requirements for storage
-    infrastructure.
-  - >-
-    With Yandex Object Storage, you can: <ul> <li>Store data in any format as <a
-    href="/docs/storage/concepts/object">objects</a> accessed by text ID.</li>
-    <li>Use a variety of <a href="/docs/storage/concepts/storage-class">storage
-    classes</a> for objects and manage their <a
-    href="/docs/storage/concepts/lifecycles">lifecycles</a>.</li> <li>Store <a
-    href="/docs/storage/concepts/multipart">multipart objects</a> that are
-    several TB in size.</li> <li>Publish a static <a
-    href="/docs/storage/concepts/hosting">website</a>.</li> </ul>
-  - >-
-    <a href="/docs/storage/s3">The Yandex Object Storage HTTP API</a> is
-    compatible with the Amazon S3 API. This means that, when working with the
-    service, you can use multiple <a href="/docs/storage/tools">tools</a>
-    designed for object storage operations.
-  - >-
-    The Yandex Cloud infrastructure <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">fully</a>
-    complies with the Russian Federal Law on Personal Data (No. 152-FZ).
-  - >-
-    The service is subject to the <a
-    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
-    service level is defined in the <a
-    href="https://yandex.com/legal/cloud_sla_storage">Yandex Object Storage
-    Service Level</a>.
+  - text:
+      - >-
+        Yandex Object Storage is a universal, scalable solution for data storage. It
+        is the perfect choice both for high-load services that require reliable and
+        fast access to data, and for projects with minimal requirements for storage
+        infrastructure.
+      - >-
+        With Yandex Object Storage, you can: <ul> <li>Store data in any format as <a
+        href="/docs/storage/concepts/object">objects</a> accessed by text ID.</li>
+        <li>Use a variety of <a href="/docs/storage/concepts/storage-class">storage
+        classes</a> for objects and manage their <a
+        href="/docs/storage/concepts/lifecycles">lifecycles</a>.</li> <li>Store <a
+        href="/docs/storage/concepts/multipart">multipart objects</a> that are
+        several TB in size.</li> <li>Publish a static <a
+        href="/docs/storage/concepts/hosting">website</a>.</li> </ul>
+      - >-
+        <a href="/docs/storage/s3">The Yandex Object Storage HTTP API</a> is
+        compatible with the Amazon S3 API. This means that, when working with the
+        service, you can use multiple <a href="/docs/storage/tools">tools</a>
+        designed for object storage operations.
+      - >-
+        The Yandex Cloud infrastructure <a
+        href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">fully</a>
+        complies with the Russian Federal Law on Personal Data (No. 152-FZ).
+      - >-
+        The service is subject to the <a
+        href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
+        service level is defined in the <a
+        href="https://yandex.com/legal/cloud_sla_storage">Yandex Object Storage
+        Service Level</a>.
+    when: product == "yandex-cloud"
+  - text:
+      - >-
+        Object Storage is a universal, scalable solution for data storage. It
+        is the perfect choice both for high-load services that require reliable and
+        fast access to data, and for projects with minimal requirements for storage
+        infrastructure.
+      - >-
+        With Object Storage, you can: <ul> <li>Store data in any format as <a
+        href="/docs/storage/concepts/object">objects</a> accessed by text ID.</li>
+        <li>Use a variety of <a href="/docs/storage/concepts/storage-class">storage
+        classes</a> for objects and manage their <a
+        href="/docs/storage/concepts/lifecycles">lifecycles</a>.</li> <li>Store <a
+        href="/docs/storage/concepts/multipart">multipart objects</a> that are
+        several TB in size.</li> <li>Publish a static <a
+        href="/docs/storage/concepts/hosting">website</a>.</li> </ul>
+      - >-
+        <a href="/docs/storage/s3">The Object Storage HTTP API</a> is
+        compatible with the Amazon S3 API. This means that, when working with the
+        service, you can use multiple <a href="/docs/storage/tools">tools</a>
+        designed for object storage operations.
+    when: product == "cloud-il"
 nav:
-  title: Yandex Object Storage
+  title:
+    - text: Yandex Object Storage
+      when: product == "yandex-cloud"
+    - text: Object Storage
+      when: product == "cloud-il"
 meta:
-  title: Yandex Object Storage
+  title:
+    - text: Yandex Object Storage
+      when: product == "yandex-cloud"
+    - text: Object Storage
+      when: product == "cloud-il"
 links:
   - title: Getting started
     description: Create your first bucket and upload data
     href: quickstart
+    when: product == "yandex-cloud"
+  - title: Getting started
+    description: Create your first bucket and upload data
+    href: quickstart.html
+    when: product == "cloud-il"
   - title: Step-by-step instructions
     description: Instructions on how to perform routine operations
     href: operations/
@@ -46,9 +86,15 @@ links:
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits
+    when: product == "yandex-cloud"
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits.html
+    when: product == "cloud-il"
   - title: Access management
     description: Configure access rights to work with the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+    when: product == "yandex-cloud"

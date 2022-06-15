@@ -11,12 +11,12 @@ keywords:
 
 Кластер {{ mes-name }} — это группа из нескольких связанных друг с другом хостов {{ ES }}. Кластер обеспечивает высокую производительность поиска путем распределения задач поиска и индексации по всем хостам кластера с ролью _Data node_. Подробнее о ролях в кластере см. в разделе [{#T}](../concepts/hosts-roles.md).
 
-Количество хостов с ролью _Data node_, которые можно создать вместе с {{ ES }}-кластером, зависит от выбранного [типа хранилища](../concepts/storage.md):
+{% note info %}
 
-* При использовании хранилища на **локальных SSD-дисках** или на **нереплицируемых SSD-дисках** вы можете создать кластер из трех или более хостов (минимум три хоста необходимо, чтобы обеспечить отказоустойчивость).
-* При использовании хранилища на **сетевых HDD-дисках** или на **сетевых SSD-дисках** вы можете добавить любое количество хостов в пределах [текущей квоты](../concepts/limits.md).
+* Количество хостов с ролью _Data node_, которые можно создать вместе с {{ ES }}-кластером, зависит от выбранного {% if audience != "internal" %}[типа хранилища](../concepts/storage.md#storage-type-selection){% else %}[типа хранилища](../concepts/storage.md){% endif %} и [класса хостов](../concepts/instance-types.md#available-flavors).
+* Доступные типы хранилища [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
 
-После создания кластера в него можно добавить дополнительные хосты, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
+{% endnote %}
 
 ## Создать кластер {#create-cluster}
 
@@ -100,9 +100,7 @@ keywords:
 
       {% include [Дополнительные настройки кластера MES](../../_includes/mdb/mes/extra-settings.md) %}
 
-  1. При необходимости задайте настройки СУБД:
-
-      Доступна настройка параметра `Fielddata cache size` — процент или абсолютное значение области динамической памяти, которая выделена для кеша `fielddata`, например: 10% или 512 МБ.
+  1. При необходимости задайте [настройки СУБД](../concepts/settings-list.md).
 
   1. Нажмите кнопку **Создать**.
 
@@ -151,7 +149,7 @@ keywords:
           --masternode-disk-size <размер хранилища в гигабайтах для хостов с ролью Master node> \
           --masternode-disk-type <тип хранилища для хостов с ролью Master node> \
           --security-group-ids <список идентификаторов групп безопасности> \
-          --version <версия {{ ES }}> \
+          --version <версия {{ ES }}: {{ versions.cli.str }}> \
           --edition <редакция {{ ES }}: basic, gold или platinum> \
           --admin-password <пароль пользователя admin> \
           --plugins=<имя плагина 1>,...,<имя плагина N> \
@@ -184,6 +182,8 @@ keywords:
 
         Пример структуры конфигурационного файла:
 
+        {% if product == "yandex-cloud" %}
+
         ```hcl
         terraform {
           required_providers {
@@ -206,7 +206,7 @@ keywords:
           network_id  = "<идентификатор сети>"
 
           config {
-            version = "<(необязательно) версия {{ ES }}>"
+            version = "<(необязательно) версия {{ ES }}: {{ versions.tf.str }}>"
             edition = "<(необязательно) редакция {{ ES }}: basic, gold или platinum>"
 
             admin_password = "<пароль пользователя-администратора>"
@@ -252,7 +252,82 @@ keywords:
         }
         ```
 
-        1. {% include [maintenance-window](../../_includes/mdb/mes/terraform-maintenance-window.md) %}
+        {% endif %}
+
+        {% if product == "cloud-il" %}
+
+        ```hcl
+        terraform {
+          required_providers {
+            yandex = {
+              source = "yandex-cloud/yandex"
+            }
+          }
+        }
+
+        provider "yandex" {
+          endpoint  = "{{ api-host }}:443"
+          token     = "<статический ключ сервисного аккаунта>"
+          cloud_id  = "<идентификатор облака>"
+          folder_id = "<идентификатор каталога>"
+          zone      = "<зона доступности>"
+        }
+
+        resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+          name        = "<имя кластера>"
+          environment = "<окружение, PRESTABLE или PRODUCTION>"
+          network_id  = "<идентификатор сети>"
+
+          config {
+            version = "<(необязательно) версия {{ ES }}: {{ versions.tf.str }}>"
+            edition = "<(необязательно) редакция {{ ES }}: basic, gold или platinum>"
+
+            admin_password = "<пароль пользователя-администратора>"
+
+            data_node {
+              resources {
+                resource_preset_id = "<класс хоста>"
+                disk_type_id       = "<тип хранилища>"
+                disk_size          = <объем хранилища, ГБ>
+              }
+            }
+
+            master_node {
+              resources {
+                resource_preset_id = "<класс хоста>"
+                disk_type_id       = "<тип хранилища>"
+                disk_size          = <объем хранилища, ГБ>
+              }
+            }
+
+            plugins = [ "<список имен плагинов>" ]
+
+          }
+
+          security_group_ids = [ "<список групп безопасности>" ]
+
+          host {
+            name = "<имя хоста>"
+            zone = "<зона доступности>"
+            type = "<роль хоста: DATA_NODE или MASTER_NODE>"
+            assign_public_ip = <публичный доступ к хосту: true или false>
+            subnet_id = "<идентификатор подсети>"
+          }
+        }
+
+        resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
+
+        resource "yandex_vpc_subnet" "<имя подсети>" {
+          name           = "<имя подсети>"
+          zone           = "<зона доступности>"
+          network_id     = "<идентификатор сети>"
+          v4_cidr_blocks = ["<диапазон>"]
+        }
+        ```
+
+        {% endif %}
+
+        1. {% include [Maintenance window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
 
         Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
 
@@ -263,6 +338,8 @@ keywords:
     1. Создайте кластер.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
 - API
 
@@ -302,7 +379,7 @@ keywords:
     Допустим, нужно создать {{ ES }}-кластер со следующими характеристиками:
 
     * Имя `my-es-clstr`.
-    * Версия `7.10`.
+    * Версия `{{ versions.cli.latest }}`.
     * Редакция `Platinum`.
     * Окружение `PRODUCTION`.
     * Сеть `default`.
@@ -325,7 +402,7 @@ keywords:
       --datanode-disk-size=20 \
       --admin-password=esadminpwd \
       --security-group-ids enpp2s8l3irhk5eromd7 \
-      --version 7.10 \
+      --version {{ versions.cli.latest }} \
       --edition platinum \
       --deletion-protection=true
     ```
@@ -335,7 +412,7 @@ keywords:
     Допустим, нужно создать {{ ES }}-кластер со следующими характеристиками:
 
     * Имя `my-es-clstr`.
-    * Версия `7.13`.
+    * Версия `{{ versions.tf.latest }}`.
     * Редакция `Basic`.
     * Окружение `PRODUCTION`.
     * Облако с идентификатором `{{ tf-cloud-id }}`.
@@ -347,6 +424,8 @@ keywords:
     * Пароль `esadminpwd` для пользователя `admin`.
 
     Конфигурационный файл для такого кластера выглядит так:
+
+    {% if product == "yandex-cloud" %}
 
     ```hcl
     terraform {
@@ -371,6 +450,7 @@ keywords:
 
       config {
         edition = "basic"
+        version = "{{ versions.tf.latest }}"
 
         admin_password = "esadminpwd"
 
@@ -388,7 +468,7 @@ keywords:
 
       host {
         name = "node"
-        zone = "ru-central1-c"
+        zone = "{{ region-id }}-c"
         type = "DATA_NODE"
         assign_public_ip = true
         subnet_id = yandex_vpc_subnet.mysubnet.id
@@ -426,5 +506,92 @@ keywords:
       }
     }
     ```
+
+    {% endif %}
+
+    {% if product == "cloud-il" %}
+
+    ```hcl
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+      }
+    }
+
+    provider "yandex" {
+      endpoint  = "{{ api-host }}:443"
+      token     = "<статический ключ сервисного аккаунта>"
+      cloud_id  = "{{ tf-cloud-id }}"
+      folder_id = "{{ tf-folder-id }}"
+      zone      = "{{ zone-id }}"
+    }
+
+    resource "yandex_mdb_elasticsearch_cluster" "my-es-clstr" {
+      name        = "my-es-clstr"
+      environment = "PRODUCTION"
+      network_id  = yandex_vpc_network.mynet.id
+
+      config {
+        edition = "basic"
+        version = "{{ versions.tf.latest }}"
+
+        admin_password = "esadminpwd"
+
+        data_node {
+          resources {
+            resource_preset_id = "s2.micro"
+            disk_type_id       = "network-ssd"
+            disk_size          = 20
+          }
+        }
+
+      }
+
+      security_group_ids = [ yandex_vpc_security_group.es-sg.id ]
+
+      host {
+        name = "node"
+        zone = "{{ region-id }}-c"
+        type = "DATA_NODE"
+        assign_public_ip = true
+        subnet_id = yandex_vpc_subnet.mysubnet.id
+      }
+
+    }
+
+    resource "yandex_vpc_network" "mynet" {
+      name = "mynet"
+    }
+
+    resource "yandex_vpc_subnet" "mysubnet" {
+      name           = "mysubnet"
+      zone           = "{{ zone-id }}"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+
+    resource "yandex_vpc_security_group" "es-sg" {
+      name       = "es-sg"
+      network_id = yandex_vpc_network.mynet.id
+
+      ingress {
+        description    = "Kibana"
+        port           = 443
+        protocol       = "TCP"
+        v4_cidr_blocks = [ "0.0.0.0/0" ]
+      }
+
+      ingress {
+        description    = "Elasticsearch"
+        port           = 9200
+        protocol       = "TCP"
+        v4_cidr_blocks = [ "0.0.0.0/0" ]
+      }
+    }
+    ```
+
+    {% endif %}
 
 {% endlist %}

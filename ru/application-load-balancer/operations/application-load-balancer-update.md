@@ -34,12 +34,15 @@
      ```
 
      Результат:
+     
+     {% if product == "yandex-cloud" %}
+     
      ```
      id: a5d88ep483cmbfm63g9t
      name: test-balancer2-updated
      folder_id: aoe197919j8elpeg1lkp
      status: ACTIVE
-     region_id: ru-central1
+     region_id: {{ region-id }}
      network_id: c64l1c06d15178sa87k0
      listeners:
      - name: test-listener
@@ -54,15 +57,47 @@
            http_router_id: a5dv7tjdo9gt2pq5l906
      allocation_policy:
        locations:
-       - zone_id: ru-central1-a
+       - zone_id: {{ region-id }}-a
          subnet_id: buc4gsmpj8hvramg61g8
-       - zone_id: ru-central1-b
+       - zone_id: {{ region-id }}-b
          subnet_id: blt6pcatjje62sqvjq5b
-       - zone_id: ru-central1-c
+       - zone_id: {{ region-id }}-c
          subnet_id: fo2ap2nrhjk9vpfdnno8
      log_group_id: eolul9ap0bv02i8bsp87
      created_at: "2021-04-26T12:12:13.624832586Z"
      ```
+     
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```
+     id: a5d88ep483cmbfm63g9t
+     name: test-balancer2-updated
+     folder_id: aoe197919j8elpeg1lkp
+     status: ACTIVE
+     region_id: il1
+     network_id: c64l1c06d15178sa87k0
+     listeners:
+     - name: test-listener
+       endpoints:
+       - addresses:
+         - external_ipv4_address:
+             address: 130.193.32.206
+         ports:
+         - "80"
+       http:
+         handler:
+           http_router_id: a5dv7tjdo9gt2pq5l906
+     allocation_policy:
+       locations:
+       - zone_id: il1-a
+         subnet_id: buc4gsmpj8hvramg61g8
+     log_group_id: eolul9ap0bv02i8bsp87
+     created_at: "2022-06-01T12:12:13.624832586Z"
+     ```
+
+     {% endif %}
 
   1. Укажите новые параметры обработчика:
 
@@ -132,11 +167,11 @@
            backend_group_id: ds77tero4f5h46l4e2gl
      allocation_policy:
        locations:
-       - zone_id: ru-central1-a
+       - zone_id: {{ region-id }}-a
          subnet_id: e9bs1hp7lgdl1g3n6ci1
-       - zone_id: ru-central1-b
+       - zone_id: {{ region-id }}-b
          subnet_id: e2le8i7hqa216f6i6php
-       - zone_id: ru-central1-c
+       - zone_id: {{ region-id }}-c
          subnet_id: b0cgk1au6fn203f3tqnf
      log_group_id: ckgs4u5km3u8j9f360md
      security_group_ids:
@@ -158,7 +193,7 @@
 
        allocation_policy {
          location {
-           zone_id   = "ru-central1-a"
+           zone_id   = "{{ region-id }}-a"
            subnet_id = yandex_vpc_subnet.test-subnet.id
          }
        }
@@ -182,7 +217,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_load_balancer).
+     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/alb_load_balancer).
 
   1. Проверьте конфигурацию командой:
 
@@ -270,7 +305,7 @@
 
        allocation_policy {
          location {
-           zone_id   = "ru-central1-a"
+           zone_id   = "{{ region-id }}-a"
            subnet_id = yandex_vpc_subnet.test-subnet.id 
          }
        }
@@ -294,7 +329,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_load_balancer).
+     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/alb_load_balancer).
 
   1. Проверьте конфигурацию командой:
 

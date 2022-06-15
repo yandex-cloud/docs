@@ -6,13 +6,13 @@
 
 ### Доступные методы {#available-methods}
 
-* **`ChartEditor.getParams()`** - возвращает объект с нормализованными параметрами.
+* **`ChartEditor.getParams()`** — возвращает объект с нормализованными параметрами.
 
-* **`ChartEditor.getLoadedData()`** - возвращает объект с данными, запрошенными на вкладке Urls.
+* **`ChartEditor.getLoadedData()`** — возвращает объект с данными, запрошенными на вкладке Urls.
 
-* **`ChartEditor.updateConfig(config)`** - доопределяет результат вкладки [Config](config.md) объектом `config`.
+* **`ChartEditor.updateConfig(config)`** — доопределяет результат вкладки [Config](config.md) объектом `config`.
 
-* **`ChartEditor.updateHighchartsConfig(config)`** - доопределяет результат вкладки [Highmaps](highmaps.md) объектом `config`.
+* **`ChartEditor.updateHighchartsConfig(config)`** — доопределяет результат вкладки [Highmaps](highmaps.md) объектом `config`.
 
 ### Пример {#example}
 

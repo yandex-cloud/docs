@@ -133,6 +133,8 @@
 
       Пример структуры конфигурационного файла:
 
+      {% if product == "yandex-cloud" %}
+
       ```hcl
       terraform {
         required_providers {
@@ -166,7 +168,47 @@
       }
       ```
 
-      Более подробную информацию о параметрах `yandex_cdn_resource` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/cdn_resource).
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```hcl
+      terraform {
+        required_providers {
+          yandex = {
+            source  = "yandex-cloud/yandex"
+            version = "0.69.0"
+          }
+        }
+      }
+
+      provider "yandex" {
+        endpoint  = "{{ api-host }}:443"
+        token     = "<статический ключ сервисного аккаунта>"
+        cloud_id  = "<идентификатор облака>"
+        folder_id = "<идентификатор каталога>"
+        zone      = "<зона доступности>"
+      }
+
+      resource "yandex_cdn_resource" "my_resource" {
+          cname               = "cdn1.yandex-example.ru"
+          active              = false
+          origin_protocol     = "https"
+          secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
+          origin_group_id     = yandex_cdn_origin_group.my_group.id
+          options {
+            edge_cache_settings    = "345600"
+            browser_cache_settings = "1800"
+            ignore_cookie          = true
+            ignore_query_params    = false
+          }
+
+      }
+      ```
+
+      {% endif %}
+
+      Более подробную информацию о параметрах `yandex_cdn_resource` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/cdn_resource).
 
   1. В командной строке перейдите в папку, где расположен конфигурационный файл Terraform.
 

@@ -76,7 +76,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
      --name ubuntu-cosmic \
      --description "Ubuntu Server 18.10 (Cosmic Cuttlefish)" \
      --family ubuntu \
-     --source-uri "https://storage.yandexcloud.net/mybucket/cosmic-server-cloudimg-amd64.vmdk"
+     --source-uri "https://{{ s3-storage-host }}/mybucket/cosmic-server-cloudimg-amd64.vmdk"
    ```
 
    If you know the minimum requirements for the size of a disk that will be created from this image, specify the size in GB:
@@ -85,7 +85,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
    yc compute image create \
      --name big-image \
      --min-disk-size 20 \
-     --source-uri "https://storage.yandexcloud.net/mybucket/cosmic-server-cloudimg-amd64.vmdk"
+     --source-uri "https://{{ s3-storage-host }}/mybucket/cosmic-server-cloudimg-amd64.vmdk"
    ```
 
    {% include [min-disk-size](../../_includes_service/min-disk-size.md) %}
@@ -109,7 +109,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
 
@@ -136,7 +136,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
 - API
 
-   Create a new image using the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) method of the gRPC API or the [create](../../api-ref/Image/create.md) method of the REST API `Image` resource. In the request, specify the link to the image.
+   Create a new image using the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) method of the gRPC API or the [Create](../../api-ref/Image/create.md) method of the REST API `Image` resource. In the request, specify the link to the image.
 
 {% endlist %}
 

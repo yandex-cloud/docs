@@ -27,11 +27,11 @@
   Чтобы получить список баз данных в кластере, выполните команду:
 
   ```
-  yc managed-redis shards list --cluster-name <имя кластера>
+  {{ yc-mdb-rd }} shards list --cluster-name <имя кластера>
   ```
-	  
+
   Результат:
-	  
+
   ```
   +--------------+
   |     NAME     |
@@ -121,6 +121,8 @@
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
+
 {% endlist %}
 
 Чтобы получить возможность размещать данные в новом шарде, запустите [ребалансировку кластера](#rebalance-cluster) {{ mrd-name }}.
@@ -152,8 +154,8 @@
   Чтобы удалить шард из кластера, выполните команду:
 
   ```
-  {{ yc-mdb-rd }} shards delete <имя шарда>
-    --cluster-name=<имя кластера>
+  {{ yc-mdb-rd }} shards delete <имя шарда> \
+     --cluster-name=<имя кластера>
   ```
 
   Имя шарда можно запросить со [списком шардов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md).
@@ -175,6 +177,8 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 {% endlist %}
 

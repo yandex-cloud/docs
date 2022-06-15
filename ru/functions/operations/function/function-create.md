@@ -75,12 +75,14 @@
             * `content.0.zip_filename` — имя ZIP-архива, содержащего исходный код функции.
              
         Пример структуры конфигурационного файла:
-      
+
+        {% if product == "yandex-cloud" %}
+
         ```
         provider "yandex" {
             token     = "<OAuth или статический ключ сервисного аккаунта>"
             folder_id = "<идентификатор каталога>"
-            zone      = "ru-central1-a"
+            zone      = "{{ region-id }}-a"
         }
 
         resource "yandex_function" "test-function" {
@@ -102,8 +104,42 @@
             value = "${yandex_function.test-function.id}"
         }
         ```
-      
-        Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+
+        {% endif %}
+
+        {% if product == "cloud-il" %}
+
+        ```
+        provider "yandex" {
+            endpoint  = "{{ api-host }}:443"
+            token     = "<статический ключ сервисного аккаунта>"
+            folder_id = "<идентификатор каталога>"
+            zone      = "{{ region-id }}-a"
+        }
+
+        resource "yandex_function" "test-function" {
+            name               = "test-function"
+            description        = "Test function"
+            user_hash          = "first-function"
+            runtime            = "python37"
+            entrypoint         = "main"
+            memory             = "128"
+            execution_timeout  = "10"
+            service_account_id = "<идентификатор сервисного аккаунта>"
+            tags               = ["my_tag"]
+            content {
+                zip_filename = "<путь к ZIP-архиву>"
+            }
+        }
+
+        output "yandex_function_test-function" {
+            value = "${yandex_function.test-function.id}"
+        }
+        ```
+
+        {% endif %}
+
+        Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
       
     2. Проверьте корректность конфигурационных файлов.
       

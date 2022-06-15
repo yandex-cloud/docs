@@ -1,6 +1,6 @@
 # Deleting all objects in a bucket
 
-To clear a bucket and not [pay](../../pricing.md) for storage:
+To clear a bucket{% if product == "yandex-cloud" %} and not [pay](../../pricing.md) for storage{% endif %}:
 
 {% list tabs %}
 

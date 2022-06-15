@@ -4,7 +4,7 @@ A _role_  is a set of user permissions to perform operations with {{ yandex-clo
 
 There are two types of roles:
 * _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`,`{{ roles-editor }}` , and `{{ roles-viewer }}`.
-* _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the `{{ roles-image-user }}` role lets you use images in the Yandex Compute Cloud service.
+* _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the `{{ roles-image-user }}` role lets you use images in the {{ compute-full-name }} service.
 
    A service role can be assigned to the resource that the role is intended for or the resource that permissions are inherited from. For example, you can assign the `{{ roles-image-user }}` role for a folder or cloud, because images inherit permissions from them.
 
@@ -38,6 +38,8 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 {% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ## {{ cdn-name }} {#cdn-roles}
 
 {% include [roles-cdn-viewer](../../../_includes/roles-cdn-viewer.md) %}
@@ -45,6 +47,8 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 {% include [roles-cdn-editor](../../../_includes/roles-cdn-editor.md) %}
 
 {% include [roles-cdn-admin](../../../_includes/roles-cdn-admin.md) %}
+
+{% endif %}
 
 ## {{ dns-name }} {#dns-roles}
 
@@ -78,15 +82,23 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 {% include [mdb.admin](../../../_includes/iam/roles/mdb.admin.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ## {{ dataproc-short-name }} {#dataproc-roles}
 
 {% include [mdb.dataproc.agent](../../../_includes/roles-dataproc-agent.md) %}
+
+{% endif %}
 
 ## {{ data-transfer-name }} {#data-transfer-roles}
 
 {% include [data-transfer-viewer](../../../_includes/roles-data-transfer-viewer.md) %}
 
+{% include [data-transfer-privateadmin](../../../_includes/roles-data-transfer-privateadmin.md) %}
+
 {% include [data-transfer-admin](../../../_includes/roles-data-transfer-admin.md) %}
+
+{% if product == "yandex-cloud" %}
 
 ## {{ datalens-name }} {#datalens-roles}
 
@@ -94,11 +106,15 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 {% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md) %}
 
+{% endif %}
+
 ## {{ ml-platform-name }} {#datasphere-roles}
 
 {% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
 
 {% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
+
+{% if product == "yandex-cloud" %}
 
 ## {{ sf-short-name }} {#functions-roles}
 
@@ -107,6 +123,8 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 {% include [functions-roles-admin](../../../_includes/roles-functions-admin.md) %}
 
 {% include [functions-roles-mdbproxy](../../../_includes/roles-functions-mdbproxy.md) %}
+
+{% endif %}
 
 ## {{ iam-name }} {#iam-roles}
 
@@ -117,6 +135,8 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 {% include [iot-devices-writer](../../../_includes/roles-iot-devices-writer.md) %}
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
+
+{% if product == "yandex-cloud" %}
 
 ## {{ cloud-logging-name }} {#logging}
 
@@ -129,6 +149,8 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 {% include [logging-roles-writer](../../../_includes/roles-logging-writer.md) %}
 
 {% include [logging-roles-admin](../../../_includes/roles-logging-admin.md) %}
+
+{% endif %}
 
 ## {{ kms-name }} {#kms-roles}
 
@@ -170,6 +192,8 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 {% include [cloud-roles](../../../_includes/cloud-roles.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ## {{ serverless-containers-name }} {#serverless-containers}
 
 {% include [serverless-containers-roles-viewer](../../../_includes/roles-serverless-containers-viewer.md) %}
@@ -179,6 +203,8 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 {% include [serverless-containers-roles-editor](../../../_includes/roles-serverless-containers-editor.md) %}
 
 {% include [serverless-containers-roles-admin](../../../_includes/roles-serverless-containers-admin.md) %}
+
+{% endif %}
 
 ## {{ vpc-name }} {#vpc-roles}
 

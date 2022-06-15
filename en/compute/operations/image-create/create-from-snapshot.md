@@ -73,7 +73,7 @@ To create an image from a disk snapshot:
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
 
@@ -101,7 +101,7 @@ To create an image from a disk snapshot:
 - API
 
    1. Retrieve a list of snapshots using the [SnapshotService/List](../../api-ref/grpc/snapshot_service.md#List) gRPC API method or the [list](../../api-ref/Snapshot/list.md) method of the REST API `Snapshot` resource.
-   1. Create an image using the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API method or the [create](../../api-ref/Image/create.md) method of the REST API `Image` resource. Specify the snapshot ID in your request.
+   1. Create an image using the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API method or the [Create](../../api-ref/Image/create.md) method of the REST API `Image` resource. Specify the snapshot ID in your request.
 
 {% endlist %}
 

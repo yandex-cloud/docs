@@ -25,7 +25,7 @@
 1. Оформите заявку в [Puncher](https://puncher.yandex-team.ru?create_destinations=datalens.yandex-team.ru&create_destinations=upload.datalens.yandex-team.ru&create_protocol=tcp&create_locations=office&create_locations=vpn&create_ports=443) на доступ к сервису {{ datalens-short-name }}. Заполните поля заявки:
 
    * **Источник** — ABC-группа и несколько ABC-групп, которым предоставляется доступ.
-   * **Назначения** — `datalens.yandex-team.ru`, `upload.datalens.yandex-team.ru` и `stat.yandex-team.ru` (при необходимости работы с отчетами).
+   * **Назначения** — `datalens.yandex-team.ru`, `upload.datalens.yandex-team.ru`.
    * **Протокол** — **TCP**.
    * **Порты** — `443`.
    * **Локация** — **VPN**.
@@ -47,7 +47,7 @@
 
    1. Добавьте участников.
    1. Установите права доступа для каждого из объектов.
-   1. Активируйте опцию **Cвязанные объекты**.
+   1. Активируйте опцию **Связанные объекты**.
    1. Нажмите кнопку **Добавить**.
 
    ![image](../../_assets/datalens/internal/access-for-group.png)

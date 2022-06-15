@@ -66,7 +66,7 @@
   1. Выполните команду:
 
      ```bash
-     aws --endpoint https://storage.yandexcloud.net s3api put-bucket-policy \
+     aws --endpoint https://{{ s3-storage-host }} s3api put-bucket-policy \
        --bucket <имя бакета> \
        --policy file://policy.json
      ```
@@ -116,7 +116,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/index.html).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
 
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
@@ -163,7 +163,7 @@
   Выполните команду:
 
   ```bash
-  aws --endpoint https://storage.yandexcloud.net s3api get-bucket-policy \
+  aws --endpoint https://{{ s3-storage-host }} s3api get-bucket-policy \
     --bucket <имя бакета> \
     --output text
   ```
@@ -204,7 +204,7 @@
   Выполните команду:
 
   ```bash
-  aws --endpoint https://storage.yandexcloud.net s3api delete-bucket-policy \
+  aws --endpoint https://{{ s3-storage-host }} s3api delete-bucket-policy \
     --bucket <имя бакета>
   ```
 

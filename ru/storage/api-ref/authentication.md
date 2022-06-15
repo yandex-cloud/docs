@@ -1,6 +1,6 @@
 ---
-title: "Аутентификация в API Yandex Object Storage"
-description: "Для выполнения операций через API в масштабируемом хранилище данных — Yandex Object Storage — необходимо получить IAM-токен для сервисного, федеративного или Яндекс аккаунта."
+title: "Аутентификация в API {{ objstorage-full-name }}"
+description: "Для выполнения операций через API в масштабируемом хранилище данных — {{ objstorage-full-name }} — необходимо получить IAM-токен для своего аккаунта."
 ---
 
 {% include [auth](../../_includes/authentication.md) %}

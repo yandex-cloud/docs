@@ -64,7 +64,7 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d '@body.json' \
-        https://locator.api.cloud.yandex.net/locator/v1/getLocation
+        https://locator.{{ api-host }}/locator/v1/getLocation
     ```
 
     Если сервис успешно определит местоположение, он вернет ответ с координатами точки и радиусом погрешности:

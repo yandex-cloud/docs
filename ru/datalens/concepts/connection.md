@@ -6,21 +6,20 @@ _Подключение_ содержит информацию о парамет
 
 В {{ datalens-short-name }} доступны следующие типы подключений:
 
-- **ClickHouse**
-- **PostgreSQL**
-- **MySQL**
-{% if audience != "internal" %} - **CSV-файл** {% endif %}
-{% if audience == "internal" %} - **File** {% endif %}
-- **Google Sheets**
-- **MS SQL Server**
-- **Oracle Database**
-- **YDB**
-- **Greenplum**
-{% if audience == "internal" %} - **Prometheus** {% endif %}
-- **Metrica** (в режиме прямого доступа)
-- **AppMetrica** (в режиме прямого доступа)
-- **Yandex Cloud Billing**
-{% if audience == "internal" %} - **CSV-файл** {% endif %}
+* [{{ CH }}](../operations/connection/create-clickhouse.md)
+{% if audience == "internal" %} * [CH over YT](../operations/connection/chyt/create-chyt.md) {% endif %}
+{% if audience == "internal" %} * [File (CSV)](../operations/connection/create-file.md){% else %}* [CSV-файл](../operations/connection/create-csv.md) {% endif %}
+* [Google Sheets](../operations/connection/create-google-sheets.md)
+* [{{ PG }}](../operations/connection/create-postgresql.md)
+* [{{ MY }}](../operations/connection/create-mysql.md)
+* [MS SQL Server](../operations/connection/create-mssql-server.md)
+* [Oracle Database](../operations/connection/create-oracle.md)
+* [{{ ydb-short-name }}](../operations/connection/create-ydb.md)
+* [Greenplum](../operations/connection/create-greenplum.md)
+{% if audience == "internal" %} * [{{ prometheus-name }}](../operations/connection/create-prometheus.md) {% endif %}
+* [Metrica](../operations/connection/create-metrica-api.md)
+* [AppMetrica](../operations/connection/create-appmetrica.md)
+{% if audience != "internal" %} * [Yandex Cloud Billing](../operations/connection/create-cloud-billing.md) {% endif %}
 
 {% if audience == "internal" %}
 
@@ -42,21 +41,3 @@ _Подключение_ содержит информацию о парамет
 ## Управление доступом {#access-management}
 
 Вы можете настроить права доступа к подключению. Подробнее в разделе [{#T}](../security/index.md).
-
-#### См. также {#see-also}
-
-- [{#T}](../operations/connection/create-clickhouse.md)
-{% if audience == "internal" %} - [{#T}](../operations/connection/create-file.md) {% endif %}
-{% if audience != "internal" %} - [{#T}](../operations/connection/create-csv.md) {% endif %}
-- [{#T}](../operations/connection/create-google-sheets.md)
-- [{#T}](../operations/connection/create-mysql.md)
-- [{#T}](../operations/connection/create-postgresql.md)
-- [{#T}](../operations/connection/create-mssql-server.md)
-- [{#T}](../operations/connection/create-oracle.md)
-- [{#T}](../operations/connection/create-ydb.md)
-- [{#T}](../operations/connection/create-greenplum.md)
-{% if audience == "internal" %} - [{#T}](../operations/connection/create-prometheus.md) {% endif %}
-- [{#T}](../operations/connection/create-metrica-api.md)
-- [{#T}](../operations/connection/create-appmetrica.md)
-{% if audience != "internal" %} - [{#T}](../operations/connection/create-cloud-billing.md) {% endif %}
-{% if audience == "internal" %} - [{#T}](../operations/connection/create-csv.md) {% endif %}

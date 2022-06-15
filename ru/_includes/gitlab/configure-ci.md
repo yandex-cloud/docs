@@ -1,20 +1,24 @@
 1. Создайте [переменные окружения GitLab](https://docs.gitlab.com/ee/ci/variables/README.html).
-   1. В GitLab в панели слева перейдите в раздел **Settings** и во всплывающем списке выберите пункт **CI/CD**.
-   1. Нажмите кнопку **Expand** напротив пункта **Variables**.
-   1. Добавьте две переменные окружения:
-      * `KUBE_URL` – адрес [мастера {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#master). Узнайте его с помощью команды:
 
-        {% list tabs %}
-
-        ```bash
-        yc managed-kubernetes cluster get <cluster-id> --format=json \
-          | jq -r .master.endpoints.external_v4_endpoint
-        ```
-
-        {% endlist %}
+    1. В GitLab в панели слева перейдите в раздел **Settings** и во всплывающем списке выберите пункт **CI/CD**.
+    1. Нажмите кнопку **Expand** напротив пункта **Variables**.
+    1. Добавьте две переменные окружения:
+        - `KUBE_URL` – адрес [мастера](../../managed-kubernetes/concepts/index.md#master). Узнайте его с помощью команды:
+            
+          {% list tabs %}
+          
+          - Bash
+          
+              ```bash
+              yc managed-kubernetes cluster get <cluster-id> --format=json \
+                | jq -r .master.endpoints.external_v4_endpoint
+              ```
+          
+          {% endlist %}
     
-      * `KUBE_TOKEN` – токен, который будет использовать GitLab для применения конфигурации. Используйте токен, полученный перед началом работы.
-   1. Нажмите кнопку **Save variables**.
+        - `KUBE_TOKEN` — токен, который будет использовать GitLab для применения конфигурации. Используйте токен, полученный перед началом работы.
+    1. Нажмите кнопку **Save variables**.
+
 1. GitLab позволяет настраивать [сценарии сборки](https://docs.gitlab.com/ee/ci/README.html) в YAML-файле. Создайте файл конфигурации `.gitlab-ci.yml`:
    1. На левой панели в {{ GL }} перейдите в раздел **Repository** и выберите вкладку **Files**.
    1. Справа от имени проекта нажмите кнопку **+** и в выпадающем меню выберите пункт **New file**.
@@ -41,7 +45,7 @@
       deploy:
         image: gcr.io/cloud-builders/kubectl:latest
         stage: deploy
-         script:
+        script:
           - kubectl config set-cluster k8s --server="$KUBE_URL" --insecure-skip-tls-verify=true
           - kubectl config set-credentials admin --token="$KUBE_TOKEN"
           - kubectl config set-context default --cluster=k8s --user=admin
@@ -58,8 +62,8 @@
 
    В файле `.gitlab-ci.yml` описаны два шага сборки проекта:
    * Сборка Docker-образа с использованием `Dockerfile` из предыдущего этапа и загрузка образа в [{{ container-registry-full-name }}](../../container-registry/).
-     * Для этого шага нужно использовать контейнер для сборки Docker-образов и запустить Docker-сервер как [GitLab-сервис](https://docs.gitlab.com/ee/ci/yaml/README.html#services).
-     * Для аутентификации в {{ container-registry-name }} нужно использовать [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), подключенный к узлам {{ k8s }}. В начале работы этому аккаунту была назначена роль [{{ roles-cr-pusher }}](../../container-registry/security/index.md#required-roles).
+     * Для этого шага используйте контейнер для сборки Docker-образов и запустить Docker-сервер как [GitLab-сервис](https://docs.gitlab.com/ee/ci/yaml/README.html#services).
+     * Для аутентификации в {{ container-registry-name }} используйте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), подключенный к узлам {{ k8s }}. В начале работы этому аккаунту была назначена роль [{{ roles-cr-pusher }}](../../container-registry/security/index.md#required-roles).
      * Чтобы получить из [метаданных](../../compute/concepts/vm-metadata.md) виртуальной машины данные для аутентификации, используется вспомогательный публичный Docker-образ `cr.yandex/yc/metadata-token-docker-helper:0.2`. Внутри него работает [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper), который получает {{ iam-full-name }}-токен из сервиса метаданных.
    * Настройка окружения для работы с {{ k8s }} и применение конфигурации `k8s.yaml` к кластеру {{ k8s }}. Таким образом приложение развертывается на созданном ранее кластере.
 

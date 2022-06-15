@@ -1,6 +1,12 @@
 # Развертывание Microsoft Exchange
 
-В сценарии описывается развертывание серверов Microsoft Exchange в {{ yandex-cloud }}. Инсталляция Microsoft Exchange будет состоять из двух почтовых серверов, двух серверов Active Directory и двух серверов Edge Transport в зонах доступности `ru-central1-a` и `ru-central1-b`. Нагрузка будет распределяться по серверам с помощью сетевого балансировщика нагрузки. Управление всеми серверами будет осуществляться через отдельную ВМ с доступом в интернет в зоне доступности `ru-central1-c`.
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
+В сценарии описывается развертывание серверов Microsoft Exchange в {{ yandex-cloud }}. Инсталляция Microsoft Exchange будет состоять из двух почтовых серверов, двух серверов Active Directory и двух серверов Edge Transport в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b`. Нагрузка будет распределяться по серверам с помощью сетевого балансировщика нагрузки. Управление всеми серверами будет осуществляться через отдельную ВМ с доступом в интернет в зоне доступности `{{ region-id }}-c`.
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте облачную сеть и подсети](#create-network).
@@ -23,15 +29,11 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед тем, как разворачивать серверы, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
-
-{% include [prepare-register-billing](../includes/prepare-register-billing.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 {% include [ms-additional-data-note](../includes/ms-additional-data-note.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака]{% if lang == "ru" %}(https://console.cloud.yandex.ru/cloud){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/cloud){% endif %}.
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+{% if product == "yandex-cloud" %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -41,6 +43,8 @@
 * плата за балансировку трафика (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md));
 * плата за использование динамических или статических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+
+{% endif %}
 
 ## Создайте облачную сеть и подсети {#create-network}
 
@@ -80,11 +84,11 @@
       1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать подсеть.
       1. Нажмите на имя облачной сети.
       1. Нажмите кнопку **Добавить подсеть**.
-      1. Заполните форму: введите имя подсети `exchange-subnet-a`, выберите зону доступности `ru-central1-a` из выпадающего списка.
+      1. Заполните форму: введите имя подсети `exchange-subnet-a`, выберите зону доступности `{{ region-id }}-a` из выпадающего списка.
       1. Введите CIDR подсети: IP-адрес и маску подсети: `10.1.0.0/16`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
       1. Нажмите кнопку **Создать подсеть**.
 
-      Повторите шаги еще для двух подсетей `exchange-subnet-b` и `exchange-subnet-c` в зонах доступности `ru-central1-b` и `ru-central1-c` с CIDR `10.2.0.0/16` и `10.3.0.0/16` соответственно.
+      Повторите шаги еще для двух подсетей `exchange-subnet-b` и `exchange-subnet-c` в зонах доступности `{{ region-id }}-b` и `{{ region-id }}-c` с CIDR `10.2.0.0/16` и `10.3.0.0/16` соответственно.
 
    - CLI
 
@@ -93,19 +97,19 @@
       ```
       yc vpc subnet create \
         --name exchange-subnet-a \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --network-name exchange-network \
         --range 10.1.0.0/16
 
       yc vpc subnet create \
         --name exchange-subnet-b \
-        --zone ru-central1-b \
+        --zone {{ region-id }}-b \
         --network-name exchange-network \
         --range 10.2.0.0/16
 
       yc vpc subnet create \
         --name exchange-subnet-c \
-        --zone ru-central1-c \
+        --zone {{ region-id }}-c \
         --network-name exchange-network \
         --range 10.3.0.0/16
       ```
@@ -136,7 +140,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `ad-vm-a`.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
+  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
   1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ **Windows Server 2016 Datacenter**.
   1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
   1. В блоке **Вычислительные ресурсы**:
@@ -151,7 +155,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
       * В поле **Пароль** укажите ваш пароль.
   1. Нажмите кнопку **Создать ВМ**.
 
-  Повторите операцию для ВМ с именем `ad-vm-b` в зоне доступности `ru-central1-b` и подключите ее к подсети `exchange-subnet-b`.
+  Повторите операцию для ВМ с именем `ad-vm-b` в зоне доступности `{{ region-id }}-b` и подключите ее к подсети `exchange-subnet-b`.
 
 - CLI
 
@@ -161,7 +165,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
     --hostname ad-vm-a \
     --memory 8 \
     --cores 4 \
-    --zone ru-central1-a \
+    --zone {{ region-id }}-a \
     --network-interface subnet-name=exchange-subnet-a,ipv4-address=10.1.0.3 \
     --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
     --metadata-from-file user-data=setpass
@@ -171,7 +175,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
     --hostname ad-vm-b \
     --memory 8 \
     --cores 4 \
-    --zone ru-central1-b \
+    --zone {{ region-id }}-b \
     --network-interface subnet-name=exchange-subnet-b,ipv4-address=10.2.0.3 \
     --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
     --metadata-from-file user-data=setpass
@@ -189,7 +193,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `fsw-vm`.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-c`.
+  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-c`.
   1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ **Windows Server 2016 Datacenter**.
   1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
   1. В блоке **Вычислительные ресурсы**:
@@ -212,7 +216,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
     --hostname fsw-vm \
     --memory 4 \
     --cores 2 \
-    --zone ru-central1-c \
+    --zone {{ region-id }}-c \
     --network-interface subnet-name=exchange-subnet-c,nat-ip-version=ipv4 \
     --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
     --metadata-from-file user-data=setpass
@@ -260,34 +264,34 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
    Windows перезапустится автоматически. После перезагрузки подключитесь к ВМ `ad-vm-a`, используя учетную запись `yantoso\Administrator` и ваш пароль. Снова откройте PowerShell.
 
-1. Переименуйте сайт по умолчанию в `ru-central1-a`:
+1. Переименуйте сайт по умолчанию в `{{ region-id }}-a`:
 
    ```powershell
-   Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName 'ru-central1-a'
+   Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName '{{ region-id }}-a'
    ```
 
 1. Создайте еще два сайта для других зон доступности:
 
    ```powershell
-   New-ADReplicationSite 'ru-central1-b'
-   New-ADReplicationSite 'ru-central1-c'
+   New-ADReplicationSite '{{ region-id }}-b'
+   New-ADReplicationSite '{{ region-id }}-c'
    ```
 
 1. Создайте подсети и привяжите их к сайтам:
 
    ```powershell
-   New-ADReplicationSubnet -Name '10.1.0.0/16' -Site 'ru-central1-a'
-   New-ADReplicationSubnet -Name '10.2.0.0/16' -Site 'ru-central1-b'
-   New-ADReplicationSubnet -Name '10.3.0.0/16' -Site 'ru-central1-c'
+   New-ADReplicationSubnet -Name '10.1.0.0/16' -Site '{{ region-id }}-a'
+   New-ADReplicationSubnet -Name '10.2.0.0/16' -Site '{{ region-id }}-b'
+   New-ADReplicationSubnet -Name '10.3.0.0/16' -Site '{{ region-id }}-c'
    ```
 
 1. Переименуйте сайт-линк и настройте репликацию:
 
    ```powershell
    Get-ADReplicationSiteLink 'DEFAULTIPSITELINK' | `
-       Set-ADReplicationSiteLink -SitesIncluded @{Add='ru-central1-b'} -ReplicationFrequencyInMinutes 15 -PassThru | `
+       Set-ADReplicationSiteLink -SitesIncluded @{Add='{{ region-id }}-b'} -ReplicationFrequencyInMinutes 15 -PassThru | `
        Set-ADObject -Replace @{options = $($_.options -bor 1)} -PassThru | `
-       Rename-ADObject -NewName 'ru-central1'
+       Rename-ADObject -NewName '{{ region-id }}'
    ```
 
 1. Укажите сервер переадресации DNS:
@@ -405,7 +409,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
      1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
      1. В поле **Имя** введите имя виртуальной машины: `vm-exchange-a`.
-     1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
+     1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
      1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ **Windows Server 2016 Datacenter**.
      1. В блоке **Диски** укажите размер загрузочного диска 100 ГБ.
      1. Добавьте еще один SSD-диск размером 250 ГБ с именем `db-a`.
@@ -429,7 +433,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
        --hostname vm-exchange-a \
        --memory 32 \
        --cores 8 \
-       --zone ru-central1-a \
+       --zone {{ region-id }}-a \
        --network-interface subnet-name=exchange-subnet-a \
        --create-boot-disk size=100,image-folder-id=standard-images,image-family=windows-2016-gvlk \
        --create-disk type=network-ssd,size=250,auto-delete=false \
@@ -489,7 +493,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
      1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
      1. В поле **Имя** введите имя виртуальной машины: `vm-exchange-b`.
-     1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
+     1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
      1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ **Windows Server 2016 Datacenter**.
      1. В блоке **Диски** укажите размер загрузочного диска 100 ГБ.
      1. Добавьте еще один SSD-диск размером 250 ГБ с именем `db-b`.
@@ -513,7 +517,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
        --hostname vm-exchange-b \
        --memory 32 \
        --cores 8 \
-       --zone ru-central1-b \
+       --zone {{ region-id }}-b \
        --network-interface subnet-name=exchange-subnet-b \
        --create-boot-disk size=100,image-folder-id=standard-images,image-family=windows-2016-gvlk \
        --create-disk type=network-ssd,size=250,auto-delete=false \
@@ -821,7 +825,7 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `vm-edge-a`.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
+  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
   1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ **Windows Server 2016 Datacenter**.
   1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
   1. В блоке **Вычислительные ресурсы**:
@@ -844,7 +848,7 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
     --hostname vm-edge-a \
     --memory 8 \
     --cores 4 \
-    --zone ru-central1-a \
+    --zone {{ region-id }}-a \
     --network-interface subnet-name=exchange-subnet-a,nat-ip-version=ipv4 \
     --create-boot-disk size=50,image-folder-id=standard-images,image-family=windows-2016-gvlk \
     --metadata-from-file user-data=setpass
@@ -862,7 +866,7 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
 
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `vm-edge-b`.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
+  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
   1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ **Windows Server 2016 Datacenter**.
   1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
   1. В блоке **Вычислительные ресурсы**:
@@ -885,7 +889,7 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
     --hostname vm-edge-b \
     --memory 8 \
     --cores 4 \
-    --zone ru-central1-b \
+    --zone {{ region-id }}-b \
     --network-interface subnet-name=exchange-subnet-b,nat-ip-version=ipv4 \
     --create-boot-disk size=50,image-folder-id=standard-images,image-family=windows-2016-gvlk \
     --metadata-from-file user-data=setpass
@@ -895,7 +899,7 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
 
 ## Настройте серверы Edge Transport {#set-up-edge-transport}
 
-### Настройте сервер Edge Transport в зоне ru-central1-a {#edge-a}
+### Настройте сервер Edge Transport в зоне {{ region-id }}-a {#edge-a}
 
 1. Подключитесь к ВМ `fsw-vm` с помощью RDP.
 1. Подключитесь к ВМ `vm-edge-a` с помощью RDP. Используйте логин `Administrator` и ваш пароль. Запустите PowerShell.
@@ -923,7 +927,7 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
    ```powershell
    $Credential = Get-Credential # Username: yantoso\Administrator
 
-   New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.ru-central1.internal\distrib' -Credential $Credential
+   New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.{{ region-id }}.internal\distrib' -Credential $Credential
    ```
 
    Введите логин `yantoso\Administrator` и ваш пароль.
@@ -944,7 +948,7 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
 1. Укажите основной суффикс DNS:
 
    ```powershell
-   $Suffix = 'ru-central1.internal'
+   $Suffix = '{{ region-id }}.internal'
 
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name Domain -Value $Suffix
 
@@ -971,7 +975,7 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
    & D:\Setup.exe /Mode:Install /InstallWindowsComponents /Role:EdgeTransport /IAcceptExchangeServerLicenseTerms /OrganizationName:MyOrg
    ```
 
-### Настройте сервер Edge Transport в зоне ru-central1-b {#edge-b}
+### Настройте сервер Edge Transport в зоне {{ region-id }}-b {#edge-b}
 
 1. Подключитесь к ВМ `fsw-vm` с помощью RDP.
 1. Подключитесь к ВМ `vm-edge-b` с помощью RDP. Используйте логин `Administrator` и ваш пароль. Запустите PowerShell.
@@ -999,7 +1003,7 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
    ```powershell
    $Credential = Get-Credential # Username: yantoso\Administrator
 
-   New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.ru-central1.internal\distrib' -Credential $Credential
+   New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.{{ region-id }}.internal\distrib' -Credential $Credential
    ```
 
    Введите логин `yantoso\Administrator` и ваш пароль.
@@ -1020,7 +1024,7 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
 1. Укажите основной суффикс DNS:
 
    ```powershell
-   $Suffix = 'ru-central1.internal'
+   $Suffix = '{{ region-id }}.internal'
 
    Set-ItemProperty -path HKLM:\system\CurrentControlSet\Services\tcpip\parameters -Name Domain -Value $Suffix
 
@@ -1069,10 +1073,10 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
 
 1. Зайдите на сервер `vm-exchange-a` и запустите Exchange Management Shell.
 
-1. Подпишите Edge Transport сервера `vm-edge-a` на сайт `ru-central1-a`:
+1. Подпишите Edge Transport сервера `vm-edge-a` на сайт `{{ region-id }}-a`:
 
    ```powershell
-   New-EdgeSubscription -FileData ([byte[]]$(Get-Content -Path "C:\root\vm-edge-a.xml" -Encoding Byte -ReadCount 0)) -Site "ru-central1-a"
+   New-EdgeSubscription -FileData ([byte[]]$(Get-Content -Path "C:\root\vm-edge-a.xml" -Encoding Byte -ReadCount 0)) -Site "{{ region-id }}-a"
    ```
 
 1. Убедитесь, что подписка создана, с помощью команды:
@@ -1086,7 +1090,7 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
    ```powershell
    Name            Site                 Domain
    ----            ----                 ------
-   vm-edge-a       yantoso.net/Confi... ru-central1.internal
+   vm-edge-a       yantoso.net/Confi... {{ region-id }}.internal
    ```
 
 1. Проверьте статус синхронизации:
@@ -1116,10 +1120,10 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
 
 1. Зайдите на сервер `vm-exchange-b` и запустите Exchange Management Shell.
 
-1. Подпишите Edge Transport сервера `vm-edge-b` на сайт `ru-central1-b`:
+1. Подпишите Edge Transport сервера `vm-edge-b` на сайт `{{ region-id }}-b`:
 
    ```powershell
-   New-EdgeSubscription -FileData ([byte[]]$(Get-Content -Path "C:\root\vm-edge-b.xml" -Encoding Byte -ReadCount 0)) -Site "ru-central1-b"
+   New-EdgeSubscription -FileData ([byte[]]$(Get-Content -Path "C:\root\vm-edge-b.xml" -Encoding Byte -ReadCount 0)) -Site "{{ region-id }}-b"
    ```
 
 1. Убедитесь, что подписка создана, с помощью команды:
@@ -1133,8 +1137,8 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
    ```powershell
    Name            Site                 Domain
    ----            ----                 ------
-   vm-edge-a       yantoso.net/Confi... ru-central1.internal
-   vm-edge-b       yantoso.net/Confi... ru-central1.internal
+   vm-edge-a       yantoso.net/Confi... {{ region-id }}.internal
+   vm-edge-b       yantoso.net/Confi... {{ region-id }}.internal
    ```
 
 1. Проверьте статус синхронизации:
