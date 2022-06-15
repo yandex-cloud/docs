@@ -5,7 +5,7 @@ In this scenario, you will learn to emulate many devices that send messages to M
 * Temperature.
 * Humidity.
 * Pressure.
-* COvv2vv levels.
+* CO<sub>2</sub> levels.
 
 Each sensor sends its result in JSON format. For example:
 
