@@ -52,7 +52,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    ```bash
    cd /etc/ksqldb && \
-   sudo keytool -importcert -alias YandexCA -file {{ crt-local-dir }}{{ crt-local-file }} \
+   sudo keytool -importcert -alias {{ crt-alias }} -file {{ crt-local-dir }}{{ crt-local-file }} \
    -keystore ssl -storepass <certificate store password> \
    --noprompt
    ```

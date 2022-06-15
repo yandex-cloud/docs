@@ -148,7 +148,7 @@
         -X sasl.mechanisms=SCRAM-SHA-512 \
         -X sasl.username=kafka-user \
         -X sasl.password=<пароль> \
-        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} \
         -Z \
         -K:
     ```
