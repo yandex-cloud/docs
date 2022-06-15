@@ -1,5 +1,5 @@
 ---
-title: How to use the S3 API. Object Storage
+title: How to use the S3 API. {{ objstorage-name }}
 keywords:
   - s3
   - s3 storage

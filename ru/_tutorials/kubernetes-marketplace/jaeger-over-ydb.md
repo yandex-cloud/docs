@@ -12,7 +12,8 @@
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
 1. [Создайте кластер {{ managed-k8s-name }} ](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации с версией {{ k8s }} не ниже 1.21.
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md).
+
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Установите и настройте Jaeger {#jaeger-install}
 

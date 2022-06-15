@@ -2,7 +2,7 @@
 
 {% include [mdb-peering-intro](../../_tutorials/dataplatform/mdb-dns-peering/intro.md) %}
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 ### Assign roles {#assign-roles}
 
@@ -24,13 +24,14 @@
 
 ### Check cluster availability (optional step) {#check-cluster-availability-without-dns}
 
+
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the `cluster-vm` and `other-vm` virtual machines over SSH.
 
     {% include [mdb-peering-vm-user](../../_tutorials/dataplatform/mdb-dns-peering/vm-user-warning.md) %}
 
 1. Try [connecting to the cluster](../operations/connect.md):
 
-    {% include [mdb-peering-check-availability-1](../../_tutorials/dataplatform/mdb-dns-peering/check-availability-1.md) %}
+   {% include [mdb-peering-check-availability-1](../../_tutorials/dataplatform/mdb-dns-peering/check-availability-1.md) %}
 
 ## Create a zone in {{ dns-full-name }} {#create-peering-zone}
 
@@ -42,15 +43,15 @@
 
 ## Check cluster availability {#check-cluster-availability}
 
+
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the `cluster-vm` and `other-vm` virtual machines over SSH.
 
     {% include [mdb-peering-vm-user](../../_tutorials/dataplatform/mdb-dns-peering/vm-user-warning.md) %}
 
 1. Try [connecting to the cluster](../operations/connect.md):
 
-    {% include [mdb-peering-check-availability-2](../../_tutorials/dataplatform/mdb-dns-peering/check-availability-2.md) %}
+   {% include [mdb-peering-check-availability-2](../../_tutorials/dataplatform/mdb-dns-peering/check-availability-2.md) %}
 
 ## Delete the resources you created {#clear-out}
 
 {% include [mdb-peering-destroy-resources](../../_tutorials/dataplatform/mdb-dns-peering/destroy-resources.md) %}
-

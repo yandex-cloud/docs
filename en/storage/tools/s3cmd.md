@@ -18,11 +18,11 @@ To configure S3cmd, use the `s3cmd --configure` command. The command requests va
 
 1. `Secret Key`: Enter the secret key that you received when generating the [static key](../../iam/concepts/authorization/access-key.md).
 
-1. `Default Region`: Enter `ru-central1`.
+1. `Default Region`: Enter `{{ region-id }}`.
 
    {% note info %}
 
-   Always specify the `ru-central1` region when accessing {{ objstorage-name }}. A different region value may lead to an authorization error.
+   Always specify the `{{ region-id }}` region when accessing {{ objstorage-name }}. A different region value may lead to an authorization error.
 
    {% endnote %}
 
@@ -40,7 +40,7 @@ The `s3cmd --configure` command saves the settings to a `~/.s3cfg` file in the f
 [default]
 access_key = id
 secret_key = secretKey
-bucket_location = ru-central1
+bucket_location = {{ region-id }}
 host_base = {{ s3-storage-host }}
 host_bucket = %(bucket)s.{{ s3-storage-host }}
 ```

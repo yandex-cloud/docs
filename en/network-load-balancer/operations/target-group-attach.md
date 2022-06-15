@@ -33,15 +33,17 @@
 
       Result:
 
+      
       ```
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       ...
-      | b7r97ah2jn5rmo6k1dsk | test-load-balancer | ru-central1 | EXTERNAL |              1 |                        | INACTIVE |
+      | b7r97ah2jn5rmo6k1dsk | test-load-balancer | {{ region-id }} | EXTERNAL |              1 |                        | INACTIVE |
       ...
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       ```
+
 
    1. Get a list of target groups:
 
@@ -51,15 +53,17 @@
 
       Result:
 
+      
       ```
       +----------------------+-------------------+---------------------+-------------+--------------+
       |          ID          |       NAME        |       CREATED       |  REGION ID  | TARGET COUNT |
       +----------------------+-------------------+---------------------+-------------+--------------+
       ...
-      | b7roi767je4c574iivrk | test-target-group | 2018-12-03 14:41:04 | ru-central1 |            1 |
+      | b7roi767je4c574iivrk | test-target-group | 2018-12-03 14:41:04 | {{ region-id }} |            1 |
       ...
       +----------------------+-------------------+---------------------+-------------+--------------+
       ```
+
 
    1. Select the `ID` or `NAME` of the required load balancer and target group.
    1. Attach the appropriate group to the selected load balancer by specifying the health check settings in the corresponding command parameters:

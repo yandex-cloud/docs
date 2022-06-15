@@ -1,6 +1,6 @@
-## Сервис {{ managed-clickhouse-full-name }} {#managed-clickhouse}
+## Сервис {{ mch-full-name }} {#managed-clickhouse}
 
-Общие метки для всех метрик сервиса {{ managed-clickhouse-full-name }}: 
+Общие метки для всех метрик сервиса {{ mch-full-name }}: 
 
 Метка | Значение
 ----|----
@@ -423,4 +423,4 @@ shard | Идентификатор шарда
 | `is_alive`<br/>`DGAUGE`, 0/1 | Показатель работоспособности хоста.<br/>Принимает значение `1`, если хост БД работает, `0`, если нет. |
 
 
-Подробнее о сервисе в документации [{{ managed-clickhouse-full-name }}](../../managed-clickhouse/).
+Подробнее о сервисе в документации [{{ mch-full-name }}](../../managed-clickhouse/).

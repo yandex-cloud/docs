@@ -27,9 +27,9 @@ items:
         href: tutorials/edition-update-datacenter.md
   - name: Licensing
     items:
-      - name: Microsoft licenses in Yandex Cloud
+      - name: Microsoft licenses in {{ yandex-cloud }}
         href: licensing.md
-      - name: Requirements for Yandex Cloud account
+      - name: Requirements for {{ yandex-cloud }} accounts
         href: check-user-data.md
       - name: Questions and answers about Windows licensing
         href: qa.md

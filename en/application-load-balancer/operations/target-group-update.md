@@ -10,7 +10,7 @@ To add a VM to a target group:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder the target group belongs to.
+   1. In the [management console]({{ link-console-main }}), select the folder where the target group was created.
    1. Select **{{ alb-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/trgroups.svg) **Target groups**.
    1. Click on the name of the group you need.
@@ -52,6 +52,58 @@ To add a VM to a target group:
       created_at: "2021-02-11T11:16:27.770674538Z"
       ```
 
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Open the Terraform configuration file and add the `target` section with target parameters to the fragment describing the target group:
+
+      ```hcl
+      resource "yandex_alb_target_group" "foo" {
+        name           = "<target group name>"
+      
+        target {
+          subnet_id    = "<subnet ID>"
+          ip_address   = "<internal IP address of VM 1>"
+        }
+      
+        target {
+          subnet_id    = "<subnet ID>"
+          ip_address   = "<internal IP address of VM 2>"
+        }
+      
+        target {
+          subnet_id    = "<subnet ID>"
+          ip_address   = "<internal IP address of VM 3>"
+        }
+      
+        target {
+          subnet_id    = "<subnet ID>"
+          ip_address   = "<internal IP address of VM 4>"
+        }
+      }
+      ```
+
+      Where:
+      * `yandex_alb_target_group` specifies the target group parameters:
+         * `name`: Target group name.
+         * `target`: Target parameters:
+            * `subnet_id`: ID of the subnet hosting the VM. You can get a list of available subnets using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list`.
+            * `ip_address`: VM's internal IP. You can get a list of internal IP addresses using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list-used-addresses --id <subnet ID>`.
+
+      For more information about the `yandex_alb_target_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-targetgroup }}).
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      You can verify that the target group has been updated in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+
+      ```bash
+      yc alb target-group get --name <target group name>
+      ```
+
 {% endlist %}
 
 ## Remove a VM from a target group {#remove-targets}
@@ -62,7 +114,7 @@ To remove a VM from a target group:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder the target group belongs to.
+   1. In the [management console]({{ link-console-main }}), select the folder where the target group was created.
    1. Select **{{ alb-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/trgroups.svg) **Target groups**.
    1. Click on the name of the group you need.
@@ -100,6 +152,48 @@ To remove a VM from a target group:
       - ip_address: 10.129.0.30
         subnet_id: blt6pcatjje62sqvjq5b
       created_at: "2021-02-11T11:16:27.770674538Z"
+      ```
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Open the Terraform configuration file and delete the `target` section with the IP address of the VM to be removed in the fragment describing the target group:
+
+      Sample target group description in the Terraform configuration:
+
+      ```hcl
+      resource "yandex_alb_target_group" "foo" {
+        name           = "<target group name>"
+      
+        target {
+          subnet_id    = "<subnet ID>"
+          ip_address   = "<internal IP address of VM 1>"
+        }
+      
+        target {
+          subnet_id    = "<subnet ID>"
+          ip_address   = "<internal IP address of VM 2>"
+        }
+      
+        target {
+          subnet_id    = "<subnet ID>"
+          ip_address   = "<internal IP address of VM 3>"
+        }
+      }
+      ```
+
+      For more information about the `yandex_alb_target_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-targetgroup }}).
+   1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+      You can verify that the target group has been updated in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+
+      ```bash
+      yc alb target-group get --name <target group name>
       ```
 
 {% endlist %}

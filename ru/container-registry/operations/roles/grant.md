@@ -14,7 +14,6 @@
        1. В открывшемся окне выберите группу, пользователя или [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и нажмите кнопку **Добавить**.
        1. В выпадающем списке **Разрешения** отметьте нужные роли.
        1. Нажмите кнопку **Сохранить**.
-
      * Назначить на [репозиторий](../../concepts/repository.md):
        1. Выберите нужный репозиторий.
        1. Справа от имени нужного репозитория нажмите значок ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) и выберите **Настроить ACL**.
@@ -32,19 +31,23 @@
   1. Назначьте роль:
      * Чтобы добавить роль к имеющимся разрешениям, выполните команду:
 
+              
        ```bash
        yc <имя сервиса> <ресурс> add-access-binding <имя ресурса>|<id ресурса> \
          --role <id роли> \
          --subject userAccount:<id пользователя>
        ```
 
+
      * Чтобы установить роль, удалив все имеющиеся разрешения, выполните команду:
 
+              
        ```bash
        yc <имя сервиса> <ресурс> set-access-bindings <имя ресурса>|<id ресурса> \
          --role <id роли> \
          --subject userAccount:<id пользователя>
        ```
+
 
      Где:
      * `<имя сервиса>` — имя сервиса `container`.
@@ -78,14 +81,15 @@
 
        >Пример структуры конфигурационного файла:
        >
+
        >```
        >resource "yandex_container_registry_iam_binding" "puller" {
-       >   registry_id = "<id реестра>"
-       >   role        = "<id роли>"
+       >  registry_id = "<id реестра>"
+       >  role        = "<id роли>"
        >
-       >   members = [
-       >      "userAccount:<id пользователя>",
-       >   ]
+       >  members = [
+       >    "userAccount:<id пользователя>",
+       >  ]
        >}
        >```
 
@@ -99,12 +103,12 @@
        >
        >```
        >resource "yandex_container_repository_iam_binding" "pusher" {
-       >   repository_id = "<id репозитория>"
-       >   role          = "<id роли>"
+       >  repository_id = "<id репозитория>"
+       >  role          = "<id роли>"
        >
-       >   members = [
-       >      "userAccount:<id пользователя>",
-       >   ]
+       >  members = [
+       >    "userAccount:<id пользователя>",
+       >  ]
        >}
        >```
 

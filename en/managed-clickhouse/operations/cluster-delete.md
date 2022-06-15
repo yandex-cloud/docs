@@ -1,9 +1,9 @@
 ---
-title: "Deleting PostgreSQL clusters"
-description: "After deleting a PostgreSQL database cluster, its backups are preserved and can be used for recovery within 7 days. To restore a deleted cluster from a backup, you will need its ID, so save the cluster ID in a safe place before deleting."
+title: "Deleting {{ CH }} clusters"
+description: "After deleting a {{ CH }} database cluster, its backups are preserved and can be used for recovery within 7 days. To restore a deleted cluster from a backup, you will need its ID, so save the cluster ID in a safe place before deleting."
 ---
 
-# Deleting a cluster
+# Deleting clusters
 
 ## Before deleting a cluster {#before-you-delete}
 
@@ -12,7 +12,7 @@ description: "After deleting a PostgreSQL database cluster, its backups are pres
 
    {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
 
-## Deleting the cluster {#delete}
+## Deleting a cluster {#delete}
 
 {% list tabs %}
 
@@ -41,7 +41,7 @@ description: "After deleting a PostgreSQL database cluster, its backups are pres
 
 - API
 
-   Use the API [delete](../api-ref/Cluster/delete.md) method: transmit the requisite `cluster` ID in the clusterId parameter.
+   Use the API [delete](../api-ref/Cluster/delete.md) method: transmit the requisite cluster ID in the `clusterId` parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 

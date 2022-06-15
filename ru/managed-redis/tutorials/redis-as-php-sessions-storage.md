@@ -79,8 +79,8 @@
     * Установите сертификаты:
 
         ```bash
-        sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-        sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+        sudo mkdir -p {{ crt-local-dir }} && \
+        sudo wget "{{ s3-storage-host }}{{ pem-path }}" -O {{ crt-local-dir }}{{ crt-local-file }}
         ```
 
     * Подготовьте окружение и установите библиотеку [phpredis](https://github.com/phpredis/phpredis) с помощью `pecl`:

@@ -39,8 +39,8 @@ Attribute.N.Value (значение атрибута)
 
 Атрибут | Тип | Описание
 ----- | ----- | -----
-`KmsMasterKeyId` | **string** | Атрибут не поддерживается в Yandex Message Queue.
-`KmsDataKeyReusePeriodSeconds` | **string** | Атрибут не поддерживается в Yandex Message Queue.
+`KmsMasterKeyId` | **string** | Атрибут не поддерживается в {{ message-queue-full-name }}.
+`KmsDataKeyReusePeriodSeconds` | **string** | Атрибут не поддерживается в {{ message-queue-full-name }}.
 
 ## Ответ {#response}
 
@@ -61,7 +61,7 @@ Attribute.N.Value (значение атрибута)
 ```
 Action=SetQueueAttributes
 &Version=2012-11-05
-&QueueUrl=https://message-queue.api.cloud.yandex.net/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
 &Attribute.1.Name=DelaySeconds
 &Attribute.1.Value=10
 &Attribute.2.Name=VisibilityTimeout

@@ -211,7 +211,7 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
           -p {{ port-mrd-tls }} \
           -a <target cluster password> \
           --tls \
-          --cacert ~/.redis/YandexInternalRootCA.crt \
+          --cacert ~/.redis/{{ crt-local-file }} \
           --pipe < <dump file>
       ```
 
@@ -223,7 +223,7 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
           -p {{ port-mrd-tls }} \
           -a <target cluster password> \
           --tls \
-          --cacert ~/.redis/YandexInternalRootCA.crt \
+          --cacert ~/.redis/{{ crt-local-file }} \
           --pipe < <dump file>
       ```
 
@@ -245,7 +245,7 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
                      -p {{ port-mrd-tls }} \
                      -a "<target cluster password>" \
                      --tls \
-                     --cacert ~/.redis/YandexInternalRootCA.crt \
+                     --cacert ~/.redis/{{ crt-local-file }} \
                      --pipe < <dump file>
          done
          ```

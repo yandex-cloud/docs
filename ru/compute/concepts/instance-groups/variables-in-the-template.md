@@ -1,5 +1,6 @@
 # Переменные в шаблоне виртуальной машины
 
+
 {{ ig-name }} позволяет создать группу однотипных виртуальных машин из [шаблона](instance-template.md). Чтобы такие ВМ имели разные характеристики, используйте механизм подстановок системных и пользовательских переменных в шаблоне.
 
 _Системная переменная_ — значение, которое {{ ig-name }} вычисляет во время создания ВМ и подставляет его в шаблон для дальнейшего использования.
@@ -87,11 +88,11 @@ _Пользовательская переменная_ — значение, к
    ```yaml
    ...
    variables:
-     - key: short_zone_var_ru-central1-a
+     - key: short_zone_var_{{ region-id }}-a
        value: rc1a
-     - key: short_zone_var_ru-central1-b
+     - key: short_zone_var_{{ region-id }}-b
        value: rc1b
-     - key: short_zone_var_ru-central1-c
+     - key: short_zone_var_{{ region-id }}-c
        value: rc1c
    instance_template:
      name: production-{short_zone_var_{instance.zone_id}}-{instance.index}
@@ -103,21 +104,21 @@ _Пользовательская переменная_ — значение, к
 1. На первом этапе {{ ig-name }} заменит [системные переменные](#first-stage) на вычисленные значения.
 
    * В поле `instance_template.name`:
-     * переменная `{short_zone_var_{instance.zone_id}}` будет преобразована в переменную `{short_zone_var_ru-central1-a}`;
+     * переменная `{short_zone_var_{instance.zone_id}}` будет преобразована в переменную `{short_zone_var_{{ region-id }}-a}`;
      * системная переменная `{instance.index}` будет преобразована в индекс `1`.
    * В поле `instance_template.hostname` системная переменная `{instance.index}` будет преобразована в индекс `1`.
 
    ```yaml
    ...
    variables:
-     - key: short_zone_var_ru-central1-a
+     - key: short_zone_var_{{ region-id }}-a
        value: rc1a
-     - key: short_zone_var_ru-central1-b
+     - key: short_zone_var_{{ region-id }}-b
        value: rc1b
-     - key: short_zone_var_ru-central1-c
+     - key: short_zone_var_{{ region-id }}-c
        value: rc1c
    instance_template:
-     name: production-{short_zone_var_ru-central1-a}-1
+     name: production-{short_zone_var_{{ region-id }}-a}-1
      hostname: production-1
      platform_id: standard-v3
    ...
@@ -125,16 +126,16 @@ _Пользовательская переменная_ — значение, к
 
 1. На втором этапе {{ ig-name }} преобразует полученные переменные в значения из списка в блоке `variables`:
 
-   * В поле `instance_template.name`: переменная `{short_zone_var_ru-central1-a}` будет преобразована в значение `rc1a`.
+   * В поле `instance_template.name`: переменная `{short_zone_var_{{ region-id }}-a}` будет преобразована в значение `rc1a`.
 
    ```yaml
    ...
    variables:
-     - key: short_zone_var_ru-central1-a
+     - key: short_zone_var_{{ region-id }}-a
        value: rc1a
-     - key: short_zone_var_ru-central1-b
+     - key: short_zone_var_{{ region-id }}-b
        value: rc1b
-     - key: short_zone_var_ru-central1-c
+     - key: short_zone_var_{{ region-id }}-c
        value: rc1c
    instance_template:
      name: production-rc1a-1

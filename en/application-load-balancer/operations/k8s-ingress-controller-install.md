@@ -2,7 +2,7 @@
 
 The [{{ alb-name }} Ingress controller for {{ managed-k8s-full-name }}](../tools/k8s-ingress-controller/index.md) is provided via [Helm](https://helm.sh/), a {{ k8s }} package manager.
 
-## Before you start {#prerequisites}
+## Before you begin {#prerequisites}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 1. {% include [k8s-ingress-controller-install-helm](../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
@@ -30,7 +30,7 @@ The [{{ alb-name }} Ingress controller for {{ managed-k8s-full-name }}](../tools
 1. Authenticate the Helm client to the {{ container-registry-full-name }} registry using the authorized service account key:
 
    ```bash
-   cat sa-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin
+   cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin
    ```
 
 1. Download the Ingress controller chart from the registry and unpack:
@@ -38,7 +38,7 @@ The [{{ alb-name }} Ingress controller for {{ managed-k8s-full-name }}](../tools
    ```bash
    helm pull \
      --version v{{ alb-ingress-version }} \
-     oci://cr.yandex/yc/yc-alb-ingress-controller-chart
+     oci://{{ registry }}/yc/yc-alb-ingress-controller-chart
    ```
 
 1. Install the chart in the cluster:

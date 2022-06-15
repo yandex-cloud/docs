@@ -125,4 +125,4 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
 {% endlist %}
 
-To get access to public zone domain names, you need to delegate the domain. Specify the addresses of the `ns1.yandexcloud.net` and the `ns2.yandexcloud.net` servers in your user area on your registrar's site.
+To get access to public zone domain names, you need to delegate the domain. Specify the addresses of the `ns1.yandexcloud.net` and `ns2.yandexcloud.net` servers in your personal dashboard at your registrar.

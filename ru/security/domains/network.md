@@ -1,9 +1,8 @@
 # Сетевая безопасность
 
-В данном разделе представлены рекомендации клиентам по настройкам безопасности в [Yandex Virtual Private Cloud](../../vpc/index.yaml).
+В данном разделе представлены рекомендации клиентам по настройкам безопасности в [{{ vpc-full-name }}](../../vpc/index.yaml).
 
 Подробно о том, как настроить сетевую инфраструктуру, рассказывается в вебинаре [Как работает сеть в Облаке](https://www.youtube.com/watch?v=g3cZ0o50qH0).
-
 ## Создание сегментированного защищенного контура{#protect}
 
 Чтобы контролировать сетевой доступ к ресурсам, используйте одно из следующих решений:
@@ -14,13 +13,13 @@
 
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: настройка групп безопасности (dev/stage/prod) с помощью Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
 
-- Отдельная виртуальная машина — межсетевой экран на основе образа NGFW из [{{ yandex-cloud }} Marketplace](https://cloud.yandex.ru/marketplace?categories=network).
+- Отдельная виртуальная машина — межсетевой экран на основе образа NGFW из [{{ marketplace-name }}](/marketplace?categories=network).
 
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: установка в {{ yandex-cloud }} ВМ — межсетевого экрана (NGFW): Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
 
 - Схема Router-on-a-Stick на основе [Cloud Interconnect](../../interconnect/index.yaml): вы можете подключить собственный файрвол к инфраструктуре {{ yandex-cloud }} по выделенному каналу и маршрутизировать трафик в облачные сети через этот файрвол.
 
-Для доставки трафика в приложение, находящееся в облачной инфраструктуре, рекомендуется использовать сетевой балансировщик нагрузки, например [Yandex Application Load Balancer](../../application-load-balancer/index.yaml), который пропускает трафик только по заданным портам. Сетевой балансировщик нагрузки рекомендуется использовать совместно с группами безопасности для ограничения списка IP-адресов, имеющих доступ к приложению.
+Для доставки трафика в приложение, находящееся в облачной инфраструктуре, рекомендуется использовать сетевой балансировщик нагрузки, например [{{ alb-full-name }}](../../application-load-balancer/index.yaml), который пропускает трафик только по заданным портам. Сетевой балансировщик нагрузки рекомендуется использовать совместно с группами безопасности для ограничения списка IP-адресов, имеющих доступ к приложению.
 
 Чтобы изолировать приложения друг от друга, поместите ресурсы в разные группы безопасности, а если требуется наиболее строгая изоляция — в разные VPC. Трафик внутри VPC по умолчанию разрешен, между VPC нет (только через ВМ с двумя сетевыми интерфейсами в разных сетях, VPN или Cloud Interconnect).
 
@@ -32,14 +31,14 @@
 
 Чтобы обеспечить удаленное подключение администраторов к облачным ресурсам, используйте одно из следующих решений:
 
-- Site-to-site VPN между удаленной площадкой (например, вашим офисом) и облаком. В качестве шлюза для удаленного доступа используйте ВМ с функцией site-to-site VPN на основе образа из [{{ yandex-cloud }} Marketplace](https://cloud.yandex.ru/marketplace?categories=network).
+- Site-to-site VPN между удаленной площадкой (например, вашим офисом) и облаком. В качестве шлюза для удаленного доступа используйте ВМ с функцией site-to-site VPN на основе образа из [{{ marketplace-name }}](/marketplace?categories=network).
 
   Варианты настройки:
 
-  - [Создание туннеля IPSec VPN с использованием демона strongSwan](../../tutorials/routing/ipsec-vpn.md)
-  - ![](../../_assets/overview/solution-library-icon.svg)[Решение: создание site-to-site VPN-соединения с {{ yandex-cloud }} с помощью Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
+  - [Создание туннеля IPSec VPN с использованием демона strongSwan](../../tutorials/routing/ipsec-vpn.md).
+  - ![](../../_assets/overview/solution-library-icon.svg)[Решение: создание site-to-site VPN-соединения с {{ yandex-cloud }} с помощью Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn).
 
-- Client VPN между удаленными устройствами и {{ yandex-cloud }}. В качестве шлюза для удаленного доступа используйте ВМ с функцией client VPN на основе образа из [{{ yandex-cloud }} Marketplace](https://cloud.yandex.ru/marketplace?categories=network). См. инструкцию в разделе [Создание VPN-соединения с помощью OpenVPN](../../tutorials/routing/openvpn.md).
+- Client VPN между удаленными устройствами и {{ yandex-cloud }}. В качестве шлюза для удаленного доступа используйте ВМ с функцией client VPN на основе образа из [{{ marketplace-name }}](/marketplace?categories=network). См. инструкцию в разделе [Создание VPN-соединения с помощью OpenVPN](../../tutorials/routing/openvpn.md).
 - Приватное выделенное соединение между удаленной площадкой и {{ yandex-cloud }} c помощью услуги [Cloud Interconnect](../../interconnect/index.yaml).
 {#gost-vpn}
 - ГОСТ VPN. Если требуется организовать защищенный канал с аппаратных сертифицированных СКЗИ, обратитесь к своему менеджеру. Услуга ГОСТ VPN включает установку аппаратного криптошлюза на стороне {{ yandex-cloud }} и, при необходимости, на стороне клиента, а также настройку и дальнейшую поддержку защищенного канала. Криптошлюзы предоставляются в аренду. Услуга оказывается совместно с партнером {{ yandex-cloud }}.
@@ -54,9 +53,9 @@
 
 Возможные варианты организации исходящего доступа в интернет:
 
-- [Публичный IP-адрес](../../vpc/concepts/address.md#public-addresses). Адрес назначается ВМ по принципу one-to-one NAT. 
-- [Egress NAT](../../vpc/operations/enable-nat.md). Включает доступ в интернет для подсети через общий пул публичных адресов {{ yandex-cloud }}. Не рекомендуется использовать Egress NAT для критичных взаимодействий, так как IP-адрес NAT-шлюза может использоваться несколькими клиентами одновременно. Следует учитывать эту особенность при моделировании угроз для инфраструктуры. 
-- [NAT-инстанс](../../tutorials/routing/nat-instance.md). Функцию NAT выполняет отдельная ВМ. Для создания такой ВМ можно использовать образ из [{{ yandex-cloud }} Marketplace](https://cloud.yandex.ru/marketplace/products/f2etqeet87jshce7o7j8).
+- [Публичный IP-адрес](../../vpc/concepts/address.md#public-addresses). Адрес назначается ВМ по принципу one-to-one NAT.
+- [Egress NAT](../../vpc/operations/enable-nat.md). Включает доступ в интернет для подсети через общий пул публичных адресов {{ yandex-cloud }}. Не рекомендуется использовать Egress NAT для критичных взаимодействий, так как IP-адрес NAT-шлюза может использоваться несколькими клиентами одновременно. Следует учитывать эту особенность при моделировании угроз для инфраструктуры.
+- [NAT-инстанс](../../tutorials/routing/nat-instance.md). Функцию NAT выполняет отдельная ВМ. Для создания такой ВМ можно использовать образ из [{{ marketplace-name }}](/marketplace/products/f2etqeet87jshce7o7j8).
 
 Сравнение способов доступа в интернет:
 

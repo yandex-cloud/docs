@@ -75,12 +75,13 @@
             * `content.0.zip_filename` — имя ZIP-архива, содержащего исходный код функции.
              
         Пример структуры конфигурационного файла:
-      
+
+        
         ```
         provider "yandex" {
             token     = "<OAuth или статический ключ сервисного аккаунта>"
             folder_id = "<идентификатор каталога>"
-            zone      = "ru-central1-a"
+            zone      = "{{ region-id }}-a"
         }
 
         resource "yandex_function" "test-function" {
@@ -102,7 +103,8 @@
             value = "${yandex_function.test-function.id}"
         }
         ```
-      
+
+
         Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
       
     2. Проверьте корректность конфигурационных файлов.

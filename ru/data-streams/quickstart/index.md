@@ -16,4 +16,4 @@
 
         * `AWS Access Key ID [None]:` — [идентификатор ключа](../../iam/concepts/authorization/access-key.md) сервисного аккаунта.
         * `AWS Secret Access Key [None]:` — [секретный ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта.
-        * `Default region name [None]:` — зону доступности `ru-central1`.
+        * `Default region name [None]:` — регион `{{ region-id }}`.

@@ -1,28 +1,34 @@
 # Образы виртуальных машин с операционной системой Windows
 
+
 В {{ marketplace-name }} вам доступен большой выбор продуктов:
 
 * ВМ с предустановленной операционной системой Windows Server; 
 * ВМ c активированной службой Remote Desktop Service с поддержкой различного количества удаленных рабочих столов; 
 * заранее настроенные образы Microsoft SQL Server.
 
+
+
 ## Образы Windows Server {#win-server}
 
-В [{{ marketplace-name }}](https://cloud.yandex.ru/marketplace?categories=os&operationSystems=WINDOWS) доступен образ Microsoft Windows Server только в редакции Datacenter: 
+В [{{ marketplace-name }}](/marketplace?categories=os&operationSystems=WINDOWS) доступен образ Microsoft Windows Server только в редакции Datacenter: 
 
 * Windows Server 2012 R2
 * Windows Server 2016
 * Windows Server 2019
 
+
+
 ### Служба удаленных рабочих столов RDS {#rds}
 
-В {{ marketplace-name }} вам доступны образы [Windows RDS](https://cloud.yandex.ru/marketplace?search=RDS) на основе Windows Server 2019 Datacenter с предварительно активированной ролью Remote Desktop Licensing Server и пакетом пользовательских лицензий. На выбор доступны пакеты лицензий RDS на 5, 10, 25, 50, 100, 250 и 500 лицензий. 
+В {{ marketplace-name }} вам доступны образы [Windows RDS](/marketplace?search=RDS) на основе Windows Server 2019 Datacenter с предварительно активированной ролью Remote Desktop Licensing Server и пакетом пользовательских лицензий. На выбор доступны пакеты лицензий RDS на 5, 10, 25, 50, 100, 250 и 500 лицензий. 
 
 {% note warning %}
 
 В образах с предактивированным RDS не проводится оптимизация с помощью утилиты `sysprep` и не меняется SID. Из-за этого могут возникать конфликты, если в одном домене запущены две ВМ с одинаковым количество лицензий.
 
 {% endnote %}
+
 
 ### Изменения в образах ВМ с операционной системой Windows {#changes}
 
@@ -54,6 +60,8 @@
 ### Драйверы {#drivers}
 
 Для работы ВМ на базе Microsoft Windows необходимы драйверы `virtIO` для сетевых и дисковых устройств. Драйверы предоставляет Fedora Project. В образах ВМ используется последняя стабильная версия драйверов, доступная для [загрузки](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.185-2/) на сайте разработчика.
+
+
 
 ## Образы Microsoft SQL Server {#sql}
 

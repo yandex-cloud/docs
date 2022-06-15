@@ -16,9 +16,9 @@
 
 Для публикации ваших приложений используйте балансировщики нагрузки [{{ network-load-balancer-name }}](../../network-load-balancer/) и [{{ alb-name }}](../../application-load-balancer) или сервис типа `LoadBalancer` в [{{ managed-k8s-name }}](../../managed-kubernetes/operations/create-load-balancer.md). С их помощью можно публиковать сервисы на общем IP-адресе, используя разные порты или маршрутизацию по путям и SNI.
 
-#### Публикуйте статические файлы с помощью {{ objstorage-short-name }} и {{ cdn-short-name }} {#publishing-static-files}
+#### Публикуйте статические файлы с помощью {{ objstorage-short-name }}и {{ cdn-short-name }} {#publishing-static-files}
 
-Для публикации статических файлов используйте сервис [{{ objstorage-short-name }}](../../storage/index.yaml) в сочетании с сервисом [{{ cdn-short-name }}](../../cdn/index.yaml). Таким образом вы и сэкономите вычислительные ресурсы ваших виртуальных машин, и повысите экономическую эффективность. Также использование CDN ускоряет отдачу контента пользователям и повышает надежность ваших сервисов.
+Для публикации статических файлов используйте сервис [{{ objstorage-short-name }}](../../storage/index.yaml)в сочетании с сервисом [{{ cdn-short-name }}](../../cdn/index.yaml). Таким образом вы и сэкономите вычислительные ресурсы ваших виртуальных машин, и повысите экономическую эффективность. Также использование CDN ускоряет отдачу контента пользователям и повышает надежность ваших сервисов.
 
 Подробнее:
 
@@ -35,6 +35,8 @@
 * [Настройка VPN с облаком Azure](https://github.com/yandex-cloud/yc-solution-library-for-azure/tree/main/Yandex-Azure%20VPN).
 * [Настройка VPN с облаком AWS](https://github.com/yandex-cloud/yc-solution-library-for-aws/tree/main/VPN/modules/vpn).
 
+
+
 #### Используйте {{ interconnect-name }} {#cic}
 
 Свяжите вашу локальную сетевую инфраструктуру с облачной с помощью сервиса {{ interconnect-name }}. Это позволит не использовать публичные IP-адресов как со стороны вашей сети, так и со стороны {{ yandex-cloud }}. Вместо этого вы сможете использовать внутренние IP-адреса из подсетей, диапазоны которых определите сами.
@@ -43,6 +45,7 @@
 
 * [{#T}](../../interconnect/manual.md).
 * [Маршрутизация трафика с помощью {{ interconnect-name }}](../../interconnect/concepts/routing.md).
+
 
 #### Подключайтесь к ВМ через серийную консоль {#serial-console}
 

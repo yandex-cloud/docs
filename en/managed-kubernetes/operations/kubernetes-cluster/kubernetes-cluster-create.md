@@ -6,12 +6,15 @@ Create a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) and the
 
 To create a {{ k8s }} cluster:
 1. Log in to the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
+
+
 1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../../../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account).
+
 1. If you don't have a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), [create one](../../../resource-manager/operations/folder/create.md).
 1. Install [{{ k8s }} CLI (kubectl)](https://kubernetes.io/docs/tasks/tools/install-kubectl).
 1. Make sure you have enough [resources available in the cloud](../../concepts/limits.md).
 1. If you don't have a [network](../../../vpc/concepts/network.md#network), [create one](../../../vpc/operations/network-create.md).
-1. If you don't have any [subnets](../../../vpc/concepts/network.md#subnet), [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and [node group](../../concepts/index.md#node-group) will be created.
+1. If you don't have any [subnets](../../../vpc/concepts/network.md#subnet), [create them](../../../vpc/operations/subnet-create.md)in the [availability zones](../../../overview/concepts/geo-scope.md) where your {{ k8s }} cluster and [node group](../../concepts/index.md#node-group) will be created.
 1. Create [service accounts](../../../iam/operations/sa/create.md):
    * A service account with the [{{ roles-editor }}](../../../resource-manager/security/index.md#roles-list) role to the folder where a {{ k8s }} cluster is being created. The resources that the {{ k8s }} cluster needs will be created on behalf of this account.
    * A service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#required-roles) role to the folder containing a [Docker image](../../../container-registry/concepts/docker-image.md) [registry](../../../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
@@ -40,7 +43,7 @@ To create a {{ k8s }} cluster:
      {{ yc-k8s }} cluster create \
        --name test-k8s \
        --network-name default \
-       --zone ru-central1-a \
+       --zone {{ region-id }}-a \
        --subnet-name default-a \
        --public-ip \
        --release-channel regular \

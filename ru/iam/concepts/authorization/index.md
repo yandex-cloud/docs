@@ -12,7 +12,7 @@
 * [Аутентификация сервисного аккаунта](#sa)
 * [Аутентификация федеративного пользователя](#saml-federation)
 
-### Аутентификация с аккаунтом на Яндексе {#passport}
+### Аутентификация с аккаунтом на {{ yandex-cloud }} {#passport}
 
 {% list tabs %}
 
@@ -30,11 +30,11 @@
   {% include [owner-warning](../../../_includes/iam/owner-warning.md) %}
 
   Чтобы выполнять операции в API:
-
+  
   1. [Получите IAM-токен](../../operations/iam-token/create.md) в обмен на [OAuth-токен](oauth-token.md).
-  2. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
+  1. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
-      {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
+     {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
 
 {% endlist %}
 
@@ -54,7 +54,7 @@
 
       Это рекомендуемый способ аутентификации, но у IAM-токена короткое [время жизни](iam-token.md#lifetime). Поэтому такой способ подойдет для приложений, которые будут запрашивать IAM-токен автоматически.
 
-      [Инструкция получения IAM-токена](../../operations/iam-token/create-for-sa.md).
+    [Инструкция получения IAM-токена](../../operations/iam-token/create-for-sa.md).
   * С помощью [API-ключей](api-key).
 
       {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}

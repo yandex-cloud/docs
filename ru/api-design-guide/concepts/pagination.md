@@ -44,7 +44,7 @@ gRPC-описание метода [List](https://github.com/yandex-cloud/clouda
 Пример REST запроса на получение списка дисков в каталоге:
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/disks?folderId=a3s17h9sbq5asdgss12&pageToken=1acdeb26078146e6
+GET https://compute.{{ api-host }}/compute/v1/disks?folderId=a3s17h9sbq5asdgss12&pageToken=1acdeb26078146e6
 ```
 
 Ответ:
@@ -57,7 +57,7 @@ GET https://compute.api.cloud.yandex.net/compute/v1/disks?folderId=a3s17h9sbq5as
       "createdAt": "2018-08-09T12:54:53+00:00",
       "id": "de019dv504rmhoinn3nk",
       "name": "development",
-      "zoneId" : "ru-central1-a",
+      "zoneId" : "{{ region-id }}-a",
       "typeId" : "network-nvme",
       "size" : 5368709120 
     },

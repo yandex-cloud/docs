@@ -59,7 +59,7 @@ items:
         href: concepts/delay-queues.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Сравнение с Yandex Data Stream
+      - name: Сравнение с {{ yds-full-name }}
         href: concepts/yds-ymq-comparison.md
   - name: Практические руководства
     items:
@@ -69,7 +69,7 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Yandex Message Queue API
+  - name: API {{ message-queue-full-name }}
     items:
       - name: Обзор
         href: api-ref/index.md

@@ -24,13 +24,20 @@ To view information about the transfer status:
 
 The following charts open on the page:
 
-* **Data upload lag (histogram by seconds)**: Data lag (in seconds).
-* **Successfully pushed rows**: The number of rows written to the target.
+* **Data upload lag (histogram by seconds)**: Histogram showing the difference between the time records appear on the target and the time they appear on the source (in seconds). The histogram is broken down into `bins`.
+
+   Let us assume, the histogram is showing two `bins` for 45 and 60 at a given point in time, with each containing a value equal to 50%. This means that half the records being transferred at the time had a delay of between 30 and 45 seconds, and the other half of between 45 and 60 seconds.
+
+* **Successfully pushed rows**:
+
+   * For table-based DBMS systems, table row insert performance.
+   * For non-relational DBMS systems, transfer performance for objects stored in collections (objects per second).
+
 * **Maximum lag on delivery**: Maximum data lag (in seconds).
 * **Successfully pushed rows by tables (top-50 tables)**: Top 50 tables with the maximum number of rows written to the target.
 * **Read buffer size**: The size, in bytes, of the buffer or write ahead log (when supported) in the source.
 * **Read bytes from source**: The amount of data read from the source (in bytes).
-* **Sink response time (histogram by seconds)**: Target response time (in seconds).
+* **Sink response time (histogram by seconds)**: Time required on the target to process a source request in the most recent monitoring interval (in seconds).
 * **Read rows (parsed/unparsed)**: The number of rows read from the source.
 * **Snapshot task progress (top-50 tables)**: The number of rows awaiting transfer.
 * **Snapshot task status**: The operation in progress (replication if `0`, and copying if `1` ).
@@ -56,8 +63,7 @@ To set up alerts for transfer status indicators:
 Recommended threshold values:
 
 | Metric | Parameter | `Alarm` | `Warning` |
-| --------------------------------------- | :------------------------------------: | :-------: | :-------------------------------------------------------------------------------------: |
+|---------------------------------------|:------------------------------------:|:-------:|:-------------------------------------------------------------------------------------:|
 | Maximum data transfer delay | `sinker.pusher.time.row_max_lag_sec` | `15` | — |
 | Buffer size in the source | `publisher.consumer.log_usage_bytes` | — | Not less than the maximum amount of data received by the source within a single transaction |
-|  |  |  |  |
-
+|                                       |                                      |         |                                                                                       |

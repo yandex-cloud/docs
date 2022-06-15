@@ -1,5 +1,6 @@
 #  Уровень нетарифицируемого использования (free tier) для сервисов экосистемы бессерверных вычислений
 
+
 На сервисы экосистемы бессерверных вычислений действуют специальные тарифы, в рамках которых определенный объем услуг не тарифицируется. Объем рассчитан так, чтобы у вас была возможность разработать и запустить небольшой сервис, сайт или приложение.
 
 
@@ -14,6 +15,7 @@ Free tier распространяется на сервисы:
 * [{{ yds-full-name }}](#yds)
 * [{{ serverless-containers-full-name }}](#serverless-containers)
 
+
 ## {{ api-gw-full-name }} {#api-gw}
 
 {% include [not-charged-gateway.md](../../_includes/pricing/price-formula/not-charged-gateway.md) %} 
@@ -22,6 +24,7 @@ Free tier распространяется на сервисы:
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
+
 ## {{ sf-full-name }} {#sf}
 
 {% include [not-charged-functions.md](../../_includes/pricing/price-formula/not-charged-functions.md) %}
@@ -29,6 +32,7 @@ Free tier распространяется на сервисы:
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../functions/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+
 
 ## Бессерверный режим {{ ydb-full-name }} {#ydb}
 
@@ -54,6 +58,7 @@ Free tier распространяется на сервисы:
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
+
 ## {{ iot-full-name }} {#iot}
 
 {% include [not-charged-iot.md](../../_includes/pricing/price-formula/not-charged-iot.md) %}
@@ -70,6 +75,7 @@ Free tier распространяется на сервисы:
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
+
 ## {{ yds-full-name }} {#yds}
 
 {% include [not-charged-streams.md](../../_includes/pricing/price-formula/not-charged-streams.md) %}
@@ -77,6 +83,7 @@ Free tier распространяется на сервисы:
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../data-streams/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+
 
 ## {{ serverless-containers-full-name }} {#serverless-containers}
 

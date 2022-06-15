@@ -1,14 +1,14 @@
-# Yandex Message Queue API
+# {{ message-queue-full-name }} API
 
-Yandex Message Queue предоставляет HTTP API, частично совместимый с Amazon SQS API.
+{{ message-queue-full-name }} предоставляет HTTP API, частично совместимый с Amazon SQS API.
 
 ## Выполнение запроса к API {#api-request}
 
-Для выполнения запроса к API Yandex Message Queue необходимо выполнить POST запрос по пути  `/` на адрес `https://message-queue.api.cloud.yandex.net`.
+Для выполнения запроса к API {{ message-queue-full-name }} необходимо выполнить POST запрос по пути `/` на адрес `https://message-queue.{{ api-host }}`.
 
 ```
 POST / HTTP/1.1
-Host: message-queue.api.cloud.yandex.net
+Host: message-queue.{{ api-host }}
 Content-Length: length
 Content-Type: application/x-www-form-urlencoded
 Authorization: authorization string (AWS Signature Version 4)
@@ -68,7 +68,7 @@ Attribute.2.Value=1000
 <?xml version="1.0" encoding="UTF-8"?>
 <CreateQueueResponse>
    <CreateQueueResult>
-      <QueueUrl>https://message-queue.api.cloud.yandex.net/b1g8ad42m6he1ooql78r/dj600000000000me07ol/sample-queue</QueueUrl>
+      <QueueUrl>https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000me07ol/sample-queue</QueueUrl>
    </CreateQueueResult>
    <ResponseMetadata>
       <RequestId>3c9b76fb-f35fb266-48e9c5bf-faca-ddc10b592cfce6ffdf83329a2062f99b</RequestId>

@@ -11,15 +11,14 @@ If for an instance group, [processes are paused](stopping-pausing.md) ([status](
 ## Types of health checks {#setting-up-health-checks}
 
 To ensure auto-healing, {{ ig-name }} performs two types of health checks:
-
 * [Instance operability check](#auto-healthcheck).
 * [Application health check on the instance](#functional-healthcheck).
 
-Don't confuse these checks with the [network load balancer health check](../../../network-load-balancer/concepts/health-check.md), which doesn't auto-heal the instance. It only affects the deployment process: when at startup the instance switches to the [status](statuses.md) `OPENING_TRAFFIC`, {{ ig-name }} waits until the instance status in the load balancer is `HEALTHY`. After that {{ ig-name }} stops monitoring the instance status in the load balancer.
+Don't confuse these checks with the [network load balancer health check](../../../network-load-balancer/concepts/health-check.md) that doesn't result in automatic instance recovery. It only affects the deployment process: when at startup the instance switches to the [status](statuses.md) `OPENING_TRAFFIC`, {{ ig-name }} waits until the instance status in the load balancer is `HEALTHY`. After that {{ ig-name }} stops monitoring the instance status in the load balancer.
 
 ### Instance operability check {#auto-healthcheck}
 
-{{ ig-name }} checks the [instance status](../vm-statuses.md) in {{ compute-name }} every few seconds. If the instance has stopped or an error occurred (the statuses `STOPPED`, `ERROR`, and `CRASHED`), {{ ig-name }} will try to restart the instance and create a new one, provided that this is allowed by the [deployment policy](#healthcheck-and-deploy).
+{{ ig-name }} checks the [instance status](../vm-statuses.md) in {{ compute-name }} every few seconds. If the instance has stopped or an error occurred (the statuses `STOPPED`, `ERROR`, and `CRASHED`), {{ ig-name }} will try to restart the instance and create a new one, if this is allowed by the [deployment policy](#healthcheck-and-deploy).
 
 ### Application health check on the instance {#functional-healthcheck}
 
@@ -40,26 +39,25 @@ If you [created an instance group with a network load balancer](../../operations
 To auto-heal instances, {{ ig-name }} may restart instances or create new ones. The healing method is set in the [deployment policies](policies/deploy-policy.md).
 
 * Creating new instances
-{{ ig-name }} will create new instances to replace any that fail their health checks, provided the deployment policy permits expanding the target group size. You can set the maximum number of instances that can be allocated to expand the target size of the group by using the `max_expansion` parameter. Acceptable values: from `0` to `100`. In this case, {{ ig-name }} will first create a new instance, wait until it passes all the checks, and then undeploy the instance that failed the check.
+   {{ ig-name }} will create new instances to replace those that failed the health check, provided that the deployment policy permits expanding the target size of the instance group. You can set the maximum number of instances that can be allocated to expand the target size of the group by using the `max_expansion` parameter. Acceptable values: from `0` to `100`. In this case, {{ ig-name }} will first create a new instance, wait until it passes all the checks, and then undeploy the instance that failed the check.
 
-* Restarting an instance
-{{ ig-name }} will restart instances that failed their health check if the deployment policy permits reducing the target group size. You can use  the `max_unavailable` parameter to set the maximum number of instances that can be made unavailable at the same time. Acceptable values: from `0` to `100`. {{ ig-name }} will try not to exceed this value during auto-healing.
+* Restarting the instance
+   {{ ig-name }} will restart instances that failed the health check if the deployment policy permits reducing the target size of the instance group. You can use the `max_unavailable` parameter to set the maximum number of instances that can be made unavailable at the same time. Acceptable values: from `0` to `100`. {{ ig-name }} will try not to exceed this value during auto-healing.
 
-  This restriction does not apply to instances with the [statuses](../vm-statuses.md) `CRASHED`, `ERROR`, and `STOPPED`, because in these cases the instance is already unavailable and must be restarted immediately.
+   This restriction does not apply to instances with the [statuses](../vm-statuses.md) `CRASHED`, `ERROR`, and `STOPPED`, because in these cases the instance is already unavailable and must be restarted immediately.
 
 If you set both `max_expansion` and `max_unavailable`, {{ ig-name }} will use both auto-healing methods.
 
 > For example, you set `max_expansion = 1` and `max_unavailable = 1`. When one instance fails the check, {{ ig-name }} begins restarting this instance and creating a new one at the same time. The instance that passes all the checks successfully continues running and the other instance is undeployed.
 
 To limit the speed of auto-healing and deployment, you can also set:
-
 * The maximum number of instances that are deployed at the same time using the `max_creating` parameter. This includes the created and started instances with the statuses `CREATING` and `STARTING`.
 
-  Acceptable values: from `0` to `100`. Value `0`: Any number of instances within the allowed range.
+   Acceptable values: from `0` to `100`. Value `0`: Any number of instances within the allowed range.
 
 * The maximum number of instances that are undeployed at the same time, using the `max_deleting` parameter. This includes the instances being stopped with the `STOPPING` status, since {{ ig-name }} always stops instances before undeploying them.
 
-  Acceptable values: from `0` to `100`. Value `0`: Any number of instances within the allowed range.
+   Acceptable values: from `0` to `100`. Value `0`: Any number of instances within the allowed range.
 
 ### Changing instance status during auto-healing {#healtcheck-and-vm-state}
 

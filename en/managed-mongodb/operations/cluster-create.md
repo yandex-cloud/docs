@@ -150,6 +150,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
       Example configuration file structure:
 
+      
       ```hcl
       terraform {
         required_providers {
@@ -211,6 +212,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
         v4_cidr_blocks = ["<range>"]
       }
       ```
+
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -296,6 +298,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    The configuration file for the cluster looks like this:
 
+  
    ```hcl
    terraform {
      required_providers {
@@ -370,5 +373,6 @@ If you specified security group IDs when creating a cluster, you may also need t
      v4_cidr_blocks = ["10.5.0.0/24"]
    }
    ```
+
 
 {% endlist %}

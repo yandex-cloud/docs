@@ -26,15 +26,10 @@ To configure monitoring of sensor readings in the server room:
 
 ## Before you start {#before-you-begin}
 
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
 If you don't have the {{ yandex-cloud }} command line interface yet, [install and initialize it](../../cli/quickstart.md#install).
 
-Make sure the billing account is active:
-
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder on the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources {#paid-resources}
 

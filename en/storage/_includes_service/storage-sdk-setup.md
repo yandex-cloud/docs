@@ -12,7 +12,7 @@ To configure the SDK, create configuration files in your home folder and set the
 
    ```
    [default]
-               region=ru-central1
+               region={{ region-id }}
    ```
 
    {% note info %}

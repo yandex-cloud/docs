@@ -7,7 +7,7 @@
 1. [Train a model on voice data](#model-fit).
 1. [Get the results of feature prediction based on test data](#model-test).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 1. [Create a project](../operations/projects/create) in **{{ ml-platform-name }}** and open it.
 1. [Clone](../operations/projects/work-with-git.md#clone) the Git repository that contains the prepared notebook with the dataset:

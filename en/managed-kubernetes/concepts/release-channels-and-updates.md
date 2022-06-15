@@ -47,9 +47,11 @@ The update process is different for [masters](#master) and [node groups](#node-g
 
 #### Master {#master}
 
+
 Depending on the type of master, it may or may not be available during an update:
 * Zonal masters are unavailable during updates.
 * Regional masters remain available during updates.
+
 
 For more information, see [Updating a cluster](../operations/update-kubernetes.md#cluster-upgrade).
 

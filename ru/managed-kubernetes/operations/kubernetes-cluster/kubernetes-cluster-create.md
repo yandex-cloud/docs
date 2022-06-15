@@ -6,18 +6,23 @@
 
 Чтобы создать кластер {{ k8s }}:
 1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+
+
 1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account).
+
 1. Если у вас еще нет [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../../../resource-manager/operations/folder/create.md).
-1. Установите [{{ k8s }} CLI (kubectl)](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/).
+
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Убедитесь, что у вас достаточно [свободных ресурсов в облаке](../../concepts/limits.md).
 1. Если у вас еще нет [сети](../../../vpc/concepts/network.md#network), [создайте ее](../../../vpc/operations/network-create.md).
-1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ k8s }} и [группа узлов](../../concepts/index.md#node-group).
+1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md)в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ k8s }} и [группа узлов](../../concepts/index.md#node-group).
 1. Создайте [сервисные аккаунты](../../../iam/operations/sa/create.md):
    * Сервисный аккаунт с ролью [{{ roles-editor }}](../../../resource-manager/security/index.md#roles-list) на каталог, в котором создается кластер {{ k8s }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
    * Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../../../container-registry/security/index.md#required-roles) на каталог с [реестром](../../../container-registry/concepts/registry.md) [Docker-образов](../../../container-registry/concepts/docker-image.md). От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
    Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
-1. Создайте нужные [группы безопасности](../security-groups.md).
+1. Создайте нужные [группы безопасности](../connect/security-groups.md).
 1. Изучите [рекомендации по использованию {{ managed-k8s-name }}](../../concepts/usage-recommendations.md).
 
 ## Создайте кластер {{ k8s }} {#kubernetes-cluster-create}
@@ -40,7 +45,7 @@
      {{ yc-k8s }} cluster create \
        --name test-k8s \
        --network-name default \
-       --zone ru-central1-a \
+       --zone {{ region-id }}-a \
        --subnet-name default-a \
        --public-ip \
        --release-channel regular \
@@ -88,17 +93,16 @@
      ```bash
      {{ yc-k8s }} cluster create \
      ...
-     --enable-network-policy
+       --enable-network-policy
      ```
 
   1. Чтобы использовать [ключ шифрования {{ kms-full-name }}](../../concepts/encryption.md) для защиты конфиденциальной информации, передайте в команде создания кластера его имя или идентификатор:
 
      ```bash
      {{ yc-k8s }} cluster create \
-        ...
-        --kms-key-name <имя ключа шифрования> \
-        --kms-key-id <идентификатор ключа шифрования> \
-        ...
+     ...
+       --kms-key-name <имя ключа шифрования> \
+       --kms-key-id <идентификатор ключа шифрования>
      ```
 
      {% include [write-once-setitng.md](../../../_includes/managed-kubernetes/write-once-setting.md) %}
@@ -168,7 +172,6 @@
      >```
 
      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
-
   1. Проверьте корректность конфигурационных файлов.
 
      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}

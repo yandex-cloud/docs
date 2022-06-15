@@ -1,5 +1,6 @@
 # Changing cluster settings
 
+
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
@@ -11,6 +12,8 @@ After creating a cluster, you can:
 * [Changing additional cluster settings](#change-additional-settings).
 
 * [Manually switch the master in the cluster](#start-manual-failover).
+
+* [Move a cluster](#move-cluster) to another folder.
 
 * [Change cluster security groups](#change-sg-set).
 
@@ -33,7 +36,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 - Management console
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Under **Host class**, select the class for the {{ PG }} hosts.
    1. Click **Save changes**.
 
@@ -62,8 +65,8 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
       +-----------+--------------------------------+-------+----------+
       |    ID     |            ZONE IDS            | CORES |  MEMORY  |
       +-----------+--------------------------------+-------+----------+
-      | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
-      |           | ru-central1-c                  |       |          |
+      | s1.micro  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 8.0 GB   |
+      |           | {{ region-id }}-c                  |       |          |
       | ...                                                           |
       +-----------+--------------------------------+-------+----------+
       ```
@@ -134,7 +137,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
    To increase a cluster's storage size:
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Under **Storage size**, specify the required value.
    1. Click **Save changes**.
 
@@ -195,7 +198,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
 - API
 
-   To increase a cluster's storage size, use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+   To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in in the call:
 
    * The cluster ID in the `clusterId` parameter.
    * New storage size in the `configSpec.postgresqlConfig_<version {{ PG }}>.resources.diskSize` parameter.
@@ -221,7 +224,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Change the [{{ PG }} settings](../concepts/settings-list.md) by clicking **Configure** under **DBMS settings**.
    1. Click **Save**.
    1. Click **Save changes**.
@@ -248,7 +251,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    1. Set the required parameter values:
 
-      All supported parameters are listed in the [request format for the update method](../api-ref/Cluster/update.md), in the `postgresqlConfig_<version {{ PG }}>` field. To specify the parameter name in the CLI's call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `maxPreparedTransactions` parameter from an API request should be converted to `max_prepared_transactions` for the CLI command:
+      All supported parameters are listed in the [request format for the update method](../api-ref/Cluster/update.md), in the `postgresqlConfig_<version {{ PG }}>` field. To specify a parameter name in the CLI call, convert the name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, the `maxPreparedTransactions` parameter from an API call should be converted to `max_prepared_transactions` for the CLI command:
 
       ```bash
       {{ yc-mdb-pg }} cluster update-config <cluster ID or name> \
@@ -305,7 +308,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Change additional cluster settings:
 
       {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
@@ -334,7 +337,7 @@ You can change the DBMS settings of the hosts in your cluster.
                               `day=<day of week for weekly>,`
                               `hour=<hour for weekly> \
           --websql-access=<true or false> \
-          --deletion-protection=<protect cluster from deletion: true or false> \
+          --deletion-protection=<cluster deletion protection: true or false> \
           --connection-pooling-mode=<connection manager mode> \
           --serverless-access=<true or false>
       ```
@@ -343,12 +346,12 @@ You can change the DBMS settings of the hosts in your cluster.
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
+   *`--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
 
    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
-      
+            
    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
 
    * `--connection-pooling-mode`: Specifies the [connection pooler mode](../concepts/pooling.md): `SESSION`, `TRANSACTION`, or `STATEMENT`.
@@ -440,7 +443,7 @@ You can change the DBMS settings of the hosts in your cluster.
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter.
-   * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access parameter`.
+   * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * [Connection pooler mode](../concepts/pooling.md) in the `configSpec.poolerConfig.poolingMode` parameter.
    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
@@ -458,7 +461,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    {% endnote %}
 
-   
+      
    To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 {% endlist %}
@@ -538,6 +541,49 @@ To switch the master:
 
 {% endlist %}
 
+## Moving a cluster {#move-cluster}
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you want to move.
+   1. Click **Move**.
+   1. Select the folder you want to move the cluster to.
+   1. Click **Move**.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To move a cluster:
+
+   1. View a description of the CLI move cluster command:
+
+      ```bash
+      {{ yc-mdb-pg }} cluster move --help
+      ```
+
+   1. Specify the destination folder in the move cluster command:
+
+      ```bash
+      {{ yc-mdb-pg }} cluster move <cluster ID> \
+         --destination-folder-name=<destination folder name>
+      ```
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- API
+
+   Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * The ID of the destination folder in the `destinationFolderId` parameter.
+
+{% endlist %}
 
 ## Changing security groups {#change-sg-set}
 
@@ -546,7 +592,7 @@ To switch the master:
 - Management console
 
    1. Go to the folder page and select **{{ mpg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Under **Network settings**, select security groups for cluster network traffic.
 
 - CLI

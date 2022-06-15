@@ -45,7 +45,7 @@ ksqlDB — это база данных, которая предназначен
 
    ```bash
    cd /etc/ksqldb && \
-   sudo keytool -importcert -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+   sudo keytool -importcert -alias {{ crt-alias }} -file {{ crt-local-dir }}{{ crt-local-file }} \
    -keystore ssl -storepass <пароль хранилища сертификатов> \
    --noprompt
    ```
@@ -163,7 +163,7 @@ ksqlDB — это база данных, которая предназначен
       -X sasl.mechanisms=SCRAM-SHA-512 \
       -X sasl.username=ksql \
       -X sasl.password="<пароль учетной записи ksql>" \
-      -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z
+      -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
    ```
 
    Информация отправляется с помощью учетной записи `ksql`. Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../operations/connect.md).
@@ -212,7 +212,7 @@ ksqlDB — это база данных, которая предназначен
     -X sasl.mechanisms=SCRAM-SHA-512 \
     -X sasl.username=ksql \
     -X sasl.password="<пароль учетной записи ksql>" \
-    -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:   
+    -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:   
    ```
 
 1. Убедитесь, что в консоли отображаются сообщения, которые вы [записали в таблицу](#insert-data-to-ksqldb). 

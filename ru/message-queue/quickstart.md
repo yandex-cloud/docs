@@ -1,6 +1,6 @@
 ---
-title: "Начало работы с Yandex Message Queue (очередями сообщений)"
-description: "В этой инструкции вы научитесь выполнять основные действия c очередями сообщений в Yandex Message Queue. Для начала установите AWS CLI — утилиту командной строки для работы с Message Queue."
+title: "Начало работы с {{ message-queue-full-name }} (очередями сообщений)"
+description: "В этой инструкции вы научитесь выполнять основные действия c очередями сообщений в {{ message-queue-full-name }}. Для начала установите AWS CLI — утилиту командной строки для работы с {{ message-queue-name }}."
 ---
 
 # Начало работы с {{ message-queue-name }}
@@ -22,7 +22,7 @@ description: "В этой инструкции вы научитесь выпо�
      aws configure
      AWS Access Key ID [****************kzJl]: <идентификатор ключа сервисного аккаунта>
      AWS Secret Access Key [****************I3AO]: <идентификатор ключа сервисного аккаунта>
-     Default region name [eu-west-1]: ru-central1
+     Default region name [eu-west-1]: {{ region-id }}
      Default output format [None]:
      ```
   
@@ -36,9 +36,9 @@ description: "В этой инструкции вы научитесь выпо�
   
      ```
      aws sqs create-queue --queue-name sample-queue \
-                 --endpoint https://message-queue.api.cloud.yandex.net/
+                 --endpoint https://message-queue.{{ api-host }}/
      {
-         "QueueUrl": "https://message-queue.api.cloud.yandex.net/aoeaql9r10cd9cfue7v6/000000000000002n034r/sample-queue"
+         "QueueUrl": "https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002n034r/sample-queue"
      }
      ```
   
@@ -62,8 +62,8 @@ description: "В этой инструкции вы научитесь выпо�
   
      ```
      aws sqs send-message --message-body "Hello World" \
-                 --endpoint https://message-queue.api.cloud.yandex.net/ \
-                 --queue-url https://message-queue.api.cloud.yandex.net/aoeaql9r10cd9cfue7v6/000000000000002l034r/sample-queue
+                 --endpoint https://message-queue.{{ api-host }}/ \
+                 --queue-url https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002l034r/sample-queue
      {
          "MD5OfMessageBody": "67e63db14341b5a696596634bbf19796",
          "MessageId": "765ff4d2-fa4bc83-6cfcc68e-21a49"
@@ -80,8 +80,8 @@ description: "В этой инструкции вы научитесь выпо�
   
      ```
      aws sqs receive-message \
-                 --endpoint https://message-queue.api.cloud.yandex.net/ \
-                 --queue-url https://message-queue.api.cloud.yandex.net/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
+                 --endpoint https://message-queue.{{ api-host }}/ \
+                 --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
      {
          "Messages": [
              {
@@ -113,8 +113,8 @@ description: "В этой инструкции вы научитесь выпо�
   
      ```
      aws sqs delete-message \
-                 --endpoint https://message-queue.api.cloud.yandex.net/ \
-                 --queue-url https://message-queue.api.cloud.yandex.net/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
+                 --endpoint https://message-queue.{{ api-host }}/ \
+                 --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
                  --receipt-handle EAEggbjIg_8sKAM
      ```
   
@@ -128,8 +128,8 @@ description: "В этой инструкции вы научитесь выпо�
   
      ```
      aws sqs delete-queue \
-                 --queue-url https://message-queue.api.cloud.yandex.net/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
-                 --endpoint https://message-queue.api.cloud.yandex.net/
+                 --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
+                 --endpoint https://message-queue.{{ api-host }}/
      ```
   
    - Консоль управления

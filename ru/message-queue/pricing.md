@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ message-queue-name }}
 
+
+
 ## Из чего складывается стоимость использования Message Queue {#rules}
 
 В рамках сервиса {{ message-queue-name }} тарифицируется количество запросов к [стандартным очередям](concepts/queue.md#standard-queues) и [очередям FIFO](concepts/queue.md#fifo-queues), а также исходящий трафик.
@@ -25,5 +27,3 @@ editable: false
 
 
 {% include [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
-
-

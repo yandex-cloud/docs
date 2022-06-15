@@ -25,17 +25,10 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Перед тем, как создавать CDN-ресурс:
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-1. Зарегистрируйтесь в {{ yandex-cloud }} и создайте платежный аккаунт:
+Убедитесь, что у вас есть доменное имя и доступ к настройкам DNS на сайте компании, которая предоставляет вам услуги DNS-хостинга. Обычно это компания-регистратор вашего домена.
 
-   {% include [prepare-register-billing](../../_tutorials/_common/prepare-register-billing.md) %}
-
-1. На [странице облака]({{ link-console-cloud }}) выберите каталог, в котором будет работать ваш CDN-ресурс, или [создайте каталог](../../resource-manager/operations/folder/create.md). Все действия нужно выполнять в этом каталоге.
-
-   [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
-
-1. Убедитесь, что у вас есть доменное имя и доступ к настройкам DNS на сайте компании, которая предоставляет вам услуги DNS-хостинга. Обычно это компания-регистратор вашего домена.
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -72,7 +65,7 @@
   1. Создайте бакет для файлов:
   
      ```bash
-     aws --endpoint-url=https://storage.yandexcloud.net \
+     aws --endpoint-url=https://{{ s3-storage-host }} \
        s3api create-bucket \
        --bucket ycprojektblue-storage \
        --acl public-read
@@ -89,7 +82,7 @@
   1. Создайте бакет для логов:
   
      ```bash
-     aws --endpoint-url=https://storage.yandexcloud.net \
+     aws --endpoint-url=https://{{ s3-storage-host }} \
        s3api create-bucket \
        --bucket ycprojektblue-logs
      ```
@@ -112,12 +105,13 @@
      * `secret_key` — значение секретного ключа доступа.
      * `bucket` — имя создаваемого бакета: `ycprojektblue-storage`.
   
+     
      ```
      provider "yandex" {
        token     = "<OAuth>"
        cloud_id  = "<идентификатор облака>"
        folder_id = "<идентификатор каталога>"
-       zone      = "ru-central1-a"
+       zone      = "{{ region-id }}-a"
      }
   
      resource "yandex_storage_bucket" "storage" {
@@ -133,7 +127,8 @@
        bucket     = "ycprojektblue-logs"
      }
      ```
-  
+
+
   1. Проверьте корректность конфигурационных файлов:
   
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
@@ -200,7 +195,7 @@
   Выполните команду:
   
   ```bash
-  aws --endpoint-url=https://storage.yandexcloud.net \
+  aws --endpoint-url=https://{{ s3-storage-host }} \
     s3 cp \
     <путь к файлу ycgame-update-v1.1.exe> \ 
     s3://ycprojektblue-storage/ycgame-update-v1.1.exe
@@ -575,7 +570,7 @@
      1. Получите список объектов с логами:
      
         ```bash
-        aws --endpoint-url=https://storage.yandexcloud.net \
+        aws --endpoint-url=https://{{ s3-storage-host }} \
           s3 ls s3://ycprojektblue-logs
         ```
         
@@ -593,7 +588,7 @@
      1. Найдите в полученном списке объект с логом, сохраненным после скачивания файла `ycgame-update-v1.1.exe`, и скачайте его:
         
         ```bash
-        aws --endpoint-url=https://storage.yandexcloud.net \
+        aws --endpoint-url=https://{{ s3-storage-host }} \
           s3 cp s3://ycprojektblue-logs/2021-10-01-13-38-02-E69EAEC1C9083756 \
           2021-10-01-13-38-02-E69EAEC1C9083756
         ```

@@ -16,12 +16,17 @@
 {% endnote %}
 
 * Обновляйте [кластер](./index.md#kubernetes-cluster) и [группы узлов](./index.md#node-group) вручную. Для этого отключите автоматические обновления [мастера](../operations/kubernetes-cluster/kubernetes-cluster-update.md) и [групп узлов](../operations/node-group/node-group-update.md).
-* Выбирайте [региональный](../concepts/index.md#master) тип мастера при [создании кластера](../operations/kubernetes-cluster/kubernetes-cluster-create.md). [Сервисы](service.md) {{ k8s }} будут доступны в случае сбоя на уровне [зоны доступности](../../overview/concepts/geo-scope.md). [Соглашение об уровне обслуживания](https://yandex.ru/legal/cloud_sla_kb/) сервиса {{ managed-k8s-name }} распространяется на конфигурацию с региональным мастером.
-* Разворачивайте сервисы типа `Deployment` и `StatefulSet` в нескольких экземплярах в разных зонах доступности. Используйте стратегии [Pod Topology Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) и [AntiAffinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity), чтобы обеспечить высокую доступность сервисов и эффективное потребление ресурсов кластера {{ k8s }}.
 
+
+* Выбирайте [региональный](../concepts/index.md#master) тип мастера при [создании кластера](../operations/kubernetes-cluster/kubernetes-cluster-create.md). [Сервисы](service.md) {{ k8s }} будут доступны в случае сбоя на уровне [зоны доступности](../../overview/concepts/geo-scope.md). [Соглашение об уровне обслуживания](https://yandex.ru/legal/cloud_sla_kb/) сервиса {{ managed-k8s-name }} распространяется на конфигурацию с региональным мастером.
+
+* Разворачивайте сервисы типа `Deployment` и `StatefulSet` в нескольких экземплярахв разных зонах доступности. Используйте стратегии [Pod Topology Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) и [AntiAffinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity), чтобы обеспечить высокую доступность сервисов и эффективное потребление ресурсов кластера {{ k8s }}.
+
+  
   Для всех стратегий используйте комбинации меток:
   * `topology.kubernetes.io/zone`, чтобы сервисы сохраняли доступность в случае отказа зоны доступности.
   * `kubernetes.io/hostname`, чтобы сервисы сохраняли доступность в случае отказа узла кластера.
+
 
   {% note tip %}
 
@@ -32,7 +37,7 @@
 ## Масштабирование нагрузки {#scaling}
 
 Используйте эти рекомендации, если нагрузка на ваш кластер {{ managed-k8s-name }} постоянно растет:
-* Для повышения надежности кластера [создавайте группы узлов](../operations/node-group/node-group-create.md) с [автоматическим масштабированием](autoscale.md) в нескольких зонах доступности.
+* Для повышения надежности кластера [создавайте группы узлов](../operations/node-group/node-group-create.md) с [автоматическим масштабированием](autoscale.md)в нескольких зонах доступности.
 * Для снижения нагрузки на {{ k8s }} DNS используйте [Node Local DNS](../tutorials/node-local-dns.md). Если кластер содержит более 50 узлов, используйте [автоматическое масштабирование DNS](../tutorials/dns-autoscaler.md).
 * Чтобы снизить горизонтальный трафик внутри кластера, используйте [Сетевой балансировщик нагрузки](../operations/create-load-balancer.md) и [правило `externalTrafficPolicy:Local`](../operations/create-load-balancer.md#advanced), если это возможно.
 * Заранее продумайте требования к хранилищам узлов:

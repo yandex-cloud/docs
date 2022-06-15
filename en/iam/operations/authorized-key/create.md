@@ -51,7 +51,7 @@ To create [authorized keys](../../concepts/authorization/key.md):
      -H 'Content-Type: application/json' \
      -H "Authorization: Bearer <iam-token>" \
      -d '{"serviceAccountId": "<service-account-id>"}' \
-     https://iam.api.cloud.yandex.net/iam/v1/keys
+     https://iam.{{ api-host }}/iam/v1/keys
    ```
 
    Where:

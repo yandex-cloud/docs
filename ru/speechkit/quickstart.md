@@ -35,7 +35,7 @@ curl -X POST \
    -H "Authorization: Bearer ${IAM_TOKEN}" \
    --data-urlencode "text=${TEXT}" \
    -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}" \
-   "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
+   "https://tts.{{ api-host }}/speech/v1/tts:synthesize" > speech.ogg
 ```
 
 {% note info %}
@@ -62,7 +62,7 @@ curl -X POST \
 curl -X POST \
    -H "Authorization: Bearer ${IAM_TOKEN}" \
    --data-binary "@speech.ogg" \
-   "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?folderId=${FOLDER_ID}&lang=ru-RU"
+   "https://stt.{{ api-host }}/speech/v1/stt:recognize?folderId=${FOLDER_ID}&lang=ru-RU"
 ```
 
 В ответе сервис вернет распознанный текст:

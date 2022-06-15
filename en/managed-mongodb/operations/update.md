@@ -4,11 +4,13 @@ After creating a cluster, you can:
 
 - [Change the host class](#change-resource-preset).
 
-- [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
+- [{#T}](#change-disk-size)(unavailable for non-replicated SSD [storage](../concepts/storage.md)).
 
 - Configure [{{ MG }} servers](#change-mongod-config) according to the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/).
 
 - [Change additional cluster settings](#change-additional-settings).
+
+- [Move a cluster](#move-cluster) to another folder.
 
 - [{#T}](#change-sg-set).
 
@@ -103,7 +105,7 @@ After creating a cluster, you can:
 
 {% endlist %}
 
-## Increase storage size {#change-disk-size}
+## Increasing storage size {#change-disk-size}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
@@ -111,7 +113,7 @@ After creating a cluster, you can:
 
 - Management console
 
-   To increasea cluster's storage size:
+   To increase a cluster's storage size:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
@@ -155,7 +157,7 @@ After creating a cluster, you can:
       resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
         ...
         resources {
-          disk_size = <storage size, GB>
+          disk_size = <storage size in GB>
           ...
         }
       }
@@ -207,7 +209,7 @@ You can change the DBMS settings of the hosts in your cluster.
    For example, to set [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-net.maxIncomingConnections) to `4096`, run the following command:
 
    ```
-   {{ yc-mdb-mg }} cluster update-config <cluster name>
+   {{ yc-mdb-mg }} cluster update-config <cluster name> \
      --set net.max_incoming_connections=4096
    ```
 
@@ -362,6 +364,50 @@ You can change the DBMS settings of the hosts in your cluster.
    This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, be sure to pass the names of the fields to be changed in the `updateMask` parameter.
 
    {% endnote %}
+
+{% endlist %}
+
+## Moving a cluster {#move-cluster}
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the folder page and select **{{ mmg-name }}**.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you want to move.
+   1. Click **Move**.
+   1. Select the folder you want to move the cluster to.
+   1. Click **Move**.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To move a cluster:
+
+   1. View a description of the CLI move cluster command:
+
+      ```bash
+      {{ yc-mdb-mg }} cluster move --help
+      ```
+
+   1. Specify the destination folder in the move cluster command:
+
+      ```bash
+      {{ yc-mdb-mg }} cluster move <cluster ID> \
+        --destination-folder-name=<destination folder name>
+      ```
+
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- API
+
+   Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * The ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
 

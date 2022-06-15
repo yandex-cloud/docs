@@ -3,6 +3,7 @@
 * [Начало работы с Terraform](terraform-quickstart.md)
 * [Загрузка состояний Terraform в Object Storage](terraform-state-storage.md)
 * [Начало работы с Packer](packer-quickstart.md)
+* [Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer](packer-custom-image.md)
 * [Автоматизация сборки образов с помощью Jenkins и Packer](jenkins.md)
 * [Непрерывное развертывание контейнеризованных приложений с помощью GitLab](gitlab-containers.md)
 * [Создание кластера Linux-серверов «1С:Предприятия» с кластером {{ mpg-name }}](1c-postgresql-linux.md)

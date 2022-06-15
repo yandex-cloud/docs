@@ -24,7 +24,7 @@ $ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 В этом примере:
 
 1. Устанавливается соединение с {{ message-queue-name }}. 
-1. Создается очередь сообщений c именем `ymq_php_sdk_example`.
+1. Создается очередь сообщений c именем `mq_php_sdk_example`.
 1. В очередь передается сообщение с текстом `Test message`.
 1. Сообщение считывается из очереди и отображается в терминале.
 1. Удаляется созданная очередь сообщений.
@@ -37,27 +37,27 @@ require __DIR__ . '/vendor/autoload.php';
 use Aws\Sqs\SqsClient;
 use Aws\Exception\AwsException;
 
-$ymq = new Aws\Sqs\SqsClient([
+$mq = new Aws\Sqs\SqsClient([
     'version' => 'latest',
-    'region' => 'ru-central1',
-    'endpoint' => 'https://message-queue.api.cloud.yandex.net',
+    'region' => '{{ region-id }}',
+    'endpoint' => 'https://message-queue.{{ api-host }}',
 ]);
 
-$result = $ymq->createQueue([
-    'QueueName' => 'ymq_php_sdk_example',
+$result = $mq->createQueue([
+    'QueueName' => 'mq_php_sdk_example',
 ]);
 
 $queueUrl = $result["QueueUrl"];
 print('Queue created, URL: ' . $queueUrl . PHP_EOL);
 
-$result = $ymq->sendMessage([
+$result = $mq->sendMessage([
     'QueueUrl' => $queueUrl,
     'MessageBody' => 'Test message',
 ]);
 
 print("Message sent, ID: " . $result["MessageId"] . PHP_EOL);
 
-$result = $ymq->receiveMessage([
+$result = $mq->receiveMessage([
     'QueueUrl' => $queueUrl,
     'WaitTimeSeconds' => 10,
 ]);
@@ -67,13 +67,13 @@ foreach ($result["Messages"] as $msg) {
     print('ID: ' . $msg['MessageId'] . PHP_EOL);
     print('Body: ' . $msg['Body'] . PHP_EOL);
 
-    $ymq->deleteMessage([
+    $mq->deleteMessage([
         'QueueUrl' => $queueUrl,
         'ReceiptHandle' => $msg['ReceiptHandle'],
     ]);
 }
 
-$result = $ymq->deleteQueue([
+$result = $mq->deleteQueue([
     'QueueUrl' => $queueUrl,
 ]);
 

@@ -2,9 +2,10 @@
 title: "Virtual machine is an analogue of a server"
 description: "A virtual machine is an analogue of a server in a cloud infrastructure. The virtual machine is created in one of the directories and inherits access rights from them. When you create a virtual machine, you can choose which of the Availability Zones will host it."
 ---
+
 # Virtual machines
 
-_A VM_ is similar to a server in the cloud infrastructure.
+A _VM_ is similar to a server in the cloud infrastructure.
 
 ## VM as a {{ yandex-cloud }} resource {#project}
 
@@ -44,7 +45,7 @@ For more information about statuses, see [{#T}](vm-statuses.md).
 
 ## Metadata {#metadata}
 
-You can set your own metadata when creating or updating VMs. For example, to connect to a Linux VM, you need to pass an SSH key to it. This is done using the metadata service. Learn more in [{#T}](vm-metadata.md).
+You can set your own metadata when creating or updating VMs. For example, to connect to a Linux VM, you need to pass an SSH key to it. This is done using the metadata service. For more information, see [{#T}](vm-metadata.md).
 
 ## Network {#network}
 

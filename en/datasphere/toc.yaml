@@ -11,6 +11,8 @@ items:
         items:
           - name: Creating a project
             href: operations/projects/create.md
+          - name: Choosing a Python version
+            href: operations/projects/python-version.md
           - name: Installing dependencies
             href: operations/projects/install-dependencies.md
           - name: Managing computing resources
@@ -63,7 +65,7 @@ items:
             href: operations/data/secret-create.md
           - name: Referencing a secret
             href: operations/data/secret-call.md
-          - name: Editing a secret
+          - name: Updating a secret
             href: operations/data/secret-change.md
           - name: Copying a secret
             href: operations/data/secret-copy.md
@@ -131,7 +133,7 @@ items:
         href: tutorials/speech-recognition.md
       - name: Evaluating the quality of STT models
         href: tutorials/estimate-quality.md
-      - name: Marking up audio files
+      - name: Labeling audio files
         href: tutorials/markup.md
       - name: Classification of images in video frames
         href: tutorials/video-recognition.md
@@ -211,6 +213,8 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: Public materials
+    href: public-talks.md
   - name: Releases
     href: release-notes.md
   - name: Questions and answers

@@ -25,7 +25,7 @@ links:
     description: >-
       Set up delivery of system metrics or application metrics via Yandex
       Unified Agent
-    href: concepts/data-collection/unified-agent/index
+    href: concepts/data-collection/unified-agent/
   - title: Query language
     description: Description of query language for converting metrics
     href: concepts/querying
@@ -39,11 +39,11 @@ links:
     description: Technical and organizational limitations of the service
     href: concepts/limits
   - title: Access management
-    description: Configure access rights to work with the service
+    description: Permissions required for using the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
   - title: Questions and answers
-    description: Answers to frequently asked questions about the service
+    description: Answers to frequently asked questions
     href: qa/all

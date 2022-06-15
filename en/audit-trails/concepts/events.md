@@ -52,6 +52,8 @@ Service name: `certificatemanager`.
 | `UpdateCertificateAccessBindings` | Updating access bindings for a certificate |
 | `SetCertificateAccessBindings` | Setting access bindings for a certificate |
 
+
+
 ## {{ cloud-logging-name }} {#cloud-logging-name}
 
 Service name: `logging`.
@@ -242,7 +244,6 @@ Service name: `mdb.mongodb`.
 | `StopCluster` | Stop cluster |
 | `UpdateCluster` | Updating clusters |
 | `UpdateUser` | Editing a database user |
-
 ## {{ mmy-short-name }} {#managed-service-for-mysql}
 
 Service name: `mdb.mysql`.
@@ -316,7 +317,6 @@ Service name: `mdb.redis`.
 | `StartClusterFailover` | Launching master switching for a cluster |
 | `StopCluster` | Stop cluster |
 | `UpdateCluster` | Updating clusters |
-
 ## {{ network-load-balancer-name }} {#network-load-balancer}
 
 Service name: `loadbalancer`.

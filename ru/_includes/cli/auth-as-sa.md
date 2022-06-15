@@ -31,8 +31,11 @@
         ```
         yc config set service-account-key key.json
         ```
+       
+
 1. Проверьте, что параметры для сервисного аккаунта добавлены верно:
 
+      
     ```
     yc config list
     service-account-key:
@@ -49,6 +52,8 @@
         MIIEvwIBAD...
         -----END PRIVATE KEY-----
     ```
+   
+   
 1. Настройте профиль для запуска команд.
 
     {% include [add-folder](../cli-add-folder.md) %}

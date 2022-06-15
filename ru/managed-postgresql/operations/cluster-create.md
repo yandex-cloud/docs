@@ -131,7 +131,8 @@
         * Хост с наибольшим значением приоритета в кластере становится синхронной репликой.
         * Если в кластере есть несколько хостов с наибольшим приоритетом, то среди них проводятся выборы мастера.
         * Наименьший приоритет — `0` (по умолчанию), наивысший — `100`.
-      
+
+            
       Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 - Terraform
@@ -152,6 +153,7 @@
 
      Пример структуры конфигурационного файла:
 
+     
      ```hcl
      terraform {
        required_providers {
@@ -218,6 +220,7 @@
      }
      ```
 
+
      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
@@ -250,7 +253,7 @@
 
   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
-  
+    
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 {% endlist %}
@@ -321,6 +324,7 @@
 
   Конфигурационный файл для такого кластера выглядит так:
 
+  
   ```hcl
   terraform {
     required_providers {
@@ -395,5 +399,6 @@
     }
   }
   ```
+
 
 {% endlist %}

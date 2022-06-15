@@ -1,5 +1,6 @@
 # Deleting a cloud
 
+
 To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role to the cloud. If you are unable to do this, please contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
 
 {% list tabs %}

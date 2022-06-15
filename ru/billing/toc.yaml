@@ -10,6 +10,8 @@ items:
         href: operations/index.md
       - name: Активировать платную версию
         href: operations/activate-commercial.md
+      - name: Зарезервировать потребление (CVoS)
+        href: operations/purchase-cvos.md
       - name: Активировать промокод
         href: operations/activate-promocode.md
       - name: Посмотреть детализацию

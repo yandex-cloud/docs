@@ -15,6 +15,7 @@
 
 {% include [before](../../_includes/compute/before-solution.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки группы ВМ {{ yandex-cloud }} входит плата за:
@@ -102,10 +103,10 @@
         name: yc-auto-network
         ```
 
-     1. Создайте подсеть в зоне `ru-central1-a`:
+     1. Создайте подсеть в зоне `{{ region-id }}-a`:
 
         ```bash
-        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone ru-central1-a
+        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-a
         ```
 
         Результат:
@@ -115,15 +116,15 @@
         folder_id: b0g12ga82bcv0cdeferg
         created_at: "2021-02-09T17:34:32.561702Z"
         network_id: enpabce123hde4ft1r3t
-        zone_id: ru-central1-a
+        zone_id: {{ region-id }}-a
         v4_cidr_blocks:
         - 192.168.1.0/24
         ```
 
-     1. Создайте подсеть в зоне `ru-central1-b`:
+     1. Создайте подсеть в зоне `{{ region-id }}-b`:
 
         ```bash
-        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.2.0/24 --zone ru-central1-b
+        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.2.0/24 --zone {{ region-id }}-b
         ```
 
         Результат:
@@ -133,7 +134,7 @@
         folder_id: b0g12ga82bcv0cdeferg
         created_at: "2021-02-09T17:35:32.561702Z"
         network_id: enpabce123hde4ft1r3t
-        zone_id: ru-central1-b
+        zone_id: {{ region-id }}-b
         v4_cidr_blocks:
         - 192.168.2.0/24
         ```
@@ -142,7 +143,7 @@
 
      1. Создайте сеть с помощью метода [create](../../vpc/api-ref/Network/create.md) для ресурса `Network`.
 
-     1. Создать подсети в зонах `ru-central1-a` и `ru-central1-b` с помощью метода [create](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnet`.
+     1. Создать подсети в зонах `{{ region-id }}-a` и `{{ region-id }}-b` с помощью метода [create](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnet`.
 
    {% endlist %}
 
@@ -161,7 +162,7 @@
      1. В блоке **Базовые параметры**:
         * Введите **Имя** группы `group-for-load`.
         * Выберите **Сервисный аккаунт** `for-load`.
-     1. В блоке **Распределение** выберите **Зоны доступности** `ru-central1-a` и `ru-central1-b`.
+     1. В блоке **Распределение** выберите **Зоны доступности** `{{ region-id }}-a` и `{{ region-id }}-b`.
      1. В блоке **Шаблон виртуальной машины** нажмите кнопку **Задать**:
         * В блоке **Выбор образа/загрузочного диска** выберите вкладку **Container Solution**.
         * Нажмите кнопку **Настроить**.
@@ -378,7 +379,8 @@
      ```
 
      Результат:
-
+     
+     
      ```bash
      +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
      |          ID          |      NAME      |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
@@ -386,6 +388,7 @@
      | b0ruab1ccvpd26efgii4 | load-generator | ru-central1 | EXTERNAL |              1 | b0r1tabcphde28fj1dd3   | ACTIVE |
      +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
      ```
+     
 
    - API
 

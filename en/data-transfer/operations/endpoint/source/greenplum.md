@@ -1,9 +1,9 @@
 # Source endpoint parameters {{ GP }}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can set the following:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
-* Settings for connecting to a [custom installation](#on-premise), including a VM-based installation {{ compute-full-name }}. These settings are required.
-* [Additional settings](#additional-settings).
+* Settings of connection to the [custom installation](#on-premise), including one based on {{ compute-full-name }} VMs. These are required parameters.
+* [Additional parameters](#additional-settings).
 
 ## Custom installation {#on-premise}
 
@@ -13,9 +13,9 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console
 
-    {% include [On premise Greenplum UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-greenplum.md) %}
+   {% include [On premise Greenplum UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-greenplum.md) %}
 
-    {% include [Common Greenplum table list UI](../../../../_includes/data-transfer/necessary-settings/ui/greenplum-table-list.md) %}
+   {% include [Common Greenplum table list UI](../../../../_includes/data-transfer/necessary-settings/ui/greenplum-table-list.md) %}
 
 {% endlist %}
 
@@ -25,11 +25,11 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console
 
-    * **Buffer size limit**: A limit of memory consumption by transfer (in bytes). The higher the buffer size, the faster the data transfer. However, you do risk the transfer going into emergency shutdown when all the available memory is used up. We recommend using the default value.
+   * **Buffer size limit**: The limit on the memory consumed by the transfer, in bytes. The higher is the buffer size, the faster is the data transfer. However, there exists a risk of transfer failure because the available memory is used up. We recommend that you use the default value.
 
-    * **Service object schema**: The schema for placement of transfer service objects.
+   * **Auxiliary object schema** — a schema for placing auxiliary objects of the transfer.
 
-        For example, to ensure ([snapshot consistency](https://docs.greenplum.org/6-16/admin_guide/dml.html)) for [heap tables](https://docs.greenplum.org/6-8/admin_guide/ddl/ddl-storage.html#topic37), a service function is created when running the transfer and placed in the specified schema.
+      For example, to ensure [snapshot consistency](https://docs.greenplum.org/6-16/admin_guide/dml.html) For [heap tables](https://docs.greenplum.org/6-8/admin_guide/ddl/ddl-storage.html#topic37), an auxiliary function is created when running the transfer to be placed in the specified schema.
 
 {% endlist %}
 

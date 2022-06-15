@@ -15,6 +15,7 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
 {% note alert %}
@@ -33,7 +34,7 @@ The cost of using a virtual router includes:
 1. Open your folder and click **Create resource**. Select **Virtual machine**.
 1. Enter a name for the VM, like `cisco-router`.
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) with a subnet. If you don't know which availability zone you need, leave the default.
-1. Under **Images from {{ marketplace-name }}**, click **Select** and choose the [Cisco CSR](https://cloud.yandex.com/en-ru/marketplace/products/f2ekdh4u43pemrn7ig3q) image.
+1. Under **Images from {{ marketplace-name }}**, click **Select** and choose the [Cisco CSR](/marketplace/products/f2ekdh4u43pemrn7ig3q) image.
 1. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.
 
@@ -60,13 +61,13 @@ Creating the VM may take several minutes. When the VM status changes to `RUNNING
 1. Run the `enable` command to switch to privileged mode:
 
    ```
-   cisco-router.ru-central1.internal>enable
+   cisco-router.{{ region-id }}.internal>enable
    ```
 
 1. Enter configuration mode and set the host name for the router:
 
    ```
-   cisco-router.ru-central1.internal#configure terminal
+   cisco-router.{{ region-id }}.internal#configure terminal
    Enter configuration commands, one per line.  End with CNTL/Z.
    cisco-router.ru-cent(config)#hostname cisco-router
    ```

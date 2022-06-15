@@ -42,6 +42,7 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
 
    Where:
 
+   
    * `<new shard name>`: Must be unique in a cluster.
       May contain Latin letters, numbers, hyphens, and underscores. The maximum length is 63 characters.
    * `--cluster-name` is the name of a cluster.
@@ -167,7 +168,7 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
       Where:
 
       * `<shard name>`: Can be requested with a [list of shards in a cluster](#list-shards).
-      * `--cluster-name` is the name of a  cluster.
+      * `--cluster-name` is the name of a cluster.
          The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
       * `--weight`: Shard weight. The minimum value is `0`.
 
@@ -206,7 +207,7 @@ When you delete a shard, all tables and data that are saved on that shard are de
    To delete a shard from the cluster, run:
 
    ```bash
-   {{ yc-mdb-ch }} shards delete <shard name>\
+   {{ yc-mdb-ch }} shards delete <shard name> \
      --cluster-name=<cluster name>
    ```
 

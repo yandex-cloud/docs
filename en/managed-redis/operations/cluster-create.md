@@ -143,6 +143,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
       Sample configuration file structure for creating clusters with SSL support:
 
+      
       ```hcl
       terraform {
         required_providers {
@@ -194,6 +195,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
         v4_cidr_blocks = ["<range>"]
       }
       ```
+
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -286,6 +288,7 @@ If you specified security group IDs when creating a cluster, you may need to add
 
    The configuration file for the cluster looks like this:
 
+   
    ```hcl
    terraform {
      required_providers {
@@ -356,6 +359,7 @@ If you specified security group IDs when creating a cluster, you may need to add
    }
    ```
 
+
 {% endlist %}
 
 ### Creating sharded clusters {#creating-a-sharded-cluster}
@@ -383,6 +387,7 @@ If you specified security group IDs when creating a cluster, you may need to add
 
    The configuration file for the cluster looks like this:
 
+   
    ```hcl
    terraform {
      required_providers {
@@ -418,19 +423,19 @@ If you specified security group IDs when creating a cluster, you may need to add
      }
 
      host {
-       zone       = "ru-central1-a"
+       zone       = "{{ region-id }}-a"
        subnet_id  = yandex_vpc_subnet.subnet-a.id
        shard_name = "shard1"
      }
 
      host {
-       zone       = "ru-central1-b"
+       zone       = "{{ region-id }}-b"
        subnet_id  = yandex_vpc_subnet.subnet-b.id
        shard_name = "shard2"
      }
 
      host {
-       zone       = "ru-central1-c"
+       zone       = "{{ region-id }}-c"
        subnet_id  = yandex_vpc.subnet.subnet-c.id
        shard_name = "shard3"
      }
@@ -440,21 +445,21 @@ If you specified security group IDs when creating a cluster, you may need to add
 
    resource "yandex_vpc_subnet" "subnet-a" {
      name           = "subnet-a"
-     zone           = "ru-central1-a"
+     zone           = "{{ region-id }}-a"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.1.0.0/24"]
    }
 
    resource "yandex_vpc_subnet" "subnet-b" {
      name           = "subnet-b"
-     zone           = "ru-central1-b"
+     zone           = "{{ region-id }}-b"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.2.0.0/24"]
    }
 
    resource "yandex_vpc_subnet" "subnet-c" {
      name           = "subnet-c"
-     zone           = "ru-central1-c"
+     zone           = "{{ region-id }}-c"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.3.0.0/24"]
    }
@@ -508,5 +513,6 @@ If you specified security group IDs when creating a cluster, you may need to add
      }
    }
    ```
+
 
 {% endlist %}

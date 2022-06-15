@@ -1,5 +1,6 @@
 # Создать виртуальную машину из публичного образа Windows
 
+
 В этом разделе приведена инструкция для создания виртуальной машины с операционной системой Windows. Для создания виртуальной машины на базе Linux воспользуйтесь инструкцией [{#T}](create-linux-vm.md).
 
 {% include [ms-licensing-personal-data](../../../_includes/ms-licensing-personal-data.md) %}
@@ -25,6 +26,7 @@
   1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
      * [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
      * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
+     * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
   1. [Получите идентификатор](../../../resource-manager/operations/folder/get-id.md) каталога.
   1. Получите информацию об образе, из которого надо создать виртуальную машину (идентификатор образа и минимальный размер диска):
       * Если вы знаете [семейство образа](../../concepts/image.md#family), получите информации о последнем образе в этом семействе:
@@ -32,7 +34,7 @@
           $ export IAM_TOKEN=CggaATEVAgA...
           $ export FAMILY=windows-2016-gvlk
           $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-            "https://compute.api.cloud.yandex.net/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
+            "https://compute.{{ api-host }}/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
 
           {
            "productIds": [
@@ -59,7 +61,7 @@
       $ export IAM_TOKEN=CggaATEVAgA...
       $ export FOLDER_ID=b1gvmob95yysaplct532
       $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
-        "https://vpc.api.cloud.yandex.net/vpc/v1/subnets?folderId=${FOLDER_ID}"
+        "https://vpc.{{ api-host }}/vpc/v1/subnets?folderId=${FOLDER_ID}"
       {
        "subnets": [
         {
@@ -69,10 +71,10 @@
          "id": "b0c6n43ftldh30l0vfg2",
          "folderId": "b1gvmob95yysaplct532",
          "createdAt": "2018-09-23T12:15:00Z",
-         "name": "default-ru-central1-c",
-         "description": "Auto-created default subnet for zone ru-central1-c",
+         "name": "default-{{ region-id }}-c",
+         "description": "Auto-created default subnet for zone {{ region-id }}-c",
          "networkId": "enpe3m3fagludao8aslg",
-         "zoneId": "ru-central1-c"
+         "zoneId": "{{ region-id }}-c"
         },
         ...
        ]
@@ -114,7 +116,7 @@
       {
         "folderId": "b1gvmob95yysaplct532",
         "name": "instance-demo-no-pwauth",
-        "zoneId": "ru-central1-c",
+        "zoneId": "{{ region-id }}-c",
         "platformId": "standard-v3",
         "resourcesSpec": {
           "memory": "4294967296",
@@ -149,7 +151,7 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d '@body.json' \
-        https://compute.api.cloud.yandex.net/compute/v1/instances
+        https://compute.{{ api-host }}/compute/v1/instances
       ```
 
 - Terraform

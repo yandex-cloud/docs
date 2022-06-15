@@ -5,22 +5,22 @@ To get started with the service:
 * [Connect to the DB](#connect).
 
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
-* To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)).
-* To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
+   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)).
+   * To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
 
-{% note info %}
+   {% note info %}
 
-The next step assumes that you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
+   The next step assumes that you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
 
-{% endnote %}
+   {% endnote %}
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
 1. Install the necessary dependencies and the {{ PG }} client:
@@ -58,20 +58,20 @@ The next step assumes that you connect to the cluster from a [Linux](../compute/
    1. Configure permissions to the certificate:
 
       ```bash
-      сhmod 0600 ~/.postgresql/root.crt
+      chmod 0600 ~/.postgresql/root.crt
       ```
 
 1. Use the `psql` command to connect:
 
    ```bash
    psql "host=<host address> \
-      port=6432 \
-      sslmode=verify-full \
-      dbname=<DB name> \
-      user=<DB username>"
+     port=6432 \
+     sslmode=verify-full \
+     dbname=<database name> \
+     user=<DB user name>"
    ```
 
-## What's next
+## What's next {#whats-next}
 
 * Read about [service concepts](concepts/index.md).
 * Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to the database](operations/connect.md).

@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ monitoring-full-name }}
 
+
+
 ## Из чего складывается стоимость использования {{ monitoring-short-name }} {#rules}
 
 На данный момент в рамках сервиса {{ monitoring-short-name }} тарифицируется запись пользовательских метрик через [API](api-ref/index.md), а также чтение любых метрик через [API](api-ref/index.md).

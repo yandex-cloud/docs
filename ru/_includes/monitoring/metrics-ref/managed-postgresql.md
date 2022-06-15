@@ -1,6 +1,6 @@
-## Сервис {{ managed-postgresql-full-name }} {#managed-postgresql}
+## Сервис {{ mpg-full-name }} {#managed-postgresql}
 
-Общие метки для всех метрик сервиса {{ managed-postgresql-full-name }}:
+Общие метки для всех метрик сервиса {{ mpg-full-name }}:
 
 Метка | Значение
 ----|----
@@ -152,4 +152,4 @@ subcluster_name | Имя подкластера
 | `pooler-used_servers`<br/>`DGAUGE`, штуки | Количество серверных подключений в менеджере соединений. | 
 | `pooler-xact_count`<br/>`DGAUGE`, штуки | Количество транзакций, выполняющихся на каждом из хостов БД. |
 
-Подробнее о сервисе в документации [{{ managed-postgresql-full-name }}](../../managed-postgresql/).
+Подробнее о сервисе в документации [{{ mpg-full-name }}](../../managed-postgresql/).

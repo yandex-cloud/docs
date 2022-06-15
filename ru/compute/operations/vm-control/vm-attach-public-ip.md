@@ -53,7 +53,7 @@
     created_at: "2022-05-06T10:41:56Z"
     name: steel-machine
     description: for work
-    zone_id: ru-central1-a
+    zone_id: {{ region-id }}-a
     platform_id: standard-v3
     resources:
       memory: "1073741824"

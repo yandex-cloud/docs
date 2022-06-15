@@ -1,6 +1,6 @@
 ---
-title: "API Authentication in Yandex Managed Service for Greenplum"
-description: "To perform operations via the API in the Yandex Managed Service for Greenplum, you need to get an IAM token for a service, federated or Yandex account."
+title: "API Authentication in {{ mgp-full-name }}"
+description: "To perform operations via the API in the {{ mgp-full-name }}, you need to get an IAM token for your account."
 ---
 
 {% include [auth](../../_includes/authentication.md) %}

@@ -41,13 +41,13 @@ To get started with the service:
    1. Get a certificate:
 
         ```bash
-        wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.redis/YandexInternalRootCA.crt
+        wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.redis/{{ crt-local-file }}
         ```
 
    1. Configure permissions to the certificate:
 
         ```bash
-        chmod 0600 ~/.redis/YandexInternalRootCA.crt
+        chmod 0600 ~/.redis/{{ crt-local-file }}
         ```
 
 1. [Configure security groups](operations/connect/index.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
@@ -81,7 +81,7 @@ To get started with the service:
           -p {{ port-mrd-tls }} \
           -a <{{ RD }} password> \
           --tls \
-          --cacert ~/.redis/YandexInternalRootCA.crt
+          --cacert ~/.redis/{{ crt-local-file }}
         ```
 
      **To connect directly to the master (without SSL):**
@@ -99,7 +99,7 @@ To get started with the service:
        -p {{ port-mrd-tls }} \
        -a <{{ RD }} password> \
        --tls \
-       --cacert ~/.redis/YandexInternalRootCA.crt
+       --cacert ~/.redis/{{ crt-local-file }}
      ```
 
    - Sharded clusters
@@ -119,7 +119,7 @@ To get started with the service:
        -p {{ port-mrd-tls }} \
        -a <{{ RD }} password> \
        --tls \
-       --cacert ~/.redis/YandexInternalRootCA.crt
+       --cacert ~/.redis/{{ crt-local-file }}
      ```
 
    {% endlist %}

@@ -204,6 +204,8 @@ Packages for data analysis and machine learning are pre-installed in {{ ml-platf
 * [Pygments](https://pygments.org/)
 * [PyGObject](https://pygobject.readthedocs.io/en/latest/)
 * [pygtrie](https://pygtrie.readthedocs.io/en/latest/)
+* [pymorphy2](https://pymorphy2.readthedocs.io/en/stable/)
+* [pymorphy2-dicts-ru](https://github.com/kmike/pymorphy2-dicts/)
 * [Pympler](https://pympler.readthedocs.io/en/latest/)
 * [PyNaCl](https://pynacl.readthedocs.io/en/latest/)
 * [PyParsing](https://pyparsing-docs.readthedocs.io/en/latest/)
@@ -311,16 +313,16 @@ Packages for data analysis and machine learning are pre-installed in {{ ml-platf
 ## Package versions {#versions}
 
 To view the version of the installed package, in the notebook cell, run the command:
-
 ```js
 %pip show <Package name>
 ```
 
 To view the list of installed packages and their versions, in the notebook cell, run the command:
-
 ```js
 %pip list
 ```
+
+Python 3.8 is used in {{ ml-platform-short-name }} projects by default. If you need Python 3.7, follow the instructions in [{#T}](../operations/projects/python-version.md).
 
 ## Updating {#update}
 
@@ -328,30 +330,26 @@ You can both upgrade any pre-installed package to a later version or roll it bac
 Upgraded versions are preserved when you change environments or restart your project.
 
 To upgrade a library to the latest version, run the following command in the notebook cell:
-
 ```js
 %pip install <library name> - U
 ```
 
 For example, to upgrade TensorFlow to its latest version, run the command:
-
 ```js
 %pip install tensorflow -U
 ```
 
 To upgrade a library to a specific version, run the following command in the notebook cell:
-
 ```js
 %pip install <library name>==<version>
 ```
 
 For example:
-
 ```js
 %pip install tensorflow==2.3.1
 ```
 
-Note that TensorFlow version 1.15 is still installed by default.
+Please keep in mind that the TensorFlow version installed by default depends on your [selected Python version](../operations/projects/python-version.md). If your project runs Python 3.7, TensorFlow 1.15 is installed, and if it runs Python 3.8, TensorFlow 2.6 is installed.
 
 {% note warning %}
 
@@ -365,4 +363,3 @@ Updating a pre-installed library may introduce new data types that are not suppo
 * [{#T}](configurations.md)
 * [{#T}](limits.md)
 * [{#T}](../operations/index.md)
-

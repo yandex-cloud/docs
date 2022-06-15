@@ -148,7 +148,7 @@ If you no longer need these resources, [delete them](#clear-out).
       name=debezium-mpg
       connector.class=io.debezium.connector.postgresql.PostgresConnector
       plugin.name=pgoutput
-      database.hostname=c-<cluster ID>.rw.mdb.yandexcloud.net
+      database.hostname=c-<cluster ID>.rw.{{ dns-zone }}
       database.port=6432
       database.user=user1
       database.password=<user1 password>

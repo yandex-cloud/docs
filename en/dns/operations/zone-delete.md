@@ -9,7 +9,7 @@ To delete a [DNS zone](../concepts/dns-zone.md):
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to delete a DNS zone.
    1. Select **{{ dns-name }}**.
    1. Click ![image](../../_assets/options.svg) in the row next to the zone to delete it.
-   1. In the menu that opens, click **Delete**.
+   1. In the resulting menu, click **Delete**.
    1. In the window that opens, click **Delete**.
 
 - CLI

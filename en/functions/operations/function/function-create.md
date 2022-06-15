@@ -78,11 +78,12 @@
 
         Example configuration file structure:
 
-        ```
+        
+        ```hcl
         provider "yandex" {
-            token = "<OAuth or static key of service account>"
+            token     = "<OAuth or static key of service account>"
             folder_id = "<folder ID>"
-            zone      = "ru-central1-a"
+            zone      = "{{ region-id }}-a"
         }
         
         resource "yandex_function" "test-function" {
@@ -104,7 +105,8 @@
             value = "${yandex_function.test-function.id}"
         }
         ```
-        
+
+
         For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
 
     2. Make sure that the configuration files are correct.

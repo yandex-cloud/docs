@@ -75,12 +75,13 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
       * `retention_period`: Record retention period in the log group. Optional. The maximum record retention period is 3 days, the minimum is 1 hour. By default, the retention period is 3 days.
 
+      
       ```hcl
       provider "yandex" {
         token     = "<OAuth>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
-        zone      = "ru-central1-a"
+        zone      = "{{ region-id }}-a"
       }
 
       resource "yandex_logging_group" "group1" {
@@ -89,6 +90,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
         retention_period = "5h"
       }
       ```
+
 
       For more detailed information about the parameters of the `yandex_logging_group` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/logging_group).
 

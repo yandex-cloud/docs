@@ -31,6 +31,7 @@ editable: false
 
   Стоимость начисляется за каждый час работы хоста в соответствии с выделенными для него вычислительными ресурсами.
 
+
 * Выделенные хосты
 
   Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices) и наценки {{ mgp-name }} на эти ресурсы.
@@ -81,6 +82,7 @@ editable: false
 
   {% include notitle [RUB: standard hosts](../../_pricing/managed-greenplum/rub-hosts-standard.md) %}
 
+
 - Выделенные хосты
   
   Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices) и наценки {{ mgp-name }} на эти ресурсы.
@@ -98,6 +100,7 @@ editable: false
   {% include [local-ssd для Ice Lake только по запросу](../../_includes/ice-lake-local-ssd-note.md) %}
 
   {% include notitle [rub-storage-standard.md](../../_pricing/managed-greenplum/rub-storage-standard.md) %}
+
 
 - Выделенные хосты
 

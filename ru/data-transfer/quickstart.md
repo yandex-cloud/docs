@@ -56,25 +56,26 @@
 
 Подготовьте сервис-источник к отправке данных:
 
-* [{{ KF }}](operations/prepare.md#source-kf);
-* [AWS CloudTrail](operations/prepare.md#source-aws);
-* [BigQuery](operations/prepare.md#source-bigquery);
-* [{{ CH }}](operations/prepare.md#source-ch);
-* [{{ GP }}](operations/prepare.md#source-gp);
-* [{{ MG }}](operations/prepare.md#source-mg);
-* [{{ MY }}](operations/prepare.md#source-my);
-* [{{ PG }}](operations/prepare.md#source-pg);
-* [S3](operations/prepare.md#source-s3);
-* [{{ yds-full-name }}](operations/prepare.md#source-yds).
+* [{{ KF }}](operations/prepare.md#source-kf)
+* [AWS CloudTrail](operations/prepare.md#source-aws)
+* [BigQuery](operations/prepare.md#source-bigquery)
+* [{{ CH }}](operations/prepare.md#source-ch)
+* [{{ GP }}](operations/prepare.md#source-gp)
+* [{{ MG }}](operations/prepare.md#source-mg)
+* [{{ MY }}](operations/prepare.md#source-my)
+* [{{ PG }}](operations/prepare.md#source-pg)
+* [S3](operations/prepare.md#source-s3)
+* [{{ yds-full-name }}](operations/prepare.md#source-yds)
 
 Подготовьте сервис-приемник к получению данных:
 
-* [{{ CH }}](operations/prepare.md#target-ch);
-* [{{ GP }}](operations/prepare.md#target-gp);
-* [{{ MG }}](operations/prepare.md#target-mg);
-* [{{ MY }}](operations/prepare.md#target-my);
-* [{{ objstorage-name }}](operations/prepare.md#target-storage);
-* [{{ PG }}](operations/prepare.md#target-pg).
+* [{{ CH }}](operations/prepare.md#target-ch)
+* [{{ GP }}](operations/prepare.md#target-gp)
+* [{{ MG }}](operations/prepare.md#target-mg)
+* [{{ MY }}](operations/prepare.md#target-my)
+* [{{ objstorage-name }}](operations/prepare.md#target-storage)
+* [{{ PG }}](operations/prepare.md#target-pg)
+
 
 Чтобы принимать данные в сервисе {{ ydb-name }}, подготовка не требуется.
 

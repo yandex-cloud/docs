@@ -281,7 +281,7 @@ items:
             href: concepts/vm-metadata.md
           - name: Сброс паролей на ВМ Windows
             href: concepts/guest-agent.md
-      - name: Графические ускорители GPU и vGPU
+      - name: Графические ускорители
         href: concepts/gpus.md
       - name: Диски и файловые хранилища
         items:

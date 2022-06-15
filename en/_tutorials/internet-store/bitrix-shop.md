@@ -14,13 +14,8 @@ To deploy and configure 1C-Bitrix:
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources {#paid-resources}
 
@@ -44,7 +39,7 @@ To create a VM:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.  If you don't know which availability zone you need, leave the default.
 
-1. Under **Images from {{ marketplace-name }}**, select the [Ubuntu 18.04 LTS](https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc) image.
+1. Under **Images from {{ marketplace-name }}**, select the [Ubuntu 18.04 LTS](/marketplace/products/f2e9qa7i4fmugh14tjnc)ß image.
 
 1. Under **Disks**, select an SSD with 13 GB.
 

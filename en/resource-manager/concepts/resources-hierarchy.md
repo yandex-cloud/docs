@@ -1,8 +1,15 @@
 # {{ yandex-cloud }} resource hierarchy
 
-When you get access to Yandex Cloud, you are allocated a separate workspace: a _cloud_. This is where you will create folders.
+{% note info %}
+
+At the [Preview](../../overview/concepts/launch-stages.md) stage, there is a restriction: only 1 organization and 1 cloud are available.
+
+{% endnote %}
+
+When you get access to {{ yandex-cloud }}, you are allocated a separate workspace: a _cloud_. This is where you will create folders.
 
 Folders contain resources such as virtual machines, disks, and others. When you create a resource, you specify a folder where it is created. Nested folders are not supported for now.
+
 
 {{ resmgr-name }} provides the standard resource model shown in the following image. This model is used in most of the Yandex Cloud services.
 
@@ -60,10 +67,9 @@ You can manage access rights for all resources in the folder at once. Let's say 
 
 You can view the contents of the folder in the management console. To find out which folder hosts a given resource, use the API or CLI `Get` method for this resource (the `get` command in the CLI).
 
-
 ## Inheritance of access rights {#access-rights-inheritance}
 
-When a user (subject) performs an operation with a resource, Yandex Identity and Access Management (IAM) service checks whether the user has the applicable access rights for this resource.
+When a user (subject) performs an operation with a resource,  {{ iam-full-name }} ({{ iam-short-name }}) service checks whether the user has the applicable access rights for this resource.
 
 Rights to access resources inside the cloud are inherited based on the following hierarchy: Cloud → Folder → Resource.
 

@@ -16,14 +16,19 @@
      * **No address**: Don't assign a public IP address.
    * In the **Master type** field, select the type of master:
      * **Zonal**: A master created in a subnet in one availability zone.
+
+     
      * **Regional**: A master created and distributed in three subnets in each availability zone.
    * Select the [availability zone](../../overview/concepts/geo-scope.md) where you want to create the [master](../../managed-kubernetes/concepts/index.md#master) node address.
 
      This step is only available for the zonal master.
+
    * In the **Cloud network** field, select the network to create the master in.
    * In the **Subnet** field, select the subnet to create the master in.
 
+     
      For the regional master, specify a subnet in each availability zone.
+
    * Select security groups to control the cluster's network traffic.
 
      {% include [security-groups-alert](security-groups-alert.md) %}

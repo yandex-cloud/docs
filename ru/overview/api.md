@@ -42,7 +42,7 @@
    - [{{ sf-full-name }}](../functions/functions/api-ref/)
    - [{{ ydb-full-name }}](../ydb/docapi/api-ref/)
    - [{{ yds-full-name }}](../data-streams/kinesisapi/api-ref/)
-   - [{{ iot-full-name }}](../iot-core/api-ref/)
+   - [{{ iot-full-name }}](../iot-core/api-ref/) 
    - [{{ message-queue-full-name }}](../message-queue/api-ref/)
    - [{{ objstorage-full-name }}](../storage/s3/)
 
@@ -67,5 +67,6 @@
 
 - Бизнес-инструменты:
    - [{{ tracker-full-name }}](../tracker/about-api/)
+
 
 {% include [Greenplum trademark](../_includes/mdb/mgp/trademark.md) %}

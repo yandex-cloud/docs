@@ -3,29 +3,29 @@ editable: false
 ---
 
 # Method listMetricNames
-Retrieves the list of metric names.
- 
+Returns a list of metric names.
 
- 
+
+
 ## HTTP request {#https-request}
 ```
 GET https://monitoring.api.cloud.yandex.net/monitoring/v2/metrics/names
 ```
- 
+
 ## Query parameters {#query_params}
- 
-Parameter | Description
+
+| Parameter | Description |
 --- | ---
-folderId | Required. ID of the folder that the metric belongs to.  The maximum string length in characters is 50.
-selectors | Metric selectors.
-nameFilter | Substring name filter text.
-pageSize | Maximum number of metrics in response. 0 means default page size = 30, maximum page size = 10000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/monitoring/api-ref/MetricsMeta/listMetricNames#query_params) to the [nextPageToken](/docs/monitoring/api-ref/MetricsMeta/listMetricNames#responses) returned by a previous list request.
- 
+| folderId | Required field. ID of the folder that the metric belongs to. Maximum string length: 50 characters. |
+| selectors | Metric selectors to search by label. |
+| nameFilter | Substring text used for filtering by metric name. |
+| pageSize | Maximum number of results per request response page. Defaults to 30, meaning that 30 results are displayed per page. The maximum value is 10000. |
+| pageToken | Page token. Set [pageToken](/docs/monitoring/api-ref/MetricsMeta/listMetricNames#query_params) to the [nextPageToken](/docs/monitoring/api-ref/MetricsMeta/listMetricNames#responses) returned by a previous request to get the next page of results. |
+
 ## Response {#responses}
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "names": [
     "string"
@@ -34,8 +34,8 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/m
 }
 ```
 
- 
-Field | Description
+
+| Field | Description |
 --- | ---
-names[] | **string**<br><p>List of metric names.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests.</p> 
+| names[] | **string**<br><p>List of metric names.</p> |
+| nextPageToken | **string**<br><p>Token to get the next page of results in a response.</p> |

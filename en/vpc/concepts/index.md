@@ -1,5 +1,6 @@
 # Concepts {{ vpc-short-name }}
 
+
 {{ vpc-full-name }} ({{ vpc-short-name }}) is a service for creating cloud networks that are used for transmitting information within your cloud and connecting cloud resources to the internet.
 
 ![image](../../_assets/vpc/vpc-overview.png)

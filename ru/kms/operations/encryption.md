@@ -44,7 +44,7 @@
 - Google Tink
 
     {% include [tink](../../_includes/kms/google-encypt.md) %}
-    
+
 {% endlist %}
 
 ## Расшифруйте данные {#decryption}
@@ -85,6 +85,7 @@
     {% include [tink](../../_includes/kms/google-encypt.md) %}
     
 {% endlist %}
+
 
 #### См. также {#see-also}
 

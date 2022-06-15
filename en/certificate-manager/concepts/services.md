@@ -1,9 +1,10 @@
 # Integration with services from {{ yandex-cloud }}
 
-You can use {{ certificate-manager-name }} certificates in the following {{ yandex-cloud }} services:
 
+You can use {{ certificate-manager-name }} certificates in the following {{ yandex-cloud }} services:
 * [{{ objstorage-full-name }}](#os).
 * [{{ api-gw-full-name }}](#api-gw).
+
 
 ## {{ objstorage-full-name }} {#os}
 
@@ -16,6 +17,7 @@ If a bucket is used for hosting a static website, [use a certificate](../../stor
 
 {% endnote %}
 
+
 ## {{ api-gw-full-name }} {#api-gw}
 
 {{ api-gw-full-name }} lets you merge several microservices into a single product. Microservices can be run on VMs, containers or implemented as functions. You can use the domain to access the API.
@@ -24,6 +26,5 @@ A certificate linked to the domain is used to provide a TLS connection.
 
 #### See also {#see-also}
 
-- [Static website in {{ objstorage-name }}](../../tutorials/web/static.md)
-- [{{ api-gw-full-name }}](../../api-gateway/index.yaml)
-
+* [Static website in {{ objstorage-name }}](../../tutorials/web/static.md)
+* [{{ api-gw-full-name }}](../../api-gateway/index.yaml)

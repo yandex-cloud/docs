@@ -91,11 +91,11 @@ To create a network and subnets:
 
    1. Create subnets in all availability zones.
 
-      * In `ru-central1-a`:
+      * In `{{ region-id }}-a`:
 
          ```
-         yc vpc subnet create example-subnet-ru-central1-a \
-           --zone ru-central1-a \
+         yc vpc subnet create example-subnet-{{ region-id }}-a \
+           --zone {{ region-id }}-a \
            --network-name example-network \
            --range 10.1.0.0/16
          ```
@@ -106,18 +106,18 @@ To create a network and subnets:
          id: e9bnnssj8sc8mjhat9qk
          folder_id: b1g9hv2loamqfnbul7d9
          created_at: "2022-04-04T09:27:00Z"
-         name: example-subnet-ru-central1-a
+         name: example-subnet-{{ region-id }}-a
          network_id: enptrcle5q3d3ktd33hj
-         zone_id: ru-central1-a
+         zone_id: {{ region-id }}-a
          v4_cidr_blocks:
          - 10.1.0.0/16
          ```
 
-      * In `ru-central1-b`:
+      * In `{{ region-id }}-b`:
 
          ```
-         yc vpc subnet create example-subnet-ru-central1-b \
-           --zone ru-central1-b \
+         yc vpc subnet create example-subnet-{{ region-id }}-b \
+           --zone {{ region-id }}-b \
            --network-name example-network \
            --range 10.2.0.0/16
          ```
@@ -128,18 +128,18 @@ To create a network and subnets:
          id: e2lghukd9iqo4haidjbt
          folder_id: b1g9hv2loamqfnbul7d9
          created_at: "2022-04-04T09:27:39Z"
-         name: example-subnet-ru-central1-b
+         name: example-subnet-{{ region-id }}-b
          network_id: enptrcle5q3d3ktd33hj
-         zone_id: ru-central1-b
+         zone_id: {{ region-id }}-b
          v4_cidr_blocks:
          - 10.2.0.0/16
          ```
 
-      * In `ru-central1-c`:
+      * In `{{ region-id }}-c`:
 
          ```
-         yc vpc subnet create example-subnet-ru-central1-c \
-           --zone ru-central1-c \
+         yc vpc subnet create example-subnet-{{ region-id }}-c \
+           --zone {{ region-id }}-c \
            --network-name example-network \
            --range 10.3.0.0/16
          ```
@@ -150,9 +150,9 @@ To create a network and subnets:
          id: b0c3pte4o2kn4v12o05p
          folder_id: b1g9hv2loamqfnbul7d9
          created_at: "2022-04-04T09:28:08Z"
-         name: example-subnet-ru-central1-c
+         name: example-subnet-{{ region-id }}-c
          network_id: enptrcle5q3d3ktd33hj
-         zone_id: ru-central1-c
+         zone_id: {{ region-id }}-c
          v4_cidr_blocks:
          - 10.3.0.0/16
          ```
@@ -163,7 +163,7 @@ To create a network and subnets:
 
    If you do not have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of `example-network` and its subnets: `example-subnet-ru-central1-a`, `example-subnet-ru-central1-b`, and `example-subnet-ru-central1-c`:
+   1. In the configuration file, describe the parameters of `example-network` and its subnets: `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c`:
 
       ```
       resource "yandex_vpc_network" "example-network" {
@@ -171,22 +171,22 @@ To create a network and subnets:
       }
 
       resource "yandex_vpc_subnet" "example-subnet-a" {
-        name           = "example-subnet-ru-central1-a"
-        zone           = "ru-central1-a"
+        name           = "example-subnet-{{ region-id }}-a"
+        zone           = "{{ region-id }}-a"
         network_id     = "${yandex_vpc_network.example-network.id}"
         v4_cidr_blocks = ["10.1.0.0/16"]
       }
 
       resource "yandex_vpc_subnet" "example-subnet-b" {
-        name           = "example-subnet-ru-central1-b"
-        zone           = "ru-central1-b"
+        name           = "example-subnet-{{ region-id }}-b"
+        zone           = "{{ region-id }}-b"
         network_id     = "${yandex_vpc_network.example-network.id}"
         v4_cidr_blocks = ["10.2.0.0/16"]
       }
 
       resource "yandex_vpc_subnet" "example-subnet-c" {
-        name           = "example-subnet-ru-central1-c"
-        zone           = "ru-central1-c"
+        name           = "example-subnet-{{ region-id }}-c"
+        zone           = "{{ region-id }}-c"
         network_id     = "${yandex_vpc_network.example-network.id}"
         v4_cidr_blocks = ["10.3.0.0/16"]
       }
@@ -218,7 +218,7 @@ To create a network and subnets:
 - API
 
    1. Create the `example-network` network using the gRPC API [NetworkService/Create](../vpc/api-ref/grpc/network_service.md#Create) call or the REST API [create](../vpc/api-ref/Network/create.md) method.
-   1. Create the `example-subnet-ru-central1-a`, `example-subnet-ru-central1-b`, and `example-subnet-ru-central1-c` subnets in the three availability zones by calling the gRPC API [SubnetService/Create](../vpc/api-ref/grpc/subnet_service.md#Create) or the REST API [create](../vpc/api-ref/Subnet/create.md) method.
+   1. Create the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c` subnets in the three availability zones by calling the gRPC API [SubnetService/Create](../vpc/api-ref/grpc/subnet_service.md#Create) or the REST API [create](../vpc/api-ref/Subnet/create.md) method.
 
 {% endlist %}
 
@@ -755,7 +755,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       1. Select the `example-network` **network**:
       1. Select the `example-sg` **security group**. If this field is omitted, any incoming and outgoing traffic is allowed for the load balancer.
 
-   1. Under **Allocation**, select three subnets for the load balancer nodes: `example-subnet-ru-central1-a`, `example-subnet-ru-central1-b`, and `example-subnet-ru-central1-c`, then enable traffic to these subnets.
+   1. Under **Allocation**, select three subnets for the load balancer nodes: `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c`, then enable traffic to these subnets.
    1. Click **Add listener** under **Listeners**. Set the listener settings:
 
       1. Enter the listener name: `example-listener`.
@@ -780,9 +780,9 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
       |          ID          |            NAME             |      FOLDER ID       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |     RANGE     |
       +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
-      | e9bnnssj8sc8mjhat9qk | example-subnet-ru-central1-c | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | ru-central1-c | [10.1.0.0/16] |
-      | e2lghukd9iqo4haidjbt | example-subnet-ru-central1-b | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | ru-central1-b | [10.2.0.0/16] |
-      | b0c3pte4o2kn4v12o05p | example-subnet-ru-central1-a | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | ru-central1-a | [10.3.0.0/16] |
+      | e9bnnssj8sc8mjhat9qk | example-subnet-{{ region-id }}-c | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-c | [10.1.0.0/16] |
+      | e2lghukd9iqo4haidjbt | example-subnet-{{ region-id }}-b | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-b | [10.2.0.0/16] |
+      | b0c3pte4o2kn4v12o05p | example-subnet-{{ region-id }}-a | b1g9hv2loamqfnbul7d9 | enptrcle5q3d3ktd33hj |                | {{ region-id }}-a | [10.3.0.0/16] |
       +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
       ```
 
@@ -808,9 +808,9 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       yc alb load-balancer create example-balancer \
         --network-name example-network \
         --security-group-id <ID of example-sg security group> \
-        --location zone=ru-central1-a,subnet-id=<ID of example-subnet-ru-central1-a subnet> \
-        --location zone=ru-central1-b,subnet-id=<ID of example-subnet-ru-central1-b subnet> \
-        --location zone=ru-central1-c,subnet-id=<ID of example-subnet-ru-central1-c subnet>
+        --location zone={{ region-id }}-a,subnet-id=<ID of example-subnet-{{ region-id }}-a subnet> \
+        --location zone={{ region-id }}-b,subnet-id=<ID of example-subnet-{{ region-id }}-b subnet> \
+        --location zone={{ region-id }}-c,subnet-id=<ID of example-subnet-{{ region-id }}-c subnet>
       ```
 
       Output:
@@ -821,15 +821,15 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       name: example-balancer
       folder_id: b1g9hv2loamqfnbul7d9
       status: ACTIVE
-      region_id: ru-central1
+      region_id: {{ region-id }}
       network_id: enptrcle5q3d3ktd33hj
       allocation_policy:
         locations:
-        - zone_id: ru-central1-c
+        - zone_id: {{ region-id }}-c
           subnet_id: b0c3pte4o2kn4v12o05p
-        - zone_id: ru-central1-b
+        - zone_id: {{ region-id }}-b
           subnet_id: e2lghukd9iqo4haidjbt
-        - zone_id: ru-central1-a
+        - zone_id: {{ region-id }}-a
           subnet_id: e9bnnssj8sc8mjhat9qk
       log_group_id: ckg23vr4dlkse3hvq0kc
       security_group_ids:
@@ -857,7 +857,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       name: example-balancer
       folder_id: b1g9hv2loamqfnbul7d9
       status: ACTIVE
-      region_id: ru-central1
+      region_id: {{ region-id }}
       network_id: enptrcle5q3d3ktd33hj
       listeners:
       - name: example-listener
@@ -872,11 +872,11 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
             http_router_id: ds7qd0vj01djuu3c6f8q
       allocation_policy:
         locations:
-        - zone_id: ru-central1-c
+        - zone_id: {{ region-id }}-c
           subnet_id: b0c3pte4o2kn4v12o05p
-        - zone_id: ru-central1-b
+        - zone_id: {{ region-id }}-b
           subnet_id: e2lghukd9iqo4haidjbt
-        - zone_id: ru-central1-a
+        - zone_id: {{ region-id }}-a
           subnet_id: e9bnnssj8sc8mjhat9qk
       log_group_id: ckg23vr4dlkse3hvq0kc
       security_group_ids:
@@ -900,18 +900,18 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       
         allocation_policy {
           location {
-            zone_id   = "ru-central1-a"
-            subnet_id = ${yandex_vpc_subnet.example-subnet-ru-central1-a.id}
+            zone_id   = "{{ region-id }}-a"
+            subnet_id = ${yandex_vpc_subnet.example-subnet-{{ region-id }}-a.id}
           }
       
           location {
-            zone_id   = "ru-central1-b"
-            subnet_id = ${yandex_vpc_subnet.example-subnet-ru-central1-b.id}
+            zone_id   = "{{ region-id }}-b"
+            subnet_id = ${yandex_vpc_subnet.example-subnet-{{ region-id }}-b.id}
           }
       
           location {
-            zone_id   = "ru-central1-c"
-            subnet_id = ${yandex_vpc_subnet.example-subnet-ru-central1-c.id}
+            zone_id   = "{{ region-id }}-c"
+            subnet_id = ${yandex_vpc_subnet.example-subnet-{{ region-id }}-c.id}
           }
         }
       
@@ -1280,5 +1280,5 @@ To shut down the infrastructure and stop paying for the created resources:
 1. [Delete](../application-load-balancer/operations/application-load-balancer-delete.md) the `example-balancer` L7 load balancer.
 1. [Delete](../storage/operations/objects/delete.md) all objects from the `example-bucket` bucket.
 1. [Delete](../storage/operations/buckets/delete.md) the `example-bucket` bucket.
-1. [Delete](../vpc/operations/subnet-delete.md) the `example-subnet-ru-central1-a`, `example-subnet-ru-central1-b`, and `example-subnet-ru-central1-c` subnets.
+1. [Delete](../vpc/operations/subnet-delete.md) the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c` subnets.
 1. [Delete](../vpc/operations/network-delete.md) the `example-network` network.

@@ -5,7 +5,7 @@ $ curl -X POST \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <IAM token>" \
   -d '@body.json' \
-  https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations
+  https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations
 {
  "done": true,
  "metadata": {

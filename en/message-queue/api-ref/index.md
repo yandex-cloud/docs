@@ -1,14 +1,14 @@
-# Yandex Message Queue API
+# {{ message-queue-full-name }} API
 
-Yandex Message Queue provides an HTTP API that is partially compatible with the Amazon SQS API.
+{{ message-queue-full-name }} provides an HTTP API that is partially compatible with the Amazon SQS API.
 
 ## Making API requests {#api-request}
 
-To make a request to the Yandex Message Queue API, send an HTTP POST request to the path `/` at `https://message-queue.api.cloud.yandex.net`.
+To make a request to the {{ message-queue-full-name }} API, send an HTTP POST request to the path `/` at `https://message-queue.{{ api-host }}`.
 
 ```
 POST / HTTP/1.1
-Host: message-queue.api.cloud.yandex.net
+Host: message-queue.{{ api-host }}
 Content-Length: length
 Content-Type: application/x-www-form-urlencoded
 Authorization: authorization string (AWS Signature Version 4)
@@ -58,7 +58,7 @@ If the request execution is successful, the main element of the response gets th
 This element contains the following child elements:
 
 | Tag | Description |
-| ----- | ----- |
+----- | -----
 | `ActionNameResult` | Contains elements specific to the method being called. For possible elements, see the documentation for each method. For example, `CreateQueueResult` contains the `QueueUrl` element with the URL of the queue created. |
 | `ResponseMetadata` | Contains the `RequestId` with the UUID of the request. |
 
@@ -68,7 +68,7 @@ Example of a successful response:
 <?xml version="1.0" encoding="UTF-8"?>
 <CreateQueueResponse>
    <CreateQueueResult>
-      <QueueUrl>https://message-queue.api.cloud.yandex.net/b1g8ad42m6he1ooql78r/dj600000000000me07ol/sample-queue</QueueUrl>
+      <QueueUrl>https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000me07ol/sample-queue</QueueUrl>
    </CreateQueueResult>
    <ResponseMetadata>
       <RequestId>3c9b76fb-f35fb266-48e9c5bf-faca-ddc10b592cfce6ffdf83329a2062f99b</RequestId>
@@ -83,7 +83,7 @@ If a request fails, the main element of the response is named `ErrorResponse`. T
 The Error element contains the following child elements:
 
 | Tag | Description |
-| ----- | ----- |
+----- | -----
 | `Type` | Error type indicating whether the error occurred on the producer or consumer's side. |
 | `Code` | Error ID.<br/><br/>For a list of common errors, see [{#T}](common-errors.md). |
 | `Message` | Error description in English. |
@@ -106,4 +106,3 @@ Example of an error response:
    <RequestId>42d59b56-7407-4c4a-be0f-4c88daeea257</RequestId>
 </ErrorResponse>
 ```
-

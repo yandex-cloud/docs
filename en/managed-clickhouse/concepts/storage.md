@@ -11,7 +11,7 @@ If you enable the **Hybrid storage** setting when creating or updating a cluster
 
 Local SSD storage doesn't provide fault tolerance for stored data and affects the overall pricing for the cluster:
 
-* This storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mch-name }} cluster using local storage, a 2-host fault-tolerant configuration is automatically set up.
+* This storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mch-name }} cluster using local storage, a 3-host fault-tolerant configuration is automatically set up.
 * You are charged for a cluster with this storage type even if it's stopped. Read more in the [pricing policy](../pricing.md).
 
 ## Specifics of non-replicated SSD storage {#network-nrd-storage-features}
@@ -20,7 +20,7 @@ Local SSD storage doesn't provide fault tolerance for stored data and affects th
 
 ## Hybrid storage {#hybrid-storage-features}
 
-Hybrid storage provides fault tolerance for data storage and allows you to manage data placement for [MergeTree](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/) tables: the data is placed either in cluster or object storage depending on the storage policy for the tables.
+Hybrid storage provides fault tolerance for data storage and lets you manage data placement for [MergeTree](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/) tables: the data is placed either in cluster or object storage depending on the storage policy set for the tables.
 
 {% note warning %}
 
@@ -63,7 +63,7 @@ You can't create new storage policies or update existing ones.
 
 A {{ mch-name }} cluster with enabled hybrid storage supports the following storage policies:
 
-* `default`: A cluster automatically manages placement of data depending on the amount of free disk space in cluster storage and table [TTL](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl) (lifetime) settings.
+* `default`: A cluster automatically manages placement of data depending on the amount of free disk space in cluster storage and table [TTL](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl) (time to live) settings.
 
    If there's less than {{ mch-hs-move-factor }} of free space (fixed `move_factor` setting for the storage policy), some data from the tables with this policy will be moved to object storage.
 
@@ -75,7 +75,7 @@ A {{ mch-name }} cluster with enabled hybrid storage supports the following stor
 
 * `object storage`: In tables with this policy, rows are placed only in object storage. Data is not transferred between storages.
 
-Storage policies don't affect [merge operations](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/) for data chunks:
+Storage policies don't affect [merge operations](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/) for data chunks:
 
 * Merging data chunks in storage (the `prefer_not_to_merge` policy setting) is permitted.
 * Doesn't restrict the maximum size of the resulting data chunk (the `max_data_part_size_bytes` value setting), which you may get after merging smaller chunks.
@@ -89,4 +89,4 @@ SELECT *
 FROM system.storage_policies;
 ```
 
-For more information about storage policies and their settings, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes).
+For more information about storage policies and their settings, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes).

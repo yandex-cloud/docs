@@ -20,15 +20,16 @@
             
      Пример конфигурационного файла для стандартной очереди:
      
+     
      ```
      provider "yandex" {
          token     = "<OAuth или статический ключ сервисного аккаунта>"
          folder_id = "<идентификатор каталога>"
-         zone      = "ru-central1-a"
+         zone      = "{{ region-id }}-a"
        }
 
      resource "yandex_message_queue" "example_queue" {
-       name                        = "ymq-terraform-example"
+       name                        = "mq-terraform-example"
        visibility_timeout_seconds  = 600
        receive_wait_time_seconds   = 20
        message_retention_seconds   = 1209600
@@ -37,17 +38,19 @@
      }
      ```
 
+
      Пример конфигурационного файла для очереди FIFO:
 
+     
      ```
      provider "yandex" {
          token     = "<OAuth или статический ключ сервисного аккаунта>"
          folder_id = "<идентификатор каталога>"
-         zone      = "ru-central1-a"
+         zone      = "{{ region-id }}-a"
        }
 
      resource "yandex_message_queue" "example-fifo-queue" {
-       name                        = "ymq-terraform-example.fifo"
+       name                        = "mq-terraform-example.fifo"
        visibility_timeout_seconds  = 600
        receive_wait_time_seconds   = 20
        message_retention_seconds   = 1209600
@@ -56,18 +59,20 @@
        secret_key                  = "<секретная часть статического ключа доступа>"
      }
      ```
-     
-     Пример конфигурационного файла для очереди c политикой перенаправления недоставленных сообщений в DLQ c именем `ymq_terraform_deadletter_example`:
 
+     
+     Пример конфигурационного файла для очереди c политикой перенаправления недоставленных сообщений в DLQ c именем `mq_terraform_deadletter_example`:
+
+     
      ```
      provider "yandex" {
          token     = "<OAuth или статический ключ сервисного аккаунта>"
          folder_id = "<идентификатор каталога>"
-         zone      = "ru-central1-a"
+         zone      = "{{ region-id }}-a"
        }
 
      resource "yandex_message_queue" "example_fifo_queue" {
-       name                        = "ymq-terraform-example"
+       name                        = "mq-terraform-example"
        visibility_timeout_seconds  = 600
        receive_wait_time_seconds   = 20
        message_retention_seconds   = 1209600
@@ -80,11 +85,12 @@
      }
 
      resource "yandex_message_queue" "example_deadletter_queue" {
-       name                        = "ymq_terraform_deadletter_example"
+       name                        = "mq_terraform_deadletter_example"
        access_key                  = "<идентификатор статического ключа доступа>"
        secret_key                  = "<секретная часть статического ключа доступа>"
      }
      ```
+
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
      

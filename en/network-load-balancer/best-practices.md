@@ -2,13 +2,16 @@
 
 This article provides a set of recommendations for using the {{ yandex-cloud }} network load balancer.
 
-#### Create resources in different availability zones {#targets-in-different-azs}
+
+
+#### Create your resources in multiple availability zones {#targets-in-different-azs}
 
 Create cloud resources in multiple availability zones. This way you can maintain the availability of your applications in case one of the zones becomes unavailable.
 
 #### Use the same amount of cloud resources in different availability zones {#equal-performance}
 
-The same amount of cloud resources should be hosted in each availability zone. If there are three VMs in the availability zone `ru-central1-a`, then the availability zones `ru-central1-b` and `ru-central1-c` should also host three VMs each.
+The same amount of cloud resources should be hosted in each availability zone. If there are three VMs in the `{{ region-id }}-a` availability zone, then the `{{ region-id }}-b` and `{{ region-id }}-c` availability zones should also host three VMs each.
+
 
 #### Create cloud resources with redundancy {#redundancy}
 
@@ -21,4 +24,3 @@ If you use the {{ yandex-cloud }} infrastructure to deploy multiple applications
 #### Set up a multi-layer infrastructure {#multi-layer-architecture}
 
 To increase the reliability, set up a multi-layer architecture with L3 and L7 load balancing. The L3 load balancer will receive traffic and forward it to the target group of the L7 load balancers. They will distribute traffic across VMs with applications. You can use Yandex Compute Cloud VMs as L7 load balancers. To do this, install the necessary software on the VMs yourself.
-

@@ -17,7 +17,8 @@ If you no longer need the website, [delete all its resources](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-{% include [prepare-register-billing](../_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
 
 ### Required paid resources {#paid-resources}
 
@@ -37,7 +38,7 @@ To create a VM:
 
 3. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-4. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public image of [Debian 10](https://cloud.yandex.com/en-ru/marketplace/products/f2eec74qhul8dvtq413l), [Ubuntu 18.04 lts](https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc), or [CentOS 7](https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo).
+4. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public image of [Debian 10](/marketplace/products/f2eec74qhul8dvtq413l), [Ubuntu 18.04 lts](/marketplace/products/f2e9qa7i4fmugh14tjnc), or [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo).
 
 5. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md).

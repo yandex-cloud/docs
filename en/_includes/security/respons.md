@@ -13,7 +13,7 @@ It can be visualized in a table, where:
 | OS and app security | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) |
 | Network security (Overlay) | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) |
 | Backups | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) |
-| Encryption | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) |
+| Encryption | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) | ![image](../../_assets/circle-80bdf9.svg) |
 | Audit logs | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) | ![image](../../_assets/circle-80bdf9.svg) |
 | Data storage and hardware security | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) | ![image](../../_assets/circle-80bdf9.svg) |
 | Network security (Underlay) | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) | ![image](../../_assets/circle-80bdf9.svg) |

@@ -9,7 +9,7 @@ items:
         href: operations/index.md
       - name: Target groups
         items:
-          - name: Create target group
+          - name: Create a target group
             href: operations/target-group-create.md
           - name: Edit a target group
             href: operations/target-group-update.md
@@ -43,7 +43,7 @@ items:
             href: operations/application-load-balancer-get-logs.md
           - name: Get the ID of the log group of the L7 load balancer
             href: operations/application-load-balancer-get-log-group-id.md
-          - name: Stop and restart an L7 load balancer
+          - name: Stopping and restarting an L7 load balancer
             href: operations/application-load-balancer-stop-and-start.md
           - name: Delete an L7 load balancer
             href: operations/application-load-balancer-delete.md
@@ -55,13 +55,13 @@ items:
             href: operations/k8s-ingress-controller-apply.md
   - name: Practical guidelines
     items:
-      - name: Setting up virtual hosting
+      - name: Setting up a virtual hosting
         href: tutorials/virtual-hosting.md
       - name: Creating a load balancer with DDoS protection
         href: tutorials/alb-with-ddos-protection.md
       - name: Integrating an L7 load balancer with the CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
-      - name: Blue-green deployment for switching between service versions
+      - name: Blue-green and canary deployment of service versions
         href: tutorials/l7-bluegreen-deploy.md
       - name: Terminating TLS connections
         href: tutorials/tls-termination.md

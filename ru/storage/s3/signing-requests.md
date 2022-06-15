@@ -28,7 +28,7 @@
 2. Закодировать регион с помощью полученного на предыдущем шаге ключа `DateKey`:
 
     ```
-    RegionKey = sign(DateKey, "ru-central1")
+    RegionKey = sign(DateKey, "{{ region-id }}")
     ```
 
 3. Закодировать сервис с помощью полученного на предыдущем шаге ключа `RegionKey`:

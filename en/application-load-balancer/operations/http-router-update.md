@@ -6,7 +6,7 @@ To change the HTTP router parameters:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder the HTTP router belongs to.
+   1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
    1. Select **{{ alb-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/router.svg) **HTTP routers**.
    1. Click on the name of the router you need.
@@ -31,6 +31,8 @@ To change the HTTP router parameters:
       ```
 
       Result:
+
+      
       ```
       id: a5dld80l32edg407nsti
       name: new-http-router
@@ -55,6 +57,82 @@ To change the HTTP router parameters:
       created_at: "2021-02-11T21:31:01.676592016Z"
       ```
 
+
+
+- Terraform
+
+   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Open the Terraform configuration file and edit the fragment with the HTTP router description.
+
+      ```hcl
+      ...
+      resource "yandex_alb_http_router" "tf-router" {
+        name   = "my-http-router"
+        labels = {
+          tf-label    = "tf-label-value"
+          empty-label = ""
+        }
+      }
+      ...
+      ```
+
+      For more information about the `yandex_alb_http_router` resource in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router).
+
+   1. To add, update, or delete an HTTP router's virtual hosts, use the `yandex_alb_virtual_host` resource indicating the router in the `http_router_id` field:
+
+      ```hcl
+      resource "yandex_alb_virtual_host" "my-virtual-host" {
+        name           = "my-virtual-host"
+        http_router_id = "${yandex_alb_http_router.tf-router.id}"
+        route {
+          name = "my-route"
+          http_route {
+            http_route_action {
+              backend_group_id = "${yandex_alb_backend_group.backend-group.id}"
+              timeout          = "3s"
+            }
+          }
+        }
+      }
+      ```
+
+      For more information about the `yandex_alb_virtual_host` resource in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
+
+   1. Check the configuration using the command:
+
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify the change to the HTTP router using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+
+      ```
+      yc alb http-router get <HTTP router ID>
+      ```
+
 {% endlist %}
 
 ## Adding a route to a virtual host {#add-virtual-host}
@@ -65,7 +143,7 @@ To add a new route to an HTTP router's virtual host:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder the HTTP router belongs to.
+   1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
    1. Select **{{ alb-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/router.svg) **HTTP routers**.
    1. Click on the name of the router you need.
@@ -246,6 +324,66 @@ To add a new route to an HTTP router's virtual host:
             idle_timeout: 3s
       - name: test-route-insafter
       ...
+      ```
+
+- Terraform
+
+   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. Open the Terraform configuration file and edit the fragment with the virtual host description by adding the `route` section:
+
+      ```hcl
+      resource "yandex_alb_virtual_host" "my-virtual-host" {
+        name           = "my-virtual-host"
+        http_router_id = "${yandex_alb_http_router.tf-router.id}"
+        route {
+          name = "my-route"
+          http_route {
+            http_route_action {
+              backend_group_id = "${yandex_alb_backend_group.backend-group.id}"
+              timeout          = "3s"
+            }
+          }
+        }
+      }
+      ```
+
+      For more information about the `yandex_alb_virtual_host` resource in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
+
+      The sequence of routes inside a virtual host description matters. For more information, see the [concept](../../application-load-balancer/concepts/http-router.md#virtual-host).
+
+   1. Check the configuration using the command:
+
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify the change to the virtual host using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+
+      ```
+      yc alb virtual-host get <virtual host ID>
       ```
 
 {% endlist %}

@@ -1,5 +1,6 @@
 # Joomla-based website with PostgreSQL
 
+
 In these instructions, you'll learn how to deploy a website in Joomla CMS on a database running PostgreSQL in the {{ yandex-cloud }} infrastructure.
 
 To set up a static website on Joomla:
@@ -16,15 +17,10 @@ If you no longer need the website, [delete all its resources](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
+Make sure that the selected folder contains a network with subnets in the `{ region-id }}-a`, `{ region-id }}-b`, and `{ region-id }}-c` availability zones. To do this, select **{{ vpc-name }}** on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
-
-Make sure that the selected folder contains a network with subnets in the `ru-central1-a`, `ru-central1-b`, and `ru-central1-c` availability zones. To do this, select **{{ vpc-name }}** on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
 
 ### Required paid resources {#paid-resources}
 

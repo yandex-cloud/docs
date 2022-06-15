@@ -57,7 +57,7 @@ To create a database cluster in {{ mmy-short-name }}, you must define its charac
 - The network your cluster will be connected to.
 - The number of hosts for the cluster and the availability zone for each host.
 
-For detailed instructions, see [Getting started with {{ mmy-short-name }}<sup>®</sup>](../quickstart.md).
+For detailed instructions, see [{#T}](../quickstart.md).
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
@@ -86,10 +86,11 @@ MDB technical and organizational limits are given in [{#T}](../concepts/limits.m
 
 Maintenance in {{ mmy-short-name }} implies:
 
-- Automatic installation of DBMS updates and revisions for your database hosts (including disabled clusters).
+- Automatic installation of DBMS updates and revisions for DB hosts (including disabled clusters).
 - Changes to the host class and storage size.
 - Other {{ mmy-short-name }} maintenance activities.
 
+For more information, see [{#T}](../concepts/maintenance.md).
 
 #### Which version of {{ MY }} does {{ mmy-short-name }} use? {#dbms-version}
 
@@ -116,7 +117,6 @@ In {{ mmy-short-name }}, the usage cost is calculated based on the following par
 - Size of the storage reserved for the database host.
 - Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../pricing.md).
 - Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../pricing.md).
-
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
@@ -152,6 +152,9 @@ For DB hosts, you can track metrics specific to the corresponding type of DBMS. 
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
 
+
+
 {% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+
 
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}

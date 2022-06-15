@@ -4,7 +4,7 @@
 
 ## Перед началом работы {#before-begin}
 
-Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform). В сценарии используется конфигурационный файл с названием `example.tf` в директории `~/yandex-cloud-terraform`.
+Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform). В сценарии используется конфигурационный файл с названием `example.tf` в директории `~/cloud-terraform`.
 
 ## Создание и запуск виртуальной машины с образом {{ coi }} {#creating-vm}
 
@@ -45,7 +45,7 @@
    Где:
    * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
 
-1. Создайте файл спецификации облака `cloud_config.yaml` в директории `~/yandex-cloud-terraform`. Опишите спецификацию:
+1. Создайте файл спецификации облака `cloud_config.yaml` в директории `~/cloud-terraform`. Опишите спецификацию:
 
    ```yaml
    #cloud-config
@@ -62,7 +62,7 @@
 
    * `ssh_authorized_keys` — значение [публичного SSH-ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-1. Создайте файл спецификации {{ coi }} с именем `declaration.yaml` в директории `~/yandex-cloud-terraform`. Опишите спецификацию:
+1. Создайте файл спецификации {{ coi }} с именем `declaration.yaml` в директории `~/cloud-terraform`. Опишите спецификацию:
 
    ```yaml
    spec:
@@ -74,7 +74,7 @@
        tty: false
    ```
 
-1. Создайте файл `output.tf` в директории `~/yandex-cloud-terraform`, чтобы отобразить [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) ВМ:
+1. Создайте файл `output.tf` в директории `~/cloud-terraform`, чтобы отобразить [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) ВМ:
 
    ```
    output "external_ip" {
@@ -92,10 +92,10 @@
 
   1. Проверьте корректность конфигурационных файлов.
 
-     1. В командной строке перейдите в директорию `~/yandex-cloud-terraform` с конфигурационными файлами:
+     1. В командной строке перейдите в директорию `~/cloud-terraform` с конфигурационными файлами:
 
         ```bash
-        cd /Users/<имя пользователя>/yandex-cloud-terraform
+        cd /Users/<имя пользователя>/cloud-terraform
         ```
 
      1. Выполните проверку с помощью команды:
@@ -223,14 +223,15 @@
 
 ### Создайте файлы конфигурации группы ВМ {#create-config-group}
 
-1. Сохраните конфигурационный файл с именем `example.tf` в директории `~/yandex-cloud-terraform`:
+1. Сохраните конфигурационный файл с именем `example.tf` в директории `~/cloud-terraform`:
 
+   
    ```
    provider "yandex" {
-     token = "<OAuth-токен>"
-     cloud_id = "<идентификатор облака>"
+     token     = "<OAuth-токен>"
+     cloud_id  = "<идентификатор облака>"
      folder_id = "<идентификатор каталога>"
-     zone = "ru-central1-a"
+     zone      = "{{ region-id }}-a"
    }
    data "yandex_compute_image" "container-optimized-image" {
      family = "container-optimized-image"
@@ -279,6 +280,7 @@
    }
    ```
 
+
    Где:
    * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) для доступа к {{ yandex-cloud }}.
    * `name` — имя группы ВМ.
@@ -290,7 +292,7 @@
 
 1. Используйте файлы `cloud_config.yaml` и `declaration.yaml` из раздела [Создайте файлы конфигурации ВМ](#create-config-vm).
 
-1. Создайте файл `output.tf` в директории `~/yandex-cloud-terraform`, чтобы отобразить публичные IP-адреса каждой ВМ из группы:
+1. Создайте файл `output.tf` в директории `~/cloud-terraform`, чтобы отобразить публичные IP-адреса каждой ВМ из группы:
 
    ```
    output "external_ip" {
@@ -308,10 +310,10 @@
 
   1. Проверьте корректность конфигурационных файлов.
 
-     1. В командной строке перейдите в директорию `~/yandex-cloud-terraform` с конфигурационными файлами:
+     1. В командной строке перейдите в директорию `~/cloud-terraform` с конфигурационными файлами:
 
         ```bash
-        cd /Users/<имя пользователя>/yandex-cloud-terraform
+        cd /Users/<имя пользователя>/cloud-terraform
         ```
 
      1. Выполните проверку с помощью команды:

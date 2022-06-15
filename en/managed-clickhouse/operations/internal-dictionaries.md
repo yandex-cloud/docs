@@ -33,7 +33,7 @@ To create a geobase:
    regionToCountry(RegionID, 'ua') uses a dictionary with the ua suffix: regions_hierarchy_ua.txt;
    ```
 1. Create the file `regions_names.txt` with the region names. The file must be in [TSV tabular format](https://ru.wikipedia.org/wiki/TSV) without headers and with the following columns:
-   * Region ID (UInt32)
+   * Region ID (UInt32).
    * region name (String) — Can't contain tabs or newlines, even escaped ones.
 1. To add region names in other languages to your geobase, create `regions_names_<language code>.txt` files with the same structure. For example, you may create `regions_names_en.txt` for English and `regions_names_tr.txt` for Turkish.
 1. Package your geobase files as `TAR`, `TAR.GZ`, or `ZIP` archives.

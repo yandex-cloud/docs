@@ -12,7 +12,7 @@
 $ export IAM_TOKEN=CggaATEVAgA...
 $ curl -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -G 'https://monitoring.api.cloud.yandex.net/monitoring/v2/metrics/?folderId=b1gucmd4tma1r85c7rhk&pageSize=200' --data-urlencode 'selectors={service="managed-clickhouse", resource_id="c9q5e2a9i24p7s0o9sh6"}' >  output.json
+        -G 'https://monitoring.{{ api-host }}/monitoring/v2/metrics/?folderId=b1gucmd4tma1r85c7rhk&pageSize=200' --data-urlencode 'selectors={service="managed-clickhouse", resource_id="c9q5e2a9i24p7s0o9sh6"}' >  output.json
 ```
 
 Пример ответа на запрос, который получает список метрик сервиса {{ mch-name }} для ресурса с идентификатором `c9q5e2a9i24p7s0o9sh6`. В свойстве `metrics` перечислен список метрик:

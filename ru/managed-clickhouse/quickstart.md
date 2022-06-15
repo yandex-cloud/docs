@@ -41,7 +41,7 @@
 1. Загрузите файл конфигурации для `clickhouse-client`:
 
    ```bash
-   mkdir -p ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
+   mkdir -p ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
    ```
 
 ## Создайте кластер {#cluster-create}
@@ -67,7 +67,7 @@
         <openSSL>
           <client>
             <loadDefaultCAFile>true</loadDefaultCAFile>
-            <caConfig>/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt</caConfig>
+            <caConfig>{{ crt-local-dir }}{{ crt-local-file }}</caConfig>
             <cacheSessions>true</cacheSessions>
             <disableProtocols>sslv2,sslv3</disableProtocols>
             <preferServerCiphers>true</preferServerCiphers>

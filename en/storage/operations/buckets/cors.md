@@ -61,6 +61,7 @@
      * `max_age_seconds`: Time in seconds during which the results of requests to an object are cached by the browser. Optional.
      * `server_side_encryption_configuration`: Bucket encryption settings on the server side. Optional.
 
+     
      ```hcl
      provider "yandex" {
        cloud_id  = "<cloud ID>"
@@ -85,6 +86,7 @@
        }
      }
      ```
+
 
      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
 

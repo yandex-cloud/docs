@@ -1,6 +1,6 @@
-# Удаление паспортного аккаунта из организации
+# Удаление паспортногоаккаунта из организации
 
-Данная инструкция описывает, как удалить привилегированный паспортный аккаунт с ролью `organization-manager.organizations.owner` из [организации](../../organization/).
+Данная инструкция описывает, как удалить привилегированный паспортныйаккаунт с ролью `organization-manager.organizations.owner` из [организации](../../organization/).
 
 Такая потребность может возникнуть в сценариях, когда необходимо полностью контролировать аутентификацию привилегированного аккаунта. В данном случае привилегированного аккаунта, который имеет полные права на организацию и все ресурсы организации.
 
@@ -96,24 +96,26 @@
 
 ## Дополнительные меры {#additional-measures}
 
-Настройте Audit trails на действия с сервисным аккаунтом и федеративной учетной записью, которые обладают ролью `resource-manager.organization.owner`:
+Настройте {{ at-name }} на действия с сервисным аккаунтом и федеративной учетной записью, которые обладают ролью `resource-manager.organization.owner`:
 
-1. [Настройте сбор аудитных логов с уровня организации](../../audit-trails/quickstart.md) в Audit Trails .
-1. Отслеживайте как минимум следующие события (в [Object Storage](../../audit-trails/tutorials/search-bucket.md), [лог-группе](../../audit-trails/tutorials/search-cloud-logging.md), [Managed ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main), [в вашем SIEM](../../audit-trails/concepts/export-siem.md)):
+1. [Настройте сбор аудитных логов с уровня организации](../../audit-trails/quickstart.md) в {{ at-full-name }}.
+
+1. Отслеживайте как минимум следующие события (в [Object Storage](../../audit-trails/tutorials/search-bucket.md), [лог-группе](../../audit-trails/tutorials/search-cloud-logging.md), [Managed ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main) и [в вашем SIEM](../../audit-trails/concepts/export-siem.md)):
 
     * Создание ключей для сервисного аккаунта (события: `yandex.cloud.audit.iam.CreateAccessKey`, `yandex.cloud.audit.iam.CreateKey`, `yandex.cloud.audit.iam.CreateApiKey` и `authentication.subject_id = <идентификатор сервисного аккаунта>`).
     * Назначение прав доступа на сервисный аккаунт (событие: `UpdateServiceAccountAccessBindings` и `details.service_account_id = <идентификатор сервисного аккаунта>`).
     * Любое действие с правами `resource-manager.organization.owner` (`.authentication.subject_id == <идентификатор пользователя с данными правами>`).
 
 Для анализа и реагирования на события в {{ at-name }} можно использовать [Managed ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main).
-
 ## Действия в случае поломки федерации {#federation-repair}
 
 1. Получите доступ к сохраненному в доверенном хранилище авторизованному ключу.
 1. [Аутентифицируйтесь](../../cli/operations/authentication/service-account.md#auth-as-sa) от имени сервисного аккаунта.
 1. Далее:
+
     * Либо назначьте роль `resource-manager.organization.owner` паспортной учетной записи и с ее помощью восстановите федерацию.
     * Либо восстановите федерацию из интерфейса командной строки CLI.
+
 1. Проверьте доступ от лица федеративного пользователя.
 
 ## Действия после восстановления федерации {#after-federation-repairation}

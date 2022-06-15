@@ -86,12 +86,13 @@
 
      * `retention_period` — срок хранения записей в лог-группе. Необязательный параметр. Максимальный срок хранения записей — 3 дня, минимальный — 1 час. По умолчанию срок хранения записей — 3 дня.
 
+     
      ```hcl
      provider "yandex" {
        token     = "<OAuth>"
        cloud_id  = "<идентификатор облака>"
        folder_id = "<идентификатор каталога>"
-       zone      = "ru-central1-a"
+       zone      = "{{ region-id }}-a"
      }
      
      resource "yandex_logging_group" "group1" {
@@ -100,6 +101,7 @@
        retention_period = "5h"
      }
      ```
+
 
      Более подробную информацию о параметрах ресурса `yandex_logging_group` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/logging_group).
 

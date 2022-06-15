@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ mkf-name }}
 
+
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Статус кластера {#running-stopped}
@@ -56,7 +58,7 @@ editable: false
 Оплачивается объем хранилища, выделенный для кластеров.
 
   * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами-брокерами и более:
-      * для платформы Intel Cascade Lake — с шагом 100 ГБ;
+    * для платформы Intel Cascade Lake — с шагом 100 ГБ;
       * для платформы Intel Ice Lake — с шагом {{ local-ssd-v3-step }}.
   * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя хостами-брокерами и более, с шагом 93 ГБ.
 
@@ -139,6 +141,3 @@ editable: false
 
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
-
-
-

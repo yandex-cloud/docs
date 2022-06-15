@@ -11,7 +11,7 @@ For standard queues, it is possible to receive a message even after you delete i
 ### Request parameters {#request-parameters}
 
 | Parameter | Type | Required parameter | Description |
-| ----- | ----- | ----- | ----- |
+----- | ----- | ----- | -----
 | `QueueUrl` | **string** | Yes | URL of the queue where the message is placed. |
 | `ReceiptHandle` | **string** | Yes | `ReceiptHandle` from the `ReceiveMessage` request. |
 
@@ -23,11 +23,11 @@ The response does not contain any fields.
 
 ### DeleteMessage errors {#errors}
 
-For the list of possible responses, see [{#T}](../common-errors.md).
+For a list of possible responses, see [{#T}](../common-errors.md).
 
 | HTTP code | Error ID | Description |
-| ----- | ----- | ----- |
-| 400 | `InvalidIdFormat` | The specified`ReceiptHandle` isn't valid for the current version. |
+----- | ----- | -----
+| 400 | `InvalidIdFormat` | The specified `ReceiptHandle` isn't valid for the current version. |
 | 400 | `ReceiptHandleIsInvalid` | The specified `ReceiptHandle` isn't valid. |
 
 ## Sample request {#request-example}
@@ -35,7 +35,7 @@ For the list of possible responses, see [{#T}](../common-errors.md).
 ```
 Action=DeleteMessage
 &Version=2012-11-05
-&QueueUrl=https://message-queue.api.cloud.yandex.net/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
 &ReceiptHandle=EAEggPjXhogtKAA
 ```
 
@@ -50,4 +50,3 @@ For more information about forming requests, see [General API request format](..
     </ResponseMetadata>
 </DeleteMessageResponse>
 ```
-

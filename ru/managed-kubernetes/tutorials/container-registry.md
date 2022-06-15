@@ -1,7 +1,6 @@
 # Интеграция с {{ container-registry-name }}
 
 Для интеграции {{ k8s }} и {{ container-registry-full-name }} создайте следующие ресурсы: сервисные аккаунты для управления ресурсами и доступами к ним, кластер {{ k8s }}, группу узлов, а также реестр и Docker-образ. Для упрощения аутентификации настройте Docker Credential helper и убедитесь, что под с приложением из {{ container-registry-name }} запускается без дополнительной аутентификации, используя сервисный аккаунт.
-
 1. [Создайте сервисные аккаунты](#create-sa)
    1. [Создайте сервисный аккаунт для ресурсов](#res-sa)
    1. [Создайте сервисный аккаунт для узлов](#node-sa) 
@@ -41,7 +40,7 @@
 
    - PowerShell
 
-     ```
+     ```shell script
      $FOLDER_ID = yc config get folder-id
      ```
 
@@ -59,7 +58,7 @@
 
    - PowerShell
 
-     ```
+     ```shell script
      yc iam service-account create --name k8s-res-sa-$FOLDER_ID
      ```
 
@@ -77,7 +76,7 @@
 
    - PowerShell
 
-     ```
+     ```shell script
      $RES_SA_ID = (yc iam service-account get --name k8s-res-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
      ```
 
@@ -107,7 +106,7 @@
 
    - PowerShell
 
-     ```
+     ```shell script
      $FOLDER_ID = yc config get folder-id
      ```
 
@@ -125,7 +124,7 @@
 
    - PowerShell
 
-     ```
+     ```shell script
      yc iam service-account create --name k8s-node-sa-$FOLDER_ID
      ```
 
@@ -143,7 +142,7 @@
 
    - PowerShell
 
-     ```
+     ```shell script
      $NODE_SA_ID = (yc iam service-account get --name k8s-node-sa-$FOLDER_ID --format json | ConvertFrom-Json).id
      ```
 
@@ -176,9 +175,11 @@ yc container registry create --name yc-auto-cr
 
 Для настройки Credential helper выполните команду:
 
+
 ```bash
 yc container registry configure-docker
 ```
+
 
 ### Подготовьте Docker-образ {#docker-image}
 
@@ -203,7 +204,7 @@ yc container registry configure-docker
 
       - PowerShell
 
-        ```
+        ```shell script
         $REGISTRY_ID = (yc container registry get --name yc-auto-cr --format json | ConvertFrom-Json).id
         ```
 
@@ -212,20 +213,24 @@ yc container registry configure-docker
    1. Соберите Docker-образ:
 
       ```
-      docker build . -f hello.dockerfile -t cr.yandex/$REGISTRY_ID/ubuntu:hello
+      docker build . -f hello.dockerfile -t {{ registry }}/$REGISTRY_ID/ubuntu:hello
       ```
 
    1. Загрузите Docker-образ в реестр:
 
       ```
-      docker push cr.yandex/${REGISTRY_ID}/ubuntu:hello
+      docker push {{ registry }}/${REGISTRY_ID}/ubuntu:hello
       ```
 
 1. Проверьте, что Docker-образ загрузился в реестр:
 
    ```bash
    yc container image list
+   ```
 
+   Результат выполнения команды:
+
+   ```bash
    +----------------------+---------------------+-----------------------------+-------+-----------------+
    |          ID          |       CREATED       |            NAME             | TAGS  | COMPRESSED SIZE |
    +----------------------+---------------------+-----------------------------+-------+-----------------+
@@ -238,27 +243,34 @@ yc container registry configure-docker
 ## Запустите тестовое приложение {#test-app}
 
 Запустите под с приложением из Docker-образа и убедитесь, что для загрузки Docker-образа не потребовалась дополнительная аутентификация в {{ container-registry-name }}.
-
 1. Запустите под с приложением из Docker-образа:
 
    ```
-   kubectl run --attach hello-ubuntu --image cr.yandex/${REGISTRY_ID}/ubuntu:hello
+   kubectl run --attach hello-ubuntu --image {{ registry }}/${REGISTRY_ID}/ubuntu:hello
    ```
 
 1. Найдите запущенный под и посмотрите его полное имя:
 
    ```
    kubectl get po
+   ```
 
-   NAME                            READY   STATUS      RESTARTS   AGE
-   hello-ubuntu-5847fb96b4-54g48   0/1     Completed   3          61s
+   Результат выполнения команды:
+
+   ```
+   NAME                           READY  STATUS     RESTARTS  AGE
+   hello-ubuntu-5847fb96b4-54g48  0/1    Completed  3         61s
    ```
 
 1. Посмотрите логи контейнера, запущенного на этом поде:
 
    ```
    kubectl logs hello-ubuntu-5847fb96b4-54g48
+   ```
 
+   Результат выполнения команды:
+
+   ```
    Hi, I'm inside
    ```
 
@@ -305,7 +317,7 @@ yc container registry configure-docker
 
       - PowerShell
 
-        ```
+        ```shell script
         $IMAGE_ID = (yc container image list --format json | ConvertFrom-Json).id
         ```
 

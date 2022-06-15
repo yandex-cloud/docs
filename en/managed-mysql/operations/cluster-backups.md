@@ -354,7 +354,7 @@ In single-host clusters, you create a backup by reading data from the master hos
 
 - Management console
 
-   In the [management console]({{ link-console-main }}), you can only set the backup start time when you [edit the cluster](update.md).
+   In the [management console]({{ link-console-main }}), you can only set the backup start time when [updating a cluster](update.md).
 
 - CLI
 
@@ -416,7 +416,7 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
 
 - Management console
 
-   In the [management console]({{ link-console-main }}), a host's priority is set during cluster [creation](cluster-create.md), when new hosts are [added](../operations/hosts.md#add) to a cluster, or when you [edit the settings](../operations/hosts.md#update) of the existing hosts.
+   In the [management console]({{ link-console-main }}), a host's priority is set when [creating](cluster-create.md) a cluster, [adding](../operations/hosts.md#add) new cluster hosts, or [updating the settings](../operations/hosts.md#update) of the existing hosts.
 
 - CLI
 

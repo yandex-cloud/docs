@@ -17,7 +17,7 @@ When you delete a queue, you must wait at least 60 seconds before creating anoth
 ### Request parameters {#request-parameters}
 
 | Parameter | Type | Required parameter | Description |
-| ----- | ----- | ----- | ----- |
+----- | ----- | ----- | -----
 | `QueueUrl` | **string** | Yes | URL of a queue. Case-sensitive. |
 
 ## Response {#response}
@@ -35,7 +35,7 @@ The method does not return any specific errors. For a list of errors common for 
 ```
 Action=DeleteQueue
 &Version=2012-11-05
-&QueueUrl=https://message-queue.api.cloud.yandex.net/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he1ooql78r/dj600000000000le07ol/sample-queue
 ```
 
 For more information about forming requests, see [General API request format](../index.md#api-request).

@@ -27,7 +27,7 @@
 
   1. В блоке **Выбор образа/загрузочного диска** выберите один из [образов](../../operations/images-with-pre-installed-software/get-list.md).
 
-  1. В блоке **Диски и файловые хранилища** [добавьте диск](./create-from-disks.md):
+  1. В блоке **Дискии файловые хранилища** [добавьте диск](./create-from-disks.md):
       * Нажмите кнопку **Добавить диск**.
       * Введите имя диска.
       * Выберите [тип диска](../../concepts/disk.md#disks_types).
@@ -107,7 +107,7 @@
       ```
       yc compute instance create \
         --name test-vm-from-image \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --create-boot-disk name=disk1,size=5,image-id=fd8gkcd3l6ov84aon8s1 \
         --public-ip \
         --ssh-key ~/.ssh/id_rsa.pub

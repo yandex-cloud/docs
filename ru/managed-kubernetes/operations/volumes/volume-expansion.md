@@ -6,6 +6,7 @@
 
 Чтобы включить механизм увеличения размера тома, в описании [класса хранилища](manage-storage-class.md) (`StorageClass`) должен быть указан параметр `allowVolumeExpansion: true`. В хранилищах сервиса {{ managed-k8s-name }} этот механизм включен по умолчанию:
 
+
 ```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
@@ -20,12 +21,14 @@ allowVolumeExpansion: true
 reclaimPolicy: Delete
 ```
 
+
 ## Создайте объект PersistentVolumeClaim {#create-pvc}
 
 1. Сохраните следующую спецификацию для [создания объекта PersistentVolumeClaim](dynamic-create-pv.md) в YAML-файл с названием `pvc-expansion.yaml`.
 
    Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
+   
    ```yaml
    apiVersion: v1
    kind: PersistentVolumeClaim
@@ -39,6 +42,7 @@ reclaimPolicy: Delete
        requests:
          storage: 1Gi
    ```
+
 
 1. Создайте объект `PersistentVolumeClaim`:
 
@@ -75,7 +79,7 @@ reclaimPolicy: Delete
      volumes:
      - name: persistent-storage
        persistentVolumeClaim:
-         claimName:  pvc-expansion
+         claimName: pvc-expansion
    ```
 
 1. Создайте под:

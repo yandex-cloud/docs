@@ -109,6 +109,7 @@
 
       Пример структуры конфигурационного файла:
 
+      
       ```hcl
       terraform {
         required_providers {
@@ -137,6 +138,7 @@
           }
       }
       ```
+
 
       Более подробную информацию о параметрах `yandex_cdn_resource` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/cdn_resource).
 

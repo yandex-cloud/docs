@@ -1,6 +1,6 @@
 # DNS zones
 
-A DNS zone is a logical space that combines the domain names of your resources and stores the necessary [resource records](resource-record.md). There are [public](#public-zones) and [private](#private-zones) zones. Regardless of the type, they have a hierarchy: a zone may have one or more subzones.
+A DNS zone is a logical space that combines the domain names of your resources and stores the necessary [resource records](resource-record.md). There are two types of DNS zones: [public](#public-zones) and [internal](#private-zones). Regardless of the type, they have a hierarchy: a zone may have one or more subzones.
 
 You can manage the hierarchy of cloud resources and route DNS requests. For example, you can create subzones for the production and test environments and, within them, subzones for applications, DB clusters, caching servers, and more.
 
@@ -12,34 +12,41 @@ If a public zone is registered in {{ yandex-cloud }}:
 * To create a subzone, you need the rights to manage the parent zone.
 * To manage a subzone and its records, no rights to the parent zone are required.
 
-This prevents the creation of subzones for the zones registered in {{ yandex-cloud }} that users don't have access to.
-
+This prevents the creation of subzones for the zones registered in {{ yandex-cloud }} and that users don't have access to.
 You can create zones and subzones in different folders. To do this, assign a user or [service account](../../iam/concepts/users/service-accounts.md) the `editor` role for the folder where the parent zone is located. For more information, see [{#T}](../security/index.md).
 
-For instance, the `example.com.` parent zone is located in a folder named `my-folder`. If you have the rights to manage this zone, you can create the subzones `test.example.com.` and `production.example.com.` in the `my-test-folder` and `my-production-folder` folders, respectively.
+For instance, the `example.com.` parent zone is in a folder named `my-folder`. If you have the rights to manage this zone, you can create subzones such as `test.example.com.` and `production.example.com.` in the `my-test-folder` and `my-production-folder` folders, respectively.
 
 ## Public zones {#public-zones}
 
 Domain names in public zones are available from the internet. If you have a registered domain, you can delegate it. To do this, specify the addresses of {{ yandex-cloud }} name servers in the `NS` records of your registrar:
 
+
 * `ns1.yandexcloud.net.`
 * `ns2.yandexcloud.net.`
+
 
 You can't create public top-level domain (TLD) zones.
 
 For security reasons, nested public zones can only be created by users and service accounts with the `dns.editor`, `dns.admin`, `editor`, or `admin` role in the folder where the parent public zone is located. Remember this when organizing the structure of your domain names. For more complex scenarios, contact [support](../../support/overview.md).
 
-The service does not require confirmation of domain ownership. You can use a domain zone even if it's not registered to you. However, if its owner confirms their rights to the domain zone, you'll lose access to it. If you are the owner of the domain and the zone is already used by someone, contact [support](../../support/overview.md).
+The service does not require confirmation of domain ownership. You can use a domain zone even if it's not registered to you. If you delegated your domain to {{ dns-name }} without creating a respective public DNS zone in {{ dns-name }}, this zone can be used by someone else. Therefore, we recommend that you first create a public DNS zone in {{ dns-name }} and then delegate your domain.
+
+{% note info %}
+
+If somebody is using your public DNS zone, contact [support](../../support/overview.md) to confirm your rights to the zone.
+
+{% endnote %}
 
 To request external domain names, we recommend using [caching resolvers](../tutorials/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. They can reduce the number of queries and service usage [costs](../pricing.md).
 
 ## Internal zones {#private-zones}
 
-Domain names from internal zones can only be used in [{{ vpc-name }}](../../vpc/) (VPC) networks specified when creating a zone. Within internal zones, you can use the entire namespace in the subnets of the selected network, including `internal.` and `.`.
+Domain names from internal zones can only be used in the [{{ vpc-name }}](../../vpc/) (VPC) networks specified when creating a zone. Within internal zones, you can use the entire namespace in the subnets of the selected network, including `internal.` and `.`.
 
 {% note warning %}
 
-A created internal zone overlaps public zones. If you create an internal zone named `yandex.com`, all `yandex.com.` subdomains in this {{ vpc-short-name }} network, which are accessible from the internet, will be inaccessible.
+A created internal zone overlaps public zones. If you create an internal zone named `example.com`, all `example.com.` subdomains in this {{ vpc-short-name }} network, which are accessible from the internet, will be inaccessible.
 
 {% endnote %}
 

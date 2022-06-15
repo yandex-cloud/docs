@@ -10,7 +10,7 @@
 
 * Regular software updates.
 
-* DB cluster failover.
+* Providing DB cluster failover.
 
 * Database usage monitoring and statistics.
 
@@ -20,7 +20,7 @@
 
 #### How do I upload data to {{ CH }}? {#load-data}
 
-Use the `INSERT` query described in the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/insert-into/).
+Use the `INSERT` statement described in the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/insert-into/).
 
 #### How do I upload very large data to {{ CH }}? {#loadalot}
 
@@ -46,7 +46,6 @@ Access to {{ ZK }} and its setup are not available to {{ yandex-cloud }} users.
 
 #### Why does a {{ CH }} cluster take up 3 hosts more than it should? {#why-does-a-cluster-take-up-3-hosts-more-than-it-should}
 
-When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster of 3 {{ ZK }} hosts for managing replication and fault tolerance, if {{ CK }} support is not enabled. These hosts are considered when calculating the [resource quotas]({{ link-console-quotas }}) used by the cloud and the cluster cost. By default, {{ ZK }} hosts are created with a minimal [host class](../concepts/instance-types.md).
+When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster with 3 {{ ZK }} hosts to manage replication and fault tolerance, if {{ CK }} support is not enabled. These hosts are taken into account when calculating the consumed cloud [resource quota]({{ link-console-quotas }}) and cluster cost. By default, {{ ZK }} hosts are created with a minimal [host class](../concepts/instance-types.md).
 
-For more information about using {{ ZK }}, see [ClickHouse documentation](https://{{ ch-domain }}/docs/en/operations/table_engines/replication/).
-
+For more information about using {{ ZK }}, see the [ClickHouse documentation](https://{{ ch-domain }}/docs/en/operations/table_engines/replication/).

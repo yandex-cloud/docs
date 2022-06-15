@@ -1,6 +1,6 @@
 ---
-title: How to work with Yandex Managed Service for Kubernetes. Instructions
-description: "In this article you will learn how to work with managed Kubernetes service in Yandex Cloud. We will tell about persistent volumes, manage a group of nodes, Kubernetes cluster."
+title: How to work with {{ managed-k8s-full-name }}. Instructions
+description: "In this article you will learn how to work with managed {{ k8s }} service in {{ yandex-cloud }}. We will tell about persistent volumes, manage a group of nodes, {{ k8s }} cluster."
 ---
 
 # All instructions
@@ -10,6 +10,7 @@ description: "In this article you will learn how to work with managed Kubernetes
 * [{#T}](create-static-conf.md)
 * [{#T}](update-kubernetes.md)
 * [{#T}](encrypting-secrets.md)
+
 
 ## Installing applications {#marketplace}
 
@@ -52,6 +53,7 @@ description: "In this article you will learn how to work with managed Kubernetes
 * [{#T}](node-group/node-group-update.md)
 * [{#T}](node-group/node-label-management.md)
 * [{#T}](node-group/node-group-delete.md)
+
 
 ## Working with external nodes {#external-nodes}
 

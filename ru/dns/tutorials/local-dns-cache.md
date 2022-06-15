@@ -32,7 +32,7 @@ Link 2 (eth0)
   <...>
   Current DNS Server: 192.168.6.2         
          DNS Servers: 192.168.6.2         
-          DNS Domain: ru-central1.internal
+          DNS Domain: {{ region-id }}.internal
                       auto.internal 
 ```
 

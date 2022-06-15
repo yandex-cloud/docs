@@ -16,6 +16,8 @@ To configure CI for VM disk snapshots:
 
 ## Before you start {#before-begin}
 
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
 Before creating a VM:
 
 1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you want to perform the operations.
@@ -31,7 +33,7 @@ Create a VM where the test application will be installed, the set of components 
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to locate the VM in.
 
-1. Select a public image of [Ubuntu 18.04](https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc).
+1. Select a public image of [Ubuntu 18.04](/marketplace/products/f2e9qa7i4fmugh14tjnc).
 
 1. In the **Computing resources** section, select the following configuration:
    * **Platform**: Intel Ice Lake.
@@ -282,7 +284,7 @@ One of the ways to set up CI in {{ yandex-cloud }} is to take advantage of a pub
 
 1. In the window that opens, open the **DevTools** tab.
 
-1. Choose the [GitLab](https://cloud.yandex.com/en-ru/marketplace/products/f2eb5e8deq602ccak537) image.
+1. Choose the [GitLab](/marketplace/products/f2eb5e8deq602ccak537) image.
 
 1. In the **Computing resources** section, select the following configuration:
    * **Guaranteed vCPU share**: 100%.
@@ -389,8 +391,8 @@ Runner is a tool for performing tasks that a user creates. You need to install R
 1. Install the {{ yandex-cloud }} CLI so that the CI script can create VMs:
 
    ```
-   $ curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh --output install.sh
-   $ sudo bash install.sh -n -i /opt/yandex-cloud
+   $ curl https://{{ s3-storage-host }}{{ yc-install-path }} --output install.sh
+   $ sudo bash install.sh -n -i /opt/{{ product }}
    ```
 
 1. To perform functional testing, install the `pytest` package:
@@ -463,13 +465,13 @@ You need to define the configuration for CI.
        subnet_name: <subnet-name>
      script:
        - export instance_name="ci-tutorial-test-app-$(date +%s)"
-       - export PATH="/opt/yandex-cloud/bin:${PATH}"
+       - export PATH="/opt/{{ product }}/bin:${PATH}"
        - yc config set token $YC_OAUTH
        - yc compute instance create
          --format json
          --name $instance_name
          --folder-id $folder_id
-         --zone ru-central1-c
+         --zone {{ region-id }}-c
          --network-interface subnet-name=$subnet_name,nat-ip-version=ipv4
          --create-boot-disk name=$instance_name-boot,type=network-ssd,size=15,snapshot-name=$snapshot_name,auto-delete=true
          --memory 1

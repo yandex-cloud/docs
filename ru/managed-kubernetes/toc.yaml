@@ -1,7 +1,7 @@
 title: Yandex Managed Service for Kubernetes
 href: index.yaml
 items:
-  - name: Сопоставление с другими сервисами Yandex Cloud
+  - name: Сопоставление с другими сервисами {{ yandex-cloud }}
     href: service-comparison.md
   - name: Начало работы
     href: quickstart.md
@@ -9,19 +9,23 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Настройка групп безопасности
-        href: operations/security-groups.md
       - name: Подключение к узлу по SSH
         href: operations/node-connect-ssh.md
-      - name: Создание файла конфигурации
-        href: operations/create-static-conf.md
       - name: Обновление {{ k8s }}
         href: operations/update-kubernetes.md
       - name: Настройка автомасштабирования
         href: operations/autoscale.md
+      - name: Подключение к кластеру
+        items:
+          - name: Обзор способов подключения
+            href: operations/connect/index.md
+          - name: Настройка групп безопасности
+            href: operations/connect/security-groups.md
+          - name: Создание статического файла конфигурации
+            href: operations/connect/create-static-conf.md
       - name: Установка приложений
         items:
-          - name: Основы работы с {{ marketplace-name }}
+          - name: Основы работы с {{ marketplace-full-name }}
             href: operations/applications/marketplace.md
           - name: Установка Jaeger
             href: operations/applications/jaeger.md
@@ -29,9 +33,7 @@ items:
             href: operations/applications/metrics-provider.md
       - name: Сетевые сценарии
         items:
-          - name: >-
-              Обеспечение доступа к приложению, запущенному в кластере
-              Kubernetes
+          - name: Обеспечение доступа к приложению, запущенному в кластере {{ k8s }}
             href: operations/create-load-balancer.md
           - name: Настройка контроллера сетевых политик Calico
             href: operations/calico.md
@@ -53,24 +55,20 @@ items:
             href: operations/volumes/statefulset-pvc-expansion.md
           - name: Подключение тома в блочном режиме
             href: operations/volumes/mode-block.md
-          - name: Интеграция с {{ objstorage-full-name }}
+          - name: Интеграция с {{ objstorage-name }}
             href: operations/volumes/s3-csi-integration.md
-      - name: Управление кластером Kubernetes
+      - name: Управление кластером {{ k8s }}
         items:
-          - name: >-
-              Добавление учетных данных кластера Kubernetes в конфигурационный
-              файл kubectl
-            href: operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md
-          - name: Информация об имеющихся кластерах
+          - name: Получение информации о кластере {{ k8s }}
             href: operations/kubernetes-cluster/kubernetes-cluster-list.md
-          - name: Создание кластера Kubernetes
+          - name: Создание кластера {{ k8s }}
             href: operations/kubernetes-cluster/kubernetes-cluster-create.md
-          - name: Изменение кластера Kubernetes
+          - name: Изменение кластера {{ k8s }}
             href: operations/kubernetes-cluster/kubernetes-cluster-update.md
-          - name: Создание пространства имен в кластере Kubernetes
+          - name: Создание пространства имен в кластере {{ k8s }}
             href: >-
               operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
-          - name: Удаление кластера Kubernetes
+          - name: Удаление кластера {{ k8s }}
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
       - name: Управление группой узлов
         items:
@@ -78,6 +76,10 @@ items:
             href: operations/node-group/node-group-list.md
           - name: Создание группы узлов
             href: operations/node-group/node-group-create.md
+          - name: Подключение к узлу по SSH
+            href: operations/node-connect-ssh.md
+          - name: Настройка автомасштабирования
+            href: operations/autoscale.md
           - name: Изменение группы узлов
             href: operations/node-group/node-group-update.md
           - name: Управление метками узлов кластера {{ k8s }}
@@ -90,15 +92,15 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Интеграция с Container Registry
+      - name: Интеграция с {{ container-registry-full-name }}
         href: tutorials/container-registry.md
       - name: Запуск рабочих нагрузок с GPU
         href: tutorials/running-pod-gpu.md
       - name: Установка NGINX Ingress-контроллера с Let's Encrypt®
         href: tutorials/ingress-cert-manager.md
-      - name: Настройка Application Load Balancer Ingress-контроллера
+      - name: Настройка {{ alb-full-name }} Ingress-контроллера
         href: tutorials/alb-ingress-controller.md
-      - name: Резервное копирование в Object Storage
+      - name: Резервное копирование в {{ objstorage-name }}
         href: tutorials/backup.md
       - name: Горизонтальное масштабирование приложения в кластере
         href: tutorials/autoscaling.md
@@ -110,15 +112,13 @@ items:
         href: tutorials/dns-autoscaler.md
       - name: Настройка локального кеширования DNS
         href: tutorials/node-local-dns.md
-      - name: Настройка Fluent Bit для работы с Yandex Cloud Logging
+      - name: Настройка Fluent Bit для работы с {{ cloud-logging-full-name }}
         href: tutorials/fluent-bit-logging.md
-      - name: Синхронизация с секретами Yandex Lockbox
+      - name: Синхронизация с секретами {{ lockbox-name }}
         href: tutorials/kubernetes-lockbox-secrets.md
-      - name: Использование продуктов {{ marketplace-full-name }}
+      - name: Использование продуктов {{ marketplace-name }}
         items:
-          - name: >-
-              Использование Jaeger для трассировки запросов в {{ ydb-full-name
-              }}
+          - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
   - name: Концепции
     items:
@@ -128,7 +128,7 @@ items:
         href: concepts/release-channels-and-updates.md
       - name: Шифрование секретов
         href: concepts/encryption.md
-      - name: Использование объектов API Kubernetes
+      - name: Использование объектов API {{ k8s }}
         items:
           - name: Том
             href: concepts/volume.md

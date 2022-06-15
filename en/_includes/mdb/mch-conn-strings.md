@@ -22,7 +22,7 @@
   1. Download the configuration file for `clickhouse-client`:
 
      ```bash
-     mkdir -p ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
+     mkdir -p ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
      ```
 
   **Connecting via SSL:**
@@ -55,7 +55,7 @@
   **Connecting via SSL:**
 
   ```bash
-  curl --cacert /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
+  curl --cacert {{ crt-local-dir }}{{ crt-local-file }} \
        -H "X-ClickHouse-User: <DB username>" \
        -H "X-ClickHouse-Key: <DB user password>" \
        'https://<FQDN of any {{ CH }} host>:8443/?database=<DB name>&query=SELECT%20version()'
@@ -95,7 +95,7 @@
           'X-ClickHouse-Key': '<DB user password>',
       }
   
-  cacert = '/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt'
+  cacert = '{{ crt-local-dir }}{{ crt-local-file }}'
   
   rs = requests.get(url, headers=auth, verify=cacert)
   rs.raise_for_status()
@@ -171,7 +171,7 @@
     ];
   
     $ssl = [
-        'cafile' => '/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt',
+        'cafile' => '{{ crt-local-dir }}{{ crt-local-file }}',
         'verify_peer' => true,
     ];
   
@@ -345,7 +345,7 @@
       String DB_USER    = "<DB username>";
       String DB_PASS    = "<DB user password>";
   
-      String CACERT     = "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt";
+      String CACERT     = "{{ crt-local-dir }}{{ crt-local-file }}";
   
       String DB_URL = String.format("jdbc:clickhouse://%s:8443/%s?ssl=1&sslmode=strict&sslrootcert=%s", DB_HOST, DB_NAME, CACERT);
   
@@ -426,7 +426,7 @@
   const DB_USER = "<DB username>";
   const DB_PASS = "<DB user password>";
   
-  const CACERT = "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt";
+  const CACERT = "{{ crt-local-dir }}{{ crt-local-file }}";
   
   const options = {
       'method': 'GET',
@@ -528,7 +528,7 @@
       const DB_USER = "<DB username>"
       const DB_PASS = "<DB user password>"
   
-      const CACERT = "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt"
+      const CACERT = "{{ crt-local-dir }}{{ crt-local-file }}"
   
       caCert, err := ioutil.ReadFile(CACERT)
       if err != nil {
@@ -651,7 +651,7 @@
   req.add_field("X-ClickHouse-Key", DB_PASS)
   
   conn = Net::HTTP.new(uri.host, uri.port)
-  conn.ca_file = "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt"
+  conn.ca_file = "{{ crt-local-dir }}{{ crt-local-file }}"
   conn.use_ssl = true
   conn.verify_mode = OpenSSL::SSL::VERIFY_PEER
   
@@ -759,7 +759,7 @@
   Port = 8443
   Proto = https
   SSLMode = allow
-  CertificateFile = /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+  CertificateFile = {{ crt-local-dir }}{{ crt-local-file }}
   ```
 
   **Example of settings in the `odbc.ini` file for connecting without SSL:**

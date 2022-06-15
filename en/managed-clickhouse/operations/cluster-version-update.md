@@ -1,6 +1,11 @@
 # Switching {{ CH }} versions
 
-You can change the {{ CH }} version used by the cluster to any of the [supported {{ mch-name }} versions](../concepts/update-policy.md#versioning-policy).
+You can change the {{ CH }} version used by the cluster to any of the [supported {{ mch-name }} versions](../concepts/update-policy.md#versioning-policy), but you can't switch:
+
+* From versions 22.0 and higher to a version lower than 22.0.
+* To a version lower than {{ mch-ck-version }} if the cluster was created with {{ CK }} support.
+
+To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
 
 ## List of available versions
 
@@ -34,7 +39,7 @@ You can change the {{ CH }} version used by the cluster to any of the [supported
 
 Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
-1. See the {{ CH }} [changelog](https://{{ ch-domain }}/docs/en/whats-new/changelog/) to check which updates might affect your apps.
+1. See the {{ CH }} [changelog](https://{{ ch-domain }}/docs/en/whats-new/changelog/) to check which updates might affect your applications.
 1. Try changing versions on a test cluster (you can try deploying it from a backup of the main cluster). Please note that when you deploy a cluster from a backup, only MergeTree engine tables are recovered.
 1. [Make a backup](cluster-backups.md#create-backup) of the main cluster before changing the version.
 
@@ -61,7 +66,8 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
    1. Get a list of your {{ CH }} clusters:
 
       ```bash
-      yc managed-clickhouse cluster list
+      {{ yc-mdb-ch }} cluster list
+
       +----------------------+---------------+---------------------+--------+---------+
       |          ID          |     NAME      |     CREATED AT      | HEALTH | STATUS  |
       +----------------------+---------------+---------------------+--------+---------+
@@ -72,8 +78,7 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
    1. Get information about a cluster and check the {{ CH }} version in your cluster in the `config.version` parameter:
 
       ```bash
-      yc managed-clickhouse cluster get c9q8p8j2gaih8iti42mh
-
+      {{ yc-mdb-ch }} cluster get c9q8p8j2gaih8iti42mh
       id: c9q8p8j2gaih8iti42mh
       folder_id: b1gqs1teo2q2a4vnmi2t
       created_at: "2019-04-23T12:44:17.929853Z"
@@ -82,7 +87,7 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
       monitoring:
       - name: Console
           description: Console charts
-          link: https://console.cloud.yandex.ru/folders/b1gqs1teo2q2a4vnmi2t/managed-clickhouse/cluster/c9q8p8j2gaih8iti42mh?section=monitoring
+          link: {{ link-console-main }}/folders/b1gqs1teo2q2a4vnmi2t/managed-clickhouse/cluster/c9q8p8j2gaih8iti42mh?section=monitoring
       config:
           version: "19.1"
           ...
@@ -91,9 +96,7 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
    1. Execute the version change {{ CH }}:
 
       ```bash
-      yc managed-clickhouse cluster update
-        --id c9q8p8j2gaih8iti42mh
-        --version 19.4
+      {{ yc-mdb-ch }} cluster update --id c9q8p8j2gaih8iti42mh --version 19.4
       ```
 
    When the change starts, the cluster status switches to **UPDATING**. Wait for the operation to complete and then check the cluster version.
@@ -121,7 +124,7 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
 - API
 

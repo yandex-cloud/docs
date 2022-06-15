@@ -24,7 +24,6 @@
     Values in the **Sending interval** and **Call timeout** fields are specified with the `s` postfix, for example, `10s`.
 
     {% endnote %}
-
 * **Conversion rules**:
 
     * **Data format**: Select one of the available formats:

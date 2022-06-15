@@ -4,7 +4,7 @@ _Роль_ — это набор разрешений, который опре�
 
 Роли бывают двух типов:
 * _Примитивные роли_ содержат разрешения, действующие для всех типов ресурсов {{ yandex-cloud }}. Это роли `{{ roles-admin }}`, `{{ roles-editor }}` и `{{ roles-viewer }}`.
-* _Сервисные роли_ содержат разрешения только для определенного типа ресурсов в указанном сервисе. Идентификатор сервисной роли указывается в формате `service.resources.role`. Например, роль `{{ roles-image-user }}` позволяет использовать образы в сервисе Yandex Compute Cloud.
+* _Сервисные роли_ содержат разрешения только для определенного типа ресурсов в указанном сервисе. Идентификатор сервисной роли указывается в формате `service.resources.role`. Например, роль `{{ roles-image-user }}` позволяет использовать образы в сервисе {{ compute-full-name }}.
 
     Сервисную роль можно назначить на ресурс, для которого предназначена роль, или на ресурс, от которого наследуются права доступа. Например, роль `{{ roles-image-user }}` можно назначить на каталог или облако, так как образ наследует разрешения от них.
 
@@ -37,6 +37,7 @@ _Роль_ — это набор разрешений, который опре�
 {% include [roles-certificate-manager-admin](../../../_includes/roles-certificate-manager-admin.md) %}
 
 {% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
+
 
 ## {{ cdn-name }} {#cdn-roles}
 
@@ -78,9 +79,12 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [mdb.admin](../../../_includes/iam/roles/mdb.admin.md) %}
 
+
+
 ## {{ dataproc-short-name }} {#dataproc-roles}
 
 {% include [mdb.dataproc.agent](../../../_includes/roles-dataproc-agent.md) %}
+
 
 ## {{ data-transfer-name }} {#data-transfer-roles}
 
@@ -89,6 +93,7 @@ _Роль_ — это набор разрешений, который опре�
 {% include [data-transfer-privateadmin](../../../_includes/roles-data-transfer-privateadmin.md) %}
 
 {% include [data-transfer-admin](../../../_includes/roles-data-transfer-admin.md) %}
+
 
 ## {{ datalens-name }} {#datalens-roles}
 
@@ -101,6 +106,7 @@ _Роль_ — это набор разрешений, который опре�
 {% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
 
 {% include [datasphere-admin](../../../_includes/roles-datasphere-admin.md) %}
+
 
 ## {{ sf-short-name }} {#functions-roles}
 
@@ -119,6 +125,7 @@ _Роль_ — это набор разрешений, который опре�
 {% include [iot-devices-writer](../../../_includes/roles-iot-devices-writer.md) %}
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
+
 
 ## {{ cloud-logging-name }} {#logging}
 
@@ -181,6 +188,7 @@ _Роль_ — это набор разрешений, который опре�
 ## {{ resmgr-name }} {#yrm-roles}
 
 {% include [cloud-roles](../../../_includes/cloud-roles.md) %}
+
 
 ## {{ serverless-containers-name }} {#serverless-containers}
 

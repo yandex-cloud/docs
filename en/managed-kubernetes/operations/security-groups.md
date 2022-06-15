@@ -91,7 +91,7 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
 - Terraform
 
   For example, you need to create rules for an existing {{ k8s }} cluster:
-  * With the zonal master located in the `{{ zone-id }}` availability zone.
+  * With the zonal master located in the `{{ region-id }}-a` availability zone.
   * With the `worker-nodes-c` node group.
   * With access to services:
     * From the load balancer's address range `198.18.235.0/24` and `198.18.248.0/24`.
@@ -109,6 +109,7 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
 
     {% cut "The configuration file for the cluster:" %}
 
+    
     ```hcl
     terraform {
       required_providers {
@@ -217,7 +218,7 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
       master {
         version = "1.20"
         zonal {
-          zone      = "{{ zone-id }}"
+          zone      = "{{ region-id }}-a"
           subnet_id = <cloud subnet ID>
         }
 
@@ -251,6 +252,7 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
       }
     }
     ```
+
 
     {% endcut %}
 

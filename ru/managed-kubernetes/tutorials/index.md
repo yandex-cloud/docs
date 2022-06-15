@@ -8,8 +8,12 @@
 * [{#T}](autoscaling.md)
 * [{#T}](pvc-snapshot-restore.md)
 * [{#T}](custom-dns.md)
+
+
 * [{#T}](fluent-bit-logging.md)
+
 * [{#T}](kubernetes-lockbox-secrets.md)
+
 
 ## Использование продуктов {{ marketplace-full-name }} {#marketplace-scenarios}
 

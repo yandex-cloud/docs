@@ -9,6 +9,7 @@
 
     {% cut "Содержимое файла main.tf " %}
 
+        
     ```hcl
     terraform {
       required_providers {
@@ -91,6 +92,7 @@
     }
     ```
 
+
     {% endcut %}
 
 
@@ -109,7 +111,7 @@
     
     variable "zone" {
       type    = string
-      default = "ru-central1-a"
+      default = "{{ region-id }}-a"
     }
     
     variable "token" {

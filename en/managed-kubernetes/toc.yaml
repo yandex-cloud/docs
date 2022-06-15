@@ -1,7 +1,7 @@
 title: Yandex Managed Service for Kubernetes
 href: index.yaml
 items:
-  - name: Comparison with other Yandex Cloud services
+  - name: Comparison with other {{ yandex-cloud }} services
     href: service-comparison.md
   - name: Getting started
     href: quickstart.md
@@ -25,7 +25,7 @@ items:
             href: operations/applications/metrics-provider.md
       - name: Network scenarios
         items:
-          - name: Granting access to an app running in a Kubernetes cluster
+          - name: Granting access to an app running in a {{ k8s }} cluster
             href: operations/create-load-balancer.md
           - name: Configuring the Calico network policy controller
             href: operations/calico.md
@@ -53,24 +53,24 @@ items:
             href: operations/volumes/statefulset-pvc-expansion.md
           - name: Mounting a volume in Block mode
             href: operations/volumes/mode-block.md
-          - name: Integration with Object Storage
+          - name: Integration with {{ objstorage-name }}
             href: operations/volumes/s3-csi-integration.md
-      - name: Managing a Kubernetes cluster
+      - name: Managing a {{ k8s }} cluster
         items:
           - name: >-
-              Adding Kubernetes cluster credentials to the kubectl configuration
+              Adding {{ k8s }} cluster credentials to the kubectl configuration
               file
             href: operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md
-          - name: Getting information about a Kubernetes cluster
+          - name: Getting information about a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-list.md
-          - name: Creating a Kubernetes cluster
+          - name: Creating a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-create.md
-          - name: Editing a Kubernetes cluster
+          - name: Editing a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-update.md
-          - name: Creating a namespace in a Kubernetes cluster
+          - name: Creating a namespace in a {{ k8s }} cluster
             href: >-
               operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
-          - name: Deleting a Kubernetes cluster
+          - name: Deleting a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
       - name: Managing a node group
         items:
@@ -90,15 +90,15 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Integration with Container Registry
+      - name: Integration with {{ container-registry-name }}
         href: tutorials/container-registry.md
       - name: Running workloads with GPUs
         href: tutorials/running-pod-gpu.md
       - name: Installing the NGINX Ingress controller with Let's Encrypt®
         href: tutorials/ingress-cert-manager.md
-      - name: Configuring the Application Load Balancer Ingress controller
+      - name: Configuring the {{ alb-name }} Ingress controller
         href: tutorials/alb-ingress-controller.md
-      - name: Backup to Object Storage
+      - name: Backup to {{ objstorage-name }}
         href: tutorials/backup.md
       - name: Horizontal application scaling in a cluster
         href: tutorials/autoscaling.md
@@ -110,9 +110,9 @@ items:
         href: tutorials/dns-autoscaler.md
       - name: Setting up local DNS caching
         href: tutorials/node-local-dns.md
-      - name: Configuring Fluent Bit for Yandex Cloud Logging
+      - name: Configuring Fluent Bit for {{ cloud-logging-name }}
         href: tutorials/fluent-bit-logging.md
-      - name: Syncing with Yandex Lockbox secrets
+      - name: Syncing with {{ lockbox-name }} secrets
         href: tutorials/kubernetes-lockbox-secrets.md
   - name: Concepts
     items:
@@ -122,7 +122,7 @@ items:
         href: concepts/release-channels-and-updates.md
       - name: Encrypting secrets
         href: concepts/encryption.md
-      - name: Using Kubernetes API objects
+      - name: Using {{ k8s }} API objects
         items:
           - name: Volumes
             href: concepts/volume.md

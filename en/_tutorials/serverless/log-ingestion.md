@@ -23,13 +23,7 @@ If you no longer need to store any logs, [delete the resources in use](#clear-ou
 
 ## Before you start {#before-you-begin}
 
-Before setting up log storage, sign up for {{ yandex-cloud }} and create a billing account:
-
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can go to the [cloud page](https://console.cloud.yandex.com/cloud) to create or select a folder where you will be deploying your infrastructure.
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 ### Required paid resources {#paid-resources}
 
@@ -133,7 +127,7 @@ sudo td-agent-gem install fluent-plugin-kinesis
     aws_sec_key <secret>
 
     # kinesis stream name
-    stream_name /ru-central1/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream
+    stream_name /{{ region-id }}/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream
 
     # region
     region ru-central-1
@@ -162,8 +156,8 @@ If the setup is successful, the Fluentd `/var/log/td-agent/td-agent.log` operati
 ```text
 ...
 2022-04-20 19:36:37.770311035 +0000 kinesis: {"user_id":"user1","score":100}
-2022-04-20 19:36:42 +0000 [debug]: #0 /ru-central1/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream: Write chunk 5dd1b1ca1bd788e49185aa681e8132b9 /   1 records /    0 KB
-2022-04-20 19:36:42 +0000 [debug]: #0 /ru-central1/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream: Finish writing chunk
+2022-04-20 19:36:42 +0000 [debug]: #0 /{{ region-id }}/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream: Write chunk 5dd1b1ca1bd788e49185aa681e8132b9 /   1 records /    0 KB
+2022-04-20 19:36:42 +0000 [debug]: #0 /{{ region-id }}/b1gia92mbaomkfvslsed/etnhstu01ninfu6631lk/my-stream: Finish writing chunk
 ...
 ```
 

@@ -1,16 +1,16 @@
 # Connection
 
-#### Is cluster access possible from within {{ yandex-cloud }}? {#conn-from-yc}
+#### Is the cluster accessible from inside {{ yandex-cloud }}? {#conn-from-yc}
 
 You can connect to {{ mpg-short-name }} cluster hosts:
 * Over the internet, if you configured public access for the appropriate host. You can only connect to these hosts over an SSL connection.
-* From {{ yandex-cloud }} virtual machines located on the same cloud network. If there is no public access to a host, connections from this type of virtual machine don't need to be over SSL.
+* From {{ yandex-cloud }} virtual machines located in the same cloud network. If there is no public access to a host, connections from this type of virtual machine don't need to be over SSL.
 
 For more information, please see the [service documentation](../operations/connect.md).
 
-#### How do I get an SSL certificate for a {{ mpg-name }} connection on Windows? {#get-ssl}
+#### How do I obtain an SSL certificate to connect to {{ mpg-name }} on Windows? {#get-ssl}
 
-You can get an SSL certificate using PowerShell:
+You can obtain an SSL certificate using PowerShell:
 
 ```powershell
 mkdir $HOME\AppData\Roaming\postgresql; `
@@ -19,4 +19,18 @@ curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt https://{{ s3-storage-host
 
 The certificate will be available at `$HOME\AppData\Roaming\postgresql\root.crt`.
 
-For more information about getting a certificate and connecting to the database, see the [service documentation](../operations/connect.md).
+For more detail on obtaining a certificate and on connecting to a database, please see the [service documentation](../operations/connect.md).
+
+#### How do I install an SSL certificate to connect Power BI to {{ mpg-name }} via psql? {#power-bi}
+
+1. Install [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/) (WSL) and run the command below in the terminal window:
+
+   ```bash
+   mkdir /mnt/c/temp && \
+   curl "https://{{ s3-storage-host }}{{ pem-path }}" -o /mnt/c/temp/CA.pem && \
+   openssl pkcs12 -export -out /mnt/c/temp/CA.pfx -nokeys -in /mnt/c/temp/CA.pem
+   ```
+
+   The certificate will be available at `C:\temp\CA.pfx`.
+
+2. [Place the certificate you received in the Windows certificate store](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).

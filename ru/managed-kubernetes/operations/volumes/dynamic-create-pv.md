@@ -14,14 +14,16 @@
 
 1. Сохраните следующую спецификацию для создания объекта `PersistentVolumeClaim` в YAML-файл с названием `pvc-dynamic.yaml`.
 
+   
    {% note info %}
 
-   Если не указать параметр `storageClassName`, будет использован класс хранилищ по умолчанию: `yc-network-hdd`. Как изменить класс по умолчанию читайте в разделе [{#T}](manage-storage-class.md#sc-default).
+   Если не указать параметр `storageClassName`, будет использован класс хранилищ по умолчанию: `yc-network-ssd`. Как изменить класс по умолчанию читайте в разделе [{#T}](manage-storage-class.md#sc-default).
 
    {% endnote %}
 
    Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
+   
    ```
    apiVersion: v1
    kind: PersistentVolumeClaim
@@ -35,6 +37,7 @@
        requests:
          storage: 4Gi
    ```
+
 
    1. Выполните команду:
 
@@ -56,6 +59,7 @@
 
       Результат выполнения команды:
 
+      
       ```
       Name:          pvc-dynamic
       Namespace:     default
@@ -67,6 +71,7 @@
       ----    ------                ----              ----                         -------
       Normal  WaitForFirstConsumer  9s (x3 over 15s)  persistentvolume-controller  waiting for first consumer to be created before binding
       ```
+
 
 ## Создайте под с динамически подготовленным томом {#create-pod}
 
@@ -145,6 +150,7 @@
 
      Результат выполнения команды:
 
+     
      ```
      Name:          pvc-dynamic
      Namespace:     default
@@ -160,3 +166,4 @@
        Normal  Provisioning           4m10s                  disk-csi-driver.mks.ycloud.io_cat1h5l0v862oq74cp8j_d0f0b837-a875-11e9-b6cb-d00df1cbdf81  External provisioner is provisioning volume for claim "default/pvc-dynamic"
        Normal  ProvisioningSucceeded  4m7s                   disk-csi-driver.mks.ycloud.io_cat1h5l0v862oq74cp8j_d0f0b837-a875-11e9-b6cb-d00df1cbdf81  Successfully provisioned volume pvc-c4794058-ad68-11e9-b71a-d00df1cbdf81
      ```
+     

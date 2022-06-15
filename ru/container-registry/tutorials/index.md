@@ -1,9 +1,12 @@
 ---
-title: Сценарии использования Container Registry
-description: 'Различные сценарии использования Yandex Container Registry в Yandex Cloud. Запуск Docker-образа на виртуальной машине.'
+title: Сценарии использования {{ container-registry-full-name }}
+description: 'Различные сценарии использования {{ container-registry-full-name }} в {{ yandex-cloud }}. Запуск Docker-образа на виртуальной машине.'
 ---
 
-# Практические руководства Container Registry
+# Практические руководства {{ container-registry-name }}
 
 * [{#T}](run-docker-on-vm.md)
+
+
 * [{#T}](trigger-create.md)
+* [{#T}](image-auto-scan.md)

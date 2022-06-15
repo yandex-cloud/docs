@@ -1,6 +1,6 @@
 # Creating a VM from a custom image
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 [Prepare and upload](../image-create/upload.md) the image to create a VM from.
 
@@ -15,7 +15,7 @@ Make sure the uploaded image is in the `READY` status.
    To create a VM:
    1. In the [management console]({{ link-console-main }}), select the folder to create the virtual machine in.
    1. In the list of services, select **{{ compute-name }}**.
-   1. Click **Create VM**.
+   1. Click **Create VM**.
    1. Under **Basic parameters**:
       * Enter a name and description for the VM. Naming requirements:
 
@@ -27,7 +27,7 @@ Make sure the uploaded image is in the `READY` status.
 
    1. Under **Image/boot disk selection**, select one of the [images](../../operations/images-with-pre-installed-software/get-list.md).
 
-   1. Under **Disks and file storage**, [add a disk](./create-from-disks.md):
+   1. Under **Disksand file storage**, [add a disk](./create-from-disks.md):
       * Click **Add disk**.
       * Enter the disk name.
       * Select the [disk type](../../concepts/disk.md#disks_types).
@@ -56,7 +56,7 @@ Make sure the uploaded image is in the `READY` status.
          * **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
          * **No address**: Don't assign a public IP address.
       * In the **Internal address** field, select the method for assigning internal addresses: **Auto** or **Manual**.
-      * (optional) Create a record for the VM in the [DNS zone](../../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section, click **Add record** and specify the zone, FQDN and TTL for the record. For more detail, please see [Cloud DNS integration with Compute Cloud](../../../dns/concepts/compute-integration.md).
+      * (optional) Create a record for the VM in the [DNS zone](../../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section, click **Add record** and specify the zone, FQDN and TTL for the record. For more information, see [Cloud DNS integration with Compute Cloud](../../../dns/concepts/compute-integration.md).
       * Select [appropriate security groups](../../../vpc/concepts/security-groups.md) (if there is no corresponding field, the virtual machine will be enabled for all incoming and outgoing traffic).
 
    1. Under **Access**, specify the data required to access the VM:
@@ -72,7 +72,7 @@ Make sure the uploaded image is in the `READY` status.
       * In the **SSH key** field, paste the contents of the [public key](../../operations/vm-connect/ssh.md#creating-ssh-keys) file.
       * If required, grant access to the [serial console](../../operations/serial-console/index.md).
 
-   1. Click **Create VM**.
+   1. Click **Create VM**.
 
    The virtual machine appears in the list. When a VM is created, it is assigned an [IP address](../../../vpc/concepts/address.md) and [hostname](../../../vpc/concepts/address.md#fqdn) (FQDN).
 
@@ -107,7 +107,7 @@ Make sure the uploaded image is in the `READY` status.
       ```
       yc compute instance create \
         --name test-vm-from-image \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --create-boot-disk name=disk1,size=5,image-id=fd8gkcd3l6ov84aon8s1 \
         --public-ip \
         --ssh-key ~/.ssh/id_rsa.pub
@@ -189,7 +189,7 @@ Make sure the uploaded image is in the `READY` status.
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
+      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
 

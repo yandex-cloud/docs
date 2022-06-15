@@ -2,9 +2,12 @@
 1. Узнайте идентификатор федерации у вашего администратора.
 1. Запустите интерактивное создание профиля:
 
+      
     ```
     yc init --federation-id=<ID федерации>
     ```
+   
+   
 1. Выберите профиль, для которого вы хотите настроить аутентификацию, или создайте новый.
     ```
     Welcome! This command will take you through the configuration process.
@@ -17,7 +20,7 @@
     ```
     You are going to be authenticated via federation-id 'aje1f0hsgds3aas2f6ai2'.
     Your federation authentication web site will be opened.
-    After your successful authentication, you will be redirected to 'https://console.cloud.yandex.ru'.
+    After your successful authentication, you will be redirected to '{{ link-console-main }}'.
 
     Press 'enter' to continue...
     ```
@@ -41,8 +44,12 @@
     {% include [include](choose-zone.md) %}
 
 1. Проверьте настройки вашего профиля CLI:
+   
+      
    ```
    yc config list
    federation-id: aje1f0hs6ojais2f6ai2
    ...
    ```
+
+   

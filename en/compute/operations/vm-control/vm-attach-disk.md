@@ -235,7 +235,7 @@ To partition and mount an empty disk yourself:
          UUID=397f9660-e740-40bf-8e59-ecb88958b50e /mnt/vdb1 ext4 defaults 0 2
          ```
 
-      1. Save the changes in the file.
+      1. Save the changes to the file.
    1. Check the status of your file systems:
 
       ```bash

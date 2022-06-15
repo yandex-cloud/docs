@@ -72,7 +72,7 @@
   
      ```
      yc load-balancer network-load-balancer create \
-       --region-id ru-central1 \
+       --region-id {{ region-id }} \
        --name test-load-balancer-2 \
        --listener name=test-listener,external-ip-version=ipv4,port=80
      ```
@@ -177,7 +177,7 @@
   
   ```
   yc load-balancer network-load-balancer create \
-    --region-id ru-central1 \
+    --region-id {{ region-id }} \
     --name test-load-balancer-1
   ```
 
@@ -238,21 +238,23 @@
      yc load-balancer target-group list
      ```
 	 
-	 Результат:
-	 
-	 ```
+	    Результат:
+	    
+	    	 
+	    ```
      +----------------------+-------------------+---------------------+-------------+--------------+
      |          ID          |       NAME        |       CREATED       |  REGION ID  | TARGET COUNT |
      +----------------------+-------------------+---------------------+-------------+--------------+
-     | b7roi767je4c574iivrk | test-target-group | 2018-12-03 14:41:04 | ru-central1 |            1 |
+     | b7roi767je4c574iivrk | test-target-group | 2018-12-03 14:41:04 | {{ region-id }} |            1 |
      +----------------------+-------------------+---------------------+-------------+--------------+
      ```
+     
   
   1. Выполните следующую команду, используя идентификатор нужной целевой группы в параметре `target-group-id`:
   
      ```
      yc load-balancer network-load-balancer create \
-       --region-id ru-central1 \
+       --region-id {{ region-id }} \
        --name test-load-balancer-3 \
        --listener name=test-listener,external-ip-version=ipv4,port=80 \
        --target-group target-group-id=b7rjtf12qdeehrj31hri,healthcheck-name=http,healthcheck-interval=2s,healthcheck-timeout=1s,healthcheck-unhealthythreshold=2,healthcheck-healthythreshold=2,healthcheck-http-port=80

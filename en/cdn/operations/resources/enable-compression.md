@@ -109,6 +109,7 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
 
       Example configuration file structure:
 
+      
       ```hcl
       terraform {
         required_providers {
@@ -137,6 +138,7 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
           }
       }
       ```
+
 
       For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 

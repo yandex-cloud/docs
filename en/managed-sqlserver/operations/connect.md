@@ -86,8 +86,8 @@ To use an encrypted connection, get an SSL certificate:
 - Ubuntu 20.04
   
   ```bash
-  sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-  sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
+  sudo mkdir -p {{ crt-local-dir }} && \
+  sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O {{ crt-local-dir }}{{ crt-local-file }} && \
   sudo update-ca-certificates
   ```
 

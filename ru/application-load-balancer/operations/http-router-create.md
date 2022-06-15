@@ -53,12 +53,15 @@
      ```
 
   1. Создайте виртуальный хост, указав имя HTTP-роутера и настройки виртуального хоста:
+     
+          
      ```
      yc alb virtual-host create <имя виртуального хоста> \
        --http-router-name <имя HTTP-роутера> \
        --authority your-domain.foo.com \
        --modify-request-header name=Accept-Language,append=ru-RU
      ```
+ 
 
      Где:
 
@@ -68,6 +71,8 @@
        * `append` — строка, которая будет добавлена к значению заголовка.
 
      Результат:
+     
+          
      ```
      name: test-virtual-host
      authority:
@@ -76,6 +81,7 @@
      - name: Accept-Language
        append: ru-RU
      ```
+
 
   1. Посмотрите описание команды CLI для добавления маршрута:
      ```

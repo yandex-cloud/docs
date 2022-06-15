@@ -83,7 +83,7 @@ To migrate data from the *source cluster* in {{ ES }} to the {{ mes-name }} *tar
         "type": "s3",
         "settings": {
           "bucket": "<bucket name>",
-          "endpoint": "storage.yandexcloud.net"
+          "endpoint": "{{ s3-storage-host }}"
         }
       }
       '

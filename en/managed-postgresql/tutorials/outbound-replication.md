@@ -1,6 +1,6 @@
 # Migrating databases from {{ mpg-name }}
 
-{{ mpg-name }} clusters support [logical replication](https://www.postgresql.org/docs/current/logical-replication.html). This lets you use built-in {{ PG }} tools for migrating databases between different {{ PG }} clusters with version 10 and later. Migration across versions is also supported. For example, you can move databases from {{ PG }} ver. 11 to ver. 13.
+A {{ mpg-name }} cluster supports [logical replication](https://www.postgresql.org/docs/current/logical-replication.html). This lets you use built-in {{ PG }} tools for migrating databases between different {{ PG }} clusters with version 10 and later. Migration across versions is also supported. For example, you can move databases from {{ PG }} ver. 11 to ver. 13.
 
 {% note info %}
 
@@ -10,8 +10,7 @@ If you use older clusters, you can migrate your database by [making a dump](http
 
 This use case describes how to migrate a database from {{ mpg-name }} to a different {{ PG }} cluster using logical replication.
 
-To migrate a database from the *source cluster* in {{ mpg-name }} to the {{ PG }} *target cluster*:
-
+To migrate a database from the {{ mpg-name }} *source cluster* to the {{ PG }} *target cluster*:
 1. [Migrate the database schema](#migrate-schema).
 1. [Configure the user to manage replication on the source cluster](#configure-user).
 1. [Create a publication on the source cluster](#create-publication).
@@ -19,10 +18,10 @@ To migrate a database from the *source cluster* in {{ mpg-name }} to the {{ PG }
 1. [Monitor the migration process](#monitor-migration) until it is complete.
 1. [Finish the migration](#finish-migration).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 1. Make sure that all the source cluster's hosts are accessible by a public IP address so that the target cluster can connect to the source. For more information, see [{#T}](../operations/cluster-create.md).
-1. Install the [{{ mpg-name }} client SSL certificates](../operations/connect.md#get-ssl-cert) on the hosts of the target cluster. They're required to successfully connect to the source cluster that is publicly available.
+1. [Install the {{ mpg-name }} client SSL certificates on the hosts of the target cluster](../operations/connect.md#get-ssl-cert). They're required to successfully connect to the source cluster that is publicly available.
 1. If necessary, set up the firewall and [security groups](../operations/connect.md#configuring-security-groups) so that you can connect to the source cluster from the target cluster, as well as to each cluster separately (for example, using the [psql](https://www.postgresql.org/docs/current/app-psql.html) utility).
 1. Make sure that you can connect to the source cluster's hosts from the target cluster's hosts.
 1. Make sure you can [connect to the source cluster](../operations/connect.md) and the target cluster via SSL.
@@ -32,27 +31,25 @@ To migrate a database from the *source cluster* in {{ mpg-name }} to the {{ PG }
 ## Migrate the database schema {#migrate-schema}
 
 For logical replication to work properly, both the source and the target must have the same database schema. To migrate the database schema:
-
 1. Create a dump of the source cluster's database schema using the [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) utility:
 
    ```bash
    pg_dump "host=<source cluster's host FQDN> port=6432 sslmode=verify-full dbname=<DB name> user=<DB owner username>" --schema-only --no-privileges --no-subscriptions --no-publications -Fd -f <dump directory>
    ```
 
-   You can obtain the host FQDN [with a list of hosts in the cluster](../operations/hosts.md#list).
+   You can obtain the host FQDN with a [list of hosts in the cluster](../operations/hosts.md#list).
 
 1. If necessary, create users with the appropriate access rights to the target cluster's database objects.
 
 1. Restore the database schema from the dump on the target cluster using the [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html) utility:
 
    ```bash
-   pg_restore -Fd -v --single-transaction -s --no-privileges -h <target cluster host FQDN> -U <DB owner username> -p 5432 -d <DB name> <dump directory>
+   pg_restore -Fd -v --single-transaction -s --no-privileges -h <target cluster's host FQDN> -U <DB owner username> -p 5432 -d <DB name> <dump directory>
    ```
 
 ## Configure the user to manage replication on the source cluster {#configure-user}
 
-{{ PG }} uses the publish-subscribe model for logical replication: the target cluster *subscribes* to the source cluster's *publication* to transfer data. To successfully subscribe to a publication, make sure the {{ mpg-name }} source cluster is accessed on behalf of the user who is assigned the logical replication management role. To configure this user:
-
+{{ PG }} uses the publish-subscribe model for logical replication: the target cluster *subscribes* to the source cluster's *publication* to transfer data. To successfully subscribe to a publication, make sure the {{ mpg-name }} source cluster is accessed on behalf of the user who is assigned the logical replication  management role. To configure this user:
 1. [Create a user](../operations/cluster-users.md#adduser).
 1. [Assign the role](../operations/grant.md#grant-role) `mdb_replication` to this user.
 1. [Connect to the database](../operations/connect.md) that you want to migrate as the **database owner**.
@@ -63,7 +60,6 @@ After [creating a subscription](#create-subscription), a connection to the sourc
 ## Create a publication on the source cluster {#create-publication}
 
 1. [Connect](../operations/connect.md) to the **master host** and the database to migrate as the **database owner**.
-
 1. Create a publication that the target cluster will subscribe to:
 
    ```sql
@@ -72,26 +68,25 @@ After [creating a subscription](#create-subscription), a connection to the sourc
 
 1. Include all database tables in the created publication:
 
-    ```
-    ALTER PUBLICATION <publication name> ADD TABLE <table name 1>;
-    ...
-    ALTER PUBLICATION <publication name> ADD TABLE <table name N>;
-    ```
+   ```
+   ALTER PUBLICATION <publication name> ADD TABLE <table name 1>;
+   ...
+   ALTER PUBLICATION <publication name> ADD TABLE <table name N>;
+   ```
 
-    {% note info %}
+   {% note info %}
 
-    {{ mpg-name }} clusters don't support creating a publication for all tables at once `CREATE PUBLICATION ... FOR ALL TABLES;`, since this requires superuser privileges.
+   {{ mpg-name }} clusters don't support creating a publication for all tables at once `CREATE PUBLICATION ... FOR ALL TABLES;`, since this requires superuser privileges.
 
-    {% endnote %}
+   {% endnote %}
 
 ## Create a subscription on the target cluster {#create-subscription}
 
 1. Connect to the **master host** and the target database as a **superuser** (such as `postgres`).
-
 1. Create a subscription to the source cluster's publication:
 
    ```sql
-   CREATE SUBSCRIPTION <subscription name> CONNECTION 'host=<source cluster host FQDN> port=6432 sslmode=verify-full dbname=<name of the DB to migrate> user=<name of the user to manage replication> password=<user password>' PUBLICATION <publication name>;
+   CREATE SUBSCRIPTION <subscription name> CONNECTION 'host=<source cluster's host FQDN> port=6432 sslmode=verify-full dbname=<name of the DB to migrate> user=<name of the user to manage replication> password=<user password>' PUBLICATION <publication name>;
    ```
 
 This starts the process of migrating data from the source cluster's database to the target cluster's database.
@@ -115,13 +110,12 @@ You can get the overall replication status using the [pg_stat_subscription](http
 ## Finish the migration {#finish-migration}
 
 After the replication is complete:
-
 1. Disable writing data to the migrated database on the source cluster.
 
 1. Transfer sequences, if any, from the source cluster to the target cluster using the pg_dump and psql utilities:
 
    ```bash
-   pg_dump "host=<source cluster's host FQDN> port=6432 sslmode=verify-full dbname=<DB name> user=<DB owner username>" --data-only -t '*.*_seq' > <name of the file with sequences>
+   pg_dump "host=<source cluster host FQDN> port=6432 sslmode=verify-full dbname=<DB name> user=<DB owner username>" --data-only -t '*.*_seq' > <name of the file with sequences>
    ```
 
    ```bash

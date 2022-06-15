@@ -1,5 +1,6 @@
 # Все методы Bucket
 
+
 Метод | Описание
 ----- | -----
 [create](bucket/create.md) | Создает бакет.
@@ -12,3 +13,4 @@
 [putBucketLogging](bucket/putBucketLogging.md) | Включает и выключает механизм логирования действий с бакетом.
 [getBucketLogging](bucket/getBucketLogging.md) | Возвращает настройки логирования действий с бакетом.
 [listObjectVersions](bucket/listObjectVersions.md) | Возвращает метаданные обо всех версиях объектов в бакете.
+

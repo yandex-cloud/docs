@@ -23,13 +23,8 @@
 
 ## Подготовьте окружение {#start}
 
-1. Перед тем, как создавать БД для работы с Graphite, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
 
-    {% include [prepare-register-billing](../_tutorials/_common/prepare-register-billing.md) %}
-
-1. Если у вас есть активный платежный аккаунт, перейдите в [консоль управления]({{ link-console-main }}) и [создайте](../resource-manager/operations/folder/create.md) или выберите каталог, в котором будет работать ваша БД.
-
-[Подробнее об иерархии ресурсов](../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -129,16 +124,16 @@
 1. Загрузите файл конфигурации для `clickhouse-client`:
 
     ```bash
-    mkdir -p ~/.clickhouse-client && wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
+    mkdir -p ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
     ```
 
 1. Получите SSL-сертификат:
 
     
     ```bash
-    sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-    sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
-    sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+    sudo mkdir -p {{ crt-local-dir }} && \
+    sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O {{ crt-local-dir }}{{ crt-local-file }} && \
+    sudo chmod 655 {{ crt-local-dir }}{{ crt-local-file }}
     ```
 
 ## Подключите виртуальную машину к базе данных {#cluster-connect}

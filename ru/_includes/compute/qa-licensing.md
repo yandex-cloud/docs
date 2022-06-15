@@ -46,7 +46,7 @@
 
 #### Можно ли приобрести Windows Server у {{ yandex-cloud }}? {#buy-windows-server}
 
-Да, вы можете [приобрести](https://cloud.yandex.ru/marketplace?categories=databases&operationSystems=WINDOWS) виртуальную машину с предустановленным образом Windows Server 2012 R2, Windows Server 2016 или Windows Server 2019 у {{ yandex-cloud }}. Лицензия на Windows Server входит в стоимость.
+Да, вы можете [приобрести](/marketplace?categories=databases&operationSystems=WINDOWS) виртуальную машину с предустановленным образом Windows Server 2012 R2, Windows Server 2016 или Windows Server 2019 у {{ yandex-cloud }}. Лицензия на Windows Server входит в стоимость.
 
 #### Как активировать Windows Server {#activate-windows-server}
 
@@ -56,9 +56,9 @@
 1. Выполните в PowerShell от имени Администратора следующие команды:
 
    ```powershell
-   Test-NetConnection kms.cloud.yandex.net -Port 1688
+   Test-NetConnection {{ ms-kms-host }} -Port {{ ms-kms-port }}
    cscript.exe C:\Windows\System32\slmgr.vbs /dli
-   cscript.exe C:\Windows\System32\slmgr.vbs /skms kms.cloud.yandex.net:1688
+   cscript.exe C:\Windows\System32\slmgr.vbs /skms {{ ms-kms-host }}:{{ ms-kms-port }}
    cscript.exe C:\Windows\System32\slmgr.vbs /ato
    Get-Date
    Get-TimeZone
@@ -74,4 +74,4 @@
 
 #### Можно ли приобрести другие продукты Microsoft с включенными лицензиями для использования в Compute Cloud? {#buy-other-products}
 
-Да. В настоящий момент {{ yandex-cloud }} предоставляет лицензии Windows Server, Microsoft SQL Server, RDS, а также перенос лицензий на серверное программное обеспечение в рамках программы [Мобильности лицензий](https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility). Возможность лицензирования MSDN, ОС Windows, Microsoft Office и других продуктов не предоставляется.
+Да. В настоящий момент {{ yandex-cloud }} предоставляет лицензии Windows Server, Microsoft SQL Server, RDS,а также перенос лицензий на серверное программное обеспечение в рамках программы [Мобильности лицензий](https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-license-mobility). Возможность лицензирования MSDN, ОС Windows, Microsoft Office и других продуктов не предоставляется.

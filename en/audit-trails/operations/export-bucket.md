@@ -8,7 +8,7 @@ The setup is similar for buckets where encryption is disabled. The only differen
 
 {% endnote %}
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 ### Organization {#before-you-begin-organization}
 
@@ -93,8 +93,8 @@ To create a trail that collects organization audit logs:
       * **Description**: A description of the trail (optional).
       * **Service account**: Select the service account on behalf of which the trail will upload audit log files to the bucket.
       * **Destination**:
-         * **Destination**:  {{ objstorage-name }}.
-         * **Bucket**: The name of the [bucke](../../storage/operations/buckets/create.md)t where you want to upload audit logs.
+         * **Destination**: {{ objstorage-name }}.
+         * **Bucket**: The name of the [bucket](../../storage/operations/buckets/create.md) where you want to upload audit logs.
          * **Object prefix**: An optional parameter used in the [full name](../concepts/format.md#log-file-name) of the audit log file.
       * **Filter**:
          * **Resource**: Select `Organization`.
@@ -119,7 +119,7 @@ To create a trail that collects audit logs of an individual cloud:
       * **Service account**: Select the service account on behalf of which the trail will upload audit log files to the bucket.
       * **Destination**:
          * **Destination**: {{ objstorage-name }}.
-         * **Bucket**: The name of the [bucke](../../storage/operations/buckets/create.md)t where you want to upload audit logs.
+         * **Bucket**: The name of the [bucket](../../storage/operations/buckets/create.md) where you want to upload audit logs.
          * **Object prefix**: An optional parameter used in the [full name](../concepts/format.md#log-file-name) of the audit log file.
       * **Filter**:
          * **Resource**: Select `Cloud`.

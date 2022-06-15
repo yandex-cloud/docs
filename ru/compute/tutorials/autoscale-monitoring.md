@@ -22,6 +22,7 @@
 
 В качестве примера в сценарии будет использоваться каталог с именем `example-folder`.
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость инфраструктуры входят:
@@ -70,14 +71,14 @@
      1. Отключите опцию **Создать подсети**.
      1. Нажмите кнопку **Создать сеть**.
      
-  1. Создайте подсеть `queue-autoscale-subnet-b` в зоне `ru-central1-b`:
+  1. Создайте подсеть `queue-autoscale-subnet-b` в зоне `{{ region-id }}-b`:
   
      1. В списке сетей выберите `queue-autoscale-network`.
      1. Нажмите кнопку **Добавить подсеть**.
      1. Укажите параметры подсети:
      
         * **Имя** — `queue-autoscale-subnet-b`.
-        * **Зона** — `ru-central1-b`.
+        * **Зона** — `{{ region-id }}-b`.
         * **CIDR** — `192.168.1.0/24`.
         
      1. Нажмите кнопку **Создать подсеть**.
@@ -157,18 +158,18 @@
      name: queue-autoscale-network
      ```
 
-  1. Создайте подсеть `queue-autoscale-subnet-b` в зоне `ru-central1-b`:
+  1. Создайте подсеть `queue-autoscale-subnet-b` в зоне `{{ region-id }}-b`:
 
      ```bash
      yc vpc subnet create queue-autoscale-subnet-b \
        --network-name queue-autoscale-network 
        --range 192.168.1.0/24 
-       --zone ru-central1-b
+       --zone {{ region-id }}-b
      ```
      
      * `--network-name` — имя сети, в которой создается подсеть: `queue-autoscale-network`.
      * `--range` — CIDR подсети.
-     * `--zone` — зона доступности, в которой создается подсеть: `ru-central1-b`.
+     * `--zone` — зона доступности, в которой создается подсеть: `{{ region-id }}-b`.
 
      Результат выполнения команды:
 
@@ -178,7 +179,7 @@
      created_at: "2021-10-04T16:29:12.450858436Z"
      name: queue-autoscale-subnet-b
      network_id: enpabce123hde4ft1r3t
-     zone_id: ru-central1-b
+     zone_id: {{ region-id }}-b
      v4_cidr_blocks:
      - 192.168.1.0/24
      ```
@@ -199,7 +200,7 @@
         ```
         
   1. Создайте облачную сеть `queue-autoscale-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) или метода REST API [create](../../vpc/api-ref/Network/create.md). В ответных данных будет указан идентификатор сети.
-  1. Создайте подсеть `queue-autoscale-subnet-b` в зоне `ru-central1-b` с CIDR `192.168.1.0/24` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) или метода REST API [create](../../vpc/api-ref/Subnet/create.md). В теле запроса укажите идентификатор сети.
+  1. Создайте подсеть `queue-autoscale-subnet-b` в зоне `{{ region-id }}-b` с CIDR `192.168.1.0/24` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) или метода REST API [create](../../vpc/api-ref/Subnet/create.md). В теле запроса укажите идентификатор сети.
   
 {% endlist %}
 
@@ -222,11 +223,11 @@
           aws_secret_access_key = <секретный ключ>
       ```
         
-   1. Создайте в домашнем каталоге файл `.aws/config` и укажите в нем регион по умолчанию `ru-central1`:
+   1. Создайте в домашнем каталоге файл `.aws/config` и укажите в нем регион по умолчанию `{{ region-id }}`:
            
       ```
       [default]
-          region = ru-central1
+          region = {{ region-id }}
       ```
 
 ## Создайте очередь в {{ message-queue-name }} {#create-queue}
@@ -259,19 +260,19 @@
   
      ```bash
      aws sqs create-queue \
-       --endpoint https://message-queue.api.cloud.yandex.net \
+       --endpoint https://message-queue.{{ api-host }} \
        --queue-name queue-autoscale-queue \
        --output yaml \
      | tee queue
      ```
      
-     * `--endpoint` — корневой URL API {{ message-queue-name }}: `https://message-queue.api.cloud.yandex.net`.
+     * `--endpoint` — корневой URL API {{ message-queue-name }}: `https://message-queue.{{ api-host }}`.
      * `--queue-name` — имя очереди: `queue-autoscale-queue`.
      
      Результат выполнения команды:
      
      ```yaml
-     QueueUrl: https://message-queue.api.cloud.yandex.net/b1gvlrnlei4l5idm9cbj/dj6000000003n58805qi/queue-autoscale-queue
+     QueueUrl: https://message-queue.{{ api-host }}/b1gvlrnlei4l5idm9cbj/dj6000000003n58805qi/queue-autoscale-queue
      ```
      
 - API
@@ -407,7 +408,7 @@
        created_at: "2021-10-04T16:29:12.450858436Z"
        name: queue-autoscale-subnet-b
        network_id: enpabce123hde4ft1r3t
-       zone_id: ru-central1-b
+       zone_id: {{ region-id }}-b
        v4_cidr_blocks:
        - 192.168.1.0/24
        ```
@@ -443,7 +444,7 @@
      id: ajevh3a0hrqf65scefug
      service_account_id: aje6brh817ro8o6vo6tv
      created_at: "2021-10-04T16:35:19.057777570Z"
-     description: Compute Cloud
+     description: {{ compute-name }}
      key_algorithm: RSA_2048
      ```
      
@@ -481,7 +482,7 @@
      * **Имя** — `queue-autoscale-ig`.
      * **Сервисный аккаунт** — `queue-autoscale-sa`.
      
-  1. В блоке **Распределение** выберите зону доступности `ru-central1-b`.
+  1. В блоке **Распределение** выберите зону доступности `{{ region-id }}-b`.
   1. В блоке **Шаблон виртуальной машины** нажмите кнопку **Задать** и настройте шаблон:
   
      1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **Пользовательские** и нажмите кнопку **Выбрать**.
@@ -674,12 +675,12 @@
    
      1. Откройте дашборд с информацией о группе ВМ:
      
-        1. В [{{ monitoring-name }}](https://monitoring.cloud.yandex.ru) выберите сервисный дашборд **Compute — Instance Groups**.
+        1. В [{{ monitoring-name }}]({{ link-monitoring }}) выберите сервисный дашборд **Compute — Instance Groups**.
         1. В поле **Instance Group ID** выберите `queue-autoscale-ig`.
      
      1. Откройте дашборд с информацией об очереди:
      
-        1. В [{{ monitoring-name }}](https://monitoring.cloud.yandex.ru) выберите сервисный дашборд **Message Queue**.
+        1. В [{{ monitoring-name }}]({{ link-monitoring }}) выберите сервисный дашборд **Message Queue**.
         1. В поле **Queue ID** выберите `queue-autoscale-queue`.
         
    {% endlist %}

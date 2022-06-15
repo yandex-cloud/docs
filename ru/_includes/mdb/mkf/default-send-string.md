@@ -7,5 +7,5 @@ echo "test message" | kafkacat -P \
     -X sasl.mechanisms=SCRAM-SHA-512 \
     -X sasl.username="<логин производителя>" \
     -X sasl.password="<пароль производителя>" \
-    -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z
+    -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
 ```

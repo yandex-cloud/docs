@@ -1,5 +1,6 @@
 # Managing hosts in a cluster
 
+
 You can add and remove cluster hosts and manage their settings.
 
 ## Getting a list of cluster hosts {#list}
@@ -21,8 +22,8 @@ You can add and remove cluster hosts and manage their settings.
    To get a list of databases in a cluster, run the command:
 
    ```
-   $ {{ yc-mdb-pg }} host list
-        --cluster-name <cluster name>
+   {{ yc-mdb-pg }} host list \
+      --cluster-name <cluster name>
    ```
 
    
@@ -30,8 +31,8 @@ You can add and remove cluster hosts and manage their settings.
    +----------------------------+--------------+---------+--------+---------------+
    |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
    +----------------------------+--------------+---------+--------+---------------+
-   | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | ru-central1-b |
-   | rc1c...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | ru-central1-c |
+   | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | {{ region-id }}-b |
+   | rc1c...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | {{ region-id }}-c |
    +----------------------------+--------------+---------+--------+---------------+
    ```
 
@@ -86,14 +87,14 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
       ```
       $ yc vpc subnet list
-
+      
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
-      | b0cl69... | default-c | enp6rq7... | ru-central1-c | [172.16.0.0/20]  |
-      | e2lkj9... | default-b | enp6rq7... | ru-central1-b | [10.10.0.0/16]   |
-      | e9b0ph... | a-2       | enp6rq7... | ru-central1-a | [172.16.32.0/20] |
-      | e9b9v2... | default-a | enp6rq7... | ru-central1-a | [172.16.16.0/20] |
+      | b0cl69... | default-c | enp6rq7... | {{ region-id }}-c | [172.16.0.0/20]  |
+      | e2lkj9... | default-b | enp6rq7... | {{ region-id }}-b | [10.10.0.0/16]   |
+      | e9b0ph... | a-2       | enp6rq7... | {{ region-id }}-a | [172.16.32.0/20] |
+      | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |
       +-----------+-----------+------------+---------------+------------------+
       ```
 

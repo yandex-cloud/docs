@@ -28,19 +28,18 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
          * `PRODUCTION`: For stable versions of your apps.
          * `PRESTABLE`: For testing, including the {{ mkf-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
       1. Select the {{ KF }} version.
-      1. To manage topics via the {{ KF }} Admin API:
+      1. To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
+         1. Enable **Manage topics via the API**.
+         1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account). 
 
          {% include [mkf-admin-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
-
-         1. Enable **Manage topics via the API**.
-         1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
       1. To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), enable the **Data Schema Registry** setting.
 
          {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
    1. Under **Host class**, select the platform, host type, and host class.
 
-      The host class defines technical characteristics of virtual machines that [{{ KF }} brokers](../concepts/brokers.md) are deployed on. All available options are listed in [Host classes](../concepts/instance-types.md).
+      The host class defines the technical capabilities of the virtual machines that [{{ KF }} brokers](../concepts/brokers.md) are deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
 
       By [changing the host class](cluster-update.md#change-resource-preset) for a cluster, you also change the characteristics of all the existing instances.
 
@@ -55,7 +54,6 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       * Select the size of storage to be used for data.
 
    1. Under **Network settings**:
-      
       
       1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) to host {{ KF }} brokers.
       1. Select the [network](../../vpc/concepts/network.md).
@@ -93,7 +91,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
          {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
-   1. If you specify two or more broker hosts, under **{{ ZK }} host class**, specify the characteristics of the [{{ ZK }} hosts](../concepts/index.md) to be located in each of the selected availability zones.
+   1. If you specify two or more broker hosts, then under **{{ ZK }} host class**, specify the characteristics of the [{{ ZK }} hosts](../concepts/index.md) to place in each of the selected availability zones.
 
    1. If necessary, configure additional cluster settings:
 
@@ -138,23 +136,23 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       If necessary, you can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here.
 
-   1. To set up the maintenance window (including disabled clusters), pass a value in the `--maintenance-window` parameter when creating your cluster:
+   1. To set up a maintenance window (including windows for disabled clusters), pass the required value in the `--maintenance-window` parameter when creating your cluster:
 
       ```bash
       {{ yc-mdb-kf }} cluster create \
       ...
          --maintenance-window type=<maintenance type: anytime or weekly>,`
-                             `day=<day of the week for the weekly type>,`
-                             `hour=<hour of the day for the weekly type>
+                             `day=<day of week for weekly>,`
+                             `hour=<hour for weekly>
       ```
 
       Where:
 
       * `type`: Maintenance type:
-         * `anytime`: Anytime.
-         * `weekly`: By schedule.
-      * `day`: Day of the week for the `weekly` type in the `DDD` format. For example, `MON`.
-      * `hour`: Hour of the day for the `weekly` type in the `HH` format. For example, `21`.
+         * `anytime`: Any time.
+         * `weekly`: On a schedule.
+      * `day`: Day of the week in `DDD` format for `weekly`. For example, `MON`.
+      * `hour`: Hour in `HH` format for `weekly`. For example, `21`.
 
    1. To manage topics via the {{ KF }} Admin API:
 
@@ -168,10 +166,10 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
            --unmanaged-topics true
          ```
 
-      1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
+      1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account). 
 
    
-   1. To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), specify host IDs as a comma-separated list in the `--host-group-ids` parameter when creating the cluster:
+   1. To create a cluster hosted on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), specify the host IDs as a comma-separated list in the `--host-group-ids` parameter when creating the cluster:
 
       ```bash
       {{ yc-mdb-kf }} cluster create \
@@ -186,7 +184,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    
-   If you don't have Terraform, [install it and configure the  provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create a cluster:
 
@@ -200,6 +198,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       Example configuration file structure:
 
+      
       ```hcl
       terraform {
         required_providers {
@@ -254,6 +253,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       }
       ```
 
+
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
       {% include [maintenance-window](../../_includes/mdb/mkf/terraform-maintenance-window.md) %}
@@ -266,7 +266,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources appear with correct settings, using the [management console]({{ link-console-main }}).
+      After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there with the correct settings, using the [management console]({{ link-console-main }}).
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
@@ -287,7 +287,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
    {% include [mkf-topic-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
 
    1. Pass `true` for the `unmanagedTopics` parameter.
-   1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
+   1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account). 
 
    To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), pass the `true` value for the `configSpec.schemaRegistry` parameter.
 
@@ -324,7 +324,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the security group `{{ security-group }}`.
    * With a single `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
    * With one broker.
-   * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
+   * With a network SSD storage (`{{ disk-type-example }}`) of 10 GB.
    * With public access.
    * With protection against accidental cluster deletion.
 
@@ -360,12 +360,13 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
    * With a single `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
    * With one broker.
-   * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
+   * With a network SSD storage (`{{ disk-type-example }}`) of 10 GB.
    * With public access.
    * With protection against accidental cluster deletion.
 
    The configuration file for the cluster looks like this:
 
+   
    ```hcl
    terraform {
      required_providers {
@@ -430,5 +431,6 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
    }
    ```
+
 
 {% endlist %}

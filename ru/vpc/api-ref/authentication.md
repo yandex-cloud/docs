@@ -1,6 +1,6 @@
 ---
-title: "Аутентификация в API Yandex Virtual Private Cloud"
-description: "Для выполнения операций через API в сервисе управления облачными сетями (частным облаком, VPC) – Yandex Virtual Private Cloud, необходимо получить IAM-токен для сервисного, федеративного или Яндекс аккаунта."
+title: "Аутентификация в API {{ vpc-full-name }}"
+description: "Для выполнения операций через API в сервисе управления облачными сетями (частным облаком, {{ vpc-short-name }}) – {{ vpc-full-name }}, необходимо получить IAM-токен для своего аккаунта."
 ---
 
 {% include [auth](../../_includes/authentication.md) %}

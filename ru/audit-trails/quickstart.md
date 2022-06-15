@@ -1,6 +1,6 @@
 # Как начать работать с {{ at-name }}
 
-{{ at-name }} собирает [аудитные логи](./concepts/format.md) ресурсов {{ yandex-cloud }} и загружает их в бакет {{ objstorage-name }} или в лог-группу {{ cloud-logging-name }}.
+{{ at-name }} собирает [аудитные логи](./concepts/format.md) ресурсов {{ yandex-cloud }} и загружает их в бакет {{ objstorage-name }}или в лог-группу {{ cloud-logging-name }}.
 
 Управление аудитными логами внутри {{ at-name }} осуществляется через [трейлы](./concepts/trail.md).
 
@@ -57,7 +57,7 @@
 
 ### Просмотр файлов аудитных логов {#watch-log-file}
 
-{{ at-name }} создает файлы логов в формате `JSON`. 
+{{ at-name }} создает файлы логов в формате `JSON`.
 
 Получите доступ к содержимому файла аудитного лога одним из способов:
 * [Скачайте объект](../storage/operations/objects/download.md).

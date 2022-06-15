@@ -15,11 +15,8 @@ To set up your online store on OpenCart:
 
 ## Before you start {#before-you-begin}
 
-Before deploying the server, sign in to {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to run your VM in. Go to the [{{ yandex-cloud }} home page](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a VM for your server. [Learn more about the resource hierarchy in {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources
 
@@ -41,7 +38,7 @@ To create a VM:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public [OpenCart](https://cloud.yandex.com/en-ru/marketplace/products/f2ent1o0am6abue061ph) image.
+1. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public [OpenCart](/marketplace/products/f2ent1o0am6abue061ph) image.
 
    The OpenCart platform and the necessary components, including PHP and MySQL, are pre-installed on the boot disk.
 

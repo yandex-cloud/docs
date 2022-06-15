@@ -9,15 +9,15 @@ description:
     <ul><li>Enable communication between individual applications in your
     system.</li> <li>Scale a system relying on data exchange between individual
     applications.</li> <li>Increase the fault tolerance of data exchange if an
-    application fails.</li> <li>Free up resources for processing urgent requests
-    by delegating incoming message processing to relevant
+    application fails.</li>  <li>Free up resources for processing urgent
+    requests by delegating incoming message processing to relevant
     applications.</li></ul>
   - >-
     The service is subject to the <a
     href="https://yandex.ru/legal/cloud_sla">Service Level Agreement</a>. The
     service level is defined in the <a
-    href="https://yandex.ru/legal/cloud_sla_ymq">Yandex Managed Databases
-    Services Level</a>.
+    href="https://yandex.ru/legal/cloud_sla_ymq">Service Level for Yandex
+    Message Queue</a>.
 meta:
   title: Yandex Message Queue
 links:
@@ -28,7 +28,7 @@ links:
     description: Instructions on how to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn about the concepts and resources of the service
+    description: Learn more about concepts and resources of the service
     href: concepts/
   - title: Quotas and limits
     description: Technical and organizational limitations of the service

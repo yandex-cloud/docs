@@ -1,4 +1,6 @@
 default:
+  api: show
+  ui: noshow
   versions:
     tf:
       latest: '3.0'

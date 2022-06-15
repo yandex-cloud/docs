@@ -10,7 +10,7 @@ You can add and remove databases, as well as view information about them.
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mpg-name }}**.
    1. Click on the name of the cluster you need and select the **Databases** tab.
 
 
@@ -22,17 +22,18 @@ You can add and remove databases, as well as view information about them.
 
    To get a list of databases in a cluster, run the command:
 
-   ```
-   $ {{ yc-mdb-pg }} database list
-        --cluster-name <cluster name>
+   ```bash
+   {{ yc-mdb-pg }} database list --cluster-name=<cluster name>
    ```
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 
 - API
 
-   To get a [list](../api-ref/Database/list.md) of cluster databases, use the list method.
+   Use the [list](../api-ref/Database/list.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+   The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -44,16 +45,28 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mpg-name }}**.
    1. Click on the name of the desired cluster.
    1. If the owner of the new database still doesn't exist, [add the user](cluster-users.md#adduser).
    1. Select the **Databases** tab.
+   1. Click ![image](../../_assets/plus-sign.svg) **Add**.
+   1. Specify the database settings.
+
+      * Name.
+
+         {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
+      * Owner.
+
+      * (Optional) Template: The name of one of the existing databases from which the data schema needs to be copied. All connections to the template database will be closed while the new database is being created.
+
+         For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-createdatabase.html).
+
+      * Collation and character set locales.
+
+         {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
+
    1. Click **Add**.
-   1. Name the database, select its owner, and specify the required collation locale and character set.
-
-      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
-
-      {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
 - CLI
 
@@ -65,34 +78,33 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
    1. View a description of the CLI create database command:
 
-      ```
-      $ {{ yc-mdb-pg }} database create --help
+      ```bash
+      {{ yc-mdb-pg }} database create --help
       ```
 
    1. Request a list of cluster users to select the owner of the new database:
 
-      ```
-      $ {{ yc-mdb-pg }} user list
-           --cluster-name <cluster name>
+      ```bash
+      {{ yc-mdb-pg }} user list --cluster-name=<cluster name>
       ```
 
       If the required user is not in the list, [create it](cluster-users.md#adduser).
 
    1. Run the create database command. If necessary, specify the required collation locale and character set (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`):
 
-      ```
-      $ {{ yc-mdb-pg }} database create <database name>
-           --cluster-name <cluster name>
-           --owner <owner username>
-           --lc-collate <sorting locale>
-           --lc-type <character set locale>
+      ```bash
+      {{ yc-mdb-pg }} database create <database name> \
+         --cluster-name=<cluster name> \
+         --owner=<DB owner username> \
+         --lc-collate=<collation locale> \
+         --lc-type=<character set locale>
       ```
 
       {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
       {{ mpg-short-name }} runs the create database operation.
 
-   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
 
@@ -131,7 +143,10 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
 - API
 
-   You can create a new database in a cluster using the [create](../api-ref/Database/create.md) method.
+   Use the [create](../api-ref/Database/create.md) API method and pass the following information in the request:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * The new database settings in the `databaseSpec` parameter.
 
 {% endlist %}
 
@@ -141,9 +156,9 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
 - Management console
 
-   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mpg-name }}**.
    1. Click on the name of the cluster you need and select the **Databases** tab.
-   1. Click the ![image](../../_assets/vertical-ellipsis.svg) icon in the same row as the desired DB and select **Delete**.
+   1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired DB and select **Delete**.
 
 - CLI
 
@@ -153,9 +168,9 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
    To delete a database, run the command:
 
-   ```
-   $ {{ yc-mdb-pg }} database delete <database name>
-        --cluster-name <cluster name>
+   ```bash
+   {{ yc-mdb-pg }} database delete <database name> \
+      --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -182,7 +197,10 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
 - API
 
-   You can delete a database using the [delete](../api-ref/Database/delete.md) method.
+   Use the [delete](../api-ref/Database/delete.md) API method and pass the following in the request:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Name of the deleted database in the `databaseName` parameter.
 
 {% endlist %}
 

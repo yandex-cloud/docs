@@ -25,17 +25,19 @@
      yc load-balancer network-load-balancer list
      ```
 	 
-	 Результат:
-	 
-	 ```
+	    Результат:
+	    
+	    	 
+	    ```
      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
      |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
      ...
-     | c58r8boim8qfkcqtuioj | test-load-balancer | ru-central1 | EXTERNAL |              1 |                        | INACTIVE |
+     | c58r8boim8qfkcqtuioj | test-load-balancer | {{ region-id }} | EXTERNAL |              1 |                        | INACTIVE |
      ...
      +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
      ```
+     
   
   1. Выберите `ID` балансировщика, у которого требуется удалить обработчик.
   1. Получите сведения о выбранном балансировщике:
@@ -51,7 +53,7 @@
      folder_id: aoerb349v3h4bupphtaf
      created_at: "2019-04-01T09:29:25Z"
      name: test-load-balancer
-     region_id: ru-central1
+     region_id: {{ region-id }}
      status: INACTIVE
      type: EXTERNAL
      listeners:
@@ -75,7 +77,7 @@
      folder_id: aoerb349v3h4bupphtaf
      created_at: "2019-04-01T09:29:25Z"
      name: test-load-balancer
-     region_id: ru-central1
+     region_id: {{ region-id }}
      status: INACTIVE
      type: EXTERNAL
      ```

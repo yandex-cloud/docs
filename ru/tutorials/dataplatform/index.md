@@ -7,10 +7,12 @@
 * [Импорт базы данных в {{ dataproc-full-name }} с использованием Sqoop](sqoop.md)
 * [Использование Confluent Schema Registry с {{ mkf-name }}](confluent-schema-registry.md)
 * [Настройка Kafka Connect для работы с кластером {{ mkf-name }}](kafka-connect.md)
-* [Поставка данных в {{ mkf-name }} с помощью Debezium](kafka-cdc.md)
+* [{#T}](kafka-cdc.md)
+* [{#T}](./kafka-cdc-data-transfer.md)
 * [Миграция данных в {{ mkf-name }}](kafka-connector.md)
 * [Перенос коллекций из {{ MG }} в {{ mmg-name }}](mongodb-migration.md)
 * [Миграция базы данных в {{ mms-name }}](mssql-data-migration.md)
 * [Перенос данных из {{ PG }} в {{ CH }} с помощью {{ data-transfer-full-name }}](rdbms-to-clickhouse.md)
 * [Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз данных из других облачных сетей](mdb-dns-peering.md)
+* [{#T}](migration-via-reindex-api.md)
 * [Настройка GeeseFS в {{ dataproc-full-name }} с помощью скриптов инициализации](./data-proc-init-actions-geesefs.md).

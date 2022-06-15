@@ -17,6 +17,13 @@ For individuals:
 * Address.
 * Country.
 
+{% note info %}
+
+To provide additional user details in your billing account contact [technical support](../support/overview.md#response-time).
+
+{% endnote %}
+
+
 ## Updating details {#how-to-update}
 
 {% note info %}
@@ -27,7 +34,7 @@ If you don't have permissions to edit the details, refer to the administrator of
 
 To check and update user details, follow these steps:
 
-1. In the management console, go to [**Billing**](https://console.cloud.yandex.com/billing?section=accounts).
+1. In the management console, go to [**Billing**]({{ link-console-billing }}?section=accounts).
 
 1. Select a billing account in whose cloud you use a Microsoft product and go to the **Overview** page.
 

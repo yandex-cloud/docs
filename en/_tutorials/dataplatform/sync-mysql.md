@@ -14,13 +14,8 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 ## Before you start {#before-begin}
 
-Before deploying the server, you need to sign up for {{ yandex-cloud }} and create a billing account:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.ru/cloud).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Required paid resources {#paid-resources}
 
@@ -53,8 +48,8 @@ Infrastructure costs for data transfers include:
       ```bash
       yc compute instance create \
          --name magento \
-         --zone ru-central1-a \
-         --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+         --zone {{ region-id }}-a \
+         --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
          --hostname ya-sample-store \
          --use-boot-disk disk-name=web-store-lab-dataplatform \
          --ssh-key ~/.ssh/id_rsa.pub
@@ -94,8 +89,8 @@ To replicate tables with information about online store orders, create a {{ mmy-
     * Enter the `yc-user` username and `12345678` password.
 1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic.
 1. Under **Hosts**, select the parameters for the DB hosts created with the cluster:
-    * Availability zone: `ru-central1-a`.
-    * Subnet: `default-ru-central1-a`.
+    * Availability zone: `{{ region-id }}-a`.
+    * Subnet: `default-{{ region-id }}-a`.
 1. Click **Create cluster**.
 
 For more information about creating clusters, see [Getting started with {{ mmy-short-name }}](../../managed-mysql/quickstart.md#cluster-create.md).

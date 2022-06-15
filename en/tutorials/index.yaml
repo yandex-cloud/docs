@@ -13,7 +13,7 @@ links:
     description: Open online stores on a variety of platforms
     href: internet-store/
   - title: Data archive
-    description: Set up data backups in Yandex Cloud
+    description: Set up data backups
     href: archive/
   - title: Test environment
     description: Test applications on VMs

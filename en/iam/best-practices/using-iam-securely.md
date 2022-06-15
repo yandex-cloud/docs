@@ -20,16 +20,14 @@ For critical resources:
 
     Administrators can revoke one another's access rights, while owners can revoke the owner role from one another. These roles also include all the permissions under the `editor` role — they let you create, edit, and delete resources.
 
-## Protect your Yandex account {#protect-account}
+## Protect your Yandex account{#protect-account}
 
-* {% include [yandex-account-2fa-warning.md](../../_includes/iam/yandex-account-2fa-warning.md) %}
-
+*{% include [yandex-account-2fa-warning.md](../../_includes/iam/yandex-account-2fa-warning.md) %}
 * Keep your [OAuth token](../concepts/authorization/oauth-token.md) a secret, since it can be used to get an [IAM token](../concepts/authorization/iam-token.md) and perform operations in the cloud on your behalf.
 
     If someone might have discovered your OAuth token, [invalidate it](https://tech.yandex.com/oauth/doc/dg/reference/token-invalidate-docpage/) and issue a new one.
 
 * Avoid using your OAuth token for authentication if you can use an IAM token. OAuth tokens are valid for 1 year while IAM tokens are valid for {{ iam-token-lifetime }}. If your token is compromised, the hacker has limited time to use it.
-
 ## Use service accounts {#use-sa}
 
 Use [service accounts](../concepts/users/service-accounts.md) to automate work with {{ yandex-cloud }}. We recommend doing the following:

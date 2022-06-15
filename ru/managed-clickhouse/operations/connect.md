@@ -88,9 +88,9 @@
       ```powershell
       mkdir -Force $HOME\.clickhouse; `
       (Invoke-WebRequest https://{{ s3-storage-host }}{{ pem-path }}).RawContent.Split([Environment]::NewLine)[-31..-1] `
-        | Out-File -Encoding ASCII $HOME\.clickhouse\YandexInternalRootCA.crt; `
+        | Out-File -Encoding ASCII $HOME\.clickhouse\{{ crt-local-file }}; `
       Import-Certificate `
-        -FilePath  $HOME\.clickhouse\YandexInternalRootCA.crt `
+        -FilePath  $HOME\.clickhouse\{{ crt-local-file }} `
         -CertStoreLocation cert:\CurrentUser\Root
       ```
 
@@ -152,8 +152,8 @@
 
 Вы можете подключаться к хостам кластера {{ CH }} в публичном доступе только с использованием SSL-сертификата. Перед подключением [подготовьте сертификат](#get-ssl-cert).
 
-В примерах ниже предполагается, что сертификат `YandexInternalRootCA.crt`:
-* расположен в директории `/usr/local/share/ca-certificates/Yandex/` — для Ubuntu;
+В примерах ниже предполагается, что сертификат `{{ crt-local-file }}`:
+* расположен в директории `{{ crt-local-dir }}` — для Ubuntu;
 * импортирован в хранилище доверенных корневых сертификатов — для Windows.
 
 Подключение без использования SSL-сертификата поддерживается только для хостов, находящихся не в публичном доступе. В этом случае трафик внутри виртуальной сети при подключении к БД шифроваться не будет.

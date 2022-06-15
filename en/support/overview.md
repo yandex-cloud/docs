@@ -1,14 +1,19 @@
 # Requesting technical support
 
+
+
 {{ yandex-cloud }} provides technical support under different service plans. You can choose the plan that's best for you. The cost of paid technical support plans includes two components: fixed and supplemental. The fixed portion only depends on the selected plan, while the supplemental portion is calculated as a fraction of the cost of the resources used over the month. For more information about plans, see the [Pricing policy](pricing.md).
 
 ## Contacting support {#response-time}
+
+
 
 Depending on your pricing plan, you can [contact technical support]({{ link-console-support }}) using one of the methods below:
 
 {% include [support-channels](../_includes/support/channels.md) %}
 
 If there is a problem with your infrastructure's production environment, specify _Critical issue_ as your request type.
+
 
 The expected support specialist response time is shown in the table below. A dash in a table cell means the corresponding communication channel is not available for the selected service plan.
 
@@ -19,7 +24,9 @@ The expected support specialist response time is shown in the table below. A das
 | Chat | - | 15 minutes | 5 minutes | immediate |
 | Phone | - | - | on additional request | on additional request |
 
-## Types of requests to support {#request-types}
+## Types of requests to {#request-types} support
+
+
 
 The types of requests available depend on the selected plan and are shown in the table below.
 
@@ -51,6 +58,7 @@ The given list of services offered under the <q>Premium</q> plan isn't fixed and
 
 * Develop software code.
 * Debug your own software.
+
 
 ## How to change your service plan {#change-service-plan}
 

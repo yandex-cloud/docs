@@ -358,21 +358,22 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    The configuration file for the cluster looks like this:
 
-   ```hcl
-   terraform {
-     required_providers {
-       yandex = {
-         source = "yandex-cloud/yandex"
-       }
-     }
-   }
+    
+    ```hcl
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+      }
+    }
 
-   provider "yandex" {
-     token     = "<OAuth or service account static key>"
-     cloud_id  = "{{ tf-cloud-id }}"
-     folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ zone-id }}"
-   }
+    provider "yandex" {
+      token     = "<OAuth or static key of service account>"
+      cloud_id  = "{{ tf-cloud-id }}"
+      folder_id = "{{ tf-folder-id }}"
+      zone      = "{{ zone-id }}"
+    }
 
     resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
       name                = "mssql-1"
@@ -429,5 +430,6 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
    }
    ```
+
 
 {% endlist %}

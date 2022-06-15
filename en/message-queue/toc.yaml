@@ -7,18 +7,24 @@ items:
         href: quickstart.md
       - name: Supported tools
         href: instruments/index.md
-      - name: Code samples
+      - name: Sample code
         items:
+          - name: Python
+            href: instruments/python.md
           - name: Node.js
             href: instruments/node.md
           - name: PHP
             href: instruments/php.md
+          - name: Celery
+            href: instruments/celery.md
           - name: JMS
             href: instruments/jms.md
           - name: Laravel
             href: instruments/laravel.md
           - name: Terraform
             href: instruments/terraform.md
+          - name: Golang
+            href: instruments/golang.md
   - name: Step-by-step instructions
     items:
       - name: Overview
@@ -53,6 +59,8 @@ items:
         href: concepts/delay-queues.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Comparison with {{ yds-full-name }}
+        href: concepts/yds-ymq-comparison.md
   - name: Practical guidelines
     items:
       - name: Converting a video to a GIF in Python
@@ -61,7 +69,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: Yandex Message Queue API
+  - name: API {{ message-queue-full-name }}
     items:
       - name: Overview
         href: api-ref/index.md
@@ -119,6 +127,8 @@ items:
             href: api-ref/data-types/SendMessageBatchResultEntry.md
       - name: Common errors
         href: api-ref/common-errors.md
+  - name: Public materials
+    href: public-talks.md
   - name: Questions and answers
     href: qa/index.md
 base: en/message-queue

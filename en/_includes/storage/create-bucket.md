@@ -26,12 +26,13 @@
      * `secret_key`: The value of the private access key.
      * `bucket`: The name of the bucket being created. Optional parameter. If omitted, a random unique bucket name is generated.
 
+     
      ```
      provider "yandex" {
        token     = "<OAuth>"
        cloud_id  = "<cloud ID>"
        folder_id = "<folder ID>"
-       zone      = "ru-central1-a"
+       zone      = "{{ region-id }}-a"
      }
      
      resource "yandex_storage_bucket" "test" {
@@ -40,6 +41,7 @@
        bucket = "<bucket name>"
      }
      ```
+
 
      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
 

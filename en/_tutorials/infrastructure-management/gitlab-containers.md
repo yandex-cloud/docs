@@ -19,6 +19,7 @@ If you no longer need the VM and cluster, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
 The cost of this infrastructure includes:

@@ -3,6 +3,7 @@
 В этом разделе приведена инструкция для создания виртуальной машины с GPU. Подробнее с конфигурациями ВМ вы можете ознакомиться в разделе [{#T}](../../concepts/gpus.md).
 
 По умолчанию в облаке установлена нулевая [квота](../../concepts/limits.md#quotas) на создание ВМ с GPU. Чтобы изменить [квоту]({{ link-console-quotas }}), обратитесь в [техническую поддержку]({{ link-console-support }}).
+     
 
 {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
@@ -36,29 +37,29 @@
 
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-     * [Зону доступности](../../../overview/concepts/geo-scope.md).
-     * Идентификатор [платформы](../../concepts/vm-platforms.md):
-       * `gpu-standard-v1` для платформы {{ v100-broadwell }}.
-       * `gpu-standard-v2` для платформы {{ v100-cascade-lake }}.
-       * `gpu-standard-v3` для платформы {{ a100-epyc }}.
-     * [Количество vCPU](../../concepts/gpus.md).
-     * [Размер RAM](../../concepts/gpus.md).
-     * [Количество GPU](../../concepts/gpus.md).
-     * При необходимости сделайте ВМ [прерываемой](../../concepts/preemptible-vm.md) с помощью опции `--preemptible`.
-     * [Образ](../images-with-pre-installed-software/get-list.md) операционной системы. `ubuntu-1604-lts-gpu` — образ Ubuntu 16.04.6 LTS c CUDA драйверами.
-     * Публичный IP. Чтобы создать ВМ без публичного IP, исключите опцию `nat-ip-version=ipv4`.
+      * [Зону доступности](../../../overview/concepts/geo-scope.md).
+      * Идентификатор [платформы](../../concepts/vm-platforms.md):
+        *  `gpu-standard-v1` для платформы {{ v100-broadwell }}.
+        *  `gpu-standard-v2` для платформы {{ v100-cascade-lake }}.
+        * `gpu-standard-v3` для платформы {{ a100-epyc }}.
+      * [Количество vCPU](../../concepts/gpus.md).
+      * [Размер RAM](../../concepts/gpus.md).
+      * [Количество GPU](../../concepts/gpus.md).
+      * При необходимости сделайте ВМ [прерываемой](../../concepts/preemptible-vm.md) с помощью опции `--preemptible`.
+      * [Образ](../images-with-pre-installed-software/get-list.md) операционной системы. `ubuntu-1604-lts-gpu` — образ Ubuntu 16.04.6 LTS c CUDA драйверами.
+      * Публичный IP. Чтобы создать ВМ без публичного IP, исключите опцию `nat-ip-version=ipv4`.
 
      Например:
 
      ```bash
      yc compute instance create \
        --name gpu-instance \
-       --zone ru-central1-a \
-       --platform=gpu-standard-v1 \
+       --zone {{ region-id }}-a \
+       --platform=gpu-standard-v3 \
        --cores=8 \
        --memory=96 \
        --gpus=1 \
-       --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+       --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts-gpu \
        --ssh-key ~/.ssh/id_rsa.pub
      ```
@@ -73,8 +74,8 @@
 
      ```bash
      name: gpu-instance
-     zone_id: ru-central1-a
-     platform_id: gpu-standard-v1
+     zone_id: {{ region-id }}-a
+     platform_id: gpu-standard-v3
      resources:
        memory: "103079215104"
        cores: "8"
@@ -121,7 +122,7 @@
      resource "yandex_compute_instance" "vm-1" {
 
        name        = "vm-with-gpu"
-       platform_id = "gpu-standard-v1"
+       platform_id = "gpu-standard-v3"
 
        resources {
          cores  = <количество ядер vCPU>

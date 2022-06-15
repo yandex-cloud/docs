@@ -24,7 +24,7 @@ When deleting a host with a public FQDN, the assigned IP address is revoked.
 
 ## Connecting to cluster hosts {#cluster-connect}
 
-[You can connect to {{ mmy-short-name }} cluster hosts](../operations/connect.md):
+You can [connect to {{ mmy-short-name }} cluster hosts](../operations/connect.md):
 
 {% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
 

@@ -22,14 +22,14 @@ items:
           балансировщиком
         href: tutorials/mssql-alwayson-lb.md
       - name: Развертывание Remote Desktop Gateway
-        href: tutorials/rds-gw
+        href: tutorials/rds-gw.md
       - name: Обновление редакции Windows Server до Datacenter
         href: tutorials/edition-update-datacenter.md
   - name: Лицензирование
     items:
-      - name: Лицензии Microsoft в Yandex Cloud
+      - name: Лицензии Microsoft в {{ yandex-cloud }}
         href: licensing.md
-      - name: Требования к учетной записи Yandex Cloud
+      - name: Требования к учетной записи {{ yandex-cloud }}
         href: check-user-data.md
       - name: Вопросы и ответы про лицензирование Windows
         href: qa.md

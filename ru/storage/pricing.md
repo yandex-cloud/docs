@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ objstorage-name }}
 
+
+
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -104,5 +106,3 @@ editable: false
 
 > Например, если цена за 1 ГБ исходящего трафика сверх 10 ГБ до 1 ТБ в месяц составляет 1,53 ₽, а за месяц было передано 283 ГБ исходящего трафика, то стоимость за месяц составит:
 > (283 - 10) × 1,53 ₽ = 273 × 1,53 ₽ = 417,69 ₽
-
-

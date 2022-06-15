@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ container-registry-name }}
 
+
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Из чего складывается стоимость использования {{ container-registry-name }} {#rules}
@@ -43,5 +45,3 @@ editable: false
 
 
 {% include [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
-
-

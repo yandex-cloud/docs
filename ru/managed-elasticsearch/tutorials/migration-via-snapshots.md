@@ -88,7 +88,7 @@
                  "type": "s3",
                  "settings": {
                    "bucket": "<имя бакета>",
-                   "endpoint": "storage.yandexcloud.net"
+                   "endpoint": "{{ s3-storage-host }}"
                  }
                }
         '

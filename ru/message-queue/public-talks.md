@@ -27,4 +27,4 @@
 
 - [Статья на Habrahabr про архитектуру {{ message-queue-name }}](https://habr.com/ru/company/yandex/blog/455642/).
 - [Тезисы доклада](http://backendconf.ru/moscow-rit/2019/abstracts/5338) «Как мы построили сервис распределённых очередей в Яндексе» на BackendConf 2019.
-- [Тезисы доклада](https://www.highload.ru/siberia/2019/abstracts/5423) «Реализация геораспределенной персистентной очереди сообщений на примере Yandex Message Queue» на  HighLoad++ Siberia.
+- [Тезисы доклада](https://www.highload.ru/siberia/2019/abstracts/5423) «Реализация геораспределенной персистентной очереди сообщений на примере Yandex Message Queue» на HighLoad++ Siberia.

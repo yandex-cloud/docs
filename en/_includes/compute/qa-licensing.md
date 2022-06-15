@@ -45,7 +45,7 @@ In the case of other software that you want to use inside the VM, read the licen
 
 #### Can I purchase Windows Server from {{ yandex-cloud }}? {#buy-windows-server}
 
-Yes, you can [purchase](https://cloud.yandex.com/marketplace?categories=databases&operationSystems=WINDOWS) a VM with a pre-installed Windows Server 2012 R2, Windows Server 2016, or Windows Server 2019 image from {{ yandex-cloud }}. The Windows Server license is included in the {{ yandex-cloud }} service cost.
+Yes, you can [purchase](/marketplace?categories=databases&operationSystems=WINDOWS) a VM with a pre-installed Windows Server 2012 R2, Windows Server 2016, or Windows Server 2019 image from {{ yandex-cloud }}. The Windows Server license is included in the {{ yandex-cloud }} service cost.
 
 #### How do I activate Windows Server {#activate-windows-server}
 
@@ -55,9 +55,9 @@ You may have activation issues if the VM doesn't have internet access.
 1. Run the following commands in PowerShell as an administrator:
 
    ```powershell
-   Test-NetConnection kms.cloud.yandex.net -Port 1688
+   Test-NetConnection {{ ms-kms-host }} -Port {{ ms-kms-port }}
    cscript.exe C:\Windows\System32\slmgr.vbs /dli
-   cscript.exe C:\Windows\System32\slmgr.vbs /skms kms.cloud.yandex.net:1688
+   cscript.exe C:\Windows\System32\slmgr.vbs /skms {{ ms-kms-host }}:{{ ms-kms-port }}
    cscript.exe C:\Windows\System32\slmgr.vbs /ato
    Get-Date
    Get-TimeZone

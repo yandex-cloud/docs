@@ -102,7 +102,7 @@
 - Windows (PowerShell)
 
   ```powershell
-  mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\YandexCA.crt https://{{ s3-storage-host }}{{ pem-path }}
+  mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\{{ crt-local-file }} https://{{ s3-storage-host }}{{ pem-path }}
   ```
 
 {% endlist %}
@@ -113,8 +113,8 @@
 
 {% include [conn-strings-environment](../../_includes/mdb/mkf-conn-strings-env.md) %}
 
-Перед подключением к хостам кластера с использованием SSL-соединения, [подготовьте сертификат](#get-ssl-cert). В примерах ниже предполагается, что сертификат `YandexCA.crt` расположен в директории:
-* `/usr/local/share/ca-certificates/Yandex/` для Ubuntu;
+Перед подключением к хостам кластера с использованием SSL-соединения, [подготовьте сертификат](#get-ssl-cert). В примерах ниже предполагается, что сертификат `{{ crt-local-file }}` расположен в директории:
+* `{{ crt-local-dir }}` для Ubuntu;
 * `$HOME\.kafka\` для Windows.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}

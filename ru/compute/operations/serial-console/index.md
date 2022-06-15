@@ -53,7 +53,7 @@
       ```bash
       yc compute instance create \
         --name first-instance \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
         --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts \
         --metadata-from-file ssh-keys=sshkeys.txt \
@@ -64,7 +64,7 @@
       Команда создаст ВМ:
       * С OC Ubuntu.
       * С именем `first-instance`.
-      * В зоне `ru-central1-a`.
+      * В зоне `{{ region-id }}-a`.
       * С активной серийной консолью.
 
       В ОС ВМ будет автоматически создан пользователь `yc-user` с указанным открытым ключом.
@@ -87,7 +87,7 @@
       yc compute instance create \
         --name win-instance \
         --metadata-from-file user-data=metadata.yaml \
-        --zone ru-central1-a \
+        --zone {{ region-id }}-a \
         --network-interface subnet-name=default-c,nat-ip-version=ipv4 \
         --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
         --metadata serial-port-enable=1
@@ -96,7 +96,7 @@
       Команда создаст ВМ:
       * С OC Windows.
       * С именем `win-instance`.
-      * В зоне `ru-central1-a`.
+      * В зоне `{{ region-id }}-a`.
       * С активной серийной консолью.
 
       В ОС ВМ будет автоматически создан пользователь `Administrator` с паролем, указанном в файле `metadata.yaml`.

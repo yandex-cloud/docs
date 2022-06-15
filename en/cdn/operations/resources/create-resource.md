@@ -139,7 +139,8 @@ To create a [resource](../../concepts/resource.md):
       * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
 
       Example configuration file structure:
-
+   
+      
       ```hcl
       terraform {
         required_providers {
@@ -166,6 +167,7 @@ To create a [resource](../../concepts/resource.md):
       }
       ```
 
+   
       For more information about `yandex_cdn_resource` parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 
    1. In the command line, go to the directory with the Terraform configuration file.

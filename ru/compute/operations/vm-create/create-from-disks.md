@@ -25,7 +25,7 @@
 
   1. В блоке **Выбор образа/загрузочного диска** выберите один из [образов](../../operations/images-with-pre-installed-software/get-list.md).
 
-  1. В блоке **Диски и файловые хранилища** [добавьте диск](./create-from-disks.md):
+  1. В блоке **Дискии файловые хранилища** [добавьте диск](./create-from-disks.md):
       * Нажмите кнопку **Добавить диск**.
       * Введите имя диска.
       * Выберите [тип диска](../../concepts/disk.md#disks_types).
@@ -35,7 +35,7 @@
       * Выберите наполнение `Диск`.
       * Нажмите кнопку **Добавить**.
 
-  1. (опционально) В блоке **Диски и файловые хранилища** на вкладке **Файловые хранилища** подключите [файловое хранилище](../../concepts/filesystem.md):
+    1. (опционально) В блоке **Диски и файловые хранилища** на вкладке **Файловые хранилища** подключите [файловое хранилище](../../concepts/filesystem.md):
       * Нажмите кнопку **Подключить файловое хранилище**.
       * В открывшемся окне выберите файловое хранилище.
       * Введите имя устройства.
@@ -101,7 +101,7 @@
       ```
       $ yc compute instance create \
           --name first-instance \
-          --zone ru-central1-a \
+          --zone {{ region-id }}-a \
           --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
           --use-boot-disk disk-name=first-disk \
           --attach-disk disk-name=second-disk \
@@ -111,7 +111,7 @@
       Данная команда создаст виртуальную машину:
   
       - С именем `first-instance`.
-      - В зоне доступности `ru-central1-a`.
+      - В зоне доступности `{{ region-id }}-a`.
       - В подсети `default-a`.
       - С публичным IP и двумя дисками.
   
@@ -126,7 +126,7 @@
       ```
       yc compute instance create \
       --name first-instance \
-      --zone ru-central1-a \
+      --zone {{ region-id }}-a \
       --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
       --use-boot-disk disk-name=first-disk,auto-delete=yes \
       --attach-disk disk-name=second-disk,auto-delete=yes \

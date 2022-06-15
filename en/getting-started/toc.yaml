@@ -1,4 +1,4 @@
-title: Getting started in Yandex Cloud
+title: Getting started with {{ yandex-cloud }}
 href: index.yaml
 items:
   - name: For individuals

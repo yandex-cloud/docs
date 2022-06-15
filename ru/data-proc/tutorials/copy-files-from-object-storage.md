@@ -27,7 +27,7 @@
 
 1. При создании кластера укажите [сервисный аккаунт](../../iam/operations/sa/create.md#create-sa). Если кластер уже создан, добавьте сервисный аккаунт с помощью кнопки **Изменить кластер** в консоли управления.
 
-1. У сервисного аккаунта должен быть доступ к нужному бакету. Для этого выдайте сервисному аккаунту права в [ACL бакета](https://cloud.yandex.ru/docs/storage/concepts/acl), либо роль `storage.viewer` или `storage.editor`.
+1. У сервисного аккаунта должен быть доступ к нужному бакету. Для этого выдайте сервисному аккаунту права в [ACL бакета](../../storage/concepts/acl), либо роль `storage.viewer` или `storage.editor`.
 
     Подробнее про эти роли см. в [документации {{objstorage-name}}](../../storage/security/index.md).
 
@@ -71,7 +71,7 @@
 
     ```bash
     hadoop distcp \
-           -D fs.s3a.bucket.dataproc-examples.endpoint=storage.yandexcloud.net \
+           -D fs.s3a.bucket.dataproc-examples.endpoint={{ s3-storage-host }} \
            -D hadoop.security.credential.provider.path=jceks://hdfs/user/root/yc.jceks \
            -update \
            -skipcrccheck \
@@ -90,7 +90,7 @@
 
 ```bash
 hadoop distcp \
-       -D fs.s3a.bucket.dataproc-examples.endpoint=storage.yandexcloud.net \
+       -D fs.s3a.bucket.dataproc-examples.endpoint={{ s3-storage-host }} \
        -D hadoop.security.credential.provider.path=jceks://hdfs/user/root/yc.jceks \
        -update \
        -skipcrccheck \
@@ -105,7 +105,7 @@ hadoop distcp \
 
 ```bash
 hadoop distcp \
-       -D fs.s3a.bucket.dataproc-examples.endpoint=storage.yandexcloud.net \
+       -D fs.s3a.bucket.dataproc-examples.endpoint={{ s3-storage-host }} \
        -D fs.s3a.bucket.dataproc-examples.access.key=<access_key> \
        -D fs.s3a.bucket.dataproc-examples.secret.key=<secret_key> \
        -update \
@@ -157,7 +157,7 @@ hadoop distcp \
   * С использованием JCEKS:
 
     ```scala
-    sc.hadoopConfiguration.set("fs.s3a.endpoint", "storage.yandexcloud.net");
+    sc.hadoopConfiguration.set("fs.s3a.endpoint", "{{ s3-storage-host }}");
     sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
     sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
     sc.hadoopConfiguration.set("hadoop.security.credential.provider.path", "jceks://hdfs/<путь к файлу JCEKS>");
@@ -165,7 +165,7 @@ hadoop distcp \
   * По ключу доступа и секрету:
 
     ```scala
-    sc.hadoopConfiguration.set("fs.s3a.endpoint", "storage.yandexcloud.net");
+    sc.hadoopConfiguration.set("fs.s3a.endpoint", "{{ s3-storage-host }}");
     sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
     sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
     sc.hadoopConfiguration.set("fs.s3a.access.key","<ключ доступа>");
@@ -186,7 +186,7 @@ hadoop distcp \
   * Доступ к объектам {{objstorage-name}} c использование JCEKS:
 
     ```python
-    sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "storage.yandexcloud.net")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "{{ s3-storage-host }}")
     sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
     sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
     sc._jsc.hadoopConfiguration().set("hadoop.security.credential.provider.path", "jceks://hdfs/<путь к файлу JCEKS>")
@@ -194,7 +194,7 @@ hadoop distcp \
   * Доступ по ключу доступа и секрету бакета:
 
     ```python
-    sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "storage.yandexcloud.net")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "{{ s3-storage-host }}")
     sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
     sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
     sc._jsc.hadoopConfiguration().set("fs.s3a.access.key","<ключ доступа>")

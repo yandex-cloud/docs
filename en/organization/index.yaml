@@ -2,8 +2,8 @@ title: Yandex Cloud Organization
 description:
   - >-
     Yandex Cloud Organization is an enterprise solution that you can use to
-    connect your organization to Yandex.Cloud services and manage employee
-    access to such services.
+    connect your organization to Yandex Cloud services and manage employee
+    access to these services.
 meta:
   title: Yandex Cloud Organization
 links:
@@ -18,10 +18,15 @@ links:
   - title: Configure an identity federation
     description: >-
       Configure an identity federation so that your employees can use their work
-      accounts to access services
+      accounts to access the services
     href: add-federation
   - title: Connect services
     description: >-
       Connect the services that your organization's employees will have access
       to
     href: manage-services
+  - title: Connect services
+    description: >-
+      Connect the services that your organization's employees will have access
+      to
+    href: manage-services.html

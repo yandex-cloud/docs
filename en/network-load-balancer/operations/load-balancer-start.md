@@ -31,15 +31,17 @@
 
       Result:
 
+      
       ```
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       |          ID          |        NAME        |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       ...
-      | b7r97ah2jn5rmo6k1dsk | test-load-balancer | ru-central1 | EXTERNAL |              1 | b7r97ah2jn5rmo6k1dsk   | INACTIVE |
+      | b7r97ah2jn5rmo6k1dsk | test-load-balancer | {{ region-id }} | EXTERNAL |              1 | b7r97ah2jn5rmo6k1dsk   | INACTIVE |
       ...
       +----------------------+--------------------+-------------+----------+----------------+------------------------+----------+
       ```
+
 
    1. Choose the `ID` or `NAME` of the required load balancer in the `INACTIVE` state.
    1. Start the load balancer:

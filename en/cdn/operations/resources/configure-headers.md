@@ -124,6 +124,7 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
 
       Example configuration file structure:
 
+      
       ```hcl
       terraform {
         required_providers {
@@ -156,6 +157,7 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
 
       }
       ```
+
 
       For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 

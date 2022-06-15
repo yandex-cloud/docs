@@ -1,8 +1,10 @@
-# {{ KF }} version update
+# {{ KF }} version upgrade
 
 You can upgrade a {{ mkf-name }} cluster to any supported version.
 
 You can only upgrade to a version that immediately follows the current one, such as version 2.6 to 2.8. Upgrades to higher versions are performed in steps. To upgrade {{ KF }} from 2.6 to 3.0, for instance, you have to follow the steps: 2.6 → 2.8 → 3.0.
+
+To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
 
 ## Before upgrading {#before-update}
 
@@ -45,7 +47,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
       {{ yc-mdb-kf }} cluster get <cluster ID or name>
       ```
 
-   1. Start the {{ KF }} update:
+   1. Start the {{ KF }} upgrade:
 
       ```bash
       {{ yc-mdb-kf }} cluster update <cluster ID or name> \

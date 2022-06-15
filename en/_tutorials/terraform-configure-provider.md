@@ -41,6 +41,7 @@ The settings apply to Terraform `0.13` and higher.
 
 1. Add the following sections at the top of the `.tf` configuration file:
 
+   
    ```hcl
    terraform {
      required_providers {
@@ -59,6 +60,7 @@ The settings apply to Terraform `0.13` and higher.
    }
    ```
 
+
    * `source`: Provider's global [source address](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses).
    * `version`: The minimum provider version that the module is compatible with. You can find the version number on the [provider's page](https://registry.terraform.io/providers/yandex-cloud/yandex/latest) (click **USE PROVIDER** in the top right corner).
    * `provider`: The provider name.
@@ -75,7 +77,7 @@ The settings apply to Terraform `0.13` and higher.
 
 1. Execute the `terraform init` command in the folder containing the `.tf` configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
 
-If the provider installation failed, create a request to [support](https://console.cloud.yandex.com/support?section=contact) mentioning the name and version of the provider.
+If the provider installation failed, create a request to [support]({{ link-console-support }}?section=contact) mentioning the name and version of the provider.
 
 If you used the `.terraform.lock.hcl` file, before the initialization, run the command `terraform providers lock`, specifying the URL of the mirror the provider will be uploaded from and the platforms that will use the configuration:
 

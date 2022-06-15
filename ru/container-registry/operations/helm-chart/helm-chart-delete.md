@@ -11,7 +11,7 @@
   Чтобы удалить Helm-чарт локально, выполните команду:
 
   ```bash
-  helm repo remove cr.yandex/<ID реестра>/<имя Helm-чарта>:<версия>
+  helm repo remove {{ registry }}/<ID реестра>/<имя Helm-чарта>:<версия>
   ```
 
 {% endlist %}

@@ -1,6 +1,6 @@
 ---
 title: Что такое квоты и лимиты в облаке
-description: 'В сервисах Yandex Cloud могут действовать квоты и лимиты. Квоты — организационные ограничения, которые можно изменить по запросу в техническую поддержку. Лимиты — технические ограничения, обусловленные особенностями архитектуры Yandex Cloud. Изменение лимитов невозможно.'
+description: 'В сервисах {{ yandex-cloud }} могут действовать квоты и лимиты. Квоты — организационные ограничения, которые можно изменить по запросу в техническую поддержку. Лимиты — технические ограничения, обусловленные особенностями архитектуры {{ yandex-cloud }}. Изменение лимитов невозможно.'
 ---
 
 # Квоты и лимиты
@@ -21,6 +21,7 @@ description: 'В сервисах Yandex Cloud могут действовать
 
 
 ## Квоты и лимиты по умолчанию для сервисов {{ yandex-cloud }} {#quotas-limits-default}
+
 
 Квоты приведены со значениями по умолчанию, которые совпадают с квотами на время [пробного периода](../../getting-started/free-trial/concepts/quickstart.md).
 
@@ -100,19 +101,22 @@ description: 'В сервисах Yandex Cloud могут действовать
 {% include [mmy-limits.md](../../_includes/mdb/mmy-limits.md) %}
 
 
+
 ### {{ mrd-full-name }} {#mrd}
 
 {% include [mrd-limits.md](../../_includes/mdb/mrd-limits.md) %}
 
 
+
 ### {{ dataproc-full-name }} {#dataproc}
 
-{% include[dataproc-limits.md](../../_includes/data-proc/dataproc-limits.md) %}
+{% include [dataproc-limits.md](../../_includes/data-proc/dataproc-limits.md) %}
 
 
 ### {{ message-queue-full-name }} {#mq}
 
 {% include [ymq-limits.md](../../_includes/message-queue/ymq-limits.md) %}
+
 
 
 ### {{ sf-full-name }} {#sf}
@@ -125,9 +129,11 @@ description: 'В сервисах Yandex Cloud могут действовать
 {% include [speechkit-limits](../../_includes/speechkit-limits.md) %}
 
 
+
 ### {{ translate-full-name }} {#translate}
 
 {% include [translate-limits](../../_includes/translate-limits.md) %}
+
 
 
 ### {{ vision-full-name }} {#vision}
@@ -135,9 +141,11 @@ description: 'В сервисах Yandex Cloud могут действовать
 {% include [vision-limits](../../_includes/vision-limits.md) %}
 
 
+
 ### {{ ml-platform-full-name }} {#ml-platform}
 
 {% include [ml-platform-limits.md](../../_includes/datasphere-limits.md) %}
+
 
 
 ### {{ datalens-full-name }} {#datalens}
@@ -145,9 +153,11 @@ description: 'В сервисах Yandex Cloud могут действовать
 {% include [compute-limits.md](../../_includes/datalens/datalens-limits.md) %}
 
 
+
 ### {{ iot-full-name }} {#iot}
 
 {% include [iot-limits.md](../../_includes/iot-limits.md) %}
+
 
 
 ### {{ interconnect-full-name }} {#interconnect}
@@ -155,9 +165,11 @@ description: 'В сервисах Yandex Cloud могут действовать
 {% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
 
 
+
 ### {{ ydb-full-name }} {#ydb}
 
 {% include [ydb-limits.md](../../ydb/_includes/ydb-limits.md) %}
+
 
 
 ### {{ mms-full-name }} {#mms}
@@ -170,9 +182,11 @@ description: 'В сервисах Yandex Cloud могут действовать
 {% include [mkf-limits.md](../../_includes/mdb/mkf-limits.md) %}
 
 
+
 ### {{ mes-full-name }} {#mes}
 
 {% include [mes-limits.md](../../_includes/mdb/mes-limits.md) %}
+
 
 
 ### {{ api-gw-full-name }} {#api-gw}
@@ -180,9 +194,11 @@ description: 'В сервисах Yandex Cloud могут действовать
 {% include [api-gateway-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}
 
 
+
 ### {{ cloud-logging-full-name }} {#logging}
 
 {% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}
+
 
 
 ### {{ serverless-containers-full-name }} {#serverless-containers}

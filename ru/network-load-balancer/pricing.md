@@ -3,6 +3,8 @@ editable: false
 ---
 # Правила тарификации для {{ network-load-balancer-name }}
 
+
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 В рамках {{ network-load-balancer-full-name }} оплачиваются объем входящего трафика, обработанного балансировщиком, и количество сетевых балансировщиков.
@@ -32,5 +34,3 @@ editable: false
 
 
 {% include [rub.md](../_pricing/network-load-balancer/rub-balancer.md) %}
-
-

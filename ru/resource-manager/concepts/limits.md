@@ -1,6 +1,6 @@
 ---
-title: Квоты и лимиты в Yandex Resource Manager
-description: 'Квоты и лимиты для сервиса Yandex Resource Manager не определены.'
+title: Квоты и лимиты в {{ resmgr-full-name }}
+description: 'Квоты и лимиты для сервиса {{ resmgr-full-name }} не определены.'
 
 editable: false
 ---

@@ -25,13 +25,8 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Перед тем, как разворачивать сервер, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака](https://console.cloud.yandex.ru/cloud).
-
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -64,7 +59,7 @@
 
 3. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 
-4. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [Windows 2016 Datacenter](https://cloud.yandex.ru/marketplace/products/f2ep1515h63fnvqh6hkl).
+4. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [Windows 2016 Datacenter](/marketplace/products/f2ep1515h63fnvqh6hkl).
 
 5. В блоке **Вычислительные ресурсы**:
     - Выберите [платформу](../../compute/concepts/vm-platforms.md).
@@ -93,7 +88,7 @@
 
 3. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 
-4. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [SQL Server 2016 Standard](https://cloud.yandex.ru/marketplace/products/f2epngblcno76k5st39r).
+4. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [SQL Server 2016 Standard](/marketplace/products/f2epngblcno76k5st39r).
 
 5. В блоке **Вычислительные ресурсы**:
     - Выберите [платформу](../../compute/concepts/vm-platforms.md).
@@ -190,7 +185,7 @@
 1. Нажмите кнопку **Добавить**.
 1. Выберите **Добавление в список существующей информационной базы** и нажмите **Далее**.
 1. Введите имя информационной базы, выберите **На сервере 1С:Предприятия** задайте следующие настройки:
-   - **Кластер серверов** — `server-1c.ru-central1.internal`.
+   - **Кластер серверов** — `server-1c.{{ region-id }}.internal`.
    - **Имя информационной базы** — `1c`.
 
    Нажмите **Далее**.

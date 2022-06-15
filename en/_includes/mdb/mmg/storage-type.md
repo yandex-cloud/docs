@@ -8,9 +8,9 @@ When creating a cluster, you can choose between the following storage types:
 
   The storage size can only be increased in increments of 93 GB.
 
+
 * Local SSD storage (`local-ssd`): The fastest disks.
 
   This type of storage is only available for **Intel Broadwell** and **Intel Cascade Lake**. For a list of host classes and their respective platforms, see [{#T}](../../../managed-mongodb/concepts/instance-types.md).
 
   The storage size can only be increased in increments of 100 GB.
-

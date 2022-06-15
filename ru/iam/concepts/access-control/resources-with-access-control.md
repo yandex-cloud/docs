@@ -16,5 +16,6 @@
 * [Реестр](../../../container-registry/concepts/registry.md)
 * [Репозиторий](../../../container-registry/concepts/repository.md)
 
+
 **{{ sf-name }}:**
 * [Функция](../../../functions/concepts/function.md)

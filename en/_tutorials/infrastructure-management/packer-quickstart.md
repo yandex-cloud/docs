@@ -6,26 +6,21 @@ In this scenario, Packer will create and launch a virtual machine with Debian 9 
 
 To create an image:
 
-1. [Install Packer](#install-packer)
-1. [Prepare the image configuration](#prepare-image-config)
-1. [Create the image](#create-image)
-1. [Check the image](#check-image)
+1. [Install Packer](#install-packer).
+1. [Prepare the image configuration](#prepare-image-config).
+1. [Create the image](#create-image).
+1. [Check the image](#check-image).
 
 If you no longer need a created image, [delete it](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Prior to deploying an application, you need to register in {{ yandex-cloud }} and create a billing account:
-
-{% include [prepare-register-billing](../_common/prepare-register-billing.md) %}
-
-If you have an active billing account, you can create or select a folder to run your VM in from the [{{ yandex-cloud }} page](https://console.cloud.yandex.com/cloud).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 * Install the {{ yandex-cloud }} [command-line interface](../../cli/quickstart.md#install).
 * [Create](../../vpc/quickstart.md) a cloud network with a single subnet in your folder.
 * [Get](../../iam/concepts/authorization/oauth-token.md) an OAuth token.
+
 
 ### Required paid resources {#paid-resources}
 
@@ -41,7 +36,7 @@ You pay for storing created images (see [pricing for {{ compute-full-name }}](..
 
 Download a Packer distribution and install it by following the [instructions on the official website](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
 
-You can also download a Packer distribution for your platform from a [{{ yandex-cloud }} mirror](https://hashicorp-releases.website.yandexcloud.net/packer/). When the download is complete, add the path to the folder with the executable to the `PATH` variable:
+You can also download a Packer distribution for your platform from a [mirror](https://hashicorp-releases.website.yandexcloud.net/packer/). When the download is complete, add the path to the folder with the executable to the `PATH` variable:
 
 ```
 export PATH=$PATH:/path/to/packer
@@ -53,6 +48,7 @@ export PATH=$PATH:/path/to/packer
 1. Get the subnet ID by running the command `yc vpc subnet list`.
 1. Create a JSON file with any name, like `image.json`. This will be your template. Enter the following parameters:
 
+
 ```json
 {
   "builders": [
@@ -60,7 +56,7 @@ export PATH=$PATH:/path/to/packer
       "type":      "yandex",
       "token":     "<OAuth token>",
       "folder_id": "<folder ID>",
-      "zone":      "ru-central1-a",
+      "zone":      "{{ region-id }}-a",
 
       "image_name":        "debian-9-nginx-not_var{{isotime | clean_resource_name}}",
       "image_family":      "debian-web-server",
@@ -89,6 +85,8 @@ export PATH=$PATH:/path/to/packer
 }
 
 ```
+
+
 
 ## Create an image {#create-image}
 

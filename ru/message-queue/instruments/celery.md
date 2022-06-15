@@ -18,7 +18,7 @@ $ pip install pycurl
 ```
 $ export AWS_ACCESS_KEY_ID="<идентификатор ключа доступа>"
 $ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
-$ export AWS_DEFAULT_REGION="ru-central1"
+$ export AWS_DEFAULT_REGION="{{ region-id }}"
 ```
 
 ## Подготовка к работе {#prepare}
@@ -34,21 +34,21 @@ $ export AWS_DEFAULT_REGION="ru-central1"
 
 Для запуска примера:
 
-1. Скопируйте пример в файл с названием `ymq_example.py`:
+1. Скопируйте пример в файл с названием `mq_example.py`:
 
    ```python
    from celery import Celery
    import logging
    import boto3
 
-   ENDPOINT = 'message-queue.api.cloud.yandex.net:443'
+   ENDPOINT = 'message-queue.{{ api-host }}:443'
 
    broker='sqs://{}'.format(ENDPOINT)
    broker_transport_options = {
        'is_secure': True,
    }
 
-   app = Celery('ymq_example', broker=broker)
+   app = Celery('mq_example', broker=broker)
    app.conf.broker_transport_options = broker_transport_options
 
    @app.task
@@ -59,19 +59,19 @@ $ export AWS_DEFAULT_REGION="ru-central1"
 
    if __name__ == '__main__':
        add.delay(2, 3)
-       print("Task scheduled, now run 'celery worker -A ymq_example' to execute it")
+       print("Task scheduled, now run 'celery worker -A mq_example' to execute it")
    ```
 
 1. Запустите обработчик задач следующей командой: 
    
    ```
-   $ celery worker -A ymq_example
+   $ celery worker -A mq_example
    ```
 
 1. Поставьте задачу в очередь задач следующей командой:
    
    ```
-   $ python ymq_example.py
+   $ python mq_example.py
    ```
 
 По умолчанию Celery создаёт очередь {{ message-queue-name }} с названием `celery` в каталоге, которому принадлежит сервисный аккаунт.

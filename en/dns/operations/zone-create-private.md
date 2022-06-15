@@ -104,7 +104,7 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
 
 
 
-      For more information about resources you can create with Terraform, see the [provider documentation]({{ tf-provider-link }}).
+      For more information about resources you can create with Terraform, see the [provider documentation]({{ tf-provider-link }}/).
 
 
    1. Run the check using the command:

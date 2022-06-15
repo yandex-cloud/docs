@@ -42,8 +42,8 @@
      |          ID          |    NAME    |    ZONE ID    | STATUS  |
      +----------------------+------------+---------------+---------+
      ...
-     | fhmajnpl7cvhl6v1s12i | test-vm-1  | ru-central1-a | RUNNING |
-     | fhmajv6f27n0a4a1sbml | test-vm-2  | ru-central1-a | RUNNING |
+     | fhmajnpl7cvhl6v1s12i | test-vm-1  | {{ region-id }}-a | RUNNING |
+     | fhmajv6f27n0a4a1sbml | test-vm-2  | {{ region-id }}-a | RUNNING |
      ...
      +----------------------+------------+---------------+---------+
      ```
@@ -68,7 +68,7 @@
   
      ```
      yc load-balancer target-group create \
-       --region-id ru-central1 \
+       --region-id {{ region-id }} \
        --name test-tg-1 \
        --target subnet-id=<идентификатор подсети>,address=<внутренний IP-адрес ресурса>
      ```
@@ -92,12 +92,13 @@
         * `subnet_id` — идентификатор подсети, к которой подключены целевые объекты. Все целевые объекты в целевой группе должны быть подключены к одной и той же подсети в пределах одной зоны доступности. Обязательный параметр.
         * `address` — внутренний IP-адрес ресурса. Обязательный параметр.
 
+     
      ```hcl
      provider "yandex" {
        token     = "<OAuth>"
        cloud_id  = "<идентификатор облака>"
        folder_id = "<идентификатор каталога>"
-       zone      = "ru-central1-a"
+       zone      = "{{ region-id }}-a"
      }
      
      resource "yandex_lb_target_group" "foo" {
@@ -115,6 +116,7 @@
      
      }
      ```
+
 
      Более подробную информацию о параметрах ресурса `yandex_lb_target_group` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/lb_target_group).
 

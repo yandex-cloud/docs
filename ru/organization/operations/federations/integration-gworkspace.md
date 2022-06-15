@@ -321,7 +321,7 @@
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d '@body.json' \
-          "https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/certificates"
+          "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
       ```
 
 {% endlist %}
@@ -476,7 +476,7 @@
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM-токен>" \
         -d '@body.json' \
-        https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
+        https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
       ```
 
 {% endlist %}

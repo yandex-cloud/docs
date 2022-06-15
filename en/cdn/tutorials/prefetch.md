@@ -25,17 +25,9 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 ## Before you start {#before-you-begin}
 
-Before creating a CDN resource:
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-1. Sign up for {{ yandex-cloud }} and create a billing account:
-
-   {% include [prepare-register-billing](../../_tutorials/_common/prepare-register-billing.md) %}
-
-1. On the [cloud page]({{ link-console-cloud }}), select the folder where your CDN resource will run, or [create a folder](../../resource-manager/operations/folder/create.md). Make sure that you perform all the actions under the use case in this folder.
-
-   [Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
-
-1. Make sure that you have a domain name and can access the DNS settings on the site of the company that provides DNS hosting to you. This is usually the company that registered your domain.
+Make sure that you have a domain name and can access the DNS settings on the site of the company that provides DNS hosting to you. This is usually the company that registered your domain.
 
 ### Required paid resources {#paid-resources}
 
@@ -113,6 +105,7 @@ Two buckets will be created in the use case: the first, `ycprojektblue-storage`,
      * `secret_key`: The value of the private access key.
      * `bucket`: The name of the created bucket (`ycprojektblue-storage`).
 
+     
      ```
      provider "yandex" {
        token     = "<OAuth>"
@@ -134,6 +127,7 @@ Two buckets will be created in the use case: the first, `ycprojektblue-storage`,
        bucket     = "ycprojektblue-logs"
      }
      ```
+
 
   1. Make sure that the configuration files are correct:
 

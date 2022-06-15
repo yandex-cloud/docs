@@ -53,34 +53,34 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
-   1. Under **Database**, specify the database attributes:
+1. Under **Database**, specify the database attributes:
 
-      * Database name. This name must be unique within the folder and contain only Latin letters, numbers, and underscores.
-      * Username of the database owner. This name may only contain Latin letters, numbers, and underscores. By default, the new user is assigned 50 connections to each host in the cluster.
-      * User password (from 8 to 128 characters).
-      * Locale for sorting and character set locale. These settings define the rules for sorting strings (`LC_COLLATE`) and classifying characters (`LC_CTYPE`). In {{ mpg-name }}, locale settings apply at the individual database level.
+   * Database name. This name must be unique within the folder and contain only Latin letters, numbers, and underscores.
+   * Username of the database owner. This name may only contain Latin letters, numbers, and underscores. By default, the new user is assigned 50 connections to each host in the cluster.
+   * User password (from 8 to 128 characters).
+   * Locale for sorting and character set locale. These settings define the rules for sorting strings (`LC_COLLATE`) and classifying characters (`LC_CTYPE`). In {{ mpg-name }}, locale settings apply at the individual database level.
 
-         {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
+      {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
-   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
-   1. Under **Hosts**, select the parameters for the database hosts created with the cluster. If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
+1. Under **Hosts**, select the parameters for the database hosts created with the cluster. If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
-      When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
+   When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
 
-   1. If necessary, configure additional cluster settings:
+1. If necessary, configure additional cluster settings:
 
-      {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
+   {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
 
-   1. If required, configure [DBMS cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings).
+1. If required, configure [DBMS cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings).
 
-      {% note info %}
+   {% note info %}
 
-      Some {{ PG }} settings [depend on the selected host class or storage size](../concepts/settings-list.md#settings-instance-dependent).
+   Some {{ PG }} settings [depend on the selected host class or storage size](../concepts/settings-list.md#settings-instance-dependent).
 
-      {% endnote %}
+   {% endnote %}
 
-   1. Click **Create cluster**.
+1. Click **Create cluster**.
 
 - CLI
 
@@ -138,7 +138,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
          * If the cluster has multiple hosts with the highest priority, the master host is elected from among them.
          * The lowest priority value is `0` (default) and the highest is `100`.
 
-       
+              
        To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the `--serverless-access` parameter. For more information about access setup, see the documentation for [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 - Terraform
@@ -159,6 +159,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       Example configuration file structure:
 
+      
       ```hcl
       terraform {
         required_providers {
@@ -225,6 +226,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       }
       ```
 
+
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       {% include [maintenance-window](../../_includes/mdb/mpg/terraform-maintenance-window.md) %}
@@ -254,7 +256,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
    * Security [group identifiers](../concepts/network.md#security-groups), in the `securityGroupIds` parameter.
    * Database configuration, in one or more `databaseSpecs` parameters.
    * User settings, in one or more `userSpecs` parameters.
-      
+            
    To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 {% endlist %}
@@ -283,7 +285,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the `default` network.
    * In the security group `{{ security-group }}`.
    * With one `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ zone-id }}` availability zone.
-   * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
+   * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.
    * With one `db1` database owned by the user `user1`.
    * With protection against accidental cluster deletion.
@@ -309,21 +311,22 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
    Let's say we need to create a {{ PG }} cluster and a network for it with the following characteristics:
-   - Named `mypg`.
-   - Version `{{ versions.tf.latest }}`.
-   - In the `PRESTABLE` environment.
-   - In the cloud with the ID `{{ tf-cloud-id }}`.
-   - In the folder with the ID `{{ tf-folder-id }}`.
-   - In the new `mynet` network.
-   - In the new security group `pgsql-sg` allowing connections to the cluster from the internet via port `6432`.
-   - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
-   - With 10 GB of SSD network storage (`{{ disk-type-example }}`).
-   - With one user, `user1`, with the password `user1user1`.
-   - With one `db1` database owned by the user `user1`.
-   - With protection against accidental cluster deletion.
+   * Named `mypg`.
+   * Version `{{ versions.tf.latest }}`.
+   * In the `PRESTABLE` environment.
+   * In the cloud with the ID `{{ tf-cloud-id }}`.
+   * In the folder with the ID `{{ tf-folder-id }}`.
+   * In the new `mynet` network.
+   * In the new security group `pgsql-sg` allowing connections to the cluster from the internet via port `6432`.
+   * With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
+   * With one user, `user1`, with the password `user1user1`.
+   * With one `db1` database owned by the user `user1`.
+   * With protection against accidental cluster deletion.
 
    The configuration file for the cluster looks like this:
 
+   
    ```hcl
    terraform {
      required_providers {
@@ -398,5 +401,6 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
    }
    ```
+
 
 {% endlist %}
