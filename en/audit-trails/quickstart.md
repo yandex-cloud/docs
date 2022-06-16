@@ -16,9 +16,9 @@ Follow these instructions to create a new trail that will upload audit logs of y
 1. Create a service account and assign the following roles to it:
    * `storage.uploader` for the folder to host the trail:
 
-      ```
-      yc resourcemanager folder add-access-binding --role storage.uploader --id <folder ID> --service-account-id <service account ID>
-      ```
+        ```
+        yc resource-manager folder add-access-binding --role storage.uploader --id <folder ID> --service-account-id <service account ID>
+        ```
 
    * `audit-trails.viewer` for the organization whose audit logs will be collected:
 

@@ -17,7 +17,7 @@
     * `storage.uploader` на каталог, в котором будет находиться трейл:
 
         ```
-        yc resourcemanager folder add-access-binding --role storage.uploader --id <идентификатор каталога> --service-account-id <идентификатор сервисного аккаунта>
+        yc resource-manager folder add-access-binding --role storage.uploader --id <идентификатор каталога> --service-account-id <идентификатор сервисного аккаунта>
         ```
 
     * `audit-trails.viewer` на организацию, с которой будут собираться аудитные логи:
