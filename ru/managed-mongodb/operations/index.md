@@ -14,6 +14,7 @@
 - [{#T}](cluster-users.md)
 - [{#T}](cluster-backups.md)
 - [{#T}](shards.md)
+- [{#T}](cluster-logs.md)
 - [{#T}](cluster-delete.md)
 - [{#T}](monitoring.md)
 - [{#T}](performance-diagnostics.md)

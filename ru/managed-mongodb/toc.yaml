@@ -38,6 +38,8 @@ items:
         href: operations/cluster-backups.md
       - name: Управление шардами
         href: operations/shards.md
+      - name: Просмотр логов кластера
+        href: operations/cluster-logs.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
       - name: Мониторинг состояния кластера и хостов

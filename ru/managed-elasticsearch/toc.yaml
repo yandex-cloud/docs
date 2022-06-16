@@ -34,6 +34,8 @@ items:
         href: operations/cluster-users.md
       - name: Управление резервными копиями
         href: operations/cluster-backups.md
+      - name: Просмотр логов кластера
+        href: operations/cluster-logs.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
       - name: Мониторинг состояния кластера и хостов
