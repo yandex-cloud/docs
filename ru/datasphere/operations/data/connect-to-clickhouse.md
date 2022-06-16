@@ -2,21 +2,19 @@
 
 В инфраструктуре {{ yandex-cloud }} разворачивать и поддерживать кластеры серверов [{{ CH }}](https://{{ ch-domain }}/) позволяет сервис {{ mch-short-name }}.
 
-Чтобы использовать хост кластера {{ mch-short-name }} в качестве источника данных для {{ ml-platform-name }}:
+## Перед началом {#before-begin}
 
 1. [Создайте](../../../managed-clickhouse/operations/cluster-create.md) новый кластер {{ mch-short-name }} c публичным доступом для хоста. Вы можете использовать существующий кластер, содержащий хосты в публичном доступе.
 1. [Настройте](../../../managed-clickhouse/operations/connect.md#configuring-security-groups) группы безопасности кластера.
+1. Откройте проект {{ ml-platform-name }}:
 
-## Перед началом {#before-begin}
+    {% list tabs %}
 
-Если проект уже открыт, откройте вкладку с ноутбуком.
+    - Консоль управления
 
-Если нет, откройте проект:
+      {% include [before-begin](../../../_includes/datasphere/before-begin.md) %}
 
-1. {% include [include](../../../_includes/datasphere/first-step.md) %}
-1. Перейдите во вкладку **Проекты**.
-1. Выберите проект, который хотите открыть и нажмите значок ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
-1. Выберите **Открыть** и дождитесь открытия проекта.
+    {% endlist %}
 
 ## Подключитесь к хосту {#connect-to-host}
 

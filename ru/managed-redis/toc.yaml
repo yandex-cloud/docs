@@ -35,6 +35,8 @@ items:
         href: operations/failover.md
       - name: Мониторинг состояния кластера и хостов
         href: operations/monitoring.md
+      - name: Просмотр логов кластера
+        href: operations/cluster-logs.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
   - name: Практические руководства

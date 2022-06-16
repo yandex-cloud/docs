@@ -19,7 +19,7 @@
     * `logging.writer` на каталог, в котором будет находиться трейл:
 
         ```
-        yc resourcemanager folder add-access-binding --role logging.writer --id <идентификатор каталога> --service-account-id <идентификатор сервисного аккаунта>
+        yc resource-manager folder add-access-binding --role logging.writer --id <идентификатор каталога> --service-account-id <идентификатор сервисного аккаунта>
         ```
 
 1. Убедитесь, что у пользователя есть роли:
@@ -37,13 +37,13 @@
     * `audit-trails.viewer` на облако:
 
         ```
-        yc resourcemanager cloud add-access-binding --role audit-trails.viewer --id <идентификатор облака> --service-account-id <идентификатор сервисного аккаунта>
+        yc resource-manager cloud add-access-binding --role audit-trails.viewer --id <идентификатор облака> --service-account-id <идентификатор сервисного аккаунта>
         ```
 
     * `logging.writer` на каталог, в котором будет находиться трейл:
 
         ```
-        yc resourcemanager folder add-access-binding --role logging.writer --id <идентификатор каталога> --service-account-id <идентификатор сервисного аккаунта>
+        yc resource-manager folder add-access-binding --role logging.writer --id <идентификатор каталога> --service-account-id <идентификатор сервисного аккаунта>
         ```
 
 1. Убедитесь, что у пользователя есть роли:

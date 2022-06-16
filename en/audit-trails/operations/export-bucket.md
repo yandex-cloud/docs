@@ -27,7 +27,7 @@ To collect organization audit logs:
    * `storage.uploader` for the folder to host the trail:
 
       ```
-      yc resourcemanager folder add-access-binding --role storage.uploader --id <folder ID> --service-account-id <service account ID>
+      yc resource-manager folder add-access-binding --role storage.uploader --id <folder ID> --service-account-id <service account ID>
       ```
 
    * `kms.keys.encrypterDecrypter` for the encryption key:
@@ -53,13 +53,13 @@ To collect audit logs of an individual cloud:
    * `audit-trails.viewer` for the cloud:
 
       ```
-      yc resourcemanager cloud add-access-binding --role audit-trails.viewer --id <cloud ID> --service-account-id <service account ID>
+      yc resource-manager cloud add-access-binding --role audit-trails.viewer --id <cloud ID> --service-account-id <service account ID>
       ```
 
    * `storage.uploader` for the folder to host the trail:
 
       ```
-      yc resourcemanager folder add-access-binding --role storage.uploader --id <folder ID> --service-account-id <service account ID>
+      yc resource-manager folder add-access-binding --role storage.uploader --id <folder ID> --service-account-id <service account ID>
       ```
 
    * `kms.keys.encrypterDecrypter` for the encryption key:

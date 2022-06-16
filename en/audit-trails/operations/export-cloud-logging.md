@@ -19,7 +19,7 @@ To export organization audit logs:
    * `logging.writer` for the folder to host the trail:
 
       ```
-      yc resourcemanager folder add-access-binding --role logging.writer --id <folder ID> --service-account-id <service account ID>
+      yc resource-manager folder add-access-binding --role logging.writer --id <folder ID> --service-account-id <service account ID>
       ```
 
 1. Make sure that the user has the following roles:
@@ -37,13 +37,13 @@ To export audit logs of an individual cloud:
    * `audit-trails.viewer` for the cloud:
 
       ```
-      yc resourcemanager cloud add-access-binding --role audit-trails.viewer --id <cloud ID> --service-account-id <service account ID>
+      yc resource-manager cloud add-access-binding --role audit-trails.viewer --id <cloud ID> --service-account-id <service account ID>
       ```
 
    * `logging.writer` for the folder to host the trail:
 
       ```
-      yc resourcemanager folder add-access-binding --role logging.writer --id <folder ID> --service-account-id <service account ID>
+      yc resource-manager folder add-access-binding --role logging.writer --id <folder ID> --service-account-id <service account ID>
       ```
 
 1. Make sure that the user has the following roles:
