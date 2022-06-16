@@ -27,7 +27,7 @@
     * `storage.uploader` на каталог, в котором будет находиться трейл:
 
         ```
-        yc resourcemanager folder add-access-binding --role storage.uploader --id <идентификатор каталога> --service-account-id <идентификатор сервисного аккаунта>
+        yc resource-manager folder add-access-binding --role storage.uploader --id <идентификатор каталога> --service-account-id <идентификатор сервисного аккаунта>
         ```
 
     * `kms.keys.encrypterDecrypter` на ключ шифрования:
@@ -53,13 +53,13 @@
     * `audit-trails.viewer` на облако:
 
         ```
-        yc resourcemanager cloud add-access-binding --role audit-trails.viewer --id <идентификатор облака> --service-account-id <идентификатор сервисного аккаунта>
+        yc resource-manager cloud add-access-binding --role audit-trails.viewer --id <идентификатор облака> --service-account-id <идентификатор сервисного аккаунта>
         ```
 
     * `storage.uploader` на каталог, в котором будет находиться трейл:
 
         ```
-        yc resourcemanager folder add-access-binding --role storage.uploader --id <идентификатор каталога> --service-account-id <идентификатор сервисного аккаунта>
+        yc resource-manager folder add-access-binding --role storage.uploader --id <идентификатор каталога> --service-account-id <идентификатор сервисного аккаунта>
         ```
 
     * `kms.keys.encrypterDecrypter` на ключ шифрования:

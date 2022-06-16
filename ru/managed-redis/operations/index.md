@@ -11,4 +11,5 @@
 - [{#T}](cluster-backups.md)
 - [{#T}](failover.md)
 - [{#T}](monitoring.md)
+- [{#T}](cluster-logs.md)
 - [{#T}](cluster-delete.md)

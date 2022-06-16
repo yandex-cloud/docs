@@ -13,5 +13,6 @@
 - [{#T}](cluster-extensions.md)
 - [{#T}](cluster-users.md)
 - [{#T}](cluster-backups.md)
+- [{#T}](cluster-logs.md)
 - [{#T}](cluster-delete.md)
 - [{#T}](monitoring.md)

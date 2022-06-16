@@ -24,55 +24,10 @@
     1. Выполните шаги, указанные в примере.
     1. Выполните ячейку. Для этого нажмите значок ![Run](../../../_assets/datasphere/jupyterlab/run.svg).
 
-### Примеры кода для загрузки данных из разных источников {#code}
+#### См. также {#see-also}
 
-Для выполнения примеров кода вам потребуется ID приложения и secret. 
-Чтобы их получить:
-1. Перейдите по ссылке: `https://oauth.yandex.ru/client/new`.
-1. Заполните поле **Название приложения**.
-1. В блоке **Платформы** выберите **Веб-сервисы**.
-1. В появившемся поле **Callback URI #1** укажите `https://oauth.yandex.ru/verification_code`.
-1. В блоке **Доступы** отметьте доступы для Яндекс.Диска.
-
-**Загрузка содержимого удаленного файла в локальный файл**
-
-```
-from cloud_ml.storage.api import Storage
-
-disk = Storage.ya_disk(application_id='ID', application_secret='secret')
-
-disk.get('path/to/file/within/ya/disk/file.txt', 'path/to/file.txt')
-```
-
-**Загрузка содержимого удаленного каталога в локальный файл**
-
-```
-from cloud_ml.storage.api import Storage
-
-disk = Storage.ya_disk(application_id='ID', application_secret='secret')
-
-disk.get_dir('path/to/dir/within/ya/disk', 'path/to/dir')
-```
-
-**Загрузка содержимого локального файла в удаленный файл**
-
-```
-from cloud_ml.storage.api import Storage
-
-disk = Storage.ya_disk(application_id='ID', application_secret='secret')
-
-disk.put('path/to/file.txt', 'path/to/file/within/ya/disk/file.txt')
-```
-
-**Загрузка содержимого локального каталога в удаленный каталог**
-
-```
-from cloud_ml.storage.api import Storage
-
-disk = Storage.ya_disk(application_id='ID', application_secret='secret')
-
-disk.put_dir('path/to/dir', 'path/to/dir/within/ya/disk')
-```
+* [{#T}](../data/connect-to-ya-disk.md)
+* [{#T}](../data/connect-to-google-drive.md)
 
 #### Что дальше {#what-is-next}
 

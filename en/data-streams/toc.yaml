@@ -53,6 +53,8 @@ items:
         href: concepts/index.md
       - name: Terms and definitions
         href: concepts/glossary.md
+      - name: Partitions and partition keys
+        href: concepts/partition-keys.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Practical guidelines
