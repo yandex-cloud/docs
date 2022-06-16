@@ -6,7 +6,9 @@ items:
     href: quickstart.md
   - name: Концепции
     items:
-      - name: Безопасность в GitLab
+      - name: Взаимосвязь ресурсов сервиса
+        href: concepts/index.md
+      - name: Безопасность в {{ GL }}
         href: concepts/security.md
       - name: Квоты и лимиты
         href: concepts/limits.md
