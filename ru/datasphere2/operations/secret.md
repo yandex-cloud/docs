@@ -23,7 +23,7 @@
    ```python
    import os
    os.environ # список всех переменных окружения
-   os.environ[‘SECRET_NAME’] # секрет SECRET_NAME из переменных окружения
+   os.environ['SECRET_NAME'] # секрет SECRET_NAME из переменных окружения
    ```
 
 - bash

@@ -8,13 +8,7 @@
 1. [Настройте](../../../managed-clickhouse/operations/connect.md#configuring-security-groups) группы безопасности кластера.
 1. Откройте проект {{ ml-platform-name }}:
 
-    {% list tabs %}
-
-    - Консоль управления
-
-      {% include [before-begin](../../../_includes/datasphere/before-begin.md) %}
-
-    {% endlist %}
+    {% include [before-begin](../../../_includes/datasphere2/before-begin.md) %}
 
 ## Подключитесь к хосту {#connect-to-host}
 
@@ -25,7 +19,7 @@
     ```bash
     #!:bash
     mkdir ~/.clickhouse-client
-    wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.clickhouse-client/root.crt && \
+    wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.clickhouse-client/root.crt && \
     chmod 0600 ~/.clickhouse-client/root.crt
     ```
 

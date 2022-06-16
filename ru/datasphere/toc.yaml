@@ -61,6 +61,10 @@ items:
             href: operations/data/connect-to-postgresql.md
           - name: Подключение к хранилищу S3
             href: operations/data/connect-to-s3.md
+          - name: Подключение к Яндекс Диску
+            href: operations/data/connect-to-ya-disk.md
+          - name: Подключение к Google Drive
+            href: operations/data/connect-to-google-drive.md
       - name: Настройка интеграции с Data Proc
         href: operations/data-proc-integration.md
         when: product == "yandex-cloud"

@@ -8,13 +8,7 @@
 1. [Настройте](../../../managed-postgresql/operations/connect.md#configuring-security-groups) группы безопасности кластера.
 1. Откройте проект {{ ml-platform-name }}:
 
-    {% list tabs %}
-
-    - Консоль управления
-
-      {% include [before-begin](../../../_includes/datasphere/before-begin.md) %}
-
-    {% endlist %}
+    {% include [before-begin](../../../_includes/datasphere2/before-begin.md) %}
 
 ## Подключитесь к хосту {#connect-to-host}
 
@@ -25,7 +19,7 @@
     ```bash
     #!:bash
     mkdir ~/.postgresql
-    wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt && \
+    wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/root.crt && \
     chmod 0600 ~/.postgresql/root.crt
     ```
 
