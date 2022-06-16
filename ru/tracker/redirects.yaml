@@ -1,0 +1,5 @@
+common:
+    - from: /user/filters.md
+      to: /user/search-task.md
+    - from: /user/wiki-markup.md
+      to: /user/markup.md
