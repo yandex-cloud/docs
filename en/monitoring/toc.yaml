@@ -15,7 +15,7 @@ items:
             href: operations/unified-agent/pull_prometheus.md
           - name: Delivering metrics from HAProxy and other third-party applications
             href: operations/unified-agent/haproxy.md
-          - name: Delivering metrics from hosts outside Yandex Cloud
+          - name: Delivering metrics from hosts outside {{ yandex-cloud }}
             href: operations/unified-agent/non-yc.md
           - name: Writing custom metrics via the API
             href: operations/metric/add.md

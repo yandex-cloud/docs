@@ -73,7 +73,7 @@ C помощью {{ sf-full-name }} можно настроить оповеще
 
 Дополнительные опции генерации событий возможно реализовать с помощью утилиты Auditd для Linux, Sysmon для Windows.
 
-Системные метрики Linux (процессор, память, диск) можно собирать с помощью компонента [Unified Agent](../../monitoring/concepts/data-collection/unified-agent/index.md) сервиса {{ monitoring-name }}.
+Системные метрики Linux (процессор, память, диск) можно собирать с помощью компонента [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md) сервиса {{ monitoring-name }}.
 
 Также события ОС возможно экспортировать в {{ cloud-logging-name }} с  помощью [плагина Fluent bit](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 

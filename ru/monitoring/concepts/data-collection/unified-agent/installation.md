@@ -1,4 +1,4 @@
-# Установка и запуск Yandex Unified Agent
+# Установка и запуск {{ unified-agent-full-name }}
 
 ## Список поддерживаемых операционных систем { #supported-os }
 
@@ -140,7 +140,7 @@
 
 {% endlist %}
 
-## Параметры запуска Docker-контейнера с Unified Agent { #configure-docker }
+## Параметры запуска Docker-контейнера с {{ unified-agent-short-name }} { #configure-docker }
 
 Если вы устанавливаете {{unified-agent-short-name}} при помощи Docker, вы можете сконфигурировать агент с помощью переменных окружения. Так вам не потребуется редактировать файл конфигурации, расположенный в `/etc/yandex/unified_agent/config.yml`. Список переменных окружения перечислен в таблице ниже.
 
@@ -155,6 +155,6 @@
 
 #### Что дальше {#what-is-next}
 
-- [Изучите концепции Unified Agent](./index.md)
-- [Узнайте подробнее о конфигурировании Unified Agent](./configuration.md)
-- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](./best-practices.md)
+- [Изучите концепции {{ unified-agent-short-name }}](./index.md)
+- [Узнайте подробнее о конфигурировании {{ unified-agent-short-name }}](./configuration.md)
+- [Ознакомьтесь с рекомендациями по эксплуатации {{ unified-agent-short-name }}](./best-practices.md)

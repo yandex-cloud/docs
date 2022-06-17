@@ -93,6 +93,8 @@ NVIDIA® Tesla® T4, построенная на базе архитектуры
 
 ## Виртуальные графические ускорители (vGPU) {#vgpu}
 
+{% include [vgpu-to-standard](../../_includes/compute/vgpu-to-standard.md) %}
+
 {{ compute-name }} предоставляет возможность виртуализации графических ускорителей (GPU). Виртуализация машин с GPU основана на технологии [NVIDIA® vGPU](https://www.nvidia.com/ru-ru/data-center/virtualization/).
 
 Технология NVIDIA® vGPU позволяет использовать карты с GPU как для решения графических, так и для вычислительных задач на vGPU. Для этого вам понадобятся соответствующие [лицензии](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf).

@@ -1,4 +1,4 @@
-# Installing and running Yandex Unified Agent
+# Installing and running {{ unified-agent-full-name }}
 
 ## List of supported operating systems {#supported-os}
 
@@ -140,7 +140,7 @@ Install {{unified-agent-short-name}} using one of the following methods:
 
 {% endlist %}
 
-## Parameters for launching a Docker container with Unified Agent {#configure-docker}
+## Parameters for launching a Docker container with {{ unified-agent-short-name }} {#configure-docker}
 
 If you install {{unified-agent-short-name}} using Docker, you can configure the agent using environment variables. In that case, you won't need to edit the configuration file located at `/etc/yandex/unified_agent/config.yml`. The environment variables are listed in the table below.
 
@@ -155,6 +155,6 @@ If you install {{unified-agent-short-name}} using Docker, you can configure the 
 
 #### What's next {#what-is-next}
 
-- [Review Unified Agent concepts](./index.md)
-- [Learn more about configuring Unified Agent](./configuration.md)
-- [Read the Unified Agent operating instructions](./best-practices.md)
+- [Review {{ unified-agent-short-name }} concepts](./index.md)
+- [Learn more about configuring {{ unified-agent-short-name }}](./configuration.md)
+- [Read the {{ unified-agent-short-name }} operating instructions](./best-practices.md)

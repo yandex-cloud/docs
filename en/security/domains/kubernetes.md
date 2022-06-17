@@ -178,16 +178,16 @@ At the Kubernetes etcd level, encrypt secrets using an in-built [mechanism from 
 We recommend that you use SecretManager solutions to work with Kubernetes secrets. [{{ lockbox-name }}](../../lockbox/index.yaml) is such a solution in {{ yandex-cloud }}.
 
 
-{{ lockbox-name }} was integrated with Kubernetes using the [External Secrets](https://external-secrets.io/) open-source project. The solution is available in [{{ marketplace-name }} for Kubernetes](/marketplace/products/yc/external-secrets) in the basic simplified scenario.
+{{ lockbox-name }} was integrated with Kubernetes using the [External Secrets](https://external-secrets.io/latest/) open-source project. The solution is available in [{{ marketplace-name }} for Kubernetes](/marketplace/products/yc/external-secrets) in the basic simplified scenario.
 
 Useful instructions on working with External Secrets:
 
-* [Instructions](https://external-secrets.io/provider-yandex-lockbox/) to work with External Secrets and {{ lockbox-name }} from the project description.
+* [Instructions](https://external-secrets.io/latest/provider-yandex-lockbox/) to work with External Secrets and {{ lockbox-name }} from the project description.
 * [Instructions](../../lockbox/tutorials/kubernetes-lockbox-secrets.md) to work with External Secrets and {{ lockbox-name }} from the {{ yandex-cloud }} documentation.
 
-Many methods to differentiate access to secrets using this tool have been [described](https://external-secrets.io/guides-multi-tenancy/#eso-as-a-service).
+Many methods to differentiate access to secrets using this tool have been [described](https://external-secrets.io/latest/guides-multi-tenancy/#eso-as-a-service).
 
-The most secure recommended option for encrypting secrets is ESO as a Service (External Secrets Operator as a service). In this case, the global administrator has access to the namespace where ESO is installed, and administrators of specific namespaces create their respective [`SecretStore`](https://external-secrets.io/api-secretstore/) objects (where they specify {{ iam-short-name }} authorized access keys for their {{ lockbox-short-name }} secrets). If this `SecretStore` object is compromised, only the authorized key of one specific namespace is compromised (rather than all of them, as in the case of Shared ClusterSecretStore).
+The most secure recommended option for encrypting secrets is ESO as a Service (External Secrets Operator as a service). In this case, the global administrator has access to the namespace where ESO is installed, and administrators of specific namespaces create their respective [`SecretStore`](https://external-secrets.io/latest/api-secretstore/) objects (where they specify {{ iam-short-name }} authorized access keys for their {{ lockbox-short-name }} secrets). If this `SecretStore` object is compromised, only the authorized key of one specific namespace is compromised (rather than all of them, as in the case of Shared ClusterSecretStore).
 ### Encryption in transit {#encryption-in-transist}
 
 For in-transit encryption, use TLS interaction between pods. If you can't use TLS interaction, use service mesh solutions:
