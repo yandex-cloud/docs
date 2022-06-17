@@ -387,6 +387,7 @@ items:
 - name: Инструменты разработчика
   items:
     - name: Плагин для  IDE
+      when: audience == "internal"
       href: idea-plugin.md
     - name: API
       href: user/API.md
