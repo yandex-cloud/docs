@@ -18,13 +18,13 @@ items:
             href: tutorials/pyspark-job-basics.md
           - name: Работа с заданиями Spark
             href: tutorials/spark-job-basics.md
-          - name: Использование Apache Hive
+          - name: Запуск заданий Apache Hive
             href: tutorials/how-to-use-hive.md
           - name: Запуск Spark-приложений
             href: tutorials/run-spark-job.md
-          - name: Запуск приложений с удаленного хоста
+          - name: Запуск заданий с удаленного хоста
             href: tutorials/remote-run-job.md
-      - name: Настройка сети для кластеров Data Proc
+      - name: Настройка сети для Data Proc
         href: tutorials/configure-network.md
       - name: Использование {{ objstorage-full-name }} в {{ dataproc-name }}
         href: tutorials/copy-files-from-object-storage.md
@@ -48,10 +48,10 @@ items:
         href: operations/connect.md
       - name: Изменение кластера
         href: operations/cluster-update.md
-      - name: Изменение подкластера
-        href: operations/subcluster-update.md
       - name: Управление подкластерами
         href: operations/subclusters.md
+      - name: Изменение подкластера
+        href: operations/subcluster-update.md
       - name: Подключение к интерфейсам компонентов
         href: operations/connect-interfaces.md
       - name: Использование Sqoop
@@ -77,7 +77,7 @@ items:
         href: operations/monitoring.md
   - name: Концепции
     items:
-      - name: Обзор Data Proc
+      - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
       - name: Классы хостов
         href: concepts/instance-types.md
