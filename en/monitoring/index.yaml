@@ -40,6 +40,11 @@ links:
   - title: Agent for delivering metrics
     description: Set up delivery of system metrics or application metrics via Yandex Unified Agent
     href: concepts/data-collection/unified-agent/
+    when: product == "yandex-cloud"
+  - title: Agent for delivering metrics
+    description: Set up delivery of system metrics or application metrics via Unified Agent
+    href: concepts/data-collection/unified-agent/
+    when: product == "cloud-il"
   - title: Query language
     description: Description of query language for converting metrics
     href: concepts/querying

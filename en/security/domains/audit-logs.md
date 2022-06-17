@@ -84,7 +84,7 @@ When using IaaS cloud services and Kubernetes node groups, the customer is respo
 
 Additional event generation options can be implemented using Auditd for Linux or Sysmon for Windows.
 
-{% if audience != "internal" %} You can collect Linux system metrics (CPU, RAM, and disk space usage) with {{ monitoring-name }} [Unified Agent](../../monitoring/concepts/data-collection/unified-agent/index.md). {% endif %}
+{% if audience != "internal" %} You can collect Linux system metrics (CPU, RAM, and disk space usage) with {{ monitoring-name }} [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md). {% endif %}
 
 {% if product == "yandex-cloud" %}
 You can also export OS events to {{ cloud-logging-name }} using a [Fluent Bit plugin](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).

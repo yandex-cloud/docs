@@ -115,6 +115,6 @@ To configure {{unified-agent-full-name}} to deliver metrics using an authorized 
 
 #### What's next {#what-is-next}
 
-- [Review Unified Agent concepts](../../concepts/data-collection/unified-agent/index.md)
-- [Learn more about configuring Unified Agent](../../concepts/data-collection/unified-agent/configuration.md)
-- [Read the Unified Agent operating instructions](../../concepts/data-collection/unified-agent/best-practices.md)
+- [Review {{ unified-agent-short-name }} concepts](../../concepts/data-collection/unified-agent/index.md)
+- [Learn more about configuring {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/configuration.md)
+- [Read the {{ unified-agent-short-name }} operating instructions](../../concepts/data-collection/unified-agent/best-practices.md)

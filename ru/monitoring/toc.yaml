@@ -19,7 +19,7 @@ items:
             href: operations/unified-agent/pull_prometheus.md
           - name: Поставка метрик HAProxy и других сторонних приложений
             href: operations/unified-agent/haproxy.md
-          - name: Поставка метрик с хостов вне Yandex Cloud
+          - name: Поставка метрик с хостов вне {{ yandex-cloud }}
             href: operations/unified-agent/non-yc.md
           - name: Запись пользовательских метрик через API
             href: operations/metric/add.md
