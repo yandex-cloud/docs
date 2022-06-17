@@ -59,7 +59,7 @@ The internal load balancer's listener is assigned a random IP address from the r
       * `listener`: The listener parameters.
          * `name`: The name of the listener.
          * `port`: The port to receive traffic.
-         * `intenal_address_spec`: The specification of the internal load balancer's listener.
+         * `internal_address_spec`: The specification of the internal load balancer's listener.
             * `address`: Internal IP address from the range of the selected subnet.
             * `subnet_id`: The subnet..
 
