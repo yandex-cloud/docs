@@ -19,11 +19,11 @@ meta:
   - text: Security in CloudIL
     when: product == "cloud-il"
 links:
-  - title: Division of responsibility
+  - title: Shared responsibility
     description: ''
     href: respons
     when: product == "yandex-cloud"
-  - title: Division of responsibility
+  - title: Shared responsibility
     description: ''
     href: respons.html
     when: product == "cloud-il"
