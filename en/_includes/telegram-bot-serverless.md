@@ -239,10 +239,26 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
 
   1. Click **Save**.
   1. Run the request replacing `<bot token>` with that of the Telegram bot and the `<API gateway domain>` with the API gateway service domain:
-      ```bash
-      curl --request POST --url https://api.telegram.org/bot<bot token>/setWebhook \
-      --header 'content-type: application/json' --data '{"url": "<API gateway domain>/fshtb-function"}'
-      ```
+      * Linux, macOS:
+
+        ```bash
+        curl --request POST --url https://api.telegram.org/bot<bot token>/setWebhook \
+          --header 'content-type: application/json' --data '{"url": "<API gateway domain>/fshtb-function"}'
+        ```
+    
+      * Windows (cmd):
+
+        ```bash
+        curl --request POST --url https://api.telegram.org/bot<bot token>/setWebhook ^
+          --header "content-type: application/json" --data "{\"url\": \"<API gateway domain>/fshtb-function\"}"
+        ```
+
+      * Windows (PowerShell):
+      
+        ```powershell
+        curl.exe --request POST --url https://api.telegram.org/bot<bot token>/setWebhook `
+          --header '"content-type: application/json"' --data '"{ \"url\": \"<API gateway domain>/fshtb-function\" }"'
+        ```
 
       Result:
 
