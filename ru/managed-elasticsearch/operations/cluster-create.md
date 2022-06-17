@@ -20,6 +20,12 @@ keywords:
 
 ## Создать кластер {#create-cluster}
 
+{% note info %}
+
+С 13 июня 2022 года прекращена поддержка [редакции](../concepts/es-editions.md) `Gold` в кластерах {{ mes-name}}. Создать новый кластер с этой редакцией невозможно.
+
+{% endnote %}
+
 При создании кластера отдельно указываются параметры для хостов, выполняющих роль _Master node_, и отдельно — для хостов, выполняющих роль _Data node_.
 
 Допускается использовать только хосты с ролью _Data node_ и не создавать выделенные хосты для роли _Master node_: в этом случае хосты с ролью _Data node_ будут совмещать две роли.
@@ -150,7 +156,7 @@ keywords:
           --masternode-disk-type <тип хранилища для хостов с ролью Master node> \
           --security-group-ids <список идентификаторов групп безопасности> \
           --version <версия {{ ES }}: {{ versions.cli.str }}> \
-          --edition <редакция {{ ES }}: basic, gold или platinum> \
+          --edition <редакция {{ ES }}: basic или platinum> \
           --admin-password <пароль пользователя admin> \
           --plugins=<имя плагина 1>,...,<имя плагина N> \
           --deletion-protection=<защита от удаления кластера: true или false>
@@ -207,7 +213,7 @@ keywords:
 
           config {
             version = "<(необязательно) версия {{ ES }}: {{ versions.tf.str }}>"
-            edition = "<(необязательно) редакция {{ ES }}: basic, gold или platinum>"
+            edition = "<(необязательно) редакция {{ ES }}: basic или platinum>"
 
             admin_password = "<пароль пользователя-администратора>"
 

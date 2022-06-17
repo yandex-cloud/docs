@@ -4,7 +4,7 @@
 
 {% list tabs %}
 
-- BASIC
+- Basic
    
    | Ресурс        | Цена за 1 час                                               |
    | ----- | ----- |
@@ -26,7 +26,7 @@
    | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.basic|string }} | 7,3800 ₸ (-6%)                                                             | 7,1400 ₸ (-9%)                                                             |
    {% endif %}
 
-- GOLD
+- Gold
 
    | Ресурс        | Цена за 1 час                                              |
    | ----- | ----- |
@@ -48,7 +48,7 @@
    | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.elasticsearch.v3.ram.gold|string }} | 8,7000 ₸ (-6%)                                                             | 8,4000 ₸ (-9%)                                                             |
    {% endif %}
 
-- PLATINUM
+- Platinum
 
    | Ресурс        | Цена за 1 час                                                  |
    | ----- | ----- |

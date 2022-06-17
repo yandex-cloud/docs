@@ -4,7 +4,7 @@ The cost for computing resources depends on the selected {{ ES }} edition.
 
 {% list tabs %}
 
-- BASIC
+- Basic
 
    | Resource       | Cost for 1 hour                                             |
    |----------------|-------------------------------------------------------------|
@@ -26,7 +26,7 @@ The cost for computing resources depends on the selected {{ ES }} edition.
    | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.elasticsearch.v3.ram.basic|string }} | $0.015769 (-6%)                                                            | $0.015256 (-9%)                                                            |
    {% endif %}
 
-- GOLD
+- Gold
 
    | Resource         | Cost for 1 hour                                            |
    |------------------|------------------------------------------------------------|
@@ -48,7 +48,7 @@ The cost for computing resources depends on the selected {{ ES }} edition.
    | RAM (for 1 GB)   | {{ sku|USD|mdb.cluster.elasticsearch.v3.ram.gold|string }} | $0.018590 (-6%)                                                            | $0.017949 (-9%)                                                            |
    {% endif %}
 
-- PLATINUM
+- Platinum
    
    | Resource       | Cost for 1 hour                                                |
    |----------------|----------------------------------------------------------------|

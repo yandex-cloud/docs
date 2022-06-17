@@ -4,7 +4,7 @@
 
 {% list tabs %}
 
-- BASIC
+- Basic
 
    | Ресурс        | Цена за 1 час                                               |
    | ----- | ----- |
@@ -28,7 +28,7 @@
    
    {% endif %}
    
-- GOLD
+- Gold
 
    | Ресурс        | Цена за 1 час                                              |
    | ----- | ----- |
@@ -50,7 +50,7 @@
    | RAM (за 1 ГБ) | {{ sku|RUB|mdb.cluster.elasticsearch.v3.ram.gold|string }} | 1,4500 ₽ (-6%)                                                             | 1,4000 ₽ (-9%)                                                             |
    {% endif %}
 
-- PLATINUM
+- Platinum
 
    | Ресурс        | Цена за 1 час                                                  |
    | ----- | ----- |
