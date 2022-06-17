@@ -22,7 +22,7 @@ items:
         href: operations/pin-card.md
       - name: Unlink a card
         href: operations/unlink-card.md
-      - name: Link a new cloud
+      - name: Link a cloud to a billing account
         href: operations/pin-cloud.md
       - name: Change the payment method
         href: operations/change-payment-method.md

@@ -7,7 +7,7 @@ description:
 meta:
   title: Security in Yandex Cloud
 links:
-  - title: Division of responsibility
+  - title: Shared responsibility
     description: ''
     href: respons
   - title: Compliance

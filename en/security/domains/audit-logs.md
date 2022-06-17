@@ -30,14 +30,17 @@ To collect metrics, analyze {{ yandex-cloud }}-level events, and set up notifica
 
 You can also use {{ monitoring-name }} to monitor the health of the {{ at-name }} service itself and track security events.
 
+
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: Monitoring Audit Trails and security events using {{ monitoring-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trail_monitoring)
 You can export audit logs to a log group in [{{ cloud-logging-name }}](../../logging/index.yaml) andto [a customer's SIEM system](#export) to analyze information about events and incidents.
+
 
 List of important {{ yandex-cloud }}-level events for search in audit logs:
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: Searching for important security events in audit logs](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/_use_cases_and_searches)
 ### Exporting events to SIEM {#export}
 
 #### Audit Trails {#export-at}
+
 
 Solutions for exporting {{ yandex-cloud }} audit logs are available for the following SIEM systems:
 
@@ -74,7 +77,8 @@ When using IaaS cloud services and Kubernetes node groups, the customer is respo
 
 Additional event generation options can be implemented using Auditd for Linux or Sysmon for Windows.
 
-You can collect Linux system metrics (CPU, RAM, and disk space usage) with {{ monitoring-name }} [Unified Agent](../../monitoring/concepts/data-collection/unified-agent/index.md).
+You can collect Linux system metrics (CPU, RAM, and disk space usage) with {{ monitoring-name }} [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md).
+
 
 You can also export OS events to {{ cloud-logging-name }} using a [Fluent Bit plugin](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 
