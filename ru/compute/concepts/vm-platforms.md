@@ -24,6 +24,8 @@ AMD EPYC™</br>with NVIDIA® Ampere® A100</br>(`gpu-standard-v3`) | [NVIDIA® 
 
 ## Платформы с vGPU {#vgpu-platforms}
 
+{% include [vgpu-to-standard](../../_includes/compute/vgpu-to-standard.md) %}
+
 Платформа | Графический</br>ускоритель | Процессор | Характеристики |
 --- | --- | --- | --- 
 Intel Broadwell with</br>NVIDIA® vGPU Tesla® V100 8G</br>(`vgpu-standard-v1`) | [NVIDIA® Tesla® V100](https://www.nvidia.com/ru-ru/data-center/tesla-v100/) | [Intel Xeon</br>Processor E5-2660 v4](https://ark.intel.com/content/www/ru/ru/ark/products/91772/intel-xeon-processor-e5-2660-v4-35m-cache-2-00-ghz.html) | **Кол-во vGPU**: 1</br>**Кол-во vCPU**: 4</br>**Объем RAM**: 12 ГБ</br>**Объем GPU RAM**: 8 ГБ
