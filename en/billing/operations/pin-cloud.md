@@ -1,15 +1,23 @@
-# Link a new cloud
+# Link a cloud to a billing account
 
 {% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}
 
-To link a cloud to a billing account, the user must have the following roles:
+## Requirements for linking a cloud
 
-- [resource-manager.clouds.owner](../../iam/concepts/access-control/roles.md#owner) in the cloud.
-- `billing.accounts.owner` or `editor` in the billing account. Read more about roles in [Access management](../security/index.md#role-list).
+Before linking a cloud, make sure that the billing account has been activated (the `ACTIVE` or `TRIAL_ACTIVE` status) and that the user has the following roles:
+* [resource-manager.clouds.owner](../../iam/concepts/access-control/roles.md#owner) in the cloud.
+* `billing.accounts.owner` or `editor` in the billing account. Read more about roles in [Access management](../security/index.md#role-list).
 
-To link a new cloud:
+{% note info %}
 
-1. In [management console]({{ link-console-billing }}), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+If the billing account status is `SUSPENDED`, then the cloud status automatically switches to `SUSPENDED` when linked.
+
+{% endnote %}
+
+## Linking a cloud
+
+To link a cloud or transfer an existing one:
+1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
 
 1. Select an account from the list.
 
@@ -19,13 +27,10 @@ To link a new cloud:
 
 1. Select a cloud from the list.
 
-1. Click **Link**.
+1. Click **Link** and the added cloud will appear on the list.
 
-   The cloud appears in the list.
+1. If you transferred a cloud, pay any outstanding charges on the old account.
 
-{% note info %}
 
-If the billing account status is `SUSPENDED`, then the cloud status automatically switches to `SUSPENDED` when linked.
 
-{% endnote %}
 
