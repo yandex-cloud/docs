@@ -1,8 +1,8 @@
 # Encrypting data using the {% if product == "yandex-cloud" %}{{ yandex-cloud }} {% endif %}SDK
 
-You can use {{ kms-name }} with the Yandex Cloud SDK. The SDK is available for [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk), and [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
+You can use {{ kms-name }} with the {% if product == "yandex-cloud" %}{{ yandex-cloud }} {% endif %} SDK. The SDK is available for [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk), and [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
 
-The Yandex Cloud SDK is most convenient for encrypting small amounts of data (the limit on the size of plaintext is 32 KB). To encrypt larger amounts of data, we recommend using the [AWS Encryption SDK](aws-encryption-sdk.md) or [Google Tink](google-tink.md). They encrypt data using [envelope encryption](../../concepts/envelope.md).
+The {% if product == "yandex-cloud" %}{{ yandex-cloud }} {% endif %} SDK is most convenient for encrypting small amounts of data (the limit on the size of plaintext is 32 KB). To encrypt larger amounts of data, we recommend using the [AWS Encryption SDK](aws-encryption-sdk.md) or [Google Tink](google-tink.md). They encrypt data using [envelope encryption](../../concepts/envelope.md).
 
 ## Adding dependencies {#dependency}
 
