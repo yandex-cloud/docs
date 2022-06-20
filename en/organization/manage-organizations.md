@@ -1,10 +1,14 @@
 # Switching to another organization
 
+{% if product == "cloud-il" %}
+
 {% note info %}
 
-   At the [Preview](../overview/concepts/launch-stages.md) stage, there is a limitation: only 1 organization and 1 cloud is available.
+At the [Preview](../overview/concepts/launch-stages.md) stage, there is a limitation: only 1 organization and 1 cloud is available.
 
 {% endnote %}
+
+{% endif %}
 
 If you are an administrator or user of multiple organizations, you can switch between them:
 
