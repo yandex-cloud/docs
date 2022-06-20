@@ -111,3 +111,5 @@ The Owner collects personal data from data subjects themselves.
 The Owner may change this Privacy Policy from time to time at its sole discretion. If so, the Owner notifies the data subjects about these changes by an appropriate method.
 
 Date of publication: 14.06.2022
+
+Web address: [https://cloudil.co.il/docs/legal/privacy](https://cloudil.co.il/docs/legal/privacy)

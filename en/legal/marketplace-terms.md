@@ -83,3 +83,5 @@ Software Product Owner/Owner
 : means a legal entity that holds the rights to Software Product offered on Marketplace.
 
 Date of publication: 14.06.2022
+
+Web address: [https://cloudil.co.il/docs/legal/marketplace-terms](https://cloudil.co.il/docs/legal/marketplace-terms)

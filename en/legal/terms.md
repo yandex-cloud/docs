@@ -92,3 +92,5 @@ The User shall manage the access of said persons. The User shall be liable to Cl
 3.7. All questions and claims concerning Platform use/unavailability and possible infringement of laws and/or third-party rights shall be sent to [info@cloudil.co.il](mailto:info@cloudil.co.il).
 
 Date of publication: 14.06.2022
+
+Web address: [https://cloudil.co.il/docs/legal/terms](https://cloudil.co.il/docs/legal/terms)
