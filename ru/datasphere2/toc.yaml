@@ -12,6 +12,16 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Управление сообществом
+        items:
+          - name: Создать сообщество
+            href: operations/community/create.md
+          - name: Добавить пользователя в сообщество
+            href: operations/community/add-user.md
+          - name: Добавить канал связи
+            href: operations/community/link-channel.md
+          - name: Удалить сообщество
+            href: operations/community/delete.md
       - name: Управление проектом
         items:
           - name: Создать проект
