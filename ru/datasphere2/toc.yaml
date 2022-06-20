@@ -26,6 +26,8 @@ items:
         items:
           - name: Создать проект
             href: operations/projects/create.md
+          - name: Добавить пользователя в проект
+            href: operations/projects/add-user.md
           - name: Выбрать версию Python
             href: operations/projects/python-version.md
           - name: Установить пакеты
