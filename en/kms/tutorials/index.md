@@ -1,9 +1,9 @@
 ---
-title: Scenarios Yandex Key Management Service
-description: 'Different scenarios for using Yandex Key Management Service in the {{ yandex-cloud }}. Data encryption, encryption secrets in Yandex Managed Service for Kubernets, KMS key management with Hashicorp Terraform, encryption secrets in Hashicorp Terraform, Auto Unseal in Hashicorp Vault.'
+title: Scenarios {{ kms-full-name }}
+description: 'Different scenarios for using {{ kms-full-name }} in the {{ yandex-cloud }}. Data encryption, encryption secrets in {{ managed-k8s-full-name }}, {{ kms-short-name }} key management with Hashicorp {{ TF }}, encryption secrets in Hashicorp {{ TF }}'
 ---
 
-# Yandex Key Management Service tutorials
+# {{ kms-full-name }} tutorials
 
 * [Data encryption](encrypt/index.md)
 * [{#T}](k8s.md)

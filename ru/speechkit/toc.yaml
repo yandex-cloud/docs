@@ -21,32 +21,6 @@ items:
         href: stt/additional-training.md
       - name: Загрузка данных для дообучения модели
         href: stt/import-training-data.md
-      - name: Справочник API
-        items:
-          - name: Аутентификация в API
-            href: api-ref/authentication.md
-          - name: API v2
-            items:
-              - name: API потокового распознавания
-                href: stt/api/streaming-api.md
-              - name: Примеры использования API потокового распознавания
-                href: stt/api/streaming-examples.md
-              - name: API синхронного распознавания
-                href: stt/api/request-api.md
-              - name: Примеры использования API синхронного распознавания
-                href: stt/api/request-examples.md
-              - name: API асинхронного распознавания
-                href: stt/api/transcribation-api.md
-              - name: Распознавание речи в формате LPCM
-                href: stt/api/transcribation-lpcm.md
-              - name: Распознавание речи в формате OggOpus
-                href: stt/api/transcribation-ogg.md
-          - name: API v3 gRPC (англ.)
-            items:
-              - name: Overview
-                href: v3/api-ref/grpc/index.md
-              - name: Recognizer
-                href: v3/api-ref/grpc/stt_service.md
   - name: Синтез речи
     items:
       - name: О технологии
@@ -55,6 +29,10 @@ items:
         href: tts/voices.md
       - name: Настройка генерации речи
         href: tts/tts-markup.md
+      - name: Использование SSML
+        href: tts/ssml.md
+      - name: Список поддерживаемых фонем в SSML
+        href: tts/supported-phonemes.md
       - name: SpeechKit Brand Voice
         items:
           - name: О технологии SpeechKit Brand Voice
@@ -63,26 +41,56 @@ items:
             href: tts/brand-voice/income-data-format.md
           - name: Загрузка данных для Brand Voice
             href: tts/brand-voice/import-data.md
-      - name: Справочник API
+  - name: Форматы аудио
+    href: formats.md
+  - name: Интеграция телефонии
+    href: concepts/ivr-integration.md
+  - name: Использование API
+    items:
+      - name: Аутентификация в API
+        href: concepts/auth.md
+      - name: Формат ответа
+        href: concepts/response.md
+      - name: Диагностика ошибок
+        href: concepts/support-headers.md
+      - name: Справочники API распознавания
         items:
-          - name: Аутентификация в API
-            href: api-ref/authentication.md
-          - name: API v1
+          - name: API v2
             items:
-              - name: Описание метода API
-                href: tts/request.md
-              - name: Использование SSML
-                href: tts/ssml.md
-              - name: Список поддерживаемых фонем в SSML
-                href: tts/supported-phonemes.md
+              - name: API потокового распознавания
+                href: stt/api/streaming-api.md
+              - name: API синхронного распознавания
+                href: stt/api/request-api.md
+              - name: API асинхронного распознавания
+                href: stt/api/transcribation-api.md
+          - name: API v3 gRPC (англ.)
+            items:
+              - name: Overview
+                href: v3/api-ref/grpc/index.md
+              - name: Recognizer
+                href: v3/api-ref/grpc/stt_service.md
+      - name: Примеры использования API распознавания
+        items:
+          - name: Потоковое распознавание API v3
+            href: stt/api/streaming-examples-v3.md
+          - name: Потоковое распознавание API v2
+            href: stt/api/streaming-examples.md
+          - name: Синхронное распознавание API v2
+            href: stt/api/request-examples.md
+          - name: Асинхронное распознавание формата LPCM — API v2
+            href: stt/api/transcribation-lpcm.md
+          - name: Асинхронное распознавание формата OggOpus — API v2
+            href: stt/api/transcribation-ogg.md
+      - name: Справочники API синтеза
+        items:
+          - name: API v1
+            href: tts/request.md
           - name: API v3 gRPC (англ.)
             items:
               - name: Overview
                 href: new-v3/api-ref/grpc/index.md
               - name: Synthesizer
                 href: new-v3/api-ref/grpc/tts_service.md
-  - name: Форматы аудио
-    href: formats.md
   - name: SpeechKit Hybrid
     items:
       - name: О технологии
@@ -111,16 +119,6 @@ items:
                 href: hybrid-speechkit/api-ref/stt/v3/grpc/index.md
               - name: Recognizer
                 href: hybrid-speechkit/api-ref/stt/v3/grpc/stt_service.md
-  - name: Интеграция телефонии
-    href: concepts/ivr-integration.md
-  - name: Использование API
-    items:
-      - name: Аутентификация в API
-        href: concepts/auth.md
-      - name: Формат ответа
-        href: concepts/response.md
-      - name: Диагностика ошибок
-        href: concepts/support-headers.md
   - name: Квоты и лимиты
     href: concepts/limits.md
   - name: Управление доступом

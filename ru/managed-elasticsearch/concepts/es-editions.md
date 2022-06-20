@@ -1,8 +1,14 @@
 # Редакции Elasticsearch
 
+{% note info %}
+
+С 13 июня 2022 года прекращена поддержка редакции `Gold` в кластерах {{ mes-name}}. Создать новый кластер с этой редакцией или перейти на нее с `Basic` или `Platinum` невозможно. 6 июля 2022 года редакция всех кластеров `Gold` будет автоматически повышена до `Platinum`.
+
+{% endnote %}
+
 Возможности, предоставляемые {{ mes-name }}, зависят от редакции {{ ES }}:
 
-| Название | Описание | `BASIC` | `GOLD` | `PLATINUM` |
+| Название | Описание | `Basic` | `Gold` | `Platinum` |
 |----------|----------| :-----: | :----: | :--------: |
 | Поиск и визуализация | Базовые инструменты Elasticsearch и Kibana по поиску и визуализации | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | Управление данными и поставкой | Управление поставкой из Kibana и [жизненным циклом индексов](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-lifecycle-management.html) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |

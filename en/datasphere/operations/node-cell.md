@@ -2,6 +2,12 @@
 
 To deploy a cell as a microservice, you need a [checkpoint](projects/checkpoints.md).
 
+{% note info %}
+
+If your project uses packages and libraries that are not included in the [list of pre-installed software](../concepts/preinstalled-packages.md), [configure the node environment](node-customization.md) using a Docker image.
+
+{% endnote %}
+
 1. Open the ![Checkpoints](../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** tab and save the checkpoint prepared for deployment.
 
 1. Open the notebook and select the cell to be deployed.

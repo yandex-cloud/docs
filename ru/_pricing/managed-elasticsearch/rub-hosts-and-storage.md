@@ -4,7 +4,7 @@
 
 {% list tabs %}
 
-- BASIC
+- Basic
 
    | Ресурс        | Цена за 1 час                                               |
    | ----- | ----- |
@@ -16,7 +16,7 @@
    | RAM (за 1 ГБ) | {{ sku|RUB|mdb.cluster.elasticsearch.v3.ram.basic|string }} |
    
    
-- GOLD
+- Gold
 
    | Ресурс        | Цена за 1 час                                              |
    | ----- | ----- |
@@ -28,7 +28,7 @@
    | RAM (за 1 ГБ) | {{ sku|RUB|mdb.cluster.elasticsearch.v3.ram.gold|string }} |
 
 
-- PLATINUM
+- Platinum
 
    | Ресурс        | Цена за 1 час                                                  |
    | ----- | ----- |
