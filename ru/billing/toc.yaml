@@ -114,6 +114,7 @@ items:
             href: payment/billing-cycle-individual.md
           - name: Финансовые документы
             href: concepts/individual-bill.md
+            when: region == "ru"
       - name: Для организаций и ИП
         items:
           - name: Способы оплаты
@@ -134,7 +135,6 @@ items:
                 href: concepts/bill.md
               - name: Счет-фактура
                 href: concepts/invoice.md
-                when: region == "ru"
               - name: Электронный документооборот
                 href: concepts/edo.md
       - name: Валюта расчетов
