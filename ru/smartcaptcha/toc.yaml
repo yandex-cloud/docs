@@ -12,3 +12,5 @@ items:
         href: concepts/limits.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Обратная связь
+    href: feedback.md
