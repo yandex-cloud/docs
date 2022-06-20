@@ -2,6 +2,24 @@
 
 Полный состав актуальных и устаревших образов {{ dataproc-name }} см. в разделе [{#T}](../concepts/environment.md).
 
+## 2.0.42 {#2.0.42}
+
+* Apache Spark обновлен до версии 3.0.3 и собран с профилем [hadoop-cloud](https://spark.apache.org/docs/3.0.3/cloud-integration.html) для использования [Magic Committer](https://hadoop.apache.org/docs/r3.2.3/hadoop-aws/tools/hadoop-aws/committers.html#Using_the_Magic_committer) и формата Parquet.
+* Исправлена ошибка с игнорированием настроек `hive.metastore.uris` для Spark при использовании внешнего Hive metastore.
+
+## 2.0.41 {#2.0.41}
+
+* Для приложений Spark `hive-site.xml` добавлен в classpath.
+* Исправлена ошибка с использованием системного Python вместо Conda-окружения при ручном запуске PySpark.
+
+## 2.0.40 {#2.0.40}
+
+* Исправлена ошибка с незапуском пользовательских сценариев.
+
+## 2.0.39 {#2.0.39}
+
+* Добавлена поддержка легковесных кластеров (без HDFS и хостов типа `DATANODE`).
+
 ## 2.0.38 и 1.4.35 {#2.0.38-1.4.35}
 
 * Образы адаптированы для работы в подсетях с заданной пользователем DNS-зоной.
