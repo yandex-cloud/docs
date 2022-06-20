@@ -152,6 +152,8 @@ items:
     items:
       - name: General questions
         href: qa/common.md
+      - name: Questions about an agreement
+        href: qa/contract.md
       - name: Questions about payment
         href: qa/payment.md
       - name: Questions about the billing account

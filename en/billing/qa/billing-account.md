@@ -12,6 +12,10 @@
 
 {% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}
 
+#### How do I transfer a cloud to a different billing account? {#cloud-transfer}
+
+To transfer your cloud to a different billing account, just [link](../operations/pin-cloud.md) it to this account. This automatically unlinks the cloud from its current account. To avoid entering into arrears, top up the personal account in the billing account that the cloud was transferred from.
+
 #### I created a new billing account, but it's blocked. Why? {#blocked-account}
 
 It's most likely that you previously created a billing account that activated the trial period. Your billing account received the initial grant during the trial period. Since the initial grant can only be given to one billing account, you cannot use the trial period during re-registration. As a result, your new billing account is created with the `SUSPENDED` status.
@@ -25,11 +29,14 @@ You can't change a billing account type once it's created, but you can [create a
 
 [The credit limit](../concepts/credit-limit.md) is enabled automatically after the [paid version is activated](../operations/activate-commercial.md) and the first reporting period ends.
 
+
 {% include [change-payment-method](../_includes/change-payment-method.md) %}
+
 
 #### How can I change my payment details or the delivery address?  {#change-email}
 
 {% include [change-address](../_includes/change-address.md) %}
+
 
 #### I didn't receive an email with instructions on what to do after creating a billing account with the Bank transfer payment method. Why?  {#account-notification}
 
@@ -38,10 +45,21 @@ If you didn't receive an email within that period, send a request to: [cloud_doc
 
 {% include [change-payment-docs](../_includes/change-payment-docs.md) %}
 
-#### I unlinked a bank card from my Yandex.Passport account and now my billing account is blocked. What should I do?  {#account-card}
+#### I unlinked a bank card from my Yandex account and now my billing account is blocked. What should I do?  {#account-card}
 
-Your billing account status changed to `SUSPENDED` in accordance with the [terms and conditions of the agreement (clause 6.11.4.)]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %}.
+{% if region == "ru" %}
+
+Your billing account status changed to `SUSPENDED` in accordance with the [terms and conditions of the agreement (clause 6.11.4.)]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %}.
 After suspension, an email with instructions on how to restore access was sent to the email address specified in your Yandex or Yandex 360 account.
+
+{% endif %}
+
+{% if region == "kz" %}
+
+Your billing account status changed to `SUSPENDED` in accordance with the [terms and conditions of the agreement (clause 6.11.4.)]{% if lang == "ru" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=en){% endif %}.
+After suspension, an email with instructions on how to restore access was sent to the email address specified in your Yandex or Yandex 360 account.
+
+{% endif %}
 
 #### I can't link a bank card when creating a billing account. What should I do?  {#cant-create}
 
@@ -51,11 +69,11 @@ To resolve the issue, try linking a different bank card or, if you are a busines
 
 #### Why do I get the error "The country is not available to the payer" when creating a billing account?  {#account-error}
 
-You most likely logged in under a Yandex account that is already linked to a payer with a different residence status.
+Most likely you have logged in under a Yandex account already linked to a payer with a different residence status.
 
 {% include [billing-account-payers](../_includes/billing-account-payers.md) %}
 
-To create a billing account with a payer who is a resident of another country, log in under a different Yandex.Passport or Yandex 360 account.
+To create a billing account with a payer being a resident of a different country, log in using a different Yandex ID or under a different Yandex 360 account.
 
 {% include [billing-account-payers-example](../_includes/billing-account-payers-example.md) %}
 
