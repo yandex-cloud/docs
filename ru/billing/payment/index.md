@@ -6,7 +6,7 @@
 
 * [Способы оплаты](payment-methods-individual.md)
 * [Цикл оплаты](billing-cycle-individual.md)
-* [Финансовые документы](../concepts/individual-bill.md)
+{% if region == "ru" %}* [Финансовые документы](../concepts/individual-bill.md){% endif %}
 
 Оплата для организаций и ИП:
 
