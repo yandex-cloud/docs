@@ -223,7 +223,7 @@ SAML (Security Assertion Markup Language) — это язык разметки �
         
         {% note info %}
 
-        Функция **Role Mappings** доступна в редакциях {{ ES }} `Gold` и `Platinum`.
+        Функция **Role Mappings** доступна в редакции {{ ES }} `Platinum`.
 
         [Подробнее об изменении редакции {{ ES }}](./cluster-version-update.md#start-edition-update).
 

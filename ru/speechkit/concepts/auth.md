@@ -5,6 +5,13 @@ description: "Для выполнения операций через API {{ spe
 
 {% include [authentication-ml-services](../../_includes/authentication-ml-services.md) %}
 
+Если вы используете API v3, в каждом запросе также передавайте в заголовке `x-folder-id` с [идентификатором каталога](../../resource-manager/operations/folder/get-id.md).
+
+```
+Authorization: Bearer <IAM-токен> 
+x-folder-id <идентификатор каталога>
+```
+
 #### См. также {#see-also}
 
 * [Какие роли необходимы для выполнения операций](../security/index.md).

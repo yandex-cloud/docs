@@ -345,8 +345,6 @@ items:
             href: ext-app-info.md
   - name: Инструменты разработчика
     items:
-      - name: Плагин для  IDE
-        href: idea-plugin.md
       - name: API
         href: user/API.md
       - name: Python клиент

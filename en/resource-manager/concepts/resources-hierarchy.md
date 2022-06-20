@@ -1,10 +1,5 @@
 # {{ yandex-cloud }} resource hierarchy
 
-{% note info %}
-
-At the [Preview](../../overview/concepts/launch-stages.md) stage, there is a restriction: only 1 organization and 1 cloud are available.
-
-{% endnote %}
 
 When you get access to {{ yandex-cloud }}, you are allocated a separate workspace: a _cloud_. This is where you will create folders.
 

@@ -38,9 +38,6 @@ links:
   - title: Стадии готовности сервисов
     description: ''
     href: concepts/launch-stages
-  - title: Стадии готовности сервисов
-    description: ''
-    href: concepts/launch-stages
   - title: Квоты и лимиты
     description: ''
     href: concepts/quotas-limits
