@@ -73,11 +73,6 @@ links:
   - title: Начало работы
     description: Создайте первый бакет и загрузите данные
     href: quickstart
-    when: product == "yandex-cloud"
-  - title: Начало работы
-    description: Создайте первый бакет и загрузите данные
-    href: quickstart.html
-    when: product == "cloud-il"
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/
@@ -87,11 +82,6 @@ links:
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
-    when: product == "yandex-cloud"
-  - title: Квоты и лимиты
-    description: Технические и организационные ограничения сервиса
-    href: concepts/limits.html
-    when: product == "cloud-il"
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/

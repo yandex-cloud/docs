@@ -24,11 +24,7 @@ links:
   - title: Порядок оказания технической поддержки
     description: Как обратиться в службу технической поддержки
     href: overview
-    when: audience != "internal" and product == "yandex-cloud"
-  - title: Порядок оказания технической поддержки
-    description: Как обратиться в службу технической поддержки
-    href: overview.html
-    when: audience != "internal" and product == "cloud-il"
+    when: audience != "internal"
   - title: Как получить техническую поддержку
     href: overview
     when: audience == "internal"
@@ -39,11 +35,7 @@ links:
   - title: Запросы данных
     description: Какие данные можно запросить у технической поддержки
     href: request
-    when: audience != "internal" and product == "yandex-cloud"
-  - title: Запросы данных
-    description: Какие данные можно запросить у технической поддержки
-    href: request.html
-    when: audience != "internal" and product == "cloud-il"
+    when: audience != "internal"
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг технической поддержки
     href: pricing
@@ -51,8 +43,4 @@ links:
   - title: Вопросы и ответы
     description: Ответы на частые вопросы про техническую поддержку
     href: qa
-    when: audience != "internal" and product == "yandex-cloud"
-  - title: Вопросы и ответы
-    description: Ответы на частые вопросы про техническую поддержку
-    href: qa.html
-    when: audience != "internal" and product == "cloud-il"
+    when: audience != "internal"

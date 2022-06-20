@@ -49,11 +49,6 @@ links:
   - title: Getting started
     description: Create and configure your first message queue
     href: quickstart
-    when: product == "yandex-cloud"
-  - title: Getting started
-    description: Create and configure your first message queue
-    href: quickstart.html
-    when: product == "cloud-il"
   - title: Step-by-step instructions
     description: Instructions on how to perform routine operations
     href: operations/
@@ -63,11 +58,6 @@ links:
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits
-    when: product == "yandex-cloud"
-  - title: Quotas and limits
-    description: Technical and organizational limitations of the service
-    href: concepts/limits.html
-    when: product == "cloud-il"
   - title: Access management
     description: Configure access rights to work with the service
     href: security/

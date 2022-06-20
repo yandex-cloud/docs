@@ -28,7 +28,7 @@ links:
     when: product == "yandex-cloud"
   - title: Регистрация в CloudIL
     description: Как оставить заявку на доступ к CloudIL
-    href: quickstart.html
+    href: quickstart
     when: product == "cloud-il"
   - title: Как работает пробный период
     description: Кто и как может использовать Yandex Cloud в рамках пробного периода

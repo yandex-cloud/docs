@@ -27,8 +27,8 @@ links:
     href: quickstart-legal-entity
     when: product == "yandex-cloud"
   - title: Registering in CloudIL
-    description: Submit a request for CloudIL access.
-    href: quickstart.html
+    description: Submit a request for CloudIL access
+    href: quickstart
     when: product == "cloud-il"
   - title: How does the trial period work
     description: How to use Yandex Cloud during the trial period and who can access it

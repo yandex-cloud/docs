@@ -14,11 +14,6 @@ links:
   - title: Начало работы
     description: Установите CLI и выполните первую команду
     href: quickstart
-    when: product == "yandex-cloud"
-  - title: Начало работы
-    description: Установите CLI и выполните первую команду
-    href: quickstart.html
-    when: product == "cloud-il"
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/

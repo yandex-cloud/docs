@@ -26,38 +26,18 @@ links:
   - title: Начало работы
     description: Подключите сервис
     href: quickstart
-    when: product == "yandex-cloud"
-  - title: Начало работы
-    description: Подключите сервис
-    href: quickstart.html
-    when: product == "cloud-il"
   - title: Концепции
     description: Узнайте про концепции и возможности сервиса
     href: concepts/
   - title: Справочник событий
     description: Описание событий сервисов
     href: concepts/events
-    when: product == "yandex-cloud"
-  - title: Справочник событий
-    description: Описание событий сервисов
-    href: concepts/events.html
-    when: product == "cloud-il"
   - title: Поиск событий
     description: Поиск событий в аудитном логе
     href: tutorials/search-bucket
-    when: product == "yandex-cloud"
-  - title: Поиск событий
-    description: Поиск событий в аудитном логе
-    href: tutorials/search-bucket.html
-    when: product == "cloud-il"
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
-    when: product == "yandex-cloud"
-  - title: Квоты и лимиты
-    description: Технические и организационные ограничения сервиса
-    href: concepts/limits.html
-    when: product == "cloud-il"
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing

@@ -25,7 +25,7 @@ links:
     when: product == "yandex-cloud"
   - title: Обзор возможностей
     description: Узнайте о возможностях продуктов Microsoft в CloudIL
-    href: overview.html
+    href: overview
     when: product == "cloud-il"
   - title: Практические руководства
     description: Подробные инструкции, которые помогут вам использовать продукты Microsoft в Yandex Cloud
@@ -41,7 +41,7 @@ links:
     when: product == "yandex-cloud"
   - title: Образы виртуальных машин Windows
     description: Варианты и особенности образов в CloudIL
-    href: list-of-instances.html
+    href: list-of-instances
     when: product == "cloud-il"
   - title: Лицензии Microsoft
     description: Использование лицензий на ПО Microsoft в облаке Yandex Cloud
@@ -49,7 +49,7 @@ links:
     when: product == "yandex-cloud"
   - title: Лицензии Microsoft
     description: Использование лицензий на ПО Microsoft в облаке CloudIL
-    href: licensing.html
+    href: licensing
     when: product == "cloud-il"
   - title: Правила тарификации
     description: Тарифные планы услуг и правила расчета стоимости

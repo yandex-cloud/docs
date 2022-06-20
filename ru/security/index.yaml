@@ -22,27 +22,12 @@ links:
   - title: Разделение ответственности за обеспечение безопасности
     description: ''
     href: respons
-    when: product == "yandex-cloud"
-  - title: Разделение ответственности за обеспечение безопасности
-    description: ''
-    href: respons.html
-    when: product == "cloud-il"
   - title: Соответствие требованиям
     description: ''
     href: conform
-    when: product == "yandex-cloud"
-  - title: Соответствие требованиям
-    description: ''
-    href: conform.html
-    when: product == "cloud-il"
   - title: Чеклист по безопасности облака
     description: ''
-    href: domains/checklist
-    when: product == "yandex-cloud"
-  - title: Чеклист по безопасности облака
-    description: ''
-    href: domains/checklist.html
-    when: product == "cloud-il"
+    href: domains/checklist 
   - title: Бюллетени безопасности
     description: ''
     href: security-bulletins/

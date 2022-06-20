@@ -53,11 +53,6 @@ links:
   - title: Getting started
     description: Create the first database cluster
     href: quickstart
-    when: product == "yandex-cloud"
-  - title: Getting started
-    description: Create the first database cluster
-    href: quickstart.html
-    when: product == "cloud-il"
   - title: Step-by-step instructions
     description: Instructions on how to perform routine operations
     href: operations/
@@ -70,11 +65,6 @@ links:
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits
-    when: product == "yandex-cloud"
-  - title: Quotas and limits
-    description: Technical and organizational limitations of the service
-    href: concepts/limits.html
-    when: product == "cloud-il"
   - title: Identity and access management
     description: Configure access rights to work with the service
     href: security/

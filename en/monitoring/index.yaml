@@ -26,11 +26,6 @@ links:
   - title: Getting started
     description: Start monitoring your metrics
     href: quickstart
-    when: product == "yandex-cloud"
-  - title: Getting started
-    description: Start monitoring your metrics
-    href: quickstart.html
-    when: product == "cloud-il"
   - title: Step-by-step instructions
     description: Instructions on how to perform routine operations
     href: operations/
@@ -48,19 +43,9 @@ links:
   - title: Query language
     description: Description of query language for converting metrics
     href: concepts/querying
-    when: product == "yandex-cloud"
-  - title: Query language
-    description: Description of query language for converting metrics
-    href: concepts/querying.html
-    when: product == "cloud-il"
   - title: Alerting
     description: Set up metric change alerts
     href: concepts/alerting
-    when: product == "yandex-cloud"
-  - title: Alerting
-    description: Set up metric change alerts
-    href: concepts/alerting.html
-    when: product == "cloud-il"
   #- title: Metric reference
     ## description: Description of metrics for services {{ yandex-cloud }}
     ## href: metrics-ref/
@@ -70,11 +55,6 @@ links:
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits
-    when: product == "yandex-cloud"
-  - title: Quotas and limits
-    description: Technical and organizational limitations of the service
-    href: concepts/limits.html
-    when: product == "cloud-il"
   - title: Access management
     description: Permissions required for using the service
     href: security/
@@ -85,8 +65,3 @@ links:
   - title: Questions and answers
     description: Answers to frequently asked questions
     href: qa/all
-    when: product == "yandex-cloud"
-  - title: Questions and answers
-    description: Answers to frequently asked questions
-    href: qa/all.html
-    when: product == "cloud-il"

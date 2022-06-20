@@ -73,11 +73,6 @@ links:
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits
-    when: product == "yandex-cloud"
-  - title: Quotas and limits
-    description: Technical and organizational limitations of the service
-    href: concepts/limits.html
-    when: product == "cloud-il"
   - title: Access management
     description: Configure access rights to work with the service
     href: security/
@@ -88,8 +83,3 @@ links:
   - title: Questions and answers
     description: Answers to frequently asked questions about the service
     href: qa/all
-    when: product == "yandex-cloud"
-  - title: Questions and answers
-    description: Answers to frequently asked questions about the service
-    href: qa/all.html
-    when: product == "cloud-il"

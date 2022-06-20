@@ -29,11 +29,6 @@ links:
   - title: Начало работы
     description: Начните отслеживание ваших метрик
     href: quickstart
-    when: product == "yandex-cloud"
-  - title: Начало работы
-    description: Начните отслеживание ваших метрик
-    href: quickstart.html
-    when: product == "cloud-il"
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/
@@ -51,19 +46,9 @@ links:
   - title: Язык запросов
     description: Описание языка запросов для преобразования метрик
     href: concepts/querying
-    when: product == "yandex-cloud"
-  - title: Язык запросов
-    description: Описание языка запросов для преобразования метрик
-    href: concepts/querying
-    when: product == "cloud-il"
   - title: Алертинг
     description: Настройте оповещения об изменении метрик
     href: concepts/alerting
-    when: product == "yandex-cloud"
-  - title: Алертинг
-    description: Настройте оповещения об изменении метрик
-    href: concepts/alerting.html
-    when: product == "cloud-il"
   #- title: Справочник метрик
     ##  description: Описание метрик сервисов Yandex Cloud
     ##  href: metrics-ref/
@@ -73,11 +58,6 @@ links:
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
-    when: product == "yandex-cloud"
-  - title: Квоты и лимиты
-    description: Технические и организационные ограничения сервиса
-    href: concepts/limits.html
-    when: product == "cloud-il"
   - title: Управление доступом
     description: Какие права доступа нужны для работы с сервисом
     href: security/
@@ -88,8 +68,3 @@ links:
   - title: Вопросы и ответы
     description: Ответы на частые вопросы о сервисе
     href: qa/all
-    when: product == "yandex-cloud"
-  - title: Вопросы и ответы
-    description: Ответы на частые вопросы о сервисе
-    href: qa/all.html
-    when: product == "cloud-il"

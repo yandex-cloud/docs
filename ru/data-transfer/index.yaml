@@ -44,19 +44,9 @@ links:
   - title: Начало работы
     description: Запустите свой первый трансфер
     href: quickstart
-    when: product == "yandex-cloud"
-  - title: Начало работы
-    description: Запустите свой первый трансфер
-    href: quickstart.html
-    when: product == "cloud-il"
   - title: Доступные трансферы
     description: Список поддерживаемых типов трансферов
     href: concepts/index#transfer
-    when: product == "yandex-cloud"
-  - title: Доступные трансферы
-    description: Список поддерживаемых типов трансферов
-    href: concepts/index.html#transfer
-    when: product == "cloud-il"
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/
@@ -69,11 +59,6 @@ links:
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
-    when: product == "yandex-cloud"
-  - title: Квоты и лимиты
-    description: Технические и организационные ограничения сервиса
-    href: concepts/limits.html
-    when: product == "cloud"
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/

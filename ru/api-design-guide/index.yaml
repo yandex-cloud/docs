@@ -35,38 +35,14 @@ links:
       Как устроены API и в чем заключается ресурсо-ориентированный
       подход
     href: concepts/general
-    when: product == "yandex-cloud"
-  - title: Основные принципы
-    description: >-
-      Как устроены API и в чем заключается ресурсо-ориентированный
-      подход
-    href: concepts/general.html
-    when: product == "cloud-il"
   - title: Ресурсы
     description: Как идентифицируются ресурсы в API
     href: concepts/resources-identification
-    when: product == "yandex-cloud"
-  - title: Ресурсы
-    description: Как идентифицируются ресурсы в API
-    href: concepts/resources-identification.html
-    when: product == "cloud-il"
   - title: Методы API
     description: Как устроены методы в API
     href: concepts/about-methods
-    when: product == "yandex-cloud"
-  - title: Методы API
-    description: Как устроены методы в API
-    href: concepts/about-methods.html
-    when: product == "cloud-il"
   - title: Работа с операциями
     description: >-
       Как реализована асинхронность в API и как использовать механизм
       идемпотентности
     href: concepts/about-async
-    when: product == "yandex-cloud"
-  - title: Работа с операциями
-    description: >-
-      Как реализована асинхронность в API и как использовать механизм
-      идемпотентности
-    href: concepts/about-async.html
-    when: product == "cloud-il"

@@ -24,11 +24,7 @@ links:
   - title: Requesting technical support
     description: How to contact technical support
     href: overview
-    when: audience != "internal" and product == "yandex-cloud"
-  - title: Requesting technical support
-    description: How to contact technical support
-    href: overview.html
-    when: audience != "internal" and product == "cloud-il"
+    when: audience != "internal"
   - title: Getting technical support
     href: overview
     when: audience == "internal"
@@ -39,11 +35,7 @@ links:
   - title: Data requests
     description: What data can be requested from technical support
     href: request
-    when: audience != "internal" and product == "yandex-cloud"
-  - title: Data requests
-    description: What data can be requested from technical support
-    href: request.html
-    when: audience != "internal" and product == "cloud-il"
+    when: audience != "internal"
   - title: Pricing policy
     description: Technical support pricing and cost calculations
     href: pricing
@@ -51,8 +43,4 @@ links:
   - title: Questions and answers
     description: Frequently asked questions about technical support
     href: qa
-    when: audience != "internal" and product == "yandex-cloud"
-  - title: Questions and answers
-    description: Frequently asked questions about technical support
-    href: qa.html
-    when: audience != "internal" and product == "cloud-il"
+    when: audience != "internal"

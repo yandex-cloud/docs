@@ -34,7 +34,7 @@ links:
     when: product == "yandex-cloud"
   - title: Концепции
     description: Узнайте термины и понятия, используемые в сервисе
-    href: concepts/billing-account.html
+    href: concepts/billing-account
     when: product == "cloud-il"
   - title: Оплата ресурсов
     description: >-

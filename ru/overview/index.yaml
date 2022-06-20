@@ -55,7 +55,7 @@ links:
     when: product == "yandex-cloud"
   - title: Сервисы CloudIL
     description: ''
-    href: concepts/services.html
+    href: concepts/services
     when: product == "cloud-il"
   - title: Мобильное приложение
     description: ''
@@ -64,11 +64,6 @@ links:
   - title: Зоны доступности
     description: ''
     href: concepts/geo-scope
-    when: product == "yandex-cloud"
-  - title: Зоны доступности
-    description: ''
-    href: concepts/geo-scope.html
-    when: product == "cloud-il"
   - title: Начало работы
     description: ''
     href: quickstart
@@ -76,31 +71,12 @@ links:
   - title: Стадии готовности сервисов
     description: ''
     href: concepts/launch-stages
-    when: product == "yandex-cloud"
-  - title: Стадии готовности сервисов
-    description: ''
-    href: concepts/launch-stages
-    when: product == "yandex-cloud"
-  - title: Стадии готовности сервисов
-    description: ''
-    href: concepts/launch-stages.html
-    when: product == "cloud-il"
   - title: Квоты и лимиты
     description: ''
     href: concepts/quotas-limits
-    when: product == "yandex-cloud"
-  - title: Квоты и лимиты
-    description: ''
-    href: concepts/quotas-limits.html
-    when: product == "cloud-il"
   - title: API
     description: ''
     href: api
-    when: product == "yandex-cloud"
-  - title: API
-    description: ''
-    href: api.html
-    when: product == "cloud-il"
   - title: Соглашение об уровне обслуживания
     description: ''
     href: sla
@@ -108,8 +84,3 @@ links:
   - title: Вопросы и ответы
     description: ''
     href: qa
-    when: product == "yandex-cloud"
-  - title: Вопросы и ответы
-    description: ''
-    href: qa.html
-    when: product == "cloud-il"

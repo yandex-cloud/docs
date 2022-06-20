@@ -33,36 +33,14 @@ links:
   - title: Basic principles
     description: How APIs work and what the resource-based approach entails
     href: concepts/general
-    when: product == "yandex-cloud"
-  - title: Basic principles
-    description: How APIs work and what the resource-based approach entails
-    href: concepts/general.html
-    when: product == "cloud-il"
   - title: Resources
     description: How resources are identified in APIs
     href: concepts/resources-identification
-    when: product == "yandex-cloud"
-  - title: Resources
-    description: How resources are identified in APIs
-    href: concepts/resources-identification.html
-    when: product == "cloud-il"
   - title: API methods
     description: How methods work in APIs
     href: concepts/about-methods
-    when: product == "yandex-cloud"
-  - title: API methods
-    description: How methods work in APIs
-    href: concepts/about-methods.html
-    when: product == "cloud-il"
   - title: Working with operations
     description: >-
       How asynchronous operations are implemented in APIs and how idempotence is
       used
     href: concepts/about-async
-    when: product == "yandex-cloud"
-  - title: Working with operations
-    description: >-
-      How asynchronous operations are implemented in APIs and how idempotence is
-      used
-    href: concepts/about-async.html
-    when: product == "cloud-il"

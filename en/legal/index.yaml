@@ -11,11 +11,11 @@ meta:
       when: product == "cloud-il"
 links:
   - title: Privacy Policy
-    href: privacy.html
+    href: privacy
     when: product == "cloud-il"
   - title: Terms of Use
-    href: terms.html
+    href: terms
     when: product == "cloud-il"
   - title: Marketplace Terms of Use
-    href: marketplace-terms.html
+    href: marketplace-terms
     when: product == "cloud-il"
