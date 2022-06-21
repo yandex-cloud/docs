@@ -91,7 +91,7 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the cluster. The maximum string length in characters is 50.
 name | **string**<br>Required. Name of the extension. The maximum string length in characters is 50.
-uri | **string**<br>Required. URI of the zip archive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage. 
+uri | **string**<br>Required. URI of the zip archive to create the new extension from. Currently only supports links that are stored in Object Storage. 
 disabled | **bool**<br>The flag that disables the extension. 
 
 

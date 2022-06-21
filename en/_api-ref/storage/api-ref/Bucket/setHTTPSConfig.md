@@ -42,7 +42,7 @@ Field | Description
 selfManaged | **object**<br>Your TLS certificate, uploaded directly.  Object Storage only supports [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificates. <br> includes only one of the fields `selfManaged`, `certificateManager`<br><br>
 selfManaged.<br>certificatePem | **string**<br><p><a href="https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail">PEM</a>-encoded certificate.</p> <p>The maximum string length in characters is 3145728.</p> 
 selfManaged.<br>privateKeyPem | **string**<br><p><a href="https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail">PEM</a>-encoded private key for the certificate.</p> <p>The maximum string length in characters is 3145728.</p> 
-certificateManager | **object**<br>TLS certificate from Yandex Certificate Manager.  To create a certificate in Certificate Manager, make a [create](/docs/certificate-manager/api-ref/Certificate/create) request. <br> includes only one of the fields `selfManaged`, `certificateManager`<br><br><p>A resource for a TLS certificate from Yandex Certificate Manager.</p> 
+certificateManager | **object**<br>TLS certificate from Certificate Manager.  To create a certificate in Certificate Manager, make a [create](/docs/certificate-manager/api-ref/Certificate/create) request. <br> includes only one of the fields `selfManaged`, `certificateManager`<br><br><p>A resource for a TLS certificate from Certificate Manager.</p> 
 certificateManager.<br>certificateId | **string**<br><p>ID of the certificate.</p> <p>To get the list of all available certificates, make a <a href="/docs/certificate-manager/api-ref/Certificate/list">list</a> request.</p> 
  
 ## Response {#responses}

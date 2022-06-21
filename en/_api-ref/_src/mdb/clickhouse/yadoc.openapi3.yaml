@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Yandex Managed Service for ClickHouse API
+  title: Managed Service for ClickHouse API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
-    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
@@ -2290,12 +2290,12 @@ components:
       type: object
       properties:
         dataLens:
-          description: Allow to export data from the cluster to Yandex DataLens.
+          description: Allow to export data from the cluster to DataLens.
           type: boolean
           format: boolean
         webSql:
           description: |-
-            Allow SQL queries to the cluster databases from the Yandex Cloud management console.
+            Allow SQL queries to the cluster databases from the management console.
 
             See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details.
           type: boolean
@@ -2304,7 +2304,7 @@ components:
           description: |-
             Allow to import data from Yandex Metrica and AppMetrica to the cluster.
 
-            See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
+            See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
           type: boolean
           format: boolean
         serverless:
@@ -2316,7 +2316,7 @@ components:
           type: boolean
           format: boolean
         yandexQuery:
-          description: Allow access for YandexQuery
+          description: Allow access for Query
           type: boolean
           format: boolean
     AddClusterHostsMetadata:
@@ -3213,8 +3213,7 @@ components:
       type: object
       properties:
         enabled:
-          description: Whether to use Yandex Object Storage for storing ClickHouse
-            data.
+          description: Whether to use Object Storage for storing ClickHouse data.
           type: boolean
           format: boolean
     Cluster:
@@ -3270,8 +3269,7 @@ components:
         status:
           $ref: '#/components/schemas/ClusterStatus_in_Cluster_status'
         serviceAccountId:
-          description: ID of the service account used for access to Yandex Object
-            Storage.
+          description: ID of the service account used for access to Object Storage.
           type: string
         maintenanceWindow:
           $ref: '#/components/schemas/MaintenanceWindow_in_Cluster_maintenanceWindow'
@@ -3514,8 +3512,7 @@ components:
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
         serviceAccountId:
-          description: ID of the service account used for access to Yandex Object
-            Storage.
+          description: ID of the service account used for access to Object Storage.
           type: string
         securityGroupIds:
           description: User security groups
@@ -3617,7 +3614,7 @@ components:
         uri:
           description: |-
             Required.
-            Model file URL. You can only use models stored in Yandex Object Storage.
+            Model file URL. You can only use models stored in Object Storage.
           type: string
     CreateUserMetadata:
       type: object
@@ -3802,7 +3799,7 @@ components:
             Name of the ClickHouse host. The host name is assigned by MDB at creation time, and cannot be changed.
             1-63 characters long.
 
-            The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host.
+            The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.
           type: string
         clusterId:
           description: ID of the ClickHouse host. The ID is assigned by MDB at creation
@@ -4161,8 +4158,7 @@ components:
         type:
           $ref: '#/components/schemas/MlModelType_in_MlModel_type'
         uri:
-          description: Model file URL. You can only use models stored in Yandex Object
-            Storage.
+          description: Model file URL. You can only use models stored in Object Storage.
           type: string
     MlModelType:
       description: ' - ML_MODEL_TYPE_CATBOOST: CatBoost model.'
@@ -4429,8 +4425,7 @@ components:
             The maximum string length in characters is 50.
           type: string
         serviceAccountId:
-          description: ID of the service account used for access to Yandex Object
-            Storage.
+          description: ID of the service account used for access to Object Storage.
           type: string
         securityGroupIds:
           description: User security groups
@@ -4668,8 +4663,7 @@ components:
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
         serviceAccountId:
-          description: ID of the service account used for access to Yandex Object
-            Storage.
+          description: ID of the service account used for access to Object Storage.
           type: string
         maintenanceWindow:
           $ref: '#/components/schemas/MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow'
@@ -4764,8 +4758,8 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateMlModelRequest_updateMask'
         uri:
-          description: The new model file URL. You can only use models stored in Yandex
-            Object Storage.
+          description: The new model file URL. You can only use models stored in Object
+            Storage.
           type: string
     UpdateUserMetadata:
       type: object
@@ -6896,12 +6890,12 @@ components:
       type: object
       properties:
         dataLens:
-          description: Allow to export data from the cluster to Yandex DataLens.
+          description: Allow to export data from the cluster to DataLens.
           type: boolean
           format: boolean
         webSql:
           description: |-
-            Allow SQL queries to the cluster databases from the Yandex Cloud management console.
+            Allow SQL queries to the cluster databases from the management console.
 
             See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details.
           type: boolean
@@ -6910,7 +6904,7 @@ components:
           description: |-
             Allow to import data from Yandex Metrica and AppMetrica to the cluster.
 
-            See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
+            See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
           type: boolean
           format: boolean
         serverless:
@@ -6922,15 +6916,14 @@ components:
           type: boolean
           format: boolean
         yandexQuery:
-          description: Allow access for YandexQuery
+          description: Allow access for Query
           type: boolean
           format: boolean
     CloudStorage_in_ClusterConfig_cloudStorage:
       type: object
       properties:
         enabled:
-          description: Whether to use Yandex Object Storage for storing ClickHouse
-            data.
+          description: Whether to use Object Storage for storing ClickHouse data.
           type: boolean
           format: boolean
     ClickhouseConfigSet_in_ClusterConfigClickhouse_config:
@@ -7036,12 +7029,12 @@ components:
       type: object
       properties:
         dataLens:
-          description: Allow to export data from the cluster to Yandex DataLens.
+          description: Allow to export data from the cluster to DataLens.
           type: boolean
           format: boolean
         webSql:
           description: |-
-            Allow SQL queries to the cluster databases from the Yandex Cloud management console.
+            Allow SQL queries to the cluster databases from the management console.
 
             See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details.
           type: boolean
@@ -7050,7 +7043,7 @@ components:
           description: |-
             Allow to import data from Yandex Metrica and AppMetrica to the cluster.
 
-            See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
+            See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
           type: boolean
           format: boolean
         serverless:
@@ -7062,15 +7055,14 @@ components:
           type: boolean
           format: boolean
         yandexQuery:
-          description: Allow access for YandexQuery
+          description: Allow access for Query
           type: boolean
           format: boolean
     CloudStorage_in_ConfigSpec_cloudStorage:
       type: object
       properties:
         enabled:
-          description: Whether to use Yandex Object Storage for storing ClickHouse
-            data.
+          description: Whether to use Object Storage for storing ClickHouse data.
           type: boolean
           format: boolean
     ClickhouseConfig_in_ConfigSpecClickhouse_config:

@@ -49,9 +49,9 @@ Field | Description
 --- | ---
 origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>Type of the origin.
 &nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta)**<br>A server with a domain name linked to it 
-&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta)**<br>A Yandex Object Storage bucket not configured as a static site hosting. 
-&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta)**<br>A Yandex Object Storage bucket configured as a static site hosting. 
-&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta)**<br>An L7 load balancer from Yandex Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
+&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta)**<br>An Object Storage bucket not configured as a static site hosting. 
+&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta)**<br>An Object Storage bucket configured as a static site hosting. 
+&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta)**<br>An L7 load balancer from Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
 
 
 ### OriginNamedMeta {#OriginNamedMeta}
@@ -107,9 +107,9 @@ Field | Description
 --- | ---
 origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>Type of the origin.
 &nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta1)**<br>A server with a domain name linked to it 
-&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta1)**<br>A Yandex Object Storage bucket not configured as a static site hosting. 
-&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta1)**<br>A Yandex Object Storage bucket configured as a static site hosting. 
-&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta1)**<br>An L7 load balancer from Yandex Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
+&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta1)**<br>An Object Storage bucket not configured as a static site hosting. 
+&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta1)**<br>An Object Storage bucket configured as a static site hosting. 
+&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta1)**<br>An L7 load balancer from Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
 
 
 ### OriginNamedMeta {#OriginNamedMeta1}
@@ -154,9 +154,9 @@ Field | Description
 --- | ---
 origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>Type of the origin.
 &nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta2)**<br>A server with a domain name linked to it 
-&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta2)**<br>A Yandex Object Storage bucket not configured as a static site hosting. 
-&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta2)**<br>A Yandex Object Storage bucket configured as a static site hosting. 
-&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta2)**<br>An L7 load balancer from Yandex Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
+&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta2)**<br>An Object Storage bucket not configured as a static site hosting. 
+&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta2)**<br>An Object Storage bucket configured as a static site hosting. 
+&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta2)**<br>An L7 load balancer from Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
 
 
 ### OriginNamedMeta {#OriginNamedMeta2}
@@ -215,9 +215,9 @@ Field | Description
 --- | ---
 origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>Type of the origin.
 &nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta3)**<br>A server with a domain name linked to it 
-&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta3)**<br>A Yandex Object Storage bucket not configured as a static site hosting. 
-&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta3)**<br>A Yandex Object Storage bucket configured as a static site hosting. 
-&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta3)**<br>An L7 load balancer from Yandex Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
+&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta3)**<br>An Object Storage bucket not configured as a static site hosting. 
+&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta3)**<br>An Object Storage bucket configured as a static site hosting. 
+&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta3)**<br>An L7 load balancer from Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
 
 
 ### OriginNamedMeta {#OriginNamedMeta3}
@@ -262,9 +262,9 @@ Field | Description
 --- | ---
 origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>Type of the origin.
 &nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta4)**<br>A server with a domain name linked to it 
-&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta4)**<br>A Yandex Object Storage bucket not configured as a static site hosting. 
-&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta4)**<br>A Yandex Object Storage bucket configured as a static site hosting. 
-&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta4)**<br>An L7 load balancer from Yandex Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
+&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta4)**<br>An Object Storage bucket not configured as a static site hosting. 
+&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta4)**<br>An Object Storage bucket configured as a static site hosting. 
+&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta4)**<br>An L7 load balancer from Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
 
 
 ### OriginNamedMeta {#OriginNamedMeta4}
@@ -323,9 +323,9 @@ Field | Description
 --- | ---
 origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>Type of the origin.
 &nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta5)**<br>A server with a domain name linked to it 
-&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta5)**<br>A Yandex Object Storage bucket not configured as a static site hosting. 
-&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta5)**<br>A Yandex Object Storage bucket configured as a static site hosting. 
-&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta5)**<br>An L7 load balancer from Yandex Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
+&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta5)**<br>An Object Storage bucket not configured as a static site hosting. 
+&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta5)**<br>An Object Storage bucket configured as a static site hosting. 
+&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta5)**<br>An L7 load balancer from Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
 
 
 ### OriginNamedMeta {#OriginNamedMeta5}

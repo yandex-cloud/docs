@@ -114,7 +114,7 @@ cluster_ca_certificate | **string**<br>PEM-encoded public certificate that is th
 Field | Description
 --- | ---
 current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
-new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in platform specific components either on the master or nodes. 
 new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
 version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
@@ -301,7 +301,7 @@ cluster_ca_certificate | **string**<br>PEM-encoded public certificate that is th
 Field | Description
 --- | ---
 current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
-new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in platform specific components either on the master or nodes. 
 new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
 version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
@@ -657,7 +657,7 @@ cluster_ca_certificate | **string**<br>PEM-encoded public certificate that is th
 Field | Description
 --- | ---
 current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
-new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in platform specific components either on the master or nodes. 
 new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
 version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
@@ -953,7 +953,7 @@ cluster_ca_certificate | **string**<br>PEM-encoded public certificate that is th
 Field | Description
 --- | ---
 current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
-new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in platform specific components either on the master or nodes. 
 new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
 version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
@@ -1196,7 +1196,7 @@ cluster_ca_certificate | **string**<br>PEM-encoded public certificate that is th
 Field | Description
 --- | ---
 current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
-new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in platform specific components either on the master or nodes. 
 new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
 version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
@@ -1399,7 +1399,7 @@ cluster_ca_certificate | **string**<br>PEM-encoded public certificate that is th
 Field | Description
 --- | ---
 current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
-new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in platform specific components either on the master or nodes. 
 new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
 version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 
@@ -1706,7 +1706,7 @@ max_expansion | **int64**<br>The maximum number of instances that can be tempora
 Field | Description
 --- | ---
 current_version | **string**<br>Current Kubernetes version, format: major.minor (e.g. 1.15). 
-new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in Yandex specific components either on the master or nodes. 
+new_revision_available | **bool**<br>Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well as some internal component updates - new features or bug fixes in platform specific components either on the master or nodes. 
 new_revision_summary | **string**<br>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false. 
 version_deprecated | **bool**<br>The current version is on the deprecation schedule, component (master or node group) should be upgraded. 
 

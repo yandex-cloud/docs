@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Yandex Log Events Service
+# Log Events Service
 Description not set.
 
 Resource | Description

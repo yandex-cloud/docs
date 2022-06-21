@@ -5,7 +5,7 @@ editable: false
 # Method cancel
 Cancels the specified operation.
  
-Note that currently Yandex Object Storage API does not support cancelling operations.
+Note that currently Object Storage API does not support cancelling operations.
  
 ## HTTP request {#https-request}
 ```

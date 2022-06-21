@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Yandex Managed Service for Elasticsearch API
+  title: Managed Service for Elasticsearch API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
-    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
@@ -1770,8 +1770,7 @@ components:
           items:
             type: string
         serviceAccountId:
-          description: ID of the service account used for access to Yandex Object
-            Storage.
+          description: ID of the service account used for access to Object Storage.
           type: string
         deletionProtection:
           description: Deletion Protection inhibits deletion of the cluster
@@ -1940,8 +1939,7 @@ components:
           items:
             type: string
         serviceAccountId:
-          description: ID of the service account used for access to Yandex Object
-            Storage.
+          description: ID of the service account used for access to Object Storage.
           type: string
         deletionProtection:
           description: Deletion Protection inhibits deletion of the cluster
@@ -1981,7 +1979,7 @@ components:
         uri:
           description: |-
             Required.
-            URI of the zip archive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage.
+            URI of the zip archive to create the new extension from. Currently only supports links that are stored in Object Storage.
           type: string
         disabled:
           description: The flag that disables the extension.
@@ -2222,7 +2220,7 @@ components:
           type: string
         uri:
           description: URI of the zip archive to create the new extension from. Currently
-            only supports links that are stored in Yandex Object Storage.
+            only supports links that are stored in Object Storage.
           type: string
         disabled:
           description: The flag shows whether to create the extension in disabled
@@ -2755,8 +2753,7 @@ components:
           items:
             type: string
         serviceAccountId:
-          description: ID of the service account used for access to Yandex Object
-            Storage.
+          description: ID of the service account used for access to Object Storage.
           type: string
         deletionProtection:
           description: Deletion Protection inhibits deletion of the cluster
@@ -2934,8 +2931,7 @@ components:
           items:
             type: string
         serviceAccountId:
-          description: ID of the service account used for access to Yandex Object
-            Storage.
+          description: ID of the service account used for access to Object Storage.
           type: string
         deletionProtection:
           description: Deletion Protection inhibits deletion of the cluster

@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Yandex Managed Service for Greenplum API
+  title: Managed Service for Greenplum API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
-    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
@@ -763,12 +763,12 @@ components:
       type: object
       properties:
         dataLens:
-          description: Allows data export from the cluster to Yandex DataLens.
+          description: Allows data export from the cluster to DataLens.
           type: boolean
           format: boolean
         webSql:
-          description: Allows SQL queries to the cluster databases from the Yandex
-            Cloud management console.
+          description: Allows SQL queries to the cluster databases from the management
+            console.
           type: boolean
           format: boolean
         dataTransfer:
@@ -817,7 +817,7 @@ components:
         id:
           description: |-
             ID of the Greenplum® cluster.
-            This ID is assigned by Yandex Cloud at the time of cluster creation.
+            This ID is assigned by the platform at the time of cluster creation.
           type: string
         folderId:
           description: ID of the folder that the Greenplum® cluster belongs to.
@@ -1340,16 +1340,16 @@ components:
         name:
           description: |-
             Required.
-            Name of the Greenplum® host. The host name is assigned by Yandex Cloud at creation time and cannot be changed.
+            Name of the Greenplum® host. The host name is assigned by the platform at creation time and cannot be changed.
             1-63 characters long.
 
-            The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host.
+            The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.
 
             The maximum string length in characters is 63.
           type: string
         clusterId:
-          description: ID of the Greenplum® cluster. The ID is assigned by Yandex
-            Cloud at creation time.
+          description: ID of the Greenplum® cluster. The ID is assigned by the platform
+            at creation time.
           type: string
         zoneId:
           description: ID of the availability zone the Greenplum® host belongs to.
@@ -1915,6 +1915,13 @@ components:
           $ref: '#/components/schemas/MasterSubclusterConfigSpec_in_UpdateClusterRequest_masterConfig'
         segmentConfig:
           $ref: '#/components/schemas/SegmentSubclusterConfigSpec_in_UpdateClusterRequest_segmentConfig'
+        userPassword:
+          description: |-
+            Required.
+            Owner user password. Must be 8-128 characters long
+
+            The string length in characters must be 8-128.
+          type: string
         maintenanceWindow:
           $ref: '#/components/schemas/MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow'
         securityGroupIds:
@@ -1926,6 +1933,8 @@ components:
           description: Whether or not cluster is protected from being deleted.
           type: boolean
           format: boolean
+        configSpec:
+          $ref: '#/components/schemas/ConfigSpec_in_UpdateClusterRequest_configSpec'
     WeeklyMaintenanceWindow:
       description: A weekly maintenance window.
       type: object
@@ -2340,12 +2349,12 @@ components:
       type: object
       properties:
         dataLens:
-          description: Allows data export from the cluster to Yandex DataLens.
+          description: Allows data export from the cluster to DataLens.
           type: boolean
           format: boolean
         webSql:
-          description: Allows SQL queries to the cluster databases from the Yandex
-            Cloud management console.
+          description: Allows SQL queries to the cluster databases from the management
+            console.
           type: boolean
           format: boolean
         dataTransfer:
@@ -2744,12 +2753,12 @@ components:
       type: object
       properties:
         dataLens:
-          description: Allows data export from the cluster to Yandex DataLens.
+          description: Allows data export from the cluster to DataLens.
           type: boolean
           format: boolean
         webSql:
-          description: Allows SQL queries to the cluster databases from the Yandex
-            Cloud management console.
+          description: Allows SQL queries to the cluster databases from the management
+            console.
           type: boolean
           format: boolean
         dataTransfer:
@@ -3100,6 +3109,26 @@ components:
           weeklyMaintenanceWindow:
             $ref: '#/components/schemas/WeeklyMaintenanceWindow'
             description: A weekly maintenance window.
+    ConfigSpec_in_UpdateClusterRequest_configSpec:
+      description: |-
+        Settings of the Greenplum® cluster.
+
+        Configuration of greenplum and odyssey
+      type: object
+      allOf:
+      - type: object
+        properties:
+          pool:
+            $ref: '#/components/schemas/ConnectionPoolerConfig'
+            description: Odyssey pool settings
+      - title: greenplum_config
+        type: object
+        maxProperties: 1
+        properties:
+          greenplumConfig_6_17:
+            $ref: '#/components/schemas/GreenplumConfig6_17'
+          greenplumConfig_6_19:
+            $ref: '#/components/schemas/GreenplumConfig6_19'
     WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
       description: Day of the week.
       type: string

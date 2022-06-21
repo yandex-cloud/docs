@@ -1,6 +1,8 @@
 items:
   - name: Overview
     href: api-ref/grpc/index.md
+  - name: GroupService
+    href: api-ref/grpc/group_service.md
   - name: OrganizationService
     href: api-ref/grpc/organization_service.md
   - name: UserService

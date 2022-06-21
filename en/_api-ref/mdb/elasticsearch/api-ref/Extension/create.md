@@ -32,7 +32,7 @@ clusterId | Required. ID of the cluster.  The maximum string length in character
 Field | Description
 --- | ---
 name | **string**<br><p>Required. Name of the extension.</p> <p>The maximum string length in characters is 50.</p> 
-uri | **string**<br><p>Required. URI of the zip archive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage.</p> 
+uri | **string**<br><p>Required. URI of the zip archive to create the new extension from. Currently only supports links that are stored in Object Storage.</p> 
 disabled | **boolean** (boolean)<br><p>The flag that disables the extension.</p> 
  
 ## Response {#responses}

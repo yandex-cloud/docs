@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Locator
-A set of methods for the Yandex Locator service.
+A set of methods for the Locator service.
 
 ## Methods {#methods}
 Method | Description

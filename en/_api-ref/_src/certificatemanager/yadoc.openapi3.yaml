@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Yandex Certificate Manager API
+  title: Certificate Manager API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
-    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://certificate-manager.api.cloud.yandex.net
@@ -550,6 +550,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Challenge'
+        deletionProtection:
+          description: Flag that protects deletion of the certificate
+          type: boolean
+          format: boolean
     CertificateStatus:
       description: |2-
          - VALIDATING: The certificate domains validation are required. Used only for managed certificates.
@@ -733,6 +737,10 @@ components:
 
             The string length in characters must be 1-524288.
           type: string
+        deletionProtection:
+          description: Flag that protects deletion of the certificate
+          type: boolean
+          format: boolean
     DeleteCertificateMetadata:
       type: object
       properties:
@@ -936,6 +944,10 @@ components:
             type: string
         challengeType:
           $ref: '#/components/schemas/ChallengeType_in_RequestNewCertificateRequest_challengeType'
+        deletionProtection:
+          description: Flag that protects deletion of the certificate
+          type: boolean
+          format: boolean
     SetAccessBindingsMetadata:
       type: object
       properties:
@@ -1057,6 +1069,10 @@ components:
 
             The maximum string length in characters is 524288.
           type: string
+        deletionProtection:
+          description: Flag that protects deletion of the certificate
+          type: boolean
+          format: boolean
     Version:
       description: A certificate version
       type: object

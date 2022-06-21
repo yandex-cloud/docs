@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Yandex Instance Groups API
+  title: Compute Cloud Instance Groups API
   description: This API reference is organized by resource. All actions are performed
-    by sending HTTP requests to resource URLs. For more information about the Yandex.Cloud
-    API architecture, see [API Concepts](/docs/api-design-guide/).
+    by sending HTTP requests to resource URLs. For more information about the API
+    architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://compute.api.cloud.yandex.net
@@ -1910,9 +1910,9 @@ components:
           $ref: '#/components/schemas/ScalePolicyCpuUtilizationRule_in_ScalePolicyAutoScale_cpuUtilizationRule'
         customRules:
           description: |-
-            Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring.
+            Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Monitoring.
 
-            If more than one rule is specified, e.g. CPU utilization (`cpuUtilizationRule`) and one or more Yandex Monitoring
+            If more than one rule is specified, e.g. CPU utilization (`cpuUtilizationRule`) and one or more Monitoring
             metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric.
 
             The maximum number of elements is 3.
@@ -1949,13 +1949,13 @@ components:
         metricName:
           description: |-
             Required.
-            Name of custom metric in Yandex Monitoring that should be used for scaling.
+            Name of custom metric in Monitoring that should be used for scaling.
 
             Value must match the regular expression `` [a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]<>-]{0,198} ``.
           type: string
         labels:
           description: |-
-            Labels of custom metric in Yandex Monitoring that should be used for scaling.
+            Labels of custom metric in Monitoring that should be used for scaling.
 
             Each key must match the regular expression `` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ ``.
             Each value must match the regular expression `` [a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]<>-]{0,198} ``.
@@ -1971,13 +1971,13 @@ components:
           format: double
         folderId:
           description: |-
-            Folder id of custom metric in Yandex Monitoring that should be used for scaling.
+            Folder id of custom metric in Monitoring that should be used for scaling.
 
             The maximum string length in characters is 50.
           type: string
         service:
           description: |-
-            Service of custom metric in Yandex Monitoring that should be used for scaling.
+            Service of custom metric in Monitoring that should be used for scaling.
 
             The maximum string length in characters is 200.
           type: string
@@ -3297,7 +3297,7 @@ components:
       description: |-
         Defines an autoscaling rule based on the average CPU utilization of the instance group.
 
-        If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics (`customRules`),
+        If more than one rule is specified, e.g. CPU utilization and one or more Monitoring metrics (`customRules`),
         the size of the instance group will be equal to the maximum of sizes calculated according to each metric.
       type: object
       properties:

@@ -539,7 +539,7 @@ A set of methods for managing MySQL clusters.
  
 Field | Description
 --- | ---
-id | **string**<br><p>ID of the cluster.</p> <p>This ID is assigned by Yandex Cloud at the time of creation.</p> 
+id | **string**<br><p>ID of the cluster.</p> <p>This ID is assigned by the platform at the time of creation.</p> 
 folderId | **string**<br><p>ID of the folder that the cluster belongs to.</p> 
 createdAt | **string** (date-time)<br><p>Creation timestamp of the cluster.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 name | **string**<br><p>Name of the cluster.</p> 
@@ -563,7 +563,7 @@ config.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds of 
 config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 config.<br>access | **object**<br>
 config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allows access from DataLens.</p> <p>See <a href="/docs/managed-mysql/operations/datalens-connect">the documentation</a> for details.</p> 
-config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allows SQL queries to the cluster databases from Yandex Cloud management console.</p> <p>See <a href="/docs/managed-mysql/operations/web-sql-query">the documentation</a> for details.</p> 
+config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allows SQL queries to the cluster databases from management console.</p> <p>See <a href="/docs/managed-mysql/operations/web-sql-query">the documentation</a> for details.</p> 
 config.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
 config.<br>performanceDiagnostics | **object**<br>
 config.<br>performanceDiagnostics.<br>enabled | **boolean** (boolean)<br><p>Flag that shows if performance statistics gathering is enabled for the cluster.</p> 

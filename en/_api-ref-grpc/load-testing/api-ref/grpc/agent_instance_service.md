@@ -75,7 +75,7 @@ status_comment | **string**<br>
 
 
 
-**rpc List ([ListAgentInstancesRequest](#ListAgentInstancesRequest)) returns ([AgentInstancesList](#AgentInstancesList))**
+**rpc List ([ListAgentInstancesRequest](#ListAgentInstancesRequest)) returns ([ListAgentInstancesResponse](#ListAgentInstancesResponse))**
 
 ### ListAgentInstancesRequest {#ListAgentInstancesRequest}
 
@@ -87,7 +87,7 @@ page_token | **string**<br> The maximum string length in characters is 100.
 filter | **string**<br> The maximum string length in characters is 1000.
 
 
-### AgentInstancesList {#AgentInstancesList}
+### ListAgentInstancesResponse {#ListAgentInstancesResponse}
 
 Field | Description
 --- | ---
@@ -136,7 +136,7 @@ status_comment | **string**<br>
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateAgentInstanceMetadata](#CreateAgentInstanceMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[AgentInstancesList](#AgentInstancesList)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[AgentInstance](#AgentInstance2)<br>
 
 ### CreateAgentInstanceRequest {#CreateAgentInstanceRequest}
 
@@ -166,7 +166,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateAgentInstanceMetadata](#CreateAgentInstanceMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AgentInstancesList](#AgentInstancesList)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AgentInstance](#AgentInstance2)>**<br>if operation finished successfully. 
 
 
 ### CreateAgentInstanceMetadata {#CreateAgentInstanceMetadata}
@@ -174,15 +174,6 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 agent_instance_id | **string**<br> 
-
-
-### AgentInstancesList {#AgentInstancesList1}
-
-Field | Description
---- | ---
-folder_id | **string**<br> 
-agent_instances[] | **[AgentInstance](#AgentInstance2)**<br> 
-next_page_token | **string**<br> 
 
 
 ### AgentInstance {#AgentInstance2}

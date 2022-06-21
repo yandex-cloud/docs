@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Yandex Cloud Desktop API
+  title: Cloud Desktop API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
-    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://cloud-desktop.api.cloud.yandex.net

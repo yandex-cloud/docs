@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Yandex Managed Services for Kubernetes API
+  title: Managed Services for Kubernetes API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
-    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mks.api.cloud.yandex.net
@@ -2192,7 +2192,7 @@ components:
         newRevisionAvailable:
           description: |-
             Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well
-            as some internal component updates - new features or bug fixes in Yandex specific
+            as some internal component updates - new features or bug fixes in platform specific
             components either on the master or nodes.
           type: boolean
           format: boolean
@@ -2771,7 +2771,7 @@ components:
         newRevisionAvailable:
           description: |-
             Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well
-            as some internal component updates - new features or bug fixes in Yandex specific
+            as some internal component updates - new features or bug fixes in platform specific
             components either on the master or nodes.
           type: boolean
           format: boolean

@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Yandex Locator API
+  title: Locator API
   description: The service does not operate with resources. All service's methods
     are presented on the [Locator](Locator/) page.
   version: v1
@@ -168,4 +168,4 @@ components:
           format: int64
 tags:
 - name: Locator
-  description: A set of methods for the Yandex Locator service.
+  description: A set of methods for the Locator service.

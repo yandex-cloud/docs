@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Yandex Managed Service for Microsoft SQL Server API
+  title: Managed Service for SQL Server API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
-    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
@@ -1504,8 +1504,8 @@ components:
           items:
             type: string
         serviceAccountId:
-          description: ID of the service account which is used for access to Yandex
-            Object Storage.
+          description: ID of the service account which is used for access to Object
+            Storage.
           type: string
     ClusterConfig:
       type: object
@@ -1524,6 +1524,9 @@ components:
           access:
             $ref: '#/components/schemas/Access'
             description: Database access policy.
+          secondaryConnections:
+            $ref: '#/components/schemas/ClusterConfigSecondaryConnections'
+            description: Secondary replicas connection mode
       - title: sqlserver_config
         type: object
         maxProperties: 1
@@ -1536,6 +1539,26 @@ components:
             $ref: '#/components/schemas/SQLServerConfigSet2016sp2ent'
             description: Configuration of the SQL Server 2016sp2 enterprise edition
               instance.
+          sqlserverConfig_2017Std:
+            $ref: '#/components/schemas/SQLServerConfigSet2017std'
+            description: Configuration of the SQL Server 2017 standard edition instance.
+          sqlserverConfig_2017Ent:
+            $ref: '#/components/schemas/SQLServerConfigSet2017ent'
+            description: Configuration of the SQL Server 2017 enterprise edition instance.
+          sqlserverConfig_2019Std:
+            $ref: '#/components/schemas/SQLServerConfigSet2019std'
+            description: Configuration of the SQL Server 2019 standard edition instance.
+          sqlserverConfig_2019Ent:
+            $ref: '#/components/schemas/SQLServerConfigSet2019ent'
+            description: Configuration of the SQL Server 2019 enterprise edition instance.
+    ClusterConfigSecondaryConnections:
+      description: |2-
+         - SECONDARY_CONNECTIONS_OFF: Connections to secondary replicas are prohibited
+         - SECONDARY_CONNECTIONS_READ_ONLY: Secondary replicas are read-only
+      type: string
+      enum:
+      - SECONDARY_CONNECTIONS_OFF
+      - SECONDARY_CONNECTIONS_READ_ONLY
     ClusterEnvironment:
       description: |2-
          - PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.
@@ -1604,6 +1627,9 @@ components:
           access:
             $ref: '#/components/schemas/Access'
             description: Database access policy.
+          secondaryConnections:
+            $ref: '#/components/schemas/ClusterConfigSecondaryConnections'
+            description: Secondary replicas connection mode
       - title: sqlserver_config
         type: object
         maxProperties: 1
@@ -1616,6 +1642,18 @@ components:
             $ref: '#/components/schemas/SQLServerConfig2016sp2ent'
             description: Configuration for an SQL Server 2016 SP2 Enterprise edition
               cluster.
+          sqlserverConfig_2017Std:
+            $ref: '#/components/schemas/SQLServerConfig2017std'
+            description: Configuration for an SQL Server 2017 Standard edition cluster.
+          sqlserverConfig_2017Ent:
+            $ref: '#/components/schemas/SQLServerConfig2017ent'
+            description: Configuration for an SQL Server 2017 Enterprise edition cluster.
+          sqlserverConfig_2019Std:
+            $ref: '#/components/schemas/SQLServerConfig2019std'
+            description: Configuration for an SQL Server 2019 Standard edition cluster.
+          sqlserverConfig_2019Ent:
+            $ref: '#/components/schemas/SQLServerConfig2019ent'
+            description: Configuration for an SQL Server 2019 Enterprise edition cluster.
     CreateClusterMetadata:
       type: object
       properties:
@@ -1710,8 +1748,7 @@ components:
           items:
             type: string
         serviceAccountId:
-          description: ID of the service account used for access to Yandex Object
-            Storage.
+          description: ID of the service account used for access to Object Storage.
           type: string
     CreateDatabaseMetadata:
       type: object
@@ -1865,7 +1902,7 @@ components:
 
             The host name is assigned by Managed Service for SQL Server at the moment of creation and cannot be changed. 1-63 characters long.
 
-            The name is unique across all existing database hosts in Yandex Cloud as it defines the FQDN of the host.
+            The name is unique across all database hosts that exist on the platform as it defines the FQDN of the host.
           type: string
         clusterId:
           description: |-
@@ -2431,8 +2468,7 @@ components:
           items:
             type: string
         serviceAccountId:
-          description: ID of the service account used for access to Yandex Object
-            Storage.
+          description: ID of the service account used for access to Object Storage.
           type: string
     RestoreDatabaseMetadata:
       type: object
@@ -2628,6 +2664,268 @@ components:
             See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
           type: boolean
           format: boolean
+    SQLServerConfig2017ent:
+      description: |-
+        SQL Server 2017 Enterprise edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2017).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
+
+            Possible values:
+            * 0 - do not log login attempts;
+            * 1 - log only failed login attempts;
+            * 2 - log only successful login attempts (not recommended);
+            * 3 - log all login attempts (not recommended).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2017).
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+            When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2017).
+          type: boolean
+          format: boolean
+    SQLServerConfig2017std:
+      description: |-
+        SQL Server 2017 Standard edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2017).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
+
+            Possible values:
+            * 0 - do not log login attempts;
+            * 1 - log only failed login attempts;
+            * 2 - log only successful login attempts (not recommended);
+            * 3 - log all login attempts (not recommended).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2017).
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+
+            When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2017).
+          type: boolean
+          format: boolean
+    SQLServerConfig2019ent:
+      description: |-
+        SQL Server 2019 Enterprise edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2019).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
+
+            Possible values:
+            * 0 - do not log login attempts;
+            * 1 - log only failed login attempts;
+            * 2 - log only successful login attempts (not recommended);
+            * 3 - log all login attempts (not recommended).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2019).
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+            When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2019).
+          type: boolean
+          format: boolean
+    SQLServerConfig2019std:
+      description: |-
+        SQL Server 2019 Standard edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2019).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
+
+            Possible values:
+            * 0 - do not log login attempts;
+            * 1 - log only failed login attempts;
+            * 2 - log only successful login attempts (not recommended);
+            * 3 - log all login attempts (not recommended).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2019).
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+
+            When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2019).
+          type: boolean
+          format: boolean
     SQLServerConfigSet2016sp2ent:
       type: object
       properties:
@@ -2646,6 +2944,42 @@ components:
           $ref: '#/components/schemas/SQLServerConfig2016sp2std_in_SQLServerConfigSet2016sp2std_userConfig'
         defaultConfig:
           $ref: '#/components/schemas/SQLServerConfig2016sp2std_in_SQLServerConfigSet2016sp2std_defaultConfig'
+    SQLServerConfigSet2017ent:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/SQLServerConfig2017ent_in_SQLServerConfigSet2017ent_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/SQLServerConfig2017ent_in_SQLServerConfigSet2017ent_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/SQLServerConfig2017ent_in_SQLServerConfigSet2017ent_defaultConfig'
+    SQLServerConfigSet2017std:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/SQLServerConfig2017std_in_SQLServerConfigSet2017std_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/SQLServerConfig2017std_in_SQLServerConfigSet2017std_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/SQLServerConfig2017std_in_SQLServerConfigSet2017std_defaultConfig'
+    SQLServerConfigSet2019ent:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/SQLServerConfig2019ent_in_SQLServerConfigSet2019ent_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/SQLServerConfig2019ent_in_SQLServerConfigSet2019ent_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/SQLServerConfig2019ent_in_SQLServerConfigSet2019ent_defaultConfig'
+    SQLServerConfigSet2019std:
+      type: object
+      properties:
+        effectiveConfig:
+          $ref: '#/components/schemas/SQLServerConfig2019std_in_SQLServerConfigSet2019std_effectiveConfig'
+        userConfig:
+          $ref: '#/components/schemas/SQLServerConfig2019std_in_SQLServerConfigSet2019std_userConfig'
+        defaultConfig:
+          $ref: '#/components/schemas/SQLServerConfig2019std_in_SQLServerConfigSet2019std_defaultConfig'
     ServerRole:
       description: |-
         Set of server roles.
@@ -2814,8 +3148,7 @@ components:
           type: boolean
           format: boolean
         serviceAccountId:
-          description: ID of the service account used for access to Yandex Object
-            Storage.
+          description: ID of the service account used for access to Object Storage.
           type: string
     UpdateHostSpec:
       type: object
@@ -2955,6 +3288,9 @@ components:
           access:
             $ref: '#/components/schemas/Access'
             description: Database access policy.
+          secondaryConnections:
+            $ref: '#/components/schemas/ClusterConfigSecondaryConnections'
+            description: Secondary replicas connection mode
       - title: sqlserver_config
         type: object
         maxProperties: 1
@@ -2967,6 +3303,18 @@ components:
             $ref: '#/components/schemas/SQLServerConfigSet2016sp2ent'
             description: Configuration of the SQL Server 2016sp2 enterprise edition
               instance.
+          sqlserverConfig_2017Std:
+            $ref: '#/components/schemas/SQLServerConfigSet2017std'
+            description: Configuration of the SQL Server 2017 standard edition instance.
+          sqlserverConfig_2017Ent:
+            $ref: '#/components/schemas/SQLServerConfigSet2017ent'
+            description: Configuration of the SQL Server 2017 enterprise edition instance.
+          sqlserverConfig_2019Std:
+            $ref: '#/components/schemas/SQLServerConfigSet2019std'
+            description: Configuration of the SQL Server 2019 standard edition instance.
+          sqlserverConfig_2019Ent:
+            $ref: '#/components/schemas/SQLServerConfigSet2019ent'
+            description: Configuration of the SQL Server 2019 enterprise edition instance.
     ClusterHealth_in_Cluster_health:
       description: |-
         Aggregated cluster health.
@@ -3042,6 +3390,9 @@ components:
           access:
             $ref: '#/components/schemas/Access'
             description: Database access policy.
+          secondaryConnections:
+            $ref: '#/components/schemas/ClusterConfigSecondaryConnections'
+            description: Secondary replicas connection mode
       - title: sqlserver_config
         type: object
         maxProperties: 1
@@ -3054,6 +3405,18 @@ components:
             $ref: '#/components/schemas/SQLServerConfig2016sp2ent'
             description: Configuration for an SQL Server 2016 SP2 Enterprise edition
               cluster.
+          sqlserverConfig_2017Std:
+            $ref: '#/components/schemas/SQLServerConfig2017std'
+            description: Configuration for an SQL Server 2017 Standard edition cluster.
+          sqlserverConfig_2017Ent:
+            $ref: '#/components/schemas/SQLServerConfig2017ent'
+            description: Configuration for an SQL Server 2017 Enterprise edition cluster.
+          sqlserverConfig_2019Std:
+            $ref: '#/components/schemas/SQLServerConfig2019std'
+            description: Configuration for an SQL Server 2019 Standard edition cluster.
+          sqlserverConfig_2019Ent:
+            $ref: '#/components/schemas/SQLServerConfig2019ent'
+            description: Configuration for an SQL Server 2019 Enterprise edition cluster.
     DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
       description: |-
         Required.
@@ -3206,6 +3569,9 @@ components:
           access:
             $ref: '#/components/schemas/Access'
             description: Database access policy.
+          secondaryConnections:
+            $ref: '#/components/schemas/ClusterConfigSecondaryConnections'
+            description: Secondary replicas connection mode
       - title: sqlserver_config
         type: object
         maxProperties: 1
@@ -3218,6 +3584,18 @@ components:
             $ref: '#/components/schemas/SQLServerConfig2016sp2ent'
             description: Configuration for an SQL Server 2016 SP2 Enterprise edition
               cluster.
+          sqlserverConfig_2017Std:
+            $ref: '#/components/schemas/SQLServerConfig2017std'
+            description: Configuration for an SQL Server 2017 Standard edition cluster.
+          sqlserverConfig_2017Ent:
+            $ref: '#/components/schemas/SQLServerConfig2017ent'
+            description: Configuration for an SQL Server 2017 Enterprise edition cluster.
+          sqlserverConfig_2019Std:
+            $ref: '#/components/schemas/SQLServerConfig2019std'
+            description: Configuration for an SQL Server 2019 Standard edition cluster.
+          sqlserverConfig_2019Ent:
+            $ref: '#/components/schemas/SQLServerConfig2019ent'
+            description: Configuration for an SQL Server 2019 Enterprise edition cluster.
     Permission_in_RevokeUserPermissionRequest_permission:
       description: |-
         Required.
@@ -3641,6 +4019,816 @@ components:
             See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
           type: boolean
           format: boolean
+    SQLServerConfig2017ent_in_SQLServerConfigSet2017ent_effectiveConfig:
+      description: |-
+        Effective settings for an SQL Server 2017 cluster (a combination of settings defined in `userConfig` and `defaultConfig`).
+
+        SQL Server 2017 Enterprise edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2017).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
+
+            Possible values:
+            * 0 - do not log login attempts;
+            * 1 - log only failed login attempts;
+            * 2 - log only successful login attempts (not recommended);
+            * 3 - log all login attempts (not recommended).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2017).
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+            When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2017).
+          type: boolean
+          format: boolean
+    SQLServerConfig2017ent_in_SQLServerConfigSet2017ent_userConfig:
+      description: |-
+        User-defined settings for an SQL Server 2017 cluster.
+
+        SQL Server 2017 Enterprise edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2017).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
+
+            Possible values:
+            * 0 - do not log login attempts;
+            * 1 - log only failed login attempts;
+            * 2 - log only successful login attempts (not recommended);
+            * 3 - log all login attempts (not recommended).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2017).
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+            When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2017).
+          type: boolean
+          format: boolean
+    SQLServerConfig2017ent_in_SQLServerConfigSet2017ent_defaultConfig:
+      description: |-
+        Default configuration for an SQL Server 2017 cluster.
+
+        SQL Server 2017 Enterprise edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2017).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
+
+            Possible values:
+            * 0 - do not log login attempts;
+            * 1 - log only failed login attempts;
+            * 2 - log only successful login attempts (not recommended);
+            * 3 - log all login attempts (not recommended).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2017).
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+            When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2017).
+          type: boolean
+          format: boolean
+    SQLServerConfig2017std_in_SQLServerConfigSet2017std_effectiveConfig:
+      description: |-
+        Effective settings for an SQL Server 2017 cluster (a combination of settings defined in `userConfig` and `defaultConfig`).
+
+        SQL Server 2017 Standard edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2017).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
+
+            Possible values:
+            * 0 - do not log login attempts;
+            * 1 - log only failed login attempts;
+            * 2 - log only successful login attempts (not recommended);
+            * 3 - log all login attempts (not recommended).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2017).
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+
+            When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2017).
+          type: boolean
+          format: boolean
+    SQLServerConfig2017std_in_SQLServerConfigSet2017std_userConfig:
+      description: |-
+        User-defined settings for an SQL Server 2017 cluster.
+
+        SQL Server 2017 Standard edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2017).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
+
+            Possible values:
+            * 0 - do not log login attempts;
+            * 1 - log only failed login attempts;
+            * 2 - log only successful login attempts (not recommended);
+            * 3 - log all login attempts (not recommended).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2017).
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+
+            When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2017).
+          type: boolean
+          format: boolean
+    SQLServerConfig2017std_in_SQLServerConfigSet2017std_defaultConfig:
+      description: |-
+        Default configuration for an SQL Server 2017 cluster.
+
+        SQL Server 2017 Standard edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2017).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
+
+            Possible values:
+            * 0 - do not log login attempts;
+            * 1 - log only failed login attempts;
+            * 2 - log only successful login attempts (not recommended);
+            * 3 - log all login attempts (not recommended).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2017).
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+
+            When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2017).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2017).
+          type: boolean
+          format: boolean
+    SQLServerConfig2019ent_in_SQLServerConfigSet2019ent_effectiveConfig:
+      description: |-
+        Effective settings for an SQL Server 2019 cluster (a combination of settings defined in `userConfig` and `defaultConfig`).
+
+        SQL Server 2019 Enterprise edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2019).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
+
+            Possible values:
+            * 0 - do not log login attempts;
+            * 1 - log only failed login attempts;
+            * 2 - log only successful login attempts (not recommended);
+            * 3 - log all login attempts (not recommended).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2019).
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+            When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2019).
+          type: boolean
+          format: boolean
+    SQLServerConfig2019ent_in_SQLServerConfigSet2019ent_userConfig:
+      description: |-
+        User-defined settings for an SQL Server 2019 cluster.
+
+        SQL Server 2019 Enterprise edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2019).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
+
+            Possible values:
+            * 0 - do not log login attempts;
+            * 1 - log only failed login attempts;
+            * 2 - log only successful login attempts (not recommended);
+            * 3 - log all login attempts (not recommended).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2019).
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+            When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2019).
+          type: boolean
+          format: boolean
+    SQLServerConfig2019ent_in_SQLServerConfigSet2019ent_defaultConfig:
+      description: |-
+        Default configuration for an SQL Server 2019 cluster.
+
+        SQL Server 2019 Enterprise edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2019).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
+
+            Possible values:
+            * 0 - do not log login attempts;
+            * 1 - log only failed login attempts;
+            * 2 - log only successful login attempts (not recommended);
+            * 3 - log all login attempts (not recommended).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2019).
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+            When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2019).
+          type: boolean
+          format: boolean
+    SQLServerConfig2019std_in_SQLServerConfigSet2019std_effectiveConfig:
+      description: |-
+        Effective settings for an SQL Server 2019 cluster (a combination of settings defined in `userConfig` and `defaultConfig`).
+
+        SQL Server 2019 Standard edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2019).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
+
+            Possible values:
+            * 0 - do not log login attempts;
+            * 1 - log only failed login attempts;
+            * 2 - log only successful login attempts (not recommended);
+            * 3 - log all login attempts (not recommended).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2019).
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+
+            When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2019).
+          type: boolean
+          format: boolean
+    SQLServerConfig2019std_in_SQLServerConfigSet2019std_userConfig:
+      description: |-
+        User-defined settings for an SQL Server 2019 cluster.
+
+        SQL Server 2019 Standard edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2019).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
+
+            Possible values:
+            * 0 - do not log login attempts;
+            * 1 - log only failed login attempts;
+            * 2 - log only successful login attempts (not recommended);
+            * 3 - log all login attempts (not recommended).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2019).
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+
+            When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2019).
+          type: boolean
+          format: boolean
+    SQLServerConfig2019std_in_SQLServerConfigSet2019std_defaultConfig:
+      description: |-
+        Default configuration for an SQL Server 2019 cluster.
+
+        SQL Server 2019 Standard edition supported configuration options are listed here.
+
+        Detailed description for each set of options is available in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/server-configuration-options-sql-server?view=sql-server-2019).
+
+        Any options that are not listed here are not supported.
+      type: object
+      properties:
+        maxDegreeOfParallelism:
+          description: |-
+            Limits the number of processors to use in parallel plan execution per task.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 1 to 99, inclusive.
+          type: integer
+          format: int64
+        costThresholdForParallelism:
+          description: |-
+            Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
+
+            SQL Server creates and runs a parallel plan for a query only when the estimated cost to run a serial plan for the same query is higher than the value of the option.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 5 to 32767, inclusive.
+          type: integer
+          format: int64
+        auditLevel:
+          description: |-
+            Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
+
+            Possible values:
+            * 0 - do not log login attempts;
+            * 1 - log only failed login attempts;
+            * 2 - log only successful login attempts (not recommended);
+            * 3 - log all login attempts (not recommended).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2019).
+
+            Acceptable values are 0 to 3, inclusive.
+          type: integer
+          format: int64
+        fillFactorPercent:
+          description: |-
+            Manages the fill factor server configuration option.
+
+            When an index is created or rebuilt, the fill factor determines the percentage of space on each index leaf-level page to be filled with data, reserving the rest as free space for future growth.
+
+            Values 0 and 100 mean full page usage (no space reserved).
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2019).
+
+            Acceptable values are 0 to 100, inclusive.
+          type: integer
+          format: int64
+        optimizeForAdHocWorkloads:
+          description: |-
+            Determines whether plans should be cached only after second execution.
+
+            Allows to avoid SQL cache bloat because of single-use plans.
+
+            See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2019).
+          type: boolean
+          format: boolean
     ServiceType_in_Service_type:
       description: |-
         Type of the service provided by the host.
@@ -3702,6 +4890,9 @@ components:
           access:
             $ref: '#/components/schemas/Access'
             description: Database access policy.
+          secondaryConnections:
+            $ref: '#/components/schemas/ClusterConfigSecondaryConnections'
+            description: Secondary replicas connection mode
       - title: sqlserver_config
         type: object
         maxProperties: 1
@@ -3714,6 +4905,18 @@ components:
             $ref: '#/components/schemas/SQLServerConfig2016sp2ent'
             description: Configuration for an SQL Server 2016 SP2 Enterprise edition
               cluster.
+          sqlserverConfig_2017Std:
+            $ref: '#/components/schemas/SQLServerConfig2017std'
+            description: Configuration for an SQL Server 2017 Standard edition cluster.
+          sqlserverConfig_2017Ent:
+            $ref: '#/components/schemas/SQLServerConfig2017ent'
+            description: Configuration for an SQL Server 2017 Enterprise edition cluster.
+          sqlserverConfig_2019Std:
+            $ref: '#/components/schemas/SQLServerConfig2019std'
+            description: Configuration for an SQL Server 2019 Standard edition cluster.
+          sqlserverConfig_2019Ent:
+            $ref: '#/components/schemas/SQLServerConfig2019ent'
+            description: Configuration for an SQL Server 2019 Enterprise edition cluster.
     FieldMask_in_UpdateHostSpec_updateMask:
       description: |-
         Field mask that specifies which fields of the SQL Server host should be updated.

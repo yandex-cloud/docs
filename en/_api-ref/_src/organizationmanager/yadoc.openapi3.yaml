@@ -1,13 +1,435 @@
 openapi: 3.0.0
 info:
-  title: Yandex Organization Management API
+  title: Cloud Organization API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
-    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://organization-manager.api.cloud.yandex.net
 paths:
+  /organization-manager/v1/groups/{groupId}:
+    get:
+      tags:
+      - Group
+      summary: Returns the specified Group resource.
+      description: To get the list of available Group resources, make a [list](/docs/organization/api-ref/Group/list)
+        request.
+      operationId: GroupGet
+      parameters:
+      - name: groupId
+        in: path
+        description: |-
+          Required.
+          ID of the Group resource to return.
+          To get the group ID, use a [list](/docs/organization/api-ref/Group/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Group
+      summary: Deletes the specified group.
+      operationId: GroupDelete
+      parameters:
+      - name: groupId
+        in: path
+        description: |-
+          Required.
+          ID of the group to delete.
+          To get the group ID, use a [list](/docs/organization/api-ref/Group/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteGroupMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Group
+      summary: Updates the specified group.
+      operationId: GroupUpdate
+      parameters:
+      - name: groupId
+        in: path
+        description: |-
+          Required.
+          ID of the Group resource to update.
+          To get the group ID, use a [list](/docs/organization/api-ref/Group/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateGroupMetadata'
+      x-y-operation-response: '[Group](/docs/organization/api-ref/Group#representation)'
+  /organization-manager/v1/groups:
+    get:
+      tags:
+      - Group
+      summary: Retrieves the list of group resources.
+      operationId: GroupList
+      parameters:
+      - name: organizationId
+        in: query
+        description: |-
+          Required.
+          ID of the organization to list groups in.
+          To get the organization ID, use a [list](/docs/organization/api-ref/Organization/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/organization/api-ref/Group/list#query_params),
+          the service returns a [nextPageToken](/docs/organization/api-ref/Group/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set [pageToken](/docs/organization/api-ref/Group/list#query_params)
+          to the [nextPageToken](/docs/organization/api-ref/Group/list#responses)
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on the [Group.name](/docs/organization/api-ref/Group#representation) field.
+          2. An `=` operator.
+          3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListGroupsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Group
+      summary: Creates a group in the specified organization.
+      operationId: GroupCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateGroupMetadata'
+      x-y-operation-response: '[Group](/docs/organization/api-ref/Group#representation)'
+  /organization-manager/v1/groups/{groupId}/operations:
+    get:
+      tags:
+      - Group
+      summary: Lists operations for the specified group.
+      operationId: GroupListOperations
+      parameters:
+      - name: groupId
+        in: path
+        description: |-
+          Required.
+          ID of the Group resource to list operations for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/organization/api-ref/Group/listOperations#query_params), the service returns a [nextPageToken](/docs/organization/api-ref/Group/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set [pageToken](/docs/organization/api-ref/Group/listOperations#query_params)
+          to the [nextPageToken](/docs/organization/api-ref/Group/listOperations#responses)
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListGroupOperationsResponse'
+      x-y-navtitle: listOperations
+  /organization-manager/v1/groups/{groupId}:listMembers:
+    get:
+      tags:
+      - Group
+      summary: List group active members.
+      operationId: GroupListMembers
+      parameters:
+      - name: groupId
+        in: path
+        description: |-
+          Required.
+          ID of the Group resource to list members for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/organization/api-ref/Group/listMembers#query_params), the service returns a [nextPageToken](/docs/organization/api-ref/Group/listMembers#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set [pageToken](/docs/organization/api-ref/Group/listMembers#query_params)
+          to the [nextPageToken](/docs/organization/api-ref/Group/listMembers#responses)
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListGroupMembersResponse'
+      x-y-navtitle: listMembers
+  /organization-manager/v1/groups/{groupId}:updateMembers:
+    post:
+      tags:
+      - Group
+      summary: Update group members.
+      operationId: GroupUpdateMembers
+      parameters:
+      - name: groupId
+        in: path
+        description: |-
+          Required.
+          ID of the group to update.
+          To get the group ID, use a [list](/docs/organization/api-ref/Group/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateGroupMembersRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateMembers
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateGroupMembersMetadata'
+      x-y-operation-response: Empty
+  /organization-manager/v1/groups/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - Group
+      summary: Lists access bindings for the specified group.
+      operationId: GroupListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than [page_size],
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set [page_token]
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /organization-manager/v1/groups/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - Group
+      summary: Sets access bindings for the specified group.
+      operationId: GroupSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: '`AccessBindingsOperationResult`'
+  /organization-manager/v1/groups/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - Group
+      summary: Updates access bindings for the specified group.
+      operationId: GroupUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: '`AccessBindingsOperationResult`'
   /organization-manager/v1/organizations/{organizationId}:
     get:
       tags:
@@ -402,6 +824,51 @@ components:
           $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
         accessBinding:
           $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    AccessBindingsOperationResult:
+      type: object
+      properties:
+        effectiveDeltas:
+          description: Result access binding deltas.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    CreateGroupMetadata:
+      type: object
+      properties:
+        groupId:
+          description: ID of the group that is being created.
+          type: string
+    CreateGroupRequest:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            Required.
+            ID of the organization to create a group in.
+            To get the organization ID, use a [list](/docs/organization/api-ref/Organization/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Required.
+            Name of the group.
+            The name must be unique within the organization.
+
+            Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Description of the group.
+
+            The maximum string length in characters is 256.
+          type: string
+    DeleteGroupMetadata:
+      type: object
+      properties:
+        groupId:
+          description: ID of the group that is being deleted.
+          type: string
     DeleteMembershipMetadata:
       type: object
       properties:
@@ -466,6 +933,45 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    Group:
+      description: |-
+        A Group resource.
+        For more information, see [Groups](/docs/organization/groups).
+      type: object
+      properties:
+        id:
+          description: ID of the group.
+          type: string
+        organizationId:
+          description: ID of the organization that the group belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the group.
+          type: string
+        description:
+          description: Description of the group.
+          type: string
+    GroupMember:
+      type: object
+      properties:
+        subjectId:
+          description: ID of the subject.
+          type: string
+        subjectType:
+          description: |-
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex, added to Yandex Cloud.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+          type: string
     ListAccessBindingsResponse:
       type: object
       properties:
@@ -482,6 +988,53 @@ components:
             for the [ListAccessBindingsRequest.page_token] query parameter
             in the next list request. Each subsequent list request will have its own
             nextPageToken to continue paging through the results.
+          type: string
+    ListGroupMembersResponse:
+      type: object
+      properties:
+        members:
+          description: List of members for the specified group.
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupMember'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/organization/api-ref/Group/listMembers#query_params), use the [nextPageToken](/docs/organization/api-ref/Group/listMembers#responses) as the value
+            for the [pageToken](/docs/organization/api-ref/Group/listMembers#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/organization/api-ref/Group/listMembers#responses) to continue paging through the results.
+          type: string
+    ListGroupOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified group.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/organization/api-ref/Group/listOperations#query_params), use the [nextPageToken](/docs/organization/api-ref/Group/listOperations#responses) as the value
+            for the [pageToken](/docs/organization/api-ref/Group/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/organization/api-ref/Group/listOperations#responses) to continue paging through the results.
+          type: string
+    ListGroupsResponse:
+      type: object
+      properties:
+        groups:
+          description: List of Group resources.
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/organization/api-ref/Group/list#query_params), use
+            the [nextPageToken](/docs/organization/api-ref/Group/list#responses) as the value
+            for the [pageToken](/docs/organization/api-ref/Group/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/organization/api-ref/Group/list#responses) to continue paging through the results.
           type: string
     ListMembersResponse:
       type: object
@@ -535,6 +1088,30 @@ components:
             in the next list request. Each subsequent list request will have its own
             [nextPageToken](/docs/organization/api-ref/Organization/list#responses) to continue paging through the results.
           type: string
+    MemberDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/MemberDeltaMemberAction_in_MemberDelta_action'
+        subjectId:
+          description: |-
+            Required.
+            ID of the subject that is being added or removed from a group.
+
+            Subject type can be one of following values:
+            * `userAccount`: An account on Yandex, added to Yandex Cloud.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+
+            The maximum string length in characters is 50.
+          type: string
+    MemberDeltaMemberAction:
+      description: |2-
+         - ADD: Addition of a group member.
+         - REMOVE: Removal of a group member.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -763,6 +1340,48 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateGroupMembersMetadata:
+      type: object
+      properties:
+        groupId:
+          description: ID of the group that is being updated.
+          type: string
+    UpdateGroupMembersRequest:
+      type: object
+      properties:
+        memberDeltas:
+          description: |-
+            Required.
+            Updates to group members.
+
+            The number of elements must be in the range 1-1000.
+          type: array
+          items:
+            $ref: '#/components/schemas/MemberDelta'
+    UpdateGroupMetadata:
+      type: object
+      properties:
+        groupId:
+          description: ID of the Group resource that is being updated.
+          type: string
+    UpdateGroupRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateGroupRequest_updateMask'
+        name:
+          description: |-
+            Name of the group.
+            The name must be unique within the organization.
+
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Description of the group.
+
+            The maximum string length in characters is 256.
+          type: string
     UpdateOrganizationMetadata:
       type: object
       properties:
@@ -869,7 +1488,7 @@ components:
           $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
     SubjectClaims_in_ListMembersResponseOrganizationUser_subjectClaims:
       description: |-
-        OpenID standard claims with additional Yandex Cloud Organization claims.
+        OpenID standard claims with additional Cloud Organization claims.
 
         Claims representation, see https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims for details.
       type: object
@@ -927,6 +1546,17 @@ components:
           type: string
         federation:
           $ref: '#/components/schemas/Federation_in_SubjectClaims_federation'
+    MemberDeltaMemberAction_in_MemberDelta_action:
+      description: |-
+        Required.
+        The action that is being performed on a group member.
+
+         - ADD: Addition of a group member.
+         - REMOVE: Removal of a group member.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
     Federation_in_SubjectClaims_federation:
       description: |-
         User federation, non-empty only for federated users.
@@ -945,6 +1575,19 @@ components:
           description: Name of the federation. The name is unique within the cloud
             or organization
           type: string
+    FieldMask_in_UpdateGroupRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the Group resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
     FieldMask_in_UpdateOrganizationRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the organization are going to be updated.
@@ -959,6 +1602,8 @@ components:
         The rest of the fields will be reset to the default.
       type: string
 tags:
+- name: Group
+  description: A set of methods for managing groups.
 - name: Organization
   description: A set of methods for managing Organization resources.
 - name: User

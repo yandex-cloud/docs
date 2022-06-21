@@ -4,7 +4,7 @@ editable: false
 
 # LocatorService
 
-A set of methods for the Yandex Locator service.
+A set of methods for the Locator service.
 
 | Call | Description |
 | --- | --- |

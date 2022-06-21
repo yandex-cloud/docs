@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Yandex CDN management API
+  title: Cloud CDN API
   description: This API reference is organized around CDN resources. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
-    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://cdn.api.cloud.yandex.net
@@ -1118,8 +1118,8 @@ components:
               Any method that returns a long-running operation should document the response type, if any.
             type: object
     OriginBalancerMeta:
-      description: Yandex Application Load Balancer origin info. For details about
-        the concept, see [documentation](/docs/cdn/concepts/origins).
+      description: Application Load Balancer origin info. For details about the concept,
+        see [documentation](/docs/cdn/concepts/origins).
       type: object
       properties:
         id:
@@ -1165,16 +1165,15 @@ components:
             description: A server with a domain name linked to it
           bucket:
             $ref: '#/components/schemas/OriginNamedMeta'
-            description: A Yandex Object Storage bucket not configured as a static
-              site hosting.
+            description: An Object Storage bucket not configured as a static site
+              hosting.
           website:
             $ref: '#/components/schemas/OriginNamedMeta'
-            description: A Yandex Object Storage bucket configured as a static site
-              hosting.
+            description: An Object Storage bucket configured as a static site hosting.
           balancer:
             $ref: '#/components/schemas/OriginBalancerMeta'
             description: |-
-              An L7 load balancer from Yandex Application Load Balancer.
+              An L7 load balancer from Application Load Balancer.
               CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
     OriginNamedMeta:
       description: Origin info. For details about the concept, see [documentation](/docs/cdn/concepts/origins).
@@ -2013,16 +2012,15 @@ components:
             description: A server with a domain name linked to it
           bucket:
             $ref: '#/components/schemas/OriginNamedMeta'
-            description: A Yandex Object Storage bucket not configured as a static
-              site hosting.
+            description: An Object Storage bucket not configured as a static site
+              hosting.
           website:
             $ref: '#/components/schemas/OriginNamedMeta'
-            description: A Yandex Object Storage bucket configured as a static site
-              hosting.
+            description: An Object Storage bucket configured as a static site hosting.
           balancer:
             $ref: '#/components/schemas/OriginBalancerMeta'
             description: |-
-              An L7 load balancer from Yandex Application Load Balancer.
+              An L7 load balancer from Application Load Balancer.
               CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
     CreateResourceRequestOrigin_in_CreateResourceRequest_origin:
       description: |-
@@ -2192,16 +2190,15 @@ components:
             description: A server with a domain name linked to it
           bucket:
             $ref: '#/components/schemas/OriginNamedMeta'
-            description: A Yandex Object Storage bucket not configured as a static
-              site hosting.
+            description: An Object Storage bucket not configured as a static site
+              hosting.
           website:
             $ref: '#/components/schemas/OriginNamedMeta'
-            description: A Yandex Object Storage bucket configured as a static site
-              hosting.
+            description: An Object Storage bucket configured as a static site hosting.
           balancer:
             $ref: '#/components/schemas/OriginBalancerMeta'
             description: |-
-              An L7 load balancer from Yandex Application Load Balancer.
+              An L7 load balancer from Application Load Balancer.
               CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
     ResourceOptions_in_Resource_options:
       description: |-
@@ -2711,16 +2708,15 @@ components:
             description: A server with a domain name linked to it
           bucket:
             $ref: '#/components/schemas/OriginNamedMeta'
-            description: A Yandex Object Storage bucket not configured as a static
-              site hosting.
+            description: An Object Storage bucket not configured as a static site
+              hosting.
           website:
             $ref: '#/components/schemas/OriginNamedMeta'
-            description: A Yandex Object Storage bucket configured as a static site
-              hosting.
+            description: An Object Storage bucket configured as a static site hosting.
           balancer:
             $ref: '#/components/schemas/OriginBalancerMeta'
             description: |-
-              An L7 load balancer from Yandex Application Load Balancer.
+              An L7 load balancer from Application Load Balancer.
               CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
     SSLCertificateType_in_SSLCertificate_type:
       description: |-
@@ -2813,16 +2809,15 @@ components:
             description: A server with a domain name linked to it
           bucket:
             $ref: '#/components/schemas/OriginNamedMeta'
-            description: A Yandex Object Storage bucket not configured as a static
-              site hosting.
+            description: An Object Storage bucket not configured as a static site
+              hosting.
           website:
             $ref: '#/components/schemas/OriginNamedMeta'
-            description: A Yandex Object Storage bucket configured as a static site
-              hosting.
+            description: An Object Storage bucket configured as a static site hosting.
           balancer:
             $ref: '#/components/schemas/OriginBalancerMeta'
             description: |-
-              An L7 load balancer from Yandex Application Load Balancer.
+              An L7 load balancer from Application Load Balancer.
               CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
     RawLogsSettings_in_UpdateRawLogsRequest_settings:
       description: |-
@@ -3001,16 +2996,15 @@ components:
             description: A server with a domain name linked to it
           bucket:
             $ref: '#/components/schemas/OriginNamedMeta'
-            description: A Yandex Object Storage bucket not configured as a static
-              site hosting.
+            description: An Object Storage bucket not configured as a static site
+              hosting.
           website:
             $ref: '#/components/schemas/OriginNamedMeta'
-            description: A Yandex Object Storage bucket configured as a static site
-              hosting.
+            description: An Object Storage bucket configured as a static site hosting.
           balancer:
             $ref: '#/components/schemas/OriginBalancerMeta'
             description: |-
-              An L7 load balancer from Yandex Application Load Balancer.
+              An L7 load balancer from Application Load Balancer.
               CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
 tags:
 - name: Cache

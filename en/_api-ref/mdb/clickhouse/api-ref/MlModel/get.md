@@ -37,4 +37,4 @@ Field | Description
 name | **string**<br><p>Name of the the model.</p> 
 clusterId | **string**<br><p>ID of the ClickHouse cluster that the model belongs to.</p> 
 type | **string**<br><p>Type of the model.</p> <ul> <li>ML_MODEL_TYPE_CATBOOST: CatBoost model.</li> </ul> 
-uri | **string**<br><p>Model file URL. You can only use models stored in Yandex Object Storage.</p> 
+uri | **string**<br><p>Model file URL. You can only use models stored in Object Storage.</p> 

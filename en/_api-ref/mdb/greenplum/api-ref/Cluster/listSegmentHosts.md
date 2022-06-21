@@ -54,8 +54,8 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/m
 Field | Description
 --- | ---
 hosts[] | **object**<br><p>A Greenplum® cluster host resource.</p> 
-hosts[].<br>name | **string**<br><p>Required. Name of the Greenplum® host. The host name is assigned by Yandex Cloud at creation time and cannot be changed. 1-63 characters long.</p> <p>The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host.</p> <p>The maximum string length in characters is 63.</p> 
-hosts[].<br>clusterId | **string**<br><p>ID of the Greenplum® cluster. The ID is assigned by Yandex Cloud at creation time.</p> 
+hosts[].<br>name | **string**<br><p>Required. Name of the Greenplum® host. The host name is assigned by the platform at creation time and cannot be changed. 1-63 characters long.</p> <p>The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.</p> <p>The maximum string length in characters is 63.</p> 
+hosts[].<br>clusterId | **string**<br><p>ID of the Greenplum® cluster. The ID is assigned by the platform at creation time.</p> 
 hosts[].<br>zoneId | **string**<br><p>ID of the availability zone the Greenplum® host belongs to.</p> 
 hosts[].<br>type | **string**<br><p>Type of the host.</p> <ul> <li>TYPE_UNSPECIFIED: The type is not specified.</li> <li>MASTER: A Greenplum® master host.</li> <li>REPLICA: A Greenplum® master replica host.</li> <li>SEGMENT: A Greenplum® segment host.</li> </ul> 
 hosts[].<br>resources | **object**<br><p>Resources allocated to the Greenplum® host.</p> <p>A list of computational resources allocated to a host.</p> 

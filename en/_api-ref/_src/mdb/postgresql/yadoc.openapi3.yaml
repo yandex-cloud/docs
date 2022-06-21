@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Yandex Managed Service for PostgreSQL API
+  title: Managed Service for PostgreSQL API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
-    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
@@ -1444,7 +1444,7 @@ components:
           format: boolean
         webSql:
           description: |-
-            Allow SQL queries to the cluster databases from the Yandex Cloud management console.
+            Allow SQL queries to the cluster databases from the management console.
 
             See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details.
           type: boolean
@@ -1963,8 +1963,9 @@ components:
         userSpec:
           $ref: '#/components/schemas/UserSpec_in_CreateUserRequest_userSpec'
     Database:
-      description: "A PostgreSQL Database resource. For more information, see \nthe
-        [Developer's Guide](/docs/managed-postgresql/concepts)."
+      description: |-
+        A PostgreSQL Database resource. For more information, see
+        the [Developer's Guide](/docs/managed-postgresql/concepts).
       type: object
       properties:
         name:
@@ -1991,6 +1992,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Extension'
+        templateDb:
+          description: Name of the database template.
+          type: string
     DatabaseSpec:
       type: object
       properties:
@@ -2030,6 +2034,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Extension'
+        templateDb:
+          description: |-
+            Name of the PostgreSQL database template.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
     DeleteClusterHostsMetadata:
       type: object
       properties:
@@ -2128,7 +2139,7 @@ components:
             Name of the PostgreSQL host. The host name is assigned by MDB at creation time, and cannot be changed.
             1-63 characters long.
 
-            The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host.
+            The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.
           type: string
         clusterId:
           description: ID of the PostgreSQL host. The ID is assigned by MDB at creation
@@ -10411,6 +10422,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Extension'
+        templateDb:
+          description: |-
+            Name of the PostgreSQL database template.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
     UserSpec_in_CreateUserRequest_userSpec:
       description: |-
         Required.

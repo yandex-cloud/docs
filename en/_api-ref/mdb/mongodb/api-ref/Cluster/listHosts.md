@@ -62,7 +62,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/m
 Field | Description
 --- | ---
 hosts[] | **object**<br><p>List of Host resources.</p> 
-hosts[].<br>name | **string**<br><p>Name of the MongoDB host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long.</p> <p>The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host.</p> 
+hosts[].<br>name | **string**<br><p>Name of the MongoDB host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long.</p> <p>The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.</p> 
 hosts[].<br>clusterId | **string**<br><p>ID of the MongoDB host. The ID is assigned by MDB at creation time.</p> 
 hosts[].<br>zoneId | **string**<br><p>ID of the availability zone where the MongoDB host resides.</p> 
 hosts[].<br>resources | **object**<br><p>Resources allocated to the MongoDB host.</p> 

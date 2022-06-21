@@ -122,7 +122,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
@@ -267,7 +267,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
@@ -385,7 +385,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
@@ -408,6 +408,7 @@ owner | **string**<br>Required. Name of the user to be assigned as the owner of 
 lc_collate | **string**<br>POSIX locale for string sorting order. Can only be set at creation time. Value must match the regular expression ` \|[a-zA-Z_]+.UTF-8\|C `.
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. Value must match the regular expression ` \|[a-zA-Z_]+.UTF-8\|C `.
 extensions[] | **[Extension](#Extension)**<br>PostgreSQL extensions to be enabled for the database. 
+template_db | **string**<br>Name of the PostgreSQL database template. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Extension {#Extension}
@@ -579,7 +580,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
@@ -693,7 +694,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
@@ -829,7 +830,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
@@ -1030,7 +1031,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
@@ -1191,7 +1192,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
@@ -1355,7 +1356,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
@@ -1516,7 +1517,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
@@ -1635,7 +1636,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
@@ -1779,7 +1780,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
@@ -1943,7 +1944,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
@@ -2105,7 +2106,7 @@ disk_type_id | **string**<br>Type of the storage environment for the host. Possi
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allow access for DataLens 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-postgresql/operations/web-sql-query) for more details. 
 serverless | **bool**<br>Allow access for Serverless 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
@@ -2322,7 +2323,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the PostgreSQL host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host. 
+name | **string**<br>Name of the PostgreSQL host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long. <br>The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. 
 cluster_id | **string**<br>ID of the PostgreSQL host. The ID is assigned by MDB at creation time. 
 zone_id | **string**<br>ID of the availability zone where the PostgreSQL host resides. 
 resources | **[Resources](#Resources14)**<br>Resources allocated to the PostgreSQL host. 

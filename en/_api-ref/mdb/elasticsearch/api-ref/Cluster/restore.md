@@ -114,12 +114,12 @@ hostSpecs[].<br>type | **string**<br><p>Required. Host type.</p> <ul> <li>DATA_N
 hostSpecs[].<br>shardName | **string**<br><p>The shard name to create on the host.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 networkId | **string**<br><p>Required. ID of the network to create the cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
-serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
+serviceAccountId | **string**<br><p>ID of the service account used for access to Object Storage.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
 folderId | **string**<br><p>Required. ID of the folder to create the ElasticSearch cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 extensionSpecs[] | **object**<br>
 extensionSpecs[].<br>name | **string**<br><p>Required. Name of the extension.</p> <p>The maximum string length in characters is 50.</p> 
-extensionSpecs[].<br>uri | **string**<br><p>URI of the zip archive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage.</p> 
+extensionSpecs[].<br>uri | **string**<br><p>URI of the zip archive to create the new extension from. Currently only supports links that are stored in Object Storage.</p> 
 extensionSpecs[].<br>disabled | **boolean** (boolean)<br><p>The flag shows whether to create the extension in disabled state.</p> 
  
 ## Response {#responses}

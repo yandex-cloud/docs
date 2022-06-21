@@ -48,7 +48,8 @@ A set of methods for managing certificates.
       // end of the list of possible fields`challenges[]`
 
     }
-  ]
+  ],
+  "deletionProtection": true
 }
 ```
  
@@ -85,6 +86,7 @@ challenges[].<br>dnsChallenge.<br>value | **string**<br><p>Value of the DNS-reco
 challenges[].<br>httpChallenge | **object** <br>`challenges[]` includes only one of the fields `dnsChallenge`, `httpChallenge`<br><br>
 challenges[].<br>httpChallenge.<br>url | **string**<br><p>Location of the HTTP file.</p> 
 challenges[].<br>httpChallenge.<br>content | **string**<br><p>Content of the HTTP file.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Flag that protects deletion of the certificate</p> 
 
 ## Methods {#methods}
 Method | Description

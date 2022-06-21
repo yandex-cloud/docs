@@ -104,7 +104,7 @@ configSpec.<br>edition | **string**<br><p>ElasticSearch edition.</p>
 configSpec.<br>adminPassword | **string**<br><p>ElasticSearch admin password.</p> 
 name | **string**<br><p>New name for the Elasticsearch cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
-serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
+serviceAccountId | **string**<br><p>ID of the service account used for access to Object Storage.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
 maintenanceWindow | **object**<br><p>Window of maintenance operations.</p> 
 maintenanceWindow.<br>anytime | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br>

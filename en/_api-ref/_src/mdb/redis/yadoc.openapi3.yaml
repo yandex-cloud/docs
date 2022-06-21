@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Yandex Managed Service for Redis API
+  title: Managed Service for Redis API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
-    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://mdb.api.cloud.yandex.net
@@ -1538,7 +1538,7 @@ components:
             Name of the Redis host. The host name is assigned by MDB at creation time, and cannot be changed.
             1-63 characters long.
 
-            The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host.
+            The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.
           type: string
         clusterId:
           description: ID of the Redis cluster. The ID is assigned by MDB at creation

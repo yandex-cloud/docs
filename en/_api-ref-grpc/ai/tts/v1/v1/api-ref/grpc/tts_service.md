@@ -25,7 +25,7 @@ Field | Description
 template_audio | **[AudioContent](#AudioContent)**<br>Required. Template audio to copy prosody and audio characteristics from. 
 template_text | **string**<br>Required. The spoken text on the template audio. The maximum string length in characters is 256.
 replacements[] | **[ReplacementUnit](#ReplacementUnit)**<br>List of changeable parts in the template with substitutions to be synthesized. The maximum number of elements is 10.
-folder_id | **string**<br>Yandex cloud folder id. The maximum string length in characters is 50.
+folder_id | **string**<br>Folder id. The maximum string length in characters is 50.
 output_audio_spec | **[AudioSpec](#AudioSpec)**<br> 
 
 

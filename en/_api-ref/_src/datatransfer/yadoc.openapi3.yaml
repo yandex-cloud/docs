@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Yandex DataTransfer API
+  title: Data Transfer API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
-    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://datatransfer.api.cloud.yandex.net
@@ -710,7 +710,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex.Cloud Managed MySQL cluster ID
+              Managed Service for MySQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremiseMysql'
@@ -979,7 +979,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex.Cloud Managed PostgreSQL cluster ID
+              Managed Service for PostgreSQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremisePostgres'
@@ -1410,7 +1410,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex.Cloud Managed MySQL cluster ID
+              Managed Service for MySQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremiseMysql'
@@ -1460,7 +1460,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex.Cloud Managed MySQL cluster ID
+              Managed Service for MySQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremiseMysql'
@@ -1730,7 +1730,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex.Cloud Managed PostgreSQL cluster ID
+              Managed Service for PostgreSQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremisePostgres'
@@ -1808,7 +1808,7 @@ components:
             description: |-
               Managed cluster
 
-              Yandex.Cloud Managed PostgreSQL cluster ID
+              Managed Service for PostgreSQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremisePostgres'

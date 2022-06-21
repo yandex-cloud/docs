@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
-  title: Yandex Text To Speech Service API
+  title: SpeechKit Text To Speech Service API
   description: The service does not operate with resources. For more information about
-    Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/). <br><br><strong>
+    API architecture, see [API Concepts](/docs/api-design-guide/). <br><br><strong>
     API has limitation — the request cannot exceed 250 characters and 24 seconds for
     synthesis.</strong> <br><br> Service is available at tts.api.cloud.yandex.net,
     port 443.
@@ -81,7 +81,10 @@ components:
         containerAudioType:
           $ref: '#/components/schemas/ContainerAudioContainerAudioType_in_ContainerAudio_containerAudioType'
     ContainerAudioContainerAudioType:
-      description: ' - WAV: Audio bit depth 16-bit signed little-endian (Linear PCM).'
+      description: |2-
+         - WAV: Audio bit depth 16-bit signed little-endian (Linear PCM).
+         - OGG_OPUS: Data is encoded using the OPUS audio codec and compressed using the OGG container format.
+         - MP3: Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format.
       type: string
       enum:
       - WAV
@@ -101,16 +104,17 @@ components:
             $ref: '#/components/schemas/AudioTemplate'
             description: Template for synthesizing.
           speed:
-            description: hint to change speed
+            description: Hint to change speed.
             type: number
             format: double
           volume:
-            description: hint to regulate volume. For LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED
+            description: Hint to regulate volume. For LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED
               normalization will use MAX_PEAK, if volume in (0, 1], LUFS if volume
               in [-145, 0).
             type: number
             format: double
           role:
+            description: Hint to specify pronunciation character for the speaker.
             type: string
     RawAudio:
       type: object
@@ -154,7 +158,13 @@ components:
           description: The text of the variable.
           type: string
     UtteranceSynthesisRequestLoudnessNormalizationType:
-      description: Normalization type
+      description: |-
+        Normalization type
+
+         - MAX_PEAK: The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level.
+        The volume changes in a range (0;1], default value is 0.7.
+         - LUFS: The type of normalization based on EBU R 128 recommendation.
+        the volume changes in a range [-145;0], default value is -19.
       type: string
       enum:
       - MAX_PEAK
@@ -200,7 +210,10 @@ components:
           items:
             $ref: '#/components/schemas/TextVariable'
     ContainerAudioContainerAudioType_in_ContainerAudio_containerAudioType:
-      description: ' - WAV: Audio bit depth 16-bit signed little-endian (Linear PCM).'
+      description: |2-
+         - WAV: Audio bit depth 16-bit signed little-endian (Linear PCM).
+         - OGG_OPUS: Data is encoded using the OPUS audio codec and compressed using the OGG container format.
+         - MP3: Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format.
       type: string
       enum:
       - WAV

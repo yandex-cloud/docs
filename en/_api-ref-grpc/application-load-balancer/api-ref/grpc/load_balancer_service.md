@@ -49,7 +49,7 @@ description | **string**<br>Description of the application load balancer.
 folder_id | **string**<br>ID of the folder that the application load balancer belongs to. 
 labels | **map<string,string>**<br>Application load balancer labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: The application load balancer is being created.</li><li>`STARTING`: The application load balancer is being started.</li><li>`ACTIVE`: The application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: The application load balancer is being stopped.</li><li>`STOPPED`: The application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: The application load balancer is being deleted.</li></ul>
-region_id | **string**<br>ID of the region that the application load balancer is located at. <br>Currently Yandex Cloud supports only `ru-central1` region. 
+region_id | **string**<br>ID of the region that the application load balancer is located at. 
 network_id | **string**<br>ID of the network that the application load balancer belongs to. 
 listeners[] | **[Listener](#Listener)**<br>Listeners that belong to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
@@ -252,7 +252,7 @@ locations[] | **[Location](#Location)**<br>Availability zones and subnets that t
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each Yandex Cloud availability zone can only be specified once. 
+zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
 
@@ -291,7 +291,7 @@ description | **string**<br>Description of the application load balancer.
 folder_id | **string**<br>ID of the folder that the application load balancer belongs to. 
 labels | **map<string,string>**<br>Application load balancer labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: The application load balancer is being created.</li><li>`STARTING`: The application load balancer is being started.</li><li>`ACTIVE`: The application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: The application load balancer is being stopped.</li><li>`STOPPED`: The application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: The application load balancer is being deleted.</li></ul>
-region_id | **string**<br>ID of the region that the application load balancer is located at. <br>Currently Yandex Cloud supports only `ru-central1` region. 
+region_id | **string**<br>ID of the region that the application load balancer is located at. 
 network_id | **string**<br>ID of the network that the application load balancer belongs to. 
 listeners[] | **[Listener](#Listener1)**<br>Listeners that belong to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy1)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
@@ -494,7 +494,7 @@ locations[] | **[Location](#Location1)**<br>Availability zones and subnets that 
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each Yandex Cloud availability zone can only be specified once. 
+zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
 
@@ -718,7 +718,7 @@ locations[] | **[Location](#Location2)**<br>Availability zones and subnets that 
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each Yandex Cloud availability zone can only be specified once. 
+zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
 
@@ -756,7 +756,7 @@ description | **string**<br>Description of the application load balancer.
 folder_id | **string**<br>ID of the folder that the application load balancer belongs to. 
 labels | **map<string,string>**<br>Application load balancer labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: The application load balancer is being created.</li><li>`STARTING`: The application load balancer is being started.</li><li>`ACTIVE`: The application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: The application load balancer is being stopped.</li><li>`STOPPED`: The application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: The application load balancer is being deleted.</li></ul>
-region_id | **string**<br>ID of the region that the application load balancer is located at. <br>Currently Yandex Cloud supports only `ru-central1` region. 
+region_id | **string**<br>ID of the region that the application load balancer is located at. 
 network_id | **string**<br>ID of the network that the application load balancer belongs to. 
 listeners[] | **[Listener](#Listener2)**<br>Listeners that belong to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy3)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
@@ -959,7 +959,7 @@ locations[] | **[Location](#Location3)**<br>Availability zones and subnets that 
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each Yandex Cloud availability zone can only be specified once. 
+zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
 
@@ -1182,7 +1182,7 @@ locations[] | **[Location](#Location4)**<br>Availability zones and subnets that 
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each Yandex Cloud availability zone can only be specified once. 
+zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
 
@@ -1220,7 +1220,7 @@ description | **string**<br>Description of the application load balancer.
 folder_id | **string**<br>ID of the folder that the application load balancer belongs to. 
 labels | **map<string,string>**<br>Application load balancer labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: The application load balancer is being created.</li><li>`STARTING`: The application load balancer is being started.</li><li>`ACTIVE`: The application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: The application load balancer is being stopped.</li><li>`STOPPED`: The application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: The application load balancer is being deleted.</li></ul>
-region_id | **string**<br>ID of the region that the application load balancer is located at. <br>Currently Yandex Cloud supports only `ru-central1` region. 
+region_id | **string**<br>ID of the region that the application load balancer is located at. 
 network_id | **string**<br>ID of the network that the application load balancer belongs to. 
 listeners[] | **[Listener](#Listener3)**<br>Listeners that belong to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy5)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
@@ -1423,7 +1423,7 @@ locations[] | **[Location](#Location5)**<br>Availability zones and subnets that 
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each Yandex Cloud availability zone can only be specified once. 
+zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
 
@@ -1518,7 +1518,7 @@ description | **string**<br>Description of the application load balancer.
 folder_id | **string**<br>ID of the folder that the application load balancer belongs to. 
 labels | **map<string,string>**<br>Application load balancer labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: The application load balancer is being created.</li><li>`STARTING`: The application load balancer is being started.</li><li>`ACTIVE`: The application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: The application load balancer is being stopped.</li><li>`STOPPED`: The application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: The application load balancer is being deleted.</li></ul>
-region_id | **string**<br>ID of the region that the application load balancer is located at. <br>Currently Yandex Cloud supports only `ru-central1` region. 
+region_id | **string**<br>ID of the region that the application load balancer is located at. 
 network_id | **string**<br>ID of the network that the application load balancer belongs to. 
 listeners[] | **[Listener](#Listener4)**<br>Listeners that belong to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy6)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
@@ -1721,7 +1721,7 @@ locations[] | **[Location](#Location6)**<br>Availability zones and subnets that 
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each Yandex Cloud availability zone can only be specified once. 
+zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
 
@@ -1776,7 +1776,7 @@ description | **string**<br>Description of the application load balancer.
 folder_id | **string**<br>ID of the folder that the application load balancer belongs to. 
 labels | **map<string,string>**<br>Application load balancer labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: The application load balancer is being created.</li><li>`STARTING`: The application load balancer is being started.</li><li>`ACTIVE`: The application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: The application load balancer is being stopped.</li><li>`STOPPED`: The application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: The application load balancer is being deleted.</li></ul>
-region_id | **string**<br>ID of the region that the application load balancer is located at. <br>Currently Yandex Cloud supports only `ru-central1` region. 
+region_id | **string**<br>ID of the region that the application load balancer is located at. 
 network_id | **string**<br>ID of the network that the application load balancer belongs to. 
 listeners[] | **[Listener](#Listener5)**<br>Listeners that belong to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy7)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
@@ -1979,7 +1979,7 @@ locations[] | **[Location](#Location7)**<br>Availability zones and subnets that 
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each Yandex Cloud availability zone can only be specified once. 
+zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
 
@@ -2219,7 +2219,7 @@ description | **string**<br>Description of the application load balancer.
 folder_id | **string**<br>ID of the folder that the application load balancer belongs to. 
 labels | **map<string,string>**<br>Application load balancer labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: The application load balancer is being created.</li><li>`STARTING`: The application load balancer is being started.</li><li>`ACTIVE`: The application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: The application load balancer is being stopped.</li><li>`STOPPED`: The application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: The application load balancer is being deleted.</li></ul>
-region_id | **string**<br>ID of the region that the application load balancer is located at. <br>Currently Yandex Cloud supports only `ru-central1` region. 
+region_id | **string**<br>ID of the region that the application load balancer is located at. 
 network_id | **string**<br>ID of the network that the application load balancer belongs to. 
 listeners[] | **[Listener](#Listener6)**<br>Listeners that belong to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy8)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
@@ -2422,7 +2422,7 @@ locations[] | **[Location](#Location8)**<br>Availability zones and subnets that 
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each Yandex Cloud availability zone can only be specified once. 
+zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
 
@@ -2479,7 +2479,7 @@ description | **string**<br>Description of the application load balancer.
 folder_id | **string**<br>ID of the folder that the application load balancer belongs to. 
 labels | **map<string,string>**<br>Application load balancer labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: The application load balancer is being created.</li><li>`STARTING`: The application load balancer is being started.</li><li>`ACTIVE`: The application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: The application load balancer is being stopped.</li><li>`STOPPED`: The application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: The application load balancer is being deleted.</li></ul>
-region_id | **string**<br>ID of the region that the application load balancer is located at. <br>Currently Yandex Cloud supports only `ru-central1` region. 
+region_id | **string**<br>ID of the region that the application load balancer is located at. 
 network_id | **string**<br>ID of the network that the application load balancer belongs to. 
 listeners[] | **[Listener](#Listener7)**<br>Listeners that belong to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy9)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
@@ -2682,7 +2682,7 @@ locations[] | **[Location](#Location9)**<br>Availability zones and subnets that 
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each Yandex Cloud availability zone can only be specified once. 
+zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
 
@@ -2923,7 +2923,7 @@ description | **string**<br>Description of the application load balancer.
 folder_id | **string**<br>ID of the folder that the application load balancer belongs to. 
 labels | **map<string,string>**<br>Application load balancer labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
 status | enum **Status**<br>Status of the application load balancer. <ul><li>`CREATING`: The application load balancer is being created.</li><li>`STARTING`: The application load balancer is being started.</li><li>`ACTIVE`: The application load balancer is active and sends traffic to the targets.</li><li>`STOPPING`: The application load balancer is being stopped.</li><li>`STOPPED`: The application load balancer is stopped and doesn't send traffic to the targets.</li><li>`DELETING`: The application load balancer is being deleted.</li></ul>
-region_id | **string**<br>ID of the region that the application load balancer is located at. <br>Currently Yandex Cloud supports only `ru-central1` region. 
+region_id | **string**<br>ID of the region that the application load balancer is located at. 
 network_id | **string**<br>ID of the network that the application load balancer belongs to. 
 listeners[] | **[Listener](#Listener8)**<br>Listeners that belong to the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). 
 allocation_policy | **[AllocationPolicy](#AllocationPolicy10)**<br>Locality settings of the application load balancer. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). 
@@ -3126,7 +3126,7 @@ locations[] | **[Location](#Location10)**<br>Availability zones and subnets that
 
 Field | Description
 --- | ---
-zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each Yandex Cloud availability zone can only be specified once. 
+zone_id | **string**<br>Required. ID of the availability zone where the application load balancer resides. <br>Each availability zone can only be specified once. 
 subnet_id | **string**<br>ID of the subnet that the application load balancer belongs to. 
 disable_traffic | **bool**<br>Disables the load balancer node in the specified availability zone. <br>Backends in the availability zone are not directly affected by this setting. They still may receive traffic from the load balancer nodes in other availability zones, subject to [LoadBalancingConfig.locality_aware_routing_percent](#LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](#LoadBalancingConfig) settings. 
 

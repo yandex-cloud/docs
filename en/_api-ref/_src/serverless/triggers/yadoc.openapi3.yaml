@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Yandex Cloud Triggers Service
+  title: Cloud Functions Triggers Service
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
-    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: triggers/api-ref
   x-y-baseUrl: https://serverless-triggers.api.cloud.yandex.net
@@ -850,7 +850,7 @@ components:
       - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
       - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG
     TriggerIoTMessage:
-      description: Rule for activating a Yandex IoT Core trigger.
+      description: Rule for activating a IoT Core trigger.
       type: object
       allOf:
       - type: object
@@ -858,10 +858,10 @@ components:
           registryId:
             description: |-
               Required.
-              ID of the Yandex IoT Core registry.
+              ID of the IoT Core registry.
             type: string
           deviceId:
-            description: ID of the Yandex IoT Core device in the registry.
+            description: ID of the IoT Core device in the registry.
             type: string
           mqttTopic:
             description: MQTT topic whose messages activate the trigger.
@@ -930,7 +930,7 @@ components:
           queueId:
             description: |-
               Required.
-              ID of the message queue in Yandex Message Queue.
+              ID of the message queue in Message Queue.
             type: string
           serviceAccountId:
             description: |-
@@ -1015,7 +1015,7 @@ components:
             description: Rule for a message queue trigger.
           iotMessage:
             $ref: '#/components/schemas/TriggerIoTMessage'
-            description: Rule for a Yandex IoT Core trigger.
+            description: Rule for a IoT Core trigger.
           objectStorage:
             $ref: '#/components/schemas/TriggerObjectStorage'
           containerRegistry:
@@ -1136,7 +1136,7 @@ components:
             description: Rule for a message queue trigger.
           iotMessage:
             $ref: '#/components/schemas/TriggerIoTMessage'
-            description: Rule for a Yandex IoT Core trigger.
+            description: Rule for a IoT Core trigger.
           objectStorage:
             $ref: '#/components/schemas/TriggerObjectStorage'
           containerRegistry:
@@ -1235,7 +1235,7 @@ components:
             description: Rule for a message queue trigger.
           iotMessage:
             $ref: '#/components/schemas/TriggerIoTMessage'
-            description: Rule for a Yandex IoT Core trigger.
+            description: Rule for a IoT Core trigger.
           objectStorage:
             $ref: '#/components/schemas/TriggerObjectStorage'
           containerRegistry:

@@ -49,5 +49,5 @@ mlModels[] | **object**<br><p>List of models in the specified cluster.</p>
 mlModels[].<br>name | **string**<br><p>Name of the the model.</p> 
 mlModels[].<br>clusterId | **string**<br><p>ID of the ClickHouse cluster that the model belongs to.</p> 
 mlModels[].<br>type | **string**<br><p>Type of the model.</p> <ul> <li>ML_MODEL_TYPE_CATBOOST: CatBoost model.</li> </ul> 
-mlModels[].<br>uri | **string**<br><p>Model file URL. You can only use models stored in Yandex Object Storage.</p> 
+mlModels[].<br>uri | **string**<br><p>Model file URL. You can only use models stored in Object Storage.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/managed-clickhouse/api-ref/MlModel/list#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/managed-clickhouse/api-ref/MlModel/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

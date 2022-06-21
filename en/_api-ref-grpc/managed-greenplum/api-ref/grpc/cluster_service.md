@@ -42,7 +42,7 @@ cluster_id | **string**<br>Required. ID of the Greenplum® Cluster resource to r
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex Cloud at the time of cluster creation. 
+id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by the platform at the time of cluster creation. 
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Cluster creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder and is 1-63 characters long. The maximum string length in characters is 63.
@@ -84,8 +84,8 @@ assign_public_ip | **bool**<br>Whether or not the cluster has a public IP addres
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_lens | **bool**<br>Allows data export from the cluster to DataLens. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the management console. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -261,7 +261,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex Cloud at the time of cluster creation. 
+id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by the platform at the time of cluster creation. 
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Cluster creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder and is 1-63 characters long. The maximum string length in characters is 63.
@@ -303,8 +303,8 @@ assign_public_ip | **bool**<br>Whether or not the cluster has a public IP addres
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_lens | **bool**<br>Allows data export from the cluster to DataLens. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the management console. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -503,8 +503,8 @@ assign_public_ip | **bool**<br>Whether or not the cluster has a public IP addres
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_lens | **bool**<br>Allows data export from the cluster to DataLens. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the management console. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -635,7 +635,7 @@ cluster_id | **string**<br>ID of the Greenplum® cluster that is being created.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex Cloud at the time of cluster creation. 
+id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by the platform at the time of cluster creation. 
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Cluster creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder and is 1-63 characters long. The maximum string length in characters is 63.
@@ -677,8 +677,8 @@ assign_public_ip | **bool**<br>Whether or not the cluster has a public IP addres
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_lens | **bool**<br>Allows data export from the cluster to DataLens. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the management console. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -848,9 +848,11 @@ name | **string**<br>New name for the cluster. The maximum string length in char
 config | **[GreenplumConfig](#GreenplumConfig4)**<br>Greenplum® cluster configuration. 
 master_config | **[MasterSubclusterConfigSpec](#MasterSubclusterConfigSpec)**<br>Configuration of the Greenplum® master subcluster. 
 segment_config | **[SegmentSubclusterConfigSpec](#SegmentSubclusterConfigSpec)**<br>Configuration of the Greenplum® segment subcluster. 
+user_password | **string**<br>Required. Owner user password. Must be 8-128 characters long The string length in characters must be 8-128.
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Window of maintenance operations. 
 security_group_ids[] | **string**<br>User security groups. 
 deletion_protection | **bool**<br>Whether or not cluster is protected from being deleted. 
+config_spec | **[ConfigSpec](#ConfigSpec)**<br>Settings of the Greenplum® cluster. 
 
 
 ### GreenplumConfig {#GreenplumConfig4}
@@ -869,8 +871,8 @@ assign_public_ip | **bool**<br>Whether or not the cluster has a public IP addres
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_lens | **bool**<br>Allows data export from the cluster to DataLens. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the management console. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -927,6 +929,53 @@ day | enum **WeekDay**<br>Day of the week.
 hour | **int64**<br>Hour of the day in the UTC timezone. Acceptable values are 1 to 24, inclusive.
 
 
+### ConfigSpec {#ConfigSpec1}
+
+Field | Description
+--- | ---
+greenplum_config | **oneof:** `greenplum_config_6_17` or `greenplum_config_6_19`<br>
+&nbsp;&nbsp;greenplum_config_6_17 | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br> 
+&nbsp;&nbsp;greenplum_config_6_19 | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br> 
+pool | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Odyssey pool settings 
+
+
+### GreenplumConfig6_17 {#GreenplumConfig6_174}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+
+
+### GreenplumConfig6_19 {#GreenplumConfig6_194}
+
+Field | Description
+--- | ---
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections on master segment 
+max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html 
+gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment 
+gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query 
+gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000 
+max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum number of transactions that can be in the "prepared" state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html 
+gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression 
+max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB) 
+log_statement | enum **LogStatement**<br>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl 
+
+
+### ConnectionPoolerConfig {#ConnectionPoolerConfig4}
+
+Field | Description
+--- | ---
+mode | enum **PoolMode**<br>Route server pool mode. <ul><li>`SESSION`: Assign server connection to a client until it disconnects. Default value.</li><li>`TRANSACTION`: Assign server connection to a client for a transaction processing.</li></ul>
+size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. Set to zero to disable the limit. 
+client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Server pool idle timeout, in seconds. A server connection closes after it has been idle for the specified duration. Set to zero to disable the limit. 
+
+
 ### Operation {#Operation1}
 
 Field | Description
@@ -954,7 +1003,7 @@ cluster_id | **string**<br>ID of the Greenplum® Cluster resource that is being 
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex Cloud at the time of cluster creation. 
+id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by the platform at the time of cluster creation. 
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Cluster creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder and is 1-63 characters long. The maximum string length in characters is 63.
@@ -996,8 +1045,8 @@ assign_public_ip | **bool**<br>Whether or not the cluster has a public IP addres
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_lens | **bool**<br>Allows data export from the cluster to DataLens. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the management console. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -1085,12 +1134,12 @@ pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet3)**<br>Odyssey p
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>Required. Effective settings for a Greenplum (a combination of settings defined in `user_config` and `default_config`). 
-user_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>User-defined settings for a Greenplum. 
-default_config | **[GreenplumConfig6_17](#GreenplumConfig6_174)**<br>Default configuration for a Greenplum. 
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_175)**<br>Required. Effective settings for a Greenplum (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_17](#GreenplumConfig6_175)**<br>User-defined settings for a Greenplum. 
+default_config | **[GreenplumConfig6_17](#GreenplumConfig6_175)**<br>Default configuration for a Greenplum. 
 
 
-### GreenplumConfig6_17 {#GreenplumConfig6_174}
+### GreenplumConfig6_17 {#GreenplumConfig6_175}
 
 Field | Description
 --- | ---
@@ -1107,12 +1156,12 @@ gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.googl
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br>Required. Effective settings for a Greenplum (a combination of settings defined in `user_config` and `default_config`). 
-user_config | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br>User-defined settings for a Greenplum. 
-default_config | **[GreenplumConfig6_19](#GreenplumConfig6_194)**<br>Default configuration for a Greenplum. 
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_195)**<br>Required. Effective settings for a Greenplum (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_19](#GreenplumConfig6_195)**<br>User-defined settings for a Greenplum. 
+default_config | **[GreenplumConfig6_19](#GreenplumConfig6_195)**<br>Default configuration for a Greenplum. 
 
 
-### GreenplumConfig6_19 {#GreenplumConfig6_194}
+### GreenplumConfig6_19 {#GreenplumConfig6_195}
 
 Field | Description
 --- | ---
@@ -1131,12 +1180,12 @@ log_statement | enum **LogStatement**<br>Controls which SQL statements are logge
 
 Field | Description
 --- | ---
-effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Required. Effective settings for a odyssey (a combination of settings defined in `user_config` and `default_config`). 
-user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>User-defined settings for a odyssey. 
-default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Default configuration for a odyssey. 
+effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig5)**<br>Required. Effective settings for a odyssey (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig5)**<br>User-defined settings for a odyssey. 
+default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig5)**<br>Default configuration for a odyssey. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig4}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig5}
 
 Field | Description
 --- | ---
@@ -1229,7 +1278,7 @@ cluster_id | **string**<br>ID of the Greenplum® cluster being started.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex Cloud at the time of cluster creation. 
+id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by the platform at the time of cluster creation. 
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Cluster creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder and is 1-63 characters long. The maximum string length in characters is 63.
@@ -1271,8 +1320,8 @@ assign_public_ip | **bool**<br>Whether or not the cluster has a public IP addres
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_lens | **bool**<br>Allows data export from the cluster to DataLens. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the management console. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -1360,12 +1409,12 @@ pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet4)**<br>Odyssey p
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_175)**<br>Required. Effective settings for a Greenplum (a combination of settings defined in `user_config` and `default_config`). 
-user_config | **[GreenplumConfig6_17](#GreenplumConfig6_175)**<br>User-defined settings for a Greenplum. 
-default_config | **[GreenplumConfig6_17](#GreenplumConfig6_175)**<br>Default configuration for a Greenplum. 
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_176)**<br>Required. Effective settings for a Greenplum (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_17](#GreenplumConfig6_176)**<br>User-defined settings for a Greenplum. 
+default_config | **[GreenplumConfig6_17](#GreenplumConfig6_176)**<br>Default configuration for a Greenplum. 
 
 
-### GreenplumConfig6_17 {#GreenplumConfig6_175}
+### GreenplumConfig6_17 {#GreenplumConfig6_176}
 
 Field | Description
 --- | ---
@@ -1382,12 +1431,12 @@ gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.googl
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_195)**<br>Required. Effective settings for a Greenplum (a combination of settings defined in `user_config` and `default_config`). 
-user_config | **[GreenplumConfig6_19](#GreenplumConfig6_195)**<br>User-defined settings for a Greenplum. 
-default_config | **[GreenplumConfig6_19](#GreenplumConfig6_195)**<br>Default configuration for a Greenplum. 
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_196)**<br>Required. Effective settings for a Greenplum (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_19](#GreenplumConfig6_196)**<br>User-defined settings for a Greenplum. 
+default_config | **[GreenplumConfig6_19](#GreenplumConfig6_196)**<br>Default configuration for a Greenplum. 
 
 
-### GreenplumConfig6_19 {#GreenplumConfig6_195}
+### GreenplumConfig6_19 {#GreenplumConfig6_196}
 
 Field | Description
 --- | ---
@@ -1406,12 +1455,12 @@ log_statement | enum **LogStatement**<br>Controls which SQL statements are logge
 
 Field | Description
 --- | ---
-effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig5)**<br>Required. Effective settings for a odyssey (a combination of settings defined in `user_config` and `default_config`). 
-user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig5)**<br>User-defined settings for a odyssey. 
-default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig5)**<br>Default configuration for a odyssey. 
+effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig6)**<br>Required. Effective settings for a odyssey (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig6)**<br>User-defined settings for a odyssey. 
+default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig6)**<br>Default configuration for a odyssey. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig5}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig6}
 
 Field | Description
 --- | ---
@@ -1464,7 +1513,7 @@ cluster_id | **string**<br>ID of the Greenplum® cluster being stopped.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex Cloud at the time of cluster creation. 
+id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by the platform at the time of cluster creation. 
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Cluster creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder and is 1-63 characters long. The maximum string length in characters is 63.
@@ -1506,8 +1555,8 @@ assign_public_ip | **bool**<br>Whether or not the cluster has a public IP addres
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_lens | **bool**<br>Allows data export from the cluster to DataLens. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the management console. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -1595,12 +1644,12 @@ pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet5)**<br>Odyssey p
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_176)**<br>Required. Effective settings for a Greenplum (a combination of settings defined in `user_config` and `default_config`). 
-user_config | **[GreenplumConfig6_17](#GreenplumConfig6_176)**<br>User-defined settings for a Greenplum. 
-default_config | **[GreenplumConfig6_17](#GreenplumConfig6_176)**<br>Default configuration for a Greenplum. 
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_177)**<br>Required. Effective settings for a Greenplum (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_17](#GreenplumConfig6_177)**<br>User-defined settings for a Greenplum. 
+default_config | **[GreenplumConfig6_17](#GreenplumConfig6_177)**<br>Default configuration for a Greenplum. 
 
 
-### GreenplumConfig6_17 {#GreenplumConfig6_176}
+### GreenplumConfig6_17 {#GreenplumConfig6_177}
 
 Field | Description
 --- | ---
@@ -1617,12 +1666,12 @@ gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.googl
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_196)**<br>Required. Effective settings for a Greenplum (a combination of settings defined in `user_config` and `default_config`). 
-user_config | **[GreenplumConfig6_19](#GreenplumConfig6_196)**<br>User-defined settings for a Greenplum. 
-default_config | **[GreenplumConfig6_19](#GreenplumConfig6_196)**<br>Default configuration for a Greenplum. 
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_197)**<br>Required. Effective settings for a Greenplum (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_19](#GreenplumConfig6_197)**<br>User-defined settings for a Greenplum. 
+default_config | **[GreenplumConfig6_19](#GreenplumConfig6_197)**<br>Default configuration for a Greenplum. 
 
 
-### GreenplumConfig6_19 {#GreenplumConfig6_196}
+### GreenplumConfig6_19 {#GreenplumConfig6_197}
 
 Field | Description
 --- | ---
@@ -1641,12 +1690,12 @@ log_statement | enum **LogStatement**<br>Controls which SQL statements are logge
 
 Field | Description
 --- | ---
-effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig6)**<br>Required. Effective settings for a odyssey (a combination of settings defined in `user_config` and `default_config`). 
-user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig6)**<br>User-defined settings for a odyssey. 
-default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig6)**<br>Default configuration for a odyssey. 
+effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig7)**<br>Required. Effective settings for a odyssey (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig7)**<br>User-defined settings for a odyssey. 
+default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig7)**<br>Default configuration for a odyssey. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig6}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig7}
 
 Field | Description
 --- | ---
@@ -1721,8 +1770,8 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the Greenplum® host. The host name is assigned by Yandex Cloud at creation time and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host. The maximum string length in characters is 63.
-cluster_id | **string**<br>ID of the Greenplum® cluster. The ID is assigned by Yandex Cloud at creation time. 
+name | **string**<br>Required. Name of the Greenplum® host. The host name is assigned by the platform at creation time and cannot be changed. 1-63 characters long. <br>The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. The maximum string length in characters is 63.
+cluster_id | **string**<br>ID of the Greenplum® cluster. The ID is assigned by the platform at creation time. 
 zone_id | **string**<br>ID of the availability zone the Greenplum® host belongs to. 
 type | enum **Type**<br>Type of the host. <ul><li>`TYPE_UNSPECIFIED`: The type is not specified.</li><li>`MASTER`: A Greenplum® master host.</li><li>`REPLICA`: A Greenplum® master replica host.</li><li>`SEGMENT`: A Greenplum® segment host.</li></ul>
 resources | **[Resources](#Resources16)**<br>Resources allocated to the Greenplum® host. 
@@ -1767,8 +1816,8 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the Greenplum® host. The host name is assigned by Yandex Cloud at creation time and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host. The maximum string length in characters is 63.
-cluster_id | **string**<br>ID of the Greenplum® cluster. The ID is assigned by Yandex Cloud at creation time. 
+name | **string**<br>Required. Name of the Greenplum® host. The host name is assigned by the platform at creation time and cannot be changed. 1-63 characters long. <br>The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. The maximum string length in characters is 63.
+cluster_id | **string**<br>ID of the Greenplum® cluster. The ID is assigned by the platform at creation time. 
 zone_id | **string**<br>ID of the availability zone the Greenplum® host belongs to. 
 type | enum **Type**<br>Type of the host. <ul><li>`TYPE_UNSPECIFIED`: The type is not specified.</li><li>`MASTER`: A Greenplum® master host.</li><li>`REPLICA`: A Greenplum® master replica host.</li><li>`SEGMENT`: A Greenplum® segment host.</li></ul>
 resources | **[Resources](#Resources17)**<br>Resources allocated to the Greenplum® host. 
@@ -1939,8 +1988,8 @@ assign_public_ip | **bool**<br>Whether the host should get a public IP address o
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_lens | **bool**<br>Allows data export from the cluster to DataLens. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the management console. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -2002,7 +2051,7 @@ backup_id | **string**<br>ID of the backup that is being used for creating a clu
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by Yandex Cloud at the time of cluster creation. 
+id | **string**<br>ID of the Greenplum® cluster. This ID is assigned by the platform at the time of cluster creation. 
 folder_id | **string**<br>ID of the folder that the Greenplum® cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Cluster creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum® cluster. The name is unique within the folder and is 1-63 characters long. The maximum string length in characters is 63.
@@ -2044,8 +2093,8 @@ assign_public_ip | **bool**<br>Whether or not the cluster has a public IP addres
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allows data export from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from the Yandex Cloud management console. 
+data_lens | **bool**<br>Allows data export from the cluster to DataLens. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from the management console. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -2133,12 +2182,12 @@ pool | **[ConnectionPoolerConfigSet](#ConnectionPoolerConfigSet6)**<br>Odyssey p
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_177)**<br>Required. Effective settings for a Greenplum (a combination of settings defined in `user_config` and `default_config`). 
-user_config | **[GreenplumConfig6_17](#GreenplumConfig6_177)**<br>User-defined settings for a Greenplum. 
-default_config | **[GreenplumConfig6_17](#GreenplumConfig6_177)**<br>Default configuration for a Greenplum. 
+effective_config | **[GreenplumConfig6_17](#GreenplumConfig6_178)**<br>Required. Effective settings for a Greenplum (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_17](#GreenplumConfig6_178)**<br>User-defined settings for a Greenplum. 
+default_config | **[GreenplumConfig6_17](#GreenplumConfig6_178)**<br>Default configuration for a Greenplum. 
 
 
-### GreenplumConfig6_17 {#GreenplumConfig6_177}
+### GreenplumConfig6_17 {#GreenplumConfig6_178}
 
 Field | Description
 --- | ---
@@ -2155,12 +2204,12 @@ gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.googl
 
 Field | Description
 --- | ---
-effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_197)**<br>Required. Effective settings for a Greenplum (a combination of settings defined in `user_config` and `default_config`). 
-user_config | **[GreenplumConfig6_19](#GreenplumConfig6_197)**<br>User-defined settings for a Greenplum. 
-default_config | **[GreenplumConfig6_19](#GreenplumConfig6_197)**<br>Default configuration for a Greenplum. 
+effective_config | **[GreenplumConfig6_19](#GreenplumConfig6_198)**<br>Required. Effective settings for a Greenplum (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumConfig6_19](#GreenplumConfig6_198)**<br>User-defined settings for a Greenplum. 
+default_config | **[GreenplumConfig6_19](#GreenplumConfig6_198)**<br>Default configuration for a Greenplum. 
 
 
-### GreenplumConfig6_19 {#GreenplumConfig6_197}
+### GreenplumConfig6_19 {#GreenplumConfig6_198}
 
 Field | Description
 --- | ---
@@ -2179,12 +2228,12 @@ log_statement | enum **LogStatement**<br>Controls which SQL statements are logge
 
 Field | Description
 --- | ---
-effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig7)**<br>Required. Effective settings for a odyssey (a combination of settings defined in `user_config` and `default_config`). 
-user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig7)**<br>User-defined settings for a odyssey. 
-default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig7)**<br>Default configuration for a odyssey. 
+effective_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig8)**<br>Required. Effective settings for a odyssey (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig8)**<br>User-defined settings for a odyssey. 
+default_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig8)**<br>Default configuration for a odyssey. 
 
 
-### ConnectionPoolerConfig {#ConnectionPoolerConfig7}
+### ConnectionPoolerConfig {#ConnectionPoolerConfig8}
 
 Field | Description
 --- | ---

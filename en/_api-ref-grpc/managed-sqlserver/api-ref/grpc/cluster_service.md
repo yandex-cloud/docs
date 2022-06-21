@@ -60,7 +60,7 @@ security_group_ids[] | **string**<br>User security groups.
 deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
 sqlcollation | **string**<br>SQL Server Collation. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
-service_account_id | **string**<br>ID of the service account which is used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account which is used for access to Object Storage. 
 
 
 ### Monitoring {#Monitoring}
@@ -77,12 +77,17 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2016sp2ent`, `sqlserver_config_2017std`, `sqlserver_config_2017ent`, `sqlserver_config_2019std` or `sqlserver_config_2019ent`<br>Configuration of the SQL Server instances in the cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017std | **[config.SQLServerConfigSet2017std](#SQLServerConfigSet2017std)**<br>Configuration of the SQL Server 2017 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfigSet2017ent](#SQLServerConfigSet2017ent)**<br>Configuration of the SQL Server 2017 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfigSet2019std](#SQLServerConfigSet2019std)**<br>Configuration of the SQL Server 2019 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfigSet2019ent](#SQLServerConfigSet2019ent)**<br>Configuration of the SQL Server 2019 enterprise edition instance. 
 resources | **[Resources](#Resources)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
 access | **[Access](#Access)**<br>Database access policy. 
+secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
 
 
 ### Resources {#Resources}
@@ -146,7 +151,7 @@ security_group_ids[] | **string**<br>User security groups.
 deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
 sqlcollation | **string**<br>SQL Server Collation. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
-service_account_id | **string**<br>ID of the service account which is used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account which is used for access to Object Storage. 
 
 
 ### Monitoring {#Monitoring1}
@@ -163,12 +168,17 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2016sp2ent`, `sqlserver_config_2017std`, `sqlserver_config_2017ent`, `sqlserver_config_2019std` or `sqlserver_config_2019ent`<br>Configuration of the SQL Server instances in the cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017std | **[config.SQLServerConfigSet2017std](#SQLServerConfigSet2017std)**<br>Configuration of the SQL Server 2017 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfigSet2017ent](#SQLServerConfigSet2017ent)**<br>Configuration of the SQL Server 2017 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfigSet2019std](#SQLServerConfigSet2019std)**<br>Configuration of the SQL Server 2019 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfigSet2019ent](#SQLServerConfigSet2019ent)**<br>Configuration of the SQL Server 2019 enterprise edition instance. 
 resources | **[Resources](#Resources1)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
 access | **[Access](#Access1)**<br>Database access policy. 
+secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
 
 
 ### Resources {#Resources1}
@@ -216,7 +226,7 @@ security_group_ids[] | **string**<br>User security groups.
 deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
 sqlcollation | **string**<br>Name of SQL Collation that cluster will be created with. The maximum string length in characters is 100.
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -224,12 +234,17 @@ service_account_id | **string**<br>ID of the service account used for access to 
 Field | Description
 --- | ---
 version | **string**<br>Version of SQL Server used in the cluster. <br>Possible values: <ul><li>2016sp2std, </li><li>2016sp2ent, </li><li>2017std, </li><li>2017ent, </li><li>2019std, </li><li>2019ent.</li></ul> 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of an SQL Server cluster.
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2016sp2ent`, `sqlserver_config_2017std`, `sqlserver_config_2017ent`, `sqlserver_config_2019std` or `sqlserver_config_2019ent`<br>Configuration of an SQL Server cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfig2016sp2std](#SQLServerConfig2016sp2std)**<br>Configuration for an SQL Server 2016 SP2 Standard edition cluster. 
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfig2016sp2ent](#SQLServerConfig2016sp2ent)**<br>Configuration for an SQL Server 2016 SP2 Enterprise edition cluster. 
+&nbsp;&nbsp;sqlserver_config_2017std | **[config.SQLServerConfig2017std](#SQLServerConfig2017std)**<br>Configuration for an SQL Server 2017 Standard edition cluster. 
+&nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfig2017ent](#SQLServerConfig2017ent)**<br>Configuration for an SQL Server 2017 Enterprise edition cluster. 
+&nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfig2019std](#SQLServerConfig2019std)**<br>Configuration for an SQL Server 2019 Standard edition cluster. 
+&nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfig2019ent](#SQLServerConfig2019ent)**<br>Configuration for an SQL Server 2019 Enterprise edition cluster. 
 resources | **[Resources](#Resources2)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
 access | **[Access](#Access2)**<br>Database access policy. 
+secondary_connections | **[ClusterConfig.SecondaryConnections](#ClusterConfig2)**<br>Secondary replicas connection mode 
 
 
 ### Resources {#Resources2}
@@ -326,7 +341,7 @@ security_group_ids[] | **string**<br>User security groups.
 deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
 sqlcollation | **string**<br>SQL Server Collation. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
-service_account_id | **string**<br>ID of the service account which is used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account which is used for access to Object Storage. 
 
 
 ### Monitoring {#Monitoring2}
@@ -343,12 +358,17 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2016sp2ent`, `sqlserver_config_2017std`, `sqlserver_config_2017ent`, `sqlserver_config_2019std` or `sqlserver_config_2019ent`<br>Configuration of the SQL Server instances in the cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017std | **[config.SQLServerConfigSet2017std](#SQLServerConfigSet2017std)**<br>Configuration of the SQL Server 2017 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfigSet2017ent](#SQLServerConfigSet2017ent)**<br>Configuration of the SQL Server 2017 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfigSet2019std](#SQLServerConfigSet2019std)**<br>Configuration of the SQL Server 2019 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfigSet2019ent](#SQLServerConfigSet2019ent)**<br>Configuration of the SQL Server 2019 enterprise edition instance. 
 resources | **[Resources](#Resources3)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
 access | **[Access](#Access3)**<br>Database access policy. 
+secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
 
 
 ### Resources {#Resources3}
@@ -390,7 +410,7 @@ config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources f
 name | **string**<br>New name for the SQL Server cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 security_group_ids[] | **string**<br>User security groups. 
 deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 
 
 ### ConfigSpec {#ConfigSpec1}
@@ -398,12 +418,17 @@ service_account_id | **string**<br>ID of the service account used for access to 
 Field | Description
 --- | ---
 version | **string**<br>Version of SQL Server used in the cluster. <br>Possible values: <ul><li>2016sp2std, </li><li>2016sp2ent, </li><li>2017std, </li><li>2017ent, </li><li>2019std, </li><li>2019ent.</li></ul> 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of an SQL Server cluster.
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2016sp2ent`, `sqlserver_config_2017std`, `sqlserver_config_2017ent`, `sqlserver_config_2019std` or `sqlserver_config_2019ent`<br>Configuration of an SQL Server cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfig2016sp2std](#SQLServerConfig2016sp2std)**<br>Configuration for an SQL Server 2016 SP2 Standard edition cluster. 
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfig2016sp2ent](#SQLServerConfig2016sp2ent)**<br>Configuration for an SQL Server 2016 SP2 Enterprise edition cluster. 
+&nbsp;&nbsp;sqlserver_config_2017std | **[config.SQLServerConfig2017std](#SQLServerConfig2017std)**<br>Configuration for an SQL Server 2017 Standard edition cluster. 
+&nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfig2017ent](#SQLServerConfig2017ent)**<br>Configuration for an SQL Server 2017 Enterprise edition cluster. 
+&nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfig2019std](#SQLServerConfig2019std)**<br>Configuration for an SQL Server 2019 Standard edition cluster. 
+&nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfig2019ent](#SQLServerConfig2019ent)**<br>Configuration for an SQL Server 2019 Enterprise edition cluster. 
 resources | **[Resources](#Resources4)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
 access | **[Access](#Access4)**<br>Database access policy. 
+secondary_connections | **[ClusterConfig.SecondaryConnections](#ClusterConfig3)**<br>Secondary replicas connection mode 
 
 
 ### Resources {#Resources4}
@@ -466,7 +491,7 @@ security_group_ids[] | **string**<br>User security groups.
 deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
 sqlcollation | **string**<br>SQL Server Collation. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
-service_account_id | **string**<br>ID of the service account which is used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account which is used for access to Object Storage. 
 
 
 ### Monitoring {#Monitoring3}
@@ -483,12 +508,17 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2016sp2ent`, `sqlserver_config_2017std`, `sqlserver_config_2017ent`, `sqlserver_config_2019std` or `sqlserver_config_2019ent`<br>Configuration of the SQL Server instances in the cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017std | **[config.SQLServerConfigSet2017std](#SQLServerConfigSet2017std)**<br>Configuration of the SQL Server 2017 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfigSet2017ent](#SQLServerConfigSet2017ent)**<br>Configuration of the SQL Server 2017 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfigSet2019std](#SQLServerConfigSet2019std)**<br>Configuration of the SQL Server 2019 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfigSet2019ent](#SQLServerConfigSet2019ent)**<br>Configuration of the SQL Server 2019 enterprise edition instance. 
 resources | **[Resources](#Resources5)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
 access | **[Access](#Access5)**<br>Database access policy. 
+secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
 
 
 ### Resources {#Resources5}
@@ -608,7 +638,7 @@ security_group_ids[] | **string**<br>User security groups.
 deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
 sqlcollation | **string**<br>SQL Server Collation. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
-service_account_id | **string**<br>ID of the service account which is used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account which is used for access to Object Storage. 
 
 
 ### Monitoring {#Monitoring4}
@@ -625,12 +655,17 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2016sp2ent`, `sqlserver_config_2017std`, `sqlserver_config_2017ent`, `sqlserver_config_2019std` or `sqlserver_config_2019ent`<br>Configuration of the SQL Server instances in the cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017std | **[config.SQLServerConfigSet2017std](#SQLServerConfigSet2017std)**<br>Configuration of the SQL Server 2017 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfigSet2017ent](#SQLServerConfigSet2017ent)**<br>Configuration of the SQL Server 2017 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfigSet2019std](#SQLServerConfigSet2019std)**<br>Configuration of the SQL Server 2019 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfigSet2019ent](#SQLServerConfigSet2019ent)**<br>Configuration of the SQL Server 2019 enterprise edition instance. 
 resources | **[Resources](#Resources6)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
 access | **[Access](#Access6)**<br>Database access policy. 
+secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
 
 
 ### Resources {#Resources6}
@@ -710,7 +745,7 @@ security_group_ids[] | **string**<br>User security groups.
 deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
 sqlcollation | **string**<br>SQL Server Collation. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
-service_account_id | **string**<br>ID of the service account which is used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account which is used for access to Object Storage. 
 
 
 ### Monitoring {#Monitoring5}
@@ -727,12 +762,17 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2016sp2ent`, `sqlserver_config_2017std`, `sqlserver_config_2017ent`, `sqlserver_config_2019std` or `sqlserver_config_2019ent`<br>Configuration of the SQL Server instances in the cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017std | **[config.SQLServerConfigSet2017std](#SQLServerConfigSet2017std)**<br>Configuration of the SQL Server 2017 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfigSet2017ent](#SQLServerConfigSet2017ent)**<br>Configuration of the SQL Server 2017 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfigSet2019std](#SQLServerConfigSet2019std)**<br>Configuration of the SQL Server 2019 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfigSet2019ent](#SQLServerConfigSet2019ent)**<br>Configuration of the SQL Server 2019 enterprise edition instance. 
 resources | **[Resources](#Resources7)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
 access | **[Access](#Access7)**<br>Database access policy. 
+secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
 
 
 ### Resources {#Resources7}
@@ -815,7 +855,7 @@ security_group_ids[] | **string**<br>User security groups.
 deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
 sqlcollation | **string**<br>SQL Server Collation. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
-service_account_id | **string**<br>ID of the service account which is used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account which is used for access to Object Storage. 
 
 
 ### Monitoring {#Monitoring6}
@@ -832,12 +872,17 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2016sp2ent`, `sqlserver_config_2017std`, `sqlserver_config_2017ent`, `sqlserver_config_2019std` or `sqlserver_config_2019ent`<br>Configuration of the SQL Server instances in the cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017std | **[config.SQLServerConfigSet2017std](#SQLServerConfigSet2017std)**<br>Configuration of the SQL Server 2017 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfigSet2017ent](#SQLServerConfigSet2017ent)**<br>Configuration of the SQL Server 2017 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfigSet2019std](#SQLServerConfigSet2019std)**<br>Configuration of the SQL Server 2019 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfigSet2019ent](#SQLServerConfigSet2019ent)**<br>Configuration of the SQL Server 2019 enterprise edition instance. 
 resources | **[Resources](#Resources8)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
 access | **[Access](#Access8)**<br>Database access policy. 
+secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
 
 
 ### Resources {#Resources8}
@@ -917,7 +962,7 @@ security_group_ids[] | **string**<br>User security groups.
 deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
 sqlcollation | **string**<br>SQL Server Collation. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
-service_account_id | **string**<br>ID of the service account which is used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account which is used for access to Object Storage. 
 
 
 ### Monitoring {#Monitoring7}
@@ -934,12 +979,17 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2016sp2ent`, `sqlserver_config_2017std`, `sqlserver_config_2017ent`, `sqlserver_config_2019std` or `sqlserver_config_2019ent`<br>Configuration of the SQL Server instances in the cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017std | **[config.SQLServerConfigSet2017std](#SQLServerConfigSet2017std)**<br>Configuration of the SQL Server 2017 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfigSet2017ent](#SQLServerConfigSet2017ent)**<br>Configuration of the SQL Server 2017 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfigSet2019std](#SQLServerConfigSet2019std)**<br>Configuration of the SQL Server 2019 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfigSet2019ent](#SQLServerConfigSet2019ent)**<br>Configuration of the SQL Server 2019 enterprise edition instance. 
 resources | **[Resources](#Resources9)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
 access | **[Access](#Access9)**<br>Database access policy. 
+secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
 
 
 ### Resources {#Resources9}
@@ -986,7 +1036,7 @@ folder_id | **string**<br>ID of the folder to create the SQL Server cluster in. 
 security_group_ids[] | **string**<br>User security groups. 
 deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 
 
 ### ConfigSpec {#ConfigSpec2}
@@ -994,12 +1044,17 @@ service_account_id | **string**<br>ID of the service account used for access to 
 Field | Description
 --- | ---
 version | **string**<br>Version of SQL Server used in the cluster. <br>Possible values: <ul><li>2016sp2std, </li><li>2016sp2ent, </li><li>2017std, </li><li>2017ent, </li><li>2019std, </li><li>2019ent.</li></ul> 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of an SQL Server cluster.
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2016sp2ent`, `sqlserver_config_2017std`, `sqlserver_config_2017ent`, `sqlserver_config_2019std` or `sqlserver_config_2019ent`<br>Configuration of an SQL Server cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfig2016sp2std](#SQLServerConfig2016sp2std)**<br>Configuration for an SQL Server 2016 SP2 Standard edition cluster. 
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfig2016sp2ent](#SQLServerConfig2016sp2ent)**<br>Configuration for an SQL Server 2016 SP2 Enterprise edition cluster. 
+&nbsp;&nbsp;sqlserver_config_2017std | **[config.SQLServerConfig2017std](#SQLServerConfig2017std)**<br>Configuration for an SQL Server 2017 Standard edition cluster. 
+&nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfig2017ent](#SQLServerConfig2017ent)**<br>Configuration for an SQL Server 2017 Enterprise edition cluster. 
+&nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfig2019std](#SQLServerConfig2019std)**<br>Configuration for an SQL Server 2019 Standard edition cluster. 
+&nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfig2019ent](#SQLServerConfig2019ent)**<br>Configuration for an SQL Server 2019 Enterprise edition cluster. 
 resources | **[Resources](#Resources10)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
 access | **[Access](#Access10)**<br>Database access policy. 
+secondary_connections | **[ClusterConfig.SecondaryConnections](#ClusterConfig8)**<br>Secondary replicas connection mode 
 
 
 ### Resources {#Resources10}
@@ -1072,7 +1127,7 @@ security_group_ids[] | **string**<br>User security groups.
 deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
 sqlcollation | **string**<br>SQL Server Collation. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
-service_account_id | **string**<br>ID of the service account which is used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account which is used for access to Object Storage. 
 
 
 ### Monitoring {#Monitoring8}
@@ -1089,12 +1144,17 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2016sp2ent`, `sqlserver_config_2017std`, `sqlserver_config_2017ent`, `sqlserver_config_2019std` or `sqlserver_config_2019ent`<br>Configuration of the SQL Server instances in the cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017std | **[config.SQLServerConfigSet2017std](#SQLServerConfigSet2017std)**<br>Configuration of the SQL Server 2017 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfigSet2017ent](#SQLServerConfigSet2017ent)**<br>Configuration of the SQL Server 2017 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfigSet2019std](#SQLServerConfigSet2019std)**<br>Configuration of the SQL Server 2019 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfigSet2019ent](#SQLServerConfigSet2019ent)**<br>Configuration of the SQL Server 2019 enterprise edition instance. 
 resources | **[Resources](#Resources11)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
 access | **[Access](#Access11)**<br>Database access policy. 
+secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
 
 
 ### Resources {#Resources11}
@@ -1175,7 +1235,7 @@ security_group_ids[] | **string**<br>User security groups.
 deletion_protection | **bool**<br>Determines whether the cluster is protected from being deleted. 
 sqlcollation | **string**<br>SQL Server Collation. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
-service_account_id | **string**<br>ID of the service account which is used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account which is used for access to Object Storage. 
 
 
 ### Monitoring {#Monitoring9}
@@ -1192,12 +1252,17 @@ link | **string**<br>Link to the monitoring system charts for the SQL Server clu
 Field | Description
 --- | ---
 version | **string**<br>Version of the SQL Server. 
-sqlserver_config | **oneof:** `sqlserver_config_2016sp2std` or `sqlserver_config_2016sp2ent`<br>Configuration of the SQL Server instances in the cluster.
+sqlserver_config | **oneof:** `sqlserver_config_2016sp2std`, `sqlserver_config_2016sp2ent`, `sqlserver_config_2017std`, `sqlserver_config_2017ent`, `sqlserver_config_2019std` or `sqlserver_config_2019ent`<br>Configuration of the SQL Server instances in the cluster.
 &nbsp;&nbsp;sqlserver_config_2016sp2std | **[config.SQLServerConfigSet2016sp2std](#SQLServerConfigSet2016sp2std)**<br>Configuration of the SQL Server 2016sp2 standard edition instance. 
 &nbsp;&nbsp;sqlserver_config_2016sp2ent | **[config.SQLServerConfigSet2016sp2ent](#SQLServerConfigSet2016sp2ent)**<br>Configuration of the SQL Server 2016sp2 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017std | **[config.SQLServerConfigSet2017std](#SQLServerConfigSet2017std)**<br>Configuration of the SQL Server 2017 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2017ent | **[config.SQLServerConfigSet2017ent](#SQLServerConfigSet2017ent)**<br>Configuration of the SQL Server 2017 enterprise edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019std | **[config.SQLServerConfigSet2019std](#SQLServerConfigSet2019std)**<br>Configuration of the SQL Server 2019 standard edition instance. 
+&nbsp;&nbsp;sqlserver_config_2019ent | **[config.SQLServerConfigSet2019ent](#SQLServerConfigSet2019ent)**<br>Configuration of the SQL Server 2019 enterprise edition instance. 
 resources | **[Resources](#Resources12)**<br>Resources allocated to SQL Server hosts. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Start time for the daily backup in UTC timezone. 
 access | **[Access](#Access12)**<br>Database access policy. 
+secondary_connections | enum **SecondaryConnections**<br>Secondary replicas connection mode <ul><li>`SECONDARY_CONNECTIONS_OFF`: Connections to secondary replicas are prohibited</li><li>`SECONDARY_CONNECTIONS_READ_ONLY`: Secondary replicas are read-only</li></ul>
 
 
 ### Resources {#Resources12}
@@ -1355,7 +1420,7 @@ next_page_token | **string**<br>Token that allows you to get the next page of re
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the SQL Server host. <br>The host name is assigned by Managed Service for SQL Server at the moment of creation and cannot be changed. 1-63 characters long. <br>The name is unique across all existing database hosts in Yandex Cloud as it defines the FQDN of the host. 
+name | **string**<br>Name of the SQL Server host. <br>The host name is assigned by Managed Service for SQL Server at the moment of creation and cannot be changed. 1-63 characters long. <br>The name is unique across all database hosts that exist on the platform as it defines the FQDN of the host. 
 cluster_id | **string**<br>ID of the SQL Server host. <br>The ID is assigned by Managed Service for SQL Server at the moment of creation. 
 zone_id | **string**<br>ID of the availability zone where the SQL Server host resides. 
 resources | **[Resources](#Resources13)**<br>Resources allocated to the host. 

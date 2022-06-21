@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Translation
-A set of methods for the Yandex Translate service.
+A set of methods for the Translate service.
 
 ## Methods {#methods}
 Method | Description

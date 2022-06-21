@@ -4,7 +4,7 @@ editable: false
 
 # TranslationService
 
-A set of methods for the Yandex Translate service.
+A set of methods for the Translate service.
 
 | Call | Description |
 | --- | --- |

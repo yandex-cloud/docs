@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Yandex Speech To Text Service API
+  title: SpeechKit Speech To Text Service API
   description: The service does not operate with resources. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
-    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v3
   x-y-docUri: v3/api-ref
   x-y-baseUrl: https://stt.api.cloud.yandex.net
@@ -11,72 +11,72 @@ paths: {}
 components:
   schemas:
     Alternative:
-      description: recognition of specific time frame
+      description: Recognition of specific time frame.
       type: object
       properties:
         words:
-          description: words in time frame
+          description: Words in time frame.
           type: array
           items:
             $ref: '#/components/schemas/Word'
         text:
-          description: text in time frame
+          description: Text in time frame.
           type: string
         startTimeMs:
-          description: start of time frame
+          description: Start of time frame.
           type: string
           format: int64
         endTimeMs:
-          description: end of time frame
+          description: End of time frame.
           type: string
           format: int64
         confidence:
-          description: hypothesis confidence. Currently is not used
+          description: Hypothesis confidence. Currently is not used.
           type: number
           format: double
     AlternativeUpdate:
-      description: update of hypothesis
+      description: Update of hypothesis.
       type: object
       properties:
         alternatives:
-          description: list of hypothesis for timeframes
+          description: List of hypothesis for timeframes.
           type: array
           items:
             $ref: '#/components/schemas/Alternative'
         channelTag:
-          description: tag for distinguish audio channels.
+          description: Tag for distinguish audio channels.
           type: string
     AudioChunk:
-      description: data chunk with audio
+      description: Data chunk with audio.
       type: object
       properties:
         data:
-          description: bytes with audio data
+          description: Bytes with audio data.
           type: string
           format: byte
     AudioCursors:
-      description: AudioCursors are state of ASR recognition stream
+      description: AudioCursors are state of ASR recognition stream.
       type: object
       properties:
         receivedDataMs:
-          description: amount of audio chunks server received. This cursor is moved
+          description: Amount of audio chunks server received. This cursor is moved
             after each audio chunk was received by server.
           type: string
           format: int64
         resetTimeMs:
-          description: input stream reset data
+          description: Input stream reset data.
           type: string
           format: int64
         partialTimeMs:
           description: |-
-            how much audio was processed. This time includes trimming silences as well. This cursor is moved after server received enough data
-             to update recognition results (includes silence as well)
+            How much audio was processed. This time includes trimming silences as well. This cursor is moved after server received enough data
+             to update recognition results (includes silence as well).
           type: string
           format: int64
         finalTimeMs:
           description: |-
             Time of last final. This cursor is moved when server decides that recognition from start of audio until final_time_ms will not change anymore
-             usually this even is followed by EOU detection (but this could change in future)
+             usually this even is followed by EOU detection (but this could change in future).
           type: string
           format: int64
         finalIndex:
@@ -86,13 +86,13 @@ components:
           format: int64
         eouTimeMs:
           description: |-
-            Estimated time of EOU. Cursor is updated after each new EOU is sent
-             For external classifier this equals to received_data_ms at the moment EOU event arrives
-             For internal classifier this is estimation of time. The time is not exact and has the same guarantees as word timings
+            Estimated time of EOU. Cursor is updated after each new EOU is sent.
+             For external classifier this equals to received_data_ms at the moment EOU event arrives.
+             For internal classifier this is estimation of time. The time is not exact and has the same guarantees as word timings.
           type: string
           format: int64
     AudioFormatOptions:
-      description: audio format options
+      description: Audio format options.
       type: object
       allOf:
       - title: AudioFormat
@@ -101,10 +101,10 @@ components:
         properties:
           rawAudio:
             $ref: '#/components/schemas/RawAudio'
-            description: audio without container
+            description: Audio without container.
           containerAudio:
             $ref: '#/components/schemas/ContainerAudio'
-            description: audio is wrapped in container
+            description: Audio is wrapped in container.
     CodeType:
       type: string
       enum:
@@ -112,12 +112,16 @@ components:
       - WARNING
       - CLOSED
     ContainerAudio:
-      description: Audio with fixed type in container. used in AudioFormat options
+      description: Audio with fixed type in container. Used in AudioFormat options.
       type: object
       properties:
         containerAudioType:
           $ref: '#/components/schemas/ContainerAudioContainerAudioType_in_ContainerAudio_containerAudioType'
     ContainerAudioContainerAudioType:
+      description: |2-
+         - WAV: Audio bit depth 16-bit signed little-endian (Linear PCM).
+         - OGG_OPUS: Data is encoded using the OPUS audio codec and compressed using the OGG container format.
+         - MP3: Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format.
       type: string
       enum:
       - WAV
@@ -129,9 +133,9 @@ components:
         type:
           $ref: '#/components/schemas/DefaultEouClassifierEouSensitivity_in_DefaultEouClassifier_type'
         maxPauseBetweenWordsHintMs:
-          description: hint for max pause between words. Our EoU detector could use
+          description: Hint for max pause between words. Our EoU detector could use
             this information to distinguish between end of utterance and slow speech
-            (like one <long pause> two <long pause> three, etc)
+            (like one <long pause> two <long pause> three, etc).
           type: string
           format: int64
     DefaultEouClassifierEouSensitivity:
@@ -140,7 +144,7 @@ components:
       - DEFAULT
       - HIGH
     Eou:
-      description: force EOU
+      description: Force EOU
       type: object
       properties: {}
     EouClassifierOptions:
@@ -152,30 +156,30 @@ components:
         properties:
           defaultClassifier:
             $ref: '#/components/schemas/DefaultEouClassifier'
-            description: EOU classifier provided by SpeechKit. Default
+            description: EOU classifier provided by SpeechKit. Default.
           externalClassifier:
             $ref: '#/components/schemas/ExternalEouClassifier'
-            description: EoU is enforced by external messages from user
+            description: EoU is enforced by external messages from user.
     EouUpdate:
       description: Update information from
       type: object
       properties:
         timeMs:
-          description: end of utterance estimated time
+          description: End of utterance estimated time.
           type: string
           format: int64
     ExternalEouClassifier:
-      description: use EOU provided by user
+      description: Use EOU provided by user
       type: object
       properties: {}
     FinalRefinement:
-      description: refinement for final hypo. For example, text normalization is refinement.
+      description: Refinement for final hypo. For example, text normalization is refinement.
       type: object
       allOf:
       - type: object
         properties:
           finalIndex:
-            description: index of final for which server sends additional information
+            description: Index of final for which server sends additional information.
             type: string
             format: int64
       - title: Type
@@ -184,7 +188,7 @@ components:
         properties:
           normalizedText:
             $ref: '#/components/schemas/AlternativeUpdate'
-            description: normalized text instead of raw one
+            description: Normalized text instead of raw one.
     LanguageRestrictionOptions:
       type: object
       properties:
@@ -200,8 +204,8 @@ components:
       - WHITELIST
       - BLACKLIST
     RawAudio:
-      description: RAW Audio format spec (no container to infer type). used in AudioFormat
-        options
+      description: RAW Audio format spec (no container to infer type). Used in AudioFormat
+        options.
       type: object
       properties:
         audioEncoding:
@@ -212,10 +216,12 @@ components:
           format: int64
         audioChannelCount:
           description: PCM channel count. Currently only single channel audio is supported
-            in real-time recognition
+            in real-time recognition.
           type: string
           format: int64
     RawAudioAudioEncoding:
+      description: ' - LINEAR16_PCM: Audio bit depth 16-bit signed little-endian (Linear
+        PCM).'
       type: string
       enum:
       - LINEAR16_PCM
@@ -223,7 +229,7 @@ components:
       type: object
       properties:
         model:
-          description: reserved for future, do not use
+          description: Reserved for future, do not use.
           type: string
         audioFormat:
           $ref: '#/components/schemas/AudioFormatOptions_in_RecognitionModelOptions_audioFormat'
@@ -239,30 +245,30 @@ components:
       - REAL_TIME
       - FULL_DATA
     SessionUuid:
-      description: session identifier
+      description: Session identifier.
       type: object
       properties:
         uuid:
-          description: internal session identifier
+          description: Internal session identifier.
           type: string
         userRequestId:
-          description: user session identifier
+          description: User session identifier.
           type: string
     SilenceChunk:
       type: object
       properties:
         durationMs:
-          description: duration of silence chunk in ms
+          description: Duration of silence chunk in ms.
           type: string
           format: int64
     StatusCode:
-      description: status message
+      description: Status message
       type: object
       properties:
         codeType:
           $ref: '#/components/schemas/CodeType_in_StatusCode_codeType'
         message:
-          description: human readable message
+          description: Human readable message.
           type: string
     StreamingOptions:
       type: object
@@ -273,23 +279,23 @@ components:
           $ref: '#/components/schemas/EouClassifierOptions_in_StreamingOptions_eouClassifier'
     StreamingResponse:
       description: |-
-        responses from server
-        each response contains session uuid
+        Responses from server.
+        Each response contains session uuid
         AudioCursors
-        plus specific even
+        plus specific event
       type: object
       allOf:
       - type: object
         properties:
           sessionUuid:
             $ref: '#/components/schemas/SessionUuid'
-            description: session identifier
+            description: Session identifier
           audioCursors:
             $ref: '#/components/schemas/AudioCursors'
-            description: 'progress bar for stream session recognition: how many data
-              we obtained; final and partial times; etc'
+            description: 'Progress bar for stream session recognition: how many data
+              we obtained; final and partial times; etc.'
           responseWallTimeMs:
-            description: wall clock on server side. This is time when server wrote
+            description: Wall clock on server side. This is time when server wrote
               results to stream
             type: string
             format: int64
@@ -300,26 +306,26 @@ components:
           partial:
             $ref: '#/components/schemas/AlternativeUpdate'
             description: |-
-              partial results, server will send them regularly after enough audio data was received from user. This are current text estimation
-                 from final_time_ms to partial_time_ms. Could change after new data will arrive
+              Partial results, server will send them regularly after enough audio data was received from user. This are current text estimation
+               from final_time_ms to partial_time_ms. Could change after new data will arrive.
           final:
             $ref: '#/components/schemas/AlternativeUpdate'
-            description: final results, the recognition is now fixed until final_time_ms.
+            description: Final results, the recognition is now fixed until final_time_ms.
               For now, final is sent only if the EOU event was triggered. This could
-              be change in future releases
+              be change in future releases.
           eouUpdate:
             $ref: '#/components/schemas/EouUpdate'
             description: |-
               After EOU classifier, send the message with final, send the EouUpdate with time of EOU
-               before eou_update we send final with the same time. there could be several finals before eou update
+               before eou_update we send final with the same time. there could be several finals before eou update.
           finalRefinement:
             $ref: '#/components/schemas/FinalRefinement'
             description: |-
               For each final, if normalization is enabled, sent the normalized text (or some other advanced post-processing).
-                 Final normalization will introduce additional latency
+                 Final normalization will introduce additional latency.
           statusCode:
             $ref: '#/components/schemas/StatusCode'
-            description: Status messages, send by server with fixed interval (keep-alive)
+            description: Status messages, send by server with fixed interval (keep-alive).
     TextNormalizationOptions:
       description: options
       type: object
@@ -327,11 +333,11 @@ components:
         textNormalization:
           $ref: '#/components/schemas/TextNormalizationOptionsTextNormalization_in_TextNormalizationOptions_textNormalization'
         profanityFilter:
-          description: 'Filter profanity (default: false)'
+          description: 'Filter profanity (default: false).'
           type: boolean
           format: boolean
         literatureText:
-          description: 'Rewrite text in literature style (default: false)'
+          description: 'Rewrite text in literature style (default: false).'
           type: boolean
           format: boolean
     TextNormalizationOptionsTextNormalization:
@@ -345,30 +351,35 @@ components:
       - TEXT_NORMALIZATION_ENABLED
       - TEXT_NORMALIZATION_DISABLED
     Word:
-      description: recognized word
+      description: Recognized word.
       type: object
       properties:
         text:
-          description: word text
+          description: Word text.
           type: string
         startTimeMs:
-          description: estimation of word start time in ms
+          description: Estimation of word start time in ms
           type: string
           format: int64
         endTimeMs:
-          description: estimation of word end time in ms
+          description: Estimation of word end time in ms
           type: string
           format: int64
     ContainerAudioContainerAudioType_in_ContainerAudio_containerAudioType:
-      description: type of audio container
+      description: |-
+        Type of audio container.
+
+         - WAV: Audio bit depth 16-bit signed little-endian (Linear PCM).
+         - OGG_OPUS: Data is encoded using the OPUS audio codec and compressed using the OGG container format.
+         - MP3: Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format.
       type: string
       enum:
       - WAV
       - OGG_OPUS
       - MP3
     DefaultEouClassifierEouSensitivity_in_DefaultEouClassifier_type:
-      description: EOU sensitivity.  Currently two levels, faster with more error
-        and more conservative (our default)
+      description: EOU sensitivity. Currently two levels, faster with more error and
+        more conservative (our default).
       type: string
       enum:
       - DEFAULT
@@ -379,15 +390,18 @@ components:
       - WHITELIST
       - BLACKLIST
     RawAudioAudioEncoding_in_RawAudio_audioEncoding:
-      description: type of audio encoding
+      description: |-
+        Type of audio encoding
+
+         - LINEAR16_PCM: Audio bit depth 16-bit signed little-endian (Linear PCM).
       type: string
       enum:
       - LINEAR16_PCM
     AudioFormatOptions_in_RecognitionModelOptions_audioFormat:
       description: |-
-        config for input audio
+        Specified input audio.
 
-        audio format options
+        Audio format options.
       type: object
       allOf:
       - title: AudioFormat
@@ -396,13 +410,13 @@ components:
         properties:
           rawAudio:
             $ref: '#/components/schemas/RawAudio'
-            description: audio without container
+            description: Audio without container.
           containerAudio:
             $ref: '#/components/schemas/ContainerAudio'
-            description: audio is wrapped in container
+            description: Audio is wrapped in container.
     TextNormalizationOptions_in_RecognitionModelOptions_textNormalization:
       description: |-
-        text normalization options
+        Text normalization options.
 
         options
       type: object
@@ -410,15 +424,15 @@ components:
         textNormalization:
           $ref: '#/components/schemas/TextNormalizationOptionsTextNormalization_in_TextNormalizationOptions_textNormalization'
         profanityFilter:
-          description: 'Filter profanity (default: false)'
+          description: 'Filter profanity (default: false).'
           type: boolean
           format: boolean
         literatureText:
-          description: 'Rewrite text in literature style (default: false)'
+          description: 'Rewrite text in literature style (default: false).'
           type: boolean
           format: boolean
     LanguageRestrictionOptions_in_RecognitionModelOptions_languageRestriction:
-      description: possible languages in audio
+      description: Possible languages in audio.
       type: object
       properties:
         restrictionType:
@@ -428,25 +442,25 @@ components:
           items:
             type: string
     RecognitionModelOptionsAudioProcessingType_in_RecognitionModelOptions_audioProcessingType:
-      description: how to deal with audio data (in real time, after all data is received,
-        etc). Default is REAL_TIME
+      description: How to deal with audio data (in real time, after all data is received,
+        etc). Default is REAL_TIME.
       type: string
       enum:
       - REAL_TIME
       - FULL_DATA
     CodeType_in_StatusCode_codeType:
-      description: code type
+      description: Code type.
       type: string
       enum:
       - WORKING
       - WARNING
       - CLOSED
     RecognitionModelOptions_in_StreamingOptions_recognitionModel:
-      description: configuration for speech recognition model
+      description: Configuration for speech recognition model.
       type: object
       properties:
         model:
-          description: reserved for future, do not use
+          description: Reserved for future, do not use.
           type: string
         audioFormat:
           $ref: '#/components/schemas/AudioFormatOptions_in_RecognitionModelOptions_audioFormat'
@@ -457,7 +471,7 @@ components:
         audioProcessingType:
           $ref: '#/components/schemas/RecognitionModelOptionsAudioProcessingType_in_RecognitionModelOptions_audioProcessingType'
     EouClassifierOptions_in_StreamingOptions_eouClassifier:
-      description: configuration for end of utterance detection model
+      description: Configuration for end of utterance detection model.
       type: object
       allOf:
       - title: Classifier
@@ -466,10 +480,10 @@ components:
         properties:
           defaultClassifier:
             $ref: '#/components/schemas/DefaultEouClassifier'
-            description: EOU classifier provided by SpeechKit. Default
+            description: EOU classifier provided by SpeechKit. Default.
           externalClassifier:
             $ref: '#/components/schemas/ExternalEouClassifier'
-            description: EoU is enforced by external messages from user
+            description: EoU is enforced by external messages from user.
     TextNormalizationOptionsTextNormalization_in_TextNormalizationOptions_textNormalization:
       description: |-
         Normalization

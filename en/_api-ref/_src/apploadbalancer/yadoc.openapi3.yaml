@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
-  title: Yandex Application Load Balancer Cloud API
+  title: Application Load Balancer API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
-    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://alb.api.cloud.yandex.net
@@ -3211,10 +3211,8 @@ components:
         status:
           $ref: '#/components/schemas/LoadBalancerStatus_in_LoadBalancer_status'
         regionId:
-          description: |-
-            ID of the region that the application load balancer is located at.
-
-            Currently Yandex Cloud supports only `ru-central1` region.
+          description: ID of the region that the application load balancer is located
+            at.
           type: string
         networkId:
           description: ID of the network that the application load balancer belongs
@@ -3366,7 +3364,7 @@ components:
             Required.
             ID of the availability zone where the application load balancer resides.
 
-            Each Yandex Cloud availability zone can only be specified once.
+            Each availability zone can only be specified once.
           type: string
         subnetId:
           description: ID of the subnet that the application load balancer belongs
