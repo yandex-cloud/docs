@@ -105,7 +105,7 @@ Invoices must be paid before the deadline stipulated in the [agreement](../conce
 
 ## Invoice details {#parameters}
 
-{% include [[bill-requisites](../_includes/bill-requisites.md) %}
+{% include [bill-requisites](../_includes/bill-requisites.md) %}
 
 ## Taxes and fees {#nds}
 
