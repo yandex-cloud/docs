@@ -1,6 +1,0 @@
-items:
-  - name: Обзор
-    href: index.md
-  - include: { mode: link, path: toc_i.yaml }
-  - name: Document API, совместимый с Amazon DynamoDB
-    include: { mode: link, path: ../quickstart/document-api/toc_i.yaml }

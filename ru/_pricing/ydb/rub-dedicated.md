@@ -1,6 +1,6 @@
 ## Расчетные цены для вычислительных ресурсов {#calculated-prices}
 
-Цены за время работы рассчитаны для [классов вычислительных ресурсов](../../ydb/concepts/databases.md#compute-units).
+Цены за время работы рассчитаны для [классов вычислительных ресурсов](../../managed-ydb/concepts/resources.md#resource-presets).
 
 {% list tabs %}
 

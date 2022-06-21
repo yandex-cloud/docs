@@ -9,10 +9,6 @@ ignore:
   - "en/mdb/*"
   - "ru/tracker/api-ref/*"
   - "en/tracker/api-ref/*"
-  - "ru/ydb/ydb-docs-core/ru/toc.yaml"
-  - "ru/ydb/ydb-docs-core/en/toc.yaml"
-  - "en/ydb/ydb-docs-core/ru/toc.yaml"
-  - "en/ydb/ydb-docs-core/en/toc.yaml"
   - "en/legal/*"
 
 connector:

@@ -1,0 +1,7 @@
+# Безопасные рестарт и выключение узлов
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/maintenance/manual/node_restarting).
+
+{% endnote %}

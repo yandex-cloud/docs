@@ -226,6 +226,10 @@ default:
   roles-owner: owner
   roles-editor: editor
   roles-viewer: viewer
+  roles-ydb-editor: ydb.editor
+  roles-ydb-viewer: ydb.viewer
+  roles-ydb-admin: ydb.admin
+
   subjects-allUsers: allUsers
   subjects-allAuthenticatedUsers: allAuthenticatedUsers
   subnet-id: b0rcctk2rvtr8efcch64

@@ -7,7 +7,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 ## {{ ydb-full-name }} cluster {#managed-service}
 
-Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ ydb-full-name }}](../../../../ydb/).
+Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ ydb-full-name }}](../../../../managed-ydb/).
 
 {% list tabs %}
 
@@ -41,7 +41,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
          {% if audience != "internal" %}
 
-         For more information about partitioning tables, see the [{{ ydb-full-name }}](../../../../ydb/concepts/datamodel.md#partitioning).
+         For more information about partitioning tables, see the [{{ ydb-full-name }}](https://ydb.tech/en/docs/concepts/datamodel#partitioning).
 
          {% endif %}
 
@@ -49,7 +49,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    * **Override table names**: Fill in if you need to rename tables in the source database when transferring to the target database.
 
-   * **Subfolder to place tables**: Specify a {% if audience != "internal" %}[subfolder](../../../../ydb/concepts/databases.md#directory){% else %}subfolder{% endif %} to place tables in.
+   * **Subfolder to place tables**: Specify a {% if audience != "internal" %}[subfolder](https://ydb.tech/en/docs/concepts/datamodel#dir){% else %}subfolder{% endif %} to place tables in.
 
       Final table placement path: `<Path in Yandex Database>/<Subfolder>/<Table>`.
 

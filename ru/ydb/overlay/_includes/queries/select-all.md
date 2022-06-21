@@ -1,5 +1,0 @@
-```sql
-SELECT
-    *
-FROM series;
-```

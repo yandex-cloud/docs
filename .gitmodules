@@ -1,6 +1,0 @@
-[submodule "ru/ydb/ydb-docs-core"]
-	path = ru/ydb/ydb-docs-core
-	url = ssh://git@bb.yandex-team.ru/cloud/ydb-docs-core.git
-[submodule "en/ydb/ydb-docs-core"]
-	path = en/ydb/ydb-docs-core
-	url = ssh://git@bb.yandex-team.ru/cloud/ydb-docs-core.git

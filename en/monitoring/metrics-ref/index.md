@@ -14,6 +14,6 @@ The name of the metric is written in the `name` label.
 
 {% if product == "yandex-cloud" %}
 
-{% include [monitoring_sensors](../../ydb/_includes/monitoring_sensors.md) %}
+{% include [managed-ydb.md](../../_includes/monitoring/metrics-ref/managed-ydb.md) %}
 
 {% endif %}

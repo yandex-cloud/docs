@@ -1,0 +1,7 @@
+# Joining tables with JOIN
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/tutorial/join_tables).
+
+{% endnote %}

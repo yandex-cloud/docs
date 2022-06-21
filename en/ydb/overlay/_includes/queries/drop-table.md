@@ -1,3 +1,0 @@
-```sql
-DROP TABLE series;
-```

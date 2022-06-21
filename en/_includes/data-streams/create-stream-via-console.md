@@ -8,7 +8,7 @@
 
     1. Click **Create stream**.
 
-    1. Specify a [serverless]{% if audience == "external" %}(../../ydb/concepts/serverless_and_dedicated.md#serverless){% else %}(https://cloud.yandex.ru/docs/ydb/concepts/serverless_and_dedicated#serverless){% endif %} {{ ydb-short-name }} database or [create]{% if audience == "external" %}(../../ydb/quickstart/create-db.md){% else %}(https://cloud.yandex.ru/docs/ydb/quickstart/create-db){% endif %} a new one. If you chose to create a new database, click **Update** after creating it to update the list of databases.
+    1. Specify a [serverless]{% if audience == "external" %}(../../managed-ydb/concepts/serverless-and-dedicated.md#serverless){% else %}(https://cloud.yandex.com/docs/managed-ydb/concepts/serverless-and-dedicated#serverless){% endif %} {{ ydb-short-name }} database or [create]{% if audience == "external" %}(../../managed-ydb/quickstart.md#create-db){% else %}(https://cloud.yandex.com/en/docs/managed-ydb/quickstart#create-db){% endif %} a new one. If you chose to create a new database, click **Update** after creating it to update the list of databases.
 
     1. Enter the name of the stream. Naming requirements:
 

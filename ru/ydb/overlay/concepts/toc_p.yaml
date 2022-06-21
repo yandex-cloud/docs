@@ -1,3 +1,0 @@
-items:
-- include: { mode: link, path: toc_i.yaml }
-- { name: Квоты и лимиты,                         href: limits.md }

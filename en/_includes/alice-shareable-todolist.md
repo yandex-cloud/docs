@@ -25,7 +25,7 @@ To deploy a project:
 
 1. Install and initialize the following software programs:
     * [Yandex Cloud CLI](../cli/quickstart.md).
-    * [{{ ydb-short-name }} CLI]{% if audience == "external" %}(../ydb/quickstart/yql-api/ydb-cli.md){% else %}(https://cloud.yandex.ru/docs/ydb/quickstart/yql-api/ydb-cli){% endif %};
+    * [{{ ydb-short-name }} CLI](https://ydb.tech/en/docs/getting_started/cli);
     * [Bash command interpreter](http://www.gnu.org/software/bash/).
     * [AWS CLI](../storage/tools/aws-cli).
     * [jq](https://stedolan.github.io/jq/download/).
@@ -43,7 +43,7 @@ To deploy a project:
 
 1. [Create an API gateway](../api-gateway/operations/api-gw-create) named `gate-1`. Save the **ID** and **Service domain** field values from the **General information** section to use them in the configuration.
 
-1. [Create a database](../ydb/quickstart/create-db#control-plane) in Serverless mode. Save the **Database** and **Endpoint** field values from the **YDB endpoint** section to use them in the configuration.
+1. [Create a database](../managed-ydb/quickstart.md#serverless) in Serverless mode. Save the **Database** and **Endpoint** field values from the **YDB endpoint** section to use them in the configuration.
 
 1. [Create an app]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} in Yandex.OAuth:
 

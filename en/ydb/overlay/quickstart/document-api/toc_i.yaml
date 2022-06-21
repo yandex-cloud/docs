@@ -1,9 +1,0 @@
-items:
-- name: Setting up AWS tools
-  href: aws-setup.md
-- name: Working with data from the HTTP interface
-  href: aws-http.md
-- name: Working with the AWS CLI
-  include: { mode: link, path : aws-cli/toc_i.yaml }
-- name: Working with the AWS SDK
-  include: { mode: link, path : aws-sdk/toc_i.yaml }

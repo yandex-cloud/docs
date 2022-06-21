@@ -28,7 +28,7 @@
 В стоимость поддержки инфраструктуры для этого сценария входит:
 
 * плата за вызовы функций (см. [тарифы {{ sf-full-name }}](../functions/pricing.md));
-* плата за выполнение запросов к базе данных {% if audience == "external" %} (см. [тарифы {{ ydb-full-name }}](../ydb/pricing/serverless.md)); {% endif %}
+* плата за выполнение запросов к базе данных {% if audience == "external" %} (см. [тарифы {{ ydb-full-name }}](../managed-ydb/pricing/serverless.md)); {% endif %}
 * плата за хранение данных в бакете (см. [тарифы {{ objstorage-full-name }}](../storage/pricing.md)).
 
 {% endif %}
@@ -51,17 +51,17 @@
 
 	Сохраните **Идентификатор** секрета из блока **Информация о секрете**.
 1. [Создайте очередь сообщений](../message-queue/operations/message-queue-new-queue.md) с именем `converter-queue` в {{ message-queue-full-name }}. Сохраните **URL** очереди из блока **Общая информация**.
-1. [Создайте базу данных](../ydb/quickstart/create-db#control-plane) {{ ydb-short-name }} в режиме Serverless. Сохраните **Эндпойнт** из блока **Document API эндпоинт**.
-1. {% if audience == "external" %} [Создайте таблицу](../ydb/db/cloud_console/schema.md) {% endif %} в базе данных:
+1. [Создайте базу данных](../managed-ydb/quickstart.md#serverless) {{ ydb-short-name }} в режиме Serverless. Сохраните **Эндпойнт** из блока **Document API эндпоинт**.
+1. {% if audience == "external" %} [Создайте таблицу](../managed-ydb/operations/schema.md#create-table) {% endif %} в базе данных:
 	* **Имя таблицы** — `tasks`.
-	* **Тип таблицы** — {% if audience == "external" %} [Документная таблица](../ydb/db/cloud_console/schema.md#create-table). {% endif %}
-	* **Колонки** — одна колонка с именем `task_id` типа `String`. {% if audience == "external" %} Установите атрибут [Ключ партицирования](../ydb/db/cloud_console/schema.md#create-table). {% endif %}
+	* **Тип таблицы** — {% if audience == "external" %} [Документная таблица](../managed-ydb/operations/schema.md#create-table). {% endif %}
+	* **Колонки** — одна колонка с именем `task_id` типа `String`. {% if audience == "external" %} Установите атрибут [Ключ партицирования](../managed-ydb/operations/schema.md#create-table). {% endif %}
 1. [Создайте бакет](../storage/operations/buckets/create) с именем `converter-bucket` в {{ objstorage-full-name }}.
 
 ## Создайте API-функцию {#create-api-function}
 
 В функции реализуется API, с помощью которого можно выполнять следующие действия:
-* `convert`  — передать видео для конвертации. Функция записывает задачу в таблицу `tasks` {% if audience == "external" %} с помощью [Document API](../ydb/quickstart/document-api/aws-http.md). {% endif %}
+* `convert`  — передать видео для конвертации. Функция записывает задачу в таблицу `tasks` {% if audience == "external" %} с помощью [Document API](../managed-ydb/docapi/tools/aws-http.md). {% endif %}
 * `get_task_status` — узнать статус выполнения задачи. Функция проверяет, выполнена ли задача, и возвращает ссылку на GIF-файл.
 
 {% list tabs %}

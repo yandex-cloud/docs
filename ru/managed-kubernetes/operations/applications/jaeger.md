@@ -3,7 +3,7 @@
 [Jaeger](https://www.jaegertracing.io/) — платформа для распределенной трассировки с открытым исходным кодом. Jaeger позволяет выполнять мониторинг состояния запросов и отладку после сбоев в распределенных системах микросервисных приложений.
 
 В качестве хранилища данных Jaeger может использовать:
-* [{{ ydb-full-name }}](../../../ydb/) при установке через [{{ marketplace-full-name }}](/marketplace).
+* [{{ ydb-full-name }}](../../../maanged-ydb/) при установке через [{{ marketplace-full-name }}](/marketplace).
 * [Другие системы хранения данных](https://github.com/jaegertracing/helm-charts/tree/main/charts/jaeger#storage) при установке через Helm-чарт.
 
 ## Установка с помощью {{ marketplace-name }} {#marketplace-install}
@@ -26,7 +26,7 @@
 
 ### Подготовка {{ ydb-name }} {#create-ydb}
 
-1. [Создайте базу данных](../../../ydb/operations/create_manage_database.md#create-db) подходящей вам конфигурации с [типом БД](../../../ydb/concepts/serverless_and_dedicated.md) `Dedicated`.
+1. [Создайте базу данных](../../../managed-ydb/operations/manage-database.md#create-db) подходящей вам конфигурации с [типом БД](../../../managed-ydb/concepts/serverless-and-dedicated.md) `Dedicated`.
 
    {% note warning %}
 
@@ -34,7 +34,7 @@
 
    {% endnote %}
 
-1. [Создайте директорию](../../../ydb/operations/schema.md#directories) с именем `jaeger`.
+1. [Создайте директорию](../../../managed-ydb/operations/schema.md#directories) с именем `jaeger`.
 
 ### Создание сервисного аккаунта {#create-sa-key}
 

@@ -24,7 +24,7 @@
 
 1. Установите и инициализируйте следующие программы:
     * [Yandex Cloud CLI](../cli/quickstart.md);
-    * [{{ ydb-short-name }} CLI]{% if audience == "external" %}(../ydb/quickstart/yql-api/ydb-cli.md){% else %}(https://cloud.yandex.ru/docs/ydb/quickstart/yql-api/ydb-cli){% endif %};
+    * [{{ ydb-short-name }} CLI](https://ydb.tech/ru/docs/getting_started/cli);
     * [Командный интерпретатор Bash](http://www.gnu.org/software/bash/);
     * [AWS CLI](../storage/tools/aws-cli);
     * [jq](https://stedolan.github.io/jq/download/);
@@ -40,7 +40,7 @@
 
 1. [Создайте бакет](../storage/operations/buckets/create) в {{ objstorage-name }} с именем `frontend-statics`.
 1. [Создайте API-шлюз](../api-gateway/operations/api-gw-create) с именем `gate-1`. Для использования в конфигурации сохраните поля **Идентификатор** и **Служебный домен** из раздела **Общая информация**.
-1. [Создайте базу данных](../ydb/quickstart/create-db#control-plane) в режиме Serverless. Для использовании в конфигурации сохраните поля **База данных** и **Эндпойнт** из раздела **YDB эндпойнт**.
+1. [Создайте базу данных](../managed-ydb/quickstart.md#serverless) в режиме Serverless. Для использовании в конфигурации сохраните поля **База данных** и **Эндпойнт** из раздела **YDB эндпойнт**.
 1. [Создайте приложение]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} в Яндекс.OAuth:
     1. Перейдите на [сайт сервиса]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} и авторизуйтесь.
     1. Нажмите кнопку **Зарегистрировать новое приложение**:
