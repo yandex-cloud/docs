@@ -195,6 +195,9 @@ items:
         href: routing/mikrotik.md
       - name: Соединение с облачной сетью при помощи OpenVPN
         href: routing/openvpn.md
+      - name: Настройка сети для {{ dataproc-full-name }}
+        href: routing/dataproc-nat-instance.md
+        when: product == "yandex-cloud"
   - name: Визуализация и анализ данных
     when: product == "yandex-cloud"
     items:

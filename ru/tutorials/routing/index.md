@@ -5,3 +5,4 @@
 * [Установка виртуального роутера Cisco CSR 1000v](cisco.md)
 * [Установка виртуального роутера Mikrotik CHR](mikrotik.md)
 * [Создание VPN-соединения с помощью OpenVPN](openvpn.md)
+{% if product == "yandex-cloud" %}* [Настройка сети для {{ dataproc-full-name }}](./dataproc-nat-instance.md){% endif %}

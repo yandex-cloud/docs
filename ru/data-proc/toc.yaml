@@ -26,6 +26,7 @@ items:
             href: tutorials/remote-run-job.md
       - name: Настройка сети для Data Proc
         href: tutorials/configure-network.md
+        when: product == "yandex-cloud"
       - name: Использование {{ objstorage-full-name }} в {{ dataproc-name }}
         href: tutorials/copy-files-from-object-storage.md
       - name: Обмен данными с {{ mch-name }}
