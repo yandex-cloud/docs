@@ -70,7 +70,8 @@ view | The output type of the certificate.<ul> <li>BASIC: Output basic informati
           // end of the list of possible fields`certificates[].challenges[]`
 
         }
-      ]
+      ],
+      "deletionProtection": true
     }
   ],
   "nextPageToken": "string"
@@ -112,4 +113,5 @@ certificates[].<br>challenges[].<br>dnsChallenge.<br>value | **string**<br><p>Va
 certificates[].<br>challenges[].<br>httpChallenge | **object**<br>HTTP-file. <br>`certificates[].challenges[]` includes only one of the fields `dnsChallenge`, `httpChallenge`<br><br>
 certificates[].<br>challenges[].<br>httpChallenge.<br>url | **string**<br><p>Location of the HTTP file.</p> 
 certificates[].<br>challenges[].<br>httpChallenge.<br>content | **string**<br><p>Content of the HTTP file.</p> 
+certificates[].<br>deletionProtection | **boolean** (boolean)<br><p>Flag that protects deletion of the certificate</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is greater than the specified <a href="/docs/certificate-manager/api-ref/Certificate/list#query_params">pageSize</a>, use the ``next_page_token`` as the value for the <a href="/docs/certificate-manager/api-ref/Certificate/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/certificate-manager/api-ref/Certificate/list#responses">nextPageToken</a> to continue paging through the results.</p> 

@@ -1,6 +1,7 @@
----
-sourcePath: en/ydb/overlay/operations/get-query-plan.md
----
+# Using a query plan
 
-{% include [get-query-plan.md](_includes/get-query-plan.md) %}
+{% note info %}
 
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-cli/commands/explain-plan).
+
+{% endnote %}

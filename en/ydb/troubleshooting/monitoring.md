@@ -1,8 +1,7 @@
----
-editable: false
-sourcePath: en/ydb/ydb-docs-core/en/core/troubleshooting/monitoring.md
----
-# Metric reference
+# Metric reference YDB
 
-{% include notitle [ydb_monitoring_sensors.md](_includes/monitoring_sensors.md) %}
+{% note info %}
 
+This page has been moved to a [new address](../../managed-ydb/operations/monitoring.md).
+
+{% endnote %}

@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/faq/errors.md
----
-{% include [errors.md](_includes/errors.md) %}
+# Ошибки
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/faq/errors).
+
+{% endnote %}

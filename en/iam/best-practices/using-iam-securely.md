@@ -22,12 +22,13 @@ For critical resources:
 
 ## Protect your Yandex account{#protect-account}
 
-*{% include [yandex-account-2fa-warning.md](../../_includes/iam/yandex-account-2fa-warning.md) %}
+* {% include [yandex-account-2fa-warning.md](../../_includes/iam/yandex-account-2fa-warning.md) %}
 * Keep your [OAuth token](../concepts/authorization/oauth-token.md) a secret, since it can be used to get an [IAM token](../concepts/authorization/iam-token.md) and perform operations in the cloud on your behalf.
 
     If someone might have discovered your OAuth token, [invalidate it](https://tech.yandex.com/oauth/doc/dg/reference/token-invalidate-docpage/) and issue a new one.
 
 * Avoid using your OAuth token for authentication if you can use an IAM token. OAuth tokens are valid for 1 year while IAM tokens are valid for {{ iam-token-lifetime }}. If your token is compromised, the hacker has limited time to use it.
+
 ## Use service accounts {#use-sa}
 
 Use [service accounts](../concepts/users/service-accounts.md) to automate work with {{ yandex-cloud }}. We recommend doing the following:
@@ -45,4 +46,3 @@ Use [service accounts](../concepts/users/service-accounts.md) to automate work w
 * Don't use your keys for authentication if you can use [IAM tokens](../concepts/authorization/iam-token.md). Keys have an unlimited lifetime, while IAM tokens are valid for {{ iam-token-lifetime }}.
 
 * If you perform operations from inside a VM, [link a service account to it](../../compute/operations/vm-connect/auth-inside-vm.md). In this case, you don't need to store service account keys on the VM to enable authentication: the IAM token is available from a [metadata service link](../../compute/operations/vm-connect/auth-inside-vm#auth-inside-vm).
-

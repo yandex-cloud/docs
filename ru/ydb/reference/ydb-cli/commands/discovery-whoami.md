@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/discovery-whoami.md
----
-{% include [discovery-whoami.md](_includes/discovery-whoami.md) %}
+# Проверка аутентификации
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/commands/discovery-whoami).
+
+{% endnote %}

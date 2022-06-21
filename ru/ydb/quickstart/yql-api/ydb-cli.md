@@ -1,12 +1,7 @@
----
-sourcePath: ru/ydb/overlay/quickstart/yql-api/ydb-cli.md
----
-# Работа с {{ ydb-short-name }} CLI
+# Работа с YDB CLI
 
-{% note warning %}
+{% note info %}
 
-Это ссылка на устаревшую страницу, которая будет скоро удалена.
-
-Информация перенесена в статью [{{ ydb-short-name }} CLI - начало работы](../../getting_started/cli.md).
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/getting_started/cli).
 
 {% endnote %}

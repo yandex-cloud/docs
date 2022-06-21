@@ -1,17 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/pragma.md
-sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/pragma.md
----
 # PRAGMA
 
-{% include [x](_includes/pragma/definition.md) %}
+{% note info %}
 
-{% include [x](_includes/pragma/global.md) %}
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/reference/syntax/pragma).
 
-{% include [x](_includes/pragma/yson.md) %}
-
-{% include [x](_includes/pragma/files.md) %}
-
-{% include [x](_includes/pragma/ydb.md) %}
-
-{% include [x](_includes/pragma/debug.md) %}
+{% endnote %}

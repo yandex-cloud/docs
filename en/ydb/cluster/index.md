@@ -1,15 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/cluster/index.md
----
 # Managing a YDB cluster
 
-This section contains articles intended for system administrators responsible for the performance of YDB clusters that application databases are deployed on.
+{% note info %}
 
-{% include [addition_overlay](_includes/addition_overlay.md) %}
-
-{% note warning %}
-
-The section is under development.
+This page has been moved to a [new address](https://ydb.tech/en/docs/cluster/).
 
 {% endnote %}
-

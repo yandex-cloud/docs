@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-cli/export_import/tools_restore.md
----
-{% include [tools_restore.md](_includes/tools_restore.md) %}
+# Importing data from the file system
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-cli/export_import/tools_restore).
+
+{% endnote %}

@@ -3551,7 +3551,7 @@ clusters[].<br>config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><
 clusters[].<br>config.<br>backupRetainPeriodDays | **integer** (int64)<br><p>Retention policy of automated backups.</p> <p>Acceptable values are 7 to 60, inclusive.</p> 
 clusters[].<br>config.<br>access | **object**<br>Access policy to DB<br>
 clusters[].<br>config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allow access for DataLens</p> 
-clusters[].<br>config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow SQL queries to the cluster databases from the Yandex Cloud management console.</p> <p>See <a href="/docs/managed-postgresql/operations/web-sql-query">SQL queries in the management console</a> for more details.</p> 
+clusters[].<br>config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allow SQL queries to the cluster databases from the management console.</p> <p>See <a href="/docs/managed-postgresql/operations/web-sql-query">SQL queries in the management console</a> for more details.</p> 
 clusters[].<br>config.<br>access.<br>serverless | **boolean** (boolean)<br><p>Allow access for Serverless</p> 
 clusters[].<br>config.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
 clusters[].<br>config.<br>performanceDiagnostics | **object**<br>Configuration of the performance diagnostics service.<br>

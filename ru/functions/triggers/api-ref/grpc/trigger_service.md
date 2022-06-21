@@ -54,7 +54,7 @@ Field | Description
 rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget` or `data_stream`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue)**<br>Rule for a message queue trigger. 
-&nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage)**<br>Rule for a Yandex IoT Core trigger. 
+&nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage)**<br>Rule for a IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs)**<br> 
@@ -78,7 +78,7 @@ action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_c
 
 Field | Description
 --- | ---
-queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. 
+queue_id | **string**<br>Required. ID of the message queue in Message Queue. 
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
@@ -91,8 +91,8 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be exec
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
-device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
+registry_id | **string**<br>Required. ID of the IoT Core registry. 
+device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
@@ -195,7 +195,7 @@ Field | Description
 rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget` or `data_stream`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer1)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue1)**<br>Rule for a message queue trigger. 
-&nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage1)**<br>Rule for a Yandex IoT Core trigger. 
+&nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage1)**<br>Rule for a IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage1)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry1)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs1)**<br> 
@@ -219,7 +219,7 @@ action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_c
 
 Field | Description
 --- | ---
-queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. 
+queue_id | **string**<br>Required. ID of the message queue in Message Queue. 
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
@@ -232,8 +232,8 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be exec
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
-device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
+registry_id | **string**<br>Required. ID of the IoT Core registry. 
+device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
@@ -356,7 +356,7 @@ Field | Description
 rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget` or `data_stream`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer2)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue2)**<br>Rule for a message queue trigger. 
-&nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage2)**<br>Rule for a Yandex IoT Core trigger. 
+&nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage2)**<br>Rule for a IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage2)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry2)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs2)**<br> 
@@ -380,7 +380,7 @@ action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_c
 
 Field | Description
 --- | ---
-queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. 
+queue_id | **string**<br>Required. ID of the message queue in Message Queue. 
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
@@ -393,8 +393,8 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be exec
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
-device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
+registry_id | **string**<br>Required. ID of the IoT Core registry. 
+device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
@@ -517,7 +517,7 @@ Field | Description
 rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget` or `data_stream`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer3)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue3)**<br>Rule for a message queue trigger. 
-&nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage3)**<br>Rule for a Yandex IoT Core trigger. 
+&nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage3)**<br>Rule for a IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage3)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry3)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs3)**<br> 
@@ -541,7 +541,7 @@ action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_c
 
 Field | Description
 --- | ---
-queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. 
+queue_id | **string**<br>Required. ID of the message queue in Message Queue. 
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
@@ -554,8 +554,8 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be exec
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
-device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
+registry_id | **string**<br>Required. ID of the IoT Core registry. 
+device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
@@ -714,7 +714,7 @@ Field | Description
 rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget` or `data_stream`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer4)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue4)**<br>Rule for a message queue trigger. 
-&nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage4)**<br>Rule for a Yandex IoT Core trigger. 
+&nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage4)**<br>Rule for a IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage4)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry4)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs4)**<br> 
@@ -738,7 +738,7 @@ action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_c
 
 Field | Description
 --- | ---
-queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. 
+queue_id | **string**<br>Required. ID of the message queue in Message Queue. 
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
@@ -751,8 +751,8 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be exec
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
-device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
+registry_id | **string**<br>Required. ID of the IoT Core registry. 
+device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
@@ -871,7 +871,7 @@ Field | Description
 rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget` or `data_stream`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer5)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue5)**<br>Rule for a message queue trigger. 
-&nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage5)**<br>Rule for a Yandex IoT Core trigger. 
+&nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage5)**<br>Rule for a IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage5)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry5)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs5)**<br> 
@@ -895,7 +895,7 @@ action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_c
 
 Field | Description
 --- | ---
-queue_id | **string**<br>Required. ID of the message queue in Yandex Message Queue. 
+queue_id | **string**<br>Required. ID of the message queue in Message Queue. 
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
@@ -908,8 +908,8 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be exec
 
 Field | Description
 --- | ---
-registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
-device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
+registry_id | **string**<br>Required. ID of the IoT Core registry. 
+device_id | **string**<br>ID of the IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 

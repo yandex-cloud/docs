@@ -1,21 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/alter_table.md
----
 # Добавление и удаление колонок
 
-Добавьте новую колонку в таблицу, а затем удалите ее.
+{% note info %}
 
-{% include [yql-reference-prerequisites](_includes/yql_tutorial_prerequisites.md) %}
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/tutorial/alter_table).
 
-## Добавить колонку {#add-column}
-Добавьте неключевую колонку в существующую таблицу:
-
-```sql
-ALTER TABLE episodes ADD COLUMN viewers Uint64;
-```
-## Удалить колонку {#delete-column}
-Удалите добавленную колонку из таблицы:
-
-```sql
-ALTER TABLE episodes DROP COLUMN viewers;
-```
+{% endnote %}

@@ -1,4 +1,10 @@
----
-sourcePath: ru/ydb/overlay/operations/create_manage_database.md
----
-Данная страница удалена, контент перенесен в [новое место размещения](../db/index.md).
+# Создание, изменение и удаление баз данных
+
+{% note info %}
+
+Страница перемещена:
+
+* [{#T}](../../managed-ydb/operations/index.md).
+* [Управление базами данных](https://ydb.tech/ru/docs/db/)
+
+{% endnote %}

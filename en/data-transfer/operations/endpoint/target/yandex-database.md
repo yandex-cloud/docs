@@ -7,7 +7,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 ## {{ ydb-full-name }} cluster {#managed-service}
 
-Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ ydb-full-name }}](../../../../ydb/).
+Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ ydb-full-name }}](../../../../managed-ydb/).
 
 {% list tabs %}
 
@@ -40,13 +40,13 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
       * **Split by column**: Split (_partition_) a table by the column's values. The column must be of the <q>time</q> type.
 
          
-         For more information about partitioning tables, see the [{{ ydb-full-name }}](../../../../ydb/concepts/datamodel.md#partitioning).
+         For more information about partitioning tables, see the [{{ ydb-full-name }}](https://ydb.tech/en/docs/concepts/datamodel#partitioning).
 
       If this setting is used, the specified number of tables for data for different time intervals is created in the target database. The name of each table is selected automatically by the date and time of the start of the interval. Depending on the values in the specified column of the source table, the original rows are distributed across the corresponding tables in the target database.
 
    * **Override table names**: Fill in if you need to rename tables in the source database when transferring to the target database.
 
-   * **Subfolder to place tables**: Specify a [subfolder](../../../../ydb/concepts/databases.md#directory) to place tables in.
+   * **Subfolder to place tables**: Specify a [subfolder](https://ydb.tech/en/docs/concepts/datamodel#dir) to place tables in.
 
       Final table placement path: `<Path in Yandex Database>/<Subfolder>/<Table>`.
 

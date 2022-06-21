@@ -1,5 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/create_table.md
-sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/create_table.md
----
-{% include [x](_includes/create_table.md) %}
+# CREATE TABLE
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/reference/syntax/create_table).
+
+{% endnote %}

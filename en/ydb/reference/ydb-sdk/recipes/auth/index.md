@@ -1,6 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/recipes/auth/index.md
----
+# Authentication
 
-{% include [index.md](_includes/index.md) %}
+{% note info %}
 
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-sdk/recipes/auth/).
+
+{% endnote %}

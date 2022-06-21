@@ -1,6 +1,7 @@
----
-sourcePath: en/ydb/overlay/operations/rename.md
----
+# Renaming a table
 
-{% include [rename.md](_includes/rename.md) %}
+{% note info %}
 
+This page has been moved to a [new address](https://ydb.tech/en/docs/concepts/datamodel#rename).
+
+{% endnote %}

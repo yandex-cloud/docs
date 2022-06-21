@@ -1,5 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/debug/logs.md
----
+# Включение логирования
 
-{% include [index.md](_includes/logs.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-sdk/recipes/debug/logs).
+
+{% endnote %}

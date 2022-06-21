@@ -1,12 +1,7 @@
----
-sourcePath: en/ydb/overlay/reference/ydb-cli/profile/list-and-get.md
----
-{% include [list-and-get.md](_includes/list-and-get.md) %}
+# Getting profile information
 
-Result:
+{% note info %}
 
-```text
-  endpoint: ydb.serverless.yandexcloud.net:2135
-  database: /ru-central1/b1gia87mbaomkfvscrus/etn02j1mlm4vgjhij03e
-  use-metadata-credentials
-```
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-cli/profile/list-and-get).
+
+{% endnote %}

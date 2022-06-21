@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/datatypes.md
----
-Данная страница удалена, информация по типам данных находится в статье [Типы данных YQL](../yql/reference/types/index.md).
+# Типы данных
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/types/).
+
+{% endnote %}

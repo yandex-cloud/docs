@@ -1,7 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/syntax/lexer.md
-sourcePath: ru/ydb/yql/reference/yql-core/syntax/lexer.md
----
+# Лексическая структура
 
-{% include [x](_includes/lexer.md) %}
+{% note info %}
 
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/syntax/lexer).
+
+{% endnote %}

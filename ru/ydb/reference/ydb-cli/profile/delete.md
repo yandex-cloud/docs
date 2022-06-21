@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/profile/delete.md
----
-{% include [delete.md](_includes/delete.md) %}
+# Удаление профиля
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/profile/delete).
+
+{% endnote %}

@@ -1,8 +1,8 @@
 ---
 sourcePath: en/_api-ref-grpc/application-load-balancer/api-ref/grpc/index.md
 ---
-# Yandex Application Load Balancer Cloud API
-This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+# Application Load Balancer API
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about API architecture, see [API Concepts](/docs/api-design-guide/).
 
 See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 

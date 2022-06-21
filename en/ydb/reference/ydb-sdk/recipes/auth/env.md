@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/recipes/auth/env.md
----
-{% include [index.md](_includes/env.md) %}
+# Authentication using environment variables
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-sdk/recipes/auth/env).
+
+{% endnote %}

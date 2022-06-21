@@ -1,5 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-cli/install.md
----
+# Installing the YDB CLI
 
-{% include [install.md](_includes/install.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-cli/install).
+
+{% endnote %}

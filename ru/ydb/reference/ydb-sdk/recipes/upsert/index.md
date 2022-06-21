@@ -1,17 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/upsert/index.md
----
 # Вставка данных
 
-{% include [work in progress message](../_includes/addition.md) %}
+{% note info %}
 
-Ниже приведены примеры кода использования встроенных в {{ ydb-short-name }} SDK средств выполнения вставки:
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-sdk/recipes/upsert/).
 
-{% list tabs %}
-
-- Go
-
-
-  {% include [go.md](_includes/go.md) %}
-
-{% endlist %}
+{% endnote %}

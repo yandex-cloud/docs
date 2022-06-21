@@ -1,0 +1,1 @@
+{% include [auth](../../_includes/authentication.md) %}

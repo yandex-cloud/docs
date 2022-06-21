@@ -1,5 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/recipes/debug/prometheus.md
----
+# Enabling metrics in Prometheus
 
-{% include [index.md](_includes/prometheus.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-sdk/recipes/debug/prometheus).
+
+{% endnote %}

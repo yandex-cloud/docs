@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/troubleshooting/index.md
----
-{% include [_includes/index.md](_includes/index.md) %}
+# Diagnostics
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/troubleshooting/).
+
+{% endnote %}

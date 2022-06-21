@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/faq/serverless.md
----
-{% include [serverless.md](_includes/serverless.md) %}
+# YDB в Serverless режиме
+
+{% note info %}
+
+Страница перемещена по новому [адресу](../../managed-ydb/faq.md#serverless).
+
+{% endnote %}

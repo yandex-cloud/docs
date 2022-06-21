@@ -1,45 +1,8 @@
 title: Yandex Managed Service for YDB
 description:
-  - >-
-    <i>YDB</i> — это распределенная отказоустойчивая Distributed SQL СУБД. YDB
-    обеспечивает высокую доступность, горизонтальную масштабируемость, а также
-    строгую консистентность и поддержку ACID-транзакций. Для запросов
-    используется диалект SQL (<a href="yql/reference/">YQL</a>).
+  - Страница перемещена по <a href="../managed-ydb/">новому адресу</a>.
 nav:
   title: Yandex Managed Service for YDB
 meta:
   title: Yandex Managed Service for YDB
-links:
-  - title: Начало работы
-    description: Создание базы данных, подключение, настройка доступа, простейшие операции
-    href: quickstart/index
-  - title: Концепции
-    description: Как устроена YDB, возможности и доступные режимы использования
-    href: concepts/index
-  - title: Работа с CLI
-    description: Справочник по YDB Command Line Interface
-    href: reference/ydb-cli/install
-  - title: Работа с SDK
-    description: Справочник по YDB Software Development Kits
-    href: reference/ydb-sdk/
-  - title: Пошаговые инструкции
-    description: Инструкции по выполнению стандартных операций
-    href: operations/
-  - title: Рекомендации
-    description: Набор рекомендаций по практическому использованию сервиса
-    href: best_practices/
-  - title: Справочник YQL
-    description: Описание синтаксиса и встроенных функций YQL
-    href: yql/reference/
-  - title: Туториал YQL
-    description: Серия уроков для знакомства с базовыми возможностями YQL
-    href: yql/tutorial/
-  - title: HTTP API, совместимый с Amazon DynamoDB
-    description: Описание Document API, совместимого с Amazon DynamoDB
-    href: docapi/api-ref/
-  - title: Правила тарификации
-    description: Цены и правила расчета стоимости услуг сервиса
-    href: pricing
-  - title: Полезные ссылки
-    description: Ссылки на различные ресурсы, имеющие отношение к YDB
-    href: getting_started/useful_links
+links: []

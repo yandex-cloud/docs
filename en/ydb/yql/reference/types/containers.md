@@ -1,6 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/types/containers.md
-sourcePath: en/ydb/yql/reference/yql-docs-core-2/types/containers.md
----
+# Containers
 
-{% include [x](_includes/containers.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/reference/types/containers).
+
+{% endnote %}

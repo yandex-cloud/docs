@@ -1,5 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/getting_started/self_hosted/ydb_docker.md
----
+# Запуск YDB в Docker
 
-{% include [ydb_docker.md](_includes/ydb_docker.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/getting_started/self_hosted/ydb_docker).
+
+{% endnote %}

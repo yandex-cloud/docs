@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/syntax/discard.md
-sourcePath: ru/ydb/yql/reference/yql-core/syntax/discard.md
----
+# DISCARD
 
-{% include [x](_includes/discard.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/syntax/discard).
+
+{% endnote %}

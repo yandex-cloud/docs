@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/concepts/scan_query.md
----
-{% include [scan_query.md](_includes/scan_query.md) %}
+# Scan queries in YDB
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/concepts/scan_query).
+
+{% endnote %}

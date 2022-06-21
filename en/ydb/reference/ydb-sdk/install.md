@@ -1,5 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/install.md
----
+# Installing the SDK
 
-{% include [install.md](_includes/install.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-sdk/install).
+
+{% endnote %}

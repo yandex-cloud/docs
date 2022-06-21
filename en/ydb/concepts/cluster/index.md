@@ -1,11 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/concepts/cluster/index.md
----
-# Cluster {{ ydb-short-name }}
+# Cluster YDB
 
-The information in this section is mainly intended for {{ ydb-short-name }} administrators and developers.
+{% note info %}
 
-The [General schema {{ ydb-short-name }}](common_scheme_ydb.md) provides general information on nodes and tablets.
+This page has been moved to a [new address](https://ydb.tech/en/docs/concepts/cluster/).
 
-The [Cluster disk subsystem](distributed_storage.md) section presents more detail on the features of a distributed {{ ydb-short-name }} storage system.
-
+{% endnote %}

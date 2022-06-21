@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/ai/translate/api-ref/Translation/index.md
 ---
 
 # Translation
-A set of methods for the Yandex Translate service.
+A set of methods for the Translate service.
 
 ## Methods {#methods}
 Method | Description

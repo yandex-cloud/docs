@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/vision/vision/vision/api-ref/grpc/vision_service.md
 
 # VisionService
 
-A set of methods for the Yandex Vision service.
+A set of methods for the Vision service.
 
 | Call | Description |
 | --- | --- |

@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/best_practices/index.md
----
-{% include [_includes/index.md](_includes/index.md) %}
+# Рекомендации
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/best_practices/).
+
+{% endnote %}

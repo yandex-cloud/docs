@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/syntax/declare.md
-sourcePath: ru/ydb/yql/reference/yql-core/syntax/declare.md
----
+# DECLARE
 
-{% include [x](_includes/declare/general.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/syntax/declare).
+
+{% endnote %}

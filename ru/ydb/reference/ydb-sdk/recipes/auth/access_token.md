@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/auth/access_token.md
----
+# Аутентификация при помощи токена
 
-{% include [access_token.md](_includes/access_token.md) %}
+{% note info %}
 
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-sdk/recipes/auth/access_token).
+
+{% endnote %}

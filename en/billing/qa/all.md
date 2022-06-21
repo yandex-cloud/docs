@@ -4,6 +4,10 @@
 
 {% include notitle [common](common.md) %}
 
+## Questions about an agreement
+
+{% include notitle [contract](contract.md) %}
+
 ## Questions about payment
 
 {% include notitle [payment](payment.md) %}
@@ -16,7 +20,6 @@
 
 {% include notitle [trial-commercial](trial-commercial.md) %}
 
-## Questions about working with non-residents of Russia
+## Questions about working with non-residents of Russia or Kazakhstan
 
 {% include notitle [non-resident](non-resident.md) %}
-

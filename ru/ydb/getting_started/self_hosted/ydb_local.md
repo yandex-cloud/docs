@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/getting_started/self_hosted/ydb_local.md
----
-{% include [ydb_local.md](_includes/ydb_local.md) %}
+# Запуск YDB из бинарного файла
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/getting_started/self_hosted/ydb_local).
+
+{% endnote %}

@@ -73,7 +73,7 @@ config | **[ClusterConfig](#ClusterConfig)**<br>Configuration of the ClickHouse 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
@@ -123,19 +123,19 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for YandexQuery 
+yandex_query | **bool**<br>Allow access for Query 
 
 
 ### CloudStorage {#CloudStorage}
 
 Field | Description
 --- | ---
-enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow}
@@ -207,7 +207,7 @@ config | **[ClusterConfig](#ClusterConfig1)**<br>Configuration of the ClickHouse
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
@@ -257,19 +257,19 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for YandexQuery 
+yandex_query | **bool**<br>Allow access for Query 
 
 
 ### CloudStorage {#CloudStorage1}
 
 Field | Description
 --- | ---
-enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow1}
@@ -326,7 +326,7 @@ user_specs[] | **[UserSpec](#UserSpec)**<br>Descriptions of database users to be
 host_specs[] | **[HostSpec](#HostSpec)**<br>Individual configurations for hosts that should be created for the ClickHouse cluster. The number of elements must be greater than 0.
 network_id | **string**<br>Required. ID of the network to create the cluster in. The maximum string length in characters is 50.
 shard_name | **string**<br>Name of the first shard in cluster. If not set, defaults to the value 'shard1'. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
@@ -366,19 +366,19 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for YandexQuery 
+yandex_query | **bool**<br>Allow access for Query 
 
 
 ### CloudStorage {#CloudStorage2}
 
 Field | Description
 --- | ---
-enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
 
 
 ### DatabaseSpec {#DatabaseSpec}
@@ -567,7 +567,7 @@ config | **[ClusterConfig](#ClusterConfig2)**<br>Configuration of the ClickHouse
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
@@ -617,19 +617,19 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for YandexQuery 
+yandex_query | **bool**<br>Allow access for Query 
 
 
 ### CloudStorage {#CloudStorage3}
 
 Field | Description
 --- | ---
-enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow2}
@@ -681,7 +681,7 @@ description | **string**<br>New description of the ClickHouse cluster. The maxim
 labels | **map<string,string>**<br>Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources for hosts in the cluster. 
 name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>New maintenance window settings for the cluster. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -722,19 +722,19 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for YandexQuery 
+yandex_query | **bool**<br>Allow access for Query 
 
 
 ### CloudStorage {#CloudStorage4}
 
 Field | Description
 --- | ---
-enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow3}
@@ -797,7 +797,7 @@ config | **[ClusterConfig](#ClusterConfig3)**<br>Configuration of the ClickHouse
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
@@ -847,19 +847,19 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for YandexQuery 
+yandex_query | **bool**<br>Allow access for Query 
 
 
 ### CloudStorage {#CloudStorage5}
 
 Field | Description
 --- | ---
-enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow4}
@@ -987,7 +987,7 @@ config | **[ClusterConfig](#ClusterConfig4)**<br>Configuration of the ClickHouse
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
@@ -1037,19 +1037,19 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for YandexQuery 
+yandex_query | **bool**<br>Allow access for Query 
 
 
 ### CloudStorage {#CloudStorage6}
 
 Field | Description
 --- | ---
-enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow5}
@@ -1137,7 +1137,7 @@ config | **[ClusterConfig](#ClusterConfig5)**<br>Configuration of the ClickHouse
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
@@ -1187,19 +1187,19 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for YandexQuery 
+yandex_query | **bool**<br>Allow access for Query 
 
 
 ### CloudStorage {#CloudStorage7}
 
 Field | Description
 --- | ---
-enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow6}
@@ -1290,7 +1290,7 @@ config | **[ClusterConfig](#ClusterConfig6)**<br>Configuration of the ClickHouse
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
@@ -1340,19 +1340,19 @@ resources | **[Resources](#Resources)**<br>Resources allocated to ZooKeeper host
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for YandexQuery 
+yandex_query | **bool**<br>Allow access for Query 
 
 
 ### CloudStorage {#CloudStorage8}
 
 Field | Description
 --- | ---
-enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow7}
@@ -1462,7 +1462,7 @@ config | **[ClusterConfig](#ClusterConfig7)**<br>Configuration of the ClickHouse
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
@@ -1512,19 +1512,19 @@ resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hos
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for YandexQuery 
+yandex_query | **bool**<br>Allow access for Query 
 
 
 ### CloudStorage {#CloudStorage9}
 
 Field | Description
 --- | ---
-enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow8}
@@ -1612,7 +1612,7 @@ config | **[ClusterConfig](#ClusterConfig8)**<br>Configuration of the ClickHouse
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
@@ -1662,19 +1662,19 @@ resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hos
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for YandexQuery 
+yandex_query | **bool**<br>Allow access for Query 
 
 
 ### CloudStorage {#CloudStorage10}
 
 Field | Description
 --- | ---
-enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow9}
@@ -1730,7 +1730,7 @@ config_spec | **[ConfigSpec](#ConfigSpec)**<br>Required. Configuration for the C
 host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for ClickHouse hosts that should be created for the cluster that is being created from the backup. The number of elements must be greater than 0.
 network_id | **string**<br>Required. ID of the network to create the ClickHouse cluster in. The maximum string length in characters is 50.
 folder_id | **string**<br>ID of the folder to create the ClickHouse cluster in. The maximum string length in characters is 50.
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 security_group_ids[] | **string**<br>User security groups 
 
 
@@ -1769,19 +1769,19 @@ resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hos
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for YandexQuery 
+yandex_query | **bool**<br>Allow access for Query 
 
 
 ### CloudStorage {#CloudStorage11}
 
 Field | Description
 --- | ---
-enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
 
 
 ### HostSpec {#HostSpec2}
@@ -1835,7 +1835,7 @@ config | **[ClusterConfig](#ClusterConfig9)**<br>Configuration of the ClickHouse
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
@@ -1885,19 +1885,19 @@ resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hos
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for YandexQuery 
+yandex_query | **bool**<br>Allow access for Query 
 
 
 ### CloudStorage {#CloudStorage12}
 
 Field | Description
 --- | ---
-enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow10}
@@ -1988,7 +1988,7 @@ config | **[ClusterConfig](#ClusterConfig10)**<br>Configuration of the ClickHous
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
@@ -2038,19 +2038,19 @@ resources | **[Resources](#Resources1)**<br>Resources allocated to ZooKeeper hos
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for YandexQuery 
+yandex_query | **bool**<br>Allow access for Query 
 
 
 ### CloudStorage {#CloudStorage13}
 
 Field | Description
 --- | ---
-enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow11}
@@ -2253,7 +2253,7 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the ClickHouse host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long. <br>The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host. 
+name | **string**<br>Name of the ClickHouse host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long. <br>The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. 
 cluster_id | **string**<br>ID of the ClickHouse host. The ID is assigned by MDB at creation time. 
 zone_id | **string**<br>ID of the availability zone where the ClickHouse host resides. 
 type | enum **Type**<br>Type of the host. <ul><li>`CLICKHOUSE`: ClickHouse host.</li><li>`ZOOKEEPER`: ZooKeeper host.</li></ul>
@@ -3005,7 +3005,7 @@ config | **[ClusterConfig](#ClusterConfig11)**<br>Configuration of the ClickHous
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host1) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host1) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host1) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host1) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow12)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation11)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
@@ -3055,19 +3055,19 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to ZooKeeper hos
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for YandexQuery 
+yandex_query | **bool**<br>Allow access for Query 
 
 
 ### CloudStorage {#CloudStorage14}
 
 Field | Description
 --- | ---
-enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow12}
@@ -3156,7 +3156,7 @@ config | **[ClusterConfig](#ClusterConfig12)**<br>Configuration of the ClickHous
 network_id | **string**<br>ID of the network that the cluster belongs to. 
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host1) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host1) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host1) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host1) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
-service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow13)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation12)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
@@ -3206,19 +3206,19 @@ resources | **[Resources](#Resources2)**<br>Resources allocated to ZooKeeper hos
 
 Field | Description
 --- | ---
-data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
-web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex Cloud management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
-metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
+data_lens | **bool**<br>Allow to export data from the cluster to DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the management console. <br>See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details. 
+metrika | **bool**<br>Allow to import data from Yandex Metrica and AppMetrica to the cluster. <br>See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. 
 serverless | **bool**<br>Allow access to cluster for Serverless. 
 data_transfer | **bool**<br>Allow access for DataTransfer 
-yandex_query | **bool**<br>Allow access for YandexQuery 
+yandex_query | **bool**<br>Allow access for Query 
 
 
 ### CloudStorage {#CloudStorage15}
 
 Field | Description
 --- | ---
-enabled | **bool**<br>Whether to use Yandex Object Storage for storing ClickHouse data. 
+enabled | **bool**<br>Whether to use Object Storage for storing ClickHouse data. 
 
 
 ### MaintenanceWindow {#MaintenanceWindow13}

@@ -1,5 +1,12 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/getting_started/create_db.md
----
+# Creating a database - Getting started
 
-{% include [create_db.md](_includes/create_db.md) %}
+{% note info %}
+
+This page has been moved:
+
+* [Yandex cloud database](../../managed-ydb/quickstart.md#create-db).
+* Self-deployment:
+  * [Docker](https://ydb.tech/en/docs/getting_started/self_hosted/ydb_docker).
+  * [Kubernetes](https://ydb.tech/en/docs/deploy/orchestrated/concepts).
+
+{% endnote %}

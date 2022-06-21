@@ -1,10 +1,10 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/troubleshooting/system_views.md
----
 # Системные таблицы
 
-Информация по системным таблицам доступна в следующих статьях:
+{% note info %}
 
-- [Системные таблицы базы данных](system_views_db.md)
-- [Системные таблицы кластера](system_views_cluster.md)
+Страница перемещена:
 
+* [Системные таблицы базы данных](https://ydb.tech/ru/docs/troubleshooting/system_views_db)
+* [Системные таблицы кластера](https://ydb.tech/ru/docs/troubleshooting/system_views_cluster)
+
+{% endnote %}

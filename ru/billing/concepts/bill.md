@@ -12,6 +12,8 @@
 * Выбран способ оплаты [Перевод с расчетного счета](../payment/payment-methods-business.md).
 * [Итоговая сумма счета](#payment-amount) больше нуля.
 
+Счет высылается только на адрес электронной почты владельца [платежного аккаунта](billing-account.md). Изменить адрес нельзя, но можно настроить пересылку писем на другой адрес. Подробнее см. в [Справке Яндекс Почты](https://yandex.ru/support/mail/web/preferences/filters/forwarding.html).
+
 {% note info %}
 
 {{ yandex-cloud }} оставляет за собой право выставить счет на оплату в течение текущего отчетного периода, если вы превысите установленный размер кредитного лимита.
@@ -68,7 +70,7 @@
 
 ## Реквизиты счета {#parameters}
 
-{% include [[bill-requisites](../_includes/bill-requisites.md) %}
+{% include [bill-requisites](../_includes/bill-requisites.md) %}
 
 ## Учет налогов и сборов {#nds}
 

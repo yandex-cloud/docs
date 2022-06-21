@@ -64,7 +64,7 @@ pageToken | Page token that can be used to iterate through multiple pages of res
 Field | Description
 --- | ---
 hosts[] | **object**<br><p>List of hosts in the cluster.</p> 
-hosts[].<br>name | **string**<br><p>Name of the host.</p> <p>This name is assigned by Yandex Cloud at the time of creation. The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host.</p> 
+hosts[].<br>name | **string**<br><p>Name of the host.</p> <p>This name is assigned by the platform at the time of creation. The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.</p> 
 hosts[].<br>clusterId | **string**<br><p>ID of the cluster the host belongs to.</p> 
 hosts[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides.</p> 
 hosts[].<br>resources | **object**<br><p>Resources allocated to the host.</p> <p>Cluster resource preset.</p> 

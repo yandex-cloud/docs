@@ -1,5 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/best_practices/schema_design.md
----
+# Choosing a primary key for maximum performance
 
-{% include [timeouts.md](_includes/schema_design.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/best_practices/pk_scalability).
+
+{% endnote %}

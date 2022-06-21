@@ -1,5 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/faq/all.md
----
-{% include [all.md](_includes/all.md) %}
+# Все вопросы на одной странице
 
+% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/faq/all).
+
+{% endnote %}

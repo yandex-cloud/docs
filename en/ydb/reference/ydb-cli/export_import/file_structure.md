@@ -1,5 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-cli/export_import/file_structure.md
----
+# File structure of data export
 
-{% include [file_structure.md](_includes/file_structure.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-cli/export_import/file_structure).
+
+{% endnote %}

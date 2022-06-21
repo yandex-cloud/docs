@@ -1,6 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/udf/list/url.md
-sourcePath: en/ydb/yql/reference/yql-docs-core-2/udf/list/url.md
----
+# Url
 
-{% include [url.md](_includes/url.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/reference/udf/list/url).
+
+{% endnote %}

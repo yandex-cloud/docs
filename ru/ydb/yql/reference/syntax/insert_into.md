@@ -1,8 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/syntax/insert_into.md
-sourcePath: ru/ydb/yql/reference/yql-core/syntax/insert_into.md
----
+# INSERT INTO
 
-{% include [x](_includes/insert_into.md) %}
+{% note info %}
 
-{% include [x](_includes/insert_hints.md) %}
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/syntax/insert_into).
+
+{% endnote %}

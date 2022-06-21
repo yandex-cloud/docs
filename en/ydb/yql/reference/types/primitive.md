@@ -1,6 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/types/primitive.md
-sourcePath: en/ydb/yql/reference/yql-docs-core-2/types/primitive.md
----
+# Primitive data types
 
-{% include [x](_includes/primitive.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/reference/types/primitive).
+
+{% endnote %}

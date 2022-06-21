@@ -1,8 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/index.md
----
+# YQL - Overview
 
-{% include [intro.md](_includes/index/intro.md) %}
+{% note info %}
 
-{% include [intro.md](_includes/index/start.md) %}
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/reference/).
 
+{% endnote %}

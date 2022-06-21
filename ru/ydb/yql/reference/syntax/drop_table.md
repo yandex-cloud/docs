@@ -1,7 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/syntax/drop_table.md
-sourcePath: ru/ydb/yql/reference/yql-core/syntax/drop_table.md
----
+# DROP TABLE
 
-{% include [x](_includes/drop_table.md) %}
+{% note info %}
 
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/syntax/drop_table).
+
+{% endnote %}

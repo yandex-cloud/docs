@@ -1,12 +1,7 @@
----
-sourcePath: en/ydb/overlay/reference/ydb-cli/index.md
----
-# {{ ydb-short-name }} CLI
+# YDB CLI
 
-The {{ ydb-short-name }} command-line interface (CLI) provides downloadable software for managing your data in {{ ydb-short-name }}.
+{% note info %}
 
-To get started with the {{ ydb-short-name }} CLI:
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-cli/).
 
-1. [Install](install.md) the {{ ydb-short-name }} CLI.
-1. [Configure the CLI connection to the database and authentication](connect.md).
-1. [Create a profile](profile/create.md).
+{% endnote %}

@@ -155,7 +155,7 @@ clusters[].<br>master.<br>masterAuth | **object**<br>Master authentication param
 clusters[].<br>master.<br>masterAuth.<br>clusterCaCertificate | **string**<br><p>PEM-encoded public certificate that is the root of trust for the Kubernetes cluster.</p> 
 clusters[].<br>master.<br>versionInfo | **object**<br>Detailed information about the Kubernetes version that is running on the master.<br>
 clusters[].<br>master.<br>versionInfo.<br>currentVersion | **string**<br><p>Current Kubernetes version, format: major.minor (e.g. 1.15).</p> 
-clusters[].<br>master.<br>versionInfo.<br>newRevisionAvailable | **boolean** (boolean)<br><p>Newer revisions may include Kubernetes patches (e.g 1.15.1 -&gt; 1.15.2) as well as some internal component updates - new features or bug fixes in Yandex specific components either on the master or nodes.</p> 
+clusters[].<br>master.<br>versionInfo.<br>newRevisionAvailable | **boolean** (boolean)<br><p>Newer revisions may include Kubernetes patches (e.g 1.15.1 -&gt; 1.15.2) as well as some internal component updates - new features or bug fixes in platform specific components either on the master or nodes.</p> 
 clusters[].<br>master.<br>versionInfo.<br>newRevisionSummary | **string**<br><p>Description of the changes to be applied when updating to the latest revision. Empty if new_revision_available is false.</p> 
 clusters[].<br>master.<br>versionInfo.<br>versionDeprecated | **boolean** (boolean)<br><p>The current version is on the deprecation schedule, component (master or node group) should be upgraded.</p> 
 clusters[].<br>master.<br>maintenancePolicy | **object**<br>Maintenance policy of the master.<br>

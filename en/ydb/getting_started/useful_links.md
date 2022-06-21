@@ -1,5 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/getting_started/useful_links.md
----
+# Useful links
 
-{% include [useful_links.md](_includes/useful_links.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/getting_started/useful_links).
+
+{% endnote %}

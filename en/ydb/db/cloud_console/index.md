@@ -1,10 +1,7 @@
----
-sourcePath: en/ydb/overlay/db/cloud_console/index.md
----
 # YDB cloud management console
 
-This section contains articles on the YDB cloud management console in {{ yandex-cloud }}, including its features for YDB database management and maintenance:
+{% note info %}
 
-* [Creating, updating, and deleting databases](create_manage_database.md).
-* [Tables and directories](schema.md).
-* [Access management](../../security/start_auth.md).
+This page has been moved to a [new address](../../../managed-ydb/operations/index.md).
+
+{% endnote %}

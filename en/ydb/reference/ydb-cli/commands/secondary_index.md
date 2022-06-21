@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-cli/commands/secondary_index.md
----
-{% include [_includes/secondary_index.md](_includes/secondary_index.md) %}
+# Creating and deleting secondary indexes
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-cli/commands/secondary_index).
+
+{% endnote %}

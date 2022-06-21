@@ -1,5 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/best_practices/batch_upload.md
----
-{% include [batch_upload.md](_includes/batch_upload.md) %}
+# Uploading data to YDB
 
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/best_practices/batch_upload).
+
+{% endnote %}

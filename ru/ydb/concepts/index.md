@@ -1,13 +1,10 @@
----
-sourcePath: ru/ydb/overlay/concepts/index.md
----
+# Обзор YDB
 
-{% include [concepts/index/intro.md](_includes/index/intro.md) %}
+{% note info %}
 
-## YDB в {{ yandex-cloud }}
+Страница перемещена:
 
-Вы можете создать базу данных в бессерверной (Serverless) конфигурации или с выделенными серверами (Dedicated). Подробнее о различиях в конфигурациях читайте в разделе [Serverless и Dedicated режимы работы](serverless_and_dedicated.md).
+* [Обзор {{ ydb-short-name }} в {{ ydb-full-name }}](../../managed-ydb/concepts/index.md).
+* [Обзор {{ ydb-short-name }}](https://ydb.tech/ru/docs/concepts/).
 
-Для сервиса действует [соглашение об уровне обслуживания](https://yandex.ru/legal/cloud_sla?lang=ru). Уровень обслуживания сервиса определен в документе [Уровень обслуживания {{ ydb-full-name }}](https://yandex.ru/legal/cloud_sla_ydb?lang=ru).
-
-{% include [concepts/index/when_use.md](_includes/index/when_use.md) %}
+{% endnote %}

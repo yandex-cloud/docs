@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/cluster/distributed_storage.md
----
-{% include [concepts/index/intro.md](_includes/distributed_storage/intro.md) %}
+# Дисковая подсистема кластера
 
-{% include [concepts/index/when_use.md](_includes/distributed_storage/distributed_storage_interface.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/concepts/cluster/distributed_storage).
+
+{% endnote %}

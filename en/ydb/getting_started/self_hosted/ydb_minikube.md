@@ -1,5 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/getting_started/self_hosted/ydb_minikube.md
----
+# Running YDB in Minikube
 
-{% include [ydb_minikube.md](_includes/ydb_minikube.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/getting_started/self_hosted/ydb_minikube).
+
+{% endnote %}

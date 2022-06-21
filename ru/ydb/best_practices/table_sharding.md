@@ -1,5 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/best_practices/table_sharding.md
----
+# Партиционирование таблиц
 
-{% include [timeouts.md](_includes/table_sharding.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/concepts/datamodel#partitioning).
+
+{% endnote %}

@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/example/example-dotnet.md
----
-{% include [example-dotnet.md](_includes/example-dotnet.md) %}
+# App in C# (.NET)
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-sdk/example/example-dotnet).
+
+{% endnote %}

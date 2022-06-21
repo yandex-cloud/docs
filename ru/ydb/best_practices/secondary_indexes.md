@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/best_practices/secondary_indexes.md
----
+# Вторичные индексы
 
-{% include [secondary_indexes.md](_includes/secondary_indexes.md) %}
+{% note info %}
 
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/best_practices/secondary_indexes).
+
+{% endnote %}

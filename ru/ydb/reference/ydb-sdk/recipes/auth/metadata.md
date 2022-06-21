@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/auth/metadata.md
----
-{% include [index.md](_includes/metadata.md) %}
+# Аутентификация при помощи сервиса метаданных
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-sdk/recipes/auth/metadata).
+
+{% endnote %}

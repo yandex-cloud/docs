@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/types/special.md
-sourcePath: ru/ydb/yql/reference/yql-core/types/special.md
----
+# Специальные типы данных
 
-{% include [x](_includes/special.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/types/special).
+
+{% endnote %}

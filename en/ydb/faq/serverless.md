@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/faq/serverless.md
----
-{% include [serverless.md](_includes/serverless.md) %}
+# YDB in Serverless mode
+
+{% note info %}
+
+This page has been moved to a [new address](../../managed-ydb/faq.md#serverless).
+
+{% endnote %}

@@ -1,8 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/concepts/cluster/common_scheme_ydb.md
----
-{% include [concepts/index/intro.md](_includes/common_scheme_ydb/intro.md) %}
+# General schema YDB
 
-{% include [concepts/index/when_use.md](_includes/common_scheme_ydb/nodes.md) %}
+{% note info %}
 
-{% include [concepts/index/when_use.md](_includes/common_scheme_ydb/tablets.md) %}
+This page has been moved to a [new address](https://ydb.tech/en/docs/concepts/cluster/common_scheme_ydb).
+
+{% endnote %}

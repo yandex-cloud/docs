@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-cli/commands/dir.md
----
-{% include [dir.md](_includes/dir.md) %}
+# Directories
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-cli/commands/dir).
+
+{% endnote %}

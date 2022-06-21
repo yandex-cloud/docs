@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/overlay/tutorials/ydb_docker.md
----
-Страница перемещена на новое место: [Развертывание в Docker](../getting_started/self_hosted/ydb_docker.md)
+# Запуск YDB в Docker
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/getting_started/self_hosted/ydb_docker).
+
+{% endnote %}

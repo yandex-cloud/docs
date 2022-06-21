@@ -177,21 +177,21 @@ The client needs to manage the response headers on their own in accordance with 
 
 ### Operations with data {#ydb-data}
 
-It's prohibited to use confidential data, particularly PCI DSS data, as the names of database, tables, columns, folders, and so on. It's prohibited to send PCI DSS data to {{ ydb-full-name }} (both Dedicated and Serverless) as clear text. Prior to sending data, be sure to encrypt the data at the application level. For this you can use the {{ kms-short-name }} service or any other PCI DSS-compliant method. For data where the storage period is known in advance, we recommend that you configure the [Time To Live](../../ydb/concepts/ttl.md) option.
+It's prohibited to use confidential data, particularly PCI DSS data, as the names of database, tables, columns, folders, and so on. It's prohibited to send PCI DSS data to {{ ydb-full-name }} (both Dedicated and Serverless) as clear text. Prior to sending data, be sure to encrypt the data at the application level. For this you can use the {{ kms-short-name }} service or any other PCI DSS-compliant method. For data where the storage period is known in advance, we recommend that you configure the [Time To Live](https://ydb.tech/en/docs/concepts/ttl) option.
 
 ### SQL injection protection {#sql-injections}
 
-When working with the database, use [parameterized prepared statements](../../ydb/reference/ydb-sdk/example/index.md#param-prepared-queries) to protect against SQL injection. If the application dynamically generates query templates, you must prevent the injection of untrusted user input into the SQL query template.
+When working with the database, use [parameterized prepared statements](https://ydb.tech/en/docs/reference/ydb-sdk/example/#param-queries) to protect against SQL injection. If the application dynamically generates query templates, you must prevent the injection of untrusted user input into the SQL query template.
 
 ### Network access {#ydb-network}
 
-When accessing the database in Dedicated mode, we recommend that you use it inside VPC, disabling public access to it from the internet. In Serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your PCI DSS infrastructure. For more information about operating modes, see the YDB documentation, [Serverless and Dedicated modes](../../ydb/concepts/serverless_and_dedicated.md).
+When accessing the database in Dedicated mode, we recommend that you use it inside VPC, disabling public access to it from the internet. In Serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your PCI DSS infrastructure. For more information about operating modes, see the YDB documentation, [Serverless and Dedicated modes](../../managed-ydb/concepts/serverless-and-dedicated.md).
 
 When setting up database permissions, use the principle of least privilege.
 
 ### Backups {#ydb-backup}
 
-When creating [on-demand backups](../../ydb/pricing/serverless#rules-auto-backup-storage), make sure that the backup data is properly protected.
+When creating [on-demand backups](../../managed-ydb/pricing/serverless.md#rules-auto-backup-storage), make sure that the backup data is properly protected.
 
 When creating backups on demand in {{ objstorage-short-name }}, follow the recommendations in the [{{ objstorage-short-name }}](#object-storage) subsection above (for example, use the built-in bucket encryption feature).
 

@@ -1,5 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/best_practices/batch_upload.md
----
-{% include [batch_upload.md](_includes/batch_upload.md) %}
+# Загрузка больших объемов данных
 
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/best_practices/batch_upload).
+
+{% endnote %}

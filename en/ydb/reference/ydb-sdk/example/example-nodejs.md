@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/example/example-nodejs.md
----
-{% include [example-nodejs.md](_includes/example-nodejs.md) %}
+# App in Node.js
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-sdk/example/example-nodejs).
+
+{% endnote %}

@@ -1,7 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/udf/list/unicode.md
-sourcePath: ru/ydb/yql/reference/yql-core/udf/list/unicode.md
----
+# Unicode
 
-{% include [x](_includes/unicode.md) %}
+{% note info %}
 
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/udf/list/unicode).
+
+{% endnote %}

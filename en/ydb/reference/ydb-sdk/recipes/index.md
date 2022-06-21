@@ -1,6 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/recipes/index.md
----
+# Code recipes
 
-{% include [index.md](_includes/index.md) %}
+{% note info %}
 
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-sdk/recipes/).
+
+{% endnote %}

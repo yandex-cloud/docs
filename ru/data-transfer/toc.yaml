@@ -9,11 +9,11 @@ items:
         href: operations/index.md
       - name: Подготовка к трансферу
         href: operations/prepare.md
-      - name: Эндпоинты
+      - name: Настройка эндпоинтов
         items:
           - name: Управление эндпоинтами
             href: operations/endpoint/index.md
-          - name: Параметры эндпоинтов для источников
+          - name: Настройка эндпоинтов-источников
             items:
               - name: Apache Kafka®
                 href: operations/endpoint/source/kafka.md
@@ -37,7 +37,7 @@ items:
                 href: operations/endpoint/source/s3.md
               - name: Yandex Data Streams
                 href: operations/endpoint/source/data-streams.md
-          - name: Параметры эндпоинтов для приемников
+          - name: Настройка эндпоинтов-приемников
             items:
               - name: ClickHouse
                 href: operations/endpoint/target/clickhouse.md

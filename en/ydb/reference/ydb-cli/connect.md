@@ -1,5 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-cli/connect.md
----
+# Connecting the CLI to and authenticating with a database
 
-{% include [connect.md](_includes/connect.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-cli/connect).
+
+{% endnote %}

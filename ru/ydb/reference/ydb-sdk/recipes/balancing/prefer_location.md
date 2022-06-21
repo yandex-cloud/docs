@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/balancing/prefer_location.md
----
-{% include [index.md](_includes/prefer_location.md) %}
+# Предпочитать зону доступности
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-sdk/recipes/balancing/prefer_location).
+
+{% endnote %}

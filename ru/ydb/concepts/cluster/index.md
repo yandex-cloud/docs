@@ -1,10 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/cluster/index.md
----
-# Кластер {{ ydb-short-name }}
+# Кластер YDB
 
-Информация в данном разделе в основном предназначена для администраторов и разработчиков {{ ydb-short-name }}.
+{% note info %}
 
-В статье [Общая схема {{ ydb-short-name }}](common_scheme_ydb.md) представлена общая информация об узлах и таблетках.
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/concepts/cluster/).
 
-В статье [Дисковая подсистема кластера](distributed_storage.md) можно подробнее ознакомиться с особенностями распределенной системы хранения {{ ydb-short-name }}.
+{% endnote %}

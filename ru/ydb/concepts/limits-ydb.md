@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/limits-ydb.md
----
-{% include [limits-ydb.md](_includes/limits-ydb.md) %}
+# Ограничения базы данных
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/concepts/limits-ydb).
+
+{% endnote %}

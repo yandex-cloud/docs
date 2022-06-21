@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/overlay/operations/rename.md
----
+# Переименование таблицы
 
-{% include [rename.md](_includes/rename.md) %}
+{% note info %}
 
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/concepts/datamodel#rename).
+
+{% endnote %}

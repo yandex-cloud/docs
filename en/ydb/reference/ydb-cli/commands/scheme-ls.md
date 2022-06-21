@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-cli/commands/scheme-ls.md
----
-{% include [_includes/scheme-ls.md](_includes/scheme-ls.md) %}
+# List of objects
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-cli/commands/scheme-ls).
+
+{% endnote %}

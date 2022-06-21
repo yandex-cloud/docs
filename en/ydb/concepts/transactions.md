@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/concepts/transactions.md
----
-{% include [transactions.md](_includes/transactions.md) %}
+# YDB transactions and queries
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/concepts/transactions).
+
+{% endnote %}

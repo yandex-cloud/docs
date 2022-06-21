@@ -1,5 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/best_practices/timeouts.md
----
+# Using timeouts
 
-{% include [timeouts.md](_includes/timeouts.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/best_practices/timeouts).
+
+{% endnote %}

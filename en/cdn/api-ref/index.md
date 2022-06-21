@@ -3,8 +3,8 @@ editable: false
 sourcePath: en/_api-ref/cdn/api-ref/index.md
 ---
 
-# Yandex CDN management API
-This API reference is organized around CDN resources. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+# Cloud CDN API
+This API reference is organized around CDN resources. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about API architecture, see [API Concepts](/docs/api-design-guide/).
 
 Resource | Description
 --- | ---

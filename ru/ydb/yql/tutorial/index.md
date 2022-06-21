@@ -1,8 +1,7 @@
----
-sourcePath: ru/ydb/overlay/yql/tutorial/index.md
----
-{% include [intro.md](_includes/index/intro.md) %}
+# Туториал YQL - Обзор
 
-[Создайте базу данных](../../db/cloud_console/create_manage_database.md#create-db) и последовательно пройдите все шаги в [консоли управления]({{ link-console-main }}), копируя YQL-инструкции в поле **Запрос**.
+{% note info %}
 
-{% include [steps.md](_includes/index/steps.md) %}
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/tutorial/).
+
+{% endnote %}

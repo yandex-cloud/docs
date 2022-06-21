@@ -1,8 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/concepts/cluster/common_scheme_ydb.md
----
-{% include [concepts/index/intro.md](_includes/common_scheme_ydb/intro.md) %}
+# Общая схема YDB
 
-{% include [concepts/index/when_use.md](_includes/common_scheme_ydb/nodes.md) %}
+{% note info %}
 
-{% include [concepts/index/when_use.md](_includes/common_scheme_ydb/tablets.md) %}
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/concepts/cluster/common_scheme_ydb).
+
+{% endnote %}

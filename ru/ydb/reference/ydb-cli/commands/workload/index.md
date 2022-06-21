@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/workload/index.md
----
-{% include [index.md](_includes/index.md) %}
+# Нагрузочное тестирование
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/commands/workload/).
+
+{% endnote %}

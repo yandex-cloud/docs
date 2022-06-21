@@ -1,8 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/troubleshooting/system_views_cluster.md
----
-{% include [intro.md](_includes/system_views/intro_cluster.md) %}
+# Системные таблицы кластера
 
-{% include [distributed_storage.md](_includes/system_views/distributed_storage.md) %}
+{% note info %}
 
-{% include [notes.md](_includes/system_views/notes.md) %}
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/troubleshooting/system_views_cluster).
+
+{% endnote %}

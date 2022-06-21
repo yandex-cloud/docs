@@ -1,12 +1,12 @@
----
-sourcePath: ru/ydb/overlay/quickstart/create-db.md
----
 # Создание базы данных
 
-{% note warning %}
+{% note info %}
 
-Это ссылка на устаревшую страницу, которая будет скоро удалена.
+Страница перемещена:
 
-Информация перенесена в статью [Создание БД](../getting_started/create_db.md).
+* [База данных в облаке Yandex](../../managed-ydb/quickstart.md#create-db).
+* Самостоятельное развертывание:
+  * [Docker](https://ydb.tech/ru/docs/getting_started/self_hosted/ydb_docker).
+  * [Kubernetes](https://ydb.tech/ru/docs/deploy/orchestrated/concepts).
 
 {% endnote %}

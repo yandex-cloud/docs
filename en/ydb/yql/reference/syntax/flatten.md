@@ -1,11 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/flatten.md
-sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/flatten.md
----
-{% include [x](_includes/flatten/flatten_by.md) %}
+# FLATTEN
 
-{% include [x](_includes/flatten/flatten_type_by.md) %}
+{% note info %}
 
-{% include [x](_includes/flatten/flatten_other_db.md) %}
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/reference/syntax/flatten).
 
-{% include [x](_includes/flatten/flatten_columns.md) %}
+{% endnote %}

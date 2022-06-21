@@ -1,7 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/udf/list/unicode.md
-sourcePath: en/ydb/yql/reference/yql-docs-core-2/udf/list/unicode.md
----
+# Unicode
 
-{% include [x](_includes/unicode.md) %}
+{% note info %}
 
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/reference/udf/list/unicode).
+
+{% endnote %}

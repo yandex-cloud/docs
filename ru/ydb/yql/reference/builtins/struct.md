@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/builtins/struct.md
-sourcePath: ru/ydb/yql/reference/yql-core/builtins/struct.md
----
+# Функции для работы со структурами
 
-{% include [x](_includes/struct.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/builtins/struct).
+
+{% endnote %}

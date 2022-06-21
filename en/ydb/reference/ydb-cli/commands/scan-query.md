@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-cli/commands/scan-query.md
----
-{% include [scan-query.md](_includes/scan-query.md) %}
+# Performing scan queries
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-cli/commands/scan-query).
+
+{% endnote %}

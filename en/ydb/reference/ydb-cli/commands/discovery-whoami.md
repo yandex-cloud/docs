@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-cli/commands/discovery-whoami.md
----
-{% include [discovery-whoami.md](_includes/discovery-whoami.md) %}
+# Authentication
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-cli/commands/discovery-whoami).
+
+{% endnote %}

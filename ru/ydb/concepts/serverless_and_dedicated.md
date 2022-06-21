@@ -1,15 +1,7 @@
----
-sourcePath: ru/ydb/overlay/concepts/serverless_and_dedicated.md
----
-{% include [intro.md](_includes/serverless_and_dedicated/01_intro.md) %}
+# Serverless и Dedicated режимы работы YDB
 
-Дополнительная информация о тарификации и ценах {{ yandex-cloud }}:
+{% note info %}
 
-* Для [_Serverless_ базы данных](../pricing/serverless.md)
-* Для [_Dedicated_ базы данных](../pricing/dedicated.md)
+Страница перемещена по новому [адресу](../../managed-ydb/concepts/serverless-and-dedicated.md).
 
-В {{ yandex-cloud }} база данных в режиме Serverless поддерживает работу с данными не только с помощью {{ ydb-short-name }} API, но и с помощью [Document API](https://cloud.yandex.ru/docs/ydb/docapi/api-ref/) — HTTP API, совместимого с Amazon DynamoDB. С помощью этого API можно выполнять операции над документными таблицами.
-
-{% include [intro.md](_includes/serverless_and_dedicated/02_sls_pars.md) %}
-
-{% include [arch_diff.md](_includes/serverless_and_dedicated/10_arch_diff.md) %}
+{% endnote %}

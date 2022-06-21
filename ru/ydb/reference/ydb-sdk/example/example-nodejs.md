@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/example/example-nodejs.md
----
-{% include [example-nodejs.md](_includes/example-nodejs.md) %}
+# Приложение на Node.js
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-sdk/example/example-nodejs).
+
+{% endnote %}
