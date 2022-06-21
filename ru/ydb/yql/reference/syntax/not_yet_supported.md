@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/syntax/not_yet_supported.md
-sourcePath: ru/ydb/yql/reference/yql-core/syntax/not_yet_supported.md
----
+# Ещё не поддерживаемые конструкции из классического SQL
 
-{% include [x](_includes/not_yet_supported.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/syntax/not_yet_supported).
+
+{% endnote %}

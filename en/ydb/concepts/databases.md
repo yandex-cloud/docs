@@ -1,42 +1,10 @@
----
-sourcePath: en/ydb/overlay/concepts/databases.md
----
-{% include [intro.md](_includes/databases/intro.md) %}
+# Terms and definitions
 
-{% include [database.md](_includes/databases/database.md) %}
+{% note info %}
 
-In {{ yandex-cloud }}, a database is linked to a specific cloud folder. You can also use {{ ydb-short-name }}-based Serverless databases that don't allocate any resources to users, but share the resources of their host {{ ydb-short-name }} database.
+This page has been moved:
 
-For instructions on how to create a DB in {{ yandex-cloud }}, see ["Creating a database"](../db/cloud_console/create_manage_database.md)
+* [{{ ydb-full-name }} terms and definitions](../../managed-ydb/concepts/resources.md).
+* [{{ ydb-short-name }} terms and definitions](https://ydb.tech/en/docs/concepts/databases).
 
-{% include [cluster.md](_includes/databases/cluster.md) %}
-
-Cluster maintenance is a prerogative of the {{ yandex-cloud }} team, while application developers interact directly with the {{ ydb-short-name }} database.
-
-{% include [regions.md](_includes/databases/regions.md) %}
-
-{{ ydb-short-name }} cloud databases in {{ yandex-cloud }} are provided in a geographically distributed region in central Russia (`ru-central1`) that has three availability zones. For more information about {{ yandex-cloud }} regions and availability zones, see [{#T}](../../overview/concepts/geo-scope.md).
-
-{% include [compute.md](_includes/databases/compute.md) %}
-
-### {{ ydb-short-name }} database in {{ yandex-cloud }} on dedicated resources {#resource-presets}
-
-{{ ydb-short-name }} database in {{ yandex-cloud }} is provided on VMs that can be created on any platform supported by {{ compute-name }}. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
-
-The following VM types are available:
-
-| Platform | Configuration name | Number of vCPUs | Guaranteed vCPU performance | RAM, GB |
-| ----- | ----- | ----- | ----- | ----- |
-| **Intel Cascade Lake** | medium | 8 | 100% | 32 |
-| **Intel Cascade Lake** | medium-m64 | 8 | 100% | 64 |
-| **Intel Cascade Lake** | medium-m96 | 8 | 100% | 96 |
-
-Databases run on allocated computing resources are paid on an hourly basis. The amount of data storage for the database is paid additionally (see [Storage groups](#storage-groups) below).
-
-### Serverless {{ ydb-short-name }} database in {{ yandex-cloud }}
-
-Computing resources for serverless {{ ydb-short-name }} databases in {{ yandex-cloud }} are provided automatically for database query purposes. The payment amount depends on the CPU capacity actually used and the I/O operations required to execute the database query. The amount of data stored in the database is paid additionally.
-
-{% include [storage_groups.md](_includes/databases/storage_groups.md) %}
-
-In cloud-based {{ ydb-short-name }} databases, {{ yandex-cloud }} uses 3 disks in each of the 3 availability zones, both for databases on dedicated resources and serverless databases. This configuration ensures stability even if a zone or disk fails. It also provides a redundancy factor of 3.
+{% endnote %}

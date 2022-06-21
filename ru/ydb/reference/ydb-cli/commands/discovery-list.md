@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/discovery-list.md
----
-{% include [discovery-list.md](_includes/discovery-list.md) %}
+# Список эндпоинтов
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/commands/discovery-list).
+
+{% endnote %}

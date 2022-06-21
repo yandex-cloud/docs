@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/export_import/s3_export.md
----
-{% include [s3_export.md](_includes/s3_export.md) %}
+# Выгрузка в S3-совместимое хранилище
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/export_import/s3_export).
+
+{% endnote %}

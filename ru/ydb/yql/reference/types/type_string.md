@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/types/type_string.md
-sourcePath: ru/ydb/yql/reference/yql-core/types/type_string.md
----
+# Работа с текстовым представлением типов данных
 
-{% include [x](_includes/type_string.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/types/type_string).
+
+{% endnote %}

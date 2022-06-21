@@ -1,6 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/best_practices/paging.md
----
+# Paginated output
 
-{% include [paging.md](_includes/paging.md) %}
+{% note info %}
 
+This page has been moved to a [new address](https://ydb.tech/en/docs/best_practices/paging).
+
+{% endnote %}

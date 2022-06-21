@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/translate/api-ref/grpc/translation_service.md
 
 # TranslationService
 
-A set of methods for the Yandex Translate service.
+A set of methods for the Translate service.
 
 | Call | Description |
 | --- | --- |

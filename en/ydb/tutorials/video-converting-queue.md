@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/overlay/tutorials/video-converting-queue.md
----
-{% include [video-converting-queue](../../_includes/video-converting-queue.md) %}
+# Converting a video to a GIF in Python
+
+{% note info %}
+
+This page has been moved to a [new address](../../managed-ydb/tutorials/video-converting-queue.md).
+
+{% endnote %}

@@ -1,5 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/auth.md
----
+# Аутентификация в SDK
 
-{% include [auth.md](_includes/auth.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-sdk/auth).
+
+{% endnote %}

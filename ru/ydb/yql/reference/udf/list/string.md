@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/udf/list/string.md
-sourcePath: ru/ydb/yql/reference/yql-core/udf/list/string.md
----
+# String
 
-{% include [x](_includes/string.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/udf/list/string).
+
+{% endnote %}

@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/types/json.md
-sourcePath: ru/ydb/yql/reference/yql-core/types/json.md
----
+# Представление данных в формате JSON
 
-{% include [x](_includes/json.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/types/json).
+
+{% endnote %}

@@ -1,7 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/syntax/into_result.md
-sourcePath: ru/ydb/yql/reference/yql-core/syntax/into_result.md
----
+# INTO RESULT
 
-{% include [x](_includes/into_result.md) %}
+{% note info %}
 
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/syntax/into_result).
+
+{% endnote %}

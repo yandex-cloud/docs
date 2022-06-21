@@ -1,5 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/best_practices/timeouts.md
----
+# Использование таймаутов
 
-{% include [timeouts.md](_includes/timeouts.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/best_practices/timeouts).
+
+{% endnote %}

@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/udf/list/url.md
-sourcePath: ru/ydb/yql/reference/yql-core/udf/list/url.md
----
+# Url
 
-{% include [url.md](_includes/url.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/udf/list/url).
+
+{% endnote %}

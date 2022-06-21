@@ -1,7 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/lexer.md
-sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/lexer.md
----
+# Lexical structure
 
-{% include [x](_includes/lexer.md) %}
+{% note info %}
 
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/reference/syntax/lexer).
+
+{% endnote %}

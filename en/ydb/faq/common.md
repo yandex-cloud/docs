@@ -1,6 +1,7 @@
----
-sourcePath: en/ydb/overlay/faq/common.md
----
-{% include [common.md](_includes/common.md) %}
+# General questions about YDB
 
-{% include [qa-logs](../../_includes/qa-logs.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/faq/all).
+
+{% endnote %}

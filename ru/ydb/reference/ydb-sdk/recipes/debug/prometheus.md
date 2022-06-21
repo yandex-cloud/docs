@@ -1,5 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/debug/prometheus.md
----
+# Включение метрик в Prometheus
 
-{% include [index.md](_includes/prometheus.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-sdk/recipes/debug/prometheus).
+
+{% endnote %}

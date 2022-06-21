@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/example/example-php.md
----
-{% include [example-php.md](_includes/example-php.md) %}
+# App in PHP
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-sdk/example/example-php).
+
+{% endnote %}

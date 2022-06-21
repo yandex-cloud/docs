@@ -29,7 +29,8 @@ certificateId | Required. ID of the certificate to update. To get the ID of a ce
   "labels": "object",
   "certificate": "string",
   "chain": "string",
-  "privateKey": "string"
+  "privateKey": "string",
+  "deletionProtection": true
 }
 ```
 
@@ -43,6 +44,7 @@ labels | **object**<br><p>New labels for the certificate as ``key:value`` pairs.
 certificate | **string**<br><p>New PEM-encoded certificate content for the certificate. Used only for imported certificates.</p> <p>The maximum string length in characters is 32768.</p> 
 chain | **string**<br><p>New PEM-encoded certificate chain content for the certificate. Used only for imported certificates.</p> <p>The maximum string length in characters is 2097152.</p> 
 privateKey | **string**<br><p>New PEM-encoded private key content for the certificate. Used only for imported certificates.</p> <p>The maximum string length in characters is 524288.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Flag that protects deletion of the certificate</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

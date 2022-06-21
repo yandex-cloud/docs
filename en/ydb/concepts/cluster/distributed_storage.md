@@ -1,6 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/concepts/cluster/distributed_storage.md
----
-{% include [concepts/index/intro.md](_includes/distributed_storage/intro.md) %}
+# Disk subsystem of a cluster aka YDB BlobStorage
 
-{% include [concepts/index/when_use.md](_includes/distributed_storage/distributed_storage_interface.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/concepts/cluster/distributed_storage).
+
+{% endnote %}

@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/faq/sdk.md
----
-{% include [sdk.md](_includes/sdk.md) %}
+# SDK
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/faq/sdk).
+
+{% endnote %}

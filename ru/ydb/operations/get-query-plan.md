@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/overlay/operations/get-query-plan.md
----
+# Использование плана запроса
 
-{% include [get-query-plan.md](_includes/get-query-plan.md) %}
+{% note info %}
 
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/commands/explain-plan).
+
+{% endnote %}

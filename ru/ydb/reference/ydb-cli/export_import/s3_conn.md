@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/export_import/s3_conn.md
----
-{% include [s3_conn.md](_includes/s3_conn.md) %}
+# Соединение с S3-совместимыми объектными хранилищами
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/export_import/s3_conn).
+
+{% endnote %}

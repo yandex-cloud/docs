@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/faq/index.md
----
-{% include [index.md](_includes/index.md) %}
+# Вопросы и ответы про YDB
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/faq/).
+
+{% endnote %}

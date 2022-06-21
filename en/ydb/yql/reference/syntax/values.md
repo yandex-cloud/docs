@@ -1,7 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/values.md
-sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/values.md
----
+# Basic VALUES syntax in YQL
 
-{% include [x](_includes/values.md) %}
+{% note info %}
 
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/reference/syntax/values).
+
+{% endnote %}

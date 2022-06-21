@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/builtins/types.md
-sourcePath: ru/ydb/yql/reference/yql-core/builtins/types.md
----
+# Функции для работы с типами данных
 
-{% include [x](_includes/types.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/builtins/types).
+
+{% endnote %}

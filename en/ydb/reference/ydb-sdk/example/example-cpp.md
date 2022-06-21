@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/example/example-cpp.md
----
-{% include [example-cpp.md](_includes/example-cpp.md) %}
+# App in C++
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-sdk/example/example-cpp).
+
+{% endnote %}

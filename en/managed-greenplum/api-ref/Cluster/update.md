@@ -58,6 +58,7 @@ clusterId | Required. ID of the Greenplum® Cluster resource to update. To get t
       "diskTypeId": "string"
     }
   },
+  "userPassword": "string",
   "maintenanceWindow": {
 
     // `maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
@@ -72,7 +73,38 @@ clusterId | Required. ID of the Greenplum® Cluster resource to update. To get t
   "securityGroupIds": [
     "string"
   ],
-  "deletionProtection": true
+  "deletionProtection": true,
+  "configSpec": {
+    "pool": {
+      "mode": "string",
+      "size": "integer",
+      "clientIdleTimeout": "integer"
+    },
+
+    // `configSpec` includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`
+    "greenplumConfig_6_17": {
+      "maxConnections": "integer",
+      "maxSlotWalKeepSize": "integer",
+      "gpWorkfileLimitPerSegment": "integer",
+      "gpWorkfileLimitPerQuery": "integer",
+      "gpWorkfileLimitFilesPerQuery": "integer",
+      "maxPreparedTransactions": "integer",
+      "gpWorkfileCompression": true
+    },
+    "greenplumConfig_6_19": {
+      "maxConnections": "integer",
+      "maxSlotWalKeepSize": "integer",
+      "gpWorkfileLimitPerSegment": "integer",
+      "gpWorkfileLimitPerQuery": "integer",
+      "gpWorkfileLimitFilesPerQuery": "integer",
+      "maxPreparedTransactions": "integer",
+      "gpWorkfileCompression": true,
+      "maxStatementMem": "integer",
+      "logStatement": "string"
+    },
+    // end of the list of possible fields`configSpec`
+
+  }
 }
 ```
 
@@ -91,8 +123,8 @@ config.<br>backupWindowStart.<br>minutes | **integer** (int32)<br><p>Minutes of 
 config.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p> 
 config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 
 config.<br>access | **object**<br><p>Access policy for external services.</p> <p>Greenplum® cluster access options.</p> 
-config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allows data export from the cluster to Yandex DataLens.</p> 
-config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allows SQL queries to the cluster databases from the Yandex Cloud management console.</p> 
+config.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Allows data export from the cluster to DataLens.</p> 
+config.<br>access.<br>webSql | **boolean** (boolean)<br><p>Allows SQL queries to the cluster databases from the management console.</p> 
 config.<br>access.<br>dataTransfer | **boolean** (boolean)<br><p>Allow access for DataTransfer.</p> 
 config.<br>zoneId | **string**<br><p>ID of the availability zone the cluster belongs to. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 config.<br>subnetId | **string**<br><p>ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see <a href="/docs/managed-greenplum/api-ref/Cluster#representation">Cluster.networkId</a>).</p> <p>The maximum string length in characters is 50.</p> 
@@ -107,6 +139,7 @@ segmentConfig.<br>resources | **object**<br><p>Resources allocated to Greenplum�
 segmentConfig.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources allocated to a host. Available presets are listed in the <a href="/docs/managed-greenplum/concepts/instance-types">documentation</a>.</p> 
 segmentConfig.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage used by the host, in bytes.</p> 
 segmentConfig.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage used by the host: ``network-hdd``, ``network-ssd`` or ``local-ssd``.</p> 
+userPassword | **string**<br><p>Required. Owner user password. Must be 8-128 characters long</p> <p>The string length in characters must be 8-128.</p> 
 maintenanceWindow | **object**<br><p>Window of maintenance operations.</p> <p>A Greenplum® cluster maintenance window. Should be defined by either one of the two options.</p> 
 maintenanceWindow.<br>anytime | **object**<br>An any-time maintenance window. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br><p>An any-time maintenance window.</p> 
 maintenanceWindow.<br>weeklyMaintenanceWindow | **object**<br>A weekly maintenance window. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br><p>A weekly maintenance window.</p> 
@@ -114,6 +147,29 @@ maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br><p>Day of 
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in the UTC timezone.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
 securityGroupIds[] | **string**<br><p>User security groups.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Whether or not cluster is protected from being deleted.</p> 
+configSpec | **object**<br><p>Settings of the Greenplum® cluster.</p> <p>Configuration of greenplum and odyssey</p> 
+configSpec.<br>pool | **object**<br>Odyssey pool settings<br><p>Route server configuration.</p> 
+configSpec.<br>pool.<br>mode | **string**<br><p>Route server pool mode.</p> <p>Route server pool mode.</p> <ul> <li>SESSION: Assign server connection to a client until it disconnects. Default value.</li> <li>TRANSACTION: Assign server connection to a client for a transaction processing.</li> </ul> 
+configSpec.<br>pool.<br>size | **integer** (int64)<br><p>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy. Set to zero to disable the limit.</p> 
+configSpec.<br>pool.<br>clientIdleTimeout | **integer** (int64)<br><p>Server pool idle timeout, in seconds. A server connection closes after it has been idle for the specified duration. Set to zero to disable the limit.</p> 
+configSpec.<br>greenplumConfig_6_17 | **object** <br>`configSpec` includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`<br><br>
+configSpec.<br>greenplumConfig_6_17.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections on master segment</p> 
+configSpec.<br>greenplumConfig_6_17.<br>maxSlotWalKeepSize | **integer** (int64)<br><p>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html</p> 
+configSpec.<br>greenplumConfig_6_17.<br>gpWorkfileLimitPerSegment | **integer** (int64)<br><p>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment</p> 
+configSpec.<br>greenplumConfig_6_17.<br>gpWorkfileLimitPerQuery | **integer** (int64)<br><p>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query</p> 
+configSpec.<br>greenplumConfig_6_17.<br>gpWorkfileLimitFilesPerQuery | **integer** (int64)<br><p>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000</p> 
+configSpec.<br>greenplumConfig_6_17.<br>maxPreparedTransactions | **integer** (int64)<br><p>Sets the maximum number of transactions that can be in the &quot;prepared&quot; state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html</p> 
+configSpec.<br>greenplumConfig_6_17.<br>gpWorkfileCompression | **boolean** (boolean)<br><p>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression</p> 
+configSpec.<br>greenplumConfig_6_19 | **object** <br>`configSpec` includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`<br><br>
+configSpec.<br>greenplumConfig_6_19.<br>maxConnections | **integer** (int64)<br><p>Maximum number of inbound connections on master segment</p> 
+configSpec.<br>greenplumConfig_6_19.<br>maxSlotWalKeepSize | **integer** (int64)<br><p>Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time. https://www.postgresql.org/docs/current/runtime-config-replication.html</p> 
+configSpec.<br>greenplumConfig_6_19.<br>gpWorkfileLimitPerSegment | **integer** (int64)<br><p>Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment</p> 
+configSpec.<br>greenplumConfig_6_19.<br>gpWorkfileLimitPerQuery | **integer** (int64)<br><p>Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment. The default value is 0, which means a limit is not enforced. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query</p> 
+configSpec.<br>greenplumConfig_6_19.<br>gpWorkfileLimitFilesPerQuery | **integer** (int64)<br><p>Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment. Spill files are created when executing a query that requires more memory than it is allocated. The current query is terminated when the limit is exceeded. Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query Default value is 10000</p> 
+configSpec.<br>greenplumConfig_6_19.<br>maxPreparedTransactions | **integer** (int64)<br><p>Sets the maximum number of transactions that can be in the &quot;prepared&quot; state simultaneously https://www.postgresql.org/docs/9.6/runtime-config-resource.html</p> 
+configSpec.<br>greenplumConfig_6_19.<br>gpWorkfileCompression | **boolean** (boolean)<br><p>Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression</p> 
+configSpec.<br>greenplumConfig_6_19.<br>maxStatementMem | **integer** (int64)<br><p>Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high. Taking into account the configuration of a single segment host, calculate max_statement_mem as follows: (seghost_physical_memory) / (average_number_concurrent_queries) When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file. https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem Default value is 2097152000 (2000MB)</p> 
+configSpec.<br>greenplumConfig_6_19.<br>logStatement | **string**<br><p>Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands. MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM. PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type. https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement Default value is ddl</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

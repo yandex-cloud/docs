@@ -1,6 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/json.md
-sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/json.md
----
+# Functions for JSON
 
-{% include [json.md](_includes/json.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/reference/builtins/json).
+
+{% endnote %}

@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/dir.md
----
-{% include [dir.md](_includes/dir.md) %}
+# Директории
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/commands/dir).
+
+{% endnote %}

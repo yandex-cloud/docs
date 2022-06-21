@@ -1,11 +1,7 @@
----
-editable: false
-sourcePath: en/ydb/overlay/pricing/index.md
----
-# Pricing for {{ ydb-full-name }}
+# Pricing for Yandex Managed Service for YDB
 
-Pricing for {{ ydb-full-name }} differs depending on the usage mode:
+{% note info %}
 
-* [{#T}](serverless.md)
-* [{#T}](dedicated.md)
+This page has been moved to a [new address](../../managed-ydb/pricing/index.md).
 
+{% endnote %}

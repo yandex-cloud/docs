@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/service.md
----
-{% include [service.md](_includes/service.md) %}
+# Сервисные команды
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/commands/service).
+
+{% endnote %}

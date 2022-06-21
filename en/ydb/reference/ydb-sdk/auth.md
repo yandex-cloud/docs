@@ -1,5 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/auth.md
----
+# Authentication in the SDK
 
-{% include [auth.md](_includes/auth.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-sdk/auth).
+
+{% endnote %}

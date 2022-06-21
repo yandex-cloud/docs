@@ -24,7 +24,8 @@ POST https://certificate-manager.{{ api-host }}/certificate-manager/v1/certifica
   "domains": [
     "string"
   ],
-  "challengeType": "string"
+  "challengeType": "string",
+  "deletionProtection": true
 }
 ```
 
@@ -37,6 +38,7 @@ description | **string**<br><p>Description of the certificate.</p> <p>The maximu
 labels | **object**<br><p>Labels for the certificate as ``key:value`` pairs.</p> <p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 domains[] | **string**<br><p>Fully qualified domain names of the certificate.</p> 
 challengeType | **string**<br><p>Type of the domain validation challenge.</p> <p>Supported domain validation types.</p> <ul> <li>DNS: Domain validation type that using DNS-records.</li> <li>HTTP: Domain validation type that using HTTP-files.</li> </ul> 
+deletionProtection | **boolean** (boolean)<br><p>Flag that protects deletion of the certificate</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

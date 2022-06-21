@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/recipes/balancing/random_choice.md
----
-{% include [index.md](_includes/random_choice.md) %}
+# Random choice
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-sdk/recipes/balancing/random_choice).
+
+{% endnote %}

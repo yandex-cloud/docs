@@ -1,10 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/action.md
-sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/action.md
----
 # ACTION
 
-{% include [x](_includes/action/define_do.md) %}
+{% note info %}
 
-{% include [x](_includes/action/begin.md) %}
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/reference/syntax/action).
 
+{% endnote %}

@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-cli/commands/query.md
----
-{% include [query.md](_includes/query.md) %}
+# Making a DB query
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-cli/commands/query).
+
+{% endnote %}

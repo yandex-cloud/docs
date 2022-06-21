@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/profile/use.md
----
-{% include [index.md](_includes/use.md) %}
+# Использование профиля
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/profile/use).
+
+{% endnote %}

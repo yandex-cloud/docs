@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/overlay/maintenance/yc_metrics.md
----
-# Ссылка устарела
+# Справочник метрик
 
-Контент данной страницы перенесен в [новое место размещения](../troubleshooting/monitoring.md), обновите ссылки.
+{% note info %}
+
+Страница перемещена по новому [адресу](../../monitoring/metrics-ref/index.md#managed-ydb).
+
+{% endnote %}

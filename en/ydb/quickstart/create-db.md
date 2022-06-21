@@ -1,12 +1,12 @@
----
-sourcePath: en/ydb/overlay/quickstart/create-db.md
----
 # Creating a database
 
-{% note warning %}
+{% note info %}
 
-This is a link to an outdated page that will be deleted soon.
+This page has been moved:
 
-The information has been moved to the [Creating a database](../getting_started/create_db.md) article.
+* [Yandex cloud database](../../managed-ydb/quickstart.md#create-db).
+* Self-deployment:
+  * [Docker](https://ydb.tech/en/docs/getting_started/self_hosted/ydb_docker).
+  * [Kubernetes](https://ydb.tech/en/docs/deploy/orchestrated/concepts).
 
 {% endnote %}

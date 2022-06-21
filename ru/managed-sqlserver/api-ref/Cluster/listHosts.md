@@ -61,7 +61,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/m
 Field | Description
 --- | ---
 hosts[] | **object**<br><p>List of SQL Server hosts.</p> 
-hosts[].<br>name | **string**<br><p>Name of the SQL Server host.</p> <p>The host name is assigned by Managed Service for SQL Server at the moment of creation and cannot be changed. 1-63 characters long.</p> <p>The name is unique across all existing database hosts in Yandex Cloud as it defines the FQDN of the host.</p> 
+hosts[].<br>name | **string**<br><p>Name of the SQL Server host.</p> <p>The host name is assigned by Managed Service for SQL Server at the moment of creation and cannot be changed. 1-63 characters long.</p> <p>The name is unique across all database hosts that exist on the platform as it defines the FQDN of the host.</p> 
 hosts[].<br>clusterId | **string**<br><p>ID of the SQL Server host.</p> <p>The ID is assigned by Managed Service for SQL Server at the moment of creation.</p> 
 hosts[].<br>zoneId | **string**<br><p>ID of the availability zone where the SQL Server host resides.</p> 
 hosts[].<br>resources | **object**<br><p>Resources allocated to the host.</p> 

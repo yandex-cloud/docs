@@ -1,8 +1,7 @@
----
-sourcePath: en/ydb/overlay/concepts/datamodel.md
----
-{% include [Introduction](_includes/datamodel/intro.md) %}
+# Data model and schema
 
-{% include [Table](_includes/datamodel/table.md) %}
+{% note info %}
 
-{% include [Folder](_includes/datamodel/dir.md) %}
+This page has been moved to a [new address](https://ydb.tech/en/docs/concepts/datamodel).
+
+{% endnote %}

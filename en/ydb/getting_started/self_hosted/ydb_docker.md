@@ -1,5 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/getting_started/self_hosted/ydb_docker.md
----
+# Running YDB in Docker
 
-{% include [ydb_docker.md](_includes/ydb_docker.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/getting_started/self_hosted/ydb_docker).
+
+{% endnote %}

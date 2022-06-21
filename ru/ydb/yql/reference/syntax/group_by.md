@@ -1,19 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/syntax/group_by.md
-sourcePath: ru/ydb/yql/reference/yql-core/syntax/group_by.md
----
+# GROUP BY
 
-{% include [x](_includes/group_by/general.md) %}
+{% note info %}
 
-{% include [x](_includes/group_by/session_window.md) %}
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/syntax/group_by).
 
-
-  {% include [x](_includes/group_by/rollup_cube_sets.md) %}
-
-{% include [x](_includes/group_by/distinct.md) %}
-
-{% include [x](_includes/group_by/compact.md) %}
-
-{% include [x](_includes/group_by/having.md) %}
-
-
+{% endnote %}

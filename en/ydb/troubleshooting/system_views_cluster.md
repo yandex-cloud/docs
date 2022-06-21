@@ -1,8 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/troubleshooting/system_views_cluster.md
----
-{% include [intro.md](_includes/system_views/intro_cluster.md) %}
+# Cluster system tables
 
-{% include [distributed_storage.md](_includes/system_views/distributed_storage.md) %}
+{% note info %}
 
-{% include [notes.md](_includes/system_views/notes.md) %}
+This page has been moved to a [new address](https://ydb.tech/en/docs/troubleshooting/system_views_cluster).
+
+{% endnote %}

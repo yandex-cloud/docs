@@ -1,7 +1,7 @@
----
-sourcePath: en/ydb/overlay/tutorials/connect-from-cf.md
----
-# Connecting to a {{ ydb-short-name }} database from a Python function in {{ sf-full-name }}
+# Connecting to a YDB database from a Python function in Yandex Cloud Functions
 
-{% include [connect-from-cf](../../_tutorials/connect-from-cf.md) %}
+{% note info %}
 
+This page has been moved to a [new address](../../managed-ydb/tutorials/connect-from-cf.md).
+
+{% endnote %}

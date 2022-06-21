@@ -1,4 +1,10 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/getting_started/index.md
----
-{% include [index.md](_includes/index.md) %}
+# Начало работы с YDB
+
+{% note info %}
+
+Страница перемещена:
+
+* [{#T}](../../managed-ydb/quickstart.md).
+* [Начало работы с {{ ydb-short-name }}](https://ydb.tech/ru/docs/getting_started/).
+
+{% endnote %}

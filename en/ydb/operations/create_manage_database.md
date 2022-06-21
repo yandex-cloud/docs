@@ -1,5 +1,10 @@
----
-sourcePath: en/ydb/overlay/operations/create_manage_database.md
----
-This page has been deleted, the content has been moved to a [new section](../db/index.md).
+# Creating, updating, and deleting databases
 
+{% note info %}
+
+This page has been moved:
+
+* [{#T}](../../managed-ydb/operations/index.md).
+* [Managing databases](https://ydb.tech/en/docs/db/)
+
+{% endnote %}

@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/scan-query.md
----
-{% include [scan-query.md](_includes/scan-query.md) %}
+# Выполнение скан запросов
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/commands/scan-query).
+
+{% endnote %}

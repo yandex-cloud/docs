@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/types/optional.md
-sourcePath: ru/ydb/yql/reference/yql-core/types/optional.md
----
+# Типы данных, допускающие значение NULL
 
-{% include [x](_includes/optional.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/types/optional).
+
+{% endnote %}

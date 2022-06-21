@@ -1,6 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/types/json.md
-sourcePath: en/ydb/yql/reference/yql-docs-core-2/types/json.md
----
+# Data representation in JSON format
 
-{% include [x](_includes/json.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/reference/types/json).
+
+{% endnote %}

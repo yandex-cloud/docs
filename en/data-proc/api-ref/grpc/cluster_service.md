@@ -835,7 +835,7 @@ next_page_token | **string**<br>Token for getting the next page of the list. If 
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the Data Proc host. The host name is assigned by Data Proc at creation time and cannot be changed. The name is generated to be unique across all existing Data Proc hosts in Yandex Cloud, as it defines the FQDN of the host. 
+name | **string**<br>Name of the Data Proc host. The host name is assigned by Data Proc at creation time and cannot be changed. The name is generated to be unique across all Data Proc hosts that exist on the platform, as it defines the FQDN of the host. 
 subcluster_id | **string**<br>ID of the Data Proc subcluster that the host belongs to. 
 health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`HEALTH_UNKNOWN`: Object is in unknown state (we have no data).</li><li>`ALIVE`: Object is alive and well (for example, all hosts of the cluster are alive).</li><li>`DEAD`: Object is inoperable (it cannot perform any of its essential functions).</li><li>`DEGRADED`: Object is partially alive (it can perform some of its essential functions).</li></ul>
 compute_instance_id | **string**<br>ID of the Compute virtual machine that is used as the Data Proc host. 

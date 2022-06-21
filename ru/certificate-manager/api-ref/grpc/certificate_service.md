@@ -58,6 +58,7 @@ issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
 challenges[] | **[Challenge](#Challenge)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
+deletion_protection | **bool**<br>Flag that protects deletion of the certificate 
 
 
 ### Challenge {#Challenge}
@@ -138,6 +139,7 @@ issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
 challenges[] | **[Challenge](#Challenge1)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
+deletion_protection | **bool**<br>Flag that protects deletion of the certificate 
 
 
 ### Challenge {#Challenge1}
@@ -226,6 +228,7 @@ labels | **map<string,string>**<br>Labels for the certificate as `key:value` pai
 certificate | **string**<br>PEM-encoded certificate content of the certificate. The maximum string length in characters is 32768.
 chain | **string**<br>PEM-encoded certificate chain content of the certificate. The maximum string length in characters is 2097152.
 private_key | **string**<br>Required. PEM-encoded private key content of the certificate. The string length in characters must be 1-524288.
+deletion_protection | **bool**<br>Flag that protects deletion of the certificate 
 
 
 ### Operation {#Operation}
@@ -272,6 +275,7 @@ issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
 challenges[] | **[Challenge](#Challenge2)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
+deletion_protection | **bool**<br>Flag that protects deletion of the certificate 
 
 
 ### Challenge {#Challenge2}
@@ -329,6 +333,7 @@ labels | **map<string,string>**<br>New labels for the certificate as `key:value`
 certificate | **string**<br>New PEM-encoded certificate content for the certificate. Used only for imported certificates. The maximum string length in characters is 32768.
 chain | **string**<br>New PEM-encoded certificate chain content for the certificate. Used only for imported certificates. The maximum string length in characters is 2097152.
 private_key | **string**<br>New PEM-encoded private key content for the certificate. Used only for imported certificates. The maximum string length in characters is 524288.
+deletion_protection | **bool**<br>Flag that protects deletion of the certificate 
 
 
 ### Operation {#Operation1}
@@ -375,6 +380,7 @@ issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
 challenges[] | **[Challenge](#Challenge3)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
+deletion_protection | **bool**<br>Flag that protects deletion of the certificate 
 
 
 ### Challenge {#Challenge3}
@@ -471,6 +477,7 @@ issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
 challenges[] | **[Challenge](#Challenge4)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
+deletion_protection | **bool**<br>Flag that protects deletion of the certificate 
 
 
 ### Challenge {#Challenge4}
@@ -526,6 +533,7 @@ description | **string**<br>Description of the certificate. The maximum string l
 labels | **map<string,string>**<br>Labels for the certificate as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 domains[] | **string**<br>Fully qualified domain names of the certificate. 
 challenge_type | enum **ChallengeType**<br>Type of the domain validation challenge. <ul><li>`DNS`: Domain validation type that using DNS-records.</li><li>`HTTP`: Domain validation type that using HTTP-files.</li></ul>
+deletion_protection | **bool**<br>Flag that protects deletion of the certificate 
 
 
 ### Operation {#Operation3}
@@ -572,6 +580,7 @@ issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol
 not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time after which the certificate is not valid. 
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
 challenges[] | **[Challenge](#Challenge5)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
+deletion_protection | **bool**<br>Flag that protects deletion of the certificate 
 
 
 ### Challenge {#Challenge5}

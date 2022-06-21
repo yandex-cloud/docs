@@ -1,5 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/auth/static.md
----
+# Аутентификация при помощи логина и пароля
 
-{% include [index.md](_includes/static.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-sdk/recipes/auth/static).
+
+{% endnote %}

@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/balancing/random_choice.md
----
-{% include [index.md](_includes/random_choice.md) %}
+# Равномерный случайный выбор
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-sdk/recipes/balancing/random_choice).
+
+{% endnote %}

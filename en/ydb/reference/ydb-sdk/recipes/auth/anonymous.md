@@ -1,5 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/recipes/auth/anonymous.md
----
+# Anonymous authentication
 
-{% include [anonymous.md](_includes/anonymous.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-sdk/recipes/auth/anonymous).
+
+{% endnote %}

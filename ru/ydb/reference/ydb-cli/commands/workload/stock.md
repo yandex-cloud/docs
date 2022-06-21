@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/workload/stock.md
----
-{% include [stock.md](_includes/stock.md) %}
+# Stock нагрузка
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/commands/workload/stock).
+
+{% endnote %}

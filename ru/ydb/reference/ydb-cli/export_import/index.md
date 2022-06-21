@@ -1,5 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/export_import/index.md
----
+# Выгрузка и загрузка данных
 
-{% include [index.md](_includes/index.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/export_import/).
+
+{% endnote %}

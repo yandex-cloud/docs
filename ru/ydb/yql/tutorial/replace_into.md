@@ -1,37 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/replace_into.md
----
 # Вставка и модификация данных с помощью REPLACE
 
-Добавьте данные в таблицу с помощью конструкции [REPLACE INTO](../reference/syntax/replace_into.md).
+{% note info %}
 
-{% include [yql-reference-prerequisites](_includes/yql_tutorial_prerequisites.md) %}
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/tutorial/replace_into).
 
-```sql
-REPLACE INTO episodes
-(
-    series_id,
-    season_id,
-    episode_id,
-    title,
-    air_date
-)
-VALUES
-(
-    2,
-    5,
-    12,
-    "Test Episode !!!",
-    CAST(Date("2018-08-27") AS Uint64)
-)
-;
-
--- Вызов COMMIT используется, чтобы следующей операции SELECT
--- были видны изменения, сделанные в рамках предыдущей транзакции.
-COMMIT;
-
--- Посмотреть результат:
-SELECT * FROM episodes WHERE series_id = 2 AND season_id = 5;
-
-COMMIT;
-```
+{% endnote %}

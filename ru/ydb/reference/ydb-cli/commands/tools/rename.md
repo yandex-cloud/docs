@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/overlay/reference/ydb-cli/commands/tools/rename.md
----
-{% include [rename.md](../_includes/tools/rename.md) %}
+# Переименование таблицы
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/commands/tools/rename).
+
+{% endnote %}

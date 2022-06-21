@@ -1,8 +1,7 @@
----
-editable: false
-sourcePath: ru/ydb/ydb-docs-core/ru/core/troubleshooting/monitoring.md
----
-
 # Справочник метрик
 
-{% include notitle [ydb_monitoring_sensors.md](_includes/monitoring_sensors.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](../../managed-ydb/operations/monitoring.md).
+
+{% endnote %}

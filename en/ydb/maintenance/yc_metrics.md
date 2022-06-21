@@ -1,7 +1,7 @@
----
-sourcePath: en/ydb/overlay/maintenance/yc_metrics.md
----
-# Metric reference {{ ydb-short-name }}
+# Metric reference YDB
 
-{% include [sensors.md](../_includes/monitoring_sensors.md) %}
+{% note info %}
 
+This page has been moved to a [new address](../../monitoring/metrics-ref/index.md#managed-ydb).
+
+{% endnote %}

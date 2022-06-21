@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/getting_started/self_hosted/index.md
----
-{% include [index.md](_includes/index.md) %}
+# Развертывание одноузлового кластера YDB
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/getting_started/self_hosted/).
+
+{% endnote %}

@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/getting_started/sdk.md
----
-{% include [sdk.md](_includes/sdk.md) %}
+# YDB SDK - начало работы
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/getting_started/sdk).
+
+{% endnote %}

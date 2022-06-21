@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-cli/commands/readtable.md
----
-{% include [readtable.md](_includes/readtable.md) %}
+# Streaming table reads
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-cli/commands/readtable).
+
+{% endnote %}

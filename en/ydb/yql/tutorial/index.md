@@ -1,9 +1,7 @@
----
-sourcePath: en/ydb/overlay/yql/tutorial/index.md
----
-{% include [intro.md](_includes/index/intro.md) %}
+# YQL Tutorial - Overview
 
-[Create a database](../../db/cloud_console/create_manage_database.md#create-db) and follow all the steps in the [management console](https://console.cloud.yandex.ru/), copying the YQL instructions to the **Query** field.
+{% note info %}
 
-{% include [steps.md](_includes/index/steps.md) %}
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/tutorial/).
 
+{% endnote %}

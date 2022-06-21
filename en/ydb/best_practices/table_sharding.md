@@ -1,5 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/best_practices/table_sharding.md
----
+# Partitioning tables
 
-{% include [timeouts.md](_includes/table_sharding.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/concepts/datamodel#partitioning).
+
+{% endnote %}

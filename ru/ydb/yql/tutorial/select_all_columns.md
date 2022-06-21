@@ -1,18 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/tutorial/select_all_columns.md
----
 # Выборка данных из всех колонок
 
-Выберите все колонки из таблицы с помощью оператора [SELECT](../reference/syntax/select.md).
+{% note info %}
 
-{% include [yql-reference-prerequisites](_includes/yql_tutorial_prerequisites.md) %}
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/tutorial/select_all_columns).
 
-```sql
-SELECT         -- Оператор выбора данных.
-
-    *          -- Выбор всех колонок из таблицы.
-
-FROM episodes; -- Таблица, из которой нужно выбрать данные.
-
-COMMIT;
-```
+{% endnote %}

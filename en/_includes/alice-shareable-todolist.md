@@ -3,8 +3,6 @@
 In this scenario, you'll develop a skill for Alice and deploy a web app for creating, reading and editing to-do lists with Alice's help, as well as for sharing the lists with other users on the website.
 
 
-@[youtube](PMWMDTBKFAc)
-
 To deploy a project:
 
 1. [Prepare the environment](#prepare)
@@ -22,7 +20,7 @@ To deploy a project:
 
 1. Install and initialize the following software programs:
     * [Yandex Cloud CLI](../cli/quickstart.md).
-    * [{{ ydb-short-name }} CLI](../ydb/quickstart/yql-api/ydb-cli.md);
+    * [{{ ydb-short-name }} CLI](https://ydb.tech/en/docs/getting_started/cli);
     * [Bash command interpreter](http://www.gnu.org/software/bash/).
     * [AWS CLI](../storage/tools/aws-cli).
     * [jq](https://stedolan.github.io/jq/download/).
@@ -40,11 +38,11 @@ To deploy a project:
 
 1. [Create an API gateway](../api-gateway/operations/api-gw-create) named `gate-1`. Save the **ID** and **Service domain** field values from the **General information** section to use them in the configuration.
 
-1. [Create a database](../ydb/quickstart/create-db#control-plane) in Serverless mode. Save the **Database** and **Endpoint** field values from the **YDB endpoint** section to use them in the configuration.
+1. [Create a database](../managed-ydb/quickstart.md#serverless) in Serverless mode. Save the **Database** and **Endpoint** field values from the **YDB endpoint** section to use them in the configuration.
 
-1. [Create an app](https://oauth.yandex.ru/) in Yandex.OAuth:
+1. [Create an app](https://oauth.yandex.com/) in Yandex.OAuth:
 
-    1. Go to the [service website](https://oauth.yandex.ru/) and log in.
+    1. Go to the [service website](https://oauth.yandex.com/) and log in.
 
     1. Click **Create new client**:
 
@@ -58,7 +56,7 @@ To deploy a project:
 
     1. Under **Permissions**, expand **Yandex ID API (login)** and select **Access to user avatar (login:avatar)**.
 
-    For more information about the Yandex.OAuth features, see the [documentation](https://yandex.ru/dev/oauth/doc/dg/tasks/register-client.html).
+    For more information about the Yandex.OAuth features, see the [documentation](https://yandex.com/dev/oauth/doc/dg/tasks/register-client.html).
 
 ## Set the project variables {#set-variables}
 
@@ -76,7 +74,7 @@ Set the project parameters in the `variables.json` file:
 
 * `folder-id`: ID of the cloud folder.
 * `domain`: API gateway service domain.
-* `oauth-client-id`: ID of the client app registered in [Yandex.OAuth](https://oauth.yandex.ru/).
+* `oauth-client-id`: ID of the client app registered in [Yandex.OAuth](https://oauth.yandex.com/).
 * `database`: DB from the {{ ydb-name }} configuration.
 * `database-endpoint`: Endpoint from the {{ ydb-name }} configuration.
 * `yc-profile`: Yandex Cloud CLI [profile name](../cli/operations/profile/profile-list.md).
@@ -94,7 +92,7 @@ cp secure-config-template.json secure-config.json
 
 Substitute the values from the variables:
 
-* `oauth_secret`: Password of the client app registered in [Yandex.OAuth](https://oauth.yandex.ru/).
+* `oauth_secret`: Password of the client app registered in [Yandex.OAuth](https://oauth.yandex.com/).
 * `hash`: A random 64-byte string that is base64 encoded, such as `qrJagO5NVwOj0FeTmgYSwUN+XXkiQJMWifvrklF53wT55q80Xk8vmEB3kxhtpDnA1WDC893Z9Bh6QcqKLbAUWQ==`.
 * `block`: A random 32-byte string that is base64 encoded, such as `uwk0duFgn2nYyfu2VzJe+MnWKWQrfKaiZijIzGZ8fqQ=`.
 
@@ -239,10 +237,10 @@ Learn more in the Yandex.Dialogs [documentation](https://yandex.ru/dev/dialogs/a
 1. Go to the **Main settings** tab and find the **Account linking** section.
 1. In the **Authorization** line, click **Create**.
 1. Enter the following:
-    * **ID** and **Application secret**: The ID and password you got when you registered the app on the [Yandex.OAuth](https://oauth.yandex.ru/) website.
-    * **Authorization URL**: `https://oauth.yandex.ru/authorize`.
-    * **Get token URL**: `https://oauth.yandex.ru/token`.
-    * **Refresh token URL**: `https://oauth.yandex.ru/token`.
+    * **ID** and **Application secret**: The ID and password you got when you registered the app on the [Yandex.OAuth](https://oauth.yandex.com/) website.
+    * **Authorization URL**: `https://oauth.yandex.com/authorize`.
+    * **Get token URL**: `https://oauth.yandex.com/token`.
+    * **Refresh token URL**: `https://oauth.yandex.com/token`.
 
 For more information about OAuth 2.0, see [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749).
 

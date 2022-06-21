@@ -1,12 +1,10 @@
----
-sourcePath: ru/ydb/overlay/quickstart/index.md
----
-# Начало работы с {{ ydb-name }}
+# Начало работы с Managed Service for YDB
 
-{% note warning %}
+{% note info %}
 
-Это ссылка на устаревшую страницу, которая будет скоро удалена.
+Страница перемещена:
 
-Информация перенесена в статью [Создание БД](../getting_started/index.md).
+* [{#T}](../../managed-ydb/quickstart.md).
+* [Начало работы с {{ ydb-short-name }}](https://ydb.tech/ru/docs/getting_started/).
 
 {% endnote %}

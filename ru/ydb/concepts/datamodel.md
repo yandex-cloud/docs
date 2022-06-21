@@ -1,8 +1,7 @@
----
-sourcePath: ru/ydb/overlay/concepts/datamodel.md
----
-{% include [Introduction](_includes/datamodel/intro.md) %}
+# Модель данных и схема
 
-{% include [Table](_includes/datamodel/table.md) %}
+{% note info %}
 
-{% include [Folder](_includes/datamodel/dir.md) %}
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/concepts/datamodel).
+
+{% endnote %}

@@ -18,7 +18,7 @@
 
 ## Защитите свой аккаунт на Яндексе {#protect-account}
 
-*{% include [yandex-account-2fa-warning.md](../../_includes/iam/yandex-account-2fa-warning.md) %}
+* {% include [yandex-account-2fa-warning.md](../../_includes/iam/yandex-account-2fa-warning.md) %}
 * Держите в секрете ваш [OAuth-токен](../concepts/authorization/oauth-token.md), с его помощью можно получить [IAM-токен](../concepts/authorization/iam-token.md) и выполнять любые операции в облаке от вашего имени.
 
     Если кто-то мог узнать ваш OAuth-токен, [отзовите его](https://yandex.ru/dev/oauth/doc/dg/reference/token-invalidate-docpage/) и выпустите новый.

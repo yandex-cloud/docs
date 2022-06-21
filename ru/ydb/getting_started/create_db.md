@@ -1,5 +1,12 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/getting_started/create_db.md
----
+# Создание базы данных - Начало работы
 
-{% include [create_db.md](_includes/create_db.md) %}
+{% note info %}
+
+Страница перемещена:
+
+* [База данных в облаке Yandex](../../managed-ydb/quickstart.md#create-db).
+* Самостоятельное развертывание:
+  * [Docker](https://ydb.tech/ru/docs/getting_started/self_hosted/ydb_docker).
+  * [Kubernetes](https://ydb.tech/ru/docs/deploy/orchestrated/concepts).
+
+{% endnote %}

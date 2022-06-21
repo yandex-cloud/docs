@@ -1,5 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/auth/anonymous.md
----
+# Анонимная аутентификация
 
-{% include [anonymous.md](_includes/anonymous.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-sdk/recipes/auth/anonymous).
+
+{% endnote %}

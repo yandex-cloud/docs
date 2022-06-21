@@ -181,7 +181,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 
 ### {{ ydb-full-name }} {#ydb}
 
-{% include [ydb-limits.md](../../ydb/_includes/ydb-limits.md) %}
+{% include [ydb-limits.md](../../_includes/ydb/ydb-limits.md) %}
 
 
 

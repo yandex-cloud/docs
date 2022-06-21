@@ -1,16 +1,7 @@
----
-title: Quotas and limits in Yandex Managed Service for YDB
-description: "Yandex Managed Service for YDB has limits and quotas on the total number of processor cores for all database hosts, the total amount of virtual memory for all database hosts, the maximum number of hosts, and the maximum number of databases in one cloud. You will learn more about the restrictions in the service from this article."
+# Quotas and limits in Managed Service for YDB
 
-editable: false
-sourcePath: en/ydb/overlay/concepts/limits.md
----
+{% note info %}
 
-# Quotas and limits in {{ ydb-name }}
+This page has been moved to a [new address](../../managed-ydb/concepts/limits.md).
 
-{{ ydb-full-name }} has the following limits:
-
-{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
-
-{% include [quotes-limits-def.md](../_includes/ydb-limits.md) %}
-
+{% endnote %}

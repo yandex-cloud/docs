@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-cli/commands/workload/index.md
----
-{% include [index.md](_includes/index.md) %}
+# Load testing
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-cli/commands/workload/).
+
+{% endnote %}

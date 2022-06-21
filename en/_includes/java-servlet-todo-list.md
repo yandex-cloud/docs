@@ -22,7 +22,7 @@ In this use case, you'll learn how to use serverless technologies and the Java S
 
 ## Create a database {#create-db}
 
-1. Create a database in [Serverless mode](../ydb/concepts/serverless_and_dedicated#serverless):
+1. Create a database in [Serverless mode](../managed-ydb/concepts/serverless-and-dedicated.md#serverless):
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database.
     1. Select **{{ ydb-name }}**.
     1. Click **Create database**.
@@ -178,7 +178,7 @@ Create a [function](../functions/concepts/function.md) for each servlet:
 
 - {{ yandex-cloud }} Toolkit
 
-  You can create a function and its version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/ru-ru/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+  You can create a function and its version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -315,7 +315,7 @@ Create a [function](../functions/concepts/function.md) for each servlet:
 
     - {{ yandex-cloud }} Toolkit
 
-      You can create an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/ru-ru/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+      You can create an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
     {% endlist %}
 

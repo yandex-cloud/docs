@@ -41,10 +41,10 @@ A resource for HTTPS configuration of a bucket.
 Field | Description
 --- | ---
 name | **string**<br><p>Name of the bucket.</p> 
-sourceType | **string**<br><p>Type of TLS certificate source.</p> <p>A resource for type of TLS certificate source.</p> <ul> <li>SOURCE_TYPE_SELF_MANAGED: Your certificate, uploaded directly.</li> <li>SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER: Certificate managed by Yandex Certificate Manager.</li> </ul> 
+sourceType | **string**<br><p>Type of TLS certificate source.</p> <p>A resource for type of TLS certificate source.</p> <ul> <li>SOURCE_TYPE_SELF_MANAGED: Your certificate, uploaded directly.</li> <li>SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER: Certificate managed by Certificate Manager.</li> </ul> 
 issuer | **string**<br><p>Issuer of the TLS certificate.</p> 
 subject | **string**<br><p>Subject of the TLS certificate.</p> 
 dnsNames[] | **string**<br><p>List of DNS names of the TLS certificate (Subject Alternative Name field).</p> 
 notBefore | **string** (date-time)<br><p>Start of the TLS certificate validity period (Not Before field).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 notAfter | **string** (date-time)<br><p>End of the TLS certificate validity period (Not After field)</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-certificateId | **string**<br><p>ID of the TLS certificate in Yandex Certificate Manager.</p> <p>To get information about the certificate from Certificate Manager, make a <a href="/docs/certificate-manager/api-ref/Certificate/get">get</a> request.</p> 
+certificateId | **string**<br><p>ID of the TLS certificate in Certificate Manager.</p> <p>To get information about the certificate from Certificate Manager, make a <a href="/docs/certificate-manager/api-ref/Certificate/get">get</a> request.</p> 

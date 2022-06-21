@@ -1,19 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-sdk/recipes/bulk_upsert/index.md
----
 # Пакетная вставка данных
 
-{% include [work in progress message](../_includes/addition.md) %}
+{% note info %}
 
-{{ ydb-short-name }} поддерживает пакетную вставку большого количества строк без гарантий атомарности. Запись данных разбивается на несколько независимых транзакций, каждая их которых затрагивает единственную партицию, с параллельным исполнением. За счет этого такой подход более эффективен чем `YQL`. В случае успеха метод `BulkUpsert` гарантирует вставку всех данных, переданных в рамках данного запроса.
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-sdk/recipes/bulk_upsert/).
 
-Ниже приведены примеры кода использования встроенных в {{ ydb-short-name }} SDK средств выполнения пакетной вставки:
-
-{% list tabs %}
-
-- Go
-
-
-  {% include [go.md](_includes/go.md) %}
-
-{% endlist %}
+{% endnote %}

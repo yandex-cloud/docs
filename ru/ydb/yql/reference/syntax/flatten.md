@@ -1,11 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/syntax/flatten.md
-sourcePath: ru/ydb/yql/reference/yql-core/syntax/flatten.md
----
-{% include [x](_includes/flatten/flatten_by.md) %}
+# FLATTEN
 
-{% include [x](_includes/flatten/flatten_type_by.md) %}
+{% note info %}
 
-{% include [x](_includes/flatten/flatten_other_db.md) %}
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/syntax/flatten).
 
-{% include [x](_includes/flatten/flatten_columns.md) %}
+{% endnote %}

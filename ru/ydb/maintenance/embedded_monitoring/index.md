@@ -1,12 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/maintenance/embedded_monitoring/index.md
----
 # Встроенный UI
 
-{{ ydb-short-name }} предоставляет инструменты для мониторинга и определения состояния системы:
+{% note info %}
 
-* [{{ ydb-short-name }} Monitoring](ydb_monitoring.md) - Основной обозреватель кластера. Показывает состояние узлов, групп хранения.
-* [Interconnect overview](interconnect_overview.md) - состояние соединений узлов кластера друг с другом.
-* [Логи](logs.md) - Каждый компонент {{ ydb-short-name }} пишет сообщения в логи разного уровня. По ним можно детектировать критические проблемы или разобраться в причинах неполадок.
-* [Графики](charts.md) - {{ ydb-short-name }} собирает множество метрик, по которым можно определить состояние системы либо конкретного компонента.
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/maintenance/embedded_monitoring/).
 
+{% endnote %}

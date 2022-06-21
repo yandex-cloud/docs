@@ -1,5 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/export_import/file_structure.md
----
+# Файловая структура выгрузки
 
-{% include [file_structure.md](_includes/file_structure.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/export_import/file_structure).
+
+{% endnote %}

@@ -1,5 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/getting_started/useful_links.md
----
+# Полезные ссылки
 
-{% include [useful_links.md](_includes/useful_links.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/getting_started/useful_links).
+
+{% endnote %}

@@ -41,6 +41,7 @@ owner | **string**<br>Name of the user assigned as the owner of the database.
 lc_collate | **string**<br>POSIX locale for string sorting order. Can only be set at creation time. 
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. 
 extensions[] | **[Extension](#Extension)**<br>PostgreSQL extensions enabled for the database. 
+template_db | **string**<br>Name of the database template. 
 
 
 ### Extension {#Extension}
@@ -84,6 +85,7 @@ owner | **string**<br>Name of the user assigned as the owner of the database.
 lc_collate | **string**<br>POSIX locale for string sorting order. Can only be set at creation time. 
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. 
 extensions[] | **[Extension](#Extension1)**<br>PostgreSQL extensions enabled for the database. 
+template_db | **string**<br>Name of the database template. 
 
 
 ### Extension {#Extension1}
@@ -121,6 +123,7 @@ owner | **string**<br>Required. Name of the user to be assigned as the owner of 
 lc_collate | **string**<br>POSIX locale for string sorting order. Can only be set at creation time. Value must match the regular expression ` \|[a-zA-Z_]+.UTF-8\|C `.
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. Value must match the regular expression ` \|[a-zA-Z_]+.UTF-8\|C `.
 extensions[] | **[Extension](#Extension2)**<br>PostgreSQL extensions to be enabled for the database. 
+template_db | **string**<br>Name of the PostgreSQL database template. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Extension {#Extension2}
@@ -165,6 +168,7 @@ owner | **string**<br>Name of the user assigned as the owner of the database.
 lc_collate | **string**<br>POSIX locale for string sorting order. Can only be set at creation time. 
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. 
 extensions[] | **[Extension](#Extension3)**<br>PostgreSQL extensions enabled for the database. 
+template_db | **string**<br>Name of the database template. 
 
 
 ### Extension {#Extension3}
@@ -237,6 +241,7 @@ owner | **string**<br>Name of the user assigned as the owner of the database.
 lc_collate | **string**<br>POSIX locale for string sorting order. Can only be set at creation time. 
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. 
 extensions[] | **[Extension](#Extension5)**<br>PostgreSQL extensions enabled for the database. 
+template_db | **string**<br>Name of the database template. 
 
 
 ### Extension {#Extension5}

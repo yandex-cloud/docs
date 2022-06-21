@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/recipes/balancing/prefer_location.md
----
-{% include [index.md](_includes/prefer_location.md) %}
+# Prefer the availability zone
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-sdk/recipes/balancing/prefer_location).
+
+{% endnote %}

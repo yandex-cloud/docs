@@ -1,8 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/index.md
----
+# YQL - Обзор
 
-{% include [intro.md](_includes/index/intro.md) %}
+{% note info %}
 
-{% include [intro.md](_includes/index/start.md) %}
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/).
 
+{% endnote %}

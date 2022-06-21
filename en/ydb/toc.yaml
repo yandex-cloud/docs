@@ -1,3 +1,5 @@
+title: Yandex Managed Service for YDB
+hidden: true
 items:
   - name: Contents
     href: index.yaml
@@ -167,10 +169,14 @@ items:
     items:
       - name: Overview
         href: best_practices/index.md
+      - name: Choosing a primary key for maximum performance
+        href: best_practices/pk_scalability.md
       - name: Schema design
         href: best_practices/schema_design.md
+        hidden: true
       - name: Partitioning tables
         href: best_practices/table_sharding.md
+        hidden: true
       - name: Secondary indexes
         href: best_practices/secondary_indexes.md
       - name: Paginated output
@@ -205,8 +211,12 @@ items:
             href: troubleshooting/system_views_db.md
           - name: Monitoring
             href: troubleshooting/monitoring.md
+          - name: System views (deprecated)
+            href: troubleshooting/system_views.md
+            hidden: true
       - name: Metric reference
         href: maintenance/yc_metrics.md
+        hidden: true
   - name: Pricing policy
     items:
       - name: Overview
@@ -295,14 +305,10 @@ items:
             href: yql/reference/syntax/expressions.md
           - name: ACTION
             href: yql/reference/syntax/action.md
-          - name: ALTER TABLE
-            href: yql/reference/syntax/alter_table.md
           - name: CREATE TABLE
             href: yql/reference/syntax/create_table.md
           - name: DECLARE
             href: yql/reference/syntax/declare.md
-          - name: DELETE
-            href: yql/reference/syntax/delete.md
           - name: DISCARD
             href: yql/reference/syntax/discard.md
           - name: DROP TABLE
@@ -315,22 +321,12 @@ items:
             href: yql/reference/syntax/insert_into.md
           - name: INTO RESULT
             href: yql/reference/syntax/into_result.md
-          - name: JOIN
-            href: yql/reference/syntax/join.md
           - name: PRAGMA
             href: yql/reference/syntax/pragma.md
-          - name: REPLACE
-            href: yql/reference/syntax/replace_into.md
           - name: SELECT
             href: yql/reference/syntax/select.md
-          - name: UPDATE
-            href: yql/reference/syntax/update.md
-          - name: UPSERT
-            href: yql/reference/syntax/upsert_into.md
           - name: VALUES
             href: yql/reference/syntax/values.md
-          - name: WINDOW
-            href: yql/reference/syntax/window.md
           - name: Unsupported statements
             href: yql/reference/syntax/not_yet_supported.md
       - name: Built-in functions
@@ -341,8 +337,6 @@ items:
             href: yql/reference/builtins/basic.md
           - name: Aggregate
             href: yql/reference/builtins/aggregation.md
-          - name: Window
-            href: yql/reference/builtins/window.md
           - name: For lists
             href: yql/reference/builtins/list.md
           - name: For dictionaries
@@ -469,6 +463,8 @@ items:
             href: reference/ydb-cli/export_import/s3_export.md
           - name: Importing data from S3
             href: reference/ydb-cli/export_import/s3_import.md
+          - name: Importing data from a file to an existing table
+            href: reference/ydb-cli/export_import/import-file.md
       - name: Managing profiles
         items:
           - name: Overview
@@ -514,7 +510,7 @@ items:
           - name: Go
             href: reference/ydb-sdk/example/go/index.md
           - name: Java
-            href: reference/ydb-sdk/example/example-java.md
+            href: reference/ydb-sdk/example/java/index.md
           - name: Node.js
             href: reference/ydb-sdk/example/example-nodejs.md
           - name: PHP
@@ -573,6 +569,10 @@ items:
                 href: reference/ydb-sdk/recipes/debug/jaeger.md
           - name: Setting the session pool size
             href: reference/ydb-sdk/recipes/session_pool_limit/index.md
+          - name: Upserting data
+            href: reference/ydb-sdk/recipes/upsert/index.md
+          - name: Bulk-upserting data
+            href: reference/ydb-sdk/recipes/bulk_upsert/index.md
   - name: Managing a cluster
     items:
       - name: Overview
@@ -589,14 +589,10 @@ items:
             href: deploy/orchestrated/operate.md
       - name: Manual
         items:
-          - name: Overview
-            href: deploy/manual/concepts.md
           - name: Local deployment
             href: deploy/manual/deploy-ydb-on-premises.md
           - name: Cluster configuration
             href: deploy/configuration/config.md
-          - name: Production checklist
-            href: deploy/production_checklist.md
           - name: Maintaining a cluster's disk subsystem
             items:
               - name: Overview

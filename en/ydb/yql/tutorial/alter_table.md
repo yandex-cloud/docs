@@ -1,25 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/tutorial/alter_table.md
----
 # Adding and deleting columns
 
-Add a new column to the table and then delete it.
+{% note info %}
 
-{% include [yql-reference-prerequisites](_includes/yql_tutorial_prerequisites.md) %}
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/tutorial/alter_table).
 
-## Adding a column {#add-column}
-
-Add a non-key column to the existing table:
-
-```sql
-ALTER TABLE episodes ADD COLUMN viewers Uint64;
-```
-
-## Deleting a column {#delete-column}
-
-Delete the column you added from the table:
-
-```sql
-ALTER TABLE episodes DROP COLUMN viewers;
-```
-
+{% endnote %}

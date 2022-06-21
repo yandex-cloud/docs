@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/faq/errors.md
----
-{% include [errors.md](_includes/errors.md) %}
+# Errors
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/faq/errors).
+
+{% endnote %}

@@ -1,5 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands.md
----
-{% include [commands.md](_includes/commands.md) %}
+# Команды YDB CLI
 
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/commands).
+
+{% endnote %}

@@ -1,19 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/tutorial/select_all_columns.md
----
 # Selecting data from all columns
 
-Select all columns from the table using [SELECT](../reference/syntax/select.md):
+{% note info %}
 
-{% include [yql-reference-prerequisites](_includes/yql_tutorial_prerequisites.md) %}
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/tutorial/select_all_columns).
 
-```sql
-SELECT         -- Data selection operator.
-
-    *          -- Select all columns from the table.
-
-FROM episodes; -- The table to select the data from.
-
-COMMIT;
-```
-
+{% endnote %}

@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/query.md
----
-{% include [query.md](_includes/query.md) %}
+# Выполнение запроса к данным
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/commands/query).
+
+{% endnote %}

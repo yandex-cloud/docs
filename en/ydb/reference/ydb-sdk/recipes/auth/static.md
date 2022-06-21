@@ -1,5 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/recipes/auth/static.md
----
+# Username and password based authentication
 
-{% include [index.md](_includes/static.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-sdk/recipes/auth/static).
+
+{% endnote %}

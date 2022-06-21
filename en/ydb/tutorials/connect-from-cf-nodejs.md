@@ -1,8 +1,7 @@
----
-author: gayratv
-sourcePath: en/ydb/overlay/tutorials/connect-from-cf-nodejs.md
----
-# Connecting to a {{ ydb-short-name }} database from a {{ sf-full-name }} function in Node.js
+# Connecting to a YDB database from a Yandex Cloud Functions function in Node.js
 
-{% include [connect-from-ydb-nodejs](../../_tutorials/connect-from-cf-nodejs.md) %}
+{% note info %}
 
+This page has been moved to a [new address](../../managed-ydb/tutorials/connect-from-cf-nodejs.md).
+
+{% endnote %}

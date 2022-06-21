@@ -2896,7 +2896,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 ## Move {#Move}
 
-Moves the specified instance to another folder of the same cloud. <br>The instance must be stopped before moving. To stop the instance, make a [Stop](#Stop) request. <br>After moving, the instance will start recording its Yandex Monitoring default metrics to its new folder. Metrics that have been recorded to the source folder prior to moving will be retained.
+Moves the specified instance to another folder of the same cloud. <br>The instance must be stopped before moving. To stop the instance, make a [Stop](#Stop) request. <br>After moving, the instance will start recording its Monitoring default metrics to its new folder. Metrics that have been recorded to the source folder prior to moving will be retained.
 
 **rpc Move ([MoveInstanceRequest](#MoveInstanceRequest)) returns ([operation.Operation](#Operation15))**
 

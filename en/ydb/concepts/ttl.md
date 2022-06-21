@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/concepts/ttl.md
----
-{% include [ttl.md](_includes/ttl.md) %}
+# Time to Live (TTL)
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/concepts/ttl).
+
+{% endnote %}

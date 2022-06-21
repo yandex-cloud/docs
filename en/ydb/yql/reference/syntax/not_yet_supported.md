@@ -1,6 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/syntax/not_yet_supported.md
-sourcePath: en/ydb/yql/reference/yql-docs-core-2/syntax/not_yet_supported.md
----
+# Classic SQL constructs not supported yet
 
-{% include [x](_includes/not_yet_supported.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/reference/syntax/not_yet_supported).
+
+{% endnote %}

@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/faq/yql.md
----
-{% include [yql.md](_includes/yql.md) %}
+# YQL
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/faq/yql).
+
+{% endnote %}

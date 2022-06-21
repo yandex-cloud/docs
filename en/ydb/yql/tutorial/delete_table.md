@@ -1,13 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/tutorial/delete_table.md
----
 # Deleting a table
 
-Delete the [created](create_demo_tables.md) tables using the [DROP TABLE](../reference/syntax/drop_table.md) statement.
+{% note info %}
 
-```sql
-DROP TABLE episodes;
-DROP TABLE seasons;
-DROP TABLE series;
-```
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/tutorial/delete_table).
 
+{% endnote %}

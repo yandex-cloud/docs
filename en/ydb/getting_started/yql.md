@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/getting_started/yql.md
----
-{% include [yql.md](_includes/yql.md) %}
+# YQL: Getting started
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/getting_started/yql).
+
+{% endnote %}

@@ -1,5 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/connect.md
----
+# Соединение CLI с базой данных и аутентификация
 
-{% include [connect.md](_includes/connect.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/connect).
+
+{% endnote %}

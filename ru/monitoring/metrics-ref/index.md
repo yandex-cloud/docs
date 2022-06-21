@@ -29,7 +29,7 @@ editable: false
 {% include [managed-redis.md](../../_includes/monitoring/metrics-ref/managed-redis.md) %}
 
 
-{% include [monitoring_sensors](../../ydb/_includes/monitoring_sensors.md) %}
+{% include [managed-ydb.md](../../_includes/monitoring/metrics-ref/managed-ydb.md) %}
 
 {% include [compute.md](../../_includes/monitoring/metrics-ref/monitoring.md) %}
 

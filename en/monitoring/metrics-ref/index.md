@@ -13,4 +13,4 @@ The name of the metric is written in the `name` label.
 {% include [compute.md](../../_includes/monitoring/metrics-ref/monitoring.md) %}
 
 
-{% include [monitoring_sensors](../../ydb/_includes/monitoring_sensors.md) %}
+{% include [managed-ydb.md](../../_includes/monitoring/metrics-ref/managed-ydb.md) %}

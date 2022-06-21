@@ -59,7 +59,7 @@ pageToken | Page token. Set [pageToken](/docs/organization/api-ref/User/listMemb
 Field | Description
 --- | ---
 users[] | **object**<br><p>List of users for the specified organization.</p> 
-users[].<br>subjectClaims | **object**<br><p>OpenID standard claims with additional Yandex Cloud Organization claims.</p> <p>Claims representation, see https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims for details.</p> 
+users[].<br>subjectClaims | **object**<br><p>OpenID standard claims with additional Cloud Organization claims.</p> <p>Claims representation, see https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims for details.</p> 
 users[].<br>subjectClaims.<br>sub | **string**<br><p>Required. Subject - Identifier for the End-User at the Issuer.</p> <p>The maximum string length in characters is 50.</p> 
 users[].<br>subjectClaims.<br>name | **string**<br><p>End-User's full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the End-User's locale and preferences.</p> 
 users[].<br>subjectClaims.<br>givenName | **string**<br><p>Given name(s) or first name(s) of the End-User. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.</p> 

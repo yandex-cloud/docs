@@ -1,6 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/index.md
----
-{% include [index.md](_includes/index.md) %}
+# YDB SDK
 
+{% note info %}
 
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-sdk/).
+
+{% endnote %}

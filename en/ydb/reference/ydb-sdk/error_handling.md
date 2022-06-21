@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/reference/ydb-sdk/error_handling.md
----
-{% include [error_handling.md](_includes/error_handling.md) %}
+# Handling errors
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/reference/ydb-sdk/error_handling).
+
+{% endnote %}

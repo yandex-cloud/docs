@@ -23,7 +23,8 @@ POST https://certificate-manager.{{ api-host }}/certificate-manager/v1/certifica
   "labels": "object",
   "certificate": "string",
   "chain": "string",
-  "privateKey": "string"
+  "privateKey": "string",
+  "deletionProtection": true
 }
 ```
 
@@ -37,6 +38,7 @@ labels | **object**<br><p>Labels for the certificate as ``key:value`` pairs.</p>
 certificate | **string**<br><p>PEM-encoded certificate content of the certificate.</p> <p>The maximum string length in characters is 32768.</p> 
 chain | **string**<br><p>PEM-encoded certificate chain content of the certificate.</p> <p>The maximum string length in characters is 2097152.</p> 
 privateKey | **string**<br><p>Required. PEM-encoded private key content of the certificate.</p> <p>The string length in characters must be 1-524288.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Flag that protects deletion of the certificate</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

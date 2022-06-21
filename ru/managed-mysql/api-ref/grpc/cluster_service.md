@@ -49,7 +49,7 @@ cluster_id | **string**<br>Required. ID of the cluster to return information abo
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by the platform at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -105,7 +105,7 @@ disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -175,7 +175,7 @@ next_page_token | **string**<br>The token that can be used to get the next page 
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by the platform at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -231,7 +231,7 @@ disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -330,7 +330,7 @@ disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -419,7 +419,7 @@ cluster_id | **string**<br>ID of the cluster that is being created.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by the platform at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -475,7 +475,7 @@ disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -570,7 +570,7 @@ disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -631,7 +631,7 @@ cluster_id | **string**<br>ID of the cluster that is being updated.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by the platform at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -687,7 +687,7 @@ disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -813,7 +813,7 @@ cluster_id | **string**<br>ID of the cluster that is being started.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by the platform at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -869,7 +869,7 @@ disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -955,7 +955,7 @@ cluster_id | **string**<br>ID of the cluster that is being stopped.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by the platform at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -1011,7 +1011,7 @@ disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -1100,7 +1100,7 @@ destination_folder_id | **string**<br>ID of the destination folder.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by the platform at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -1156,7 +1156,7 @@ disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -1242,7 +1242,7 @@ cluster_id | **string**<br>ID of the cluster that is being backed up.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by the platform at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -1298,7 +1298,7 @@ disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -1397,7 +1397,7 @@ disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -1450,7 +1450,7 @@ backup_id | **string**<br>ID of the backup that is being used for creating a clu
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by the platform at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -1506,7 +1506,7 @@ disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -1595,7 +1595,7 @@ delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/prot
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by the platform at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -1651,7 +1651,7 @@ disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -1738,7 +1738,7 @@ cluster_id | **string**<br>ID of the cluster that is being failovered.
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the cluster. <br>This ID is assigned by Yandex Cloud at the time of creation. 
+id | **string**<br>ID of the cluster. <br>This ID is assigned by the platform at the time of creation. 
 folder_id | **string**<br>ID of the folder that the cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp of the cluster. 
 name | **string**<br>Name of the cluster. 
@@ -1794,7 +1794,7 @@ disk_type_id | **string**<br>Type of the storage. <br>Possible values: <ul><li>`
 Field | Description
 --- | ---
 data_lens | **bool**<br>Allows access from DataLens. <br>See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. 
-web_sql | **bool**<br>Allows SQL queries to the cluster databases from Yandex Cloud management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
+web_sql | **bool**<br>Allows SQL queries to the cluster databases from management console. <br>See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. 
 data_transfer | **bool**<br>Allow access for DataTransfer. 
 
 
@@ -2007,7 +2007,7 @@ next_page_token | **string**<br>The token that can be used to get the next page 
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the host. <br>This name is assigned by Yandex Cloud at the time of creation. The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host. 
+name | **string**<br>Name of the host. <br>This name is assigned by the platform at the time of creation. The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. 
 cluster_id | **string**<br>ID of the cluster the host belongs to. 
 zone_id | **string**<br>ID of the availability zone where the host resides. 
 resources | **[Resources](#Resources14)**<br>Resources allocated to the host. 

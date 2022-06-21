@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/yql/reference/yql-core/builtins/index.md
-sourcePath: ru/ydb/yql/reference/yql-core/builtins/index.md
----
+# Встроенные функции YQL
 
-{% include [index.md](_includes/index.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/yql/reference/builtins/).
+
+{% endnote %}

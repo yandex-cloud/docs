@@ -1,4 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/getting_started/self_hosted/ydb_local.md
----
-{% include [ydb_local.md](_includes/ydb_local.md) %}
+# Running YDB from a binary file
+
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/getting_started/self_hosted/ydb_local).
+
+{% endnote %}

@@ -34,7 +34,7 @@ Field | Description
 --- | ---
 mlModelName | **string**<br><p>Required. Model name. The model name is one of the arguments of the modelEvaluate() function, which is used to call the model in ClickHouse.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 type | **string**<br><p>Required. Type of the model.</p> <ul> <li>ML_MODEL_TYPE_CATBOOST: CatBoost model.</li> </ul> 
-uri | **string**<br><p>Required. Model file URL. You can only use models stored in Yandex Object Storage.</p> 
+uri | **string**<br><p>Required. Model file URL. You can only use models stored in Object Storage.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

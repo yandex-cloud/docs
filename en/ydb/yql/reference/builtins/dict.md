@@ -1,6 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/yql/reference/yql-docs-core-2/builtins/dict.md
-sourcePath: en/ydb/yql/reference/yql-docs-core-2/builtins/dict.md
----
+# Functions for dictionaries
 
-{% include [dict.md](_includes/dict.md) %}
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/reference/builtins/dict).
+
+{% endnote %}

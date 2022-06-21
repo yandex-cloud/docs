@@ -19,6 +19,8 @@ items:
             href: operations/cloud/delete-cancel.md
           - name: Настройка прав доступа
             href: operations/cloud/set-access-bindings.md
+          - name: Получение идентификатора облака
+            href: operations/cloud/get-id.md
           - name: Переключение на другое облако
             href: operations/cloud/switch-cloud.md
           - name: Изменение организации для облака

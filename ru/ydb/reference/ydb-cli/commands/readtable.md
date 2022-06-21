@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/commands/readtable.md
----
-{% include [readtable.md](_includes/readtable.md) %}
+# Потоковое чтение таблицы
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/commands/readtable).
+
+{% endnote %}

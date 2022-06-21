@@ -1,5 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/best_practices/schema_design.md
----
+# Проектирование схемы
 
-{% include [timeouts.md](_includes/schema_design.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/best_practices/pk_scalability).
+
+{% endnote %}

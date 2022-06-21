@@ -1,4 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/reference/ydb-cli/export_import/tools_restore.md
----
-{% include [tools_restore.md](_includes/tools_restore.md) %}
+# Загрузка из файловой системы
+
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/reference/ydb-cli/export_import/tools_restore).
+
+{% endnote %}

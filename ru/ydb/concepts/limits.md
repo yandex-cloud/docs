@@ -1,16 +1,7 @@
----
-title: Квоты и лимиты в {{ ydb-full-name }}
-description: 'В {{ ydb-full-name }} действуют лимиты и квоты на суммарное количество ядер процессора для всех хостов баз данных, суммарный объем виртуальной памяти для всех хостов баз данных, максимальное количество хостов, максимальное количество баз данных в одном облаке. Более подробно об ограничениях в сервисе вы узнаете из данной статьи.'
+# Квоты и лимиты в YDB
 
-editable: false
-sourcePath: ru/ydb/overlay/concepts/limits.md
----
+{% note info %}
 
-# Квоты и лимиты в {{ ydb-name }}
+Страница перемещена по новому [адресу](../../managed-ydb/concepts/limits.md).
 
-В сервисе {{ ydb-full-name }} действуют следующие ограничения:
-
-{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
-
-{% include [quotes-limits-def.md](../_includes/ydb-limits.md) %}
-
+{% endnote %}

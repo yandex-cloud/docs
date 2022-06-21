@@ -1,4 +1,4 @@
-In this scenario, you'll create a [function](../functions/concepts/function.md) with an application in [Node.js](https://nodejs.org/ru/), which runs a simple query against a {{ ydb-short-name }} database. You deploy the application using Bash scripts and use the `tcs` command to compile.
+In this scenario, you'll create a [function](../functions/concepts/function.md) with an application in [Node.js](https://nodejs.org/en/), which runs a simple query against a {{ ydb-short-name }} database. You deploy the application using Bash scripts and use the `tcs` command to compile.
 
 A function with an associated [service account](../iam/concepts/users/service-accounts.md) is authorized in {{ ydb-short-name }} via the metadata service.
 
@@ -14,7 +14,7 @@ The application creates a {{ ydb-short-name }} database connection driver, a ses
 The infrastructure support cost for this scenario includes:
 
 * A fee for using the function (see [{{ sf-full-name }} pricing](../functions/pricing.md).
-* A fee for querying the database (see [{{ ydb-full-name }} pricing](../ydb/pricing/serverless.md)).
+* A fee for querying the database (see [{{ ydb-full-name }} pricing](../managed-ydb/pricing/serverless.md)).
 
 ## Prepare the environment {#prepare-environment}
 

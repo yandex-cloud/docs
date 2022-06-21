@@ -1,6 +1,7 @@
----
-sourcePath: ru/ydb/overlay/faq/common.md
----
-{% include [common.md](_includes/common.md) %}
+# Общие вопросы
 
-{% include [qa-logs](../../_includes/qa-logs.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/faq/all).
+
+{% endnote %}

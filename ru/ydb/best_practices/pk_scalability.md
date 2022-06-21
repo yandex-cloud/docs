@@ -1,5 +1,7 @@
----
-sourcePath: ru/ydb/ydb-docs-core/ru/core/best_practices/pk_scalability.md
----
+# Выбор первичного ключа для максимальной производительности
 
-{% include [pk_scalability.md](_includes/pk_scalability.md) %}
+{% note info %}
+
+Страница перемещена по новому [адресу](https://ydb.tech/ru/docs/best_practices/pk_scalability).
+
+{% endnote %}

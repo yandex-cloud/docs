@@ -62,7 +62,7 @@ pageToken | Page token.  To get the next page of results, set [pageToken](/docs/
 Field | Description
 --- | ---
 hosts[] | **object**<br><p>Requested list of hosts for the cluster.</p> 
-hosts[].<br>name | **string**<br><p>Name of the ClickHouse host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long.</p> <p>The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host.</p> 
+hosts[].<br>name | **string**<br><p>Name of the ClickHouse host. The host name is assigned by MDB at creation time, and cannot be changed. 1-63 characters long.</p> <p>The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.</p> 
 hosts[].<br>clusterId | **string**<br><p>ID of the ClickHouse host. The ID is assigned by MDB at creation time.</p> 
 hosts[].<br>zoneId | **string**<br><p>ID of the availability zone where the ClickHouse host resides.</p> 
 hosts[].<br>type | **string**<br><p>Type of the host.</p> <ul> <li>CLICKHOUSE: ClickHouse host.</li> <li>ZOOKEEPER: ZooKeeper host.</li> </ul> 

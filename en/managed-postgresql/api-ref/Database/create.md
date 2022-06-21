@@ -33,7 +33,8 @@ clusterId | Required. ID of the PostgreSQL cluster to create a database in. To g
         "name": "string",
         "version": "string"
       }
-    ]
+    ],
+    "templateDb": "string"
   }
 }
 ```
@@ -49,6 +50,7 @@ databaseSpec.<br>lcCtype | **string**<br><p>POSIX locale for character classific
 databaseSpec.<br>extensions[] | **object**<br><p>PostgreSQL extensions to be enabled for the database.</p> 
 databaseSpec.<br>extensions[].<br>name | **string**<br><p>Name of the extension, e.g. ``pg_trgm`` or ``pg_btree``. Extensions supported by Managed Service for PostgreSQL are <a href="/docs/managed-postgresql/operations/cluster-extensions">listed in the Developer's Guide</a>.</p> 
 databaseSpec.<br>extensions[].<br>version | **string**<br><p>Version of the extension.</p> 
+databaseSpec.<br>templateDb | **string**<br><p>Name of the PostgreSQL database template.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

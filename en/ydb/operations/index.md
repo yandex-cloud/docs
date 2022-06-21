@@ -1,5 +1,7 @@
----
-sourcePath: en/ydb/overlay/operations/index.md
----
-This section contains step-by-step instructions for operations with {{ ydb-short-name }}.
+# Overview
 
+{% note info %}
+
+This page has been moved to a [new address](../../managed-ydb/operations/index.md).
+
+{% endnote %}

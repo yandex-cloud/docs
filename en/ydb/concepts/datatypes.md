@@ -1,6 +1,7 @@
----
-sourcePath: en/ydb/overlay/concepts/datatypes.md
----
-# Data types {{ ydb-name }}
+# Data types
 
-{{ ydb-short-name }} operates with [YQL data types](../yql/reference/types/index.md).
+{% note info %}
+
+This page has been moved to a [new address](https://ydb.tech/en/docs/yql/reference/types/).
+
+{% endnote %}

@@ -1,9 +1,7 @@
----
-sourcePath: en/ydb/ydb-docs-core/en/core/faq/all.md
----
-{% include [all.md](_includes/all.md) %}
+# All questions on one page
 
-## Serverless {#serverless}
+% note info %}
 
-{% include notitle [serverless.md](serverless.md) %}
+This page has been moved to a [new address](https://ydb.tech/en/docs/faq/all).
 
+{% endnote %}
