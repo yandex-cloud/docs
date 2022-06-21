@@ -59,7 +59,15 @@
 
 ## Настройте источник и приемник {#db-settings}
 
-Подготовьте сервис-источник к отправке данных:
+В качестве источника и приемника могут выступать разные системы.
+
+### Совместимость источников и приемников {#connectivity-matrix}
+
+{% include [include](../_includes/data-transfer/connectivity-marix.md) %}
+
+### Подготовка источников и приемников {#prepare-source-and-target}
+
+Подготовьте источник к отправке данных:
 
 * [{{ KF }}](operations/prepare.md#source-kf)
 * [AWS CloudTrail](operations/prepare.md#source-aws)
@@ -74,7 +82,7 @@
 * [{{ yds-full-name }}](operations/prepare.md#source-yds)
 {% endif %}
 
-Подготовьте сервис-приемник к получению данных:
+Подготовьте приемник к получению данных:
 
 * [{{ CH }}](operations/prepare.md#target-ch)
 * [{{ GP }}](operations/prepare.md#target-gp)
