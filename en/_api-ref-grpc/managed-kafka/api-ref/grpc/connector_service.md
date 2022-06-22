@@ -4,23 +4,23 @@ editable: false
 
 # ConnectorService
 
-A set of methods for managing Apache Kafka Connectors resources.
+A set of methods for managing Apache Kafka® connectors.
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) | Returns the specified Apache Kafka Connector resource. |
-| [List](#List) | Retrieves the list of Apache Kafka Connector resources in the specified cluster. |
-| [Create](#Create) | Creates a new Apache Kafka connector in the specified cluster. |
-| [Update](#Update) | Updates an Apache Kafka connector in the specified cluster. |
-| [Delete](#Delete) | Deletes the specified Apache Kafka connector. |
-| [Resume](#Resume) | Resume the specified Apache Kafka connector. |
-| [Pause](#Pause) | Pause the specified Apache Kafka connector. |
+| [Get](#Get) | Returns information about an Apache Kafka® connector. |
+| [List](#List) | Retrieves the list of Apache Kafka® connectors in a cluster. |
+| [Create](#Create) | Creates a new Apache Kafka® connector in a cluster. |
+| [Update](#Update) | Updates an Apache Kafka® connector. |
+| [Delete](#Delete) | Deletes an Apache Kafka® connector. |
+| [Resume](#Resume) | Resumes an Apache Kafka® connector. |
+| [Pause](#Pause) | Pauses an Apache Kafka® connector. |
 
 ## Calls ConnectorService {#calls}
 
 ## Get {#Get}
 
-Returns the specified Apache Kafka Connector resource. <br>To get the list of available Apache Kafka Connector resources, make a [List](#List) request.
+Returns information about an Apache Kafka® connector.
 
 **rpc Get ([GetConnectorRequest](#GetConnectorRequest)) returns ([Connector](#Connector))**
 
@@ -28,8 +28,8 @@ Returns the specified Apache Kafka Connector resource. <br>To get the list of av
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka Cluster resource to return. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-connector_name | **string**<br>Required. Name of the Apache Kafka Connector resource to return. To get the name of the connector use a [ConnectorService.List](#List) request. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the cluster the connector belongs to. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+connector_name | **string**<br>Required. Name of the Apache Kafka® connector to return information about. <br>To get this name, make a [ConnectorService.List](#List) request. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Connector {#Connector}
@@ -37,22 +37,22 @@ connector_name | **string**<br>Required. Name of the Apache Kafka Connector reso
 Field | Description
 --- | ---
 name | **string**<br>Name of the connector. 
-tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of tasks. Default is the number of brokers 
-properties | **map<string,string>**<br>Properties passed with connector config to Connect service Example: 'sync.topics.config.enabled: true' 
-health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li></ul>
-status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li></ul>
-cluster_id | **string**<br>ID of the Apache Kafka cluster that the connector belongs to. 
-connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for specific connector. For example, of MirrorMaker.
-&nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker)**<br>Additional settings for specific connector. For example, of MirrorMaker. 
+tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of connector tasks. Default value is the number of brokers. 
+properties | **map<string,string>**<br>A set of properties passed to Managed Service for Apache Kafka® with the connector configuration. Example: `sync.topics.config.enabled: true`. 
+health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: Health of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector has failed to start.</li></ul>
+status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector has encountered a problem and cannot operate.</li><li>`PAUSED`: Connector is paused.</li></ul>
+cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
+connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for the connector.
+&nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker)**<br>Configuration of the MirrorMaker connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker}
 
 Field | Description
 --- | ---
-source_cluster | **[ClusterConnection](#ClusterConnection)**<br>Source cluster resource settings. 
-target_cluster | **[ClusterConnection](#ClusterConnection)**<br>Target cluster resource settings. 
-topics | **string**<br>List of Kafka topics, separated by ',' 
+source_cluster | **[ClusterConnection](#ClusterConnection)**<br>Source cluster connection configuration. 
+target_cluster | **[ClusterConnection](#ClusterConnection)**<br>Target cluster connection configuration. 
+topics | **string**<br>List of Kafka topics, separated by `,`. 
 replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Replication factor for automatically created topics. 
 
 
@@ -60,10 +60,10 @@ replication_factor | **[google.protobuf.Int64Value](https://developers.google.co
 
 Field | Description
 --- | ---
-alias | **string**<br>Alias of ClusterConnection resource. For example: 'source', 'target', ... 
-cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of connection to Kafka cluster.
-&nbsp;&nbsp;this_cluster | **[ThisCluster](#ThisCluster)**<br>If type is 'this_cluster' - we connect to cluster that is handle Kafka Connect Worker, on which we try to register connector. 
-&nbsp;&nbsp;external_cluster | **[ExternalClusterConnection](#ExternalClusterConnection)**<br>If type is 'external_cluster' - we connect to cluster that is not handle Kafka Connect Worker, on which we try to register connector. 
+alias | **string**<br>Alias of cluster connection configuration. Examples: `source`, `target`. 
+cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of connection to Apache Kafka® cluster.
+&nbsp;&nbsp;this_cluster | **[ThisCluster](#ThisCluster)**<br>Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty. 
+&nbsp;&nbsp;external_cluster | **[ExternalClusterConnection](#ExternalClusterConnection)**<br>Configuration of connection to an external cluster with all the necessary credentials. 
 
 
 ### ThisCluster {#ThisCluster}
@@ -74,15 +74,15 @@ cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of 
 
 Field | Description
 --- | ---
-bootstrap_servers | **string**<br>List bootstrap servers of cluster, separated by ',' 
-sasl_username | **string**<br>Sasl username which we use to connect to cluster. 
-sasl_mechanism | **string**<br>Sasl mechanism, which we should use to connect to cluster. 
-security_protocol | **string**<br>Security protocol, which we should use to connect to cluster. 
+bootstrap_servers | **string**<br>List of bootstrap servers of the cluster, separated by `,`. 
+sasl_username | **string**<br>SASL username to use for connection to the cluster. 
+sasl_mechanism | **string**<br>SASL mechanism to use for connection to the cluster. 
+security_protocol | **string**<br>Security protocol to use for connection to the cluster. 
 
 
 ## List {#List}
 
-Retrieves the list of Apache Kafka Connector resources in the specified cluster.
+Retrieves the list of Apache Kafka® connectors in a cluster.
 
 **rpc List ([ListConnectorsRequest](#ListConnectorsRequest)) returns ([ListConnectorsResponse](#ListConnectorsResponse))**
 
@@ -90,17 +90,17 @@ Retrieves the list of Apache Kafka Connector resources in the specified cluster.
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka cluster to list connectors in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListConnectorsResponse.next_page_token](#ListConnectorsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
-page_token | **string**<br>Page token. To get the next page of results, Set `page_token` to the [ListConnectorsResponse.next_page_token](#ListConnectorsResponse) returned by a previous list request. The maximum string length in characters is 100.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to list connectors in. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the API returns a [ListConnectorsResponse.next_page_token](#ListConnectorsResponse) that can be used to get the next page of results in the subsequent [ConnectorService.List](#List) requests. The maximum value is 1000.
+page_token | **string**<br>Page token that can be used to iterate through multiple pages of results. <br>To get the next page of results, set `page_token` to the [ListConnectorsResponse.next_page_token](#ListConnectorsResponse) returned by the previous [ConnectorService.List](#List) request. The maximum string length in characters is 100.
 
 
 ### ListConnectorsResponse {#ListConnectorsResponse}
 
 Field | Description
 --- | ---
-connectors[] | **[Connector](#Connector1)**<br>List of Apache Kafka Connector resources. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListConnectorsRequest.page_size](#ListConnectorsRequest), use the `next_page_token` as the value for the [ListConnectorsRequest.page_token](#ListConnectorsRequest) parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+connectors[] | **[Connector](#Connector1)**<br>List of Apache Kafka® Connectors. 
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListConnectorsRequest.page_size](#ListConnectorsRequest), use the `next_page_token` as the value for the [ListConnectorsRequest.page_token](#ListConnectorsRequest) in the subsequent [ConnectorService.List](#List) request to iterate through multiple pages of results. 
 
 
 ### Connector {#Connector1}
@@ -108,22 +108,22 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 Field | Description
 --- | ---
 name | **string**<br>Name of the connector. 
-tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of tasks. Default is the number of brokers 
-properties | **map<string,string>**<br>Properties passed with connector config to Connect service Example: 'sync.topics.config.enabled: true' 
-health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li></ul>
-status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li></ul>
-cluster_id | **string**<br>ID of the Apache Kafka cluster that the connector belongs to. 
-connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for specific connector. For example, of MirrorMaker.
-&nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker1)**<br>Additional settings for specific connector. For example, of MirrorMaker. 
+tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of connector tasks. Default value is the number of brokers. 
+properties | **map<string,string>**<br>A set of properties passed to Managed Service for Apache Kafka® with the connector configuration. Example: `sync.topics.config.enabled: true`. 
+health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: Health of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector has failed to start.</li></ul>
+status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector has encountered a problem and cannot operate.</li><li>`PAUSED`: Connector is paused.</li></ul>
+cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
+connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for the connector.
+&nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker1)**<br>Configuration of the MirrorMaker connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker1}
 
 Field | Description
 --- | ---
-source_cluster | **[ClusterConnection](#ClusterConnection1)**<br>Source cluster resource settings. 
-target_cluster | **[ClusterConnection](#ClusterConnection1)**<br>Target cluster resource settings. 
-topics | **string**<br>List of Kafka topics, separated by ',' 
+source_cluster | **[ClusterConnection](#ClusterConnection1)**<br>Source cluster connection configuration. 
+target_cluster | **[ClusterConnection](#ClusterConnection1)**<br>Target cluster connection configuration. 
+topics | **string**<br>List of Kafka topics, separated by `,`. 
 replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Replication factor for automatically created topics. 
 
 
@@ -131,10 +131,10 @@ replication_factor | **[google.protobuf.Int64Value](https://developers.google.co
 
 Field | Description
 --- | ---
-alias | **string**<br>Alias of ClusterConnection resource. For example: 'source', 'target', ... 
-cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of connection to Kafka cluster.
-&nbsp;&nbsp;this_cluster | **[ThisCluster](#ThisCluster1)**<br>If type is 'this_cluster' - we connect to cluster that is handle Kafka Connect Worker, on which we try to register connector. 
-&nbsp;&nbsp;external_cluster | **[ExternalClusterConnection](#ExternalClusterConnection1)**<br>If type is 'external_cluster' - we connect to cluster that is not handle Kafka Connect Worker, on which we try to register connector. 
+alias | **string**<br>Alias of cluster connection configuration. Examples: `source`, `target`. 
+cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of connection to Apache Kafka® cluster.
+&nbsp;&nbsp;this_cluster | **[ThisCluster](#ThisCluster1)**<br>Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty. 
+&nbsp;&nbsp;external_cluster | **[ExternalClusterConnection](#ExternalClusterConnection1)**<br>Configuration of connection to an external cluster with all the necessary credentials. 
 
 
 ### ThisCluster {#ThisCluster1}
@@ -145,15 +145,15 @@ cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of 
 
 Field | Description
 --- | ---
-bootstrap_servers | **string**<br>List bootstrap servers of cluster, separated by ',' 
-sasl_username | **string**<br>Sasl username which we use to connect to cluster. 
-sasl_mechanism | **string**<br>Sasl mechanism, which we should use to connect to cluster. 
-security_protocol | **string**<br>Security protocol, which we should use to connect to cluster. 
+bootstrap_servers | **string**<br>List of bootstrap servers of the cluster, separated by `,`. 
+sasl_username | **string**<br>SASL username to use for connection to the cluster. 
+sasl_mechanism | **string**<br>SASL mechanism to use for connection to the cluster. 
+security_protocol | **string**<br>Security protocol to use for connection to the cluster. 
 
 
 ## Create {#Create}
 
-Creates a new Apache Kafka connector in the specified cluster.
+Creates a new Apache Kafka® connector in a cluster.
 
 **rpc Create ([CreateConnectorRequest](#CreateConnectorRequest)) returns ([operation.Operation](#Operation))**
 
@@ -165,8 +165,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the Apache Kafka cluster to create a connector in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-connector_spec | **[ConnectorSpec](#ConnectorSpec)**<br>Required. Required. Configuration of the connector to create. 
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to create the connector in. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+connector_spec | **[ConnectorSpec](#ConnectorSpec)**<br>Required. Configuration of the connector to create. 
 
 
 ### ConnectorSpec {#ConnectorSpec}
@@ -174,19 +174,19 @@ connector_spec | **[ConnectorSpec](#ConnectorSpec)**<br>Required. Required. Conf
 Field | Description
 --- | ---
 name | **string**<br>Name of the connector. 
-tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of connector tasks. Default is the number of brokers. 
-properties | **map<string,string>**<br>Properties passed with connector config to Connect service. Example: 'sync.topics.config.enabled: true'. 
-connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for specific connector. For example, of MirrorMaker.
-&nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMakerSpec](#ConnectorConfigMirrorMakerSpec)**<br>Configuration of MirrorMaker connector 
+tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of connector tasks. Default value is the number of brokers. 
+properties | **map<string,string>**<br>A set of properties passed to Managed Service for Apache Kafka® with the connector configuration. Example: `sync.topics.config.enabled: true`. 
+connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for the connector.
+&nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMakerSpec](#ConnectorConfigMirrorMakerSpec)**<br>Configuration of the MirrorMaker connector. 
 
 
 ### ConnectorConfigMirrorMakerSpec {#ConnectorConfigMirrorMakerSpec}
 
 Field | Description
 --- | ---
-source_cluster | **[ClusterConnectionSpec](#ClusterConnectionSpec)**<br>Source cluster configuration. 
-target_cluster | **[ClusterConnectionSpec](#ClusterConnectionSpec)**<br>Target cluster configuration. 
-topics | **string**<br>List of Kafka topics, separated by ',' 
+source_cluster | **[ClusterConnectionSpec](#ClusterConnectionSpec)**<br>Source cluster configuration for the MirrorMaker connector. 
+target_cluster | **[ClusterConnectionSpec](#ClusterConnectionSpec)**<br>Target cluster configuration for the MirrorMaker connector. 
+topics | **string**<br>List of Kafka topics, separated by `,`. 
 replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Replication factor for automatically created topics. 
 
 
@@ -194,10 +194,10 @@ replication_factor | **[google.protobuf.Int64Value](https://developers.google.co
 
 Field | Description
 --- | ---
-alias | **string**<br>Alias of ClusterConnection. For example: 'source', 'target', ... 
-cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of connection to Kafka cluster.
-&nbsp;&nbsp;this_cluster | **[ThisClusterSpec](#ThisClusterSpec)**<br>If type is 'this_cluster' - we connect to cluster that is handle Kafka Connect Worker, on which we try to register connector. 
-&nbsp;&nbsp;external_cluster | **[ExternalClusterConnectionSpec](#ExternalClusterConnectionSpec)**<br>If type is 'external_cluster' - we connect to cluster that is not handle Kafka Connect Worker, on which we try to register connector. 
+alias | **string**<br>Alias of cluster connection configuration. Examples: `source`, `target`. 
+cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of connection to Apache Kafka® cluster.
+&nbsp;&nbsp;this_cluster | **[ThisClusterSpec](#ThisClusterSpec)**<br>Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty. 
+&nbsp;&nbsp;external_cluster | **[ExternalClusterConnectionSpec](#ExternalClusterConnectionSpec)**<br>Configuration of connection to an external cluster with all the necessary credentials. 
 
 
 ### ThisClusterSpec {#ThisClusterSpec}
@@ -208,11 +208,11 @@ cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of 
 
 Field | Description
 --- | ---
-bootstrap_servers | **string**<br>List bootstrap servers of cluster, separated by ','. 
-sasl_username | **string**<br>Sasl username which we use to connect to cluster. 
-sasl_password | **string**<br>Sasl password which we use to connect to cluster. 
-sasl_mechanism | **string**<br>Sasl mechanism, which we should use to connect to cluster. 
-security_protocol | **string**<br>Security protocol, which we should use to connect to cluster. 
+bootstrap_servers | **string**<br>List of bootstrap servers of the cluster, separated by `,`. 
+sasl_username | **string**<br>SASL username to use for connection to the cluster. 
+sasl_password | **string**<br>SASL password to use for connection to the cluster. 
+sasl_mechanism | **string**<br>SASL mechanism to use for connection to the cluster. 
+security_protocol | **string**<br>Security protocol to use for connection to the cluster. 
 ssl_truststore_certificates | **string**<br>CA in PEM format to connect to external cluster. Lines of certificate separated by '\n' symbol. 
 
 
@@ -236,8 +236,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the Apache Kafka cluster where a connector is being created. 
-connector_name | **string**<br>Required. Name of the Apache Kafka connector that is being created. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>ID of the Apache Kafka® cluster the connector is being created in. 
+connector_name | **string**<br>Required. Name of the Apache Kafka® connector that is being created. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Connector {#Connector2}
@@ -245,22 +245,22 @@ connector_name | **string**<br>Required. Name of the Apache Kafka connector that
 Field | Description
 --- | ---
 name | **string**<br>Name of the connector. 
-tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of tasks. Default is the number of brokers 
-properties | **map<string,string>**<br>Properties passed with connector config to Connect service Example: 'sync.topics.config.enabled: true' 
-health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li></ul>
-status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li></ul>
-cluster_id | **string**<br>ID of the Apache Kafka cluster that the connector belongs to. 
-connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for specific connector. For example, of MirrorMaker.
-&nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker2)**<br>Additional settings for specific connector. For example, of MirrorMaker. 
+tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of connector tasks. Default value is the number of brokers. 
+properties | **map<string,string>**<br>A set of properties passed to Managed Service for Apache Kafka® with the connector configuration. Example: `sync.topics.config.enabled: true`. 
+health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: Health of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector has failed to start.</li></ul>
+status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector has encountered a problem and cannot operate.</li><li>`PAUSED`: Connector is paused.</li></ul>
+cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
+connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for the connector.
+&nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker2)**<br>Configuration of the MirrorMaker connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker2}
 
 Field | Description
 --- | ---
-source_cluster | **[ClusterConnection](#ClusterConnection2)**<br>Source cluster resource settings. 
-target_cluster | **[ClusterConnection](#ClusterConnection2)**<br>Target cluster resource settings. 
-topics | **string**<br>List of Kafka topics, separated by ',' 
+source_cluster | **[ClusterConnection](#ClusterConnection2)**<br>Source cluster connection configuration. 
+target_cluster | **[ClusterConnection](#ClusterConnection2)**<br>Target cluster connection configuration. 
+topics | **string**<br>List of Kafka topics, separated by `,`. 
 replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Replication factor for automatically created topics. 
 
 
@@ -268,10 +268,10 @@ replication_factor | **[google.protobuf.Int64Value](https://developers.google.co
 
 Field | Description
 --- | ---
-alias | **string**<br>Alias of ClusterConnection resource. For example: 'source', 'target', ... 
-cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of connection to Kafka cluster.
-&nbsp;&nbsp;this_cluster | **[ThisCluster](#ThisCluster2)**<br>If type is 'this_cluster' - we connect to cluster that is handle Kafka Connect Worker, on which we try to register connector. 
-&nbsp;&nbsp;external_cluster | **[ExternalClusterConnection](#ExternalClusterConnection2)**<br>If type is 'external_cluster' - we connect to cluster that is not handle Kafka Connect Worker, on which we try to register connector. 
+alias | **string**<br>Alias of cluster connection configuration. Examples: `source`, `target`. 
+cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of connection to Apache Kafka® cluster.
+&nbsp;&nbsp;this_cluster | **[ThisCluster](#ThisCluster2)**<br>Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty. 
+&nbsp;&nbsp;external_cluster | **[ExternalClusterConnection](#ExternalClusterConnection2)**<br>Configuration of connection to an external cluster with all the necessary credentials. 
 
 
 ### ThisCluster {#ThisCluster2}
@@ -282,15 +282,15 @@ cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of 
 
 Field | Description
 --- | ---
-bootstrap_servers | **string**<br>List bootstrap servers of cluster, separated by ',' 
-sasl_username | **string**<br>Sasl username which we use to connect to cluster. 
-sasl_mechanism | **string**<br>Sasl mechanism, which we should use to connect to cluster. 
-security_protocol | **string**<br>Security protocol, which we should use to connect to cluster. 
+bootstrap_servers | **string**<br>List of bootstrap servers of the cluster, separated by `,`. 
+sasl_username | **string**<br>SASL username to use for connection to the cluster. 
+sasl_mechanism | **string**<br>SASL mechanism to use for connection to the cluster. 
+security_protocol | **string**<br>Security protocol to use for connection to the cluster. 
 
 
 ## Update {#Update}
 
-Updates an Apache Kafka connector in the specified cluster.
+Updates an Apache Kafka® connector.
 
 **rpc Update ([UpdateConnectorRequest](#UpdateConnectorRequest)) returns ([operation.Operation](#Operation1))**
 
@@ -302,29 +302,29 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the Apache Kafka cluster to update a connector in. To get the cluster ID use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-connector_name | **string**<br>Required. Required. Name of the connector to update. To get the name of the connector, use a [ConnectorService.List](#List) request. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Connector resource should be updated. 
-connector_spec | **[UpdateConnectorSpec](#UpdateConnectorSpec)**<br>Required. Required. Configuration of the connector to update. 
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to update the connector in. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+connector_name | **string**<br>Required. Name of the connector to update. <br>To get this name, make a [ConnectorService.List](#List) request. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which settings of the connector should be updated. 
+connector_spec | **[UpdateConnectorSpec](#UpdateConnectorSpec)**<br>Required. Configuration of the connector to update. 
 
 
 ### UpdateConnectorSpec {#UpdateConnectorSpec}
 
 Field | Description
 --- | ---
-tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of tasks to update. 
-properties | **map<string,string>**<br>Properties passed with connector config to Connect service, that we should change or add in existing Properties-set of connector. Example: 'sync.topics.config.enabled: false' 
-connector_config | **oneof:** `connector_config_mirrormaker`<br>Update specification for specific connector (for example, MirrorMaker).
-&nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMakerSpec](#ConnectorConfigMirrorMakerSpec1)**<br>Update specification for MirrorMaker. 
+tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of connector tasks to update. 
+properties | **map<string,string>**<br>A set of new or changed properties to update for the connector. They are passed with the connector configuration to Managed Service for Apache Kafka®. Example: `sync.topics.config.enabled: false`. 
+connector_config | **oneof:** `connector_config_mirrormaker`<br>Updated configuration for the connector.
+&nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMakerSpec](#ConnectorConfigMirrorMakerSpec1)**<br>Configuration of the MirrorMaker connector. 
 
 
 ### ConnectorConfigMirrorMakerSpec {#ConnectorConfigMirrorMakerSpec1}
 
 Field | Description
 --- | ---
-source_cluster | **[ClusterConnectionSpec](#ClusterConnectionSpec1)**<br>Source cluster configuration. 
-target_cluster | **[ClusterConnectionSpec](#ClusterConnectionSpec1)**<br>Target cluster configuration. 
-topics | **string**<br>List of Kafka topics, separated by ',' 
+source_cluster | **[ClusterConnectionSpec](#ClusterConnectionSpec1)**<br>Source cluster configuration for the MirrorMaker connector. 
+target_cluster | **[ClusterConnectionSpec](#ClusterConnectionSpec1)**<br>Target cluster configuration for the MirrorMaker connector. 
+topics | **string**<br>List of Kafka topics, separated by `,`. 
 replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Replication factor for automatically created topics. 
 
 
@@ -332,10 +332,10 @@ replication_factor | **[google.protobuf.Int64Value](https://developers.google.co
 
 Field | Description
 --- | ---
-alias | **string**<br>Alias of ClusterConnection. For example: 'source', 'target', ... 
-cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of connection to Kafka cluster.
-&nbsp;&nbsp;this_cluster | **[ThisClusterSpec](#ThisClusterSpec1)**<br>If type is 'this_cluster' - we connect to cluster that is handle Kafka Connect Worker, on which we try to register connector. 
-&nbsp;&nbsp;external_cluster | **[ExternalClusterConnectionSpec](#ExternalClusterConnectionSpec1)**<br>If type is 'external_cluster' - we connect to cluster that is not handle Kafka Connect Worker, on which we try to register connector. 
+alias | **string**<br>Alias of cluster connection configuration. Examples: `source`, `target`. 
+cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of connection to Apache Kafka® cluster.
+&nbsp;&nbsp;this_cluster | **[ThisClusterSpec](#ThisClusterSpec1)**<br>Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty. 
+&nbsp;&nbsp;external_cluster | **[ExternalClusterConnectionSpec](#ExternalClusterConnectionSpec1)**<br>Configuration of connection to an external cluster with all the necessary credentials. 
 
 
 ### ThisClusterSpec {#ThisClusterSpec1}
@@ -346,11 +346,11 @@ cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of 
 
 Field | Description
 --- | ---
-bootstrap_servers | **string**<br>List bootstrap servers of cluster, separated by ','. 
-sasl_username | **string**<br>Sasl username which we use to connect to cluster. 
-sasl_password | **string**<br>Sasl password which we use to connect to cluster. 
-sasl_mechanism | **string**<br>Sasl mechanism, which we should use to connect to cluster. 
-security_protocol | **string**<br>Security protocol, which we should use to connect to cluster. 
+bootstrap_servers | **string**<br>List of bootstrap servers of the cluster, separated by `,`. 
+sasl_username | **string**<br>SASL username to use for connection to the cluster. 
+sasl_password | **string**<br>SASL password to use for connection to the cluster. 
+sasl_mechanism | **string**<br>SASL mechanism to use for connection to the cluster. 
+security_protocol | **string**<br>Security protocol to use for connection to the cluster. 
 ssl_truststore_certificates | **string**<br>CA in PEM format to connect to external cluster. Lines of certificate separated by '\n' symbol. 
 
 
@@ -374,7 +374,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka cluster where a connector is being updated. The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster the connector is being updated in. The maximum string length in characters is 50.
 connector_name | **string**<br>Required. Name of the Apache Kafka connector that is being updated. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
@@ -383,22 +383,22 @@ connector_name | **string**<br>Required. Name of the Apache Kafka connector that
 Field | Description
 --- | ---
 name | **string**<br>Name of the connector. 
-tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of tasks. Default is the number of brokers 
-properties | **map<string,string>**<br>Properties passed with connector config to Connect service Example: 'sync.topics.config.enabled: true' 
-health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li></ul>
-status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li></ul>
-cluster_id | **string**<br>ID of the Apache Kafka cluster that the connector belongs to. 
-connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for specific connector. For example, of MirrorMaker.
-&nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker3)**<br>Additional settings for specific connector. For example, of MirrorMaker. 
+tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of connector tasks. Default value is the number of brokers. 
+properties | **map<string,string>**<br>A set of properties passed to Managed Service for Apache Kafka® with the connector configuration. Example: `sync.topics.config.enabled: true`. 
+health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: Health of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector has failed to start.</li></ul>
+status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector has encountered a problem and cannot operate.</li><li>`PAUSED`: Connector is paused.</li></ul>
+cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
+connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for the connector.
+&nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker3)**<br>Configuration of the MirrorMaker connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker3}
 
 Field | Description
 --- | ---
-source_cluster | **[ClusterConnection](#ClusterConnection3)**<br>Source cluster resource settings. 
-target_cluster | **[ClusterConnection](#ClusterConnection3)**<br>Target cluster resource settings. 
-topics | **string**<br>List of Kafka topics, separated by ',' 
+source_cluster | **[ClusterConnection](#ClusterConnection3)**<br>Source cluster connection configuration. 
+target_cluster | **[ClusterConnection](#ClusterConnection3)**<br>Target cluster connection configuration. 
+topics | **string**<br>List of Kafka topics, separated by `,`. 
 replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Replication factor for automatically created topics. 
 
 
@@ -406,10 +406,10 @@ replication_factor | **[google.protobuf.Int64Value](https://developers.google.co
 
 Field | Description
 --- | ---
-alias | **string**<br>Alias of ClusterConnection resource. For example: 'source', 'target', ... 
-cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of connection to Kafka cluster.
-&nbsp;&nbsp;this_cluster | **[ThisCluster](#ThisCluster3)**<br>If type is 'this_cluster' - we connect to cluster that is handle Kafka Connect Worker, on which we try to register connector. 
-&nbsp;&nbsp;external_cluster | **[ExternalClusterConnection](#ExternalClusterConnection3)**<br>If type is 'external_cluster' - we connect to cluster that is not handle Kafka Connect Worker, on which we try to register connector. 
+alias | **string**<br>Alias of cluster connection configuration. Examples: `source`, `target`. 
+cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of connection to Apache Kafka® cluster.
+&nbsp;&nbsp;this_cluster | **[ThisCluster](#ThisCluster3)**<br>Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty. 
+&nbsp;&nbsp;external_cluster | **[ExternalClusterConnection](#ExternalClusterConnection3)**<br>Configuration of connection to an external cluster with all the necessary credentials. 
 
 
 ### ThisCluster {#ThisCluster3}
@@ -420,15 +420,15 @@ cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of 
 
 Field | Description
 --- | ---
-bootstrap_servers | **string**<br>List bootstrap servers of cluster, separated by ',' 
-sasl_username | **string**<br>Sasl username which we use to connect to cluster. 
-sasl_mechanism | **string**<br>Sasl mechanism, which we should use to connect to cluster. 
-security_protocol | **string**<br>Security protocol, which we should use to connect to cluster. 
+bootstrap_servers | **string**<br>List of bootstrap servers of the cluster, separated by `,`. 
+sasl_username | **string**<br>SASL username to use for connection to the cluster. 
+sasl_mechanism | **string**<br>SASL mechanism to use for connection to the cluster. 
+security_protocol | **string**<br>Security protocol to use for connection to the cluster. 
 
 
 ## Delete {#Delete}
 
-Deletes the specified Apache Kafka connector.
+Deletes an Apache Kafka® connector.
 
 **rpc Delete ([DeleteConnectorRequest](#DeleteConnectorRequest)) returns ([operation.Operation](#Operation2))**
 
@@ -440,8 +440,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the Apache Kafka cluster to delete a connector in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
-connector_name | **string**<br>Required. Required. Name of the connector to delete. To get the name of the connector, use a [ConnectorService.List](#List) request. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to delete the connector from. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+connector_name | **string**<br>Required. Name of the connector to delete. <br>To get this name, make a [ConnectorService.List](#List) request. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation2}
@@ -464,13 +464,13 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the Apache Kafka cluster where a connector is being deleted. 
-connector_name | **string**<br>Name of the Apache Kafka connector that is being deleted. 
+cluster_id | **string**<br>ID of the Apache Kafka® cluster the connector is being deleted from. 
+connector_name | **string**<br>Name of the Apache Kafka® connector that is being deleted. 
 
 
 ## Resume {#Resume}
 
-Resume the specified Apache Kafka connector.
+Resumes an Apache Kafka® connector.
 
 **rpc Resume ([ResumeConnectorRequest](#ResumeConnectorRequest)) returns ([operation.Operation](#Operation3))**
 
@@ -482,8 +482,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the Apache Kafka cluster to resume connector in. The maximum string length in characters is 50.
-connector_name | **string**<br>Required. Name of the Apache Kafka Connector resource to resume. To get the name of the connector use a [ConnectorService.List](#List) request. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to resume the connector in. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+connector_name | **string**<br>Required. Name of the Apache Kafka® connector to resume. <br>To get this name, make a [ConnectorService.List](#List) request. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation3}
@@ -506,8 +506,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka cluster. 
-connector_name | **string**<br>Required. Name of the Apache Kafka Connector resource that is beign resumed. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>ID of the Apache Kafka® cluster the connector is being resumed in. 
+connector_name | **string**<br>Required. Name of the Apache Kafka® connector that is beign resumed. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Connector {#Connector4}
@@ -515,22 +515,22 @@ connector_name | **string**<br>Required. Name of the Apache Kafka Connector reso
 Field | Description
 --- | ---
 name | **string**<br>Name of the connector. 
-tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of tasks. Default is the number of brokers 
-properties | **map<string,string>**<br>Properties passed with connector config to Connect service Example: 'sync.topics.config.enabled: true' 
-health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li></ul>
-status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li></ul>
-cluster_id | **string**<br>ID of the Apache Kafka cluster that the connector belongs to. 
-connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for specific connector. For example, of MirrorMaker.
-&nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker4)**<br>Additional settings for specific connector. For example, of MirrorMaker. 
+tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of connector tasks. Default value is the number of brokers. 
+properties | **map<string,string>**<br>A set of properties passed to Managed Service for Apache Kafka® with the connector configuration. Example: `sync.topics.config.enabled: true`. 
+health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: Health of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector has failed to start.</li></ul>
+status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector has encountered a problem and cannot operate.</li><li>`PAUSED`: Connector is paused.</li></ul>
+cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
+connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for the connector.
+&nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker4)**<br>Configuration of the MirrorMaker connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker4}
 
 Field | Description
 --- | ---
-source_cluster | **[ClusterConnection](#ClusterConnection4)**<br>Source cluster resource settings. 
-target_cluster | **[ClusterConnection](#ClusterConnection4)**<br>Target cluster resource settings. 
-topics | **string**<br>List of Kafka topics, separated by ',' 
+source_cluster | **[ClusterConnection](#ClusterConnection4)**<br>Source cluster connection configuration. 
+target_cluster | **[ClusterConnection](#ClusterConnection4)**<br>Target cluster connection configuration. 
+topics | **string**<br>List of Kafka topics, separated by `,`. 
 replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Replication factor for automatically created topics. 
 
 
@@ -538,10 +538,10 @@ replication_factor | **[google.protobuf.Int64Value](https://developers.google.co
 
 Field | Description
 --- | ---
-alias | **string**<br>Alias of ClusterConnection resource. For example: 'source', 'target', ... 
-cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of connection to Kafka cluster.
-&nbsp;&nbsp;this_cluster | **[ThisCluster](#ThisCluster4)**<br>If type is 'this_cluster' - we connect to cluster that is handle Kafka Connect Worker, on which we try to register connector. 
-&nbsp;&nbsp;external_cluster | **[ExternalClusterConnection](#ExternalClusterConnection4)**<br>If type is 'external_cluster' - we connect to cluster that is not handle Kafka Connect Worker, on which we try to register connector. 
+alias | **string**<br>Alias of cluster connection configuration. Examples: `source`, `target`. 
+cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of connection to Apache Kafka® cluster.
+&nbsp;&nbsp;this_cluster | **[ThisCluster](#ThisCluster4)**<br>Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty. 
+&nbsp;&nbsp;external_cluster | **[ExternalClusterConnection](#ExternalClusterConnection4)**<br>Configuration of connection to an external cluster with all the necessary credentials. 
 
 
 ### ThisCluster {#ThisCluster4}
@@ -552,15 +552,15 @@ cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of 
 
 Field | Description
 --- | ---
-bootstrap_servers | **string**<br>List bootstrap servers of cluster, separated by ',' 
-sasl_username | **string**<br>Sasl username which we use to connect to cluster. 
-sasl_mechanism | **string**<br>Sasl mechanism, which we should use to connect to cluster. 
-security_protocol | **string**<br>Security protocol, which we should use to connect to cluster. 
+bootstrap_servers | **string**<br>List of bootstrap servers of the cluster, separated by `,`. 
+sasl_username | **string**<br>SASL username to use for connection to the cluster. 
+sasl_mechanism | **string**<br>SASL mechanism to use for connection to the cluster. 
+security_protocol | **string**<br>Security protocol to use for connection to the cluster. 
 
 
 ## Pause {#Pause}
 
-Pause the specified Apache Kafka connector.
+Pauses an Apache Kafka® connector.
 
 **rpc Pause ([PauseConnectorRequest](#PauseConnectorRequest)) returns ([operation.Operation](#Operation4))**
 
@@ -572,8 +572,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. Required. ID of the Apache Kafka cluster to pause connector in. The maximum string length in characters is 50.
-connector_name | **string**<br>Required. Name of the Apache Kafka Connector resource to pause. To get the name of the connector use a [ConnectorService.List](#List) request. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to pause the connector in. <br>To get this ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
+connector_name | **string**<br>Required. Name of the Apache Kafka® connector to pause. <br>To get this name, make a [ConnectorService.List](#List) request. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Operation {#Operation4}
@@ -596,8 +596,8 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Apache Kafka cluster. 
-connector_name | **string**<br>Required. Name of the Apache Kafka Connector resource that is being paused. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+cluster_id | **string**<br>ID of the Apache Kafka® cluster the connector is being paused in. 
+connector_name | **string**<br>Required. Name of the Apache Kafka® connector that is being paused. The maximum string length in characters is 256. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
 ### Connector {#Connector5}
@@ -605,22 +605,22 @@ connector_name | **string**<br>Required. Name of the Apache Kafka Connector reso
 Field | Description
 --- | ---
 name | **string**<br>Name of the connector. 
-tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of tasks. Default is the number of brokers 
-properties | **map<string,string>**<br>Properties passed with connector config to Connect service Example: 'sync.topics.config.enabled: true' 
-health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: State of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector is failed to start.</li></ul>
-status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector encountered a problem and cannot operate.</li><li>`PAUSED`: Connector paused.</li></ul>
-cluster_id | **string**<br>ID of the Apache Kafka cluster that the connector belongs to. 
-connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for specific connector. For example, of MirrorMaker.
-&nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker5)**<br>Additional settings for specific connector. For example, of MirrorMaker. 
+tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of connector tasks. Default value is the number of brokers. 
+properties | **map<string,string>**<br>A set of properties passed to Managed Service for Apache Kafka® with the connector configuration. Example: `sync.topics.config.enabled: true`. 
+health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: Health of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector has failed to start.</li></ul>
+status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector has encountered a problem and cannot operate.</li><li>`PAUSED`: Connector is paused.</li></ul>
+cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
+connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for the connector.
+&nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker5)**<br>Configuration of the MirrorMaker connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker5}
 
 Field | Description
 --- | ---
-source_cluster | **[ClusterConnection](#ClusterConnection5)**<br>Source cluster resource settings. 
-target_cluster | **[ClusterConnection](#ClusterConnection5)**<br>Target cluster resource settings. 
-topics | **string**<br>List of Kafka topics, separated by ',' 
+source_cluster | **[ClusterConnection](#ClusterConnection5)**<br>Source cluster connection configuration. 
+target_cluster | **[ClusterConnection](#ClusterConnection5)**<br>Target cluster connection configuration. 
+topics | **string**<br>List of Kafka topics, separated by `,`. 
 replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Replication factor for automatically created topics. 
 
 
@@ -628,10 +628,10 @@ replication_factor | **[google.protobuf.Int64Value](https://developers.google.co
 
 Field | Description
 --- | ---
-alias | **string**<br>Alias of ClusterConnection resource. For example: 'source', 'target', ... 
-cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of connection to Kafka cluster.
-&nbsp;&nbsp;this_cluster | **[ThisCluster](#ThisCluster5)**<br>If type is 'this_cluster' - we connect to cluster that is handle Kafka Connect Worker, on which we try to register connector. 
-&nbsp;&nbsp;external_cluster | **[ExternalClusterConnection](#ExternalClusterConnection5)**<br>If type is 'external_cluster' - we connect to cluster that is not handle Kafka Connect Worker, on which we try to register connector. 
+alias | **string**<br>Alias of cluster connection configuration. Examples: `source`, `target`. 
+cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of connection to Apache Kafka® cluster.
+&nbsp;&nbsp;this_cluster | **[ThisCluster](#ThisCluster5)**<br>Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty. 
+&nbsp;&nbsp;external_cluster | **[ExternalClusterConnection](#ExternalClusterConnection5)**<br>Configuration of connection to an external cluster with all the necessary credentials. 
 
 
 ### ThisCluster {#ThisCluster5}
@@ -642,9 +642,9 @@ cluster_connection | **oneof:** `this_cluster` or `external_cluster`<br>Type of 
 
 Field | Description
 --- | ---
-bootstrap_servers | **string**<br>List bootstrap servers of cluster, separated by ',' 
-sasl_username | **string**<br>Sasl username which we use to connect to cluster. 
-sasl_mechanism | **string**<br>Sasl mechanism, which we should use to connect to cluster. 
-security_protocol | **string**<br>Security protocol, which we should use to connect to cluster. 
+bootstrap_servers | **string**<br>List of bootstrap servers of the cluster, separated by `,`. 
+sasl_username | **string**<br>SASL username to use for connection to the cluster. 
+sasl_mechanism | **string**<br>SASL mechanism to use for connection to the cluster. 
+security_protocol | **string**<br>Security protocol to use for connection to the cluster. 
 
 

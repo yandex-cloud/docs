@@ -593,17 +593,16 @@ paths:
     get:
       tags:
       - Connector
-      summary: Returns the specified Apache Kafka Connector resource.
-      description: To get the list of available Apache Kafka Connector resources,
-        make a [list](/docs/managed-kafka/api-ref/Connector/list) request.
+      summary: Returns information about an Apache Kafka® connector.
       operationId: ConnectorGet
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the Apache Kafka Cluster resource to return.
-          To get the cluster ID use a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+          ID of the cluster the connector belongs to.
+
+          To get this ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -613,8 +612,9 @@ paths:
         in: path
         description: |-
           Required.
-          Name of the Apache Kafka Connector resource to return.
-          To get the name of the connector use a [list](/docs/managed-kafka/api-ref/Connector/list) request.
+          Name of the Apache Kafka® connector to return information about.
+
+          To get this name, make a [list](/docs/managed-kafka/api-ref/Connector/list) request.
 
           The maximum string length in characters is 256.
           Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
@@ -632,15 +632,16 @@ paths:
     delete:
       tags:
       - Connector
-      summary: Deletes the specified Apache Kafka connector.
+      summary: Deletes an Apache Kafka® connector.
       operationId: ConnectorDelete
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          Required. ID of the Apache Kafka cluster to delete a connector in.
-          To get the cluster ID, use a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+          ID of the Apache Kafka® cluster to delete the connector from.
+
+          To get this ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -650,8 +651,9 @@ paths:
         in: path
         description: |-
           Required.
-          Required. Name of the connector to delete.
-          To get the name of the connector, use a [list](/docs/managed-kafka/api-ref/Connector/list) request.
+          Name of the connector to delete.
+
+          To get this name, make a [list](/docs/managed-kafka/api-ref/Connector/list) request.
 
           The maximum string length in characters is 256.
           Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
@@ -672,15 +674,16 @@ paths:
     patch:
       tags:
       - Connector
-      summary: Updates an Apache Kafka connector in the specified cluster.
+      summary: Updates an Apache Kafka® connector.
       operationId: ConnectorUpdate
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          Required. ID of the Apache Kafka cluster to update a connector in.
-          To get the cluster ID use a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+          ID of the Apache Kafka® cluster to update the connector in.
+
+          To get this ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -690,8 +693,9 @@ paths:
         in: path
         description: |-
           Required.
-          Required. Name of the connector to update.
-          To get the name of the connector, use a [list](/docs/managed-kafka/api-ref/Connector/list) request.
+          Name of the connector to update.
+
+          To get this name, make a [list](/docs/managed-kafka/api-ref/Connector/list) request.
 
           The maximum string length in characters is 256.
           Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
@@ -719,16 +723,16 @@ paths:
     get:
       tags:
       - Connector
-      summary: Retrieves the list of Apache Kafka Connector resources in the specified
-        cluster.
+      summary: Retrieves the list of Apache Kafka® connectors in a cluster.
       operationId: ConnectorList
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the Apache Kafka cluster to list connectors in.
-          To get the cluster ID use a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+          ID of the Apache Kafka® cluster to list connectors in.
+
+          To get this ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -736,15 +740,21 @@ paths:
           type: string
       - name: pageSize
         in: query
-        description: The maximum value is 1000.
+        description: |-
+          The maximum number of results per page to return.
+
+          If the number of available results is larger than [pageSize](/docs/managed-kafka/api-ref/Connector/list#query_params), the API returns a [nextPageToken](/docs/managed-kafka/api-ref/Connector/list#responses) that can be used to get the next page of results in the subsequent [list](/docs/managed-kafka/api-ref/Connector/list) requests.
+
+          The maximum value is 1000.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, Set [pageToken](/docs/managed-kafka/api-ref/Connector/list#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Connector/list#responses)
-          returned by a previous list request.
+          Page token that can be used to iterate through multiple pages of results.
+
+          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Connector/list#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Connector/list#responses) returned by the previous [list](/docs/managed-kafka/api-ref/Connector/list) request.
 
           The maximum string length in characters is 100.
         schema:
@@ -760,15 +770,16 @@ paths:
     post:
       tags:
       - Connector
-      summary: Creates a new Apache Kafka connector in the specified cluster.
+      summary: Creates a new Apache Kafka® connector in a cluster.
       operationId: ConnectorCreate
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          Required. ID of the Apache Kafka cluster to create a connector in.
-          To get the cluster ID use a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+          ID of the Apache Kafka® cluster to create the connector in.
+
+          To get this ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -795,14 +806,16 @@ paths:
     post:
       tags:
       - Connector
-      summary: Resume the specified Apache Kafka connector.
+      summary: Resumes an Apache Kafka® connector.
       operationId: ConnectorResume
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          Required. ID of the Apache Kafka cluster to resume connector in.
+          ID of the Apache Kafka® cluster to resume the connector in.
+
+          To get this ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -812,8 +825,9 @@ paths:
         in: path
         description: |-
           Required.
-          Name of the Apache Kafka Connector resource to resume.
-          To get the name of the connector use a [list](/docs/managed-kafka/api-ref/Connector/list) request.
+          Name of the Apache Kafka® connector to resume.
+
+          To get this name, make a [list](/docs/managed-kafka/api-ref/Connector/list) request.
 
           The maximum string length in characters is 256.
           Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
@@ -841,14 +855,16 @@ paths:
     post:
       tags:
       - Connector
-      summary: Pause the specified Apache Kafka connector.
+      summary: Pauses an Apache Kafka® connector.
       operationId: ConnectorPause
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          Required. ID of the Apache Kafka cluster to pause connector in.
+          ID of the Apache Kafka® cluster to pause the connector in.
+
+          To get this ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -858,8 +874,9 @@ paths:
         in: path
         description: |-
           Required.
-          Name of the Apache Kafka Connector resource to pause.
-          To get the name of the connector use a [list](/docs/managed-kafka/api-ref/Connector/list) request.
+          Name of the Apache Kafka® connector to pause.
+
+          To get this name, make a [list](/docs/managed-kafka/api-ref/Connector/list) request.
 
           The maximum string length in characters is 256.
           Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
@@ -1557,20 +1574,14 @@ components:
         plannedOperation:
           $ref: '#/components/schemas/MaintenanceOperation_in_Cluster_plannedOperation'
     ClusterConnection:
-      description: |-
-        Resource ClusterConnection -
-        settings of
-        connection to clusters, that
-        are source or target of MirrorMaker
-        clusters.
       type: object
       allOf:
       - type: object
         properties:
           alias:
             description: |-
-              Alias of ClusterConnection resource.
-              For example: 'source', 'target', ...
+              Alias of cluster connection configuration.
+              Examples: `source`, `target`.
             type: string
       - title: cluster_connection
         type: object
@@ -1578,30 +1589,21 @@ components:
         properties:
           thisCluster:
             $ref: '#/components/schemas/ThisCluster'
-            description: |-
-              If type is 'this_cluster' - we connect to
-              cluster that is handle Kafka Connect Worker,
-              on which we try to register connector.
+            description: Connection configuration of the cluster the connector belongs
+              to. As all credentials are already known, leave this parameter empty.
           externalCluster:
             $ref: '#/components/schemas/ExternalClusterConnection'
-            description: |-
-              If type is 'external_cluster' - we connect
-              to cluster that is not handle Kafka Connect Worker,
-              on which we try to register connector.
+            description: Configuration of connection to an external cluster with all
+              the necessary credentials.
     ClusterConnectionSpec:
-      description: |-
-        Specification of ClusterConnection -
-        connection to clusters, that
-        are source or target of MirrorMaker
-        clusters.
       type: object
       allOf:
       - type: object
         properties:
           alias:
             description: |-
-              Alias of ClusterConnection.
-              For example: 'source', 'target', ...
+              Alias of cluster connection configuration.
+              Examples: `source`, `target`.
             type: string
       - title: cluster_connection
         type: object
@@ -1609,16 +1611,12 @@ components:
         properties:
           thisCluster:
             $ref: '#/components/schemas/ThisClusterSpec'
-            description: |-
-              If type is 'this_cluster' - we connect to
-              cluster that is handle Kafka Connect Worker,
-              on which we try to register connector.
+            description: Connection configuration of the cluster the connector belongs
+              to. As all credentials are already known, leave this parameter empty.
           externalCluster:
             $ref: '#/components/schemas/ExternalClusterConnectionSpec'
-            description: |-
-              If type is 'external_cluster' - we connect
-              to cluster that is not handle Kafka Connect Worker,
-              on which we try to register connector.
+            description: Configuration of connection to an external cluster with all
+              the necessary credentials.
     ClusterEnvironment:
       description: |2-
          - PRODUCTION: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.
@@ -1737,7 +1735,6 @@ components:
         resources:
           $ref: '#/components/schemas/Resources_in_ConfigSpecZookeeper_resources'
     Connector:
-      description: An Apache Kafka® connector resource.
       type: object
       allOf:
       - type: object
@@ -1746,13 +1743,14 @@ components:
             description: Name of the connector.
             type: string
           tasksMax:
-            description: Maximum number of tasks. Default is the number of brokers
+            description: Maximum number of connector tasks. Default value is the number
+              of brokers.
             type: integer
             format: int64
           properties:
             description: |-
-              Properties passed with connector config to Connect service
-              Example: 'sync.topics.config.enabled: true'
+              A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
+              Example: `sync.topics.config.enabled: true`.
             type: object
             additionalProperties:
               type: string
@@ -1763,7 +1761,7 @@ components:
             $ref: '#/components/schemas/ConnectorStatus'
             description: Current status of the connector.
           clusterId:
-            description: ID of the Apache Kafka cluster that the connector belongs
+            description: ID of the Apache Kafka® cluster that the connector belongs
               to.
             type: string
       - title: connector_config
@@ -1772,10 +1770,8 @@ components:
         properties:
           connectorConfigMirrormaker:
             $ref: '#/components/schemas/ConnectorConfigMirrorMaker'
+            description: Configuration of the MirrorMaker connector.
     ConnectorConfigMirrorMaker:
-      description: |-
-        An An Apache Kafka® MirrorMaker
-        connector resource.
       type: object
       properties:
         sourceCluster:
@@ -1783,16 +1779,13 @@ components:
         targetCluster:
           $ref: '#/components/schemas/ClusterConnection_in_ConnectorConfigMirrorMaker_targetCluster'
         topics:
-          description: List of Kafka topics, separated by ','
+          description: List of Kafka topics, separated by `,`.
           type: string
         replicationFactor:
           description: Replication factor for automatically created topics.
           type: integer
           format: int64
     ConnectorConfigMirrorMakerSpec:
-      description: |-
-        An An Apache Kafka® MirrorMaker
-        connector specification.
       type: object
       properties:
         sourceCluster:
@@ -1800,7 +1793,7 @@ components:
         targetCluster:
           $ref: '#/components/schemas/ClusterConnectionSpec_in_ConnectorConfigMirrorMakerSpec_targetCluster'
         topics:
-          description: List of Kafka topics, separated by ','
+          description: List of Kafka topics, separated by `,`.
           type: string
         replicationFactor:
           description: Replication factor for automatically created topics.
@@ -1808,9 +1801,9 @@ components:
           format: int64
     ConnectorHealth:
       description: |2-
-         - HEALTH_UNKNOWN: State of the connector is unknown.
+         - HEALTH_UNKNOWN: Health of the connector is unknown.
          - ALIVE: Connector is running.
-         - DEAD: Connector is failed to start.
+         - DEAD: Connector has failed to start.
       type: string
       enum:
       - HEALTH_UNKNOWN
@@ -1818,7 +1811,10 @@ components:
       - DEAD
       default: HEALTH_UNKNOWN
     ConnectorSpec:
-      description: An Apache Kafka® connector specification
+      description: |-
+        An object that represents an Apache Kafka® connector.
+
+        See [the documentation](/docs/managed-kafka/concepts/connectors) for details.
       type: object
       allOf:
       - type: object
@@ -1827,15 +1823,14 @@ components:
             description: Name of the connector.
             type: string
           tasksMax:
-            description: |-
-              Maximum number of connector tasks.
-              Default is the number of brokers.
+            description: Maximum number of connector tasks. Default value is the number
+              of brokers.
             type: integer
             format: int64
           properties:
             description: |-
-              Properties passed with connector config to Connect service.
-              Example: 'sync.topics.config.enabled: true'.
+              A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
+              Example: `sync.topics.config.enabled: true`.
             type: object
             additionalProperties:
               type: string
@@ -1845,13 +1840,13 @@ components:
         properties:
           connectorConfigMirrormaker:
             $ref: '#/components/schemas/ConnectorConfigMirrorMakerSpec'
-            description: Configuration of MirrorMaker connector
+            description: Configuration of the MirrorMaker connector.
     ConnectorStatus:
       description: |2-
          - STATUS_UNKNOWN: Connector state is unknown.
          - RUNNING: Connector is running normally.
-         - ERROR: Connector encountered a problem and cannot operate.
-         - PAUSED: Connector paused.
+         - ERROR: Connector has encountered a problem and cannot operate.
+         - PAUSED: Connector is paused.
       type: string
       enum:
       - STATUS_UNKNOWN
@@ -1952,12 +1947,13 @@ components:
       type: object
       properties:
         clusterId:
-          description: ID of the Apache Kafka cluster where a connector is being created.
+          description: ID of the Apache Kafka® cluster the connector is being created
+            in.
           type: string
         connectorName:
           description: |-
             Required.
-            Name of the Apache Kafka connector that is being created.
+            Name of the Apache Kafka® connector that is being created.
 
             The maximum string length in characters is 256.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
@@ -2010,10 +2006,11 @@ components:
       type: object
       properties:
         clusterId:
-          description: ID of the Apache Kafka cluster where a connector is being deleted.
+          description: ID of the Apache Kafka® cluster the connector is being deleted
+            from.
           type: string
         connectorName:
-          description: Name of the Apache Kafka connector that is being deleted.
+          description: Name of the Apache Kafka® connector that is being deleted.
           type: string
     DeleteTopicMetadata:
       type: object
@@ -2038,67 +2035,37 @@ components:
       type: object
       maxProperties: 0
     ExternalClusterConnection:
-      description: |-
-        Resource of connection to
-        external cluster. It contains
-        all settings of connection
-        to external cluster.
       type: object
       properties:
         bootstrapServers:
-          description: |-
-            List bootstrap servers of cluster,
-            separated by ','
+          description: List of bootstrap servers of the cluster, separated by `,`.
           type: string
         saslUsername:
-          description: |-
-            Sasl username which
-            we use to connect to cluster.
+          description: SASL username to use for connection to the cluster.
           type: string
         saslMechanism:
-          description: |-
-            Sasl mechanism, which we
-            should use to connect to cluster.
+          description: SASL mechanism to use for connection to the cluster.
           type: string
         securityProtocol:
-          description: |-
-            Security protocol, which
-            we should use to connect
-            to cluster.
+          description: Security protocol to use for connection to the cluster.
           type: string
     ExternalClusterConnectionSpec:
-      description: |-
-        Specification of connection to
-        external cluster. It contains
-        all necessary credentials to
-        connect to external cluster.
       type: object
       properties:
         bootstrapServers:
-          description: |-
-            List bootstrap servers of cluster,
-            separated by ','.
+          description: List of bootstrap servers of the cluster, separated by `,`.
           type: string
         saslUsername:
-          description: |-
-            Sasl username which
-            we use to connect to cluster.
+          description: SASL username to use for connection to the cluster.
           type: string
         saslPassword:
-          description: |-
-            Sasl password which we use
-            to connect to cluster.
+          description: SASL password to use for connection to the cluster.
           type: string
         saslMechanism:
-          description: |-
-            Sasl mechanism, which we
-            should use to connect to cluster.
+          description: SASL mechanism to use for connection to the cluster.
           type: string
         securityProtocol:
-          description: |-
-            Security protocol, which
-            we should use to connect
-            to cluster.
+          description: Security protocol to use for connection to the cluster.
           type: string
         sslTruststoreCertificates:
           description: |-
@@ -2524,16 +2491,15 @@ components:
       type: object
       properties:
         connectors:
-          description: List of Apache Kafka Connector resources.
+          description: List of Apache Kafka® Connectors.
           type: array
           items:
             $ref: '#/components/schemas/Connector'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/managed-kafka/api-ref/Connector/list#query_params), use the [nextPageToken](/docs/managed-kafka/api-ref/Connector/list#responses) as the value
-            for the [pageToken](/docs/managed-kafka/api-ref/Connector/list#query_params) parameter in the next list request. Each subsequent
-            list request will have its own [nextPageToken](/docs/managed-kafka/api-ref/Connector/list#responses) to continue paging through the results.
+            The token that can be used to get the next page of results.
+
+            If the number of results is larger than [pageSize](/docs/managed-kafka/api-ref/Connector/list#query_params), use the [nextPageToken](/docs/managed-kafka/api-ref/Connector/list#responses) as the value for the [pageToken](/docs/managed-kafka/api-ref/Connector/list#query_params) in the subsequent [list](/docs/managed-kafka/api-ref/Connector/list) request to iterate through multiple pages of results.
           type: string
     ListResourcePresetsResponse:
       type: object
@@ -2717,12 +2683,13 @@ components:
       type: object
       properties:
         clusterId:
-          description: Required. ID of the Apache Kafka cluster.
+          description: ID of the Apache Kafka® cluster the connector is being paused
+            in.
           type: string
         connectorName:
           description: |-
             Required.
-            Name of the Apache Kafka Connector resource that is being paused.
+            Name of the Apache Kafka® connector that is being paused.
 
             The maximum string length in characters is 256.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
@@ -2829,12 +2796,13 @@ components:
       type: object
       properties:
         clusterId:
-          description: Required. ID of the Apache Kafka cluster.
+          description: ID of the Apache Kafka® cluster the connector is being resumed
+            in.
           type: string
         connectorName:
           description: |-
             Required.
-            Name of the Apache Kafka Connector resource that is beign resumed.
+            Name of the Apache Kafka® connector that is beign resumed.
 
             The maximum string length in characters is 256.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
@@ -2882,17 +2850,9 @@ components:
             This value is interchangeable with [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses) from ListLogs method.
           type: string
     ThisCluster:
-      description: |-
-        Resource of cluster_connection
-        type 'this_cluster'.
       type: object
       properties: {}
     ThisClusterSpec:
-      description: |-
-        Specification of cluster_connection
-        type 'this_cluster'. This means
-        that we already have all credentials,
-        so this spec is empty.
       type: object
       properties: {}
     Topic:
@@ -3274,7 +3234,7 @@ components:
         clusterId:
           description: |-
             Required.
-            ID of the Apache Kafka cluster where a connector is being updated.
+            ID of the Apache Kafka® cluster the connector is being updated in.
 
             The maximum string length in characters is 50.
           type: string
@@ -3294,20 +3254,18 @@ components:
         connectorSpec:
           $ref: '#/components/schemas/UpdateConnectorSpec_in_UpdateConnectorRequest_connectorSpec'
     UpdateConnectorSpec:
-      description: An Apache Kafka® connector's update specification.
       type: object
       allOf:
       - type: object
         properties:
           tasksMax:
-            description: Maximum number of tasks to update.
+            description: Maximum number of connector tasks to update.
             type: integer
             format: int64
           properties:
             description: |-
-              Properties passed with connector config to Connect service, that
-              we should change or add in existing Properties-set of connector.
-              Example: 'sync.topics.config.enabled: false'
+              A set of new or changed properties to update for the connector. They are passed with the connector configuration to Managed Service for Apache Kafka®.
+              Example: `sync.topics.config.enabled: false`.
             type: object
             additionalProperties:
               type: string
@@ -3317,7 +3275,7 @@ components:
         properties:
           connectorConfigMirrormaker:
             $ref: '#/components/schemas/ConnectorConfigMirrorMakerSpec'
-            description: Update specification for MirrorMaker.
+            description: Configuration of the MirrorMaker connector.
     UpdateTopicMetadata:
       type: object
       properties:
@@ -3602,23 +3560,15 @@ components:
           description: Type of the storage environment for the host.
           type: string
     ClusterConnection_in_ConnectorConfigMirrorMaker_sourceCluster:
-      description: |-
-        Source cluster resource
-        settings.
-
-        Resource ClusterConnection -
-        settings of
-        connection to clusters, that
-        are source or target of MirrorMaker
-        clusters.
+      description: Source cluster connection configuration.
       type: object
       allOf:
       - type: object
         properties:
           alias:
             description: |-
-              Alias of ClusterConnection resource.
-              For example: 'source', 'target', ...
+              Alias of cluster connection configuration.
+              Examples: `source`, `target`.
             type: string
       - title: cluster_connection
         type: object
@@ -3626,34 +3576,22 @@ components:
         properties:
           thisCluster:
             $ref: '#/components/schemas/ThisCluster'
-            description: |-
-              If type is 'this_cluster' - we connect to
-              cluster that is handle Kafka Connect Worker,
-              on which we try to register connector.
+            description: Connection configuration of the cluster the connector belongs
+              to. As all credentials are already known, leave this parameter empty.
           externalCluster:
             $ref: '#/components/schemas/ExternalClusterConnection'
-            description: |-
-              If type is 'external_cluster' - we connect
-              to cluster that is not handle Kafka Connect Worker,
-              on which we try to register connector.
+            description: Configuration of connection to an external cluster with all
+              the necessary credentials.
     ClusterConnection_in_ConnectorConfigMirrorMaker_targetCluster:
-      description: |-
-        Target cluster resource
-        settings.
-
-        Resource ClusterConnection -
-        settings of
-        connection to clusters, that
-        are source or target of MirrorMaker
-        clusters.
+      description: Target cluster connection configuration.
       type: object
       allOf:
       - type: object
         properties:
           alias:
             description: |-
-              Alias of ClusterConnection resource.
-              For example: 'source', 'target', ...
+              Alias of cluster connection configuration.
+              Examples: `source`, `target`.
             type: string
       - title: cluster_connection
         type: object
@@ -3661,32 +3599,22 @@ components:
         properties:
           thisCluster:
             $ref: '#/components/schemas/ThisCluster'
-            description: |-
-              If type is 'this_cluster' - we connect to
-              cluster that is handle Kafka Connect Worker,
-              on which we try to register connector.
+            description: Connection configuration of the cluster the connector belongs
+              to. As all credentials are already known, leave this parameter empty.
           externalCluster:
             $ref: '#/components/schemas/ExternalClusterConnection'
-            description: |-
-              If type is 'external_cluster' - we connect
-              to cluster that is not handle Kafka Connect Worker,
-              on which we try to register connector.
+            description: Configuration of connection to an external cluster with all
+              the necessary credentials.
     ClusterConnectionSpec_in_ConnectorConfigMirrorMakerSpec_sourceCluster:
-      description: |-
-        Source cluster configuration.
-
-        Specification of ClusterConnection -
-        connection to clusters, that
-        are source or target of MirrorMaker
-        clusters.
+      description: Source cluster configuration for the MirrorMaker connector.
       type: object
       allOf:
       - type: object
         properties:
           alias:
             description: |-
-              Alias of ClusterConnection.
-              For example: 'source', 'target', ...
+              Alias of cluster connection configuration.
+              Examples: `source`, `target`.
             type: string
       - title: cluster_connection
         type: object
@@ -3694,32 +3622,22 @@ components:
         properties:
           thisCluster:
             $ref: '#/components/schemas/ThisClusterSpec'
-            description: |-
-              If type is 'this_cluster' - we connect to
-              cluster that is handle Kafka Connect Worker,
-              on which we try to register connector.
+            description: Connection configuration of the cluster the connector belongs
+              to. As all credentials are already known, leave this parameter empty.
           externalCluster:
             $ref: '#/components/schemas/ExternalClusterConnectionSpec'
-            description: |-
-              If type is 'external_cluster' - we connect
-              to cluster that is not handle Kafka Connect Worker,
-              on which we try to register connector.
+            description: Configuration of connection to an external cluster with all
+              the necessary credentials.
     ClusterConnectionSpec_in_ConnectorConfigMirrorMakerSpec_targetCluster:
-      description: |-
-        Target cluster configuration.
-
-        Specification of ClusterConnection -
-        connection to clusters, that
-        are source or target of MirrorMaker
-        clusters.
+      description: Target cluster configuration for the MirrorMaker connector.
       type: object
       allOf:
       - type: object
         properties:
           alias:
             description: |-
-              Alias of ClusterConnection.
-              For example: 'source', 'target', ...
+              Alias of cluster connection configuration.
+              Examples: `source`, `target`.
             type: string
       - title: cluster_connection
         type: object
@@ -3727,16 +3645,12 @@ components:
         properties:
           thisCluster:
             $ref: '#/components/schemas/ThisClusterSpec'
-            description: |-
-              If type is 'this_cluster' - we connect to
-              cluster that is handle Kafka Connect Worker,
-              on which we try to register connector.
+            description: Connection configuration of the cluster the connector belongs
+              to. As all credentials are already known, leave this parameter empty.
           externalCluster:
             $ref: '#/components/schemas/ExternalClusterConnectionSpec'
-            description: |-
-              If type is 'external_cluster' - we connect
-              to cluster that is not handle Kafka Connect Worker,
-              on which we try to register connector.
+            description: Configuration of connection to an external cluster with all
+              the necessary credentials.
     ClusterEnvironment_in_CreateClusterRequest_environment:
       description: |-
         Deployment environment of the Apache Kafka® cluster.
@@ -3799,9 +3713,11 @@ components:
     ConnectorSpec_in_CreateConnectorRequest_connectorSpec:
       description: |-
         Required.
-        Required. Configuration of the connector to create.
+        Configuration of the connector to create.
 
-        An Apache Kafka® connector specification
+        An object that represents an Apache Kafka® connector.
+
+        See [the documentation](/docs/managed-kafka/concepts/connectors) for details.
       type: object
       allOf:
       - type: object
@@ -3810,15 +3726,14 @@ components:
             description: Name of the connector.
             type: string
           tasksMax:
-            description: |-
-              Maximum number of connector tasks.
-              Default is the number of brokers.
+            description: Maximum number of connector tasks. Default value is the number
+              of brokers.
             type: integer
             format: int64
           properties:
             description: |-
-              Properties passed with connector config to Connect service.
-              Example: 'sync.topics.config.enabled: true'.
+              A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
+              Example: `sync.topics.config.enabled: true`.
             type: object
             additionalProperties:
               type: string
@@ -3828,7 +3743,7 @@ components:
         properties:
           connectorConfigMirrormaker:
             $ref: '#/components/schemas/ConnectorConfigMirrorMakerSpec'
-            description: Configuration of MirrorMaker connector
+            description: Configuration of the MirrorMaker connector.
     TopicSpec_in_CreateTopicRequest_topicSpec:
       description: |-
         Required.
@@ -4209,7 +4124,7 @@ components:
             $ref: '#/components/schemas/WeeklyMaintenanceWindow'
     FieldMask_in_UpdateConnectorRequest_updateMask:
       description: |-
-        Field mask that specifies which fields of the Connector resource should be updated.
+        Field mask that specifies which settings of the connector should be updated.
 
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
@@ -4223,22 +4138,19 @@ components:
     UpdateConnectorSpec_in_UpdateConnectorRequest_connectorSpec:
       description: |-
         Required.
-        Required. Configuration of the connector to update.
-
-        An Apache Kafka® connector's update specification.
+        Configuration of the connector to update.
       type: object
       allOf:
       - type: object
         properties:
           tasksMax:
-            description: Maximum number of tasks to update.
+            description: Maximum number of connector tasks to update.
             type: integer
             format: int64
           properties:
             description: |-
-              Properties passed with connector config to Connect service, that
-              we should change or add in existing Properties-set of connector.
-              Example: 'sync.topics.config.enabled: false'
+              A set of new or changed properties to update for the connector. They are passed with the connector configuration to Managed Service for Apache Kafka®.
+              Example: `sync.topics.config.enabled: false`.
             type: object
             additionalProperties:
               type: string
@@ -4248,7 +4160,7 @@ components:
         properties:
           connectorConfigMirrormaker:
             $ref: '#/components/schemas/ConnectorConfigMirrorMakerSpec'
-            description: Update specification for MirrorMaker.
+            description: Configuration of the MirrorMaker connector.
     FieldMask_in_UpdateTopicRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -4315,7 +4227,7 @@ tags:
 - name: Cluster
   description: A set of methods for managing Apache Kafka® clusters.
 - name: Connector
-  description: A set of methods for managing Apache Kafka Connectors resources.
+  description: A set of methods for managing Apache Kafka® connectors.
 - name: ResourcePreset
   description: A set of methods for managing Kafka resource presets.
 - name: Topic

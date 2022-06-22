@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method create
-Creates a new Apache Kafka connector in the specified cluster.
+Creates a new Apache Kafka® connector in a cluster.
  
 
  
@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}/connectors
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the Apache Kafka cluster to create a connector in. To get the cluster ID use a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | Required. ID of the Apache Kafka® cluster to create the connector in.  To get this ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -69,32 +69,32 @@ clusterId | Required. Required. ID of the Apache Kafka cluster to create a conne
  
 Field | Description
 --- | ---
-connectorSpec | **object**<br><p>Required. Required. Configuration of the connector to create.</p> <p>An Apache Kafka® connector specification</p> 
+connectorSpec | **object**<br><p>Required. Configuration of the connector to create.</p> <p>An object that represents an Apache Kafka® connector.</p> <p>See <a href="/docs/managed-kafka/concepts/connectors">the documentation</a> for details.</p> 
 connectorSpec.<br>name | **string**<br><p>Name of the connector.</p> 
-connectorSpec.<br>tasksMax | **integer** (int64)<br><p>Maximum number of connector tasks. Default is the number of brokers.</p> 
-connectorSpec.<br>properties | **object**<br><p>Properties passed with connector config to Connect service. Example: 'sync.topics.config.enabled: true'.</p> 
-connectorSpec.<br>connectorConfigMirrormaker | **object**<br>Configuration of MirrorMaker connector<br><p>An An Apache Kafka® MirrorMaker connector specification.</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster | **object**<br><p>Source cluster configuration.</p> <p>Specification of ClusterConnection - connection to clusters, that are source or target of MirrorMaker clusters.</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>alias | **string**<br><p>Alias of ClusterConnection. For example: 'source', 'target', ...</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>thisCluster | **object**<br>If type is 'this_cluster' - we connect to cluster that is handle Kafka Connect Worker, on which we try to register connector. <br>`connectorSpec.connectorConfigMirrormaker.sourceCluster` includes only one of the fields `thisCluster`, `externalCluster`<br><br><p>Specification of cluster_connection type 'this_cluster'. This means that we already have all credentials, so this spec is empty.</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster | **object**<br>If type is 'external_cluster' - we connect to cluster that is not handle Kafka Connect Worker, on which we try to register connector. <br>`connectorSpec.connectorConfigMirrormaker.sourceCluster` includes only one of the fields `thisCluster`, `externalCluster`<br><br><p>Specification of connection to external cluster. It contains all necessary credentials to connect to external cluster.</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>bootstrapServers | **string**<br><p>List bootstrap servers of cluster, separated by ','.</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>saslUsername | **string**<br><p>Sasl username which we use to connect to cluster.</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>saslPassword | **string**<br><p>Sasl password which we use to connect to cluster.</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>saslMechanism | **string**<br><p>Sasl mechanism, which we should use to connect to cluster.</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>securityProtocol | **string**<br><p>Security protocol, which we should use to connect to cluster.</p> 
+connectorSpec.<br>tasksMax | **integer** (int64)<br><p>Maximum number of connector tasks. Default value is the number of brokers.</p> 
+connectorSpec.<br>properties | **object**<br><p>A set of properties passed to Managed Service for Apache Kafka® with the connector configuration. Example: ``sync.topics.config.enabled: true``.</p> 
+connectorSpec.<br>connectorConfigMirrormaker | **object**<br>Configuration of the MirrorMaker connector.<br>
+connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster | **object**<br><p>Source cluster configuration for the MirrorMaker connector.</p> 
+connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>alias | **string**<br><p>Alias of cluster connection configuration. Examples: ``source``, ``target``.</p> 
+connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>thisCluster | **object**<br>Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty. <br>`connectorSpec.connectorConfigMirrormaker.sourceCluster` includes only one of the fields `thisCluster`, `externalCluster`<br><br>
+connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster | **object**<br>Configuration of connection to an external cluster with all the necessary credentials. <br>`connectorSpec.connectorConfigMirrormaker.sourceCluster` includes only one of the fields `thisCluster`, `externalCluster`<br><br>
+connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>bootstrapServers | **string**<br><p>List of bootstrap servers of the cluster, separated by ``,``.</p> 
+connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>saslUsername | **string**<br><p>SASL username to use for connection to the cluster.</p> 
+connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>saslPassword | **string**<br><p>SASL password to use for connection to the cluster.</p> 
+connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>saslMechanism | **string**<br><p>SASL mechanism to use for connection to the cluster.</p> 
+connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>securityProtocol | **string**<br><p>Security protocol to use for connection to the cluster.</p> 
 connectorSpec.<br>connectorConfigMirrormaker.<br>sourceCluster.<br>externalCluster.<br>sslTruststoreCertificates | **string**<br><p>CA in PEM format to connect to external cluster. Lines of certificate separated by '\n' symbol.</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster | **object**<br><p>Target cluster configuration.</p> <p>Specification of ClusterConnection - connection to clusters, that are source or target of MirrorMaker clusters.</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>alias | **string**<br><p>Alias of ClusterConnection. For example: 'source', 'target', ...</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>thisCluster | **object**<br>If type is 'this_cluster' - we connect to cluster that is handle Kafka Connect Worker, on which we try to register connector. <br>`connectorSpec.connectorConfigMirrormaker.targetCluster` includes only one of the fields `thisCluster`, `externalCluster`<br><br><p>Specification of cluster_connection type 'this_cluster'. This means that we already have all credentials, so this spec is empty.</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster | **object**<br>If type is 'external_cluster' - we connect to cluster that is not handle Kafka Connect Worker, on which we try to register connector. <br>`connectorSpec.connectorConfigMirrormaker.targetCluster` includes only one of the fields `thisCluster`, `externalCluster`<br><br><p>Specification of connection to external cluster. It contains all necessary credentials to connect to external cluster.</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>bootstrapServers | **string**<br><p>List bootstrap servers of cluster, separated by ','.</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>saslUsername | **string**<br><p>Sasl username which we use to connect to cluster.</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>saslPassword | **string**<br><p>Sasl password which we use to connect to cluster.</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>saslMechanism | **string**<br><p>Sasl mechanism, which we should use to connect to cluster.</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>securityProtocol | **string**<br><p>Security protocol, which we should use to connect to cluster.</p> 
+connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster | **object**<br><p>Target cluster configuration for the MirrorMaker connector.</p> 
+connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>alias | **string**<br><p>Alias of cluster connection configuration. Examples: ``source``, ``target``.</p> 
+connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>thisCluster | **object**<br>Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty. <br>`connectorSpec.connectorConfigMirrormaker.targetCluster` includes only one of the fields `thisCluster`, `externalCluster`<br><br>
+connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster | **object**<br>Configuration of connection to an external cluster with all the necessary credentials. <br>`connectorSpec.connectorConfigMirrormaker.targetCluster` includes only one of the fields `thisCluster`, `externalCluster`<br><br>
+connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>bootstrapServers | **string**<br><p>List of bootstrap servers of the cluster, separated by ``,``.</p> 
+connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>saslUsername | **string**<br><p>SASL username to use for connection to the cluster.</p> 
+connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>saslPassword | **string**<br><p>SASL password to use for connection to the cluster.</p> 
+connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>saslMechanism | **string**<br><p>SASL mechanism to use for connection to the cluster.</p> 
+connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>securityProtocol | **string**<br><p>Security protocol to use for connection to the cluster.</p> 
 connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>sslTruststoreCertificates | **string**<br><p>CA in PEM format to connect to external cluster. Lines of certificate separated by '\n' symbol.</p> 
-connectorSpec.<br>connectorConfigMirrormaker.<br>topics | **string**<br><p>List of Kafka topics, separated by ','</p> 
+connectorSpec.<br>connectorConfigMirrormaker.<br>topics | **string**<br><p>List of Kafka topics, separated by ``,``.</p> 
 connectorSpec.<br>connectorConfigMirrormaker.<br>replicationFactor | **integer** (int64)<br><p>Replication factor for automatically created topics.</p> 
  
 ## Response {#responses}
