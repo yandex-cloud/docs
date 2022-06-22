@@ -1,7 +1,7 @@
 ---
 sourcePath: overlay/docapi/api-ref/actions/batchGetItem.md
 ---
-# GetBatchItem method
+# BatchGetItem method
 
 Returns the attributes of one or more items from one or more tables. The requested items should be specified by primary key.
 

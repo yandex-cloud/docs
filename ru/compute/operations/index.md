@@ -152,5 +152,6 @@ description: "Пошаговые инструкции по работе и уп�
 
 ## Выделенные хосты {#dedicated-host}
 
+* [{#T}](dedicated-host/create-host-group.md)
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)

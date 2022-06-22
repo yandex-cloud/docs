@@ -1,4 +1,4 @@
-# GetBatchItem method
+# BatchGetItem method
 
 {% note info %}
 

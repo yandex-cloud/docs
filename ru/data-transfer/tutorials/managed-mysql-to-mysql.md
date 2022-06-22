@@ -24,6 +24,6 @@
 
 {% include notitle [MySQL migration with Data Trasnfer](../../_tutorials/datatransfer/managed-mysql-to-mysql.md) %}
 
-## Смотрите также {#see-also}
+## См. также {#see-also}
 
 Другие способы миграции описаны в [документации {{ mmy-full-name }}](../../managed-mysql/tutorials/index.md).

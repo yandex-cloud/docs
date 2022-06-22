@@ -1,4 +1,4 @@
-# Метод GetBatchItem
+# Метод BatchGetItem
 
 {% note info %}
 

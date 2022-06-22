@@ -1,7 +1,7 @@
 ---
 sourcePath: overlay/docapi/api-ref/actions/batchGetItem.md
 ---
-# Метод GetBatchItem
+# Метод BatchGetItem
 
 Возвращает атрибуты одного или нескольких элементов из одной или нескольких таблиц. Запрашиваемые элементы нужно указать по первичному ключу.
 
