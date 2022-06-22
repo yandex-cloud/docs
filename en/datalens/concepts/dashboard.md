@@ -12,11 +12,11 @@ You can create new dashboard pages using the **tab** element.
 
 {{ datalens-short-name }} lets you display the dashboard in full-screen mode. This mode hides part of the interface elements and expands the widget area on the screen.
 
-On the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom.
+By default, on the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom. In the tab settings, you can change the order of displaying charts and selectors in the mobile version or mailing lists.
 
 ## Widgets {#widget}
 
-_Widgets_ are dashboard elements. You can create links between selector and chart widgets.
+_Widgets_ are dashboard elements. You can create links between selectors and chart widgets.
 
 {{ datalens-full-name }} offers the following types of widgets:
 
@@ -36,14 +36,14 @@ For more information about charts, see [{#T}](chart/index.md).
 ### Selector {#selector}
 
 A filter that affects query results on its linked widgets. To add a selector to a dashboard, go to [{#T}](../operations/dashboard/add-selector.md).
-The selector can be linked to a chart or another selector.
+A selector can be linked to a chart or another selector.
  For more information, see [Link](#link).
 A selector works within a single dashboard tab.
 
 ### Text {#text}
 
 A widget represented as text. It lets you place things like a set of links or explanatory captions on a dashboard. The [Markdown markup language](https://en.wikipedia.org/wiki/Markdown) is supported.
-For more information about Markdown markup, see [{#T}](markdown.md).
+For more information about Markdown, see [{#T}](markdown.md).
 
 ### Title {#title}
 
@@ -57,11 +57,10 @@ You can choose an existing dataset field as the link or create your own field wh
 
 You can use links to filter the values of selectors and charts. For example, if you select a country in the first selector on the dashboard, the second selector limits the list of cities (and vice versa).
 
-The field used by the selector to filter on must be included in the dataset used to construct a chart. Otherwise, the link will not work. For more information, see the section [{#T}](data-join.md).
+The field used by the selector to filter on must be included in the dataset used to construct a chart. Otherwise, the link will not work. For more information, see [{#T}](data-join.md).
 
-The link type determines how values in selectors and charts are filtered. The type is set in the links window in dashboard edit mode.
+The link type determines how values in selectors and charts are filtered. The type is set in the links window in the dashboard edit mode.  
 You can use the following types of links for a pair of widgets:
-
 * **Link**, for widgets that mutually affect each other.
 * **Incoming link**, when a widget is affected by a widget.
 * **Outgoing link**, when a widget affects another widget.
@@ -89,7 +88,7 @@ Aliases let you link widgets that are based on different datasets. For example, 
 
 * Establish links between selectors that are based on different datasets, so that the values of one selector filter the list of available values of another selector.
 
-* Establish links between a selector of the **Based on datasets** type from one dataset and charts from another dataset, so that the selector values filter the values in the charts.
+* Establish links between a selector of the **Based on dataset** type from one dataset and charts from another dataset, so that the selector values filter the values in the charts.
 
 * Establish links between a selector of the **Manual input** type and other selectors, so that the values of one selector filter the list of available values of another selector.
 
@@ -110,56 +109,59 @@ You can grant any internet user access to a dashboard using [{{ datalens-public 
 
 {% include [share-note](../../_includes/datalens/datalens-share-note.md) %}
 
+To share a dashboard containing Yandex Metrica or AppMetrica data, use one of the following methods:
+
+{% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
+
 ## Access management {#access-management}
 
 You can configure dashboard permissions. For more information, see [{#T}](../security/index.md).
 
 ## Auto-update {#auto-update}
 
-You can set up [automatic updates](../operations/dashboard/auto-update.md) of data in the dashboard. The update interval is specified in seconds and the minimum value is 30 seconds. The setting is global: after saving the dashboard, auto-update will work for all users that open it. Auto-update also works in the mobile version.
+You can set up [automatic updates](../operations/dashboard/auto-update.md) of dashboard data. The update interval is specified in seconds and the minimum value is 30 seconds. The setting is global: after saving the dashboard, auto-update will work for all users that open it. Auto-update also works in the mobile version.
 
 The following limitations apply to auto-update:
 
 * Data is updated only for the tab opened in the browser.
-
 * The data is updated only for the current active tab, however:
-  * If the tab isn't selected as the current tab, it's not considered active and the data is not updated.
-  * If the tab is selected as the current tab, but the browser is running in the background, the tab is considered active and the data is updated.
 
-## Troubleshooting {#diagnostics}
+   * If the tab isn't selected as the current tab, it's not considered active and the data is not updated.
+   * If the tab is selected as the current tab, but the browser is running in the background, the tab is considered active and the data is updated.
 
-If a dashboard includes many charts that take a long time to load and process data, this can degrade the speed of the entire dashboard. You can analyze chart performance with an inspector.
+## Diagnostics {#diagnostics}
 
-A chart Inspector is a {{ datalens-short-name }} tool that helps you troubleshoot data loading and browser rendering issues. You can use it to determine why a chart is slow or optimize data acquisition and chart rendering.
+If a dashboard includes many charts that take a long time to load and process data, this may slow down the performance of the entire dashboard. You can analyze a chart's performance with an inspector.
 
-​To open the chart Inspector, click ![image](../../_assets/datalens/horizontal-ellipsis.svg) in the upper right-hand corner of the chart and select **Inspector**.
+A chart Inspector is a {{ datalens-short-name }} tool that helps you troubleshoot data loading and browser rendering issues. You can use it to determine why a chart is slow or optimize data fetching and chart rendering.
 
-{% cut "Example of a chart inspector" %}
+To open the chart inspector, click ![image](../../_assets/datalens/horizontal-ellipsis.svg) in the top-right corner of the chart and select **Inspector**.
+
+{% cut "Sample chart inspector" %}
 
 ![image](../../_assets/datalens/concepts/inspector-message.png)
 
 {% endcut %}
 
-At the top of the inspector window, there is information on the speed of the base operations:
+At the top of the inspector window, there is information on the speed of basic operations:
 
 * **Config resolving**: Chart configuration load time.
-* **Data fetching**: Time data takes to load from the source.
+* **Data fetching**: Time it takes to load data from the source.
 * **Execution**: Time to process data received from the source.
 * **Rendering**: Time to render data on a chart.
 
-Values above the optimal level are highlighted (orange or red). To get recommendations for optimizing a metric, hove the mouse over the question mark next to its name.
+Values above the optimal level are highlighted (in orange or red). To get recommendations for optimizing a metric, hover over the question mark next to its name.
 
 For some chart types, additional metrics are displayed:
 
 * **Columns / Rows**: Number of table columns and rows (for **Table** and **Pivot table** charts).
 * **Yandex Maps API**: Time to load modules required by Yandex Maps (for **Map** charts).
 
-The inspector also displays source request IDs (Request ID) and request traces (Trace IDs).
+The inspector also displays source Request IDs and request traces (Trace IDs).
 
-The **Data sources** section displays information on the sources used in a chart:
+The **Data sources** section displays information about the sources used in a chart:
 
 * Source name.
 * Link to source.
 * Request body in JSON format.
 * SQL query text sent to source (only if the SQL query is successful and its results are rendered in the chart).
-

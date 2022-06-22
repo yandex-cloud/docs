@@ -60,7 +60,7 @@ To allow another user with a Yandex account to open your dashboard, configure ac
 
 The user is granted access to your {{ datalens-short-name }} and objects with **All** permissions. You can assign this user individual permissions to objects.
 
-You can send the link to the dashboard from the browser. For more information about permissions for {{ datalens-short-name }} objects, see the [documentation]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/datalens/security/#permissions){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/docs/datalens/security/#permissions){% endif %}.
+You can send the link to the dashboard from the browser. For more information about permissions for {{ datalens-short-name }} objects, see the [documentation](https://cloud.yandex.com/en-ru/docs/datalens/security/#permissions).
 
 You can also make your dashboard public using [{#T}](../concepts/datalens-public.md).
 
@@ -155,6 +155,14 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 
 {% include [making-available-chart](../../_includes/datalens/qa/making-available-chart.md) %}
 
+### How do I make a dashboard containing Yandex Metrica or AppMetrica data public? {#how-metrica-appmetrica-share}
+
+Datasets based on a connection to the Yandex Metrica API and AppMetrica do not support materialization and you cannot publish such a dashboard.
+
+To share a dashboard containing Yandex Metrica or AppMetrica data, use one of the following methods:
+
+{% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
+
 ## Other {#other}
 
 ### Can I get logs of my operations with services? {#logs}
@@ -167,7 +175,7 @@ Yes, you can request log records about your resources from {{ yandex-cloud }} se
 
 {{ datalens-short-name }} is offered only as a cloud service. We would also like to note:
 
-- {{ datalens-short-name }} is a {{ yandex-cloud }} service, which is compliant with Federal Law No. 152 and industry security standards. More information is available in [{{ yandex-cloud }} security]{% if lang == "ru" %}(https://cloud.yandex.ru/security){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/security){% endif %}.
+- {{ datalens-short-name }} is a {{ yandex-cloud }} service, which is compliant with Federal Law No. 152 and industry security standards. More information is available in [{{ yandex-cloud }} security](https://cloud.yandex.com/en-ru/security).
 
 - For {{ datalens-short-name }}, you can [set up identity federations](../../organization/quick-start.md).
 

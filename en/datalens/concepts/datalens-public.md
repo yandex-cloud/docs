@@ -12,7 +12,7 @@ To publish a chart or dashboard, make sure you meet the following conditions:
 
 - [Materializing a dataset](../operations/dataset/materialize.md). After the materialization, {{datalens-short-name}} has guaranteed access to data.
 
-    {% include [datalens-materialization](../../_includes/datalens/datalens-materialization.md) %}
+   {% include [datalens-materialisation](../../_includes/datalens/datalens-materialization.md) %}
 
 - Grant permissions to publish related datasets and connections. To do this, you need to have `{{ permission-admin }}` permission to these objects.
 
@@ -24,21 +24,23 @@ We also recommend minimizing the data in a dataset and adding only the required 
 
 You can grant public access to a dashboard or chart.
 
-{% note warning %}
-
-To publish an object, you must have [administrator rights](../security/index.md#permission-admin) to the object and related objects.
-
-{% endnote %}
-
 {% list tabs %}
 
 - Dashboards
 
-  {% include [datalens-public-dashboard](../../_includes/datalens/operations/datalens-public-dashboard.md) %}
+   {% include [datalens-public-dashboard](../../_includes/datalens/operations/datalens-public-dashboard.md) %}
+
+   To share a dashboard containing Yandex Metrica or AppMetrica data, use one of the following methods:
+
+   {% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
 
 - Charts
 
-  {% include [datalens-public-chart](../../_includes/datalens/operations/datalens-public-chart.md) %}
+   {% include [datalens-public-chart](../../_includes/datalens/operations/datalens-public-chart.md) %}
+
+   To share a chart containing Yandex Metrica or AppMetrica data, use one of the following methods:
+
+   {% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
 
 {% endlist %}
 
@@ -46,8 +48,8 @@ To publish an object, you must have [administrator rights](../security/index.md#
 
 You can embed the published charts into a website or app using the `iframe` element.
 
-Before adding a chart to an `iframe`, add the `_embedded=1` parameter to the chart URL.
-The parameter is added to the URL following a question mark (`?`).
+Before adding a chart to the `iframe`, add the `_embedded=1` parameter to the chart URL.
+The parameter is added to the URL following the question mark `?`.
 For example:
 
 ```
@@ -59,7 +61,7 @@ You can also pass a parameter to specify the chart design:
 * `_theme=light`: Use the light theme for the chart.
 * `_theme=dark`: Use the dark theme for the chart.
 
-To pass more than one parameter, use the ampersand (`&`) between them.
+To pass more than one parameter, use the ampersand `&` between them.
 For example:
 
 ```
@@ -74,9 +76,8 @@ To set the filter parameter:
 1. Select the desired selector.
 1. Proceed to edit the chart on the dashboard. Click ![image](../../_assets/datalens/horizontal-ellipsis-black.svg) and select **Embed code**.
 
-The filter parameter is added to the chart URL following the question mark (`?`).
+The filter parameter is added to the chart URL following the question mark `?`.
 
 ```
 <iframe src="https://datalens.yandex/oxxbqilhotpgk?e16d1014-7135-4af5-9169-1b8ab88bdb4e=East&_embedded=1&_theme=dark"></iframe>
 ```
-
