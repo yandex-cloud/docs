@@ -2,6 +2,10 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
+{% if product == "yandex-cloud" %}
+{% include [21.06.2022 — CVE-2022-1680 — Critical Account Takeover Vulnerability in GitLab](../../_includes/security/security-bulletins/cve-2022-1680-gitlab.md) %}
+{% endif %}
+
 {% include [15.06.2022 – Ingress-nginx path sanitization](../../_includes/security/security-bulletins/cve-2021-25748-ingress-nginx-path.md) %}
 
 {% include [29.04.2022 — Redis](../../_includes/security/security-bulletins/cve-2022-24735-24736.md) %}
