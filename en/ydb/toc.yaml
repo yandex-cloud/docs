@@ -307,14 +307,12 @@ items:
             href: yql/reference/syntax/action.md
           - name: ALTER TABLE
             href: yql/reference/syntax/alter_table.md
-            when: feature_map_tables
           - name: CREATE TABLE
             href: yql/reference/syntax/create_table.md
           - name: DECLARE
             href: yql/reference/syntax/declare.md
           - name: DELETE
             href: yql/reference/syntax/delete.md
-            when: feature_map_tables
           - name: DISCARD
             href: yql/reference/syntax/discard.md
           - name: DROP TABLE
@@ -332,7 +330,6 @@ items:
             href: yql/reference/syntax/into_result.md
           - name: JOIN
             href: yql/reference/syntax/join.md
-            when: feature_join
           - name: PRAGMA
             href: yql/reference/syntax/pragma.md
           - name: PROCESS STREAM
@@ -346,7 +343,6 @@ items:
             when: feature_mapreduce and reduce_command == "REDUCE"
           - name: REPLACE
             href: yql/reference/syntax/replace_into.md
-            when: feature_replace
           - name: SELECT
             href: yql/reference/syntax/select.md
           - name: SELECT STREAM
@@ -357,10 +353,8 @@ items:
             when: feature_subquery
           - name: UPDATE
             href: yql/reference/syntax/update.md
-            when: feature_map_tables
           - name: UPSERT
             href: yql/reference/syntax/upsert_into.md
-            when: feature_upsert
           - name: USE
             href: yql/reference/syntax/use.md
             when: feature_mapreduce
@@ -368,7 +362,6 @@ items:
             href: yql/reference/syntax/values.md
           - name: WINDOW
             href: yql/reference/syntax/window.md
-            when: feature_window_functions
           - name: Unsupported statements
             href: yql/reference/syntax/not_yet_supported.md
       - name: Built-in functions
@@ -381,7 +374,6 @@ items:
             href: yql/reference/builtins/aggregation.md
           - name: Window
             href: yql/reference/builtins/window.md
-            when: feature_window_functions
           - name: For lists
             href: yql/reference/builtins/list.md
           - name: For dictionaries
