@@ -1,4 +1,4 @@
-# Source endpoint parameters {{ yds-full-name }}
+# Configuring a {{ yds-full-name }} source endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 

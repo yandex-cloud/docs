@@ -1,4 +1,4 @@
-# Target endpoint parameters {{ ydb-name }}
+# Configuring a {{ ydb-name }} target endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 

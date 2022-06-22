@@ -1,4 +1,4 @@
-# Target endpoint parameters {{ objstorage-name }}
+# Configuring an {{ objstorage-name }} target endpoint
 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can configure access to a {{ objstorage-full-name }} bucket.
 

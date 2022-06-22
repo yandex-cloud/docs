@@ -1,4 +1,4 @@
-# Target endpoint parameters {{ PG }}
+# Configuring a {{ PG }} target endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 

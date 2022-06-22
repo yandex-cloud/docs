@@ -1,4 +1,4 @@
-# Oracle source endpoint parameters
+# Configuring an Oracle source endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can set required parameters: Oracle cluster connection settings.
 

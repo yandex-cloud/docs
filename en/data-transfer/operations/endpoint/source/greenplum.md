@@ -1,4 +1,4 @@
-# Source endpoint parameters {{ GP }}
+# Configuring a {{ GP }} source endpoint
 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 

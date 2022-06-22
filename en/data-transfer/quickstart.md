@@ -59,7 +59,15 @@ Copy or replicate data from a source to a target by creating [endpoints](concept
 
 ## Configure the source and the target {#db-settings}
 
-Prepare the source service for sending data:
+Different systems can act as a source and as a target.
+
+### Compatibility of sources and targets {#connectivity-matrix}
+
+{% include [include](../_includes/data-transfer/connectivity-marix.md) %}
+
+### Prepare sources and targets {#prepare-source-and-target}
+
+Prepare the source for sending data:
 
 * [{{ KF }}](operations/prepare.md#source-kf)
 * [{{ CH }}](operations/prepare.md#source-ch)
@@ -71,7 +79,7 @@ Prepare the source service for sending data:
 * [{{ yds-full-name }}](operations/prepare.md#source-yds)
 {% endif %}
 
-Prepare the target service for receiving the data:
+Prepare the target for receiving the data:
 
 * [{{ CH }}](operations/prepare.md#target-ch)
 * [{{ GP }}](operations/prepare.md#target-gp)
