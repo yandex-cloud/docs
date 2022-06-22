@@ -104,3 +104,20 @@
 {% endlist %}
 
 Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster).
+
+## Состояние и статус кластера {#cluster-health-and-status}
+
+{% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
+
+Для просмотра состояния и статуса кластера:
+
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mkf-name }}**.
+1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
+
+### Состояния кластера {#cluster-health}
+
+{% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
+
+### Статусы кластера {#cluster-status}
+
+{% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
