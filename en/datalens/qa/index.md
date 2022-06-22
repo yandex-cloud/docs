@@ -84,7 +84,7 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 
 {% include [csv-network-error](../../_includes/datalens/qa/csv-network-error.md) %}
 
-### What should I do if a Google Sheets document doesn't work right?{#google-sheets-error}
+### What do I do if a Google Sheets spreadsheet is not working properly? {#google-sheets-error}
 
 {% include [google-sheets-error](../../_includes/datalens/qa/google-sheets-error.md) %}
 
@@ -143,6 +143,8 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 
 {% include [calculate-cumulative-sum](../../_includes/datalens/qa/calculating-cumulative-sum.md) %}
 
+{% include [calculate-ifnull-zn-nan](../../_includes/datalens/qa/calculating-ifnull-zn-nan.md) %}
+
 ## Dashboards {#dashboards}
 
 {% include [configure-link-between-selectors](../../_includes/datalens/qa/configure-link-between-selectors.md) %}
@@ -175,7 +177,7 @@ Your cloud may be blocked in the following cases:
 
 - Outstanding charges for {{ yandex-cloud }} paid services that are in the same cloud as {{ datalens-short-name }}.
 - Expiration of a trial period for {{ yandex-cloud }} paid services.
-- Violation of the [Terms of use]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_termsofuse/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_termsofuse/?lang=en){% endif %} {{ yandex-cloud }}.
+- Violation of the [Terms of use]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_termsofuse/){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_termsofuse/?lang=en){% endif %} {{ yandex-cloud }}.
 
 When a cloud is suspended, your {{ datalens-short-name }} instance will be unavailable. You won't be able to use {{ datalens-short-name }} until access to the cloud is restored.
 
