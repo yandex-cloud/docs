@@ -24,7 +24,7 @@
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy-repl }}_, использующий созданные эндпоинты.
 
-        1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
+        1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate).
 
     * С помощью {{ TF }}
 
@@ -62,12 +62,12 @@
 
     {% endnote %}
 
-1. Дождитесь перехода трансфера в статус **Реплицируется**.
+1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
 1. Переведите кластер-источник в режим <q>только чтение</q> и переключите нагрузку на кластер-приемник.
 1. На странице [мониторинга трансфера](../../data-transfer/operations/monitoring.md) дождитесь снижения до нуля характеристики **Maximum lag on delivery, [s]**. Это значит, что в кластер-приемник перенесены все изменения, произошедшие в кластере-источнике после завершения копирования данных.
-1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate-transfer) трансфер и дождитесь его перехода в статус **Остановлен**.
+1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate-transfer) трансфер и дождитесь его перехода в статус {{ dt-status-stopped }}.
 
-    Подробнее о жизненном цикле трансфера читайте в [документации {{ data-transfer-full-name }}](../../data-transfer/concepts/transfer-lifecycle.md).
+    Подробнее о статусах трансфера см. в разделе [Жизненный цикл трансфера](../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
 1. Удалите созданные эндпоинты и трансфер:
 
@@ -77,7 +77,7 @@
 
       Если вы создали эндпоинты и трансфер вручную, то:
 
-        1. [Удалите](../../data-transfer/operations/transfer.md#delete-transfer) остановленный трансфер.
+        1. [Удалите остановленный трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
         1. [Удалите эндпоинты для источника и приемника](../../data-transfer/operations/endpoint/index.md#delete).
 
     * С помощью {{ TF }}

@@ -27,6 +27,6 @@
 
 {% include notitle [MPG moving data with Data Transfer](../../_tutorials/datatransfer/managed-postgresql.md) %}
 
-## Смотри также {#see-also}
+## См. также {#see-also}
 
 Другие способы миграции описаны в [документации {{ mpg-full-name }}](../../managed-postgresql/tutorials/data-migration.md).

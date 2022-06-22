@@ -25,10 +25,10 @@ _Эндпоинт_ — это конфигурация для подключен
 | Поток сообщений AWS CloudTrail                                                                             | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
 | Собственная база данных BigQuery                                                                           | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
 | База данных {{ CH }} — собственная или в составе [сервиса {{ mch-short-name }}](../../managed-clickhouse/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| База данных {{ GP }} — собственная или в составе [сервиса {{ mgp-short-name }}](../../managed-greenplum/)  | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
+| База данных {{ GP }} — собственная или в составе [сервиса {{ mgp-short-name }}](../../managed-greenplum/)  | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | База данных {{ MG }} — собственная или в составе [сервиса {{ mmg-short-name }}](../../managed-mongodb/)    | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | База данных {{ MY }} — собственная или в составе [сервиса {{ mmy-short-name }}](../../managed-mysql/)      | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| Собственная база данных Oracle                                                                             | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
+| Собственная база данных Oracle                                                                             | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
 | База данных {{ PG }} — собственная или в составе [сервиса {{ mpg-short-name }}](../../managed-postgresql/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | S3-совместимый бакет                                                                                       | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
 | Поток данных [{{ yds-full-name }}](../../data-streams/)                                                    | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
@@ -41,13 +41,15 @@ _Эндпоинт_ — это конфигурация для подключен
 
 | Сервис                                                                                                     | Источник                             | Приемник                             |
 |------------------------------------------------------------------------------------------------------------|:------------------------------------:|:------------------------------------:|
-| База данных {{ CH }} — собственная или в составе [сервиса {{ mch-short-name }}](../../managed-clickhouse/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| Собственная база данных {{ GP }}                                                                           | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
-| Собственная база данных {{ MG }}    | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| База данных {{ MY }} — собственная или в составе [сервиса {{ mmy-short-name }}](../../managed-mysql/)      | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| Собственная база данных Oracle                                                                             | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
-| База данных {{ PG }} — собственная или в составе [сервиса {{ mpg-short-name }}](../../managed-postgresql/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | Топик {{ KF }} — собственный или в составе [сервиса {{ mkf-short-name }}](../../managed-kafka/)            | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
+| Поток сообщений AWS CloudTrail                                                                             | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
+| Собственная база данных BigQuery                                                                           | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
+| База данных {{ CH }} — собственная или в составе [сервиса {{ mch-short-name }}](../../managed-clickhouse/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
+| Собственная база данных {{ GP }}                                                                           | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
+| Собственная база данных {{ MG }}                                                                           | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
+| База данных {{ MY }} — собственная или в составе [сервиса {{ mmy-short-name }}](../../managed-mysql/)      | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
+| Собственная база данных Oracle                                                                             | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
+| База данных {{ PG }} — собственная или в составе [сервиса {{ mpg-short-name }}](../../managed-postgresql/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | Бакет [{{ objstorage-full-name }}](../../storage/)                                                         | ![no](../../_assets/common/no.svg)   | ![yes](../../_assets/common/yes.svg) |
 
 {% endif %}

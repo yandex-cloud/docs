@@ -5,7 +5,6 @@
 * Настройки подключения к {% if product == "yandex-cloud" %}[кластеру {{ mgp-full-name }}](#managed-service) или {% endif %}[пользовательской инсталляции](#on-premise), в т. ч. на базе виртуальных машин {{ compute-full-name }}. Эти параметры обязательные.
 * [Дополнительные параметры](#additional-settings).
 
-
 {% if product == "yandex-cloud" %}
 
 ## Кластер {{ mgp-name }} {#managed-service}
@@ -21,7 +20,6 @@
 {% endlist %}
 
 {% endif %}
-
 
 ## Пользовательская инсталляция {#on-premise}
 

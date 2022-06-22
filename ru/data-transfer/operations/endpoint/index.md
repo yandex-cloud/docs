@@ -16,25 +16,29 @@
     1. Выберите нужное значение в поле **Тип базы данных**. Будет создан эндпоинт соответствующего типа.
     1. Задайте параметры эндпоинта:
         * Источники:
-            * [{{ KF }}](source/kafka.md).
-            * [AWS CloudTrail](source/aws-cloudtrail.md).
-            * [BigQuery](source/bigquery.md).
-            * [{{ CH }}](source/clickhouse.md).
-            * [{{ GP }}](source/greenplum.md).
-            * [{{ MG }}](source/mongodb.md).
-            * [{{ MY }}](source/mysql.md).
-            * [Oracle](source/oracle.md).
-            * [{{ PG }}](source/postgresql.md).
-            * [S3](source/s3.md). 
-            {% if product == "yandex-cloud" %}* [{{ yds-full-name }}](source/data-streams.md).{% endif %}
+            * [{{ KF }}](source/kafka.md)
+            * [AWS CloudTrail](source/aws-cloudtrail.md)
+            * [BigQuery](source/bigquery.md)
+            * [{{ CH }}](source/clickhouse.md)
+            * [{{ GP }}](source/greenplum.md)
+            * [{{ MG }}](source/mongodb.md)
+            * [{{ MY }}](source/mysql.md)
+            * [Oracle](source/oracle.md)
+            * [{{ PG }}](source/postgresql.md)
+            {% if product == "yandex-cloud" %}
+            * [S3](source/s3.md)
+            * [{{ yds-full-name }}](source/data-streams.md)
+            {% endif %}
         * Приемники:
-            * [{{ CH }}](target/clickhouse.md).
-            * [{{ GP }}](target/greenplum.md).
-            * [{{ MG }}](target/mongodb.md).
-            * [{{ MY }}](target/mysql.md).
-            * [{{ objstorage-name }}](target/object-storage.md).
-            * [{{ PG }}](target/postgresql.md).
-            {% if product == "yandex-cloud" %}* [{{ ydb-name }}](target/yandex-database.md).{% endif %}
+            * [{{ CH }}](target/clickhouse.md)
+            * [{{ GP }}](target/greenplum.md)
+            * [{{ MG }}](target/mongodb.md)
+            * [{{ MY }}](target/mysql.md)
+            * [{{ objstorage-name }}](target/object-storage.md)
+            * [{{ PG }}](target/postgresql.md)
+            {% if product == "yandex-cloud" %}
+            * [{{ ydb-name }}](target/yandex-database.md)
+            {% endif %}
 
     1. Нажмите кнопку **Создать**.
 
@@ -182,7 +186,7 @@
             * [Oracle](source/oracle.md).
             * [{{ PG }}](source/postgresql.md).
             * [S3](source/s3.md).
-            * {% if product == "yandex-cloud" %}[{{ yds-full-name }}](source/data-streams.md){% endif %}.
+            {% if product == "yandex-cloud" %}* [{{ yds-full-name }}](source/data-streams.md).{% endif %}
         * Приемники:
             * [{{ CH }}](target/clickhouse.md).
             * [{{ GP }}](target/greenplum.md).
