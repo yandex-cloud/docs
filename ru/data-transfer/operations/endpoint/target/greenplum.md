@@ -6,7 +6,6 @@
 * [Дополнительные параметры](#additional-settings).
 
 
-
 ## Кластер {{ mgp-name }} {#managed-service}
 
 Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}. Доступно только для кластеров, развернутых в сервисе [{{ mgp-full-name }}](../../../../managed-greenplum/).
@@ -18,7 +17,6 @@
     {% include [Managed Greenplum](../../../../_includes/data-transfer/necessary-settings/ui/managed-greenplum.md) %}
 
 {% endlist %}
-
 
 ## Пользовательская инсталляция {#on-premise}
 

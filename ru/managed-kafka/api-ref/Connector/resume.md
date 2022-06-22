@@ -4,7 +4,7 @@ sourcePath: en/_api-ref/mdb/kafka/api-ref/Connector/resume.md
 ---
 
 # Method resume
-Resume the specified Apache Kafka connector.
+Resumes an Apache Kafka® connector.
  
 
  
@@ -17,8 +17,8 @@ POST https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}/connectors
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the Apache Kafka cluster to resume connector in.  The maximum string length in characters is 50.
-connectorName | Required. Name of the Apache Kafka Connector resource to resume. To get the name of the connector use a [list](/docs/managed-kafka/api-ref/Connector/list) request.  The maximum string length in characters is 256. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+clusterId | Required. ID of the Apache Kafka® cluster to resume the connector in.  To get this ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+connectorName | Required. Name of the Apache Kafka® connector to resume.  To get this name, make a [list](/docs/managed-kafka/api-ref/Connector/list) request.  The maximum string length in characters is 256. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
  
 ## Body parameters {#body_params}
  

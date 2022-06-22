@@ -1,4 +1,4 @@
-# Миграция базы данных в {{ mmy-name }}
+# Миграция базы данных в {{ mmy-full-name }}
 
 С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из стороннего кластера-источника в кластер-приемник {{ mmy-name }}.
 
@@ -20,6 +20,6 @@
 
 {% include notitle [MySQL migration with Data Transfer](../../_tutorials/datatransfer/managed-mysql.md) %}
 
-## Смотри также {#see-also}
+## См. также {#see-also}
 
 Другие способы миграции описаны в [документации {{ mmy-full-name }}](../../managed-mysql/tutorials/data-migration.md).

@@ -63,6 +63,8 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
+      - name: Миграция базы данных в {{ mgp-full-name }}
+        href: tutorials/managed-greenplum.md
       - name: Миграция базы данных в {{ mmg-full-name }}
         href: tutorials/managed-mongodb.md
       - name: Миграция базы данных в {{ mmy-full-name }}

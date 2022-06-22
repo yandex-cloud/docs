@@ -27,13 +27,17 @@ items:
         href: operations/cluster-delete.md
       - name: Мониторинг состояния кластера и хостов
         href: operations/monitoring.md
+  - name: Практические руководства
+    items:
+      - name: Миграция базы данных в {{ mgp-name }}
+        href: tutorials/data-migration.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
       - name: Классы хостов
         href: concepts/instance-types.md
-      - name: Сеть в Managed Service for Greenplum Database®
+      - name: Сеть в {{ mgp-name }}
         href: concepts/network.md
       - name: Квоты и лимиты
         href: concepts/limits.md

@@ -305,10 +305,14 @@ items:
             href: yql/reference/syntax/expressions.md
           - name: ACTION
             href: yql/reference/syntax/action.md
+          - name: ALTER TABLE
+            href: yql/reference/syntax/alter_table.md
           - name: CREATE TABLE
             href: yql/reference/syntax/create_table.md
           - name: DECLARE
             href: yql/reference/syntax/declare.md
+          - name: DELETE
+            href: yql/reference/syntax/delete.md
           - name: DISCARD
             href: yql/reference/syntax/discard.md
           - name: DROP TABLE
@@ -321,12 +325,22 @@ items:
             href: yql/reference/syntax/insert_into.md
           - name: INTO RESULT
             href: yql/reference/syntax/into_result.md
+          - name: JOIN
+            href: yql/reference/syntax/join.md
           - name: PRAGMA
             href: yql/reference/syntax/pragma.md
+          - name: REPLACE
+            href: yql/reference/syntax/replace_into.md
           - name: SELECT
             href: yql/reference/syntax/select.md
+          - name: UPDATE
+            href: yql/reference/syntax/update.md
+          - name: UPSERT
+            href: yql/reference/syntax/upsert_into.md
           - name: VALUES
             href: yql/reference/syntax/values.md
+          - name: WINDOW
+            href: yql/reference/syntax/window.md
           - name: Unsupported statements
             href: yql/reference/syntax/not_yet_supported.md
       - name: Built-in functions
@@ -337,6 +351,8 @@ items:
             href: yql/reference/builtins/basic.md
           - name: Aggregate
             href: yql/reference/builtins/aggregation.md
+          - name: Window
+            href: yql/reference/builtins/window.md
           - name: For lists
             href: yql/reference/builtins/list.md
           - name: For dictionaries
