@@ -84,10 +84,14 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Storage in {{ dataproc-name }}
+        href: concepts/storage.md
       - name: Component properties
         href: concepts/settings-list.md
       - name: Logs in Data Proc
         href: concepts/logs.md
+      - name: Initialization scripts
+        href: concepts/init-action.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

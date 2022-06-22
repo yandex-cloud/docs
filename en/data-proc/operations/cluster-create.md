@@ -29,7 +29,7 @@ Security groups must be created and configured before creating a cluster. If the
       * Source type: `CIDR`.
       * CIDR blocks: `0.0.0.0/0`.
 
-      This will enable you to use [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md), and cluster [autoscaling](../concepts/autoscaling.md).
+      This will enable you to use [{{ objstorage-full-name }} buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/interfaces.md), and cluster [autoscaling](../concepts/autoscaling.md).
 
 If you plan to use multiple security groups for a cluster, enable all traffic between these groups.
 
@@ -69,7 +69,17 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
    1. Select or create a [service account](../../iam/concepts/users/service-accounts.md) to be granted cluster access.
    1. Select the availability zone for the cluster.
    1. If necessary, configure the [properties of cluster components](../concepts/settings-list.md), jobs, and the environment.
-   1. Select the name of a bucket in {{ objstorage-name }} to store job dependencies and output.
+   1. If necessary, specify the custom [initialization scripts](../concepts/init-action.md) of cluster hosts. For each script, specify:
+
+      * **uri**: Link to the initialization script in the `https://` or `s3a://` scheme.
+      * (Optional) **Timeout**: Script execution timeout (in seconds). The initialization script that runs longer than the specified time will be terminated.
+      * (Optional) **Arguments**: Arguments, enclosed in square brackets `[]` and separated by commas, with which an initialization script must be executed, for example:
+
+         ```text
+         ["arg1","arg2",...,"argN"]
+         ```
+
+   1. Select the name of a bucket in {{ objstorage-full-name }} to store job dependencies and results.
    1. Select a network for the cluster.
    1. Select security groups that have the required permissions.
 
@@ -92,7 +102,7 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
 
       * The number of hosts.
       * The [host class](../concepts/instance-types.md), which dictates the platform and computing resources available to the host.
-      * [Storage](../../compute/concepts/filesystem.md) size and type.
+      * [Storage](../concepts/storage.md) size and type.
       * The subnet of the network where the cluster is located.
 
          NAT to the internet must be enabled in the subnet for the subcluster with the `Master` role. For more information, see [{#T}](#setup-network).
@@ -141,7 +151,7 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
    1. Specify cluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
 
       ```bash
-      yc dataproc cluster create <cluster name> \
+      {{ yc-dp }} cluster create <cluster name> \
         --zone <cluster availability zone> \
         --service-account-name <cluster service account name> \
         --version <image version> \
@@ -153,7 +163,7 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
                     `disk-size=<storage size, GB>,`
                     `subnet-name=<subnet name>,`
                     `hosts-count=1`
-                    `assign-public-ip=<assignment of public IP address to all subcluster hosts: true or false> \
+                    `assign-public-ip=<assignment of public IP address to subcluster host: true or false> \
         --subcluster name=<name of DATANODE subcluster>,`
                     `role=datanode,`
                     `resource-preset=<host class>,`
@@ -174,12 +184,28 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
    1. To create a cluster deployed on [groups of dedicated hosts](../../compute/concepts/dedicated-host.md), specify host IDs as a comma-separated list in the `--host-group-ids` parameter:
 
       ```bash
-      yc dataproc cluster create <cluster name> \
-        ...
+      {{ yc-dp }} cluster create <cluster name> \
+         ...
         --host-group-ids <IDs of dedicated host groups>
       ```
 
       {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
+
+   1. To configure cluster hosts using [initialization scripts](../concepts/init-action.md), specify them in one or more `--initialization-action` parameters:
+
+      ```bash
+      {{ yc-dp }} cluster create <cluster name> \
+         ...
+         --initialization-action uri=<initialization script URI>,`
+                                `timeout=<script execution timeout>,`
+                                `args=["arg1","arg2","arg3",...]
+      ```
+
+      Where:
+
+      * `uri`: link to the initialization script in the `https://` or `s3a://` scheme.
+      * (Optional) `timeout`: Script execution timeout (in seconds). The initialization script that runs longer than the specified time will be terminated.
+      * (Optional) `args`: Arguments, enclosed in square brackets and separated by commas, with which an initialization script must be executed.
 
 - Terraform
 
@@ -255,7 +281,7 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
 
    1. Create a configuration file with a description of the cluster and its subclusters.
 
-      If required, you can also use it to specify the [properties of cluster components, jobs, and the environment](../concepts/settings-list.md).
+      If necessary, you can also use it to specify the [properties of cluster components, jobs, and the environment](../concepts/settings-list.md).
 
       Example configuration file structure describing a cluster of a single primary data storage subcluster:
 
@@ -267,7 +293,7 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
         service_account_id  = "<service account ID in {{ TF }}>"
         zone_id             = "<availability zone>"
         security_group_ids  = ["<security group ID list>"]
-        deletion_protection = <protect cluster from deletion: true or false>
+        deletion_protection = <deletion protection: true or false>
 
         cluster_config {
           version_id = "<image version>"
@@ -280,7 +306,7 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
               ...
             }
             ssh_public_keys = [
-              file("<path to file with public SSH key>")
+              file("${file("<path to file with public SSH key>")}")
             ]
           }
 
@@ -335,7 +361,7 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
       }
       ```
 
-      To configure [autoscaling](../concepts/autoscaling.md) for `Compute` subclusters, add a section called `autoscaling_config` with the settings you require to the description of the relevant subcluster named `subcluster_spec`:
+      To configure [autoscaling](../concepts/autoscaling.md) for `Compute` subclusters, add a section called `autoscaling_config` with the required settings to the description of the relevant subcluster named `subcluster_spec`:
 
       ```hcl
       subcluster_spec {
@@ -391,6 +417,8 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
 
    {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
 
+   To use [initialization scripts](../concepts/init-action.md) for the initial configuration of cluster hosts, specify them in the `config_spec.hadoop.initialization_actions[]` parameter.
+
 {% endlist %}
 
-After your cluster changes its status to **Running**, you can [connect](connect.md) to the primary subcluster host using the specified SSH key.
+After your cluster's status changes to **Running**, you can [connect](connect.md) to the primary subcluster host using the specified SSH key.
