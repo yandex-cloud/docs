@@ -87,6 +87,8 @@ items:
     items:
       - name: О сервисе DataSphere
         href: concepts/index.md
+      - name: Взаимосвязь ресурсов в DataSphere
+        href: concepts/resource-model.md
       - name: Сообщества
         href: concepts/community.md
       - name: Бюджеты DataSphere
