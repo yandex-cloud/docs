@@ -39,13 +39,13 @@
     1. Посмотрите описание команды CLI для создания заданий типа `Hive`:
 
         ```bash
-        yc dataproc job create-hive --help
+        {{ yc-dp }} job create-hive --help
         ```
 
     1. Создайте задание (в примере приведены не все доступные параметры):
 
         ```bash
-        yc dataproc job create-hive \
+        {{ yc-dp }} job create-hive \
           --cluster-name <имя кластера> \
           --name <имя задания> \
           --query-file-uri <URI файла запроса> \

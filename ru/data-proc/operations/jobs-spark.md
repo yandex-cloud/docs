@@ -37,13 +37,13 @@
     1. Посмотрите описание команды CLI для создания заданий типа `spark`:
 
         ```bash
-        yc dataproc job create-spark --help
+        {{ yc-dp }} job create-spark --help
         ```
 
     1. Создайте задание (в примере приведены не все доступные параметры):
 
         ```bash
-        yc dataproc job create-spark \
+        {{ yc-dp }} job create-spark \
           --cluster-name <имя кластера> \
           --name <имя задания> \
           --main-class <имя основного класса приложения> \

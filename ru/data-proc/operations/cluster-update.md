@@ -41,14 +41,14 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        yc dataproc cluster update --help
+        {{ yc-dp }} cluster update --help
         ```
 
     {% if product == "yandex-cloud" %}
     1. Чтобы изменить [лог-группу](../../logging/concepts/log-group.md), в которую отправляются логи кластера, передайте идентификатор нужной лог-группы в параметре `--log-group-id`:
 
         ```bash
-        yc dataproc cluster update <идентификатор или имя кластера> \
+        {{ yc-dp }} cluster update <идентификатор или имя кластера> \
           --log-group-id=<идентификатор лог группы>
         ```
 
@@ -58,7 +58,7 @@
     1. Чтобы защитить кластер от непреднамеренного удаления пользователем вашего облака, задайте значение `true` для параметра `--deletion-protection`:
 
         ```bash
-        yc dataproc cluster update <идентификатор или имя кластера> \
+        {{ yc-dp }} cluster update <идентификатор или имя кластера> \
           --deletion-protection=<защита от удаления кластера: true или false>
         ```
 

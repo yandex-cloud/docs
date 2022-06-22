@@ -2,7 +2,7 @@
 
 ## Настройте сеть {#setup-network}
 
-В подсети, к которой будет подключен подкластер {{ dataproc-name }} с ролью `Мастер`, [включите NAT в интернет](../../vpc/operations/enable-nat.md). Это необходимо, чтобы подкластер мог взаимодействовать c сервисами {{ yandex-cloud }} или хостами в других сетях.
+В подсети, к которой будет подключен подкластер {{ dataproc-name }} с ролью `Мастер`, {% if audience != "internal" %}[включите NAT в интернет](../../vpc/operations/enable-nat.md){% else %}включите NAT в интернет{% endif %}. Это необходимо, чтобы подкластер мог взаимодействовать c сервисами {{ yandex-cloud }} или хостами в других сетях.
 
 ## Настройте группы безопасности {#change-security-groups}
 
@@ -12,8 +12,8 @@
 
 {% endnote %}
 
-1. [Создайте](../../vpc/operations/security-group-create.md) одну или несколько групп безопасности для служебного трафика кластера.
-1. [Добавьте правила](../../vpc/operations/security-group-update.md#add-rule):
+1. {% if audience != "internal" %}[Создайте](../../vpc/operations/security-group-create.md){% else %}Создайте{% endif %} одну или несколько групп безопасности для служебного трафика кластера.
+1. {% if audience != "internal" %}[Добавьте правила](../../vpc/operations/security-group-update.md#add-rule){% else %}Добавьте правила{% endif %}:
 
     * По одному правилу для входящего и исходящего служебного трафика:
 
@@ -45,6 +45,8 @@
 
 ## Создайте кластер {#create}
 
+Кластер должен состоять минимум из двух подкластеров: одного `Мастер` и одного `Data`.
+
 {% list tabs %}
 
 - Консоль управления
@@ -65,8 +67,8 @@
 
      {% endnote %}
 
-  1. Вставьте в поле **SSH-ключ** публичную часть вашего SSH-ключа. Как сгенерировать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md).
-  1. Выберите или создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру.
+  1. Вставьте в поле **SSH-ключ** публичную часть вашего SSH-ключа.{% if audience != "internal" %} Как сгенерировать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md).{% endif %}
+  1. Выберите или создайте {% if audience != "internal" %}[сервисный аккаунт](../../iam/concepts/users/service-accounts.md){% else %}сервисный аккаунт{% endif %}, которому нужно разрешить доступ к кластеру.
   1. Выберите зону доступности для кластера.
   1. При необходимости задайте [свойства компонентов кластера, заданий и среды окружения](../concepts/settings-list.md).
   1. При необходимости укажите пользовательские [скрипты инициализации](../concepts/init-action.md) хостов кластера. Для каждого скрипта укажите:
@@ -93,7 +95,7 @@
   {% if product == "yandex-cloud" %}
   1. Логи кластера сохраняются в сервисе [{{ cloud-logging-full-name }}](../../logging/). Выберите нужную лог-группу из списка или [создайте новую](../../logging/operations/create-group.md).
 
-      Для работы этой функции [назначьте сервисному аккаунту кластера](../../iam/operations/roles/grant.md#access-to-sa) роль `logging.writer`. Подробнее см. в [документации {{ cloud-logging-full-name }}](../../logging/security/index.md).
+      Для работы этой функции {% if audience != "internal" %}[назначьте сервисному аккаунту кластера](../../iam/operations/roles/grant.md#access-to-sa){% else %}назначьте сервисному аккаунту кластера{% endif %} роль `logging.writer`. Подробнее см. в [документации {{ cloud-logging-full-name }}](../../logging/security/index.md).
 
   {% endif %}
   1. Настройте подкластеры: не больше одного главного подкластера с управляющим хостом (обозначается как **Мастер**), и подкластеры для хранения данных или вычислений.
@@ -113,7 +115,7 @@
 
         {% note warning %}
 
-        После создания кластера невозможно запросить или отключить публичный доступ к подкластеру. Однако подкластер с любой ролью кроме `Мастер` можно удалить и создать заново с нужной настройкой публичного доступа..
+        После создания кластера невозможно запросить или отключить публичный доступ к подкластеру. Однако подкластер с любой ролью кроме `Мастер` можно удалить и создать заново с нужной настройкой публичного доступа.
 
         {% endnote %}
 
@@ -144,55 +146,147 @@
 
     Чтобы создать кластер:
 
+    {% if audience != "internal" %}
+
+    1. Проверьте, есть ли в каталоге подсети для хостов кластера:
+
+        ```bash
+        yc vpc subnet list
+        ```
+
+        Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-full-name }}.
+
+    {% endif %}
+
     1. Посмотрите описание команды CLI для создания кластера:
 
         ```bash
-        yc dataproc cluster create --help
+        {{ yc-dp }} cluster create --help
         ```
 
     1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
 
         ```bash
         {{ yc-dp }} cluster create <имя кластера> \
-          --zone <зона доступности кластера> \
-          --service-account-name <имя сервисного аккаунта кластера> \
-          --version <версия образа> \
-          --services <список компонентов> \
-          --subcluster name=<имя подкластера с ролью MASTERNODE>,`
-                      `role=masternode,`
-                      `resource-preset=<класс хоста>,`
-                      `disk-type=<тип хранилища>,`
-                      `disk-size=<размер хранилища, ГБ>,`
-                      `subnet-name=<имя подсети>,`
-                      `hosts-count=1`
-                      `assign-public-ip=<назначение публичного IP-адреса хосту подкластера: true или false> \
-          --subcluster name=<имя подкластера с ролью DATANODE>,`
-                      `role=datanode,`
-                      `resource-preset=<класс хоста>,`
-                      `disk-type=<тип хранилища>,`
-                      `disk-size=<размер хранилища, ГБ>,`
-                      `subnet-name=<имя подсети>,`
-                      `hosts-count=<количество хостов>,`
-                      `assign-public-ip=<назначение публичного IP-адреса всем хостам подкластера: true или false> \
-          --bucket <имя бакета> \
-          --ssh-public-keys-file <путь к публичной части SSH-ключа> \
-          --security-group-ids <список идентификаторов групп безопасности> \
-          --deletion-protection=<защита от удаления кластера: true или false> \
-          --log-group-id <идентификатор лог-группы>
+           --bucket=<имя бакета> \
+           --zone=<зона доступности> \
+           --service-account-name=<имя сервисного аккаунта кластера> \
+           --version=<версия образа> \
+           --services=<список компонентов> \
+           --ssh-public-keys-file=<полный путь к файлу с публичной частью SSH-ключа> \
+           --subcluster name=<имя подкластера с ролью MASTERNODE>,`
+                       `role=masternode,`
+                       `resource-preset=<класс хоста>,`
+                       `disk-type=<тип хранилища: network-ssd, network-hdd или network-ssd-nonreplicated>,`
+                       `disk-size=<размер хранилища в гигабайтах>,`
+                       `subnet-name=<имя подсети>,`
+                       `hosts-count=<количество хостов>,`
+                       `assign-public-ip=<публичный доступ к хосту подкластера: true или false> \
+           --subcluster name=<имя подкластера с ролью DATANODE>,`
+                       `role=datanode,`
+                       `resource-preset=<класс хоста>,`
+                       `disk-type=<тип хранилища: network-ssd, network-hdd или network-ssd-nonreplicated>,`
+                       `disk-size=<размер хранилища в гигабайтах>,`
+                       `subnet-name=<имя подсети>,`
+                       `hosts-count=<количество хостов>,`
+                       `assign-public-ip=<публичный доступ к хостам подкластера: true или false> \
+           --deletion-protection=<защита от удаления кластера: true или false> \
+           --ui-proxy=<доступ к веб-интерфейсам компонентов: true или false> \
+           --security-group-ids=<список идентификаторов групп безопасности> \
+           --log-group-id=<идентификатор лог-группы>
         ```
 
-        {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
+        {% note info %}
+    
+        Имя кластера должно быть уникальным в рамках каталога. Может содержать латинские буквы, цифры, дефис и нижнее подчеркивание. Максимальная длина имени 63 символа.
+
+        {% endnote %}
+
+        Где:
+
+        * `--bucket` — имя бакета в {{ objstorage-full-name }}, в котором будут храниться зависимости заданий и результаты их выполнения. Сервисный аккаунт кластера должен иметь разрешение `READ и WRITE` для этого бакета.
+        * `--zone` — {% if audience != "internal" %}[зона доступности](../../overview/concepts/geo-scope.md){% else %}зона доступности{% endif %}, в которой должны быть размещены хосты кластера.
+        * `--service-account-name` — имя {% if audience != "internal" %}[сервисного аккаунта кластера](../../iam/concepts/users/service-accounts.md){% else %}сервисного аккаунта кластера{% endif %}. Сервисному аккаунту кластера должна быть назначена роль `mdb.dataproc.agent`.
+        * `--version` — [версия образа](../concepts/environment.md).
+        * `--services` — список [компонентов](../concepts/environment.md), которые вы хотите использовать в кластере. Если не указать этот параметр, будет использоваться набор по умолчанию: `hdfs`, `yarn`, `mapreduce`, `tez`, `spark`.
+        * `--ssh-public-keys-file` — полный путь к файлу с публичной частью SSH-ключа, который будет использоваться для доступа к хостам кластера.{% if audience != "internal" %} Как создать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md).{% endif %}
+        * `--subcluster` — параметры подкластеров:
+            * `name` — имя подкластера.
+            * `role` — роль подкластера: `masternode`, `datanode` или `computenode`.
+            * `resource-preset` — [класс хостов](../concepts/instance-types.md).
+            * `disk-type` — [тип хранилища](../concepts/storage.md).
+            * `disk-size` — размер хранилища в гигабайтах.
+            * `subnet-name` — {% if audience != "internal" %}[имя подсети](../../vpc/concepts/network.md#subnet){% else %}имя подсети{% endif %}.
+            * `hosts-count` — количество хостов подкластера. Минимальное значение — `1`, максимальное — `32`.
+            * `assign-public-ip` — доступ к хостам подкластера из интернета. В этом случае подключаться к кластеру можно только с использованием SSL-соединения. Подробнее см. в разделе [{#T}](connect.md).
+
+                {% note warning %}
+
+                После создания кластера невозможно запросить или отключить публичный доступ к подкластеру. Однако подкластер с любой ролью кроме `Мастер` можно удалить и создать заново с нужной настройкой публичного доступа.
+
+                {% endnote %}
+
+        * `--deletion-protection` — защита от удаления кластера.
+
+            {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+        * `--ui-proxy` — доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}.
+        * `--security-group-ids` — список идентификаторов {% if audience != "internal" %}[групп безопасности](../../vpc/concepts/security-groups.md){% else %}групп безопасности{% endif %}.
+        * `--log-group-id` — [идентификатор лог-группы](../concepts/logs.md).
+
+        Чтобы создать кластер, состоящих из нескольких подкластеров `Compute` и `Data`, передайте необходимое количество аргументов `--subcluster` в команде создания кластера:
+
+        ```bash
+           {{ yc-dp }} cluster create \
+           ...
+           --subcluster <параметры подкластера> \
+           --subcluster <параметры подкластера> \
+           ...
+        ```
+
+        1. Чтобы включить [автоматическое масштабирование](../concepts/autoscaling.md) для `Compute`-подкластеров, задайте параметры:
+
+            ```bash
+            {{ yc-dp }} cluster create <имя кластера> \
+               ...
+               --subcluster name=<имя подкластера>,`
+                           `role=computenode`
+                           `...`
+                           `hosts-count=<минимальное количество хостов>`
+                           `max-hosts-count=<максимальное количество хостов>,`
+                           `preemptible=<использование прерываемых ВМ: true или false>,`
+                           `warmup-duration=<время на разогрев ВМ>,`
+                           `stabilization-duration=<период стабилизации>,`
+                           `measurement-duration=<промежуток измерения нагрузки>,`
+                           `cpu-utilization-target=<целевой уровень загрузки CPU, %>,`
+                           `autoscaling-decommission-timeout=<таймаут декомиссии, сек.>
+            ```
+
+            Где:
+
+            * `hosts-count` — минимальное количество хостов (виртуальных машин) в подкластере. Минимальное значение — `1`, максимальное — `32`.
+            * `max-hosts-count` — максимальное количество хостов (виртуальных машин) в подкластере. Минимальное значение — `1`, максимальное — `100`.
+            * `preemptible` — использование {% if audience != "internal" %}[прерываемых ВМ](../../compute/concepts/preemptible-vm.md){% else %}прерываемых ВМ{% endif %}.
+            * `warmup-duration` — время в секундах на разогрев ВМ, в формате `<значение>s`. Минимальное значение — `0s`, максимальное — `600s` (10 минут).
+            * `stabilization-duration` — период в секундах, в течение которого требуемое количество ВМ не может быть снижено, в формате `<значение>s`. Минимальное значение — `60s` (1 минута), максимальное — `1800s` (30 минут).
+            * `measurement-duration` — период в секундах, за который замеры нагрузки усредняются для каждой ВМ, в формате `<значение>s`. Минимальное значение — `60s` (1 минута), максимальное — `600s` (10 минут).
+            * `cpu-utilization-target` — целевой уровень загрузки CPU, в процентах. Используйте эту настройку, чтобы включить [масштабирование](../concepts/autoscaling.md) на основе загрузки CPU, иначе в качестве метрики будет использоваться `yarn.cluster.containersPending` (на основе количества ожидающих задания ресурсов). Минимальное значение — `10`, максимальное — `100`.
+            * `autoscaling-decommission-timeout` — [таймаут декомиссии](../concepts/decommission.md) в секундах. Минимальное значение — `0`, максимальное — `86400` (сутки).
+
+            {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
 
     {% if product == "yandex-cloud" %}
-    1. Чтобы создать кластер, размещенный на [группах выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids`:
+
+    1. Чтобы создать кластер, размещенный на {% if audience != "internal" %}[группах выделенных хостов](../../compute/concepts/dedicated-host.md){% else %}группах выделенных хостов{% endif %}, укажите через запятую их идентификаторы в параметре `--host-group-ids`:
 
         ```bash
         {{ yc-dp }} cluster create <имя кластера> \
-          ...
-          --host-group-ids <идентификаторы групп выделенных хостов>
+           ...
+           --host-group-ids=<идентификаторы групп выделенных хостов>
         ```
 
         {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
+
     {% endif %}
 
     1. Чтобы настроить хосты кластера с помощью [скриптов инициализации](../concepts/init-action.md), укажите их в одном или нескольких параметрах `--initialization-action`:
@@ -418,8 +512,8 @@
     Чтобы назначить публичный IP-адрес всем хостам подкластера, передайте значение `true` в параметре `configSpec.subclustersSpec.assignPublicIp`.
 
     {% if product == "yandex-cloud" %}
-  
-    Чтобы создать кластер, размещенный на [группах выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
+
+    Чтобы создать кластер, размещенный на {% if audience != "internal" %}[группах выделенных хостов](../../compute/concepts/dedicated-host.md){% else %}группах выделенных хостов{% endif %}, передайте список их идентификаторов в параметре `hostGroupIds`.
 
     {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
 
@@ -429,4 +523,4 @@
 
 {% endlist %}
 
-После того, как кластер перейдет в статус **Running**, вы можете [подключиться](connect.md) к хостам подкластеров с помощью указанного SSH-ключа.
+После того как кластер перейдет в статус **Running**, вы можете [подключиться](connect.md) к хостам подкластеров с помощью указанного SSH-ключа.
