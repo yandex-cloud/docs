@@ -28,7 +28,7 @@ Utterance | **oneof:** `text` or `text_template`<br>Text to synthesis, one of te
 &nbsp;&nbsp;text_template | **[TextTemplate](#TextTemplate)**<br>Text template instance, e.g. `{"Hello, {username}" with username="Alice"}`. 
 hints[] | **[Hints](#Hints)**<br>Optional hints for synthesis. 
 output_audio_spec | **[AudioFormatOptions](#AudioFormatOptions)**<br>Optional. Default: 22050 Hz, linear 16-bit signed little-endian PCM, with WAV header 
-loudness_normalization_type | enum **LoudnessNormalizationType**<br>Optional. Default: LUFS type of loudness normalization. <ul><li>`MAX_PEAK`: The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level. The volume changes in a range (0;1], default value is 0.7.</li><li>`LUFS`: The type of normalization based on EBU R 128 recommendation. the volume changes in a range [-145;0], default value is -19.</li></ul>
+loudness_normalization_type | enum **LoudnessNormalizationType**<br>Specifies type of loudness normalization. Optional. Default: `LUFS`. <ul><li>`MAX_PEAK`: The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level.</li><li>`LUFS`: The type of normalization based on EBU R 128 recommendation.</li></ul>
 unsafe_mode | **bool**<br>Optional. Automatically split long text to several utterances and bill accordingly. Some degradation in service quality is possible. 
 
 
@@ -56,7 +56,7 @@ Hint | **oneof:** `voice`, `audio_template`, `speed`, `volume` or `role`<br>The 
 &nbsp;&nbsp;voice | **string**<br>Name of speaker to use. 
 &nbsp;&nbsp;audio_template | **[AudioTemplate](#AudioTemplate)**<br>Template for synthesizing. 
 &nbsp;&nbsp;speed | **double**<br>Hint to change speed. 
-&nbsp;&nbsp;volume | **double**<br>Hint to regulate volume. For LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED normalization will use MAX_PEAK, if volume in (0, 1], LUFS if volume in [-145, 0). 
+&nbsp;&nbsp;volume | **double**<br>Hint to regulate normalization level. <ul><li>For `MAX_PEAK` loudness_normalization_type: volume changes in a range (0;1], default value is 0.7. </li><li>For `LUFS` loudness_normalization_type: volume changes in a range [-145;0), default value is -19.</li></ul> 
 &nbsp;&nbsp;role | **string**<br>Hint to specify pronunciation character for the speaker. 
 
 

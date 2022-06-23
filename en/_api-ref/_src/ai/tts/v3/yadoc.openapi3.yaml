@@ -108,9 +108,10 @@ components:
             type: number
             format: double
           volume:
-            description: Hint to regulate volume. For LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED
-              normalization will use MAX_PEAK, if volume in (0, 1], LUFS if volume
-              in [-145, 0).
+            description: |-
+              Hint to regulate normalization level.
+              * For `MAX_PEAK` loudness_normalization_type: volume changes in a range (0;1], default value is 0.7.
+              * For `LUFS` loudness_normalization_type: volume changes in a range [-145;0), default value is -19.
             type: number
             format: double
           role:
@@ -158,13 +159,9 @@ components:
           description: The text of the variable.
           type: string
     UtteranceSynthesisRequestLoudnessNormalizationType:
-      description: |-
-        Normalization type
-
+      description: |2-
          - MAX_PEAK: The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level.
-        The volume changes in a range (0;1], default value is 0.7.
          - LUFS: The type of normalization based on EBU R 128 recommendation.
-        the volume changes in a range [-145;0], default value is -19.
       type: string
       enum:
       - MAX_PEAK
