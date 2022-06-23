@@ -29,5 +29,6 @@ Configuration types:
 | i3-c32-m256     |              32 | 100%             |     256 |
 | i3-c40-m320     |              40 | 100%             |     320 |
 
+
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
 

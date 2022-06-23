@@ -26,6 +26,7 @@ The cost of hosting a website includes:
 * A fee for using dynamic public IP addresses (see [{{ vpc-full-name }}pricing](../../vpc/pricing.md)).
 * A fee for network load balancers and traffic balancing (see [pricing{{ network-load-balancer-full-name}}](../../network-load-balancer/pricing.md)).
 
+
 ## Create the virtual machines {#create-vm}
 
 The VMs must be created from identical images and their parameters must also be identical.

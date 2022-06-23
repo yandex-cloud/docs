@@ -14,6 +14,7 @@ You can do a text search or search for [keywords](add-key-words.md) in Wiki page
 
 1. Sort the search results: by relevance, last update, or creation date.
 
+
 {% note warning %}
 
 It may take some time for search results to update in accordance with the changes you made, since pages are indexed once every 30 minutes.

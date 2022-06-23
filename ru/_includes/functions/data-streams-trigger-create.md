@@ -1,4 +1,4 @@
-Создайте триггер для [{{ yds-name }}](../../data-streams/), который будет вызывать [функцию](../../functions/concepts/function.md) {{ sf-name }} или [контейнер](../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} при отправке данных в [поток](../../data-streams/concepts/glossary.md#stream-concepts).
+ Создайте триггер для [{{ yds-name }}](../../data-streams/), который будет вызывать [функцию](../../functions/concepts/function.md) {{ sf-name }} или [контейнер](../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} при отправке данных в [поток](../../data-streams/concepts/glossary.md#stream-concepts). 
 
 ## Перед началом работы {#before-you-begin}
 
@@ -16,7 +16,7 @@
         * [Создайте контейнер](../../serverless-containers/operations/create.md).
         * [Создайте ревизию контейнера](../../serverless-containers/operations/manage-revision.md#create).
 
-* Поток, при отправке данных в который триггер будет запускаться. Если у вас нет потока, [создайте его](../../data-streams/quickstart/create-stream.md).
+* Поток, при отправке данных в который триггер будет запускаться.  Если у вас нет потока, [создайте его](../../data-streams/quickstart/create-stream.md). 
 
 * (опционально) Очередь [Dead Letter Queue](../../functions/concepts/dlq.md), куда будут перенаправляться сообщения, которые не смогли обработать функция или контейнер. Если у вас нет очереди, [создайте ее](../../message-queue/operations/message-queue-new-queue.md).
 

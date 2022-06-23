@@ -32,6 +32,7 @@ Content-Type: multipart/form-data
     {{ host }}
     ```
 
+
 - **Authorization**
 
     OAuth token in `OAuth <token value>` format. For example:
@@ -44,6 +45,7 @@ Content-Type: multipart/form-data
 - **X-Org-ID**
 
     Organization ID.
+
 
 - **Content-Type**
 

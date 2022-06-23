@@ -7,6 +7,7 @@
 
 1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
 
+
 1. Нажмите кнопку **Создать**, выберите **Connection**.
 1. Выберите подключение **AppMetrica**.
 1. В поле после имени папки задайте имя подключения. Имя может быть произвольным.
@@ -35,5 +36,6 @@
 Подключение к AppMetrica не поддерживает [материализацию](../../concepts/dataset/settings.md#materialization) и [публичный доступ](../../concepts/datalens-public.md) к объектам, созданным на его основе. Чтобы поделиться дашбордом или чартом, созданным на основе данного подключения, воспользуйтесь одним из способов:
 
 {% include [datalens-metrica-appmetrica-share](../../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
+
 
 {% include [datalens-get-token](../../../_includes/datalens/operations/datalens-get-token.md) %}

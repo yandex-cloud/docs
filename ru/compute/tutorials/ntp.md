@@ -48,6 +48,7 @@ keywords:
      ```
 
 
+
   1. Установите параметр `UseNTP=true` в конфигурационном файле сервиса `systemd.network`, обычно расположенном в каталоге `/etc/systemd/network` или `/var/lib/systemd/network`.
 
   1. Перезапустите сервис синхронизации:
@@ -79,6 +80,7 @@ keywords:
      ```
 
 
+
   2. Перезапустите сервис:
 
      ```bash
@@ -96,6 +98,7 @@ keywords:
   w32tm /config /reliable:yes
   net start w32time
   ```
+
 
 
 {% endlist %}

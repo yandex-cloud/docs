@@ -16,6 +16,7 @@
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 
+
 ## Шаг 1. Создайте подключение и стандартный дашборд {#step1}
 
 {% note warning %}

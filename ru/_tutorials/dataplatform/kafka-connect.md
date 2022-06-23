@@ -16,6 +16,7 @@
 
 Далее будет продемонстрировано, как настроить {{ KFC }} для взаимодействия с кластером {{ mkf-name }}. Инструмент будет развернут на [виртуальной машине {{ yandex-cloud }}](../../compute/concepts/vm.md) в виде отдельной инсталляции. Для защиты подключения будет использоваться SSL-шифрование.
 
+
 Также будет настроен простой коннектор [FileStreamSource](https://docs.confluent.io/home/connect/filestream_connector.html), с помощью которого {{ KFC }} прочитает данные из тестового JSON-файла и передаст их в топик кластера.
 
 {% note info %}
@@ -48,6 +49,7 @@
 
     1. [Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md).
 
+
     1. Установите JDK:
 
         ```bash
@@ -71,6 +73,7 @@
 ## Настройте виртуальную машину {#prepare-vm}
 
 1. [Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md).
+
 
 1. [Получите SSL-сертификат](../../managed-kafka/operations/connect#get-ssl-cert).
 
@@ -181,5 +184,6 @@
 
 * [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
 * Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
+
 
 * [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).

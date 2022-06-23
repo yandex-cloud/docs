@@ -29,6 +29,7 @@ To get started with the service:
    sudo apt update && sudo apt install -y mysql-client
    ```
 
+
 ## Create a cluster {#cluster-create}
 
 1. In the management console, select the folder where you want to create a DB cluster.
@@ -60,6 +61,7 @@ To get started with the service:
       ```bash
       chmod 0600 ~/.mysql/root.crt
       ```
+
 
 1. Use the `mysql` command to connect:
 

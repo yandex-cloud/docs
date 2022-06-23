@@ -40,6 +40,7 @@ Receiving and storing logs is paid based on the {{ cloud-logging-full-name }} [p
 
 {% include [usd.md](../_pricing/data-proc/usd.md) %}
 
+
 {% note info %}
 
 To access GPUs on {{ dataproc-name }} hosts, please submit a request to [technical support]({{ link-console-support }}).
@@ -52,3 +53,4 @@ To access GPUs on {{ dataproc-name }} hosts, please submit a request to [technic
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+

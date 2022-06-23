@@ -10,6 +10,7 @@ sourcePath: ru/tracker/api-ref/concepts/import/import-ticket.md
 
 {% endnote %}
 
+
 С помощью запроса вы можете импортировать в {{ tracker-name }} задачи из других систем управления проектами.
 
 ## Формат запроса {#section_i14_lyb_p1b}

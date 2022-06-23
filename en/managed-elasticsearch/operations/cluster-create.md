@@ -129,6 +129,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       
         If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-full-name }}.
 
+
    1. View a description of the CLI's create cluster command:
 
       ```bash
@@ -167,6 +168,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
    
    If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
 
    To create a cluster:
 
@@ -255,6 +257,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
           v4_cidr_blocks = ["<range>"]
         }
         ```
+
 
 
         1. {% include [maintenance-window](../../_includes/mdb/mes/terraform-maintenance-window.md) %}
@@ -430,6 +433,7 @@ If you specified a security group ID when you created the cluster, some addition
      }
    }
    ```
+
 
 
 {% endlist %}

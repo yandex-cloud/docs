@@ -7,6 +7,7 @@
 
 Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
+
 {% endnote %}
 
 ## Активировать сбор статистики {#activate-stats-collector}

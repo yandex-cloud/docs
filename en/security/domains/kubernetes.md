@@ -4,7 +4,7 @@ The section includes recommendations for {{ yandex-cloud }} users on security se
 
 ## Responsibility {#division-of-responsibility}
 
-The user is responsible for all actions made inside the Kubernetes node. The user is responsible for the security of the nodes and their proper setup in accordance with PCI DSS requirements and othersecurity standards.
+The user is responsible for all actions made inside the Kubernetes node. The user is responsible for the security of the nodes and their proper setup in accordance with PCI DSS requirements and other security standards.
 
 {{ yandex-cloud }} is responsible for the the Kubernetes API security.
 
@@ -12,7 +12,7 @@ The user is responsible for correctly choosing security settings in {{ managed-k
 
 ## Sensitive data {#critical-data}
 
-When using {{ managed-k8s-short-name }} to comply with PCI DSS or othersecurity standards, it is forbidden to: 
+When using {{ managed-k8s-short-name }} to comply with PCI DSS or other security standards, it is forbidden to: 
 
 * Use sensitive data in names and descriptions of clusters, node groups, namespaces, services, and pods.
 * Use sensitive data in [Kubernetes node labels](../../managed-kubernetes/concepts/#node-labels) and [{{ yandex-cloud }} service resource labels](../../overview/concepts/services.md#labels).
@@ -73,6 +73,7 @@ To generate policies, you can use the Cilium CNI built-in Hubble platform to ana
 
 
 ![](../../_assets/overview/solution-library-icon.svg)[Kubernetes security solutions comparison matrix.](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/kubernetes-security/choice_of_solutions/Сравнение_функций_k8s_security.pdf)
+
 For useful examples of network policies, see the [repo](https://github.com/ahmetb/kubernetes-network-policy-recipes). 
 
 A helpful tool to create both basic and advanced network policies is available [here](https://editor.cilium.io/).
@@ -123,6 +124,7 @@ For the {{ managed-k8s-short-name }} cluster to run, you need two service accoun
 
 
 ![](../../_assets/overview/solution-library-icon.svg)[Example of setting up role models and policies in {{ managed-k8s-short-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/auth_and_access/role-model-example)
+
 ## Secure {{ managed-k8s-short-name }} configuration {#secure-config-1}
 
 ### Secure configuration {#secure-config-2}
@@ -143,6 +145,7 @@ Starboard Operator is a free tool that helps you automate scanning of images for
 
 
 ![](../../_assets/overview/solution-library-icon.svg) [Integration between Starboard and {{ container-registry-full-name }} to scan running images](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/starboard_and_yc-cr)
+
 ### Integrity control (FIM — File integrity monitoring) {#fim}
 
 You must control two levels of file integrity in node groups:
@@ -156,6 +159,7 @@ You can use, for example, [Osquery](https://osquery.io/) as an agent installed o
 
 
 ![](../../_assets/overview/solution-library-icon.svg)A comprehensive solution in [Osquery and kubequery in K8s.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/osquery-kubequery)
+
 #### Container files {#fim-container-files}
 
 One of the methods to solve this task:
@@ -188,6 +192,7 @@ Useful instructions on working with External Secrets:
 Many methods to differentiate access to secrets using this tool have been [described](https://external-secrets.io/latest/guides-multi-tenancy/#eso-as-a-service).
 
 The most secure recommended option for encrypting secrets is ESO as a Service (External Secrets Operator as a service). In this case, the global administrator has access to the namespace where ESO is installed, and administrators of specific namespaces create their respective [`SecretStore`](https://external-secrets.io/latest/api-secretstore/) objects (where they specify {{ iam-short-name }} authorized access keys for their {{ lockbox-short-name }} secrets). If this `SecretStore` object is compromised, only the authorized key of one specific namespace is compromised (rather than all of them, as in the case of Shared ClusterSecretStore).
+
 ### Encryption in transit {#encryption-in-transist}
 
 For in-transit encryption, use TLS interaction between pods. If you can't use TLS interaction, use service mesh solutions:
@@ -212,6 +217,7 @@ There are two levels where you can enable malicious code protection in Kubernete
 * OS-level protection of Kubernetes nodes.
 
 Security scanner in [{{ container-registry-name }}](../../container-registry/concepts/vulnerability-scanner.md).
+
 
 To protect the containerization host levels, you can use a variety of paid and free solutions from the "Runtime security" and "Antivirus engine" classes. Examples of free solutions:
 
@@ -222,6 +228,7 @@ Be sure to also use the Kubernetes built-in support for [AppArmor](https://kuber
 
 
 ![](../../_assets/overview/solution-library-icon.svg)[Analyzing Kubernetes security logs in ELK: audit logs, policy engine, falco.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
+
 ## Vulnerability management {{ managed-k8s-short-name }} {#vulnerability-management}
 
 {{ yandex-cloud }} within {{ managed-k8s-short-name }} is in charge of vulnerability management and security updates on the [master](../../managed-kubernetes/concepts/index.md#master). The user must independently control vulnerabilities on the Kubernetes worker nodes.
@@ -262,6 +269,7 @@ Examples using Kyverno:
 
 * ![](../../_assets/overview/solution-library-icon.svg)[Analyzing Kubernetes security logs in ELK: audit logs, policy engine, falco.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
 * ![](../../_assets/overview/solution-library-icon.svg)[Example of setting up role models and policies in {{ managed-k8s-short-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/auth_and_access/role-model-example)
+
 To control compliance with Pod Security Standards, you can also use the following tools within CI/CD:
 
 * [Kyverno CLI](https://kyverno.io/docs/kyverno-cli/)
@@ -284,6 +292,7 @@ When using minimal images or distroless images without a shell, use [ephemeral c
 
 
 ![](../../_assets/overview/solution-library-icon.svg)[Solution running Osquery.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/osquery-kubequery)
+
 ## Load sharing between nodes {#load-sharing}
 
 Data loads with different security contexts (i.e., different severities of data processed) must be processed on different Kubernetes nodes. To enable load sharing within a cluster, use different node groups with different settings for [`node labels`](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/) and [`node taints`](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/). Be sure to combine both settings.
@@ -293,7 +302,7 @@ Data loads with different security contexts (i.e., different severities of data 
 Events available to the user in the {{ managed-k8s-short-name }} service can be classified as levels:
 
 
-* Kubernetes API events (Kubernetes Audit logging).
+* Kubernetes API events (Kubernetes Audit logging).
 * Kubernetes node events.
 * Kubernetes pod events.
 * Kubernetes metrics.
@@ -305,6 +314,7 @@ Events available to the user in the {{ managed-k8s-short-name }} service can be 
 Audit events are collected from the Kubernetes API level by {{ cloud-logging-name }}.
 
 ![](../../_assets/overview/solution-library-icon.svg)[Analyzing Kubernetes security logs in ELK: audit logs, policy engine, falco.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
+
 ### Kubernetes nodes level {#kubernetes-nodes-level}
 
 Kubernetes node level events are collected and exported similarly to [collecting OS audit logs](audit-logs#os-level).
@@ -322,6 +332,7 @@ Examples of collecting and exporting pod logs:
 Fluent Bit with a {{ cloud-logging-name }} plugin is available in [{{ marketplace-name }}](/marketplace/products/yc/fluent-bit).
 
 The Filebeat plugin for transferring logs to Elastic is available in [{{ marketplace-name }}](/marketplace/products/yc/filebeat).
+
 ### Kubernetes metrics {#kubernetes-metrics}
 
 {{ monitoring-name }} includes a set of metrics to analyze availability of Kubernetes objects and their behavioral anomalies.
@@ -332,6 +343,7 @@ Instructions on how to export {{ monitoring-name }} metrics is given in the sect
 ### Flow logs Kubernetes {#flow-logs-kubernetes}
 
 ![](../../_assets/overview/solution-library-icon.svg)[Exporting flow logs to {{ objstorage-full-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/cilium-s3)
+
 ### {{ managed-k8s-short-name }} role model audit {#role-model-audit}
 
 In the {{ managed-k8s-short-name }} console, you can audit the current role model used in the service. For this, go to the **Access management** tab in the service.
@@ -343,4 +355,4 @@ You can also use:
 
 ## Kubernetes security solutions comparison {#security-solutions-comparison}
 
-![](../../_assets/overview/solution-library-icon.svg)[Kubernetes security solutions comparison.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/choice_of_solutions)
+![](../../_assets/overview/solution-library-icon.svg)[Kubernetes security solutions comparison.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/choice_of_solutions)

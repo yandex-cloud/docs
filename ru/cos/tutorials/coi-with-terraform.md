@@ -281,6 +281,7 @@
    ```
 
 
+
    Где:
    * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) для доступа к {{ yandex-cloud }}.
    * `name` — имя группы ВМ.

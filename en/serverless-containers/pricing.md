@@ -31,6 +31,7 @@ You're charged for all the container invocations that trigger your code to run.
 
 
 {% include notitle [usd-invocation.md](../_pricing/serverless-containers/usd-invocations.md) %}
+
 
 ### RAM usage time when processing requests {#prices-ram}
 
@@ -41,6 +42,7 @@ You're charged for all the container invocations that trigger your code to run.
 
 
 {% include notitle [usd-ram.md](../_pricing/serverless-containers/usd-ram.md) %}
+
 
 ### CPU usage time when processing requests {#prices-cpu}
 
@@ -51,6 +53,7 @@ You're charged for all the container invocations that trigger your code to run.
 
 
 {% include notitle [usd-cpu.md](../_pricing/serverless-containers/usd-cpu.md) %}
+
 
 ### Outgoing traffic {#prices-traffic}
 
@@ -61,3 +64,4 @@ You're charged for all the container invocations that trigger your code to run.
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+

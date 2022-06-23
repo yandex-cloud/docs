@@ -82,6 +82,7 @@
           ]
       }
       ```
+
   1. Отзовите роль, удалив указанную привязку прав доступа:
 
       {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
@@ -102,6 +103,7 @@
          ]
        }
        ```
+
     1. Удалите запись с информацией о субъекте, у которого нужно отозвать права, из перечня пользователей `members`.
 
        Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding`, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_binding).

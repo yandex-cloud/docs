@@ -1,4 +1,4 @@
-Create a trigger for [{{ yds-name }}](../../data-streams/) that calls a {{ sf-name }} [function](../../functions/concepts/function.md) or {{ serverless-containers-name }} [container](../../serverless-containers/concepts/container.md) when data is sent to a [stream](../../data-streams/concepts/glossary.md#stream-concepts).
+ Create a trigger for [{{ yds-name }}](../../data-streams/) that calls a {{ sf-name }} [function](../../functions/concepts/function.md) or {{ serverless-containers-name }} [container](../../serverless-containers/concepts/container.md) when data is sent to a [stream](../../data-streams/concepts/glossary.md#stream-concepts). 
 
 ## Before you start {#before-you-begin}
 
@@ -16,7 +16,7 @@ To create a trigger, you need:
       * [Create a container](../../serverless-containers/operations/create.md).
       * [Create a container revision](../../serverless-containers/operations/manage-revision.md#create).
 
-* The stream that activates the trigger when it receives data. If you don't have a stream, [create one](../../data-streams/quickstart/create-stream.md).
+* The stream that activates the trigger when it receives data.  If you don't have a stream, [create one](../../data-streams/quickstart/create-stream.md). 
 
 * (optional) A [Dead Letter Queue](../../functions/concepts/dlq.md) where messages that could not be processed by a function or a container will be redirected. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
 

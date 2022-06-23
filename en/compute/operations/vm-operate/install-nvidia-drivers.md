@@ -17,6 +17,7 @@ To install the drivers for NVIDIA® Tesla® V100:
 1. Click **Download now**.
 1. Run the downloaded installer and follow the instructions.
 
+
 ## Drivers for Ampere® A100 {#install-a100-drivers}
 
 In {{ compute-short-name }}, there are two available [configurations](../../concepts/gpus.md#config) for VMs based on AMD EPYC® with NVIDIA® Ampere® A100: with 1 GPU and 8 GPUs. For the 8 GPU configuration, you should additionally install [Fabric Manager](https://docs.nvidia.com/datacenter/tesla/fabric-manager-user-guide/index.html).

@@ -18,5 +18,6 @@ provider "yandex" {
 ```
 
 
-To get an [OAuth token](../../iam/concepts/authorization/oauth-token.md) ora [static access key](../../iam/operations/sa/create-access-key.md), see the {{ iam-full-name }} instructions.
+
+To get an [OAuth token](../../iam/concepts/authorization/oauth-token.md) or a [static access key](../../iam/operations/sa/create-access-key.md), see the {{ iam-full-name }} instructions.
 

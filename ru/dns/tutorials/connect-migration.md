@@ -15,6 +15,7 @@
 * `ns2.yandexcloud.net.`
 
 
+
 ## Перенос записей {#yaconnect-records-move}
 
 Перенести DNS-записи домена из Яндекс 360 в {{ dns-full-name }} можно только вручную.

@@ -114,6 +114,7 @@ description: "Вы можете создавать резервные копии
          --mongod-disk-type <тип хранилища: network-hdd, network-ssd, local-ssd или network-ssd-nonreplicated>
       ```
 
+
       В параметре `--recovery-target-timestamp` укажите момент времени, на который нужно восстановить состояние {{ MG }}-кластера, в формате [UNIX time](https://ru.wikipedia.org/wiki/Unix-время). Если требуется восстановить состояние кластера на момент завершения создания резервной копии, то этот параметр можно опустить.
 
 {% endlist %}
@@ -258,6 +259,7 @@ description: "Вы можете создавать резервные копии
 * Один хост класса `{{ host-class }}` в зоне доступности `{{ zone-id }}` и в подсети `b0rcctk2rvtr8efcch64`.
 * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.     
 * С базами данных и пользователями, которые существовали в кластере на момент восстановления.
+     
 
 {% list tabs %}
 
@@ -279,5 +281,6 @@ description: "Вы можете создавать резервные копии
      --mongod-disk-size 20 \
      --mongod-disk-type {{ disk-type-example }}
   ```
+        
 
 {% endlist %}

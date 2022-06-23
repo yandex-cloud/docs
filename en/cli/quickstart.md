@@ -3,6 +3,7 @@
 
 The _{{ yandex-cloud }} command-line interface (CLI)_ provides downloadable software for managing your cloud resources from the command line.
 
+
 ## Installation {#install}
 
 {% include [install-cli](../_includes/cli/install-cli.md) %}
@@ -39,10 +40,12 @@ If you aren't connected to the management console yet, log in to the [console]({
       1. Select the default availability zone for {{ compute-full-name }}:
 
       {% include [include](../_includes/cli/choose-zone.md) %}
+
    1. View your CLI profile settings:
       ```
       yc config list
       ```
+
 
 
 

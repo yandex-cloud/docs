@@ -16,6 +16,7 @@
 * плата за использование функции (см. [тарифы {{ sf-full-name }}](../functions/pricing.md));
 * плата за выполнение запросов к базе данных (см. [тарифы {{ ydb-full-name }}](../managed-ydb/pricing/serverless.md)).
 
+
 ## Подготовьте окружение {#prepare-environment}
 
 1. Клонируйте [репозиторий examples](https://github.com/yandex-cloud/examples/tree/master/serverless/functions/YDB-connect-from-serverless-function) с помощью Git.

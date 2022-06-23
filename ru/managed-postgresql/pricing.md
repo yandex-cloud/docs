@@ -53,10 +53,12 @@ editable: false
 
 Все цены указаны с включением НДС.
 
+
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
 
 {% include notitle [rub-host-resources.md](../_pricing/managed-postgresql/rub-host-resources.md) %}
+
 
 
 
@@ -67,8 +69,13 @@ editable: false
 
 
 
+
 ### Исходящий трафик {#prices-traffic}
 
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
+
+
+
 

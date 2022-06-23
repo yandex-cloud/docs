@@ -1,4 +1,4 @@
-# Target endpoint parameters {{ MG }}
+# Configuring a {{ MG }} target endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -11,6 +11,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ mmg-full-name }}](../../../../managed-mongodb/).
 
 {% include [Managed MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/managed-mongodb.md) %}
+
 
 ## Custom installation {#on-premise}
 
@@ -26,6 +27,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
    
    * {% include [Field Subnet ID](../../../../_includes/data-transfer/fields/common/ui/subnet-id.md) %}
+
 
    * {% include [Field CA certificate](../../../../_includes/data-transfer/fields/mongodb/ui/ca-certificate.md) %}
 

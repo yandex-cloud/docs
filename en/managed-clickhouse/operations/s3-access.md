@@ -11,12 +11,14 @@ To access {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) data 
    1. [Set up access rights for the service account](#configure-acl).
 * Set up a public bucket by [allowing public access to it](../../storage/operations/buckets/bucket-availability.md) for reads or writes.
 
+
 After setting up any of these methods, [get a link to the bucket object](#get-link-to-object), which you can use to perform operations with the cluster data. See [examples of working with objects](#examples).
 
 ## Connecting a service account to a cluster {#connect-service-account}
 
 
 1. When [creating](cluster-create.md) or [updating](update.md) a cluster, either select an existing service account or create a new one.
+
 
 1. Make sure that this account is assigned the correct roles from the `storage.*` role group. If necessary, assign it the necessary roles, such as `storage.viewer` and `storage.uploader`.
 
@@ -35,10 +37,12 @@ To link {{ mch-name }} clusters to {{ objstorage-name }}, it's recommended to us
    
    1. In the [management console]({{ link-console-main }}), select the folder where the desired bucket is located. If there is no bucket, [create](../../storage/operations/buckets/create.md) one and [populate](../../storage/operations/objects/upload.md) it with the necessary data.
 
+
    1. Select **{{ objstorage-name }}**.
 
    
    1. Set up the [bucket ACL](../../storage/operations/buckets/edit-acl.md) or [object ACL](../../storage/operations/objects/edit-acl.md):
+
 
        1. In the list of buckets or objects, select the appropriate item and click ![image](../../_assets/options.svg).
        1. Click **Bucket ACL** or **Object ACL**.
@@ -59,6 +63,7 @@ To link {{ mch-name }} clusters to {{ objstorage-name }}, it's recommended to us
 
 
 To use {{ mch-name }} to work with data of an object in {{ objstorage-name }}, you need to [get a link](../../storage/operations/objects/link-for-download.md) to this object in the bucket:
+
 
 * For a bucket with restricted access, a link like `https://{{ s3-storage-host }}/<bucket name>/<object name>?X-Amz-Algorithm=...` should be changed to `https://{{ s3-storage-host }}/<bucket name>/<object name>`. To do this, delete all parameters in the query string.
 * For a bucket with public access, the link is generated in the correct format.

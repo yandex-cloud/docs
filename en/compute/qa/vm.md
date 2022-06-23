@@ -94,6 +94,7 @@ Yes, you can take snapshots of disks attached to a VM and use them when creating
 You cannot directly change the availability zone where the VM is hosted. However, you can create a copy of the VM in the availability zone you need.
 
 
+
 #### Can I move my VM to a different folder? {#move-to-project}
 
 You cannot directly change the folder that the VM belongs to. However, you can create a copy of the VM in the appropriate folder.

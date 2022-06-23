@@ -30,6 +30,7 @@ The cost of supporting the availability group includes:
 
 You can use [license mobility](../../compute/qa/licensing.md) and use your own MSSQL Server license in {{ yandex-cloud }}.
 
+
 ## Create a network infrastructure {#prepare-network}
 
 Prepare the network infrastructure to host the availability group.

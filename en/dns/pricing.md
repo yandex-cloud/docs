@@ -13,6 +13,7 @@ editable: false
 
 {% include [usd-public-dns-requests.md](../_pricing/dns/usd-public-dns-requests.md) %}
 
+
 You will be billed for:
 * Authoritative queries: Any requests for DNS records in a user's [public zones](concepts/dns-zone.md#public-zones) from the internet or {{ yandex-cloud }}.
 * Recursive queries: Queries from a {{ yandex-cloud }} VM for external domain names on the internet.
@@ -50,6 +51,7 @@ The cost of public DNS queries is based on usage.
 > (1,2 − 1,0) × ₽20 = 0,2 × ₽20 = ₽4
 > because first million recursive requests are provided free of charge, starting December 6, 2021.
 
+
 ## DNS zones {#dns-zones}
 
 You are charged for user-created [public](concepts/dns-zone.md#public-zones) or [internal](concepts/dns-zone.md#private-zones) DNS zones.
@@ -65,3 +67,4 @@ Billing occurs per second. The cost is calculated in proportion to usage.
 
 
 {% include [usd-public-dns-zones.md](../_pricing/dns/usd-dns-zones.md) %}
+

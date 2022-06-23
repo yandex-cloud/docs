@@ -18,3 +18,4 @@ When new availability zones appear or existing ones change location, {{ yandex-c
 
 Zonal resources include [virtual machines](../../compute/concepts/vm.md) and [disks](../../compute/concepts/disk.md). Global resources include [cloud networks](../../vpc/concepts/network.md) and [buckets](../../storage/concepts/bucket.md).
 
+

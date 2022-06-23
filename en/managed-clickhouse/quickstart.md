@@ -44,6 +44,7 @@ To get started with the service:
    mkdir -p ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
    ```
 
+
 ## Create a cluster {#cluster-create}
 
 1. In the management console, select the folder where you want to create a DB cluster.
@@ -75,6 +76,7 @@ To get started with the service:
       ```bash
       chmod 0600 ~/.clickhouse/root.crt
       ```
+
 
 1. Use the ClickHouse CLI to connect:
    1. Specify the path to the SSL certificate in the [configuration file](https://{{ ch-domain }}/docs/en/interfaces/cli/#interfaces_cli_configuration) in the `<caConfig>` element:

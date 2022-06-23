@@ -31,6 +31,7 @@ Settings of rules depend on the connection method you select:
 - Over the internet
     
     [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port {{ port-mms }} from any IP address. To do this, create the following rule for incoming traffic:
+
     * Protocol: `TCP`.
     * Port range: `{{ port-mms }}`.
     * Source type: `CIDR`.
@@ -40,12 +41,14 @@ Settings of rules depend on the connection method you select:
     
     1. [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port {{ port-mms }} from the security group assigned to the VM. To do this, create the following rule for incoming traffic in these groups:
 
+
         * Protocol: `TCP`.
         * Port range: `{{ port-mms }}`.
         * Source type: `Security group`.
         * Source: Security group assigned to the VM. If it is the same as the configured group, specify **Current**.
     
     1. [Set up the security group](../../vpc/operations/security-group-update.md#add-rule) assigned to the VM to allow connections to the VM and traffic between the VM and the cluster hosts.
+
 
         Example of rules for a VM:
 
@@ -90,6 +93,7 @@ To use an encrypted connection, get an SSL certificate:
   sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O {{ crt-local-dir }}{{ crt-local-file }} && \
   sudo update-ca-certificates
   ```
+
 
 {% endlist %}
 

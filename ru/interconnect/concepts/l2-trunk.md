@@ -12,13 +12,13 @@
 
 ## Подключение через прямой физический стык (оборудование клиента) {#trunk-over-direct-link}
 
-![trunk-over-direct-link](../../_assets/cloud-interconnect/interconnect-trn-1.png)
+![trunk-over-direct-link](../../_assets/cloud-interconnect/interconnect-trn-1.svg)
 
 Транковое подключение организуется поверх прямого физического стыка между оборудованием клиента в [точке присутствия](points-of-presence.md) и оборудованием {{ yandex-cloud }}. 
 
 ## Подключение через оператора связи с L2-транзитом до клиентского оборудования {#trunk-over-operator}
 
-![trunk-over-direct-link](../../_assets/cloud-interconnect/interconnect-trn-2.png)
+![trunk-over-direct-link](../../_assets/cloud-interconnect/interconnect-trn-2.svg)
 
 Способ применяется, когда у клиента нет собственного оборудования в точке присутствия. При этом:
 * Транковое подключение организуется в точке присутствия с привлечением оператора связи, который обеспечивает L2-транзит. 
@@ -27,7 +27,7 @@
 
 ## Подключение через прямой физический стык (оборудование оператора связи) {#trunk-over-operator-2}
 
-![trunk-over-direct-link](../../_assets/cloud-interconnect/interconnect-trn-3.png)
+![trunk-over-direct-link](../../_assets/cloud-interconnect/interconnect-trn-3.svg)
 
 Способ применяется, когда у клиента нет собственного оборудования в точке присутствия. При этом:
 * Транковое подключение организуется в точке присутствия с привлечением оператора связи. 

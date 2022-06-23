@@ -8,7 +8,7 @@ You can use pre-filling forms:
 
 - To pass auxiliary or technical parameters to [hidden fields in the form](#hidden-query) (for example, for gathering statistics).
 
-To set a field value or select a response option, send the [question ID](question-id.md) and the response valueto the form using [GET parameters in the form URL](get-params.md)
+To set a field value or select a response option, send the [question ID](question-id.md) and the response value to the form using [GET parameters in the form URL](get-params.md)
 
 ## Configure pre-filling a hidden field {#hidden-query}
 

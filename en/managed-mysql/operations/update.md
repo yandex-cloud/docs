@@ -5,7 +5,7 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [{#T}](#change-disk-size)(unavailable for non-replicated SSD [storage](../concepts/storage.md)).
+* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
 
 * [Changing settings{{ MY }}](#change-mysql-config).
 
@@ -64,6 +64,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       | ...                                                           |
       +-----------+--------------------------------+-------+----------+
       ```
+
 
    1. Specify the class in the update cluster command:
 
@@ -347,7 +348,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       }
       ```
 
-   1. To allow access to [SQL queries from the management console](web-sql-query.md)and [DataLens](datalens-connect.md), add a block named `access` to the {{ mmy-name }} cluster description:
+   1. To allow access to [SQL queries from the management console](web-sql-query.md) and [DataLens](datalens-connect.md), add a block named `access` to the {{ mmy-name }} cluster description:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster name>" {

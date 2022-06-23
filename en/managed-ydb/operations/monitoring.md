@@ -9,6 +9,7 @@ Diagnostic information about the DB status is presented as charts. The chart upd
 
 You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }} to receive notifications about DB failures. In {{ monitoring-full-name }}, there are two alert thresholds: `Warning` and `Alarm`. If the specified threshold is exceeded, you'll receive alerts via the configured [notification channels](../../monitoring/concepts/alerting.md#notification-channel).
 
+
 ## Viewing monitoring charts {#monitoring-database}
 
 To view detailed information about the {{ ydb-name }} database status:

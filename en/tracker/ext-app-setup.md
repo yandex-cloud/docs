@@ -9,6 +9,7 @@ To make sure {{ tracker-name }} supports advanced functionality of links to your
 
 Your application must be available via a public address on the internet.
 
+
 ## Authentication {#auth}
 
 To authenticate requests sent from {{ tracker-name }} to external applications, you can use one of the following approaches:

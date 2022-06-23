@@ -10,6 +10,7 @@ Folders contain resources such as virtual machines, disks, and others. When you 
 
 ![image](../../_assets/resource-structure.png)
 
+
 All resources inside the cloud are isolated from outside users by default. The cloud owner can manage access rights for the cloud and its resources.
 
 Resource access rights are inherited within the cloud. Rights to access the cloud apply to all resources within the cloud. Folder access rights apply to all resources in the folder. For more information, see [{#T}](#access-rights-inheritance).

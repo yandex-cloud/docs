@@ -81,6 +81,7 @@
 
   1. Enter your user name and password.
 
+
 - Bash
 
   **Command example for connecting via SSL:**
@@ -93,6 +94,7 @@
      -X GET 'https://c-<{{ ES }} cluster ID>.rw.{{ dns-zone }}:9200/'
   ```
 
+
 - PowerShell
 
   **Command example for connecting via SSL:**
@@ -104,6 +106,7 @@
      -Uri https://c-{{ ES }} cluster ID>.rw.{{ dns-zone }}:9200 `
      |||UNTRANSLATED_CONTENT_START|||-Credential <username>|||UNTRANSLATED_CONTENT_END|||
   ```
+
 
    In the window that opens, enter the user's password.
 

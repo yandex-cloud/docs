@@ -44,6 +44,7 @@
 * плата за количество вызовов функции сервиса {{ sf-full-name }} (см. [тарифы](../../functions/pricing.md));
 * плата за вычислительные ресурсы и хранилище кластера в сервисе {{ mpg-full-name }} (см. [тарифы](../../managed-postgresql/pricing.md)).
 
+
 ## Создайте необходимые ресурсы {{ iot-short-name }} {#resources-step}
 
 Для работы с сервисом {{ iot-short-name }} вам потребуется создать [реестр](../../iot-core/concepts/index.md#registry) и [устройства](../../iot-core/concepts/index.md#device), которые будут обмениваться данными и командами.

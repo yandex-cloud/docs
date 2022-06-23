@@ -35,6 +35,7 @@
    ```
 
 
+
 1. Создайте `PersistentVolumeClaim`:
 
    ```bash
@@ -161,6 +162,7 @@
        requests:
          storage: 10Gi
    ```
+
 
 
    {% note tip %}

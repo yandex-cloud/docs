@@ -42,3 +42,4 @@ List of commands charged under {{ iot-name }}:
    
    
 {% include [usd.md](../_pricing/iot-core/usd.md) %}
+   

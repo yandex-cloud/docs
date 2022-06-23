@@ -16,6 +16,7 @@ The number of hosts that can be created together with a {{ MS }} cluster depends
 
 After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
 
+
 {% include [ms-licensing-personal-data](../../_includes/ms-licensing-personal-data.md) %}
 
 ## How to create a {{ MS }} cluster {#create-cluster}
@@ -41,6 +42,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
       * Select the [storage type](../concepts/storage.md).
 
          {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+
 
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
    1. Under **Database**, specify the database attributes:
@@ -69,6 +71,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
          {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
 
+
    1. If necessary, configure additional cluster settings:
 
       {% include [extra-settings-create](../../_includes/mdb/mms/extra-settings-create.md) %}
@@ -92,6 +95,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
       ```
 
       If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+
 
    1. View a description of the CLI's create cluster command:
 
@@ -151,6 +155,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
       * `--security-group-ids`: list of [security group](../../vpc/concepts/security-groups.md) IDs.
       * `--deletion-protection`: Protect cluster from deletion.
 
+
            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    1. To set backup start time, pass the desired value in `HH:MM:SS` format in in `--backup-window-start`:
@@ -171,6 +176,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
       ```
 
       {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
+
 
 - Terraform
 
@@ -284,6 +290,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
    
    To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), pass a list of host IDs in the `hostGroupIds` parameter.
 
+
    {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
 
 {% endlist %}
@@ -318,6 +325,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With one database, `db1`.
    * With protection against accidental cluster deletion.
 
+
    Run the command:
 
    
@@ -338,6 +346,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       --security-group-ids={{ security-group }} \
       --deletion-protection=true
    ```
+
 
 - Terraform
 
@@ -430,6 +439,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
    }
    ```
+
 
 
 {% endlist %}

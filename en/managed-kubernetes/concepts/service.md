@@ -28,6 +28,7 @@ To [publish your app](../operations/create-load-balancer.md), use a `LoadBalance
 
 If you need [DDoS protection](../../vpc/ddos-protection/index.md), [reserve](../../vpc/operations/enable-ddos-protection.md) a static IP address with protection enabled and [specify](../operations/create-load-balancer.md#advanced) it using the `loadBalancerIP` option.
 
+
 Learn more about service types in the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types).
 
 #### See also {#see-also}

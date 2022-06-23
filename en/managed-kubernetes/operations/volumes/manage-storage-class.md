@@ -25,6 +25,7 @@ You can [create your own storage class](#sc-create) as well as [change the defau
 {% endnote %}
 
 
+
 ## Create a storage class {#sc-create}
 
 1. Save the storage class creation specification in the `my-sc-hdd.yaml` YAML file:
@@ -47,6 +48,7 @@ You can [create your own storage class](#sc-create) as well as [change the defau
    ```
 
 
+
 1. Run the command:
 
    
@@ -55,12 +57,14 @@ You can [create your own storage class](#sc-create) as well as [change the defau
    ```
 
 
+
    Command output:
 
    
    ```bash
    storageclass.storage.k8s.io/my-sc-hdd created
    ```
+
 
 
 1. Check that the storage class was created:
@@ -80,6 +84,7 @@ You can [create your own storage class](#sc-create) as well as [change the defau
    ```
 
 
+
 ### Specification format for creating a storage class {#sc-spec}
 
 Each `StorageClass` object contains the `provisioner`, `parameters`, and `reclaimPolicy` parameters that are used for the dynamic provisioning of `PersistentVolumes`.
@@ -87,7 +92,7 @@ Each `StorageClass` object contains the `provisioner`, `parameters`, and `reclai
 Acceptable parameter values:
 * `provisioner`: `disk-csi-driver.mks.ycloud.io`.
 * `parameters`
-  * `type`: `network-hdd` or`network-ssd`.
+  * `type`: `network-hdd` or `network-ssd`.
   * `csi.storage.k8s.io/fstype`: `ext2`, `ext3`, or `ext4`.
 * `reclaimPolicy`: `Retain` or `Delete`.
 

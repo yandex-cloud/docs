@@ -21,9 +21,11 @@ Nodes are charged according to [pricing for {{ compute-full-name }}](../compute/
 
 {% include [usd.md](../_pricing/managed-kubernetes/usd.md) %}
 
+
 ### Outgoing traffic {#prices-traffic}
 
 
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+

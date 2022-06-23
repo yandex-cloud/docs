@@ -37,6 +37,7 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
            --role <role id> \
            --subject userAccount:<user id>
          ```
+        
 
 
       * To add the role and delete all the existing permissions, run the command:
@@ -47,6 +48,7 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
            --role <role id> \
            --subject userAccount:<user id>
          ```
+        
 
     
       Where:
@@ -81,7 +83,7 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
 
          > Example configuration file structure:
          >
-
+ 
          > ```
          > resource "yandex_container_registry_iam_binding" "puller" {
          >   registry_id = "<registry id>"

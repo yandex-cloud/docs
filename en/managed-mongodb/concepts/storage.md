@@ -80,3 +80,4 @@ To make sure a cluster is operational when the host switches to read-only:
    {% endnote %}
 
 * [Force the synchronization](../operations/hosts.md#resetup) of data between hosts. This can help when a large amount of data was deleted from the cluster, but the disk space was not released (marked as available for reuse).
+

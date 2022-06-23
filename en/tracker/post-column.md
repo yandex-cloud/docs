@@ -37,6 +37,7 @@ If-Match: "<version number>"
     {{ host }}
     ```
 
+
 - **Authorization**
 
     OAuth token in `OAuth <token value>` format. For example:
@@ -49,6 +50,7 @@ If-Match: "<version number>"
 - **X-Org-ID**
 
     Organization ID.
+
 
 - **If-Match**
 

@@ -290,6 +290,7 @@ GPFDIST может работать с любыми текстовыми фай�
 
 {% endnote %}
 
+
 1. [Скачайте и установите](https://greenplum.docs.pivotal.io/6-19/client_tool_guides/installing.html) пакет Greenplum Loader.
 
 1. Запустите утилиту GPFDIST:

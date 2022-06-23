@@ -6,3 +6,4 @@
 
 
 Подробнее см. в [документации Virtual Private Cloud](../../vpc/concepts/security-groups.md).
+

@@ -41,4 +41,5 @@ FQDN можно использовать для доступа к хостам-�
 
 Подробнее см. в [документации Virtual Private Cloud](../../vpc/concepts/security-groups.md).
 
+
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

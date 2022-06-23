@@ -28,6 +28,7 @@ The cost of using a virtual router and test VM includes:
 * A fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
+
 ## Create a VM with Mikrotik Cloud Hosted Router {#create-router}
 
 1. Open your folder and click **Create resource**. Select **Virtual machine**.

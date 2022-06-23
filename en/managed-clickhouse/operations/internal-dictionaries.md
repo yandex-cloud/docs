@@ -49,6 +49,7 @@ To create a geobase:
 
 1. [Get](../../storage/operations/objects/link-for-download.md) a public link to the geobase.
 
+
 ## Adding a geobase {#add-geobase}
 
 {% list tabs %}

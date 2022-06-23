@@ -21,6 +21,7 @@ editable: false
 
 {% include [usd.md](../_pricing/message-queue/usd.md) %}
 
+
 Payment is made for the actual number of requests. 
 
 For pricing purposes, every 64 KB of request data is considered a separate request. For example, a 63 KB request is charged as one request, while a 65 KB request is charged as two requests (64 + 1).
@@ -29,3 +30,4 @@ For pricing purposes, every 64 KB of request data is considered a separate reque
 
 
 {% include [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+

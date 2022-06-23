@@ -129,6 +129,7 @@ For a new cluster, you should set all the parameters that are required at creati
          --clickhouse-resource-preset=<host class>
       ```
 
+
       Where:
 
       * `--backup-id`: [backup](../concepts/backup.md) ID

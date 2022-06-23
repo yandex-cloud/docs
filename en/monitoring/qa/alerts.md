@@ -18,10 +18,12 @@ In the [notification channel](../concepts/alerting.md#channel-parameters), the f
 * SMS.
 * Push notifications in the {{ yandex-cloud }} [mobile app](../../overview/mobile-app/index.md).
 
-Specify a {{ yandex-cloud }} account as the recipient of email notifications.This can be the owner's account or an [additional account](https://yandex.ru/support/id/authorization/lite.html) created specifically for this purpose.
+Specify a {{ yandex-cloud }} account as the recipient of email notifications. This can be the owner's account or an [additional account](https://yandex.ru/support/id/authorization/lite.html) created specifically for this purpose.
 
 
 If the SMS method is selected, the phone number must be linked to the account.
+
+
 
 #### A user doesn't receive alerts. Why? {#alert-receive-failed}
 

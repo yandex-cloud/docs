@@ -99,6 +99,7 @@
         GRANT SELECT ON ALL TABLES IN SCHEMA <название служебной схемы> TO <имя пользователя>;
         ```
 
+
 - {{ GP }}
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
@@ -148,6 +149,7 @@
 
     1. Оцените общее количество баз данных для трансфера и общую нагрузку на {{ mmg-name }}. Если нагрузка на базы выше 10 000 транзакций на запись в секунду, создайте несколько эндпоинтов и трансферов. Подробнее см. в разделе [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
     1. [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) с ролью `readWrite` на базу источник.
+
 
 - {{ MG }}
 
@@ -553,6 +555,7 @@
     * `uint64`
     * `utf8`
 
+
 ## Подготовка приемника {#target}
 
 ### Приемник {{ CH }} {#target-ch}
@@ -620,6 +623,7 @@
 
        После старта трансфер подключится к приемнику от имени этого пользователя.
 
+
 - {{ GP }}
 
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
@@ -679,6 +683,7 @@
             {% include [MongoDB endpoint DROP clean policy warning](../../_includes/data-transfer/note-mongodb-clean-policy.md) %}
 
         Подробнее о шардировании см. в [документации {{ MG }}](https://docs.mongodb.com/manual/sharding/).
+
 
 - {{ MG }}
 
@@ -834,6 +839,7 @@
 
    1. [Создайте бакет](../../storage/operations/buckets/create.md) нужной вам конфигурации.
    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `storage.uploader`.
+
 
 ### Приемник {{ PG }} {#target-pg}
 

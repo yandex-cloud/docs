@@ -13,6 +13,7 @@
 
 1. [Get](../../storage/operations/objects/link-for-download.md) a public link to the model.
 
+
 ## Getting a list of models in a cluster {#list}
 
 {% list tabs %}
@@ -194,6 +195,7 @@ To update the contents of a model that is already connected to the cluster:
 1. [Get a public link](../../storage/operations/objects/link-for-download.md) to this file.
 1. Change the parameters of the model connected to {{ mch-name }} by passing a new link to the model file.
 
+
 {% list tabs %}
 
 - Management console
@@ -268,6 +270,7 @@ To update the contents of a model that is already connected to the cluster:
 
 
 After disabling a model, the corresponding object is kept in the {{ objstorage-name }} bucket. If you no longer need this model object, you can [delete](../../storage/operations/objects/delete.md) it.
+
 
 {% endnote %}
 

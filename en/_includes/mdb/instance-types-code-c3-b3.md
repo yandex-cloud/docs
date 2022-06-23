@@ -10,6 +10,7 @@ Configuration types:
 * **b1**, **b2**, **b3**: Configurations with a guaranteed vCPU share under 100%. This class of hosts is intended for test load, with the minimum recommended host configuration for production solutions being 2 vCPUs with a guaranteed share of 50%.
 
 
+
   {% note info %}
 
   Hosts with a guaranteed vCPU share under 50% can't be used in multi-host clusters.

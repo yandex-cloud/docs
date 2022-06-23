@@ -24,6 +24,7 @@ The cost of using {{ cdn-full-name }} is based on:
 
 {% include notitle [usd.md](../_pricing/cdn/usd.md) %}
 
+
 ### Paid features {#paid-features}
 
 Billing occurs on a monthly basis. If a function is enabled or disabled on any day of a month, the full monthly price will be charged for the month on the last day.
@@ -32,4 +33,5 @@ Billing occurs on a monthly basis. If a function is enabled or disabled on any d
 
 
 {% include notitle [usd-paid-features.md](../_pricing/cdn/usd-paid-features.md) %}
+
 

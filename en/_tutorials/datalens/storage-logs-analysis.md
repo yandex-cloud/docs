@@ -29,6 +29,7 @@ The cost includes:
 * A fee for data storage in {{ objstorage-short-name }}, operations with data, and outgoing traffic (see [{{ objstorage-short-name }} pricing](../../storage/pricing.md)).
 * A fee for the continuously running {{ mch-name }} cluster (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 
+
 ## Create a bucket for storing logs {#create-bucket}
 
 To create a bucket:

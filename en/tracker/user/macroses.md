@@ -1,6 +1,6 @@
 # Running a macro
 
-In {{ tracker-name }}, macros are scripted algorithms that can be executed on the issue page. You can use macros to automate repeating actions. Macros let you change messages.
+In {{ tracker-name }}, macros are scripted algorithms that can be executed on the issue page. You can use macros to automate repeating actions. Macros let you change  messages.
 
 {% note info %}
 

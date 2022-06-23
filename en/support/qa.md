@@ -11,6 +11,7 @@ If you are unable to access your Yandex account, please see our [troubleshooting
 
 If you successfully logged in to your Yandex account but are unable to connect to the {{ yandex-cloud }} management console, contact technical support by email.
 
+
 #### What kinds of issues and cases does technical support resolve? {#support-cases-types}
 
 
@@ -22,12 +23,14 @@ Regardless of your service plan, you can request the following from technical su
 * [Your personal data](request.md#personal) stored by Yandex.
 
 
+
 #### How quickly does technical support respond? {#reaction-time}
 
 
 Technical support responds to requests 24 hours a day, 7 days a week.
 
 The response time depends on your service plan. For more information about service plans, see [{#T}](overview.md).
+
 
 
 #### How quickly can technical support solve an identified problem? {#resolution-time}

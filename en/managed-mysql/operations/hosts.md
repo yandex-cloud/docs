@@ -35,6 +35,7 @@ You can add and remove cluster hosts and manage their settings.
    +----------------------------+--------------+---------+--------+---------------+
    ```
 
+
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
@@ -60,7 +61,7 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
 
       
       * Availability zone.
-      * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md));
+      * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
       * Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
       * Priority for assigning the host as a master.
       * Host priority as a {{ MY }} replica for creating backups.
@@ -77,7 +78,7 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
 
       ```
       yc vpc subnet list
-      
+
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
@@ -89,6 +90,7 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
       ```
       
       If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
+
 
    1. View a description of the CLI command for adding a host:
 
@@ -104,8 +106,8 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
         --host zone-id=<availability zone ID>,
         --subnet-id=<subnet ID>,
         --backup-priority=<host priority for backups>
-        --priority=<host priority to be assigned as master: from 0 to 100>
-      
+        --priority=<priority for assigning the host as a master: from 0 to 100>
+
       ```
 
       {{ mmy-short-name }} will run the add host operation.
@@ -127,7 +129,7 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
           zone             = "<availability zone>"
           subnet_id        = <subnet ID>
           assign_public_ip = <public access to the host: true or false>
-          priority         = <host priority to be assigned as master: from 0 to 100>
+          priority         = <priority for assigning the host as a master: from 0 to 100>
           ...
         }
       }
@@ -167,7 +169,7 @@ For each host in a {{ mmy-short-name }} cluster, you can:
 * Set the [replication source](../concepts/replication.md#manual-source).
 * Manage [public access](../concepts/network.md#public-access-to-host).
 * Set a [priority](../concepts/backup.md#size) for backups.
-* Set a priority for assigning a master host if the [primary master fails](../concepts/replication.md#master-failover).
+* Set a priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
 
 {% list tabs %}
 
@@ -199,8 +201,8 @@ For each host in a {{ mmy-short-name }} cluster, you can:
      --replication-source=<source host name> \
      --assign-public-ip=<public access to the host: true or false> \
      --backup-priority=<host priority for backups: from 0 to 100>
-     --priority=<host priority to be assigned as master: from 0 to 100>
-   
+     --priority=<priority for assigning the host as a master: from 0 to 100>
+
    ```
 
    Where:
@@ -229,7 +231,7 @@ For each host in a {{ mmy-short-name }} cluster, you can:
         host {
           replication_source_name = "<replication source>"
           assign_public_ip        = <public access to the host: true or false>
-          priority                = <host priority to be assigned as master: from 0 to 100>
+          priority                = <priority for assigning the host as a master: from 0 to 100>
         }
       }
       ```

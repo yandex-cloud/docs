@@ -30,6 +30,7 @@ For example, change the default folder:
    ```
 
 
+
 View the full [list of profile parameters](../../concepts/core-properties.md). You can also change your profile parameters using the [profile wizard](profile-create.md#interactive-create).
 
 ## Delete a profile parameter {#unset}
@@ -56,6 +57,7 @@ For example, delete the default folder:
    ```
 
 
+
 ## Run a command with parameters from another profile {#another-profile}
 
 To run a command using parameters from a different profile, add the `--profile <profile name>` parameter to the command.
@@ -69,4 +71,5 @@ token: AQAAAAAV6O...
 cloud-id: aoegt...
 folder-id: aoek4...
 ```
+
 

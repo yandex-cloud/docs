@@ -16,6 +16,7 @@ To learn more about Kafka Connect, see the [{{ KF }}](https://kafka.apache.org/d
 
 Next, we'll configure {{ KFC }} to interact with a {{ mkf-name }} cluster. The tool will be deployed on a [{{ yandex-cloud }} VM](../../compute/concepts/vm.md) as a separate installation. SSL encryption will be used to protect the connection.
 
+
 We'll also set up a simple [FileStreamSource](https://docs.confluent.io/home/connect/filestream_connector.html) connector. {{ KFC }} will use it to read data from a test JSON file and pass it to a cluster topic.
 
 {% note info %}
@@ -51,6 +52,7 @@ If you no longer need these resources, [delete them](#clear-out).
 1. [Connect to the virtual machine over SSH](../../compute/operations/vm-connect/ssh.md).
 
 1. Prepare the VM to work with {{ KFC }}:
+
 
     1. Install the JDK:
 
@@ -179,5 +181,6 @@ If you no longer need these resources, delete them:
 
 * [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
 * If you reserved a public static IP address for the VM, [delete it](../../vpc/operations/address-delete.md).
+
 
 * [Delete a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).

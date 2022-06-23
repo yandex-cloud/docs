@@ -71,6 +71,7 @@
      +-----------+--------------------------------+-------+----------+
      ```
 
+
   1. Укажите нужный класс в команде изменения кластера:
 
       ```bash
@@ -354,6 +355,7 @@
         
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
+
     * `--connection-pooling-mode` — указывает [режим работы менеджера соединений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
@@ -463,6 +465,7 @@
 
     
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+
 
   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 

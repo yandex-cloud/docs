@@ -3,14 +3,14 @@ title: "GPU and vGPU - Graphics Accelerators"
 description: "GPU is a graphics processor unit that handles certain types of data much more efficiently than vCPU can be used for complex calculations. Compute Cloud provides graphics accelerators (GPU) and virtual graphics accelerators (vGPU) as part of the graphics card."
 ---
 
-# GPUand vGPU graphics accelerators
+# GPU and vGPU graphics accelerators
 
-{{ compute-name }} provides graphics accelerators (GPUs)and virtual graphics accelerators (vGPUs) as part of graphics cards. GPUs outperform vCPUs in processing certain types of data and can be used for complex computing.
+{{ compute-name }} provides graphics accelerators (GPUs) and virtual graphics accelerators (vGPUs) as part of graphics cards. GPUs outperform vCPUs in processing certain types of data and can be used for complex computing.
 
 The following GPUs are available in {{ compute-name }}:
-* [NVIDIA® Tesla® V100](https://www.nvidia.com/en-us/data-center/v100/) with 32 GB HBM2 (High Bandwidth Memory).
+* [NVIDIA® Tesla® V100](https://www.nvidia.com/en-us/data-center/v100/) with 32 GB HBM2 (High Bandwidth Memory). 
 * [NVIDIA® Ampere® A100](https://www.nvidia.com/en-us/data-center/a100/) with 80 GB HBM2.
-   * [NVIDIA® Tesla® T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) with 16 GB GDDR6.
+   * [NVIDIA® Tesla® T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) with 16 GB GDDR6. 
 
 
 {% note warning %}
@@ -19,10 +19,12 @@ Unlike vGPUs, GPUs run in [TCC](https://docs.nvidia.com/nsight-visual-studio-edi
 
 {% endnote %}
 
-By default, the cloud has a zero [quota](../concepts/limits.md#compute-quotas) for creating virtual machines with GPUsand vGPUs. To change the [quota]({{ link-console-quotas }}), contact [technical support]({{ link-console-support }}).
+
+By default, the cloud has a zero [quota](../concepts/limits.md#compute-quotas) for creating virtual machines with GPUs and vGPUs. To change the [quota]({{ link-console-quotas }}), contact [technical support]({{ link-console-support }}).
 
 
 VMs with GPUs and vGPUs can't be created in `ru-central1-c`. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
+
 
 ## Graphics accelerators (GPUs){#gpu}
 
@@ -35,6 +37,7 @@ You can control a GPU and RAM directly from your VM.
 
 The NVIDIA® Tesla® V100 GPU contains 5120 CUDA® cores for [high-performance computing](https://www.nvidia.com/en-us/high-performance-computing/) (HPC) and 640 Tensor cores for deep learning (DL) tasks.
 
+
 ### NVIDIA® Ampere® A100 {#a100}
 
 The NVIDIA® A100 GPU based on the [Ampere®](https://www.nvidia.com/en-us/data-center/ampere-architecture/) microarchitecture uses third-generation Tensor Cores and delivers 80 GB HBM2 memory with up to 2 TB/s bandwidth.
@@ -43,6 +46,7 @@ The NVIDIA® A100 GPU based on the [Ampere®](https://www.nvidia.com/en-us/data-
 ### NVIDIA® Tesla® T4 {#tesla-t4}
 
 NVIDIA® Tesla® T4 on the [Turing™](https://images.nvidia.com/aem-dam/en-zz/Solutions/design-visualization/technologies/turing-architecture/NVIDIA-Turing-Architecture-Whitepaper.pdf) architecture uses Turing tensor cores as well as the RT cores and provides 16 GB of GDDR6 memory with a [throughput of 300 GB/s](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-t4/t4-tensor-core-datasheet-951643.pdf).
+
 
 ### VM configurations {#config}
 
@@ -66,6 +70,7 @@ Available configurations of computing resources:
    | 4 | 128 | 32 | 192 |
    | 8 | 256 | 64 | 384 |
 
+
 * {{ a100-epyc }} (`gpu-standard-v3`):
 
    | Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB |
@@ -83,6 +88,7 @@ Available configurations of computing resources:
    | 1 | 16 | 32 | 128 |
 
 {% include [gpu-zones](../../_includes/compute/gpu-zones.md) %}
+
 
 For more information about organizational and technical limits for VMs, see [Quotas and limits](../concepts/limits.md).
 
@@ -123,6 +129,7 @@ VMs with vGPUs can use the following configuration on {{ v100-broadwell }} 8G (`
 ## GPU vs. vGPU comparison
 
 {% include [gpu-vs-vgpu](../../_includes/compute/gpu-comparation.md) %}
+
 
 ## See also {#see-also}
 

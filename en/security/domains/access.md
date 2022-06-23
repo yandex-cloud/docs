@@ -5,7 +5,7 @@ In {{ yandex-cloud }}, identification, authentication, and access control is per
 The platform works with three categories of users:
 
 
-* [Yandex accounts](../../iam/concepts/#passport): Accounts in Yandex ID.
+* [Yandex accounts](../../iam/concepts/#passport): Accounts in Yandex ID.
 
 * [Federated accounts](../../iam/concepts/#saml-federation): Accounts in a corporate [SAML-compatible identity federation](../../organization/add-federation.md), such as Active Directory.
 * [Service accounts](../../iam/concepts/#sa): Accounts that can be used by a program to manage resources.
@@ -26,7 +26,7 @@ This section provides recommendations on how to ensure [safe operations](../../i
 * [Differentiating access to resources](#resourses).
 
 
-To simplify and automate role-based access management, the {{ iam-short-name }} module (based on Terraform) was designed. It lets you create permission groups for cloud users and has a number of other convenient features. For more information about the {{ iam-short-name }} module and its use cases, see the [solution](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auth_and_access/iam#identity-and-access-management-iam-terraform-module-for-yandexcloud).
+To simplify and automate role-based access management, the {{ iam-short-name }} module (based on Terraform) was designed. It lets you create permission groups for cloud users and has a number of other convenient features. For more information about the {{ iam-short-name }} module and its use cases, see the [solution](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auth_and_access/iam#identity-and-access-management-iam-terraform-module-for-yandexcloud).
 
 ## Centralized management and identity federations {#saml-federation}
 
@@ -41,7 +41,7 @@ For the purpose of centralized account management, use [SAML-compatible identity
 
 [Instructions for setting up SAML-based identity federations](../../organization/add-federation#federation-usage).
 
-[Instructions for setting up SAML-based federations with KeyCloak](https://www.youtube.com/watch?v=m-oe7V9PvC4).
+[Instructions for setting up SAML-based federations with KeyCloak](https://www.youtube.com/watch?v=m-oe7V9PvC4).
 
 {% note tip %}
 
@@ -95,7 +95,7 @@ Security standards require two-factor authentication (2FA) for accessing the inf
 To enable two-factor authentication, contact an identity provider that supports 2FA and set up a [SAML-compliant identity federation](#saml-federation).
 
 
-To set up 2FA for a Yandex ID account, follow the [instructions](https://yandex.com/support/id/authorization/twofa.html).
+To set up 2FA for a Yandex ID account, follow the [instructions](https://yandex.com/support/id/authorization/twofa.html).
 
 
 ## Managing privileged users {#privileged-users}

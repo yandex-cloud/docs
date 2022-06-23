@@ -54,6 +54,7 @@
     ```
    
    
+   
 1. Настройте профиль для запуска команд.
 
     {% include [add-folder](../cli-add-folder.md) %}

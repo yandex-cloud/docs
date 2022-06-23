@@ -4,3 +4,4 @@ You can make a public IP address static. For more information, see [{#T}](../com
 
 
 For more information about IP address pricing, see the section [{#T}](../vpc/pricing.md#prices-public-ip) in the {{ vpc-name }} service documentation.
+

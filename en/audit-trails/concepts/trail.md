@@ -1,6 +1,6 @@
 # Trail
 
-A trail is an {{ at-name }} resource responsible for collecting and delivering audit logs of {{ yandex-cloud }} resources to a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}or a [log group](../../logging/concepts/log-group.md) in {{ cloud-logging-name }}.
+A trail is an {{ at-name }} resource responsible for collecting and delivering audit logs of {{ yandex-cloud }} resources to a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }} or a [log group](../../logging/concepts/log-group.md) in {{ cloud-logging-name }}.
 
 ## Audit log collection scope {#collecting-area}
 
@@ -9,13 +9,13 @@ In the trail settings, you can choose where to collect audit logs from:
 * Cloud: Audit logs of resources in all folders in a given cloud.
 * Individual folders: Audit logs of specific folders in a cloud.
 
-The trail will collect the audit logs of all [resources](./events.md) in the specified audit log collection scope, including the resources added to the scope after trail creation, and upload them to a bucketor log group.
+The trail will collect the audit logs of all [resources](./events.md) in the specified audit log collection scope, including the resources added to the scope after trail creation, and upload them to a bucket or log group.
 
 If resources are added to the audit log collection scope after a trail is created, the trail will automatically start collecting audit logs for them.
 
 ## Destination object {#target}
 
-Each trail only uploads audit logs to one destination object: a bucketor a log group.
+Each trail only uploads audit logs to one destination object: a bucket or a log group.
 
 When uploading audit logs to a bucket, {{ at-name }} generates audit log files approximately once every 5 minutes. The trail will write all the [events](./events.md) that occurred to the cloud resources during that period to one or more files. If no events occurred during the period, no files are generated.
 
@@ -32,9 +32,9 @@ Each trail runs independently of one another. Using multiple trails, you can dif
 The trail contains all the audit log settings:
 * **Name**: Required parameter.
 * **Description**: Optional parameter.
-* **Service account**: The account on behalf of which audit logs will be uploaded to a bucketor a log group. To determine the available audit log collection scope, the access rights of this account are checked.
+* **Service account**: The account on behalf of which audit logs will be uploaded to a bucket or a log group. To determine the available audit log collection scope, the access rights of this account are checked.
 * **Destination**:
-   * **Destination**: {{ objstorage-name }}or {{ cloud-logging-name }}.
+   * **Destination**: {{ objstorage-name }} or {{ cloud-logging-name }}.
    * For {{ objstorage-name }}:
       * **Bucket**: The name of the bucket.
       * **Object prefix**: An optional parameter used in the [full name](./format.md#log-file-name) of the audit log file.

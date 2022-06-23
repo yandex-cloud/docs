@@ -79,6 +79,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
+
    1. View a description of the CLI's create cluster command:
 
       ```
@@ -115,6 +116,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
    
    If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
 
    To create a cluster:
 
@@ -189,6 +191,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       ```
 
 
+
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform-maintenance-window.md) %}
@@ -251,6 +254,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`.
    * With protection against accidental cluster deletion.
 
+
    1. Run the command to create a cluster:
 
       
@@ -269,6 +273,7 @@ If you specified security group IDs when creating a cluster, you may also need t
         --database name=db1 \
         --deletion-protection=true
       ```
+
 
    1. Run the change permissions command for the `user1` user.
 
@@ -371,6 +376,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      v4_cidr_blocks = ["10.5.0.0/24"]
    }
    ```
+
 
 
 {% endlist %}

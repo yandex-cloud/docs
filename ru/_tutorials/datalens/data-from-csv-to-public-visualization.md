@@ -24,6 +24,7 @@
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
 
+
 ## Шаг 1. Создайте подключение и датасет {#step1}
 
 Создайте датасет на основе [подключения](../../datalens/concepts/connection.md) к CSV-файлу.

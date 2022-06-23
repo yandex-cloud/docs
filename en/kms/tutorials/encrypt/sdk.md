@@ -1,8 +1,8 @@
-# Encrypting data using the {{ yandex-cloud }}SDK
+# Encrypting data using the {{ yandex-cloud }} SDK
 
-You can use {{ kms-name }} with the {{ yandex-cloud }} SDK. The SDK is available for [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk), and [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
+You can use {{ kms-name }} with the {{ yandex-cloud }}  SDK. The SDK is available for [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk), and [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
 
-The {{ yandex-cloud }} SDK is most convenient for encrypting small amounts of data (the limit on the size of plaintext is 32 KB). To encrypt larger amounts of data, we recommend using the [AWS Encryption SDK](aws-encryption-sdk.md) or [Google Tink](google-tink.md). They encrypt data using [envelope encryption](../../concepts/envelope.md).
+The {{ yandex-cloud }}  SDK is most convenient for encrypting small amounts of data (the limit on the size of plaintext is 32 KB). To encrypt larger amounts of data, we recommend using the [AWS Encryption SDK](aws-encryption-sdk.md) or [Google Tink](google-tink.md). They encrypt data using [envelope encryption](../../concepts/envelope.md).
 
 ## Adding dependencies {#dependency}
 
@@ -117,6 +117,7 @@ The `token` variable is your [OAuth token](../../../iam/concepts/authorization/o
 {% endlist %}
 
 
+
 ## Encrypting and decrypting data {#enc-dec}
 
 Use the `encrypt` and `decrypt` methods to encrypt and decrypt data. The code uses the following variables:
@@ -194,6 +195,6 @@ Use the `encrypt` and `decrypt` methods to encrypt and decrypt data. The code us
 
 #### See also {#see-also}
 
-* [{{ yandex-cloud }}Java SDK](https://github.com/yandex-cloud/java-sdk).
+* [{{ yandex-cloud }} Java SDK](https://github.com/yandex-cloud/java-sdk).
    * [Examples of how to use {{ kms-short-name }} with the Java SDK](https://github.com/yandex-cloud/java-sdk/tree/master/java-sdk-examples/src/main/java/yandex/cloud/sdk/examples/kms).
-* [{{ yandex-cloud }}Go SDK](https://github.com/yandex-cloud/go-sdk).
+* [{{ yandex-cloud }} Go SDK](https://github.com/yandex-cloud/go-sdk).

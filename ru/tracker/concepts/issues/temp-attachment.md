@@ -42,6 +42,7 @@ Content-Type: multipart/form-data
 
     Идентификатор организации.
 
+
 - **Content-Type**
 
     Формат тела запроса. Должен иметь значение `multipart/form-data`.

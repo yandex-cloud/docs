@@ -5,6 +5,7 @@ To provide access to a resource, assign a user a [role](../../../iam/concepts/ac
 ## Assigning a role to a user {#access-to-user}
 
 This section describes how to assign a role to a user with a Yandex. The following examples explain how to assign a role to a [service account](#access-to-sa), [federated users](#access-to-federated-user), or [all users](#access-to-all).
+
 {% list tabs %}
 
 - Management console
@@ -64,6 +65,7 @@ This section describes how to assign a role to a user with a Yandex. The followi
         --role viewer \
         --subject federatedUser:aje6o61dvog2h6g9a33s
       ```
+
 - API
 
    Use the `updateAccessBindings` method for the corresponding resource.

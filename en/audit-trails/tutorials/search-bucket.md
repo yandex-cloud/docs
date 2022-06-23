@@ -26,6 +26,7 @@
    ```bash
    find <directory path> -type f -exec cat {} \; | jq  '.[] | select((.event_type | test("yandex\\.cloud\\.audit\\.compute\\..*Instance")) and .details.instance_id == "<VM instance ID>") | .authentication'
    ```
+
 1. To find out what actions a user performed over a period of time, search by the subject ID:
 
    ```bash

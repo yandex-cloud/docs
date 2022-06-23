@@ -26,6 +26,7 @@ Domain names in public zones are available from the internet. If you have a regi
 * `ns2.yandexcloud.net.`
 
 
+
 You can't create public top-level domain (TLD) zones.
 
 For security reasons, nested public zones can only be created by users and service accounts with the `dns.editor`, `dns.admin`, `editor`, or `admin` role in the folder where the parent public zone is located. Remember this when organizing the structure of your domain names. For more complex scenarios, contact [support](../../support/overview.md).

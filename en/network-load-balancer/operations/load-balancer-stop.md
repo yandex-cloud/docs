@@ -43,6 +43,7 @@
       ```
 
 
+
    1. Choose the `ID` or `NAME` of the required load balancer in the `ACTIVE` state.
    1. Stop the load balancer:
 

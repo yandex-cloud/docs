@@ -12,6 +12,7 @@
 
 {% include [Managed MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/managed-mongodb.md) %}
 
+
 ## Пользовательская инсталляция {#on-premise}
 
 Подключение к БД с явным указанием сетевых адресов и портов.
@@ -26,6 +27,7 @@
 
     
     * {% include [Field Subnet ID](../../../../_includes/data-transfer/fields/common/ui/subnet-id.md) %}
+
 
     * {% include [Field CA certificate](../../../../_includes/data-transfer/fields/mongodb/ui/ca-certificate.md) %}
 

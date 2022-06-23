@@ -52,7 +52,9 @@ Example rule for a specific {{ yandex-cloud }} user:
 
 
 
+
 You can retrieve the user ID by following the [procedure](../../iam/operations/users/get.md) in the {{ iam-full-name }} documentation.
+
 
 ## Sample configurations {#config-examples}
 

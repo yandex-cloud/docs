@@ -16,10 +16,12 @@ To publish an app, use a `LoadBalancer` service. The following options are suppo
   
    * a company's internal subnets connected to {{ yandex-cloud }} through [{{ interconnect-full-name }}](../../interconnect/);
 
+
    *  via VPN.
 
 
 To use DDoS protection, [reserve](../../vpc/operations/enable-ddos-protection.md) a public IP address and [specify](#advanced) it using the `loadBalancerIP` option.
+
 
 {% note info %}
 
@@ -275,6 +277,7 @@ In {{ managed-k8s-name }}, the following advanced settings are available for a s
 
   
   When reserving a static IP address, you can activate [DDoS protection](../../vpc/ddos-protection/index.md).
+
 
 * Traffic management with [externalTrafficPolicy](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/#ServiceSpec):
   * `Cluster`: Traffic goes to any of the {{ k8s }} cluster nodes. In this case:

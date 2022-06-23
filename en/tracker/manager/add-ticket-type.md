@@ -29,6 +29,7 @@ The most popular issue types are available in {{ tracker-name }} by default. If 
 
 1. Fill in the fields and click **Create**.
 
+
 ## Adding an issue type to a queue{#section_mvh_5yb_gz}
 
 To create a new issue type:

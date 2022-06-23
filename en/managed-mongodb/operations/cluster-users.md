@@ -5,7 +5,7 @@ description: "This article will show you how to add and remove users, as well as
 
 # Managing database users
 
-You can add and remove users, as well as manage their individual settings.
+You can add and delete users as well as manage their individual settings and database access permissions.
 
 ## Getting a list of users {#list-users}
 
@@ -14,7 +14,7 @@ You can add and remove users, as well as manage their individual settings.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of the cluster you need and then select the **Users** tab.
+   1. Click on the name of the desired cluster and then select the ![image](../../_assets/mdb/user.svg) **Users** tab.
 
 - CLI
 
@@ -25,8 +25,8 @@ You can add and remove users, as well as manage their individual settings.
    To get a list of cluster users, run the command:
 
    ```
-   {{ yc-mdb-mg }} user list
-     --cluster-name=<cluster name>
+   {{ yc-mdb-mg }} user list \
+     --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -45,7 +45,7 @@ You can add and remove users, as well as manage their individual settings.
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
 
-   1. Click on the name of the cluster you need and select the **Users** tab.
+   1. Click the name of the desired cluster and select the ![image](../../_assets/mdb/user.svg) **Users** tab.
 
    1. Click **Add**.
 
@@ -78,10 +78,10 @@ You can add and remove users, as well as manage their individual settings.
 
    1. Specify the user properties in the create command:
       ```
-      {{ yc-mdb-mg }} user create <username>
-        --cluster-name <cluster name>
-        --password <user password>
-        --permission database=<DB name>,role=<role>,role=<another role>,...
+      {{ yc-mdb-mg }} user create <username> \
+        --cluster-name <cluster name> \
+        --password <user password> \
+        --permission database=<DB name>,role=<role>,role=<another role>,... \
         --permission database=<another DB name>,role=<role>,...
       ```
 
@@ -137,15 +137,15 @@ You can add and remove users, as well as manage their individual settings.
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
 
-   1. Click on the name of the cluster you need and select the **Users** tab.
+   1. Click the name of the desired cluster and select the ![image](../../_assets/mdb/user.svg) **Users** tab.
 
-   1. To change a user's password, click ![image](../../_assets/options.svg) and select **Change password**.
+   1. To edit a user password, click ![image](../../_assets/options.svg) next to the desired user and select **Change password**.
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
    1. To change the user's [roles](../concepts/users-and-roles.md):
 
-      1. Click ![image](../../_assets/options.svg) and select **Configure**.
+      1. Click ![image](../../_assets/options.svg) next to the desired user and select **Configure**.
       1. To add a role, click ![image](../../_assets/plus-sign.svg) next to the appropriate database and select the role.
       1. To delete a role, click ![image](../../_assets/cross.svg) next to the role name.
 
@@ -167,16 +167,51 @@ You can add and remove users, as well as manage their individual settings.
 
    1. Specify the user properties in the update command:
       ```
-      {{ yc-mdb-mg }} user update <username>
-        --cluster-name <cluster name>
-        --password <user password>
-        --permission database=<database name>,role=<role>,role=<another role>,...
+      {{ yc-mdb-mg }} user update <username> \
+        --cluster-name <cluster name> \
+        --password <user password> \
+        --permission database=<database name>,role=<role>,role=<another role>,... \
         --permission database=<another DB name>,role=<role>,...
       ```
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   To grant a user access to a database with a defined list of roles:
+
+   1. View a description of the CLI command to grant users permissions:
+
+      ```
+      {{ yc-mdb-mg }} user grant-permission --help
+      ```
+
+   1. Specify the properties of the user in the grant permissions command:
+
+      ```bash
+      {{ yc-mdb-mg }} user grant-permission <username> \
+        --cluster-name <cluster name> \
+        --database <DB name> \
+        --permissions <comma-separated list of roles>
+      ```
+
+   To revoke user database access:
+
+   1. View a description of the CLI command to revoke users' permissions:
+
+      ```
+      {{ yc-mdb-mg }} user revoke-permission --help
+      ```
+
+   1. Specify the properties of the user in the revoke permissions command:
+
+      ```bash
+      {{ yc-mdb-mg }} user revoke-permission <username> \
+        --cluster-name <cluster name> \
+        --database <DB name>
+      ```
+
+      This command completely blocks the user's access to the specified database.
+
+   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters), the DB name with a [list of databases in the cluster](databases.md#list-db), and the user's name with a [list of users in the cluster](cluster-users.md#list-users).
 
 - Terraform
 
@@ -215,7 +250,14 @@ You can add and remove users, as well as manage their individual settings.
 
 - API
 
-   To edit the user data, use the [update](../api-ref/User/update.md) method.
+   Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
+   * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
+   * The name of the database that you want to change the list of user roles for, in the `permissions.databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
+   * Array of the new list of user roles, in the `permissions.roles` parameter.
+   * List of user configuration fields to be changed (in this case, `permissions`), in the `updateMask` parameter.
+
+   {% include [api-update-object-settings](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -226,8 +268,8 @@ You can add and remove users, as well as manage their individual settings.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click on the name of the cluster you need and select the **Users** tab.
-   1. Click ![image](../../_assets/options.svg) and select **Delete**.
+   1. Click the name of the desired cluster and select the ![image](../../_assets/mdb/user.svg) **Users** tab.
+   1. Click ![image](../../_assets/options.svg) next to the user and select **Delete**.
 
 - CLI
 
@@ -238,8 +280,8 @@ You can add and remove users, as well as manage their individual settings.
    To remove a user, run:
 
    ```
-   {{ yc-mdb-mg }} user delete <username>
-     --cluster-name=<cluster name>
+   {{ yc-mdb-mg }} user delete <username> \
+     --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

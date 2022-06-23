@@ -36,6 +36,7 @@ editable: false
 
   Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices) и наценки {{ mgp-name }} на эти ресурсы.
 
+
 Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост {{ GP }} не может выполнять свои основные функции, не тарифицируется.
 
 ### Использование дискового пространства {#rules-storage}
@@ -65,6 +66,7 @@ editable: false
 
 Все цены указаны с включением НДС.
 
+
 Цены на хосты [вычисляются по-разному](#rules-hosts-uptime) в зависимости от выбранного типа хостов.
 
 От типа хостов также зависит цена на хранилище на локальных SSD-дисках (`local-ssd`).
@@ -80,14 +82,15 @@ editable: false
   * Для хостов i2 и i3 (`io-optimized`) стоимость складывается из цены за вычислительные ресурсы хостов {{ mgp-name }} (см. таблицу ниже) и [цены за использование программно-ускоренной сети](../../compute/pricing#software-accelerated-network).
   * Для хостов других конфигураций оплачиваются только их вычислительные ресурсы:
 
-  {% include notitle [RUB: standard hosts](../../_pricing/managed-greenplum/rub-hosts-standard.md) %}
+   {% include notitle [RUB: standard hosts](../../_pricing/managed-greenplum/rub-hosts-standard.md) %}
 
 
 - Выделенные хосты
   
   Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices) и наценки {{ mgp-name }} на эти ресурсы.
 
-  {% include notitle [RUB: dedicated hosts](../../_pricing/managed-greenplum/rub-hosts-dedicated.md) %}
+   {% include notitle [RUB: dedicated hosts](../../_pricing/managed-greenplum/rub-hosts-dedicated.md) %}
+
 
 {% endlist %}
 
@@ -108,10 +111,11 @@ editable: false
 
   {% include notitle [rub-storage-dedicated.md](../../_pricing/managed-greenplum/rub-storage-dedicated.md) %}
 
+
 {% endlist %}
 
 ### Исходящий трафик {#prices-traffic}
 
-{% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %}
+ {% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %} 
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

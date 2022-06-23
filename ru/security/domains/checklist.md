@@ -20,11 +20,11 @@
 
 * **Централизованное управление и федерации удостоверений**: создайте организацию в сервисе [{{ org-full-name }}](/services/organization) и настройте систему единого входа (Single Sign-On) в {{ yandex-cloud }} через свой сервер IdP, см. инструкции по настройке с помощью [AD FS](../../organization/operations/federations/integration-adfs.md), [Keycloak](https://www.youtube.com/watch?v=m-oe7V9PvC4), [Google Workspace](../../organization/operations/federations/integration-gworkspace.md).
 * **Федеративные аккаунты**: используйте федеративные аккаунты вместо аккаунтов на Яндексе, где это возможно.
-* **Принцип минимальных привилегий**: назначайте сервисные роли (например, `compute.images.user`) вместо примитивных (`viewer`, `editor`, `admin`), см. [список всех ролей](../../iam/concepts/access-control/roles.md) и [примеры назначения ролей](../../iam/operations/roles/grant.md).Посмотрите вебинар [Управление доступами в облаке](https://www.youtube.com/watch?v=7VwSfPZ6eRM&t=3s).
+* **Принцип минимальных привилегий**: назначайте сервисные роли (например, `compute.images.user`) вместо примитивных (`viewer`, `editor`, `admin`), см. [список всех ролей](../../iam/concepts/access-control/roles.md) и [примеры назначения ролей](../../iam/operations/roles/grant.md). Посмотрите вебинар [Управление доступами в облаке](https://www.youtube.com/watch?v=7VwSfPZ6eRM&t=3s).
 * **{{ TF }} {{ yandex-cloud }} {{ iam-full-name }} module**: организуйте группы доступов для пользователей облака.
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: {{ iam-name }} в {{ TF }} для {{ yandex-cloud }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auth_and_access/iam#identity-and-access-management-iam-terraform-module-for-yandexcloud)
 * **Работа с сервисными аккаунтами**: применяйте механизм [назначения сервисного аккаунта ВМ](../../compute/operations/vm-connect/auth-inside-vm.md) и получения токена через сервис метаданных. Настройте локальный файрвол на ВМ, чтобы только необходимые процессы и пользователи системы имели доступ к сервису метаданных (IP-адрес: 169.254.169.254).<!-- tbd: добавить ссылку на решение -->
-* **2FA**: для федерации удостоверений настройте 2FA на стороне вашего IdP,для аккаунта на Яндексе настройте 2FA согласно [инструкции](https://yandex.ru/support/id/authorization/twofa.html).
+* **2FA**: для федерации удостоверений настройте 2FA на стороне вашего IdP, для аккаунта на Яндексе настройте 2FA согласно [инструкции](https://yandex.ru/support/id/authorization/twofa.html).
 * **Защита billing.accounts.owner**: после выполнения первоначальных операций не используйте учетную запись с этой ролью. Для управления платежным аккаунтом назначьте роль `admin`, `editor` или `viewer` на платежный аккаунт выделенному сотруднику организации с федеративным аккаунтом.
 * **Защита resource-manager.clouds.owner**: назначьте роль `resource-manager.clouds.owner` сотрудникам организации с федеративным аккаунтом. Аккаунту на Яндексе, с которым создано облако, назначьте сложный пароль и используйте этот аккаунт только в случае крайней необходимости. Назначьте администраторам менее привилегированные доступы и используйте `resource-manager.clouds.owner` в случае крайней необходимости.
 * **Ресурсная модель**: все критичные ресурсы, которые входят в область соответствия стандартам, поместите в отдельное облако. Группы ресурсов разделите по каталогам. Общие ресурсы (например, сеть и группы безопасности) поместите в отдельный каталог для разделяемых ресурсов.
@@ -36,7 +36,7 @@
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: Шифрование диска ВМ с помощью {{ kms-full-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
 * **Client-side encryption (если требуется)**: используйте шифрование данных с помощью ключей {{ kms-name }}, см. [обзор способов шифрования](../../kms/tutorials/encrypt/index.md).
 * **Защита ключей {{ kms-name }}**: выдавайте только гранулярные доступы к отдельным ключам {{ kms-name }} — роль `kms.keys.encrypterDecrypter`; используйте [ротацию ключей](../../kms/concepts/version.md).
-* **Управление секретами**: используйте сервисы управления секретами, такие как [{{ lockbox-name }}](../../lockbox/)или [HashiCorp Vault c поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }}.<!-- или контейнер cr.yandex/yc/vault -->
+* **Управление секретами**: используйте сервисы управления секретами, такие как [{{ lockbox-name }}](../../lockbox/) или [HashiCorp Vault c поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }}.<!-- или контейнер cr.yandex/yc/vault -->
 
 ## Безопасная конфигурация {#secure-configuration}
 
@@ -49,12 +49,12 @@
 * **Безопасная конфигурация {{ objstorage-name }}**: используйте шифрование, [политики доступа (bucket policy)](../../storage/concepts/policy.md) и ACL, [версионирование для защиты от удаления](../../storage/concepts/versioning.md), включите [встроенный аудит доступа](../../storage/operations/buckets/enable-logging.md) и настройте CORS (при необходимости).
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: безопасная конфигурация {{ objstorage-name }} в {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/configuration/hardering_bucket)
 * **Безопасная конфигурация {{ sf-full-name }}**: предоставляйте токен сервисного аккаунта через [нативный механизм](../../functions/operations/function-sa.md) с помощью назначенного сервисного аккаунта и метаданных. По возможности используйте [приватные функции](../../functions/operations/function-public.md).
-* **Безопасная конфигурация {{ container-registry-full-name }}**: не рекомендуется использовать привилегированные контейнеры для запуска нагрузок.Используйте встроенный в сервис [сканер уязвимостей](../../container-registry/concepts/vulnerability-scanner.md) в образах.
-* **{{ certificate-manager-full-name }}**: используйте [{{ certificate-manager-name }}](../../certificate-manager/) для хранения, получения и обновления TLS-сертификатов от Let's Encrypt®, а также для загрузки собственных сертификатов. Сервис интегрирован с {{ api-gw-full-name }},{{ alb-full-name }} и {{ objstorage-name }}.
+* **Безопасная конфигурация {{ container-registry-full-name }}**: не рекомендуется использовать привилегированные контейнеры для запуска нагрузок. Используйте встроенный в сервис [сканер уязвимостей](../../container-registry/concepts/vulnerability-scanner.md) в образах.
+* **{{ certificate-manager-full-name }}**: используйте [{{ certificate-manager-name }}](../../certificate-manager/) для хранения, получения и обновления TLS-сертификатов от Let's Encrypt®, а также для загрузки собственных сертификатов. Сервис интегрирован с {{ api-gw-full-name }}, {{ alb-full-name }} и {{ objstorage-name }}.
 
 ## Защита от вредоносного кода {#malicious-code-protection}
 
-* **Защита на уровне ОС**: устанавливайте на ВМ антивирусные решенияиз [{{ marketplace-name }}](/marketplace?categories=security).
+* **Защита на уровне ОС**: устанавливайте на ВМ антивирусные решения из [{{ marketplace-name }}](/marketplace?categories=security).
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: развертывание Kaspersky Antivirus в {{ yandex-cloud }} ({{ compute-full-name }}, {{ coi }})](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/malware-defense/kaspersy-install-in-yc)
 * **Защита на уровне сети**: используйте NGFW/IDS/IPS, представленные в [{{ marketplace-name }}](/marketplace?categories=security) (некоторые из них имеют встроенные песочницы).
 * **Защита на уровне образов контейнеров**: используйте сканер уязвимостей в образах, встроенный в сервис {{ container-registry-full-name }}.<!-- tbd: вставить ссылку на инструкцию, когда она появится -->
@@ -64,15 +64,15 @@
 * **Автоматизированное сканирование уязвимостей**: используйте бесплатные сетевые сканеры, например, nmap, OpenVAS, OWASP ZAP, или агенты на хостах, например, Wazuh, Tripwire.
 * **Внешние сканирования безопасности**: проводите сканирования в соответствии с [правилами](../compliance/pentest.md).
 * **Обновления ПО, ОС**: самостоятельно устанавливайте обновления, используйте автоматизированные инструменты обновлений.
-* **Web Application Firewall**: установите WAF из [{{ marketplace-name }}](/marketplace?categories=security)или воспользуйтесь Managed WAF — для получения доступа обратитесь к своему менеджеру.
+* **Web Application Firewall**: установите WAF из [{{ marketplace-name }}](/marketplace?categories=security) или воспользуйтесь Managed WAF — для получения доступа обратитесь к своему менеджеру.
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: PT Application Firewall на базе {{ yandex-cloud }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/unmng-waf-ptaf-cluster)
   ![](../../_assets/overview/solution-library-icon.svg)[Пример: установка уязвимого веб-приложения (DVWA) в {{ yandex-cloud }} с помощью {{ TF }} для тестирования Managed WAF](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/vulnerable-web-app-waf-test)
 
 ## Сбор, мониторинг и анализ аудитных логов {#logs-analysis}
 
 * **{{ at-full-name }}**: включите [{{ at-name }}](../../audit-trails/quickstart.md) для всех облаков и каталогов.
-* **Сбор событий с уровня гостевых ОС и приложений**: собирайте события, например,с помощью [{{ mes-full-name }}](../../managed-elasticsearch/) или с помощью бесплатных решений Osquery, Wazuh и др.
-* **Сбор Flow logs (если требуется)**: например,с помощью NGFW из {{ marketplace-name }} или бесплатного ПО (в планах встроенные возможности).
+* **Сбор событий с уровня гостевых ОС и приложений**: собирайте события, например, с помощью [{{ mes-full-name }}](../../managed-elasticsearch/) или с помощью бесплатных решений Osquery, Wazuh и др.
+* **Сбор Flow logs (если требуется)**: например, с помощью NGFW из {{ marketplace-name }} или бесплатного ПО (в планах встроенные возможности).
 * **Экспорт событий {{ at-name }} в SIEM**.
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: экспорт в {{ mes-name }} (ELK)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main)
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: экспорт в ArcSight](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ArcSight)
@@ -82,7 +82,7 @@
   ![](../../_assets/overview/solution-library-icon.svg)[Use cases и важные события безопасности в аудитных логах](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/_use_cases_and_searches)
 * **Реагирование на {{ at-name }} с {{ sf-name }}**:
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: уведомления и реагирование на события ИБ {{ at-name }} с помощью {{ cloud-logging-full-name }} / {{ sf-name }} + Telegram](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trails-function-detector)
-* **Регулярный аудит состояния**: используйте [{{ yandex-cloud }} CLI](../../cli/) для запросов к текущему состоянию облачной инфраструктурылибо партнерское решение [Cloud Advisor](https://cloud.yandex.ru/blog/posts/2021/03/cloud-advisor-review).
+* **Регулярный аудит состояния**: используйте [{{ yandex-cloud }} CLI](../../cli/) для запросов к текущему состоянию облачной инфраструктуры либо партнерское решение [Cloud Advisor](https://cloud.yandex.ru/blog/posts/2021/03/cloud-advisor-review).
 
 ## Физическая безопасность {#physical-security}
 
@@ -95,6 +95,7 @@
 ## Управление бюджетами {#budget-management}
 
 * **Уведомления для контроля расходов**: настройте уведомления на пороги бюджета в биллинге, см. [инструкцию](../../billing/operations/budgets.md).
+
 ## Реагирование на инциденты {#incident-response}
 
 * **Процедура реагирования**: постройте процесс реагирования на инциденты. Для получения дополнительных логов следуйте [процедуре запроса данных](../../support/request.md).
@@ -104,7 +105,7 @@
 ### Шифрование данных и управление ключами/секретами {#kubernetes-data-encryption}
 
 * **Server-side шифрование**: включите шифрование секретов в etcd, см. [руководство](../../kms/tutorials/k8s.md). Делайте это всегда, вне зависимости от того, будете ли вы использовать сервисы управления секретами.
-* **Управление секретами**: используйте [{{ lockbox-name }}](../../lockbox/)или [HashiCorp Vault c поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }}.<!-- или контейнер `cr.yandex/yc/vault` -->
+* **Управление секретами**: используйте [{{ lockbox-name }}](../../lockbox/) или [HashiCorp Vault c поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }}.<!-- или контейнер `cr.yandex/yc/vault` -->
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: управление секретами c SecretManager ({{ lockbox-name }}, Vault)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/encrypt_and_keys/secret-management)
 
 ### Сетевая безопасность {#kubernetes-network-security}
@@ -136,6 +137,7 @@
 
 
 * **Мониторинг аномальной нагрузки**: используйте [{{ monitoring-full-name }}](../../monitoring/).
+
 
 ### Резервное копирование {#kubernetes-backup}
 

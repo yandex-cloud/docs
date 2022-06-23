@@ -19,6 +19,8 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
 {% endnote %}
 
+
+
 {% list tabs %}
 
 - Management console
@@ -106,6 +108,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
       If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
+
    1. View a description of the CLI's create cluster command:
 
       ```
@@ -131,6 +134,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
+
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
 - Terraform
@@ -138,6 +142,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
    
    If you don't have Terraform, [install it and configure the  provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
    To create a cluster:
 
    1. In the configuration file, describe the parameters of resources that you want to create:
@@ -214,6 +219,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
       ```
 
 
+
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       1. {% include [maintenance-window](../../_includes/mdb/mmg/terraform-maintenance-window.md) %}
@@ -261,6 +267,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With one database, `db1`.
    * With protection against accidental cluster deletion.
 
+
    Run the command:
 
    
@@ -278,6 +285,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      --database name=db1 \
      --deletion-protection=true
    ```
+
 
 - Terraform
 
@@ -373,6 +381,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      v4_cidr_blocks = ["10.5.0.0/24"]
    }
    ```
+
 
 
 {% endlist %}

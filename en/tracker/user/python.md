@@ -14,6 +14,7 @@ To start using the client:
     ```
 
 
+
 1. Get an OAuth token and your organization ID to access the API. To learn more, see the [API reference](../concepts/access.md).
 
 1. Initialize the client in your program code:
@@ -28,4 +29,5 @@ To start using the client:
 In the client, use the same data format as in the [{{ tracker-name }} API](../concepts/access.md).
 
 For more information about how the client works and its terms of use, see its page on GitHub: [https://github.com/yandex/yandex_tracker_client](https://github.com/yandex/yandex_tracker_client).
+
 

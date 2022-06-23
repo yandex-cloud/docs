@@ -147,7 +147,7 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
       * **{{ mch-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mch-name }} — ZooKeeper** to configure ZooKeeper host alerts.
    1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
-   1. If there is more than one parameter on a chart, create a data query to generate the metric. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+   1. If there is more than one parameter on a chart, create a data query to generate the metric. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). 
    1. Set the `Alarm` and `Warning` threshold values for the alert.
    1. Click **Create alert**.
 
@@ -163,6 +163,7 @@ To have other cluster health indicators monitored automatically:
 
    
    1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
+
 
    1. Add a status metric.
    1. Using parameters, set the alert threshold values.

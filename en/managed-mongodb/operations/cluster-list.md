@@ -51,6 +51,7 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
    
    To request access to [Point-in-Time-Recovery](../concepts/backup.md) (PITR) in the [Preview](../../overview/concepts/launch-stages.md) mode, click **Request access** in the **Point-in-time recovery** line and fill out the form.
 
+
    {% endnote %}
 
 - CLI

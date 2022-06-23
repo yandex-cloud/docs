@@ -39,6 +39,7 @@
 
         {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
+
       * Выберите объем, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [{#T}](../concepts/backup.md).
   1. В блоке **База данных** укажите атрибуты базы данных:
 
@@ -66,6 +67,7 @@
 
           {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
 
+
   1. При необходимости задайте дополнительные настройки кластера:
 
       {% include [extra-settings-create](../../_includes/mdb/mms/extra-settings-create.md) %}
@@ -89,6 +91,7 @@
         ```
 
         Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
+
 
     1. Посмотрите описание команды CLI для создания кластера:
 
@@ -148,6 +151,7 @@
         * `--security-group-ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
         * `--deletion-protection` — защита от удаления кластера.
 
+
             {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     1. Чтобы задать время начала резервного копирования, передайте нужное значение в формате `HH:MM:SS` в параметре `--backup-window-start`:
@@ -176,6 +180,7 @@
            ...
            --service-account-id=<идентификатор сервисного аккаунта>
         ```
+       
 
 - Terraform
 
@@ -259,6 +264,7 @@
             ```
 
             {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
+ 
 
         Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mms }}).
 
@@ -296,6 +302,7 @@
 
   Чтобы привязать к кластеру [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), передайте его [идентификатор](../../iam/operations/sa/get-id.md) в параметре `serviceAccountId`.
 
+
 {% endlist %}
 
 {% note warning %}
@@ -328,6 +335,7 @@
     * С одной базой данных `db1`.
     * С защитой от случайного удаления кластера.
 
+
     Запустите следующую команду:
 
     
@@ -348,6 +356,7 @@
        --security-group-ids={{ security-group }} \
        --deletion-protection=true
     ```
+
 
 - Terraform
 
@@ -440,6 +449,7 @@
       }
     }
     ```
+
 
 
 {% endlist %}

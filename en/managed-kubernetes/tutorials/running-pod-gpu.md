@@ -86,10 +86,11 @@ To run workloads with GPUs on {{ k8s }} cluster pods:
          - In the **Public IP** field, choose a method for assigning an IP address:
              - **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
              - **No address**: Don't assign a public IP address.
-         - Specify how nodes should be distributed across availability zones andnetworks.
+         - Specify how nodes should be distributed across availability zones and networks.
 
          
          - (optional) Click **Add location** and specify an additional availability zone and network to create nodes in different zones.
+
 
      1. Under **Access**, specify the information required to access the node:
          - Enter the username in the **Login** field.
@@ -164,7 +165,7 @@ To run workloads with GPUs on {{ k8s }} cluster pods:
      - `--cluster-name`: Name of the {{ k8s }} cluster where the node group is created.
      - `--gpus`: Number of GPUs for the nodes.
      - `--public-ip`: The flag that is specified if the node group needs a public IP address.
-     - `--location`: Availability zone to host the nodes in.You can specify several options.
+     - `--location`: Availability zone to host the nodes in. You can specify several options.
      - `--fixed-size`: Number of nodes in the group.
 
    - API

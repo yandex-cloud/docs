@@ -76,7 +76,7 @@ To view detailed information about the status of individual {{ mkf-name }} hosts
    1. In the list of services, select **Monitoring**.
    1. Under **Service dashboards**, select **{{ mkf-name }} — Cluster Overview**.
    1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
-   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more on the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more on the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). 
    1. Set the `Alarm` and `Warning` notification threshold values.
    1. Click **Create alert**.
 

@@ -45,6 +45,7 @@
 
           {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
+
       * Выберите объем, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [{#T}](../concepts/backup.md).
 
   1. В блоке **База данных** укажите атрибуты базы данных:
@@ -60,7 +61,7 @@
 
   1. В блоке **Хосты** выберите параметры хостов баз данных, создаваемых вместе с кластером. Открыв блок **Расширенные настройки**, вы можете выбрать конкретные подсети для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
 
-      При настройке параметров хостов обратите внимание, что если в блоке **Хранилище** выбран `local-ssd`или `network-ssd-nonreplicated`, то необходимо добавить не менее трех хостов в кластер.
+      При настройке параметров хостов обратите внимание, что если в блоке **Хранилище** выбран `local-ssd` или `network-ssd-nonreplicated`, то необходимо добавить не менее трех хостов в кластер.
 
   1. При необходимости задайте дополнительные настройки кластера:
 
@@ -93,6 +94,7 @@
 
      Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
 
+
   1. Посмотрите описание команды CLI для создания кластера:
 
       ```bash
@@ -121,6 +123,7 @@
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
+
       Доступные [режимы работы менеджера соединений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
 
       {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -135,11 +138,13 @@
             
       Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
+
 - Terraform
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   
   Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
 
   Чтобы создать кластер:
 
@@ -221,6 +226,7 @@
      ```
 
 
+
      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
@@ -256,6 +262,7 @@
     
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
+
 {% endlist %}
 
 {% note warning %}
@@ -287,6 +294,7 @@
   * С одной базой данных `db1`, принадлежащей пользователю `user1`.
   * С защитой от случайного удаления кластера.
 
+
   Запустите следующую команду:
 
   
@@ -304,6 +312,7 @@
      --security-group-ids {{ security-group }} \
      --deletion-protection=true
   ```
+
 
 - Terraform
 
@@ -399,6 +408,7 @@
     }
   }
   ```
+
 
 
 {% endlist %}

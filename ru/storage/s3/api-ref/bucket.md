@@ -14,3 +14,4 @@
 [getBucketLogging](bucket/getBucketLogging.md) | Возвращает настройки логирования действий с бакетом.
 [listObjectVersions](bucket/listObjectVersions.md) | Возвращает метаданные обо всех версиях объектов в бакете.
 
+

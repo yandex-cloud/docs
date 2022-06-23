@@ -154,7 +154,7 @@ To remove the link to a parent issue:
 
 ## Linking a commit to an issue {#section_commit}
 
-You can link an issue to a commit, provided its repositoryis [linked to {{ tracker-name }}](../manager/add-repository.md). To do this, specify the issue key in the commit comment. You can view linked commits the following ways:
+You can link an issue to a commit, provided its repository is [linked to {{ tracker-name }}](../manager/add-repository.md). To do this, specify the issue key in the commit comment. You can view linked commits the following ways:
 
 - On the **Commits** tab on the issue page.
 - On the **Commits** tab on the queue page.

@@ -37,6 +37,7 @@ To track user actions:
         
     - The user filled in at least one field in the form: `ya-forms_start-change`.
 
+
     - The user clicked the **Submit** button on the form: `ya-forms_submit`.
 
     - The user clicked the **Next** button on a multi-page form: `ya-forms_next`.

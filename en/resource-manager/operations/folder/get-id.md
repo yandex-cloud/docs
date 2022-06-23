@@ -3,7 +3,7 @@
 {% list tabs %}
 
 - Management console
-  1. Open the folder page. You can select a folder on the [Home page]({{ link-console-main }}) of the management console. This page displays folders for the selected cloud.If necessary, [switch to another cloud](../cloud/switch-cloud.md).
+  1. Open the folder page. You can select a folder on the [Home page]({{ link-console-main }}) of the management console. This page displays folders for the selected cloud. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
   1. Get the folder ID from the URL of the folder page in the management console:
 
       ```

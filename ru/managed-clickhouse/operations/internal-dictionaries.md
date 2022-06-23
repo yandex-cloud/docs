@@ -57,6 +57,7 @@
 
 1. [Получите ссылку](s3-access.md#get-link-to-object) на архив с геобазой.
 
+
 ## Подключить геобазу {#add-geobase}
 
 {% list tabs %}

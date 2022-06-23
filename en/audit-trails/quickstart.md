@@ -1,6 +1,6 @@
 # Getting started with {{ at-name }}
 
-{{ at-name }} collects [audit logs](./concepts/format.md) from {{ yandex-cloud }} resources and uploads them to an {{ objstorage-name }}bucket or a {{ cloud-logging-name }} log group.
+{{ at-name }} collects [audit logs](./concepts/format.md) from {{ yandex-cloud }} resources and uploads them to an {{ objstorage-name }} bucket or a {{ cloud-logging-name }} log group.
 
 Within {{ at-name }}, audit logs are managed by [trails](./concepts/trail.md).
 

@@ -25,11 +25,11 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
    1. Under **Image/boot disk selection**, select one of the [images](../../operations/images-with-pre-installed-software/get-list.md).
 
-   1. (optional) Under **Diskand file storage**, click the **Disks** tab and configure a boot disk:
+   1. (optional) Under **Disk and file storage**, click the **Disks** tab and configure a boot disk:
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the necessary disk size.
 
-         If you wish to create a virtual machine from an existing disk, under **Disksand file storage**, [add a disk](./create-from-disks.md):
+         If you wish to create a virtual machine from an existing disk, under **Disks and file storage**, [add a disk](./create-from-disks.md):
          * Click **Add disk**.
          * Enter the disk name.
          * Select the [disk type](../../concepts/disk.md#disks_types).

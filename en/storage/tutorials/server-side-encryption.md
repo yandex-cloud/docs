@@ -24,6 +24,7 @@ The cost of maintaining a bucket with encryption includes:
 * A fee for data operations (see [{{ objstorage-name }} pricing](../pricing.md#prices-operations)).
 * A fee for using KMS keys (see [{{ kms-name }} pricing](../../kms/pricing.md#prices)).
 
+
 ## Create a bucket {#create-bucket}
 
 You can create a new bucket or use an existing one. To create a bucket, run:
@@ -104,6 +105,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
         secret_key = "${yandex_iam_service_account_static_access_key.buckets-account-key.secret_key}"
       }
       ```
+
 
 
       For more information about the resources you can create using [Terraform]({{ tf-provider-link }}), see the [provider documentation]({{ tf-provider-link }}).
@@ -265,6 +267,7 @@ Create a new key or use an existing one. To create a key:
       ```
 
 
+
   1. Make sure that the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
@@ -392,6 +395,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
         }
       }
       ```
+
 
 
 
@@ -551,6 +555,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
         */
       }
       ```
+
 
 
   1. Make sure that the configuration files are correct.

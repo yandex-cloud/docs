@@ -14,6 +14,7 @@ To access {{ wiki-name }}, [log in to your corporate account](login.md).
 
 If the organization has a user and access management system (such as Active Directory or Google Workspace), employees can use their corporate accounts to log in to the {{ yandex-cloud }} organization and access {{ wiki-name }} through a Single Sign-On (SSO) system. To do this, the organization admin needs to configure identity federation. Read more in the {{ org-full-name }} documentation in the [{#T}](../organization/add-federation.md) section.
 
+
 ## Features {{ wiki-full-name }} {#features}
 
 - [Create Wiki pages](quick-guide.md) with text, images, tables, and links.

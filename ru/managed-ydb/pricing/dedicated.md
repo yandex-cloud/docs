@@ -52,6 +52,7 @@
 
 
 
+
 ### Хранилище и резервные копии {#prices-storage}
 
 
@@ -59,10 +60,12 @@
 
 
 
+
 ### Исходящий трафик {#prices-traffic}
 
 
 {% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %}
+
 
 
 

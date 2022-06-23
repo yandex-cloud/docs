@@ -16,7 +16,7 @@ Check host monitoring charts:
    * We recommend upgrading the host class:
       * If the `Steal` value in the **CPU usage** chart is stable high.
       * If the `Free` value in the **Memory usage** chart is stable low.
-   * If `iowait` on the **CPU usage** chart is high, the disk storage IOPS limits may be exceeded.We recommend increasing the value to the next [allocation unit](../../compute/concepts/limits.md#compute-limits-disks) threshold, at least, or using faster disks. For more information about disk limits and performance, see the [{{ compute-full-name }} documentation](../../compute/concepts/disk.md).
+   * If `iowait` on the **CPU usage** chart is high, the disk storage IOPS limits may be exceeded. We recommend increasing the value to the next [allocation unit](../../compute/concepts/limits.md#compute-limits-disks) threshold, at least, or using faster disks. For more information about disk limits and performance, see the [{{ compute-full-name }} documentation](../../compute/concepts/disk.md).
 
 {% include [qa-replica-lagging](../../_includes/mdb/mmy/qa-replica-lagging.md) %}
 

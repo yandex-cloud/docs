@@ -1,4 +1,4 @@
-# Target endpoint parameters {{ ydb-name }}
+# Configuring a {{ ydb-name }} target endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -41,6 +41,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
          
          For more information about partitioning tables, see the [{{ ydb-full-name }}](https://ydb.tech/en/docs/concepts/datamodel#partitioning).
+
 
       If this setting is used, the specified number of tables for data for different time intervals is created in the target database. The name of each table is selected automatically by the date and time of the start of the interval. Depending on the values in the specified column of the source table, the original rows are distributed across the corresponding tables in the target database.
 

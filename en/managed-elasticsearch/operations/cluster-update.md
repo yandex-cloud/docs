@@ -29,6 +29,7 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
         1. Select the desired service account from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
 
+
         {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
 {% endlist %}
@@ -137,6 +138,7 @@ You can also update the {{ ES }} version or edition. For more information, see [
     * `configSpec.elasticsearchSpec.dataNode.resources.diskSize` (for hosts with the *Data node* role).
     * `configSpec.elasticsearchSpec.masterNode.resources.diskSize`  (for hosts with the *Master node* role).
   * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+
 
 {% endlist %}
 
@@ -264,6 +266,7 @@ You can also update the {{ ES }} version or edition. For more information, see [
     * A list of [{{ ES }} plugins](cluster-extensions.md#elasticsearch) in the `plugins` list.
 
         * The ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations in the `serviceAccountId` parameter.
+
 
     * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
 

@@ -30,6 +30,7 @@ The cost for maintaining a GitLab server includes:
 * A fee for a disk and continuously running VM (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
 * A fee for using a dynamic or static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
+
 ## Create a VM with GitLab {#create-vm}
 
 1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource**, and select **Virtual machine**.

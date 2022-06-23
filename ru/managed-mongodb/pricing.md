@@ -54,12 +54,14 @@ editable: false
 
 Все цены указаны с включением НДС.
 
+
 ### Вычислительные ресурсы хостов {#prices-host}
 
 Цены на вычислительные ресурсы одинаковы для всех видов хостов — mongod, mongos и mongocfg. 
 
 
 {% include [rub-host](../_pricing/managed-mongodb/rub-host.md) %}
+
 
 
 
@@ -72,10 +74,12 @@ editable: false
 
 
 
+
 ### Исходящий трафик {#prices-traffic}
 
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
 
 
 

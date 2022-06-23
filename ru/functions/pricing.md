@@ -53,6 +53,7 @@ editable: false
 
 
 
+
 ## Использование триггеров {#triggers}
 
 Использование [триггеров](concepts/trigger/index.md) не тарифицируется. Вы можете создавать и использовать триггеры в рамках доступных [квот и лимитов](concepts/limits.md).
@@ -67,7 +68,9 @@ editable: false
 
 
 
+
 Оплачивается фактическое количество вызовов. Например, стоимость тысячи вызовов составит `0,016 ₽` при цене `16 ₽` за 1 млн вызовов.
+
 
 ### Время выполнения функции {#execution}
 
@@ -76,9 +79,11 @@ editable: false
 
 
 
+
 ### Исходящий трафик {#prices-traffic}
 
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
 
 

@@ -129,6 +129,7 @@ Two buckets will be created in the use case: the first, `ycprojektblue-storage`,
      ```
 
 
+
   1. Make sure that the configuration files are correct:
 
      1. In the command line, go to the directory where you created the configuration file.

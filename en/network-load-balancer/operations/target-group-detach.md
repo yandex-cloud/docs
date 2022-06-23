@@ -45,6 +45,7 @@
       ```
 
 
+
    1. Choose the `ID` of the load balancer and the target group that is attached to it.
    1. Detach the selected group from the load balancer:
 

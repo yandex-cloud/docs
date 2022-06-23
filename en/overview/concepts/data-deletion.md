@@ -12,6 +12,7 @@ If a service receives a request to delete a resource via the API, the resource i
 Your cloud may be suspended if your account is in arrears, if your trial period is over, or if you are in violation of the [{{ yandex-cloud }} Terms of Use](https://yandex.ru/legal/cloud_termsofuse/?lang=en). For more information about the payment process and possible suspension, see the [Billing documentation](../../billing/payment/billing-cycle.md).
 
 
+
 In a suspended cloud:
 
 1. Virtual machines and other resources are stopped, but the data is not deleted. The cloud can be unblocked, and resources can be relaunched within 60 days (7 days for Terms of Use violations),
@@ -43,3 +44,4 @@ You can only delete a [billing account](../../billing/concepts/billing-account.m
 1. At the user's request, the billing account is marked for deletion and within 72 hours, the user loses access it.
 2. Billing account data may be used to generate financial statements. Therefore, this data is kept until the expiration of the term of the limitation of actions and the term set by the applicable finance laws.
 3. When these terms expire, the billing account is irrevocably deleted.
+

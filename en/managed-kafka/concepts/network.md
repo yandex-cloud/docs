@@ -10,6 +10,7 @@ When creating a cluster, you can:
 
 If hosts are present in the {{ ZK }} cluster, each of the three {{ ZK }} hosts uses its dedicated availability zone and the subnet selected in it. For more information, see [{#T}](./index.md).
 
+
 ## Hostname and FQDN {#hostname}
 
 {{ mkf-short-name }} generates the name of each cluster host during creation. This name will be the host's fully qualified domain name (FQDN). The hostname and, consequently, the FQDN cannot be changed.
@@ -24,6 +25,7 @@ All [broker hosts](brokers.md) in the cluster are available from outside {{ yand
 You can't request public access after creating a cluster.
 
 When you delete a cluster with public access enabled, all public IP addresses assigned to this cluster are revoked.
+
 
 ## Security groups {#security-groups}
 

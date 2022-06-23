@@ -22,6 +22,7 @@ The cost of hosting a website in WordPress includes:
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
+
 ## Creating a VM for WordPress {#create-vm}
 
 To create a VM:

@@ -334,6 +334,7 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
       ```
 
 
+
    - API
 
       Use the [list](../../network-load-balancer/api-ref/NetworkLoadBalancer/list.md) method for the `NetworkLoadBalancer` resource.

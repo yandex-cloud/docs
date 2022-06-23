@@ -7,10 +7,12 @@
 
 Preemptible instances are available at a [lower price](../pricing.md#prices-instance-resources) than regular instances. However, they don't provide fault-tolerance.
 
+
 You can [create](../operations/vm-create/create-preemptible-vm.md#create-preemptible) a preemptible instance or [change the type](../operations/vm-create/create-preemptible-vm.md#preemptible-to-regular) of an existing one.
 
 
 This will change pricing for the VM instance. For more information, see the [pricing policy](../pricing.md).
+
 
 ## Limitations {#restrictions}
 

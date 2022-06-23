@@ -23,6 +23,7 @@ You can make a dynamic public IP address static. Static IP addresses do not chan
 
 For more information about IP address pricing, see [{#T}](../pricing.md#prices-public-ip) in the {{ vpc-name }} documentation.
 
+
 ## Hostname (FQDN) {#fqdn}
 
 You can use _a hostname_ to access one cloud resource from another within the same cloud network.

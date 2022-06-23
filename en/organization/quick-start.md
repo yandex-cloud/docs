@@ -4,7 +4,7 @@ To get started, create an organization and add users to it.
 
 ## Create an organization {#create}
 
-1. [Log in]({{link-passport}}) to your Yandex account.If you don't have an account, [create]({{ support-passport-create }}) one.
+1. [Log in]({{link-passport}}) to your Yandex account. If you don't have an account, [create]({{ support-passport-create }}) one.
 
 1. Go to [{{org-full-name}}]({{link-org-main}}).
 
@@ -36,6 +36,7 @@ To connect employees with Yandex accounts:
 1. Click **Add**.
 
 This will give the users access to the organization.
+
 ### Configure an identity federation {#add-federation}
 
 Identity federation is a technology with which you can implement a single sign-on system (SSO) and use corporate accounts for authorization in {{org-full-name}}. In this case, your corporate account management system acts as an identity provider (IdP).

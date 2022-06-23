@@ -72,6 +72,7 @@ The monthly usage rate is based on 720 hours a month.
 
 {% include [usd-unit-and-resource.md](../_pricing/datasphere/usd-unit-and-resource.md) %}
 
+
 ### Performing background operations {#async}
 
 Learn more about [background operations](concepts/async.md).
@@ -80,6 +81,7 @@ Learn more about [background operations](concepts/async.md).
 
 
 {% include [usd-async.md](../_pricing/datasphere/usd-async-new.md) %}
+
 
 ### Storing data inside {{ ml-platform-name }} {#prices-storage}
 
@@ -90,12 +92,14 @@ Learn more about [background operations](concepts/async.md).
 
 {% include [usd-storage.md](../_pricing/datasphere/usd-storage.md) %}
 
+
 #### Datasets {#prices-datasets}
 
 
 
 
 {% include [usd-data-storage.md](../_pricing/datasphere/usd-dataset.md) %}
+
 
 ### Outgoing traffic {#prices-traffic}
 
@@ -105,6 +109,10 @@ Learn more about [background operations](concepts/async.md).
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 
+
 ### Labeling audio files {#markup}
 
 This section specifies the cost of [audio markup](tutorials/markup.md). The cost is per rating unit. The final markup cost depends on the data amount and will be calculated after the data is uploaded.
+
+
+

@@ -29,6 +29,7 @@ The cost of using a virtual router includes:
 * A fee for a disk and continuously running VM (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
 * A fee for using a public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
+
 ## Create a VM with a Cisco Cloud Services Router {#create-router}
 
 1. Open your folder and click **Create resource**. Select **Virtual machine**.

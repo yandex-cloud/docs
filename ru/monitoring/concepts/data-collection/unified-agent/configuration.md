@@ -962,6 +962,7 @@ output:
 ```
 
 
+
 ## Примеры { #examples }
 
 Примеры конфигураций приведены в разделе [{#T}](../../../operations/index.md#working-with-metrics).

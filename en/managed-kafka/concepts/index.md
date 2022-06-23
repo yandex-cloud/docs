@@ -12,6 +12,7 @@ description: "{{ KF }} is a distributed messaging system between applications on
 
 Each {{ mkf-name }} cluster consists of one or more [broker hosts](brokers.md), where [topics](topics.md) and topic partitions are located. Cluster hosts may reside in different availability zones. [More about the geo scope of {{ yandex-cloud }}](../../overview/concepts/geo-scope.md).
 
+
 Cluster hosts accept [connections](../operations/connect.md) from clients, such as data [producer](producers-consumers.md) and [consumer](producers-consumers.md) applications. Producers send messages to certain cluster topics and consumers read messages from them. This ensures that you won't need to re-configure consumers if the producer changes.
 
 Depending on the number of broker hosts in the cluster, {{ ZK }} is automatically configured and hosted:
@@ -48,5 +49,6 @@ VMs corresponding to cluster hosts can be hosted:
    This placement option ensures physical isolation of VMs. A {{ mkf-name }} cluster using dedicated hosts includes all the features of a regular cluster.
 
    For more information, see [{#T}](../../compute/concepts/dedicated-host.md).
+
 
 For more information, see the [{{ KF }} documentation](https://kafka.apache.org/intro).

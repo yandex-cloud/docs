@@ -45,6 +45,7 @@ The cost of supporting this infrastructure includes:
 * A fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
+
 ## Install Terraform {#install-terraform}
 
 {% include [terraform-install](../../_tutorials/terraform-install.md) %}
@@ -100,6 +101,7 @@ provider "yandex" {
   zone      = "<default availability zone>"
 }
 ```
+
 
 
 To read more about the state storage backend, see the [Terraform site](https://www.terraform.io/docs/backends/types/s3.html).
@@ -222,6 +224,7 @@ The VMs have a different number of cores and amount of RAM: 1 core and 2 GB of R
    ```
 
 
+
 1. Check the configuration using the `terraform plan` command.
 1. Expand the configuration using the `terraform apply` command.
 
@@ -299,6 +302,7 @@ Create another configuration and use the saved state to create another VM in one
      }
    }
    ```
+
 
 
 1. Run the command `terraform init`.

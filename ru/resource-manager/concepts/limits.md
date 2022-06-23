@@ -8,3 +8,4 @@ editable: false
 # Квоты и лимиты в {{ resmgr-name }}
 
 {% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}
+

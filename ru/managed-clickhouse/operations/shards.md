@@ -51,6 +51,7 @@
         * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
         * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
 
+
 - Terraform
 
     {% note info %}

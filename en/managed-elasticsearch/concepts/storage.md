@@ -22,3 +22,4 @@ keywords:
 ## Specifics of non-replicated SSD storage {#network-nrd-storage-features}
 
 {% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
+

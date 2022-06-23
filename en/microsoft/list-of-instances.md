@@ -9,6 +9,7 @@ The {{ marketplace-name }} offers a wide choice of products:
 
 
 
+
 ## Windows Server images {#win-server}
 
 The [{{ marketplace-name }}](/marketplace?categories=os&operationSystems=WINDOWS) provides images with Microsoft Windows Server Datacenter Edition only:
@@ -28,6 +29,7 @@ The {{ marketplace-name }} provides [Windows RDS](/marketplace?search=RDS) image
 Images with pre-activated RDS are not optimized using the `sysprep` utility and have a constant SID. This may cause conflicts if two VMs with the same number of licenses are running in the same domain.
 
 {% endnote %}
+
 
 
 ### Changes to Windows VM images {#changes}
@@ -66,3 +68,4 @@ To run VMs on Microsoft Windows, you need `virtIO` drivers for network and disk 
 ## Microsoft SQL Server images {#sql}
 
 Microsoft SQL Server images available in the {{ marketplace-name }} are VMs with pre-installed Windows Server and Microsoft SQL Server. The images have pre-activated licenses and store the activation key. If you need to change or add components to the system, the Microsoft SQL Server distribution is located in a separate directory in the root of the system drive (by default, `C:\`).
+

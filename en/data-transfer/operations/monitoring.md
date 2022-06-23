@@ -1,11 +1,12 @@
 # Monitoring the transfer status
 
-Transfer status details are available in the management console. You can view them on the **Monitoring** tab of the transfer management page or in [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
+Transfer status details are available in the management console. You can view them on the **Monitoring** tab of the  transfer management page or in [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
 
 Diagnostic information about the transfer status is presented as charts.
 
 
 You can [configure alerts](#monitoring-integration) in {{ monitoring-full-name }} to receive notifications about transfer failures. In {{ monitoring-full-name }}, there are two alert thresholds: `Warning` and `Alarm`. If the specified threshold is exceeded, you'll receive alerts via the configured [notification channels](../../monitoring/concepts/alerting.md#notification-channel).
+
 
 ## Monitoring the transfer status {#monitoring}
 
@@ -54,7 +55,7 @@ To set up alerts for transfer status indicators:
    1. In the list of services, select **Monitoring**.
    1. Under **Service dashboards**, select **{{ data-transfer-name }}**.
    1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
-   1. If there is more than one metric on the chart, create a data query to generate a metric.For more information about the query language, [see the {{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+   1. If there is more than one metric on the chart, create a data query to generate a metric. For more information about the query language, [see the {{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). 
    1. Set the `Alarm` and `Warning` notification threshold values.
    1. Click **Create alert**.
 

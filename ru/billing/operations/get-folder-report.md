@@ -67,7 +67,7 @@
    * {{ network-load-balancer-name }} — идентификатор балансировщика.
    * {{ container-registry-short-name }} — идентификатор контейнера.
    * {{ k8s }} и {{ dataproc-name }} — идентификатор кластера.
-   * {{ mpg-short-name }}, {{ mch-short-name }},{{ mmg-short-name }}, {{ mmy-short-name }},{{ mrd-short-name }} и {{ mkf-name }} — идентификатор хоста в кластере.
+   * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }} и {{ mkf-name }} — идентификатор хоста в кластере.
    * {{ message-queue-name }} — идентификатор запроса.
    * {{ sf-name }} — идентификатор функции.
    * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} и {{ vision-short-name }} — пустое значение.
@@ -98,6 +98,7 @@
 * `label.system_labels.folder_id` — идентификатор каталога. Теперь значение отображается в столбце `folder_id`.
 
 {% endcut %}
+
 
 ##### См. также
 

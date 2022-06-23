@@ -20,6 +20,7 @@ If you no longer need these resources, [delete them](#clear-out).
       
    * If the ksqlDB server is hosted in {{ yandex-cloud }}, create a {{ mkf-name }} cluster on the same [cloud network](../../vpc/concepts/network.md) as ksqlDB.
 
+
 1. [Create topics](../../managed-kafka/operations/cluster-topics.md#create-topic) in a {{ mkf-name }} cluster:
    1. A service topic named `_confluent-ksql-default__command_topic` with the following settings:
       * Replication factor: `1`.

@@ -25,7 +25,7 @@ To transfer a WordPress CMS website to {{ yandex-cloud }}:
 
 Make a backup of the site and database files using one of the following methods:
 
-* Using various plugins for WordPress (for example, [BackWPup]( https://wordpress.org/plugins/backwpup) or [Updraft Plus]( https://wordpress.org/plugins/updraftplus)).
+* Using various plugins for WordPress (for example, [BackWPup](  https://wordpress.org/plugins/backwpup ) or [Updraft Plus](  https://wordpress.org/plugins/updraftplus )).
 * Using built-in tools from the hosting control panel for your website.
 * Copying all the files to your hard drive using an FTP client and exporting the database using the [phpMyAdmin](https://www.phpmyadmin.net/) panel.
   This method is longer and will take 5 to 20 minutes because you need to copy numerous small files that make up your site.
@@ -44,6 +44,7 @@ The cost of hosting a website in WordPress includes:
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * A fee for public DNS queries and zones (see [{{ dns-full-name }} pricing](https://cloud.yandex.com/en/docs/dns/pricing)).
+
 
 ## Create a virtual machine for WordPress {#create-vm}
 
@@ -422,7 +423,7 @@ To check that the site is up, enter its IP address or domain name in your browse
 
 ## Install the SSL certificate using Let's Encrypt® {#setting-ssl}
 
-To install the certificate, use [Let’s Encrypt](https://letsencrypt.org/). Let's Encrypt is a certificate authority that offers free [SSL certificates]( https://wikipedia.org/wiki/SSL).
+To install the certificate, use [Let’s Encrypt](https://letsencrypt.org/). Let's Encrypt is a certificate authority that offers free [SSL certificates](  https://wikipedia.org/wiki/SSL ).
 
 ### Install the Let's Encrypt client {#install-client}
 

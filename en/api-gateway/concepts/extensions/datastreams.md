@@ -1,6 +1,6 @@
 # x-yc-apigateway-integration:cloud_datastreams extension
 
-The `x-yc-apigateway-integration:cloud_datastreams` extension enables you to access {{ yds-full-name }} for performing operations with [streams](../../../data-streams/concepts/glossary.md#stream-concepts). At the moment, the only supported operation is [PutRecord](../../../data-streams/kinesisapi/methods/putrecord.md). This operation writes the contents of the body of an incoming {{ api-gw-short-name }} request to a stream.
+ The `x-yc-apigateway-integration:cloud_datastreams` extension enables you to access {{ yds-full-name }} for performing operations with [streams](../../../data-streams/concepts/glossary.md#stream-concepts). At the moment, the only supported operation is [PutRecord](../../../data-streams/kinesisapi/methods/putrecord.md). This operation writes the contents of the body of an incoming {{ api-gw-short-name }} request to a stream. 
 
 ## Supported parameters {#parameters}
 

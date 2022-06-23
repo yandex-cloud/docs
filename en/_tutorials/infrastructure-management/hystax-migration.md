@@ -35,6 +35,7 @@ Resource costs for Hystax Acura and Hystax Acura Cloud Agent include:
 * A fee for storing images (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
+
 ## Create a service account and authorized key {#create-sa}
 
 [Create a service account](../../iam/operations/sa/create.md) with the `editor` and `marketplace.meteringAgent` roles, and an [authorized key](../../iam/operations/authorized-key/create.md). Save the service account ID, private key ID, and the private key. You'll need them when setting up Hystax Acura.

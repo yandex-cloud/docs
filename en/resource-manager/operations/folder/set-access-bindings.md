@@ -63,6 +63,7 @@ To grant a user access to all the folder resources, assign them a [role](../../.
       ```
 
 
+
   1. Assign the `editor` role for the `my-folder` folder to a user named `test-user`. In the subject, specify the `userAccount` type and user ID:
 
 
@@ -71,6 +72,7 @@ To grant a user access to all the folder resources, assign them a [role](../../.
           --role editor \
           --subject userAccount:gfei8n54hmfhuk5nogse
       ```
+
   
 
 - API
@@ -111,6 +113,7 @@ To grant a user access to all the folder resources, assign them a [role](../../.
        }
       }
       ```
+     
 
 
   1. Assign the `editor` role for the `my-folder` folder to the user. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
@@ -176,6 +179,7 @@ To grant a user access to all the folder resources, assign them a [role](../../.
       ```
 
 
+
 - API
 
   Assign the `editor` role to one user and the `viewer` role to another user:
@@ -205,6 +209,7 @@ To grant a user access to all the folder resources, assign them a [role](../../.
       }}}]}' \
       https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
   ```
+  
 
 
   You can also assign roles using the [setAccessBindings](../../api-ref/Folder/setAccessBindings.md) method.

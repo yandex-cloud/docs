@@ -23,3 +23,4 @@ Note that some parameters cannot be used simultaneously. The value of one of the
 | — | `service-account-key` | The authorized key of a [service account](../../iam/concepts/users/service-accounts.md) in {{ yandex-cloud }}. It is set from the file where the key is stored. When this profile parameter is set, the `token` parameter is reset to zero. |
 | `--token` | `token` | The OAuth token that is used for authentication in {{ yandex-cloud }}. When this profile parameter is set, the `service-account-key` parameter is reset to zero. |
 
+

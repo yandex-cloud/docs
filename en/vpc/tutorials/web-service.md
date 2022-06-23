@@ -33,6 +33,7 @@ The cost of internet service support includes:
 * A fee for using static public IP addresses (see [{{ vpc-full-name }} pricing](../pricing.md)).
 * A fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
 
+
 ## Reserve two static public IP addresses {#reserve-ips}
 
 For your internet service to run, you need two static public IP addresses: one to be assigned to the VPN gateway and the other to the network load balancer.

@@ -91,6 +91,7 @@ Retrieve a unique identifier for the [disk](../../../compute/concepts/disk.md) t
    ```
 
 
+
 ## Create a PersistentVolumeClaim object {#create-claim}
 
 1. Save the `PersistentVolumeClaim` creation specification to a YAML file named `test-claim.yaml`.
@@ -140,6 +141,7 @@ Retrieve a unique identifier for the [disk](../../../compute/concepts/disk.md) t
       Volume:        test-pv
       ...
       ```
+
 
 
 ## Create a pod with a statically provisioned volume {#create-pod}

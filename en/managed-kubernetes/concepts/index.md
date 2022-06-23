@@ -51,6 +51,7 @@ There are two types of masters that differ by their location in [availability zo
   {% endnote %}
 
 
+
 ## Node group {#node-group}
 
 _A node group_ is a group of VMs in a {{ k8s }} cluster that have the same configuration and run the user's containers.
@@ -69,6 +70,7 @@ When you create a group of nodes, you can configure the following VM parameters:
 
 
 You can create groups with different configurations in a {{ k8s }} cluster and place them in different [availability zones](../../overview/concepts/geo-scope.md).
+
 
 ### Connecting to group nodes {#node-connect-ssh}
 
@@ -139,7 +141,7 @@ If a pod needs access to resources outside the {{k8s}} cluster, its IP address w
 
 By default, IP masquerade is enabled for the entire range of pod IP addresses.
 
-To implement IP masquerade, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerade, for example, to access pods over a VPNor [{{ interconnect-full-name }}](../../interconnect/), specify the desired IP ranges in the `data.config.nonMasqueradeCIDRs` parameter:
+To implement IP masquerade, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerade, for example, to access pods over a VPN or [{{ interconnect-full-name }}](../../interconnect/), specify the desired IP ranges in the `data.config.nonMasqueradeCIDRs` parameter:
 
 ```yaml
 ...

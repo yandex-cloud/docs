@@ -64,6 +64,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 All prices are shown without VAT.
 
+
 Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
 
 The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
@@ -76,13 +77,13 @@ The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
 
    {% include [SAN disclaimer](../../_includes/mdb/mgp/san-pricing-disclaimer.md) %}
 
-   {% include notitle [USD: standard hosts](../../_pricing/managed-greenplum/usd-hosts-standard.md) %}
+    {% include notitle [USD: standard hosts](../../_pricing/managed-greenplum/usd-hosts-standard.md) %}
 
 - Dedicated hosts
 
    The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} markup for using these resources.
 
-   {% include notitle [USD: dedicated hosts](../../_pricing/managed-greenplum/usd-hosts-dedicated.md) %}
+    {% include notitle [USD: dedicated hosts](../../_pricing/managed-greenplum/usd-hosts-dedicated.md) %}
 
 {% endlist %}
 
@@ -108,6 +109,6 @@ The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
 
 ### Outgoing traffic {#prices-traffic}
 
-{% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
+ {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %} 
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

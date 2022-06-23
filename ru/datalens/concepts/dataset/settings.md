@@ -87,7 +87,7 @@ AppMetrica | ✔ | - | -
 
 ## Управление доступом {#access-management}
 
-Вы можете настроить права доступа ко всему датасету. Подробнее в разделе [{#T}](../../operations/dataset/manage-access.md).
+Вы можете настроить права доступа ко всему датасету.  Подробнее в разделе [{#T}](../../operations/dataset/manage-access.md). 
 
 Также можно разграничить доступ к данным на уровне строк (_Row-level security_ или _RLS_). Подробнее в разделе [{#T}](../../operations/dataset/manage-row-level-security.md).
 

@@ -24,12 +24,14 @@ If you no longer need these resources, [delete them](#clear-out).
    
 1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) for Debezium with Ubuntu 20.04 and a public IP address.
 
+
 1. Set up security groups so that you can connect to clusters from the created VM:
 
    * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups);
    * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
       
 1. [Connect to the VM instance](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH and check access to the clusters:
+
     1. Install the dependencies:
 
        ```bash
@@ -311,6 +313,7 @@ If you no longer need these resources, delete them:
 1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
 
 1. If you reserved a public static IP address for the VM, [delete it](../../vpc/operations/address-delete.md).
+
 
 1. Delete the clusters:
 

@@ -27,6 +27,7 @@ The cost of supporting the availability group includes:
 
 You can use [license mobility](../../compute/qa/licensing) and use your own MSSQL Server license in {{ yandex-cloud }}.
 
+
 ## Create a network infrastructure {#prepare-network}
 
 All replicas in the group will have multiple IP addresses that will be routed using [static routes](../../vpc/concepts/static-routes.md).

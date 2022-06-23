@@ -1,6 +1,6 @@
 # Руководства по визуализации и анализу данных
 
-
+ 
 
 * [Визуализация данных из CSV-файла](data-from-csv-visualization.md)
 * [Создание и публикация диаграммы с картой Москвы из CSV-файла](data-from-csv-to-public-visualization.md)
@@ -14,4 +14,5 @@
 * [Визуализация данных с помощью QL-чарта](data-from-ch-to-sql-chart.md)
 * [Анализ customer journey мобильного приложения на данных AppMetrica](data-from-appmetrica-yc-visualization.md)
 * [Анализ логов Object Storage при помощи DataLens](storage-logs-analysis.md)
+
 

@@ -59,6 +59,7 @@ The cost of this infrastructure includes:
 * A fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../cdn/pricing.md)).
 * A fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see [{{ dns-name }} pricing](../dns/pricing.md)).
 
+
 ## Create a cloud network and subnets {#create-network}
 
 All resources you have created in the tutorial belong to the same [cloud network](../vpc/concepts/network.md).

@@ -14,6 +14,7 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 1. [Upload the file](../../storage/operations/objects/upload.md) with the format schema to {{ objstorage-name }}.
 1. [Get a link](../../storage/operations/objects/link-for-download.md) to this file.
 
+
 ## Connecting the format schema {#add-format-schema}
 
 {% list tabs %}
@@ -95,6 +96,7 @@ To update the contents of a schema that is already connected to the cluster:
 1. [Get a link](../../storage/operations/objects/link-for-download.md) to this file.
 1. Change the parameters of the format schema that is connected to {{ mch-name }} by providing a new link to the format schema file.
 
+
 {% list tabs %}
 
 - Management console
@@ -156,6 +158,7 @@ To update the contents of a schema that is already connected to the cluster:
 
 
 After disabling a format schema, the corresponding object is kept in the {{ objstorage-name }} bucket. If this object with the format schema is no longer needed, you can [delete](../../storage/operations/objects/delete.md).
+
 
 {% endnote %}
 

@@ -80,7 +80,7 @@ If a child resource is also assigned some roles, a list of permissions for this 
 Some restrictions apply to assigning roles in the management console:
 
 * You can't assign roles to a system group.
-* You can only assign cloud and folder roles to users with aYandex account and federated account.
+* You can only assign cloud and folder roles to users with a Yandex account and federated account.
 * You can only assign a role for the folder where the service account was created.
 * You can't assign roles to multiple subjects at once, unlike in the API or CLI. In the management console, you should first select the subject (user or service account), and then assign roles to it.
 

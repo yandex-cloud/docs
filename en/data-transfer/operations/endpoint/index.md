@@ -15,7 +15,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    1. (Optional) Enter a description of the endpoint.
    1. In the **Database** type field, select the appropriate value. An endpoint of the corresponding type will be created.
    1. Set the endpoint parameters:
-      * Sources:
+      * For sources:
          * [{{ KF }}](source/kafka.md).
          * [{{ CH }}](source/clickhouse.md).
          * [{{ GP }}](source/greenplum.md).
@@ -23,15 +23,15 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ MY }}](source/mysql.md).
          * [Oracle](source/oracle.md).
          * [{{ PG }}](source/postgresql.md).
-                     * [{{ yds-full-name }}](source/data-streams.md).
-      * Targets:
+                  * [{{ yds-full-name }}](source/data-streams.md).
+      * For targets:
          * [{{ CH }}](target/clickhouse.md).
          * [{{ GP }}](target/greenplum.md).
          * [{{ MG }}](target/mongodb.md).
          * [{{ MY }}](target/mysql.md).
          * [{{ objstorage-name }}](target/object-storage.md).
          * [{{ PG }}](target/postgresql.md).
-                     * [{{ ydb-name }}](target/yandex-database.md).
+                  * [{{ ydb-name }}](target/yandex-database.md).
 
    1. Click **Create**.
 

@@ -25,6 +25,7 @@ Integration with {{ wiki-name }} and {{ tracker-name }} is only available for [{
 
 {% endnote %}
 
+
 ## Add actions {#add-integration}
 
 To integrate the form with other services, you can configure one or more actions to be performed automatically when the user submits a completed form. To do this:
@@ -67,6 +68,7 @@ To configure multiple actions to be performed under different conditions, add mu
     Integration with {{ wiki-name }} and {{ tracker-name }} is only available for [{{ forms-full-name }} for business](forms-for-org.md) users.
 
     {% endnote %}
+
 
 1. To disable an action, use the ![](../_assets/forms/enabled-switch.png) toggle in the upper-right corner.
 

@@ -13,6 +13,7 @@ _Статические ключи доступа_ — секретный клю
 
       
 * [{{ ydb-name }}](../../../managed-ydb/docapi/tools/aws-setup.md)
+      
 
 #### См. также {#see-also}
 

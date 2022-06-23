@@ -11,13 +11,14 @@ sourcePath: ru/tracker/api-ref/concepts/access.md
 
  - `Host: {{ host }}`
 
- - `Authorization: OAuth <ваш OAuth-токен>`— при доступе по [протоколу OAuth 2.0](#section_about_OAauth).
+ - `Authorization: OAuth <ваш OAuth-токен>` — при доступе по [протоколу OAuth 2.0](#section_about_OAauth).
 
    `Authorization: Bearer <ваш IAM-TOKEN>` — при доступе по [IAM-токену](#iam-token).
 
  - `X-Org-ID: <идентификатор организации>`
     
    Чтобы узнать идентификатор организации, перейдите на [страницу настроек {{ tracker-name }}]({{ link-settings }}). Идентификатор указан в поле **ID организации для API**.
+    
 
 ## Получить доступ к API по протоколу OAuth 2.0 {#section_about_OAauth}
 
@@ -56,6 +57,7 @@ sourcePath: ru/tracker/api-ref/concepts/access.md
      Если ваше приложение еще в разработке, для доступа к {{ tracker-name }} вы можете вручную получить [отладочный токен]({{ link-oauth-token }}) от имени тестового пользователя.
      
      {% endnote %}
+
 
 1. Чтобы проверить наличие доступа к API, выполните [запрос информации о текущем пользователе](../get-user-info.md).
    Если доступ не был получен, запрос вернет ответ с кодом `401 Unauthorized`.
@@ -140,6 +142,7 @@ IAM-токен действует не больше {{iam-token-lifetime}} и о
     ```
     pip install yandex_tracker_client
     ```
+
     
 
 1. Получите OAuth-токен и идентификатор организации для доступа к API. Подробнее о том, как это сделать, читайте в [Справочнике API](../concepts/access.md).
@@ -154,5 +157,6 @@ IAM-токен действует не больше {{iam-token-lifetime}} и о
 В клиенте используйте такой же формат данных, как в API {{ tracker-name }}.
 
 Подробнее о работе клиента и условиях использования читайте на его странице в GitHub: [https://github.com/yandex/yandex_tracker_client](https://github.com/yandex/yandex_tracker_client).
+
 
 

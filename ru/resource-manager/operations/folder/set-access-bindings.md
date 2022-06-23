@@ -74,6 +74,7 @@
         login: test-user
         default_email: test-user@yandex.ru
       ```
+
   5. Назначьте пользователю `test-user` роль `editor` на каталог `my-folder`. В субъекте укажите тип `userAccount` и ID пользователя:
 
       ```bash
@@ -81,6 +82,7 @@
         --role editor \
         --subject userAccount:gfei8n54hmfhuk5nogse
       ```
+
 - API
 
   Воспользуйтесь методом [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md). Вам понадобится ID каталога и ID пользователя, которому назначается роль на каталог.
@@ -140,6 +142,7 @@
         }}}]}' \
         https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
       ```
+
 - Terraform
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -187,6 +190,7 @@
      }
      ...
      ```
+
      {% endcut %}
 
      Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
@@ -262,6 +266,7 @@
         --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
         --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
       ```
+
 - API
 
   Назначьте одному пользователю роль `editor`, а другому `viewer`:
@@ -290,6 +295,7 @@
     }}}]}' \
     https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
   ```
+
   Вы также можете назначать роли с помощью метода [setAccessBindings](../../api-ref/Folder/setAccessBindings.md).
 
   {% note alert %}
@@ -312,6 +318,7 @@
     }]}' \
     https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
   ```
+
 - Terraform
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -365,6 +372,7 @@
      }
      ...
      ```
+
     
      {% endcut %}
 

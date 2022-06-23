@@ -7,6 +7,7 @@ To create an issue via email, send a message with the issue description to the [
 
 1. Check that you have [access to the queue](../manager/queue-access.md).
 
+
 1. Create a new message.
 
     {% note tip %}
@@ -21,6 +22,6 @@ To create an issue via email, send a message with the issue description to the [
 
 1. Send an email to the address specified in [queue settings](../manager/queue-mail.md#section_gwv_hqb_hgb).
 
-You will receive a reply notifying you that a new issue was created.
+ You will receive a reply notifying you that a new issue was created.
 
 

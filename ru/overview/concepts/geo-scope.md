@@ -18,3 +18,4 @@
 
 Зональными ресурсами являются, например, [виртуальная машина](../../compute/concepts/vm.md) и [диск](../../compute/concepts/disk.md). Примеры глобальных ресурсов — [облачная сеть](../../vpc/concepts/network.md) и [бакет](../../storage/concepts/bucket.md).
 
+

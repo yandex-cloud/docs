@@ -31,6 +31,7 @@ The cost for hosting servers includes:
 * A fee for running multiple VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
+
 ## Create a master VM in the cloud {#create-master-vm}
 
 ### Creating VMs {#create-vm}

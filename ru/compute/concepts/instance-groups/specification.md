@@ -63,7 +63,7 @@ service_account_id: ajefnb8427bhl9t0pvf8
 
 ## Поля {#fields}
 
-Список, структура и англоязычные описания полей спецификации представлены:
+Список, структура и  англоязычные  описания полей спецификации представлены:
 
 * в спецификации структуры [CreateInstanceGroupRequest](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group_service.proto#L219) и [используемых в ней структур](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group.proto) в репозитории API на GitHub (формат [Protobuf](https://ru.wikipedia.org/wiki/Protocol_Buffers));
 * в описании метода [create](../../api-ref/InstanceGroup/create) ресурса `InstanceGroup` REST API (формат [JSON](https://ru.wikipedia.org/wiki/JSON));
@@ -71,7 +71,7 @@ service_account_id: ajefnb8427bhl9t0pvf8
 
 Справочники API генерируются из спецификаций, размещенных на GitHub.
 
-Некоторые поля первого уровня и вложенные в них поля также описаны на русском языке в разделах документации:
+Некоторые поля первого уровня и вложенные в них поля также описаны  на русском языке  в разделах документации:
 
 * [{#T}](instance-template.md) (поле `instance_template`).
 * [{#T}](variables-in-the-template.md) (поля `instance_template` и `variables`).

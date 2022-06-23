@@ -5,6 +5,7 @@
 
 @[youtube](PMWMDTBKFAc)
 
+
 Чтобы развернуть проект:
 1. [Подготовьте окружение](#prepare)
 1. [Создайте ресурсы](#create-resources)

@@ -1,8 +1,8 @@
-# Target endpoint parameters {{ GP }}
+# Configuring a {{ GP }} target endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
-* [{{ mgp-full-name }} cluster](#managed-service) connection or[custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
+* [{{ mgp-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
 
 
@@ -18,6 +18,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
    {% include [Managed Greenplum](../../../../_includes/data-transfer/necessary-settings/ui/managed-greenplum.md) %}
 
 {% endlist %}
+
 
 
 ## Custom installation {#on-premise}

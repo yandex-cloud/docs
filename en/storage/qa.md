@@ -34,10 +34,12 @@ You can store data in any format. {{ objstorage-full-name }} saves data in its o
 
 Use the feedback form on the support page in the management console.
 
+
 #### How do I contact technical support? {qa-support-channels}
 
 
 You can contact technical support in the management console under [Support]({{ link-console-support }}).
+
 
 
 #### How much data can I store? {#qa-storage-volume}
@@ -56,6 +58,7 @@ The data is saved in the form in which it was transmitted by the user.
 #### Does Yandex use {{ objstorage-name }} to store its own data? {#qa-usage-by-yandex}
 
 Yes. {{ objstorage-name }} is used in the Yandex infrastructure. Several Yandex services store their websites' static data in the storage.
+
 
 
 #### What data consistency model does {{ objstorage-full-name }} use? {#qa-consistency}
@@ -95,6 +98,7 @@ This is why we can't specify a particular response time value. However, we do no
 
 
 {% include [qa-fz-152.md](../_includes/qa-fz-152.md) %}
+
 
 {% include [qa-logs.md](../_includes/qa-logs.md) %}
 

@@ -7,6 +7,7 @@
     https://api.tracker.yandex.net
     ```
 
+
 - **Authorization**
 
     OAuth token in `OAuth <token value>` format. For example:
@@ -19,6 +20,7 @@
 - **X-Org-ID**
 
     Organization ID.
+
 
 - **Content-Type**
 

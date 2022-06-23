@@ -47,6 +47,7 @@ The list of recommended servers may change. {{ yandex-cloud }} notifies you 72 h
       ```
 
 
+
    1. Set `UseNTP=true` in the `systemd.network` configuration file. It's usually located in the `/etc/systemd/network` or `/var/lib/systemd/network` directory.
 
    1. Restart the synchronization service:
@@ -78,6 +79,7 @@ The list of recommended servers may change. {{ yandex-cloud }} notifies you 72 h
       ```
 
 
+
    2. Restart the service:
 
       ```bash
@@ -95,6 +97,7 @@ The list of recommended servers may change. {{ yandex-cloud }} notifies you 72 h
    w32tm /config /reliable:yes
    net start w32time
    ```
+
 
 
 {% endlist %}

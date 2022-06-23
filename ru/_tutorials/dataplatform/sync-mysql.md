@@ -26,6 +26,7 @@
 1. Плата за постоянно запущенный кластер {{ mmy-name }} (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md));
 1. Плата за сервис {{ data-transfer-name }} (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing)).
 
+
 ## Создайте ВМ с интернет-магазином {#create-vm-mysql}
 
 1. Создайте ВМ с интернет-магазином `web-store-vm` на базе MySQL:

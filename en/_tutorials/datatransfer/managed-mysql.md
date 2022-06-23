@@ -37,3 +37,4 @@
 
 
 For a real example of {{ MY }} database migration using {{ data-transfer-name }}, see [Syncing MySQL data using {{ data-transfer-full-name }}](../../tutorials/dataplatform/sync-mysql.md).
+

@@ -30,6 +30,7 @@ The cost for maintaining the 1C-Bitrix server includes:
 
 The current scenario uses the trial version of 1C-Bitrix with a trial period of 30 days. You can check the cost the product software versions on the [1C-Bitrix official website](https://www.1c-bitrix.ru).
 
+
 ## Create a VM in the cloud {#create-vm}
 
 To create a VM:

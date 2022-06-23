@@ -247,6 +247,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
 `UpdateUser` | Изменение пользователя базы данных
+
 ## {{ mmy-short-name }} {#managed-service-for-mysql}
 
 Имя сервиса — `mdb.mysql`.
@@ -320,6 +321,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `StartClusterFailover` | Запуск переключения мастера для кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
+
 ## {{ network-load-balancer-name }} {#network-load-balancer}
 
 Имя сервиса — `loadbalancer`.

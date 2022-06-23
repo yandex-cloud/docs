@@ -7,7 +7,7 @@ _Подключение_ содержит информацию о парамет
 В {{ datalens-short-name }} доступны следующие типы подключений:
 
 * [{{ CH }}](../operations/connection/create-clickhouse.md)
-* [CSV-файл](../operations/connection/create-csv.md)
+* [CSV-файл](../operations/connection/create-csv.md) 
 * [Google Sheets](../operations/connection/create-google-sheets.md)
 * [{{ PG }}](../operations/connection/create-postgresql.md)
 * [{{ MY }}](../operations/connection/create-mysql.md)
@@ -17,10 +17,11 @@ _Подключение_ содержит информацию о парамет
 * [Greenplum](../operations/connection/create-greenplum.md)
 * [Metrica](../operations/connection/create-metrica-api.md)
 * [AppMetrica](../operations/connection/create-appmetrica.md)
-* [Yandex Cloud Billing](../operations/connection/create-cloud-billing.md)
+ * [Yandex Cloud Billing](../operations/connection/create-cloud-billing.md) 
 
 
 Вы можете добавить дополнительные типы подключений из списка доступных в [{{ datalens-short-name }} Marketplace](marketplace.md).
+ 
 
 {% include [connection-note](../../_includes/datalens/datalens-connection-note.md) %}
 

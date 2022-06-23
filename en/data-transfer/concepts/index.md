@@ -32,6 +32,7 @@ As the data source or target you can use:
 | Bucket [{{ objstorage-full-name }}](../../storage/) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
 
 
+
 ## Transfer {#transfer}
 
 _Transfer_ is the process of transmitting data between the source and target service. It should be in the same folder as the endpoints used.
@@ -48,34 +49,7 @@ For more information about the differences between transfer types, see [{#T}](./
 
 ### Compatibility of sources and targets {#connectivity-matrix}
 
-Different DBMS systems can act as a source and as a target. Supported source and target combinations:
-
-| Source \ Target | {{ PG }} | {{ MY }} | {{ MG }} | {{ ydb-name }} | {{ CH }} | {{ objstorage-name }} |
-|:-------------------:|:-----------------------------:|:-----------------------:|:-----------------------------:|:-----------------------------:|:-----------------------------:|:---------------------:|
-| {{ PG }} | Copy, replicate | - | - | Copy^1^, replicate^1^ | Copy^1^, replicate^1^ | Copy^1^ |
-| {{ MY }} | - | Copy, replicate | - | Copy^1^, replicate^1^ | Copy^1^, replicate^1^ | Copy^1^ |
-| {{ MG }} | - | - | Copy^1^, replicate^1^ | - | - | Copy^1^ |
-| Oracle | Copy^1^, replicate^1^ | - | - | - | Copy^1^, replicate^1^ | - |
-| {{ CH }} | - | - | - | - | Copy^1^ | - |
-| {{ GP }} | Copy^2^ | - | - | - | Copy^2^ | - |
-| {{ yds-full-name }} | - | - | - | Replicate^1^ | Copy^1^, replicate^1^ | Replicate^1^ |
-| {{ KF }} | - | - | - | Replicate^1^ | Replicate^1^ | Replicate^1^ |
-
-| Source \ Target | {{ PG }} | {{ MY }} | {{ MG }} | {{ ydb-name }} | {{ CH }} | {{ GP }} | {{ objstorage-name }} |
-|:-------------------:|:-----------------------------:|:-----------------------:|:-----------------------------:|:-----------------------------:|:-----------------------------:|:--------------:|:---------------------:|
-| {{ PG }} | Copy, replicate | - | - | Copy^1^, replicate^1^ | Copy^1^, replicate^1^ | Copy^1^ | Copy^1^ |
-| {{ MY }} | - | Copy, replicate | - | Copy^1^, replicate^1^ | Copy^1^, replicate^1^ | - | Copy^1^ |
-| {{ MG }} | - | - | Copy^1^, replicate^1^ | - | - | - | Copy^1^ |
-| Oracle | Copy^1^, replicate^1^ | - | - | - | Copy^1^, replicate^1^ | - | - |
-| {{ CH }} | - | - | - | - | Copy^1^ | - | - |
-| {{ GP }} | Copy^2^ | - | - | - | Copy^2^ | Copy^1^ | - |
-| {{ yds-full-name }} | - | - | - | Replicate^1^ | Copy^1^, replicate^1^ | - | Replicate^1^ |
-| {{ KF }} | - | - | - | Replicate^1^ | Replicate^1^ | - | Replicate^1^ |
-
-
-
-^1^ This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage.
-^2^ This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage and is available upon request. Contact [support]({{ link-console-support }}) or your account manager.
+{% include [include](../../_includes/data-transfer/connectivity-marix.md) %}
 
 ## Service specifics for sources and targets {#features}
 

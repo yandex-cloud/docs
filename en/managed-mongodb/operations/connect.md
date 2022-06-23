@@ -89,12 +89,14 @@ Amount of RAM available to the host is determined by the host class. All availab
     chmod 0644 ~/.mongodb/root.crt
     ```
 
+
 - Windows (PowerShell)
 
     
     ```powershell
     mkdir $HOME\.mongodb; curl.exe -o $HOME\.mongodb\root.crt https://{{ s3-storage-host }}{{ pem-path }}
     ```
+
 
 {% endlist %}
 

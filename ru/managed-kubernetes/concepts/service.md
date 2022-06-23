@@ -28,6 +28,7 @@ _Сервис_ — это [объект API {{ k8s }} (Service)](https://kuberne
 
 Если необходима [защита от DDoS](../../vpc/ddos-protection/index.md), [зарезервируйте](../../vpc/operations/enable-ddos-protection.md) статический IP-адрес со включенной защитой и [укажите](../operations/create-load-balancer.md#advanced) его с помощью опции `loadBalancerIP`.
 
+
 Подробнее о типах сервисов читайте в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types).
 
 #### См. также {#see-also}

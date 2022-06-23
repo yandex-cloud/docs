@@ -21,3 +21,4 @@
 Если  источник данных — MBD {{ PG }}, посмотрите [анализ производительности](../../../managed-postgresql/tutorials/profiling.md).
 
 {% endnote %}
+

@@ -22,6 +22,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 * Disks and continuously running VMs: [{{compute-full-name}} pricing](../../compute/pricing.md).
 * Using a dynamic or static external IP address: [{{vpc-full-name}} pricing](../../vpc/pricing.md).
 
+
 ## Prepare the environment {#create-environment}
 
 1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `for-load` and assign it the `editor` role:
@@ -388,6 +389,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       | b0ruab1ccvpd26efgii4 | load-generator | ru-central1 | EXTERNAL |              1 | b0r1tabcphde28fj1dd3   | ACTIVE |
       +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
       ```
+
 
 
    - API

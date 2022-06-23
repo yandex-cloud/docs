@@ -32,6 +32,7 @@ You can set up identity federations for different identity providers:
 The authentication process is shown in the diagram:
 
 ![image](../_assets/iam/federations/saml-authentication.svg)
+
 1. The user opens a console login link in the browser.
 
 1. If this is the first time the user authenticates, the console redirects them to the IdP server for authentication.

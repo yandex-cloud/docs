@@ -1,6 +1,6 @@
 # {{ at-full-name }} overview
 
-{{ at-full-name }} lets you collect audit logs of {{ yandex-cloud }} resources and upload them to a {{ objstorage-name }}bucket or {{ cloud-logging-name }} log group:
+{{ at-full-name }} lets you collect audit logs of {{ yandex-cloud }} resources and upload them to a {{ objstorage-name }} bucket or {{ cloud-logging-name }} log group:
 
 * [Uploading audit logs to a bucket](../operations/export-bucket.md).
 * [Uploading audit logs to Cloud Logging](../operations/export-cloud-logging.md).

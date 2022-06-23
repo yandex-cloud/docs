@@ -33,9 +33,11 @@ description: 'Сервис {{ iam-name }} (IAM) контролирует дос�
 
 {% endnote %}
 
+
 ### Аккаунт на Яндексе {#passport}
 
 _Аккаунт на Яндексе_ — ваш аккаунт на [Яндексе](https://yandex.ru/support/passport/index.html) или в [Яндекс 360](https://360.yandex.ru/).
+
 {% note info %}
 
 {% include [yandex-account-2fa-warning.md](../../_includes/iam/yandex-account-2fa-warning.md) %}

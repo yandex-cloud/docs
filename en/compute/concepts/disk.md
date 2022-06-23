@@ -33,7 +33,7 @@ VMs in {{ yandex-cloud }} can use the following types of disks:
 
 {% note info %}
 
-Disks are not replicatedon the {{ yandex-cloud }} side, but a user can make a disk replicated using [placement groups](disk-placement-group.md).
+Disks are not replicated on the {{ yandex-cloud }} side, but a user can make a disk replicated using [placement groups](disk-placement-group.md).
 
 {% endnote %}
 

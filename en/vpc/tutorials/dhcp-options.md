@@ -40,6 +40,7 @@ The infrastructure support cost includes:
 * A fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
+
 ## Create a subnet {#create-subnet}
 
 To create a new subnet with DHCP settings, follow these steps:

@@ -35,6 +35,7 @@ You can add and remove cluster hosts, resync the hosts, and [manage settings {{ 
    +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
    ```
 
+
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 
@@ -79,6 +80,7 @@ You can add different types of hosts to a cluster. Their number depends on the [
       * Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
       * Host type and shard name, if [sharding](../concepts/sharding.md) is enabled for the cluster.
 
+
    1. Click **Save**.
 
 - CLI
@@ -104,7 +106,7 @@ You can add different types of hosts to a cluster. Their number depends on the [
       +-----------+-----------+------------+---------------+------------------+
       ```
 
-      If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
+      If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md). 
 
    1. View a description of the CLI command for adding a host:
 

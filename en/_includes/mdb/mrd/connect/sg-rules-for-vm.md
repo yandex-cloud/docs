@@ -1,6 +1,7 @@
 
 [Set up the security group](../../../../vpc/operations/security-group-update.md#add-rule) assigned to the VM to allow connections to the VM and traffic between the VM and the cluster hosts.
 
+
 Example of rules for a VM:
 
 * For incoming traffic:

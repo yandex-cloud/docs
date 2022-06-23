@@ -92,6 +92,7 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
 
 
 1. [Create a Linux virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with the following configuration:
+
 * Under **Image/boot disk selection**: Select **Operating systems** → `Ubuntu 20.04`.
 * Under **Network settings**:
 * **Subnet**: Select a subnet that includes at least one of the {{ mrd-name }} cluster's master hosts.
@@ -100,6 +101,7 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
 * **Security groups**: Select the [previously configured](#configure-security-groups) security groups.
 
 1. [Connect to the intermediate virtual machine via SSH](../../compute/operations/vm-connect/ssh.md).
+
 
 1. If your {{ mrd-name }} cluster was deployed with {{ RD }} version 6 or higher and TLS support enabled:
 

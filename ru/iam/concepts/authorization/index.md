@@ -25,6 +25,7 @@
 
   Чтобы выполнять операции в CLI, аутентифицируйтесь по [инструкции](../../../cli/operations/authentication/user.md). После этого аутентификация будет происходить автоматически.
 
+
 - API
 
   {% include [owner-warning](../../../_includes/iam/owner-warning.md) %}

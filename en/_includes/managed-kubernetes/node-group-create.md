@@ -49,6 +49,7 @@ To create a node group:
    * Specify how nodes should be distributed across availability zones and networks.
    * (optional) Click **Add location** and specify an additional availability zone and network to create nodes in different zones.
 
+
 1. Under **Access**, specify the information required to access the node:
    * Enter the username in the **Login** field.
    * In the **SSH key** field, paste the contents of the [public key file](../../managed-kubernetes/operations/node-connect-ssh.md#creating-ssh-keys).

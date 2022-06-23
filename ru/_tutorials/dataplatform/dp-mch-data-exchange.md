@@ -45,6 +45,7 @@
 * плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
+
 ## Выгрузите данные из {{ mch-full-name }} {#export-from-mch}
 
 ### Подготовьте кластер {{ mch-full-name }} {#prepare-mch}

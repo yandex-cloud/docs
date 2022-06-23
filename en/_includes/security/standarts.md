@@ -75,7 +75,7 @@ When vulnerabilities are detected in the components of the production environmen
 
 ## Incident response {#incident-resp}
 
-{{ yandex-cloud }} has an incident management policy. IS incidents are managed by the Security Operations Center (SOC)of the information security department. If required, employees from relevant departments provide legal, administrative, and expert support. The main objective of the SOC is to conduct procedures to improve security:
+{{ yandex-cloud }} has an incident management policy. IS incidents are managed by the Security Operations Center (SOC) of the information security department. If required, employees from relevant departments provide legal, administrative, and expert support. The main objective of the SOC is to conduct procedures to improve security:
 
 * Collecting IS events from monitoring tools, user messages, and other sources.
 * Detecting IS incidents based on automated tools, as well as the knowledge and expertise of SOC employees.
@@ -89,7 +89,7 @@ Situations where the customer needs to be notified of incidents are specified in
 
 It's written by the incident manager appointed when the incident is registered. The message describes the nature of the incident, its possible consequences, and measures taken (or planned) to address them. The incident manager agrees the message content with the employees in charge and sends it to the support service.
 
-Emails are sent in Russian andEnglish. If the customer can prevent the incident or reduce its consequences, the notification describes the measures they can take.
+Emails are sent in Russian and English. If the customer can prevent the incident or reduce its consequences, the notification describes the measures they can take.
 
 ## {{ yandex-cloud }} HR measures {#employees}
 
@@ -109,9 +109,10 @@ Emails are sent in Russian andEnglish. If the customer can prevent the incident 
 
 {{ yandex-cloud }} uses a business continuity management system that defines requirements for all business-critical processes. The violation of these requirements affects the fulfillment of obligations to partners and customers.
 
-The business continuity management system consists of action plans to be followed by employees when a potential negative scenario takes place. The system provides redundancy mechanisms for all business-critical components of the cloud platform. This includes geo-redundancy in three geographically distributed data centers.{{ yandex-cloud }} also uses data storage redundancy that enables the recovery of customer data in the event of equipment failure.
+The business continuity management system consists of action plans to be followed by employees when a potential negative scenario takes place. The system provides redundancy mechanisms for all business-critical components of the cloud platform. This includes geo-redundancy in three geographically distributed data centers. {{ yandex-cloud }} also uses data storage redundancy that enables the recovery of customer data in the event of equipment failure.
 
 We regularly conduct tests to check the effectiveness of these plans. We analyze testing results to develop remedial measures and make the decision to review existing plans.
+
 ## Cloud platform infrastructure security {#sec-cloud}
 
 ### Resource separation and isolation {#separation}
@@ -131,7 +132,7 @@ There are several levels of security for physical machines and service VMs.
 * The following types of firewalls are used at the network level:
     * Packet filters at the boundaries of internal subnets.
     * A simple packet filter at the Top-of-Rack switching level.
-    * A hardware firewall at the boundary of the {{ yandex-cloud }} infrastructure and{{ yandex-cloud }} infrastructure.
+    * A hardware firewall at the boundary of the {{ yandex-cloud }} infrastructure and {{ yandex-cloud }} infrastructure.
     * A software firewall installed on all physical hosts and VMs.
 
 * The following additional security features are used:

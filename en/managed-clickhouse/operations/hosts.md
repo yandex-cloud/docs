@@ -42,6 +42,7 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
    +----------------------------+--------------+---------+--------+---------------+
    ```
 
+
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
@@ -74,6 +75,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
       * Name of the shard.
       * Select the **Copy data schema** option to copy the schema from a random replica to the new host.
 
+
 - CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
@@ -100,6 +102,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
       If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
+
    1. View a description of the CLI command for adding a host:
 
       ```bash
@@ -119,12 +122,14 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
                `type=clickhouse
       ```
 
+
       To copy the data schema from a random replica to the new host, set the `--copy-schema` optional parameter.
 
       {{ mch-short-name }} will run the add host operation.
 
       
       The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
 
 - Terraform
 

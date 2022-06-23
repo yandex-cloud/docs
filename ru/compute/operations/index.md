@@ -74,8 +74,8 @@ description: "Пошаговые инструкции по работе и уп�
 
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
-
-* [{#T}](disk-create/nonreplicated.md)
+ 
+* [{#T}](disk-create/nonreplicated.md) 
 
 ## Управление диском {#disk-control}
 
@@ -90,6 +90,7 @@ description: "Пошаговые инструкции по работе и уп�
 
 * [{#T}](disk-placement-groups/create.md)
 * [{#T}](disk-placement-groups/remove-disk.md)
+
 
 ## Создание образа {#image-create}
 
@@ -112,6 +113,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](filesystem/detach-from-vm.md)
 * [{#T}](filesystem/update.md)
 * [{#T}](filesystem/delete.md)
+
 
 ## Управление серийной консолью {#serial-console}
 
@@ -155,3 +157,4 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](dedicated-host/create-host-group.md)
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)
+

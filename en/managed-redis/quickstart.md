@@ -20,6 +20,7 @@ To get started with the service:
    sudo apt install redis-tools
    ```
 
+
 ## Create a cluster {#cluster-create}
 
 1. In the management console, select the folder where you want to create a cluster {{ RD }}.

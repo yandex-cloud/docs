@@ -25,6 +25,7 @@ The infrastructure support cost for 1C-Bitrix includes:
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * A fee for using a managed MySQL database (see [pricing for {{ mmy-name }}](../../managed-mysql/pricing.md)).
 
+
 ## Create a VM in the cloud {#create-vm}
 
 To create a VM:

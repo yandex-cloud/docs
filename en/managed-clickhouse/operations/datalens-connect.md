@@ -35,6 +35,7 @@ To enable {{ datalens-name }} to connect to your cluster and work with its data,
       
       If instead of the **Create connection** button you see a "{{ datalens-name }} not activated" message, it means that you either didn't activate {{ datalens-name }} or connected it in a different folder. To connect your cluster to a {{ datalens-name }} instance from another folder, follow the [instructions](../../datalens/operations/connection/create-clickhouse.md) in the {{ datalens-name }} documentation.
 
+
       {% endcut %}
 
    1. Specify the [connection settings](#connector-settings).
@@ -50,6 +51,7 @@ Once the connection is created, you can:
 
 
 For details, see an [example of data visualization from {{ CH }}](../../tutorials/datalens/data-from-ch-visualization.md).
+
 
 ## Viewing a list of cluster connections {#connectors-list}
 

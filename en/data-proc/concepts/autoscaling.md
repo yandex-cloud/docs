@@ -9,6 +9,7 @@ Autoscaling of subclusters is supported for {{ dataproc-full-name }} clusters ve
 
 {{ dataproc-full-name }} supports autoscaling of [data processing subclusters](../concepts/index.md) (`Compute` clusters) based on metrics received by [{{ monitoring-full-name }}](../../monitoring/concepts/index.md):
 
+
 * If the metric value exceeds the specified threshold, new hosts are added to a subcluster. You can use them in a YARN cluster running Apache Spark or Apache Hive as soon as the host status changes to **Alive**.
 * If the value of the key metric falls below the specified threshold, the processes of [decommissioning](decommission.md) and removing redundant hosts are started sequentially in the subcluster.
 

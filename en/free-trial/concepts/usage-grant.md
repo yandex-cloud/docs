@@ -14,6 +14,7 @@ The grant is provisionally divided into two parts and distributed among services
 * _The first part_: $15 from the total grant amount. It can be used to pay for [{{ compute-full-name }}](https://cloud.yandex.com/services/compute) services (including virtual machine images).
 * _The second part_: $35 from the total grant amount. It can be used to pay for [other services](../../overview/concepts/services.md) from {{ yandex-cloud }}.
 
+
 Both parts can be used simultaneously.
 
 ## Business account {#business}

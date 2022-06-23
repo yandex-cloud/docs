@@ -13,6 +13,7 @@ You can configure alerts using [{{ monitoring-full-name }}](https://monitoring.c
 
 When selecting a metric, set the `service` parameter to **{{ mmy-short-name }}**.
 
+
 #### How do I view logs? {#logs}
 
 {% list tabs %}

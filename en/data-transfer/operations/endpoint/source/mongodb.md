@@ -1,4 +1,4 @@
-# Source endpoint parameters {{ MG }}
+# Configuring a {{ MG }} source endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -17,6 +17,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
    {% include [Managed MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/managed-mongodb.md) %}
 
 {% endlist %}
+
 
 ## Custom installation {#on-premise}
 

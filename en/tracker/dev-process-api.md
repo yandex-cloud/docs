@@ -33,6 +33,7 @@ The same script can be used to add a link to the unpacked bench to the issue. To
 
 1. In {{ tracker-name }}, [create a new issue field](user/create-param.md#section_pxn_fp4_xgb) named <q>Bench link</q>.
 
+
 1. When developing a new product feature, create a separate branch in the repository that must have the [issue key](user/create-ticket.md#key) specified in its name. This issue key is needed to send requests to the {{ tracker-name }} API.
 
 1. Once the script has deployed the test bench, it sends a request to the {{ tracker-name }} API, adding the bench address to the <q>Bench link</q> issue field. The request URL must contain the issue key, and the request body must contain the key and the new field value. You can find the field key in the {{ tracker-name }} settings on the [**Fields**]({{ link-admin-fields }}) tab.

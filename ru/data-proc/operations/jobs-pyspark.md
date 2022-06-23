@@ -37,13 +37,13 @@
     1. Посмотрите описание команды CLI для создания заданий типа `PySpark`:
 
         ```bash
-        yc dataproc job create-pyspark --help
+        {{ yc-dp }} job create-pyspark --help
         ```
 
     1. Создайте задание (в примере приведены не все доступные параметры):
 
         ```bash
-        yc dataproc job create-pyspark \
+        {{ yc-dp }} job create-pyspark \
           --cluster-name <имя кластера> \
           --name <имя задания> \
           --main-python-file-uri <путь к основному py-файлу приложения> \

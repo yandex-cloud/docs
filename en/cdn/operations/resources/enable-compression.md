@@ -140,6 +140,7 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
       ```
 
 
+
       For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 
    1. In the command line, go to the directory with the Terraform configuration file.

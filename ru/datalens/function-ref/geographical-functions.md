@@ -18,7 +18,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/geographical-functions.md
 
 **Синтаксис:**`GEOINFO( address, scale )`
 
-Преобразует `address` в название географического объекта (топоним), который соответствует указанному масштабу `scale`.
+ Преобразует `address` в название географического объекта (топоним), который соответствует указанному масштабу `scale`. 
 
 
 
@@ -26,8 +26,8 @@ sourcePath: ru/_api-ref/datalens/function-ref/geographical-functions.md
 
 **Синтаксис:**`TOPONYM_TO_GEOPOINT( name )`
 
-Преобразует топоним (название города, региона или страны) `name` в формат `Геоточка`.
-См. полный [список топонимов]({{ geopoints-list-link }}).
+ Преобразует топоним (название города, региона или страны) `name` в формат `Геоточка`. 
+ См. полный [список топонимов]({{ geopoints-list-link }}). 
 
 
 
@@ -35,7 +35,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/geographical-functions.md
 
 **Синтаксис:**`TOPONYM_TO_GEOPOLYGON( name )`
 
-Преобразует топоним (название города, региона или страны) `name` в формат `Геополигон`.
-См. полный [список топонимов]({{ geopolygons-list-link }}).
+ Преобразует топоним (название города, региона или страны) `name` в формат `Геополигон`. 
+ См. полный [список топонимов]({{ geopolygons-list-link }}). 
 
 

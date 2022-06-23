@@ -11,6 +11,7 @@ To speed up creating VMs from an image, you can [optimize](../../concepts/image.
 
 If you made software that might be helpful to other others, [offer](../../../marketplace/operations/create-product.md) it in {{ marketplace-name }}.
 
+
 ## Configure the OS to meet the requirements {#requirements}
 
 {% include [image-create-requirements](../../../_includes/compute/image-create-requirements.md) %}

@@ -62,6 +62,7 @@ editable: false
 
 Все цены указаны с включением НДС.
 
+
 {% note info %}
 
 С 13 июня 2022 года прекращена поддержка [редакции](./concepts/es-editions.md) `Gold` в кластерах {{ mes-name}}. Создать новый кластер с этой редакцией или перейти на нее с `Basic` или `Platinum` невозможно. 6 июля 2022 года редакция всех кластеров `Gold` будет автоматически повышена до `Platinum` с сохранением прежней стоимости до конца 2022 года.
@@ -73,10 +74,12 @@ editable: false
 
 
 
+
 ### Исходящий трафик {#prices-traffic}
 
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
 
 
 

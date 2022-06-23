@@ -25,6 +25,7 @@
 
 Подробная информация про работу с {{ yandex-cloud }} из ВМ в разделе [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md).
 
+
 #### См. также
 
 - [{#T}](../../concepts/index.md#manage-properties).

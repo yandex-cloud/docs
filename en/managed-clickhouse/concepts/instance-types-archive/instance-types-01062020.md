@@ -5,6 +5,7 @@ The host class determines the computing power allocated for each host in the clu
 
 The available storage doesn't depend on the host class. For storage limitations, see [{#T}](../limits.md).
 
+
 ## Available host classes {#available-flavors}
 
 

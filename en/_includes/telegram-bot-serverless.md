@@ -34,6 +34,7 @@ The cost of Telegram bot support includes:
 * Payment for the amount of stored data, the number of data transactions, and outgoing traffic (see [{{ objstorage-name }} pricing](../storage/pricing.md)).
 * Payment for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../api-gateway/pricing.md)).
 
+
 ## Register the Telegram bot {#create-bot}
 
 Register your bot in Telegram and get a token.

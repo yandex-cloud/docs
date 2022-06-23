@@ -141,6 +141,7 @@
 
    1. Estimate the total number of databases for transfer and the total {{ mmg-name }} workload. If database workload exceeds 10,000 writes per second, create several endpoints and transfers. For more information, see [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
    1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the role `readWrite` for the source database.
+      
 
 * {{ MG }}
 
@@ -447,6 +448,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 1. [Create a data stream](../../data-streams/operations/manage-streams.md#create-data-stream).
 1. (Optional) [Create a processing function](../../functions/operations/function/function-create.md).
 
+
    {% cut "Processing function example" %}
 
    ```javascript
@@ -541,6 +543,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
    * `uint64`
    * `utf8`
 
+
 ## Preparing a target {#target}
 
 ### {{ CH }} target {#target-ch}
@@ -632,6 +635,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
          {% include [MongoDB endpoint DROP clean policy warning](../../_includes/data-transfer/note-mongodb-clean-policy.md) %}
 
       Learn more about sharding in the [{{ MG }} documentation](https://docs.mongodb.com/manual/sharding/).
+      
 
 * {{ MG }}
 
@@ -788,6 +792,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 1. [Create a bucket](../../storage/operations/buckets/create.md) in the desired configuration.
 1. [Create a service account](../../iam/operations/sa/create.md) with the `storage.uploader` role.
 
+
 ### {{ PG }} target {#target-pg}
 
 {% list tabs %}
@@ -864,3 +869,4 @@ The service does not transfer `MATERIALIZED VIEWS`. For more detail, please revi
 To receive data in {{ ydb-full-name }}, no setup is necessary.
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+

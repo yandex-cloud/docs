@@ -212,6 +212,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
          
          If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
+
       - You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
    1. View a description of the CLI command for adding a host:

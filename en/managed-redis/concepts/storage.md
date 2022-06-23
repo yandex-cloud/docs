@@ -26,3 +26,4 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 Additional hosts are required to ensure fault tolerance.
 
 For more information about limits on the number of hosts per cluster or shard, see [{#T}](./limits.md).
+

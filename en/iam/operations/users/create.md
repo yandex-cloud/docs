@@ -20,6 +20,7 @@ You can add [users with a Yandex account](#passport-user) and [federated users](
 
 {% endnote %}
 
+
 ## Add federated users {#federated-user}
 
 To add federated users, you need to know the Name IDs of the users that the Identity Provider Server (IdP) returns in the authentication successful response. This is usually the user's primary email address. If you don't know what the server returns as the Name ID, contact the administrator who configured authentication for your federation.

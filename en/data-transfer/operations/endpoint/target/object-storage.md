@@ -1,4 +1,4 @@
-# Target endpoint parameters {{ objstorage-name }}
+# Configuring an {{ objstorage-name }} target endpoint
 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can configure access to a {{ objstorage-full-name }} bucket.
 
@@ -8,6 +8,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 * **Bucket**: The name of the [bucket](../../../../storage/concepts/bucket.md) to upload source data to.
 
 * **SA Account**: The [service account](../../../../iam/concepts/users/service-accounts.md) with the `storage.uploader` role that will be used to access [{{ yds-full-name }}](../../../../data-streams/).
+
 
 * **Output format**: The format that data will be written to the bucket in: `JSON` or `CSV`.
 

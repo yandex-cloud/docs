@@ -27,6 +27,7 @@
 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к виртуальным машинам `cluster-vm` и `other-vm` по SSH.
 
+
     {% include [mdb-peering-vm-user](../../_tutorials/dataplatform/mdb-dns-peering/vm-user-warning.md) %}
 
 1. Попытайтесь [подключиться к кластеру](../operations/connect.md):
@@ -45,6 +46,7 @@
 
 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к виртуальным машинам `cluster-vm` и `other-vm` по SSH.
+
 
     {% include [mdb-peering-vm-user](../../_tutorials/dataplatform/mdb-dns-peering/vm-user-warning.md) %}
 

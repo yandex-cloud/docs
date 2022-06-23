@@ -27,7 +27,7 @@ Make sure the uploaded image is in the `READY` status.
 
    1. Under **Image/boot disk selection**, select one of the [images](../../operations/images-with-pre-installed-software/get-list.md).
 
-   1. Under **Disksand file storage**, [add a disk](./create-from-disks.md):
+   1. Under **Disks and file storage**, [add a disk](./create-from-disks.md):
       * Click **Add disk**.
       * Enter the disk name.
       * Select the [disk type](../../concepts/disk.md#disks_types).

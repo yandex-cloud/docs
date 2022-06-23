@@ -31,6 +31,7 @@ The cost of this infrastructure includes:
 * A fee for storing created images (see [{{ compute-full-name }} pricing](../../compute/pricing#prices-storage)).
 * A fee for using dynamic public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
+
 ## Create a service account {#create-service-account}
 
 Jenkins uses service accounts to perform actions in your cloud and folder. To create a service account:

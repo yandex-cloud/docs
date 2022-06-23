@@ -93,15 +93,18 @@ editable: false
 Общая стоимость кластера в месяц (хосты и хранилище): `720 × 21,84 ₽ + 100 × 2,2881 ₽ = 15 953,61 ₽`
 
 
+
 ## Цены {#prices}
 
 
 Все цены указаны с включением НДС.
 
+
 ### Вычислительные ресурсы хостов {{ CH }} {#prices-clickhouse}
 
 
 {% include [rub-host-ch.md](../_pricing/managed-clickhouse/rub-host-ch.md) %}
+
 
 
 
@@ -120,6 +123,7 @@ editable: false
 
 
 
+
 ### Хранилище и резервные копии {#prices-storage}
 
 
@@ -128,8 +132,13 @@ editable: false
 
 
 
+
 ### Исходящий трафик {#prices-traffic}
 
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
+
+
+
 

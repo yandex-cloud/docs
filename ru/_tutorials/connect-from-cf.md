@@ -16,6 +16,7 @@
 * плата за использование функции (см. [тарифы {{ sf-full-name }}](../functions/pricing.md));
 * плата за выполнение запросов к базе данных (см. [тарифы {{ ydb-full-name }}](../managed-ydb/pricing/serverless.md)).
 
+
 ## Создайте сервисный аккаунт {#create-sa}
 
 {% list tabs %}

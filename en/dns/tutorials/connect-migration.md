@@ -15,6 +15,7 @@ Before transferring DNS zones to {{ dns-full-name }} control, you need to delega
 * `ns2.yandexcloud.net.`
 
 
+
 ## Moving records {#yaconnect-records-move}
 
 You can only move your domain's DNS records from Yandex 360 to {{ dns-full-name }} manually.

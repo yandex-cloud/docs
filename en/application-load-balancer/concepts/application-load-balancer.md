@@ -29,7 +29,7 @@ You can disable the load balancer in the selected availability zones. In this ca
 ### Recommended subnet sizes {#subnets-sizes}
 
 
-For {{ alb-name }} to provide load balancer availabilityas specified in the [service level agreement](https://yandex.com/legal/cloud_sla_apploadbalancer/), load balancer subnets must have a sufficient number of [internal IP addresses](../../vpc/concepts/address.md#internal-addresses) available. We recommend sizing the subnets to have at least two free IPs per [resource unit](../pricing.md) at peak load.
+For {{ alb-name }} to provide load balancer availability as specified in the [service level agreement](https://yandex.com/legal/cloud_sla_apploadbalancer/), load balancer subnets must have a sufficient number of [internal IP addresses](../../vpc/concepts/address.md#internal-addresses) available. We recommend sizing the subnets to have at least two free IPs per [resource unit](../pricing.md) at peak load.
 
 
 > For instance, a load balancer is located in two availability zones with each handling the following load during peak hours:
@@ -37,6 +37,7 @@ For {{ alb-name }} to provide load balancer availabilityas specified in the [ser
 > {% include [lcu-example](../../_includes/application-load-balancer/lcu-example.md) %}
 >
 > This corresponds to 8 resource units (see the [calculation](../pricing.md#example)) in each availability zone. Therefore, we recommend having at least 8 x 2 = 16 available addresses in each subnet. A load balancer subnet should be at least /27.
+
 
 ## Listener {#listener}
 
@@ -91,3 +92,4 @@ Currently, you can get the ID of the load balancer's log group and [create a tri
 {% endnote %}
 
 For an example of log processing, see the [{#T}](../tutorials/logging.md) use case.
+

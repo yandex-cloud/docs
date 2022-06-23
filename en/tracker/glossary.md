@@ -71,6 +71,7 @@ Link
 Organization
 :  Organization refers to the company account. Company employees receive access to platforms featured on {{ yandex-cloud }} in order to work together.
 
+
 ## P {#p}
 
 Project

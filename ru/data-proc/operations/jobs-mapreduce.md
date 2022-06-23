@@ -38,13 +38,13 @@
     1. Посмотрите описание команды CLI для создания заданий типа `Mapreduce`:
 
         ```bash
-        yc dataproc job create-mapreduce --help
+        {{ yc-dp }} job create-mapreduce --help
         ```
 
     1. Создайте задание (в примере приведены не все доступные параметры):
 
         ```bash
-        yc dataproc job create-mapreduce \
+        {{ yc-dp }} job create-mapreduce \
           --cluster-name <имя кластера> \
           --name <имя задания> \
           --main-class <имя основного класса> \

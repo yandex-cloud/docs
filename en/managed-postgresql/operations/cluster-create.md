@@ -16,6 +16,7 @@ The number of hosts that can be created together with a {{ PG }} cluster depends
 
 After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
 
+
 By default, {{ mpg-short-name }} sets the maximum number of connections to each {{ PG }} cluster host. This maximum cannot be greater than the value of [Max connections](../concepts/settings-list.md#setting-max-connections).
 
 {% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
@@ -50,6 +51,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       * Select a [storage type](../concepts/storage.md).
 
           {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+
 
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
@@ -99,6 +101,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
+
    1. View a description of the CLI's create cluster command:
 
       ```bash
@@ -127,6 +130,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
        Specify the `subnet-id` if there are 2 or more subnets in the selected availability zone.
 
+
        Available [connection pooler modes](../concepts/pooling.md): `SESSION`, `TRANSACTION`, or `STATEMENT`.
 
        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -141,11 +145,13 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
               
        To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the `--serverless-access` parameter. For more information about access setup, see the documentation for [{{ sf-name }}](../../functions/operations/database-connection.md).
 
+
 - Terraform
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
    
    If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
 
    To create a cluster:
 
@@ -227,6 +233,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       ```
 
 
+
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       {% include [maintenance-window](../../_includes/mdb/mpg/terraform-maintenance-window.md) %}
@@ -259,6 +266,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
             
    To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
 
+
 {% endlist %}
 
 {% note warning %}
@@ -290,6 +298,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With one `db1` database owned by the user `user1`.
    * With protection against accidental cluster deletion.
 
+
    Run the command:
 
    
@@ -307,6 +316,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       --security-group-ids {{ security-group }} \
       --deletion-protection=true
    ```
+
 
 - Terraform
 
@@ -401,6 +411,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
    }
    ```
+
 
 
 {% endlist %}

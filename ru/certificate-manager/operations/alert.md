@@ -31,11 +31,12 @@
             - **Функция агрегации**.
             - **Окно вычисления**.
     
+             
+            
+            Подробнее в разделе [{#T}](../../monitoring/concepts/alerting.md#alert-parameters). 
             
             
-            Подробнее в разделе [{#T}](../../monitoring/concepts/alerting.md#alert-parameters).
-            
-        1. Укажите канал уведомлений. Если у вас нет канала уведомлений, [создайте его](../../monitoring/operations/alert/create-channel.md). 
+        1. Укажите канал уведомлений.  Если у вас нет канала уведомлений, [создайте его](../../monitoring/operations/alert/create-channel.md).  
         1. Нажмите **Создать алерт**. Алерт появится в списке.
         
 
@@ -72,9 +73,10 @@
             - **Окно вычисления**.
             
                         
-            Подробнее в разделе [{#T}](../../monitoring/concepts/alerting.md#alert-parameters).
+            Подробнее в разделе [{#T}](../../monitoring/concepts/alerting.md#alert-parameters). 
             
-        1. Укажите канал уведомлений. Если у вас нет канала уведомлений, [создайте его](../../monitoring/operations/alert/create-channel.md).
+            
+        1. Укажите канал уведомлений.  Если у вас нет канала уведомлений, [создайте его](../../monitoring/operations/alert/create-channel.md). 
         1. Нажмите **Создать алерт**. Алерт появится в списке.
         
 

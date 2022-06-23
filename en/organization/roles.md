@@ -63,7 +63,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       yc <SERVICE-NAME> <RESOURCE> add-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
           --role <ROLE-ID> \
           --subject userAccount:<USER-ACCOUNT-ID>
-      ```
+      ```
 
       * `<SERVICE-NAME>` is the name of the service whose resource an assigned role, such as `organization-manager`, applies to.
       * `<RESOURCE>` is the resource category. For an organization, `organization` is the category of importance.
@@ -79,7 +79,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       yc organization-manager organization add-access-binding bpf3crucp1v28b74p3rk \
           --role organization-manager.admin \
           --subject userAccount:aje6o61dvog2h6g9a33s
-      ```
+      ```
 
 - API
 
@@ -110,6 +110,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
         }]
       }
       ```
+
 
    1. Assign the role. For example, for an organization with the ID `bpf3crucp1v28b74p3rk`:
 
@@ -137,7 +138,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       * `role`: Role to assign. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../iam/concepts/access-control/roles.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding`.
       * `members`: An array of the IDs of users to assign a role to:
 
-         * `userAccount:{user_id}`: User's Yandex account ID.
+         * `userAccount:{user_id}`: User's Yandex account ID.
          * `serviceAccount:{service_account_id}`: Service account ID.
          * `federatedUser:{federated_user_id}`: Federated user ID.
 
@@ -231,6 +232,7 @@ If you wish to deny a user access to a resource, revoke the relevant roles for t
       | organization-manager.admin               | userAccount  | aje6o61dvog2h6g9a33s |
       +------------------------------------------+--------------+----------------------+
       ```
+
 
    1. To delete an access binding, run:
 
@@ -252,6 +254,7 @@ If you wish to deny a user access to a resource, revoke the relevant roles for t
           --role organization-manager.admin \
           --subject userAccount:aje6o61dvog2h6g9a33s
       ```
+
 
 - API
 
@@ -281,6 +284,7 @@ If you wish to deny a user access to a resource, revoke the relevant roles for t
       ]
       }
       ```
+
 
    1. Create a request body, for example, in a `body.json` file. In the request body, specify which access binding to delete. For example, revoke the `organization-manager.admin` role from user `aje6o61dvog2h6g9a33s`:
 
@@ -301,6 +305,7 @@ If you wish to deny a user access to a resource, revoke the relevant roles for t
         }]
       }
       ```
+
 
    1. Revoke the role by deleting the specified access binding:
 

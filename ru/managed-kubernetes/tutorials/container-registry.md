@@ -181,6 +181,7 @@ yc container registry configure-docker
 ```
 
 
+
 ### Подготовьте Docker-образ {#docker-image}
 
 Соберите Docker-образ и загрузите его в реестр.

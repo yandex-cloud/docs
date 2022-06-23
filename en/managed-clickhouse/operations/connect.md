@@ -59,6 +59,7 @@ Settings of rules depend on the connection method you select:
 
 {% endlist %}
 
+
 {% note info %}
 
 You can set more detailed rules for security groups, such as allowing traffic in only specific subnets.
@@ -101,6 +102,7 @@ To use an encrypted connection, get an SSL certificate.
    1. Confirm that that you agree to install the certificate in the "Trusted Root Certification Authorities" store.
 
 {% endlist %}
+
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 

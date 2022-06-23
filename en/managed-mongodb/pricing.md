@@ -58,6 +58,7 @@ The prices for computing resources are the same for all types of hosts: mongod, 
 
 {% include [usd-host](../_pricing/managed-mongodb/usd-host.md) %}
 
+
 ### Storage and backups {#prices-storage}
 
 
@@ -65,9 +66,11 @@ The prices for computing resources are the same for all types of hosts: mongod, 
 
 {% include [usd-storage](../_pricing/managed-mongodb/usd-storage.md) %}
 
+
 ### Outgoing traffic {#prices-traffic}
 
 
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+

@@ -172,6 +172,7 @@ It consists of the following parts:
 | example.com. | SOA | 3600 | ns.internal. mx.cloud.yandex.net. 1 10800 900 604800 86400 |
 
 
+
 For more information about SOA records, see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.13).
 
 

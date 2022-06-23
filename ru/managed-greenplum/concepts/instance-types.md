@@ -6,7 +6,7 @@
 
 ## Доступные классы хостов {#available-flavors}
 
-Хосты в кластерах {{ mgp-name }} разворачиваются на базе виртуальных машин {{ compute-full-name }} на [платформах](../../compute/concepts/vm-platforms.md)Intel Cascade Lake и Intel Ice Lake с гарантированной долей vCPU 100%. Ниже приведен полный список возможных конфигураций хостов.
+Хосты в кластерах {{ mgp-name }} разворачиваются на базе виртуальных машин {{ compute-full-name }} на [платформах](../../compute/concepts/vm-platforms.md) Intel Cascade Lake и Intel Ice Lake с гарантированной долей vCPU 100%. Ниже приведен полный список возможных конфигураций хостов.
 
 Типы конфигураций:
 
@@ -27,5 +27,6 @@
 | i3-c16-m128       |              16 | 100%                    |     128 |
 | i3-c32-m256       |              32 | 100%                    |     256 |
 | i3-c40-m320       |              40 | 100%                    |     320 |
+
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

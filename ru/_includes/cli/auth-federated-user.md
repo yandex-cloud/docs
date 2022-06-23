@@ -8,6 +8,7 @@
     ```
    
    
+   
 1. Выберите профиль, для которого вы хотите настроить аутентификацию, или создайте новый.
     ```
     Welcome! This command will take you through the configuration process.
@@ -51,5 +52,6 @@
    federation-id: aje1f0hs6ojais2f6ai2
    ...
    ```
+   
 
    

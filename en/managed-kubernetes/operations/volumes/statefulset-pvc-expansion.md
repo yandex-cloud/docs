@@ -52,6 +52,7 @@ While the instruction is running, the number of the controller's [pods](../../co
    ```
 
 
+
    {% endcut %}
 
 1. Create a controller:
@@ -82,6 +83,7 @@ While the instruction is running, the number of the controller's [pods](../../co
    persistentvolumeclaim/pvc-dynamic-ubuntu-test-1   Bound    pvc-a6fb0761-0771-483c-abfb-d4a89ec4719f   1Gi        RWO            yc-network-hdd   81s
    persistentvolumeclaim/pvc-dynamic-ubuntu-test-2   Bound    pvc-f479c8aa-426a-4e43-9749-5e0fcb5dc140   1Gi        RWO            yc-network-hdd   73s
    ```
+
 
 
 1. Make sure that for objects with the `k8s-csi` prefix, the disks have transitioned to `READY` status:
@@ -221,4 +223,5 @@ While the instruction is running, the number of the controller's [pods](../../co
    pvc-a6fb0761-0771-483c-abfb-d4a89ec4719f   2Gi        RWO            Delete           Bound    default/pvc-dynamic-ubuntu-test-1   yc-network-hdd            11m
    pvc-f479c8aa-426a-4e43-9749-5e0fcb5dc140   2Gi        RWO            Delete           Bound    default/pvc-dynamic-ubuntu-test-2   yc-network-hdd            11m
    ```
+
 

@@ -91,6 +91,7 @@ To use an encrypted connection, get an SSL certificate:
   chmod 0600 ~/.elasticsearch/root.crt
   ```
 
+
   The certificate will be saved in the `$HOME/.elasticsearch/root.crt` folder.
 
 - Windows (PowerShell)
@@ -99,6 +100,7 @@ To use an encrypted connection, get an SSL certificate:
   ```powershell
   mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt https://{{ s3-storage-host }}{{ pem-path }}
   ```
+
 
   The certificate will be saved in the `$HOME\.elasticsearch\root.crt` folder.
 

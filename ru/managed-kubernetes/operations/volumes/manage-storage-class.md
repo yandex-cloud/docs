@@ -23,6 +23,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 {% endnote %}
 
 
+
 ## Создайте класс хранилищ {#sc-create}
 
 1. Сохраните спецификацию для создания класса хранилищ в YAML-файл `my-sc-hdd.yaml`:
@@ -45,6 +46,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
    ```
 
 
+
 1. Выполните команду:
 
    
@@ -53,12 +55,14 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
    ```
 
 
+
    Результат выполнения команды:
 
    
    ```bash
    storageclass.storage.k8s.io/my-sc-hdd created
    ```
+
 
 
 1. Проверьте, что класс хранилищ создался:
@@ -78,6 +82,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
    ```
 
 
+
 ### Формат спецификации для создания класса хранилищ {#sc-spec}
 
 Каждый объект `StorageClass` содержит параметры `provisioner`, `parameters` и `reclaimPolicy`, которые используются для динамического выделения объекта `PersistentVolume`.
@@ -85,7 +90,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 Допустимые значения параметров:
 * `provisioner`: `disk-csi-driver.mks.ycloud.io`.
 * `parameters`
-  * `type`: `network-hdd` или`network-ssd`.
+  * `type`: `network-hdd` или `network-ssd`.
   * `csi.storage.k8s.io/fstype`: `ext2`, `ext3` или `ext4`.
 * `reclaimPolicy`: `Retain` или `Delete`.
 

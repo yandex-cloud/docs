@@ -5,6 +5,7 @@ If your team's work is organized around [Agile software development]({{ link-wik
 
 ![](../_assets/tracker/agile-board-c.png)
 
+
 If you selected the <q>Basic development model</q>, <q>Scrum</q>, or <q>Kanban</q> template when [creating a queue](dev-process-create-queue.md), an issue board with the queue's name is also created automatically. The board will display all issues contained in your queue.
 
 You can also [create multiple issue boards](manager/create-agile-board.md). This can be useful if you have multiple work groups or issue types:

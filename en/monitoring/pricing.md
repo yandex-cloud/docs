@@ -25,3 +25,6 @@ The minimum billable unit is 1 metric value. The price is rounded up to the near
 
 
 {% include [usd.md](../_pricing/monitoring/usd.md) %}
+
+
+

@@ -23,6 +23,7 @@
 * плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
+
 ## Создайте группу безопасности {#create-security-group}
 
 {% include [security-groups-note](../../compute/_includes_service/security-groups-note.md) %}

@@ -45,6 +45,7 @@ Migration stages:
 
 If you no longer need these resources, [delete them](#clear-out).
 
+
 ### Creating a dump {#dump}
 
 {% list tabs %}
@@ -162,7 +163,8 @@ To prepare the VM to restore the dump:
 
 1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) on [Ubuntu Linux 20.04](/marketplace/products/f2eanb2gaki4us67hn9q) with the following parameters:
 
-    * **Disksand file storage** → **Size**: Sufficient to store both archived and unarchived dumps.
+
+    * **Disks and file storage** → **Size**: Sufficient to store both archived and unarchived dumps.
     
         The recommended size is two or three times the total dump and dump archive size.
     
@@ -265,3 +267,4 @@ If you no longer need these resources, delete them:
 
 1. If you created an intermediate VM, [delete it](../../compute/operations/vm-control/vm-delete.md).
 1. If you reserved a public static IP address for your intermediate VM, release and [delete it](../../vpc/operations/address-delete.md).
+

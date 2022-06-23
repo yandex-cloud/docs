@@ -99,7 +99,7 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
 
 1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
 
-1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more on the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more on the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). 
 
 1. Set the `Alarm` and `Warning` notification threshold values.
 

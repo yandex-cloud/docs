@@ -132,7 +132,7 @@
    * `--levels` to search for records with the specified logging level.
    * `--filter` to filter records.
 
-   For more information about possible values of new parameters, see [{#T}](../logging/concepts/filter.md).
+   For more information about possible values of new parameters, see [{#T}](../logging/concepts/filter.md). 
 
 ##### Managed database services {#managed-db}
 
@@ -224,7 +224,7 @@
 
 #### Changes to the CLI {#cli}
 
-* Added the option to transfer an [IAM token](../iam/concepts/authorization/iam-token.md) via the `YC_IAM_TOKEN` environment variable.
+* Added the option to transfer an  [IAM token](../iam/concepts/authorization/iam-token.md)  via the `YC_IAM_TOKEN` environment variable.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
@@ -561,7 +561,7 @@ Added support for {{ org-full-name }}.
 
 {{ org-name }} is an enterprise solution that you can use to connect your organization to {{ yandex-cloud }} services and manage employee access to these services.
 
-The {{ org-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage.Read more about the service in the [documentation](../organization/).
+The {{ org-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about the service in the [documentation](../organization/).
 
 ##### {{ sf-name }} {#serverless-functions}
 
@@ -579,7 +579,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 {{ cloud-logging-name }} is a service for reading and recording service logs and user applications.
 
-The {{ cloud-logging-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage.Read more about  in the [documentation](../logging/).
+The {{ cloud-logging-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about  in the [documentation](../logging/).
 
 #### {{ sf-name }} {#serverless-functions}
 
@@ -1068,7 +1068,7 @@ You can use {{ certificate-manager-name }} to obtain and update TLS certificates
 
 These certificates can be used in {{ yandex-cloud }} services to provide connection security.
 
-The {{ certificate-manager-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage.Read more about the service in the [documentation](../certificate-manager/).
+The {{ certificate-manager-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about the service in the [documentation](../certificate-manager/).
 
 ### Version 0.63.0 (28.08.20) {#version0.63.0}
 
@@ -1136,6 +1136,7 @@ The {{ certificate-manager-name }} service is at the [Preview](../overview/conce
    
    Added the `--coi-spec-file` flag to pass an [image specification](../cos/concepts/coi-specifications.md#coi-spec-example).
 
+
 ##### {{ vpc-name }} {#vpc}
 
 * Commands `yc vpc subnet create` and `yc vpc subnet update`.
@@ -1180,7 +1181,7 @@ Added support for {{ api-gw-full-name }}.
 
 {{ api-gw-name }} is a service for managing API gateways that supports [OpenAPI Specification 3.0](https://github.com/OAI/OpenAPI-Specification) and a set of extensions for interacting with other cloud services.
 
-The {{ api-gw-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage.Read more about  in the [documentation](../api-gateway/).
+The {{ api-gw-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about  in the [documentation](../api-gateway/).
 
 #### {{ iam-name }} {#iam}
 
@@ -1488,7 +1489,7 @@ The {{ api-gw-name }} service is at the [Preview](../overview/concepts/launch-st
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
-* For[ resources that you can assign roles for](../iam/concepts/access-control/resources-with-access-control.md).
+* For[ resources that you can assign roles for](../iam/concepts/access-control/resources-with-access-control.md). 
 
    Added alternatives to the `--subject` flag for role management commands: `--service-account-id`, `--service-account-name`, `--user-account-id`, `--user-yandex-login`, and `--all-authenticated-users`.
 
@@ -1522,7 +1523,7 @@ Support for the cryptographic key management service: {{ kms-full-name }}.
 
 Use the keys to protect your secrets, private data, and other confidential information you store in the cloud.
 
-The {{ kms-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage.Read more about the service in the [documentation](../kms/).
+The {{ kms-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about the service in the [documentation](../kms/).
 
 ### Version 0.48.0 (27.12.19) {#version0.48.0}
 
@@ -1582,6 +1583,7 @@ The {{ kms-name }} service is at the [Preview](../overview/concepts/launch-stage
 
 * [Federated authentication](operations/authentication/federated-user.md) is now supported for non-interactive `yc` calls. This mode is used when the CLI is not started directly by the user, like when it is started via a script or `kubectl` when working with [{{ k8s }} clusters](../managed-kubernetes/concepts/index.md#kubernetes-cluster) in {{ managed-k8s-full-name }}.
 
+
 ### Version 0.46.0 (13.12.19) {#version0.46.0}
 
 #### Changes to the CLI {#cli}
@@ -1590,6 +1592,7 @@ The {{ kms-name }} service is at the [Preview](../overview/concepts/launch-stage
 
 
 * To facilitate authorization diagnostics, CRC32 of the sent [IAM token](../iam/concepts/authorization/iam-token.md) is written to the request debug log.
+
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
@@ -1644,6 +1647,7 @@ The {{ kms-name }} service is at the [Preview](../overview/concepts/launch-stage
 
 * For Windows Subsystem for Linux (WSL), the browser now opens correctly when logging in to the CLI using [SAML-compatible identity federations](../organization/add-federation.md).
 
+
 ### Version 0.43.0 (11.11.19) {#version0.43.0}
 
 
@@ -1653,12 +1657,14 @@ The {{ kms-name }} service is at the [Preview](../overview/concepts/launch-stage
 
    To do this, run the `yc init --federation-id=<FEDERATION_ID>` command to use the CLI on behalf of the federated user.
 
+
 #### Changes to {{ yandex-cloud }} services {#services}
 
 #### {{ compute-name }} {#compute}
 
 
 * Added details to the logged data and error text on [authorization from within a VM](../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) (using an IAM token from the metadata).
+
 
 #### Changes to managed database services {#managed-db}
 

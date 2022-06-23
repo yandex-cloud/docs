@@ -11,6 +11,7 @@ In January 2022, clusters running {{ MG }} 4.0 will be [forcibly upgraded](../qa
 
 {% endnote %}
 
+
 ## Before upgrading {#before-update}
 
 Prior to upgrading a cluster, make sure this doesn't affect your applications:

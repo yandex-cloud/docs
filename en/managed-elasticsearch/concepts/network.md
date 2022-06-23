@@ -9,6 +9,7 @@ When creating a cluster, you can:
 
 You can create a cluster without specifying any subnets for the hosts, if the availability zone selected for each host contains exactly one subnet of the cluster network.
 
+
 ## Hostname and FQDN {#hostname}
 
 {{ mes-short-name }} generates a name for each cluster host during creation. This name will be the host's fully qualified domain name (FQDN). The hostname and, consequently, the FQDN cannot be changed.
@@ -23,6 +24,7 @@ Any cluster host can be accessible from outside {{ yandex-cloud }} if you reques
 You can't request public access after creating a host.
 
 When deleting a host with a public FQDN, the assigned IP address is revoked.
+
 
 ## Security groups {#security-groups}
 

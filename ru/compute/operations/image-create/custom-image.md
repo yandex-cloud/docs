@@ -11,6 +11,7 @@
 
 Если вы подготовили программное обеспечение, которое может быть полезно другим, [предложите](../../../marketplace/operations/create-product.md) его в {{ marketplace-name }}.
 
+
 ## Настройте ОС в соответствии с требованиями {#requirements}
 
 {% include [image-create-requirements](../../../_includes/compute/image-create-requirements.md) %}

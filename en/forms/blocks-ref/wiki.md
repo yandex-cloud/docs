@@ -7,6 +7,7 @@ This block is only available for [{{ forms-full-name }} for business](../forms-f
 
 {% endnote %}
 
+
 In this block, the user can enter response options that are loaded from a [{{ wiki-name }} dynamic table](../../wiki/create-grid.md). When they type, hints with suggested responses appear in the field. Responses that aren't in the table aren't accepted.
 
 If multiple {{ wiki-name }} blocks are used in the form, you can [configure response filtering](#filter). In this case, the set of possible responses in one {{ wiki-name }} block changes depending on the response the user selected in another block.
@@ -66,6 +67,7 @@ The table of responses for the {{ wiki-name }} block must use a special format. 
 
 1. Make sure the service account `yndx-wiki-cnct-robot@` has [access to the table](../../wiki/page-management/access-setup.md). This account also has access to the table if **Available to all employees** mode is on.
 
+
 1. Put a link to the table in the {{ wiki-name }} block settings.
 
 ## Create a table with response filtering {#sec_filter}
@@ -88,6 +90,7 @@ To create a table with response filtering:
 
 
 1. Make sure the service account `yndx-wiki-cnct-robot@` has [access to the table](../../wiki/page-management/access-setup.md). This account also has access to the table if **Available to all employees** mode is on.
+
 
 1. Put a link to the table in the {{ wiki-name }} block settings and [turn on response filtering](#dlentry_filter).
 

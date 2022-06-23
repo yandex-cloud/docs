@@ -1,4 +1,4 @@
-# Target endpoint parameters {{ PG }}
+# Configuring a {{ PG }} target endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -124,5 +124,6 @@ Connecting to the database with an explicitly specified network address and port
       This feature is in the [Preview stage](../../../../overview/concepts/launch-stages.md).
 
       {% endnote %}
+
 
 {% endlist %}

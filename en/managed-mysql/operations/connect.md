@@ -25,6 +25,7 @@ Settings of rules depend on the connection method you select:
 - Over the internet 
    
    [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) in the cluster to allow incoming traffic on port {{ port-mmy }} from any IP address. To do this, create the following rule for incoming traffic:
+
    * Port range: `{{ port-mmy }}`.
    * Protocol: `TCP`.
    * Source: `CIDR`.
@@ -34,12 +35,14 @@ Settings of rules depend on the connection method you select:
    
    1. [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) in the cluster to allow incoming traffic from the security group where your VM is located on port {{ port-mmy }}. To do this, create the following rule for incoming traffic in these groups:
 
+
          * Port range: `{{ port-mmy }}`.
          * Protocol: `TCP`.
          * Source: `Security group`.
          * Security group: If your cluster and VM are in the same security group, select `Self` as the value. Otherwise, specify the VM security group.
    
    1. [Configure the security group](../../vpc/operations/security-group-update.md#add-rule) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
+
 
          Example VM rule:
        
@@ -88,6 +91,7 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
    chmod 0600 ~/.mysql/root.crt
    ```
 
+
    The certificate will be saved in the `$HOME/.mysql/root.crt` directory.
 
 - Windows (PowerShell)
@@ -96,6 +100,7 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
    ```PowerShell
    mkdir ~/.mysql; curl -o ~/.mysql/root.crt https://{{ s3-storage-host }}{{ pem-path }}
    ```
+
 
    The certificate will be saved in the `$HOME\.mysql\root.crt` directory.
 

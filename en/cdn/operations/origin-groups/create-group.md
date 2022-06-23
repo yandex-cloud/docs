@@ -100,6 +100,7 @@ To create an [origin group](../../concepts/origins.md):
       ```
 
 
+
       For more information about resources that you can create with Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
 
    1. Make sure the settings are correct.

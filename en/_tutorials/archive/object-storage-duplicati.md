@@ -24,6 +24,7 @@ The cost for backup and recovery includes:
 * A fee for data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-operations)).
 * The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ objstorage-full-name }} pricing](../../storage/pricing#prices-storage.md#prices-traffic)).
 
+
 ## Create a bucket {#create-bucket}
 
 To create a bucket for backups:

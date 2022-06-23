@@ -35,13 +35,16 @@ The plugin only allows you to work with issues that you are assigned to.
 
 1. Restart your IDE.
 
+
 ## Connecting the plugin to {{ tracker-name }} {#section_vgn_cqd_kdb}
 
 
 To make the plugin work, link it to your {{ tracker-name }} account:
 
 
+
 1. Log in to {{ tracker-name }}.
+
 
 1. Launch your IntelliJ IDE and select **Tools** → **Tasks & Contexts** → **Configure Servers**.
 

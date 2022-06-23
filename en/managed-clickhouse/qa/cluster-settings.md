@@ -6,6 +6,7 @@
 Follow the [instructions](../operations/cluster-users.md#example-create-readonly-user) to create a user with read-only permissions. If the cluster settings have the **Access from {{ datalens-name }}** [option enabled](../operations/update.md#change-additional-settings), the service can [connect](../operations/datalens-connect.md#create-connector) to the cluster through this user.
 
 
+
 #### How do I grant a user permissions to create and delete tables or databases? {#create-delete-role}
 
 Go to the cluster settings, enable the [{#T}](../operations/cluster-users.md#sql-user-management) option, and grant a user the appropriate permissions [using a statement](https://clickhouse.com/docs/en/sql-reference/statements/grant/) named `GRANT`.

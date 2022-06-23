@@ -126,6 +126,7 @@ keywords:
 
                 
         Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-full-name }}.
+        
 
     1. Посмотрите описание команды CLI для создания кластера:
 
@@ -165,6 +166,7 @@ keywords:
 
         
     Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
 
     Чтобы создать кластер:
 
@@ -246,6 +248,7 @@ keywords:
           v4_cidr_blocks = ["<диапазон>"]
         }
         ```
+
 
 
         1. {% include [Maintenance window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
@@ -426,6 +429,7 @@ keywords:
       }
     }
     ```
+
 
 
 {% endlist %}

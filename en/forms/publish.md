@@ -2,6 +2,7 @@
 
 The form is available for filling out immediately after it's created. You can publish the form using a direct link, embed it in a site, or share a link to the form on social media. If you use [{{ forms-full-name }} for business](forms-for-org.md), you can embed the form on a {{ wiki-full-name }} page.
 
+
 When publishing a form, you can [limit](restrictions.md) the date range for submitting responses and the total number of responses. You can also restrict access by only allowing responses from employees in your {{ org-full-name }} organization.
 
 
@@ -31,6 +32,7 @@ If you want to use English for standard {{ forms-full-name }} messages like warn
 
 {% endnote %}
 
+
 ## Publish on a site {#section_c21_gdb_42b}
 
 To publish a form on your site:
@@ -51,6 +53,7 @@ To adjust the size, change the `width` parameter value. You can specify the size
 Only users of [{{ forms-full-name }} for business](forms-for-org.md) can work with {{ wiki-name }}.
 
 {% endnote %}
+
 
 To publish a form on a {{ wiki-full-name }} page:
 

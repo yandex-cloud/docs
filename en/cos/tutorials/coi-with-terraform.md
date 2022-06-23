@@ -280,6 +280,7 @@ Run the VM with a {{ coi }} using the Terraform configuration.
    ```
 
 
+
    Where:
    * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) to access {{ yandex-cloud }}.
    * `name`: Name of the instance group.

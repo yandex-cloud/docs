@@ -3,6 +3,7 @@
 
 Send [the {{ tracker-name }} support team](troubleshooting.md) a request to connect an external application and the information required to register your application in {{ tracker-name }}.
 
+
 ## Required parameters {#required}
 
 The required parameters are sufficient to ensure minimum functionality of links between {{ tracker-name }} issues and objects in your application: displaying the app's icon as well as the object key and link.

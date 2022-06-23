@@ -167,6 +167,7 @@ To create a [resource](../../concepts/resource.md):
       }
       ```
 
+
    
       For more information about `yandex_cdn_resource` parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 

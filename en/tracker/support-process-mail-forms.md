@@ -15,6 +15,7 @@ To accept user requests by email, set up the email address of the queue. All ema
 
 1. If the users sending you requests are not your organization's employees, [allow receiving emails from external addresses](manager/queue-mail.md#mail_tasks).
 
+
 If the issue was created from an email, you can respond to the requester right from the issue page (for example, you can ask for additional information or notify them when the issue is solved). To do this, [configure sending emails from issue pages](#send_mail).
 
 ### Accepting requests via forms {#form}

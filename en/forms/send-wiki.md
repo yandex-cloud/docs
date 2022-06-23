@@ -7,6 +7,7 @@ You can only set up integration with {{ wiki-name }} in [{{ forms-full-name }} f
 
 {% endnote %}
 
+
 You can integrate your form with [{{ wiki-name }}]({{ link-wiki }}) to save user responses on a wiki page. For example, if you're using a form to register participants for an event, you can automatically create a list of participants in {{ wiki-name }}. To learn more about wiki pages, go to [{{ wiki-name }} Help](../wiki/edit-page.md).
 
 To send responses to {{ wiki-name }}:

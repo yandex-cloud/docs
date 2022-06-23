@@ -16,6 +16,7 @@ The infrastructure support cost for this scenario includes:
 * A fee for using the function (see [{{ sf-full-name }} pricing](../functions/pricing.md).
 * A fee for querying the database (see [{{ ydb-full-name }} pricing](../managed-ydb/pricing/serverless.md)).
 
+
 ## Prepare the environment {#prepare-environment}
 
 1. Clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/functions/YDB-connect-from-serverless-function) using Git.

@@ -4,6 +4,7 @@
 
 {{ yandex-cloud }} provides technical support under different service plans. You can choose the plan that's best for you. The cost of paid technical support plans includes two components: fixed and supplemental. The fixed portion only depends on the selected plan, while the supplemental portion is calculated as a fraction of the cost of the resources used over the month. For more information about plans, see the [Pricing policy](pricing.md).
 
+
 ## Contacting support {#response-time}
 
 
@@ -15,6 +16,7 @@ Depending on your pricing plan, you can [contact technical support]({{ link-cons
 If there is a problem with your infrastructure's production environment, specify _Critical issue_ as your request type.
 
 
+
 The expected support specialist response time is shown in the table below. A dash in a table cell means the corresponding communication channel is not available for the selected service plan.
 
 | Channel | Basic | Standard | Business | Premium |
@@ -23,6 +25,7 @@ The expected support specialist response time is shown in the table below. A das
 | Request in console | Normal: 24 hours<br/>Increase quotas: 30 minutes | Normal: 8 hours<br/>Critical: 2 hours<br/>Increase quotas: 30 minutes | Normal: 4 hours<br/>Critical: 30 minutes<br/>Increase quotas: 30 minutes | Normal: 2 hours<br/>Critical: 15 minutes<br/>Increase quotas: 30 minutes |
 | Chat | - | 15 minutes | 5 minutes | immediate |
 | Phone | - | - | on additional request | on additional request |
+
 
 ## Types of requests to {#request-types} support
 
@@ -53,6 +56,7 @@ The given list of services offered under the <q>Premium</q> plan isn't fixed and
 | Directly consult with a dedicated support engineer on how to solve architecture-related tasks based on your {{ yandex-cloud }} service usage scenario | | | | ![image](../_assets/common/yes.svg) |
 | Personal technical manager | | | | ![image](../_assets/common/yes.svg) |
 | Additional {{ yandex-cloud }} services (case-by-case basis) | | | | ![image](../_assets/common/yes.svg) |
+
 
 {{ yandex-cloud }} technical support engineers don't address the following issues:
 

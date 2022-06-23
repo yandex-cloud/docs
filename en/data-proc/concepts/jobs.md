@@ -21,6 +21,7 @@ For placing and [starting a job](../operations/jobs.md):
 
 * Connect directly to the cluster node. For more information, see the example in [{#T}](../tutorials/remote-run-job.md).
 
+
 For successful job execution:
 
 * Grant access to the necessary {{ objstorage-name }} buckets for the cluster service account.

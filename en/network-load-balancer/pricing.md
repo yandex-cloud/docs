@@ -26,6 +26,7 @@ You are charged for incoming traffic to the IP address and port specified as the
 
 {% include [usd.md](../_pricing/network-load-balancer/usd-ingress.md) %}
 
+
 ### Network load balancers {#network-load-balancers}
 
 You are charged for network load balancers if they have a listener and a non-empty target group attached.
@@ -36,3 +37,5 @@ If a network load balancer has no target groups attached but has a listener, the
 
 
 {% include [usd.md](../_pricing/network-load-balancer/usd-balancer.md) %}
+
+

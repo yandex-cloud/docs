@@ -27,6 +27,7 @@ The cost of Terraform-created resources includes:
 * A fee for using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
+
 ## Install Terraform {#install-terraform}
 
 {% include [terraform_install](../../_tutorials/terraform-install.md) %}
@@ -80,6 +81,7 @@ resource "yandex_compute_instance" "vm-1" {
   name = "terraform1"
 }
 ```
+
 
 
 {% list tabs %}

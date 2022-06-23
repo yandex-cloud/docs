@@ -65,6 +65,7 @@ The table below lists the roles needed to perform a given action. You can always
 | Getting the results of a Docker image scan. | `get`, `getLast`, `list`, `listVulnerabilities` | `viewer` to a registry or a repository containing a Docker image. |
 
 
+
 #### What's next {what-is-next}
 
 * [Assigning a role](../operations/roles/grant.md).

@@ -28,6 +28,7 @@ $ yc config set <имя параметра> <значение параметра
    cloud-id: b1gvl...
    folder-id: b1g68...
    ```
+   
 
     
 Ознакомьтесь с полным [списоком параметров](../../concepts/core-properties.md) профиля. Также вы можете изменить параметры профиля с помощью [процесса интерактивного создания профиля](profile-create.md#interactive-create).
@@ -55,6 +56,7 @@ $ yc config unset <имя параметра>
     cloud-id: b1gvl...
     ```
    
+   
     
 ## Запустить команду с параметрами другого профиля {#another-profile}
 
@@ -69,4 +71,5 @@ token: AQAAAAAV6O...
 cloud-id: aoegt...
 folder-id: aoek4...
 ```
+
 

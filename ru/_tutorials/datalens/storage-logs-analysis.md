@@ -29,6 +29,7 @@
 * плата за хранение данных в {{ objstorage-short-name }}, операции с ними и исходящий трафик (см. [тарифы {{ objstorage-short-name }}](../../storage/pricing.md));
 * плата за постоянно запущенный кластер {{ mch-name }} (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
 
+
 ## Создайте бакет для хранения логов {#create-bucket}
 
 Чтобы создать бакет:
@@ -173,7 +174,7 @@
      yc vpc subnet list
      ```
 
-     Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
+     Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md)  в сервисе {{ vpc-short-name }}.
 
   1. Укажите параметры кластера в команде создания:
 

@@ -25,6 +25,7 @@ Free tier распространяется на сервисы:
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 
+
 ## {{ sf-full-name }} {#sf}
 
 {% include [not-charged-functions.md](../../_includes/pricing/price-formula/not-charged-functions.md) %}
@@ -34,6 +35,7 @@ Free tier распространяется на сервисы:
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 
+
 ## Бессерверный режим {{ ydb-full-name }} {#ydb}
 
 {% include [not-charged-database.md](../../_includes/pricing/price-formula/not-charged-database.md) %}
@@ -41,6 +43,7 @@ Free tier распространяется на сервисы:
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../managed-ydb/pricing/serverless.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+
 
 ## {{ objstorage-full-name }} {#objstorage}
 
@@ -67,6 +70,7 @@ Free tier распространяется на сервисы:
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
+
 ## {{ vpc-full-name }} {#vpc}
 
 {% include [not-charged-iot.md](../../_includes/pricing/price-formula/not-charged-vpc.md) %}
@@ -85,6 +89,7 @@ Free tier распространяется на сервисы:
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 
+
 ## {{ serverless-containers-full-name }} {#serverless-containers}
 
 {% include [not-charged-streams.md](../../_includes/pricing/price-formula/not-charged-serverless-containers.md) %}
@@ -92,3 +97,5 @@ Free tier распространяется на сервисы:
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../serverless-containers/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+
+

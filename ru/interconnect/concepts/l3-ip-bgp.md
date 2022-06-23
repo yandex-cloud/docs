@@ -48,19 +48,19 @@ BGP-связность возникает внутри каждого прива
 
 ### L3- и BGP-связность через прямой физический стык {#l3-bgp-connectivity-over-direct-link}
 
-![l3-bgp-over-direct-link](../../_assets/cloud-interconnect/interconnect-bgp-1.png)
+![l3-bgp-over-direct-link](../../_assets/cloud-interconnect/interconnect-bgp-1.svg)
 
 L3-связность и BGP-связность организуется между оборудованием клиента в точке присутствия и оборудованием {{ yandex-cloud }}. При организации IPv4-связности могут использоваться IPv4-подсети размером `/30` или `/31`. В данном случае клиент самостоятельно обеспечивает L3-связность от своего оборудования в ЦОД до собственного оборудования в точке присутствия. Все анонсы маршрутов по протоколу BGP со стороны клиента попадают во все [зоны доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}.
 
 ### L3- и BGP-связность через оператора связи {#l3-bgp-connectivity-over-operator-link}
 
-![l3-bgp-over-operator-link](../../_assets/cloud-interconnect/interconnect-bgp-2.png)
+![l3-bgp-over-operator-link](../../_assets/cloud-interconnect/interconnect-bgp-2.svg)
 
 При отсутствии собственного оборудования в точке присутствия клиент привлекает оператора связи для обеспечения L1- и L2-связности от оборудования {{ yandex-cloud }} до оборудования в своем ЦОД (см. PHY2, PHY3, TRN2). При этом L3- и BGP-связность организуется между оборудованием в его ЦОД и оборудованием {{ yandex-cloud }} в точке присутствия.
 
 ### L3 и BGP + L3VPN от оператора связи {#l3-bgp-l3vpn-connectivity-over-operator-link}
 
-![l3-bgp-l3vpn-over-operator-link](../../_assets/cloud-interconnect/interconnect-bgp-3.png)
+![l3-bgp-l3vpn-over-operator-link](../../_assets/cloud-interconnect/interconnect-bgp-3.svg)
 
 Если клиент не хочет обеспечивать BGP-взаимодействие самостоятельно или такая техническая возможность отсутствует, есть возможность делегировать организацию BGP-взаимодействия на сторону оператора связи. Тогда оператор связи подключает клиентское оборудование в ЦОД клиента к своему оборудованию в точке присутствия с помощью сервиса L3VPN, который обеспечивает L3-связность с использованием статической маршрутизации или одного из IGP-протоколов динамической маршрутизации.
 

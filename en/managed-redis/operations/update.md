@@ -155,6 +155,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
       +-----------+----------------------------------+----------+
       ```
 
+
    1. Specify the class in the update cluster command:
 
       ```bash

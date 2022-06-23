@@ -4,7 +4,7 @@ After creating a cluster, you can:
 
 - [Change the host class](#change-resource-preset).
 
-- [{#T}](#change-disk-size)(unavailable for non-replicated SSD [storage](../concepts/storage.md)).
+- [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
 
 - Configure [{{ MG }} servers](#change-mongod-config) according to the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/).
 
@@ -58,6 +58,7 @@ After creating a cluster, you can:
       | ...                                                           |
       +-----------+--------------------------------+-------+----------+
       ```
+
 
 
    1. Specify the class in the update cluster command:
@@ -269,6 +270,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 
       The `<retention period>` parameter value must be in the range from {{ mmg-backup-retention-min }} to {{ mmg-backup-retention-max }} (the default value is {{ mmg-backup-retention }}). This feature is in the [Preview stage](../../overview/concepts/launch-stages.md). For more information, see [{#T}](../concepts/backup.md).
+
 
       Changing the retention period affects both new automatic backups and existing backups.
 

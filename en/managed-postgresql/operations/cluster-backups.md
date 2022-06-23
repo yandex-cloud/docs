@@ -106,6 +106,7 @@ When restoring to the current state, the new cluster will reflect the state of:
       - With databases and users that existed in the cluster at the time of recovery.
       - With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
 
+
 - Terraform
 
    Use Terraform to restore:

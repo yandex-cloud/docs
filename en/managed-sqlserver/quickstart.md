@@ -67,6 +67,7 @@ To get started with the service:
          $ chmod 0600 ~/.mysql/root.crt
          ```
 
+
 1. Use the `mssql-cli` command to connect:
 
    ```bash

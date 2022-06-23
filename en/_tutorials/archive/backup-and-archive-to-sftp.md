@@ -33,6 +33,7 @@ The infrastructure cost in the example includes:
     * A VM for the SFTP server.
 * A fee for using a dynamic or static external IP address (see [Pricing for Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
+
 ## Create a VM for the SFTP server {#create-vm-sftp-server}
 
 To create a VM:

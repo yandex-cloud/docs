@@ -18,7 +18,7 @@
 
 ### Сбор событий {#collect}
 
-Основным инструментом сбора логов уровня {{ yandex-cloud }} является сервис [{{ at-full-name }}](../../audit-trails/concepts/index.md). Сервис позволяет собирать аудитные логи о происходящих с ресурсами {{ yandex-cloud }} событиях и загружать эти логи в бакет {{ objstorage-full-name }} или лог-группу {{ cloud-logging-name }}для дальнейшего анализа или экспорта. См. [инструкцию](../../audit-trails/quickstart.md), как запустить сбор логов, а также [формат](../../audit-trails/concepts/format.md) и [справочник](../../audit-trails/concepts/events.md) событий.
+Основным инструментом сбора логов уровня {{ yandex-cloud }} является сервис [{{ at-full-name }}](../../audit-trails/concepts/index.md). Сервис позволяет собирать аудитные логи о происходящих с ресурсами {{ yandex-cloud }} событиях и загружать эти логи в бакет {{ objstorage-full-name }} или лог-группу {{ cloud-logging-name }} для дальнейшего анализа или экспорта. См. [инструкцию](../../audit-trails/quickstart.md), как запустить сбор логов, а также [формат](../../audit-trails/concepts/format.md) и [справочник](../../audit-trails/concepts/events.md) событий.
 
 {% note info %}
 
@@ -26,15 +26,17 @@
 
 {% endnote %}
 
-Для сбора метрик, анализа некоторых событий уровня {{ yandex-cloud }} и настройки оповещений рекомендуется использовать сервис [{{ monitoring-full-name }}](../../monitoring/index.yaml). С его помощью возможно отслеживать, например, резкое возрастание нагрузки на {{ compute-name }}, RPS сервиса {{ alb-name }}, значительные изменения в статистике событий сервиса {{ iam-name }}.
+ Для сбора метрик, анализа некоторых событий уровня {{ yandex-cloud }} и настройки оповещений рекомендуется использовать сервис [{{ monitoring-full-name }}](../../monitoring/index.yaml).  С его помощью возможно отслеживать, например, резкое возрастание нагрузки на {{ compute-name }}, RPS сервиса {{ alb-name }}, значительные изменения в статистике событий сервиса {{ iam-name }}.
 
 Кроме того, {{ monitoring-name }} можно применять для мониторинга работоспособности самого сервиса {{ at-name }} и мониторинга событий безопасности.
 
 ![](../../_assets/overview/solution-library-icon.svg)[Решение: Мониторинг Audit Trails и событий безопасности с помощью {{ monitoring-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trail_monitoring)
-Аудитные логи возможно экспортировать в лог-группу [{{ cloud-logging-name }}](../../logging/index.yaml) ив [SIEM-систему клиента](#export) для анализа информации о событиях и инцидентах.
+
+Аудитные логи возможно экспортировать в лог-группу [{{ cloud-logging-name }}](../../logging/index.yaml) и в [SIEM-систему клиента](#export) для анализа информации о событиях и инцидентах.
 
 Список важных событий уровня {{ yandex-cloud }} для поиска в аудитных логах:
 ![](../../_assets/overview/solution-library-icon.svg)[Решение: поиск важных событий безопасности в аудитных логах](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/_use_cases_and_searches)
+
 ### Экспорт событий в SIEM {#export}
 
 #### Audit Trails {#export-at}
@@ -52,11 +54,12 @@
 - Splunk
 
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: Сбор, мониторинг и анализ аудитных логов в SIEM Splunk](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-Splunk)
+
 Для настройки экспорта в любые SIEM подходят утилиты [GeeseFS](../../storage/tools/geesefs.md) или [s3fs](../../storage/tools/s3fs.md). Она позволяет смонтировать бакет {{ objstorage-full-name }} как локальный диск виртуальной машины. Далее на ВМ необходимо установить коннектор для SIEM и настроить вычитывание JSON-файлов из бакета.
 
 #### Метрики {{ monitoring-full-name }}
 
-Выгрузка метрик в SIEM-систему возможна через API, см. [инструкцию](../../monitoring/operations/metric/get.md).
+ Выгрузка метрик в SIEM-систему возможна через API, см. [инструкцию](../../monitoring/operations/metric/get.md). 
 
 ### Реагирование на события {#respond}
 
@@ -73,7 +76,7 @@ C помощью {{ sf-full-name }} можно настроить оповеще
 
 Дополнительные опции генерации событий возможно реализовать с помощью утилиты Auditd для Linux, Sysmon для Windows.
 
-Системные метрики Linux (процессор, память, диск) можно собирать с помощью компонента [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md) сервиса {{ monitoring-name }}.
+ Системные метрики Linux (процессор, память, диск) можно собирать с помощью компонента [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md) сервиса {{ monitoring-name }}. 
 
 Также события ОС возможно экспортировать в {{ cloud-logging-name }} с  помощью [плагина Fluent bit](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 

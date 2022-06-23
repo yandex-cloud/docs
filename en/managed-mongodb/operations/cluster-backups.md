@@ -114,6 +114,7 @@ When restoring to the current state, the new cluster will reflect the state of:
          --mongod-disk-type <storage type: network-hdd, network-ssd, local-ssd or network-ssd-nonreplicated>
       ```
 
+
       In the `--recovery-target-timestamp` specify the point in time to which you want to restore the original state of the {{ MG }} cluster, in the [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you want to restore the cluster state to the backup creation time, you may omit this option.
 
 {% endlist %}
@@ -259,6 +260,7 @@ Let's say we need to create a new {{ MG }} cluster from a backup with the follow
 * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
 * With databases and users that existed in the cluster at the time of recovery.
 
+
 {% list tabs %}
 
 - CLI
@@ -279,5 +281,6 @@ Let's say we need to create a new {{ MG }} cluster from a backup with the follow
       --mongod-disk-size 20 \
       --mongod-disk-type {{ disk-type-example }}
    ```
+
 
 {% endlist %}

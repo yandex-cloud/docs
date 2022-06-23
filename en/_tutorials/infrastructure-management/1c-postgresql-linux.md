@@ -38,6 +38,7 @@ The infrastructure support cost for 1C-Enterprise in {{ yandex-cloud }} includes
 * A fee for the continuously running {{ mpg-name }} cluster (see [pricing for {{ mpg-full-name }}](../../managed-postgresql/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
+
 ## Prepare the infrastructure {#prepare}
 
 1. Make sure that you install the 1C:Enterprise client to check the performance of the infobase and the 1C administration console to manage the server cluster on your computer.
