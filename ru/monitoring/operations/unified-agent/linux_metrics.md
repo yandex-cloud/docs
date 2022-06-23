@@ -72,17 +72,18 @@
           - /etc/yandex/unified_agent/conf.d/*.yml
        ```
 
-   1. Установите {{unified-agent-short-name}} на свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
+   1. Установите {{unified-agent-short-name}} на свою виртуальную машину, выполнив в домашнем каталоге следующую команду, подставив в ней нужный `FOLDER_ID`:
 
       ```bash
-      docker run \
-      -p 16241:16241 -it --detach --uts=host \
-      --name=ua \
-      -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
-      -v /proc:/ua_proc \
-      -e PROC_DIRECTORY=/ua_proc \
-      -e FOLDER_ID=a1bs... \
-      cr.yandex/yc/unified-agent
+        docker run \
+          -p 16241:16241 -it --detach --uts=host \
+          --name=ua \
+          -v /proc:/ua_proc \
+          -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
+          --entrypoint="" \
+          -e PROC_DIRECTORY=/ua_proc \
+          -e FOLDER_ID=a1bs... \
+          cr.yandex/yc/unified-agent
       ```
 
        Другие способы установки агента описаны в разделе [{#T}](../../concepts/data-collection/unified-agent/installation.md).
