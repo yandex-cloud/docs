@@ -27,15 +27,21 @@ description: "Управление доступом в сервисе, пред�
 
 ## Сервисные роли {#services}
 
-{% include [datasphere.user](../../_includes/roles-datasphere-user.md) %}
+{% include [projects-user](../../_includes/roles-datasphere-projects-user.md) %}
 
-{% include [datasphere.admin](../../_includes/roles-datasphere-admin.md) %}
+{% include [projects-admin](../../_includes/roles-datasphere-projects-admin.md) %}
+
+{% include [communities-viewer](../../_includes/roles-datasphere-communities-viewer.md) %}
+
+{% include [communities-editor](../../_includes/roles-datasphere-communities-editor.md) %}
+
+{% include [communities-admin](../../_includes/roles-datasphere-communities-admin.md) %}
 
 ## Примитивные роли {#primitive}
 
 ### {{ roles-viewer }} {#viewer}
 
-Роль `{{ roles-viewer }}` включает в себя все разрешения роли `{{ roles-datasphere-user }}`. Пользователь может просматривать список проектов, а также работать с уже существующими проектами. Пользователь не может создавать или удалять проекты.
+Роль `{{ roles-viewer }}` включает в себя все разрешения роли `{{ roles-datasphere-project-user }}`. Пользователь может просматривать список проектов, а также работать с уже существующими проектами. Пользователь не может создавать или удалять проекты.
 
 ### {{ roles-editor }} {#editor}
 

@@ -192,6 +192,13 @@ default:
   roles-data-transfer-viewer: data-transfer.viewer
   roles-datasphere-admin: datasphere.admin
   roles-datasphere-user: datasphere.user
+  roles-datasphere-project-viewer: datasphere.community-projects.viewer
+  roles-datasphere-project-user: datasphere.community-projects.user
+  roles-datasphere-project-editor: datasphere.community-projects.editor
+  roles-datasphere-project-admin: datasphere.community-projects.admin
+  roles-datasphere-communities-viewer: datasphere.communities.viewer
+  roles-datasphere-communities-editor: datasphere.communities.editor
+  roles-datasphere-communities-admin: datasphere.communities.admin
   roles-datalens-instances-user: datalens.instances.user
   roles-datalens-instances-admin: datalens.instances.admin
   roles-functions-ivoker: serverless.functions.invoker
