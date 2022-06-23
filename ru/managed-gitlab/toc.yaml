@@ -4,6 +4,22 @@ stage: tech-preview
 items:
   - name: Начало работы
     href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Управление инстансом {{ GL }}
+        items:
+          - name: Получение информации об инстансах
+            href: operations/instance/instance-list.md
+          - name: Создание инстанса
+            href: operations/instance/instance-create.md
+          - name: Изменение настроек инстанса
+            href: operations/instance/instance-update.md
+          - name: Удаление инстанса
+            href: operations/instance/instance-delete.md
+      - name: Подключение к инстансу
+        href: operations/connect.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
