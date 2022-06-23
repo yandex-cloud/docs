@@ -5,4 +5,5 @@
 
 * Если вы использовали другой образ, то имя пользователя может отличаться. О том, как узнать это имя, см. в [документации {{ compute-full-name }}](../../../compute/concepts/vm-metadata.md#keys-processed-in-public-images).
 
+
 {% endnote %}

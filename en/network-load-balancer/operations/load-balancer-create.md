@@ -250,6 +250,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
       ```
 
 
+
    1. Run the following command using the target group ID in the `target-group-id` parameter:
 
       ```

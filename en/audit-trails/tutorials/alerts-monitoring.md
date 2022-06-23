@@ -1,6 +1,6 @@
 # Alert settings in {{ monitoring-full-name }}
 
-For more information about how to [create alerts](../../monitoring/operations/alert/create-alert.md) and about [alert parameters](../../monitoring/concepts/alerting.md), see the {{ monitoring-full-name }} documentation.
+ For more information about how to [create alerts](../../monitoring/operations/alert/create-alert.md) and about [alert parameters](../../monitoring/concepts/alerting.md), see the {{ monitoring-full-name }} documentation.
 
 ## Before you begin {#before-you-begin}
 

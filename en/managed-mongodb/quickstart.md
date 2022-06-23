@@ -31,6 +31,7 @@ The next step assumes that you connect to the cluster from a [Linux](../compute/
    sudo dpkg -i mongodb-org-shell_4.4.1_amd64.deb
    ```
 
+
 ## Create a cluster {#cluster-create}
 
 1. In [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
@@ -63,6 +64,7 @@ The next step assumes that you connect to the cluster from a [Linux](../compute/
       chmod 0600 ~/.mongodb/root.crt
       ```
 
+
 1. Connect to the cluster using the {{ MG }} CLI:
 
    
@@ -75,6 +77,7 @@ The next step assumes that you connect to the cluster from a [Linux](../compute/
      -p <user password> \
      <DB name>
    ```
+
 
 ## What's next {#whats-next}
 

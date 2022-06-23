@@ -26,6 +26,7 @@ description: 'В сервисах {{ yandex-cloud }} могут действов
 Квоты приведены со значениями по умолчанию, которые совпадают с квотами на время [пробного периода](../../getting-started/free-trial/concepts/quickstart.md).
 
 
+
 ### {{ compute-full-name }} {#compute}
 
 {% include [compute-limits.md](../../_includes/compute-limits.md) %}
@@ -96,6 +97,7 @@ description: 'В сервисах {{ yandex-cloud }} могут действов
 {% include [mmg-limits.md](../../_includes/mdb/mmg-limits.md) %}
 
 
+
 ### {{ mmy-full-name }} {#mmy}
 
 {% include [mmy-limits.md](../../_includes/mdb/mmy-limits.md) %}
@@ -108,9 +110,11 @@ description: 'В сервисах {{ yandex-cloud }} могут действов
 
 
 
+
 ### {{ dataproc-full-name }} {#dataproc}
 
 {% include [dataproc-limits.md](../../_includes/data-proc/dataproc-limits.md) %}
+
 
 
 ### {{ message-queue-full-name }} {#mq}
@@ -124,9 +128,11 @@ description: 'В сервисах {{ yandex-cloud }} могут действов
 {% include [functions-limits.md](../../_includes/functions-limits.md) %}
 
 
+
 ### {{ speechkit-full-name }} {#speechkit}
 
 {% include [speechkit-limits](../../_includes/speechkit-limits.md) %}
+
 
 
 
@@ -136,9 +142,11 @@ description: 'В сервисах {{ yandex-cloud }} могут действов
 
 
 
+
 ### {{ vision-full-name }} {#vision}
 
 {% include [vision-limits](../../_includes/vision-limits.md) %}
+
 
 
 
@@ -148,9 +156,11 @@ description: 'В сервисах {{ yandex-cloud }} могут действов
 
 
 
+
 ### {{ datalens-full-name }} {#datalens}
 
 {% include [compute-limits.md](../../_includes/datalens/datalens-limits.md) %}
+
 
 
 
@@ -160,9 +170,11 @@ description: 'В сервисах {{ yandex-cloud }} могут действов
 
 
 
+
 ### {{ interconnect-full-name }} {#interconnect}
 
 {% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
+
 
 
 
@@ -172,9 +184,12 @@ description: 'В сервисах {{ yandex-cloud }} могут действов
 
 
 
+
+
 ### {{ mms-full-name }} {#mms}
 
 {% include [mms-limits.md](../../_includes/mdb/mms-limits.md) %}
+
 
 
 ### {{ mkf-full-name }} {#mkf}
@@ -189,15 +204,18 @@ description: 'В сервисах {{ yandex-cloud }} могут действов
 
 
 
+
 ### {{ api-gw-full-name }} {#api-gw}
 
 {% include [api-gateway-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}
 
 
 
+
 ### {{ cloud-logging-full-name }} {#logging}
 
 {% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}
+
 
 
 

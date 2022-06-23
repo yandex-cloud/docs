@@ -3,7 +3,7 @@
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
 
-{% include [21.06.2022 — CVE-2022-1680 — Critical Account Takeover Vulnerability in GitLab](../../_includes/security/security-bulletins/cve-2022-1680-gitlab.md) %}
+{% include [21.06.2022 — CVE-2022-1680 — Critical Account Takeover Vulnerability in GitLab](../../_includes/security/security-bulletins/cve-2022-1680-gitlab.md) %}
 
 {% include [15.06.2022 – Ingress-nginx path sanitization](../../_includes/security/security-bulletins/cve-2021-25748-ingress-nginx-path.md) %}
 
@@ -20,7 +20,7 @@ This page contains security recommendations from {{ yandex-cloud }} experts.
 
 {% include [28.01.2022 — CVE-2022-0185 — heap overflow bug in legacy_parse_param](../../_includes/security/security-bulletins/cve-2022-0185.md) %}
 
-{% include [28.01.2022 — CVE-2021-4034 – Polkit's pkexec](../../_includes/security/security-bulletins/cve-2021-4034-polkit.md) %}
+{% include [28.01.2022 — CVE-2021-4034 – Polkit's pkexec](../../_includes/security/security-bulletins/cve-2021-4034-polkit.md) %}
 
 ## 29.12.2021: CVE-2021-45105, CVE-2021-44832: Denial of service and remote code execution (Log4j) {#CVE-2021-45105-CVE-2021-44832}
 
@@ -114,7 +114,7 @@ The critical services have undergone a successful update as recommended by the m
 
 Currently, an effort is underway to identify other services that may be vulnerable in order to update them.
 
-An update to this bulletin will be rolled out based on the outcome of the final activities.
+An update to this bulletin will be rolled out based on the outcome of the final activities.
 
 ### Compensatory measures
 
@@ -168,7 +168,7 @@ Learn more at: https://www.securitylab.ru/vulnerability/527362.php
    
 
 3. Hystax products are vulnerable because they use a vulnerable version of Elasticsearch Logstash.
-   Hystax is working on new product releases to fix the vulnerability.
+   Hystax is working on new product releases to fix the vulnerability.
 
 #### Impact on {{ yandex-cloud }} services
 
@@ -182,6 +182,7 @@ The critical services have undergone a successful update as recommended by the m
 Currently, an effort is underway to identify other services that may be vulnerable in order to update them.
 
 An update to this bulletin will be rolled out based on the outcome of the final activities.
+
 
 ### Compensatory measures
 
@@ -238,7 +239,7 @@ If you're using a deprecated {{ GL }} image from {{ marketplace-full-name }} or 
 ### More information
 
 * [Action needed by self-managed customers in response to CVE-2021-22205](https://about.gitlab.com/blog/2021/11/04/action-needed-in-response-to-cve2021-22205/)
-* [GitLab CE CVE-2021-22205 in the wild](https://security.humanativaspa.it/gitlab-ce-cve-2021-22205-in-the-wild/)
+* [GitLab CE CVE-2021-22205 in the wild](https://security.humanativaspa.it/gitlab-ce-cve-2021-22205-in-the-wild/)
 
 ## 12.10.2021: CVE-2021-25741: Risk of accessing a host's filesystem {#CVE-2021-25741}
 
@@ -393,4 +394,4 @@ For more information, see [our blog](https://cloud.yandex.ru/blog/posts/2019/08/
 
 ### Impact on {{ yandex-cloud }} services
 
-These changes will improve the security for {{ yandex-cloud }} users.
+These changes will improve the security for {{ yandex-cloud }} users.

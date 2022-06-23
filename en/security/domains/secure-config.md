@@ -46,7 +46,7 @@ We don't recommend using private information in Terraform configuration files, s
 
 If you still need to enter private information in the configuration, you should take the following security measures:
 - Specify the [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) parameter for private information to disable outputting it to the console when running `terraform plan`and `terraform apply`.
-- Use [terraform remote state](https://www.terraform.io/docs/language/state/remote.html). We recommend uploading a Terraform state to {{ objstorage-full-name }} (see [Uploading Terraform states to {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md))and setting up configuration locking using {{ ydb-full-name }} to prevent simultaneous editing by administrators (see a [setup example](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state)). 
+- Use [terraform remote state](https://www.terraform.io/docs/language/state/remote.html). We recommend uploading a Terraform state to {{ objstorage-full-name }} (see [Uploading Terraform states to {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md)) and setting up configuration locking using {{ ydb-full-name }} to prevent simultaneous editing by administrators (see a [setup example](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state)). 
 - Use the mechanism for [transferring secrets to Terraform via env](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) instead of plain text or use built-in {{ kms-name }} features for [encrypting data in Terraform](../../kms/tutorials/terraform-secret.md) (using a separate file with private data) ([learn more about this technique](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073)).
 
    For more information about {{ objstorage-name }} security, see [{{ objstorage-full-name }}](#object-storage) below.
@@ -65,6 +65,7 @@ Numerous information security standards require integrity control of critical fi
 
 
 In [{{ marketplace-full-name }}](/marketplace?categories=security), paid solutions are also available, such as [Kaspersky Security](/marketplace/products/f2eghdh3f8nnbu389nsh).
+
 ### Side-channel attacks {#side-channel}
 
 To ensure the best protection against CPU side-channel attacks (for example, Spectre or Meltdown):
@@ -78,6 +79,7 @@ To ensure the best protection against CPU side-channel attacks (for example, Spe
 We recommend that you use [dedicated hosts](../../compute/concepts/dedicated-host) for the most security-critical resources.
 
 [Learn more](https://www.youtube.com/watch?v=VSP_cp6vDQQ&list=PL1x4ET76A10a9Jr6six11s0kRxeQ3fgom&index=17) about side-channel attack protection in cloud environments.
+
 ## {{ objstorage-full-name }} {#object-storage}
 
 ### Data encryption {#encryption}
@@ -111,6 +113,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
 
 
 ![](../../_assets/overview/solution-library-icon.svg) [Example of a secure {{ objstorage-name }} configuration: Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/configuration/hardering_bucket)
+
 ### Deletion protection and version backups {#versioning}
 
 When processing critical data in buckets, you must ensure that data is protected from deletion and that versions are backed up. This can be achieved by versioning and lifecycle management mechanisms.
@@ -137,6 +140,7 @@ The storage period of critical data in a bucket is determined by the client's in
 When using {{ objstorage-short-name }} to store critical data, be sure to enable logging of actions with buckets and configure the versioning mechanism and lifecycle for objects with logs. For more information, see the {{ objstorage-short-name }} documentation, [{#T}](../../storage/concepts/server-logs.md).
 
 You can also analyze {{ objstorage-short-name }} logs in {{ datalens-short-name }}. Learn more in the article [Analyzing {{ objstorage-name }} logs using {{ datalens-short-name }}](https://cloud.yandex.ru/blog/posts/2021/04/storage-logs).
+
 
 
 ### Cross-Origin Resource Sharing (CORS) {#cors}
@@ -172,6 +176,7 @@ The {{ sf-name }} service does not guarantee time synchronization prior to or du
 
 If the function is called to process an HTTP request, the returned result should be a JSON document containing the HTTP response code, response headers, and response content. {{ sf-name }} will automatically process this JSON and the user will receive data as a standard HTTP response.
 The client needs to manage the response headers on their own in accordance with regulator requirements and the threat model. For more information on how to process an HTTP request, see the {{ sf-name }} documentation, [Invoking a function using HTTP](../../functions/concepts/function-invoke.md#http).
+
 
 ## {{ ydb-name }} {#ydb}
 
@@ -185,7 +190,7 @@ When working with the database, use [parameterized prepared statements](https://
 
 ### Network access {#ydb-network}
 
-When accessing the database in Dedicated mode, we recommend that you use it inside VPC, disabling public access to it from the internet. In Serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your PCI DSS infrastructure. For more information about operating modes, see the YDB documentation, [Serverless and Dedicated modes](../../managed-ydb/concepts/serverless-and-dedicated.md).
+When accessing the database in Dedicated mode, we recommend that you use it inside VPC, disabling public access to it from the internet. In Serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your PCI DSS infrastructure.  For more information about operating modes, see the YDB documentation, [Serverless and Dedicated modes](../../managed-ydb/concepts/serverless-and-dedicated.md). 
 
 When setting up database permissions, use the principle of least privilege.
 
@@ -193,9 +198,9 @@ When setting up database permissions, use the principle of least privilege.
 
 When creating [on-demand backups](../../managed-ydb/pricing/serverless.md#rules-auto-backup-storage), make sure that the backup data is properly protected.
 
-When creating backups on demand in {{ objstorage-short-name }}, follow the recommendations in the [{{ objstorage-short-name }}](#object-storage) subsection above (for example, use the built-in bucket encryption feature).
+When creating backups on demand in {{ objstorage-short-name }}, follow the recommendations in the [{{ objstorage-short-name }}](#object-storage) subsection above (for example, use the built-in bucket encryption feature).
 
-## {{ container-registry-full-name }}and {{ cos-full-name }}{#container-registry-solution}
+## {{ container-registry-full-name }} and {{ cos-full-name }} {#container-registry-solution}
 
 We do not recommend that you use privileged containers to run loads that process untrusted user input. Privileged containers must be used for the purposes of administering virtual machines or other containers. We recommend that you use delete policies for automatically deleting outdated container images.
 
@@ -203,6 +208,6 @@ We recommend using the image vulnerability scanner integrated into {{ container-
 
 ## {{ certificate-manager-full-name }} {#cert-manager}
 
-{{ certificate-manager-full-name }} lets you manage TLS gateway certificates for{{ api-gw-name }} and websites and buckets in {{ objstorage-name }}. {{ alb-name }} is integrated with {{ certificate-manager-short-name }} for storing and installing certificates. We recommend that you use {{ certificate-manager-short-name }} to obtain your certificates and rotate them automatically.
+{{ certificate-manager-full-name }} lets you manage TLS gateway certificates for {{ api-gw-name }} and  websites and buckets in {{ objstorage-name }}. {{ alb-name }} is integrated with {{ certificate-manager-short-name }} for storing and installing certificates. We recommend that you use {{ certificate-manager-short-name }} to obtain your certificates and rotate them automatically.
 
 When using TLS in your application, we recommend that you limit the list of your trusted root certificate authorities (root CA). When using certificate pinning, keep in mind that Let's Encrypt certificates are [valid for 90 days](https://letsencrypt.org/docs/faq/#what-is-the-lifetime-for-let-s-encrypt-certificates-for-how-long-are-they-valid).

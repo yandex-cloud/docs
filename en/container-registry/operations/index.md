@@ -12,6 +12,7 @@ To work with Docker images, [authenticate in {{ container-registry-name }}](auth
 
 For more information about working with a {{ coi }} image, see the documentation [{{ cos-name }}](../../cos/).
 
+
 ## Managing a Docker image {#docker-images}
 
 * [{#T}](docker-image/docker-image-list.md)

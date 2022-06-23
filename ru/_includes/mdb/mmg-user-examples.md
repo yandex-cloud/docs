@@ -50,9 +50,9 @@
 
   ```
   {{ yc-mdb-mg }} user grant-permission user1 \
-     --cluster-name cluster1 \
-     --database db2 \
-     --role read
+    --cluster-name cluster1 \
+    --database db2 \
+    --role read
   ```
 
 - Terraform

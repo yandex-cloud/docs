@@ -8,10 +8,7 @@
 
 Если нет, откройте проект:
 
-1. {% include [include](../../../_includes/datasphere/first-step.md) %}
-1. Перейдите во вкладку **Проекты**.
-1. Выберите проект, который хотите открыть и нажмите значок ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
-1. Выберите **Открыть** и дождитесь открытия проекта.
+{% include [include](../../../_includes/datasphere/before-begin.md) %}
 
 ## Запустите пример кода {#run}
 

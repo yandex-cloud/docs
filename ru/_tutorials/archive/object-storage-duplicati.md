@@ -24,6 +24,7 @@
 * плата за операции с данными (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-operations));
 * стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing#prices-storage.md#prices-traffic)).
 
+
 ## Создайте бакет {#create-bucket}
 
 Чтобы создать бакет для резервного копирования:

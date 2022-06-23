@@ -51,6 +51,7 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
       * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
       * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet).
 
+
 - Terraform
 
    {% note info %}

@@ -7,6 +7,7 @@ Starting from {{release-date }} 2021, once you activate {{ tracker-full-name }},
 
 If you activated {{ tracker-name }} before {{release-date }}, the service is linked to your company in Yandex 360. We'll move all organizations from Yandex 360 to {{ org-full-name }} stepwise without involving their admins. We'll notify an organization's admin in advance before carrying out migration to {{ org-full-name }}.
 
+
 ## How to use {{ tracker-name }} on mobile devices {#mobile}
 
 The {{ tracker-name }} mobile app is available:
@@ -26,6 +27,7 @@ To grant your employees access to {{ tracker-name }}:
 
 1. Set up [full access to {{ tracker-name }}](access.md) for the employees.
 
+
 ## How to delete an issue {#section_z1d_r1l_nbb}
 
 You can't delete an issue, but you can close it with an appropriate resolution. For example, duplicate issues can be closed with the <q>Duplicate</q> resolution, while issues created by mistake can be closed with the <q>Canceled</q> resolution. For more information about issues, see [Working with issues](user/ticket-in-progress.md).
@@ -36,6 +38,7 @@ You can't delete an issue, but you can close it with an appropriate resolution. 
 You can [delete a queue](manager/delete-queue.md) and all issues in it. [Move](user/move-ticket.md) the issues you don't need to a special queue and then delete it.
 
 {% endnote %}
+
 
 
 ## How to delete a queue {#section_hk4_r1l_nbb}
@@ -56,6 +59,7 @@ To delete a queue:
 
 For more information about deleting a queue, see [{#T}](manager/delete-queue.md).
 
+
 ## Can an issue have multiple assignees? {#section_jlb_yyk_nbb}
 
 An issue can only have one assignee at a time. There are several ways to organize the work of multiple people:
@@ -69,7 +73,7 @@ For more information about issues, see [Working with issues](user/ticket-in-prog
 
 The access permissions for issues are determined by the [queue settings](manager/queue-access.md).
 
-If you don't have sufficient rights to access the queue page and its issues, contact the queue owneror your organization's administrator. The queue owner's name is usually mentioned in the access restriction message.
+If you don't have sufficient rights to access the queue page and its issues, contact the queue owner or your organization's administrator. The queue owner's name is usually mentioned in the access restriction message.
 
 If you can access the queue page but some of the issues remain inaccessible, these issues may include [components with limited access](manager/queue-access.md#section_tbh_cs5_qbb). If this is the case, please contact the queue owner.
 

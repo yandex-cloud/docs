@@ -18,4 +18,5 @@
 
       ![create-connection](../../../_assets/datalens/sql-chart/create-sample-connection-sql-chart.png)
 
+
 Дождитесь сохранения подключения.

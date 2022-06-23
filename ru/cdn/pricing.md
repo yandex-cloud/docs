@@ -23,11 +23,13 @@ editable: false
 
 
 
+
 ### Платные функции {#paid-features}
 
 Тарификация помесячная. Если функция подключена или отключена в любой день месяца, в последний день будет списана полная цена функции в месяц.
 
 
 {% include notitle [rub-paid-features.md](../_pricing/cdn/rub-paid-features.md) %}
+
 
 

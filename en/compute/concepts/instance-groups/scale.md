@@ -87,7 +87,7 @@ You can use up to any three {{ monitoring-name }} metrics for automatic scaling 
 
 When using monitoring metrics, specify the following in {{ ig-name }}:
 * _Metric name_ that you specified in {{ monitoring-name }}.
-   * _[Labels](../../../monitoring/concepts/data-model.md#label)_ that you specified in {{ monitoring-name }}:
+    * _[Labels](../../../monitoring/concepts/data-model.md#label)_ that you specified in {{ monitoring-name }}:
    * (optional) `folder_id`: ID of the folder. By default, it's the ID of the folder that the group belongs to.
    * (optional) `service`: ID of the service. By default, `custom`. Labels can be used to specify service metrics, such as `service` with the `compute` value for {{ compute-short-name }}.
 

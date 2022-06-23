@@ -108,6 +108,7 @@ Configure {{ at-name }} to process the service and the federated accounts with t
 
 
 You can use [Managed ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main) to analyze and respond to events in {{ at-name }}.
+
 ## Response to federation failure {#federation-repair}
 
 1. Access the authorized key saved in trusted storage.

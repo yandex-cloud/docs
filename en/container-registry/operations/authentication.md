@@ -18,6 +18,7 @@ You can authenticate:
    * [Using an IAM token](#iam) (maximum lifetime is **{{ iam-token-lifetime }}**).
 
 
+
 * As a service account:
    * [Using authorized keys](#sa-json) (unlimited lifetime).
    * [Using an IAM token](#sa-iam) (maximum lifetime is **{{ iam-token-lifetime }}**).
@@ -33,7 +34,7 @@ docker login \
 ```
 
 Where:
-* Legal values for `<token type>`: `oauth`,`iam`, or `json_key`.
+* Legal values for `<token type>`: `oauth`, `iam`, or `json_key`.
 * `<token>`: Token.
 * `{{ registry }}`: Authentication address. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
 
@@ -57,6 +58,7 @@ Where:
      --password <OAuth token> \
      {{ registry }}
    ```
+
 
 ### Authentication using an IAM token {#iam}
 

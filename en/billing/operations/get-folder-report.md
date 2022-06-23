@@ -31,7 +31,7 @@ You can get a CSV file with your general or per-resource spending details.
    1. In the **Create periodic export** window that opens, enter:
       * In the **Bucket** field, the name of the bucket to store the CSV file with details.
       * In the **Directory** field, the name of the directory for the file. The last character must be `/`.
-      * Select the language for product names: English or Russian.
+      * Select the language for product names: English or Russian. 
       * Select the type of details: **General** or **Resource**.
    1. Click **Create**.
 
@@ -67,7 +67,7 @@ The table contains the following columns:
    * {{ network-load-balancer-name }}: ID of the network load balancer.
    * {{ container-registry-short-name }}: ID of the container.
    * {{ k8s }} and {{ dataproc-name }}: ID of the cluster.
-   * {{ mpg-short-name }}, {{ mch-short-name }},{{ mmg-short-name }}, {{ mmy-short-name }},{{ mrd-short-name }} and {{ mkf-name }} — ID of the cluster host.
+   * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }} and {{ mkf-name }} — ID of the cluster host.
    * {{ message-queue-name }} : ID of the request.
    * {{ sf-name }} : ID of the function.
    * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} and {{ vision-short-name }} : An empty value.
@@ -98,6 +98,7 @@ The table contains the following columns:
 * `label.system_labels.folder_id`: ID of the folder. The value is now displayed in the `folder_id` column.
 
 {% endcut %}
+
 
 ##### See also
 

@@ -118,6 +118,7 @@
 
 
 
+
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
 
    1. Deploy the cloud resources.

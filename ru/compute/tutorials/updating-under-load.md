@@ -22,6 +22,7 @@
 * Диски и постоянно запущенные ВМ – [тарифы {{compute-full-name}}](../../compute/pricing.md).
 * Использование динамического или статического внешнего IP-адреса – [тарифы {{vpc-full-name}}](../../vpc/pricing.md).
 
+
 ## Подготовьте окружение {#create-environment}
 
 1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с именем `for-load` и назначьте ему роль `editor`:
@@ -388,6 +389,7 @@
      | b0ruab1ccvpd26efgii4 | load-generator | ru-central1 | EXTERNAL |              1 | b0r1tabcphde28fj1dd3   | ACTIVE |
      +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
      ```
+     
      
 
    - API

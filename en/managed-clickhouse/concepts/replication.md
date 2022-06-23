@@ -38,6 +38,7 @@ You can also configure {{ ZK }} hosts immediately when creating a cluster with m
 
 * If you didn't specify any subnets for these hosts, {{ mch-short-name }} automatically distributes them among the subnets of the network that the {{ CH }} cluster is connected to.
 
+
 By default, for {{ ZK }}, hosts with a [minimal class](./instance-types.md) are used. A host class {{ ZK }} can be changed when configuring fault tolerance or [cluster settings](../operations/update.md#change-resource-preset). Changing settings {{ ZK }} or connecting to cluster hosts is not possible.
 
 {% note warning %}

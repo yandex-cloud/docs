@@ -9,6 +9,7 @@ If there is a problem when working with pages and interactive elements in the {{
 
    {% include [browser-console-yandex](../_includes/support/browser-console-yandex.md) %}
 
+
 - Google Chrome
 
   1. On the error page, press **Ctrl** + **Shift** + **J** (or ⌥ + ⌘ + **J** for macOS).

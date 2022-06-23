@@ -17,6 +17,7 @@
 * **Access from Yandex.Metrica and AppMetrica**: this option helps [import data from AppMetrica](https://appmetrica.yandex.ru/docs/cloud/index.html) into a cluster.
 
 * **Access from Serverless**: Enable this option to allow cluster access from [{{ sf-full-name }}](../../../functions/concepts/index.md). For more detail on setting up access, see the [{{ sf-name }}](../../../functions/operations/database-connection.md).
+
 * {% include [Deletion protection](../console/deletion-protection.md) %}
 
    {% include [deletion-protection-limits-db](../deletion-protection-limits-db.md) %}

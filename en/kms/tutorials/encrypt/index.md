@@ -10,7 +10,7 @@ The table below compares encryption using {{ yandex-cloud }} (CLI, API, and SDK)
 
 We recommend encrypting large amounts of data through the AWS Encryption SDK and Google Tink, since they use [envelope encryption](../../concepts/envelope.md).
 
-You can also implement the envelope encryption algorithm yourself using the API or SDK {{ yandex-cloud }} based on cryptographic methods provided by {{ kms-short-name }}.
+You can also implement the envelope encryption algorithm yourself using the API or SDK {{ yandex-cloud }}  based on cryptographic methods provided by {{ kms-short-name }}.
 
 {% note warning %}
 

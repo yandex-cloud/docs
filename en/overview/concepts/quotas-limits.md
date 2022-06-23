@@ -25,6 +25,7 @@ Quotas serve as a soft restriction for requesting resources and enable {{ yandex
 
 
 Quotas are listed with default values that match the quotas of the [trial period](../../getting-started/free-trial/concepts/quickstart.md).
+
 
 
 ### {{ compute-full-name }} {#compute}
@@ -96,6 +97,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 ### {{ mmg-full-name }} {#mmg}
 
 {% include [mmg-limits.md](../../_includes/mdb/mmg-limits.md) %}
+
 
 
 ### {{ mmy-full-name }} {#mmy}
@@ -108,6 +110,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 ### {{ mrd-full-name }} {#mrd}
 
 {% include [mrd-limits.md](../../_includes/mdb/mrd-limits.md) %}
+
 
 
 
@@ -115,6 +118,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 ### {{ dataproc-full-name }} {#dataproc}
 
 {% include [dataproc-limits.md](../../_includes/data-proc/dataproc-limits.md) %}
+
 
 
 ### {{ message-queue-full-name }} {#mq}
@@ -127,12 +131,14 @@ Quotas are listed with default values that match the quotas of the [trial period
 ### {{ sf-full-name }} {#sf}
 
 {% include [functions-limits.md](../../_includes/functions-limits.md) %}
+
 
 
 
 ### {{ speechkit-full-name }} {#speechkit}
 
 {% include [speechkit-limits](../../_includes/speechkit-limits.md) %}
+
 
 
 
@@ -140,6 +146,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 ### {{ translate-full-name }} {#translate}
 
 {% include [translate-limits](../../_includes/translate-limits.md) %}
+
 
 
 
@@ -147,6 +154,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 ### {{ vision-full-name }} {#vision}
 
 {% include [vision-limits](../../_includes/vision-limits.md) %}
+
 
 
 
@@ -154,6 +162,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 ### {{ ml-platform-full-name }} {#ml-platform}
 
 {% include [ml-platform-limits.md](../../_includes/datasphere-limits.md) %}
+
 
 
 
@@ -161,6 +170,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 ### {{ datalens-full-name }} {#datalens}
 
 {% include [compute-limits.md](../../_includes/datalens/datalens-limits.md) %}
+
 
 
 
@@ -168,6 +178,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 ### {{ iot-full-name }} {#iot}
 
 {% include [iot-limits.md](../../_includes/iot-limits.md) %}
+
 
 
 
@@ -175,6 +186,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 ### {{ interconnect-full-name }} {#interconnect}
 
 {% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
+
 
 
 
@@ -182,6 +194,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 ### {{ ydb-full-name }} {#ydb}
 
 {% include [ydb-limits.md](../../_includes/ydb/ydb-limits.md) %}
+
 
 
 
@@ -189,6 +202,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 ### {{ mms-full-name }} {#mms}
 
 {% include [mms-limits.md](../../_includes/mdb/mms-limits.md) %}
+
 
 
 ### {{ mkf-full-name }} {#mkf}
@@ -201,6 +215,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 ### {{ mes-full-name }} {#mes}
 
 {% include [mes-limits.md](../../_includes/mdb/mes-limits.md) %}
+
 
 
 
@@ -208,6 +223,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 ### {{ api-gw-full-name }} {#api-gw}
 
 {% include [api-gateway-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}
+
 
 
 
@@ -215,6 +231,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 ### {{ cloud-logging-full-name }} {#logging}
 
 {% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}
+
 
 
 
@@ -222,3 +239,4 @@ Quotas are listed with default values that match the quotas of the [trial period
 ### {{ serverless-containers-full-name }} {#serverless-containers}
 
 {% include [serverless-containers-limits.md](../../_includes/serverless-containers/serverless-containers-limits.md) %}
+

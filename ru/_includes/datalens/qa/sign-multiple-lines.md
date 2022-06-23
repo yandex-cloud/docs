@@ -10,3 +10,4 @@
 ![correct](../../../_assets/datalens/qa/sign-multiple-lines-correct.png)
 
 {% endcut %}
+

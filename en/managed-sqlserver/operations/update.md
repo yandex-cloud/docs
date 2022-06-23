@@ -59,6 +59,7 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
       +---------------+--------------------------------+-------+----------+
       ```
 
+
    1. Specify the class in the update cluster command:
 
       ```bash

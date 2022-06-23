@@ -103,7 +103,7 @@ _Виджет_ – это элемент дашборда. Между видже
 
 Из алиаса, в котором связано более двух полей, можно удалять связи. Удалите поле из алиаса, если связь по нему между датасетами или между виджетами в пределах вкладки дашборда не нужна. Подробнее в разделе [{#T}](../operations/dashboard/edit-alias.md).
 
-
+ 
 
 ## Публикация дашборда {#public-access}
 
@@ -113,13 +113,14 @@ _Виджет_ – это элемент дашборда. Между видже
 
 Чтобы поделиться дашбордом, содержащим данные Метрики или AppMetrica, воспользуйтесь одним из способов:
 
-{% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %} 
+{% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
+ 
 
  
 
 ## Управление доступом {#access-management}
 
-Вы можете настроить права доступа к дашборду. Подробнее в разделе [{#T}](../security/index.md).
+Вы можете настроить права доступа к дашборду.  Подробнее в разделе [{#T}](../security/index.md). 
 
 ## Автообновление {#auto-update}
 

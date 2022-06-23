@@ -52,9 +52,18 @@ Copy or replicate data from a source to a target by creating [endpoints](concept
 1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher for the desired folder or the cloud that the folder belongs to.
 
+
 ## Configure the source and the target {#db-settings}
 
-Prepare the source service for sending data:
+Different systems can act as a source and as a target.
+
+### Compatibility of sources and targets {#connectivity-matrix}
+
+{% include [include](../_includes/data-transfer/connectivity-marix.md) %}
+
+### Prepare sources and targets {#prepare-source-and-target}
+
+Prepare the source for sending data:
 
 * [{{ KF }}](operations/prepare.md#source-kf)
 * [{{ CH }}](operations/prepare.md#source-ch)
@@ -64,7 +73,7 @@ Prepare the source service for sending data:
 * [{{ PG }}](operations/prepare.md#source-pg)
 * [{{ yds-full-name }}](operations/prepare.md#source-yds)
 
-Prepare the target service for receiving the data:
+Prepare the target for receiving the data:
 
 * [{{ CH }}](operations/prepare.md#target-ch)
 * [{{ GP }}](operations/prepare.md#target-gp)
@@ -75,6 +84,7 @@ Prepare the target service for receiving the data:
 
 
 To receive data in {{ ydb-name }}, no setup is necessary.
+
 
 ## Creating an endpoint for the source {#source}
 

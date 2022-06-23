@@ -31,6 +31,7 @@ Characteristics of dedicated hosts:
 
 Dedicated hosts on Intel Ice Lake (`intel-6338-c108-m704-n3200x6`) can't be created in the `{{ region-id }}-c` availability zone. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
 
+
 ### Fragmentation of host's physical resources {#resource-fragmentation}
 
 Two processors are installed on a physical server. However, not all of their cores are available for running VMs. Some cores are allocated for system usage.

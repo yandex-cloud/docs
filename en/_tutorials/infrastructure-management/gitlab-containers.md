@@ -28,6 +28,7 @@ The cost of this infrastructure includes:
 * A fee for storing created Docker images (see [{{ container-registry-full-name }} pricing](../../container-registry/pricing.md)).
 * A fee for using the {{ k8s }} master (see [{{ managed-k8s-full-name }} pricing](../../managed-kubernetes/pricing.md)).
 
+
 ### Install additional dependencies {#prepare}
 
 To run the script, install the following in the local environment:

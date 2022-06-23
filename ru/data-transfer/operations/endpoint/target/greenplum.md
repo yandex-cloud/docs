@@ -2,7 +2,7 @@
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
-* Настройки подключения к [кластеру {{ mgp-full-name }}](#managed-service) или[пользовательской инсталляции](#on-premise), в т. ч. на базе виртуальных машин {{ compute-full-name }}. Эти параметры обязательные.
+* Настройки подключения к [кластеру {{ mgp-full-name }}](#managed-service) или [пользовательской инсталляции](#on-premise), в т. ч. на базе виртуальных машин {{ compute-full-name }}. Эти параметры обязательные.
 * [Дополнительные параметры](#additional-settings).
 
 
@@ -17,6 +17,7 @@
     {% include [Managed Greenplum](../../../../_includes/data-transfer/necessary-settings/ui/managed-greenplum.md) %}
 
 {% endlist %}
+
 
 ## Пользовательская инсталляция {#on-premise}
 

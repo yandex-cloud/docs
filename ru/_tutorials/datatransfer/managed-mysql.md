@@ -37,3 +37,4 @@
 
 
 Реальный пример миграции базы данных {{ MY }} с помощью сервиса {{ data-transfer-name }} см. в разделе [Синхронизация данных из MySQL с помощью {{ data-transfer-full-name }}](../../tutorials/dataplatform/sync-mysql.md).
+

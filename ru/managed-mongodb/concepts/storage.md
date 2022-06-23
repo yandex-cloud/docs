@@ -26,6 +26,7 @@
 
 Подробнее об ограничениях на количество хостов в кластере или [шарде](./sharding.md) см. в разделе [{#T}](./limits.md).
 
+
 ## Управление дисковым пространством {#manage-storage-space}
 
 {% include [mmg-readonly-safeguard.md](../../_includes/mdb/mmg-readonly-safeguard.md) %}

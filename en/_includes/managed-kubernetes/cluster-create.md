@@ -23,11 +23,13 @@
 
      This step is only available for the zonal master.
 
+
    * In the **Cloud network** field, select the network to create the master in.
    * In the **Subnet** field, select the subnet to create the master in.
 
      
      For the regional master, specify a subnet in each availability zone.
+
 
    * Select security groups to control the cluster's network traffic.
 

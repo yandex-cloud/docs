@@ -18,7 +18,7 @@ For more information about Kubernetes events, see [Collecting, monitoring, and a
 
 ### Collecting events {#collect}
 
-The main tool for collecting {{ yandex-cloud }} level logs is [{{ at-full-name }}](../../audit-trails/concepts/index.md). The service lets you collect audit logs about events happening to {{ yandex-cloud }} resources and upload these logs to {{ objstorage-full-name }}buckets or {{ cloud-logging-name }} log groups for further analysis or export. See the [instructions](../../audit-trails/quickstart.md) on how to start collecting logs, as well as the [format](../../audit-trails/concepts/format.md) and [reference](../../audit-trails/concepts/events.md) of events.
+The main tool for collecting {{ yandex-cloud }} level logs is [{{ at-full-name }}](../../audit-trails/concepts/index.md). The service lets you collect audit logs about events happening to {{ yandex-cloud }} resources and upload these logs to {{ objstorage-full-name }} buckets or {{ cloud-logging-name }} log groups for further analysis or export. See the [instructions](../../audit-trails/quickstart.md) on how to start collecting logs, as well as the [format](../../audit-trails/concepts/format.md) and [reference](../../audit-trails/concepts/events.md) of events.
 
 {% note info %}
 
@@ -26,17 +26,19 @@ See the {{ objstorage-full-name }} security guidelines in [{#T}](secure-config.m
 
 {% endnote %}
 
-To collect metrics, analyze {{ yandex-cloud }}-level events, and set up notifications, we recommend using [{{ monitoring-full-name }}](../../monitoring/index.yaml). It helps you track, for example, a sharp increase in the load on {{ compute-name }}, the number of {{ alb-name }} requests per second (RPS), or significant changes in event statistics in {{ iam-name }}.
+ To collect metrics, analyze {{ yandex-cloud }}-level events, and set up notifications, we recommend using [{{ monitoring-full-name }}](../../monitoring/index.yaml).  It helps you track, for example, a sharp increase in the load on {{ compute-name }}, the number of {{ alb-name }} requests per second (RPS), or significant changes in event statistics in {{ iam-name }}.
 
 You can also use {{ monitoring-name }} to monitor the health of the {{ at-name }} service itself and track security events.
 
 
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: Monitoring Audit Trails and security events using {{ monitoring-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trail_monitoring)
-You can export audit logs to a log group in [{{ cloud-logging-name }}](../../logging/index.yaml) andto [a customer's SIEM system](#export) to analyze information about events and incidents.
+
+You can export audit logs to a log group in [{{ cloud-logging-name }}](../../logging/index.yaml) and to [a customer's SIEM system](#export) to analyze information about events and incidents.
 
 
 List of important {{ yandex-cloud }}-level events for search in audit logs:
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: Searching for important security events in audit logs](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/_use_cases_and_searches)
+
 ### Exporting events to SIEM {#export}
 
 #### Audit Trails {#export-at}
@@ -55,18 +57,19 @@ Solutions for exporting {{ yandex-cloud }} audit logs are available for the foll
 - Splunk
 
    ![](../../_assets/overview/solution-library-icon.svg)[Solution: Collecting, monitoring, and analyzing audit logs in Splunk SIEM](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-Splunk)
+
 To set up export to any SIEM, use utilities such as [GeeseFS](../../storage/tools/geesefs.md) or [s3fs](../../storage/tools/s3fs.md). They let you mount an {{ objstorage-full-name }} bucket as a VM's local disk. Next, you need to install a SIEM connector on the VM and configure reading JSON files from the bucket.
 
 #### Metrics {{ monitoring-full-name }}
 
-You can export metrics to a SIEM system via the API, see the [instructions](../../monitoring/operations/metric/get.md).
+ You can export metrics to a SIEM system via the API, see the [instructions](../../monitoring/operations/metric/get.md). 
 
 
 ### Responding to events {#respond}
 
 Using {{ sf-full-name }}, you can configure alerts about {{ at-name }} events, as well as automatic responses to malicious actions, including removing dangerous rules or revoking access rights.
 
-![](../../_assets/overview/solution-library-icon.svg)[Solution: Notifications and responses to Audit Trails information security events using Cloud Logging/Cloud Functions + Telegram](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trails-function-detector)
+![](../../_assets/overview/solution-library-icon.svg)[Solution: Notifications and responses to Audit Trails information security events using Cloud Logging/Cloud Functions + Telegram](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trails-function-detector)
 
 ## OS level {#os-level}
 
@@ -77,10 +80,10 @@ When using IaaS cloud services and Kubernetes node groups, the customer is respo
 
 Additional event generation options can be implemented using Auditd for Linux or Sysmon for Windows.
 
-You can collect Linux system metrics (CPU, RAM, and disk space usage) with {{ monitoring-name }} [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md).
+ You can collect Linux system metrics (CPU, RAM, and disk space usage) with {{ monitoring-name }} [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md). 
 
 
-You can also export OS events to {{ cloud-logging-name }} using a [Fluent Bit plugin](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
+You can also export OS events to {{ cloud-logging-name }} using a [Fluent Bit plugin](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 
 To describe events to be searched for in audit logs, we recommend using [Sigma](https://github.com/SigmaHQ/sigma) format, which is supported by popular SIEM systems. The Sigma repository contains a [library of events](https://github.com/SigmaHQ/sigma/tree/master/rules) described in this format.
 

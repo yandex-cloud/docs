@@ -61,6 +61,7 @@ The settings apply to Terraform `0.13` and higher.
    ```
 
 
+
    * `source`: Provider's global [source address](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses).
    * `version`: The minimum provider version that the module is compatible with. You can find the version number on the [provider's page](https://registry.terraform.io/providers/yandex-cloud/yandex/latest) (click **USE PROVIDER** in the top right corner).
    * `provider`: The provider name.

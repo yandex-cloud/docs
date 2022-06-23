@@ -13,6 +13,7 @@ editable: false
 
 
 
+
 Тарифицируются:
 * Авторитетные запросы — любые запросы DNS-записей в [публичных зонах](concepts/dns-zone.md#public-zones) пользователя из интернета или из {{ yandex-cloud }}.
 * Рекурсивные запросы — запросы внешних доменных имен в интернете из виртуальных машин {{ yandex-cloud }}.
@@ -50,6 +51,7 @@ editable: false
 
 
 
+
 ## DNS-зоны {#dns-zones}
 
 Тарифицируются [публичные](concepts/dns-zone.md#public-zones) или [внутренние](concepts/dns-zone.md#private-zones) DNS-зоны, созданные пользователем.
@@ -63,3 +65,6 @@ editable: false
 
 
 {% include [rub-public-dns-zones.md](../_pricing/dns/rub-dns-zones.md) %}
+
+
+

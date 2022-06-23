@@ -28,10 +28,12 @@ editable: false
 
 
 
+
 ### Время использования RAM при обработке запросов {#prices-ram}
 
 
 {% include notitle [rub-ram.md](../_pricing/serverless-containers/rub-ram.md) %}
+
 
 
 
@@ -42,9 +44,11 @@ editable: false
 
 
 
+
 ### Исходящий трафик {#prices-traffic}
 
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
 
 

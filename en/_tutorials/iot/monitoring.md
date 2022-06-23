@@ -38,6 +38,7 @@ The cost includes:
 * Fee for the number of {{ sf-full-name }} function calls (see [pricing](../../functions/pricing.md)).
 * Fee for logging user metrics via the {{ monitoring-full-name }} service API (see [pricing](../../monitoring/pricing.md)).
 
+
 ## Create the necessary resources {{ iot-short-name }} {#resources-step}
 
 [Registries](../../iot-core/concepts/index.md#registry) and [devices](../../iot-core/concepts/index.md#device) are the main components of the {{ iot-short-name }} service used for exchanging data and commands. Devices can only exchange data if they were created in the same registry.

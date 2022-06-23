@@ -116,6 +116,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
    - In the `clusterId` parameter, the ID of the cluster where you want to create a topic. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    - Topic settings in the `topicSpec` parameter.
 
+
 {% endlist %}
 
 {% note info %}
@@ -217,6 +218,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any topic settings that aren't explicitly specified in the request to their default values.
    * New values of [topic settings](../concepts/settings-list.md#topic-settings) in the `topicSpec` parameter.
 
+
 {% endlist %}
 
 ## Deleting a topic {#delete-topic}
@@ -277,6 +279,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    * In the `clusterId` parameter, the ID of the cluster where the topic is located. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](#list-topics).
 
+
 {% endlist %}
 
 ## Listing topics in a cluster {#list-topics}
@@ -307,6 +310,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    Use the API [list](../api-ref/Topic/list.md) method and pass the ID of the desired cluster in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
 
 {% endlist %}
 
@@ -339,5 +343,6 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
    Use the [get](../api-ref/Topic/get.md) API method and pass the following in the request:
    * In the `clusterId` parameter, the ID of the cluster where the topic is located. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The topic name in the `topicName` parameter. To find out the name, [retrieve a list of cluster topics](#list-topics).
+
 
 {% endlist %}

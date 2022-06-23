@@ -51,6 +51,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 {% include notitle [usd-compute-units.md](../../_pricing/ydb/usd-compute-units.md) %}
 
+
 ### Storage and backups {#prices-storage}
 
 
@@ -58,10 +59,12 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 {% include notitle [usd-storage.md](../../_pricing/ydb/usd-storage.md) %}
 
+
 ### Outgoing traffic {#prices-traffic}
 
 
 
 
 {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
+
 

@@ -43,6 +43,7 @@ Where:
 
 {% include [usd.md](../_pricing/data-streams/usd-example.md) %}
 
+
 ## Pricing {#prices}
 
 ### Cost of a unit of written data {#event}
@@ -54,6 +55,7 @@ The first 2000000 messages per month are free of charge.
 
 {% include [usd.md](../_pricing/data-streams/usd-event.md) %}
 
+
 ### Cost of allocated resources {#resources}
 
 Cost of using allocated resources per hour:
@@ -62,3 +64,4 @@ Cost of using allocated resources per hour:
 
 
 {% include [usd.md](../_pricing/data-streams/usd-resources.md) %}
+

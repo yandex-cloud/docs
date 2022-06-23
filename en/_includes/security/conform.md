@@ -20,6 +20,7 @@ The General Data Protection Regulation (GDPR) regulates the collection and proce
 {{ yandex-cloud }} meets key GDPR requirements. Procedures have been put in place to process requests from personal data subjects regarding personal data receipt, modification, and deletion. Data protection measures have been implemented and a procedure for notifying users of incidents has also been established.
 
 For more information on the subject, see the [Data Processing Addendum](https://yandex.com/legal/cloud_dpa/).
+
 ## ISO certification {#iso}
 
 The {{ yandex-cloud }} Information Security Management System (ISMS) satisfies the requirements of the International Organization for Standardization (ISO). The ISMS was audited by an international team from BSI. Based on their findings, {{ yandex-cloud }} was certified ISO 27001, ISO 27017, and ISO 27018 compliant.

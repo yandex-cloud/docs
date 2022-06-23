@@ -11,6 +11,7 @@ Security groups are not designed to protect against DDoS attacks. To filter out 
 
 {% endnote %}
 
+
 {% include [sg-rules](../../_includes/vpc/sg-rules.md) %}
 
 ## Security group rules {#rules}

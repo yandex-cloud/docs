@@ -53,6 +53,7 @@ Depending on the type of master, it may or may not be available during an update
 * Regional masters remain available during updates.
 
 
+
 For more information, see [Updating a cluster](../operations/update-kubernetes.md#cluster-upgrade).
 
 #### Node group {#node-group}

@@ -31,7 +31,7 @@ Before authorization, a user must get authenticated, meaning they must log in un
   To perform operations in the API:
 
   1. [Get an IAM token](../../operations/iam-token/create.md) in exchange for your [OAuth token](oauth-token.md).
-  2. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
+  2.  {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
       {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
 

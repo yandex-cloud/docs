@@ -6,6 +6,7 @@
 Воспользуйтесь [инструкцией](../operations/cluster-users.md#example-create-readonly-user), чтобы создать пользователя с правами только на чтение. Если в настройках кластера [включена опция](../operations/update.md#change-additional-settings) **Доступ из {{ datalens-name }}**, сервис сможет [подключаться](../operations/datalens-connect.md#create-connector) к кластеру с помощью этого пользователя.
 
 
+
 #### Как дать пользователю права на создание и удаление таблиц или БД? {#create-delete-role}
 
 Включите в настройках кластера опцию [{#T}](../operations/cluster-users.md#sql-user-management) и выдайте пользователю нужные права [с помощью выражения](https://{{ ch-domain }}/docs/ru/sql-reference/statements/grant/) `GRANT`.

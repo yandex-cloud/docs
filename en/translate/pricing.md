@@ -23,3 +23,4 @@ The cost for using Yandex Translate is calculated based on the total number of c
 
 
 {% include [usd.md](../_pricing/translate/usd.md) %}
+

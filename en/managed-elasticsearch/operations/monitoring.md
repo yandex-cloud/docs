@@ -128,7 +128,7 @@ To set up [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status me
 
   1. On the desired metrics chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
 
-  1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more on the query language, [see the {{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+  1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more on the query language, [see the {{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). 
 
   1. Set the `Warning` and `Alarm` notification threshold values.
 
@@ -145,6 +145,7 @@ To have other cluster health indicators monitored automatically:
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
 
     1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
+
   1. Add a status metric.
   1. Set the alert threshold values in the alert settings.
 

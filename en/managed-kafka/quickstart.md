@@ -31,6 +31,7 @@ To get started with the service:
    sudo apt-get install kafkacat
    ```
 
+
 ## Create a cluster {#cluster-create}
 
 To create a cluster:
@@ -86,6 +87,7 @@ To connect to a cluster:
              --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
    sudo chmod 655 {{ crt-local-dir }}{{ crt-local-file }}
    ```
+
 
 1. To send a message to a topic, run the command:
 

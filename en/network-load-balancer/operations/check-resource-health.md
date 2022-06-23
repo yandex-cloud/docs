@@ -34,6 +34,7 @@
       ```
 
 
+
    1. Choose the `ID` of the load balancer and the `ID` of the target group that is attached to it.
    1. Request the status of the target group resources:
 

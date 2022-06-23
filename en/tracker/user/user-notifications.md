@@ -7,6 +7,7 @@ For each role in {{ tracker-name }}, you can configure a list of events you want
 
 1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Notification settings** or follow this link: [https://tracker.yandex.com/subscriptions/roles]({{ link-sub-roles }}).
 
+
 1. Select a role and configure the list of events you want to be notified about via email or in [update reports](notification-digest.md):
     - To add an event, click ![](../../_assets/tracker/button-plus.png).
     - To delete an event, click ![](../../_assets/tracker/small-x.png).
@@ -35,6 +36,7 @@ To add roles and set their notifications:
 
 
 1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Notification settings** or follow this link: [https://tracker.yandex.com/subscriptions/roles]({{ link-sub-roles }}).
+
 
 1. Click **Add role** at the bottom of the page and select a role. To delete a role, click ![](../../_assets/tracker/remove-task-type.png) next to the role name.
 

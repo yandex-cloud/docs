@@ -35,6 +35,7 @@
 [listObjectVersions](bucket/listObjectVersions.md) | Возвращает метаданные обо всех версиях объектов в бакете.
 
 
+
 ### Сервис Object {#object-service}
 
 Метод | Описание

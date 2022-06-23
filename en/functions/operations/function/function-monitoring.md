@@ -5,7 +5,7 @@ description: "You can see the monitoring graph in Yandex Cloud Functions for the
 
 # Function monitoring
 
-You can monitor functions at runtime using the monitoring tools in your management console. These tools display diagnostic information in the form of charts. Metric values are collected and charts are displayed by [{{ monitoring-name }}](../../../monitoring/).
+ You can monitor functions at runtime using the monitoring tools in your management console. These tools display diagnostic information in the form of charts. Metric values are collected and charts are displayed by [{{ monitoring-name }}](../../../monitoring/). 
 
 The chart update period is 15 seconds.
 
@@ -35,7 +35,7 @@ The chart update period is 15 seconds.
 
 ## Custom {#metrics} metrics
 
-To proceed to working with [metrics](../../../monitoring/concepts/data-model.md#metric), [dashboards](../../../monitoring/concepts/visualization/dashboard.md), and [alerts](../../../monitoring/concepts/alerting.md#alert), in {{ monitoring-name }}, in the upper-right corner, click **Open in Monitoring**.
+ To proceed to working with [metrics](../../../monitoring/concepts/data-model.md#metric), [dashboards](../../../monitoring/concepts/visualization/dashboard.md), and [alerts](../../../monitoring/concepts/alerting.md#alert), in {{ monitoring-name }}, in the upper-right corner, click **Open in Monitoring**. 
 
 | Metric name | Units | Explanations |
 |----|----|----|

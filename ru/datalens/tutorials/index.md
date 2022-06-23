@@ -7,7 +7,7 @@ description: 'В разделе описаны сценарии использо
 
 Ниже описаны руководства по работе с сервисом {{ datalens-full-name }}:
 
-
+ 
 
 * [Визуализация данных из CSV-файла](data-from-csv-visualization.md)
 * [Создание и публикация диаграммы с картой Москвы из CSV-файла](data-from-csv-to-public-visualization.md)
@@ -20,4 +20,5 @@ description: 'В разделе описаны сценарии использо
 * [Анализ статистики подкастов Яндекс Музыки (для авторов подкастов)](data-from-podcasts.md)
 * [Визуализация данных с помощью QL-чарта](data-from-ch-to-sql-chart.md)
 * [Построение чартов customer journeys на данных AppMetrica](data-from-appmetrica-yc-visualization.md)
+
 

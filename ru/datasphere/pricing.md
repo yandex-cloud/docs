@@ -58,6 +58,7 @@ g2.8 | 928
 * 2 — округленные до секунд в большую сторону 1400 мс.
 * 0,0012 ₽ — стоимость 1 юнита.
 
+
 ### Использование кластеров {{ dataproc-name }} {#data-proc}
 
 Стоимость использования интеграции с сервисом {{ dataproc-name }} учитывает:
@@ -86,12 +87,14 @@ g2.8 | 928
 
 
 
+
 ### Выполнение фоновых операций {#async}
 
 Подробнее про [фоновые операции](concepts/async.md).
 
 
 {% include [rub-async.md](../_pricing/datasphere/rub-async-new.md) %}
+
 
 
 
@@ -104,6 +107,7 @@ g2.8 | 928
 
 
 
+
 #### Датасеты {#prices-datasets}
 
 
@@ -111,10 +115,12 @@ g2.8 | 928
 
 
 
+
 ### Исходящий трафик {#prices-traffic}
 
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
 
 
 
@@ -126,3 +132,6 @@ g2.8 | 928
 Услуга | Цена за единицу тарификации,<br>вкл. НДС
 --- | ---
 [Разметка аудио](tutorials/markup.md) | {{ sku|RUB|ai.speech.transcribe.human.v1|string }}
+
+
+

@@ -36,6 +36,7 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
    ```
 
 
+
 1. Create a `PersistentVolumeClaim`:
 
    ```bash
@@ -162,6 +163,7 @@ To restore the snapshot:
        requests:
          storage: 10Gi
    ```
+
 
 
    {% note tip %}

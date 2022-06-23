@@ -37,7 +37,7 @@
 В коде используются следующие переменные:
 
 * `endpoint` – `{{ api-host }}:443`.
-* `credentialProvider` или `credentials`– определяет способ аутентификации, подробнее читайте в разделе [Аутентификация в SDK{{ yandex-cloud }}](sdk.md#auth).
+* `credentialProvider` или `credentials`– определяет способ аутентификации, подробнее читайте в разделе [Аутентификация в SDK {{ yandex-cloud }}](sdk.md#auth).
 * `keyId` – идентификатор [ключа {{ kms-short-name }}](../../concepts/key.md).
 * `plaintext` – открытый текст.
 * `ciphertext` – шифртекст.

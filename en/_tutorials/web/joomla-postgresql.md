@@ -30,6 +30,7 @@ The cost of hosting a website in Joomla includes:
 * A fee for the PostgreSQL database cluster (see [pricing for {{ mpg-full-name }}](../../managed-postgresql/pricing.md)).
 * The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
+
 ## Create a VM for Joomla {#create-vm}
 
 1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.

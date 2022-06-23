@@ -61,7 +61,9 @@ All prices are shown without VAT.
 
 
 
+
 {% include notitle [usd-hosts-and-storage.md](../_pricing/managed-elasticsearch/usd-hosts-and-storage.md) %}
+
 
 ### Outgoing traffic {#prices-traffic}
 
@@ -69,4 +71,5 @@ All prices are shown without VAT.
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
 

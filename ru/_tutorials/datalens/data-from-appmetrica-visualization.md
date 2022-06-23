@@ -16,11 +16,12 @@
 1. [Создайте подключение и стандартный дашборд](#create-dashboard).
 1. [Измените стандартный дашборд](#edit-dashboard).
 
-
+ 
 
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+
 
 ## Создайте подключение и стандартный дашборд {#create-dashboard}
 

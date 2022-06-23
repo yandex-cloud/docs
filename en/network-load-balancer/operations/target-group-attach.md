@@ -45,6 +45,7 @@
       ```
 
 
+
    1. Get a list of target groups:
 
       ```
@@ -63,6 +64,7 @@
       ...
       +----------------------+-------------------+---------------------+-------------+--------------+
       ```
+
 
 
    1. Select the `ID` or `NAME` of the required load balancer and target group.

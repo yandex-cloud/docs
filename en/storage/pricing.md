@@ -50,6 +50,7 @@ The cost of 1 GB per month is fixed and doesn't depend on the number of days in 
 
 {% include [usd.md](../_pricing/storage/usd-used_space.md) %}
 
+
 The daily cost of data storage service is calculated as `Cost_of_1_GB_per_month / number_of_days_in_the_month`. For shorter months, the storage cost per day is higher. For longer months, it's lower.
 
 Example of proportional calculation: let's say the user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
@@ -66,12 +67,14 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 > For example, if the cost of storing 1 GB of data in standard storage per month is $0.016167 and the amount of data stored per month is 23 GB, the storage cost per month will be:
 > (23 - 1) × $0.016167 = 22 × $0.016167 = $0.355674.
 
+
 ### Data operations {#prices-operations}
 
 
 
 
 {% include [usd.md](../_pricing/storage/usd-operations.md) %}
+
 
 {% note info %}
 
@@ -91,6 +94,7 @@ The first 10 thousand PUT and POST operations and the first 100 thousand GET and
 > For example, if the cost of 10000 GET operations in standard storage per month is $0.003129 and the amount of GET operations per month is 24500, the total cost of data operations per month will be:
 > ((24500 - 10000) / 10000) × $0.003129 = (14500 / 10000) × $0.003129 = $0.00453705.
 
+
 ### Outgoing traffic {#prices-traffic}
 
 When using the service, you pay for traffic from {{ yandex-cloud }} to the internet. Traffic between {{ yandex-cloud }} services and incoming internet traffic are free.
@@ -102,6 +106,7 @@ The minimum billable unit is 1 MB. The billing period is a calendar month.
 
 {% include [usd.md](../_pricing/storage/usd-egress.md) %}
 
+
 The first 10 GB of outgoing traffic per month for {{ objstorage-name }} is free of charge.
 
 
@@ -109,3 +114,4 @@ The first 10 GB of outgoing traffic per month for {{ objstorage-name }} is free 
 
 > For example, if the cost of 1 GB of outgoing traffic over 10 GB and up to 1 TB per month is $0.016167 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
 > (283 - 10) × $0.016167 = 273 × $0.016167 = $4.413591.
+

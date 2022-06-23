@@ -18,5 +18,8 @@
 
 
 
+
+
 ^1^ Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 ^2^ Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу. Обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+

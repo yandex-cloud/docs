@@ -70,6 +70,7 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
           login: test-user
           default_email: test-user@yandex.ru
       ```
+      
    1. Assign the `editor` role for the `my-cloud` cloud to a user named `test-user`. In the subject, specify the `userAccount` type and user ID:
 
 
@@ -78,6 +79,7 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
         --role editor \
         --subject userAccount:<user ID>
       ```
+
 
 
 - API
@@ -126,6 +128,7 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
       ```
 
 
+
    1. Assign the user the `editor` role for the `my-cloud` cloud. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
      
 
@@ -144,6 +147,7 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
           }}}]}' \
           https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
       ```
+
 
 - Terraform
 
@@ -272,6 +276,7 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
    ```
 
 
+
    You can also assign roles using the [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md).
 
    {% note alert %}
@@ -295,6 +300,7 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
        }]}' \
        https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:setAccessBindings
    ```
+
 
 
 - Terraform
@@ -323,6 +329,7 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
         ]
       }
       ```
+
 
 
    1. In the command line, go to the directory where you created the configuration file.

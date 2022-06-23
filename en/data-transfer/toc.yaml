@@ -9,11 +9,11 @@ items:
         href: operations/index.md
       - name: Preparing for the transfer
         href: operations/prepare.md
-      - name: Endpoints
+      - name: Configuring endpoints
         items:
           - name: Endpoint management
             href: operations/endpoint/index.md
-          - name: Source endpoint parameters
+          - name: Configuring source endpoints
             items:
               - name: Apache Kafka®
                 href: operations/endpoint/source/kafka.md
@@ -31,7 +31,7 @@ items:
                 href: operations/endpoint/source/postgresql.md
               - name: Yandex Data Streams
                 href: operations/endpoint/source/data-streams.md
-          - name: Target endpoint parameters
+          - name: Configuring target endpoints
             items:
               - name: ClickHouse
                 href: operations/endpoint/target/clickhouse.md

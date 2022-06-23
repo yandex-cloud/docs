@@ -39,6 +39,7 @@ Where:
 * 100000 is subtracted because the first one hundred thousand calls are free of charge.
 * 1000000 is the divisor used to calculate the number of millions of requests over HTTPS.
 
+
 ## Pricing {#prices}
 
 ### API gateway requests {#request}
@@ -47,6 +48,7 @@ Where:
 
 
 {% include notitle [usd.md](../_pricing/api-gateway/usd.md) %}
+
 
 ### Outgoing traffic {#prices-traffic}
 

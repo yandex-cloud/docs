@@ -6,6 +6,7 @@ To do this:
 
 1. On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Notification settings**, and choose the **Subscriptions** tab. You can also follow this link: [https://tracker.yandex.com/subscriptions/manage]({{ link-sub-manage }}).
 
+
 1. Choose the role you want to set up an event list for, which can be found next to the name of the queue, component, or version.
 
     {% note tip %}

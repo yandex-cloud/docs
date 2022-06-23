@@ -93,13 +93,13 @@
     При [создании](cluster-create.md) или [изменении кластера](cluster-update.md) передайте значение `dataproc:disable_cloud_logging=true` в параметре `--property`, либо передайте пустую строку (`""`) вместо идентификатора лог-группы в параметре `--log-group-id`:
     
     ```bash
-    yc dataproc cluster create <имя кластера> \
+    {{ yc-dp }} cluster create <имя кластера> \
       ... \
       --log-group-id=""
     ```
     
     ```bash
-    yc dataproc cluster update <идентификатор или имя кластера> \
+    {{ yc-dp }} cluster update <идентификатор или имя кластера> \
       --property dataproc:disable_cloud_logging=true
     ```
 

@@ -16,6 +16,7 @@ The infrastructure support cost for this scenario includes:
 * A fee for using the function (see [{{ sf-full-name }} pricing](../functions/pricing.md).
 * A fee for querying the database (see [{{ ydb-full-name }} pricing](../managed-ydb/pricing/serverless.md)).
 
+
 ## Create a service account {#create-sa}
 
 {% list tabs %}

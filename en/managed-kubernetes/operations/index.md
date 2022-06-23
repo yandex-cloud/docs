@@ -17,6 +17,7 @@ description: "In this article you will learn how to work with managed {{ k8s }} 
 * [{#T}](applications/marketplace.md)
 * [{#T}](applications/metrics-provider.md)
 
+
 ## Network scenarios {#network-scenarios}
 
 * [{#T}](create-load-balancer.md)

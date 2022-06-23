@@ -78,6 +78,7 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
 
    1. [Create an administrator account](./cluster-accounts.md#create-account).
 
+
 {% endlist %}
 
 ## Change the class and number of hosts {#change-resource-preset}
@@ -200,6 +201,7 @@ You can't decrease the number of {{ KF }} broker hosts.
    * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
    * The new cluster configuration in the `configSpec` parameter.
 
+
 {% endlist %}
 
 ## Increasing storage size {#change-disk-size}
@@ -300,6 +302,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
    * The new cluster configuration in the `configSpec` parameter.
+
 
 {% endlist %}
 
@@ -485,6 +488,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
    * New values of [settings {{ KF }}](../concepts/settings-list.md#cluster-settings) in the parameter:
       * `configSpec.kafka.kafkaConfig_2_8` if you use {{ KF }} `2.8`;
       * `configSpec.kafka.kafkaConfig_3_0` if you are using {{ KF }} version `3.0`.
+
 
 {% endlist %}
 

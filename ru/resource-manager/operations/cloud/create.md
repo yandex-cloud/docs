@@ -6,6 +6,7 @@
 Чтобы создать дополнительное облако:
 
 
+
 {% list tabs %}
 
 - Консоль управления
@@ -45,6 +46,7 @@
         organization_id = "<идентификатор организации>"
       }
       ```
+
 
 
       Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_cloud).

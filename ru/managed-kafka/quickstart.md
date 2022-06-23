@@ -31,6 +31,7 @@
    sudo apt-get install kafkacat
    ```
 
+
 ## Создайте кластер {#cluster-create}
 
 Чтобы создать кластер:

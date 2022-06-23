@@ -14,6 +14,7 @@ For information about how to use static access keys, read the documentation on t
 
 * [{{ ydb-name }}](../../../managed-ydb/docapi/tools/aws-setup.md)
 
+
 #### See also {#see-also}
 
 * [How to create a static access key](../../operations/sa/create-access-key.md)

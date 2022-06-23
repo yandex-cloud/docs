@@ -7,6 +7,7 @@ A _static IP address_ is a permanent IP address that does not change when a VM i
 
 Public static IP addresses are charged at an individual rate. For more information, see [{#T}](../../../vpc/pricing.md#prices-public-ip) in the {{ vpc-name }} documentation.
 
+
 To make a VM's public IP address static:
 
 {% list tabs %}

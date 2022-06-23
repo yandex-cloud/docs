@@ -37,6 +37,7 @@ To create a message queue:
        secret_key                  = "<secret part of static access key>"
      }
      ```
+  
 
 
 
@@ -69,6 +70,7 @@ To create a message queue:
        secret_key                  = "<secret part of static access key>"
      }
      ```
+
 
 
      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).

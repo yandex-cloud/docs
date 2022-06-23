@@ -10,6 +10,7 @@
 
 Для использования сервиса необходимо авторизоваться в консоли управления с [аккаунтом на Яндексе](../../iam/concepts/index.md#passport) или с [федеративным аккаунтом](../../iam/concepts/index.md#saml-federation).
 
+
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 ## На какие ресурсы можно назначить роль {#resources}
@@ -72,3 +73,4 @@
 * [Как отозвать роль](../../iam/operations/roles/revoke.md).
 * [Подробнее об управлении доступом в {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+

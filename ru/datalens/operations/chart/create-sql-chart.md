@@ -31,6 +31,7 @@
 
 {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
 
+
 ## Добавление параметров селектора {#selector-parameters}
 
 Для [QL-чартов](../../concepts/chart/index.md#sql-charts) в области редактирования чарта на вкладке **Параметры** можно управлять параметрами селектора, а на вкладке **Запрос** указывать переменную в самом запросе в формате `not_var{{variable}}`.

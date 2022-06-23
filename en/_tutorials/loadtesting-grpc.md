@@ -25,6 +25,7 @@ If the agent is hosted on the {{ yandex-cloud }} platform, a fee is charged for 
 
 During the [Preview stage](../overview/concepts/launch-stages), {{ load-testing-name }} can be used free of charge.
 
+
 ## Prepare the test target {#target-prepare}
 
 In the given example, we'll use the gRPC service with the internal IP `172.17.0.10` in the same subnet as the agent.

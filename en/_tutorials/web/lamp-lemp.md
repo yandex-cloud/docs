@@ -26,6 +26,7 @@ The cost for maintaining a LAMP server includes:
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
+
 ## Create a VM with a pre-installed web server {#create-vm}
 
 1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource**, and select **Virtual machine**.

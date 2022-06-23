@@ -31,6 +31,7 @@ Infrastructure costs for recognition and data storage include:
 * A fee for using object storage (see [pricing for {{ objstorage-full-name }}](../../storage/pricing.md)).
 * A fee for using {{ vision-full-name }} (see [pricing for {{ vision-full-name }}](../../vision/pricing.md)).
 
+
 ## Create and set up a virtual machine {#create-vm}
 
 ### Create a virtual machine:

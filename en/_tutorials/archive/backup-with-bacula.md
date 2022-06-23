@@ -38,6 +38,7 @@ The cost for backup and recovery includes:
 * A fee for data storage (see [{{ objstorage-full-name }} pricing](../../storage/pricing)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing)).
 
+
 ## Creating VMs {#create-vm}
 
 To create a VM:

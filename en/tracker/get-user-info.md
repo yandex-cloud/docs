@@ -52,6 +52,7 @@ Authorization: OAuth <OAuth token>
        ]
     ```
 
+
     {% cut "Response parameters" %}
 
     | Parameter | Description | Data type |

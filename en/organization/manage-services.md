@@ -19,6 +19,7 @@ To go to cloud and service management:
 1. To go to a service, click the service card.
 
    To open a cloud in the {{ yandex-cloud }} console, click the cloud name.
+
 
 
 
@@ -51,3 +52,4 @@ Collaboration services and business intelligence tools are available to all orga
 * [{{ datalens-full-name }}]({{ link-datalens-main }}) is a service that enables you to track product and business metrics and make data-informed decisions. In {{ datalens-full-name }}, you can connect various data sources, build visualizations and dashboards, and share results.
 
    For more information about the service and its features, see the [{{ datalens-full-name }} documentation](../datalens/).
+

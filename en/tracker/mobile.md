@@ -37,6 +37,7 @@ With the {{ tracker-name }} mobile app, you can:
 
 When you launch the app for the first time, [log in](user/login.md) under your corporate account.
 
+
 ## Limitations {#restrictions}
 
  Some {{ tracker-name }} features are not available in the mobile app. To use them, go to the [web intrface]({{ link-tracker }}).
@@ -53,4 +54,4 @@ When you launch the app for the first time, [log in](user/login.md) under your c
 
   This includes setting up [triggers](user/trigger.md), [auto actions](user/autoactions.md), and [macros](manager/create-macroses.md).
 
-- [Managing user access rights](access.md) in {{ tracker-name }}.
+ - [Managing user access rights](access.md) in {{ tracker-name }}. 

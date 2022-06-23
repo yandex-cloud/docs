@@ -67,6 +67,7 @@
        --role <id роли> \
        --subject userAccount:<id пользователя>
      ```
+     
 
 
      Где:

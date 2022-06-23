@@ -1,10 +1,11 @@
 # Creating a new cloud
 
-
+ 
 
 [When a user signs up](../../../billing/quickstart/index.md#create_billing_account), the system automatically creates a [cloud](../../concepts/resources-hierarchy.md#cloud) named `cloud-<Yandex ID>`. After you link a billing account, you can create an additional cloud.
 
 To create an additional cloud:
+
 
 
 {% list tabs %}
@@ -45,6 +46,7 @@ To create an additional cloud:
         organization_id = "<organization ID>"
       }
       ```
+
 
 
       For more detailed information about the `yandex_resourcemanager_cloud` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud).

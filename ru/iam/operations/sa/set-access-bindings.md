@@ -135,6 +135,7 @@
         }
         ```
 
+
     1. Назначьте пользователю роль `editor` на сервисный аккаунт `my-robot`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
 
                 ```bash
@@ -237,6 +238,7 @@
           --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse \
           --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
         ```
+
 - API
 
     Назначьте одному пользователю роль `editor`, а другому `viewer`:
@@ -265,6 +267,7 @@
         }}}]}' \
         https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
     ```
+
     Вы также можете назначать роли с помощью метода [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md).
 
     {% note alert %}
@@ -287,6 +290,7 @@
         }]}' \
         https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
     ```
+
 - Terraform
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -326,6 +330,7 @@
      }
      ...
      ```
+    
      {% endcut %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_binding).

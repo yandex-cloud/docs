@@ -46,6 +46,7 @@ For HTTP requests to work correctly, you need to allow your service to accept pa
 
 {% endnote %}
 
+
 ## Processing responses to HTTP requests.Request to endpoint{#http-response}
 
 **Successful request**

@@ -8,6 +8,7 @@ To authenticate using an [SAML-compatible identity federation](../../organizatio
     ```
     yc init --federation-id=<federation ID>
     ```
+   
 
 
 1. Select the profile you want to set up authentication for or create a new one.
@@ -49,6 +50,7 @@ To authenticate using an [SAML-compatible identity federation](../../organizatio
    federation-id: aje1f0hs6ojais2f6ai2
    ...
    ```
+
 
    
 

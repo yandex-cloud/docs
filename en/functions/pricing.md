@@ -53,6 +53,7 @@ Where:
 * 1000000 is subtracted because the first million calls are free.
 * 1000000 is the divisor used to calculate the number of millions of function calls.
 
+
 ## Using triggers {#triggers}
 
 [Triggers](concepts/trigger/index.md) can be used free of charge. You can create and use triggers within the available [quotas and limits](concepts/limits.md).
@@ -67,7 +68,9 @@ Where:
 {% include [usd.md](../_pricing/functions/usd-invocations.md) %}
 
 
+
 You pay for the actual number of invocations. The cost of a thousand calls, for instance, will be `$0.000128` at `$0.128000` for 1 million calls.
+
 
 ### Function execution time {#execution}
 
@@ -75,6 +78,7 @@ You pay for the actual number of invocations. The cost of a thousand calls, for 
 
 
 {% include [usd.md](../_pricing/functions/usd-compute.md) %}
+
 
 ### Outgoing traffic {#prices-traffic}
 

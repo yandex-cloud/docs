@@ -31,6 +31,7 @@ The cost of virtual hosting includes:
 * A fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a public static IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
+
 ## Create a cloud network {#create-network}
 
 All resources you have created in the tutorial belong to the same [cloud network](../../vpc/concepts/network.md).

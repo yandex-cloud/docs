@@ -16,6 +16,7 @@
 
 1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
 
+
 1. Нажмите кнопку **Создать подключение**.
 1. Выберите подключение **ClickHouse**.
 1. Задайте **Имя подключения**. Имя может быть произвольным.
@@ -58,6 +59,7 @@
       {% include [datalens-db-connection-parameters](../../../_includes/datalens/datalens-db-connection-parameters.md) %}
 
    {% endlist %}
+
 
 1. Нажмите **Сохранить**. Подключение появится в списке.
 

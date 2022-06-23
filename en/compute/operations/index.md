@@ -83,6 +83,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](disk-placement-groups/create.md)
 * [{#T}](disk-placement-groups/remove-disk.md)
 
+
 ## Creating an image {#image-create}
 
 * [{#T}](image-create/custom-image.md)
@@ -104,6 +105,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](filesystem/detach-from-vm.md)
 * [{#T}](filesystem/update.md)
 * [{#T}](filesystem/delete.md)
+
 
 ## Managing the serial console {#serial-console}
 
@@ -146,3 +148,4 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)
+

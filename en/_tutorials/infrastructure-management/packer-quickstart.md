@@ -26,6 +26,7 @@ If you no longer need a created image, [delete it](#clear-out).
 
 You pay for storing created images (see [pricing for {{ compute-full-name }}](../../compute/pricing#prices-storage)).
 
+
 ## Install Packer {#install-packer}
 
 {% note info %}
@@ -85,6 +86,7 @@ export PATH=$PATH:/path/to/packer
 }
 
 ```
+
 
 
 

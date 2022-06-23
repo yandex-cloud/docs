@@ -15,11 +15,12 @@ To start working with {{ managed-k8s-name }}:
 
 1. [On the billing page]({{ link-console-billing }}), make sure that a [billing account](../billing/concepts/billing-account.md) is linked and that its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 
+
 1. If you don't have a folder, [create one](../resource-manager/operations/folder/create.md).
 1. Install the [Kubernetes CLI (kubectl)](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 1. Make sure you have enough [resources available in the cloud](concepts/limits.md).
 1. If you don't have a network, [create one](../vpc/operations/network-create.md).
-1. If you don't have any subnets, [create them](../vpc/operations/subnet-create.md)in the availability zones where your {{ k8s }} cluster and node group will be created.
+1. If you don't have any subnets, [create them](../vpc/operations/subnet-create.md) in the availability zones where your {{ k8s }} cluster and node group will be created.
 1. Create [service accounts](../iam/operations/sa/create.md):
    * A service account for resources with the [{{ roles-editor }}](../resource-manager/security/index.md#roles-list) role for the folder where the {{ k8s }} cluster will be created. The resources that the {{ k8s }} cluster needs will be created on behalf of this account.
    * A service account for nodes with the [{{ roles-cr-puller }}](../container-registry/security/index.md#required-roles) role for the folder with the Docker image registry. Nodes will download the Docker images they require from the registry on behalf of this account.

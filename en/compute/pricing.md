@@ -94,6 +94,7 @@ Usage prices are shown on an hourly basis (monthly for local drives). Billing oc
 
 All prices are shown without VAT.
 
+
 ### VM computing resources {#prices-instance-resources}
 
 
@@ -101,12 +102,14 @@ All prices are shown without VAT.
 
 {% include [usd-instance-resources.md](../_pricing/compute/usd-instance-resources.md) %}
 
+
 ### Operating systems {#prices-os}
 
 
 
 
 {% include [usd-os.md](../_pricing/compute/usd-os.md) %}
+
 
 For the following products, funds are debited once for the calendar month in advance when a VM is started, regardless of the actual amount of time the VM runs for:
 
@@ -117,6 +120,7 @@ For the following products, funds are debited once for the calendar month in adv
 
 {% include [usd-os-sql.md](../_pricing/compute/usd-os-sql.md) %}
 
+
 \* The product is provided for a group of 2 vCPUs. The minimum available number of vCPUs for a VM is 4 (2 groups).
 
 ### Disks, snapshots, and images {#prices-storage}
@@ -125,6 +129,7 @@ For the following products, funds are debited once for the calendar month in adv
 
 
 {% include [usd-storage.md](../_pricing/compute/usd-storage.md) %}
+
 
 ### Computing resources of dedicated hosts {#prices-dedicated-host}
 
@@ -138,7 +143,9 @@ For the following products, funds are debited once for the calendar month in adv
 
 
 
+
 {% include [usd-local-nvme.md](../_pricing/compute/usd-local-nvme.md) %}
+
 
 ### Software-accelerated network {#software-accelerated-network}
 
@@ -147,9 +154,12 @@ For the following products, funds are debited once for the calendar month in adv
 
 {% include [usd-network.md](../_pricing/compute/usd-network.md) %}
 
+
 ### Outgoing traffic {#prices-traffic}
 
 
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+

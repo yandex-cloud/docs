@@ -39,6 +39,7 @@
       ```
 
 
+
    1. Choose the `ID` of the load balancer with the listener you want to delete.
    1. Get information about the selected load balancer:
 

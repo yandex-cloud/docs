@@ -33,6 +33,7 @@ The cost for supporting a fault-tolerant {{ yandex-cloud }} architecture include
 - A fee for the continuously running {{ mpg-name }} cluster (see [pricing for {{mpg-full-name}}](../../managed-postgresql/pricing.md)).
 - A fee for using a dynamic or static external IP address (see [{{vpc-full-name}} pricing](../../vpc/pricing.md)).
 
+
 ## Set up a test bench {#prepare}
 
 ### Test bench description {#stand}

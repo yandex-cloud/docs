@@ -14,6 +14,7 @@ In {{ tracker-name }}, agile tools are grouped on the issue board.
 
 ![](../../_assets/tracker/agile-board-c.png)
 
+
 Managing {{ tracker-name }} boards is similar to [working with a regular sticker board](#dlen_board). Use different board types to manage your workload and monitor your progress with agile methodologies:
 
 - **Basic** boards let you arrange issues in columns based on their status.

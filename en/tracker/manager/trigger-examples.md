@@ -27,6 +27,7 @@ Let's set up a trigger that automatically picks an assignee for our issue:
 
 
 1. Make sure every employee you might want to assign [has full access to {{ tracker-name }}](../access.md).
+
 
 1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
 
@@ -150,6 +151,7 @@ You need to set up email integration if you want to send emails right from {{ tr
     1. [Allow receiving emails from external addresses](queue-mail.md#mail_tasks).
 
     1. [Allow sending emails from issue pages to external addresses](queue-mail.md#send_outside).
+
 
 #### Step 2. Set up a trigger for sending email
 
@@ -298,6 +300,7 @@ Let's set up a trigger that adds a feedback form to the comments and invites an 
     ```
     {{=<% %>=}}/iframe/(src="https://forms.yandex.ru/surveys/<form_id>/?iframe=1&<question_id>=<value>" frameborder=0 width=500)
     ```
+
 
     - `<form id>` is the ID of the form to be added.
 
@@ -316,6 +319,7 @@ Let's set up a trigger that adds a feedback form to the comments and invites an 
     ```
     {{=<% %>=}}/iframe/(src="https://forms.yandex.ru/surveys/68417/?iframe=1&answer_short_text_584943=<%issue.key%>" frameborder=0 width=100% height=660px scrolling=no}}
     ```
+
 
 1. Click ![](../../_assets/tracker/summon.png), find the line **Invite users from a field**, and enter <q>Assignee</q>.
 

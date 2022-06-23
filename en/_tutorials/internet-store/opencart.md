@@ -26,6 +26,7 @@ The infrastructure support cost for OpenCart includes:
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * If you plan to set up a managed database, the fee also includes the DB cluster fee (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 
+
 ## Create a VM with the OpenCart platform {#create-vm}
 
 To create a VM:

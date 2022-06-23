@@ -10,6 +10,7 @@ The host class determines the computing power allocated for each host in the clu
 
 Available [storage types](./storage.md) depend on the selected host class. For storage limitations, see [{#T}](limits.md).
 
+
 ## Available host classes {#available-flavors}
 
 
@@ -95,4 +96,5 @@ The full list of possible host configurations on each platform is provided below
 | c3-c64-m128 | 64 | 100% | 128 |
 | c3-c80-m160 | 80 | 100% | 160 |
 | c3-c96-m192 | 96 | 100% | 192 |
+
 

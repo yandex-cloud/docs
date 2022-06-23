@@ -35,6 +35,7 @@ We [block](../concepts/limits.md#vpc-egress-traffic-filter) only the traffic tha
 
 To unblock the traffic, configure your mail server to use the 465 and 587 ports. Set these port as a mail relay and delegate your domain to the (https://yandex.com/support/business/delegate-domain.html) the Yandex servers using [Mail for a domain](https://habr.com/company/plesk/blog/304204/).
 
+
 If you need to use port 25, assign a public IP address to your VM:
 
 1. [Request]({{ link-console-support }}) a new public IP address with an open port 25. Prepare the following information for the support:
@@ -61,5 +62,6 @@ Subnets can only use private addresses from IPv4 ranges defined by [RFC 1918](ht
 
 
 {% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
+
 
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}

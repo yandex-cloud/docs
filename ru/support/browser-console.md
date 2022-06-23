@@ -9,6 +9,7 @@
 
   {% include [browser-console-yandex](../_includes/support/browser-console-yandex.md) %}
 
+
 - Google Chrome
 
   1. На странице с ошибкой нажмите сочетание клавиш **Ctrl** + **Shift** + **J**  (или **⌥** + **⌘** + **J** для macOS).

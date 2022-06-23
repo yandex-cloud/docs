@@ -43,6 +43,7 @@
       ```
 
 
+
    1. Choose the `ID` or `NAME` of the required load balancer in the `INACTIVE` state.
    1. Start the load balancer:
 

@@ -47,6 +47,7 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-cdn-admin](../../../_includes/roles-cdn-admin.md) %}
 
+
 ## {{ dns-name }} {#dns-roles}
 
 {% include [roles-dns-viewer](../../../_includes/iam/roles/dns-viewer.md) %}
@@ -86,6 +87,7 @@ _Роль_ — это набор разрешений, который опре�
 {% include [mdb.dataproc.agent](../../../_includes/roles-dataproc-agent.md) %}
 
 
+
 ## {{ data-transfer-name }} {#data-transfer-roles}
 
 {% include [data-transfer-viewer](../../../_includes/roles-data-transfer-viewer.md) %}
@@ -101,6 +103,7 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [datalens-instances-admin](../../../_includes/roles-datalens-admin.md) %}
 
+
 ## {{ ml-platform-name }} {#datasphere-roles}
 
 {% include [datasphere-user](../../../_includes/roles-datasphere-user.md) %}
@@ -115,6 +118,7 @@ _Роль_ — это набор разрешений, который опре�
 {% include [functions-roles-admin](../../../_includes/roles-functions-admin.md) %}
 
 {% include [functions-roles-mdbproxy](../../../_includes/roles-functions-mdbproxy.md) %}
+
 
 ## {{ iam-name }} {#iam-roles}
 
@@ -138,6 +142,7 @@ _Роль_ — это набор разрешений, который опре�
 {% include [logging-roles-writer](../../../_includes/roles-logging-writer.md) %}
 
 {% include [logging-roles-admin](../../../_includes/roles-logging-admin.md) %}
+
 
 ## {{ kms-name }} {#kms-roles}
 
@@ -199,6 +204,7 @@ _Роль_ — это набор разрешений, который опре�
 {% include [serverless-containers-roles-editor](../../../_includes/roles-serverless-containers-editor.md) %}
 
 {% include [serverless-containers-roles-admin](../../../_includes/roles-serverless-containers-admin.md) %}
+
 
 ## {{ vpc-name }} {#vpc-roles}
 

@@ -28,6 +28,7 @@ The cost for supporting your website in WordPress with a MySQL cluster includes:
 * A fee for the MySQL database cluster (see [pricing {{ mmy-full-name }}](../../managed-mysql/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
+
 ## Create a virtual machine for WordPress {#create-vm}
 
 To create a VM:

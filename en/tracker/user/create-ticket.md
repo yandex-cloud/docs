@@ -1,6 +1,6 @@
 # Creating issues
 
-You can create issues in any of the available [queues](../queue-intro.md). Select the queue that best matches the topic of the issue. If you don't know which queue to create your issue in, check with the project manageror your company's admin.
+You can create issues in any of the available [queues](../queue-intro.md). Select the queue that best matches the topic of the issue. If you don't know which queue to create your issue in, check with the project manager or your company's admin.
 
 
 
@@ -66,6 +66,7 @@ You can also leave this field empty to assign someone later.
         The default queue selected for new issues is the one that is created automatically when you register your company in {{ tracker-name }}. To see a list of all available queues, delete the queue name in the issue creation window.
 
         {% endnote %}
+
 
     1. Name the issue and tap **Create issue**.
 

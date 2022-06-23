@@ -350,7 +350,13 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar s3://<ваш б�
 - {{objstorage-name}}
 
   ```bash
-  yc dataproc job create-spark --cluster-id <ID кластера> --name <имя задачи> --main-class "com.yandex.cloud.dataproc.scala.Main" --main-jar-file-uri "s3a://<ваш бакет>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" --args "s3a://yc-mdb-examples/dataproc/example01/set01" --args "s3a://{your_target_bucket}/jobs_results/"
+  {{ yc-dp }} job create-spark \
+      --cluster-id <ID кластера> \
+      --name <имя задачи> \
+      --main-class "com.yandex.cloud.dataproc.scala.Main" \
+      --main-jar-file-uri "s3a://<ваш бакет>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" \
+      --args "s3a://yc-mdb-examples/dataproc/example01/set01" \
+      --args "s3a://{your_target_bucket}/jobs_results/"
   ```
   
 - HDFS
@@ -358,7 +364,7 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar s3://<ваш б�
   CSV-файл с результатом создается в папке `/tmp/jobs/<идентификатор задачи>/` в HDFS.
 
   ```bash
-  yc dataproc job create-spark --cluster-id <ID кластера> --name <имя задачи> --main-class "com.yandex.cloud.dataproc.scala.Main" --main-jar-file-uri "s3a://<ваш бакет>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" --args "s3a://yc-mdb-examples/dataproc/example01/set01" --args "tmp/jobs/"
+  {{ yc-dp }} job create-spark --cluster-id <ID кластера> --name <имя задачи> --main-class "com.yandex.cloud.dataproc.scala.Main" --main-jar-file-uri "s3a://<ваш бакет>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" --args "s3a://yc-mdb-examples/dataproc/example01/set01" --args "tmp/jobs/"
   ```
   
   Пример сообщения об успешном запуске задачи:
@@ -438,19 +444,18 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar s3://<ваш б�
    * В бакет {{objstorage-name}}:
 
         ```bash
-        yc dataproc job create-pyspark  --cluster-id <ID кластера> --name <имя задачи>  --main-python-file-uri "s3a://<ваш бакет>/bin/job.py" --args "s3a://yc-mdb-examples/dataproc/example01/set01" --args "s3a://<ваш бакет>/jobs_results/"
+        {{ yc-dp }} job create-pyspark  --cluster-id <ID кластера> --name <имя задачи>  --main-python-file-uri "s3a://<ваш бакет>/bin/job.py" --args "s3a://yc-mdb-examples/dataproc/example01/set01" --args "s3a://<ваш бакет>/jobs_results/"
         ```
    * В HDFS:
 
      ```bash
-     yc dataproc job create-pyspark  --cluster-id <ID кластера> --name <имя задачи>  --main-python-file-uri "s3a://<ваш бакет>/bin/job.py" --args "s3a://yc-mdb-examples/dataproc/example01/set01" --args "tmp/jobs/"
+     {{ yc-dp }} job create-pyspark  --cluster-id <ID кластера> --name <имя задачи>  --main-python-file-uri "s3a://<ваш бакет>/bin/job.py" --args "s3a://yc-mdb-examples/dataproc/example01/set01" --args "tmp/jobs/"
      ```
     
      CSV-файл с результатом создается в папке `/tmp/jobs/<идентификатор задачи>/` в HDFS.
-    
-    
+
 1. Чтобы посмотреть логи задачи:
 
-   ```
-   yc dataproc job log <имя задачи> --cluster-id <ID кластера> 
+   ```bash
+   {{ yc-dp }} job log <имя задачи> --cluster-id <ID кластера>
    ```

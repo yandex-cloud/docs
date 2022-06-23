@@ -68,6 +68,7 @@ To use an SSL connection, get a certificate:
    chmod 0600 ~/.postgresql/root.crt
    ```
 
+
 - Windows (PowerShell)
 
    
@@ -75,6 +76,7 @@ To use an SSL connection, get a certificate:
    mkdir $HOME\AppData\Roaming\postgresql
    curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt https://{{ s3-storage-host }}{{ pem-path }}
    ```
+
 
 {% endlist %}
 

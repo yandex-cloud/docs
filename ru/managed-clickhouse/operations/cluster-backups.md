@@ -129,6 +129,7 @@ description: "Вы можете создавать резервные копии
          --clickhouse-resource-preset=<класс хоста>
       ```
 
+
       Где:
 
       * `--backup-id` — идентификатор [резервной копии](../concepts/backup.md).

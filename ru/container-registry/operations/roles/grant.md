@@ -37,6 +37,7 @@
          --role <id роли> \
          --subject userAccount:<id пользователя>
        ```
+       
 
 
      * Чтобы установить роль, удалив все имеющиеся разрешения, выполните команду:
@@ -47,6 +48,7 @@
          --role <id роли> \
          --subject userAccount:<id пользователя>
        ```
+       
 
 
      Где:
@@ -81,7 +83,7 @@
 
        >Пример структуры конфигурационного файла:
        >
-
+ 
        >```
        >resource "yandex_container_registry_iam_binding" "puller" {
        >  registry_id = "<id реестра>"

@@ -84,6 +84,7 @@ To stop an L7 load balancer:
       ```
 
 
+
    1. Stop a balancer by including its `id` or `name` in your command, such as `balancer2`:
 
       ```bash
@@ -178,6 +179,7 @@ To start a load balancer:
         log_group_id: ckgjhe81a23v2miqfl7u
         created_at: "2022-02-11T09:01:46.724279145Z"
       ```
+
 
 
    1. Start a balancer by including its `id` or `name` in your command, such as `balancer2`:

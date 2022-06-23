@@ -26,6 +26,7 @@ The cost of hosting a static website includes:
 * A fee for data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-operations)).
 * The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-traffic)).
 
+
 ## Create a public bucket {#create-public-bucket}
 
 To create a bucket for static website files:

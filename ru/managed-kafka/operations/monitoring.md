@@ -78,7 +78,7 @@
   1. В списке сервисов выберите **Monitoring**.
   1. В блоке **Сервисные дашборды** выберите **{{ mkf-name }} — Cluster Overview**.
   1. На нужном графике с показателями нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Создать алерт**.
-  1. Если показателей на графике больше одного, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов см. [документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
+  1. Если показателей на графике больше одного, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов см. [документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md). 
   1. Задайте значения порогов `Alarm` и `Warning` для оповещения.
   1. Нажмите кнопку **Создать алерт**.
 
@@ -100,3 +100,20 @@
 {% endlist %}
 
 Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster).
+
+## Состояние и статус кластера {#cluster-health-and-status}
+
+{% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
+
+Для просмотра состояния и статуса кластера:
+
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mkf-name }}**.
+1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
+
+### Состояния кластера {#cluster-health}
+
+{% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
+
+### Статусы кластера {#cluster-status}
+
+{% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}

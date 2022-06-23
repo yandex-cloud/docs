@@ -33,7 +33,9 @@ A public IP address can be in one of the following two states:
 
 
 
+
 {% include [usd-ip.md](../_pricing/vpc/usd-ip.md) %}
+
 
 
 ### DDoS protection {#prices-ddos-protection}
@@ -43,11 +45,13 @@ A public IP address can be in one of the following two states:
 
 {% include [usd-ddos.md](../_pricing/vpc/usd-ddos.md) %}
 
+
 Filtered traffic is incoming traffic that the DDoS Protection filtering system passes to the user's cloud resources. Only filtered traffic is charged.
 
 For example, a user's VM was subject to a typical 10 Gbit/s DDoS attack generating 75 GB of incoming traffic. During the attack, the user downloaded 2 GB of filtered files from the internet to the VM. When the attack ended, the user downloaded another 2 GB of filtered files.
 
 In this case, only 4 GB of filtered traffic are billed: 2 GB that DDoS Protection passed to cloud resources during the attack, and 2 GB downloaded after the attack. Malicious traffic is filtered out and not billed.
+
 
 ### Using security groups {#prices-security-groups}
 
@@ -59,3 +63,5 @@ The [security group](concepts/security-groups.md) functionality is at the [Previ
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+

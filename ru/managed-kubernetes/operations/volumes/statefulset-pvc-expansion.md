@@ -55,6 +55,7 @@
    ```
 
 
+
    {% endcut %}
 
 1. Создайте контроллер:
@@ -85,6 +86,7 @@
    persistentvolumeclaim/pvc-dynamic-ubuntu-test-1  Bound   pvc-a6fb0761-0771-483c-abfb-d4a89ec4719f  1Gi       RWO           yc-network-hdd  81s
    persistentvolumeclaim/pvc-dynamic-ubuntu-test-2  Bound   pvc-f479c8aa-426a-4e43-9749-5e0fcb5dc140  1Gi       RWO           yc-network-hdd  73s
    ```
+
 
 
 1. Убедитесь, что диски для объектов с префиксами `k8s-csi` перешли в статус `READY`:
@@ -224,4 +226,5 @@
    pvc-a6fb0761-0771-483c-abfb-d4a89ec4719f   2Gi        RWO            Delete           Bound    default/pvc-dynamic-ubuntu-test-1   yc-network-hdd            11m
    pvc-f479c8aa-426a-4e43-9749-5e0fcb5dc140   2Gi        RWO            Delete           Bound    default/pvc-dynamic-ubuntu-test-2   yc-network-hdd            11m
    ```
+
 

@@ -14,6 +14,7 @@ You can create a trigger that will invoke a [function](../../functions/concepts/
 
 {% endnote %}
 
+
 ## Creating a budget {#create-budget}
 
 To create a budget, you need the `editor` role. The `viewer` role is enough to receive notifications. For more information on access control, see [{#T}](../../iam/concepts/access-control/roles.md).

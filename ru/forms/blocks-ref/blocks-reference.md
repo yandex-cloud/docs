@@ -21,10 +21,12 @@
 
 - [Команды](teams.md)
 
+
 - [Короткий текст](short-text.md)
 
 
 - [Люди](people.md)
+
 
 - [Несколько вариантов](multiple.md)
 
@@ -34,6 +36,7 @@
 
 
 - [Отделы](departments.md)
+
 
 - [Оценка по шкале](rating.md)
 

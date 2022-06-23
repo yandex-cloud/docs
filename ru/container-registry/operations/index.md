@@ -12,6 +12,7 @@ description: "Пошаговые инструкции по работе с Docke
 
 Подробнее о том, как работать с образом {{ coi }}, читайте в документации [{{ cos-name }}](../../cos/).
 
+
 ## Управление Docker-образом {#docker-images}
 
 * [{#T}](docker-image/docker-image-list.md)

@@ -290,6 +290,7 @@ Downloading and using software from the VMware website is not part of the [{{ mg
 
 {% endnote %}
 
+
 1. [Download and install](https://greenplum.docs.pivotal.io/6-19/client_tool_guides/installing.html) the Greenplum Loader package.
 
 1. Run the GPFDIST utility:

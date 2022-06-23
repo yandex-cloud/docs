@@ -61,6 +61,7 @@
        --authority your-domain.foo.com \
        --modify-request-header name=Accept-Language,append=ru-RU
      ```
+     
  
 
      Где:
@@ -81,6 +82,7 @@
      - name: Accept-Language
        append: ru-RU
      ```
+     
 
 
   1. Посмотрите описание команды CLI для добавления маршрута:

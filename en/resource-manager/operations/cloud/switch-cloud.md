@@ -23,6 +23,7 @@ In the [management console]({{ link-console-main }}), you can select the interfa
 
       ![image](../../../_assets/resource-manager/switch-cloud-n-n.png)
 
+
 - CLI
 
    There are two ways to choose the cloud that is used in the CLI by default:

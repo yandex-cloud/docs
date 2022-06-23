@@ -93,6 +93,7 @@
    ```
 
 
+
 ## Создайте объект PersistentVolumeClaim {#create-claim}
 
 1. Сохраните спецификацию для создания объекта `PersistentVolumeClaim` YAML-файл с названием `test-claim.yaml`.
@@ -142,6 +143,7 @@
       Volume:        test-pv
       ...
       ```
+
 
 
 ## Создайте под со статически подготовленным томом {#create-pod}

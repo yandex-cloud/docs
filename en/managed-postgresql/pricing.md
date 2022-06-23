@@ -53,12 +53,14 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 All prices are shown without VAT.
 
+
 ### Host computing resources {#prices-hosts}
 
 
 
 
 {% include notitle [usd-host-resources.md](../_pricing/managed-postgresql/usd-host-resources.md) %}
+
 
 ### Storage and backups {#prices-storage}
 
@@ -67,10 +69,13 @@ All prices are shown without VAT.
 
 {% include notitle [usd-storage.md](../_pricing/managed-postgresql/usd-storage.md) %}
 
+
 ### Outgoing traffic {#prices-traffic}
 
 
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+
 

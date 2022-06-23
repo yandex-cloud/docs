@@ -41,4 +41,5 @@ Specifics of working with security groups:
 
 For more information, see the [Virtual Private Cloud documentation](../../vpc/concepts/security-groups.md).
 
+
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

@@ -29,6 +29,7 @@
    sudo apt update && sudo apt install -y mysql-client
    ```
 
+
 ## Создайте кластер {#cluster-create}
 
 1. В консоли управления выберите каталог, в котором нужно создать кластер БД.

@@ -10,6 +10,8 @@
 
 {% endnote %}
 
+
+
 {% list tabs %}
 
 - Консоль управления
@@ -67,7 +69,8 @@
      * Выберите [подсеть](../../vpc/concepts/network.md#subnet) в указанной зоне доступности. Если подсети нет, создайте ее.
      * Если хост должен быть доступен снаружи {{ yandex-cloud }}, включите опцию **Публичный доступ**.
 
-     Чтобы обеспечить отказоустойчивость, для типов хранилищ `local-ssd`и `network-ssd-nonreplicated` необходимо как минимум 3 хоста. Подробнее см. в разделе [Хранилище](../concepts/storage.md).
+
+     Чтобы обеспечить отказоустойчивость, для типов хранилищ `local-ssd` и `network-ssd-nonreplicated` необходимо как минимум 3 хоста. Подробнее см. в разделе [Хранилище](../concepts/storage.md).
 
      По умолчанию хосты создаются в разных зонах доступности. См. подробнее об [управлении хостами](hosts.md).
   
@@ -98,6 +101,7 @@
 
      Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
 
+
   1. Посмотрите описание команды CLI для создания кластера:
 
       ```
@@ -123,6 +127,7 @@
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
+
       {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
 - Terraform
@@ -130,6 +135,7 @@
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   
   Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
   Чтобы создать кластер:
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
@@ -206,6 +212,7 @@
      ```
 
 
+
      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      1. {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
@@ -255,6 +262,7 @@
   * С одной базой данных, `db1`.
   * С защитой от случайного удаления кластера.
 
+
   Запустите следующую команду:
 
   
@@ -272,6 +280,7 @@
     --database name=db1 \
     --deletion-protection=true
   ```
+
 
 - Terraform
 
@@ -367,6 +376,7 @@
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```
+
 
 
 {% endlist %}

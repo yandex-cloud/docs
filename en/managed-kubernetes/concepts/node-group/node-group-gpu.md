@@ -16,6 +16,7 @@ You can create node groups with graphics accelerators (GPUs) in {{ k8s }} cluste
 
   VMs with GPUs are available in these [zones](../../../overview/concepts/geo-scope.md). When requesting a GPU quota, keep in mind which zones you're going to run your {{ k8s }} clusters in.
 
+
 ## Billing {#pricing}
 
 To run node groups with GPUs, you need a {{ k8s }} cluster, a VM with a GPU, and traffic. Therefore, billing consists of the following parts:

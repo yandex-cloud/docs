@@ -28,6 +28,7 @@ By default, only the owner (creator) of the form can edit it.
 
 If you're using [{{ forms-full-name }} for business](forms-for-org.md), you can give your employees access to edit the form:
 
+
 1. In the upper panel in {{ forms-name }}, go to **My forms**.
 
 1. Select the form and go to **Settings** → **Access**.
@@ -35,9 +36,11 @@ If you're using [{{ forms-full-name }} for business](forms-for-org.md), you can 
 
 1. [Connect the form to your organization.](#add-connect) All organization employees will be able to edit the form.
 
+
 1. Select who can edit the form:
 
       - **All employees**: All employees of your organization can edit the form.
+
    - **Owner only**.
    - **Selected employees**: Only the listed employees can edit the form. To add a new user to the list, enter their name or username.
 
@@ -60,10 +63,12 @@ To connect a form to an organization:
 
    If you are registered in several organizations, you can see which organization each of the forms belongs to in the list of forms.
 
+
 ## Group forms {#sec_groups}
 
 
 If you 're using  [{{ forms-full-name }} for business](forms-for-org.md), you can group forms by topic, project, team, or other feature:
+
 
 1. In the upper panel of {{ forms-name }}, select the **Groups** tab.
 

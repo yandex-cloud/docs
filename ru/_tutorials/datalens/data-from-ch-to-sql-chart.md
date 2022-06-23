@@ -9,6 +9,7 @@
 
 Для визуализации и исследования данных [подготовьте {{ datalens-short-name }} к работе](#before-you-begin), затем выполните следующие шаги:
 
+
 1. [Создайте подключение](#create-connection).
 1. [Создайте QL-чарт](#create-sql-chart).
 1. [Создайте дашборд](#create-dashboard).
@@ -25,6 +26,7 @@ SQL-запросы работают только с базами данных. C
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+
 
 ## Создайте подключение {#create-connection}
 

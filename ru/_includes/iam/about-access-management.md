@@ -5,4 +5,5 @@
 
 Чтобы выдать разрешения к ресурсу, [назначьте роли](../../iam/operations/roles/grant.md) на этот ресурс субъекту, который будет выполнять операции. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md) или [системной группе](../../iam/concepts/access-control/system-group.md). Подробнее читайте в разделе [{#T}](../../iam/concepts/access-control/index.md).
 
+
 Назначать роли на ресурс могут те, у кого есть роль `admin` или `resource-manager.clouds.owner` на этот ресурс.

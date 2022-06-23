@@ -63,6 +63,7 @@ To create an HTTP router and add a route to it:
       ```
 
 
+
       Where:
 
       * `--authority`: Domains for the `Host` and `authority` headers that will be associated with this virtual host. Wildcards are supported, for example, `*.foo.com` or `*-bar.foo.com`.
@@ -81,6 +82,7 @@ To create an HTTP router and add a route to it:
       - name: Accept-Language
         append: ru-RU
       ```
+
 
 
    1. View a description of the CLI command for adding a host:

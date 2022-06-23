@@ -28,6 +28,7 @@ After creating a cluster, you can:
        
    1. Select the desired service account from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
 
+
         {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
 {% endlist %}
@@ -85,6 +86,7 @@ The host class affects the amount of RAM that can be used by {{ CH }}. For more 
       | ...                                                           |
       +-----------+--------------------------------+-------+----------+
       ```
+
 
    1. Specify the class in the update cluster command:
 
@@ -176,7 +178,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
       {{ yc-mdb-ch }} cluster update --help
       ```
 
-   1. Specify the required amount of storage in the cluster update command (it must be at least as large as `disk_size` in the cluster properties):
+   1. Specify the required amount of storage in the  cluster update command (it must be at least as large as `disk_size` in the cluster properties):
 
       ```bash
       {{ yc-mdb-ch }} cluster update <cluster name or ID> \
@@ -499,6 +501,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
             
    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
 
+
    * {% include [Protection against cluster deletion](../../_includes/mdb/cli/deletion-protection.md) %}
 
       {% include [Limitations of Deletion protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -539,6 +542,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
         ...
       }
       ```
+
 
 
    1. {% include [maintenance-window](../../_includes/mdb/mch/terraform-maintenance-window.md) %}
@@ -588,6 +592,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
       
    To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
+
 
    To allow cluster access from {{ yq-full-name }}, pass `true` for the `configSpec.access.yandexQuery` parameter.
 

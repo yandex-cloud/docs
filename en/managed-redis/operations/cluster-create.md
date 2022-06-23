@@ -60,6 +60,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
          {% include [storages-step-settings-no-ice-lake](../../_includes/mdb/settings-storages-no-v3.md) %}
 
+
       * Select the storage size. The available storage size is limited by [quotas and limits](../concepts/limits.md#limits).
 
    1. In **Cluster settings** under **Password**, set the user password (from 8 to 128 characters).
@@ -92,6 +93,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       ```
 
       If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+
 
    1. View a description of the CLI's create cluster command:
 
@@ -131,6 +133,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
    
    If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
    To create a cluster:
 
    1. In the configuration file, describe the parameters of resources that you want to create:
@@ -195,6 +198,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
         v4_cidr_blocks = ["<range>"]
       }
       ```
+
 
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -360,6 +364,7 @@ If you specified security group IDs when creating a cluster, you may need to add
    ```
 
 
+
 {% endlist %}
 
 ### Creating sharded clusters {#creating-a-sharded-cluster}
@@ -513,6 +518,7 @@ If you specified security group IDs when creating a cluster, you may need to add
      }
    }
    ```
+
 
 
 {% endlist %}

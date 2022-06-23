@@ -70,6 +70,7 @@
           login: test-user
           default_email: test-user@yandex.ru
       ```
+
   1. Назначьте пользователю `test-user` роль `editor` на облако `my-cloud`. В субъекте укажите тип `userAccount` и идентификатор пользователя:
 
       ```bash
@@ -77,6 +78,7 @@
         --role editor \
         --subject userAccount:<идентификатор пользователя>
       ```
+
 - API
 
   Воспользуйтесь методом [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md). Вам понадобится идентификатор облака и идентификатор пользователя, которому назначается роль на облако.
@@ -120,6 +122,7 @@
        }
       }
       ```
+
   1. Назначьте пользователю роль `editor` на облако `my-cloud`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и идентификатор пользователя:
 
       ```bash
@@ -137,6 +140,7 @@
           }}}]}' \
           https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
       ```
+
 - Terraform
 
   Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -162,6 +166,7 @@
         ]
       }
       ```
+
 users-get.md).
 
       Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_cloud_iam_binding).
@@ -231,11 +236,13 @@ users-get.md).
         --access-binding role=viewer,subject=userAccount:<идентификатор второго пользователя>
       ```
 
+
       ```bash
       yc resource-manager cloud set-access-bindings my-cloud \
         --access-binding role=editor,subject=federatedUser:<идентификатор первого пользователя>
         --access-binding role=viewer,subject=federatedUser:<идентификатор второго пользователя>
       ```
+
 - API
 
   Назначьте одному пользователю роль `editor`, а другому `viewer`:
@@ -264,6 +271,7 @@ users-get.md).
       }}}]}' \
       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
   ```
+
   Вы также можете назначать роли с помощью метода [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md).
 
   {% note alert %}
@@ -286,6 +294,7 @@ users-get.md).
       }]}' \
       https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:setAccessBindings
   ```
+
 - Terraform
 
   1. Опишите в конфигурационном файле параметры прав доступа к облаку. Назначьте одному пользователю роль `editor`, а другому `viewer`:
@@ -311,6 +320,7 @@ users-get.md).
         ]
       }
       ```
+
   1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
   1. Проверьте корректность конфигурационного файла с помощью команды:
       

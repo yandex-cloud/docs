@@ -87,6 +87,7 @@ Public boot disk images that have been tested in {{ yandex-cloud }} are availabl
 {% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
 
 
+
 #### How do I contact technical support? {#support-channels}
 
 You can contact technical support under [Support]({{ link-console-support }}) in the management console.

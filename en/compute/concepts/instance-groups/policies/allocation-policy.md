@@ -11,6 +11,7 @@ A region is a specific geographic location where you can deploy instances. Each 
 | `{{ region-id }}` | `{{ region-id }}-a`<br/>`{{ region-id }}-b`<br/>`{{ region-id }}-c` | Vladimir region, Moscow region, and Ryazan region. |
 
 
+
 You can't move instances to other availability zones, but you can [update a group](../../../operations/instance-groups/deploy/rolling-update.md) with new zone values.
 
 The allocation policy is defined in the `allocation-policy` key in the YAML file. The value can be the list of zones defined in the `zones` key. You can specify any available zones to evenly distribute the group instances across.

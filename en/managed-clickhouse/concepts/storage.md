@@ -90,3 +90,4 @@ FROM system.storage_policies;
 ```
 
 For more information about storage policies and their settings, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes).
+

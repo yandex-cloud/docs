@@ -26,6 +26,7 @@ Infrastructure costs for data transfers include:
 1. A fee for the continuously running {{ mmy-name }} cluster (see [pricing for {{ mmy-name }}](../../managed-mysql/pricing.md)).
 1. A fee for {{ data-transfer-name }} (see [pricing for {{ data-transfer-name }}](../../data-transfer/pricing)).
 
+
 ## Create a VM with an online store {#create-vm-mysql}
 
 1. Create a VM with an online store named `web-store-vm` based on MySQL:

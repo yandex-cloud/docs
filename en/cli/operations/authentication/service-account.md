@@ -25,6 +25,7 @@ Learn how to authenticate in the CLI [as a service account](#auth-as-sa).
 
 Read more about working with {{ yandex-cloud }} from a VM in [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md).
 
+
 #### See also
 
 - [{#T}](../../concepts/index.md#manage-properties).

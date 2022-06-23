@@ -24,6 +24,7 @@ These instructions assume that you're connecting to the cluster from the interne
 
 {% endnote %}
 
+
 ## Create a cluster {#cluster-create}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
@@ -61,6 +62,7 @@ To connect to a cluster:
    wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
    chmod 0600 ~/.elasticsearch/root.crt
    ```
+
 
 1. Connect to the cluster using [cURL](https://curl.haxx.se/):
 

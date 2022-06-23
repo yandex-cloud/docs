@@ -37,7 +37,7 @@ Before you start, you need to add dependencies.
 The code uses the following variables:
 
 * `endpoint` – `{{ api-host }}:443`.
-* `credentialProvider` or `credentials`: Determines the authentication method (for more information, see [Authentication in the{{ yandex-cloud }} SDK](sdk.md#auth)).
+* `credentialProvider` or `credentials`: Determines the authentication method (for more information, see [Authentication in the {{ yandex-cloud }} SDK](sdk.md#auth)).
 * `keyId`: ID of the [key in {{ kms-short-name }}](../../concepts/key.md).
 * `plaintext`: Unencrypted text.
 * `ciphertext`: Encrypted text.

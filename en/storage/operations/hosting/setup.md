@@ -60,6 +60,7 @@
       ```
 
 
+
    1. Make sure that the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.

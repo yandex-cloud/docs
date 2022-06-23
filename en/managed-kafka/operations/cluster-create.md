@@ -59,6 +59,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       1. Select the [network](../../vpc/concepts/network.md).
       1. Select subnets in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **Create new** subnet next to the desired availability zone.
 
+
       {% note info %}
 
       For a cluster with multiple broker hosts, you need to specify subnets in each availability zone even if you plan to host brokers only in some of them. These subnets are required to host three {{ ZK }} hosts — one in each availability zone. For more information, see [Resource relationships in {{ mkf-name }}](../concepts/index.md).
@@ -90,6 +91,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       1. (Optional) Select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the cluster on.
 
          {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
+
 
    1. If you specify two or more broker hosts, then under **{{ ZK }} host class**, specify the characteristics of the [{{ ZK }} hosts](../concepts/index.md) to place in each of the selected availability zones.
 
@@ -179,12 +181,14 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
+
 - Terraform
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    
    If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
 
    To create a cluster:
 
@@ -254,6 +258,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       ```
 
 
+
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
       {% include [maintenance-window](../../_includes/mdb/mkf/terraform-maintenance-window.md) %}
@@ -298,6 +303,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
    {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
+
 {% endlist %}
 
 {% note warning %}
@@ -328,6 +334,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With public access.
    * With protection against accidental cluster deletion.
 
+
    Run the command:
 
    
@@ -346,6 +353,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      --security-group-ids {{ security-group }} \
      --deletion-protection=true
    ```
+
 
 - Terraform
 
@@ -431,6 +439,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
    }
    ```
+
 
 
 {% endlist %}

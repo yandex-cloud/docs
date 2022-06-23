@@ -141,6 +141,7 @@ To configure the [resource](../../concepts/resource.md) cross-domain requests wi
       ```
 
 
+
       For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 
    1. In the command line, go to the directory with the Terraform configuration file.

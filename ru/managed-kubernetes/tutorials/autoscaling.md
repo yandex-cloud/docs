@@ -53,7 +53,7 @@
    * В блоке **Сетевые настройки**:
      * **Публичный адрес** — `Автоматически`.
      * **Группы безопасности** — `sg-k8s`, `k8s-public-services`.
-     * **Расположение** — `{{ region-id }}-a`или `{{ region-id }}-b`.
+     * **Расположение** — `{{ region-id }}-a` или `{{ region-id }}-b`.
 
 1. {% include [Настройка kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 

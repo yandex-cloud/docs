@@ -17,6 +17,7 @@ The cost of using {{ tracker-name }} is based on the number of users with full a
 
 
 {% include [usd.md](../_pricing/tracker/usd.md) %}
+
 
 {% note info %}
 
@@ -72,4 +73,4 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 > 100 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}
 > ```
 >
->
+> 

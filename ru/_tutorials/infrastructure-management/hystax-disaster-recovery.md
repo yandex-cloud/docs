@@ -45,6 +45,7 @@
 * Плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 * Плата за каждую защищаемую ВМ (см. [описание продукта](/marketplace/products/hystax/hystax-acura-disaster-recovery-3-7) в {{ marketplace-name }}).
 
+
 ## Создайте сервисный аккаунт и авторизованный ключ {#create-sa}
 
 Приложение Hystax Acura Disaster Recovery будет выполнять действия от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md):

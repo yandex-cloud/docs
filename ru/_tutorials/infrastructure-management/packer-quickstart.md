@@ -26,6 +26,7 @@ Packer создаст и запустит виртуальную машину с
 
 Оплачивается хранение созданных образов (см. [тарифы {{ compute-full-name }}](../../compute/pricing#prices-storage)).
 
+
 ## Установите Packer {#install-packer}
 
 {% note info %}
@@ -84,6 +85,7 @@ export PATH=$PATH:/path/to/packer
   ]
 }
 ```
+
 
 
 

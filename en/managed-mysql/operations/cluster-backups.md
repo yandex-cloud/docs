@@ -84,6 +84,7 @@ For a new cluster, you should set all the parameters that are required at creati
         --resource-preset {{ host-class }}
       ```
 
+
       In the `--time` parameter, specify the time point from which you want to restore the original state of the {{ MY }} cluster, in `yyyy-mm-ddThh:mm:ssZ` format.
 
       In the example above, the cluster will be restored to the state it was 10 seconds after the `c9qgo11pud7kb3cdomeg...` backup was created. This backup was selected as the starting point for recovery (the `--time 2020-08-10T12:00:10Z` parameter).
@@ -98,6 +99,7 @@ For a new cluster, you should set all the parameters that are required at creati
       * With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       * With databases and users that existed in the cluster at the time of recovery.
       * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
+
 
 - Terraform
 

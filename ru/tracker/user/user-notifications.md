@@ -7,6 +7,7 @@
 
 1. На верхней панели {{ tracker-name }} нажмите значок ![](../../_assets/tracker/tracker-settings.png) → **Настройки уведомлений** или перейдите по ссылке [https://tracker.yandex.ru/subscriptions/roles]({{ link-sub-roles }}).
 
+
 1. Выберите роль и настройте список событий, уведомления о которых хотите получать по почте или в [отчете об изменениях](notification-digest.md):
     - чтобы добавить событие, нажмите кнопку ![](../../_assets/tracker/button-plus.png);
     - чтобы удалить событие, нажмите на значок ![](../../_assets/tracker/small-x.png);
@@ -36,6 +37,7 @@
 
 
 1. На верхней панели {{ tracker-name }} нажмите значок ![](../../_assets/tracker/tracker-settings.png) → **Настройки уведомлений** или перейдите по ссылке [https://tracker.yandex.ru/subscriptions/roles]({{ link-sub-roles }}).
+
 
 1. В нижней части страницы нажмите кнопку **Добавить роль** и выберите роль. Чтобы удалить роль, нажмите на значок ![](../../_assets/tracker/remove-task-type.png) возле названия роли.
 

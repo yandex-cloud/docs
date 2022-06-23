@@ -104,6 +104,7 @@ You can add multiple nicknames and email addresses to use in different circumsta
 
 That way {{ tracker-name }} will display the sender name you've been using when communicating with a particular user in a particular issue, unless you choose otherwise.
 
+
 ## Allowing sending emails to external users {#send_outside}
 
 If you want to [send emails](../user/comments.md#send-comment) to external email addresses from the issue page, enable this feature in the queue settings:

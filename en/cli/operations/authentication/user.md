@@ -5,6 +5,7 @@ You can authenticate in the [profile creation](../profile/profile-create.md#inte
 
 1. Get an [OAuth token](../../../iam/concepts/authorization/oauth-token.md).
 
+
 1. [Create a profile](../profile/profile-create.md#create).
 1. Specify your OAuth `token` in the token parameter:
    ```
@@ -12,4 +13,5 @@ You can authenticate in the [profile creation](../profile/profile-create.md#inte
    ```
 
 The OAuth token is saved in the profile configuration for automatically authenticating.
+
 

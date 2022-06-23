@@ -75,10 +75,12 @@ editable: false
 
 
 
+
 #### Brand Voice {#brand-voice}
 
 
 {% include [rub.md](../_pricing/speechkit/rub-brand.md) %}
+
 
 
 
@@ -89,7 +91,12 @@ editable: false
 
 
 
+
 ### Распознавание речи {#prices-stt}
 
 
 {% include [rub.md](../_pricing/speechkit/rub-stt.md) %}
+
+
+
+

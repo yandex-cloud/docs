@@ -4,10 +4,11 @@
         
         * **SA Account**: Select or [create](../../iam/operations/sa/create.md) a [service account](../../iam/concepts/users/service-accounts.md) that the processing function will start under.
 
+
     * **Number of attempts**: Set the number of attempts to invoke the processing function.
     * **Buffer size to send**: Set the size of the buffer (in bytes) which when full data will be transferred to the processing function.
 
-        The maximum buffer size is 3.5 MB.For more information about restrictions that apply when working with functions in {{ sf-name }}, see the [corresponding section](../../functions/concepts/limits.md).
+        The maximum buffer size is 3.5 MB. For more information about restrictions that apply when working with functions in {{ sf-name }}, see the [corresponding section](../../functions/concepts/limits.md).
 
     * **Sending interval**: Set the duration of the interval (in seconds) after the expiration of which the data from the stream should be transferred to the processing function.
 
@@ -24,6 +25,7 @@
     Values in the **Sending interval** and **Call timeout** fields are specified with the `s` postfix, for example, `10s`.
 
     {% endnote %}
+    
 * **Conversion rules**:
 
     * **Data format**: Select one of the available formats:

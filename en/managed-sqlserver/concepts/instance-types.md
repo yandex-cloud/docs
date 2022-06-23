@@ -99,3 +99,4 @@ Configurations **m2**, **m3**, **hm2** and **hm3** can be useful for clusters wi
 | hm3-c24-m384    | 24             | 100%            | 384     |
 | hm3-c28-m448    | 28             | 100%            | 448     |
 | hm3-c32-m512    | 32             | 100%            | 512     |
+

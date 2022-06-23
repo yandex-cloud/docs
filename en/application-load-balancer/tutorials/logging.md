@@ -40,6 +40,7 @@ The support cost for a load balancer with logging includes:
 * A payment for computing resources, the amount of storage and backups for a {{ PG }} cluster (see [{{ mpg-full-name }} pricing](../../managed-postgresql/pricing.md)).
 * A payment for calling the log-processing function and allocating computing resources to the function (see [{{ sf-full-name }}](../../functions/pricing.md) pricing).
 
+
 ## Create a cloud network {#create-network}
 
 All resources you have created in the tutorial belong to the same [cloud network](../../vpc/concepts/network.md).

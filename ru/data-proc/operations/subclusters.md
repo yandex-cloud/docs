@@ -16,7 +16,21 @@
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ dataproc-name }}**.
 
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Подкластеры**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Подкластеры**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы запросить список подкластеров в кластере {{ dataproc-name }}, выполните команду:
+
+    ```bash
+    {{ yc-dp }} subcluster list --cluster-name=<имя кластера>
+    ```
+
+    Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list).
 
 {% endlist %}
 
@@ -24,8 +38,6 @@
 ## Добавить подкластер {#add-subcluster}
 
 Количество хостов в кластерах {{ dataproc-name }} ограничено [квотами]({{ link-console-quotas }}) на количество vCPU и объем памяти, которые могут использовать виртуальные машины в вашем облаке. Чтобы увидеть доступные ресурсы, откройте раздел [Квоты]({{ link-console-quotas }}) и найдите блок **Compute Cloud**.
-
-Чтобы добавить подкластер:
 
 {% list tabs %}
 
@@ -66,7 +78,42 @@
 
     1. Нажмите кнопку **Добавить подкластер**.
 
-    {{ dataproc-name }} запустит операцию создания подкластера.
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы создать подкластер:
+
+    1. Посмотрите описание команды CLI для создания подкластера:
+
+        ```bash
+        {{ yc-dp }} subcluster create --help
+        ```
+
+    1. Укажите параметры подкластера в команде создания (в примере приведены не все доступные параметры):
+
+        ```bash
+        {{ yc-dp }} subcluster create <имя подкластера> \
+           --cluster-name=<имя кластера> \
+           --role=<роль подкластера> \
+           --resource-preset=<класс хоста> \
+           --disk-type=<тип хранилища: network-ssd, network-hdd или network-ssd-nonreplicated> \
+           --disk-size=<размер хранилища в гигабайтах> \
+           --subnet-name=<имя подсети> \
+           --hosts-count=<количество хостов>
+        ```
+
+        Где:
+
+        * `--cluster-name` — имя кластера. Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list).
+        * `--role` — роль подкластера: `datanode` или `computenode`.
+        * `--resource-preset` — [класс хостов](../concepts/instance-types.md).
+        * `--disk-type` — [тип хранилища](../concepts/storage.md).
+        * `--disk-size` — размер хранилища в гигабайтах.
+        * `--subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
+        * `--hosts-count` — количество хостов подкластера. Минимальное значение — `1`, максимальное — `32`.
 
 - Terraform
 
@@ -126,11 +173,24 @@
     1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
     1. Выберите сервис **{{ dataproc-name }}** и выберите нужный кластер.
     1. Перейдите в раздел **Подкластеры**.
-    1. Нажмите значок ![image](../../_assets/options.svg) для нужного подкластера и выберите пункт **Удалить**.
+    1. Нажмите на значок ![image](../../_assets/options.svg) для нужного подкластера и выберите пункт **Удалить**.
     1. (Опционально) Укажите таймаут [декомиссии](../concepts/decommission.md).
     1. Подтвердите удаление.
 
-    {{ dataproc-name }} запустит операцию удаления подкластера.
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы удалить подкластер в кластере {{ dataproc-name }}, выполните команду:
+
+    ```bash
+    {{ yc-dp }} subcluster delete <идентификатор или имя подкластера> \
+       --cluster-name=<имя кластера>
+    ```
+
+    Идентификатор и имя подкластера можно получить со [списком подкластеров в кластере](#list-subclusters), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list).
 
 - Terraform
 

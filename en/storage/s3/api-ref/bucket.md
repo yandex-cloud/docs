@@ -14,3 +14,4 @@
 | [getBucketLogging](bucket/getBucketLogging.md) | Returns settings for logging actions with the bucket. |
 | [listObjectVersions](bucket/listObjectVersions.md) | Returns metadata for all versions of objects in the bucket. |
 
+

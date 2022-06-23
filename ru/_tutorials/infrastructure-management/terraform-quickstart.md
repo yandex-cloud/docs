@@ -29,6 +29,7 @@
 
 
 
+
 ## Установите Terraform {#install-terraform}
 
 {% include [terraform_install](../../_tutorials/terraform-install.md) %}
@@ -82,6 +83,7 @@ resource "yandex_compute_instance" "vm-1" {
   name = "terraform1"
 }
 ```
+
 
 
 {% list tabs %}

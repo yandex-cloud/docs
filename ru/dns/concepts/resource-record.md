@@ -172,6 +172,7 @@
 | example.com. | SOA | 3600 | ns.internal. mx.cloud.yandex.net. 1 10800 900 604800 86400         |
 
 
+
 Подробнее о SOA-записях см. в [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.13).
 
 

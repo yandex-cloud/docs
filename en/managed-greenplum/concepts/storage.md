@@ -11,5 +11,6 @@ In a {{ mgp-name }} cluster, the type of storage for master hosts and segment ho
 
 Local SSDs do not provide fault-tolerant storage and impact the cost of the entire cluster: a cluster with this type of storage is charged even if it is not running. Read more in the [pricing policy](../pricing).
 
+
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
 

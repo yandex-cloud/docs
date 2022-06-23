@@ -13,6 +13,7 @@ For such tasks, you can use a [message queue](https://en.wikipedia.org/wiki/Mess
 
 ![basic-design](../../_assets/data-streams/example-basic-design-usd.svg)
 
+
 To accurately calculate the balance, the message processing order is crucial. If a user first tops up their account and then makes a purchase, messages with details about these transactions must be processed by the app in the same order. Otherwise there may be an error in the business logic and the app will reject the purchase as a result of insufficient funds. There are guaranteed delivery order mechanisms, but they cannot ensure a message order within a single queue on an arbitrary data amount.
 
 {{ yds-short-name }} uses the following approach: instead of guaranteeing a message order within a queue of any size, a queue is made up of small independent partitions, where the message order is guaranteed. There can be an infinite number of such partitions within a stream. This ensures a strict sequence of even processing with unlimited scaling.
@@ -29,6 +30,7 @@ In the example below, all transactions for accounts with even IDs are passed to 
 
 
 ![yds-design](../../_assets/data-streams/example-yds-design-usd.svg)
+
 
 ## When the processing order is unimportant {#not-order}
 

@@ -29,6 +29,8 @@
 * стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-traffic)).
 * плата за публичные DNS-запросы и зоны (см. [тарифы {{ dns-full-name }}](../../dns/pricing.md)).
 
+
+
 ## Создайте публичный бакет {#create-public-bucket}
 
 Чтобы создать бакет для файлов статического сайта:
@@ -140,6 +142,7 @@ dig +short NS example.com
 ns2.yandexcloud.net.
 ns1.yandexcloud.net.
 ```
+
 
 
 ## Загрузите файлы веб-сайта {#upload-files}

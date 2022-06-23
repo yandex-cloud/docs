@@ -18,7 +18,7 @@ To prevent your program from accidentally deleting a VM, create a service accoun
 
 * You can create [keys](#sa-key) for the service account to [authenticate in {{ yandex-cloud }}](../authorization/index.md#sa) via the API, CLI, or other tools. Those keys are deleted when you delete the service account.
 
-* You can link your service account to [virtual machines](../../../compute/operations/vm-connect/auth-inside-vm.md)and [functions](../../../functions/operations/function-sa.md) that you run your program from.
+* You can link your service account to [virtual machines](../../../compute/operations/vm-connect/auth-inside-vm.md) and [functions](../../../functions/operations/function-sa.md) that you run your program from.
 
     This makes it easier to scale applications running on {{ yandex-cloud }}:
     * You don't need to edit the program code to make it run on a new VM or function. The IAM authentication token is already available from inside.

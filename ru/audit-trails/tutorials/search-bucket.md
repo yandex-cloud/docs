@@ -26,6 +26,7 @@
    ```bash
    find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select((.event_type | test("yandex\\.cloud\\.audit\\.compute\\..*Instance")) and .details.instance_id == "<идентификатор ВМ>") | .authentication'
    ```
+
 3. Чтобы найти, какие действия совершал пользователь за период времени, необходимо искать по идентификатору субъекта:
 
    ```bash

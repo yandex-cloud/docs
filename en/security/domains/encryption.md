@@ -49,7 +49,7 @@ When working with (or connecting to) {{ yandex-cloud }} APIs, make sure to use T
 - [{{vpc-name}} (VPC)](#vpc)
 
 - [{{api-gw-full-name}}](#api-gw)
-- [{{cdn-full-name}}](#cdn)
+- [{{cdn-full-name}}](#cdn)
 
 ### {{objstorage-full-name}} {#storage-in-transit}
 
@@ -72,7 +72,7 @@ Possible options for using encrypted communication channels are described in [{#
 Please note that [{{interconnect-full-name}}](../../interconnect/index.yaml) does not provide built-in encryption mechanisms. Be sure to enable encryption in transit on your own by:
 - Installing in the cloud VPN gateways with encryption enabled, such as VMs based on Check Point images from [{{ marketplace-full-name }}](/marketplace?categories=network). 
 - Using application-level encryption.
-- Using [GOST VPN](network.md#gost-vpn).
+- Using [GOST VPN](network.md#gost-vpn).
 
 
 ### {{api-gw-full-name}} {#api-gw}
@@ -82,6 +82,7 @@ Please note that [{{interconnect-full-name}}](../../interconnect/index.yaml) doe
 ### {{cdn-full-name}} {#cdn}
 
 [{{cdn-full-name}}](../../cdn/index.yaml) supports secure connections over HTTPS. You can upload your own security certificate to access your [CDN resource](../../cdn/concepts/resource.md) over HTTPS.
+
 ## Providing encryption on your own
 
 When using services with no built-in encryption, it's the customer's responsibility to ensure that critical data is encrypted.
@@ -92,6 +93,7 @@ When using services with no built-in encryption, it's the customer's responsibil
 If disk encryption is mandatory under regulatory requirements, place your application files on a VM's secondary disk (not the boot disk) and configure full disk encryption for it.
 
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: VM disk encryption using {{ kms-short-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
+
 ### Managed Services for Databases
 
 If data encryption is mandatory under regulatory requirements, make sure to encrypt data at the application level prior to writing it to a database, for example, using {{ kms-short-name }}.
@@ -114,7 +116,7 @@ For a comparison of libraries, see the {{ kms-short-name }} documentation, [{#T}
 
 We recommend that you use [{{ kms-full-name }}](../../kms/index.yaml) for encrypting data and managing keys. {{ kms-short-name }} helps you protect data in the {{ yandex-cloud }} infrastructure. You can also use it to encrypt or decrypt any of your data.
 
-{{ kms-short-name }} uses AES-GCM encryption mode. You can select the key length (128, 192, or 256 bits) and set up the preferred key rotation period.You can also create a key whose every cryptographic operation will only be handled inside a hardware security module (HSM). For more information, see [{#T}](../../kms/concepts/hsm.md).
+{{ kms-short-name }} uses AES-GCM encryption mode. You can select the key length (128, 192, or 256 bits) and set up the preferred key rotation period. You can also create a key whose every cryptographic operation will only be handled inside a hardware security module (HSM). For more information, see [{#T}](../../kms/concepts/hsm.md).
 
 ### Authentication and authorization in {{ kms-short-name }}
 
@@ -161,7 +163,7 @@ For instructions on how to use the service, see the Lockbox [documentation](../.
 [Vault](https://www.vaultproject.io/) lets you use {{ kms-short-name }} as a trusted service for encrypting secrets. This is implemented through the [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal) mechanism.
 
 
-To store secrets with Vault, you can use a VM based on an image from [{{ marketplace-full-name }}](/marketplace/products/yc/vault-yckms) with a pre-installed HashiCorp Vault build and Auto Unseal support. Instructions for setting up Auto Unseal are provided in the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/vault-secret.md).
+To store secrets with Vault, you can use a VM based on an image from [{{ marketplace-full-name }}](/marketplace/products/yc/vault-yckms) with a pre-installed HashiCorp Vault build and Auto Unseal support. Instructions for setting up Auto Unseal are provided in the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/vault-secret.md).
 
 ### Secrets in Kubernetes {#k8s-secrets}
 
@@ -176,7 +178,7 @@ To store secrets, such as passwords, OAuth tokens, and SSH keys, use one of the 
    See the instructions in the {{ lockbox-name }} documentation, [{#T}](../../lockbox/tutorials/kubernetes-lockbox-secrets.md).
 
 
-- HashiCorp Vault with {{ kms-short-name }} support from [{{ marketplace-full-name }}](/marketplace/products/yc/vault-yckms).
+- HashiCorp Vault with {{ kms-short-name }} support from [{{ marketplace-full-name }}](/marketplace/products/yc/vault-yckms).
 
 ### Transferring secrets to a VM using Terraform and {{ kms-short-name }}
 
@@ -184,4 +186,5 @@ To store secrets, such as passwords, OAuth tokens, and SSH keys, use one of the 
 
 
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: Encrypting secrets in Terraform to transfer them to a VM from a Container Optimized Image](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/terraform%2BKMS%2BCOI)
+
 For other recommendations on how to use Terraform safely, see [Secure configuration: Terraform](secure-config.md#terraform).

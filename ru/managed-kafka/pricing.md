@@ -45,6 +45,7 @@ editable: false
 
     {% include [Dedicated hosts prices](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
+
 {% note warning %}
 
 При создании кластера с 2 и более хостами-брокерами {{ KF }} автоматически создается 3 хоста {{ ZK }} минимального класса в трех зонах доступности, которые обеспечивают репликацию и отказоустойчивость кластера. При создании кластера с 1 хостом-брокером хосты {{ ZK }} не создаются.
@@ -81,6 +82,7 @@ editable: false
 
     Общая стоимость кластера в месяц (хосты и хранилище): `720 × 18,36 ₽ + 100 × 2,2881 ₽ = 13 448,01 ₽`
 
+
 {% endlist %}
 
 
@@ -88,6 +90,7 @@ editable: false
 
 
 Все цены указаны с включением НДС.
+
 
 Цены на хосты [вычисляются по-разному](#rules-hosts-uptime) в зависимости от выбранного типа хостов.
 
@@ -99,14 +102,15 @@ editable: false
 
 * Стандартные хосты
 
-    {% include notitle [RUB: standard broker hosts](../_pricing/managed-kafka/rub-hosts-standard.md) %}
+     {% include notitle [RUB: standard broker hosts](../_pricing/managed-kafka/rub-hosts-standard.md) %}
 
 
 * Выделенные хосты
 
     {% include [Цена на выделенные хосты](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
-    {% include notitle [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-dedicated.md) %}
+     {% include notitle [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-dedicated.md) %}
+    
 
 {% endlist %}
 
@@ -122,7 +126,7 @@ editable: false
 
 * Стандартные хосты
 
-    {% include notitle [RUB: standard ZooKeeper hosts](../_pricing/managed-kafka/rub-hosts-zk-standard.md) %}
+     {% include notitle [RUB: standard ZooKeeper hosts](../_pricing/managed-kafka/rub-hosts-zk-standard.md) %}
 
 
 * Выделенные хосты
@@ -131,13 +135,19 @@ editable: false
 
     Уточняйте стоимость в [технической поддержке]({{ link-console-support }}).
 
+
+
 {% endlist %}
 
 ### Хранилище {#prices-storage}
 
-{% include notitle [RUB: Storage prices](../_pricing/managed-kafka/rub-storage.md) %}
+ {% include notitle [RUB: Storage prices](../_pricing/managed-kafka/rub-storage.md) %}
 
 ### Исходящий трафик {#prices-traffic}
 
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
+
+
+

@@ -21,10 +21,12 @@ This section is about prompt blocks and parameters:
 
 - [Teams](teams.md)
 
+
 - [Short text](short-text.md)
 
 
 - [People](people.md)
+
 
 - [Multiple choice](multiple.md)
 
@@ -33,6 +35,7 @@ This section is about prompt blocks and parameters:
 
 
 - [Departments](departments.md)
+
 
 - [Rate on a scale](rating.md)
 

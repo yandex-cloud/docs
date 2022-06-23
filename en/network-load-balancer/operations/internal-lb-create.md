@@ -88,6 +88,7 @@ The internal load balancer's listener is assigned a random IP address from the r
       ```
 
 
+
       For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
 
    1. Make sure that the configuration files are correct.
@@ -195,6 +196,7 @@ The internal load balancer's listener is assigned a random IP address from the r
       | b7rv80bfibkph3ekqqle | test-internal-tg | 2020-08-09 07:49:18 | {{ region-id }} |            3 |
       +----------------------+------------------+---------------------+-------------+--------------+
       ```
+
 
 
    1. Run the command using the target group ID in the `target-group-id` parameter:

@@ -132,7 +132,7 @@
   * `--levels` для поиска записей с указанными уровнями логирования;
   * `--filter` для фильтрации записей.
 
-  Подробнее о возможных значениях новых параметров см. в разделе [{#T}](../logging/concepts/filter.md).
+  Подробнее о возможных значениях новых параметров см. в разделе [{#T}](../logging/concepts/filter.md). 
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
@@ -224,7 +224,7 @@
 
 #### Изменения в CLI {#cli}
 
-* Добавлена возможность передачи [IAM-токена](../iam/concepts/authorization/iam-token.md) через переменную окружения `YC_IAM_TOKEN`.
+* Добавлена возможность передачи  [IAM-токена](../iam/concepts/authorization/iam-token.md)  через переменную окружения `YC_IAM_TOKEN`.
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -559,7 +559,7 @@
 
 {{ org-name }} — это решение для корпоративных клиентов, с помощью которого можно подключить к вашей организации сервисы {{ yandex-cloud }} и управлять доступом сотрудников к этим сервисам.
 
-Сервис {{ org-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md).Подробнее про сервис читайте в [документации](../organization/).
+Сервис {{ org-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее про сервис читайте в [документации](../organization/).
 
 ##### {{ sf-name }} {#serverless-functions}
 
@@ -577,7 +577,7 @@
 
 {{ cloud-logging-name }} — сервис для чтения и записи логов сервисов и пользовательских приложений.
 
-Сервис {{ cloud-logging-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md).Подробнее о сервисе читайте в [документации](../logging/).
+Сервис {{ cloud-logging-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее о сервисе читайте в [документации](../logging/).
 
 #### {{ sf-name }} {#serverless-functions}
 
@@ -1064,7 +1064,7 @@
 
 Сертификаты можно использовать в сервисах {{ yandex-cloud }} для обеспечения безопасности соединений.
 
-Сервис {{ certificate-manager-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md).Подробнее про сервис читайте в [документации](../certificate-manager/).
+Сервис {{ certificate-manager-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее про сервис читайте в [документации](../certificate-manager/).
 
 ### Версия 0.63.0 (28.08.20) {#version0.63.0}
 
@@ -1132,6 +1132,7 @@
   
   Добавлен флаг `--coi-spec-file` для передачи [спецификации образа](../cos/concepts/coi-specifications.md#coi-spec-example).
 
+
 ##### {{ vpc-name }} {#vpc}
 
 * Команды `yc vpc subnet create` и `yc vpc subnet update`.
@@ -1176,7 +1177,7 @@
 
 {{ api-gw-name }} — сервис для управления API-шлюзами, поддерживающий спецификацию [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) и набор расширений для взаимодействия с другими облачными сервисами.
 
-Сервис {{ api-gw-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md).Подробнее о сервисе читайте в [документации](../api-gateway/).
+Сервис {{ api-gw-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее о сервисе читайте в [документации](../api-gateway/).
 
 #### {{ iam-name }} {#iam}
 
@@ -1482,7 +1483,7 @@
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-* Для [ресурсов, на которые можно назначать роли](../iam/concepts/access-control/resources-with-access-control.md).
+* Для [ресурсов, на которые можно назначать роли](../iam/concepts/access-control/resources-with-access-control.md). 
 
   Добавлены альтернативы флагу `--subject` для команд управления ролями: `--service-account-id`, `--service-account-name`, `--user-account-id`, `--user-yandex-login` и `--all-authenticated-users`.
 
@@ -1516,7 +1517,7 @@
 
 Используйте ключи, чтобы защитить секреты, личные данные и другую конфиденциальную информацию, которую вы храните в облаке.
 
-Сервис {{ kms-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md).Подробнее про сервис читайте в [документации](../kms/).
+Сервис {{ kms-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее про сервис читайте в [документации](../kms/).
 
 ### Версия 0.48.0 (27.12.19) {#version0.48.0}
 
@@ -1576,6 +1577,7 @@
 
 * Добавлена возможность [аутентификации с помощью федерации](operations/authentication/federated-user.md) при вызове `yc` в неинтерактивном режиме. Этот режим используется, когда CLI запускается пользователем не напрямую, например в скрипте или в `kubectl` при работе с [кластером {{ k8s }}](../managed-kubernetes/concepts/index.md#kubernetes-cluster) в {{ managed-k8s-full-name }}.
 
+
 ### Версия 0.46.0 (13.12.19) {#version0.46.0}
 
 #### Изменения в CLI {#cli}
@@ -1584,6 +1586,7 @@
 
 
 * Для ускорения диагностики проблем авторизации, в журнал отладки запроса пишется CRC32 отправляемого [IAM-токена](../iam/concepts/authorization/iam-token.md).
+
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -1638,6 +1641,7 @@
 
 * Для Windows Subsystem for Linux (WSL) при авторизации в CLI с помощью [SAML-совместимых федераций удостоверений](../organization/add-federation.md) теперь корректно происходит переход в браузер.
 
+
 ### Версия 0.43.0 (11.11.19) {#version0.43.0}
 
 
@@ -1647,12 +1651,14 @@
 
   Для этого выполните команду `yc init --federation-id=<FEDERATION_ID>`, после чего можно использовать CLI для работы от имени пользователя этой федерации.
 
+
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ compute-name }} {#compute}
 
 
 * Добавлены подробности в лог и в текст об ошибке при [авторизации изнутри ВМ](../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) (с помощью IAM-токена из метаданных).
+
 
 #### Изменения в сервисах управляемых баз данных {#managed-db}
 

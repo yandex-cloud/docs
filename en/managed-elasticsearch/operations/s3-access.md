@@ -16,6 +16,7 @@ To access {{ objstorage-name }} bucket data from a cluster:
 
 1. Make sure that this account has the [role of](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor` assigned.
 
+
 ## Setting up access rights {#configure-acl}
 
 {% list tabs %}
@@ -24,6 +25,7 @@ To access {{ objstorage-name }} bucket data from a cluster:
 
     
     1. In the [management console]({{ link-console-main }}), select the folder where the desired bucket is stored. If there is no bucket, [create one](../../storage/operations/buckets/create.md).
+
     
     1. Select **{{ objstorage-name }}**.
     1. Go to the **Buckets** tab.

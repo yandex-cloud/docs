@@ -67,6 +67,7 @@ The number of hosts in {{ mrd-short-name }} clusters is limited by the CPU and R
          
       * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
 
+
       * If you add a host to a sharded cluster, select a shard.
 
 - CLI
@@ -98,6 +99,7 @@ The number of hosts in {{ mrd-short-name }} clusters is limited by the CPU and R
 
       
       If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
+
 
 
    1. View a description of the CLI command for adding a host:

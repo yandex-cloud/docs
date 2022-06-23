@@ -7,6 +7,7 @@ You can only set up integration with {{ tracker-short-name }} in [{{ forms-full-
 
 {% endnote %}
 
+
 You can integrate your form with [{{ tracker-short-name }}]({{link-tracker}}) to automatically create tasks when users submit responses. User responses are sent from the form to {{ tracker-short-name }}, where a task is created based on them. For example, these forms are useful for accepting service requests or collecting error messages. To learn more about tasks, go to [{{ tracker-full-name }} Help](../tracker/user/create-ticket.md).
 
 ## Set up task creation in {{ tracker-short-name }} {#setup}

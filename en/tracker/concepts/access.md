@@ -18,6 +18,7 @@ In requests to the {{ api-short-name }} API, specify the following headers:
 - `X-Org-ID: <organization ID>`
 
    To find out the organization ID, go to the [{{ tracker-name }} settings page]({{ link-settings }}). The ID is shown in **Organization ID for API**.
+
 
 ## Get access to the API over the OAuth 2.0 protocol {#section_about_OAauth}
 
@@ -57,6 +58,7 @@ To get access to {{ api-name }}:
      If your application is still in development, you can access {{ tracker-name }} by receiving the [debug token]({{ link-oauth-token }}) manually as a test user.
 
      {% endnote %}
+
 
 1. To check if you have access to the API, [request information about the current user](../get-user-info.md).
 If no access permission is granted, you'll get a response with code `401 Unauthorized`.
@@ -129,6 +131,7 @@ The IAM token is valid for no more than {{iam-token-lifetime}} and is limited by
     ```
     yc iam create-token
     ```
+
 
 ## Python client {#section_about_python_client}
 
@@ -145,6 +148,7 @@ To start using the client:
     ```
     pip install yandex_tracker_client
     ```
+
 
 
 
@@ -162,4 +166,5 @@ To start using the client:
 In the client, use the same data format as in the {{ tracker-name }} API.
 
 For more information about how the client works and its terms of use, see its GitHub page: [https://github.com/yandex/yandex_tracker_client](https://github.com/yandex/yandex_tracker_client).
+
 

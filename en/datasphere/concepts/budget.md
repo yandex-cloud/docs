@@ -7,6 +7,7 @@ There are several ways to control computing costs.
 1. You can set up consumption thresholds for a folder or project in {{ ml-platform-name }}. Once the consumption threshold is exceeded, all computations in the given project or all projects in the folder stop. Consumption thresholds for a project or folder are set in [billing units](../pricing.md#unit).
 
 
+
 As consumption thresholds, you can use:
 
 * Balance (`unit_balance`): The total number of units available for the project or folder. Each execution of a cell will reduce the balance by the number of units that is needed to perform one second of computations in the selected [configuration](../concepts/configurations.md). You can run cells as long as the balance is positive. If the balance drops below or equals zero during computations in one of the cells, all running computations are stopped and a warning saying that the project balance is insufficient is shown.

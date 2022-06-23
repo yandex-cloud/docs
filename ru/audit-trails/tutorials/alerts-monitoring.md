@@ -1,6 +1,6 @@
 # Настройка алертов в {{ monitoring-full-name }}
 
-Подробная информация о порядке [создания алерта](../../monitoring/operations/alert/create-alert.md) и о [параметрах алерта](../../monitoring/concepts/alerting.md) приведена в документации {{ monitoring-full-name }}.
+ Подробная информация о порядке [создания алерта](../../monitoring/operations/alert/create-alert.md) и о [параметрах алерта](../../monitoring/concepts/alerting.md) приведена в документации {{ monitoring-full-name }}.
 
 ## Перед началом работы {#before-you-begin}
 

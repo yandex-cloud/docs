@@ -31,6 +31,7 @@ The most popular issue statuses are available in {{ tracker-name }} by default. 
 
 1. Fill in the fields and click **Create**.
 
+
 ## Adding a status in a workflow {#section_dcl_jdv_vbb}
 
 1. Select the workflow and click ![](../../_assets/tracker/button-edit.png).
@@ -48,6 +49,7 @@ The most popular issue statuses are available in {{ tracker-name }} by default. 
 
    
    The most popular statuses are available in {{ tracker-name }} by default. If you don't see the status you need, your company's admin can [create one](#create-status).
+
 
 1. Click **Save**.
 

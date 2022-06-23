@@ -13,6 +13,7 @@ Local SSD storage doesn't provide fault tolerance for a single-host cluster: if 
 
 {% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
 
+
 ## Minimum storage size {#minimal-storage-size}
 
 Each [topic](topics.md#topics) requires space in broker host storage to function. The amount of such space depends on the replication factor and the number of [partitions](./topics.md#partitions). If there is less available storage space, you cannot create a new topic.

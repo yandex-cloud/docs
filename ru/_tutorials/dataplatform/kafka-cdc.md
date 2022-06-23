@@ -17,18 +17,21 @@
 
 1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) для Debezium с Ubuntu 20.04 и публичным IP-адресом.
 
+
 1. Настройте группы безопасности так, чтобы к кластерам можно было подключиться из созданной виртуальной машины:
 
     * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups);
     * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
 
 1. [Подключитесь к виртуальной машине](../../compute/operations/vm-connect/ssh.md#vm-connect) по SSH и установите зависимости:
+
     ```bash
     sudo apt update && \
     sudo apt install -y git docker.io kafkacat postgresql-client
     ```
 
 1. [Подключитесь к виртуальной машине](../../compute/operations/vm-connect/ssh.md#vm-connect) по SSH и проверьте, что доступны кластеры:
+
     * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#connection-string) (используйте утилиту `psql`);
     * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#connection-string) (используйте утилиту `kafkacat`).
 
@@ -84,6 +87,7 @@
 ## Настройте Debezium {#setup-debezium}
 
 1. [Подключитесь к виртуальной машине](../../compute/operations/vm-connect/ssh.md#vm-connect) по SSH.
+
 
 1. Склонируйте репозиторий:
 
@@ -295,6 +299,7 @@
 1. [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
 
 1. Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
+
 
 1. Удалите кластеры:
 

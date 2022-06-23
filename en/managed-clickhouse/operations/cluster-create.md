@@ -23,6 +23,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
    
    These hosts are taken into account when calculating the consumed cloud [resource quota]({{ link-console-quotas }}) and cluster [cost](../pricing.md#prices-zookeeper).
 
+
    {% endnote %}
 
 ## How to create a {{ CH }} cluster {#create-cluster}
@@ -51,6 +52,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       * Select the [storage type](../concepts/storage.md).
 
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+
 
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
@@ -98,6 +100,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
+
    1. View a description of the CLI's create cluster command:
 
       ```bash
@@ -123,9 +126,11 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
         --yandexquery-access=<access via {{ yq-full-name }}: true or false> \
         --deletion-protection=<cluster deletion protection: true or false>
       ```
+      
 
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
+
 
       {% include [Limitations of Deletion protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -160,6 +165,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       
       1. To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the `--serverless-access` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
+
 
       1. To enable [{{ CK }}](../concepts/replication.md#ck) in a cluster:
 
@@ -275,6 +281,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
          ```
 
 
+
       You can manager cluster users and databases via SQL.
 
       {% include notitle [SQL Management can't be switched off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
@@ -332,6 +339,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       If only some availability zones in the cluster's network have subnets, explicitly specify the {{ ZK }} host settings.
 
+
 {% endlist %}
 
 {% note warning %}
@@ -364,6 +372,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With one database, `db1`.
    * Protection against accidental cluster deletion.
 
+
    Run the command:
 
    
@@ -383,6 +392,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       --security-group-ids {{ security-group }} \
       --deletion-protection=true
    ```
+
 
 - {{ TF }}
 

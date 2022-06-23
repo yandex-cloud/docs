@@ -22,6 +22,7 @@ reclaimPolicy: Delete
 ```
 
 
+
 ## Создайте объект PersistentVolumeClaim {#create-pvc}
 
 1. Сохраните следующую спецификацию для [создания объекта PersistentVolumeClaim](dynamic-create-pv.md) в YAML-файл с названием `pvc-expansion.yaml`.
@@ -42,6 +43,7 @@ reclaimPolicy: Delete
        requests:
          storage: 1Gi
    ```
+
 
 
 1. Создайте объект `PersistentVolumeClaim`:

@@ -76,7 +76,9 @@ All prices are shown without VAT.
 
 
 
+
 {% include [usd-pricing.md](../../_pricing/managed-sqlserver/usd-pricing.md) %}
+
 
 ### Outgoing traffic {#prices-traffic}
 
@@ -84,3 +86,4 @@ All prices are shown without VAT.
 
 
 {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
+

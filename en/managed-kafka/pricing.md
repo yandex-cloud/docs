@@ -45,6 +45,7 @@ There are different ways to calculate the cost depending on the [host type](./co
 
    {% include [Dedicated hosts prices](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
+
 {% note warning %}
 
 When you create a cluster with two or more {{ KF }} broker hosts, three {{ ZK }} hosts with the minimal host class are created automatically in three availability zones to provide replication and fault tolerance for the cluster. If you create a cluster with a single broker host, no {{ ZK }} hosts are created.
@@ -73,6 +74,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 All prices are shown without VAT.
 
+
 Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
 
 The cost of fast local storage also depends on the type of hosts.
@@ -91,6 +93,7 @@ The cost of fast local storage also depends on the type of hosts.
    {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
    {% include notitle [USD: dedicated broker hosts](../_pricing/managed-kafka/usd-hosts-dedicated.md) %}
+
 
 {% endlist %}
 
@@ -115,6 +118,8 @@ You can't order {{ ZK }} host resources using a CVoS.
 
    Verify the cost with [technical support]({{ link-console-support }}).
 
+
+
 {% endlist %}
 
 ### Storage {#prices-storage}
@@ -127,3 +132,5 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+

@@ -28,6 +28,7 @@
 * Хранение созданных Docker-образов (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
 * Использование [мастера {{ k8s }}](../../managed-kubernetes/concepts/index.md#master) (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
 
+
 ### Установите дополнительные зависимости {#prepare}
 
 Для выполнения сценария установите в локальном окружении:

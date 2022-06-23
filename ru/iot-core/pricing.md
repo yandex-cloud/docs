@@ -39,3 +39,4 @@ editable: false
 {% include [rub.md](../_pricing/iot-core/rub.md) %}
    
    
+   

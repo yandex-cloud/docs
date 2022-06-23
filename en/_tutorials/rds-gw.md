@@ -17,6 +17,7 @@ The cost of installing RDGW includes:
 * A fee for using dynamic or static public IP addresses (see [pricing for {{ vpc-full-name }}](../vpc/pricing.md)).
 * The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [pricing for {{ compute-full-name }}](../compute/pricing.md)).
 
+
 ## Create a cloud network and subnets {#create-network}
 
 Create a cloud network named `rdgw-network` with a subnet in the availability zone where your VMs will be located.

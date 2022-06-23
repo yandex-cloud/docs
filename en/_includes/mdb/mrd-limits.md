@@ -24,3 +24,4 @@
 | Amount of data on the host when using local SSD storage<sup>*</sup> | Twice the amount of RAM selected, but no less than 100 GB | 1500 GB |
 
 {% include [storage-limitations-mrd](./mrd/storage-limitations-note.md) %}
+

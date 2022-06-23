@@ -7,10 +7,12 @@
 
 Прерываемые виртуальные машины доступны по [более низкой цене](../pricing.md#prices-instance-resources) в сравнении с обычными, однако не обеспечивают отказоустойчивости.
 
+
 Вы можете [создать](../operations/vm-create/create-preemptible-vm.md#create-preemptible) прерываемую ВМ или [сменить тип](../operations/vm-create/create-preemptible-vm.md#preemptible-to-regular) существующей.
 
 
 Тарификация виртуальной машины после этого изменится. Подробнее о [правилах тарификации](../pricing.md).
+
 
 ## Ограничения {#restrictions}
 

@@ -24,6 +24,7 @@ The grant terms of use remain in effect when you upgrade:
    | Bank transfer | The remainder of the grant can be used to pay for any {{ yandex-cloud }} services. |
    | Bank card | The remainder of [part](usage-grant.md) of the grant can only be used to pay for its intended service or services. |
 
+
 {% endlist %}
 
 ## Paying for services

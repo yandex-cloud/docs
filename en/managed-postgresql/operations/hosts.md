@@ -36,6 +36,7 @@ You can add and remove cluster hosts and manage their settings.
    +----------------------------+--------------+---------+--------+---------------+
    ```
 
+
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 
@@ -74,6 +75,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
       - Replication source (if you use [cascading replication](../concepts/replication.md#replication-manual)).
       - Select **Public access** if the host must be accessible from outside {{ yandex-cloud }}.
 
+
 - CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
@@ -100,6 +102,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
       If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
+
    1. View a description of the CLI command for adding a host:
 
       ```
@@ -115,8 +118,10 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
            --host zone-id=<availability zone>,subnet-id=<subnet ID>
       ```
 
+
       
       The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mpg-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
 
       You can also specify several additional options in the `--host` parameter to manage public access to a host and replication in a cluster:
       - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).

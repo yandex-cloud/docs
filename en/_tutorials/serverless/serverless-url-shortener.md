@@ -30,6 +30,7 @@ The cost of resources for the script includes:
 * A fee for function calls (see [{{sf-full-name}} pricing](../../functions/pricing.md)).
 * A fee for requests to the API gateway (see [{{api-gw-full-name}} pricing](../../api-gateway/pricing.md)).
 
+
 ## Set up hosting for the URL shortener page {#object-storage}
 
 To create a bucket to place the HTML page of your service in and configure it for hosting static websites:

@@ -95,6 +95,7 @@ To prepare the virtual machine to restore the dump:
 
 1. In the management console, [create a new VM](../../compute/operations/vm-create/create-linux-vm.md) from an Ubuntu 20.04 LTS image. The required amount of RAM and processor cores depends on the amount of data to migrate and the required migration speed.
 
+
     The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice the size of the database).
 
     The virtual machine must be in the same network and availability zone as the {{ mmg-name }} cluster master host. The VM must be also assigned an external IP address so that you can upload the dump file from outside {{ yandex-cloud }}.

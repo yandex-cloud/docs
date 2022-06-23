@@ -17,7 +17,7 @@ To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, foll
 
 1. Configure the DNS server.
 
-   In this scenario's examples, the DNS server has the address `10.129.0.3`, the name `ns.example.com`, and serves a zone called `example.com`. Your DNS servers can be part of {{ vpc-name }} or be accessible via a VPNor {{ interconnect-name }}. IP connectivity between the {{ k8s }} cluster nodes and the DNS servers is required.
+   In this scenario's examples, the DNS server has the address `10.129.0.3`, the name `ns.example.com`, and serves a zone called `example.com`. Your DNS servers can be part of {{ vpc-name }} or be accessible via a VPN or {{ interconnect-name }}. IP connectivity between the {{ k8s }} cluster nodes and the DNS servers is required.
 
 1. Create a {{ k8s }} cluster and a group of nodes.
 

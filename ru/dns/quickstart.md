@@ -177,3 +177,4 @@ Aliases:
 www.example.com has address <публичный IP-адрес ВМ test-vm-1>
 ```
 
+

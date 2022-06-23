@@ -10,6 +10,7 @@ description: "Доступ к платежному аккаунту предос
 
 {% include [yandex-account](../_includes/yandex-account.md) %}
 
+
 ## Доступ к платежному аккаунту {#billing-account}
 
 Доступ к [платежному аккаунту](../concepts/billing-account.md) предоставляется через сервис Биллинг. Операции, которые пользователь может выполнять над платежным аккаунтом, определяются назначенной ему ролью. 
@@ -69,6 +70,7 @@ description: "Доступ к платежному аккаунту предос
 Создание экспорта детализации | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 Создание бюджета | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 Просмотр и получение уведомлений о потреблении | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+
 
 
 ## Добавление пользователя {#set-member-role}

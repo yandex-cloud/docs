@@ -29,6 +29,7 @@ Since projects run on different {{ yandex-cloud }} platforms with different comp
 **g2.8** (available upon request to technical support) | 224 | 8 | 952
 
 
+
 #### See also {#see-also}
 
 * [{#T}](../operations/projects/control-compute-resources.md)

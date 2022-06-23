@@ -31,6 +31,7 @@ The cost of the infrastructure includes:
 * A fee for using public IP addresses and outgoing traffic from VMs (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * A fee for queue requests (see [{{ message-queue-name }} pricing](../../message-queue/pricing.md)).
 
+
 ## Prepare the environment {#prepare}
 
 ### Create auxiliary {{ yandex-cloud }} resources {#create-aux-resources}

@@ -33,6 +33,7 @@ Turn on this option to suggest response options from a directory when the user e
 
 - **Department**, **Team**, **User**: Users or divisions from the organization's address book in [{{ org-full-name }}]({{ link-org-main }}).
 
+
 - **Address**, **Cities**, **Countries**: Hints from the address directory.
 
 - **Email addresses**: The user's email address.

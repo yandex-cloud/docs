@@ -22,3 +22,4 @@
 | Amount of data on the host when using local SSD storage (for the Intel Cascade Lake) | 100 GB | 1500 GB |
 | Amount of data on the host when using local SSD storage (for Intel Ice Lake) | {{ local-ssd-v3-step }} | {{ local-ssd-v3-max }} |
 
+

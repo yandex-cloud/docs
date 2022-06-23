@@ -76,7 +76,9 @@ editable: false
 Все цены указаны с включением НДС.
 
 
+
 {% include [rub-pricing.md](../../_pricing/managed-sqlserver/rub-pricing.md) %}
+
 
 
 
@@ -84,6 +86,7 @@ editable: false
 
 
 {% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %}
+
 
 
 
@@ -291,3 +294,4 @@ editable: false
     Итоговая стоимость кластера: `879 471,00 ₽ + 22 498,56 ₽ + 457,62 ₽ = 902 427,18 ₽`
 
 {% endlist %}
+

@@ -16,7 +16,7 @@ Creating an instance from a public [DSVM](/marketplace/products/f2e4v304qn35mhil
 
       * Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in.
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **DSVM** [image](../operations/images-with-pre-installed-software/get-list.md).
-   1. (optional) Under **Diskand file storage**, click the **Disks** tab and configure a boot disk:
+   1. (optional) Under **Disk and file storage**, click the **Disks** tab and configure a boot disk:
       * Select the [disk type](../concepts/disk.md#disks_types).
       * Specify the necessary disk size.
             1. (optional) Under **Disks and file storage**, click the **File storage** tab, and connect a [file store](../concepts/filesystem.md). [Create](../operations/filesystem/create.md) the storages first.

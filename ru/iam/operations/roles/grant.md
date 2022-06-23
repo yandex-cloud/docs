@@ -9,6 +9,7 @@
 В этом разделе описывается, как назначить роль пользователю с аккаунтом на Яндексе. В примерах ниже описано, как назначить роль [сервисному аккаунту](#access-to-sa), [пользователю федерации](#access-to-federated-user) или [всем пользователям сразу](#access-to-all).
 
 
+
 {% list tabs %}
 
 - Консоль управления
@@ -48,6 +49,7 @@
         --role <role-id> \
         --subject userAccount:<user-account-id>
       ```
+
       Где:
 
       * `<service-name>` — имя сервиса, на чей ресурс назначается роль, например `resource-manager`.
@@ -65,11 +67,13 @@
         --subject userAccount:aje6o61dvog2h6g9a33s
       ```
 
+
       ```bash
       yc resource-manager cloud add-access-binding mycloud \
         --role viewer \
         --subject federatedUser:aje6o61dvog2h6g9a33s
       ```
+
 - API
 
   Воспользуйтесь методом `updateAccessBindings` для соответствующего ресурса.
@@ -94,6 +98,7 @@
           ]
       }
       ```
+
   1. {% include [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md) %}
 
   Вы можете ознакомиться с подробной инструкцией назначения роли для соответствующего ресурса:
@@ -121,6 +126,7 @@
          ]
        }
        ```
+
 
        Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding`, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_iam_binding).
 
@@ -194,6 +200,7 @@
         --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
         --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
       ```
+
 - API
 
   1. Чтобы назначить одному пользователю роль `editor`, а другому `viewer`, в файл с телом запроса добавьте несколько привязок прав доступа в `accessBindingDeltas`.
@@ -222,6 +229,7 @@
           }]
       }
       ```
+
   1. Назначьте указанные роли, например на каталог с идентификатором `b1gvmob95yysaplct532`:
 
       {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
@@ -248,6 +256,7 @@
           }]
       }
       ```
+
   2. Назначьте роли:
 
       ```bash
@@ -278,6 +287,7 @@
 - Консоль управления
 
   Назначение роли происходит так же, как назначение роли пользователю с аккаунтом на Яндексе. Рядом с именем пользователя будет указано имя федерации, к которой он относится.
+
   В консоли управления можно назначить роль только на облако или каталог:
 
   1. Назначьте пользователю роль в облаке:
@@ -299,6 +309,7 @@
       1. Нажмите **Сохранить**.
 
 {% endlist %}
+
 ### Доступ к ресурсу всем пользователям {#access-to-all}
 
 {% include [grant-role-for-all](../../../_includes/iam/grant-role-for-all.md) %}

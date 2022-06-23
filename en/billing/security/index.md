@@ -10,6 +10,7 @@ description: "Access to a billing account is provided through the Billing servic
 
 {% include [yandex-account](../_includes/yandex-account.md) %}
 
+
 ## Billing account access {#billing-account}
 
 [Billing account](../concepts/billing-account.md) access is provided through the Billing service. The operations that a user can perform on a billing account are determined by the role assigned to them.
@@ -69,6 +70,7 @@ A list of operations available to each role is given in the table below.
 | Create details export | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Create budget | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Viewing and receiving usage notifications | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+
 
 
 ## Adding a user {#set-member-role}

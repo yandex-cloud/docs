@@ -161,4 +161,5 @@ Write down your ideas and make notes right on the dashboard. You can enter notes
 ![image](../../_assets/tracker/widgets/invite-form.png)
 
 Invite your employees to {{ tracker-name }} using a widget. To log in, they need a Yandex account. The employees you invited can use {{ tracker-name }} for free in [<q>Read only</q>](../access.md#readonly) mode.
+
 

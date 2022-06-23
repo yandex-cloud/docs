@@ -17,3 +17,4 @@ Billable service costs are calculated based on the resources consumed and time u
 
 For more information about {{ yandex-cloud }} pricing as well as pricing rules for all services, see the [Pricing](https://cloud.yandex.ru/prices) page.
 
+

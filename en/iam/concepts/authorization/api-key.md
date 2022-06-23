@@ -24,6 +24,7 @@ Authorization: Api-Key <API key>
 * [{{ translate-name }}](../../../translate/api-ref/authentication.md)
 * [{{ vision-name }}](../../../vision/api-ref/authentication.md)
 
+
 #### See also {#see-also}
 
 * [How to create an API key](../../operations/api-key/create.md)

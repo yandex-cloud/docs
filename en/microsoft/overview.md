@@ -7,7 +7,7 @@ You can run familiar software and your Windows-based products in {{ yandex-cloud
 * Create VMs running Microsoft Windows from ready-made images in the [{{ marketplace-name }}](/marketplace).
    * Use the features of SQL Server in [{{ mms-short-name }}](/services/managed-sqlserver) or in pre-configured {{ marketplace-name }} products. You can also use your SQL Server licenses in the {{ yandex-cloud }} infrastructure.
 * Configure Active Directory and Microsoft Exchange on a VM.
-* Run .NET applications on VMs in [{{ compute-name }}](/services/compute)or as a function in [{{ sf-name }}](/services/functions).
+* Run .NET applications on VMs in [{{ compute-name }}](/services/compute) or as a function in [{{ sf-name }}](/services/functions).
 
 To learn more about the features of VM images in {{ yandex-cloud }}, go to [{#T}](list-of-instances.md).
 
@@ -27,14 +27,15 @@ When creating VMs, you should specify their [performance level](../compute/conce
 
 {% include [initialization-windows-vm](../_includes/initialization-windows-vm.md) %}
 
-### Graphics accelerators (GPUsand vGPUs) {#gpus}
+### Graphics accelerators (GPUs and vGPUs) {#gpus}
 
-Windows Server 2016 and Windows Server 2019 Datacenter edition are available with GPUsand vGPUs.
+Windows Server 2016 and Windows Server 2019 Datacenter edition are available with GPUs and vGPUs.
 
 
 {% include [gpu-comparation](../_includes/compute/gpu-comparation.md) %}
 
 The performance of vGPUs running on {{ yandex-cloud }} has some specifics. For more information, see [{#T}](../compute/concepts/gpus.md).
+
 
 
 
@@ -46,6 +47,7 @@ Remote Desktop Licensing Server (RDS) is a Windows Server service that lets you 
 All VM images available in the {{ marketplace-name }} have two RDS licenses for administration. If you need a larger number of remote sessions, use images with pre-activated Remote Desktop Services. These images are [available](/marketplace?search=rds) in the {{ marketplace-name }}.
 
 They are based on Windows Server 2019 Datacenter and are suitable for increasing the number of sessions for all Windows Server versions available in the {{ marketplace-name }}.
+
 
 
 
@@ -62,6 +64,7 @@ Microsoft SQL Server is a database management system. You can use SQL Server on 
 Instead of pre-activated VM images from the {{ marketplace-name }}, you can use {{ mms-name }} and let us take care of DB maintainance.
 
 If you already have a Microsoft SQL Server license, you can migrate it to {{ compute-name }} VMs. For more information about Microsoft SQL Server licenses in a virtual environment, see [{#T}](licensing.md#SQLmobility).
+
 
 
 ## Creating failover clusters {#clustering}

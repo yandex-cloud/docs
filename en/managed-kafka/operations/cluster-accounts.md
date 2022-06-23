@@ -140,6 +140,7 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
 
    {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
 
+
 {% endlist %}
 
 ## Updating an account password {#update-password}
@@ -214,6 +215,7 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
 
    {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
 
+
 {% endlist %}
 
 ## Updating account settings {#update-account}
@@ -262,6 +264,7 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
    * The account name in the `userName` parameter. To find out the name, [get a list of accounts in the cluster](#list-accounts).
    * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any account settings that aren't explicitly specified in the request to their default values.
    * A new set of permissions to topics (one or more `permissions` parameters, one for each topic).
+
 
 {% endlist %}
 
@@ -385,6 +388,7 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
    * The account name in the `userName` parameter. To find out the name, [get a list of accounts in the cluster](#list-accounts).
    * The new permission to the topic in the `permission` parameter.
 
+
 {% endlist %}
 
 ## Revoking permissions from an account {#revoke-permission}
@@ -450,6 +454,7 @@ If, in a cluster with **Manage topics via the API** enabled, you revoke the `ACC
    * The account name in the `userName` parameter. To find out the name, [get a list of accounts in the cluster](#list-accounts).
    * The topic permission to be revoked in the `permission` parameter.
 
+
 {% endlist %}
 
 ## Deleting an account {#delete-account}
@@ -506,6 +511,7 @@ If, in a cluster with **Manage topics via the API** enabled, you delete the [adm
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The name of the account to delete in the `userName` parameter. To find out the name, [get a list of accounts in the cluster](#list-accounts).
 
+
 {% endlist %}
 
 ## Getting a list of cluster accounts {#list-accounts}
@@ -544,5 +550,6 @@ If, in a cluster with **Manage topics via the API** enabled, you delete the [adm
    Use the [list](../api-ref/User/list.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
+
 
 {% endlist %}

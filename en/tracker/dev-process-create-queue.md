@@ -11,6 +11,7 @@ To create a queue for the development team, do the following:
 
 1. Make sure all members of the development team have [full access to {{ tracker-name }}](access.md).
 
+
 1. [Create an issue queue.](manager/create-queue.md) Select a [queue template](manager/workflows.md) with statuses and issue types that are best suited to your workflow:
 
     - <q>Basic development model</q>: This template contains issue types and statuses that are most commonly used when developing programs and apps. A [simple issue board](#board_types) is created when you select this template.

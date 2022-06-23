@@ -182,6 +182,7 @@ yc container registry configure-docker
 ```
 
 
+
 ### Prepare a Docker image {#docker-image}
 
 Build a Docker image and push it to the registry:

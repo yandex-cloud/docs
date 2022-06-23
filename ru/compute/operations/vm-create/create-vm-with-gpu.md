@@ -7,6 +7,7 @@
 
 {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
+
 {% list tabs %}
 
 - Консоль управления
@@ -39,8 +40,8 @@
 
       * [Зону доступности](../../../overview/concepts/geo-scope.md).
       * Идентификатор [платформы](../../concepts/vm-platforms.md):
-        *  `gpu-standard-v1` для платформы {{ v100-broadwell }}.
-        *  `gpu-standard-v2` для платформы {{ v100-cascade-lake }}.
+        *  `gpu-standard-v1` для платформы {{ v100-broadwell }}. 
+        *  `gpu-standard-v2` для платформы {{ v100-cascade-lake }}. 
         * `gpu-standard-v3` для платформы {{ a100-epyc }}.
       * [Количество vCPU](../../concepts/gpus.md).
       * [Размер RAM](../../concepts/gpus.md).

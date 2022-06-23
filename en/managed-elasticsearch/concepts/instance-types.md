@@ -13,6 +13,7 @@ The host class determines the computing power allocated for each host with the s
 
 The available storage doesn't depend on the host class. For storage limitations, see [{#T}](limits.md).
 
+
 ## Available host classes {#available-flavors}
 
 Hosts in {{ mes-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any standard platform that {{ compute-name }} supports. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).

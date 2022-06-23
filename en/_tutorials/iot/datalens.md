@@ -46,6 +46,7 @@ The cost includes:
 * Fee for the number of {{ sf-full-name }} function calls (see [pricing](../../functions/pricing.md).
 * Fee for computing resources and cluster storage in {{ mpg-full-name }} (see [pricing](../../managed-postgresql/pricing.md)).
 
+
 ## Create the necessary resources {{ iot-short-name }} {#resources-step}
 
 To use {{ iot-short-name }}, you need to create a [registry](../../iot-core/concepts/index.md#registry) and [devices](../../iot-core/concepts/index.md#device) that will exchange data and commands.

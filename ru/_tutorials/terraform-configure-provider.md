@@ -60,6 +60,7 @@
      zone      = "<зона доступности по умолчанию>"
    }
    ```
+   
 
 
    * `source` — глобальный [адрес источника](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses) провайдера.

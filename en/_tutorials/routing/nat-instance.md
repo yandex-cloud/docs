@@ -24,6 +24,7 @@ The cost of NAT instance support includes:
 * A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
 * A fee for using a dynamic external IP address (see [pricing {{ vpc-full-name }}](../../vpc/pricing.md)).
 
+
 ## Create a network, subnet, and test VM {#create-environment}
 
 1. Create a [cloud network](../../vpc/operations/network-create.md) with any name, such as `my-vpc`.

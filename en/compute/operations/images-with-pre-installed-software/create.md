@@ -15,7 +15,7 @@ To create a VM:
 
    1. Select an [availability zone](../../../overview/concepts/geo-scope.md) to put your virtual machine in.
    1. Select a public image with the software you want to use.
-   1. (optional) If you wish to add more disks to the virtual machine, [select them](../vm-create/create-from-disks.md) under **Disksand file storage** by clicking the **Disks** tab.
+   1. (optional) If you wish to add more disks to the virtual machine, [select them](../vm-create/create-from-disks.md) under **Disks and file storage** by clicking the **Disks** tab.
          1. (optional) If you wish to connect more file stores to the virtual machine, attach them under **Disks and file storage** by clicking the **File stores** tab. [Create](../filesystem/create.md) the storages first.
    1. Under **Computing resources**:
       * Choose a [platform](../../concepts/vm-platforms.md).

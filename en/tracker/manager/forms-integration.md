@@ -30,6 +30,7 @@ The form will send user answers to {{ tracker-name }} and {{ tracker-name }} wil
 1. Configure [access rights to the form](../../forms/restrictions.md#restrictions__sec_access).
 Any user can fill out the form by default. If you want, you can reserve this right for just your organization's employees.
 
+
 1. [Publish](../../forms/publish.md) your form. Your form will be accessible via a link specified in the **Link** field.
 
 Once your form is published, you can [embed it in a wiki page](../../forms/publish.md#section_xvx_g2c_tbb), [post it on a website](../../forms/publish.md#section_c21_gdb_42b), or [add it to the issue creation page](../manager/attach-form.md) in the {{ tracker-name }} interface.

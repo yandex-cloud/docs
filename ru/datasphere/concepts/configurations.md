@@ -29,6 +29,7 @@
 **g2.8** (доступна по запросу в техническую поддержку) | 224 | 8 | 952
 
 
+
 #### См. также {#see-also}
 
 * [{#T}](../operations/projects/control-compute-resources.md)

@@ -16,6 +16,7 @@ Local SSD storage doesn't provide fault tolerance for stored data and affects th
 
 {% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
 
+
 ## Managing disk space {#manage-storage-space}
 
 When the storage is more than 97% full, the host automatically switches to read-only mode. At the same time, the `DEFAULT_TRANSACTION_READ_ONLY = TRUE` setting is set for all the DBs via the `ALTER DATABASE` query.
@@ -55,6 +56,7 @@ To monitor storage usage on cluster hosts, configure alerts in {{ monitoring-ful
       * **Calculation window**: Desired period to update a metric's value.
 
    1. Add the previously created notification channel.
+
 
 ### Disabling a cluster in read-only mode {#read-only-solutions}
 

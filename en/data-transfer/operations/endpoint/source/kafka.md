@@ -1,4 +1,4 @@
-# Source endpoint parameters {{ KF }}
+# Configuring an {{ KF }} source endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 

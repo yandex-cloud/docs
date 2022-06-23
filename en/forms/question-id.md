@@ -33,6 +33,7 @@ To set pre-filling for a series of questions:
 You can find out the response IDs in your browser by using developer tools.
 
 
+
 To learn about getting IDs, let's use Yandex Browser as an example:
 
 1. [Open the form via the link](publish.md#section_link).
@@ -57,6 +58,7 @@ To learn about getting IDs, let's use Yandex Browser as an example:
     * For the <q>Drop-down list</q> question type, the code lists all available response options.
 
     ![](../_assets/forms/code-list.png)
+
 
     * For the <q>Rate on a scale</q> question time, the `name` parameter has the question ID and criterion ID.
 

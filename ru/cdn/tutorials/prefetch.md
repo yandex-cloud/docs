@@ -38,6 +38,7 @@
 * плата за хранение данных в {{ objstorage-name }}, операции с ними и исходящий трафик (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md));
 * плата за публичные DNS-запросы и DNS-зоны, если вы используете {{ dns-full-name }} (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
 
+
 ## Создайте бакеты в {{ objstorage-name }} {#create-buckets}
 
 Необходимо создать два бакета: в первом, `ycprojektblue-storage`, будут храниться файлы, а во втором, `ycprojektblue-logs`, — логи запросов к первому.
@@ -127,6 +128,7 @@
        bucket     = "ycprojektblue-logs"
      }
      ```
+
 
 
   1. Проверьте корректность конфигурационных файлов:

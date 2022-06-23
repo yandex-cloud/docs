@@ -39,4 +39,5 @@ You should also specify the host class when creating a [shard](sharding.md).
 
 A database cluster created in a folder can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/).
 
+
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}

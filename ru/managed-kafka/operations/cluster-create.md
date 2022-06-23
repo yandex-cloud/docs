@@ -59,6 +59,7 @@
      1. Выберите [сеть](../../vpc/concepts/network.md).
      1. Выберите подсети в каждой зоне доступности для этой сети. Чтобы [создать новую подсеть](../../vpc/operations/subnet-create.md), нажмите на кнопку **Создать новую** рядом с нужной зоной доступности.
 
+
         {% note info %}
 
         Для кластера из нескольких хостов-брокеров нужно указать подсети в каждой зоне доступности, даже если вы планируете разместить брокеры только в некоторых из них. Эти подсети понадобятся для размещения трех хостов {{ ZK }} — по одному в каждой зоне доступности. Подробнее см. в разделе [Взаимосвязь ресурсов в {{ mkf-name }}](../concepts/index.md).
@@ -77,13 +78,14 @@
 
          * Хосты кластера {{ KF }} будут равномерно расположены в выбранных зонах доступности. Количество зон и хостов в зоне следует выбирать исходя из требуемой модели отказоустойчивости и нагрузки на кластер.
          * Репликация возможна при наличии как минимум двух хостов в кластере.
-         * Если в блоке **Хранилище** выбран тип `local-ssd`или `network-ssd-nonreplicated`, то необходимо добавить не менее трех хостов в кластер.
+         * Если в блоке **Хранилище** выбран тип `local-ssd` или `network-ssd-nonreplicated`, то необходимо добавить не менее трех хостов в кластер.
          * Добавление в кластер более одного хоста приведет к автоматическому добавлению трех хостов {{ ZK }}.
 
      
      1. (Опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер.
 
          {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
+
 
   1. Если вы указали более одного хоста-брокера, то в блоке **Класс хоста {{ ZK }}** укажите характеристики [хостов {{ ZK }}](../concepts/index.md) для размещения в каждой выбранной зоне доступности.
 
@@ -126,6 +128,7 @@
         --security-group-ids <список идентификаторов групп безопасности> \
         --deletion-protection=<защита от удаления кластера: true или false>
       ```
+
 
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -176,12 +179,14 @@
 
       {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
+
 - Terraform
 
     {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
     
     Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
 
     Чтобы создать кластер:
 
@@ -251,6 +256,7 @@
         ```
 
 
+
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
         {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
@@ -295,6 +301,7 @@
 
     {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
+
 {% endlist %}
 
 {% note warning %}
@@ -325,6 +332,7 @@
   * С публичным доступом.
   * С защитой от случайного удаления кластера.
 
+
   Запустите следующую команду:
 
   
@@ -343,6 +351,7 @@
     --security-group-ids {{ security-group }} \
     --deletion-protection=true
   ```
+
 
 - Terraform
 
@@ -428,6 +437,7 @@
       }
     }
     ```
+
 
 
 {% endlist %}

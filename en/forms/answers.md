@@ -56,6 +56,7 @@ If the responses to the form [have been moved to the archive](#archive), you won
 
 {% endnote %}
 
+
 1. Select a form and go to the **Responses** tab.
 
 1. Select **By responses**.
@@ -101,7 +102,7 @@ If you send a link to another user, they'll need to [log in to their Yandex acco
 
 {% note warning %}
 
-Attached files are stored on the {{ forms-full-name }} server for 3 months, after which the files are deleted. We recommend [uploading files to Yandex.Disk](#download) or saving them to your computer.
+Attached files are stored on the {{ forms-full-name }} server for 3 months , after which the files are deleted. We recommend [uploading files to Yandex.Disk](#download) or saving them to your computer.
 
 {% endnote %}
 
@@ -125,6 +126,7 @@ After archiving:
 * You can [view the list of recent responses, download them in a file, or save them to Yandex.Disk](#download). However, it takes several minutes to retrieve responses from the archive.
 
 * [You can't view individual responses](#answer-in-detail) this way.
+
 
 
 ## Delete responses {#clear-answers}

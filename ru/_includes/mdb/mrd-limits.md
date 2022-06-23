@@ -24,3 +24,4 @@
 | Объем данных на хосте при использовании хранилища на локальных SSD-дисках<sup>*</sup>                     | в 2 раза больше выбранного объема RAM, но не менее 100 ГБ                                | 1500 ГБ                                           |
 
 {% include [storage-limitations-mrd](./mrd/storage-limitations-note.md) %}
+

@@ -1,6 +1,6 @@
 # Шифрование данных с помощью SDK {{ yandex-cloud }}
 
-С {{ kms-name }} можно работать с помощью SDK  {{ yandex-cloud }}. Реализация SDK есть на [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk) и [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
+С {{ kms-name }} можно работать с помощью SDK   {{ yandex-cloud }}. Реализация SDK есть на [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk) и [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
 
 SDK {{ yandex-cloud }} наиболее удобен для шифрования данных небольшого размера (ограничение на размер открытого текста – 32 КБ). Для шифрования данных большего объема рекомендуется использовать [AWS Encryption SDK](aws-encryption-sdk.md) или [Google Tink](google-tink.md). Они шифруют данные [по схеме envelope encryption](../../concepts/envelope.md).
 
@@ -116,6 +116,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 {% endlist %}
 
 
+
 ## Шифрование и расшифровка данных {#enc-dec}
 
 Используйте методы `encrypt` и `decrypt` для шифрования и расшифровки данных. В коде используются следующие переменные: 
@@ -193,6 +194,6 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 #### См. также {#see-also}
 
-* [{{ yandex-cloud }}Java SDK](https://github.com/yandex-cloud/java-sdk).
+* [{{ yandex-cloud }} Java SDK](https://github.com/yandex-cloud/java-sdk).
 * [Примеры работы с {{ kms-short-name }} с помощью Java SDK](https://github.com/yandex-cloud/java-sdk/tree/master/java-sdk-examples/src/main/java/yandex/cloud/sdk/examples/kms).
-* [{{ yandex-cloud }}Go SDK](https://github.com/yandex-cloud/go-sdk).
+* [{{ yandex-cloud }} Go SDK](https://github.com/yandex-cloud/go-sdk).

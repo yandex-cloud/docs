@@ -11,6 +11,7 @@
 - **Access from management console**: Enable this option to be able to [run SQL queries](../../managed-postgresql/operations/web-sql-query.md) against a cluster's databases from the {{ yandex-cloud }} management console.
 
 - **Access from Serverless**: Enable this option to allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
+
 - **Statistics sampling**: Enable this option to use the [{#T}](../../managed-postgresql/operations/performance-diagnostics.md) tool in the cluster. This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 - **Autofailover**: Enable this option so that when the master host changes, the replication source for every replica host is automatically switched over to the new master host. To learn more, see [Replication](../../managed-postgresql/concepts/replication.md).

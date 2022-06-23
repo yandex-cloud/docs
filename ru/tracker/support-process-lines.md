@@ -37,6 +37,7 @@
 
 ![](../_assets/tracker/param-support-line.png)
 
+
 ### Шаг 2. Настройте форму для приема обращений
 
 1. Перейдите в сервис [{{ forms-full-name }}]({{ link-forms }}) и создайте новую форму.

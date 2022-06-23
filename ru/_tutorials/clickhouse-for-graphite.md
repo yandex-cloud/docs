@@ -32,6 +32,7 @@
 * плата за вычислительные ресурсы кластера, объем хранилища и резервных копий (см. [тарифы {{ mch-full-name }}](https://cloud.yandex.ru/docs/managed-clickhouse/pricing));
 * плата за запущенную ВМ для управления БД (см. [тарифы {{ compute-full-name }}](https://cloud.yandex.ru/docs/compute/pricing)).
 
+
 ## Создайте кластер {#cluster-create}
 
 1. [Создайте кластер {{ mch-name }}](../managed-clickhouse/operations/cluster-create.md) любой подходящей вам конфигурации с БД `db1` и публичным доступом ко всем его хостам. Сохраните имя БД, имя пользователя БД и пароль.
@@ -104,7 +105,7 @@
 
 ## Создайте и настройте виртуальную машину {#VM-setup}
 
-1. В той же [облачной сети](../vpc/concepts/network.md), где расположен кластер, [создайте](../compute/operations/vm-create/create-linux-vm.md) ВМ на основе Linux.
+1. В той же [облачной сети](../vpc/concepts/network.md), где расположен кластер, [создайте](../compute/operations/vm-create/create-linux-vm.md) ВМ на основе Linux. 
 1. [Подключитесь](https://cloud.yandex.ru/docs/compute/operations/vm-connect/ssh) к ВМ по SSH. 
 1. Подключите [DEB-репозиторий](https://{{ ch-domain }}/docs/ru/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
@@ -135,6 +136,7 @@
     sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O {{ crt-local-dir }}{{ crt-local-file }} && \
     sudo chmod 655 {{ crt-local-dir }}{{ crt-local-file }}
     ```
+
 
 ## Подключите виртуальную машину к базе данных {#cluster-connect}
 

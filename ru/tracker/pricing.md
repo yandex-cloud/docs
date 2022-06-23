@@ -24,6 +24,7 @@ description: 'Стоимость использования {{ tracker-name }} �
 
 
 
+
 {% note info %}
 
 Если вы хотите подключить к {{ tracker-name }} больше 500 пользователей, [напишите нам]({{ link-500-users }}), чтобы обсудить индивидуальные условия сотрудничества.
@@ -71,7 +72,7 @@ description: 'Стоимость использования {{ tracker-name }} �
 > 100 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|int|string }} + 150 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|int|string }} + 20 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|int|string }}
 > ```
 > 
->
+> 
 > 
 > 
 > 

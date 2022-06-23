@@ -78,12 +78,14 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 All prices are shown without VAT.
 
+
 ### {{ CH }} host computing resources {#prices-clickhouse}
 
 
 
 
 {% include [usd-host-ch.md](../_pricing/managed-clickhouse/usd-host-ch.md) %}
+
 
 
 ### {{ ZK }} host computing resources {#prices-zookeeper}
@@ -100,6 +102,7 @@ You can't order {{ ZK }} host resources using a CVoS.
 {% include [usd-host-zoo.md](../_pricing/managed-clickhouse/usd-host-zoo.md) %}
 
 
+
 ### Storage and backups {#prices-storage}
 
 
@@ -108,10 +111,13 @@ You can't order {{ ZK }} host resources using a CVoS.
 {% include [usd-storage.md](../_pricing/managed-clickhouse/usd-storage.md) %}
 
 
+
 ### Outgoing traffic {#prices-traffic}
 
 
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+
 

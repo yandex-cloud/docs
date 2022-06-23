@@ -2,7 +2,7 @@
 
 ## Testing {{ yandex-cloud }} {#testing}
 
-{{ data-transfer-name }} lets you test working with [{{ mmg-full-name }}](../../managed-mongodb/),[{{ mmy-full-name }}](../../managed-mysql/), and [{{ mpg-full-name }}](../../managed-postgresql/) on real data.
+{{ data-transfer-name }} lets you test working with [{{ mmg-full-name }}](../../managed-mongodb/), [{{ mmy-full-name }}](../../managed-mysql/), and [{{ mpg-full-name }}](../../managed-postgresql/) on real data.
 
 For example, using {{ data-transfer-name }}, you can connect copies of databases hosted in these services to your application. {{ data-transfer-name }} will keep these copies up-to-date.
 

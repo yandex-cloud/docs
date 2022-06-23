@@ -31,7 +31,7 @@ editable: false
 
 * Объем хранилища, выделенный для кластеров БД.
 
-    * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров на платформахIntel Cascade Lake и Intel Ice Lake с тремя или более хостами, с шагом 93 ГБ.
+    * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров на платформах Intel Cascade Lake и Intel Ice Lake с тремя или более хостами, с шагом 93 ГБ.
 
   * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров на платформах Intel Broadwell и Intel Cascade Lake с тремя или более хостами, с шагом 100 ГБ.
 
@@ -50,10 +50,12 @@ editable: false
 
 Все цены указаны с включением НДС.
 
+
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
 
 {% include [rub-host.md](../_pricing/managed-redis/rub-host.md) %}
+
 
 
 
@@ -64,10 +66,12 @@ editable: false
 
 
 
+
 ### Исходящий трафик {#prices-traffic}
 
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
 
 
 

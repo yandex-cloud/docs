@@ -8,7 +8,9 @@ You can connect to {{ mkf-name }} cluster hosts:
 * From {{ yandex-cloud }} virtual machines located in the same [cloud network](../../vpc/concepts/network.md). If the cluster isn't publicly available, you don't need to use an SSL connection to connect to such VMs.
 
 
+
 You can connect to the {{ KF }} cluster both with encryption (`SASL_SSL`, port 9091) and without it (`SASL_PLAINTEXT`, port 9092).
+
 
 To connect to an {{ KF }} cluster:
 
@@ -31,6 +33,7 @@ Settings of rules depend on the connection method you select:
 
    
    [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) in your cluster to allow incoming traffic on port 9091 from any IP. To do this, create the following rule for incoming traffic:
+
    * Port range: `9091`.
    * Protocol: `TCP`.
    * Source: `CIDR`.
@@ -47,6 +50,7 @@ Settings of rules depend on the connection method you select:
    
    1. [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) in your cluster to allow incoming traffic on ports 9091 and 9092 from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
 
+
    * Port range: `9091-9092`.
    * Protocol: `TCP`.
    * Source: `Security group`.
@@ -60,6 +64,7 @@ Settings of rules depend on the connection method you select:
         * CIDR blocks: `0.0.0.0/0`.
    
    1. [Configure the security group](../../vpc/operations/security-group-update.md#add-rule) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
+
    Example of rules for a VM:
 
    * For incoming traffic:
@@ -112,6 +117,7 @@ To use an encrypted connection, get an SSL certificate:
    ```
 
 {% endlist %}
+
 
 The resulting SSL certificate is also used when working with [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
 

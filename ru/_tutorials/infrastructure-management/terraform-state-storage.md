@@ -43,7 +43,8 @@ Terraform и его провайдеры распространяются под
 
 * плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-storage));
 * плата за диски и постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование динамических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за использование динамических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)). 
+
 
 ## Установите Terraform {#install-terraform}
 
@@ -100,6 +101,7 @@ provider "yandex" {
   zone      = "<зона доступности по умолчанию>"
 }
 ```
+
 
 
 Подробнее о бэкенде для хранения состояний читайте на [сайте Terraform](https://www.terraform.io/docs/backends/types/s3.html).
@@ -222,6 +224,7 @@ provider "yandex" {
    ```
 
 
+
 1. Проверьте конфигурацию c помощью команды `terraform plan`. 
 1. Разверните конфигурацию с помощью команды `terraform apply`.
 
@@ -299,6 +302,7 @@ provider "yandex" {
      }
    }
    ```
+
 
 
 1. Выполните команду `terraform init`. 

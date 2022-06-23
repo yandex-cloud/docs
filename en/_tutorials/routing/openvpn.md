@@ -33,6 +33,7 @@ The cost of infrastructure support for OpenVPN includes:
 * A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
 * A fee for using a dynamic external IP address (see [pricing {{ vpc-full-name }}](../../vpc/pricing.md)).
 
+
 ## Create subnets and a test VM {#create-environment}
 
 To connect cloud resources to the internet, make sure you have [networks](../../vpc/operations/network-create.md) and [subnets](../../vpc/operations/subnet-create.md).

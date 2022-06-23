@@ -13,6 +13,7 @@ Create cloud resources in multiple availability zones. This way you can maintain
 The same amount of cloud resources should be hosted in each availability zone. If there are three VMs in the `{{ region-id }}-a` availability zone, then the `{{ region-id }}-b` and `{{ region-id }}-c` availability zones should also host three VMs each.
 
 
+
 #### Create cloud resources with redundancy {#redundancy}
 
 If one of the VMs in a certain availability zone fails, that availability zone will continue receiving the same volume of traffic. This will increase load on the remaining VMs that are healthy. To avoid failure of all VMs, we recommend using extra resources in each availability zone in addition to the resources necessary for supporting the design load.

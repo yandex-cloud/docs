@@ -26,6 +26,7 @@ editable: false
 
 
 
+
 ### Сетевые балансировщики {#network-load-balancers}
 
 Сетевые балансировщики нагрузки тарифицируются, если у них есть обработчик и подключенная непустая целевая группа.
@@ -34,3 +35,7 @@ editable: false
 
 
 {% include [rub.md](../_pricing/network-load-balancer/rub-balancer.md) %}
+
+
+
+

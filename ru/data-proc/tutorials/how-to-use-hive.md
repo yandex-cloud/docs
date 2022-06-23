@@ -17,12 +17,13 @@ SQL-запрос для Hive можно передать двумя способ
 *  В команде на запуск задачи:
 
     ```bash
-    yc dataproc job create-hive --cluster-id <ID кластера> --name <имя задачи> --query-list "SELECT Month, COUNT(*)  FROM flights GROUP BY Month;"
+    {{ yc-dp }} job create-hive --cluster-id <ID кластера> --name <имя задачи> --query-list "SELECT Month, COUNT(*)  FROM flights GROUP BY Month;"
     ```
 
 * В объекте {{objstorage-name}}, который доступен на чтение сервисному аккаунту кластера {{dataproc-name}}:
+
     ```bash
-    yc dataproc job create-hive --cluster-id <ID кластера> --name <имя задачи> --query-file-uri "s3a://<ваш бакет>/hive-query.sql"
+    {{ yc-dp }} job create-hive --cluster-id <ID кластера> --name <имя задачи> --query-file-uri "s3a://<ваш бакет>/hive-query.sql"
     ```
 
 Результат исполнения запросов, а также дополнительную диагностическую информацию можно найти в бакете {{objstorage-name}}, который был указан при создании кластера: `s3://<ваш бакет>/dataproc/clusters/<ID кластера>/jobs/<ID задачи>/`.

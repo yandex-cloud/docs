@@ -10,6 +10,7 @@ The host class determines the computing power allocated for each host in the clu
 
 The available storage doesn't depend on the host class. Storage restrictions are shown under [Quotas and limits in Managed Service for Apache Kafka®](limits.md).
 
+
 ## Available host classes {#available-flavors}
 
 
@@ -21,7 +22,7 @@ The full list of possible host configurations on each platform is provided below
 
 | Host class name | Number of vCPUs | Guaranteed vCPU performance | RAM, GB |
 |-------------------|-----------------|---------------------------|---------|
-| | **Intel Cascade Lake** |
+|  | **Intel Cascade Lake** |
 | b2.medium | 2 | 50% | 4 |
 | m2.micro | 2 | 100% | 16 |
 | m2.small | 4 | 100% | 32 |
@@ -44,7 +45,7 @@ The full list of possible host configurations on each platform is provided below
 | s2.3xlarge | 32 | 100% | 128 |
 | s2.4xlarge | 40 | 100% | 160 |
 | s2.5xlarge | 48 | 100% | 192 |
-| s2.6xlarge | 64 | 100% | 256 | |
+| s2.6xlarge | 64 | 100% | 256 |  |
 | **Intel Ice Lake** |
 | b3-c1-m4 | 2 | 50% | 4 |
 | s3-c2-m8 | 2 | 100% | 8 |
@@ -72,3 +73,4 @@ The full list of possible host configurations on each platform is provided below
 | m3-c56-m448 | 56 | 100% | 448 |
 | m3-c64-m512 | 64 | 100% | 512 |
 | m3-c80-m640 | 80 | 100% | 640 |
+

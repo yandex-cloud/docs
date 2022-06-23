@@ -30,6 +30,7 @@
     
     1. Выберите нужный сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [{#T}](s3-access.md).
 
+
        {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
 {% endlist %}
@@ -87,6 +88,7 @@
      | ...                                                           |
      +-----------+--------------------------------+-------+----------+
      ```
+
 
   1. Укажите нужный класс в команде изменения кластера:
 
@@ -510,6 +512,7 @@
         
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
+
     * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
 
     * {% include [Защита от удаления кластера](../../_includes/mdb/cli/deletion-protection.md) %}
@@ -552,6 +555,7 @@
           ...
         }
         ```
+       
  
 
     1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
@@ -603,6 +607,7 @@
     
     
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+
 
   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 

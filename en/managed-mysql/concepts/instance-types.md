@@ -10,6 +10,7 @@ The host class determines the computing power allocated for each host in the clu
 
 The available storage doesn't depend on the host class. For storage limitations, see [{#T}](limits.md).
 
+
 ## Available host classes {#available-flavors}
 
 
@@ -23,7 +24,7 @@ The full list of possible host configurations on each platform is provided below
 
 | Host class name   | Number of vCPUs | CPU performance        | RAM, GB |
 |-------------------|-----------------|------------------------|---------|
-| | **Intel Broadwell** |
+|  | **Intel Broadwell** |
 | b1.nano | 2 | 5% | 2 |
 | b1.micro | 2 | 20% | 2 |
 | b1.medium | 2 | 50% | 4 |
@@ -59,7 +60,7 @@ The full list of possible host configurations on each platform is provided below
 | s2.4xlarge | 40 | 100% | 160 |
 | s2.5xlarge | 48 | 100% | 192 |
 | s2.6xlarge | 64 | 100% | 256 |
-| s2.7xlarge | 80 | 100% | 320 | |
+| s2.7xlarge | 80 | 100% | 320 |  |
 | **Intel Ice Lake** |
 | s3-c2-m8 | 2 | 100% | 8 |
 | s3-c4-m16 | 4 | 100% | 16 |
@@ -98,3 +99,4 @@ The full list of possible host configurations on each platform is provided below
 | c3-c64-m128 | 64 | 100% | 128 |
 | c3-c80-m160 | 80 | 100% | 160 |
 | c3-c96-m192 | 96 | 100% | 192 |
+

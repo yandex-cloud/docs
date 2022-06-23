@@ -31,6 +31,7 @@
    sudo dpkg -i mongodb-org-shell_4.4.1_amd64.deb
    ```
 
+
 ## Создайте кластер {#cluster-create}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
