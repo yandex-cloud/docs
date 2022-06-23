@@ -1,5 +1,5 @@
 common:
-    - from: /user/filters.md
-      to: /user/search-task.md
-    - from: /user/wiki-markup.md
-      to: /user/markup.md
+    - from: /tracker/user/filters.md
+      to: /tracker/user/search-task.md
+    - from: /tracker/user/wiki-markup.md
+      to: /tracker/user/markup.md
