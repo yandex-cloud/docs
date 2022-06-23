@@ -81,21 +81,20 @@ cisco-router(config)#username test-user privilege 15
 
 ## Настройте аутентификацию с помощью SSH-ключей {#enable-ssh}
 
-1. Включите доступ на ВМ по SSH и передайте свой публичный ключ частями не длиннее 32 символов, начиная с `ssh-rsa` и заканчивая логином.
+1. Включите доступ на ВМ по SSH и передайте свой публичный ключ частями не длиннее 72 символов, начиная с `ssh-rsa` и заканчивая логином.
 
    ```
    cisco-router(config)#aaa new-model
-   cisco-router(config)#ip ssh server authenticate user publickey
+   cisco-router(config)#ip ssh server algorithm authentication publickey
    cisco-router(config)#ip ssh pubkey-chain
    cisco-router(conf-ssh-pubkey)#username test-user
    cisco-router(conf-ssh-pubkey-user)#key-string
    cisco-router(conf-ssh-pubkey-data)#<строка публичного ключа>
    ...
    cisco-router(conf-ssh-pubkey-data)#<строка публичного ключа>
-   exit
-   exit
-   exit
-   exit
+   end
+   
+   * При ошибке %SSH: Failed to decode the Key Value, если ваш ключ RSA  более 72х симоволов, разбейте его на части командой fold -b -w 72 ~/.ssh/id_rsa.pub, и введите вывод в консоль снова находясь в режиме cisco-router(conf-ssh-pubkey-data)# 
    ```
 
 1. Убедитесь, что ключ добавлен:
