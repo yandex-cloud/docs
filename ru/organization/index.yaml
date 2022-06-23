@@ -29,7 +29,7 @@ links:
   href: "add-account"
   when: product == "yandex-cloud"
 - title: "Добавьте пользователей"
-  description: "Подключите к организации сотрудников с помощью федерации удостоверений"
+  description: "Подключите к организации сотрудников с помощью федерации удостоверений или аккаунтов Google"
   href: "add-account"
   when: product == "cloud-il"
 - title: "Настройте федерацию удостоверений"
