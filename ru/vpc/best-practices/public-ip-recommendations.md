@@ -16,7 +16,7 @@
 
 Для публикации ваших приложений используйте балансировщики нагрузки [{{ network-load-balancer-name }}](../../network-load-balancer/) и [{{ alb-name }}](../../application-load-balancer) или сервис типа `LoadBalancer` в [{{ managed-k8s-name }}](../../managed-kubernetes/operations/create-load-balancer.md). С их помощью можно публиковать сервисы на общем IP-адресе, используя разные порты или маршрутизацию по путям и SNI.
 
-#### Публикуйте статические файлы с помощью {{ objstorage-short-name }}и {{ cdn-short-name }} {#publishing-static-files}
+#### Публикуйте статические файлы с помощью {{ objstorage-short-name }} и {{ cdn-short-name }} {#publishing-static-files}
 
 Для публикации статических файлов используйте сервис [{{ objstorage-short-name }}](../../storage/index.yaml)в сочетании с сервисом [{{ cdn-short-name }}](../../cdn/index.yaml). Таким образом вы и сэкономите вычислительные ресурсы ваших виртуальных машин, и повысите экономическую эффективность. Также использование CDN ускоряет отдачу контента пользователям и повышает надежность ваших сервисов.
 
