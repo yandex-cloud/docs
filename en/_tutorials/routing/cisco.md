@@ -84,21 +84,19 @@ cisco-router(config)#username test-user privilege 15
 
 ## Configure authentication using SSH keys {#enable-ssh}
 
-1. Enable SSH access to the VM and pass your public key in parts of 32 characters or less, starting with `ssh-rsa` and ending with the login.
+1. Enable SSH access to the VM and pass your public key in parts of 72 characters or less, starting with `ssh-rsa` and ending with the login.
 
    ```
    cisco-router(config)#aaa new-model
-   cisco-router(config)#ip ssh server authenticate user publickey
+   cisco-router(config)#ip ssh server algorithm authentication publickey 
    cisco-router(config)#ip ssh pubkey-chain
    cisco-router(conf-ssh-pubkey)#username test-user
    cisco-router(conf-ssh-pubkey-user)#key-string
    cisco-router(conf-ssh-pubkey-data)#<public key string>
    ...
    cisco-router(conf-ssh-pubkey-data)#<public key string>
-   exit
-   exit
-   exit
-   exit
+   end
+   * if there an error %SSH: Failed to decode the Key Value - you need to split your RSA key by command fold -b -w 72 ~/.ssh/id_rsa.pub and insert output of this command to console (be sure your in data edit mode - cisco-router(conf-ssh-pubkey-data)#
    ```
 
 1. Make sure that the key is added:
