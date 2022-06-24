@@ -144,7 +144,6 @@ default:
   mms-short-name: Managed Service for SQL Server
   mes-short-name: Managed Service for Elasticsearch
   mgp-short-name: Managed Service for Greenplum®
-  mgl-short-name: Managed Service for GitLab
   monitoring-short-name: Monitoring
   mkf-msr: Managed Schema Registry
   unified-agent-short-name: Unified Agent
@@ -217,6 +216,10 @@ default:
   roles-cloud-member: resource-manager.clouds.member
   roles-mdb-admin: mdb.admin
   roles:
+    gitlab:
+      admin: gitlab.admin
+      editor: gitlab.editor
+      viewer: gitlab.viewer
     mes:
       admin: managed-elasticsearch.admin
       auditor: managed-elasticsearch.auditor

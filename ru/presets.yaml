@@ -222,6 +222,10 @@ default:
   roles-cloud-member: resource-manager.clouds.member
   roles-mdb-admin: mdb.admin
   roles:
+    gitlab:
+      admin: gitlab.admin
+      editor: gitlab.editor
+      viewer: gitlab.viewer
     mes:
       admin: managed-elasticsearch.admin
       auditor: managed-elasticsearch.auditor
