@@ -93,6 +93,10 @@ items:
           include:
             repo: docs
             path: en/_api-ref-grpc/ai/tts/new-v3/toc.yaml
+      - name: Примеры использования API синтеза
+        items:
+        - name: Синтез API v3
+          href: tts/api/tts-examples-v3.md
   - name: SpeechKit Hybrid
     items:
         - name: О технологии
