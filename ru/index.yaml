@@ -27,6 +27,10 @@ links:
     description: Балансировщики нагрузки уровня приложения
     href: application-load-balancer/
     when: audience == "external"
+  - title: Audit Trails
+    description: Cервис сбора и выгрузки аудитных логов
+    href: audit-trails/
+    when: audience == "external"
   - title: Биллинг
     description: Управление платежным аккаунтом
     href: billing/
@@ -197,6 +201,10 @@ links:
     description: Инструкции по решению различных задач с помощью облачных сервисов
     href: tutorials/
     when: audience == "external" and product == "cloud-il"
+  - title: SmartCaptcha
+    description: Инструмент для верификации запросов
+    href: smartcaptcha/
+    when: audience == "external" and product == "yandex-cloud"
   - title: SpeechKit
     description: Комплекс технологий распознавания и синтеза речи
     href: speechkit/

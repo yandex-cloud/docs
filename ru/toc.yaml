@@ -142,6 +142,9 @@ items:
   - name: Безопасность в {{ yandex-cloud }}
     href: security/index.yaml
     when: audience == "external"
+  - name: SmartCaptcha
+    href: smartcaptcha/index.yaml
+    when: audience == "external" and product == "yandex-cloud"
   - name: SpeechKit
     href: speechkit/index.yaml
     when: audience == "external" and product == "yandex-cloud"

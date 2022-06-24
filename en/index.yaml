@@ -30,6 +30,10 @@ links:
     description: Application-level load balancers
     href: application-load-balancer/
     when: audience == "external"
+  - title: Audit Trails
+    description: Collect and export audit logs
+    href: audit-trails/
+    when: audience == "external"
   - title: Billing
     description: Managing a billing account
     href: billing/
@@ -201,6 +205,10 @@ links:
     description: Instructions for handling various tasks using cloud services
     href: tutorials/
     when: audience == "external" and product == "cloud-il"
+  - title: SmartCaptcha
+    description: A request verification tool
+    href: smartcaptcha/
+    when: audience == "external" and product == "yandex-cloud"
   - title: SpeechKit
     description: Speech recognition and speech synthesis technologies
     href: speechkit/
