@@ -25,11 +25,22 @@
    docker-compose -f keycloak-postgres.yml up
    ```
 
+    {% note info %}
+
+    Чтобы сотрудники в корпоративной сети или интернете могли использовать Keycloak для аутентификации в вашем приложении, разверните IdP-сервер Keycloak в сети и настройте публичный адрес. Подробнее читайте в [документации Keycloak](https://www.keycloak.org/server/hostname).
+
+    {% endnote %}
+
 1. Действующий сертификат, который используется для подписи в службе Keycloak. Чтобы его получить: 
 
-    1. Перейдите по ссылке [http://localhost:8080/auth/realms/master/protocol/saml/descriptor](http://localhost:8080/auth/realms/master/protocol/saml/descriptor).
+    1. Войдите в аккаунт администратора Keycloak по адресу: `http://keycloak.example.com:8080/auth/admin`. Вместо `keycloak.example.com` должен быть указан адрес вашего локального сервера, например: `http://localhost:8080/auth/admin`.
+        Параметры входа по умолчанию:
+        * **User name or email** : `admin`.
+        * **Password** : `pa55w0rd`.
 
-    1. Скопируйте содержимое тега `<ds:X509Certificate>...</ds:X509Certificate>`. 
+    1. В разделе **Realm Settings** выберите вкладку **Keys**.
+
+    1. В строке **RS256** нажмите **Certificate** и скопируйте значение сертификата.
 
     1. Сохраните сертификат в текстовом файле с расширением `.cer` в следующем формате: 
 
@@ -39,11 +50,7 @@
     -----END CERTIFICATE-----
     ```
     
-{% note info %}
-
-Чтобы сотрудники в корпоративной сети или интернете могли использовать Keycloak для аутентификации в вашем приложением, разверните IdP-сервер Keycloak в сети и настройте публичный адрес. Подробнее читайте в [документации Keycloak](https://www.keycloak.org/server/hostname).
-
-{% endnote %}
+    Вы также можете получить сертификат по прямой ссылке: `http://keycloak.example.com:8080/auth/realms/master/protocol/saml/descriptor`. Значение сертификата хранится в теге `<ds:X509Certificate>...</ds:X509Certificate>`.
 
 ## Создание и настройка федерации в {{org-full-name}} {#yc-settings}
 
@@ -68,9 +75,9 @@
   1. В поле **IdP Issuer** вставьте ссылку вида: `http://<хост>:8080/auth/realms/master`
 
      Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например: 
-	  
+
      ```
-     http://keycloak.example.com:8080/auth/realms/master
+     {{ link-keycloak-example }}
      ```
 
   1. В поле **Ссылка на страницу для входа в IdP** вставьте ссылку вида: `http://<хост>:8080/auth/realms/master/protocol/saml`
@@ -78,7 +85,7 @@
      Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 
      ```
-     http://keycloak.example.com:8080/auth/realms/master/protocol/saml
+     {{ link-keycloak-example }}/protocol/saml
      ```
 
   1. Включите опцию **Автоматически создавать пользователей**, чтобы пользователь после аутентификации автоматически добавлялся в организацию. Если опция отключена, федеративных пользователей потребуется [добавить вручную](../../add-account.md#add-user-sso).
@@ -132,7 +139,7 @@
             Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 			
             ```
-            http://keycloak.example.com:8080/auth/realms/master
+            {{ link-keycloak-example }}
             ```
 
         * `sso-url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации: `http://<хост>:8080/auth/realms/master/protocol/saml`
@@ -140,7 +147,7 @@
             Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 			
             ```
-            http://keycloak.example.com:8080/auth/realms/master/protocol/saml
+            {{ link-keycloak-example }}/protocol/saml
             ```
 
         * `sso-binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
@@ -186,7 +193,7 @@
             Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 			
             ```
-            http://keycloak.example.com:8080/auth/realms/master
+            {{ link-keycloak-example }}
             ```
 
         * `ssoUrl` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации: `http://<хост>:8080/auth/realms/master/protocol/saml`
@@ -194,7 +201,7 @@
             Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 			
             ```
-            http://keycloak.example.com:8080/auth/realms/master/protocol/saml
+            {{ link-keycloak-example }}/protocol/saml
             ```
 
         * `encryptedAssertions` — флаг, который включает цифровую подпись запросов аутентификации. Для завершения настройки потребуется скачать и [установить](#signature) сертификат {{ yandex-cloud }}.
@@ -218,7 +225,7 @@
             Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его идентификатор. Например:
 			
             ```
-            http://keycloak.example.com:8080/auth/realms/master
+            {{ link-keycloak-example }}
             ```  
 
         * `sso_binding` — укажите тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
@@ -227,7 +234,7 @@
             Если для IdP-сервера настроен [публичный адрес](https://www.keycloak.org/server/hostname), укажите его URL. Например:
 			
             ```
-            http://keycloak.example.com:8080/auth/realms/master/protocol/saml
+            {{ link-keycloak-example }}/protocol/saml
             ```  
             
 
@@ -380,7 +387,9 @@
 
 В роли поставщика удостоверений (IdP) выступает SAML-приложение в Keycloak. Чтобы создать и настроить SAML-приложение:
 
-1. Войдите в [аккаунт администратора Keycloak](http://localhost:8080/auth/admin). Для этого укажите:
+1. Войдите в аккаунт администратора Keycloak по адресу `http://keycloak.example.com:8080/auth/admin`. Вместо `keycloak.example.com` должен быть указан адрес вашего локального сервера, например: `http://localhost:8080/auth/admin`. 
+
+    Параметры входа по умолчанию:
     * **User name or email** : `admin`.
     * **Password** : `pa55w0rd`.
 
