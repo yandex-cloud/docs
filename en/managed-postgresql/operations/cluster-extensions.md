@@ -123,7 +123,7 @@ You can install the following libraries in {{ mpg-short-name }}:
 
 ## Supported {{ PG }} extensions and utilities {#postgresql}
 
-# |
+#|
 || **Extension** \ **{{ PG }} version** | **10** | **11** | **12** | **13** | **14** ||
 || [address_standardizer](https://postgis.net/docs/manual-3.1/postgis_installation.html#installing_pagc_address_standardizer)
 Provides functions that normalize postal addresses sent as a line.

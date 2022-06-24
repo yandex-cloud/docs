@@ -7,6 +7,8 @@ items:
     href: api-gateway/index.yaml
   - name: Application Load Balancer
     href: application-load-balancer/index.yaml
+  - name: Audit Trails
+    href: audit-trails/index.yaml
   - name: Billing
     href: billing/index.yaml
   - name: Certificate Manager
@@ -87,6 +89,8 @@ items:
     href: tutorials/index.yaml
   - name: Security in {{ yandex-cloud }}
     href: security/index.yaml
+  - name: SmartCaptcha
+    href: smartcaptcha/index.yaml
   - name: SpeechKit
     href: speechkit/index.yaml
   - name: Object Storage

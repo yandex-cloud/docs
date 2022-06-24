@@ -13,6 +13,9 @@ links:
   - title: Application Load Balancer
     description: Application-level load balancers
     href: application-load-balancer/
+  - title: Audit Trails
+    description: Collect and export audit logs
+    href: audit-trails/
   - title: Billing
     description: Managing a billing account
     href: billing/
@@ -133,6 +136,9 @@ links:
   - title: Yandex Cloud practical guidelines
     description: Instructions for handling various tasks using cloud services
     href: tutorials/
+  - title: SmartCaptcha
+    description: A request verification tool
+    href: smartcaptcha/
   - title: SpeechKit
     description: Speech recognition and speech synthesis technologies
     href: speechkit/

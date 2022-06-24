@@ -91,6 +91,10 @@ items:
                 href: new-v3/api-ref/grpc/index.md
               - name: Synthesizer
                 href: new-v3/api-ref/grpc/tts_service.md
+      - name: Примеры использования API синтеза
+        items:
+          - name: Синтез API v3
+            href: tts/api/tts-examples-v3.md
   - name: SpeechKit Hybrid
     items:
       - name: О технологии
