@@ -12,6 +12,9 @@ links:
   - title: Application Load Balancer
     description: Балансировщики нагрузки уровня приложения
     href: application-load-balancer/
+  - title: Audit Trails
+    description: Cервис сбора и выгрузки аудитных логов
+    href: audit-trails/
   - title: Биллинг
     description: Управление платежным аккаунтом
     href: billing/
@@ -132,6 +135,9 @@ links:
   - title: Практические руководства платформы Yandex Cloud
     description: Инструкции по решению различных задач с помощью облачных сервисов
     href: tutorials/
+  - title: SmartCaptcha
+    description: Инструмент для верификации запросов
+    href: smartcaptcha/
   - title: SpeechKit
     description: Комплекс технологий распознавания и синтеза речи
     href: speechkit/

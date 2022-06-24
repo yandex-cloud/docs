@@ -29,7 +29,16 @@
           ```bash
           cd <путь_к_директории_cloudapi>
           mkdir output
-          python -m grpc_tools.protoc -I . -I third_party/googleapis --python_out=output --grpc_python_out=output google/api/http.proto google/api/annotations.proto yandex/cloud/api/operation.proto google/rpc/status.proto yandex/cloud/operation/operation.proto yandex/cloud/ai/stt/v3/stt_service.proto yandex/cloud/ai/stt/v3/stt.proto
+          python -m grpc_tools.protoc -I . -I third_party/googleapis \
+            --python_out=output \
+            --grpc_python_out=output \
+            google/api/http.proto \
+            google/api/annotations.proto \
+            yandex/cloud/api/operation.proto \
+            google/rpc/status.proto \
+            yandex/cloud/operation/operation.proto \
+            yandex/cloud/ai/stt/v3/stt_service.proto \
+            yandex/cloud/ai/stt/v3/stt.proto
           ```
 
           В результате в директории `output` будут созданы файлы с интерфейсом клиента: `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, `stt_service_pb2_grpc.py` и файлы зависимостей.
