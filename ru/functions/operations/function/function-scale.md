@@ -33,29 +33,29 @@
 
 - CLI
 
-	{% include [cli-install](../../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-	Чтобы посмотреть настройки масштабирования функции, выполните команду:
+    Чтобы посмотреть настройки масштабирования функции, выполните команду:
 
-	```
-	yc serverless function list-scaling-policies --id=d4eokpuol55h********
-	```
+    ```
+    yc serverless function list-scaling-policies --id=d4eokpuol55h********
+    ```
 
-	Где:
+    Где:
 
-	* `--id` — идентификатор функции. Чтобы узнать его, [получите](./version-manage.md#function-list) список функций.
+    * `--id` — идентификатор функции. Чтобы узнать его, [получите](./version-manage.md#function-list) список функций.
 
-	Результат:
+    Результат:
 
-	```
-	+----------------------+---------+----------------------+---------------------+
-	|     FUNCTION ID      |   TAG   | ZONE INSTANCES LIMIT | ZONE REQUESTS LIMIT |
-	+----------------------+---------+----------------------+---------------------+
-	| d4eokpuol55hmj15k7g1 | $latest |                    1 |                   2 |
-	+----------------------+---------+----------------------+---------------------+
-	```
+    ```
+    +----------------------+---------+----------------------+---------------------+
+    |     FUNCTION ID      |   TAG   | ZONE INSTANCES LIMIT | ZONE REQUESTS LIMIT |
+    +----------------------+---------+----------------------+---------------------+
+    | d4eokpuol55hmj15k7g1 | $latest |                    1 |                   2 |
+    +----------------------+---------+----------------------+---------------------+
+    ```
 
 - API
 
@@ -85,50 +85,50 @@
 
 - CLI
 
-	Чтобы добавить настройки масштабирования для функции, выполните команду:
+    Чтобы добавить настройки масштабирования для функции, выполните команду:
 
-	```
-	yc serverless function set-scaling-policy \
-	  --id=d4eokpuol55h******** \
-	  --tag=\$latest \
-	  --zone-instances-limit=1 \
-	  --zone-requests-limit=2
-	```
+    ```
+    yc serverless function set-scaling-policy \
+      --id=d4eokpuol55h******** \
+      --tag=\$latest \
+      --zone-instances-limit=1 \
+      --zone-requests-limit=2
+    ```
 
-	Где:
+    Где:
 
-	* `--id` — идентификатор функции. Чтобы узнать его, [получите](./version-manage.md#function-list) список функций.
-	* `--tag` —  [тег](../../concepts/function.md#tag) версии функции.
-	* `--zone-instances-limit` — количество экземпляров функции.
-	* `--zone-requests-limit` — количество выполняемых вызовов.
+    * `--id` — идентификатор функции. Чтобы узнать его, [получите](./version-manage.md#function-list) список функций.
+    * `--tag` —  [тег](../../concepts/function.md#tag) версии функции.
+    * `--zone-instances-limit` — количество экземпляров функции.
+    * `--zone-requests-limit` — количество выполняемых вызовов.
 
-	Результат:
+    Результат:
 
-	```
-	function_id: d4eokpuol55h********
-	tag: $latest
-	zone_instances_limit: "1"
-	zone_requests_limit: "2"
-	```
+    ```
+    function_id: d4eokpuol55h********
+    tag: $latest
+    zone_instances_limit: "1"
+    zone_requests_limit: "2"
+    ```
 
 - Terraform
 
-   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
+    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
 
-   Чтобы добавить настройки масштабирования: 
+    Чтобы добавить настройки масштабирования: 
 
-   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+    1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
         * `yandex_function_scaling_policy` — описание настроек масштабирования функции.
             * `function_id` — идентификатор функции.
-            * `policy` — настройки масштабирования.
-            * `policy.0.tag` — [тег](../../concepts/function.md#tag) версии функции.
-            * `policy.0.zone_instances_limit` — количество экземпляров функции.
-            * `policy.0.zone_requests_limit` — количество выполняемых вызовов.
+            * `policy` — настройки масштабирования:
+                * `policy.0.tag` — [тег](../../concepts/function.md#tag) версии функции.
+                * `policy.0.zone_instances_limit` — количество экземпляров функции.
+                * `policy.0.zone_requests_limit` — количество выполняемых вызовов.
 
-        Пример структуры конфигурационного файла:
+        Пример описания функции в конфигурации Terraform:
 
         
         ```
@@ -138,38 +138,52 @@
             zone      = "{{ region-id }}-a"
         }
 
-		resource "yandex_function_scaling_policy" "my_scaling_policy" {
-			function_id = "are1samplefu********"
-			policy {
-				tag = "$latest"
-				zone_instances_limit = 2
-				zone_requests_limit  = 1
-		  	}
-		}
+        resource "yandex_function_scaling_policy" "my_scaling_policy" {
+            function_id = "are1samplefu********"
+            policy {
+                tag = "$latest"
+                zone_instances_limit = 2
+                zone_requests_limit  = 1
+            }
+        }
         ```
 
 
 
-        Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
-      
-   1. Проверьте корректность конфигурационных файлов.
-      
-        1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-        1. Выполните проверку с помощью команды:
-            ```
-            terraform plan
-            ```
-        Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
-         
-   1. Разверните облачные ресурсы.
+        Более подробную информацию о параметрах ресурса `yandex_function_scaling_policy` см. в [документации провайдера]({{ tf-provider-link }}/yandex_function_scaling_policy).
 
-        1. Если в конфигурации нет ошибок, выполните команду:
-            ```
-            terraform apply
-            ```
-        1. Подтвердите создание ресурсов.
+    1. Проверьте конфигурацию командой:
+        
+       ```
+       terraform validate
+       ```
 
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+       Если конфигурация является корректной, появится сообщение:
+        
+       ```
+       Success! The configuration is valid.
+       ```
+
+    1. Выполните команду:
+
+       ```
+       terraform plan
+       ```
+
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+
+    1. Примените изменения конфигурации:
+
+       ```
+       terraform apply
+       ```
+    1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+    Проверить удаление настроек масштабирования можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+    
+    ```
+    yc serverless function list-scaling-policies <имя_функции>|<идентификатор_функции>
+    ```
 
 - API
 
@@ -197,22 +211,87 @@
 
 - CLI
 
-	Чтобы удалить настройки масштабирования для функции, выполните команду:
+    Чтобы удалить настройки масштабирования для функции, выполните команду:
 
-	```
-	yc serverless function remove-scaling-policy \
-	  --id=d4eokpuol55h******** \
-	  --tag=\$latest
-	```
+    ```
+    yc serverless function remove-scaling-policy \
+      --id=d4eokpuol55h******** \
+      --tag=\$latest
+    ```
 
-	Где:
+    Где:
 
-	* `--id` — идентификатор функции. Чтобы узнать его, [получите](./version-manage.md#function-list) список функций.
-	* `--tag` —  [тег](../../concepts/function.md#tag) версии функции.
+    * `--id` — идентификатор функции. Чтобы узнать его, [получите](./version-manage.md#function-list) список функций.
+    * `--tag` —  [тег](../../concepts/function.md#tag) версии функции.
 
 - API
 
     Удалить настройки масштабирования для функции можно с помощью метода API [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md).
+
+- Terraform
+
+    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
+
+    Чтобы удалить настройки масштабирования:
+
+    1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+        * `yandex_function_scaling_policy` — описание настроек масштабирования функции.
+            * `function_id` — идентификатор функции.
+            * `policy` — настройки масштабирования:
+                * `policy.0.tag` — [тег](../../concepts/function.md#tag) версии функции.
+                * `policy.0.zone_instances_limit` — количество экземпляров функции. Установите значение `0`.
+                * `policy.0.zone_requests_limit` — количество выполняемых вызовов. Установите значение `0`.
+
+        Пример описания функции в конфигурации Terraform:
+
+        ```
+        resource "yandex_function_scaling_policy" "my_scaling_policy" {
+            function_id = "are1samplefu********"
+            policy {
+                tag                  = "$latest"
+                zone_instances_limit = 0
+                zone_requests_limit  = 0
+            }
+        }
+        ```
+      
+        Более подробную информацию о параметрах ресурса `yandex_function_scaling_policy` см. в [документации провайдера]({{ tf-provider-link }}/yandex_function_scaling_policy).
+      
+    1. Проверьте конфигурацию командой:
+        
+       ```
+       terraform validate
+       ```
+
+       Если конфигурация является корректной, появится сообщение:
+        
+       ```
+       Success! The configuration is valid.
+       ```
+
+    1. Выполните команду:
+
+       ```
+       terraform plan
+       ```
+        
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+         
+    1. Примените изменения конфигурации:
+
+       ```
+       terraform apply
+       ```
+    1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+    Проверить удаление настроек масштабирования можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
+    
+    ```
+    yc serverless function list-scaling-policies <имя_функции>|<идентификатор_функции>
+    ```
 
 - Yandex Cloud Toolkit
 
