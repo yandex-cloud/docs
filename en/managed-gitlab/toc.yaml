@@ -3,8 +3,26 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Managing a {{ GL }} instance
+        items:
+          - name: Getting information about instances
+            href: operations/instance/instance-list.md
+          - name: Creating an instance
+            href: operations/instance/instance-create.md
+          - name: Editing instance settings
+            href: operations/instance/instance-update.md
+          - name: Deleting an instance
+            href: operations/instance/instance-delete.md
+      - name: Connecting to instances
+        href: operations/connect.md
   - name: Concepts
     items:
+      - name: Relationships between service resources
+        href: concepts/index.md
       - name: Security in {{ GL }}
         href: concepts/security.md
       - name: Quotas and limits
