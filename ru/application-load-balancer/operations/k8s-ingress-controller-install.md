@@ -33,7 +33,7 @@
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin
    ```
    
-1. Загрузите чарт Ingress-контроллера из реестра и разархируйте его:
+1. Загрузите чарт Ingress-контроллера из реестра и разархивируйте его:
 
    ```bash
    helm pull \
