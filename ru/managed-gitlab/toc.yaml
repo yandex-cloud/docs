@@ -1,6 +1,5 @@
 title: Yandex Managed Service for Gitlab
 href: index.yaml
-stage: tech-preview
 items:
   - name: Начало работы
     href: quickstart.md
@@ -20,6 +19,10 @@ items:
             href: operations/instance/instance-delete.md
       - name: Подключение к инстансу
         href: operations/connect.md
+  - name: Практические руководства
+    items:
+      - name: Непрерывное развертывание контейнеризованных приложений {{ managed-k8s-name }}
+        href: tutorials/gitlab-containers.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

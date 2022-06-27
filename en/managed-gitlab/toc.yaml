@@ -1,12 +1,11 @@
 title: Yandex Managed Service for GitLab
 href: index.yaml
-stage: tech-preview
 items:
   - name: Getting started
     href: quickstart.md
   - name: Concepts
     items:
-      - name: Security in GitLab
+      - name: Security in {{ GL }}
         href: concepts/security.md
       - name: Quotas and limits
         href: concepts/limits.md

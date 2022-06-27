@@ -1,4 +1,0 @@
----
-default:
-  api: no-show
-  state: public-preview

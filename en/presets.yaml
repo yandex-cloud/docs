@@ -498,6 +498,13 @@ default:
   link-forms-b2b: https://forms.yandex.com/cloud/admin
   link-monitoring: https://monitoring.cloud.yandex.com
   link-support-mail: cloud@support.yandex.ru
+  links:
+    es: # ElasticSearch
+      reindex-api: https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html
+    helm:
+      install: https://helm.sh/docs/intro/install/
+    wiki: # Wikipedia
+      ci: https://en.wikipedia.org/wiki/Continuous_integration
   pg-docs: https://www.postgresql.org/docs/current
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds

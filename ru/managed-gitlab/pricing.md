@@ -4,14 +4,6 @@ editable: false
 
 # Правила тарификации для {{ mgl-full-name }}
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ mgl-name }} не тарифицируется.
-
-{% note alert %}
-
-С 27 июня 2022 года сервис {{ mgl-name }} станет платным.
-
-{% endnote %}
-
 ## Из чего складывается стоимость использования {{ mgl-name }} {#rules}
 
 При работе {{ mgl-name }} вы оплачиваете:

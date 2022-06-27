@@ -4,14 +4,6 @@ editable: false
 
 # Pricing for {{ mgl-full-name }}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ mgl-name }} can be used free of charge.
-
-{% note alert %}
-
-Starting June 27, 2022, the {{ mgl-name }} will become paid.
-
-{% endnote %}
-
 ## What goes into the cost of using {{ mgl-name }} {#rules}
 
 When using {{ mgl-name }}, you pay for the following:
