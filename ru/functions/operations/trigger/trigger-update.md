@@ -53,8 +53,68 @@
 
     Изменить имя триггера можно с помощью метода API [update](../../triggers/api-ref/Trigger/update.md).
 
-{% endlist %}
+- Terraform
 
+  Информацию о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+  Чтобы изменить имя триггера:
+
+  1. Откройте файл конфигурации Terraform и измените поле `name` в описании триггера:
+
+     ```hcl
+     ...
+     resource "yandex_function_trigger" "my_trigger" {
+       name        = "some_name"
+       description = "any description"
+       timer {
+         cron_expression = "* * * * ? *"
+       }
+       function {
+         id = "tf-test"
+       }
+     }
+     ...
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_function_trigger` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение триггера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+     ```
+     yc serverless trigger get <идентификатор триггера>
+     ```
+
+{% endlist %}
 
 ## Изменить описание триггера {#update-description}
 
@@ -105,6 +165,67 @@
 - API
 
     Изменить описание триггера можно с помощью метода API [update](../../triggers/api-ref/Trigger/update.md).
+
+- Terraform
+
+  Информацию о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+  Чтобы изменить описание триггера:
+
+  1. Откройте файл конфигурации Terraform и измените поле `description` в описании триггера:
+
+     ```hcl
+     ...
+     resource "yandex_function_trigger" "my_trigger" {
+       name        = "some_name"
+       description = "any description"
+       timer {
+         cron_expression = "* * * * ? *"
+       }
+       function {
+         id = "tf-test"
+       }
+     }
+     ...
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_function_trigger` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение триггера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+     ```
+     yc serverless trigger get <идентификатор триггера>
+     ```
 
 {% endlist %}
 
@@ -161,6 +282,71 @@
 
     Добавить метку триггера можно с помощью метода API [update](../../triggers/api-ref/Trigger/update.md).
 
+- Terraform
+
+  Информацию о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+  Чтобы добавить метку триггера:
+
+  1. Откройте файл конфигурации Terraform и добавьте блок `labels` в описании триггера:
+
+     ```hcl
+     ...
+     resource "yandex_function_trigger" "my_trigger" {
+       name   = "some_name"
+	   labels = {
+         tf-label    = "tf-label-value"
+         empty-label = ""
+       }
+       description = "any description"
+       timer {
+         cron_expression = "* * * * ? *"
+       }
+       function {
+         id = "tf-test"
+       }
+     }
+     ...
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_function_trigger` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение триггера можно с помощью команды [CLI](../../../cli/quickstart.md):
+
+     ```
+     yc serverless trigger get <идентификатор триггера>
+     ```
+
 {% endlist %}
 
 ### Изменить метку {#update-label}
@@ -213,6 +399,71 @@
 
     Изменить метку триггера можно с помощью метода API [update](../../triggers/api-ref/Trigger/update.md).
 
+- Terraform
+
+  Информацию о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+  Чтобы изменить метку триггера:
+
+  1. Откройте файл конфигурации Terraform и измените блок `labels` в описании триггера:
+
+     ```hcl
+     ...
+     resource "yandex_function_trigger" "my_trigger" {
+       name   = "some_name"
+	   labels = {
+         tf-label    = "tf-label-value"
+         empty-label = ""
+       }
+       description = "any description"
+       timer {
+         cron_expression = "* * * * ? *"
+       }
+       function {
+         id = "tf-test"
+       }
+     }
+     ...
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_function_trigger` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение триггера можно с помощью команды [CLI](../../../cli/quickstart.md):
+
+     ```
+     yc serverless trigger get <идентификатор триггера>
+     ```
+
 {% endlist %}
 
 ### Удалить метку {#remove-label}
@@ -256,5 +507,70 @@
 - API
 
     Удалить метку триггера можно с помощью метода API [update](../../triggers/api-ref/Trigger/update.md).
+
+- Terraform
+
+  Информацию о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+  Чтобы удалить метку триггера:
+
+  1. Откройте файл конфигурации Terraform и в блоке `labels` удалите ненужную метку:
+
+     ```hcl
+     ...
+     resource "yandex_function_trigger" "my_trigger" {
+       name   = "some_name"
+	   labels = {
+         tf-label    = "tf-label-value"
+         empty-label = ""
+       }
+       description = "any description"
+       timer {
+         cron_expression = "* * * * ? *"
+       }
+       function {
+         id = "tf-test"
+       }
+     }
+     ...
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_function_trigger` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение триггера можно с помощью команды [CLI](../../../cli/quickstart.md):
+
+     ```
+     yc serverless trigger get <идентификатор триггера>
+     ```
 
 {% endlist %}

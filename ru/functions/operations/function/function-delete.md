@@ -41,21 +41,63 @@
 
     Подробнее о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-    Если вы создавали функцию с помощью Terraform, вы можете удалить ее:
+    Чтобы удалить функцию, созданную с помощью Terraform:
 
-    1. В командной строке перейдите в папку, где расположен конфигурационный файл Terraform.
-    2. Удалите ресурсы с помощью команды:
+    1. Откройте файл конфигурации Terraform и удалите фрагмент с описанием функции.
+       
+       Пример описания функции в конфигурации Terraform:
+
        ```
-       terraform destroy
+        resource "yandex_function" "test-function" {
+            name               = "test-function"
+            description        = "Test function"
+            user_hash          = "first-function"
+            runtime            = "python37"
+            entrypoint         = "main"
+            memory             = "128"
+            execution_timeout  = "10"
+            service_account_id = "<идентификатор сервисного аккаунта>"
+            tags               = ["my_tag"]
+            content {
+                zip_filename = "<путь к ZIP-архиву>"
+            }
+        }
+        ```
+
+        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-link }}/function).
+
+    1. Проверьте конфигурацию командой:
+        
        ```
-       
-       {% note alert %}
-       
-       Terraform удалит все ресурсы, созданные в текущей конфигурации: кластеры, сети, подсети, виртуальные машины и т. д.
-       
-       {% endnote %}
+       terraform validate
+       ```
+
+       Если конфигурация является корректной, появится сообщение:
+        
+       ```
+       Success! The configuration is valid.
+       ```
+
+    1. Выполните команду:
+
+       ```
+       terraform plan
+       ```
+        
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+         
+    1. Примените изменения конфигурации:
+
+       ```
+       terraform apply
+       ```
+    1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
       
-    3. Подтвердите удаление ресурсов.
+    Проверить удаление функции можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```
+    yc serverless function list
+    ```
 
 - Yandex Cloud Toolkit
 

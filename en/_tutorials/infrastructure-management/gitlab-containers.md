@@ -2,7 +2,11 @@
 
 [GitLab](https://about.gitlab.com/) is a [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration) tool. This scenario describes how to build an application in a Docker container and deploy it from the container on a {{ k8s }} cluster with GitLab using {{ yandex-cloud }} tools. After each commit, a script runs in GitLab that describes the steps for building a Docker image and applying a new {{ k8s }} cluster configuration, which specifies the application to be deployed. To configure the infrastructure required for storing source code, building Docker images, and deploying applications, follow these steps:
 * [Before you start](#before-you-begin)
+
+
   * [Required paid resources](#paid-resources)
+  
+
   * [Install additional dependencies](#prepare)
 * [Create a VM from the GitLab image](#create-gitlab)
 * [Configure GitLab](#configure-gitlab)

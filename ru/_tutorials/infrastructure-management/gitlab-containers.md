@@ -1,29 +1,46 @@
-# Непрерывное развертывание контейнеризованных приложений с помощью GitLab
+# Непрерывное развертывание контейнеризованных приложений с помощью {{ GL }}
 
-[GitLab](https://about.gitlab.com/) — инструмент [непрерывной интеграции (continuous integration)](https://ru.wikipedia.org/wiki/Непрерывная_интеграция). В сценарии описано, как выполнять сборку приложения в Docker-контейнер и развертывать приложение из контейнера на [кластере {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster)) через GitLab с помощью инструментов {{ yandex-cloud }}. После каждого коммита в GitLab будет выполняться сценарий, в котором описаны шаги сборки [Docker-образа](../../container-registry/concepts/docker-image.md). Так же будет происходить применение новой конфигурации кластера {{ k8s }}, в которой будет указано приложение для развертывания. Чтобы настроить необходимую инфраструктуру для хранения исходного кода, сборки Docker-образа и развертывания приложения, выполните следующие шаги:
-1. [Подготовьте облако к работе](#before-you-begin)
-   1. [Необходимые платные ресурсы](#paid-resources)
-   1. [Установите дополнительные зависимости](#prepare)
-1. [Создайте виртуальную машину из образа GitLab](#create-gitlab)
-1. [Настройте GitLab](#configure-gitlab)
-1. [Создайте ресурс {{ container-registry-full-name }}](#cr-create)
-1. [Создайте ресурсы {{ k8s }}](#k8s-create)
-   1. [Создайте кластер](#k8s-create-cluster)
-   1. [Создайте группу узлов](#k8s-create-node-group)
-1. [Подключите {{ k8s }} кластер к сборкам GitLab](#runners)
-1. [Настройте сборку и развертывание Docker-образа из CI](#ci)
+[{{ GL }}](https://about.gitlab.com/) — инструмент [непрерывной интеграции (Continuous integration, CI)]({{ links.wiki.ci }}).
 
-Если созданные ВМ и кластер больше не нужны, [удалите их](#clear-out).
+В этом руководстве описаны:
+* Сборка приложения в Docker-контейнер.
+* Развертывание приложения из контейнера в [кластере {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) через {{ GL }} с помощью инструментов {{ yandex-cloud }}.
+
+После каждого коммита в {{ GL }}:
+* Выполнится сценарий, в котором описаны шаги сборки [Docker-образа](../../container-registry/concepts/docker-image.md).
+* Применится новая конфигурация кластера {{ k8s }}, в которой будет указано приложение для развертывания.
+
+Чтобы настроить необходимую инфраструктуру для хранения исходного кода, сборки Docker-образа и развертывания приложения:
+1. [Подготовьте облако к работе](#before-you-begin).
+
+   
+   1. [Изучите список необходимых платных ресурсов](#paid-resources).
+
+
+   1. [Установите дополнительные зависимости](#prepare).
+1. [Создайте ресурсы {{ managed-k8s-name }}](#k8s-create).
+1. [Создайте инстанс {{ GL }}](#create-gitlab).
+1. [Настройте {{ GL }}](#configure-gitlab).
+1. [Создайте реестр {{ container-registry-full-name }}](#cr-create).
+1. [Создайте тестовое приложение](#app-create).
+1. [Создайте {{ GLR }}](#runners).
+1. [Настройте сборку и развертывание Docker-образа из CI](#ci).
+
+Если созданные ресурсы больше не нужны, [удалите их](#clear-out).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+Перед началом работы зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен платежный аккаунт, и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md).
+
+   Если у вас есть активный платежный аккаунт, на [странице облака]({{ link-console-cloud }}) вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете создавать ресурсы.
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит плата за следующие ресурсы:
-* [Диски](../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* [Диски](../../compute/concepts/disk.md) и постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Использование динамического [публичного IP-адреса](../../vpc/concepts/ips.md) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 * Хранение созданных Docker-образов (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
 * Использование [мастера {{ k8s }}](../../managed-kubernetes/concepts/index.md#master) (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
@@ -33,35 +50,73 @@
 
 Для выполнения сценария установите в локальном окружении:
 * [Интерфейс командной строки {{ yandex-cloud }} (YC CLI)](../../cli/operations/install-cli.md).
-* [jq](https://stedolan.github.io/jq/).
-* [{{ k8s }} CLI (kubectl)](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/).
-* [Helm](https://helm.sh/).
+* [Утилиту потоковой обработки JSON-файлов `jq`](https://stedolan.github.io/jq/).
+* [Менеджер пакетов Helm]({{ links.helm.install }}).
 
-## Создайте виртуальную машину из образа GitLab {#create-gitlab}
+## Создайте ресурсы {{ k8s }} {#k8s-create}
 
-Запустите GitLab на ВМ с публичным IP-адресом.
+Для выполнения сценария создайте ресурсы {{ k8s }}: [кластер](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [группу узлов](../../managed-kubernetes/concepts/index.md#node-group).
+1. Если у вас еще нет [сети](../../vpc/concepts/network.md#network), [создайте ее](../../vpc/operations/network-create.md).
+1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы кластер {{ k8s }} и группа узлов.
+1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
+   * С ролью [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) на каталог, в котором создается кластер {{ managed-k8s-name }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
+   * С ролями [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) и [{{ roles-cr-pusher }}](../../iam/concepts/access-control/roles.md#cr-images-pusher.md). От его имени узлы будут загружать в реестр собранные в {{ GL }} Docker-образы, а также скачивать их для запуска подов.
 
-{% include [create-gitlab](../../_includes/gitlab/create.md) %}
+   {% note tip %}
+
+   Вы можете использовать один и тот же сервисный аккаунт для управления кластером {{ managed-k8s-name }} и его группами узлов.
+
+   {% endnote %}
+
+1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) со следующими настройками:
+   * **Сервисный аккаунт для ресурсов** — созданный ранее сервисный аккаунт с ролью `{{ roles-editor }}`.
+   * **Сервисный аккаунт для узлов** — созданный ранее сервисный аккаунт с ролями `{{ roles-cr-puller }}` и `{{ roles-cr-pusher }}`.
+   * **Версия {{ k8s }}** — не ниже **1.21**.
+   * **Публичный адрес** — `Автоматически`.
+
+   Сохраните идентификатор кластера — он понадобится для следующих шагов.
+
+1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
+{% include [k8s-get-token](../../_includes/managed-gitlab/k8s-get-token.md) %}
+
+## Создайте инстанс {{ GL }} {#create-gitlab}
+
+{% list tabs %}
+
+
+- Инстанс {{ mgl-name }}
+
+  Создайте [инстанс {{ mgl-name }}](../../managed-gitlab/concepts/index.md#instance) [согласно инструкции](../../managed-gitlab/quickstart.md#instance-create).
+
+
+- ВМ с образом {{ GL }}
+
+  Запустите {{ GL }} на ВМ с публичным IP-адресом.
+
+  {% include [create-gitlab](../../_includes/managed-gitlab/create.md) %}
+
+{% endlist %}
+
+## Настройте {{ GL }} {#configure-gitlab}
+
+{% include [Create a project](../../_includes/managed-gitlab/initialize.md) %}
 
 ## Создайте реестр {{ container-registry-name }} {#cr-create}
 
 Для хранения Docker-образов вам понадобится [реестр](../../container-registry/concepts/registry.md) {{ container-registry-name }}.
+1. [Создайте реестр](../../container-registry/operations/registry/registry-create.md).
+1. [Сохраните идентификатор созданного реестра](../../container-registry/operations/registry/registry-list.md#registry-get) — он понадобится для следующих шагов.
 
-{% include [create-cluster](../../_includes/container-registry/create-registry.md) %}
-
-Сохраните идентификатор реестра — он понадобится для следующих шагов.
-
-## Настройте GitLab {#configure-gitlab}
-
-{% include [initialize-gitlab](../../_includes/gitlab/initialize.md) %}
-
-## Создайте тестовое приложение
+## Создайте тестовое приложение {#app-create}
 
 Создайте тестовое приложение, которое можно будет развернуть в кластере {{ k8s }}:
-1. Добавьте конфигурацию Docker-образа.
-   1. На левой панели в GitLab перейдите в раздел **Repository** и выберите вкладку **Files**.
-   1. На странице проекта нажмите кнопку **New file**.
-   1. Назовите файл `Dockerfile`. Добавьте в него конфигурацию Docker-образа:
+1. Добавьте в проект `Dockerfile`:
+   1. Авторизуйтесь в {{ GL }}.
+   1. На главной странице выберите репозиторий.
+   1. Выберите раздел **Repository** → **Files**.
+   1. Нажмите кнопку **+** и в выпадающем меню выберите пункт **New file**.
+   1. Назовите файл `Dockerfile` и добавьте в него код:
 
       ```Dockerfile
       FROM alpine:3.10
@@ -70,10 +125,10 @@
 
    1. Напишите комментарий к коммиту в поле **Commit message**: `Dockerfile for test application`.
    1. Нажмите кнопку **Commit changes**.
-1. Добавьте конфигурацию для разворачивания Docker-образа в кластере {{ k8s }}:
-   1. В панели слева перейдите в раздел **Repository** и выберите вкладку **Files**.
-   1. Справа от имени проекта нажмите кнопку **+** и в выпадающем меню выберите пункт **New file**.
-   1. Назовите файл `k8s.yaml`. Добавьте в него конфигурацию создания [пространства имен](../../managed-kubernetes/concepts/index.md#namespace) и [deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/):
+1. Добавьте в проект манифест ресурсов кластера {{ managed-k8s-name }}:
+   1. Выберите раздел **Repository** → **Files**.
+   1. Нажмите кнопку **+** и в выпадающем меню выберите пункт **New file**.
+   1. Назовите файл `k8s.yaml`:
 
       ```yaml
       apiVersion: v1
@@ -99,56 +154,31 @@
           spec:
             containers:
               - name: hello-world
-                image: cr.yandex/<ID реестра>/hello:__VERSION__
+                image: {{ registry }}/<идентификатор реестра>/hello:__VERSION__
                 imagePullPolicy: Always
       ```
 
-   1. Замените в приведенном файле `<ID реестра>` на идентификатор вашего реестра, созданного ранее.
+   1. В поле `<идентификатор реестра>` укажите идентификатор созданного ранее реестра.
    1. Напишите комментарий к коммиту в поле **Commit message**: `Docker image deployment config`.
    1. Нажмите кнопку **Commit changes**.
 
-## Создайте ресурсы {{ k8s }} {#k8s-create}
+## Создайте {{ GLR }} {#runners}
 
-Для выполнения сценариев создайте необходимые ресурсы {{ k8s }}: кластер и [группу узлов](../../managed-kubernetes/concepts/index.md#node-group).
-1. Если у вас еще нет [сети](../../vpc/concepts/network.md#network), [создайте ее](../../vpc/operations/network-create.md).
-1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы кластер {{ k8s }} и группа узлов.
-1. Создайте [сервисные аккаунты](../../iam/operations/sa/create.md):
-   * Сервисный аккаунт для ресурсов с ролью [{{ roles-editor }}](../../resource-manager/security/#roles-list) на каталог, в котором создается кластер {{ k8s }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
-   * Сервисный аккаунт для узлов с ролью [{{ roles-cr-pusher }}](../../container-registry/security/index.md#required-roles) на каталог с реестром Docker-образов. От его имени узлы будут загружать в реестр собранные в GitLab Docker-образы.
-
-   Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
-
-### Создайте кластер {#k8s-create-cluster}
-
-{% include [create-cluster](../../_includes/managed-kubernetes/cluster-create.md) %}
-
-Сохраните идентификатор кластера - он понадобится для следующих шагов.
-
-### Создайте группу узлов {#k8s-create-node-group}
-
-Создание кластера {{ k8s }} может занять несколько минут. Когда созданный кластер перейдет в статус `RUNNING`, вы можете перейти к созданию группы узлов в этом кластере.
-
-{% include [create-node-group](../../_includes/managed-kubernetes/node-group-create.md) %}
-
-{% include [k8s-get-token](../../_includes/gitlab/k8s-get-token.md) %}
-
-## Создайте {{ GL }} Runner {#runners}
-
-{% include notitle [k8s-runner-gitlab](../../_includes/gitlab/k8s-runner.md) %}
+{% include notitle [create glr](../../_includes/managed-gitlab/k8s-runner.md) %}
 
 ## Настройте сборку и развертывание Docker-образа из CI {#ci}
 
-{% include [configure-ci-gitlab](../../_includes/gitlab/configure-ci.md) %}
+{% include [Setup CI/CD](../../_includes/managed-gitlab/configure-ci.md) %}
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если вам больше не нужны развернутые приложения и кластер {{ k8s }}:
-* [Удалите группу узлов {{ k8s }}](../../managed-kubernetes/operations/node-group/node-group-delete.md) и [кластер {{ k8s }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-* [Удалите созданные ВМ](../../compute/operations/vm-control/vm-delete.md).
+Если созданные ресурсы вам больше не нужны, удалите их:
+* [Удалите кластер {{ k8s }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+* [Удалите созданную ВМ {{ GL }}](../../compute/operations/vm-control/vm-delete.md) или инстанс {{ mgl-name }}.
 * [Удалите созданные Docker-образы](../../container-registry/operations/docker-image/docker-image-delete.md) и [реестр {{ container-registry-name }}](../../container-registry/operations/registry/registry-delete.md).
 * [Удалите созданные подсети](../../vpc/operations/subnet-delete.md) и [сети](../../vpc/operations/network-delete.md).
 * [Удалите созданные сервисные аккаунты](../../iam/operations/sa/delete.md).
 
-#### См. также {#see-also}
+## См. также {#see-also}
 
-* [Создание тестовых ВМ через GitLab CI](../../tutorials/testing/ci-for-snapshots.md)
+* [Создание тестовых ВМ через {{ GL }} CI](../../tutorials/testing/ci-for-snapshots.md).

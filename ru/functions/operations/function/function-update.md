@@ -46,6 +46,70 @@
 
     Изменить имя функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
 
+- Terraform
+
+    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    Чтобы изменить имя функции:
+
+    1. Откройте файл конфигурации Terraform и измените поле `name` во фрагменте с описанием функции.
+
+        Пример описания функции в конфигурации Terraform:
+      
+        ```
+        resource "yandex_function" "test-function" {
+            name               = "test-function"
+            description        = "Test function"
+            user_hash          = "first-function"
+            runtime            = "python37"
+            entrypoint         = "main"
+            memory             = "128"
+            execution_timeout  = "10"
+            service_account_id = "<идентификатор сервисного аккаунта>"
+            tags               = ["my_tag"]
+            content {
+                zip_filename = "<путь к ZIP-архиву>"
+            }
+        }
+        ``` 
+
+        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-link }}/function).
+
+    1. Проверьте конфигурацию командой:
+        
+       ```
+       terraform validate
+       ```
+
+       Если конфигурация является корректной, появится сообщение:
+        
+       ```
+       Success! The configuration is valid.
+       ```
+
+    1. Выполните команду:
+
+       ```
+       terraform plan
+       ```
+        
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+         
+    1. Примените изменения конфигурации:
+
+       ```
+       terraform apply
+       ```
+    1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+      
+    Проверить изменение имени функции можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```
+    yc serverless function list
+    ```
+
 - Yandex Cloud Toolkit
 
     Изменить имя функции можно с помощью [плагина Yandex Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
@@ -97,6 +161,70 @@
 
     Изменить описание функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
 
+- Terraform
+
+    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    Чтобы изменить описание функции:
+
+    1. Откройте файл конфигурации Terraform и измените поле `description` во фрагменте с описанием функции.
+
+        Пример описания функции в конфигурации Terraform:
+      
+        ```
+        resource "yandex_function" "test-function" {
+            name               = "test-function"
+            description        = "Test function"
+            user_hash          = "first-function"
+            runtime            = "python37"
+            entrypoint         = "main"
+            memory             = "128"
+            execution_timeout  = "10"
+            service_account_id = "<идентификатор сервисного аккаунта>"
+            tags               = ["my_tag"]
+            content {
+                zip_filename = "<путь к ZIP-архиву>"
+            }
+        }
+        ``` 
+
+        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-link }}/function).
+
+    1. Проверьте конфигурацию командой:
+        
+       ```
+       terraform validate
+       ```
+
+       Если конфигурация является корректной, появится сообщение:
+        
+       ```
+       Success! The configuration is valid.
+       ```
+
+    1. Выполните команду:
+
+       ```
+       terraform plan
+       ```
+        
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+         
+    1. Примените изменения конфигурации:
+
+       ```
+       terraform apply
+       ```
+    1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+      
+    Проверить изменение описания функции можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```
+    yc serverless function get <имя_функции>|<идентификатор_функции>
+    ```
+
 - Yandex Cloud Toolkit
 
     Изменить описание функции можно с помощью [плагина Yandex Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
@@ -147,6 +275,74 @@
 
     Добавить метку функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
 
+- Terraform
+
+    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    Чтобы добавить метку функции:
+
+    1. В конфигурационном файле Terraform добавьте блок `labels` и перечислите в нем список меток в формате `<ключ>:"<значение>"`.
+
+        Пример описания функции в конфигурации Terraform:
+      
+        ```
+        resource "yandex_function" "test-function" {
+            name               = "test-function"
+            description        = "Test function"
+            user_hash          = "first-function"
+            runtime            = "python37"
+            entrypoint         = "main"
+            memory             = "128"
+            execution_timeout  = "10"
+            service_account_id = "<идентификатор сервисного аккаунта>"
+            tags               = ["my_tag"]
+            labels = {
+              <ключ1>:"<значение1>",
+              <ключ2>:"<значение2>"
+            }
+            content {
+                zip_filename = "<путь к ZIP-архиву>"
+            }
+        }
+        ``` 
+
+        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-link }}/function).
+
+    1. Проверьте конфигурацию командой:
+        
+       ```
+       terraform validate
+       ```
+
+       Если конфигурация является корректной, появится сообщение:
+        
+       ```
+       Success! The configuration is valid.
+       ```
+
+    1. Выполните команду:
+
+       ```
+       terraform plan
+       ```
+        
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+         
+    1. Примените изменения конфигурации:
+
+       ```
+       terraform apply
+       ```
+    1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+      
+    Проверить добавление меток функции можно с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```
+    yc serverless function get <имя_функции>|<идентификатор_функции>
+    ```
+
 {% endlist %}
 
 ### Изменить метку {#update-label}
@@ -189,8 +385,75 @@
 
     Изменить метки функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
 
-{% endlist %}
+- Terraform
 
+    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    Чтобы изменить метку функции:
+
+    1. Откройте файл конфигурации Terraform и отредактируйте блок `labels`.
+
+        Пример описания функции в конфигурации Terraform:
+      
+        ```
+        resource "yandex_function" "test-function" {
+            name               = "test-function"
+            description        = "Test function"
+            user_hash          = "first-function"
+            runtime            = "python37"
+            entrypoint         = "main"
+            memory             = "128"
+            execution_timeout  = "10"
+            service_account_id = "<идентификатор сервисного аккаунта>"
+            tags               = ["my_tag"]
+            labels = {
+              <ключ1>:"<значение1>",
+              <ключ2>:"<значение2>"
+            }
+            content {
+                zip_filename = "<путь к ZIP-архиву>"
+            }
+        }
+        ``` 
+
+        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-link }}/function).
+
+    1. Проверьте конфигурацию командой:
+        
+       ```
+       terraform validate
+       ```
+
+       Если конфигурация является корректной, появится сообщение:
+        
+       ```
+       Success! The configuration is valid.
+       ```
+
+    1. Выполните команду:
+
+       ```
+       terraform plan
+       ```
+        
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+         
+    1. Примените изменения конфигурации:
+
+       ```
+       terraform apply
+       ```
+    1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+      
+    Проверить изменение меток функции можно с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```
+    yc serverless function get <имя_функции>|<идентификатор_функции>
+    ```
+
+{% endlist %}
 ### Удалить метку {#remove-label}
 
 {% list tabs %}
@@ -225,5 +488,73 @@
 - API
 
     Удалить метку функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
+
+- Terraform
+
+    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    Чтобы удалить метку функции:
+
+    1. Откройте файл конфигурации Terraform и в блоке `labels` удалите ненужную метку.
+
+        Пример описания функции в конфигурации Terraform:
+      
+        ```
+        resource "yandex_function" "test-function" {
+            name               = "test-function"
+            description        = "Test function"
+            user_hash          = "first-function"
+            runtime            = "python37"
+            entrypoint         = "main"
+            memory             = "128"
+            execution_timeout  = "10"
+            service_account_id = "<идентификатор сервисного аккаунта>"
+            tags               = ["my_tag"]
+            labels = {
+              <ключ1>:"<значение1>",
+              <ключ2>:"<значение2>"
+            }
+            content {
+                zip_filename = "<путь к ZIP-архиву>"
+            }
+        }
+        ``` 
+
+        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-link }}/function).
+
+    1. Проверьте конфигурацию командой:
+        
+       ```
+       terraform validate
+       ```
+
+       Если конфигурация является корректной, появится сообщение:
+        
+       ```
+       Success! The configuration is valid.
+       ```
+
+    1. Выполните команду:
+
+       ```
+       terraform plan
+       ```
+        
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+         
+    1. Примените изменения конфигурации:
+
+       ```
+       terraform apply
+       ```
+    1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+      
+    Проверить удаление меток функции можно с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```
+    yc serverless function get <имя_функции>|<идентификатор_функции>
+    ```
 
 {% endlist %}
