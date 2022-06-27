@@ -17,7 +17,7 @@
 
 ## Windows Server {#win-server}
 
-Создавайте виртуальные машины с операционной системой Microsoft Windows Server, чтобы запускать приложения для Windows. Доступны несколько версий системы в редакциях Standard и Datacenter:
+Создавайте виртуальные машины с операционной системой Microsoft Windows Server, чтобы запускать приложения для Windows. Доступны несколько версий системы в редакции  Datacenter:
 
 * Windows Server 2012 R2
 * Windows Server 2016
