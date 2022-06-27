@@ -110,6 +110,87 @@
 
     Создать версию функции можно с помощью метода API [createVersion](../../functions/api-ref/Function/createVersion.md).
 
+- Terraform
+
+    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    Чтобы создать новую версию функции:
+
+    1. Откройте файл конфигурации Terraform и измените параметры функции:
+
+       * `yandex_function` — описание создаваемой функции и ее исходный код.
+            * `name` — имя функции.
+            * `description` — текстовое описание функции.
+            * `user_hash` — произвольная строка, определяющая версию функции. При изменениях функции необходимо менять и эту строку. Функция обновится при изменении этой строки.
+            * `runtime` — [среда выполнения](../../concepts/runtime/index.md) функции.
+            * `entrypoint` — имя функции в исходном коде, которая будет служить точкой входа в приложения.
+            * `memory` — объем памяти в мегабайтах, отведенный для выполнения функции.
+            * `execution_timeout` — таймаут выполнения функции.
+            * `service_account_id` — идентификатор сервисного аккаунта, от имени которого будет запускаться функция.
+            * `content` — исходный код функции.
+                * `content.0.zip_filename` — имя ZIP-архива, содержащего исходный код функции.
+
+       {% note info %}
+    
+       При изменении имени или описания функции версия создана не будет.
+
+       {% endnote %}
+
+       Пример описания функции в конфигурации Terraform:
+      
+        ```
+        resource "yandex_function" "test-function" {
+            name               = "test-function"
+            description        = "Test function"
+            user_hash          = "first-function"
+            runtime            = "python37"
+            entrypoint         = "main"
+            memory             = "128"
+            execution_timeout  = "10"
+            service_account_id = "<идентификатор сервисного аккаунта>"
+            content {
+                zip_filename = "<путь к ZIP-архиву>"
+            }
+        }
+        ```
+
+        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-link }}/function).
+
+    1. Проверьте конфигурацию командой:
+        
+       ```
+       terraform validate
+       ```
+
+       Если конфигурация является корректной, появится сообщение:
+        
+       ```
+       Success! The configuration is valid.
+       ```
+
+    1. Выполните команду:
+
+       ```
+       terraform plan
+       ```
+        
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+         
+    1. Примените изменения конфигурации:
+
+       ```
+       terraform apply
+       ```
+    1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+      
+    Проверить появление версии можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```
+    yc serverless function version list --function-name <имя функции>
+    ```
+
 - Yandex Cloud Toolkit
 
     Создать версию функции можно с помощью [плагина Yandex Cloud Toolkit]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} для семейства IDE на [платформе IntelliJ]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} от [JetBrains](https://www.jetbrains.com/).
@@ -180,6 +261,69 @@
 
     Добавить переменные окружения можно с помощью метода API [createVersion](../../functions/api-ref/Function/createVersion.md).
 
+- Terraform
+
+    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    Чтобы добавить переменные окружения:
+
+    1. В конфигурационном файле добавьте блок `environment` для ресурса `yandex_function` и укажите список переменных окружения в формате `<ключ>:"<значение>"`.
+
+       Пример описания функции в конфигурации Terraform:
+      
+        ```
+        resource "yandex_function" "test-function" {
+            name               = "test-function"
+            description        = "Test function"
+            user_hash          = "first-function"
+            runtime            = "python37"
+            entrypoint         = "main"
+            memory             = "128"
+            execution_timeout  = "10"
+            service_account_id = "<идентификатор сервисного аккаунта>"
+            tags               = ["my_tag"]
+            environment = {
+                <ключ_переменной_окружения> = "<имя_переменной_окружения>"
+            }
+            content {
+                zip_filename = "<путь к ZIP-архиву>"
+            }
+        }
+        ``` 
+
+        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-link }}/function).
+
+    1. Проверьте конфигурацию командой:
+        
+       ```
+       terraform validate
+       ```
+
+       Если конфигурация является корректной, появится сообщение:
+        
+       ```
+       Success! The configuration is valid.
+       ```
+
+    1. Выполните команду:
+
+       ```
+       terraform plan
+       ```
+        
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+         
+    1. Примените изменения конфигурации:
+
+       ```
+       terraform apply
+       ```
+    1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+      
+    Проверить появление переменных окружения можно в [консоли управления]({{ link-console-main }}).
+
 - Yandex Cloud Toolkit
 
     Добавить переменные окружения можно с помощью [плагина Yandex Cloud Toolkit]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} для семейства IDE на [платформе IntelliJ]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} от [JetBrains](https://www.jetbrains.com/).
@@ -231,6 +375,70 @@
 
     Добавить тег можно с помощью метода API [setTag](../../functions/api-ref/Function/setTag.md).
 
+- Terraform
+
+    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    Чтобы добавить тег версии:
+
+    1. В конфигурационном файле добавьте блок `tags` для ресурса `yandex_function` и укажите список тегов формате `tags = ["<имя_тега>"]`.
+
+       Пример описания функции в конфигурации Terraform:
+      
+        ```
+        resource "yandex_function" "test-function" {
+            name               = "test-function"
+            description        = "Test function"
+            user_hash          = "first-function"
+            runtime            = "python37"
+            entrypoint         = "main"
+            memory             = "128"
+            execution_timeout  = "10"
+            service_account_id = "<идентификатор сервисного аккаунта>"
+            tags               = ["my_tag"]
+            content {
+                zip_filename = "<путь к ZIP-архиву>"
+            }
+        }
+        ``` 
+
+        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-link }}/function).
+
+    1. Проверьте конфигурацию командой:
+        
+       ```
+       terraform validate
+       ```
+
+       Если конфигурация является корректной, появится сообщение:
+        
+       ```
+       Success! The configuration is valid.
+       ```
+
+    1. Выполните команду:
+
+       ```
+       terraform plan
+       ```
+        
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+         
+    1. Примените изменения конфигурации:
+
+       ```
+       terraform apply
+       ```
+    1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+      
+    Проверить появление тегов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```
+    yc serverless function version list --function-name <имя функции>
+    ```
+
 - Yandex Cloud Toolkit
 
     Добавить тег можно с помощью [плагина Yandex Cloud Toolkit]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} для семейства IDE на [платформе IntelliJ]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} от [JetBrains](https://www.jetbrains.com/).
@@ -274,6 +482,70 @@
 - API
 
     Удалить тег можно с помощью метода API [removeTag](../../functions/api-ref/Function/removeTag.md).
+
+- Terraform
+
+    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    Чтобы удалить тег версии:
+
+    1. Откройте файл конфигурации Terraform и в блоке `tags` удалите строку с ненужным тегом.
+
+       Пример описания функции в конфигурации Terraform:
+      
+        ```
+        resource "yandex_function" "test-function" {
+            name               = "test-function"
+            description        = "Test function"
+            user_hash          = "first-function"
+            runtime            = "python37"
+            entrypoint         = "main"
+            memory             = "128"
+            execution_timeout  = "10"
+            service_account_id = "<идентификатор сервисного аккаунта>"
+            tags               = ["my_tag"]
+            content {
+                zip_filename = "<путь к ZIP-архиву>"
+            }
+        }
+        ``` 
+
+        Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-link }}/function).
+
+    1. Проверьте конфигурацию командой:
+        
+       ```
+       terraform validate
+       ```
+
+       Если конфигурация является корректной, появится сообщение:
+        
+       ```
+       Success! The configuration is valid.
+       ```
+
+    1. Выполните команду:
+
+       ```
+       terraform plan
+       ```
+        
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+         
+    1. Примените изменения конфигурации:
+
+       ```
+       terraform apply
+       ```
+    1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+      
+    Проверить удаление тегов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+    ```
+    yc serverless function version list --function-name <имя функции>
+    ```
 
 - Yandex Cloud Toolkit
 
