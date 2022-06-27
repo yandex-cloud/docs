@@ -66,7 +66,3 @@ const graph = Graphite.prepareGraph(loadedData.graphiteSource);
 // экспортируем данные для отрисовки
 module.exports = graph;
 ```
-
-## Примеры {#examples}
-
-[График по данным из Графана](https://charts.yandex-team.ru/editor/Templates/simple-graphite)
