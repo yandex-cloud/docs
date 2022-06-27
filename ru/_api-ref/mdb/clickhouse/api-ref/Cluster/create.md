@@ -473,7 +473,7 @@ configSpec.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Доли 
 configSpec.<br>access | **object**<br><p>Политика доступа для внешних сервисов.</p> <p>Если вы хотите, чтобы определенный сервис получил доступ к кластеру ClickHouse — задайте необходимые значения в этой политике.</p> 
 configSpec.<br>access.<br>dataLens | **boolean** (boolean)<br><p>Разрешить экспорт данных из кластера в Yandex DataLens.</p> 
 configSpec.<br>access.<br>webSql | **boolean** (boolean)<br><p>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком.</p> <p>Подробнее см. в <a href="/docs/managed-clickhouse/operations/web-sql-query">SQL-запросы в консоли управления</a>.</p> 
-configSpec.<br>access.<br>metrika | **boolean** (boolean)<br><p>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер.</p> <p>Подробнее см. в <a href="https://appmetrica.yandex.ru/docs/cloud/index.html">Экспорт данных в Яндекс.Облако</a>.</p> 
+configSpec.<br>access.<br>metrika | **boolean** (boolean)<br><p>Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер.</p> <p>Подробнее см. в <a href="https://appmetrica.yandex.ru/docs/common/cloud/about.html">Экспорт данных в {{ yandex-cloud }}</a>.</p> 
 configSpec.<br>access.<br>serverless | **boolean** (boolean)<br><p>Разрешить доступ к кластеру для Serverless.</p> 
 databaseSpecs[] | **object**<br><p>Обязательное поле. Описания баз данных, которые нужно создать в кластере ClickHouse.</p> <p>Должен содержать хотя бы один элемент.</p> 
 databaseSpecs[].<br>name | **string**<br><p>Обязательное поле. Имя базы данных ClickHouse. Длина 1-63 символов.</p> <p>Максимальная длина строки в символах — 63. Значение должно соответствовать регулярному выражению ``[a-zA-Z0-9_-]*``.</p> 

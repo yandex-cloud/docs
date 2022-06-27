@@ -18,7 +18,8 @@
 
 * {% include [datatransfer access](../console/datatransfer-access.md) %}
 
-* **Доступ из Метрики и AppMetrica** — опция разрешает [импортировать данные из AppMetrica](https://appmetrica.yandex.ru/docs/cloud/index.html) в кластер.
+* **Доступ из Метрики и AppMetrica** — опция разрешает [импортировать данные из AppMetrica](https://appmetrica.yandex.ru/docs/common/cloud/about.html) в кластер.
+
 {% if product == "yandex-cloud" %}
 {% if audience != "internal" %}
 

@@ -246,7 +246,7 @@ To create an instance group with an L7 load balancer:
       * With a 32 GB network HDD.
       * With a target group named `first-target-group`.
 
-   After that, you can add the `first-target-group` target group to a [new](../../../application-load-balancer/operations/backend-group-create.md) or [existing group of {{ alb-name }} backends](../../../application-load-balancer/operations/backend-group-update.md), a backend group to a [new](../../../application-load-balancer/operations/http-router-create.md) or [existing HTTP router](../../../application-load-balancer/operations/http-router-update.md), and a router to a [new](../../../application-load-balancer/operations/application-load-balancer-create.md) or [existing L7 load balancer](/../application-load-balancer/operations/application-load-balancer-update.md.).
+   After that, you can add the `first-target-group` target group to a [new](../../../application-load-balancer/operations/backend-group-create.md) or [existing group of {{ alb-name }} backends](../../../application-load-balancer/operations/backend-group-update.md), a backend group to a [new](../../../application-load-balancer/operations/http-router-create.md) or [existing HTTP router](../../../application-load-balancer/operations/http-router-update.md), and a router to a [new](../../../application-load-balancer/operations/application-load-balancer-create.md) or [existing L7 load balancer](../../../application-load-balancer/operations/application-load-balancer-update.md).
 
 - API
 

@@ -10,7 +10,7 @@ description:
         кластеры серверов MySQL в инфраструктуре Yandex Cloud. Сервис поддерживает
         MySQL 5.7 и MySQL 8.
       - >-
-        Инфраструктура Yandex Cloud <a href="/docs/overview/security/conform">
+        Инфраструктура Yandex Cloud <a href="/docs/security/conform">
         защищена</a> в соответствии со следующими стандартами:
         <ul>
         <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li>

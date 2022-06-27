@@ -1,8 +1,8 @@
 # Статьи и публикации
 
 ## Обзоры сервиса {#internal-service-overviews}
-   - [Новый сервис для анализа и визуализации данных Yandex DataLens на платформе Яндекс.Облако](https://cloud.yandex.ru/blog/posts/2019/04/data-lens)
-   - [На замену Яндекс.Метрике: делимся опытом, как и зачем создавать аналитическую платформу в Яндекс.Облаке](https://tproger.ru/articles/tproger-tracker-yandex-cloud/)
+   - [Новый сервис для анализа и визуализации данных Yandex DataLens на платформе {{ yandex-cloud }}](https://cloud.yandex.ru/blog/posts/2019/04/data-lens)
+   - [На замену Яндекс Метрике: делимся опытом, как и зачем создавать аналитическую платформу в Яндекс.Облаке](https://tproger.ru/articles/tproger-tracker-yandex-cloud/)
 
 
 ## Руководства {#guidelines}

@@ -5,7 +5,7 @@ description:
     кластеры серверов SQL Server в инфраструктуре Yandex Cloud. Сервис
     поддерживает SQL Server версий 2016 SP2, 2017 и 2019.
   - >-
-    Инфраструктура Yandex Cloud <a href="https://cloud.yandex.ru/docs/overview/security/conform">
+    Инфраструктура Yandex Cloud <a href="/docs/security/conform">
     защищена</a> в соответствии со следующими стандартами:
     <ul>
     <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li>

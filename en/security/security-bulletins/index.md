@@ -279,7 +279,7 @@ To do this, you can use the following tools:
 
 ### More information
 
-A checklist for a secure Kubernetes configuration is available [here](../domains/checklist#kubernetes-security).
+A checklist for a secure Kubernetes configuration is available [here](../domains/checklist.md#kubernetes-security).
 
 {% if product == "yandex-cloud" %}
 ## 03.03.2021: CVE-2021-21309: Remote code execution via a vulnerability in {{ RD }}

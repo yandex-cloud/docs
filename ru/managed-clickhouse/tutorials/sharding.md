@@ -132,7 +132,7 @@
 Чтобы создать распределенную таблицу `hits_v1_distributed` в кластере:
 
 1. [Подключитесь](../operations/connect.md) к базе `tutorial`.
-1. Создайте таблицу на движке [Distributed](https://{{ ch-domain }}/docs/ru/engines/table-engines/special/distributed/):
+1. Создайте таблицу на движке [Distributed](https://{{ ch-domain }}/docs/ru/engines/table-engines/special/distributed):
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER '{cluster}' AS tutorial.hits_v1
@@ -141,7 +141,7 @@
 
    Здесь допустимо вместо явного указания структуры таблицы использовать выражение `AS tutorial.hits_v1`, т. к. таблицы `hits_v1_distributed` и `hits_v1` находятся на одних и тех же хостах кластера.
 
-   При создании таблицы на движке [Distributed](https://{{ ch-domain }}/docs/ru/engines/table-engines/special/distributed/) укажите идентификатор кластера `chcluster`. Его можно получить со [списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
+   При создании таблицы на движке [Distributed](https://{{ ch-domain }}/docs/ru/engines/table-engines/special/distributed) укажите идентификатор кластера `chcluster`. Его можно получить со [списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
 
    {% note tip %}
 
@@ -173,7 +173,7 @@
 Чтобы создать распределенную таблицу `tutorial.hits_v1_distributed` в кластере:
 
 1. [Подключитесь](../operations/connect.md) к базе `tutorial`.
-1. Создайте таблицу на движке [Distributed](https://{{ ch-domain }}/docs/ru/engines/table-engines/special/distributed/):
+1. Создайте таблицу на движке [Distributed](https://{{ ch-domain }}/docs/ru/engines/table-engines/special/distributed):
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup AS tutorial.hits_v1
@@ -209,7 +209,7 @@
 Чтобы создать распределенную таблицу `tutorial.hits_v1_distributed` в кластере:
 
 1. [Подключитесь](../operations/connect.md) к базе `tutorial`.
-1. Создайте таблицу на движке [Distributed](https://{{ ch-domain }}/docs/ru/engines/table-engines/special/distributed/):
+1. Создайте таблицу на движке [Distributed](https://{{ ch-domain }}/docs/ru/engines/table-engines/special/distributed):
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup ( <структура таблицы> )

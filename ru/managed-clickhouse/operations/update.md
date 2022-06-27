@@ -536,7 +536,7 @@
 
     * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
-    * `--metrika-access` — разрешает [импорт данных из AppMetrika в кластер]{% if lang == "ru" %}(https://appmetrica.yandex.ru/docs/cloud/index.html){% endif %}{% if lang == "en" %}(https://appmetrica.yandex.com/docs/cloud/index.html){% endif %}. Значение по умолчанию — `false`.
+    * `--metrika-access` — разрешает [импорт данных из AppMetrika в кластер]{% if lang == "ru" %}(https://appmetrica.yandex.ru/docs/common/cloud/about.html){% endif %}{% if lang == "en" %}(https://appmetrica.yandex.com/docs/common/cloud/about.html){% endif %}. Значение по умолчанию — `false`.
 
     * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
     {% if product == "yandex-cloud" %}

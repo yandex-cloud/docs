@@ -10,7 +10,7 @@ description:
         поддерживать кластеры серверов Apache Kafka<sup>®</sup> версий 2.8 и 3.0 в
         инфраструктуре Yandex Cloud.
       - >-
-        Инфраструктура Yandex Cloud <a href="/docs/overview/security/conform">
+        Инфраструктура Yandex Cloud <a href="/docs/security/conform">
         защищена</a> в соответствии со следующими стандартами:
         <ul>
         <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li>
@@ -37,7 +37,7 @@ description:
         поддерживать кластеры серверов Apache Kafka<sup>®</sup> версий 2.8 и 3.0 в
         инфраструктуре CloudIL.
       - >-
-        Инфраструктура CloudIL <a href="/docs/overview/security/conform">
+        Инфраструктура CloudIL <a href="/docs/security/conform">
         защищена</a> в соответствии со следующими стандартами:
         <ul>
         <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li>

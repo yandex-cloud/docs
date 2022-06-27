@@ -10,7 +10,7 @@ description:
         кластеры серверов PostgreSQL в инфраструктуре Yandex Cloud. Сервис
         поддерживает PostgreSQL 10, 11, 12, 13, 14 а также PostgreSQL 10, 11 и 12 для 1C.
       - >-
-        Инфраструктура Yandex Cloud <a href="/docs/overview/security/conform">
+        Инфраструктура Yandex Cloud <a href="/docs/security/conform">
         защищена</a> в соответствии со следующими стандартами:
         <ul>
         <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li>

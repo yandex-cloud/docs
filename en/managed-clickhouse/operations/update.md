@@ -525,7 +525,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
-   * `--metrika-access` enables [data import from AppMetrica into a cluster]{% if lang == "ru" %}(https://appmetrica.yandex.ru/docs/cloud/index.html){% endif %}{% if lang == "en" %}(https://appmetrica.yandex.com/docs/cloud/index.html){% endif %}. Default value: `false`.
+   * `--metrika-access` enables [data import from AppMetrica into a cluster]{% if lang == "ru" %}(https://appmetrica.yandex.ru/docs/common/cloud/about.html){% endif %}{% if lang == "en" %}(https://appmetrica.yandex.com/docs/common/cloud/about.html){% endif %}. Default value: `false`.
 
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
       {% if product == "yandex-cloud" %}

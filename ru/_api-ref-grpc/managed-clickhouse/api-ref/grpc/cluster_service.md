@@ -114,7 +114,7 @@ resources | **[Resources](#Resources)**<br>Ресурсы, выделенные 
 --- | ---
 data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
 web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
+metrika | **bool**<br>Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html). 
 serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
 
 
@@ -202,7 +202,7 @@ resources | **[Resources](#Resources)**<br>Ресурсы, выделенные 
 --- | ---
 data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
 web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
+metrika | **bool**<br>Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html). 
 serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
 
 
@@ -266,7 +266,7 @@ resources | **[Resources](#Resources)**<br>Ресурсы, выделенные 
 --- | ---
 data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
 web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
+metrika | **bool**<br>Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html). 
 serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
 
 
@@ -487,7 +487,7 @@ resources | **[Resources](#Resources)**<br>Ресурсы, выделенные 
 --- | ---
 data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
 web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
+metrika | **bool**<br>Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html). 
 serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
 
 
@@ -546,7 +546,7 @@ resources | **[Resources](#Resources)**<br>Ресурсы, выделенные 
 --- | ---
 data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
 web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
+metrika | **bool**<br>Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html). 
 serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
 
 
@@ -633,7 +633,7 @@ resources | **[Resources](#Resources)**<br>Ресурсы, выделенные 
 --- | ---
 data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
 web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
+metrika | **bool**<br>Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html). 
 serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
 
 
@@ -777,7 +777,7 @@ resources | **[Resources](#Resources)**<br>Ресурсы, выделенные 
 --- | ---
 data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
 web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
+metrika | **bool**<br>Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html). 
 serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
 
 
@@ -881,7 +881,7 @@ resources | **[Resources](#Resources)**<br>Ресурсы, выделенные 
 --- | ---
 data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
 web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
+metrika | **bool**<br>Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html). 
 serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
 
 
@@ -988,7 +988,7 @@ resources | **[Resources](#Resources)**<br>Ресурсы, выделенные 
 --- | ---
 data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
 web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
+metrika | **bool**<br>Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html). 
 serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
 
 
@@ -1114,7 +1114,7 @@ resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные
 --- | ---
 data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
 web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
+metrika | **bool**<br>Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html). 
 serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
 
 
@@ -1218,7 +1218,7 @@ resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные
 --- | ---
 data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
 web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
+metrika | **bool**<br>Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html). 
 serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
 
 
@@ -1280,7 +1280,7 @@ resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные
 --- | ---
 data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
 web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
+metrika | **bool**<br>Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html). 
 serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
 
 
@@ -1379,7 +1379,7 @@ resources | **[Resources](#Resources1)**<br>Ресурсы, выделенные
 --- | ---
 data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
 web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
+metrika | **bool**<br>Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html). 
 serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
 
 
@@ -2296,7 +2296,7 @@ resources | **[Resources](#Resources2)**<br>Ресурсы, выделенные
 --- | ---
 data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
 web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
+metrika | **bool**<br>Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html). 
 serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
 
 
@@ -2401,7 +2401,7 @@ resources | **[Resources](#Resources2)**<br>Ресурсы, выделенные
 --- | ---
 data_lens | **bool**<br>Разрешить экспорт данных из кластера в Yandex DataLens. 
 web_sql | **bool**<br>Разрешить SQL-запросы к базам данных кластера из консоли управления облаком. <br>Подробнее см. в [SQL-запросы в консоли управления](/docs/managed-clickhouse/operations/web-sql-query). 
-metrika | **bool**<br>Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html). 
+metrika | **bool**<br>Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер. <br>Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html). 
 serverless | **bool**<br>Разрешить доступ к кластеру для Serverless. 
 
 

@@ -2009,9 +2009,9 @@ components:
           format: boolean
         metrika:
           description: |-
-            Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер.
+            Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер.
 
-            Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html).
+            Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html).
           type: boolean
           format: boolean
         serverless:
@@ -5603,9 +5603,9 @@ components:
           format: boolean
         metrika:
           description: |-
-            Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер.
+            Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер.
 
-            Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html).
+            Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html).
           type: boolean
           format: boolean
         serverless:
@@ -5736,9 +5736,9 @@ components:
           format: boolean
         metrika:
           description: |-
-            Разрешить импорт данных из Яндекс.Метрики и AppMetrica в кластер.
+            Разрешить импорт данных из Яндекс Метрики и AppMetrica в кластер.
 
-            Подробнее см. в [Экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html).
+            Подробнее см. в [Экспорт данных в {{ yandex-cloud }}](https://appmetrica.yandex.ru/docs/common/cloud/about.html).
           type: boolean
           format: boolean
         serverless:

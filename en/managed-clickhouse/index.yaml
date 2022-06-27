@@ -26,7 +26,7 @@ description:
         href="/docs/managed-clickhouse/operations/web-sql-query">management
         console</a>.
       - >-
-        The Yandex Cloud infrastructure <a href="/docs/overview/security/conform">
+        The Yandex Cloud infrastructure <a href="/docs/security/conform">
         is protected</a> per the following standards:
         <ul>
         <li>Russian Federation Federal Statute No. 152-FZ on Personally Identifiable Information.</li>
@@ -65,7 +65,7 @@ description:
         href="/docs/managed-clickhouse/operations/web-sql-query">management
         console</a>.
       - >-
-        The CloudIL infrastructure <a href="/docs/overview/security/conform">
+        The CloudIL infrastructure <a href="/docs/security/conform">
         is protected</a> per the following standards:
         <ul>
         <li>Payment Card Industry Data Security Standard (PCI DSS).</li>
