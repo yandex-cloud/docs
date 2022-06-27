@@ -52,4 +52,67 @@
 
   Удалить триггер можно с помощью метода API [delete](../../triggers/api-ref/Trigger/delete.md).
 
+- Terraform
+
+  Информацию о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+  Чтобы удалить триггер, созданный с помощью Terraform:
+
+  1. Откройте файл конфигураций Terraform и удалите фрагмент с описанием триггера.
+     
+     Пример описания триггера в конфигурации Terraform:
+
+     ```hcl
+     ...
+     resource "yandex_function_trigger" "my_trigger" {
+       name        = "some_name"
+       description = "any description"
+       timer {
+         cron_expression = "* * * * ? *"
+       }
+       function {
+         id = "tf-test"
+       }
+     }
+     ...
+     ```
+
+  1. В командной строке перейдите в папку, где расположен файл конфигурации Terraform.
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../../cli/quickstart.md):
+
+     ```
+     yc serverless trigger list
+     ```
+
 {% endlist %}
