@@ -7,7 +7,7 @@ Using these instructions, you'll configure GitLab on a VM, create a simple C++ p
 To create and test a project in the GitLab environment:
 
 1. [Before you start](#before-you-begin).
-1. [Required paid resources](#paid-resources).
+{% if product == "yandex-cloud" %}1. [Required paid resources](#paid-resources).{% endif %}
 1. [Create a VM with GitLab](#create-vm).
 1. [Configure GitLab](#configure-gitlab).
 1. [Set privacy settings](#disable-signup).

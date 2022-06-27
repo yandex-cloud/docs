@@ -17,7 +17,7 @@ To perform disaster recovery, create an auxiliary VM with Hystax Acura in your c
 
 To run a disaster recovery scenario:
 1. [Before you start](#before-begin).
-1. [Required paid resources](#paid-resources).
+{% if product == "yandex-cloud" %}1. [Required paid resources](#paid-resources).{% endif %}
 1. [Create a service account and authorized key](#create-sa).
 1. [Create a VM with Hystax Acura](#create-acura-vm).
 1. [Set up Hystax Acura](#setup-hystax-acura).

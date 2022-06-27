@@ -5,7 +5,7 @@ This scenario describes how to deploy an Always On availability group in {{ yand
 To create and configure an Always On availability group:
 
 1. [Before you start](#before-begin).
-1. [Required paid resources](#paid-resources).
+{% if product == "yandex-cloud" %}1. [Required paid resources](#paid-resources).{% endif %}
 1. [Create a network infrastructure](#prepare-network).
 1. [Prepare VMs for the availability group](#create-vms).
 1. [Create a file with administrator credentials](#prepare-admin-credentials).

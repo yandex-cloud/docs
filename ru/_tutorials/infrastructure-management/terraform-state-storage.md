@@ -9,7 +9,7 @@
 Чтобы настроить хранение состояний Terraform в {{ objstorage-name }} и использовать его для создания новых ресурсов:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Необходимые платные ресурсы](#paid-resources).
+{% if product == "yandex-cloud" %}1. [Необходимые платные ресурсы](#paid-resources).{% endif %}
 1. [Установите Terraform](#install-terraform).
 1. [Создайте файл конфигурации Terraform](#configure-terraform).
 1. [Настройте провайдер](#configure-provider).

@@ -2,7 +2,7 @@
 
 You can use Hystax Acura to migrate your cloud infrastructure to {{ yandex-cloud }} from another cloud platform. To migrate, create a VM with Hystax Acura in your cloud. This VM will be used to set up and perform the migration. The migration process is performed by an auxiliary VM with Hystax Acura Cloud Agent. It will migrate your VMs to {{ yandex-cloud }}. Before VM migration starts, VM replicas are created. Those replicas will be used for infrastructure deployment during migration. To migrate VMs:
 1. [Before you start](#before-begin).
-1. [Required paid resources](#paid-resources).
+{% if product == "yandex-cloud" %}1. [Required paid resources](#paid-resources).{% endif %}
 1. [Create a service account and authorized key](#create-sa).
 1. [Configure network traffic permissions](#network-settings).
 1. [Create a VM with Hystax Acura](#create-acura-vm).

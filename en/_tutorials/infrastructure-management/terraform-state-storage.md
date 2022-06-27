@@ -9,7 +9,7 @@ In this example, the saved state lets other users get the ID of one of the creat
 To configure Terraform state storage in {{ objstorage-name }} and use it to create new resources:
 
 1. [Before you start](#before-you-begin).
-1. [Required paid resources](#paid-resources).
+{% if product == "yandex-cloud" %}1. [Required paid resources](#paid-resources).{% endif %}
 1. [Install Terraform](#install-terraform).
 1. [Create a Terraform configuration file](#configure-terraform).
 1. [Configure a provider](#configure-provider).

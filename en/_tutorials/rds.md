@@ -11,7 +11,7 @@ To increase the quota, re-create the VM.
 To deploy the Remote Desktop Services infrastructure:
 
 1. [Before you start](#before-you-begin).
-1. [Required paid resources](#paid-resources).
+{% if product == "yandex-cloud" %}1. [Required paid resources](#paid-resources).{% endif %}
 1. [Create a cloud network and subnets](#create-network).
 1. [Create a script to manage a local administrator account](#admin-script).
 1. [Create a VM for Remote Desktop Services](#add-vm).

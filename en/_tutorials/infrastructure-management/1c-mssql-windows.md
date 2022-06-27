@@ -11,7 +11,7 @@ To use 1C:Enterprise, you need a license. For more information about licenses an
 To configure 1C:Enterprise servers:
 
 1. [Before you start](#before-you-begin).
-1. [Required paid resources](#paid-resources).
+{% if product == "yandex-cloud" %}1. [Required paid resources](#paid-resources).{% endif %}
 1. [Prepare the infrastructure](#prepare).
 1. [Create a VM for the 1C:Enterprise server and license server](#create-1c-vm).
 1. [Create a VM for the infobase](#create-infobase-vm).

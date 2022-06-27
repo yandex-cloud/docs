@@ -6,7 +6,7 @@ You don't need to create or configure any VMs for this use case: all operations 
 
 To configure monitoring of sensor readings in the server room:
 1. [Before you start](#before-you-begin)
-1. [Required paid resources](#paid-resources)
+{% if product == "yandex-cloud" %}1. [Required paid resources](#paid-resources){% endif %}
 1. [Create the required {{ iot-full-name }} resources](#resources-step)
     1. [Create a registry](#registry-step)
     1. [Create a device](#device-step)

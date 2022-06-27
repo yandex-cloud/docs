@@ -7,7 +7,7 @@
 Чтобы создать и протестировать проект в среде GitLab:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Необходимые платные ресурсы](#paid-resources).
+{% if product == "yandex-cloud" %}1. [Необходимые платные ресурсы](#paid-resources).{% endif %}
 1. [Создайте виртуальную машину c GitLab](#create-vm).
 1. [Настройте GitLab](#confgure-gitlab).
 1. [Задайте настройки приватности](#disable-signup).

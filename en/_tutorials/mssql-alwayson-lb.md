@@ -5,7 +5,7 @@ The use case describes how to deploy an Always On availability group in {{ yande
 To create and configure an Always On availability group with an internal network load balancer:
 
 1. [Before you start](#before-begin).
-1. [Required paid resources](#paid-resources).
+{% if product == "yandex-cloud" %}1. [Required paid resources](#paid-resources).{% endif %}
 1. [Create a network infrastructure](#prepare-network).
 1. [Create an internal network load balancer](#create-load-balancer).
 1. [Create a listener](#create-listener).
