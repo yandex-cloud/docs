@@ -219,6 +219,7 @@ Authentication on corporate resources that are linked to the cloud infrastructur
 
 Strict authentication measures using hardware tokens increase the security of user credentials. Even if an employee's machine is compromised, an attacker won't be able to steal and re-use their credentials. It's unlikely that an account will be compromised through phishing.
 
+{% if product == "yandex-cloud" %}
 ## Data protection {#sec-data}
 
 The data owner is always the cloud platform user. {{ yandex-cloud }} only uses customer data hosted on the platform to fulfill the purposes outlined in the agreement and notifies the customer of any incidents that affect their data.
@@ -227,11 +228,9 @@ The data owner is always the cloud platform user. {{ yandex-cloud }} only uses c
 
   Storage is a multi-tenant system that encrypts data with a separate set of keys prior to writing the data to a physical disk. The encryption keys are stored on the physical hosts running Storage.
 
-{% if product == "cloud-il" %}
 * Encryption at the {{ ydb-full-name }} database level
 
   {{ ydb-short-name }} implements database-level encryption. Data is encrypted before being sent to Storage. Database-level encryption is done in {{ ydb-short-name }}-based systems (such as {{ message-queue-full-name }}) and other platform services that use {{ ydb-short-name }} for storing data.
-{% endif %}
 
 * Data backup encryption in Managed Services for Databases (MDB).
 
@@ -247,7 +246,9 @@ The above scenarios use the following cryptographic algorithms:
 * Asymmetric: RSA, Ed25519.
 
 The minimum used key length is 128 bits for symmetric encryption algorithms, and 2048 bits for asymmetric encryption algorithms.
+{% endif %}
 
+{% if product == "yandex-cloud" %}
 ### Deleting data {#delete-data}
 
 * Deleting resources via the API If a service receives a request to delete a resource via the API, the resource is immediately marked as deleted.
@@ -267,10 +268,14 @@ A resource that's marked for deletion can't be restored. The data is actually de
 * Deleting logs of requests to resources Records of API requests to user resources are stored for one year. They are used for analyzing information security incidents and preventing fraud. Records are permanently deleted after one year.
 
 * When a billing account is deleted. At the user's request, the billing account is marked for deletion and within 72 hours, the user loses access to it. Billing account data may be used to generate financial statements. Therefore, this data is kept until the expiration of the term of the limitation of actions and the term set by the applicable finance laws. When these terms expire, the billing account is irrevocably deleted.
+{% endif %}
 
+{% if product == "yandex-cloud" %}
 ### Disclosing information to third parties {#data-disclosure}
 
 {{ yandex-cloud }} doesn't disclose information to third parties, except when required by applicable law or the provisions of the agreement. Whenever possible, {{ yandex-cloud }} redirects a third-party request to the customer.
+{% endif %}
+
 
 ## Protecting user information {#sec-user-info}
 

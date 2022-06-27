@@ -11,7 +11,7 @@ It's impossible to use cloud services without trusting the provider. Information
 
 ## Compliance with international standards and legal requirements {#standarts}
 
-To protect the cloud infrastructure, it's important to meet the international standards and legal requirements for information security. This is especially true for data, access to which must be restricted under federal laws.
+To protect the cloud infrastructure, it's important to meet the international standards and legal requirements for information security. This is especially true for data, access to which must be restricted{% if product == "yandex-cloud" %} under federal laws{% endif %}.
 
 {{ yandex-cloud }} conducts regular internal and external audits to assess whether the platform meets these requirements.
 

@@ -39,8 +39,8 @@
 
 ## Шифрование данных и управление ключами/секретами {#data-encryption}
 
-* **Шифрование в {{ objstorage-full-name }}**: включите шифрование бакетов (server-side encryption), см. [инструкцию](../../storage/operations/buckets/encrypt.md). Такое шифрование защищает данные бакета от опубликования в интернете.
 {% if product == "yandex-cloud" %}
+* **Шифрование в {{ objstorage-full-name }}**: включите шифрование бакетов (server-side encryption), см. [инструкцию](../../storage/operations/buckets/encrypt.md). Такое шифрование защищает данные бакета от опубликования в интернете.
 * **Шифрование дисков ВМ (если требуется)**.
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: Шифрование диска ВМ с помощью {{ kms-full-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
 {% endif %}
