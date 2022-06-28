@@ -63,7 +63,7 @@ items:
             href: operations/volumes/statefulset-pvc-expansion.md
           - name: Подключение тома в блочном режиме
             href: operations/volumes/mode-block.md
-          - name: Интеграция с {{ objstorage-name }}
+          - name: Интеграция с {{ objstorage-full-name }}
             href: operations/volumes/s3-csi-integration.md
       - name: Управление кластером {{ k8s }}
         items:
@@ -112,6 +112,8 @@ items:
         href: tutorials/backup.md
       - name: Горизонтальное масштабирование приложения в кластере
         href: tutorials/autoscaling.md
+      - name: Вертикальное масштабирование приложения в кластере
+        href: tutorials/vpa-autoscaling.md
       - name: Работа со снапшотами
         href: tutorials/pvc-snapshot-restore.md
       - name: Интеграция с корпоративной зоной DNS
@@ -128,7 +130,7 @@ items:
       - name: Использование продуктов {{ marketplace-name }}
         when: product == "yandex-cloud"
         items:
-          - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
+          - name: Использование Jaeger для трассировки запросов в {{ ydb-full-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
   - name: Концепции
     items:
