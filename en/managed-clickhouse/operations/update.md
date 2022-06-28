@@ -495,7 +495,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
-   * `--metrika-access` enables [data import from AppMetrica into a cluster](https://appmetrica.yandex.com/docs/cloud/index.html). Default value: `false`.
+   * `--metrika-access` enables [data import from AppMetrica into a cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). Default value: `false`.
 
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
             

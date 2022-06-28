@@ -898,7 +898,7 @@
 
 - **Random page cost**{#setting-random-page-cost} {{ tag-all }}
 
-  Sets the planner's estimate of the cost of reading an arbitrary disk page. If the setting value is less than [Seq page cost]({#setting-seq-page-cost}), the planner will prefer index scans.
+  Sets the planner's estimate of the cost of reading an arbitrary disk page. If the setting value is less than [Seq page cost](#setting-seq-page-cost), the planner will prefer index scans.
 
   The minimum value is `0`. Defaults to `1`.
 

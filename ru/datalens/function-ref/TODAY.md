@@ -25,7 +25,6 @@ TODAY()
 
 {% endnote %}
 
-
 #### Пример {#examples}
 
 ```

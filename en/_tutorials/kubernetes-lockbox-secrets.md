@@ -1,6 +1,6 @@
 [External Secrets Operator](https://external-secrets.io/latest/provider-yandex-lockbox/) lets you set up the synchronization of [{{ lockbox-name }}](../lockbox/) secrets with {{ managed-k8s-name }} cluster secrets.
 
-There are [multiple integration schemes](https://external-secrets.io/latest/guides-multi-tenancy) for {{ lockbox-name }} and {{ managed-k8s-name }}. The example below describes [ESO as a Service](https://external-secrets.io/latest/guides-multi-tenancy/#eso-as-a-service):
+There are [multiple integration schemes](https://external-secrets.io/latest/guides-multi-tenancy/) for {{ lockbox-name }} and {{ managed-k8s-name }}. The example below describes [ESO as a Service](https://external-secrets.io/latest/guides-multi-tenancy/#eso-as-a-service):
 
 ![image](../_assets/managed-kubernetes/mks-lockbox-eso.svg)
 

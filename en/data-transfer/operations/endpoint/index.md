@@ -275,7 +275,7 @@ To delete an endpoint:
 
 - API
 
-   Use the [delete](../api-ref/Endpoint/delete) API method and pass the ID of the required endpoint in the `endpointID` request parameter:
+   Use the [delete](../../api-ref/Endpoint/delete) API method and pass the ID of the required endpoint in the `endpointID` request parameter:
 
    To get the endpoint ID:
    1. Go to the [folder page]({{ link-console-main }}) in the management console and select **{{ data-transfer-full-name }}**.

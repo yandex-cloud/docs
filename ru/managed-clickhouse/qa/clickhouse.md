@@ -48,4 +48,4 @@
 
 При создании кластера {{ CH }} из 2 и более хостов {{ mch-short-name }} автоматически создает кластер из 3 хостов {{ ZK }} для управления репликацией и отказоустойчивостью, если не включена поддержка {{ CK }}. Эти хосты учитываются в расчете использованной [квоты ресурсов]({{ link-console-quotas }}) в облаке и в расчете стоимости кластера. По умолчанию хосты {{ ZK }} создаются с минимальным [классом хостов](../concepts/instance-types.md).
 
-Подробнее об использовании {{ ZK }} см. [документацию ClickHouse](https://{{ ch-domain }}/docs/ru/operations/table_engines/replication/).
+Подробнее об использовании {{ ZK }} см. [документацию ClickHouse](https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/replication).

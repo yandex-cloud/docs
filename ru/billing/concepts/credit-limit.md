@@ -48,13 +48,11 @@
 {% endnote %}
 
 Дополнительную информацию см. в следующих разделах:
-* Оплата для физических лиц
-
-    * [Способы оплаты](../payment/payment-methods-individual.md)
+* Физическим лицам
+    * [Оплата банковской картой](../payment/payment-methods-individual.md)
     * [Цикл оплаты](../payment/billing-cycle-individual.md)
 
-* Оплата для организаций и ИП:
-
+* Организациям и ИП:
     * [Перевод с расчетного счета](../payment/payment-methods-business.md)
-    * [Перевод с банковской карты](../payment/payment-methods-card-business.md)
+    * [Оплата банковской карты](../payment/payment-methods-card-business.md)
     * [Цикл оплаты](../payment/billing-cycle-business.md)

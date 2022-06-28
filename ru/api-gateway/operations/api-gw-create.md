@@ -114,6 +114,14 @@
 
   Создать API-шлюз можно с помощью метода API [create](../apigateway/api-ref/ApiGateway/create.md).
 
+- Terraform
+
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% include [terraform-create](../../_includes/api-gateway/terraform-create.md) %}
+
 - Yandex.Cloud Toolkit
 
   Создать API-шлюз можно с помощью [плагина Yandex.Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).

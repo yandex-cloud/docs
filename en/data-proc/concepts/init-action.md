@@ -4,7 +4,7 @@ When [creating a cluster](../operations/cluster-create.md), you can specify host
 
 In the first line of the script file, specify the full path to the interpreter, for example, `#!/bin/sh` or `#!/usr/bin/python`.
 
-A script URI can be specified as `https://` and `s3a://`, and at least one of the following conditions must be met in the second case:
+A script URI can be specified as `https://`, `http://`, `hdfs://`, and `s3a://`. For `s3a://`, at least one of the following conditions must be met:
 
 * A [bucket ACL](../../storage/operations/buckets/edit-acl.md) must permit a cluster service account to perform read operations.
 * A cluster service account must be [assigned the role](../../iam/operations/sa/assign-role-for-sa.md) `storage.viewer`.

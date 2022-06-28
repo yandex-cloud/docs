@@ -35,8 +35,8 @@
 
 ## Data encryption and key/secret management {#data-encryption}
 
-- **Encryption in {{ objstorage-full-name }}**: Enable bucket encryption (server-side encryption). See the [instructions](../../storage/operations/buckets/encrypt.md). This encryption protects bucket data from being published on the internet.
 
+- **Encryption in {{ objstorage-full-name }}**: Enable bucket encryption (server-side encryption). See the [instructions](../../storage/operations/buckets/encrypt.md). This encryption protects bucket data from being published on the internet.
 - **VM disk encryption (if required)**.
    ![](../../_assets/overview/solution-library-icon.svg)[Solution: VM disk encryption using KMS](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
 - **Client-side encryption (if required)**: Use data encryption with KMS keys. See an [overview of encryption methods](../../kms/tutorials/encrypt/index.md).
