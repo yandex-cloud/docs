@@ -126,10 +126,6 @@ items:
               - name: Чек об оплате
                 href: concepts/individual-bill.md
                 when: region == "ru"
-            when: region == "ru"
-          - name: Оплата банковской картой
-            href: payment/payment-methods-card-business.md
-            when: region == "en" or region == "kz"
           - name: Перевод с расчетного счета
             items:
               - name: Порядок оплаты
