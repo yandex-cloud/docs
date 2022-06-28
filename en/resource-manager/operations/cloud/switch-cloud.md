@@ -39,7 +39,7 @@ At the [Preview](../../../overview/concepts/launch-stages.md) stage, there is a 
 
   In the [management console]({{ link-console-main }}), select the appropriate cloud or folder in the list on the left.
 
-  ![image](../../../_assets/resource-manager/switch-cloud-n-n.png)
+  ![image](../../../_assets/resource-manager/switch-cloud-n-n-il.png)
 
 {% endif %}
 

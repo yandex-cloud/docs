@@ -40,7 +40,7 @@
 
   В [консоли управления]({{ link-console-main }}) в списке слева выберите нужное облако или каталог.
 
-  ![image](../../../_assets/resource-manager/switch-cloud-n-n.png)
+  ![image](../../../_assets/resource-manager/switch-cloud-n-n-il.png)
 {% endif %}
 
 - CLI
