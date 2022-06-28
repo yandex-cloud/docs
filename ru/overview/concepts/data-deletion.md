@@ -10,7 +10,9 @@
 
 {% if product == "yandex-cloud" %}
 
-Ваше облако может быть заблокировано при наличии задолженности, при завершении пробного периода или при нарушении [условий использования {{ yandex-cloud }}]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_termsofuse/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_termsofuse/?lang=en){% endif %}. Подробнее о процессе оплаты и возможной блокировке читайте в документации Биллинга по циклам оплаты [для физических лиц](../../billing/payment/billing-cycle-individual.md) и [организаций и ИП](../../billing/payment/billing-cycle-business.md).
+Ваше облако может быть заблокировано при наличии задолженности, при завершении пробного периода или при нарушении [условий использования {{ yandex-cloud }}]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_termsofuse/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_termsofuse/?lang=en){% endif %}. Подробнее о процессе оплаты и возможной блокировке читайте в документации Биллинга, в разделе **Цикл оплаты**:
+* [Физическим лицам](../../billing/payment/billing-cycle-individual.md)
+* [Организациям и ИП](../../billing/payment/billing-cycle-business.md)
 
 {% endif %}
 
