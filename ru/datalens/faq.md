@@ -8,7 +8,6 @@
 
 * [Права доступа](#permissions)
 * [Подключения](#connections)
-* [Материализация данных](#materialization)
 * [Датасеты](#datasets)
 * [Чарты](#charts)
 * [Вычисляемые поля](#calculated-fields)
@@ -70,20 +69,6 @@
 Задайте настройки для портов:
 * `8123` — выключите опцию **HTTPS**.
 * `8443` — включите опцию **HTTPS**.
-
-## Материализация данных {#materialization}
-
-### Как настроить уведомления о падении материализации? {#how-to-configure-notifications}
-
-Подробнее в разделе [Настройка уведомления о материализации](../datalens/operations/dataset/materialize.md#notify).
-
-{% include [materialization-error.md](../_includes/datalens/qa/materialization-error.md) %}
-
-{% include [unavailable-materialization.md](../_includes/datalens/qa/unavailable-materialization.md) %}
-
-{% include [operating-mode-with-data-source](../_includes/datalens/qa/operating-mode-with-data-source.md) %}
-
-{% include [materialization-on-off](../_includes/datalens/qa/materialization-on-off.md) %}
 
 ## Датасеты {#datasets}
 

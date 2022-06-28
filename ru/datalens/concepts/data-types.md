@@ -188,8 +188,8 @@ FALSE
 
 Ниже приведена таблица соответствий типов баз данных и внутренних типов {{ datalens-short-name }}.
 
-DataLens | Материализованный<br/>датасет | ClickHouse | PostgreSQL | MySQL | MS SQL |{% if audience == "internal" %} CH over YT | CH over YDB{% endif %}
------ | ----- | ----- | ----- | ----- | ----- |{% if audience == "internal" %} ----- | ----- |{% endif %}
+DataLens |{% if audience != "internal" %} Материализованный<br/>датасет |{% endif %} ClickHouse | PostgreSQL | MySQL | MS SQL |{% if audience == "internal" %} CH over YT | CH over YDB{% endif %}
+----- |{% if audience != "internal" %} ----- |{% endif %} ----- | ----- | ----- | ----- |{% if audience == "internal" %} ----- | ----- |{% endif %}
 **Логический** | boolean | boolean | boolean | bit | bit |{% if audience == "internal" %} boolean<br/>bool | bool |{% endif %}
 **Дата** | date | date | date | date | date |{% if audience == "internal" %} date | date |{% endif %}
 **Дата и время** | datetime | datetime | timestamp | datetime<br/>timestamp | datetime<br/>datetime2<br/>smalldatetime<br/>datetimeoffset |{% if audience == "internal" %} datetime<br/>timestamp | datetime<br/>timestamp |{% endif %}

@@ -72,4 +72,4 @@ description: "В статье описывается модель данных �
 #### См. также {#see-also}
 - [{#T}](../../operations/dataset/create.md)
 - [{#T}](../../operations/dataset/create-calculated-field.md)
-- [{#T}](../../operations/dataset/materialize.md)
+{% if audience != "internal" %} - [{#T}](../../operations/dataset/materialize.md) {% endif %}

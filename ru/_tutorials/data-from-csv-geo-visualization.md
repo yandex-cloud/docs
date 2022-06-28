@@ -82,7 +82,7 @@
 
    ![image](../_assets/datalens/solution-07/04-choose-file-upload.png)
 
-   Данные могут отобразиться не сразу, дождитесь завершения [материализации](../datalens/concepts/dataset/settings.md#materializaton). После успешной загрузки вы увидите превью данных файла. Для просмотра используйте полосы прокрутки справа и внизу.
+   После успешной загрузки вы увидите превью данных файла. Для просмотра используйте полосы прокрутки справа и внизу.
 
    ![image](../_assets/datalens/solution-07/05-preview.png)
 
@@ -215,7 +215,18 @@
 
       {% note info %}
 
-      В примере используются готовые данные в формате координат. В других случаях для конвертации данных в формат координат вы можете воспользоваться функцией [геокодинга](https://cloud.yandex.ru/docs/datalens/function-ref/GEOCODE).
+      {% if audience != "internal" %}
+
+      В примере используются готовые данные в формате координат. В других случаях для конвертации данных в формат координат вы можете воспользоваться функцией [геокодинга](../datalens/function-ref/GEOCODE.md).
+
+      {% else %}
+
+      Если у вас есть только названия населенных пунктов, то необходимо найти их координаты. Для этого можно использовать:
+
+      * [API Карт для геокодирования](https://a.yandex-team.ru/arc/trunk/arcadia/extsearch/geo/README.md) (подробнее см. на [вики](https://wiki.yandex-team.ru/maps/api)).
+      * [Экспорт данных геокодера в YT](https://wiki.yandex-team.ru/vladimirzajjcev/cheats/services/exporter/).
+      
+      {% endif %}
 
       {% endnote %}
 

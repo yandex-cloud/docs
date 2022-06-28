@@ -1,5 +1,7 @@
 # Материализация датасета
 
+{% if audience != "internal" %}
+
 {% include [datalens-materialization-off-unavailable](../../../_includes/datalens/datalens-materialization-off-unavailable.md) %}
 
 Чтобы материализовать датасет:
@@ -14,53 +16,25 @@
     
 1. Укажите настройки материализации и нажмите **Сохранить**.
 
-{% if audience == "internal" %}
-
-## Настройка уведомления о материализации {#notify}
-
-Чтобы настроить уведомление о падении материализации датасета:
-
-1. Создайте датасет `dataset_id` и настройте периодическую материализацию.
-
-   Процесс материализации отправляет в Juggler [сырое событие](https://juggler.yandex-team.ru/raw_events/?query=host%3Dint-prod-materializer-materialization%26service%3D*) с параметрами `host: int-prod-materializer-materialization` и `service: {dataset_id}`.
-
-1. Создайте [агрегированную проверку](https://juggler.yandex-team.ru/aggregate_checks/) в Juggler.
-
-   ```
-    namespace: your_namespace
-     host: dataset_materialization
-     service: custom_service
-     refresh_time: 600
-     ttl: 93600  # 26 hours
-     aggregator: logic_or
-     children:
-         -
-             host: int-prod-materializer-materialization
-             service: {dataset_id}
-             type: HOST
-   ```
-
-   Другие настройки агрегата указаны в [документации Juggler](https://docs.yandex-team.ru/juggler/).
-
-1. Настройте [уведомление](https://juggler.yandex-team.ru/notification_rules/) на созданный агрегат.
-
-   ```
-    namespace: your_namespace
-     selector: host=dataset_materialization & service=custom_service
-     template_name: on_status_change
-     template_kwargs:
-         status:
-             - CRIT
-         login:
-             - your_login
-         method:
-             - telegram
-     description: Materialization failed
-   ```
-
-Уведомления будут приходить вам в Telegram при падении или задержке материализации. Эта информация необходима при обращении в [чат DataLens Community](https://t.me/joinchat/BbHwRD-yeFhOUcVS1_fdsA).
-
-{% endif %}
-
 #### См. также {#see-also}
 - [{#T}](../../concepts/dataset/settings.md#mode)
+
+{% else %}
+
+Материализация в датасетах [отключена](https://clubs.at.yandex-team.ru/datalens/132) с 23 мая 2022 года:
+
+* Вкладка **Материализация** исчезла из интерфейса, кроме тех датасетов, в которых она уже была настроена;
+* 1 июля все материализованные датасеты будут переведены в режим прямого доступа.
+
+{% note warning %}
+
+Если у вас есть данные, которые сохранены только в материализованном датасете, то заведите тикет через жука с просьбой выгрузить данные.
+
+{% endnote %}
+
+Чтобы повысить скорость работы с датасетом без использования материализации, оптимизируйте объем и структуру хранения данных:
+
+* [{#T}](../connection/chyt/chyt-recommendations.md)
+* [Производительность CHYT](https://yt.yandex-team.ru/docs/description/chyt/reference/performance)
+
+{% endif %}

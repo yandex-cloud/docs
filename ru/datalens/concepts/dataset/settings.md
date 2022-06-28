@@ -2,6 +2,15 @@
 
 Настройки датасета определяют, каким образом датасет будет работать с данными источника.
 
+{% if audience == "internal" %}
+
+ {{ datalens-short-name }} работает с источником в режиме прямого доступа:
+
+ * {{ datalens-short-name }} не хранит у себя данные. CSV загружаются и хранятся в S3.
+ * Все вычисления для отображения превью датасета, графиков и дашбордов выполняются средствами источника данных.
+
+{% endif %}
+
 ## Подключение нескольких таблиц {#multi-table}
 
 Если в источнике доступно несколько таблиц, вы можете объединять их с помощью оператора JOIN.
@@ -12,6 +21,8 @@
 * [LEFT](https://en.wikipedia.org/wiki/Join_(SQL)#Left_outer_join)
 * [RIGHT](https://en.wikipedia.org/wiki/Join_(SQL)#Right_outer_join)
 * [FULL](https://en.wikipedia.org/wiki/Join_(SQL)#Full_outer_join)
+
+{% if audience != "internal" %}
 
 ## Режимы работы с источником данных {#mode}
 
@@ -69,6 +80,8 @@ AppMetrica | ✔ | - | -
 
 Минимальный доступный интервал — 1 раз в день.
 
+{% endif %}
+
 ## Фильтрация по умолчанию для новых чартов {#default-filters}
 
 В датасете можно [создать](../../operations/dataset/create-filter.md) фильтр по умолчанию. Он будет применен к любому новому чарту, созданному на основе данных из текущего датасета.
@@ -102,6 +115,6 @@ AppMetrica | ✔ | - | -
 
 #### См. также {#see-also}
 - [{#T}](../../operations/dataset/create.md)
-- [{#T}](../../operations/dataset/materialize.md)
+{% if audience != "internal" %}- [{#T}](../../operations/dataset/materialize.md){% endif %}
 - [{#T}](../calculations/index.md)
 - [{#T}](../calculations/index.md#how-to-create-calculated-field)

@@ -29,7 +29,7 @@
 - [{#T}](dataset/create-filter.md)
 - [{#T}](dataset/update-field.md)
 - [{#T}](dataset/add-data.md)
-- [{#T}](dataset/materialize.md)
+{% if audience != "internal" %} - [{#T}](dataset/materialize.md) {% endif %}
 {% if audience != "internal" %} - [{#T}](dataset/manage-access.md) {% endif %}
 - [{#T}](dataset/manage-row-level-security.md)
 - [{#T}](dataset/add-parameter-dataset.md)
