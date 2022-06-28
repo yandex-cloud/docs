@@ -33,24 +33,24 @@ This step is available to users who have permission to any Yandex Metrica tag. I
 
    ![image](../../_assets/datalens/solution-03/03-choose-metrica.png)
 
-1. Enter a name for the connection: `My Metrica`, then click **Get token**.
+1. Click **Get token**.
 
-   ![image](../../_assets/datalens/solution-03/04-metrica-creation1.png)
+   ![image](../../_assets/datalens/solution-03/04-metrica-creation1.png =570x380)
 
    If this is your first connection to a Yandex Metrica tag, grant the necessary permissions to the service.
+
 1. Select the tag from the drop-down list.
 
-   ![image](../../_assets/datalens/solution-03/05-metrica-creation2.png)
+   ![image](../../_assets/datalens/solution-03/05-metrica-creation2.png =570x380)
 
 1. Select the [accuracy](https://yandex.com/dev/metrika/doc/api2/api_v1/sampling-docpage/) level from the drop-down list.
 
-   ![image](../../_assets/datalens/solution-03/06-01-metrica-creation-accuracy.png)
+   ![image](../../_assets/datalens/solution-03/06-01-metrica-creation-accuracy.png =570x380)
 
-1. Select the **Direct access** connection type.
 1. Enable **Automatically create a dashboard, charts, and a dataset on the connection**.
-1. Click **Create**.
+1. Click **Create connection**.
 
-   ![image](../../_assets/datalens/solution-03/06-metrica-creation3.png)
+   ![image](../../_assets/datalens/solution-03/06-metrica-creation3.png =570x380)
 
    When the connection is created, a folder containing the datasets, charts, and dashboard opens.
 
@@ -108,7 +108,6 @@ You can edit any chart on the dashboard. For example, change the visualization t
    ![image](../../_assets/datalens/solution-03/16-save-chart.png)
 
 1. Close the chart editing tab and go back to the dashboard window.
-
 1. Update the dashboard and make sure that the chart changed in the **Technologies** section.
 
    ![image](../../_assets/datalens/solution-03/17-refresh-dashboard.png)

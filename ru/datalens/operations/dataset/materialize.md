@@ -1,5 +1,6 @@
 # Материализация датасета
 
+
 {% include [datalens-materialization-off-unavailable](../../../_includes/datalens/datalens-materialization-off-unavailable.md) %}
 
 Чтобы материализовать датасет:
@@ -14,6 +15,6 @@
     
 1. Укажите настройки материализации и нажмите **Сохранить**.
 
-
 #### См. также {#see-also}
 - [{#T}](../../concepts/dataset/settings.md#mode)
+

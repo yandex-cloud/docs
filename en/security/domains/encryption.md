@@ -4,21 +4,23 @@
 
 {{ yandex-cloud }} APIs support cipher suites in specific TLS versions that are compliant with PCI DSS and other standards.
 
-## Encryption at rest
+
+## Encryption at rest {#encryption-at-rest}
 
 By default, all user data at rest is encrypted at the {{ yandex-cloud }} level. Encryption at the {{ yandex-cloud }} level implements one of the best practices for protecting user data and is performed using {{ yandex-cloud }} keys.
 
 If your corporate information security policy sets specific key size and rotation frequency requirements, you can encrypt data with your own keys. To do this, you can use the {{ kms-short-name }} service and its integration with other {{ yandex-cloud }} services or implement data plane encryption completely on your own.
 
 {{ yandex-cloud }} provides data-at-rest encryption for the following services:
-- [{{objstorage-full-name}}](#storage-at-rest)
-- [{{managed-k8s-name}}](#kubernetes)
+
+* [{{objstorage-full-name}}](#storage-at-rest)
+* [{{managed-k8s-name}}](#kubernetes)
 
 ### {{objstorage-full-name}} {#storage-at-rest}
 
 When using [{{objstorage-full-name}}](../../storage/index.yaml), make sure critical data is encrypted. You can do this using any of the following methods:
 
-- Recommended approach: {{ objstorage-name }} bucket encryption using {{ kms-short-name }} keys (server-side encryption). This encryption method protects against the accidental or intentional publication of bucket contents on the internet. See the instructions in the {{ objstorage-name }} documentation, [{#T}](../../storage/operations/buckets/encrypt.md).
+* Recommended approach: {{ objstorage-name }} bucket encryption using {{ kms-short-name }} keys (server-side encryption). This encryption method protects against the accidental or intentional publication of bucket contents on the internet. See the instructions in the {{ objstorage-name }} documentation, [{#T}](../../storage/operations/buckets/encrypt.md).
 
    {% note alert %}
 
@@ -26,12 +28,12 @@ When using [{{objstorage-full-name}}](../../storage/index.yaml), make sure criti
 
    {% endnote %}
 
-- Integrating Object Storage with the {{ kms-short-name }} service for client-side encryption. For more information, see [{#T}](#libs) below.
-- Using third-party client-side encryption libraries prior to sending data to Object Storage. If you use third-party data encryption libraries and your own key management methods, be sure that your operation model, algorithms, and key sizes comply with regulatory requirements.
+* Integrating {{ objstorage-short-name }} with the {{ kms-short-name }} service for client-side encryption. For more information, see [{#T}](#libs) below.
+* Using third-party client-side encryption libraries prior to sending data to Object Storage. If you use third-party data encryption libraries and your own key management methods, be sure that your operation model, algorithms, and key sizes comply with regulatory requirements.
 
 ### {{managed-k8s-name}} {#kubernetes}
 
-[{{managed-k8s-name}}](../../managed-kubernetes/index.yaml) has a built-in secret encryption mechanism. For more information, see [{#T}](#k8s-secrets) below.
+[{{managed-k8s-name}}](../../managed-kubernetes/index.yaml) has a built-in secret encryption mechanism. For more information, see [{#T}](#k8s-secrets) below.
 
 ## Encryption in transit
 

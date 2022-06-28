@@ -9,8 +9,8 @@ description:
     Сервис позволяет предоставлять доступ к приложениям, используя публичные и
     внутренние <a href="/docs/managed-kubernetes/concepts/service">сервисы
     различных типов</a>, а также <a
-    href="/docs/managed-kubernetes/operations/marketplace">приложения Cloud
-    Marketplace</a>. Все данные надежно хранятся и реплицируются в
+    href="/docs/managed-kubernetes/operations/application/marketplace">приложения
+    Cloud Marketplace</a>. Все данные надежно хранятся и реплицируются в
     инфраструктуре Yandex Cloud, но можно дополнительно сделать резервные копии
     данных из Kubernetes и хранить их в <a href="/docs/storage/">Object
     Storage</a> или другом хранилище. Для управления Kubernetes используйте

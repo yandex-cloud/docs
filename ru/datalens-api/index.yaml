@@ -19,6 +19,3 @@ links:
   - title: Аутентификация в API
     description: Узнайте, как начать пользоваться API
     href: authentication
-  - title: Правила тарификации
-    description: Цены и правила расчета стоимости услуг API
-    href: pricing

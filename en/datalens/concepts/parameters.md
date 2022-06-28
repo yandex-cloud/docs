@@ -9,10 +9,10 @@ Dataset parameters are available in all charts created based on this dataset, wh
 With dataset or chart parameters, you can manage formulas and change visualization in a chart.
 The saved dataset parameters are substituted in all charts based on this dataset when they're uploaded.
 
-You can edit parameter values on dashboards using selectors with manual input. In most cases, we do not recommend:
+You can edit parameter values on dashboards using selectors with manual input. However, you cannot do the following:
 
-* Using the **Multiple choice** option.
-* Choosing an operation in a selector (leave a dash in the selection field from the **Operation** drop-down list).
+* Use the **Multiple choice** option.
+* Choose an operation in a selector (leave a dash in the selection field from the **Operation** drop-down list).
 
 You can also specify parameter values in chart links. To do this, add `?` at the end of a URL, write a parameter name with no space after the URL, put `=`, and specify a parameter value with no space. You can list multiple parameters in a URL using `&` as a separator. Sample link: `https://datalens.yandex-team.ru/wizard/5fw75yaukoamx-parametrizirovannyy-pokazatel?measure_control=profit&scale=year`, where `measure_control` and `scale` are parameter names and `profit` and `year` are parameter values.
 

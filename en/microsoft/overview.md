@@ -17,7 +17,7 @@ For more information about how to use your own licenses, see [{#T}](licensing.md
 
 ## Windows Server {#win-server}
 
-Create VMs with Microsoft Windows Server to run Windows applications. Multiple system versions are available in Standard and Datacenter editions:
+Create VMs with Microsoft Windows Server to run Windows applications. Multiple system versions are available in Datacenter edition:
 
 * Windows Server 2012 R2
 * Windows Server 2016

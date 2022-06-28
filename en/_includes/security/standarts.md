@@ -186,6 +186,9 @@ The data owner is always the cloud platform user. {{ yandex-cloud }} only uses c
 
   Storage is a multi-tenant system that encrypts data with a separate set of keys prior to writing the data to a physical disk. The encryption keys are stored on the physical hosts running Storage.
 
+* Encryption at the {{ ydb-full-name }} database level
+
+  {{ ydb-short-name }} implements database-level encryption. Data is encrypted before being sent to Storage. Database-level encryption is done in {{ ydb-short-name }}-based systems (such as {{ message-queue-full-name }}) and other platform services that use {{ ydb-short-name }} for storing data.
 
 * Data backup encryption in Managed Services for Databases (MDB).
 
@@ -225,6 +228,7 @@ A resource that's marked for deletion can't be restored. The data is actually de
 ### Disclosing information to third parties {#data-disclosure}
 
 {{ yandex-cloud }} doesn't disclose information to third parties, except when required by applicable law or the provisions of the agreement. Whenever possible, {{ yandex-cloud }} redirects a third-party request to the customer.
+
 
 ## Protecting user information {#sec-user-info}
 
