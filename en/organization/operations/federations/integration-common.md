@@ -372,12 +372,12 @@ When setting up the message:
 * Use the `Response` and the `SubjectConfirmationData` properties of the `InResponseTo` attribute to specify the ID from the SAML authentication request sent by {{ yandex-cloud }}.
 * Enter the [console login link](#get-link) in the following elements:
    * In the `Destination` attribute of `Response`.
-   * In the `Recipient` attribute of  `SubjectConfimirationData`.
+   * In the `Recipient` attribute of `SubjectConfirmationData`.
    * In `Audience`.
 * Specify a unique user ID in the `NameID` element. We recommend using the User Principal Name (UPN) or email address.
 * Specify the link to the IdP page in the `Issuer` element. The user was forwarded to this page for authentication).
 * Enter a signed message in the `SignatureValue` element and the certificate it was signed with in the `KeyInfo` element.
-* Please keep in mind that {{ yandex-cloud }} verifies that the response is received in the interval specified in the `Conditions` or the `SubjectConfimirationsData` property attributes.
+* Please keep in mind that {{ yandex-cloud }} verifies that the response is received in the interval specified in the `Conditions` or the `SubjectConfirmationData` property attributes.
 * For a user to be able to contact {{ yandex-cloud }} technical support from the [management console]({{link-console-support}}), pass the user's name and email address in the `AttributeStatement` property. Email, first name, and last name are passed in separate `Attribute` elements. You can also pass the first name and last name together, for example:
    ```
    <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">
