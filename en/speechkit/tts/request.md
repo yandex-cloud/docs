@@ -21,7 +21,7 @@ All parameters must be URL-encoded. The maximum size of the POST request body is
 | voice | **string**<br>Preferred speech synthesis voice from the [list](voices.md). Default value: `oksana`.<br/>For more information about choosing a voice, see [{#T}](./index.md#voices). |
 | emotion | **string**<br>Voice mode or emotional tone. Supported only for Russian (`ru-RU`). See [{#T}](voices.md) for acceptable voice/emotional tone combinations. |
 | speed | **string**<br>The rate (speed) of synthesized speech.<br/>The rate of speech is set as a decimal number in the range from `0.1` to `3.0`. Where:<ul><li>`3.0`: Fastest rate.</li><li>`1.0` (default): Average human speech rate.</li><li>`0.1`: Slowest speech rate.</li></ul> |
-| format | **string**<br>The format of the synthesized audio.<br/>Acceptable values:<ul><li>`lpcm`: The audio file is synthesized in [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format with no WAV header. Audio features:<ul><li>Sampling: 8, 16, or 48 kHz, depending on the `sampleRateHertz` value.</li><li>Bit depth: 16-bit.</li><li>Byte order: Reversed (little-endian).</li><li>Audio data is stored as signed integers.</li></ul></li><li>`oggopus` (default): Data in the audio file is encoded using the OPUS audio codec and compressed in an OGG container ([OggOpus](https://wiki.xiph.org/OggOpus)).</li> <li>`mp3`: Available for premium voices only.</li></ul> |
+| format | **string**<br>The format of the synthesized audio.<br/>Acceptable values:<ul><li>`lpcm`: The audio file is synthesized in [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format with no WAV header. Audio features:<ul><li>Sampling: 8, 16, or 48 kHz, depending on the `sampleRateHertz` value.</li><li>Bit depth: 16-bit.</li><li>Byte order: Reversed (little-endian).</li><li>Audio data is stored as signed integers.</li></ul></li><li>`oggopus` (default): Data in the audio file is encoded using the OPUS audio codec and compressed in an OGG container ([OggOpus](https://wiki.xiph.org/OggOpus)).</li> <li>`mp3`: Data in an audio file is encoded with the MPEG-1/2/2.5 Layer III audio codec and packaged in an [MP3]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/MP3){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/MP3){% endif %} container.</li></ul> |
 | sampleRateHertz | **string**<br>The sampling frequency of the synthesized audio.<br/>Used if `format` is set to `lpcm`. Acceptable values:<ul><li>`48000` (default): Sampling rate of 48 kHz.</li><li>`16000`: Sampling rate of 16 kHz.</li><li>`8000`: Sampling rate of 8 kHz.</li></ul> |
 | folderId | **string**<br><p>[ID of the folder](../../resource-manager/operations/folder/get-id.md) that you have access to. Required for authorization with a user account (see the [{#T}](../api-ref/authentication.md) resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
 
@@ -38,7 +38,7 @@ If the synthesis was successful, the response contains the audio file binary con
 In this example, we synthesize and record the following text as an audio file:
 > I'm Yandex Speech+Kit.
 > I can turn any text into speech.
-> Now yo+u can, too!
+> Now y+ou can, too!
 
 By default, data in the audio file is encoded using the OPUS audio codec and compressed in an OGG container ([OggOpus](https://wiki.xiph.org/OggOpus)).
 
@@ -52,8 +52,8 @@ Run the request indicating the [folder ID](../../resource-manager/operations/fol
    read -r -d '' TEXT << EOM
    > I'm Yandex Speech+Kit.
    > I can turn any text into speech.
-   > Now yo+u can, too!
-   > EOM
+   > Now y+ou can, too!
+   EOM
    export FOLDER_ID=<folder ID>
    export IAM_TOKEN=<IAM token>
    curl -X POST \
@@ -125,7 +125,7 @@ Run the request indicating the [folder ID](../../resource-manager/operations/fol
               'voice': 'filipp',
               'folderId': folder_id
           }
-      
+
           with requests.post(url, headers=headers, data=data, stream=True) as resp:
               if resp.status_code != 200:
                   raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
@@ -158,14 +158,21 @@ Run the request indicating the [folder ID](../../resource-manager/operations/fol
 - PHP
 
    ```php
-   <?
+   <?php
 
-   $token = '<IAM token>'; # IAM token
-   $folderId = "<folder ID>"; # Folder ID
+   $token = '<IAM token>'; # Specify an IAM token.
+   $folderId = "<folder ID>"; # Specify a folder ID.
+
    $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
-
-   $post = "text=" . urlencode("I'm Yandex Speech+Kit. I can turn any text into speech. Now yo+u can, too!"). "&lang=ru-RU&voice=filipp&folderId=${folderId}";
    $headers = ['Authorization: Bearer ' . $token];
+   $post = array(
+       'text' => "I'm Yandex Sp+eech kit. I can turn any text into speech. Now y+ou can, too!",
+       'folderId' => $folderId,
+       'sampleRateHertz' => '48000',
+       'lang' => 'ru-RU',
+       'voice' => 'filipp',
+       'format' => 'lpcm');
+
    $ch = curl_init();
 
    curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
@@ -189,11 +196,10 @@ Run the request indicating the [folder ID](../../resource-manager/operations/fol
        echo "Error code: " . $decodedResponse["error_code"] . "\r\n";
        echo "Error message: " . $decodedResponse["error_message"] . "\r\n";
    } else {
-       file_put_contents("speech.ogg", $response);
+       file_put_contents("speech.raw", $response);
    }
    curl_close($ch);
    ```
-
 
 {% endlist %}
 
@@ -211,8 +217,8 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
       read -r -d '' TEXT << EOM
       > I'm Yandex Speech+Kit.
       > I can turn any text into speech.
-      > Now yo+u can, too!
-      > EOM
+      > Now y+ou can, too!
+      EOM
       export FOLDER_ID=<folder ID>
       export IAM_TOKEN=<IAM token>
       curl -X POST \
@@ -250,7 +256,7 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
             var values = new Dictionary<string, string>
             {
-              { "text", "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!" },
+              { "text", "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too! },
               { "lang", "ru-RU" },
               { "voice", "filipp" },
               { "folderId", folderId },
@@ -322,16 +328,21 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
    - PHP
 
       ```php
-      <?
+      <?php
 
-      const FORMAT_PCM = "lpcm";
-      const FORMAT_OPUS = "oggopus";
+      $token = '<IAM token>'; # Specify an IAM token.
+      $folderId = "<folder ID>"; # Specify a folder ID.
 
-      $token = '<IAM token>'; # IAM token
-      $folderId = "<folder ID>"; # Folder ID
       $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
-      $post = "text=" . urlencode("I'm Yandex Speech+Kit. I can turn any text into speech. Now yo+u can, too!"). "&lang=ru-RU&voice=filipp&folderId=${folderId}&sampleRateHertz=48000&format=" . FORMAT_PCM;
       $headers = ['Authorization: Bearer ' . $token];
+      $post = array(
+          'text' => "I'm Yandex Sp+eech kit. I can turn any text into speech. Now y+ou can, too!",
+          'folderId' => $folderId,
+          'sampleRateHertz' => '48000',
+          'lang' => 'ru-RU',
+          'voice' => 'filipp',
+          'format' => 'lpcm');
+
       $ch = curl_init();
 
       curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
