@@ -3,7 +3,7 @@ According to the plan, the following resources are created:
 * A cloud network named `network-1` with a subnet named `subnet-1` in the `{{ region-id }}-a` availability zone.
 * Two Linux VMs: `terraform1` (2 cores and 2 GB of RAM) and `terraform2` (4 cores and 4 GB of RAM). The VMs are automatically assigned public and private IP addresses from the range `192.168.10.0/24` in `subnet-1`.
 
-1. Get the ID of the boot disk image, such as Ubuntu 16 LTS, that will be installed on the VM. Get a list of available public images by running the following command in the [CLI](../cli/quickstart.md):
+1. Get the ID of the boot disk image from {{ marketplace-name }}, such as [Ubuntu 16.04 LTS](/marketplace/products/yc/ubuntu-16-04-lts), that will be installed on the VM. Get a list of available public images by running the following command in the [CLI](../cli/quickstart.md):
 
     ```
     yc compute image list --folder-id standard-images

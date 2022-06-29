@@ -35,6 +35,7 @@ description: "Пошаговые инструкции по управлению 
 - [{#T}](iam-token/create.md)
 - [{#T}](iam-token/create-for-sa.md)
 - [{#T}](iam-token/create-for-federation.md)
+- [Перевыпуск IAM-токена](compromised-credentials.md#iam-reissue)
 
 
 ## API-ключи {#api-keys}

@@ -44,7 +44,7 @@ If you no longer need these resources, [delete them](#clear-out).
       * `ACCESS_ROLE_PRODUCER`.
 
 
-1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 20.04 and the public IP address.
+1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }} and the public IP address.
 
 
 ## Configure the VM {#prepare-vm}

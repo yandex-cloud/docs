@@ -168,7 +168,7 @@ Create a VM with a static address:
      1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
      1. In the **Name** field, enter a name for the VM: `my-rds-gw`.
      1. Select the [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
-     1. Under **Image/boot disk selection**, select the **2019 Datacenter** image.
+     1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) image.
      1. Under **Disks**, enter 60 GB for the size of the boot disk.
      1. Under **Computing resources**:
          * Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
@@ -357,7 +357,7 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
         1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
         1. In the **Name** field, enter the VM name: `test-vm`.
         1. Select the [availability zone](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
-        1. Under **Image/boot disk selection**, select the **2019 Datacenter** image.
+        1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) image.
         1. Under **Disks**, enter 60 GB for the size of the boot disk.
         1. Under **Computing resources**:
             * Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.

@@ -90,7 +90,7 @@
 
       * Перейдите на вкладку **{{ marketplace-name }}**.
       * Нажмите кнопку **Посмотреть больше**.
-      * В списке публичных образов выберите **Hystax Acura Live Migration to {{ yandex-cloud }}** и нажмите кнопку **Использовать**.
+      * В списке публичных образов выберите [Hystax Acura Live Migration to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration) и нажмите кнопку **Использовать**.
 
    1. В блоке **Диски** укажите размер диска 100 ГБ.
 

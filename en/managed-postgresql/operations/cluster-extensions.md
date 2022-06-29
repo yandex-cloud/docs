@@ -286,7 +286,7 @@ Provides the `autoinc()` function. It stores the next value of a sequence into a
    || [timescaledb](https://github.com/timescale/timescaledb)
    Adds the ability to automatically partition tables across time and space (partitioning key), retaining the standard {{ PG }} interface for working with data. This makes {{ PG }} scalable for time-series.
    Requires the `timescaledb` [shared library to be enabled](#libraries-connection).
-   | - | 2.3.1 | 2.3.1 | 2.3.1 | 2.5.0 ||
+   | - | 2.3.1 | 2.4.2 | 2.5.2 | 2.6.1 ||
    || [unaccent]({{ pg-docs }}/static/unaccent.html)
    Contains a search dictionary that removes accents (diacritic signs) from lexemes.
    | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||

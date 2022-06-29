@@ -53,7 +53,7 @@ Resource costs for Hystax Acura and Hystax Acura Cloud Agent include:
 
 ## Create a VM with Hystax Acura {#create-acura-vm}
 
-Create a VM with a boot disk from an `acura` image:
+Create a VM with a boot disk from an [Hystax Acura Disaster Recovery to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-disaster-recovery) {{ marketplace-name }} image:
 
 {% list tabs %}
 

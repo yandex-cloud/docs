@@ -50,7 +50,7 @@ The accuracy of speech recognition is also affected by:
 
 #### For details, see also {#see-also}
 
-* [{#T}](formats.md)
+* [{#T}](../formats.md)
 * [{#T}](models.md)
 * [{#T}](request.md)
 * [{#T}](streaming.md)

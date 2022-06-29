@@ -60,7 +60,7 @@ Create two VMs for the 1C server and the license server:
 
 3. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-4. Under **Images from {{ marketplace-name }}**, click **Select**. Select the [Windows 2016 Datacenter](/marketplace/products/f2ep1515h63fnvqh6hkl) public image.
+4. Under **Images from {{ marketplace-name }}**, click **Select**. Select the [Windows Server 2016 Datacenter](/marketplace/products/yc/windows-server-2016-datacenter) public image.
 
 5. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md).
@@ -89,7 +89,7 @@ To create an infobase VM:
 
 3. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-4. Under **Images from {{ marketplace-name }}**, click **Select**. Select the [SQL Server 2016 Standard](/marketplace/products/f2epngblcno76k5st39r) public image.
+4. Under **Images from {{ marketplace-name }}**, click **Select**. Select the [Microsoft SQL Server 2016 Standard](/marketplace/products/yc/sql-server-2016-standard) public image.
 
 5. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md).

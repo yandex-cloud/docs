@@ -127,6 +127,8 @@
 
 Объем занятого пространства в хранилище отображается на странице [мониторинга кластера](../operations/monitoring.md#cluster) на графиках **Disk space usage per host, top 5 hosts**.
 
+Чтобы отслеживать степень заполнения хранилища на хостах кластера, [настройте алерт](../operations/monitoring.md#read-only-alert).
+
 ## Устранение проблем с дисковым пространством {#solve-disk-deficit}
 
 Рекомендации по устранению проблем приведены в разделе [{#T}](../concepts/storage.md#read-only-solutions).

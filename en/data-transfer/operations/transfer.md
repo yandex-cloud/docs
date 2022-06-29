@@ -39,9 +39,9 @@ For more information about transfer states, operations applicable to transfers, 
       * Transfer name.
       * Transfer type:
 
-         * `{{ dt-type-copy-repl }}`: To create a full copy of the source data and keep it up-to-date.
-         * `{{ dt-type-copy }}`: To create a full copy of the data without receiving further updates from the source.
-         * `{{ dt-type-repl }}`: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).
+         * `{{ dt-type-copy-repl }}`: To create a full snapshot of the source data and keep it up-to-date.
+         * `{{ dt-type-copy }}`: To create a full snapshot of the data without receiving further updates from the source.
+         * `{{ dt-type-repl }}`: To continuously receive data updates from the source and apply them to the target (without creating a full snapshot of the source data).
 
       * (optional) Transfer description.
 

@@ -41,7 +41,7 @@ The following charts open on the page:
 * **Sink response time (histogram by seconds)**: Time required on the target to process a source request in the most recent monitoring interval (in seconds).
 * **Read rows (parsed/unparsed)**: The number of rows read from the source.
 * **Snapshot task progress (top-50 tables)**: The number of rows awaiting transfer.
-* **Snapshot task status**: The operation in progress (replication if `0`, and copying if `1` ).
+* **Snapshot task status**: The operation in progress (increment if `0`, and snapshot if `1` ).
 
 ## Integration with {{ monitoring-full-name }} {#monitoring-integration}
 

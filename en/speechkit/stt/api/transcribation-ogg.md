@@ -1,6 +1,6 @@
 # Recognizing speech in OggOpus format
 
-To recognize speech in [OggOpus](../formats.md#oggopus) format, just specify the recognition language in the `languageCode` field of the configuration. The language model used by default is `general`.
+To recognize speech in [OggOpus](../../formats.md#oggopus) format, just specify the recognition language in the `languageCode` field of the configuration. The language model used by default is `general`.
 
 {% list tabs %}
 
