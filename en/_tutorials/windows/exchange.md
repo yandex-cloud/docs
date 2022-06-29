@@ -141,7 +141,7 @@ Create two virtual machines for Active Directory. These VMs don't have internet 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name `ad-vm-a`.
    1. Select the [availability zone](../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
-   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
+   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [Windows Server 2016 Datacenter](/marketplace/products/yc/windows-server-2016-datacenter) image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
@@ -194,7 +194,7 @@ A file server with internet access is used to configure VMs with Active Director
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `fsw-vm`.
    1. Select the `{{ region-id }}-c` [availability zone](../../overview/concepts/geo-scope.md)
-   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
+   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [Windows Server 2016 Datacenter](/marketplace/products/yc/windows-server-2016-datacenter) image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
       * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.

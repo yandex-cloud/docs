@@ -1,6 +1,6 @@
 {% note warning %}
 
-* Если вы создали виртуальные машины с Ubuntu 20.04 LTS из образа `{{ compute-ubuntu-lts-image-id }}`, то используйте имя пользователя `ubuntu` при подключении.
+* Если вы создали виртуальные машины с [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) из образа `{{ compute-ubuntu-lts-image-id }}` {{ marketplace-name }}, то используйте имя пользователя `ubuntu` при подключении.
 
 {% if audience != "internal" %}
 

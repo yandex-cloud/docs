@@ -16,11 +16,11 @@
 1. Создайте *кластер-приемник* [{{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей вам конфигурации с хостами в публичном доступе.
 {% if audience != "internal" %}
 
-1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) для Debezium с Ubuntu 20.04 и публичным IP-адресом.
+1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) для Debezium с [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) из {{ marketplace-name }} и публичным IP-адресом.
 
 {% else %}
 
-1. Создайте виртуальную машину для Debezium с Ubuntu 20.04 и публичным IP-адресом.
+1. Создайте виртуальную машину для Debezium с [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) из {{ marketplace-name }} и публичным IP-адресом.
 
 {% endif %}
 

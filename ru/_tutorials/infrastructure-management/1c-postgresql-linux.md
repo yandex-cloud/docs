@@ -62,7 +62,7 @@
 
 3. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 
-4. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [CentOS 8](/marketplace/products/f2eb5s1m9o1fs5t35ttf).
+4. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [CentOS 8](/marketplace/products/yc/centos-8).
 
 5. В блоке **Вычислительные ресурсы**:
     - Выберите [платформу](../../compute/concepts/vm-platforms.md).

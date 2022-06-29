@@ -140,7 +140,7 @@ Create two VMs for Active Directory domain controllers. These VMs don't have int
   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
   1. In the **Name** field, enter the VM name `ad-vm-a`.
   1. Select the [availability zone](../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
-  1. Under **Image/boot disk selection** → **{{ marketplace-name }}** click **Show more**. In the window that opens, select the **Windows Server 2019 Datacenter** image and click **Use**.
+  1. Under **Image/boot disk selection** → **{{ marketplace-name }}** click **Show more**. In the window that opens, select the [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) image and click **Use**.
   1. Under **Disks**, enter 50 GB for the size of the boot disk:
   1. Under **Computing resources**:
 
@@ -198,7 +198,7 @@ A file server with internet access is used to configure VMs with Active Director
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name `jump-server-vm`.
    1. Select the `{{ region-id }}-c` [availability zone](../../overview/concepts/geo-scope.md)
-   1. Under **Image/boot disk selection** → **{{ marketplace-name }}** click **Show more**. In the window that opens, select the **Windows Server 2019 Datacenter** image and click **Use**.
+   1. Under **Image/boot disk selection** → **{{ marketplace-name }}** click **Show more**. In the window that opens, select the [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) image and click **Use**.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
 

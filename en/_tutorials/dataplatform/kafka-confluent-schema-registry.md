@@ -41,7 +41,7 @@ To use {{ mkf-name }} with Confluent Schema Registry:
         * `ACCESS_ROLE_CONSUMER`
         * `ACCESS_ROLE_PRODUCER`
 
-1. In the same network as the {{ mkf-name }} cluster, [create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 20.04 and a public IP address.
+1. In the same network as the {{ mkf-name }} cluster, [create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }} and a public IP address.
 
 1. To allow traffic between the {{ mkf-name }} cluster and the virtual machine, [configure security groups](../../managed-kafka/operations/connect.md#configuring-security-groups).
 

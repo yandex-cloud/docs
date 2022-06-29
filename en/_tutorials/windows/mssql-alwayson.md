@@ -287,7 +287,7 @@ Read more about the best practices for securing Active Directory on the [officia
 
 #### Create a VM for a bastion host {#create-jump-server}
 
-Create a bastion host with a public IP address to access other VMs:
+Create a bastion host with [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) from {{ marketplace-name }} and a public IP address to access other VMs:
 
 {% list tabs %}
 
@@ -323,7 +323,7 @@ Create a bastion host with a public IP address to access other VMs:
 
 #### Create a VM for Active Directory {#create-ad-controller}
 
-Create a VM to install Active Directory:
+Create a VM with [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) from {{ marketplace-name }} to install Active Directory:
 
 {% list tabs %}
 
@@ -363,7 +363,7 @@ Create a VM to install Active Directory:
 
 #### Create a VM for MSSQL servers {#create-ad-server}
 
-Create three VMs for MSSQL servers:
+Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) from {{ marketplace-name }} for MSSQL servers:
 
 {% list tabs %}
 

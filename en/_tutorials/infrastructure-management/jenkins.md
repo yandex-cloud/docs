@@ -66,7 +66,7 @@ To create a virtual machine with Jenkins:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **Jenkins** image.
+1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the [Jenkins](/marketplace/products/yc/jenkins) image.
 
 1. Under **Disks**, enter 15 GB for the size of the boot disk:
 

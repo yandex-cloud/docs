@@ -65,7 +65,7 @@ Outgoing | udp | 12201 | UDP | CIDR | 0.0.0.0/0
 
 ## Create a VM with Hystax Acura {#create-acura-vm}
 
-Create a VM with a boot disk from an `acura` image:
+Create a VM with a boot disk from an [Hystax Acura Live Migration to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration) {{ marketplace-name }} image:
 
 {% list tabs %}
 

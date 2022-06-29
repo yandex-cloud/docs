@@ -105,7 +105,7 @@
 
       * Перейдите на вкладку **{{ marketplace-name }}**.
       * Нажмите кнопку **Посмотреть больше**.
-      * В списке публичных образов выберите **Hystax Acura Disaster Recovery to {{ yandex-cloud }}** и нажмите кнопку **Использовать**.
+      * В списке публичных образов выберите [Hystax Acura Disaster Recovery to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-disaster-recovery) и нажмите кнопку **Использовать**.
 
    1. В блоке **Диски** укажите размер диска 80 ГБ.
 

@@ -51,7 +51,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% if audience != "internal" %}
 
-1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 20.04 and the public IP address.
+1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }} and the public IP address.
 
 
 ## Configure the VM {#prepare-vm}
@@ -62,7 +62,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% else %}
 
-1. In the network hosting the {{ mkf-name }} cluster, create a virtual machine with Ubuntu 20.04 and the public IP address.
+1. In the network hosting the {{ mkf-name }} cluster, create a virtual machine with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }} and the public IP address.
 
 1. Prepare the VM to work with {{ KFC }}:
 

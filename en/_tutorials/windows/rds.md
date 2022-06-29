@@ -128,7 +128,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter a name for the VM: `my-rds-vm`.
    1. Select the [availability zone](../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
-   1. Under **{{ marketplace-name }}**, click **Show more**. In the window that opens, select the **Windows RDS** image.
+   1. Under **{{ marketplace-name }}**, click **Show more**. In the window that opens, select the [Windows RDS](/marketplace?tab=software&search=windows+rds) image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
       - Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.

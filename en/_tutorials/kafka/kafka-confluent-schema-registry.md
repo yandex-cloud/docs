@@ -17,11 +17,11 @@ To use [Confluent Schema Registry](https://docs.confluent.io/platform/current/sc
 
 {% if audience != "internal" %}
 
-1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 20.04 and a public IP address.
+1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }} and a public IP address.
 
 {% else %}
 
-1. In the network hosting the {{ mkf-name }} cluster, create a virtual machine with Ubuntu 20.04 and a public IP address.
+1. In the network hosting the {{ mkf-name }} cluster, create a virtual machine with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }} and a public IP address.
 
 {% endif %}
 
