@@ -70,7 +70,7 @@ The User shall manage the access of said persons. The User shall be liable to Cl
 * download, send, transmit or otherwise post and/or distribute content unless permitted by law to do so;
 * download, send, transmit or otherwise post and/or distribute unauthorized advertising material, spam (including spamdexing), or lists of other persons' e-mail addresses;
 * download, send, transmit or otherwise post and/or distribute any materials containing viruses or other computer codes, files or programs that are designed to breach, destroy or limit the operation of any computer or telecommunication hardware or software, to obtain unauthorized access to commercial software (or obtain commercial software serial numbers), logins, passwords and other means of obtaining authorized access to fee-based online resources, and shall not post links to such information;
-* put any sensitive information (finance information, personal data, etc) into technical fields (i.e. resource labels and descriptions), accessible for him to alter. CloudIL consider these fields only as technical and cannot take any additional responsibility for the information put in such fields.
+* put any sensitive information (finance information, personal data, secrets, etc) into technical fields and configurations, accessible for him to alter (e.g. resource labels and descriptions, URLs, etc). CloudIL consider these objects only as technical and cannot take any additional responsibility for information which may be put into such objects.
 * collect and store personal information of third parties without proper authorization.
 
 2.11. If a help request is made to Platform's support service, then in order for the request to be processed, the User agrees for the support service to be granted access (i.e., for the support service to have such access after the request) to the User's data and databases on the platform and to their logs and metrics.
@@ -91,6 +91,6 @@ The User shall manage the access of said persons. The User shall be liable to Cl
 
 3.7. All questions and claims concerning Platform use/unavailability and possible infringement of laws and/or third-party rights shall be sent to [info@cloudil.co.il](mailto:info@cloudil.co.il).
 
-Date of publication: 14.06.2022
+Date of publication: 29.06.2022
 
 Web address: [https://cloudil.co.il/docs/legal/terms](https://cloudil.co.il/docs/legal/terms)
