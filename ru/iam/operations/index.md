@@ -37,6 +37,9 @@ description: "Пошаговые инструкции по управлению 
 {% endif %}
 - [{#T}](iam-token/create-for-sa.md)
 - [{#T}](iam-token/create-for-federation.md)
+{% if product == "yandex-cloud" %}
+- [Перевыпуск IAM-токена](compromised-credentials.md#iam-reissue)
+{% endif %}
 
 {% if audience == "internal" %}
 - [{#T}](iam-token/create-for-robot.md)

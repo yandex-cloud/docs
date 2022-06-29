@@ -15,6 +15,9 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Обработка секретов, попавших в открытый доступ
+        href: operations/compromised-credentials.md
+        when: product == "yandex-cloud"
       - name: Пользователи
         items:
           - name: Добавление пользователя
@@ -35,6 +38,8 @@ items:
             href: operations/sa/set-access-bindings.md
           - name: Создание статических ключей доступа
             href: operations/sa/create-access-key.md
+          - name: Удаление статических ключей доступа
+            href: operations/sa/delete-access-key.md
           - name: Получение идентификатора сервисного аккаунта
             href: operations/sa/get-id.md
           - name: Удаление сервисного аккаунта
@@ -67,6 +72,8 @@ items:
             href: operations/api-key/delete.md
           - name: Создание авторизованного ключа
             href: operations/authorized-key/create.md
+          - name: Удаление авторизованного ключа
+            href: operations/authorized-key/delete.md
   - name: Концепции
     items:
       - name: Обзор
