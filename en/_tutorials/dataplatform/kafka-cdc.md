@@ -22,7 +22,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 1. Create a *target [{{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) cluster* in any applicable configuration with publicly available hosts.
    
-1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) for Debezium with Ubuntu 20.04 and a public IP address.
+1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) for Debezium with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }} and a public IP address.
 
 
 1. Set up security groups so that you can connect to clusters from the created VM:

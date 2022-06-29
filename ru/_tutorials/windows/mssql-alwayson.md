@@ -285,7 +285,7 @@
 
 #### Создайте ВМ для бастионного хоста {#create-jump-server}
 
-Создайте бастионный хост с публичным IP-адресом для доступа к остальным ВМ:
+Создайте бастионный хост с ОС [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) из {{ marketplace-name }} с публичным IP-адресом для доступа к остальным ВМ:
 
 {% list tabs %}
 
@@ -321,7 +321,7 @@
 
 #### Создайте ВМ для Active Directory {#create-ad-controller}
 
-Создайте виртуальную машину для установки Active Directory:
+Создайте виртуальную машину с ОС [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) из {{ marketplace-name }} для установки Active Directory:
 
 {% list tabs %}
 
@@ -361,7 +361,7 @@
 
 #### Создайте ВМ для серверов MSSQL {#create-ad-server}
 
-Создайте три виртуальные машины для серверов MSSQL:
+Создайте три виртуальные машины с ОС [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) из {{ marketplace-name }} для серверов MSSQL:
 
 {% list tabs %}
 

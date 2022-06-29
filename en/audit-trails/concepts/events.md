@@ -75,6 +75,8 @@ Service name: `compute`.
 | `AddInstanceOneToOneNat` | Adding a public IP address for a VM instance |
 | `AttachInstanceDisk` | Attaching a disk to a VM instance |
 | `AttachInstanceFilesystem` | Connecting a file system to a VM |
+| `ChangeDiskStatus` | Changing a disk status |
+| `CrashInstance` | Emergency VM shutdown |
 | `CreateDisk` | Creating a disk |
 | `CreateFilesystem` | Creating a file system |
 | `CreateImage` | Creating a disk image |
@@ -86,7 +88,9 @@ Service name: `compute`.
 | `DeleteInstance` | Deleting a VM |
 | `DeleteSnapshot` | Deleting a disk snapshot |
 | `DetachInstanceDisk` | Detaching a disk from a VM instance |
-| `DetachInstanceFilesystem` | Detaching a file system from a VM |
+| `DetachInstanceFilesystem` | Detaching a file system from a VM instance |
+| `GuestStopInstance` | Stopping a VM on command from this VM |
+| `PreemptInstance` | Interrupting a VM |
 | `RemoveInstanceOneToOneNat` | Removing a VM's public IP address |
 | `RestartInstance` | Restarting a VM |
 | `StartInstance` | Starting a VM |
@@ -129,6 +133,7 @@ Service name: `iam`.
 | `DeleteCertificate` | Deleting a certificate for a federation |
 | `DeleteFederation` | Deleting a federation |
 | `DeleteKey` | Deleting a key pair for a service account |
+| `DetectLeakedCredential` | Deleting secrets that are available in the public domain |
 | `DeleteServiceAccount` | Deleting a service account |
 | `UpdateAccessKey` | Updating an access key |
 | `UpdateApiKey` | Updating an API key |
@@ -386,21 +391,29 @@ Service name: `network`.
 | Event name | Description |
 --- | ---
 | `CreateAddress` | Creating a cloud resource address |
+| `CreateGateway` | Creating a gateway |
 | `CreateNetwork` | Creating a cloud network |
 | `CreateRouteTable` | Creating a routing table |
 | `CreateSecurityGroup` | Create security group |
 | `CreateSubnet` | Creating a cloud subnet |
 | `DeleteAddress` | Deleting a cloud resource address |
+| `DeleteGateway` | Deleting a gateway |
 | `DeleteNetwork` | Deleting a cloud network |
 | `DeleteRouteTable` | Deleting a routing table |
 | `DeleteSecurityGroup` | Deleting a security group |
 | `DeleteSubnet` | Deleting a cloud subnet |
-| `MoveAddress` | Moving the address of cloud resources to another folder |
+| `GatewayAttached` | Adding a gateway |
+| `GatewayDetached` | Detaching a gateway |
+| `MoveAddress` | Moving an address of cloud resources to another folder |
+| `MoveGateway` | Moving a gateway to another folder |
 | `MoveNetwork` | Moving a cloud network to another folder |
 | `MoveRouteTable` | Moving a routing table to another folder |
 | `MoveSecurityGroup` | Moving a security group to another folder |
 | `MoveSubnet` | Moving a cloud subnet to another folder |
+| `RouteTableAttached` | Adding a routing table to a subnet |
+| `RouteTableDetached` | Detaching a routing table from a subnet |
 | `UpdateAddress` | Updating the address of a cloud resource |
+| `UpdateGateway` | Updating a gateway |
 | `UpdateNetwork` | Updating a cloud network |
 | `UpdateRouteTable` | Updating a routing table |
 | `UpdateSecurityGroup` | Updating a security group |

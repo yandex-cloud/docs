@@ -134,7 +134,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `ad-vm-a`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
-  1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ **Windows Server 2016 Datacenter**.
+  1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ [Windows Server 2016 Datacenter](/marketplace/products/yc/windows-server-2016-datacenter).
   1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
   1. В блоке **Вычислительные ресурсы**:
       * Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
@@ -187,7 +187,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `fsw-vm`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-c`.
-  1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ **Windows Server 2016 Datacenter**.
+  1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ [Windows Server 2016 Datacenter](/marketplace/products/yc/windows-server-2016-datacenter).
   1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
   1. В блоке **Вычислительные ресурсы**:
       * Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.

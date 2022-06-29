@@ -4,11 +4,7 @@
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Under **Images**, click **Choose**.
-
-1. In the window that opens, go to the **DevTools** tab.
-
-1. Choose the **GitLab** image.
+1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the [GitLab 14.8](/marketplace/products/yc/gitlab) image.
 
 1. Under **Computing resources**, specify the following configuration:
    - **vCPU**: `2`

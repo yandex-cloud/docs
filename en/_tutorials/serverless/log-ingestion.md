@@ -88,7 +88,7 @@ Wait for the stream to start. Once the stream is ready for use, its status chang
    1. Click **Create**.
    1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the created transfer and select **Activate**.
 
-Wait until the transfer is activated. Once the transfer is ready for use, its status changes from `Creating` to `Replicating`.
+Wait until the transfer is activated. Once the transfer is ready for use, its status changes from `Creating` to `Incrementing`.
 
 ## Install Fluentd {#install-fluentd}
 

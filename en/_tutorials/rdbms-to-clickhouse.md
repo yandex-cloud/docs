@@ -72,7 +72,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Activate the transfer {#activate-transfer}
 
-1. [Activate the transfer](../data-transfer/operations/transfer.md#activate) and wait for its status to change to **Replicated**.
+1. [Activate the transfer](../data-transfer/operations/transfer.md#activate) and wait for its status to change to **Incremented**.
 1. To check that the transfer has moved the replicated data to the target, connect to the target {{ mch-full-name }} cluster and make sure that the `x_tab` table in `db1` includes the same columns as the `x_tab` table in the source database, as well as the [timestamp columns](#working-with-data-ch): `__data_transfer_commit_time` and `__data_transfer_delete_time`:
 
    ```sql

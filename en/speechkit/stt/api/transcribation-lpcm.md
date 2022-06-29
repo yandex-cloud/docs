@@ -1,6 +1,6 @@
 # Recognizing speech in LPCM format
 
-To recognize speech in [LPCM](../formats.md#lpcm) format, specify the file sampling frequency and the number of audio channels in the recognition settings. Set the recognition language in the `languageCode` field and the language model in the `model` field.
+To recognize speech in [LPCM](../../formats.md#lpcm) format, specify the file sampling frequency and the number of audio channels in the recognition settings. Set the recognition language in the `languageCode` field and the language model in the `model` field.
 
 1. Create a request body and save it to a file (such as `body.json`).
 

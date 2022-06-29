@@ -99,7 +99,7 @@ Wait for the API gateway to start. When the API gateway is ready for use, its st
 1. Click **Create**.
 1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the created transfer and select **Activate**.
 
-Wait until the transfer is activated. When the transfer is ready for use, its status changes from `Creating` to `Replicating`.
+Wait until the transfer is activated. When the transfer is ready for use, its status changes from `Creating` to `Incrementing`.
 
 ## Test sending and receiving data {#test-ingestion}
 
