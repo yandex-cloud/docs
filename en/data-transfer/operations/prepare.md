@@ -831,7 +831,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
       Do not reactivate these settings before the transfer is complete. This will ensure data integrity with respect to foreign keys.
 
-      If you use the _{{ dt-type-copy-repl }}_ transfer type, you can enable the settings again after the [copy stage](../concepts/transfer-lifecycle.md#copy-and-replication) is completed.
+      If you use the _{{ dt-type-copy-repl }}_ transfer type, you can enable the settings again after the [snapshot stage](../concepts/transfer-lifecycle.md#snapshot-and-increment) is completed.
 
       {% endnote %}
 
@@ -855,7 +855,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
       Do not reactivate these settings before the transfer is complete. This will ensure data integrity with respect to foreign keys.
 
-      If you use the _{{ dt-type-copy-repl }}_ transfer type, you can enable the settings again after the [copy stage](../concepts/transfer-lifecycle.md#copy-and-replication) is completed.
+      If you use the _{{ dt-type-copy-repl }}_ transfer type, you can enable the settings again after the [snapshot stage](../concepts/transfer-lifecycle.md#snapshot-and-increment) is completed.
 
       {% endnote %}
 

@@ -65,7 +65,7 @@ Additionally, to migrate data using external {{ MY }} replication:
 
     {% endnote %}
 
-1. Wait for the transfer to change to the **Replicated** status.
+1. Wait for the transfer to change to the **Incremented** status.
 
 1. Switch the source cluster to <q>read-only</q> mode and switch the load to the target cluster.
 

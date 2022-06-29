@@ -15,9 +15,9 @@ To create a transfer:
   1. Under **Transfer parameters**:
       - Enter the transfer **Name**.
       - Select the transfer **Type**:
-        - **Copy and replicate** to transfer the data and keep the target database in sync with the source database.
-        - **Copy** to make a one-time transfer of the database snapshot.
-        - **Replicate** to continuously retrieve changes from the source database and apply them to the target database.
+        - **{{ dt-type-copy-repl }}** to transfer the data and keep the target database in sync with the source database.
+        - **{{ dt-type-copy }}** to make a one-time transfer of the database snapshot.
+        - **{{ dt-type-repl }}** to continuously retrieve changes from the source database and apply them to the target database.
       - Enter the transfer **Description**.
 
   1. Click **Create**.

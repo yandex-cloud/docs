@@ -1,6 +1,6 @@
 # Syncing MySQL data using {{ data-transfer-full-name }}
 
-In this scenario, you'll learn how to ensure periodic delivery of changes from an external database to the cloud using {{ data-transfer-name }}. To synchronize data in your cloud, you need to create intermediate staging data storage, {{ mmy-name }}, to replicate tables to. The data is synchronized almost in real time.
+In this scenario, you'll learn how to ensure periodic delivery of changes from an external database to the cloud using {{ data-transfer-name }}. To synchronize data in your cloud, you need to create intermediate staging data storage, {{ mmy-name }}, to increment tables to. The data is synchronized almost in real time.
 
 To set up the transfer of changes:
 
@@ -126,7 +126,7 @@ To synchronize the order information from the MySQL database of the website with
     * **Name**: `sales-order-sync`.
     * Under **Source**, select the `magento-source` endpoint.
     * Under**Target**, select the `magento-report-dest` endpoint.
-    * Under **Transfer type**, select `Copy and replicate`.
+    * Under **Transfer type**, select `{{ Snapshot and increment }}`.
     * Click **Create**.
     * Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the transfer description and select **Activate**.
 

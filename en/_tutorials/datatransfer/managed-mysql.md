@@ -25,7 +25,7 @@
 
    {% endnote %}
 
-1. Wait for the transfer to change to the **Replicated** status.
+1. Wait for the transfer to change to the **Incremented** status.
 1. Switch the source cluster to <q>read-only</q> mode and switch the load to the target cluster.
 1. On the [transfer monitoring](../../data-transfer/operations/monitoring.md) page, wait for the **Maximum lag on delivery** metric to decrease to zero. This means that all changes that occurred in the source cluster after data copying was completed are transferred to the target cluster.
 1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) the transfer and wait its status to change to **Stopped**.
