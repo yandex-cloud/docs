@@ -1,4 +1,4 @@
 Service | Cost of 1 GB per month, with VAT
 --- | ---
-SSD storage | ₽13.00
-Storage of backups in {{ objstorage-full-name }} | ₽1.92
+SSD storage | {{ sku|RUB|gitlab.instance.disk|month|string }}
+Storage of backups in {{ objstorage-full-name }} | {{ sku|RUB|gitlab.backup|month|string }}

@@ -1,5 +1,5 @@
 Ресурс | Цена за 1 час, вкл. НДС
 --- | ---
 **Intel Ice Lake** |
-100% vCPU | 8,40 ₸
-RAM (за 1 ГБ) | 2,25 ₸
+100% vCPU | {{ sku|KZT|gitlab.instance.cpu|string }}
+RAM (за 1 ГБ) | {{ sku|KZT|gitlab.instance.ram|string }}

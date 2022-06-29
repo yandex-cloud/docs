@@ -1,4 +1,4 @@
 Услуга | Цена за ГБ в месяц, вкл. НДС
 --- | ---
-Хранение данных на SSD-дисках | 65,0 ₸
-Хранение резервных копий в {{ objstorage-full-name }} | 9,6 ₸
+Хранение данных на SSD-дисках | {{ sku|KZT|gitlab.instance.disk|month|string }}
+Хранение резервных копий в {{ objstorage-full-name }} | {{ sku|KZT|gitlab.backup|month|string }}
