@@ -83,13 +83,13 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
    For example, you created a cluster:
 
-   * With 3 {{ KF }} broker hosts with the `s2.micro` host class (2 vCPUs, 8 GB RAM).
-   * With 3 automatically created {{ ZK }} hosts with the `b2.medium` class (2 vCPUs, 50% vCPU, 4 GB RAM).
+   * With 3 {{ KF }} broker hosts with the `s2.micro` host class (Intel Cascade Lake, 2 vCPU, 100% vCPU, 8 GB RAM).
+   * With 3 automatically created {{ ZK }} hosts with the `b2.medium` class (Intel Cascade Lake, 2 vCPU, 50% vCPU, 4 GB RAM).
    * With 100 GB of storage on HDD network drives.
 
-   Cost per hour for the hosts: `3 × (2 × ₽1.05 + 8 × ₽0.28) + 3 × (2 × ₽0.49 + 4 × ₽0.20) = ₽18.36`
+   Cost per hour for the hosts: `3 × (2 × ₽1.68 + 8 × ₽0.45) + 3 × (2 × ₽0.78 + 4 × ₽0.32) = ₽29.4`
 
-   Total cluster cost per month (hosts and storage): `720 × ₽18.36 + 100 × ₽2.2881 = ₽13448.01`
+   Total cluster cost per month (hosts and storage): `720 × ₽29.4 + 100 × ₽3.2 = ₽21488`
 
    {% endif %}
 
