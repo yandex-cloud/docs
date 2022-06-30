@@ -150,8 +150,8 @@ It consists of the following parts:
 
 * `MNAME`: The domain name of the server that handles the zone. Default: 0.
    * `ns.internal.` for private zones.
-   * {% if product == "yandex-cloud" %}`ns1.yandexcloud.net.`{% endif %}{% if product == "cloud-il" %}`ns1.cloudil.com.`{% endif %} for public zones.
-* `RNAME`: The domain name of the mail server that handles the zone. Default value: `{{ dns-mx-host }}`.
+   * `ns1.yandexcloud.net.` for public zones.
+* `RNAME`: The domain name of the mail server that handles the zone. Default value: `{{ dns-mx-host }}.`.
 * `SERIAL`: An unsigned 32-bit integer that points to the number of a zone copy. When synchronizing data between DNS servers, the value in the `SERIAL` field is checked. The larger it is, the more recent the data. The default value is `1`.
 
    {% note warning %}
