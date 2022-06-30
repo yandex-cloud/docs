@@ -89,15 +89,15 @@ For example, you created a cluster:
 
 Cost of using resources:
 
-* 1 hour of using the core of a {{ CH }} host with 100% vCPU: ₽1.43.
-* 1 hour of using 1 GB of RAM of a {{ CH }} host: ₽0.33.
-* 1 hour of using the core of a {{ ZK }} host with 50% vCPU: ₽0.49.
-* 1 hour of using 1 GB of RAM of a {{ ZK }} host: ₽0.2.
-* 1 month of using 1 GB of HDD network storage (`network-hdd`): ₽2.2881.
+* 1 hour of using the core of a {{ CH }} host with 100% vCPU: ₽2.28.
+* 1 hour of using 1 GB of RAM of a {{ CH }} host: ₽0.52.
+* 1 hour of using the core of a {{ ZK }} host with 50% vCPU: ₽0.78.
+* 1 hour of using 1 GB of RAM of a {{ ZK }} host: ₽0.32.
+* 1 month of using 1 GB of HDD network storage (`network-hdd`): ₽3.20.
 
-Cost per hour for all hosts: `3 × (2 × ₽1.43 + 8 × ₽0.33) + 3 × (2 × ₽0.49 + 4 × ₽0.2) = ₽21.84`
+Cost per hour for all hosts: `3 × (2 × ₽2.28 + 8 × ₽0.52) + 3 × (2 × ₽0.78 + 4 × ₽0.32) = ₽34.68`
 
-Total cost of the cluster per month (hosts and storage): `720 × ₽21.84 + 100 × ₽2.2881 = ₽15953.61`
+Total cost of the cluster per month (hosts and storage): `720 × ₽34.68 + 100 × ₽3.20 = ₽25289.6`
 
 {% endif %}
 
