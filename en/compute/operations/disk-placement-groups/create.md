@@ -17,6 +17,13 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
 
    1. If required, add a group description.
    1. Specify the [availability zone](../../../overview/concepts/geo-scope.md).
+      
+      {% if product == "yandex-cloud" %}
+      
+      {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
+      
+      {% endif %}
+      
    1. Click **Create**.
 
 * CLI

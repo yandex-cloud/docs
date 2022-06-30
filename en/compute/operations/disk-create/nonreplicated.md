@@ -19,6 +19,14 @@ The size of a non-replicated disk must be a multiple of 93 GB.
       {% include [name-format](../../../_includes/name-format.md) %}
 
    1. If necessary, add a description of the disk.
+   1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
+      
+      {% if product == "yandex-cloud" %}
+      
+      {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
+      
+      {% endif %}
+      
    1. Select **Non-replicated SSD** as disk type.
    1. Select the desired block size.
    1. Specify the desired disk size.

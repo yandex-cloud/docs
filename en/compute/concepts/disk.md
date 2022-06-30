@@ -54,7 +54,7 @@ Non-replicated disks have a number of limitations:
 
 * The information they store may be temporarily unavailable or lost in the event of failure since non-replicated disks don't provide redundancy.
 * You can't create [snapshots](snapshot.md) or [images](image.md) from a non-replicated disk.
-* We recommend creating non-replicated disks in the `ru-central1-a` and `ru-central1-c` availability zones.
+{% if product == "yandex-cloud" %}* {% include [nrd-az](../../_includes/compute/nrd-az.md) %}{% endif %}
 
 {% note alert %}
 

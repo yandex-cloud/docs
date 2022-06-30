@@ -17,6 +17,13 @@
 
   1. Если требуется, добавьте произвольное описание группы.
   1. Укажите [зону доступности](../../../overview/concepts/geo-scope.md).
+     
+     {% if product == "yandex-cloud" %}
+     
+     {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
+     
+     {% endif %}
+     
   1. Нажмите кнопку **Создать**.
 
 * CLI
