@@ -61,9 +61,9 @@ For example, you created a cluster:
 * With 3 hosts with the `Master node` role that have the `s2.micro` class (2 vCPU, 8 GB RAM).
 * With 100 GB of standard network storage.
 
-Cost per hour for the hosts: `3 × (2 × ₽1.05 + 8 × ₽0.28) + 3 × (2 × ₽0.49 + 4 × ₽0.20) = ₽18.36`
+Cost per hour for the hosts: `3 × (2 × ₽1.68 + 8 × ₽2.1) + 3 × (2 × ₽1.68 + 8 × ₽2.1) = ₽120.96`
 
-Total cost per cluster per month (hosts and storage): `720 × ₽18.36 + 100 × ₽2.2881 = ₽13,448.01`
+Total cost per cluster per month (hosts and storage): `720 × ₽120.96 + 100 × ₽3.2 = ₽87,411.2`
 
 {% endif %}
 
