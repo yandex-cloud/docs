@@ -772,6 +772,7 @@ cloud-il:
   link-cloud-notifications: https://console.cloudil.co.il/cloud?section=incident-notifications
   link-org-main: https://org.cloudil.co.il/
   link-support-mail: support@cloudil.co.il
+  dns-mx-host: mx.cloudil.com
   ms-kms-host: 46.243.144.12
   crt-local-dir: /usr/local/share/ca-certificates/CloudIL/
   crt-local-file: CloudILCA.crt
