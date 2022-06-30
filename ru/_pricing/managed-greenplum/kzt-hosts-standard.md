@@ -1,21 +1,21 @@
-| Ресурс           | Цена за 1 час |
+| Ресурс           | Цена за 1 час                                          |
 | ----- | ----- |
-| **Intel Cascade Lake**           |
-| 100% vCPU        | 11,95 ₸ |
-| RAM (за 1 ГБ)    | 3,15 ₸ |
-| **Intel Ice Lake**               |
-| 100% vCPU        | 10,75 ₸ |
-| RAM (за 1 ГБ)    | 2,85 ₸ |
+| **Intel Cascade Lake**                                                    |
+| 100% vCPU        | {{ sku|KZT|mdb.cluster.greenplum.v2.cpu.c100|string }} |
+| RAM (за 1 ГБ)    | {{ sku|KZT|mdb.cluster.greenplum.v2.ram|string }}      |
+| **Intel Ice Lake**                                                        |
+| 100% vCPU        | {{ sku|KZT|mdb.cluster.greenplum.v3.cpu.c100|string }} |
+| RAM (за 1 ГБ)    | {{ sku|KZT|mdb.cluster.greenplum.v3.ram|string }}      |
 
 {% if audience == "cvos" %}
 
-| Ресурс           | Цена за 1 час | Цена с CVoS на 1 год | Цена с CVoS на 3 года |
-|------------------|---------------|----------------------|-----------------------|
+| Ресурс           | Цена за 1 час | Цена с CVoS на 1 год                                                   | Цена с CVoS на 3 года |
+|------------------|---------------|------------------------------------------------------------------------|-----------------------|
 | **Intel Cascade Lake**                                                          |
-| 100% vCPU        | 8,9760 ₸      | 6,3720 ₸ (-29%)      | 4,8960 ₸ (-45%)       |
-| RAM (за 1 ГБ) | 2,3760 ₸      | 1,5420 ₸ (-35%)      | 2,1820 ₸ (-50%)       |
+| 100% vCPU        | 8,9760 ₸      | {{ sku|KZT|v1.commitment.y1.mdb.greenplum.cpu.c100.v2|string }} (-29%) | {{ sku|KZT|v1.commitment.y3.mdb.greenplum.cpu.c100.v2|string }} (-45%) |
+| RAM (за 1 ГБ)    | 2,3760 ₸      | {{ sku|KZT|v1.commitment.y1.mdb.greenplum.ram.v2|string }} (-35%)      | {{ sku|KZT|v1.commitment.y3.mdb.greenplum.ram.v2|string }} (-50%)       |
 | **Intel Ice Lake**                                                              |
-| 100% vCPU        | 8,0640 ₸      | 5,7300 ₸ (-29%)      | 4,4040 ₸ (-45%)       |
-| RAM (за 1 ГБ) | 2,1360 ₸      | 1,3980 ₸ (-35%)      | 1,0740 ₸ (-50%)       |
+| 100% vCPU        | 8,0640 ₸      | {{ sku|KZT|v1.commitment.y1.mdb.greenplum.cpu.c100.v3|string }} (-29%) | {{ sku|KZT|v1.commitment.y3.mdb.greenplum.cpu.c100.v3|string }} (-45%) |
+| RAM (за 1 ГБ)    | 2,1360 ₸      | {{ sku|KZT|v1.commitment.y1.mdb.greenplum.ram.v3|string }} (-35%)      | {{ sku|KZT|v1.commitment.y3.mdb.greenplum.ram.v3|string }} (-50%)      |
 
 {% endif %}

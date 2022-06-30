@@ -1,8 +1,8 @@
-| Service | Cost of 1 GB per month |
+| Service                         | Cost of 1 GB per month |
 | ----- | ----- |
-| Standard network storage | ₽3.20 |
-| Non-replicated network storage | ₽8.80 |
-| Fast network storage | ₽13.01 |
-| Fast local storage | ₽13.01 |
+| Standard network storage        | {{ sku|RUB|mdb.cluster.network-hdd.greenplum|month|string }}               |
+| Non-replicated network storage  | {{ sku|RUB|mdb.cluster.network-ssd-nonreplicated.greenplum|month|string }} |
+| Fast network storage            | {{ sku|RUB|mdb.cluster.network-nvme.greenplum|month|string }}              |
+| Fast local storage              | {{ sku|RUB|mdb.cluster.local-nvme.greenplum|month|string }}                |
 | Backups beyond the storage size | ₽1.92 |
 

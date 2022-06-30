@@ -23,10 +23,10 @@
 
 {% include [local-ssd для Ice Lake только по запросу](../../_includes/ice-lake-local-ssd-note.md) %}
 
-| Услуга                                  | Цена за ГБ в месяц                                        |
+| Услуга                                  | Цена за ГБ в месяц                                                     |
 | --- | --- |
-| Хранилище на сетевых HDD-дисках         | {{ sku|KZT|mdb.cluster.network-hdd.mssql|month|string }}  |
-| Хранилище на нереплицируемых SSD-дисках | 44,0000 ₸                                                 |
-| Хранилище на сетевых SSD-дисках         | {{ sku|KZT|mdb.cluster.network-nvme.mssql|month|string }} |
-| Хранилище на локальных SSD-дисках       | {{ sku|KZT|mdb.cluster.local-nvme.mssql|month|string }}   |
-| Резервные копии сверх размера хранилища | 9,6000 ₸                                                  |
+| Хранилище на сетевых HDD-дисках         | {{ sku|KZT|mdb.cluster.network-hdd.mssql|month|string }}               |
+| Хранилище на нереплицируемых SSD-дисках | {{ sku|KZT|mdb.cluster.network-ssd-nonreplicated.mssql|month|string }} |
+| Хранилище на сетевых SSD-дисках         | {{ sku|KZT|mdb.cluster.network-nvme.mssql|month|string }}              |
+| Хранилище на локальных SSD-дисках       | {{ sku|KZT|mdb.cluster.local-nvme.mssql|month|string }}                |
+| Резервные копии сверх размера хранилища | 9,6000 ₸                                                               |

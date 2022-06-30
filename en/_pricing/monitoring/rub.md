@@ -4,4 +4,4 @@
 | Reading any metric values via the API<br/>(over 50 million values) | {{ sku|RUB|monitoring.point.dgauge.read|pricingRate.50|string }} |
 | Writing custom metric values via the API<br/>(up to 50 million values) | {{ sku|RUB|monitoring.point.dgauge.write|string }} |
 | Writing custom metric values via the API<br/>(over 50 million values) | {{ sku|RUB|monitoring.point.dgauge.write|pricingRate.50|string }} |
-| Writing {{ yandex-cloud }} resource metric values | {{ sku|RUB|monitoring.point.dgauge.store|number }} ₽ |
+| Writing {{ yandex-cloud }} resource metric values | {{ sku|RUB|monitoring.point.dgauge.store|string }} |

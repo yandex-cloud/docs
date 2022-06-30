@@ -4,7 +4,7 @@
 
   | Resource category | Rate for 1 month, with VAT |
   | --- | --- |
-  | DNS zone | ₽36 \* |
+  | DNS zone | {{ sku|RUB|dns.zones.v1|month|string }} \* |
 
   \* For reference only. Assuming a 720-hour (30-day) month. Rounded to 4 decimal places. Hourly price is used in billing calculations.
 
@@ -12,6 +12,6 @@
 
   | Resource category | Rate for 1 hour, with VAT |
   | --- | --- |
-  | DNS zone | ₽0.05 |
+  | DNS zone | {{ sku|RUB|dns.zones.v1|string }} |
 
 {% endlist %}

@@ -35,7 +35,7 @@
 | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.clickhouse.v2.ram|string }}      | {{ sku|KZT|v1.commitment.y1.mdb.ch.ram.v2|string }} (-36%)      | {{ sku|KZT|v1.commitment.y3.mdb.ch.ram.v2|string }} (-52%)      |
 | **Intel Ice Lake**                                                                                                                                                                                           |
 | 50% vCPU       | {{ sku|KZT|mdb.cluster.clickhouse.v3.cpu.c50|string }}  | —                                                               | —                                                               |
-| 100% vCPU      | {{ sku|KZT|mdb.cluster.clickhouse.v3.cpu.c100|string }} | ₸4.7280 (-27%)                                                  | ₸3.6780 (-43%)                                                  |
-| RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.clickhouse.v3.ram|string }}      | ₸1.1400 (-36%)                                                  | ₸0.8640 (-52%)                                                  |
+| 100% vCPU      | {{ sku|KZT|mdb.cluster.clickhouse.v3.cpu.c100|string }} | {{ sku|KZT|v1.commitment.y1.mdb.ch.cpu.c100.v3|string }} (-27%) | {{ sku|KZT|v1.commitment.y3.mdb.ch.cpu.c100.v3|string }} (-43%) |
+| RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.clickhouse.v3.ram|string }}      | {{ sku|KZT|v1.commitment.y1.mdb.ch.ram.v3|string }} (-36%)      | {{ sku|KZT|v1.commitment.y3.mdb.ch.ram.v3|string }} (-52%)      |
 
 {% endif %}
