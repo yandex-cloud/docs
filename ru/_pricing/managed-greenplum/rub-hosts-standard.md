@@ -1,10 +1,10 @@
-| Ресурс           | Цена за 1 час |
+| Ресурс           | Цена за 1 час                                          |
 | ----- | ----- |
-| **Intel Cascade Lake**           |
-| 100% vCPU        | 2,3900 ₽ |
-| RAM (за 1 ГБ)    | 0,6300 ₽ |
-| **Intel Ice Lake**               |
-| 100% vCPU        | 2,1500 ₽ |
-| RAM (за 1 ГБ)    | 0,5700 ₽ |
+| **Intel Cascade Lake**                                                    |
+| 100% vCPU        | {{ sku|RUB|mdb.cluster.greenplum.v2.cpu.c100|string }} |
+| RAM (за 1 ГБ)    | {{ sku|RUB|mdb.cluster.greenplum.v2.ram|string }}      |
+| **Intel Ice Lake**                                                        |
+| 100% vCPU        | {{ sku|RUB|mdb.cluster.greenplum.v3.cpu.c100|string }} |
+| RAM (за 1 ГБ)    | {{ sku|RUB|mdb.cluster.greenplum.v3.ram|string }}      |
 
 

@@ -266,7 +266,7 @@
   * Версия `{{ versions.cli.latest }}`.
   * Окружение — `production`.
   * Сеть `default`.
-  * Один хост класса `hm1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ zone-id }}` и группе безопасности с идентификатором `{{ security-group }}`.
+  * Один хост класса `hm1.nano` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ region-id }}-a` и группе безопасности с идентификатором `{{ security-group }}`.
   * С поддержкой SSL-соединений.
   * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 16 ГБ.
   * Пароль `user1user1`.
@@ -281,7 +281,7 @@
     --environment production \
     --network-name default \
     --resource-preset hm1.nano \
-    --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
+    --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch64 \
     --security-group-ids {{ security-group }} \
     --enable-tls \
     --disk-type-id {{ disk-type-example }} \
@@ -300,7 +300,7 @@
     * Облако с идентификатором `{{ tf-cloud-id }}`.
     * Каталог с идентификатором `{{ tf-folder-id }}`.
     * Новая сеть `mynet`.
-    * Один хост класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    * Один хост класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
     * Новая группа безопасности `redis-sg`, разрешающая подключения через порт `{{ port-mrd-tls }}` с любых адресов подсети `mysubnet`.
     * С поддержкой SSL-соединений.
     * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 16 ГБ.
@@ -323,7 +323,7 @@
     token     = "<OAuth или статический ключ сервисного аккаунта>"
     cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "{{ tf-folder-id }}"
-    zone      = "{{ zone-id }}"
+    zone      = "{{ region-id }}-a"
   }
 
   resource "yandex_mdb_redis_cluster" "myredis" {
@@ -346,7 +346,7 @@
     }
 
     host {
-      zone      = "{{ zone-id }}"
+      zone      = "{{ region-id }}-a"
       subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
@@ -374,7 +374,7 @@
 
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
-    zone           = "{{ zone-id }}"
+    zone           = "{{ region-id }}-a"
     network_id     = yandex_vpc_network.mynet.id
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
@@ -423,7 +423,7 @@
       token     = "<OAuth или статический ключ сервисного аккаунта>"
       cloud_id  = "{{ tf-cloud-id }}"
       folder_id = "{{ tf-folder-id }}"
-      zone      = "{{ zone-id }}"
+      zone      = "{{ region-id }}-a"
     }
 
     resource "yandex_mdb_redis_cluster" "myredis" {

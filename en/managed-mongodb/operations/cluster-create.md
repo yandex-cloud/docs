@@ -261,7 +261,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the `production` environment.
    * In the `{{ network-name }}` network.
    * In the security group with the ID `{{ security-group }}`.
-   * With one `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ zone-id }}` availability zone.
+   * With one `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone.
    * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
    * With one user, `user1`, with the password `user1user1`.
    * With one database, `db1`.
@@ -278,7 +278,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      --network-name {{ network-name }} \
      --security-group-ids {{ security-group }} \
      --mongod-resource-preset {{ host-class }} \
-     --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
+     --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch64 \
      --mongod-disk-size 20 \
      --mongod-disk-type {{ disk-type-example }} \
      --user name=user1,password=user1user1 \
@@ -297,7 +297,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the cloud with the ID `{{ tf-cloud-id }}`.
    * In the folder with the ID `{{ tf-folder-id }}`.
    * In the new `mynet` network.
-   * With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
    * In the new security group `mymg-sg` allowing TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
    * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
    * With one user, `user1`, with the password `user1user1`.
@@ -320,7 +320,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      token     = "<An OAuth or static key of the service account>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ zone-id }}"
+     zone      = "{{ region-id }}-a"
    }
 
    resource "yandex_mdb_mongodb_cluster" "mymg" {
@@ -353,7 +353,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
 
      host {
-       zone_id   = "{{ zone-id }}"
+       zone_id   = "{{ region-id }}-a"
        subnet_id = yandex_vpc_subnet.mysubnet.id
      }
    }
@@ -376,7 +376,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    resource "yandex_vpc_subnet" "mysubnet" {
      name           = "mysubnet"
-     zone           = "{{ zone-id }}"
+     zone           = "{{ region-id }}-a"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.5.0.0/24"]
    }

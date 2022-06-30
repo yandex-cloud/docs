@@ -249,7 +249,7 @@ If you specified security group IDs when creating a cluster, you may need to add
    * Version `{{ versions.cli.latest }}`.
    * Environment `production`.
    * Network `default`.
-   * With a single `hm1.nano` host in the `b0rcctk2rvtr8efcch64` subnet, the `{{ zone-id }}` availability zone, and the `{{ security-group }}` security group.
+   * With a single `hm1.nano` host in the `b0rcctk2rvtr8efcch64` subnet, the `{{ region-id }}-a` availability zone, and the `{{ security-group }}` security group.
    * With SSL support.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
    * With the `user1user1` password.
@@ -264,7 +264,7 @@ If you specified security group IDs when creating a cluster, you may need to add
      --environment production \
      --network-name default \
      --resource-preset hm1.nano \
-     --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
+     --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch64 \
      --security-group-ids {{ security-group }} \
      --enable-tls \
      --disk-type-id {{ disk-type-example }} \
@@ -283,7 +283,7 @@ If you specified security group IDs when creating a cluster, you may need to add
    * Cloud with the `{{ tf-cloud-id }}` ID.
    * Folder with the `{{ tf-folder-id }}` ID.
    * New network `mynet`.
-   * With a single `{{ host-class }}` host in the new subnet `mysubnet` and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * With a single `{{ host-class }}` host in the new subnet `mysubnet` and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
    * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
    * With SSL support.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
@@ -306,7 +306,7 @@ If you specified security group IDs when creating a cluster, you may need to add
      token     = "<an OAuth or static key of the service account>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ zone-id }}"
+     zone      = "{{ region-id }}-a"
    }
 
    resource "yandex_mdb_redis_cluster" "myredis" {
@@ -329,7 +329,7 @@ If you specified security group IDs when creating a cluster, you may need to add
      }
 
      host {
-       zone      = "{{ zone-id }}"
+       zone      = "{{ region-id }}-a"
        subnet_id = yandex_vpc_subnet.mysubnet.id
      }
    }
@@ -357,7 +357,7 @@ If you specified security group IDs when creating a cluster, you may need to add
 
    resource  "yandex_vpc_subnet" "mysubnet" {
      name           = "mysubnet"
-     zone           = "{{ zone-id }}"
+     zone           = "{{ region-id }}-a"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.5.0.0/24"]
    }
@@ -406,7 +406,7 @@ If you specified security group IDs when creating a cluster, you may need to add
      token     = "<an Oauth or static key of the service account>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ zone-id }}"
+     zone      = "{{ region-id }}-a"
    }
 
    resource "yandex_mdb_redis_cluster" "myredis" {

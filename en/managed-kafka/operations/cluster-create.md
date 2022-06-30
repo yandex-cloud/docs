@@ -328,7 +328,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With {{ KF }} version `{{ versions.cli.latest }}`.
    * In the `{{ network-name }}` network.
    * In the security group `{{ security-group }}`.
-   * With a single `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
+   * With a single `{{ host-class }}` class host in the `{{ region-id }}-a` availability zone.
    * With one broker.
    * With a network SSD storage (`{{ disk-type-example }}`) of 10 GB.
    * With public access.
@@ -344,7 +344,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      --environment production \
      --version {{ versions.cli.latest }} \
      --network-name {{ network-name }} \
-     --zone-ids {{ zone-id }} \
+     --zone-ids {{ region-id }}-a \
      --brokers-count 1 \
      --resource-preset {{ host-class }} \
      --disk-size 10 \
@@ -366,7 +366,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With {{ KF }} version `{{ versions.tf.latest }}`.
    * In the new `mynet` network with the subnet `mysubnet`.
    * In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
-   * With a single `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
+   * With a single `{{ host-class }}` class host in the `{{ region-id }}-a` availability zone.
    * With one broker.
    * With a network SSD storage (`{{ disk-type-example }}`) of 10 GB.
    * With public access.
@@ -388,7 +388,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      token     = "<OAuth or static key of service account>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ zone-id }}"
+     zone      = "{{ region-id }}-a"
    }
 
    resource "yandex_mdb_kafka_cluster" "mykf" {
@@ -411,7 +411,7 @@ If you specified security group IDs when creating a cluster, you may also need t
        }
 
        zones = [
-         "{{ zone-id }}"
+         "{{ region-id }}-a"
        ]
      }
    }
@@ -422,7 +422,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    resource "yandex_vpc_subnet" "mysubnet" {
      name           = "mysubnet"
-     zone           = "{{ zone-id }}"
+     zone           = "{{ region-id }}-a"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.5.0.0/24"]
    }

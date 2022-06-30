@@ -288,7 +288,7 @@
   * В окружении `production`.
   * В сети `default`.
   * В группе безопасности `{{ security-group }}`.
-  * С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ zone-id }}`.
+  * С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch64`, в зоне доступности `{{ region-id }}-a`.
   * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
   * С одним пользователем (`user1`), с паролем `user1user1`.
   * С одной базой данных `db1`, принадлежащей пользователю `user1`.
@@ -304,7 +304,7 @@
      --environment production \
      --network-name default \
      --resource-preset {{ host-class }} \
-     --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
+     --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch64 \
      --disk-type {{ disk-type-example }} \
      --disk-size 20 \
      --user name=user1,password=user1user1 \
@@ -325,7 +325,7 @@
   * В каталоге с идентификатором `{{ tf-folder-id }}`.
   * В новой сети `mynet`.
   * В новой группе безопасности `pgsql-sg`, разрешающей подключение к кластеру из интернета через порт `6432`.
-  * С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+  * С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
   * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
   * С одним пользователем (`user1`), с паролем `user1user1`.
   * С одной базой данных `db1`, принадлежащей пользователю `user1`.
@@ -347,7 +347,7 @@
     token     = "<OAuth или статический ключ сервисного аккаунта>"
     cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "{{ tf-folder-id }}"
-    zone      = "{{ zone-id }}"
+    zone      = "{{ region-id }}-a"
   }
 
   resource "yandex_mdb_postgresql_cluster" "mypg" {
@@ -380,7 +380,7 @@
     }
 
     host {
-      zone      = "{{ zone-id }}"
+      zone      = "{{ region-id }}-a"
       subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
@@ -391,7 +391,7 @@
 
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
-    zone           = "{{ zone-id }}"
+    zone           = "{{ region-id }}-a"
     network_id     = yandex_vpc_network.mynet.id
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
