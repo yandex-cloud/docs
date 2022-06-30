@@ -195,6 +195,8 @@ items:
         href: routing/mikrotik.md
       - name: Соединение с облачной сетью при помощи OpenVPN
         href: routing/openvpn.md
+      - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
+        href: routing/usergate-proxy.md
       - name: Настройка сети для {{ dataproc-full-name }}
         href: routing/dataproc-nat-instance.md
         when: product == "yandex-cloud"
