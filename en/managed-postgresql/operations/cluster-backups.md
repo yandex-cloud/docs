@@ -102,7 +102,7 @@ When restoring to the current state, the new cluster will reflect the state of:
       - Named `mynewpg`.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
-      - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
+      - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ region-id }}-a` availability zone.
       - With databases and users that existed in the cluster at the time of recovery.
       - With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
 

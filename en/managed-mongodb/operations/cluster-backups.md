@@ -256,7 +256,7 @@ Let's say we need to create a new {{ MG }} cluster from a backup with the follow
 * Name of the new cluster: `mynewmg`.
 * Environment: `PRODUCTION`.
 * Network: `{{ network-name }}`.
-* One `{{ host-class }}` host in the `{{ zone-id }}` availability zone and `b0rcctk2rvtr8efcch64` subnet.
+* One `{{ host-class }}` host in the `{{ region-id }}-a` availability zone and `b0rcctk2rvtr8efcch64` subnet.
 * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
 * With databases and users that existed in the cluster at the time of recovery.
 

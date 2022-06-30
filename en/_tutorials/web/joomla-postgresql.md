@@ -39,7 +39,7 @@ The cost of hosting a website in Joomla includes:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Select the **Ubuntu** or **CentOS** public image.
+1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [CentOS Stream](/marketplace/products/yc/centos-stream-8) public image.
 
 1. Under **Computing resources**:
    * Choose a [platform](../../compute/concepts/vm-platforms.md).

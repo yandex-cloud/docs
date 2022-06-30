@@ -37,9 +37,9 @@ The cost for maintaining a LAMP server includes:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in. If you don't know which availability zone you need, leave the default.
 
-1. Under **Images from {{ marketplace-name }}**, click **Select** and choose a VM image with the desired set of components:
-   * **LAMP** for Linux, Apache, MySQL, and PHP.
-   * **LEMP** for Linux, Nginx, MySQL, and PHP.
+1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the VM image with the desired set of components:
+   * [LAMP](/marketplace/products/yc/lamp) for Linux, Apache, MySQL, and PHP.
+   * [LEMP](/marketplace/products/yc/lemp) for Linux, Nginx, MySQL, and PHP.
 
      For static websites, we recommend using LEMP.
 

@@ -33,7 +33,7 @@ Create a VM where the test application will be installed, the set of components 
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to locate the VM in.
 
-1. Select a public image of [Ubuntu 18.04](/marketplace/products/f2e9qa7i4fmugh14tjnc).
+1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the public image of [Ubuntu 18.04](/marketplace/products/yc/ubuntu-18-04-lts).
 
 1. In the **Computing resources** section, select the following configuration:
    * **Platform**: Intel Ice Lake.
@@ -280,11 +280,7 @@ One of the ways to set up CI in {{ yandex-cloud }} is to take advantage of a pub
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to locate the VM in.
 
-1. Under **Images**, click **Choose**.
-
-1. In the window that opens, open the **DevTools** tab.
-
-1. Choose the [GitLab](/marketplace/products/f2eb5e8deq602ccak537) image.
+1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [GitLab](/marketplace/products/yc/gitlab) image.
 
 1. In the **Computing resources** section, select the following configuration:
    * **Guaranteed vCPU share**: 100%.

@@ -64,7 +64,7 @@
    {% include [name-format](../../_includes/name-format.md) %}
 
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. В блоке **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. Выберите публичный образ [WordPress](/marketplace/products/f2eugfso8lh4ch2g2m9h).
+1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите публичный образ [WordPress](/marketplace/products/yc/wordpress).
 
    ![choose-image](../../_assets/tutorials/wordpress/vm-create-3.png)
 

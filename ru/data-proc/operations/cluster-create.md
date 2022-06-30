@@ -53,17 +53,21 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
 
-  1. Нажмите кнопку **Создать ресурс** и выберите **Кластер {{ dataproc-name }}** в выпадающем списке.
+  1. Нажмите кнопку **Создать ресурс** и выберите ![image](../../_assets/data-proc/data-proc.svg) **Кластер {{ dataproc-name }}** в выпадающем списке.
 
-  1. Введите имя кластера в поле **Имя кластера**. Имя кластера должно быть уникальным в рамках каталога. Требования к имени:
+  1. Введите имя кластера в поле **Имя кластера**. Требования к имени:
+
+     * Должно быть уникальным в рамках каталога
 
      {% include [name-format.md](../../_includes/name-format.md) %}
 
   1. Выберите подходящую [версию образа](../concepts/environment.md) и сервисы, которые вы хотите использовать в кластере.
 
-     {% note info %}
+     {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
 
-     Обратите внимание на то, что некоторые компоненты обязательны для использования других компонентов. Например, чтобы использовать Spark необходим YARN.
+     {% note tip %}
+
+     Чтобы использовать самую свежую версию образа, укажите значение `2.0`.
 
      {% endnote %}
 
@@ -73,7 +77,7 @@
   1. При необходимости задайте [свойства компонентов кластера, заданий и среды окружения](../concepts/settings-list.md).
   1. При необходимости укажите пользовательские [скрипты инициализации](../concepts/init-action.md) хостов кластера. Для каждого скрипта укажите:
 
-      * **URI** — ссылка на скрипт инициализации в схеме `https://` или `s3a://`.
+      * **URI** — ссылка на скрипт инициализации в схеме `https://`, `http://`, `hdfs://` или `s3a://`.
       * (Опционально) **Таймаут** —  таймаут (в секундах) выполнения скрипта. Скрипт инициализации, выполняющийся дольше указанного времени, будет прерван.
       * (Опционально) **Аргументы** — заключенные в квадратные скобки `[]` и разделенные запятыми аргументы, с которыми должен быть выполнен скрипт инициализации, например:
 
@@ -92,7 +96,8 @@
       {% endnote %}
 
   1. Включите опцию **UI Proxy**, чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}.
-    1. Логи кластера сохраняются в сервисе [{{ cloud-logging-full-name }}](../../logging/). Выберите нужную лог-группу из списка или [создайте новую](../../logging/operations/create-group.md).
+  
+  1. Логи кластера сохраняются в сервисе [{{ cloud-logging-full-name }}](../../logging/). Выберите нужную лог-группу из списка или [создайте новую](../../logging/operations/create-group.md).
 
       Для работы этой функции [назначьте сервисному аккаунту кластера](../../iam/operations/roles/grant.md#access-to-sa) роль `logging.writer`. Подробнее см. в [документации {{ cloud-logging-full-name }}](../../logging/security/index.md).
 
@@ -193,7 +198,7 @@
         ```
 
         {% note info %}
-    
+
         Имя кластера должно быть уникальным в рамках каталога. Может содержать латинские буквы, цифры, дефис и нижнее подчеркивание. Максимальная длина имени 63 символа.
 
         {% endnote %}
@@ -204,6 +209,15 @@
         * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой должны быть размещены хосты кластера.
         * `--service-account-name` — имя [сервисного аккаунта кластера](../../iam/concepts/users/service-accounts.md). Сервисному аккаунту кластера должна быть назначена роль `mdb.dataproc.agent`.
         * `--version` — [версия образа](../concepts/environment.md).
+
+            {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
+
+            {% note tip %}
+
+            Чтобы использовать самую свежую версию образа, укажите значение `2.0` в параметре `--version`.
+
+            {% endnote %}
+
         * `--services` — список [компонентов](../concepts/environment.md), которые вы хотите использовать в кластере. Если не указать этот параметр, будет использоваться набор по умолчанию: `hdfs`, `yarn`, `mapreduce`, `tez`, `spark`.
         * `--ssh-public-keys-file` — полный путь к файлу с публичной частью SSH-ключа, который будет использоваться для доступа к хостам кластера. Как создать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md).
         * `--subcluster` — параметры подкластеров:
@@ -439,6 +453,14 @@
 
        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+       {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
+
+       {% note tip %}
+
+       Чтобы использовать самую свежую версию образа, укажите значение `2.0` в параметре `version_id`.
+
+       {% endnote %}
+
        Чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/interfaces.md) {{ dataproc-name }}, добавьте в описание кластера поле `ui_proxy`:
 
        ```hcl
@@ -487,7 +509,16 @@
     * Идентификатор каталога, в котором должен быть размещен кластера, в параметре `folderId`.
     * Имя кластера в параметре `name`.
     * Конфигурацию кластера в параметре `configSpec`, в том числе:
-        * Версию [образа](../concepts/environment.md) в параметре `configSpec.versionId`.
+        * [Версию образа](../concepts/environment.md) в параметре `configSpec.versionId`.
+
+            {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
+
+            {% note tip %}
+
+            Чтобы использовать самую свежую версию образа, укажите значение `2.0`.
+
+            {% endnote %}
+
         * Список компонентов в параметре `configSpec.hadoop.services`.
         * Публичную часть SSH-ключа в параметре `configSpec.hadoop.sshPublicKeys`.
         * Настройки подкластеров в параметре `configSpec.subclustersSpec`.
@@ -511,4 +542,61 @@
 
 {% endlist %}
 
-После того как кластер перейдет в статус **Running**, вы можете [подключиться](connect.md) к хостам подкластеров с помощью указанного SSH-ключа.
+После того, как кластер перейдет в статус **Running**, вы можете [подключиться](connect.md) к хостам подкластеров с помощью указанного SSH-ключа.
+
+## Примеры {#examples}
+
+### Создание легковесного кластера для заданий Spark и PySpark {#creating-a-light-weight-cluster}
+
+{% list tabs %}
+
+* CLI
+
+    Создайте кластер {{ dataproc-name }} для выполнения заданий Spark без HDFS и подкластеров для хранения данных со следующими характеристиками:
+
+    * С именем `my-dataproc`.
+    * С бакетом `dataproc-bucket`.
+    * В зоне доступности `{{ zone-id }}`.
+    * С сервисным аккаунтом `dataproc-sa`.
+    * Образом версии `2.0`.
+    * С компонентами `SPARK` и `YARN`.
+    * С путем к публичной части SSH-ключа `/home/username/.ssh/id_rsa.pub`.
+    * С подкластером с управляющими хостами `master` и одним подкластером для обработки данных `compute`:
+
+        * Класса `{{ host-class }}`.
+        * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
+        * В подсети `{{ subnet-name }}`.
+        * С публичным доступом.
+
+    * В группе безопасности `{{ security-group }}`.
+    * С защитой от случайного удаления кластера.
+
+    Для создания кластера с такими характеристиками выполните команду:
+
+    ```bash
+    {{ yc-dp }} cluster create my-dataproc \
+       --bucket=dataproc-bucket \
+       --zone={{ zone-id }} \
+       --service-account-name=dataproc-sa \
+       --version=2.0 \
+       --services=SPARK,YARN \
+       --ssh-public-keys-file=/home/username/.ssh/id_rsa.pub \
+       --subcluster name="master",`
+                   `role=masternode,`
+                   `resource-preset={{ host-class }},`
+                   `disk-type={{ disk-type-example }},`
+                   `disk-size=20,`
+                   `subnet-name={{ subnet-name }},`
+                   `assign-public-ip=true \
+       --subcluster name="compute",`
+                   `role=computenode,`
+                   `resource-preset={{ host-class }},`
+                   `disk-type={{ disk-type-example }},`
+                   `disk-size=20,`
+                   `subnet-name={{ subnet-name }},`
+                   `assign-public-ip=true \
+       --security-group-ids={{ security-group }} \
+       --deletion-protection=true
+    ```
+
+{% endlist %}

@@ -319,7 +319,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the `PRODUCTION` environment.
    * In the `default` network.
    * In the security group `{{ security-group }}`.
-   * With a single class `s2.small` host in a subnet called `b0cd5bv7pfpr7r900tkp` in the `{{ zone-id }}` availability zone.
+   * With a single class `s2.small` host in a subnet called `b0cd5bv7pfpr7r900tkp` in the `{{ region-id }}-a` availability zone.
    * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
    * With one user, `user1`, with the password `user1user1`.
    * With one database, `db1`.
@@ -336,7 +336,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       --environment=PRODUCTION \
       --network-name=default \
       --resource-preset=s2.small \
-      --host zone-id={{ zone-id }},`
+      --host zone-id={{ region-id }}-a,`
             `subnet-id=b0cd5bv7pfpr7r900tkp \
       --disk-type={{ disk-type-example }} \
       --disk-size=20 \
@@ -359,7 +359,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     * In the folder with the ID `{{ tf-folder-id }}`.
     * In the new `mynet` network.
     * In a new security group called `ms-sql-sg` allowing cluster connections from the Internet via port `{{ port-mms }}`.
-    * With a single host of the `s2.small` class on a new `mysubnet` subnet and the `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+    * With a single host of the `s2.small` class on a new `mysubnet` subnet and the `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
     * With 32 GB of network SSD storage.
     * With a database called `db1`.
     * With a user with `user1` as the login and `user1user1` as the password. This user will own the `db1` database ([predefined role `DB_OWNER`](./grant.md#predefined-db-roles)).
@@ -381,7 +381,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       token     = "<OAuth or static key of service account>"
       cloud_id  = "{{ tf-cloud-id }}"
       folder_id = "{{ tf-folder-id }}"
-      zone      = "{{ zone-id }}"
+      zone      = "{{ region-id }}-a"
     }
 
     resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
@@ -399,7 +399,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
 
      host {
-       zone             = "{{ zone-id }}"
+       zone             = "{{ region-id }}-a"
        subnet_id        = yandex_vpc_subnet.mysubnet.id
        assign_public_ip = true
      }
@@ -422,7 +422,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    resource "yandex_vpc_subnet" "mysubnet" {
      name           = "mysubnet"
-     zone           = "{{ zone-id }}"
+     zone           = "{{ region-id }}-a"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.5.0.0/24"]
    }

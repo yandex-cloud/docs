@@ -7,5 +7,5 @@
 | **Intel Ice Lake**                                                 |
 | 50% vCPU      | {{ sku|RUB|mdb.cluster.kafka.v3.cpu.c50|string }}  |
 | 100% vCPU     | {{ sku|RUB|mdb.cluster.kafka.v3.cpu.c100|string }} |
-| RAM (за 1 ГБ) | 0,4000 ₽ |
+| RAM (за 1 ГБ) | {{ sku|RUB|mdb.cluster.kafka.v3.ram|string }} |
 

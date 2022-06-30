@@ -313,7 +313,7 @@ If you specified a security group ID when you created the cluster, some addition
     * Environment `PRODUCTION`.
     * Network `default`.
     * The security group with the ID `enpp2s8l3irhk5eromd7`.
-    * One publicly available `{{ host-class }}`-class _Data node_ host in the `{{ subnet-id }}` subnet, in the `{{ zone-id }}` availability zone.
+    * One publicly available `{{ host-class }}`-class _Data node_ host in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
     * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
     * The `esadminpwd` password for the `admin` user.
     * Accidental cluster deletion protection.
@@ -325,7 +325,7 @@ If you specified a security group ID when you created the cluster, some addition
       --name my-es-clstr \
       --environment production \
       --network-name default \
-      --host zone-id={{ zone-id }},assign-public-ip=true,type=datanode \
+      --host zone-id={{ region-id }}-a,assign-public-ip=true,type=datanode \
       --datanode-resource-preset {{ host-class }} \
       --datanode-disk-type={{ disk-type-example }} \
       --datanode-disk-size=20 \
@@ -347,7 +347,7 @@ If you specified a security group ID when you created the cluster, some addition
     * The folder with the `{{ tf-folder-id }}` ID.
     * The new network `mynet`.
     * The `es-sg` security group created to enable online connections to the cluster over ports 443 (Kibana) and 9200 ({{ ES }}).
-    * One publicly available  `{{ host-class }}`-class _Data node_ host in the new subnet `mysubnet`, in the `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
+    * One publicly available  `{{ host-class }}`-class _Data node_ host in the new subnet `mysubnet`, in the `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
     * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
     * The `esadminpwd` password for the `admin` user.
 
@@ -367,7 +367,7 @@ If you specified a security group ID when you created the cluster, some addition
      token     = "<OAuth or static key of service account>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ zone-id }}"
+     zone      = "{{ region-id }}-a"
    }
 
    resource "yandex_mdb_elasticsearch_cluster" "my-es-clstr" {
@@ -395,7 +395,7 @@ If you specified a security group ID when you created the cluster, some addition
 
      host {
        name = "node"
-       zone = "ru-central1-c"
+       zone = "ru-central1-a"
        type = "DATA_NODE"
        assign_public_ip = true
        subnet_id = yandex_vpc_subnet.mysubnet.id
@@ -409,7 +409,7 @@ If you specified a security group ID when you created the cluster, some addition
 
    resource "yandex_vpc_subnet" "mysubnet" {
      name           = "mysubnet"
-     zone           = "{{ zone-id }}"
+     zone           = "{{ region-id }}-a"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.5.0.0/24"]
    }
