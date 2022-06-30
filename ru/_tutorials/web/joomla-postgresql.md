@@ -55,7 +55,7 @@ keywords:
 1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
 1. В поле **Имя** введите имя ВМ — `joomla-pg-tutorial-web`.
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. Выберите публичный образ [CentOS Stream](/marketplace/products/f2e37hrknq099qqao2cm).
+1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите публичный образ [CentOS Stream](/marketplace/products/yc/centos-stream-8).
 1. В блоке **Вычислительные ресурсы**:
    * Выберите [платформу](../../compute/concepts/vm-platforms.md).
    * Укажите необходимое количество vCPU и объем RAM.

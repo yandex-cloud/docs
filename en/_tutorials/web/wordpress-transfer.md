@@ -62,7 +62,7 @@ To create a VM:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM. If you don't know which availability zone you need, leave the default.
 
-1. Under **Image/boot disk selection**, go to the **Cloud Marketplace** tab and click **Show more**. Select [LAMP]({% if lang == "ru" %} https://cloud.yandex.ru/marketplace/products/yc/lamp {% endif %} {% if lang == "en" %}https://cloud.yandex.com/en-ru/marketplace/products/yc/lamp{% endif %}) — an image with a set of necessary components: Linux OS, Apache web server, MySQL DBMS, and a PHP interpreter.
+1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [LAMP](/marketplace/products/yc/lamp) — an image with a set of necessary components: Linux OS, Apache web server, MySQL DBMS, and a PHP interpreter.
 
 1. Under **Disks**, select the disk type and set the size.
 

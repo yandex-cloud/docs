@@ -41,7 +41,7 @@ To create a VM:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public [OpenCart](/marketplace/products/f2ent1o0am6abue061ph) image.
+1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the public [OpenCart](/marketplace/products/yc/opencart-3) image.
 
    The OpenCart platform and the necessary components, including PHP and MySQL, are pre-installed on the boot disk.
 

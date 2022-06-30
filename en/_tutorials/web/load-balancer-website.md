@@ -43,9 +43,9 @@ Create a virtual machine:
 
 1. Select the availability zone: `{{ region-id }}-a`.
 
-1. Choose one public image for both VMs:
-   * **LEMP** for Linux, nginx, MySQL, and PHP
-   * **LAMP** for Linux, Apache, MySQL, and PHP
+1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the one public image for both VMs:
+   * [LEMP](/marketplace/products/yc/lemp) for Linux, nginx, MySQL, and PHP.
+   * [LAMP](/marketplace/products/yc/lamp) for Linux, Apache, MySQL, and PHP.
 
 1. Under **Computing resources**:
    * **Platform**: Intel Ice Lake.

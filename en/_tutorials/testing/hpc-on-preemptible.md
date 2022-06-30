@@ -46,7 +46,7 @@ To create a VM:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Under **Images from {{ marketplace-name }}**, select the **Ubuntu** image.
+1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) image.
 
 1. Under **Disks**, select an SSD with 13 GB. The disk type should be **SSD** since other VMs will use it for network access.
 

@@ -39,7 +39,7 @@ To create a VM:
 1. On the **Folder dashboard** folder page, in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
 1. In the **Name** field, enter a name for the VM, such as `bitrixwebsite`.
 1. Leave the default availability zone.
-1. Under **Images from {{ marketplace-name }}**, select the [Ubuntu 18.04 lts](/marketplace/products/f2e9qa7i4fmugh14tjnc) image.
+1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [Ubuntu 20.04 lts](/marketplace/products/yc/ubuntu-20-04-lts) image.
 1. Under **Disks**, select an SSD with 20 GB.
 1. Under **Computing resources**:
    * Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.

@@ -46,7 +46,16 @@ To create a VM:
 
 1. Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in.
 
-1. Select a public **Ubuntu** image.
+1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) public image.
+
+1. In the **Computing resources** section:
+    - Choose the platform.
+    - Specify the required amount of vCPUs and RAM.
+
+   Recommended values for the file server:
+   * **Guaranteed vCPU share**: 100%.
+   * **vCPU**: 8 or more.
+   * **RAM**: 56 GB or more.
 
 1. In the **Disks** section, click **Add disk**. In the **Add disk** window, specify the disk settings for data storage:
 
