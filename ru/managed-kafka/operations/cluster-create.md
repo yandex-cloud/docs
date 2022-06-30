@@ -426,7 +426,7 @@
   * С {{ KF }} версии `{{ versions.cli.latest }}`.
   * В сети `{{ network-name }}`.
   * В группе безопасности `{{ security-group }}`.
-  * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
+  * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ region-id }}-a`.
   * С одним брокером.
   * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 10 ГБ.
   * С публичным доступом.
@@ -439,7 +439,7 @@
   * С {{ KF }} версии `{{ versions.cli.latest }}`.
   * В сети `{{ network-name }}`.
   * В группе безопасности `{{ security-group }}`.
-  * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
+  * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ region-id }}-a`.
   * С одним брокером.
   * С хранилищем на локальных SSD-дисках (`{{ disk-type-example }}`) объемом 10 ГБ.
   * С публичным доступом.
@@ -457,7 +457,7 @@
     --environment production \
     --version {{ versions.cli.latest }} \
     --network-name {{ network-name }} \
-    --zone-ids {{ zone-id }} \
+    --zone-ids {{ region-id }}-a \
     --brokers-count 1 \
     --resource-preset {{ host-class }} \
     --disk-size 10 \
@@ -475,7 +475,7 @@
     --environment production \
     --version {{ versions.cli.latest }} \
     --network-name {{ network-name }} \
-    --zone-ids {{ zone-id }} \
+    --zone-ids {{ region-id }}-a \
     --brokers-count 1 \
     --resource-preset {{ host-class }} \
     --disk-size 10 \
@@ -498,7 +498,7 @@
     * С {{ KF }} версии `{{ versions.tf.latest }}`.
     * В новой сети `mynet` с подсетью `mysubnet`.
     * В новой группе безопасности `mykf-sg`, разрешающей подключение к кластеру из интернета по порту `9091`.
-    * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ zone-id }}`.
+    * С одним хостом класса `{{ host-class }}`, в зоне доступности `{{ region-id }}-a`.
     * С одним брокером.
     * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 10 ГБ.
     * С публичным доступом.
@@ -521,7 +521,7 @@
       token     = "<OAuth или статический ключ сервисного аккаунта>"
       cloud_id  = "{{ tf-cloud-id }}"
       folder_id = "{{ tf-folder-id }}"
-      zone      = "{{ zone-id }}"
+      zone      = "{{ region-id }}-a"
     }
 
     resource "yandex_mdb_kafka_cluster" "mykf" {
@@ -544,7 +544,7 @@
         }
 
         zones = [
-          "{{ zone-id }}"
+          "{{ region-id }}-a"
         ]
       }
     }
@@ -555,7 +555,7 @@
 
     resource "yandex_vpc_subnet" "mysubnet" {
       name           = "mysubnet"
-      zone           = "{{ zone-id }}"
+      zone           = "{{ region-id }}-a"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.5.0.0/24"]
     }
@@ -591,7 +591,7 @@
       token     = "<статический ключ сервисного аккаунта>"
       cloud_id  = "{{ tf-cloud-id }}"
       folder_id = "{{ tf-folder-id }}"
-      zone      = "{{ zone-id }}"
+      zone      = "{{ region-id }}-a"
     }
 
     resource "yandex_mdb_kafka_cluster" "mykf" {
@@ -614,7 +614,7 @@
         }
 
         zones = [
-          "{{ zone-id }}"
+          "{{ region-id }}-a"
         ]
       }
     }
@@ -625,7 +625,7 @@
 
     resource "yandex_vpc_subnet" "mysubnet" {
       name           = "mysubnet"
-      zone           = "{{ zone-id }}"
+      zone           = "{{ region-id }}-a"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.5.0.0/24"]
     }

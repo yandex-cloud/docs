@@ -275,7 +275,7 @@ description: "Вы можете создавать резервные копии
 * Имя нового кластера: `mynewmg`.
 * Окружение: `PRODUCTION`.
 * Сеть: `{{ network-name }}`.
-* Один хост класса `{{ host-class }}` в зоне доступности `{{ zone-id }}` и в подсети `b0rcctk2rvtr8efcch64`.
+* Один хост класса `{{ host-class }}` в зоне доступности `{{ region-id }}-a` и в подсети `b0rcctk2rvtr8efcch64`.
 * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.     
 * С базами данных и пользователями, которые существовали в кластере на момент восстановления.
      
@@ -287,7 +287,7 @@ description: "Вы можете создавать резервные копии
 * Имя нового кластера: `mynewmg`.
 * Окружение: `PRODUCTION`.
 * Сеть: `{{ network-name }}`.
-* Один хост класса `{{ host-class }}` в зоне доступности `{{ zone-id }}`.
+* Один хост класса `{{ host-class }}` в зоне доступности `{{ region-id }}-a`.
 * Хранилище: быстрое локальное (`{{ disk-type-example }}`) объемом 20 ГБ.     
 * С базами данных и пользователями, которые существовали в кластере на момент восстановления.     
      
@@ -325,7 +325,7 @@ description: "Вы можете создавать резервные копии
      --name mynewmg \
      --environment=PRODUCTION \
      --network-id {{ network-name }} \
-     --host zone-id={{ zone-id }} \
+     --host zone-id={{ region-id }}-a \
      --mongod-resource-preset {{ host-class }} \
      --mongod-disk-size 20 \
      --mongod-disk-type {{ disk-type-example }}

@@ -384,7 +384,7 @@
     * В окружении `PRODUCTION`.
     * В сети `default`.
     * В группе безопасности `{{ security-group }}`.
-    * С одним хостом класса `s2.small` в подсети `b0cd5bv7pfpr7r900tkp`, в зоне доступности `{{ zone-id }}`.
+    * С одним хостом класса `s2.small` в подсети `b0cd5bv7pfpr7r900tkp`, в зоне доступности `{{ region-id }}-a`.
     * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * С одним пользователем (`user1`), с паролем `user1user1`.
     * С одной базой данных `db1`.
@@ -415,7 +415,7 @@
        --environment=PRODUCTION \
        --network-name=default \
        --resource-preset=s2.small \
-       --host zone-id={{ zone-id }},`
+       --host zone-id={{ region-id }}-a,`
              `subnet-id=b0cd5bv7pfpr7r900tkp \
        --disk-type={{ disk-type-example }} \
        --disk-size=20 \
@@ -457,7 +457,7 @@
     * В каталоге с идентификатором `{{ tf-folder-id }}`.
     * В новой сети `mynet`.
     * В новой группе безопасности `ms-sql-sg`, разрешающей подключение к кластеру из интернета через порт `{{ port-mms }}`.
-    * С одним хостом класса `s2.small` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    * С одним хостом класса `s2.small` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
     * С хранилищем на сетевых SSD-дисках объемом 32 Гб.
     * С базой данных `db1`.
     * С пользователем `user1` и паролем `user1user1`. Этот пользователь будет владельцем базы `db1` ([предопределенная роль `DB_OWNER`](./grant.md#predefined-db-roles)).
@@ -480,7 +480,7 @@
       token     = "<OAuth или статический ключ сервисного аккаунта>"
       cloud_id  = "{{ tf-cloud-id }}"
       folder_id = "{{ tf-folder-id }}"
-      zone      = "{{ zone-id }}"
+      zone      = "{{ region-id }}-a"
     }
 
     resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
@@ -498,7 +498,7 @@
       }
 
       host {
-        zone             = "{{ zone-id }}"
+        zone             = "{{ region-id }}-a"
         subnet_id        = yandex_vpc_subnet.mysubnet.id
         assign_public_ip = true
       }
@@ -521,7 +521,7 @@
 
     resource "yandex_vpc_subnet" "mysubnet" {
       name           = "mysubnet"
-      zone           = "{{ zone-id }}"
+      zone           = "{{ region-id }}-a"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.5.0.0/24"]
     }
@@ -557,7 +557,7 @@
       token     = "<статический ключ сервисного аккаунта>"
       cloud_id  = "{{ tf-cloud-id }}"
       folder_id = "{{ tf-folder-id }}"
-      zone      = "{{ zone-id }}"
+      zone      = "{{ region-id }}-a"
     }
 
     resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
@@ -575,7 +575,7 @@
       }
 
       host {
-        zone             = "{{ zone-id }}"
+        zone             = "{{ region-id }}-a"
         subnet_id        = yandex_vpc_subnet.mysubnet.id
         assign_public_ip = true
       }
@@ -598,7 +598,7 @@
 
     resource "yandex_vpc_subnet" "mysubnet" {
       name           = "mysubnet"
-      zone           = "{{ zone-id }}"
+      zone           = "{{ region-id }}-a"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.5.0.0/24"]
     }

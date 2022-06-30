@@ -390,7 +390,7 @@ keywords:
     * Окружение `PRODUCTION`.
     * Сеть `default`.
     * Группа безопасности с идентификатором `enpp2s8l3irhk5eromd7`.
-    * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в подсети `{{ subnet-id }}`, в зоне доступности `{{ zone-id }}`.
+    * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в подсети `{{ subnet-id }}`, в зоне доступности `{{ region-id }}-a`.
     * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * Пароль `esadminpwd` для пользователя `admin`.
     * Защита от случайного удаления кластера.
@@ -402,7 +402,7 @@ keywords:
       --name my-es-clstr \
       --environment production \
       --network-name default \
-      --host zone-id={{ zone-id }},assign-public-ip=true,type=datanode \
+      --host zone-id={{ region-id }}-a,assign-public-ip=true,type=datanode \
       --datanode-resource-preset {{ host-class }} \
       --datanode-disk-type={{ disk-type-example }} \
       --datanode-disk-size=20 \
@@ -425,7 +425,7 @@ keywords:
     * Каталог с идентификатором `{{ tf-folder-id }}`.
     * Новая сеть `mynet`.
     * Новая группа безопасности `es-sg`, разрешающая подключение к кластеру из интернета через порты 443 (Kibana) и 9200 ({{ ES }}).
-    * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
     * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * Пароль `esadminpwd` для пользователя `admin`.
 
@@ -446,7 +446,7 @@ keywords:
       token     = "<OAuth или статический ключ сервисного аккаунта>"
       cloud_id  = "{{ tf-cloud-id }}"
       folder_id = "{{ tf-folder-id }}"
-      zone      = "{{ zone-id }}"
+      zone      = "{{ region-id }}-a"
     }
 
     resource "yandex_mdb_elasticsearch_cluster" "my-es-clstr" {
@@ -474,7 +474,7 @@ keywords:
 
       host {
         name = "node"
-        zone = "{{ region-id }}-c"
+        zone = "{{ region-id }}-a"
         type = "DATA_NODE"
         assign_public_ip = true
         subnet_id = yandex_vpc_subnet.mysubnet.id
@@ -488,7 +488,7 @@ keywords:
 
     resource "yandex_vpc_subnet" "mysubnet" {
       name           = "mysubnet"
-      zone           = "{{ zone-id }}"
+      zone           = "{{ region-id }}-a"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.5.0.0/24"]
     }
@@ -531,7 +531,7 @@ keywords:
       token     = "<статический ключ сервисного аккаунта>"
       cloud_id  = "{{ tf-cloud-id }}"
       folder_id = "{{ tf-folder-id }}"
-      zone      = "{{ zone-id }}"
+      zone      = "{{ region-id }}-a"
     }
 
     resource "yandex_mdb_elasticsearch_cluster" "my-es-clstr" {
@@ -559,7 +559,7 @@ keywords:
 
       host {
         name = "node"
-        zone = "{{ region-id }}-c"
+        zone = "{{ region-id }}-a"
         type = "DATA_NODE"
         assign_public_ip = true
         subnet_id = yandex_vpc_subnet.mysubnet.id
@@ -573,7 +573,7 @@ keywords:
 
     resource "yandex_vpc_subnet" "mysubnet" {
       name           = "mysubnet"
-      zone           = "{{ zone-id }}"
+      zone           = "{{ region-id }}-a"
       network_id     = yandex_vpc_network.mynet.id
       v4_cidr_blocks = ["10.5.0.0/24"]
     }

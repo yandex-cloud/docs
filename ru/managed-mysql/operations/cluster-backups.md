@@ -79,7 +79,7 @@ description: "Вы можете создавать резервные копии
          --name=mynewmy \
          --environment=PRODUCTION \
          --network-id {{ network-name }} \
-         --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
+         --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch63 \
          --disk-size 20 \
          --disk-type {{ disk-type-example }} \
          --resource-preset {{ host-class }}
@@ -94,7 +94,7 @@ description: "Вы можете создавать резервные копии
          --name=mynewmy \
          --environment=PRODUCTION \
          --network-name {{ network-name }} \
-         --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
+         --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch63 \
          --disk-size 20 \
          --disk-type {{ disk-type-example }} \
          --resource-preset {{ host-class }}
@@ -112,7 +112,7 @@ description: "Вы можете создавать резервные копии
       
       * С именем `mynewmy`.
       * В окружении `PRODUCTION`.
-      * С одним хостом класса `{{ host-class }}` в зоне доступности `{{ zone-id }}`.
+      * С одним хостом класса `{{ host-class }}` в зоне доступности `{{ region-id }}-a`.
       * С базами данных и пользователями из резервной копии.
       * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
       
@@ -123,7 +123,7 @@ description: "Вы можете создавать резервные копии
       * С именем `mynewmy`.
       * В окружении `PRODUCTION`.
       * В сети `{{ network-name }}`.
-      * С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `{{ zone-id }}`.
+      * С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `{{ region-id }}-a`.
       * С базами данных и пользователями, которые существовали в кластере на момент восстановления.
       * C хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`)  объемом 20 ГБ.
       

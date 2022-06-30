@@ -350,7 +350,7 @@
     * В окружении `production`.
     * В сети `default`.
     * В группе безопасности с идентификатором `{{ security-group }}`.
-    * С одним хостом класса `{{ host-class }}` в подсети `{{ subnet-id }}`, в зоне доступности `{{ zone-id }}`.
+    * С одним хостом класса `{{ host-class }}` в подсети `{{ subnet-id }}`, в зоне доступности `{{ region-id }}-a`.
     * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 Гб.
     * С одним пользователем (`user1`), с паролем `user1user1`.
     * С одной базой данных `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
@@ -427,7 +427,7 @@
     * В облаке с идентификатором `{{ tf-cloud-id }}`.
     * В каталоге с идентификатором `{{ tf-folder-id }}`.
     * В новой сети `mynet`.
-    * С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    * С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
     * В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру из интернета через порт `{{ port-mmy }}`.
     * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * С одним пользователем (`user1`), с паролем `user1user1`.
@@ -451,7 +451,7 @@
     token     = "<OAuth или статический ключ сервисного аккаунта>"
     cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "{{ tf-folder-id }}"
-    zone      = "{{ zone-id }}"
+    zone      = "{{ region-id }}-a"
   }
 
   resource "yandex_mdb_mysql_cluster" "my-mysql" {
@@ -482,7 +482,7 @@
     }
 
     host {
-      zone      = "{{ zone-id }}"
+      zone      = "{{ region-id }}-a"
       subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
@@ -505,7 +505,7 @@
 
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
-    zone           = "{{ zone-id }}"
+    zone           = "{{ region-id }}-a"
     network_id     = yandex_vpc_network.mynet.id
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
@@ -529,7 +529,7 @@
     token     = "<статический ключ сервисного аккаунта>"
     cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "{{ tf-folder-id }}"
-    zone      = "{{ zone-id }}"
+    zone      = "{{ region-id }}-a"
   }
 
   resource "yandex_mdb_mysql_cluster" "my-mysql" {
@@ -560,7 +560,7 @@
     }
 
     host {
-      zone      = "{{ zone-id }}"
+      zone      = "{{ region-id }}-a"
       subnet_id = yandex_vpc_subnet.mysubnet.id
     }
   }
@@ -583,7 +583,7 @@
 
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
-    zone           = "{{ zone-id }}"
+    zone           = "{{ region-id }}-a"
     network_id     = yandex_vpc_network.mynet.id
     v4_cidr_blocks = ["10.5.0.0/24"]
   }

@@ -79,7 +79,7 @@ For a new cluster, you should set all the parameters that are required at creati
         --name=mynewmy \
         --environment=PRODUCTION \
         --network-id {{ network-name }} \
-        --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
+        --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch63 \
         --disk-size 20 \
         --disk-type network-ssd \
         --resource-preset {{ host-class }}
@@ -94,7 +94,7 @@ For a new cluster, you should set all the parameters that are required at creati
         --name=mynewmy \
         --environment=PRODUCTION \
         --network-name {{ network-name }} \
-        --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
+        --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch63 \
         --disk-size 20 \
         --disk-type {{ disk-type-example }} \
         --resource-preset {{ host-class }}
@@ -112,7 +112,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       * With the name `mynewmy`.
       * In the `PRODUCTION` environment.
-      * With a single `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
+      * With a single `{{ host-class }}` class host in the `{{ region-id }}-a` availability zone.
       * With the databases and users from the backup.
       * With 20 GB of SSD network (`network-ssd`) storage.
 
@@ -123,7 +123,7 @@ For a new cluster, you should set all the parameters that are required at creati
       * With the name `mynewmy`.
       * In the `PRODUCTION` environment.
       * In the `{{ network-name }}` network.
-      * With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
+      * With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ region-id }}-a` availability zone.
       * With databases and users that existed in the cluster at the time of recovery.
       * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
 

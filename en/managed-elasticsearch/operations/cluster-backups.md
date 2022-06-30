@@ -84,7 +84,7 @@ When creating a new cluster, set all required parameters.
       - Named `mynewes`.
       - In the `PRODUCTION` environment.
       - In the `{{ network-name }}` network.
-      - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
+      - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ region-id }}-a` availability zone.
       - With databases and users that existed in the cluster at the time of recovery.
       - With 20 GB fast network storage (`{{ disk-type-example }}`).
 
@@ -92,7 +92,7 @@ When creating a new cluster, set all required parameters.
 
       - Named `mynewes`.
       - In the `PRODUCTION` environment.
-      - With a single `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
+      - With a single `{{ host-class }}` class host in the `{{ region-id }}-a` availability zone.
       - With databases and users that existed in the cluster at the time of recovery.
       - With 20 GB fast network storage (`network-ssd`).
 

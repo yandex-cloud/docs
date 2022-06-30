@@ -106,7 +106,7 @@
       }
     
       network_interface {
-        subnet_id          = yandex_vpc_subnet.cluster-subnet-c.id
+        subnet_id          = yandex_vpc_subnet.cluster-subnet-a.id
         security_group_ids = [yandex_vpc_security_group.cluster-vm-sg.id]
         nat                = true
       }
@@ -133,7 +133,7 @@
       }
     
       network_interface {
-        subnet_id          = yandex_vpc_subnet.vm-subnet-c.id
+        subnet_id          = yandex_vpc_subnet.vm-subnet-a.id
         security_group_ids = [yandex_vpc_default_security_group.other-vm-sg.id]
         nat                = true
       }
