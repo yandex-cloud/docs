@@ -304,6 +304,7 @@ default:
   tag-sql: <code><b><small>SQL</small></b></code>
   tag-all: <code><b><small>Все интерфейсы</small></b></code>
   zone-id: ru-central1-c
+  subnet-name: default-ru-central1-c
   region-id: ru-central1
 
   compute-ubuntu-lts-image-id: fd81hgrcv6lsnkremf32
@@ -792,5 +793,7 @@ cloud-il:
   yc-windows-path: /cli/install.ps1
   dns-zone: mdb.cloudil.com
   yandex-cloud: CloudIL
+  zone-id: il1-a
+  subnet-name: default-il1-a
   region-id: il1
   registry: cr.cloudil.com
