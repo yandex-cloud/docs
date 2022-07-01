@@ -30,6 +30,9 @@ items:
       - name: Загрузка аудитных логов в лог-группу
         href: operations/export-cloud-logging.md
         when: product == "yandex-cloud"
+      - name: Загрузка аудитных логов в поток данных
+        href: operations/export-data-streams.md
+        when: product == "yandex-cloud"
       - name: Загрузка аудитных логов в бакет
         href: operations/export-bucket.md
   - name: Практические руководства

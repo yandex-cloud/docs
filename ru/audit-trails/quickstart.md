@@ -1,6 +1,6 @@
 # Как начать работать с {{ at-name }}
 
-{{ at-name }} собирает [аудитные логи](./concepts/format.md) ресурсов {{ yandex-cloud }} и загружает их в бакет {{ objstorage-name }} {% if product == "yandex-cloud" %} или в лог-группу {{ cloud-logging-name }}{% endif %}.
+{{ at-name }} собирает [аудитные логи](./concepts/format.md) ресурсов {{ yandex-cloud }} и загружает их в бакет {{ objstorage-name }}{% if product == "yandex-cloud" %}, лог-группу {{ cloud-logging-name }} или поток данных {{ yds-name }}{% endif %}.
 
 Управление аудитными логами внутри {{ at-name }} осуществляется через [трейлы](./concepts/trail.md).
 

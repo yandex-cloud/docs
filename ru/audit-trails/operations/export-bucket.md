@@ -204,5 +204,5 @@
 ## Что дальше {#whats-next} 
 
 * Узнайте о [формате аудитных логов](../concepts/format.md).
-* Узнайте о порядке загрузки логов в SIEM [Загрузка аудитных логов в SIEM](../concepts/export-siem.md).
+* Узнайте о порядке [загрузки аудитных логов в SIEM](../concepts/export-siem.md).
 * Узнайте о [поиске по аудитным логам в бакете](../tutorials/search-bucket.md).
