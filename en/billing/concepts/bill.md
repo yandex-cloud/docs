@@ -15,7 +15,7 @@ A payment invoice is generated automatically and issued at the beginning of the 
 
 {% note info %}
 
-{{ yandex-cloud }} reserves the right to issue a payment invoice during the current reporting period if you exceed your established credit limit.
+{{ yandex-cloud }} reserves the right to issue a payment invoice during the current reporting period if you exceed your established billing threshold.
 
 {% endnote %}
 

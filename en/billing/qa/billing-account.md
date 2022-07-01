@@ -25,9 +25,9 @@ To unblock your new billing account, [activate the paid version](../operations/a
 
 You can't change a billing account type once it's created, but you can [create a new one](../operations/create-new-account.md).
 
-#### How do I enable the credit limit?  {#credit}
+#### How do I enable the billing threshold?  {#credit}
 
-[The credit limit](../concepts/credit-limit.md) is enabled automatically after the [paid version is activated](../operations/activate-commercial.md) and the first reporting period ends.
+[The billing threshold](../concepts/credit-limit.md) is enabled automatically after the [paid version is activated](../operations/activate-commercial.md) and the first reporting period ends.
 
 
 {% include [change-payment-method](../_includes/change-payment-method.md) %}
