@@ -10,7 +10,7 @@
 
 {% note alert %}
 
-Если кто-то мог узнать ваш OAuth-токен, {% if product == "yandex-cloud" %}[отзовите его](https://yandex.ru/dev/oauth/doc/dg/reference/token-invalidate-docpage/){% endif %}{% if product == "cloud-il" %}отзовите его{% endif %} и запросите новый.
+Если кто-то мог узнать ваш OAuth-токен, отзовите его и получите новый по [инструкции](../../operations/compromised-credentials.md#oauth-reissue).
 
 {% endnote %}
 
