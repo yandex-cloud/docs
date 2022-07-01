@@ -15,7 +15,7 @@ A payment invoice is generated automatically and issued at the beginning of the 
 
 {% note info %}
 
-{{ yandex-cloud }} reserves the right to issue a payment invoice during the current reporting period if you exceed your established credit limit.
+{{ yandex-cloud }} reserves the right to issue a payment invoice during the current reporting period if you exceed your established billing threshold.
 
 {% endnote %}
 
@@ -34,8 +34,8 @@ A payment invoice is generated automatically and issued at the beginning of the 
   The personal account balance at the beginning of the reporting period is 0 rubles.
   The balance has not been topped up during the entire reporting period (0 rubles).
   The grant amount is 1000 rubles.
-  The credit limit is 1000 rubles.
-  At the end of the reporting period, the credit limit has not been reached and the amount for resources consumed is 1400 rubles.
+  The billing threshold is 1000 rubles.
+  At the end of the reporting period, the billing threshold has not been reached and the amount for resources consumed is 1400 rubles.
   Total amount: 1400 - (0 + 0 + 1000) = 400 (rubles).
   At the beginning of the next reporting period, you will be issued a payment invoice for the amount you have actually used (in this case, 400 rubles).
 
@@ -44,7 +44,7 @@ A payment invoice is generated automatically and issued at the beginning of the 
   The personal account balance at the beginning of the reporting period is 0 rubles.
   The balance has not been topped up during the entire reporting period (0 rubles).
   The grant amount is 1000 rubles.
-  The credit limit is not enabled.
+  The billing threshold is not enabled.
   By the end of the reporting period, the amount for resources consumed is 800 rubles.
   The grant amount at the end of the reporting period is 200 rubles. The personal account balance has not changed.
   At the beginning of the next reporting month, no payment invoice will be generated.
@@ -54,8 +54,8 @@ A payment invoice is generated automatically and issued at the beginning of the 
   The personal account balance at the beginning of the reporting period is 0 rubles.
   The balance has not been topped up during the entire reporting period (0 rubles).
   The grant amount is 1000 rubles.
-  The credit limit is 1000 rubles.
-  In the middle of the reporting period, the established credit limit has been reached and the amount for resources consumed is 2000 rubles.
+  The billing threshold is 1000 rubles.
+  In the middle of the reporting period, the established billing threshold has been reached and the amount for resources consumed is 2000 rubles.
   Total amount: 2000 - (0 + 0 + 1000) = 1000 (rubles).
   In the middle of the reporting period, you will be issued a payment invoice for the amount actually used (in this case, 1000 rubles).
 
@@ -68,8 +68,8 @@ A payment invoice is generated automatically and issued at the beginning of the 
   The balance of the personal account at the beginning of the reporting period is 0 tenge.
   The balance was not topped up during the entire reporting period (0 tenge).
   The grant amount is 1000 tenge.
-  Your credit limit is 1000 tenge.
-  As of the end of the reporting period, you have not used up your credit limit, and the amount for resources consumed is 1400 tenge.
+  Your billing threshold is 1000 tenge.
+  As of the end of the reporting period, you have not used up your billing threshold, and the amount for resources consumed is 1400 tenge.
   Total amount: 1400 - (0 + 0 + 1000) = 400 tenge.
   At the beginning of the next reporting period, you will receive an invoice for the amount you have actually spent, which is 400 tenge.
 
@@ -78,7 +78,7 @@ A payment invoice is generated automatically and issued at the beginning of the 
   The balance of the personal account at the beginning of the reporting period is 0 tenge.
   The balance was not topped up during the entire reporting period (0 tenge).
   The grant amount is 1000 tenge.
-  The credit limit is not enabled.
+  The billing threshold is not enabled.
   As of the end of the reporting period, the amount for resources consumed was 800 tenge.
   The grant amount as of the end of the reporting period is 200 tenge. The personal account balance has not changed.
   At the beginning of the next reporting month, no payment invoice will be generated.
@@ -88,8 +88,8 @@ A payment invoice is generated automatically and issued at the beginning of the 
   The balance of the personal account at the beginning of the reporting period is 0 tenge.
   The balance was not topped up during the entire reporting period (0 tenge).
   The grant amount is 1000 tenge.
-  Your credit limit is 1000 tenge.
-  In the middle of the reporting period, you used up your credit limit, and the amount for resources consumed was 2000 tenge.
+  Your billing threshold is 1000 tenge.
+  In the middle of the reporting period, you used up your billing threshold, and the amount for resources consumed was 2000 tenge.
   Total amount: 2000 - (0 + 0 + 1000) = 1000 tenge.
   In the middle of the reporting period, you will receive a payment invoice for the amount actually spent, which is 1000 tenge.
 

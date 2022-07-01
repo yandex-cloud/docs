@@ -22,8 +22,8 @@ The amount charged is calculated using the formula:
   <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
   <br/>The balance has not been topped up during the entire reporting period (0 rubles).
   <br/>The grant amount is 1,000 rubles.
-  <br/>The credit limit is 2,000 rubles.
-  <br/>In the middle of the reporting period, the established credit limit has been reached and the amount for resources consumed is 3,000 rubles.
+  <br/>The billing threshold is 2,000 rubles.
+  <br/>In the middle of the reporting period, the established billing threshold has been reached and the amount for resources consumed is 3,000 rubles.
   <br/>Total amount: 3000 - (0 + 0 + 1000) = 2000 (rubles).
   <br/>In the middle of the reporting period, 2,000 rubles will be debited from the linked bank card. A payment receipt will also be generated for 2,000 rubles.
 
@@ -41,8 +41,8 @@ The amount charged is calculated using the formula:
   <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
   <br/>The balance has not been topped up during the entire reporting period (0 rubles).
   <br/>The grant amount is 1,000 rubles.
-  <br/>The credit limit is 2,000 rubles.
-  <br/>At the end of the reporting period, the amount for consumed resources is 2,300 rubles. The credit limit has not been reached and the grant has been fully spent.
+  <br/>The billing threshold is 2,000 rubles.
+  <br/>At the end of the reporting period, the amount for consumed resources is 2,300 rubles. The billing threshold has not been reached and the grant has been fully spent.
   <br/>Total amount: 2300 - (0 + 0 + 1000) = 1300 (rubles).
   <br/>At the beginning of the next reporting period, 1,300 rubles will be debited from the linked bank card. A payment receipt will also be generated for 1,300 rubles.
 

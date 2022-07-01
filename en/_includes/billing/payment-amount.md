@@ -11,8 +11,8 @@ The amount charged is calculated using the formula: ![image](../_assets/formula.
   <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
   <br/>The personal account was never topped up during the reporting period (0 rubles).
   <br/>The grant amount is 1000 rubles.
-  <br/>The credit limit is 2000 rubles.
-  <br/>In the middle of the reporting period, the established credit limit was reached and the amount for resources consumed was 3000 rubles.
+  <br/>The billing threshold is 2000 rubles.
+  <br/>In the middle of the reporting period, the established billing threshold was reached and the amount for resources consumed was 3000 rubles.
   <br/>Total amount: 3000 - (0 + 0 + 1000) = 2000 rubles.
   <br/>In the middle of the reporting period, 2000 rubles could be debited from the linked bank card.
 
@@ -30,8 +30,8 @@ The amount charged is calculated using the formula: ![image](../_assets/formula.
   <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
   <br/>The personal account was never topped up during the reporting period (0 rubles).
   <br/>The grant amount is 1000 rubles.
-  <br/>The credit limit is 2000 rubles.
-  <br/>At the end of the reporting period, the amount for consumed resources is 2300 rubles. The credit limit has not been reached and the grant has been fully spent.
+  <br/>The billing threshold is 2000 rubles.
+  <br/>At the end of the reporting period, the amount for consumed resources is 2300 rubles. The billing threshold has not been reached and the grant has been fully spent.
   <br/>Total amount: 2300 - (0 + 0 + 1000) = 1300 rubles.
   <br/>At the beginning of the next reporting period, 1300 rubles are debited from the linked bank card.
 
@@ -44,8 +44,8 @@ The amount charged is calculated using the formula: ![image](../_assets/formula.
   <br/>The personal account balance at the beginning of the reporting period is 0 tenge.
   <br/>The personal account was never topped up during the reporting period (0 tenge).
   <br/>The grant amount is 1000 tenge.
-  <br/>The credit limit is 2000 tenge.
-  <br/>In the middle of the reporting period, the established credit limit was reached and the amount for resources consumed was 3000 tenge.
+  <br/>The billing threshold is 2000 tenge.
+  <br/>In the middle of the reporting period, the established billing threshold was reached and the amount for resources consumed was 3000 tenge.
   <br/>Total amount: 3000 - (0 + 0 + 1000) = 2000 tenge.
   <br/>In the middle of the reporting period, 2000 tenge could be debited from the linked bank card.
 
@@ -63,8 +63,8 @@ The amount charged is calculated using the formula: ![image](../_assets/formula.
   <br/>The personal account balance at the beginning of the reporting period is 0 tenge.
   <br/>The personal account was never topped up during the reporting period (0 tenge).
   <br/>The grant amount is 1000 tenge.
-  <br/>The credit limit is 2000 tenge.
-  <br/>At the end of the reporting period, the amount for consumed resources is 2300 tenge. The credit limit has not been reached and the grant has been fully spent.
+  <br/>The billing threshold is 2000 tenge.
+  <br/>At the end of the reporting period, the amount for consumed resources is 2300 tenge. The billing threshold has not been reached and the grant has been fully spent.
   <br/>Total amount: 2300 - (0 + 0 + 1000) = 1300 tenge.
   <br/>At the beginning of the next reporting period, 1300 tenge are debited from the linked bank card.
 
