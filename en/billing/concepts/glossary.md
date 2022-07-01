@@ -1,6 +1,6 @@
 ---
 title: "Glossary. Billing"
-description: "In the Glossary, all terms used in {{ yandex-cloud }} are provided for informational purposes. The description of the following terms is given - act, grant, details, agreement, credit limit, personal account, reporting period, offer, penalties, billing account, payer, trial period, etc. In the event of a conflict between the definitions of terms in the Agreement and the Glossary, the terms of the Agreement shall prevail."
+description: "In the Glossary, all terms used in {{ yandex-cloud }} are provided for informational purposes. The description of the following terms is given - act, grant, details, agreement, billing threshold, personal account, reporting period, offer, penalties, billing account, payer, trial period, etc. In the event of a conflict between the definitions of terms in the Agreement and the Glossary, the terms of the Agreement shall prevail."
 ---
 
 # Glossary
@@ -31,9 +31,9 @@ Agreement
 : In {{ yandex-cloud }}, all services are rendered according to an agreement that you accept when you create a [billing account](billing-account.md). The agreement does not need to be signed by both parties.
 <br/>See the section [Agreement](contract.md).
 
-Credit limit
-:  Maximum negative [personal account balance](../concepts/personal-account.md#balance). The credit limit is activated automatically after you [switch to the paid version](../operations/activate-commercial.md) and the first reporting period ends.
-<br/>See the section [Credit limit](credit-limit.md).
+Billing threshold
+:  Maximum negative [personal account balance](../concepts/personal-account.md#balance). The billing threshold is activated automatically after you [switch to the paid version](../operations/activate-commercial.md) and the first reporting period ends.
+<br/>See the section [Billing threshold](credit-limit.md).
 
 Personal account
 : A unique customer ID in the Billing service, which is used to pay for resources during the entire term of the agreement.

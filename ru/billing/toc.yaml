@@ -52,7 +52,7 @@ items:
         href: concepts/index.md
       - name: Промокод
         href: concepts/promo-code.md
-      - name: Кредитный лимит
+      - name: Порог оплаты
         href: concepts/credit-limit.md
       - name: Платежный аккаунт
         items:

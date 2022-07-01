@@ -10,7 +10,7 @@
 
 {% note alert %}
 
-Если кто-то мог узнать ваш OAuth-токен, [отзовите его](https://yandex.ru/dev/oauth/doc/dg/reference/token-invalidate-docpage/) и запросите новый.
+Если кто-то мог узнать ваш OAuth-токен, отзовите его и получите новый по [инструкции](../../operations/compromised-credentials.md#oauth-reissue).
 
 {% endnote %}
 

@@ -52,7 +52,7 @@ items:
         href: concepts/index.md
       - name: Promo code
         href: concepts/promo-code.md
-      - name: Credit limit
+      - name: Billing threshold
         href: concepts/credit-limit.md
       - name: Billing accounts
         items:

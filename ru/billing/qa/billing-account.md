@@ -25,9 +25,9 @@
 
 После создания платежного аккаунта вы не можете изменить его тип, однако можете [создать новый](../operations/create-new-account.md).
 
-#### Как подключить кредитный лимит?  {#credit}
+#### Как подключить порог оплаты?  {#credit}
 
-[Кредитный лимит](../concepts/credit-limit.md) подключается автоматически после [активации платной версии](../operations/activate-commercial.md) и завершения первого отчетного периода.
+[Порог оплаты](../concepts/credit-limit.md) подключается автоматически после [активации платной версии](../operations/activate-commercial.md) и завершения первого отчетного периода.
 
 
 {% include [change-payment-method](../_includes/change-payment-method.md) %}

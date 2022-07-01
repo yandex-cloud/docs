@@ -18,7 +18,7 @@ The diagram shows the cycle of issuing and paying invoices for businesses and in
    * If you are paying for resources from a bank account, go to step 5.
    * If you are paying for resources with a card, go to step 7.
 
-1. You consume and pay for the use of {{ yandex-cloud }} resources at the end of each reporting period, and a [credit limit](../concepts/credit-limit.md) is not provided.
+1. You consume and pay for the use of {{ yandex-cloud }} resources at the end of each reporting period, and a [billing threshold](../concepts/credit-limit.md) is not provided.
 
 1. Verification is performed to check whether it is past the end of the reporting period:
 
@@ -37,11 +37,11 @@ The diagram shows the cycle of issuing and paying invoices for businesses and in
       * If the balance is positive, go back to step 7.
       * If the balance is negative, go to step 8.
 
-1. Your [credit limit](../concepts/credit-limit.md) is used. Your credit limit is valid for the calendar month.
+1. Your [billing threshold](../concepts/credit-limit.md) is used. Your billing threshold is valid for the calendar month.
 
-   1. The credit limit amount and validity period are checked:
+   1. The billing threshold amount and validity period are checked:
 
-      * If your credit limit is used up or has expired, go to step 10.
+      * If your billing threshold is used up or has expired, go to step 10.
       * Otherwise, go back to step 9.
 
 1. Verification is performed to check whether it is past the end of the reporting period:
@@ -81,6 +81,6 @@ The diagram shows the cycle of issuing and paying invoices for businesses and in
 #### See also
 
 * [Grant](../concepts/bonus-account.md)
-* [Credit limit](../concepts/credit-limit.md)
+* [Billing threshold](../concepts/credit-limit.md)
 * [Personal account](../concepts/personal-account.md)
 * [Billing account](../concepts/billing-account.md)
