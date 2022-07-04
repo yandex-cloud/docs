@@ -304,4 +304,4 @@
 1. Удалите кластеры:
 
     * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md);
-    * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+    * [Yandex Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).

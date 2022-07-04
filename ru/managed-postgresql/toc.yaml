@@ -45,8 +45,10 @@ items:
         href: operations/monitoring.md
   - name: Практические руководства
     items:
+      - name: Все сценарии
+        href: tutorials/index.md
       - name: Создание кластера {{ PG }} для 1С
-        href: tutorials/1c-postgresql
+        href: tutorials/1c-postgresql.md
       - name: Выгрузка базы данных в {{ dataproc-full-name }}
         href: tutorials/sqoop.md
       - name: Анализ производительности и оптимизация

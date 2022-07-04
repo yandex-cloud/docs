@@ -36,7 +36,7 @@ To run a disaster recovery scenario:
 {% note info %}
 
 Please note that the infrastructure for Hystax Acura and Hystax Acura Cloud Agent, as well as all migrated VMs, consume [quotas]({{ link-console-quotas }}) and require payment.
-* A Hystax Acura VM uses 4 vCPUs, 8 GB of RAM, and a 70 GB disk.
+* A Hystax Acura VM uses 8 vCPUs, 16 GB of RAM, and a 200 GB disk.
 * A Hystax Acura Cloud Agent VM uses 2 vCPUs, 4 GB of RAM, and an 8 GB disk. A single Hystax Acura Cloud Agent VM can serve up to 6 replicated disks at the same time. If there are more than 6 disks, additional Hystax Acura Cloud Agent VMs are created automatically.
 
 {% endnote %}
@@ -65,10 +65,10 @@ Create a VM with a boot disk from an [Hystax Acura Disaster Recovery to {{ yande
   yc compute instance create \
     --name hystax-acura-vm \
     --zone <availability zone> \
-    --cores 4 \
-    --memory 8 \
+    --cores 8 \
+    --memory 16 \
     --network-interface subnet-id=<subnet ID>,nat-ip-version=ipv4 \
-    --create-boot-disk name=hystax-acura-disk,size=70,image-id=<Hystax Acura image ID> \
+    --create-boot-disk name=hystax-acura-disk,size=200,image-id=<Hystax Acura image ID> \
     --service-account-id <service account ID> \
     --ssh-key ~/.ssh/id_rsa.pub
   ```

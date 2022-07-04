@@ -49,6 +49,8 @@ items:
         href: operations/tools.md
   - name: Практические руководства
     items:
+      - name: Все сценарии
+        href: tutorials/index.md
       - name: Шардирование коллекций
         href: tutorials/sharding.md
       - name: Миграция данных в {{ mmg-name }}
