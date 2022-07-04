@@ -24,7 +24,7 @@
 {% note info %}
 
 Обратите внимание, что оплачиваться и учитываться в [квотах]({{ link-console-quotas }}) будут как инфраструктура для Hystax Acura и Hystax Acura Cloud Agent, так и все мигрированные ВМ.
-* ВМ для Hystax Acura использует 8 ядер vCPU, 16 ГБ памяти и диск на 100 ГБ.
+* ВМ для Hystax Acura использует 8 ядер vCPU, 16 ГБ памяти и диск на 200 ГБ.
 * ВМ для Hystax Acura Cloud Agent использует 2 ядра vCPU, 4 ГБ памяти и диск на 8 ГБ.
 
 {% endnote %}
@@ -92,7 +92,7 @@
       * Нажмите кнопку **Посмотреть больше**.
       * В списке публичных образов выберите [Hystax Acura Live Migration to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration) и нажмите кнопку **Использовать**.
 
-   1. В блоке **Диски** укажите размер диска 100 ГБ.
+   1. В блоке **Диски** укажите размер диска 200 ГБ.
 
    {% if product == "yandex-cloud" %}
    1. В блоке **Файловые хранилища** оставьте значения по умолчанию.
@@ -127,7 +127,7 @@
      --cores 8 \
      --memory 16 \
      --network-interface subnet-id=<идентификатор подсети>,nat-ip-version=ipv4,security-group-ids=<идентификатор группы безопасности, если группа была настроена ранее> \
-     --create-boot-disk name=hystax-acura-disk,size=100,image-id=<идентификатор образа Hystax Acura> \
+     --create-boot-disk name=hystax-acura-disk,size=200,image-id=<идентификатор образа Hystax Acura> \
      --service-account-id <идентификатор сервисного аккаунта> \
      --ssh-key ~/.ssh/id_rsa.pub
    ```
