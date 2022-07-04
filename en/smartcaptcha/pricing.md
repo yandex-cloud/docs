@@ -1,16 +1,17 @@
 ---
 editable: false
 ---
+
 # Pricing for {{ captcha-full-name }}
 
 The service is at the [Preview](../overview/concepts/launch-stages.md) stage, {{ captcha-full-name }} can be used free of charge.
 
-The service will be charged when it reaches the [General Availability](../overview/concepts/launch-stages.md) stage. Prices are listed below.
+The service will be charged when it enters the [General Availability](../overview/concepts/launch-stages.md) stage.
 
 
 ## What will go into the cost of using {{ captcha-full-name }} {#rules}
 
-In {{ captcha-name }}, you're charged for the number of validation requests to the {{ captcha-name }} API.
+You're charged for the number of validation requests to the {{ captcha-name }} API.
 
 
 ## Pricing {#prices}
