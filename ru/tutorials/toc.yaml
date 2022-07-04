@@ -168,7 +168,7 @@ items:
           {{ dataproc-full-name }}
         href: dataplatform/data-proc-init-actions-geesefs.md
         when: product == "yandex-cloud"
-  - name: Windows в Yandex Cloud
+  - name: Windows в {{ yandex-cloud }}
     items:
       - name: Все руководства
         href: windows/index.md

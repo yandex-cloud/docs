@@ -141,7 +141,7 @@ items:
       - name: >-
           Configuring Kafka Connect for Yandex Managed Service for Apache Kafka® clusters
         href: dataplatform/kafka-connect.md
-  - name: Windows in Yandex Cloud
+  - name: Windows in {{ yandex-cloud }}
     items:
       - name: All tutorials
         href: windows/index.md
