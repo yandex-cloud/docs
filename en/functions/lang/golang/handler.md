@@ -274,3 +274,102 @@ Response returned:
 Hello, Anonymous
 ```
 
+### Parsing an HTTP request from API Gateway
+
+The function is invoked by API Gateway service, logs the request method and body, and returns a greeting.
+
+
+#### Necessary structs fro request processing
+
+The function decode request body via `json.Unmarshal()`
+
+ ```golang
+ // The request structure (see https://cloud.yandex.com/docs/functions/concepts/function-invoke#request)
+ // More: https://github.com/aws/aws-lambda-go/blob/main/events/apigw.go
+
+ type APIGatewayRequest struct {
+ 	OperationID string `json:"operationId"`
+ 	Resource    string `json:"resource"`
+
+ 	HTTPMethod string `json:"httpMethod"`
+
+ 	Path           string            `json:"path"`
+ 	PathParameters map[string]string `json:"pathParameters"`
+
+ 	Headers           map[string]string   `json:"headers"`
+ 	MultiValueHeaders map[string][]string `json:"multiValueHeaders"`
+
+ 	QueryStringParameters           map[string]string   `json:"queryStringParameters"`
+ 	MultiValueQueryStringParameters map[string][]string `json:"multiValueQueryStringParameters"`
+
+ 	Parameters           map[string]string   `json:"parameters"`
+ 	MultiValueParameters map[string][]string `json:"multiValueParameters"`
+
+ 	Body            string `json:"body"`
+ 	IsBase64Encoded bool   `json:"isBase64Encoded,omitempty"`
+
+ 	RequestContext interface{} `json:"requestContext"`
+ }
+
+ // APIGatewayResponse represents response to API Gateway v1
+ type APIGatewayResponse struct {
+ 	StatusCode        int                 `json:"statusCode"`
+ 	Headers           map[string]string   `json:"headers"`
+ 	MultiValueHeaders map[string][]string `json:"multiValueHeaders"`
+ 	Body              string              `json:"body"`
+ 	IsBase64Encoded   bool                `json:"isBase64Encoded,omitempty"`
+ }
+ ```
+
+
+ ```golang
+ package main
+
+ import (
+   "context"
+   "encoding/json"
+   "fmt"
+ )
+
+ func Greet(ctx context.Context, event *APIGatewayRequest) (*APIGatewayResponse, error) {
+   // The log will show the name of the HTTP method used to make the request and the request body
+   fmt.Println(requestBody.HttpMethod, event.Body)
+
+   type Request struct {
+     Name string `json:"name"`
+   }
+
+   req := &Request{}
+
+   // The event.Body field is converted to a Request object to get the passed name
+   if err = json.Unmarshal(requestBody.Body, &req); err != nil {
+     return nil, fmt.Errorf("an error has occurred when parsing body: %v", err)
+   }
+
+   // The api gateway response
+   return &APIGatewayResponse{
+     StatusCode: 200,
+     Body: fmt.Sprintf("Hello, %s", req.Name),
+   }, nil
+ }
+ ```
+
+Example of input data (the POST method):
+
+```json
+{
+  "name": "Anonymous"
+}
+```
+
+The log will contain the following:
+
+```
+POST { "name": "Anonymous" }
+```
+
+Response returned:
+
+```
+Hello, Anonymous
+```
