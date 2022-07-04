@@ -29,7 +29,7 @@ items:
         href: operations/cluster-hosts.md
       - name: Работа с топиками и разделами
         href: operations/cluster-topics.md
-      - name: Управление учетными записями Kafka
+      - name: Управление пользователями Apache Kafka®
         href: operations/cluster-accounts.md
       - name: Управление коннекторами
         href: operations/cluster-connector.md

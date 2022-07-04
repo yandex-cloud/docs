@@ -25,7 +25,7 @@
 
 Чтобы подключиться к кластеру {{ KF }}:
 
-1. [Создайте учетные записи](cluster-accounts.md#create-account) для клиентов (производителей и потребителей) с доступами в нужные топики.
+1. [Создайте пользователей](cluster-accounts.md#create-user) для клиентов (производителей и потребителей) с доступами в нужные топики.
 1. Подключите клиентов к кластеру:
    * производителей с помощью [Kafka Producer API](https://kafka.apache.org/documentation/#producerapi);
    * потребителей с помощью [Kafka Consumer API](https://kafka.apache.org/documentation/#consumerapi).

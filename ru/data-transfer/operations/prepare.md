@@ -8,7 +8,7 @@
 
 - {{ mkf-name }}
 
-    [Создайте учетную запись](../../managed-kafka/operations/cluster-accounts.md#create-account) с ролью `ACCESS_ROLE_CONSUMER` на топик-источник.
+    [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с ролью `ACCESS_ROLE_CONSUMER` на топике-источнике.
 
 - {{ KF }}
 
@@ -16,7 +16,7 @@
 
     1. Настройте кластер-источник, чтобы к нему можно было подключиться из {% if audience != "internal" %}интернета{% else %}сети `_YTVANGANETS_`{% endif %}.
 
-    1. [Настройте права доступа](https://kafka.apache.org/documentation/#multitenancy-security) для учетной записи на нужный топик.
+    1. [Настройте права доступа](https://kafka.apache.org/documentation/#multitenancy-security) пользователя к нужному топику.
 
     1. (опционально) Чтобы использовать авторизацию по логину и паролю, [настройте SASL-аутентификацию](https://kafka.apache.org/documentation/#security_sasl).
 

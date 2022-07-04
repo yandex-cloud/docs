@@ -9,7 +9,7 @@
 1. [Создайте кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации. При создании кластера включите опции **Реестр схем данных** и **Публичный доступ**.
 
     1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `messages` для обмена сообщениями между производителем и потребителем.
-    1. [Создайте учетную запись](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ей права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `messages`:
+    1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ему права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `messages`:
         * `ACCESS_ROLE_CONSUMER`,
         * `ACCESS_ROLE_PRODUCER`.
 
@@ -64,7 +64,7 @@
             "ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}",
             "sasl.mechanism": "SCRAM-SHA-512",
             "sasl.username": "user",
-            "sasl.password": "<пароль учетной записи user>",
+            "sasl.password": "<пароль пользователя user>",
             "schema.registry.url": "https://<FQDN или IP-адрес сервера {{ mkf-msr }}>:443",
             "schema.registry.basic.auth.credentials.source": "SASL_INHERIT",
             "auto.offset.reset": "earliest"
@@ -160,7 +160,7 @@
             "ssl.ca.location": '/usr/share/ca-certificates/{{ crt-local-file }}',
             "sasl.mechanism": 'SCRAM-SHA-512',
             "sasl.username": 'user',
-            "sasl.password": '<пароль учетной записи user>',
+            "sasl.password": '<пароль пользователя user>',
             "on_delivery": delivery_report,
             "schema.registry.basic.auth.credentials.source": 'SASL_INHERIT',
             "schema.registry.url": 'https://<FQDN или IP-адрес сервера {{ mkf-msr }}>:443'

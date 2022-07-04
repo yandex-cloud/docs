@@ -19,7 +19,7 @@ description: "Управление доступом в сервисе созда
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-Чтобы разрешить доступ к ресурсам сервиса {{ mkf-name }} (кластеры и хосты, резервные копии кластеров, разделы и топики, учетные записи), назначьте пользователю нужные роли на каталог или облако, в котором содержатся эти ресурсы.
+Чтобы разрешить доступ к ресурсам сервиса {{ mkf-name }} (кластеры и хосты, резервные копии кластеров, разделы и топики, пользователи), назначьте пользователю нужные роли на каталог или облако, в котором содержатся эти ресурсы.
 
 ## Какие роли действуют в сервисе {#roles-list}
 
@@ -38,7 +38,7 @@ description: "Управление доступом в сервисе созда
 Создание кластеров, для которых включен публичный доступ | `create` | Либо `vpc.publicAdmin` вместе с `mdb.admin`, либо `editor` на каталог
 Изменение, удаление кластеров и связанных ресурсов | `update`, `delete` | `mdb.admin` или `editor` на каталог с кластером
 **Управление доступом к ресурсам** | |
-[Создание](../operations/cluster-accounts.md#create-account), [изменение](../operations/cluster-accounts.md#update-account), [удаление](../operations/cluster-accounts.md#delete-account) учетных записей в кластере | `create`, `update`, `delete` | `editor` на каталог с кластером
+[Создание](../operations/cluster-accounts.md#create-user), [изменение](../operations/cluster-accounts.md#update-account), [удаление](../operations/cluster-accounts.md#delete-account) пользователей в кластере | `create`, `update`, `delete` | `editor` на каталог с кластером
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот каталог или облако
 
 ## Что дальше {#whats-next}

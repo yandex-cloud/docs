@@ -17,11 +17,11 @@
 
 1. Подготовьте кластер-приемник:
     * Включите [управление топиками](../managed-kafka/concepts/topics.md#management) через Admin API.
-    * Создайте учетную запись [администратора](../managed-kafka/operations/cluster-accounts.md#create-account) с именем `admin-cloud`.
+    * Создайте [пользователя-администратора](../managed-kafka/operations/cluster-accounts.md#create-account) с именем `admin-cloud`.
     * Включите настройку [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
     * Настройте [группы безопасности](../managed-kafka/operations/connect.md#configuring-security-groups), если это требуется для подключения к кластеру-приемнику.
 
-1. Создайте в кластере-источнике учетную запись `admin-source` с правом управления топиками через Admin API.
+1. Создайте в кластере-источнике пользователя `admin-source` с правом управления топиками через Admin API.
 1. Настройте в кластере-источнике межсетевой экран (firewall), если это требуется для подключения извне к кластеру.
 
 ### Создайте коннектор {#create-connector}
@@ -32,7 +32,7 @@
 * В блоке **Кластер-источник** укажите параметры для подключения к кластеру-источнику:
   * **Псевдоним** — префикс для обозначения кластера-источника в настройках коннектора. По умолчанию `source`. Топики в кластере-приемнике будут созданы с указанным префиксом.  
   * **Бутстрап-серверы** — список FQDN хостов-брокеров кластера-источника с номерами портов для подключения, разделенный запятыми.
-  * **SASL имя пользователя**, **SASL пароль** — имя и пароль созданной ранее учетной записи `admin-source`.
+  * **SASL имя пользователя**, **SASL пароль** — имя и пароль созданного ранее пользователя `admin-source`.
   * **SASL механизм** — механизм шифрования имени и пароля `SCRAM-SHA-512`.
   * **Протокол безопасности** — выберите протокол подключения коннектора:
     * `SASL_PLAINTEXT` — если к кластеру-источнику подключаются без SSL;
@@ -65,7 +65,7 @@
     1. [Создайте кластер-приемник {{ mkf-name }}](../managed-kafka/operations/cluster-create.md):
 
         * С включенным [управлением топиками](../managed-kafka/concepts/topics#management) через Admin API.
-        * С учетной записью [администратора](../managed-kafka/operations/cluster-accounts.md#create-account) с именем `admin-cloud`.
+        * С [пользователем-администратором](../managed-kafka/operations/cluster-accounts.md#create-account) `admin-cloud`.
         * С включенной настройкой [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
 
     1. {% if audience != "internal" %}[Создайте новую ВМ Linux](../compute/operations/vm-create/create-linux-vm.md){% else %}Создайте новую ВМ Linux{% endif %} для MirrorMaker в той же сети, к которой подключен кластер-приемник. Для подключения к виртуальной машине с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ при ее создании.
@@ -81,12 +81,12 @@
         * сеть;
         * подсеть;
         * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру и виртуальной машине из интернета;
-        * кластер {{ mkf-name }} с включенным [управлением топиками](../managed-kafka/concepts/topics#management) через Admin API, с учетной записью [администратора](../managed-kafka/operations/cluster-accounts.md#create-account) `admin-cloud` и с включенной настройкой [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics);
+        * кластер {{ mkf-name }} с включенным [управлением топиками](../managed-kafka/concepts/topics#management) через Admin API, с [пользователем-администратором](../managed-kafka/operations/cluster-accounts.md#create-account) `admin-cloud` и с включенной настройкой [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics);
         * виртуальная машина с публичным доступом из интернета.
 
     1. Укажите в файле `kafka-mirror-maker.tf`:
 
-        * Пароль учетной записи администратора {{ mkf-name }}.
+        * Пароль пользователя-администратора {{ mkf-name }}.
         * Идентификатор публичного {% if audience != "internal" %}[образа](../compute/operations/images-with-pre-installed-software/get-list){% else %}образа{% endif %} с Ubuntu без GPU. Например, для [Ubuntu 20.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}.
         * Логин и путь к файлу {% if audience != "internal" %}[открытого ключа](../compute/operations/vm-connect/ssh.md#creating-ssh-keys){% else %}открытого ключа{% endif %}, которые будут использоваться для доступа к виртуальной машине. По умолчанию в используемом образе указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
 
@@ -109,7 +109,7 @@
 
 #### Выполните дополнительные настройки {#additional-settings}
 
-1. Создайте в кластере-источнике учетную запись `admin-source` с правом управления топиками через Admin API.
+1. Создайте в кластере-источнике пользователя `admin-source` с правом управления топиками через Admin API.
 
 1. {% if audience != "internal" %}[Подключитесь к виртуальной машине по SSH](../compute/operations/vm-connect/ssh.md){% else %}Подключитесь к виртуальной машине по SSH{% endif %}.
 

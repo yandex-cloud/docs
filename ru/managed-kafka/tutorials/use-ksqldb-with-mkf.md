@@ -37,7 +37,7 @@ ksqlDB — это база данных, которая предназначен
    1. Служебный топик `default_ksql_processing_log`. Настройки топика могут быть любыми.
    1. Топик для хранения данных `locations`. Настройки топика могут быть любыми.
 
-1. [Создайте учетную запись](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `ksql` и назначьте ей роли производителя и потребителя для всех созданных ранее топиков.
+1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-user) с именем `ksql` и назначьте ему роли `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER` для всех созданных ранее топиков.
 
 1. Убедитесь, что вы можете подключиться к серверу ksqlDB.
 
@@ -65,7 +65,7 @@ ksqlDB — это база данных, которая предназначен
    security.protocol=SASL_SSL
    ssl.truststore.location=/etc/ksqldb/ssl
    ssl.truststore.password=<пароль хранилища сертификатов>
-   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="ksql" password="<пароль учетной записи ksql>";
+   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="ksql" password="<пароль пользователя ksql>";
    ```
 
    FQDN брокеров можно запросить со [списком хостов в кластере](../operations/cluster-hosts.md#list-hosts), имя кластера — со [списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
@@ -121,7 +121,7 @@ ksqlDB — это база данных, которая предназначен
    );
    ``` 
 
-   Эта потоковая таблица будет автоматически наполняться сообщениями из топика `locations` кластера {{ mkf-name }}. Для чтения сообщений ksqlDB использует [настройки](#configure-ksqldb-for-kf) учетной записи `ksql`.
+   Эта потоковая таблица будет автоматически наполняться сообщениями из топика `locations` кластера {{ mkf-name }}. Для чтения сообщений ksqlDB использует [настройки](#configure-ksqldb-for-kf) пользователя `ksql`.
 
    Подробнее о создании потоковой таблицы на движке ksqlDB см. в [документации ksqlDB](https://www.confluent.io/blog/how-real-time-stream-processing-works-with-ksqldb).
 
@@ -169,11 +169,11 @@ ksqlDB — это база данных, которая предназначен
       -X security.protocol=SASL_SSL \
       -X sasl.mechanisms=SCRAM-SHA-512 \
       -X sasl.username=ksql \
-      -X sasl.password="<пароль учетной записи ksql>" \
+      -X sasl.password="<пароль пользователя ksql>" \
       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
    ```
 
-   Информация отправляется с помощью учетной записи `ksql`. Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../operations/connect.md).
+   Информация отправляется с помощью пользователя `ksql`. Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../operations/connect.md).
 
 1. Убедитесь, что в [сессии](#create-kf-table) отобразились данные, которые были отправлены в топик:
 
@@ -185,7 +185,7 @@ ksqlDB — это база данных, которая предназначен
    |4a7c7b41                  |37.4049                   |-122.0822               |
    ```
 
-  Данные считываются с помощью учетной записи `ksql`.
+  Данные считываются с помощью пользователя `ksql`.
 
 ## Запишите тестовые данные в ksqlDB {#insert-data-to-ksqldb}
 
@@ -204,12 +204,12 @@ ksqlDB — это база данных, которая предназначен
    INSERT INTO riderLocations (profileId, latitude, longitude) VALUES ('4ddad000', 37.7857, -122.4011);
    ```
 
-   Эти данные синхронно отправляются в топик {{ KF }} `locations` с помощью учетной записи `ksql`.
+   Эти данные синхронно отправляются в топик {{ KF }} `locations` с помощью пользователя `ksql`.
 
 ## Проверьте наличие тестовых данных в топике {{ KF }} {#fetch-data-from-kf}
 
 1. Подключитесь к серверу ksqlDB.
-1. Проверьте сообщения в топике `locations` кластера {{ mkf-name }} с помощью `kafkacat` и учетной записи `ksql`:
+1. Проверьте сообщения в топике `locations` кластера {{ mkf-name }} с помощью `kafkacat` и пользователя `ksql`:
 
    ```bash
    kafkacat -C  \
@@ -218,7 +218,7 @@ ksqlDB — это база данных, которая предназначен
     -X security.protocol=SASL_SSL \
     -X sasl.mechanisms=SCRAM-SHA-512 \
     -X sasl.username=ksql \
-    -X sasl.password="<пароль учетной записи ksql>" \
+    -X sasl.password="<пароль пользователя ksql>" \
     -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:   
    ```
 
