@@ -29,7 +29,7 @@ description:
         Message Queue is a universal, scalable solution to enable messaging
         between applications. You can use
         popular tools to work with the service: the service API is compatible with the Amazon SQS API.
-      - 'Yandex Message Queue helps you:'
+      - 'Message Queue helps you:'
       - >-
         <ul><li>Enable communication between individual applications in your
         system.</li> <li>Scale a system relying on data
