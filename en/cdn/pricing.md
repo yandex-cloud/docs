@@ -9,12 +9,6 @@ The cost of using {{ cdn-full-name }} is based on:
 
 * Paid features enabled for resources, such as [origin shielding](concepts/origins-shielding.md) and [log export](concepts/logs.md).
 
-  {% note info %}
-
-  You will be billed for using paid functions starting October 1, 2021.
-
-  {% endnote %}
-
 ## Pricing {#prices}
 
 ### Outgoing traffic {#traffic}
