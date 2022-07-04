@@ -43,6 +43,8 @@ items:
         href: operations/cluster-delete.md
   - name: Практические руководства
     items:
+      - name: Все сценарии
+        href: tutorials/index.md
       - name: Хранение сессий PHP в Managed Service for Redis
         href: tutorials/redis-as-php-sessions-storage.md
       - name: Миграция базы данных в Managed Service for Redis

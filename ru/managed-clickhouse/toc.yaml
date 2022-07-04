@@ -64,6 +64,8 @@ items:
         href: operations/monitoring.md
   - name: Практические руководства
     items:
+      - name: Все сценарии
+        href: tutorials/index.md
       - name: Добавление данных в БД
         href: operations/insert.md
       - name: Миграция данных ClickHouse
