@@ -266,3 +266,109 @@ POST { "name": "Anonymous" }
 ```
 Hello, Anonymous
 ```
+
+
+### Разбор HTTP-запроса за API Gateway
+
+Функция вызывается сервисом API Gateway с сервисным аккаунт, записывает в журнал метод и тело запроса и возвращает приветствие.
+
+#### Необходимые структуры для обраблотки запроса
+
+Функция сама декодирует тело входящего запроса при помощи `json.Unmarshal()`
+
+```golang
+// Структура запроса API Gateway v1 (см. https://cloud.yandex.ru/docs/functions/concepts/function-invoke#request)
+// Также https://github.com/aws/aws-lambda-go/blob/main/events/apigw.go
+type APIGatewayRequest struct {
+	OperationID string `json:"operationId"`
+	Resource    string `json:"resource"`
+
+	HTTPMethod string `json:"httpMethod"`
+
+	Path           string `json:"path"`
+	PathParameters Record `json:"pathParameters"`
+
+	Headers           Record           `json:"headers"`
+	MultiValueHeaders MultiValueRecord `json:"multiValueHeaders"`
+
+	QueryStringParameters           Record           `json:"queryStringParameters"`
+	MultiValueQueryStringParameters MultiValueRecord `json:"multiValueQueryStringParameters"`
+
+	Parameters           Record           `json:"parameters"`
+	MultiValueParameters MultiValueRecord `json:"multiValueParameters"`
+
+	Body            string `json:"body"`
+	IsBase64Encoded bool   `json:"isBase64Encoded,omitempty"`
+
+	RequestContext interface{} `json:"requestContext"`
+}
+
+// Структура ответа API Gateway v1
+type APIGatewayResponse struct {
+	StatusCode        int              `json:"statusCode"`
+	Headers           Record           `json:"headers"`
+	MultiValueHeaders MultiValueRecord `json:"multiValueHeaders"`
+	Body              string           `json:"body"`
+	IsBase64Encoded   bool             `json:"isBase64Encoded,omitempty"`
+}
+```
+
+
+```golang
+package main
+
+import (
+  "context"
+  "encoding/json"
+  "fmt"
+)
+
+func Greet(ctx context.Context, event *APIGatewayRequest) (*APIGatewayResponse, error) {
+  // В журнале будет напечатано название HTTP-метода, с помощью которого осуществлен запрос, а также тело запроса
+  fmt.Println(requestBody.HttpMethod, event.Body)
+
+  type Request struct {
+    Name string `json:"name"`
+  }
+
+  req := &Request{}
+
+  // Поле event.Body запроса преобразуется в объект типа Request для получения переданного имени
+  if err = json.Unmarshal(requestBody.Body, &req); err != nil {
+    return nil, fmt.Errorf("an error has occurred when parsing body: %v", err)
+  }
+
+  // Тело ответа.
+  return &APIGatewayResponse{
+    StatusCode: 200,
+    Body: fmt.Sprintf("Hello, %s", req.Name),
+  }, nil
+}
+```
+
+
+{% note warning %}
+
+Запрос необходимо отправить на endpoint API Gateway.
+
+{% endnote %}
+
+Пример входных данных (метод POST):
+
+```json
+{
+  "name": "Anonymous"
+}
+```
+
+В журнале будет напечатано:
+```
+POST { "name": "Anonymous" }
+```
+
+Возвращаемый ответ:
+```
+Hello, Anonymous
+```
+
+
