@@ -1,6 +1,38 @@
 # Релизы YC CLI
 
-## Версия 0.91.0 (12.05.22) {#latest-release}
+## Версия 0.92.0 (05.06.22) {#latest-release}
+
+### Изменения в CLI {#cli}
+
+* Исправлена ошибка запуска `yc` при передаче большого количества аргументов.
+ 
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+#### {{ certificate-manager-name }} {#certificate-manager}
+
+* В команду `yc certificate-manager certificate create` добавлен флаг `--deletion-protection`, который включает защиту сертификата от удаления.
+
+* В команду `yc certificate-manager certificate request` добавлен флаг `--deletion-protection`, который включает защиту сертификата от удаления.
+
+* В команду `yc certificate-manager certificate update` добавлены флаги, которые включают и отключают защиту сертификата от удаления: `--deletion-protection` и `--no-deletion-protection`.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mrd-name }}**
+
+* В группу команд `yc managed-redis cluster` для `create`, `restore`, `update` добавлены флаги `--client-output-buffer-limit-normal` и `--client-output-buffer-limit-pubsub` (см. описание в redis.conf). 
+
+**{{ mgp-name }}**
+
+Добавлены команды первичной поддержки сервиса {{ mgp-name }}:
+* Группа команд `yc managed-greenplum cluster` позволяет управлять кластерами.
+* Группа команд `yc managed-greenplum hosts` позволяет управлять хостами.
+
+**{{ mms-name }}**
+
+* Добавлена команда `yc managed-sqlserver hosts update <HOST> --assign-public-ip=true|false`, которая привязывает или удаляет публичный IP-адрес хоста.
+
+## Версия 0.91.0 (12.05.22){#version0.91.0}
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -68,7 +100,7 @@
 
 ## Предыдущие релизы {#previous-releases}
 
-### Версия 0.90.0 (13.04.22)
+### Версия 0.90.0 (13.04.22) {#version0.90.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 

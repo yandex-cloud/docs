@@ -157,13 +157,15 @@ items:
           Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз
           данных из других облачных сетей
         href: dataplatform/mdb-dns-peering.md
+      - name: Перенос базы данных в {{ mrd-full-name }}
+        href: dataplatform/redis-data-migration.md
       - name: Миграция в {{ mes-full-name }} с помощью Reindex API
         href: dataplatform/migration-via-reindex-api.md
       - name: >-
           Использование скриптов инициализации для настройки GeeseFS в {{
           dataproc-full-name }}
         href: dataplatform/data-proc-init-actions-geesefs.md
-  - name: Windows в Yandex Cloud
+  - name: Windows в {{ yandex-cloud }}
     items:
       - name: Все руководства
         href: windows/index.md

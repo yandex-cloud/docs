@@ -2,6 +2,8 @@
 
 {% include [What is the Sqoop](./header.md) %}
 
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
 ## Перед началом работы {#before-you-begin}
 
 {% note info %}

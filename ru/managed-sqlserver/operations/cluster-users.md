@@ -135,7 +135,7 @@
 
       {% include [username-and-password-limits](../../_includes/mdb/mms/note-info-user-name-and-pass-limits.md) %}
 
-  * Одну или несколько баз данных, к которым должен иметь доступ пользователь в одном или нескольких параметрах `userSpec.permissions.databaseName`.
+  * Одну или несколько баз данных, к которым должен иметь доступ пользователь, в одном или нескольких параметрах `userSpec.permissions.databaseName`.
   * [Роли пользователя](grant.md#predefined-db-roles) для каждой из выбранных баз данных в одном или нескольких параметрах `userSpec.permissions.roles`.
 
 {% endlist %}

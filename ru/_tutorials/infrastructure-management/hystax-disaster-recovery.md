@@ -34,7 +34,7 @@
 {% note info %}
 
 Обратите внимание, что оплачиваться и учитываться в [квотах]({{ link-console-quotas }}) будут как инфраструктура для Hystax Acura, так и все восстановленные ВМ.
-* ВМ для Hystax Acura Disaster Recovery использует 4 ядра vCPU, 8 ГБ памяти и диск на 80 ГБ.
+* ВМ для Hystax Acura Disaster Recovery использует 8 ядер vCPU, 16 ГБ памяти и диск на 200 ГБ.
 * Вспомогательные ВМ Hystax Cloud Agent используют 2 ядра vCPU, 4 ГБ памяти и диск на 10 ГБ. Одна ВМ Hystax Cloud Agent может одновременно обслуживать до 6 реплицируемых дисков. В случае, если дисков больше 6, автоматически будут созданы дополнительные ВМ Hystax Cloud Agent.
 
 {% endnote %}
@@ -105,12 +105,12 @@
       * Нажмите кнопку **Посмотреть больше**.
       * В списке публичных образов выберите [Hystax Acura Disaster Recovery to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-disaster-recovery) и нажмите кнопку **Использовать**.
 
-   1. В блоке **Диски** укажите размер диска 80 ГБ.
+   1. В блоке **Диски** укажите размер диска 200 ГБ.
 
       1. В блоке **Файловые хранилища** оставьте значения по умолчанию.
   1. В блоке **Вычислительные ресурсы** укажите:
-     * vCPU — 4.
-     * RAM — 8 ГБ.
+     * vCPU — 8.
+     * RAM — 16 ГБ.
   1. В блоке **Сетевые настройки**:
      * Выберите в списке облачную сеть и [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, нажмите кнопку **Добавить подсеть** и создайте ее.
 
@@ -135,10 +135,10 @@
    yc compute instance create \
      --name hystax-acura-vm \
      --zone <зона доступности> \
-     --cores 4 \
-     --memory 8 \
+     --cores 8 \
+     --memory 16 \
      --network-interface subnet-id=<идентификатор подсети>,nat-ip-version=ipv4,security-group-ids=<идентификатор группы безопасности, если группа была настроена ранее> \
-     --create-boot-disk name=hystax-acura-disk,size=80,image-id=<идентификатор образа Hystax Acura> \
+     --create-boot-disk name=hystax-acura-disk,size=200,image-id=<идентификатор образа Hystax Acura> \
      --service-account-id <идентификатор сервисного аккаунта> \
      --ssh-key ~/.ssh/id_rsa.pub
      ```

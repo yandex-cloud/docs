@@ -44,21 +44,40 @@
   +--------------+
   ```
 
+- API
+
+    Воспользуйтесь методом API [listShards](../api-ref/Cluster/listShards.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
+
+    Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
+
 {% endlist %}
 
 ## Получить детальную информацию о шарде {#get}
 
-{% include [cli-install](../../_includes/cli-install.md) %}
+{% list tabs %}
 
-{% include [default-catalogue](../../_includes/default-catalogue.md) %}
+- CLI
 
-Чтобы получить информацию о шарде, выполните команду:
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-```
-{{ yc-mdb-rd }} shards get <имя шарда> --cluster-name <имя кластера>
-```
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
+    Чтобы получить информацию о шарде, выполните команду:
+
+    ```bash
+    {{ yc-mdb-rd }} shards get <имя шарда> --cluster-name <имя кластера>
+    ```
+
+- API
+
+    Воспользуйтесь методом API [getShard](../api-ref/Cluster/getShard.md) и передайте в запросе:
+    
+    * Идентификатор кластера в параметре `clusterId`.
+    * Имя нужного шарда в параметре `shardName`.
+
+{% endlist %}
+
+Имя шарда можно запросить со [списком шардов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md).
 
 ## Добавить шард {#add}
 
@@ -86,10 +105,10 @@
 
   Чтобы добавить шард c двумя хостами в кластер:
 
-  ```
-  yc managed-redis shards add --name <имя нового шарда> --cluster-name <имя кластера> \
-    --host zone-id=<зона доступности>,subnet-name=<имя подсети> \
-    --host zone-id=<зона доступности>,subnet-name=<имя подсети>
+  ```bash
+  {{ yc-mdb-rd }} shards add --name <имя нового шарда> --cluster-name <имя кластера> \
+     --host zone-id=<зона доступности>,subnet-name=<имя подсети> \
+     --host zone-id=<зона доступности>,subnet-name=<имя подсети>
   ```
 
 - Terraform
@@ -123,6 +142,16 @@
 
     {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
+- API
+
+    Воспользуйтесь методом API [addShard](../api-ref/Cluster/addShard.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`.
+    * Имя шарда в параметре `shardName`.
+    * Конфигурацию хоста для шарда в массиве параметров `hostSpecs`.
+
+    Имя шарда можно запросить со [списком шардов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md).
+
 {% endlist %}
 
 Чтобы получить возможность размещать данные в новом шарде, запустите [ребалансировку кластера](#rebalance-cluster) {{ mrd-name }}.
@@ -153,7 +182,7 @@
 
   Чтобы удалить шард из кластера, выполните команду:
 
-  ```
+  ```bash
   {{ yc-mdb-rd }} shards delete <имя шарда> \
      --cluster-name=<имя кластера>
   ```
@@ -179,6 +208,15 @@
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
+
+- API
+
+    Воспользуйтесь методом API [deleteShard](../api-ref/Cluster/deleteShard.md) и передайте в запросе:
+    
+    * Идентификатор кластера в параметре `clusterId`.
+    * Имя удаляемого шарда в параметре `shardName`.
+
+    Имя шарда можно запросить со [списком шардов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md).
 
 {% endlist %}
 

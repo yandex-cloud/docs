@@ -30,8 +30,8 @@
 1. [Установите и настройте Confluent Schema Registry на виртуальной машине](#configure-vm).
 1. [Создайте скрипты производителя и потребителя](#create-scripts).
 1. [Проверьте правильность работы Confluent Schema Registry](#check-schema-registry).
-1. [Удалите созданные ресурсы](#clear-out).
 
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
 

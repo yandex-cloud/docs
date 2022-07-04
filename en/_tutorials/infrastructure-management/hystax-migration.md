@@ -25,7 +25,7 @@ If you no longer need the created resources, [delete them](#clear-out).
 {% note info %}
 
 Please note that the infrastructure for Hystax Acura and Hystax Acura Cloud Agent, as well as all migrated VMs, consume [quotas]({{ link-console-quotas }}) and require payment.
-* A Hystax Acura VM uses 8 vCPUs, 16 GB of RAM, and a 100 GB disk.
+* A Hystax Acura VM uses 8 vCPUs, 16 GB of RAM, and a 200 GB disk.
 * A Hystax Acura Cloud Agent VM uses 2 vCPUs, 4 GB of RAM, and an 8 GB disk.
 
 {% endnote %}
@@ -78,7 +78,7 @@ Create a VM with a boot disk from an [Hystax Acura Live Migration to {{ yandex-c
     --cores 8 \
     --memory 16 \
     --network-interface subnet-id=<subnet ID>,nat-ip-version=ipv4 \
-    --create-boot-disk name=hystax-acura-disk,size=100,image-id=<Hystax Acura image ID> \
+    --create-boot-disk name=hystax-acura-disk,size=200,image-id=<Hystax Acura image ID> \
     --service-account-id <service account ID> \
     --ssh-key ~/.ssh/id_rsa.pub
   ```

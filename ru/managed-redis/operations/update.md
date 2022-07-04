@@ -95,7 +95,7 @@
 
 - API
 
-  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметрах `name` и `description`.
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе нужные значения в параметрах `name` и `description`.
 
 {% endlist %}
 
@@ -337,7 +337,7 @@
 
 - API
 
-  Изменить настройки СУБД для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.redisConfig_5_0`.
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе нужные значения в параметре `configSpec.redisConfig_5_0`.
 
 {% endlist %}
 
@@ -393,6 +393,19 @@
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+* API
+
+    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
+    * Настройки защиты от удаления кластера в параметре `deletionProtection`.
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+    * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
+
+    {% include [note-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 
