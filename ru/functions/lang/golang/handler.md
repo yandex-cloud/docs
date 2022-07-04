@@ -279,23 +279,24 @@ Hello, Anonymous
 ```golang
 // Структура запроса API Gateway v1 (см. https://cloud.yandex.ru/docs/functions/concepts/function-invoke#request)
 // Также https://github.com/aws/aws-lambda-go/blob/main/events/apigw.go
+
 type APIGatewayRequest struct {
 	OperationID string `json:"operationId"`
 	Resource    string `json:"resource"`
 
 	HTTPMethod string `json:"httpMethod"`
 
-	Path           string `json:"path"`
-	PathParameters Record `json:"pathParameters"`
+	Path           string            `json:"path"`
+	PathParameters map[string]string `json:"pathParameters"`
 
-	Headers           Record           `json:"headers"`
-	MultiValueHeaders MultiValueRecord `json:"multiValueHeaders"`
+	Headers           map[string]string   `json:"headers"`
+	MultiValueHeaders map[string][]string `json:"multiValueHeaders"`
 
-	QueryStringParameters           Record           `json:"queryStringParameters"`
-	MultiValueQueryStringParameters MultiValueRecord `json:"multiValueQueryStringParameters"`
+	QueryStringParameters           map[string]string   `json:"queryStringParameters"`
+	MultiValueQueryStringParameters map[string][]string `json:"multiValueQueryStringParameters"`
 
-	Parameters           Record           `json:"parameters"`
-	MultiValueParameters MultiValueRecord `json:"multiValueParameters"`
+	Parameters           map[string]string   `json:"parameters"`
+	MultiValueParameters map[string][]string `json:"multiValueParameters"`
 
 	Body            string `json:"body"`
 	IsBase64Encoded bool   `json:"isBase64Encoded,omitempty"`
@@ -305,11 +306,11 @@ type APIGatewayRequest struct {
 
 // Структура ответа API Gateway v1
 type APIGatewayResponse struct {
-	StatusCode        int              `json:"statusCode"`
-	Headers           Record           `json:"headers"`
-	MultiValueHeaders MultiValueRecord `json:"multiValueHeaders"`
-	Body              string           `json:"body"`
-	IsBase64Encoded   bool             `json:"isBase64Encoded,omitempty"`
+	StatusCode        int                 `json:"statusCode"`
+	Headers           map[string]string   `json:"headers"`
+	MultiValueHeaders map[string][]string `json:"multiValueHeaders"`
+	Body              string              `json:"body"`
+	IsBase64Encoded   bool                `json:"isBase64Encoded,omitempty"`
 }
 ```
 
