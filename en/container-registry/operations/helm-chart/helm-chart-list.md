@@ -8,11 +8,11 @@ You can get a list of [Helm charts](https://helm.sh/docs/topics/charts/) in a {{
 
 - CLI
 
-   To view a Helm chart list locally, run the command below:
+  To view a Helm chart list locally, run the command below:
 
-   ```bash
-   helm repo list
-   ```
+  ```bash
+  helm repo list
+  ```
 
 {% endlist %}
 
@@ -22,10 +22,10 @@ You can get a list of [Helm charts](https://helm.sh/docs/topics/charts/) in a {{
 
 - CLI
 
-   To view a list of the Helm charts uploaded to {{ container-registry-name }}, run the command you would use to [view](../docker-image/docker-image-list.md#docker-image-list) a list of Docker images:
+  To view a list of the Helm charts uploaded to {{ container-registry-name }}, run the command you would use to [view](../docker-image/docker-image-list.md#docker-image-list) a list of Docker images:
 
-   ```bash
-   yc container image list
-   ```
+  ```bash
+  yc container image list
+  ```
 
 {% endlist %}

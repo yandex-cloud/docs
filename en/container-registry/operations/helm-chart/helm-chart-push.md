@@ -14,84 +14,84 @@ To push a Helm chart:
 
 - CLI
 
-   1. [Install](https://helm.sh/ru/docs/intro/install/) the Helm client version 3.7.1 or higher.
-   1. Enable [Open Container Initiative](https://opencontainers.org/) support in the Helm client:
+  1. [Install]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %} Helm client, version 3.
+  1. Enable [Open Container Initiative](https://opencontainers.org/) support in the Helm client:
 
-      ```bash
-      export HELM_EXPERIMENTAL_OCI=1
-      ```
+     ```bash
+     export HELM_EXPERIMENTAL_OCI=1
+     ```
 
-   {% if product == "yandex-cloud" %}
+  {% if product == "yandex-cloud" %}
 
-   1. Authenticate your Helm client in the {{ container-registry-name }} registry using one of the available methods.
-      * With an OAuth token:
-         1. If you don't have an OAuth token, get one by following this [link]({{ link-cloud-oauth }}).
-         1. Run the command:
+  1. Authenticate your Helm client in the {{ container-registry-name }} registry using one of the available methods.
+     * With an OAuth token:
+       1. If you don't have an OAuth token, get one by following this [link]({{ link-cloud-oauth }}).
+       1. Run the command:
 
-            ```bash
-            helm registry login {{ registry }} -u oauth
-            Password: <OAuth token>
-            ```
+          ```bash
+          helm registry login {{ registry }} -u oauth
+          Password: <OAuth token>
+          ```
 
-      * Using an IAM token:
-         1. [Get an IAM token](../../../iam/operations/iam-token/create.md).
-         1. Run the command:
+     * Using an IAM token:
+       1. [Get an IAM token](../../../iam/operations/iam-token/create.md).
+       1. Run the command:
 
-            ```bash
-            helm registry login {{ registry }} -u iam
-            Password: <IAM token>
-            ```
+          ```bash
+          helm registry login {{ registry }} -u iam
+          Password: <IAM token>
+          ```
 
-      The output of any command:
+     The output of any command:
 
-      ```bash
-      Login succeeded
-      ```
+     ```bash
+     Login succeeded
+     ```
 
-   {% endif %}
+  {% endif %}
 
-   {% if product == "cloud-il" %}
+  {% if product == "cloud-il" %}
 
-   1. Authenticate your Helm client in the {{ container-registry-name }} registry using an IAM token:
-      1. [Get an IAM token](../../../iam/operations/iam-token/create-for-federation.md).
-      1. Run the command:
+  1. Authenticate your Helm client in the {{ container-registry-name }} registry using an IAM token:
+     1. [Get an IAM token](../../../iam/operations/iam-token/create-for-federation.md).
+     1. Run the command:
 
-         ```bash
-         helm registry login {{ registry }} -u iam
-         Password: <IAM token>
-         ```
+        ```bash
+        helm registry login {{ registry }} -u iam
+        Password: <IAM token>
+        ```
 
-         Command output:
+        Command output:
 
-         ```bash
-         Login succeeded
-         ```
+        ```bash
+        Login succeeded
+        ```
 
-   {% endif %}
+  {% endif %}
 
-   1. Save the Helm chart locally:
+  1. Save the Helm chart locally:
 
-      ```bash
-      helm package . --version <Helm chart version>
-      ```
+     ```bash
+     helm package . --version <Helm chart version>
+     ```
 
-      Command output:
+     Command output:
 
-      ```bash
-      Successfully packaged chart and saved it to: /<path>/<Helm chart name>-<version>.tgz
-      ```
+     ```bash
+     Successfully packaged chart and saved it to: /<path>/<Helm chart name>-<version>.tgz
+     ```
 
-   1. Push the Helm chart to {{ container-registry-name }}:
+  1. Push the Helm chart to {{ container-registry-name }}:
 
-      ```bash
-      helm push <Helm chart name>-<version>.tgz oci://{{ registry }}/<registry ID>
-      ```
+     ```bash
+     helm push <Helm chart name>-<version>.tgz oci://{{ registry }}/<registry ID>
+     ```
 
-      Command output:
+     Command output:
 
-      ```bash
-      Pushed: {{ registry }}/<registry ID>/<Helm chart name>:<version>
-      Digest: <SHA256...>
-      ```
+     ```bash
+     Pushed: {{ registry }}/<registry ID>/<Helm chart name>:<version>
+     Digest: <SHA256...>
+     ```
 
 {% endlist %}

@@ -3,7 +3,7 @@
 [Jaeger](https://www.jaegertracing.io/) — платформа для распределенной трассировки с открытым исходным кодом. Jaeger позволяет выполнять мониторинг состояния запросов и отладку после сбоев в распределенных системах микросервисных приложений.
 
 В качестве хранилища данных Jaeger может использовать:
-* [{{ ydb-full-name }}](../../../maanged-ydb/) при установке через [{{ marketplace-full-name }}](/marketplace).
+* [{{ ydb-full-name }}](../../../ydb/) при установке через [{{ marketplace-full-name }}](/marketplace).
 * [Другие системы хранения данных](https://github.com/jaegertracing/helm-charts/tree/main/charts/jaeger#storage) при установке через Helm-чарт.
 
 ## Установка с помощью {{ marketplace-name }} {#marketplace-install}
@@ -98,7 +98,7 @@
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
-1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. Установите менеджер пакетов {{ k8s }} [Нelm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %}.
 1. Добавьте репозиторий `jaegertracing`:

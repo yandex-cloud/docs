@@ -11,9 +11,9 @@ The main entity in the service is the _{{ k8s }} cluster_.
 
 ## {{ k8s }} cluster {#kubernetes-cluster}
 
-{{ k8s }} clusters consist of a master and one or more node groups. The master is responsible for managing the cluster. Containerized user applications are run on nodes.
+{{ k8s }} clusters consist of a master and one or more node groups. The master is responsible for managing the {{ k8s }} cluster. Containerized user applications are run on nodes.
 
-The service fully controls the master and monitors the status and health of node groups. Users can manage nodes directly and configure clusters using the {{ yandex-cloud }} management console and the {{ managed-k8s-name }} CLI and API.
+The service fully controls the master and monitors the status and health of node groups. Users can manage nodes directly and configure {{ k8s }} clusters using the {{ yandex-cloud }} management console and the {{ managed-k8s-name }} CLI and API.
 
 {% note warning %}
 
@@ -22,13 +22,13 @@ Groups of {{ k8s }} nodes require internet access for downloading images and com
 Internet access can be provided in the following ways:
 * By assigning each node in the group a [public IP address](../../vpc/concepts/address.md#public-addresses).
 * [Configuring a virtual machine as a NAT instance](../../tutorials/routing/nat-instance.md).
-* [Enabling NAT to the internet](../../vpc/operations/enable-nat.md).
+* [Enabling egress NAT](../../vpc/operations/enable-nat.md).
 
 {% endnote %}
 
 {{ k8s }} clusters in the {{ yandex-cloud }} infrastructure use the following resources:
 
-Resource | Amount | Comments
+Resource | Amount | Comment
 --- | --- | ---
 Subnet | 2 | {{ k8s }} reserves ranges of IP addresses to use for pods and services.
 Public IP | N | The number N includes:<br>* **One** public IP address for the NAT instance.<br>* A public IP address assigned to **each** node in the group if you use one-to-one NAT technology.
@@ -61,7 +61,7 @@ There are two types of masters that differ by their location in [availability zo
 
 ## Node group {#node-group}
 
-_A node group_ is a group of VMs in a {{ k8s }} cluster that have the same configuration and run the user's containers.
+A _node group_ is a group of VMs in a {{ k8s }} cluster that have the same configuration and run the user's containers.
 
 ### Configuration {#config}
 
@@ -69,7 +69,7 @@ When you create a group of nodes, you can configure the following VM parameters:
 * VM type.
 * Type and number of cores (vCPU).
 * Amount of memory (RAM) and disk space.
-* Kernel parameters:
+* Kernel parameters.
   * _Safe_ kernel parameters are isolated between pods.
   * _Unsafe_ parameters affect the operation of the pods and the node as a whole. In {{ managed-k8s-name }}, you can't change unsafe kernel parameters unless their names have been explicitly specified when [creating the node group](../operations/node-group/node-group-create.md).
 
@@ -77,7 +77,7 @@ When you create a group of nodes, you can configure the following VM parameters:
 
 {% if product == "yandex-cloud" %}
 
-You can create groups with different configurations in a {{ k8s }} cluster and place them in different [availability zones](../../overview/concepts/geo-scope.md).
+You can create groups with different configurations in a {{ k8s }} cluster and place them in different availability zones.
 
 {% endif %}
 
@@ -140,30 +140,30 @@ For more information about taints and tolerations, see the [documentation {{ k8s
 
 ## Pod {#pod}
 
-_A pod_ is a request to run one or more containers on a group node. In a {{ k8s }} cluster, each pod has a unique IP address so that applications do not conflict when using ports.
+A _pod_ is a request to run one or more containers on a group node. In a {{ k8s }} cluster, each pod has a unique IP address so that applications do not conflict when using ports.
 
 Containers are described in pods via JSON or YAML objects.
 
 ### IP masquerade for pods {#pod-ip-masquerade}
 
-If a pod needs access to resources outside the {{k8s}} cluster, its IP address will be replaced by the IP address of the node the pod is running on. For this, the cluster uses [IP masquerade](https://kubernetes.io/docs/tasks/administer-cluster/ip-masq-agent/).
+If a pod needs access to resources outside the {{ k8s }} cluster, its IP address will be replaced by the IP address of the node the pod is running on. For this purpose, the cluster uses [IP masquerading](https://kubernetes.io/docs/tasks/administer-cluster/ip-masq-agent/).
 
 By default, IP masquerade is enabled for the entire range of pod IP addresses.
 
-To implement IP masquerade, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerade, for example, to access pods over a VPN{% if product == "yandex-cloud" %} or [{{ interconnect-full-name }}](../../interconnect/){% endif %}, specify the desired IP ranges in the `data.config.nonMasqueradeCIDRs` parameter:
+To implement IP masquerading, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerading, for example, to access the pods over a VPN{% if product == "yandex-cloud" %} or [{{ interconnect-full-name }}](../../interconnect/){% endif %}, specify the desired IP ranges in the `data.config.nonMasqueradeCIDRs` parameter:
 
 ```yaml
 ...
 data:
   config: |+
     nonMasqueradeCIDRs:
-      - <CIDR of pod IP addresses not to masquerade>
+      - <CIDR of pod IP addresses to skip masquerading>
 ...
 ```
 
 ## Service {#service}
 
-[_Service_](service.md) is an abstraction that provides network load balancing functions. Traffic rules are configured for a group of pods united by a set of labels.
+A [_service_](service.md) is an abstraction that provides network load balancing functions. Traffic rules are configured for a group of pods united by a set of labels.
 
 By default, a service is only available within a specific {{ k8s }} cluster, but it can be public and receive [requests from outside](../operations/create-load-balancer.md#lb-create) the {{ k8s }} cluster.
 
@@ -176,12 +176,12 @@ _A namespace_ is an abstraction that logically isolates {{ k8s }} cluster resour
 {{ managed-k8s-name }} clusters use two types of service accounts:
 * **Cloud service accounts**
 
-  These accounts exist on the level of a cloud's individual folders and can be used by {{ managed-k8s-name }} and other services.
+  These accounts exist at the level of an individual folder in the cloud and can be used both by {{ managed-k8s-name }} and other services.
 
   For more information, see [{#T}](../security/index.md) and [{#T}](../../iam/concepts/users/service-accounts.md).
-* **{{ k8s }} service accounts**
+* **Service accounts{{ k8s }}**
 
-  These accounts exist and are only valid on the level of an individual {{ managed-k8s-name }} cluster. They are applied by {{ k8s }}:
+  These accounts exist and run only at a level of an individual {{ managed-k8s-name }} cluster. {{ k8s }} uses them for:
   * To authenticate cluster API calls from applications deployed in the cluster.
   * To configure access for these applications.
 
@@ -193,7 +193,7 @@ _A namespace_ is an abstraction that logically isolates {{ k8s }} cluster resour
 
 {% note warning %}
 
-Do not confuse [cloud service accounts](../security/index.md#sa-annotation) with {{ k8s }} service accounts.
+Do not confuse [cloud service accounts](../security/index.md#sa-annotation) and {{ k8s }} service accounts.
 
 In the service documentation, _service account_ refers to a regular cloud service account unless otherwise specified.
 
@@ -205,9 +205,9 @@ _Node labels_, `node_labels` are a mechanism for grouping nodes together in {{ k
 
 {% note warning %}
 
-Don't confuse [node group cloud labels](../../overview/concepts/services.md#labels) (`labels`) with [{{ k8s }} node labels]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/concepts/overview/working-with-objects/labels/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/){% endif %} (`node_labels`) managed by {{ managed-k8s-name }}.
+Do not confuse [cloud labels of a node group](../../overview/concepts/services.md#labels) (`labels`) and [{{ k8s }} labels of nodes]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/concepts/overview/working-with-objects/labels/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/){% endif %} (`node_labels`) which are managed by {{ managed-k8s-name }}.
 
-We recommend managing all node labels via the [{{ managed-k8s-name }} API](../api-ref/NodeGroup/index.md) since, by default, when [updating or changing a node group](../operations/node-group/node-group-update.md), some of the nodes are recreated with different names and some of the old ones are deleted. That's why labels added using the [{{ k8s }} API]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/concepts/overview/kubernetes-api){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/concepts/overview/kubernetes-api){% endif %} may be lost. Conversely, using the {{ k8s }} API to delete labels created via the {{ managed-k8s-name }} API has no effect since such labels will be restored.
+We recommend managing all node labels via the [{{ managed-k8s-name }} API](../api-ref/NodeGroup/index.md) method, because by default, when [updating or changing a node group](../operations/node-group/node-group-update.md), some of the nodes are recreated with different names and some of the old ones are deleted. That's why the labels added via the [{{ k8s }} API]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/concepts/overview/kubernetes-api){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/concepts/overview/kubernetes-api){% endif %} may get lost. Conversely, using the {{ k8s }} API to delete labels created via the {{ managed-k8s-name }} API has no effect since such labels will be restored.
 
 {% endnote %}
 
@@ -217,7 +217,7 @@ Node label keys can consist of two parts: an optional prefix and a name separate
 
 A prefix is an optional part of a key. Prefix requirements:
 * It must be a DNS subdomain: a series of DNS tags separated by dots `.`.
-* The maximum length is 253 characters.
+* The length can be up to 253 characters.
 * The last character must be followed by a `/`.
 
 A name is a required part of a key. Naming requirements:

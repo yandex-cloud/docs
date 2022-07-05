@@ -1,8 +1,14 @@
 # Setting up NodeLocal DNS Cache
 
-To reduce the number of DNS queries to a {{ k8s }} cluster, enable NodeLocal DNS Cache. The feature is available in Kubernetes clusters version 1.18 and higher.
+To reduce the number of DNS queries to a [{{ k8s }} cluster](../concepts/index.md#kubernetes-cluster), enable NodeLocal DNS Cache. The feature is available in {{ k8s }} clusters version 1.18 and higher.
 
-By default, pods send queries to the [service](../concepts/service.md) `kube-dns`. The `nameserver` field in the `/etc/resolv.conf` file is set to the `ClusterIp` value of `kube-dns`. A connection to the `ClusterIP` is established using iptables or IPVS.
+{% note tip %}
+
+If a cluster is made up of over 50 nodes, use [automatic DNS scaling](dns-autoscaler.md).
+
+{% endnote %}
+
+By default, [pods](../concepts/index.md#pod) send queries to the `kube-dns` [service](../concepts/service.md). The `nameserver` field in the `/etc/resolv.conf` file is set to the `ClusterIp` value of the `kube-dns` [service](../concepts/service.md). A connection to the `ClusterIP` is established using [iptables]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Iptables){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Iptables){% endif %} or [IP Virtual Server](https://en.wikipedia.org/wiki/IP_Virtual_Server).
 
 When NodeLocal DNS Cache is enabled, a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) is deployed in a cluster. The caching agent is run on each node (under `node-local-dns`). User pods now send queries to the agent running on their nodes.
 
@@ -16,7 +22,7 @@ To set up DNS query caching, follow these steps:
 
 1. Create resources.
 
-   For this use case, you'll need a cloud network, subnet, and service account. You can use existing resources or create new ones.
+   For this use case, you'll need a [cloud network, subnet](../../vpc/concepts/network.md) and [service account](../../iam/concepts/index.md#sa). You can use existing resources or create new ones.
 
    {% cut "How to create resources" %}
 
@@ -28,7 +34,7 @@ To set up DNS query caching, follow these steps:
 
 1. Create a {{ k8s }} cluster and a group of nodes.
 
-   You can use an existing cluster and a group of {{ k8s }} nodes or create new ones. Make sure that the **Kubernetes version** field is set to version 1.18 or higher.
+   You can use an existing cluster and a group of {{ k8s }} nodes or create new ones. Make sure that the **{{ k8s }} version** field is set to version 1.18 or higher.
 
    {% cut "How to create a {{ k8s }} cluster and a group of nodes" %}
 
@@ -81,7 +87,7 @@ To set up DNS query caching, follow these steps:
 
    {% cut "How to configure kubectl" %}
 
-   Install the {{ k8s }} CLI [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl).
+   Install the {{ k8s }} CLI [kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl/){% endif %}.
 
    Add the {{ k8s }} cluster credentials to the kubectl configuration file:
 
@@ -132,7 +138,7 @@ You can download the [specification template](https://{{ s3-storage-host }}/doc-
 
 The template contains the NodeLocal DNS Cache configuration. To change the configuration to suit your needs, use the following five variables:
 * `__PILLAR__DNS__DOMAIN__`
-  Kubernetes cluster zone (`cluster.local` by default).
+  {{ k8s }} cluster zone (`cluster.local` by default).
 * `__PILLAR__LOCAL__DNS__`
   Address `link-local` that NodeLocal DNS Cache will listen on. We recommend using an address within the 169.254.0.0/16 range for IPv4 or fd00::/8 for IPv6.
 * `__PILLAR__DNS__SERVER__`
@@ -307,9 +313,9 @@ To run [test queries](https://kubernetes.io/docs/tasks/administer-cluster/dns-de
    93.184.216.34
    # nslookup kubernetes.default
    Server:  10.96.128.2
-   Address: 10.96.128.2#53
+   Address:  10.96.128.2#53
 
-   Name:    kubernetes.default.svc.cluster.local
+   Name:  kubernetes.default.svc.cluster.local
    Address: 10.96.128.1
    ```
 

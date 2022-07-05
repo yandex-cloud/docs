@@ -5,11 +5,8 @@ To use [{{ k8s }}]{% if lang == "ru" %}(https://kubernetes.io/ru/){% endif %}{% 
 ## Before you start {#before-begin}
 
 1. Install the {{ k8s }} CLI [kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl){% endif %}.
-
 1. [Configure](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) kubectl.
-
 1. Install the {{ k8s }} [Helm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %} package manager.
-
 1. Add a repository for NGINX to Helm:
 
    ```bash
@@ -98,7 +95,6 @@ To set up the controller configuration yourself, follow the instructions provide
 ## Create an object {#install-objects}
 
 To test the certificate manager, you must create ClusterIssuer, Ingress, Service, and Deployment.
-
 1. Create a YAML file `acme-issuer.yaml` with the manifest of the `ClusterIssuer` object:
 
    ```yaml
@@ -181,7 +177,7 @@ To test the certificate manager, you must create ClusterIssuer, Ingress, Service
            - containerPort: 80
    ```
 
-1. Create an application in kubernetes:
+1. Create an application in {{ k8s }} cluster:
 
    ```bash
    kubectl apply -f acme-issuer.yaml && \

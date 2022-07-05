@@ -32,13 +32,13 @@
      * Чтобы добавить роль к имеющимся разрешениям, выполните команду:
 
        {% if product == "yandex-cloud" %}
-       
+
        ```bash
        yc <имя сервиса> <ресурс> add-access-binding <имя ресурса>|<id ресурса> \
          --role <id роли> \
          --subject userAccount:<id пользователя>
        ```
-       
+
        {% endif %}
 
        {% if product == "cloud-il" %}
@@ -54,13 +54,13 @@
      * Чтобы установить роль, удалив все имеющиеся разрешения, выполните команду:
 
        {% if product == "yandex-cloud" %}
-       
+
        ```bash
        yc <имя сервиса> <ресурс> set-access-bindings <имя ресурса>|<id ресурса> \
          --role <id роли> \
          --subject userAccount:<id пользователя>
        ```
-       
+
        {% endif %}
 
        {% if product == "cloud-il" %}
@@ -83,20 +83,26 @@
 
      >Пример. Добавьте роль `container-registry.admin` на реестр с идентификатором `crp0pmf1n68dh715tf02` для пользователя с идентификатором `kolhpriseeioo9dc3v24`:
      >
-{% if product == "yandex-cloud" %}
+
+     {% if product == "yandex-cloud" %}
+
      >```bash
      >yc container registry add-access-binding crp0pmf1n68dh715tf02 \
      >  --role container-registry.admin \
      >  --subject userAccount:kolhpriseeioo9dc3v24
      >```
-{% endif %}
-{% if product == "cloud-il" %}
+
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
      >```bash
      >yc container registry add-access-binding crp0pmf1n68dh715tf02 \
      >  --role container-registry.admin \
      >  --subject federatedAccount:kolhpriseeioo9dc3v24
      >```
-{% endif %}
+
+     {% endif %}
 
 - API
 
@@ -105,7 +111,6 @@
 - {{ TF }}
 
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
   1. Опишите в конфигурационном файле:
      * Параметры ресурса `yandex_container_registry_iam_binding`, чтобы назначить роль на реестр:
        * `registry_id` — идентификатор реестра, на который назначается роль. Вы можете получить идентификатор реестра из [списка реестров в каталоге](../registry/registry-list.md#registry-list).
@@ -114,7 +119,9 @@
 
        >Пример структуры конфигурационного файла:
        >
-{% if product == "yandex-cloud" %} 
+
+       {% if product == "yandex-cloud" %}
+
        >```
        >resource "yandex_container_registry_iam_binding" "puller" {
        >  registry_id = "<id реестра>"
@@ -125,8 +132,11 @@
        >  ]
        >}
        >```
-{% endif %}
-{% if product == "cloud-il" %}
+
+       {% endif %}
+
+       {% if product == "cloud-il" %}
+
        >```
        >resource "yandex_container_registry_iam_binding" "puller" {
        >  registry_id = "<id реестра>"
@@ -137,7 +147,8 @@
        >  ]
        >}
        >```
-{% endif %}
+
+       {% endif %}
 
        Более подробную информацию о ресурсе `yandex_container_registry_iam_binding`, см. в [документации провайдера]({{ tf-provider-link }}/container_registry_iam_binding).
      * Параметры ресурса `yandex_container_repository_iam_binding`, чтобы назначить роль на репозиторий:
@@ -147,7 +158,9 @@
 
        >Пример структуры конфигурационного файла:
        >
-{% if product == "yandex-cloud" %}
+
+       {% if product == "yandex-cloud" %}
+
        >```
        >resource "yandex_container_repository_iam_binding" "pusher" {
        >  repository_id = "<id репозитория>"
@@ -158,8 +171,11 @@
        >  ]
        >}
        >```
-{% endif %}
-{% if product == "cloud-il" %}
+
+       {% endif %}
+
+       {% if product == "cloud-il" %}
+
        >```
        >resource "yandex_container_repository_iam_binding" "pusher" {
        >  repository_id = "<id репозитория>"
@@ -170,10 +186,10 @@
        >  ]
        >}
        >```
-{% endif %}
+
+       {% endif %}
 
        Более подробную информацию о ресурсе `yandex_container_repository_iam_binding`, см. в [документации провайдера]({{ tf-provider-link }}/container_repository_iam_binding).
-
   1. Выполните проверку с помощью команды:
 
      ```

@@ -17,3 +17,11 @@
 {% endif %}
 
 * [{#T}](kubernetes-lockbox-secrets.md)
+
+{% if product == "yandex-cloud" %}
+
+## Using {{ marketplace-full-name }} products {#marketplace}
+
+* [{#T}](marketplace/jaeger-over-ydb.md)
+
+{% endif %}
