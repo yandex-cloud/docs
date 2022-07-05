@@ -347,6 +347,23 @@
 
       {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
+- API
+
+    Воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
+
+    * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
+    * Имя кластера в параметре `name`.
+    * Окружение кластера в параметре `environment`.
+    * Идентификатор сети в параметре `networkId`.
+    * Конфигурацию кластера в параметре `configSpec`.
+    * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
+    * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
+    * Конфигурацию баз данных в одном или нескольких параметрах `databaseSpecs`.
+    * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
+    * Настройки защиты от удаления кластера в параметре `deletionProtection`.
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
 {% endlist %}
 
 {% note warning %}
