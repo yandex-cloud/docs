@@ -1,6 +1,6 @@
 # yc application-load-balancer virtual-host insert-grpc-route
 
-Removes grpc route from the specified virtual host of the http router
+Inserts gRPC route into the specified virtual host of the HTTP router
 
 #### Command Usage
 

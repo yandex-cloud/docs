@@ -20,6 +20,8 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of new label KEY=VALUE pairs to update.|
 |`--chain`|<b>`string`</b><br/> Path to the PEM file with the new certificate chain. Only for imported certificates.|
 |`--key`|<b>`string`</b><br/> Path to the PEM file with the new private key. Only for imported certificates.|
+|`--deletion-protection`| Protects deletion of certificate.|
+|`--no-deletion-protection`| Remove deletion protection of certificate.|
 
 #### Global Flags
 
