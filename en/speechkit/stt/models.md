@@ -27,13 +27,17 @@ Versions available by the `general:deprecated` tag stop being supported when new
    * `kk-KK`: Kazakh.
 
    The `general:rc` model also supports the following languages:
-   * `EN-us`: English.
-   * `DE-de`: German.
-   * `FR-fr`: French.
-   * `FI-fi`: Finnish.
-   * `IT-it`: Italian.
-   * `ES-es`: Spanish.
-   * `PT-pt`: Portuguese.
+   * `en-US`: English.
+   * `de-DE`: German.
+   * `fr-FR`: French.
+   * `fi-FI`: Finnish.
+   * `sv-SE`: Swedish.
+   * `nl-NL`: Dutch.
+   * `pl-PL`: Polish.
+   * `it-IT`: Italian.
+   * `es-ES`: Spanish.
+   * `pt-PT`: Portuguese.
+   * `tr-TR`: Turkish.
    * `auto`: Automatic language recognition.
 
    Possible values are case-insensitive.
