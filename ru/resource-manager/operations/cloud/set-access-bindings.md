@@ -167,7 +167,7 @@
       }
       ```
 
-users-get.md).
+
 
       Более подробную информацию о параметрах ресурса `yandex_resourcemanager_cloud_iam_binding` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_cloud_iam_binding).
   1. В командной строке перейдите в папку, где вы создали конфигурационный файл.

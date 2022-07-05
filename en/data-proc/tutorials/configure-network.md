@@ -29,7 +29,7 @@ Examples of subnets:
 
 To get access from the `dataproc-net` subnet to the external resources:
 
-1. In the `dataproc-nat-net` network, create a virtual machine based on the [NAT instance](https://cloud.yandex.com/en-ru/marketplace/products/f2etqeet87jshce7o7j8) image with a public IP address.
+1. In the `dataproc-nat-net` network, create a virtual machine based on the [NAT instance](/marketplace/products/yc/nat-instance-ubuntu-18-04-lts) image from the **{{ marketplace-name }}** with a public IP address.
 
 2. Copy the internal IP address of this VM.
 

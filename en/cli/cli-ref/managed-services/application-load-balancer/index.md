@@ -71,12 +71,12 @@ Aliases:
 	- [yc application-load-balancer virtual-host append-http-route](virtual-host/append-http-route.md) — Appends http route to the specified virtual host of the http router
 	- [yc application-load-balancer virtual-host prepend-http-route](virtual-host/prepend-http-route.md) — Prepends http route to the specified virtual host of the http router
 	- [yc application-load-balancer virtual-host remove-http-route](virtual-host/remove-http-route.md) — Removes http route from the specified virtual host of the http router
-	- [yc application-load-balancer virtual-host insert-http-route](virtual-host/insert-http-route.md) — Removes http route from the specified virtual host of the http router
+	- [yc application-load-balancer virtual-host insert-http-route](virtual-host/insert-http-route.md) — Inserts HTTP route into the specified virtual host of the HTTP router
 	- [yc application-load-balancer virtual-host update-http-route](virtual-host/update-http-route.md) — Updates http route in the specified virtual host of the http router
 	- [yc application-load-balancer virtual-host append-grpc-route](virtual-host/append-grpc-route.md) — Appends grpc route to the specified virtual host of the http router
 	- [yc application-load-balancer virtual-host prepend-grpc-route](virtual-host/prepend-grpc-route.md) — Prepends grpc route to the specified virtual host of the http router
 	- [yc application-load-balancer virtual-host remove-grpc-route](virtual-host/remove-grpc-route.md) — Removes grpc route from the specified virtual host of the http router
-	- [yc application-load-balancer virtual-host insert-grpc-route](virtual-host/insert-grpc-route.md) — Removes grpc route from the specified virtual host of the http router
+	- [yc application-load-balancer virtual-host insert-grpc-route](virtual-host/insert-grpc-route.md) — Inserts gRPC route into the specified virtual host of the HTTP router
 	- [yc application-load-balancer virtual-host update-grpc-route](virtual-host/update-grpc-route.md) — Updates grpc route in the specified virtual host of the http router
 - [yc application-load-balancer target-group](target-group/index.md) — Manage application load balancer target groups
 	- [yc application-load-balancer target-group get](target-group/get.md) — Show information about the specified target group

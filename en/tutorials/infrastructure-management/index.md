@@ -8,5 +8,5 @@
 * [Creating a cluster of 1C:Enterprise Linux servers with {{ mpg-name }}](1c-postgresql-linux.md)
 * [Creating a cluster of 1C:Enterprise Windows servers with MS SQL Server](1c-mssql-windows.md)
 * [Migrating to {{ yandex-cloud }} using Hystax Acura](hystax-migration.md)
-* [Emergency recovery to Yandex.Cloud using Hystax Acura](hystax-disaster-recovery.md)
+* [Emergency recovery to {{ yandex-cloud }} using Hystax Acura](hystax-disaster-recovery.md)
 * [Configuring a fault-tolerant architecture in {{ yandex-cloud }}](fault-tolerance.md)

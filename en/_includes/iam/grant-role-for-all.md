@@ -18,6 +18,8 @@ For example, allow any authenticated user to view information about a folder and
 
 - CLI
 
+  {% include [cli-install](../cli-install.md) %}
+
    Assign the `viewer` for the `my-folder` folder. Set the subject type to `system` and its ID to `allAuthenticatedUsers`:
 
    ```bash

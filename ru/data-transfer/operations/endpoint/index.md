@@ -25,7 +25,8 @@
             * [{{ MY }}](source/mysql.md)
             * [Oracle](source/oracle.md)
             * [{{ PG }}](source/postgresql.md)
-                        * [S3](source/s3.md)
+            
+            * [S3](source/s3.md)
             * [{{ yds-full-name }}](source/data-streams.md)
         * Приемники:
             * [{{ CH }}](target/clickhouse.md)
@@ -34,7 +35,8 @@
             * [{{ MY }}](target/mysql.md)
             * [{{ objstorage-name }}](target/object-storage.md)
             * [{{ PG }}](target/postgresql.md)
-                        * [{{ ydb-name }}](target/yandex-database.md)
+            
+            * [{{ ydb-name }}](target/yandex-database.md)
 
     1. Нажмите кнопку **Создать**.
 

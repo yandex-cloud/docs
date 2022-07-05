@@ -1,6 +1,6 @@
 # Setting up folder access rights
 
-To grant a user access to all the folder resources, assign them a [role](../../../iam/concepts/access-control/roles.md) for that folder.
+To grant a user access to all the folder resources, assign the user a [role](../../../iam/concepts/access-control/roles.md) for this folder.
 
 ## Assign a role for a folder {#access-to-user}
 
@@ -10,10 +10,12 @@ To grant a user access to all the folder resources, assign them a [role](../../.
  
   1. {% include [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md) %}
   1. {% include [configure-roles-console](../../../_includes/iam/configure-roles-console.md) %}
-  1. Select a folder in the **Roles in folders** section and click ![image](../../../_assets/plus-sign.svg).
+  1. Under **Roles for folders**, click ![image](../../../_assets/plus-sign.svg) **Assign role**.
   1. Select a role from the list.
 
 - CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
   1. See the description of the command to assign a role for a folder:
 
@@ -45,8 +47,8 @@ To grant a user access to all the folder resources, assign them a [role](../../.
       | ...                            |             |
       +--------------------------------+-------------+
       ```
- 
- 
+
+
   1. Find out the user's ID from the login or email address. To assign a role to a service account or group of users rather than one user, see the [examples](#examples) below.
 
       ```bash
@@ -156,6 +158,8 @@ To grant a user access to all the folder resources, assign them a [role](../../.
 
 - CLI
 
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
   The `add-access-binding` command allows you to add only one role. You can assign multiple roles using the `set-access-binding` command.
 
   {% note alert %}
@@ -253,6 +257,8 @@ Allow the service account to manage the folder and its resources:
 
 - CLI
 
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
   {% include [grant-role-for-sa-to-folder-via-cli](../../../_includes/iam/grant-role-for-sa-to-folder-via-cli.md) %}
 
 - API
@@ -269,4 +275,3 @@ Allow the service account to manage the folder and its resources:
 
 * [{#T}](update.md)
 * [{#T}](../../concepts/resources-hierarchy.md)
-

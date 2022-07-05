@@ -3,7 +3,7 @@ sourcePath: en/_cli-ref/cli-ref/managed-services/cloud-desktop/group/index.md
 ---
 # yc cloud-desktop group
 
-Manage cloud desktop resources.
+[PREVIEW] Manage cloud desktop resources
 
 #### Command Usage
 

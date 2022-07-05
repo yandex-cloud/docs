@@ -90,18 +90,18 @@ To configure CloudBerry Backup to work with {{ objstorage-name }}:
   1. In the list of providers that opens, select **S3 compatible**.
 
   1. Click **S3 compatible**. The storage parameters window opens.
-     1. In the **Display Name** field, enter `Yandex Cloud`.
+     1. In the **Display Name** field, enter `{{ yandex-cloud }}`.
      1. In the **Access Key** field, specify the ID of the static access key.
      1. In the **Secret Key** field, specify the private key.
      1. In the **Service point** field, specify `http://{{ s3-storage-host }}/`. The `Bucket name` field should display a list of your buckets.
      1. In the **Bucket name** field, select the bucket where your backups will be stored.
-     1. Click **OK**. If everything is configured correctly, the `Yandex Cloud` storage will appear in the **Registered accounts** window. Close the window.
+     1. Click **OK**. If everything is configured correctly, the `{{ yandex-cloud }}` storage will appear in the **Registered accounts** window. Close the window.
 
   1. Open the **Home** tab. The backup wizard opens.
 
   1. Choose **Local or Cloud Backup** and click **Next**.
 
-  1. Select the `Yandex Cloud` storage and click **Next**.
+  1. Select the `{{ yandex-cloud }}` storage and click **Next**.
 
   1. Enter the backup plan name: `yc-backup-plan`. Click **Next**.
 
@@ -138,14 +138,14 @@ To configure CloudBerry Backup to work with {{ objstorage-name }}:
   1. Click **+**.
 
   1. Click **S3 compatible**. The storage parameters window opens.
-     1. In the **Display Name** field, enter `Yandex Cloud`.
+     1. In the **Display Name** field, enter `{{ yandex-cloud }}`.
      1. In the **Access Key** field, specify the ID of the static access key.
      1. In the **Secret Key** field, specify the private key.
      1. In the **Endpoint** field, specify `http://{{ s3-storage-host }}/`. The `Bucket` field should display a list of your buckets.
      1. In the **Bucket** field, select the bucket where your backups will be stored.
-     1. Click **OK**. If everything is configured correctly, the `Yandex Cloud` storage will appear in the list.
+     1. Click **OK**. If everything is configured correctly, the `{{ yandex-cloud }}` storage will appear in the list.
 
-  1. Select the `Yandex Cloud` storage and click **Continue**.
+  1. Select the `{{ yandex-cloud }}` storage and click **Continue**.
 
   1. Enter the backup plan name: `yc-backup-plan`. Click **Continue**.
 

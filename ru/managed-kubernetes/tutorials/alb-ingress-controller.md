@@ -1,6 +1,6 @@
-# Настройка {{ alb-full-name }} Ingress-контроллера
+# Настройка {{ alb-name }} Ingress-контроллера
 
-Сервис [{{ alb-name }}](../../application-load-balancer/) используется для балансировки нагрузки и распределения трафика между приложениями. Чтобы с его помощью управлять трафиком к приложениям, запущенным в кластере {{ managed-k8s-name }}, необходим [Ingress-контроллер](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
+Сервис [{{ alb-full-name }}](../../application-load-balancer/) используется для балансировки нагрузки и распределения трафика между приложениями. Чтобы с его помощью управлять трафиком к приложениям, запущенным в кластере {{ managed-k8s-name }}, необходим [Ingress-контроллер](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
 Чтобы настроить доступ к запущенным в кластере приложениям через {{ alb-name }}:
 1. [{#T}](#create-namespace).
@@ -200,7 +200,6 @@ yc certificate-manager certificate list
          worker_processes auto;
          events {
          }
-
          http {
            server {
              listen 80 ;
@@ -247,7 +246,6 @@ yc certificate-manager certificate list
              - name: alb-demo-1
                configMap:
                  name: alb-demo-1
-
            containers:
              - name: alb-demo-1
                image: nginx:latest
@@ -303,7 +301,6 @@ yc certificate-manager certificate list
          worker_processes auto;
          events {
          }
-
          http {
            server {
              listen 80 ;
@@ -350,7 +347,6 @@ yc certificate-manager certificate list
              - name: alb-demo-2
                configMap:
                  name: alb-demo-2
-
            containers:
              - name: alb-demo-2
                image: nginx:latest
@@ -437,7 +433,6 @@ yc certificate-manager certificate list
          worker_processes auto;
          events {
          }
-
          http {
            server {
              listen 80 ;
@@ -484,7 +479,6 @@ yc certificate-manager certificate list
              - name: alb-demo-1
                configMap:
                  name: alb-demo-1
-
            containers:
              - name: alb-demo-1
                image: nginx:latest

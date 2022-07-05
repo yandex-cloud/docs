@@ -30,6 +30,8 @@ Syntax:
 |`--slowlog-max-len`|<b>`int`</b><br/> Maximum length of slow operations log.|
 |`--slowlog-log-slower-than`|<b>`int`</b><br/> Threshold in milliseconds to log slow operations.|
 |`--databases`|<b>`int`</b><br/> Number of Redis databases.|
+|`--client-output-buffer-limit-normal`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Redis client output buffer limit normal limits.  Possible property names:  hard Redis client output buffer limit normal hard limit.  soft Redis client output buffer limit normal soft limit.  secs Redis client output buffer limit normal soft seconds.  |
+|`--client-output-buffer-limit-pubsub`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Redis client output buffer limit pubsub limits.  Possible property names:  hard Redis client output buffer limit pubsub hard limit.  soft Redis client output buffer limit pubsub soft limit.  secs Redis client output buffer limit pubsub soft seconds.  |
 |`--resource-preset`|<b>`string`</b><br/> ID of the preset for computational resources available to a host (CPU, memory etc.).|
 |`--disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to a host.|
 |`--disk-type-id`|<b>`string`</b><br/> Disk type id (e.g., network-ssd).|

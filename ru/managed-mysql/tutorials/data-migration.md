@@ -168,7 +168,7 @@
 
 Чтобы подготовить виртуальную машину для восстановления дампа:
 
-1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) на базе [Ubuntu Linux 20.04](/marketplace/products/f2eanb2gaki4us67hn9q) со следующими параметрами:
+1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) из образа [Ubuntu Linux 20.04](/marketplace/products/yc/ubuntu-20-04-lts) на {{ marketplace-name }} со следующими параметрами:
 
 
     * **Диски и файловые хранилища** → **Размер** — достаточный для хранения распакованного и нераспакованого дампов.

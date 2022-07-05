@@ -151,7 +151,7 @@ To create a VM group for `my-site.com`:
    1. Specify a VM group name: `mysite-ig`.
    1. Under **Allocation**, select multiple availability zones to ensure fault tolerance of your hosting.
    1. Under **Instance template**, click **Define**.
-   1. On the **Cloud Marketplace** tab, click **Show more** and select the **LEMP** product. Click **Use**.
+   1. Under **Image/boot disk selection**, open the **{{ marketplace-name }}** tab and click **Show more**. Select [LEMP](/marketplace/products/yc/lemp) and click **Use**.
    1. Under **Computing resources**:
 
       * Select the VM's [platform](../../compute/concepts/vm-platforms.md).

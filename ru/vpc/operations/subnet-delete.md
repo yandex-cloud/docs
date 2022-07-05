@@ -48,6 +48,69 @@
       ```
       yc vpc subnet delete test-subnet-1
       ```
+
+- Terraform
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+  Чтобы удалить подсеть, созданную с помощью Terraform:
+
+  1. Откройте файл конфигураций Terraform и удалите фрагмент с описанием подсети.
+
+     {% cut "Пример описания подсети в конфигурации Terraform" %}
+
+     ```hcl
+     ...
+     resource "yandex_vpc_subnet" "lab-subnet-a" {
+       name           = "subnet-1"
+	   description    = "My first subnet"
+       v4_cidr_blocks = ["10.2.0.0/16"]
+       zone           = "ru-central1-a"
+       network_id     = "${yandex_vpc_network.lab-net.id}"
+     }
+     ...
+     ```
+
+     {% endcut %}
+
+  1. В командной строке перейдите в папку, где расположен файл конфигурации Terraform.
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../cli/quickstart.md):
+
+     ```
+     yc vpc subnet list
+     ```
+
 {% endlist %}
 
 ## Примеры {#examples}

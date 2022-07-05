@@ -1,6 +1,6 @@
 # yc cloud-desktop group
 
-Manage cloud desktop resources.
+[PREVIEW] Manage cloud desktop resources
 
 #### Command Usage
 

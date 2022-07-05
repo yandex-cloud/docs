@@ -63,6 +63,63 @@
       v4_cidr_blocks:
       - 192.168.0.0/24
       ```
+
+- Terraform
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием подсети:
+
+     ```hcl
+     ...
+     resource "yandex_vpc_subnet" "lab-subnet-a" {
+       name           = "subnet-1"
+	   description    = "My first subnet"
+       v4_cidr_blocks = ["10.2.0.0/16"]
+       zone           = "ru-central1-a"
+       network_id     = "${yandex_vpc_network.lab-net.id}"
+     }
+     ...
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_vpc_subnet` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/vpc_subnet).
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение подсети можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc vpc subnet get <имя подсети>
+     ```
+
 ## Примеры {#examples}
 
 ### Изменение подсети с использованием флага имени {#using-name-flag}

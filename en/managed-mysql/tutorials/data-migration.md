@@ -161,7 +161,7 @@ The required amount of RAM, processor cores, and disk space depends on the amoun
 
 To prepare the VM to restore the dump:
 
-1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) on [Ubuntu Linux 20.04](/marketplace/products/f2eanb2gaki4us67hn9q) with the following parameters:
+1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) on the [Ubuntu Linux 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image from the {{ marketplace-name }} with the following parameters:
 
 
     * **Disks and file storage** → **Size**: Sufficient to store both archived and unarchived dumps.

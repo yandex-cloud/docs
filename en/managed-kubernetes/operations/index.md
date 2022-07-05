@@ -15,6 +15,7 @@ description: "In this article you will learn how to work with managed {{ k8s }} 
 ## Installing applications {#marketplace}
 
 * [{#T}](applications/marketplace.md)
+* [{#T}](applications/jaeger.md)
 * [{#T}](applications/metrics-provider.md)
 
 

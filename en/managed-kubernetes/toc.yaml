@@ -21,6 +21,8 @@ items:
         items:
           - name: Basics of working with {{ marketplace-name }}
             href: operations/applications/marketplace.md
+          - name: Installing Jaeger
+            href: operations/applications/jaeger.md
           - name: Installing Metrics Provider
             href: operations/applications/metrics-provider.md
       - name: Network scenarios
@@ -80,7 +82,7 @@ items:
             href: operations/node-group/node-group-create.md
           - name: Changing a node group
             href: operations/node-group/node-group-update.md
-          - name: Managing cluster node labels
+          - name: Managing {{ k8s }} cluster node labels
             href: operations/node-group/node-label-management.md
           - name: Deleting a node group
             href: operations/node-group/node-group-delete.md
@@ -114,9 +116,13 @@ items:
         href: tutorials/fluent-bit-logging.md
       - name: Syncing with {{ lockbox-name }} secrets
         href: tutorials/kubernetes-lockbox-secrets.md
+      - name: Using {{ marketplace-name }} products
+        items:
+          - name: Using Jaeger to trace requests in {{ ydb-name }}
+            href: tutorials/marketplace/jaeger-over-ydb.md
   - name: Concepts
     items:
-      - name: Relationship between service resources
+      - name: Relationships between service resources
         href: concepts/index.md
       - name: Release channels and updates
         href: concepts/release-channels-and-updates.md

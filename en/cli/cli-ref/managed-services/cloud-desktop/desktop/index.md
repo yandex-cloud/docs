@@ -3,7 +3,7 @@ sourcePath: en/_cli-ref/cli-ref/managed-services/cloud-desktop/desktop/index.md
 ---
 # yc cloud-desktop desktop
 
-Manage VDI resources.
+[PREVIEW] Manage VDI resources
 
 #### Command Usage
 

@@ -31,24 +31,24 @@
   1. Назначьте роль:
      * Чтобы добавить роль к имеющимся разрешениям, выполните команду:
 
-              
+       
        ```bash
        yc <имя сервиса> <ресурс> add-access-binding <имя ресурса>|<id ресурса> \
          --role <id роли> \
          --subject userAccount:<id пользователя>
        ```
-       
+
 
 
      * Чтобы установить роль, удалив все имеющиеся разрешения, выполните команду:
 
-              
+       
        ```bash
        yc <имя сервиса> <ресурс> set-access-bindings <имя ресурса>|<id ресурса> \
          --role <id роли> \
          --subject userAccount:<id пользователя>
        ```
-       
+
 
 
      Где:
@@ -61,11 +61,15 @@
 
      >Пример. Добавьте роль `container-registry.admin` на реестр с идентификатором `crp0pmf1n68dh715tf02` для пользователя с идентификатором `kolhpriseeioo9dc3v24`:
      >
+
+     
      >```bash
      >yc container registry add-access-binding crp0pmf1n68dh715tf02 \
      >  --role container-registry.admin \
      >  --subject userAccount:kolhpriseeioo9dc3v24
      >```
+
+
 
 - API
 
@@ -74,7 +78,6 @@
 - {{ TF }}
 
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
   1. Опишите в конфигурационном файле:
      * Параметры ресурса `yandex_container_registry_iam_binding`, чтобы назначить роль на реестр:
        * `registry_id` — идентификатор реестра, на который назначается роль. Вы можете получить идентификатор реестра из [списка реестров в каталоге](../registry/registry-list.md#registry-list).
@@ -83,7 +86,8 @@
 
        >Пример структуры конфигурационного файла:
        >
- 
+
+       
        >```
        >resource "yandex_container_registry_iam_binding" "puller" {
        >  registry_id = "<id реестра>"
@@ -95,6 +99,8 @@
        >}
        >```
 
+
+
        Более подробную информацию о ресурсе `yandex_container_registry_iam_binding`, см. в [документации провайдера]({{ tf-provider-link }}/container_registry_iam_binding).
      * Параметры ресурса `yandex_container_repository_iam_binding`, чтобы назначить роль на репозиторий:
        * `repository_id` — идентификатор репозитория, на который назначается роль.
@@ -103,6 +109,8 @@
 
        >Пример структуры конфигурационного файла:
        >
+
+       
        >```
        >resource "yandex_container_repository_iam_binding" "pusher" {
        >  repository_id = "<id репозитория>"
@@ -114,8 +122,9 @@
        >}
        >```
 
-       Более подробную информацию о ресурсе `yandex_container_repository_iam_binding`, см. в [документации провайдера]({{ tf-provider-link }}/container_repository_iam_binding).
 
+
+       Более подробную информацию о ресурсе `yandex_container_repository_iam_binding`, см. в [документации провайдера]({{ tf-provider-link }}/container_repository_iam_binding).
   1. Выполните проверку с помощью команды:
 
      ```

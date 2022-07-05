@@ -20,7 +20,7 @@
 
 - Marketplace
 
-  1. Перейдите на страницу образа с нужной конфигурацией:
+  1. Перейдите на страницу {{ marketplace-name }} и выберите образ с нужной конфигурацией:
      * [{{ coi }}](/marketplace/products/yc/container-optimized-image).
      * [{{ coi }} GPU](/marketplace/products/yc/container-optimized-image-gpu).
   1. В блоке **Идентификаторы продукта** скопируйте значение `image_id`.
