@@ -90,7 +90,7 @@ cloudil.audit.<имя сервиса>.<имя события>
 `AddInstanceOneToOneNat` | Добавление публичного IP-адреса виртуальной машине
 `AttachInstanceDisk` | Подключение диска к ВМ
 `AttachInstanceFilesystem` | Подключение файловой системы к ВМ
-`ChangeDiskStatus` | Изменение статуса диска
+`ChangeDiskStatus` | Изменение статуса нереплицируемого диска
 `CrashInstance` | Аварийное отключение ВМ
 `CreateDisk` | Создание диска
 `CreateFilesystem` | Создание файловой системы
