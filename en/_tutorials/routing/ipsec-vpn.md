@@ -44,7 +44,7 @@ Create a VM in {{ yandex-cloud }} to serve as a gateway for an IPSec tunnel.
 
 1. Select the subnet availability zone to connect the IPSec instance to and where the test VM is already located.
 
-1. In the **Images from {{ marketplace-name }}** section, click **Select** and choose the [IPSec instance](/marketplace/products/f2e70ohdvsd0jgp2302j) image.
+1. In the **Image/boot disk selection** section, click the **{{ marketplace-name }}** tab, and select the [IPSec instance](/marketplace/products/yc/ipsec-instance-ubuntu) image.
 
 1. In the **Network settings** section, choose the required network and subnet and assign a public IP to the VM either by selecting it from the list or automatically.
 

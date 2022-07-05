@@ -126,7 +126,7 @@ This example describes the steps required to run a Docker image on a VM using a 
          ```
 
       1. Prepare the key pair (public and private keys) for SSH access to the VM.
-      1. Select a public [image](../../compute/operations/images-with-pre-installed-software/get-list.md) based on a Linux OS (for example, [CentOS 7](marketplace/products/yc/centos-7)).
+      1. Select in the {{ marketplace-name }} a public [image](../../compute/operations/images-with-pre-installed-software/get-list.md) based on a Linux OS (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
 
          {% include [standard-images](../../_includes/standard-images.md) %}
 

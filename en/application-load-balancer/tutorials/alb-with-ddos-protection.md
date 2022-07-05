@@ -178,7 +178,7 @@ To create an instance group:
    1. Under **Instance template**, click **Define** and set up the configuration for a basic instance:
 
       * Under **Basic parameters**, enter the template **Description**:
-      * Under **Image/boot disk selection**, open the **Cloud Marketplace** tab and click **Show more**. Select **LEMP** and click **Use**.
+      * Under **Image/boot disk selection**, open the **{{ marketplace-name }}** tab and click **Show more**. Select [LEMP](/marketplace/products/yc/lemp) and click **Use**.
       * Under **Disks**, specify:
          * **Disk type**: HDD.
          * Disk **size**: 3 GB.

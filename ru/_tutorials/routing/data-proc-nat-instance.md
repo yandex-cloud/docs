@@ -104,7 +104,7 @@
         * **Сеть** — `network-data-proc`.
         * **Группы безопасности** — выберите созданные ранее группы безопасности.
 
-    1. В сети `network-dataproc` [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) на основе образа [NAT-инстанс]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2etqeet87jshce7o7j8){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2etqeet87jshce7o7j8){% endif %} с публичным IP-адресом. Укажите настроенные ранее группы безопасности.
+    1. В сети `network-dataproc` [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) на основе образа [NAT-инстанс](/marketplace/products/yc/nat-instance-ubuntu-18-04-lts) из **{{ marketplace-name }}** с публичным IP-адресом. Укажите настроенные ранее группы безопасности.
 
     1. Зайдите в свойства NAT-инстанса и скопируйте внутренний IP-адрес виртуальной машины.
 

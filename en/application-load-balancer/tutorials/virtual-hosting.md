@@ -158,7 +158,7 @@ To create an instance group for `site-a.com`:
    1. Enter the instance group name: `vhosting-ig-a`.
    1. Under **Allocation**, select multiple availability zones to ensure fault tolerance of your hosting.
    1. Under **Instance template**, click **Define**.
-   1. On the **Cloud Marketplace** tab, click **Show more** and select the **LEMP** product. Click **Use**.
+   1. Under **Image/boot disk selection**, open the **{{ marketplace-name }}** tab and click **Show more**. Select [LEMP](/marketplace/products/yc/lemp) and click **Use**.
    1. Under **Computing resources**:
 
       - Select the VM's [platform](../../compute/concepts/vm-platforms.md).

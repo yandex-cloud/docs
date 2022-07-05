@@ -126,7 +126,7 @@
         ```
 
      1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на ВМ.
-     1. Выберите один из публичных [образов](../../compute/operations/images-with-pre-installed-software/get-list.md) на базе операционной системы Linux (например, [CentOS 7](marketplace/products/yc/centos-7)).
+     1. Выберите в {{ marketplace-name }} один из публичных [образов](../../compute/operations/images-with-pre-installed-software/get-list.md) на базе операционной системы Linux (например, [CentOS 7](/marketplace/products/yc/centos-7)).
 
         {% include [standard-images](../../_includes/standard-images.md) %}
 
