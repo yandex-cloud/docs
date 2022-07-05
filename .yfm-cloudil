@@ -36,6 +36,7 @@ ignore:
   - "en/smartcaptcha/*"
   - "en/speechkit/*"
   - "en/speechkit-pro/*"
+  - "en/speechkit-hybrid/*"
   - "en/tracker/*"
   - "en/translate/*"
   - "en/vision/*"

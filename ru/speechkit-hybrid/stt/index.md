@@ -6,7 +6,7 @@
 
 1. [Аутентифицируйтесь](../../container-registry/operations/authentication) в Container Registry.
 
-Рекомендуемую конфигурацию оборудования см. в разделе [{#T}](system-requirements.md).
+Рекомендуемую конфигурацию оборудования см. в разделе [{#T}](../system-requirements.md).
 
 ## Установка и настройка сервиса потокового распознавания {#installing}
 

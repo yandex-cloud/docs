@@ -100,31 +100,9 @@ items:
   - name: SpeechKit Hybrid
     items:
         - name: О технологии
-          href: hybrid-speechkit/conception.md
+          href: hybrid-speechkit/index.md
         - name: Системные требования
           href: hybrid-speechkit/system-requirements.md
-        - name: Синтез речи
-          href: hybrid-speechkit/synthesis.md
-        - name: Распознавание речи
-          href: hybrid-speechkit/asr.md
-        - name: Мониторинг
-          href: hybrid-speechkit/monitoring.md
-        - name: Справочники API gRPC (англ.)
-          items:
-            - name: Аутентификация в API
-              href: hybrid-speechkit/auth.md
-            - name: Синтез речи
-              items:
-                - name: Overview
-                  href: hybrid-speechkit/api-ref/tts/v3/grpc/index.md
-                - name: Synthesizer
-                  href: hybrid-speechkit/api-ref/tts/v3/grpc/tts_service.md
-            - name: Потоковое распознавание
-              items:
-                - name: Overview
-                  href: hybrid-speechkit/api-ref/stt/v3/grpc/index.md
-                - name: Recognizer
-                  href: hybrid-speechkit/api-ref/stt/v3/grpc/stt_service.md
   - name: Квоты и лимиты
     href: concepts/limits.md
   - name: Управление доступом

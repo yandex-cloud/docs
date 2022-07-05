@@ -1,0 +1,36 @@
+title:
+  - text: Yandex SpeechKit Hybrid
+    when: product == "yandex-cloud"
+  - text: SpeechKit Hybrid
+    when: product == "cloud-il"
+href: index.yaml
+noIndex: True
+items:
+  - name: System requirements
+    href: system-requirements.md    
+  - name: Speech synthesis
+    items:
+    - name: About the technology
+      href: tts/index.md
+  - name: Speech recognition
+    items:
+    - name: About the technology
+      href: stt/index.md
+  - name: Monitoring
+    href: monitoring.md
+  - name: gRPC API references
+    items:
+      - name: Authentication in the API
+        href: auth.md
+      - name: Speech synthesis
+        items:
+          - name: Overview
+            href: api-ref/tts/v3/grpc/index.md
+          - name: Synthesizer
+            href: api-ref/tts/v3/grpc/tts_service.md
+      - name: Data streaming recognition
+        items:
+          - name: Overview
+            href: api-ref/stt/v3/grpc/index.md
+          - name: Recognizer
+            href: api-ref/stt/v3/grpc/stt_service.md

@@ -59,6 +59,7 @@ ignore:
   - "ru/smartcaptcha/*"
   - "ru/solutions/*"
   - "ru/speechkit/*"
+  - "ru/speechkit-hybrid/*"  
   - "ru/speechkit-pro/*"
   - "ru/tracker/api-ref/*"
   - "en/tracker/api-ref/*"

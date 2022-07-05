@@ -2,7 +2,7 @@
 
 ## Список доступных голосов {#voices}
 
-В {{ sk-hybrid-name }} доступны [премиум-голоса](../tts/voices.md#premium) и [Brand Voice](../tts/brand-voice/).
+В {{ sk-hybrid-name }} доступны [премиум-голоса](../../speechkit/tts/voices.md#premium) и [Brand Voice](../../speechkit/tts/brand-voice/).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -10,7 +10,7 @@
 
 1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md) в Container Registry.
 
-Рекомендуемую конфигурацию оборудования см. в разделе [{#T}](system-requirements.md).
+Рекомендуемую конфигурацию оборудования см. в разделе [{#T}](../system-requirements.md).
 
 ## Установка и настройка сервиса синтеза речи {#installing}
 
@@ -53,7 +53,7 @@
    docker pull cr.yandex/${REGISTRY_ID}/tts-tools
    ```
 
-2. Запустите контейнер `tts-tools`:
+1. Запустите контейнер `tts-tools`:
 
    ```bash
    docker run --network=host \
@@ -67,7 +67,7 @@
    * `ENVOY_TTS_PORT` — порт сервиса синтеза (по умолчанию `9080`).
    * `RPS` — количество запросов синтеза в секунду.
 
-3. Результаты теста будут доступны в логах контейнера:
+1. Результаты теста будут доступны в логах контейнера:
 
    ```bash
    docker logs tts-tools
