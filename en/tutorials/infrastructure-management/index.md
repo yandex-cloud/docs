@@ -11,7 +11,7 @@
 {% endif %}
 * [Migrating to {{ yandex-cloud }} using Hystax Acura](hystax-migration.md)
 {% if product == "yandex-cloud" %}
-* [Emergency recovery to Yandex.Cloud using Hystax Acura](hystax-disaster-recovery.md)
+* [Emergency recovery to {{ yandex-cloud }} using Hystax Acura](hystax-disaster-recovery.md)
 {% endif %}
 {% if product == "yandex-cloud" %}
 * [Configuring a fault-tolerant architecture in {{ yandex-cloud }}](fault-tolerance.md)

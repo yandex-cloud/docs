@@ -13,7 +13,7 @@ If you no longer need the website, [delete the VM with it](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-Make sure the selected folder has a cloud network with a subnet in at least one availability zone. To do this, select **Yandex Virtual Private Cloud** on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
+Make sure the selected folder has a cloud network with a subnet in at least one availability zone. To do this, select **{{ vpc-full-name }}** on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
 
 {% if product == "yandex-cloud" %}
 

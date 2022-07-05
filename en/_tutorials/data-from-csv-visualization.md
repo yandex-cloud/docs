@@ -172,7 +172,7 @@ To visualize whether a superhero is good or bad, create a bar chart.
 
 Create a [Dashboard](../datalens/concepts/dashboard.md) to add your charts to.
 
-1. Go to the DataLens homepage. To do this, click the words **Yandex DataLens** in the upper-left corner.
+1. Go to the DataLens homepage. To do this, click the words **{{datalens-full-name}}** in the upper-left corner.
 
 1. Click **Create dashboard**.
 

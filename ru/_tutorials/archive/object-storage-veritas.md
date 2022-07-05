@@ -52,9 +52,9 @@ BEMCLI> New-BECloudInstance
 Последовательно введите параметры облачного инстанса:
 
 * `Provider:` — `compatible-with-s3`.
-* `ServiceHost:` — `storage.yandexcloud.net`.
+* `ServiceHost:` — `{{ s3-storage-host }}`.
 * `SslMode:` — `disabled`.
-* `Name:` — `Yandex-Cloud`.
+* `Name:` — `{{ product }}`.
 
 Результат выполнения команды:
 
@@ -62,15 +62,15 @@ BEMCLI> New-BECloudInstance
 cmdlet New-BECloudInstance at command pipeline position 1
 Supply values for the following parameters:
 Provider: compatible-with-s3
-ServiceHost: storage.yandexcloud.net
+ServiceHost: {{ s3-storage-host }}
 SslMode: disabled
-Name: Yandex-Cloud
+Name: {{ product }}
 
 
-Name        : yandex-cloud
+Name        : {{ product }}
 Id          : 12436533-a39e-4df6-81db-f8365eb4178d
 Provider    : compatible-with-s3
-ServiceHost : storage.yandexcloud.net
+ServiceHost : {{ s3-storage-host }}
 SslMode     : Disabled
 UrlStyle    : Path
 HttpPort    : 80
@@ -85,7 +85,7 @@ Endpoint    :
 1. Введите **Имя** для устройства облачного хранилища и нажмите **Далее**.
 1. Выберите поставщика для устройства **S3** и нажмите **Далее**.
 1. Введите информацию о соединении:
-    * Выберите **Облачное хранилище** `yandex-cloud [ compatible-with-s3 ]`.
+    * Выберите **Облачное хранилище** `{{ product }} [ compatible-with-s3 ]`.
     * В строке **Учетная запись** нажмите **Добавить/Изменить**.
     * В окне **Выбор учетной записи** нажмите **Добавить**.
     * В поле **Имя пользователя** введите идентификатор ключа.

@@ -64,7 +64,7 @@ To configure Duplicati to work with {{ objstorage-name }}:
 1. Run Duplicati. If required, set a password for your account.
 1. Select the **Add backup** menu item.
 1. Click **Configure a new backup**. Click **Next**.
-1. Enter the backup plan name: `Yandex Cloud`. Enter the password and confirm if you chose to encrypt the backup. Click **Next**.
+1. Enter the backup plan name: `{{ yandex-cloud }}`. Enter the password and confirm if you chose to encrypt the backup. Click **Next**.
 1. In the **Storage Type** field, specify `S3 compatible`.
 1. In the **Server** list, specify `Custom server URL`. In the field below, enter the address `storage.yandexcloud.net/`.
 1. In the **Bucket name** field, enter the name of your bucket: `backup`.
@@ -82,7 +82,7 @@ To configure Duplicati to work with {{ objstorage-name }}:
 To test a backup:
 
 1. Open the **Home** menu item.
-1. In the list of backup plans next to the `Yandex Cloud` plan, click **Run now**.
+1. In the list of backup plans next to the `{{ yandex-cloud }}` plan, click **Run now**.
 1. Open the [management console]({{ link-console-main }}).
 1. Go to the folder containing the bucket where your backups are stored.
 1. Open the **Object Storage** service.

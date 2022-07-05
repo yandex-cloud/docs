@@ -1,4 +1,4 @@
-# Tutorials for creating Yandex.Cloud web services
+# Tutorials for creating {{ yandex-cloud }} web services
 
 * [Static website in {{ objstorage-full-name }}](static.md)
 * [Website on a LAMP or LEMP stack](lamp-lemp.md)
@@ -7,7 +7,7 @@
 * [Joomla-based website with PostgreSQL](joomla-postgresql.md)
 * [Creating a website in WordPress](wordpress.md)
 * [WordPress website on a MySQL database cluster](wordpress-mysql.md)
-* [Transferring a WordPress website from a different hosting provider to Yandex.Cloud](wordpress-transfer.md)
+* [Transferring a WordPress website from a different hosting provider to {{ yandex-cloud }}](wordpress-transfer.md)
 * [1C-Bitrix website](bitrix-website.md)
 {% if product == "yandex-cloud" %}
 * [Enabling blue-green and canary deployment of web service versions](blue-green-canary-deployment.md)

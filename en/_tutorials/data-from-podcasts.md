@@ -41,7 +41,7 @@ To open DataLens, prepare the cloud:
 
 - New user
 
-   If you want to use Yandex DataLens for podcast analysis only:
+   If you want to use {{ datalens-full-name }} for podcast analysis only:
 
    1. Open the [service home page]({{ link-datalens-main }}).
    1. In the upper-right corner, check that you are logged in to the correct account.

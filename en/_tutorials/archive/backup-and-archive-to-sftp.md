@@ -29,10 +29,10 @@ To deploy the necessary infrastructure, follow the instructions:
 
 The infrastructure cost in the example includes:
 
-* A fee for two continuously running VMs (see [Pricing for Yandex Compute Cloud](../../compute/pricing.md)):
+* A fee for two continuously running VMs (see [Pricing for {{ compute-full-name }}](../../compute/pricing.md)):
     * A VM for the SFTP client.
     * A VM for the SFTP server.
-* A fee for using a dynamic or static external IP address (see [Pricing for Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* A fee for using a dynamic or static external IP address (see [Pricing for {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 {% endif %}
 
