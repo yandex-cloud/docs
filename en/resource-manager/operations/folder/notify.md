@@ -8,13 +8,10 @@ To add a user to the list of notification recipients:
 
 - Management console
 
-  1. Select the folder to set up. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
-
-  1. Go to the **Incident notifications** tab.
-
-  1. Click **Add**.
-
-  1. Select the user you want to notify of incidents.
+   1. In the [management console]({{ link-console-cloud }}), select the folder to configure. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
+   1. Go to the **Incident notifications** tab.
+   1. Click **Add**.
+   1. Select the user you want to notify of incidents and click **Add**.
 
      {% note info %}
 
@@ -23,4 +20,3 @@ To add a user to the list of notification recipients:
      {% endnote %}
 
 {% endlist %}
-
