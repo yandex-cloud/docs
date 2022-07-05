@@ -217,7 +217,7 @@
       ```
 
 {% endif %}
-users-get.md).
+
 {% if product == "cloud-il" %}
 
       ```hcl
