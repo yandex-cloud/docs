@@ -18,6 +18,7 @@ Aliases:
 #### Command Tree
 
 - [yc managed-sqlserver host list](list.md) — List hosts for the specified SQLServer cluster
+- [yc managed-sqlserver host update](update.md) — Update the specified hosts
 
 #### Global Flags
 

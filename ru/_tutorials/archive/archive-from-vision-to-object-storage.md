@@ -1,11 +1,11 @@
-# Оцифровка архива в Yandex Vision
+# Оцифровка архива в {{ vision-full-name }}
 
-[Yandex Vision](https://cloud.yandex.ru/docs/vision/) — сервис компьютерного зрения для анализа изображений.
+[{{ vision-full-name }}](https://cloud.yandex.ru/docs/vision/) — сервис компьютерного зрения для анализа изображений.
 
 С помощью этой инструкции вы выполните:
-* настройку окружения {{ yandex-cloud }} для работы с Yandex Vision;
-* распознавание текста в изображениях с помощью Yandex Vision;
-* загрузите результат на [Yandex Object Storage](https://cloud.yandex.ru/docs/storage/).
+* настройку окружения {{ yandex-cloud }} для работы с {{ vision-full-name }};
+* распознавание текста в изображениях с помощью {{ vision-full-name }};
+* загрузите результат на [{{ objstorage-full-name }}](https://cloud.yandex.ru/docs/storage/).
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте и настройте виртуальную машину](#create-vm).
@@ -79,7 +79,7 @@
 Создание виртуальной машины может занять несколько минут.
 
 
-### Настройте Yandex CLI
+### Настройте YC CLI
 
 1. Зайдите на виртуальную машину по SSH.
 1. Установите YC CLI по [инструкции](../../cli/quickstart.md):

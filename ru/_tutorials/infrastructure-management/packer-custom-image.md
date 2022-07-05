@@ -164,7 +164,7 @@
       source_image_family = "ubuntu-2004-lts"
       ssh_username        = "ubuntu"
       use_ipv4_nat        = "true"
-      image_description   = "Yandex Cloud Ubuntu Toolbox image"
+      image_description   = "{{ yandex-cloud }} Ubuntu Toolbox image"
       image_family        = "my-images"
       image_name          = "yc-toolbox"
       subnet_id           = "${var.YC_SUBNET_ID}"
@@ -182,7 +182,7 @@
           "echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections",
           "sudo apt-get install -y unzip python3-pip python3.8-venv",
 
-          # Yandex Cloud CLI tool (YC)
+          # {{ yandex-cloud }} CLI tool (YC)
           "curl -s -O https://storage.yandexcloud.net/yandexcloud-yc/install.sh",
           "chmod u+x install.sh",
           "sudo ./install.sh -a -i /usr/local/ 2>/dev/null",

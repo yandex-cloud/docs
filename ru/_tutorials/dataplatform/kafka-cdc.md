@@ -189,9 +189,9 @@
 
         Если необходимо получить данные из нескольких кластеров-источников, создайте для каждого из них отдельный служебный топик.
 
-    1. [Создайте учетную запись](../../managed-kafka/operations/cluster-accounts.md#create-account) `debezium`.
+    1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) `debezium`.
 
-        [Выдайте ей](../../managed-kafka/operations/cluster-accounts.md#grant-permission) следующие права на созданные топики:
+        [Выдайте ему](../../managed-kafka/operations/cluster-accounts.md#grant-permission) следующие права на созданные топики:
 
         * `ACCESS_ROLE_CONSUMER`
         * `ACCESS_ROLE_PRODUCER`
@@ -304,4 +304,4 @@
 1. Удалите кластеры:
 
     * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md);
-    * [Yandex Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
+    * [{{ mkf-full-name }}](../../managed-kafka/operations/cluster-delete.md).

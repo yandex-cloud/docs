@@ -1,6 +1,6 @@
 # yc cloud-desktop desktop
 
-Manage VDI resources.
+[PREVIEW] Manage VDI resources
 
 #### Command Usage
 

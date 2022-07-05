@@ -20,9 +20,7 @@ List of languages sorted alphabetically:
 1. `bn` — Bengali
 1. `bs` — Bosnian
 1. `ca` — Catalan
-1. `ceb` — Cebuano
 1. `cs` — Czech
-1. `cv` — Chuvash
 1. `cy` — Welsh
 1. `da` — Danish
 1. `de` — German
@@ -51,7 +49,6 @@ List of languages sorted alphabetically:
 1. `ja` — Japanese
 1. `jv` — Javanese
 1. `ka` — Georgian
-1. `kazlat` — Kazakh (Latin)
 1. `kk` — Kazakh
 1. `km` — Khmer
 1. `kn` — Kannada
@@ -63,13 +60,11 @@ List of languages sorted alphabetically:
 1. `lt` — Lithuanian
 1. `lv` — Latvian
 1. `mg` — Malagasy
-1. `mhr` — Mari
 1. `mi` — Maori
 1. `mk` — Macedonian
 1. `ml` — Malayalam
 1. `mn` — Mongolian
 1. `mr` — Marathi
-1. `mrj` — Hill Mari
 1. `ms` — Malay
 1. `mt` — Maltese
 1. `my` — Burmese
@@ -77,12 +72,10 @@ List of languages sorted alphabetically:
 1. `nl` — Dutch
 1. `no` — Norwegian
 1. `pa` — Punjabi
-1. `pap` — Papiamento
 1. `pl` — Polish
 1. `pt` — Portuguese
 1. `ro` — Romanian
 1. `ru` — Russian
-1. `sah` — Yakut
 1. `si` — Sinhalese
 1. `sk` — Slovak
 1. `sl` — Slovenian
@@ -98,13 +91,10 @@ List of languages sorted alphabetically:
 1. `tl` — Tagalog
 1. `tr` — Turkish
 1. `tt` — Tatar
-1. `udm` — Udmurt
 1. `uk` — Ukrainian
 1. `ur` — Urdu
 1. `uz` — Uzbek
-1. `uzbcyr` — Uzbek (Cyrillic)
 1. `vi` — Vietnamese
 1. `xh` — Xhosa
 1. `yi` — Yiddish
 1. `zh` — Chinese
-1. `zu` — Zulu

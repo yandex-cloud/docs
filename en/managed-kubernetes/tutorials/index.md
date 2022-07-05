@@ -15,3 +15,8 @@
 
 
 * [{#T}](kubernetes-lockbox-secrets.md)
+
+
+## Using {{ marketplace-full-name }} products {#marketplace}
+
+* [{#T}](marketplace/jaeger-over-ydb.md)

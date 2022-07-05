@@ -24,6 +24,7 @@ Aliases:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--chain`|<b>`string`</b><br/> Path to PEM file with a chain of the certificate.|
 |`--key`|<b>`string`</b><br/> Path to PEM file with a private key of the certificate.|
+|`--deletion-protection`| Protects deletion of certificate.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

@@ -9,7 +9,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
   
    Чтобы удалить [статический адрес](../concepts/address.md):
    1. в [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется удалить статический адрес.
@@ -19,7 +19,7 @@
    1. В открывшемся меню нажмите кнопку **Удалить**.
    1. В открывшемся окне нажмите кнопку **Удалить**.
   
-* CLI
+- CLI
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -54,5 +54,64 @@
       ```bash
       yc vpc address delete e9b6un9gkso6stdh6b3p
       ```
+
+- Terraform
+
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы удалить статический публичный IP-адрес, созданный с помощью Terraform:
+
+  1. Откройте файл конфигурации Terraform и удалите фрагмент с описанием статического публичного IP-адреса.
+     
+     Пример описания статического публичного IP-адреса в конфигурации Terraform:
+
+     ```hcl
+     ...
+     resource "yandex_vpc_address" "addr" {
+       name = "exampleAddress"
+       external_ipv4_address {
+         zone_id = "ru-central1-a"
+       }
+     }
+     ...
+     ```
+
+  1. В командной строке перейдите в папку, где расположен файл конфигурации Terraform.
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc vpc address list
+     ```
 
 {% endlist %}

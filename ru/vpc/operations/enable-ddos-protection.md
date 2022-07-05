@@ -31,4 +31,61 @@
 	1. Выберите опцию **Защита от DDoS**.
 	1. Нажмите кнопку **Зарезервировать**.
 
+- Terraform
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием статического публичного IP-адреса, добавив поле `ddos_protection_provider`:
+
+     ```hcl
+     resource "yandex_vpc_address" "addr" {
+       name = "exampleAddress"
+       external_ipv4_address {
+         zone_id                  = "ru-central1-a"
+		 ddos_protection_provider = "qrator"
+       }
+     }
+     ```
+
+     Где:
+     * `ddos_protection_provider` — параметр, включающий защиту от DDoS-атак. Возможные значения: `qrator`.
+
+     Более подробную информацию о параметрах ресурса `yandex_vpc_address` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/vpc_address).
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить включение защиты от DDoS-атак при резервировании адреса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc vpc address list
+     ```
+
 {% endlist %}

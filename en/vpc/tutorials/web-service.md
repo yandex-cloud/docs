@@ -57,7 +57,7 @@ For your internet service to run, you need two static public IP addresses: one t
     1. In the [management console]({{ link-console-main }}), open your folder and click **Create resource**. Select **Virtual machine**.
     1. Enter the VM name: `web-node-a`.
     1. Select the `{{ region-id }}-a` availability zone.
-    1. Under **Images from {{ marketplace-name }}**, click **Select** and select the [Drupal](/marketplace/products/f2e90bncf96u25a9cirp) image.
+    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [Drupal](/marketplace/products/yc/drupal-8) image.
     1. Under **Network settings**, select `subnet-a`. Under **Public address**, select **No address**.
     1. In the **Access** field, enter the login and SSH key to access the VM.
     1. Click **Create VM**.
@@ -75,7 +75,7 @@ To provide secure access to your resources, create an IPSec instance.
     1. In the [management console]({{ link-console-main }}), open your folder and click **Create resource**. Select **Virtual machine**.
     1. Enter the VM name: `vpn`.
     1. Select the `{{ region-id }}-a` availability zone.
-    1. In the **Images from {{ marketplace-name }}** section, click **Select** and choose the [IPSec instance](/marketplace/products/f2e70ohdvsd0jgp2302j) image.
+    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [IPSec instance](/marketplace/products/yc/ipsec-instance-ubuntu) image.
     1. Under **Network settings**, select `subnet-a`. Under **Public address**, select a reserved IP address from the list.
     1. In the **Access** field, enter the login and SSH key to access the VM.
     1. Click **Create VM**.

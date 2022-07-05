@@ -54,6 +54,63 @@
   yc vpc network update --id enpavfmgapumnl7cqin8 --new-name test-network-renamed --labels new_label=test_label
   ```
 
+- Terraform
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием облачной сети:
+
+     ```hcl
+     ...
+     resource "yandex_vpc_network" "default" {
+       name        = "network-1"
+	   description = "My first network"
+       labels = {
+         tf-label    = "tf-label-value"
+         empty-label = ""
+       }
+     }
+     ...
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_vpc_network` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/vpc_network).
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение облачной сети можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc vpc network get <имя облачной сети>
+     ```
+
 {% endlist %}
 
 ## Примеры {#examples}

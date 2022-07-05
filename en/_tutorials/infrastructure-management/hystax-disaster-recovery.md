@@ -104,7 +104,7 @@ Specify a platform for disaster recovery:
 1. On the screen that opens, click **Add** and fill in the following fields:
    * **Company name**: The name of your company.
    * **Contact email**: Your email address.
-   * **Cloud**: Select `Yandex Cloud`.
+   * **Cloud**: Select `{{ yandex-cloud }}`.
    * **Use custom replication agent settings**: Enabled.
    * **Replication agent endpoint IP**: The public IP address of the `hystax-acura-vm` virtual machine.
    * **Replication agent logging IP**: The public IP address of the `hystax-acura-vm` virtual machine.

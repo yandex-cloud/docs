@@ -10,8 +10,8 @@
 Чтобы управлять топиками через [Admin API {{ KF }}](https://kafka.apache.org/documentation/#adminapi):
 
 1. Включите настройку **Управление топиками через API** при [создании кластера](./cluster-create.md) или [изменении его настроек](./cluster-update.md).
-1. [Создайте](./cluster-accounts.md#create-account) в кластере учетную запись администратора.
-1. Управляйте топиками от имени этой учетной записи с помощью запросов к [Admin API {{ KF }}](https://kafka.apache.org/documentation/#adminapi). О работе с Admin API читайте в документации выбранного языка программирования.
+1. [Создайте](./cluster-accounts.md#create-user) в кластере пользователя-администратора.
+1. Управляйте топиками от имени этого пользователя с помощью запросов к [Admin API {{ KF }}](https://kafka.apache.org/documentation/#adminapi). О работе с Admin API читайте в документации выбранного языка программирования.
 
 Подробнее о работе с Admin API и о действующих ограничениях читайте в разделе [{#T}](../concepts/topics.md#management) и в [документации {{ KF }}](https://kafka.apache.org/documentation/#adminapi).
 

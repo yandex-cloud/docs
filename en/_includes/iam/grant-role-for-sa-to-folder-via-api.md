@@ -10,7 +10,7 @@
 
    Result:
 
-   ```
+   ```json
    {
     "serviceAccounts": [
      {

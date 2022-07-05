@@ -32,6 +32,7 @@ Aliases:
 	- [yc managed-sqlserver cluster stop](cluster/stop.md) — Stop the specified SQLServer cluster
 - [yc managed-sqlserver host](host/index.md) — Manage SQLServer cluster hosts
 	- [yc managed-sqlserver host list](host/list.md) — List hosts for the specified SQLServer cluster
+	- [yc managed-sqlserver host update](host/update.md) — Update the specified hosts
 - [yc managed-sqlserver database](database/index.md) — Manage SQLServer databases
 	- [yc managed-sqlserver database get](database/get.md) — Show information about the specified SQLServer database
 	- [yc managed-sqlserver database list](database/list.md) — List SQLServer databases

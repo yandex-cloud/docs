@@ -10,7 +10,7 @@ Syntax:
 
 #### Command Tree
 
-- [yc cloud-desktop desktop](desktop/index.md) — Manage VDI resources.
+- [yc cloud-desktop desktop](desktop/index.md) — [PREVIEW] Manage VDI resources
 	- [yc cloud-desktop desktop get](desktop/get.md) — Get information about a desktop.
 	- [yc cloud-desktop desktop list](desktop/list.md) — List desktops.
 	- [yc cloud-desktop desktop get-rdp-file](desktop/get-rdp-file.md) — Download desktop RDP file.
@@ -18,7 +18,7 @@ Syntax:
 	- [yc cloud-desktop desktop create](desktop/create.md) — Create an desktop
 	- [yc cloud-desktop desktop delete](desktop/delete.md) — Delete the specified desktop
 	- [yc cloud-desktop desktop reset-password](desktop/reset-password.md) — Reset desktop Password.
-- [yc cloud-desktop group](group/index.md) — Manage cloud desktop resources.
+- [yc cloud-desktop group](group/index.md) — [PREVIEW] Manage cloud desktop resources
 	- [yc cloud-desktop group get](group/get.md) — Get information about a desktop group.
 	- [yc cloud-desktop group list](group/list.md) — List desktops.
 	- [yc cloud-desktop group list-desktops](group/list-desktops.md) — List desktops of the specified desktop group.

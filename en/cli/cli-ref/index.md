@@ -42,6 +42,7 @@ Syntax:
 - [yc managed-mysql](managed-services/managed-mysql/index.md) — Manage MySQL clusters, hosts, databases, backups and users.
 - [yc managed-sqlserver](managed-services/managed-sqlserver/index.md) — Manage SQLServer clusters, databases, backups and users.
 - [yc managed-postgresql](managed-services/managed-postgresql/index.md) — Manage PostgreSQL clusters, hosts, databases, backups and users.
+- [yc managed-greenplum](managed-services/managed-greenplum/index.md) — Manage Greenplum clusters and hosts.
 - [yc managed-redis](managed-services/managed-redis/index.md) — Manage Redis clusters, hosts, databases, backups and users.
 - [yc managed-elasticsearch](managed-services/managed-elasticsearch/index.md) — Manage ElasticSearch clusters, hosts, indexes and backups.
 - [yc managed-kafka](managed-services/managed-kafka/index.md) — Manage Apache Kafka clusters, brokers, topics and users.

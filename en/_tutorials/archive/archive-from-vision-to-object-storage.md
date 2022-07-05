@@ -1,12 +1,12 @@
-# Digitizing archives in Yandex Vision
+# Digitizing archives in {{ vision-full-name }}
 
-[Yandex Vision](https://cloud.yandex.com/docs/vision/) is a computer vision service for image analysis.
+[{{ vision-full-name }}](https://cloud.yandex.com/docs/vision/) is a computer vision service for image analysis.
 
 With this guide, you will:
 
-* Set up a {{ yandex-cloud }} environment for Yandex Vision.
-* Recognize text in images using Yandex Vision.
-* Upload the results to [Yandex Object Storage](https://cloud.yandex.com/docs/storage/).
+* Set up a {{ yandex-cloud }} environment for {{ vision-full-name }}.
+* Recognize text in images using {{ vision-full-name }}.
+* Upload the results to [{{ objstorage-full-name }}](https://cloud.yandex.com/docs/storage/).
 
 1. [Before you start](#before-you-begin).
 1. [Create and configure a virtual machine](#create-vm).
@@ -80,7 +80,7 @@ Infrastructure costs for recognition and data storage include:
 
 Creating the VM may take several minutes.
 
-### Configure Yandex CLI
+### Configure CLI
 
 1. Log in to the VM over SSH.
 1. Install the YC CLI by following the [instructions](../../cli/quickstart.md):
@@ -141,7 +141,7 @@ Creating the VM may take several minutes.
     yc iam create-token
     ```
 
-    Save the IAM token value returned by the command `yc iam create-token`. You need this value to upload images to Yandex Vision.
+    Save the IAM token value returned by the command `yc iam create-token`. You need this value to upload images to {{ vision-full-name }}.
 
 ## Set up the AWS CLI {#aws-cli}
 
@@ -247,7 +247,7 @@ This script implements the following steps:
 1. Processes images in a loop:
     1. Encodes images to be sent in a POST request to {{ vision-name }}.
     1. Forms the request body for the image.
-    1. Sends the image to Yandex Vision with subsequent processing.
+    1. Sends the image to {{ vision-full-name }} with subsequent processing.
     1. Saves the result to `output.json`.
     1. Parses the text from `output.json` and saves it to a text file.
 1. Archives all the text files obtained after processing the images.
@@ -281,10 +281,10 @@ To make it easier to read, each step is commented in the script body.
     for f in $FILES
     # For each file in the directory, perform the following actions in a loop:
     do
-        # Encode the image to base64 to upload it to the Yandex Vision server.
+        # Encode the image to base64 to upload it to the {{ vision-full-name }} server.
         CODEIMG=$(base64 -i $f | cat)
     
-        # Create the body.json file to be uploaded in a POST request to the Yandex Vision server.
+        # Create the body.json file to be uploaded in a POST request to the {{ vision-full-name }} server.
         cat <<EOF > body.json
     {
     "folderId": "$FOLDERID",
@@ -299,7 +299,7 @@ To make it easier to read, each step is commented in the script body.
     }]
     }
     EOF
-        # Send the image to the Yandex Vision server for processing and write the result to the output.json file.
+        # Send the image to the {{ vision-full-name }} server for processing and write the result to the output.json file.
         echo "Processing file $f in Vision..."
         curl -X POST --silent \
         -H "Content-Type: application/json" \

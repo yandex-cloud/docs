@@ -12,8 +12,13 @@
 
   1. Создайте виртуальную машину:
 
-     ```
-     $ yc compute instance create --zone {{ region-id }}-b --name instance-in-group-2
+     ```bash
+     yc compute instance create --zone {{ region-id }}-b --name instance-in-group-2
+	 ```
+
+     Результат:
+
+     ```bash
      id: epdlv1pp54019j09fhue
      ...
      ```
@@ -25,8 +30,13 @@
 
   1. Посмотрите список виртуальных машин в группе размещения:
 
-     ```
-     $ yc compute placement-group list-instances --name my-group
+     ```bash
+     yc compute placement-group list-instances --name my-group
+	 ```
+
+     Результат:
+
+     ```bash
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
@@ -36,8 +46,13 @@
 
   1. Остановите виртуальную машину:
 
-     ```
-     $ yc compute instance stop instance-in-group-2
+     ```bash
+     yc compute instance stop instance-in-group-2
+	 ```
+
+     Результат:
+
+     ```bash
      id: epdlv1pp54019j09fhue
      ...
      status: STOPPED
@@ -45,8 +60,13 @@
 
   1. Добавьте виртуальную машину в группу размещения:
 
-     ```
-     $ yc compute instance update --name instance-in-group-2 --placement-group-name my-group
+     ```bash
+     yc compute instance update --name instance-in-group-2 --placement-group-name my-group
+	 ```
+
+     Результат:
+
+     ```bash
      id: epdlv1pp54019j09fhue
      ...
      placement_policy:
@@ -57,8 +77,13 @@
 
   1. Проверьте, что виртуальная машина добавлена в группу размещения:
 
-     ```
-     $ yc compute placement-group list-instances --name my-group
+     ```bash
+     yc compute placement-group list-instances --name my-group
+	 ```
+
+     Результат:
+
+     ```bash
      +----------------------+---------------------+---------------+---------+-------------+-------------+
      |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
      +----------------------+---------------------+---------------+---------+-------------+-------------+
@@ -69,8 +94,13 @@
 
   1. Запустите виртуальную машину:
 
-     ```
-     $ yc compute instance start instance-in-group-2
+     ```bash
+     yc compute instance start instance-in-group-2
+	 ```
+
+     Результат:
+
+     ```bash
      id: epdlv1pp54019j09fhue
      ...
      status: RUNNING
@@ -79,6 +109,71 @@
 - API
 
   Воспользуйтесь методом API [update](../../api-ref/Instance/update.md).
+
+- {{ TF }}
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы добавить существующую виртуальную машину в группу размещения:
+
+  1. Добавьте в конфигурационный файл существующей [виртуальной машины](../../operations/vm-create/create-linux-vm.md) поле `placement_group_id` с указанием на ресурс группы размещения `yandex_compute_placement_group`.
+
+     Пример структуры конфигурационного файла виртуальной машины:
+
+     ```hcl
+     ...
+     resource "yandex_compute_instance" "vm-1" {
+       name        = "my-vm"
+       platform_id = "standard-v3"
+       placement_policy {
+         placement_group_id = "${yandex_compute_placement_group.group1.id}"
+       }
+     }
+
+     resource "yandex_compute_placement_group" "group1" {
+       name = "test-pg"
+     }
+     ...
+     ```
+
+     Где:
+     * `placement_group_id` — идентификатор группы размещения.
+
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/compute_instance).
+
+  1. В командной строке перейдите в папку, где расположен файл конфигурации {{ TF }}.
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить, что виртуальная машина добавлена в группу размещения, можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 

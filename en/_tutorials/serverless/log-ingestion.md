@@ -66,7 +66,7 @@ Wait for the stream to start. Once the stream is ready for use, its status chang
 1. Create a source endpoint:
    1. In the **Direction** field, select `Source`.
    1. Enter a name for the endpoint.
-   1. In the **Database type** list, select `Yandex Data Stream`.
+   1. In the **Database type** list, select `{{ yds-full-name }}`.
    1. Select a database for the source.
    1. Enter the name of the previously created stream.
    1. Select the service account you created earlier.

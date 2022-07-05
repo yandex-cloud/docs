@@ -38,7 +38,7 @@
 1. [Создайте кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации.
 
     1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `messages` для обмена сообщениями между {{ KFC }} и кластером {{ mkf-name }}.
-    1. [Создайте учетную запись](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ей права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `messages`:
+    1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ему права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `messages`:
         * `ACCESS_ROLE_CONSUMER`,
         * `ACCESS_ROLE_PRODUCER`.
 
@@ -111,14 +111,14 @@
     security.protocol=SASL_SSL
     ssl.truststore.location=/etc/kafka-connect-worker/client.truststore.jks
     ssl.truststore.password=<пароль к хранилищу сертификата>
-    sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<пароль учетной записи user>";
+    sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<пароль пользователя user>";
 
     # Producer connect properties
     producer.sasl.mechanism=SCRAM-SHA-512
     producer.security.protocol=SASL_SSL
     producer.ssl.truststore.location=/etc/kafka-connect-worker/client.truststore.jks
     producer.ssl.truststore.password=<пароль к хранилищу сертификата>
-    producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<пароль учетной записи user>";
+    producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<пароль пользователя user>";
 
     # Worker properties
     plugin.path=/etc/kafka-connect-worker/plugins
@@ -131,7 +131,7 @@
 
     {% endcut %}
 
-    {{ KFC }} будет подключаться к кластеру {{ mkf-name }} от имени учетной записи `user`, [созданной ранее](#before-you-begin).
+    {{ KFC }} будет подключаться к кластеру {{ mkf-name }} от имени пользователя `user`, [созданного ранее](#before-you-begin).
 
     FQDN хостов-брокеров можно запросить со [списком хостов в кластере](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
 
@@ -170,7 +170,7 @@
         -X security.protocol=SASL_SSL \
         -X sasl.mechanisms=SCRAM-SHA-512 \
         -X sasl.username=user \
-        -X sasl.password="<пароль учетной записи user>" \
+        -X sasl.password="<пароль пользователя user>" \
         -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
     ```
 

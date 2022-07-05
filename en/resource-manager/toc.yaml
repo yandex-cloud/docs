@@ -31,6 +31,8 @@ items:
             href: operations/folder/create.md
           - name: Updating a folder
             href: operations/folder/update.md
+          - name: Deleting a folder
+            href: operations/folder/delete.md
           - name: How to set up access rights
             href: operations/folder/set-access-bindings.md
           - name: Getting the folder ID

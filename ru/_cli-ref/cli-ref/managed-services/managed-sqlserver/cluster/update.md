@@ -26,6 +26,7 @@ Syntax:
 |`--disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to a host|
 |`--disk-type`|<b>`string`</b><br/> Type of the storage environment for a host|
 |`--backup-window-start`|<b>`timeofday`</b><br/> Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
+|`--secondary-connections`|<b>`string`</b><br/> Secondary replicas connection mode Values: 'secondary-connections-off', 'secondary-connections-read-only'|
 
 #### Global Flags
 
