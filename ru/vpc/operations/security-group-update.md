@@ -2,7 +2,7 @@
 
 Функция находится на [стадии Preview](../../overview/concepts/launch-stages.md).
 
-После создания облачной сети вы можете изменить ее имя и описание, а также добавить или удалить правила.
+После создания группы безопасности вы можете изменить ее имя и описание, а также добавить или удалить правила.
 
 Если вы добавили или удалили правила, не нужно перезагружать ВМ. Правила применятся сразу ко всем ресурсам, которым назначена группа.
 
@@ -26,6 +26,66 @@
   ```
   yc vpc security-group update <идентификатор группы> --new-name test-sg-renamed
   ```
+
+- Terraform
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+ 
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+  1. Откройте файл конфигурации Terraform и измените параметры `name` и `description` в описании группы безопасности:
+
+     ```hcl
+     ...
+     resource "yandex_vpc_security_group" "test-sg" {
+       name        = "Test security group"
+       description = "Description for security group"
+       network_id  = "${yandex_vpc_network.lab-net.id}"
+     }
+     ...
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_vpc_security_group` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/vpc_security_group).
+
+     {% note info %}
+
+	 Для управления [группой безопасности по умолчанию](../../vpc/concepts/security-groups#default-security-group) используйте ресурс [vpc_default_security_group]({{ tf-provider-link }}/vpc_default_security_group).
+
+     {% endnote %}
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение группы безопасности можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc vpc security-group get <имя группы безопасности>
+     ```
 
 {% endlist %}
 
@@ -59,6 +119,163 @@
   yc vpc security-group update-rules --name=test-sg-cli --add-rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24,10.10.0.0/24]"
   ```
 
+- Terraform
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+  1. Откройте файл конфигурации Terraform и добавьте блок `ingress` или `egress` в описании группы безопасности:
+
+     ```hcl
+     ...
+     resource "yandex_vpc_security_group" "test-sg" {
+       name        = "Test security group"
+       description = "Description for security group"
+       network_id  = "${yandex_vpc_network.lab-net.id}"
+
+       ingress {
+         protocol       = "TCP"
+         description    = "Rule description 1"
+         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
+         port           = 8080
+       }
+
+       egress {
+         protocol       = "ANY"
+         description    = "Rule description 2"
+         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
+         from_port      = 8090
+         to_port        = 8099
+       }
+	   
+	   egress {
+         protocol       = "UDP"
+         description    = "rule3 description"
+         v4_cidr_blocks = ["10.0.1.0/24"]
+         from_port      = 8090
+         to_port        = 8099
+       }
+     }
+     ...
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_vpc_security_group` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/vpc_security_group).
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение группы безопасности можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc vpc security-group get <имя группы безопасности>
+     ```
+
+  ### Добавить новое правило с помощью ресурса yandex_vpc_security_group_rule {#add-rule-with-yandex-vpc-security-group-rule}
+
+  Вы также можете добавить новое правило в существующую группу безопасности, используя ресурс `yandex_vpc_security_group_rule`.
+
+     {% note warning %}
+
+     Оба способа равнозначны, но несовместимы друг с другом: одновременное использование ресурсов `yandex_vpc_security_group_rule` и `yandex_vpc_security_group` приведет к конфликту конфигурации правил.
+
+     {% endnote %}
+
+  1. Опишите в конфигурационном файле следующие параметры:
+
+     * `security_group_binding` — идентификатор группы безопасности.
+     * `direction` — входящий или исходящий трафик. Возможные значения: `ingress` или `egress`.
+     * `description` — описание правила.
+     * `v4_cidr_blocks` — список CIDR и масок подсетей, откуда или куда будет поступать трафик.
+     * `port` — порт для трафика.
+     * `from_port` — первый порт из диапазона портов для трафика.
+     * `to_port` — последний порт из диапазона портов для трафика.
+     * `protocol` — протокол передачи трафика. Возможные значения: `TCP`, `UDP`, `ICMP`, `ANY`.
+
+     ```hcl
+     ...
+     resource "yandex_vpc_security_group_rule" "rule1" {
+       security_group_binding = <идентификатор группы безопасности>
+       direction              = "ingress"
+       description            = "<описание правила>"
+       v4_cidr_blocks         = ["10.0.1.0/24", "10.0.2.0/24"]
+       port                   = 8080
+       protocol               = "TCP"
+     }
+
+     resource "yandex_vpc_security_group_rule" "rule2" {
+       security_group_binding = yandex_vpc_security_group.group1.id
+       direction              = "egress"
+       description            = "rule2 description"
+       v4_cidr_blocks         = ["10.0.1.0/24"]
+       from_port              = 8090
+       to_port                = 8099
+       protocol               = "UDP"
+     }
+     ...
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_vpc_security_group_rule` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/resources/vpc_security_group_rule).
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение группы безопасности можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc vpc security-group get <имя группы безопасности>
+     ```
+
 {% endlist %}
 
 ## Удалить правило {#remove-rule}
@@ -82,5 +299,80 @@
   ```
   yc vpc security-group update-rules --name=test-sg-cli --delete-rule-id <идентификатор правила>
   ```
+
+- Terraform
+
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы удалить правило из группы безопасности, созданное с помощью Terraform:
+
+  1. Откройте файл конфигурации Terraform и удалите блок `ingress` или `egress` в описании группы безопасности:
+
+     {% cut "Пример описания группы безопасности с правилами в конфигурации Terraform" %}
+
+     ```hcl
+     ...
+     resource "yandex_vpc_security_group" "test-sg" {
+       name        = "Test security group"
+       description = "Description for security group"
+       network_id  = "${yandex_vpc_network.lab-net.id}"
+
+       ingress {
+         protocol       = "TCP"
+         description    = "Rule description 1"
+         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
+         port           = 8080
+       }
+
+       egress {
+         protocol       = "ANY"
+         description    = "Rule description 2"
+         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
+         from_port      = 8090
+         to_port        = 8099
+       }
+     }
+     ...
+     ```
+
+     {% endcut %}
+
+  1. В командной строке перейдите в папку, где расположен файл конфигурации Terraform.
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение группы безопасности можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc vpc security-group get <имя группы безопасности>
+     ```
 
 {% endlist %}
