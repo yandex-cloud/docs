@@ -26,6 +26,7 @@
             * [Oracle](source/oracle.md)
             * [{{ PG }}](source/postgresql.md)
             {% if product == "yandex-cloud" %}
+
             * [S3](source/s3.md)
             * [{{ yds-full-name }}](source/data-streams.md)
             {% endif %}
@@ -37,6 +38,7 @@
             * [{{ objstorage-name }}](target/object-storage.md)
             * [{{ PG }}](target/postgresql.md)
             {% if product == "yandex-cloud" %}
+
             * [{{ ydb-name }}](target/yandex-database.md)
             {% endif %}
 
