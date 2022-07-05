@@ -297,6 +297,86 @@
 
 {% endlist %}
 
+### Источник Oracle {#source-oracle}
+
+{% list tabs %}
+
+- Oracle
+
+    1. Создайте пользователя, от имени которого трансфер подключится к источнику:
+
+        ```sql
+        CREATE USER <имя пользователя> IDENTIFIED BY <пароль>;
+        GRANT CREATE SESSION TO <имя пользователя>;
+        ```
+
+    1. Чтобы подготовить источник к трансферу типа `{{ dt-type-copy }}`:
+
+        * Выдайте права созданному пользователю:
+
+            ```sql
+            GRANT SELECT ON V$DATABASE TO <имя пользователя>;
+            GRANT SELECT ON DBA_EXTENTS TO <имя пользователя>;
+            GRANT SELECT ON DBA_OBJECTS TO <имя пользователя>;
+            GRANT FLASHBACK ANY TABLE TO <имя пользователя>;
+            ```
+
+            Права `FLASHBACK` можно выдать не на все таблицы (`ANY TABLE`), а только на те, которые нужно скопировать.
+
+        * Выдайте пользователю [права на чтение таблиц](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html), которые нужно скопировать.
+
+    1. Чтобы подготовить источник к трансферу типа `{{ dt-type-repl }}`:
+
+        * Выдайте права созданному пользователю:
+
+            ```sql
+            GRANT SELECT ON V$DATABASE TO <имя пользователя>;
+            GRANT SELECT ON V$LOG TO <имя пользователя>;
+            GRANT SELECT ON V$LOGFILE TO <имя пользователя>;
+            GRANT SELECT ON V$ARCHIVED_LOG TO <имя пользователя>;
+            GRANT EXECUTE ON SYS.DBMS_LOGMNR TO <имя пользователя>;
+            ```
+
+        * Выдайте пользователю [права на чтение таблиц](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html), которые нужно реплицировать.
+        * Включите [Minimal Supplemental Logging](https://docs.oracle.com/database/121/SUTIL/GUID-D2DDD67C-E1CC-45A6-A2A7-198E4C142FA3.htm#SUTIL1583) с первичными ключами, для этого выполните:
+
+            ```sql
+            ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
+            ```
+
+    1. (опционально) Если вы работаете в [CDB-среде](https://docs.oracle.com/database/121/CNCPT/cdbovrvw.htm#CNCPT89234), выполните дополнительные настройки:
+
+        1. Создайте [пользователя](https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/overview-of-managing-a-multitenant-environment.html#GUID-7D303718-2D59-495F-90FB-E51A377B1AD2) `Common User`:
+
+            ```sql
+            CREATE USER C##<имя пользователя> IDENTIFIED BY <пароль> CONTAINER=ALL;
+            GRANT CREATE SESSION TO C##<имя пользователя>;
+            ```
+
+            {% note info %}
+
+            Имя пользователя `Common User` должно иметь префикс `С##`.
+
+            {% endnote %}
+
+            Можно указать только контейнер `cdb$root` и контейнер с таблицами, которые нужно перенести.
+
+        1. Чтобы пользователь мог переключаться на контейнер `cdb$root`, выдайте ему права `ALTER SESSION`:
+
+            ```sql
+            GRANT ALTER SESSION TO C##<имя пользователя>;
+            ```
+
+        1. Выдайте доступ на чтение нужного [PDB-контейнера](https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/overview-of-the-multitenant-architecture.html#GUID-49C0C90D-5A72-4131-8C3D-B07341C75CB2) пользователю:
+
+            ```sql
+            GRANT SELECT ANY TABLE TO C##<имя пользователя> CONTAINER=<имя PDB-контейнера>;
+            ```
+
+            Можно указать не все таблицы (`ANY TABLE`), а только те, которые нужно перенести.
+
+{% endlist %}
+
 ### Источник {{ PG }} {#source-pg}
 
 {% list tabs %}
