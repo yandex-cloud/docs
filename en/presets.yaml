@@ -786,3 +786,4 @@ cloud-il:
   yandex-cloud: CloudIL
   region-id: il1
   registry: cr.cloudil.com
+  pem-path: /certs/CA.pem

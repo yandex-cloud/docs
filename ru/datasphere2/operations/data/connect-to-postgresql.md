@@ -19,7 +19,7 @@
     ```bash
     #!:bash
     mkdir ~/.postgresql
-    wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/.postgresql/root.crt && \
+    wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt && \
     chmod 0600 ~/.postgresql/root.crt
     ```
 
