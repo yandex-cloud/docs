@@ -168,6 +168,8 @@ items:
           {{ dataproc-full-name }}
         href: dataplatform/data-proc-init-actions-geesefs.md
         when: product == "yandex-cloud"
+      - name: Миграция базы данных из стороннего кластера {{ MY }} в кластер {{ mmy-full-name }}
+        href: dataplatform/mysql-data-migration.md
   - name: Windows в {{ yandex-cloud }}
     items:
       - name: Все руководства
