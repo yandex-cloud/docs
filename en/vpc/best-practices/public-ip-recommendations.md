@@ -49,9 +49,8 @@ Read more:
 * [{#T}](../../interconnect/manual.md).
 * [Traffic routing with {{ interconnect-name }}](../../interconnect/concepts/routing.md).
 
-{% endif %}
-
-
 #### Connect to VMs using the serial console {#serial-console}
 
 If you only need SSH access to a VM, use the [serial console](../../compute/operations/serial-console/connect-ssh.md) instead of a public IP connection. We recommend disabling connections via the serial console when you don't use it.
+
+{% endif %}
