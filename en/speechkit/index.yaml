@@ -32,7 +32,7 @@ links:
     href: tts/brand-voice/
   - title: SpeechKit Hybrid
     description: Running Yandex Cloud voice technologies on-premise
-    href: hybrid-speechkit/conception
+    href: hybrid-speechkit/
   - title: Authentication in the API
     description: Get an access token and use it in requests
     href: concepts/auth

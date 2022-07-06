@@ -210,7 +210,7 @@
           #"sudo apt-get install -y terraform",
           #
           # Alternative Option
-          "curl -sL https://hashicorp-releases.website.yandexcloud.net/terraform/${var.TF_VER}/terraform_${var.TF_VER}_linux_amd64.zip -o terraform.zip",
+          "curl -sL {{ terraform-mirror }}${var.TF_VER}/terraform_${var.TF_VER}_linux_amd64.zip -o terraform.zip",
           "unzip terraform.zip",
           "sudo install -o root -g root -m 0755 terraform /usr/local/bin/terraform",
           "rm -rf terraform terraform.zip",

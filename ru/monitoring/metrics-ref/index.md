@@ -39,5 +39,3 @@ editable: false
 
 
 {% include [compute.md](../../_includes/monitoring/metrics-ref/monitoring.md) %}
-
-

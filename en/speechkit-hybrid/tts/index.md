@@ -2,7 +2,7 @@
 
 ## Available voices {#voices}
 
-{{ sk-hybrid-name }} offers [premium voices](../tts/voices.md#premium) and [Brand Voice](../tts/brand-voice/).
+{{ sk-hybrid-name }} offers [premium voices](../../speechkit/tts/voices.md#premium) and [Brand Voice](../../speechkit/tts/brand-voice/).
 
 ## Before you start {#before-you-begin}
 
@@ -10,7 +10,7 @@
 
 1. [Log in](../../container-registry/operations/authentication.md) to Container Registry.
 
-For the recommended hardware configuration, see [{#T}](system-requirements.md).
+For the recommended hardware configuration, see [{#T}](../system-requirements.md).
 
 ## Installing and setting up speech synthesis {#installing}
 
@@ -53,7 +53,7 @@ The speech synthesis service will be available on TCP port **9080**.
    docker pull cr.yandex/${REGISTRY_ID}/tts-tools
    ```
 
-2. Run the `tts-tools` container:
+1. Run the `tts-tools` container:
 
    ```bash
    docker run --network=host \
@@ -66,7 +66,7 @@ The speech synthesis service will be available on TCP port **9080**.
    * `ENVOY_TTS_PORT`: The port of the speech synthesis service (`9080` by default).
    * `RPS`: The number of speech synthesis requests per second.
 
-3. The test results will be available in the container logs:
+1. The test results will be available in the container logs:
 
    ```bash
    docker logs tts-tools

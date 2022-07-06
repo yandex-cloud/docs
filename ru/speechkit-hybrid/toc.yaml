@@ -1,0 +1,33 @@
+title: Yandex SpeechKit Hybrid
+href: index.yaml
+noIndex: true
+items:
+  - name: Системные требования
+    href: system-requirements.md
+  - name: Синтез речи
+    items:
+      - name: О технологии
+        href: tts/index.md
+  - name: Распознавание речи
+    items:
+      - name: О технологии
+        href: stt/index.md
+  - name: Мониторинг
+    href: monitoring.md
+  - name: Справочник API gRPC (англ.)
+    items:
+      - name: Аутентификация в API
+        href: auth.md
+      - name: Синтез речи
+        items:
+          - name: Overview
+            href: api-ref/tts/v3/grpc/index.md
+          - name: Synthesizer
+            href: api-ref/tts/v3/grpc/tts_service.md
+      - name: Потоковое распознавание
+        items:
+          - name: Overview
+            href: api-ref/stt/v3/grpc/index.md
+          - name: Recognizer
+            href: api-ref/stt/v3/grpc/stt_service.md
+base: ru/speechkit-hybrid

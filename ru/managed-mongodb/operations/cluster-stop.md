@@ -7,8 +7,6 @@
 
 ## Остановить кластер {#stop-cluster}
 
-{% include [cluster-stop](../../_includes/mdb/cluster-stop.md) %}
-
 {% list tabs %}
 
 - Консоль управления
@@ -17,8 +15,27 @@
   1. Выберите нужный кластер в списке, нажмите значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Остановить**.
   1. Подтвердите остановку кластера и нажмите кнопку **Остановить**.
 
-{% endlist %}
+- CLI
 
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы остановить работу кластера, выполните команду:
+
+    ```bash
+    {{ yc-mdb-mg }} cluster stop <идентификатор или имя кластера>
+    ```
+
+    Идентификатор или имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- API
+
+    Воспользуйтесь методом API [stop](../api-ref/Cluster/stop.md) и передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+{% endlist %}
 
 ## Запустить кластер {#start-cluster}
 
@@ -31,5 +48,25 @@
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
   1. Выберите остановленный кластер в списке, нажмите значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Запустить**.
   1. Подтвердите запуск кластера — нажмите кнопку **Запустить** в открывшемся диалоге.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Для запуска остановленного кластера выполните команду:
+
+    ```bash
+    {{ yc-mdb-mg }} cluster start <идентификатор или имя кластера>
+    ```
+
+    Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- API
+
+    Воспользуйтесь методом API [start](../api-ref/Cluster/start.md) и передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}

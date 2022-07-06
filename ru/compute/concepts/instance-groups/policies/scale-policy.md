@@ -43,9 +43,9 @@ scale_policy:
     initial_size: 5
     max_size: 15
     min_zone_size: 3
-    measurement_duration: 30
-    warmup_duration: 60
-    stabilization_duration: 120
+    measurement_duration: 30s
+    warmup_duration: 60s
+    stabilization_duration: 120s
     cpu_utilization_rule:
       utilization_target: 75
     custom_rules:
@@ -92,9 +92,9 @@ scale_policy:
     initial_size: 5
     max_size: 15
     min_zone_size: 3
-    measurement_duration: 30
-    warmup_duration: 60
-    stabilization_duration: 120
+    measurement_duration: 30s
+    warmup_duration: 60s
+    stabilization_duration: 120s
     cpu_utilization_rule:
       utilization_target: 75
 ```
