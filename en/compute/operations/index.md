@@ -110,7 +110,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 ## Managing the serial console {#serial-console}
 
 * [{#T}](serial-console/index.md)
-* [{#T}](serial-console/connect-ssh.md)
+   * [{#T}](serial-console/connect-ssh.md)
 * [{#T}](serial-console/connect-cli.md)
 * [{#T}](serial-console/windows-sac.md)
 * [{#T}](serial-console/disable.md)

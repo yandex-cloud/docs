@@ -24,7 +24,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы получить список баз данных в кластере, выполните команду:
+  Чтобы получить список шардов в кластере, выполните команду:
 
   ```
   {{ yc-mdb-rd }} shards list --cluster-name <имя кластера>

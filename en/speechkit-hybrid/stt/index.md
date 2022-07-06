@@ -6,7 +6,7 @@
 
 1. [Log in](../../container-registry/operations/authentication) to Container Registry.
 
-For the recommended hardware configuration, see [{#T}](system-requirements.md).
+For the recommended hardware configuration, see [{#T}](../system-requirements.md).
 
 ## Installing and setting up the streaming speech recognition service {#installing}
 

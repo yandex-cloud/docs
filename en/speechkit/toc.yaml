@@ -86,31 +86,9 @@ items:
   - name: SpeechKit Hybrid
     items:
       - name: About the technology
-        href: hybrid-speechkit/conception.md
+        href: hybrid-speechkit/index.md
       - name: System requirements
         href: hybrid-speechkit/system-requirements.md
-      - name: Speech synthesis
-        href: hybrid-speechkit/synthesis.md
-      - name: Speech recognition
-        href: hybrid-speechkit/asr.md
-      - name: Monitoring
-        href: hybrid-speechkit/monitoring.md
-      - name: gRPC API references
-        items:
-          - name: Authentication in the API
-            href: hybrid-speechkit/auth.md
-          - name: Speech synthesis
-            items:
-              - name: Overview
-                href: hybrid-speechkit/api-ref/tts/v3/grpc/index.md
-              - name: Synthesizer
-                href: hybrid-speechkit/api-ref/tts/v3/grpc/tts_service.md
-          - name: Data streaming recognition
-            items:
-              - name: Overview
-                href: hybrid-speechkit/api-ref/stt/v3/grpc/index.md
-              - name: Recognizer
-                href: hybrid-speechkit/api-ref/stt/v3/grpc/stt_service.md
   - name: IVR integration
     href: concepts/ivr-integration.md
   - name: Using the API
