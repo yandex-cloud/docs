@@ -1,6 +1,4 @@
-# Создать HTTP-роутер
-
-Создайте группу бэкендов в этом же каталоге по [инструкции](backend-group-create.md).
+# Создать HTTP-роутер для HTTP-трафика
 
 Чтобы создать HTTP-роутер и добавить в него маршрут:
 
@@ -20,7 +18,7 @@
   1. В поле **Путь** выберите `Совпадает с` и укажите путь `/`.
   1. В списке **Методы HTTP** выберите `GET`.
   1. В поле **Действие** оставьте `Маршрутизация`.
-  1. В списке **Группа бэкендов** выберите `test-backend-group`.
+  1. В списке **Группа бэкендов** выберите имя группы бэкендов из того же каталога, в котором создаете роутер.
   1. Остальные настройки оставьте без изменений и нажмите кнопку **Создать**.
 
 - CLI
@@ -55,14 +53,13 @@
   1. Создайте виртуальный хост, указав имя HTTP-роутера и настройки виртуального хоста:
      
      {% if product == "yandex-cloud" %}
-     
+
      ```
      yc alb virtual-host create <имя виртуального хоста> \
        --http-router-name <имя HTTP-роутера> \
        --authority your-domain.foo.com \
        --modify-request-header name=Accept-Language,append=ru-RU
      ```
-     
      {% endif %}
  
      {% if product == "cloud-il" %}
@@ -86,7 +83,7 @@
      Результат:
      
      {% if product == "yandex-cloud" %}
-     
+
      ```
      name: test-virtual-host
      authority:
@@ -164,7 +161,7 @@
          empty-label = ""
        }
      }
-	 
+    
      resource "yandex_alb_virtual_host" "my-virtual-host" {
        name           = "<имя виртуального хоста>"
        http_router_id = "${yandex_alb_http_router.tf-router.id}"
@@ -177,17 +174,17 @@
            }
          }
        }
-     }	 
+     }    
      ```
 
      Где:
-	 * `yandex_alb_virtual_host` — описание HTTP-роутера:
+    * `yandex_alb_virtual_host` — описание HTTP-роутера:
        * `name` — имя HTTP-роутера. Формат имени:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
        * `labels` — [метки](https://cloud.yandex.ru/docs/overview/concepts/services#labels) для HTTP-роутера. Укажите пару ключ-значение.
-	 * `yandex_alb_virtual_host` — описание виртуального хоста:
+    * `yandex_alb_virtual_host` — описание виртуального хоста:
        * `name` — имя виртуального хоста. Формат имени:
 
           {% include [name-format](../../_includes/name-format.md) %}
@@ -195,7 +192,7 @@
        * `http_router_id` — идентификатор HTTP-роутера.
        * `route` — описание маршрута HTTP-роутера. Укажите имя маршрута, идентификатор группы бэкендов и время для обработки запроса (по умолчанию 60 секунд).
 
-     Более подробную информацию о параметрах ресурсов в Terraform см. в документации провайдера ([yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) и [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host)).
+     Более подробную информацию о параметрах ресурсов в Terraform см. в документации провайдера ([yandex_alb_http_router](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router) и [yandex_alb_virtual_host](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host)).
 
   1. Проверьте корректность конфигурационных файлов.
 

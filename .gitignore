@@ -4,3 +4,6 @@
 *.un~
 *.swp
 .editorconfig
+/.vs/docs/FileContentIndex
+*.suo
+/.vs
