@@ -8,6 +8,35 @@ For more information about voice models, see [About the technology](tts/index.md
 
 ## Current version {#current}
 
+### Release 09.06.22 {#090622}
+
+1. Intonations and emphasis have been improved in all voices.
+
+1. More pausing features were added:
+   * The error when pauses shorter than 1200 milliseconds were not taken into account in SSML markup has been fixed. Note that pauses shorter than 700 milliseconds are considered a synthesis cue and do not allow accurate control of the duration of a pause between words.
+   * SSML pauses with the `x-weak`, `weak`, and `medium` values have a greater impact on synthesized text.
+   * You can now apply pauses when using TTS markup. Using the `<[small]>` tag, you can set the duration of a pause in a synthesized text, for example: `Hello, <[small]>`. The duration of a pause can have the following values: `tiny`, `small`, `medium`, `large`, `huge`.
+
+1. Support for `filipp:deprecated` was ceased. `filipp:deprecated` and `filipp` sound the same now.
+
+## Previous versions {#previous}
+
+### Release 19.05.22 {#190522}
+
+1. Support for the deprecated voices will cease starting May 31, 2022.
+
+1. The `rc` branch has new voices and languages available for testing:
+   * `amira` female voice: Kazakh.
+   * `john` male voice: English.
+
+   The voices are only available in API v3 using the `x-service-branch:rc` header.
+
+### Release 30.03.22 {#300322}
+
+1. The standard voices are currently only available through the `:deprecated` tag and will continue to be supported through May 31, 2022.
+
+1. Intonations and issues with rare artifacts in texts with many numbers have been fixed following a technical support request (issue CLOUDSUPPORT-138703).
+
 ### Release 17.03.22 {#170322}
 
 1. Added the ability to synthesize audio files in MP3 format. This feature is available in API v3 and when using premium voices in API v1.
@@ -18,11 +47,9 @@ For more information about voice models, see [About the technology](tts/index.md
 
 1. A major update of standard voices has begun: `oksana`, `ermil`, `jane`, `omazh`, `zahar` will be replaced with `oksana:rc`, `ermil:rc`, `jane:rc`, `omazh:rc`, `zahar:rc`, respectively. The update will not affect the cost of the regular voices. Existing voices, such as `oksana`, `ermil`, `jane`, `omazh`, and `zahar` are available under the `:deprecated` branch.
 
-## Previous versions {#previous}
-
 ### Release 24.01.22 {#240122}
 
-1. Generation model updated. The new version improves the the way numbers and abbreviations from the finance domain are pronounced.
+1. Updated the generation model. The new version improves the way numbers and abbreviations from the finance domain are pronounced.
 
 1. You can now emphasize using markup: `Are you **happy** to see me?`
 
