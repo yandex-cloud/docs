@@ -113,7 +113,7 @@ On [jwt.io](https://jwt.io), you can view the list of libraries and try generati
 
   Save the result as a Base64Url encoded string.
 
-  If you generate a token using [jwt.io](https://jwt.io), note that `\n` in the key value must be replaced by line breaks .
+  If you generate a token using [jwt.io](https://jwt.io), note that `\n` in the key value must be replaced by line breaks.
 
 - Python
 

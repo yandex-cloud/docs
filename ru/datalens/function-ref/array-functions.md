@@ -49,6 +49,14 @@ sourcePath: ru/_api-ref/datalens/function-ref/array-functions.md
 
 
 
+## [REPLACE](REPLACE_ARRAY.md)
+
+**Синтаксис:**`REPLACE( array, old, new )`
+
+Заменяет в массиве `array` все элементы, равные `old`, на `new`.
+
+
+
 ## [SLICE](SLICE.md)
 
 **Синтаксис:**`SLICE( array, offset, length )`

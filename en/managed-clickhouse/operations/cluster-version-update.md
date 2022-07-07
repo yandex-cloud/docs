@@ -52,7 +52,7 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
    1. In the [management console]({{ link-console-main }}), open the **{{ mch-name }}** page in the folder where you want to change the {{ CH }} version.
    1. In the list of clusters, select the one to change.
    1. Click **Edit cluster**.
-   1. In the **Version** field, select the version .
+   1. In the **Version** field, select the version.
    1. Click **Save changes**.
 
    When the change starts, the cluster status switches to **UPDATING**. Wait for the operation to complete and then check the cluster version.

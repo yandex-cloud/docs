@@ -27,12 +27,6 @@ Returns an array containing the passed values.
 
 {% note info %}
 
-Only constant values are accepted for the arguments (`value_1`, `value_2`, `value_3`).
-
-{% endnote %}
-
-{% note info %}
-
 All passed values must be of the same type or `NULL`. At least one value must be non-`NULL`.
 
 {% endnote %}

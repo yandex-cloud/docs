@@ -22,11 +22,9 @@ Versions available by the `general:deprecated` tag stop being supported when new
 
 - Data streaming recognition
 
-   The `general` model is available for Russian and Kazakh. To select the language, specify the `config .specification.languageCode` parameter value in the API request.
+   The `general` model supports the following languages:
    * `ru-RU` (default): Russian.
    * `kk-KK`: Kazakh.
-
-   The `general:rc` model also supports the following languages:
    * `en-US`: English.
    * `de-DE`: German.
    * `fr-FR`: French.

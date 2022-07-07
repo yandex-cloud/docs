@@ -67,7 +67,7 @@ PCI DSS содержит требования для защиты данных �
 Дополнительная информация доступна по ссылкам:
 
 * [Заключение о соответствии](https://storage.yandexcloud.net/yc-compliance/conformance_ru_finance.pdf).
-* [Разделение ответственности при выполнении требований ГОСТ Р 57580.1-2017](https://storage.yandexcloud.net/yc-compliance/RST_577580_Yandex Cloud_responsibility_matrix.pdf).
+* [Разделение ответственности при выполнении требований ГОСТ Р 57580.1-2017](https://storage.yandexcloud.net/yc-compliance/RST_577580_Yandex.Cloud_responsibility_matrix.pdf).
 
 ## Cloud Security Alliance {#csa}
 

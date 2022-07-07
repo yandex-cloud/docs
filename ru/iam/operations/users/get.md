@@ -12,7 +12,7 @@
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
   1. [Выберите](../../../resource-manager/operations/cloud/switch-cloud.md) облако.
-  1. Перейдите на вкладку [Права доступа]({{ link-console-cloud }}?section=resource-acl).
+  1. Перейдите на вкладку **Права доступа**.
 
 - CLI
 
@@ -30,7 +30,7 @@
 
       Результат:
 
-      ```
+      ```bash
       id: ajei8n5ahmfhuk5fog0g
       yandex_passport_user_account:
           login: just.mad.hatter

@@ -318,7 +318,7 @@ To configure GitLab and prepare CI, you must create a new repository and enter t
 
 1. Get an OAuth token from Yandex OAuth. To do this, follow the [link](https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) and click **Allow**.
 
-1. In the browser, open a link that looks like `http://<VM-public-IP-address>/root` .
+1. In the browser, open a link that looks like `http://<VM-public-IP-address>/root`.
 
 1. Select the `gitlab-test` project.
 

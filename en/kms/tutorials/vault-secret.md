@@ -39,7 +39,7 @@ docker pull cr.yandex/yc/vault
    {% endlist %}
 
 1. [Create](../operations/key.md#create) a separate KMS key for Vault (recommended).
-1. [Grant access](../../iam/operations/roles/grant.md) to the key only to the user or service account that will be used to authenticate Vault requests to {{ kms-short-name }}. When interacting with {{ kms-short-name }} , Vault only performs encryption and decryption operations, so the `kms.keys.encrypterDecrypter` role is sufficient.
+1. [Grant access](../../iam/operations/roles/grant.md) to the key only to the user or service account that will be used to authenticate Vault requests to {{ kms-short-name }}. When interacting with {{ kms-short-name }}, Vault only performs encryption and decryption operations, so the `kms.keys.encrypterDecrypter` role is sufficient.
 
 ## Setting up Auto Unseal {#setup}
 

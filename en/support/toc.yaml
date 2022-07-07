@@ -9,6 +9,8 @@ items:
     href: request.md
   - name: Copying errors from the browser console
     href: browser-console.md
+  - name: Saving browser and server interactions to a HAR file
+    href: create-har.md
   - name: Pricing policy
     href: pricing.md
   - name: Questions and answers

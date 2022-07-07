@@ -8,7 +8,7 @@
 
 Чтобы скачать последнюю версию docker-образа, используйте команду:
 
-```
+```bash
 docker pull cr.yandex/yc/vault
 ```
 
@@ -59,7 +59,7 @@ docker pull cr.yandex/yc/vault
 
             В значении параметра `service_account_key_file` укажите путь к файлу с авторизованным ключом сервисного аккаунта.
 
-        - Аккаунт на Яндексе
+        - Аккаунт на Яндексе или федеративный аккаунт
 
             В значении параметра `oauth_token` укажите OAuth-токен Яндекс ID.
 
@@ -72,9 +72,9 @@ docker pull cr.yandex/yc/vault
 {% endnote %}
 
 Для задания значений параметров вместо конфигурационного файла можно использовать переменные окружения:
-   * переменной `YANDEXCLOUD_KMS_KEY_ID` соответствует параметр `kms_key_id` файла конфигурации;
-   * переменной `YANDEXCLOUD_SERVICE_ACCOUNT_KEY_FILE` — параметр `service_account_key_file`;
-   * переменной `YANDEXCLOUD_OAUTH_TOKEN` — параметр `oauth_token`.
+   * `YANDEXCLOUD_KMS_KEY_ID` соответствует параметр `kms_key_id` из файла конфигурации Vault;
+   * `YANDEXCLOUD_SERVICE_ACCOUNT_KEY_FILE` — параметру `service_account_key_file`;
+   * `YANDEXCLOUD_OAUTH_TOKEN` — параметру `oauth_token`.
 
 Значения из переменных окружение имеют приоритет над значениями из конфигурационного файла.
 
@@ -87,7 +87,7 @@ docker pull cr.yandex/yc/vault
     ```json
     ...
     seal "yandexcloudkms" {
-      kms_key_id = "<ID ключа>"
+      kms_key_id = "<идентификатор KMS-ключа>"
     }
     ...
     ```
@@ -97,7 +97,7 @@ docker pull cr.yandex/yc/vault
     ```json
     ...
     seal "yandexcloudkms" {
-      kms_key_id = "<ID ключа>"
+      kms_key_id = "<идентификатор KMS-ключа>"
       service_account_key_file = "<путь к JSON файлу с авторизованным ключом>"
     }
     ...
@@ -108,7 +108,7 @@ docker pull cr.yandex/yc/vault
     ```json
     ...
     seal "yandexcloudkms" {
-      kms_key_id = "<ID ключа>"
+      kms_key_id = "<идентификатор KMS-ключа>"
       oauth_token = "<OAuth-токен пользователя>"  
     }
     ...

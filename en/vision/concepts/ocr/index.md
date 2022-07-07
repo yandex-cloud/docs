@@ -1,5 +1,5 @@
 ---
-description: "OCR is optical character recognition. The service extracts the found text in the image and groups it by levels. Words are grouped into lines, lines into blocks, blocks into pages. For text recognition, a language model trained in a certain set of languages is used . The model is selected automatically based on the list of languages."
+description: "OCR is optical character recognition. The service extracts the found text in the image and groups it by levels. Words are grouped into lines, lines into blocks, blocks into pages. For text recognition, a language model trained in a certain set of languages is used. The model is selected automatically based on the list of languages."
 ---
 
 # Optical character recognition (OCR)

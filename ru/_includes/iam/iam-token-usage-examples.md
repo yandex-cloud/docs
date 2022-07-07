@@ -10,9 +10,9 @@
     https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
   ```
 
-- Powershell
+- PowerShell
 
-  ```
+  ```powershell
   $IAM_TOKEN=yc iam create-token
   curl.exe -H "Authorization: Bearer $IAM_TOKEN" https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
   ```

@@ -107,7 +107,7 @@ SELECT * FROM pg_subscription_rel;
 
 Рекомендуется следить за статусом репликации по полю `srsubstate` этого каталога на кластере-приемнике.
 
-Общий статус репликации на кластере-приемнике можно получить с помощью представления (view) [pg_stat_subscription](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-SUBSCRIPTION) , на источнике — с помощью представления [pg_stat_replication](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-REPLICATION-VIEW).
+Общий статус репликации на кластере-приемнике можно получить с помощью представления (view) [pg_stat_subscription](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-SUBSCRIPTION), на источнике — с помощью представления [pg_stat_replication](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-REPLICATION-VIEW).
 
 ## Закончите миграцию {#finish-migration}
 

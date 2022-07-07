@@ -66,7 +66,7 @@ You can filter records using the [language of filter expressions](../../logging/
    yc logging read --group-name=default --follow
    ```
 
-   This command will display records from the most recent hour and will continue to return new records until you terminate it by pressing **Ctrl** + **C**. The `--follow` flag is incompatible with `--since` and `--until` .
+   This command will display records from the most recent hour and will continue to return new records until you terminate it by pressing **Ctrl** + **C**. The `--follow` flag is incompatible with `--since` and `--until`.
 
 - API
 
