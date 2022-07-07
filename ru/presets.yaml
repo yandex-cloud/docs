@@ -294,6 +294,7 @@ default:
   RD: Redis
   RMQ: RabbitMQ
   TF: Terraform
+  TF-full: Hashicorp Terraform
   CK: ClickHouse Keeper
   ZK: ZooKeeper
   ssms: SQL Server Management Studio

@@ -32,7 +32,15 @@
 - API 
 
     Воспользуйтесь методом [encrypt](../api-ref/SymmetricCrypto/encrypt) для ресурса `SymmetricCrypto`.
-    
+
+- {{ TF }}
+
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% include [terraform-encryption](../../_includes/kms/terraform-encryption.md) %}
+
 {% if product == "yandex-cloud" %}
 - SDK {{ yandex-cloud }}
 
@@ -96,3 +104,4 @@
 * [Интерфейс командной строки YC CLI](../../cli).
 * [Шифрование в Key Management Service](../concepts/encryption.md).
 * [Управление ключами в KMS](./index.md).
+* [Шифрование секретов в Hashicorp Terraform](../../kms/tutorials/terraform-secret.md).

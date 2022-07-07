@@ -1,48 +1,28 @@
-# Управление ключами {{ kms-short-name }} с Hashicorp Terraform
+# Управление ключами {{ kms-short-name }} с {{ TF-full }}
 
-[Terraform-провайдер для {{ yandex-cloud }}]({{ tf-provider-link }}/) поддерживает работу с ключами {{ kms-short-name }}.
+[Terraform-провайдер]({{ tf-provider-link }}/) для {{ yandex-cloud }} поддерживает работу с ключами {{ kms-short-name }}.
 
 ## Добавление ключа {#add}
 
-Добавить ключ {{ kms-short-name }} можно с помощью блока [yandex_kms_symmetric_key]({{ tf-provider-link }}/kms_secret_ciphertext):
-
-```
-resource "yandex_kms_symmetric_key" "kms-key" {
-  lifecycle {
-    prevent_destroy = true
-  }
-
-  name              = "example-symetric-key"
-  description       = "description for key"
-  default_algorithm = "AES_256"
-  rotation_period   = "8760h" // equal to 1 year
-}
-```
-
-{% note warning %}
-
-Удаление ключа {{ kms-short-name }} равносильно уничтожению всех зашифрованных с его помощью данных — без ключа восстановить данные не получится. Блок `lifecycle` необходим, чтобы обезопасить ключ от удаления (например, командой `terraform destroy`).
-
-{% endnote %}
+{% include [terraform-key-create](../../_includes/kms/terraform-key-create.md) %}
 
 ## Управление доступом к ключу {#security}
 
-Для управления доступом к ключу через Terraform назначьте необходимые роли на каталог, содержащий ключ. 
+Для управления доступом к ключу через {{ TF }} назначьте необходимые роли на каталог, содержащий ключ. 
 
-Например, назначьте на сервисный аккаунт роль, дающую права шифровать и расшифровывать данные ключами из определенного каталога:
+Например, [назначьте](../../iam/operations/sa/assign-role-for-sa.md) на сервисный аккаунт роль `kms.keys.encrypterDecrypter`, дающую права шифровать и расшифровывать данные ключами из определенного каталога:
 
-```
+```hcl
 resource "yandex_resourcemanager_folder_iam_member" "admin" {
-  folder_id = "<ID каталога>"
-
-  role   = "kms.keys.encrypterDecrypter"
-  member = "serviceAccount:<ID сервисного аккаунта>"
+  folder_id = "<идентификатор каталога>"
+  role      = "kms.keys.encrypterDecrypter"
+  member    = "serviceAccount:<идентификатор сервисного аккаунта>"
 }
 ```
 
 ## См. также {#see-also}
 
-* [Начало работы с Terraform в {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
+* [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [{#T}](../security/index.md).
 * [Документация провайдера {{ yandex-cloud }}]({{ tf-provider-link }}/).
-
+* [Шифрование данных с помощью CLI и API {{ yandex-cloud }}](../../kms/operations/key.md).
