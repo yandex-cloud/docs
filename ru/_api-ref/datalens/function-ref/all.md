@@ -1512,7 +1512,15 @@ END`<br/>или<br/>`IF(
 
 
 
-## [REPLACE](REPLACE.md)
+## [REPLACE (массивы)](REPLACE_ARRAY.md)
+
+**Синтаксис:**`REPLACE( array, old, new )`
+
+Заменяет в массиве `array` все элементы, равные `old`, на `new`.
+
+
+
+## [REPLACE (строковая)](REPLACE.md)
 
 **Синтаксис:**`REPLACE( string, substring, replace_with )`
 

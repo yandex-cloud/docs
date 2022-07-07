@@ -1506,7 +1506,15 @@ If the substring is not found, the string is not changed.
 
 
 
-## [REPLACE](REPLACE.md)
+## [REPLACE (array)](REPLACE_ARRAY.md)
+
+**Syntax:**`REPLACE( array, old, new )`
+
+Replaces each `array` element equal to `old` with `new`.
+
+
+
+## [REPLACE (string)](REPLACE.md)
 
 **Syntax:**`REPLACE( string, substring, replace_with )`
 
