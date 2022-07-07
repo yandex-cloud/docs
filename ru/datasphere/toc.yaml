@@ -156,6 +156,8 @@ items:
       - name: Развертывание модели в качестве микросервиса
         href: tutorials/deploy-cells.md
         when: audience == "draft"
+      - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
+        href: tutorials/data-from-metrica-yc-visualization.md
   - name: Справочник API
     items:
         - name: Обзор
