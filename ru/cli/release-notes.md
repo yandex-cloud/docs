@@ -16,6 +16,9 @@
 
 * В команду `yc certificate-manager certificate update` добавлены флаги, которые включают и отключают защиту сертификата от удаления: `--deletion-protection` и `--no-deletion-protection`.
 
+
+{% if product == "yandex-cloud" %}
+
 #### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mrd-name }}**
@@ -32,41 +35,55 @@
 
 * Добавлена команда `yc managed-sqlserver hosts update <HOST> --assign-public-ip=true|false`, которая привязывает или удаляет публичный IP-адрес хоста.
 
-## Версия 0.91.0 (12.05.22){#version0.91.0}
+{% endif %}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ alb-name }} {#alb}
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.91.0 (12.05.22){#version0.91.0}
+
+{% if product == "cloud-il" %}
+
+Это первая версия CLI, доступная для {{ yandex-cloud }}.
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ alb-name }} {#alb}
 
 * В командах `yc alb lb add-location` и `yc alb lb target-states` исправлена ошибка при обработке параметра `--name`. Теперь параметр позволяет корректно искать балансировщик по имени.
 
-#### {{ cloud-desktop-name }} {#cloud-desktop}
+##### {{ cloud-desktop-name }} {#cloud-desktop}
 
 * Добавлена группа команд `yc cloud-desktop group`, которые позволяют управлять группами рабочих столов.
 * Добавлена группа команд `yc cloud-desktop desktop`, которые позволяют управлять рабочими столами.
 
-#### {{ sf-name }} {#functions}
+##### {{ sf-name }} {#functions}
 
 * В команды `yc serverless function logs` и `yc serverless function version logs` добавлен параметр `--max-response-size`, который ограничивает размер получаемых логов.
 
-#### {{ cloud-logging-name }} {#cloud-logging}
+##### {{ cloud-logging-name }} {#cloud-logging}
 
 * В команду `yc logging read` добавлен параметр `--max-response-size`, который ограничивает размер получаемых логов.
 
-#### {{ dns-name }} {#dns}
+##### {{ dns-name }} {#dns}
 
 * Добавлена команда `yc dns bind-file migrate-to-terraform`, которая формирует из файла BIND спецификацию для {{ TF }} и печатает ее в стандартный вывод.
 
-#### {{ serverless-containers-name }} {#serverless-containers}
+##### {{ serverless-containers-name }} {#serverless-containers}
 
 * Добавлена команда `yc serverless containers rollback`, которая откатывает контейнер к указанной ревизии.
 
-#### {{ ydb-name }} {#ydb}
+##### {{ ydb-name }} {#ydb}
 
 * В группу команд `yc ydb database` добавлены команды `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`, позволяющие устанавливать и просматривать список ролей для баз данных.
 * В группу команд `yc ydb backup` добавлены команды  `list-access-bindings`, `set-access-bindings`, `add-access-binding` и `remove-access-binding`, позволяющие устанавливать и просматривать список ролей для бекапов баз данных.
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mes-name }}**
 
@@ -76,7 +93,7 @@
 
 * В команду `yc managed-mysql cluster create` добавлен параметр `--host-group-ids`, который задает список хостов для размещения кластера на выделенных серверах.
 * В команду `yc managed-mysql cluster restore` добавлены:
-  
+
   * Параметр `--host-group-ids`, который задает список хостов для размещения кластера на выделенных серверах.
   * Флаг `--deletion-protection`, позволяющий восстанавливать кластер сразу с включенной защитой от удаления.
 
@@ -98,7 +115,10 @@
 
 * В команду `yc managed-kafka cluster update` добавлен флаг `--assign-public-ip` для управления публичным доступом к брокерам.
 
-## Предыдущие релизы {#previous-releases}
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
 
 ### Версия 0.90.0 (13.04.22) {#version0.90.0}
 
@@ -2066,3 +2086,5 @@
   * Если не указан флаг `--host`, параметры для шарда копируются из самого старого шарда.
   * Если указан флаг `--host`, требуется введение всех параметров.
   * Если шарды отсутствуют, для создания шарда также требуется введение всех параметров.
+
+{% endif %}

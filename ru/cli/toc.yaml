@@ -39,7 +39,6 @@ items:
         href: concepts/mode.md
   - name: Релизы CLI
     href: release-notes.md
-    when: product == "yandex-cloud"
   - name: Решение проблем
     href: error.md
   - name: Справочник CLI (англ.)
