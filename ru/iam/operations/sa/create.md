@@ -70,6 +70,6 @@
 
 #### Что дальше {#what-is-next}
 
-- [{#T}](assign-role-for-sa.md)
-- [{#T}](create-access-key.md)
-- [{#T}](set-access-bindings.md)
+* [{#T}](assign-role-for-sa.md).
+* [{#T}](create-access-key.md).
+* [{#T}](set-access-bindings.md).

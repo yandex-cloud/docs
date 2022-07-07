@@ -518,7 +518,7 @@ yc iam create-token
       https://iam.{{ api-host }}/iam/v1/tokens
   ```
 
-  где `<SIGNED_JWT>` — токен в формате JWT, полученный на предыдущем шаге.
+  Где `<SIGNED_JWT>` — токен в формате JWT, полученный на предыдущем шаге.
 
 
 - Go
@@ -568,5 +568,5 @@ yc iam create-token
 
 #### Что дальше {#what-is-next}
 
-* [{#T}](../sa/set-access-bindings.md)
-* [{#T}](../sa/assign-role-for-sa.md)
+* [{#T}](../sa/set-access-bindings.md).
+* [{#T}](../sa/assign-role-for-sa.md).
