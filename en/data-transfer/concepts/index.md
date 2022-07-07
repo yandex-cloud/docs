@@ -94,7 +94,7 @@ For more information about the `createIndex()` function, see the [{{ MG }} docum
 
 ### {{ PG }} {#postgresql}
 
-* The service does not transfer `MATERIALIZED VIEWS`. When transfering data from one {{ PG }} cluster to another, create all the required materialized views in the target cluster after [deactivating the transfer](../operations/transfer.md#deactivate).
+* The service does not transfer `MATERIALIZED VIEWS`. When transferring data from one {{ PG }} cluster to another, create all the required materialized views in the target cluster after [deactivating the transfer](../operations/transfer.md#deactivate).
 
 * The service does not transfer custom data types if the endpoint specifies a list of included or excluded tables for the source. If this is the case, please transfer your custom data types manually.
 
