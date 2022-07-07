@@ -6,7 +6,7 @@ Users can attach up to 20 files with a maximum total size of 20 MB.
 
 {% note warning %}
 
-The service stores files attached to the form for {% if audience == "external" %}3 months {% else %}1 year{% endif%}. After that, the files are deleted and no longer available for download.
+The service stores files attached to the form for {% if audience == "external" %}3 months{% else %}1 year{% endif%}. After that, the files are deleted and no longer available for download.
 
 {% endnote %}
 

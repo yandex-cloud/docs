@@ -100,7 +100,7 @@ Issues are the cornerstone of {{ tracker-name }}. To make your workflow more eff
 
     1. Click **Create issue**  on the upper panel in Tracker.{{ tracker-name }}
 
-    1. Choose the queue to assign the issue to, such as <q>MAGIC</q> .
+    1. Choose the queue to assign the issue to, such as <q>MAGIC</q>.
 
         {% note tip %}
 

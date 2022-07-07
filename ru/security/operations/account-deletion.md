@@ -1,4 +1,4 @@
-# Удаление {% if product == "yandex-cloud" %}паспортного {% endif %}{% if product == "cloud-il" %}привилегированного {% endif %}аккаунта из организации
+# Удаление {% if product == "yandex-cloud" %}паспортного{% endif %}{% if product == "cloud-il" %}привилегированного{% endif %} аккаунта из организации
 
 Данная инструкция описывает, как удалить привилегированный {% if product == "yandex-cloud" %}паспортный {% endif %}аккаунт{% if product == "cloud-il" %}Google{% endif %} с ролью `organization-manager.organizations.owner` из [организации](../../organization/).
 

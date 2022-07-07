@@ -28,5 +28,5 @@ If you are going to ask for help of cloud support, please send the following tra
     ```
     C:\Users\username\yandex-cloud\logs\yc_compute_instance_create-2019-02-18T12-26-39.897.txt
     ```
-1. Обратитесь с этой информацией {% if audience != "internal" %} в [службу технической поддержки]({{ link-console-support }}) {% else %} [к команде сервиса](../support/overview.md) {% endif %}.
+1. Обратитесь с этой информацией {% if audience != "internal" %}в [службу технической поддержки]({{ link-console-support }}){% else %}[к команде сервиса](../support/overview.md){% endif %}.
 

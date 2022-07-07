@@ -83,7 +83,7 @@ Load balancer statistics are automatically logged in the {{ monitoring-full-name
 * **Response size**: Total volume of load balancer responses per second.
 * **Latency**: Response delay (the time between the balancer receiving the first byte of a request to sending the last byte of the response), 50th to 99th percentiles.
 
-{{ alb-name }} has aggregate load balancer statistics available. In {{ monitoring-name }} , you can view statistics itemized by the resources associated with the load balancer (HTTP routers, virtual hosts, routes, and the like) as well as [create alerts](../../monitoring/operations/alert/create-alert.md).
+{{ alb-name }} has aggregate load balancer statistics available. In {{ monitoring-name }}, you can view statistics itemized by the resources associated with the load balancer (HTTP routers, virtual hosts, routes, and the like) as well as [create alerts](../../monitoring/operations/alert/create-alert.md).
 
 For instructions on viewing statistics, see [{#T}](../operations/application-load-balancer-get-stats.md).
 

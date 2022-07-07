@@ -28,5 +28,5 @@ To help our support team solve your problem faster, use the error message to:
    ```
    C:\Users\username\yandex-cloud\logs\yc_compute_instance_create-2019-02-18T12-26-39.897.txt
    ```
-1. Provide this information {% if audience != "internal" %} to the [technical support team]({{ link-console-support }}) {% else %} [service team](../support/overview.md) {% endif %}.
+1. Provide this information to the {% if audience != "internal" %}[technical support team]({{ link-console-support }}){% else %}[service team](../support/overview.md){% endif %}.
 

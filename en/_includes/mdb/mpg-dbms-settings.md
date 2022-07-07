@@ -652,7 +652,7 @@
 
 - **Log min messages**{#setting-log-min-messages} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  Defines the logging level in {{ PG }}. All messages of the selected severity level (or higher) are logged. Acceptable values (in ascending severity): `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL` , and `PANIC`.
+  Defines the logging level in {{ PG }}. All messages of the selected severity level (or higher) are logged. Acceptable values (in ascending severity): `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC`.
 
   The default value is `WARNING`. This means that the {{ PG }} log will include all the messages with the `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC` severity level.
 

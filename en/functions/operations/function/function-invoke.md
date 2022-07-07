@@ -29,7 +29,7 @@ As an example, we use the function described in [{#T}](version-manage.md#func-ve
    1. Under **Payload template**, choose one of the options:
 
       * **Without preset**: Custom data format.
-      * **HTTPS call**: Data format for a function acting as an HTTPS request handler . For more information, see [Concepts](../../concepts/function-invoke.md).
+      * **HTTPS call**: Data format for a function acting as an HTTPS request handler. For more information, see [Concepts](../../concepts/function-invoke.md).
       * **Trigger for {{message-queue-short-name}}**: Data format for the function invoked by a trigger in order to process messages from the queue.
       * **Alice's skill**: Data format for a function receiving [requests](https://yandex.ru/dev/dialogs/alice/doc/request.html) from the Yandex.Dialogs platform.
 

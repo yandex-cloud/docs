@@ -225,7 +225,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. In the {{ mch-name }} cluster description, change the value of the `disk_size` parameter in the `clickhouse.resources` and `zookeeper.resources` blocks for {{ CH }} and {{ ZK }} , respectively:
+   1. In the {{ mch-name }} cluster description, change the value of the `disk_size` parameter in the `clickhouse.resources` and `zookeeper.resources` blocks for {{ CH }} and {{ ZK }}, respectively:
 
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {

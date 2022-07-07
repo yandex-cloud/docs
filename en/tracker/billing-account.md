@@ -28,7 +28,7 @@ If you linked a billing account with an active trial period or created a new acc
 
 1. {% include [choose-name-step](../_includes/billing/choose-name-step.md) %}
 
-1. If you have existing billing accounts, you can choose one of the available payers in the **Payers** section . To add a new payer, select **New payer**.
+1. If you have existing billing accounts, you can choose one of the available payers in the **Payers** section. To add a new payer, select **New payer**.
 
 1. If you add a new payer:
 

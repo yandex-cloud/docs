@@ -410,7 +410,7 @@ To correctly pass user information to {{ org-full-name }}, map SAML message attr
 
 ### Sample Base64-encoded image {#avatar-example}
 
-The profile image is transmitted in text format using [Base64]({{link-base64}})encoding .
+The profile image is transmitted in text format using [Base64]({{link-base64}}) encoding.
 
 {% cut "Sample encoded image" %}
 
