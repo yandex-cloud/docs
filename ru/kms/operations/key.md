@@ -41,6 +41,14 @@
 
     Воспользуйтесь методом [create](../api-ref/SymmetricKey/create) для ресурса `SymmetricKey`.
 
+- {{ TF }}
+
+  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% include [terraform-key-create](../../_includes/kms/terraform-key-create.md) %}
+
 {% endlist %}
 
 ## Изменить ключ {#update}
@@ -78,6 +86,61 @@
 - API
 
   Воспользуйтесь методом [update](../api-ref/SymmetricKey/update) для ресурса `SymmetricKey`.
+
+- {{ TF }}
+
+  Чтобы изменить ключ:
+
+  1. Откройте файл конфигурации {{ TF }} и измените необходимые параметры ресурса `yandex_kms_symmetric_key`.
+
+     Пример структуры конфигурационного файла:
+
+     ```hcl
+     ...
+     resource "yandex_kms_symmetric_key" "key-a" {
+       name              = "example-symetric-key"
+       description       = "description for key"
+       default_algorithm = "AES_128"
+       rotation_period   = "8760h"
+     }
+     ...
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_kms_symmetric_key` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/kms_symmetric_key).
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменение ключа можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc kms symmetric-key get <имя ключа>
+     ```
 
 {% endlist %}
 
@@ -143,4 +206,63 @@
 
   Воспользуйтесь методом [delete](../api-ref/SymmetricKey/delete) для ресурса `SymmetricKey`.
 
+- {{ TF }}
+
+  Чтобы удалить ключ, созданный с помощью {{ TF }}:
+
+  1. Откройте файл конфигураций {{ TF }} и удалите фрагмент с описанием ключа.
+
+     Пример описания ключа в конфигурации {{ TF }}:
+
+     ```hcl
+     ...
+     resource "yandex_kms_symmetric_key" "key-a" {
+       name              = "example-symetric-key"
+       description       = "description for key"
+       default_algorithm = "AES_128"
+       rotation_period   = "8760h"
+     }
+     ...
+     ```
+
+  1. В командной строке перейдите в папку, где расположен файл конфигурации {{ TF }}.
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../cli/quickstart.md):
+
+     ```
+     yc kms symmetric-key list
+     ```
+
 {% endlist %}
+
+## См. также {#see-also}
+
+* [Управление ключами {{ kms-short-name }} с Hashicorp Terraform](../../kms/tutorials/terraform-key.md).

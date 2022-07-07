@@ -3,9 +3,9 @@ editable: false
 sourcePath: ru/_api-ref/datalens/function-ref/REPLACE.md
 ---
 
-# REPLACE
+# REPLACE (строковая)
 
-
+_Функция `REPLACE` также доступна в следующих категориях: [Функции для работы с массивами](REPLACE_ARRAY.md)._
 
 #### Синтаксис {#syntax}
 

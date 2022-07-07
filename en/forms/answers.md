@@ -102,7 +102,7 @@ If you send a link to another user, they'll need to [log in to their Yandex acco
 
 {% note warning %}
 
-Attached files are stored on the {{ forms-full-name }} server for 3 months , after which the files are deleted. We recommend [uploading files to Yandex.Disk](#download) or saving them to your computer.
+Attached files are stored on the {{ forms-full-name }} server for 3 months, after which the files are deleted. We recommend [uploading files to Yandex.Disk](#download) or saving them to your computer.
 
 {% endnote %}
 

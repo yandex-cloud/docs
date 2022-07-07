@@ -20,7 +20,7 @@ To build a Gantt chart:
 
 1. Configure filter parameters and select issues you want to create a Gantt chart for.
 
-1. On the top panel, click ![](../../_assets/tracker/gantt-ico.png) .
+1. On the top panel, click ![](../../_assets/tracker/gantt-ico.png).
 
 A Gantt chart is created for the selected issues. If there are too many issues on the chart, use the quick filters or issue grouping:
 

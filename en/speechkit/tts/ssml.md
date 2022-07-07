@@ -29,7 +29,7 @@ Use the `<break>` tag to add a pause with a specified duration to the speech. Th
 
 | Attribute | Description |
 ----- | -----
-| `strength` | Pause duration. Acceptable values:<br>* `medium` or `weak`: Equivalent to the pause after a comma.<br>* `strong`: Equivalent to the pause after a period or a [sentence](#s).<br>* `x-strong`: Equivalent to the pause after a [paragraph](#p).<br>* `none` or `x-weak`: These values don't add any pause, they are kept for AWS API compatibility. |
+| `strength` | Pause duration, depends on the context. Acceptable values:<br>* `weak`: A short pause up to 250 milliseconds.<br>* `medium`: A medium pause up to 400 milliseconds.<br>* `strong`: Same as the pause after a period or [sentence](#s).<br>* `x-strong`: Same as the pause after a [paragraph](#p).<br>* `none` or `x-weak`: These values do not add any pause, they are kept for AWS API compatibility. |
 | `time` | Pause duration in seconds or milliseconds, for example `2s` or `400ms`. The maximum pause duration is 5 seconds.<br>When synthesizing pauses for specified lengths, there may be an error of 100-200 ms. |
 
 ```xml

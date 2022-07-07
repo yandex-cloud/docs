@@ -2,7 +2,7 @@
 
 [Спецификация OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) позволяет захватывать только один сегмент URL. Чтобы захватить несколько сегментов, добавьте `+` после имени параметра: `/prefix/{param+}/suffix`.
 
-Например, чтобы захватить `/static/js/main.js`, добавьте в спецификацию `/static/{file+}` вместо `/static/{file}` .
+Например, чтобы захватить `/static/js/main.js`, добавьте в спецификацию `/static/{file+}` вместо `/static/{file}`.
 
 Жадные параметры совместимы со всеми типами расширения [x-yc-apigateway-integration](./index.md#integration).
 

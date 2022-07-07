@@ -256,7 +256,7 @@ For more information about dictionary sources and their connection settings, see
 #### Layout {#console-method}
 
 * **Layout**: Method for storing a dictionary in memory. Supported methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about layouts, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
-* **Cache size**: Number of cache cells for the `cache` and `complex_key_cache` methods . For more information about the cache, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
+* **Cache size**: Number of cache cells for the `cache` and `complex_key_cache` methods. For more information about the cache, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
 * **Numeric key**: Dictionary key column name. The key column must be in UInt64 data type. Used for `flat`, `hashed`, `cache`, and `range_hashed` methods. For more information about the keys, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
 * **Data columns**: List of columns with dictionary data:
 

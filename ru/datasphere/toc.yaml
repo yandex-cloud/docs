@@ -141,6 +141,8 @@ items:
         href: tutorials/markup.md
       - name: Классификация изображений на видеокадрах
         href: tutorials/video-recognition.md
+      - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
+        href: tutorials/data-from-metrica-yc-visualization.md
   - name: Справочник API
     items:
       - name: Обзор

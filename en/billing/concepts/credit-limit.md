@@ -35,9 +35,10 @@ The billing threshold can only be used if you don't have a [grant](../concepts/b
 
 If you are using a bank account to pay for {{ yandex-cloud }} resources, a billing threshold will not apply.
 
+
 ## Paying arrears {#arrears}
 
-The outstanding charges shall be paid within the deadline stipulated in the [agreement](../concepts/contract.md). [The payment method](../payment/payment-methods.md) depends on your legal status.
+The outstanding charges shall be paid within the deadline stipulated in the [agreement](../concepts/contract.md). The [payment method](../payment/payment-methods.md) depends on your legal status. You cannot use [grants](bonus-account.md) to pay off arrears.
 
 {% note info %}
 

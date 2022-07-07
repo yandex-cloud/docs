@@ -569,6 +569,8 @@ items:
             href: function-ref/COUNT_ITEM.md
           - name: GET_ITEM
             href: function-ref/GET_ITEM.md
+          - name: REPLACE
+            href: function-ref/REPLACE_ARRAY.md
           - name: SLICE
             href: function-ref/SLICE.md
           - name: STARTSWITH

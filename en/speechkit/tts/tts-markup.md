@@ -11,6 +11,7 @@ Support for TTS markup is available in [API v1](request.md) when transmitting da
 | [Apply stress](#a) | `+` |
 | [Indicate a pause between words](#p) | `-` |
 | [Explicitly define a pause between sentences](#pause) | `sil<[t]>`, where t is the pause in milliseconds. |
+| [Define a pause depending on the context](#context-pause) | `<[small]>`. Acceptable values: `tiny`, `small`, `medium`, `large`, `huge` |
 | [Place emphasis](#accent) | `<[accented]>` or `**emphasized word**` |
 
 ### Apply stress {#a}
@@ -41,6 +42,14 @@ To explicitly define a pause between sentences, you can add a special tag, `sil<
 
 ```
 Stop. sil<[300]> Think about it!
+```
+
+### Set a pause depending on the context {#context-pause}
+
+Use cue words to automatically select the duration of pauses.
+
+```
+Frost and sun; <medium> a wonderful day!
 ```
 
 ### Place emphasis {#accent}

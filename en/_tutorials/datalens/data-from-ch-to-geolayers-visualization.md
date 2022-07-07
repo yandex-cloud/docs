@@ -239,7 +239,7 @@ Wait for the connection to be saved.
    ![map-editor](../../_assets/datalens/solution-09/20-map-editor.png)
 
 1. Click on the **DODO** dataset name and choose **Add dataset**.
-1. In the drop-down list, select **Datasets** instead of **Personal folder** .
+1. In the drop-down list, select **Datasets** instead of **Personal folder**.
 1. Select **Companies** (dataset imported from Marketplace in [Step 1](#step-1)).
 
    ![organizations](../../_assets/datalens/solution-09/23-organizations.png)

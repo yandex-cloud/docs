@@ -49,6 +49,14 @@ Returns the element with the index `index` from the array `array`. Index must be
 
 
 
+## [REPLACE](REPLACE_ARRAY.md)
+
+**Syntax:**`REPLACE( array, old, new )`
+
+Replaces each `array` element equal to `old` with `new`.
+
+
+
 ## [SLICE](SLICE.md)
 
 **Syntax:**`SLICE( array, offset, length )`

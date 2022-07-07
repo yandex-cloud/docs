@@ -3,9 +3,9 @@ editable: false
 sourcePath: en/_api-ref/datalens/function-ref/REPLACE.md
 ---
 
-# REPLACE
+# REPLACE (string)
 
-
+_Function `REPLACE` is also found in the following categories: [Array functions](REPLACE_ARRAY.md)._
 
 #### Syntax {#syntax}
 

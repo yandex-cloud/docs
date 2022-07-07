@@ -82,21 +82,24 @@ cisco-router(config)#username test-user privilege 15
 
 ## Настройте аутентификацию с помощью SSH-ключей {#enable-ssh}
 
-1. Включите доступ на ВМ по SSH и передайте свой публичный ключ частями не длиннее 32 символов, начиная с `ssh-rsa` и заканчивая логином.
+1. Если ваш публичный SSH-ключ длиннее 72 символов, на своем компьютере разбейте ключ на части по 72 символа:
+
+   ```
+   fold -bw 72 <путь к файлу с публичным ключом>
+   ```
+
+1. Включите доступ на ВМ по SSH и передайте свой публичный ключ частями не длиннее 72 символов, начиная с `ssh-rsa` и заканчивая логином, в режиме `conf-ssh-pubkey-data`:
 
    ```
    cisco-router(config)#aaa new-model
-   cisco-router(config)#ip ssh server authenticate user publickey
+   cisco-router(config)#ip ssh server algorithm authentication publickey 
    cisco-router(config)#ip ssh pubkey-chain
    cisco-router(conf-ssh-pubkey)#username test-user
    cisco-router(conf-ssh-pubkey-user)#key-string
    cisco-router(conf-ssh-pubkey-data)#<строка публичного ключа>
    ...
    cisco-router(conf-ssh-pubkey-data)#<строка публичного ключа>
-   exit
-   exit
-   exit
-   exit
+   end
    ```
 
 1. Убедитесь, что ключ добавлен:
@@ -114,7 +117,7 @@ cisco-router(config)#username test-user privilege 15
    Можно сравнить хэш ключа на роутере с хэшем ключа на вашем компьютере:
 
    ```
-   $ ssh-keygen -E md5 -lf <путь к файлу с публичным ключом>.pub
+   ssh-keygen -E md5 -lf <путь к файлу с публичным ключом>
    ```
 
 1. Задайте пароль для включения привилегированного режима:

@@ -11,7 +11,7 @@ Messaging buses are focused on delivering separate, independent messages to appl
 
 Messaging buses are suitable for processing a set of independent tasks, each of which can be performed by any handler. The main thing is that an event is processed, no matter in what order.
 
-For example, message queues are used by [search robots](https://en.wikipedia.org/wiki/Web_crawler) . A web crawler finds page URLs and enqueues them. Parsers get these URLs, download the pages, and perform processing. A message queue acts as a task queue, increasing the fault tolerance and scalability of a system like this.
+For example, message queues are used by [search robots](https://en.wikipedia.org/wiki/Web_crawler). A web crawler finds page URLs and enqueues them. Parsers get these URLs, download the pages, and perform processing. A message queue acts as a task queue, increasing the fault tolerance and scalability of a system like this.
 
 ## {{ yds-full-name }}
 

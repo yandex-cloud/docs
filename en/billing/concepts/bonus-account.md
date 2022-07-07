@@ -2,6 +2,12 @@
 
 Grant: Discount given to a sole proprietor, a business, or an individual on use of any {{ yandex-cloud }} services. The discount amount corresponds to the grant amount. The discount is applied to the total cost of services consumed.
 
+{% note info %}
+
+You cannot use grants to top up [personal accounts](personal-account.md).
+
+{% endnote %}
+
 {% include [currency](../_includes/currency.md) %}
 
 ## Initial grant {#start}
@@ -16,6 +22,6 @@ Each individual, sole proprietor, or business can be given only one initial gran
 ## Additional grants {#additional}
 Additional grants can be provided by decision of a {{ yandex-cloud }} manager, or if you request them from support. You can view the amount of additional grants and their validity period in the management console.
 
-## How to use grants {#how-to-use}
 
+## Using grants {#how-to-use}
 The grant priority depends on its validity period: the earlier it expires, the earlier the grant is used.

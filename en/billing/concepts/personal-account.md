@@ -8,11 +8,10 @@ The funds are debited from your personal account only if you have no [grants](bo
 
 Your personal account is created automatically once you [activate the paid version](../operations/activate-commercial.md). The account is virtual and does not have the status of a settlement or bank account. It cannot be disabled.
 
-## Personal account number  {#id}
-
+## Personal account number {#id}
 The number of your personal account is displayed in the management console on the **Account data** page.
 
-## Personal account balance  {#balance}
+## Personal account balance {#balance}
 
 After the paid version is activated, the personal account balance is zero by default.
 
@@ -24,5 +23,12 @@ If you fail to top up your personal account on time, the use of the {{ yandex-cl
 
 ## Methods and terms of crediting funds to your personal account {#methods}
 
-The method of crediting funds to your personal account depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)): How fast the funds will be credited to your personal account depends on the payment method. For more information, see [Payment methods](../payment/payment-methods.md).
+The method of crediting funds to your personal account depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)). How fast the funds will be credited to your personal account depends on the payment method. For more information, see [Payment methods](../payment/payment-methods.md).
+
+{% note info %}
+
+You cannot use [grants](bonus-account.md) to top up your personal account.
+
+{% endnote %}
+
 

@@ -25,8 +25,10 @@ items:
             href: operations/backend-group-delete.md
       - name: HTTP-роутеры
         items:
-          - name: Создать HTTP-роутер
+          - name: Создать HTTP-роутер для HTTP-трафика
             href: operations/http-router-create.md
+          - name: Создать HTTP-роутер для gRPC-трафика
+            href: operations/http-router-create-grpc.md
           - name: Изменить HTTP-роутер
             href: operations/http-router-update.md
           - name: Удалить HTTP-роутер
