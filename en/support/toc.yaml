@@ -16,6 +16,9 @@ items:
   - name: Copying errors from the browser console
     href: browser-console.md
     when: audience != "internal"
+  - name: Saving browser and server interactions to a HAR file
+    href: create-har.md
+    when: audience != "internal"
   - name: Pricing policy
     href: pricing.md
     when: audience != "internal"
