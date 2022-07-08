@@ -48,7 +48,7 @@ items:
     - name: Send message
       href: send-mail.md
     - name: Publish the form on Yandex.Zen
-      when: audience == "external"
+      when: locale == "ru"
       href: forms-lite.md
     - name: Connect Yandex.Metrica
       href: metrica.md
