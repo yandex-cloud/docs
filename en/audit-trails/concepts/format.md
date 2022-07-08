@@ -50,7 +50,7 @@ An event object is the service resource that the operation is performed with. An
 | `event_time` | **string**<br>The time the event occurred. |
 | `authentication` | **object**<br>Authentication data of the event subject. |
 | `authentication.authenticated` | **boolean**<br>Authentication result. Possible values:<ul><li>`true`: Authentication is successful.</li><li>`false`: Authentication failed.</li> |
-| `authentication.subject_type` | **string**<br>Subject type. Possible values:<ul><li>`YANDEX_PASSPORT_USER_ACCOUNT`: A Yandex account.</li><li>`SERVICE_ACCOUNT`: A service account.</li><li>`FEDERATED_USER_ACCOUNT`: A federated account.</li> |
+| `authentication.subject_type` | **string**<br>Subject type. Possible values:<ul>{% if product == "yandex-cloud" %}<li>`YANDEX_PASSPORT_USER_ACCOUNT`: A Yandex account.</li>{% endif %}<li>`SERVICE_ACCOUNT`: A service account.</li><li>`FEDERATED_USER_ACCOUNT`: A federated account.</li> |
 | `authentication.subject_id` | **string**<br>Subject ID. |
 | `authentication.subject_name` | **string**<br>Subject name. |
 | `authorization` | **object**<br>Authorization data of the event subject. |

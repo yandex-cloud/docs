@@ -50,7 +50,7 @@
 `event_time` | **string**<br>Время, в которое произошло событие.
 `authentication` | **object**<br>Данные аутентификации субъекта события.
 `authentication.authenticated` | **boolean**<br>Результат аутентификации. Возможные значения:<ul><li>`true` — аутентификация успешна;</li><li>`false` — аутентификация неуспешна.</li>
-`authentication.subject_type` | **string**<br>Тип субъекта. Возможные значения:<ul><li>`YANDEX_PASSPORT_USER_ACCOUNT` — аккаунт на Яндексе;</li><li>`SERVICE_ACCOUNT` — сервисный аккаунт;</li><li>`FEDERATED_USER_ACCOUNT` — федеративный аккаунт.</li>
+`authentication.subject_type` | **string**<br>Тип субъекта. Возможные значения:<ul>{% if product == "yandex-cloud" %}<li>`YANDEX_PASSPORT_USER_ACCOUNT`— аккаунт на Яндексе;</li>{% endif %}<li>`SERVICE_ACCOUNT` — сервисный аккаунт;</li><li>`FEDERATED_USER_ACCOUNT` — федеративный аккаунт.</li>
 `authentication.subject_id` | **string**<br>Идентификатор субъекта.
 `authentication.subject_name` | **string**<br>Имя субъекта.
 `authorization` | **object**<br>Данные авторизации субъекта события.

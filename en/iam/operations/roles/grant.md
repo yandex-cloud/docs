@@ -315,7 +315,11 @@ In the management console, you can assign a [federated user](../../../organizati
 
 - Management console
 
+{% if product == "yandex-cloud" %}
+
    The role assignment procedure is the same as for a user with a Yandex account. The user's federation name is shown next to the username.
+
+{% endif %}
 
    In the management console, you can only assign a role for a cloud or folder:
 
