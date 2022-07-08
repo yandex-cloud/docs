@@ -1,6 +1,6 @@
 {% if product == "yandex-cloud" %}
 
-For VM instances running on the {{ v100-broadwell }} и {{ v100-cascade-lake }} platforms, a special Ubuntu images is available: Windows — [2016 Datacenter GPU](/marketplace/products/f2eob03q1b62vg3fhe0t) (`windows-2016-gvlk-gpu`), Ubuntu — [16.04 LTS GPU](/marketplace/products/f2e9r8mdna9u5kvs59sl) (`ubuntu-1604-lts-gpu`) and [20.04 LTS GPU](/marketplace/products/yc/ubuntu-20-04-lts-gpu) (`ubuntu-2004-lts-gpu`). The images have NVIDIA drivers pre-installed.
+For VM instances running on the {{ v100-broadwell }} и {{ v100-cascade-lake }} platforms, a special Ubuntu images is available in {{ marketplace-name }}: Windows — [2016 Datacenter GPU](/marketplace/products/yc/windows-server-2016-datacenter-gpu) (`windows-2016-gvlk-gpu`), Ubuntu — [16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) (`ubuntu-1604-lts-gpu`) and [20.04 LTS GPU](/marketplace/products/yc/ubuntu-20-04-lts-gpu) (`ubuntu-2004-lts-gpu`). The images have NVIDIA drivers pre-installed.
 
 For VM instances running on the {{  t4-ice-lake }} platform, an Ubuntu image is available: [20.04 LTS GPU A100](/marketplace/products/yc/ubuntu-20-04-lts-gpu) (`ubuntu-2004-lts-gpu`).
 

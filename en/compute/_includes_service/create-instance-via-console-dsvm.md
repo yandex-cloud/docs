@@ -15,7 +15,7 @@ Creating an instance from a public [DSVM](/marketplace/products/f2e4v304qn35mhil
          {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
       * Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in.
-   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **DSVM** [image](../operations/images-with-pre-installed-software/get-list.md).
+   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and [select](../operations/images-with-pre-installed-software/get-list.md) the [DSVM](/marketplace/products/yc/dsvm) image.
    1. (optional) Under **Disk{% if product == "yandex-cloud" %} and file storage{% endif %}**, click the **Disks** tab and configure a boot disk:
       * Select the [disk type](../concepts/disk.md#disks_types).
       * Specify the necessary disk size.

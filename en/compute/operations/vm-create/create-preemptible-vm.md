@@ -98,7 +98,7 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
       ```
 
    1. Prepare the key pair (public and private keys) for SSH access to the VM.
-   1. Select a public [image](../images-with-pre-installed-software/get-list.md) based on a Linux OS (for example, [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo)).
+   1. Select a public [image](../images-with-pre-installed-software/get-list.md) from {{ marketplace-name }} based on a Linux OS (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
 
       {% include [standard-images](../../../_includes/standard-images.md) %}
 

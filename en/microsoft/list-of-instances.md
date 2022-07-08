@@ -19,18 +19,18 @@ The {{ marketplace-name }} offers VMs with the pre-installed Windows Server oper
 
 ## Windows Server images {#win-server}
 
-The [{{ marketplace-name }}](/marketplace?categories=os&operationSystems=WINDOWS) provides images with Microsoft Windows Server Datacenter Edition only:
+The {{ marketplace-name }} provides images with Microsoft Windows Server Datacenter Edition only:
 
-* Windows Server 2012 R2
-* Windows Server 2016
-* Windows Server 2019
+* [Windows Server 2012 R2](/marketplace/products/yc/windows-server-2012r2-datacenter)
+* [Windows Server 2016](/marketplace/products/yc/windows-server-2016-datacenter)
+* [Windows Server 2019](/marketplace/products/yc/windows-server-2019-datacenter)
 
 
 {% if product == "yandex-cloud" %}
 
 ### Remote Desktop Services (RDS) {#rds}
 
-The {{ marketplace-name }} provides [Windows RDS](/marketplace?search=RDS) images based on Windows Server 2019 Datacenter with the pre-activated Remote Desktop Licensing Server role and a custom license package. You can choose from RDS license packages of 5, 10, 25, 50, 100, 250, or 500 licenses.
+The {{ marketplace-name }} provides [Windows RDS](/marketplace?tab=software&search=windows+rds) images based on [Windows Server 2019 Datacenter](/marketplace?tab=software&search=Windows+Server+2019+Datacenter) with the pre-activated Remote Desktop Licensing Server role and a custom license package. You can choose from RDS license packages of [5](/marketplace/products/yc/windows-rds-5-licenses), [10](/marketplace/products/yc/windows-rds-10-licenses), [25](/marketplace/products/yc/windows-rds-25-licenses), [50](/marketplace/products/yc/windows-rds-50-licenses), [100](/marketplace/products/yc/windows-rds-100-licenses), [250](/marketplace/products/yc/windows-rds-250-licenses) or [500](/marketplace/products/yc/windows-rds-500-licenses) licenses.
 
 {% note warning %}
 
@@ -77,6 +77,23 @@ To run VMs on Microsoft Windows, you need `virtIO` drivers for network and disk 
 
 ## Microsoft SQL Server images {#sql}
 
-Microsoft SQL Server images available in the {{ marketplace-name }} are VMs with pre-installed Windows Server and Microsoft SQL Server. The images have pre-activated licenses and store the activation key. If you need to change or add components to the system, the Microsoft SQL Server distribution is located in a separate directory in the root of the system drive (by default, `C:\`).
+Microsoft SQL Server images available in the {{ marketplace-name }} are VMs with pre-installed Windows Server and Microsoft SQL Server. Available SQL Server versions for:
+
+* Web:
+  * [Microsoft SQL Server 2016](/marketplace/products/yc/sql-server-2016-web)
+  * [Microsoft SQL Server 2017](/marketplace/products/yc/sql-server-2017-web)
+  * [Microsoft SQL Server 2019](/marketplace/products/yc/sql-server-2019-web)
+
+* Standard:
+  * [Microsoft SQL Server 2016](/marketplace/products/yc/sql-server-2016-standard)
+  * [Microsoft SQL Server 2017](/marketplace/products/yc/sql-server-2017-standard)
+  * [Microsoft SQL Server 2019](/marketplace/products/yc/sql-server-2019-standard)
+
+* Enterprise:
+  * [Microsoft SQL Server 2016](/marketplace/products/yc/sql-server-2016-enterprise)
+  * [Microsoft SQL Server 2017](/marketplace/products/yc/sql-server-2017-enterprise)
+  * [Microsoft SQL Server 2019](/marketplace/products/yc/sql-server-2019-enterprise)
+
+The images have pre-activated licenses and store the activation key. If you need to change or add components to the system, the Microsoft SQL Server distribution is located in a separate directory in the root of the system drive (by default, `C:\`).
 
 {% endif %}

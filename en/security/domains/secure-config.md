@@ -42,7 +42,7 @@ When deploying virtual machines, we recommend:
 
 With Terraform, you can manage a cloud infrastructure using configuration files. If you change the files, Terraform automatically determines which part of your configuration is already deployed and what should be added or removed. For more information, see [Getting started with Terraform](../../tutorials/infrastructure-management/terraform-quickstart.md).
 
-We don't recommend using private information in Terraform configuration files, such as: passwords, secrets, personal data, or payment system data. Instead, you should use services to store and use secrets in the configuration file, such as: {% if product == "yandex-cloud" %}[HashiCorp Vault](/marketplace/products/f2eokige6vtlf94uvgs2){% endif %}{% if product == "cloud-il" %}HashiCorp Vault{% endif %} or [{{ lockbox-name }}](../../lockbox/index.yaml) (to transfer secrets to the target object without using Terraform).
+We don't recommend using private information in Terraform configuration files, such as: passwords, secrets, personal data, or payment system data. Instead, you should use services to store and use secrets in the configuration file, such as: {% if product == "yandex-cloud" %}[HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }}{% endif %}{% if product == "cloud-il" %}HashiCorp Vault{% endif %} or [{{ lockbox-name }}](../../lockbox/index.yaml) (to transfer secrets to the target object without using Terraform).
 
 If you still need to enter private information in the configuration, you should take the following security measures:
 - Specify the [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) parameter for private information to disable outputting it to the console when running `terraform plan`and `terraform apply`.
@@ -64,7 +64,7 @@ Numerous information security standards require integrity control of critical fi
 - [Osquery](https://osquery.readthedocs.io/en/stable/deployment/file-integrity-monitoring/)
 
 {% if product == "yandex-cloud" %}
-In [{{ marketplace-full-name }}](/marketplace?categories=security), paid solutions are also available, such as [Kaspersky Security](/marketplace/products/f2eghdh3f8nnbu389nsh).
+In {{ marketplace-full-name }}, paid solutions are also available, such as [Kaspersky Security](/marketplace/products/kaspersky/kaspersky-hybrid-cloud-security-payg).
 
 {% endif %}
 ### Side-channel attacks {#side-channel}

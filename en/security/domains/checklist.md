@@ -6,7 +6,7 @@
 - **Network access restriction, security groups**: Restrict network access across resources using [security groups](../../vpc/operations/security-group-create.md).
 {% if product == "yandex-cloud" %}
    ![](../../_assets/overview/solution-library-icon.svg)[Solution: Setting up security groups (dev/stage/prod) using Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
-- **NGFW from Marketplace**: If more robust network protection is required, use NGFW from [{{ marketplace-full-name }}](/marketplace?categories=network).
+- **NGFW from Marketplace**: If more robust network protection is required, use [NGFW](/marketplace?tab=software&search=NGFW) from {{ marketplace-full-name }}.
    ![](../../_assets/overview/solution-library-icon.svg)[Solution: Installing an NGFW on a {{ yandex-cloud }} VM: Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
 {% endif %}
 - **Secure access from outside the cloud infrastructure (VPN)**: If you need remote access to cloud resources, configure a site-to-site VPN (see the [setup instructions using the strongSwan daemon](../../tutorials/routing/ipsec-vpn.md)){% if product == "yandex-cloud" %}) or use the [Cloud Interconnect](../../interconnect/index.yaml) service (the GOST VPN service is also available){% endif %}.
@@ -15,7 +15,7 @@
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: Creating a site-to-site VPN connection using Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
 
 {% endif %}
-- **Secure remote administrator access (VPN)**: Set up a VPN connection between remote devices and {{ yandex-cloud }} using solutions from {% if product == "yandex-cloud" %}[{{ marketplace-full-name }}](/marketplace?categories=network){% endif %}{% if product == "cloud-il" %}[{{ marketplace-full-name }}](https://cloudil.co.il/marketplace?categories=network){% endif %}. See the [setup instructions for OpenVPN](../../tutorials/routing/openvpn.md).
+- **Secure remote administrator access (VPN)**: Set up a VPN connection between remote devices and {{ yandex-cloud }} using solutions from {{ marketplace-full-name }}. See the [setup instructions](../../tutorials/routing/openvpn.md) for [OpenVPN](/marketplace/products/yc/openvpn-access-server).
 - **Bastion host**: Create a bastion VM to access the infrastructure using control protocols (for example, SSH or RDP).
 - **Outgoing access (NAT)**: Use the [built-in NAT service](../../vpc/operations/enable-nat.md) for secure outgoing internet access (egress NAT). This service translates your addresses into a shared address pool. If internet access should be from your controlled address pool, use a [NAT instance](../../tutorials/routing/nat-instance.md#create-nat-instance) (a dedicated VM).
 {% if product == "yandex-cloud" %}
@@ -54,7 +54,7 @@
 - **Standards and baseline**: Configure the OS and software in accordance with the baseline and standards (such as CIS and PCI DSS). To automate compliance, use, for example, [OpenSCAP](https://www.open-scap.org/getting-started/).
 - **Disabling the serial console**: Don't use the serial console, but if you must, [evaluate your risks](../../compute/operations/serial-console/index.md) and disable it when you finish.
 - **Safe use of Terraform**: {% if product == "yandex-cloud" %}Use `terraform remote state` based on {{ objstorage-full-name }} with a lock function in {{ ydb-full-name }}. See a [setup example](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state). Set{% endif %}{% if product == "cloud-il" %}set{% endif %} [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) if required. Don't transfer private data to the configuration, but if you must, use secret management services or environment variables. [Read more](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#:~:text=this%20blog%20post%3A-,Do%20not%20store%20secrets%20in%20plain%20text.,secrets%20into%20your%20Terraform%20code).
-- **Integrity control on guest OS**: Use free host-based solutions, such as Wazuh or Osquery{% if product == "yandex-cloud" %}, or paid solutions from {{ marketplace-full-name }}, such as Kaspersky Security{% endif %}.
+- **Integrity control on guest OS**: Use free host-based solutions, such as Wazuh or Osquery{% if product == "yandex-cloud" %}, or paid solutions from {{ marketplace-full-name }}, such as [Kaspersky Security](/marketplace?search=Kaspersky+Security){% endif %}.
 {% if product == "yandex-cloud" %}
 - **Secure configuration of {{ ydb-full-name }}**: Use encryption, [bucket policies](../../storage/concepts/policy.md), and ACLs, or [versioning for deletion protection](../../storage/concepts/versioning.md), enable [built-in access auditing](../../storage/operations/buckets/enable-logging.md) and configure CORS (if necessary).
    ![](../../_assets/overview/solution-library-icon.svg)[Solution: Secure configuration of {{ objstorage-full-name }} in Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/configuration/hardering_bucket)

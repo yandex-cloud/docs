@@ -19,11 +19,11 @@ For more information about how to use your own licenses, see [{#T}](licensing.md
 
 ## Windows Server {#win-server}
 
-Create VMs with Microsoft Windows Server to run Windows applications. Multiple system versions are available in Datacenter edition:
+Create VMs with Microsoft Windows Server to run Windows applications. Multiple system versions are available in Datacenter edition in {{ marketplace-name }}:
 
-* Windows Server 2012 R2
-* Windows Server 2016
-* Windows Server 2019
+* [Windows Server 2012 R2](/marketplace/products/yc/windows-server-2012r2-datacenter)
+* [Windows Server 2016](/marketplace/products/yc/windows-server-2016-datacenter)
+* [Windows Server 2019](/marketplace/products/yc/windows-server-2019-datacenter)
 
 When creating VMs, you should specify their [performance level](../compute/concepts/performance-levels.md) and the guaranteed number of vCPUs to be reserved for your VM. In this case, the vCPU will only process computing and network operations within the reserved performance level. Use VMs with a guaranteed vCPU share below 100% for testing and running applications that do not require high performance.
 
@@ -56,7 +56,7 @@ For more information about using GPUs in {{ yandex-cloud }}, see [{#T}](../compu
 
 Remote Desktop Licensing Server (RDS) is a Windows Server service that lets you configure secure access to virtual and remote desktops in the cloud. With RDS, you can simultaneously run multiple sessions to connect to your VMs.
 
-All VM images available in the {{ marketplace-name }} have two RDS licenses for administration. If you need a larger number of remote sessions, use images with pre-activated Remote Desktop Services. These images are [available](/marketplace?search=rds) in the {{ marketplace-name }}.
+All VM images available in the {{ marketplace-name }} have two RDS licenses for administration. If you need a larger number of remote sessions, use images with pre-activated [Remote Desktop Services](/marketplace?tab=software&search=windows+rds) from {{ marketplace-name }}.
 
 They are based on Windows Server 2019 Datacenter and are suitable for increasing the number of sessions for all Windows Server versions available in the {{ marketplace-name }}.
 
@@ -69,11 +69,22 @@ They are based on Windows Server 2019 Datacenter and are suitable for increasing
 
 Microsoft SQL Server is a database management system. You can use SQL Server on our infrastructure or as an additional tool to ensure high availability of your systems.
 
-{{ marketplace-name }} provides Microsoft SQL Server images pre-installed on Windows Server. Available SQL Server versions for Web, Standard, and Enterprise editions:
+{{ marketplace-name }} provides Microsoft SQL Server images pre-installed on Windows Server. Available SQL Server versions for:
 
-* SQL Server 2016
-* SQL Server 2017
-* SQL Server 2019
+* Web:
+  * [Microsoft SQL Server 2016](/marketplace/products/yc/sql-server-2016-web)
+  * [Microsoft SQL Server 2017](/marketplace/products/yc/sql-server-2017-web)
+  * [Microsoft SQL Server 2019](/marketplace/products/yc/sql-server-2019-web)
+
+* Standard:
+  * [Microsoft SQL Server 2016](/marketplace/products/yc/sql-server-2016-standard)
+  * [Microsoft SQL Server 2017](/marketplace/products/yc/sql-server-2017-standard)
+  * [Microsoft SQL Server 2019](/marketplace/products/yc/sql-server-2019-standard)
+
+* Enterprise:
+  * [Microsoft SQL Server 2016](/marketplace/products/yc/sql-server-2016-enterprise)
+  * [Microsoft SQL Server 2017](/marketplace/products/yc/sql-server-2017-enterprise)
+  * [Microsoft SQL Server 2019](/marketplace/products/yc/sql-server-2019-enterprise)
 
 Instead of pre-activated VM images from the {{ marketplace-name }}, you can use {{ mms-name }} and let us take care of DB maintainance.
 

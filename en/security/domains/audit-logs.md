@@ -79,7 +79,7 @@ Using {{ sf-full-name }}, you can configure alerts about {{ at-name }} events, a
 
 When using IaaS cloud services and Kubernetes node groups, the customer is responsible for ensuring OS security and collecting OS-level events on their own. Free tools for collecting standard OS-generated events and exporting them to the customer's SIEM system include:
 - [Osquery](https://osquery.io/)
-   {% if product == "yandex-cloud" %}- [Filebeat (ELK)](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html){% endif %}
+{% if product == "yandex-cloud" %}- [Filebeat (ELK)](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html){% endif %}
 - [Wazuh](https://documentation.wazuh.com/current/getting-started/use_cases/log_analysis.html)
 
 Additional event generation options can be implemented using Auditd for Linux or Sysmon for Windows.
@@ -98,7 +98,7 @@ Customers may collect events that occur at the level of applications deployed on
 
 ## Network level {#network-level}
 
-Currently, VPC network traffic event logs (Flow Logs) can only be collected by customers. You can use {% if product == "yandex-cloud" %}[{{ marketplace-full-name }}](/marketplace?categories=network) solutions (such as NGFW, IDS/IPS, or network products){% endif %}{% if product == "cloud-il" %}[{{ marketplace-full-name }}](https://cloudil.co.il/marketplace?categories=network) (such as network products){% endif %} or free software for collecting and transmitting events.
+Currently, VPC network traffic event logs (Flow Logs) can only be collected by customers. You can use {{ marketplace-full-name }} solutions (such as {% if product == "yandex-cloud" %}[NGFW](/marketplace?tab=software&search=NGFW), [IDS/IPS](/marketplace?tab=software&search=IDS%2FIPS), or {% endif %}[network products](/marketplace?categories=network)) or free software for collecting and transmitting events.
 
 ## Time synchronization {#time-synch}
 

@@ -186,7 +186,7 @@ At the Kubernetes etcd level, encrypt secrets using an in-built [mechanism from 
 We recommend that you use SecretManager solutions to work with Kubernetes secrets. [{{ lockbox-name }}](../../lockbox/index.yaml) is such a solution in {{ yandex-cloud }}.
 
 {% if product == "yandex-cloud" %}
-{{ lockbox-name }} was integrated with Kubernetes using the [External Secrets](https://external-secrets.io/latest/) open-source project. The solution is available in [{{ marketplace-name }} for Kubernetes](/marketplace/products/yc/external-secrets) in the basic simplified scenario.
+{{ lockbox-name }} was integrated with Kubernetes using the [External Secrets](https://external-secrets.io/latest/) open-source project. The solution is available in {{ marketplace-name }} for Kubernetes in the basic simplified scenario: [External Secrets Operator with Yandex Lockbox support](/marketplace/products/yc/external-secrets).
 
 Useful instructions on working with External Secrets:
 
@@ -340,9 +340,7 @@ Examples of collecting and exporting pod logs:
 * Exporting logs to {{ cloud-logging-name }} using Fluent Bit is described in the [{{ managed-k8s-short-name }}](../../managed-kubernetes/tutorials/fluent-bit-logging.md) documentation.
 * Exporting pod logs into Elastic or Splunk is described in the [Yandex Cloud Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/kubernetes-security/osquery-kubequery/README_RU.md).
 
-Fluent Bit with a {{ cloud-logging-name }} plugin is available in [{{ marketplace-name }}](/marketplace/products/yc/fluent-bit).
-
-The Filebeat plugin for transferring logs to Elastic is available in [{{ marketplace-name }}](/marketplace/products/yc/filebeat).
+The [Filebeat](/marketplace/products/yc/filebeat) plugin for transferring logs to Elastic and [Fluent Bit with a {{ cloud-logging-name }} plugin](/marketplace/products/yc/fluent-bit) are available in {{ marketplace-name }}.
 
 {% endif %}
 ### Kubernetes metrics {#kubernetes-metrics}

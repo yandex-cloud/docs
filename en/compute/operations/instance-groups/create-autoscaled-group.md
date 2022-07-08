@@ -40,7 +40,7 @@ To create an automatically scaled instance group
 
       If there aren't any, [create one](../../../vpc/operations/network-create.md).
 
-   1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) (for example, [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo)).
+   1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) from {{ marketplace-name }} (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 

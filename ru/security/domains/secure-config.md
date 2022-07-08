@@ -42,7 +42,7 @@
 
 {{ TF }} позволяет управлять облачной инфраструктурой с помощью файлов конфигураций. При изменении файлов {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить. Подробнее в разделе [Начало работы с {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 
-В файлах конфигураций {{ TF }} не рекомендуется указывать приватную информацию: пароли, секреты, персональные данные, данные платежных систем и др. Вместо этого необходимо использовать сервисы для хранения и использования в конфигурации секретов, например: {% if product == "yandex-cloud" %}[HashiCorp Vault](/marketplace/products/f2eokige6vtlf94uvgs2){% endif %}{% if product == "cloud-il" %}HashiCorp Vault{% endif %} или [{{ lockbox-name }}](/services/lockbox) (для передачи секретов в целевой объект без использования {{ TF }}).
+В файлах конфигураций {{ TF }} не рекомендуется указывать приватную информацию: пароли, секреты, персональные данные, данные платежных систем и др. Вместо этого необходимо использовать сервисы для хранения и использования в конфигурации секретов, например: {% if product == "yandex-cloud" %}[HashiCorp Vault](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }}{% endif %}{% if product == "cloud-il" %}HashiCorp Vault{% endif %} или [{{ lockbox-name }}](/services/lockbox) (для передачи секретов в целевой объект без использования {{ TF }}).
 
 Если все же требуется указать приватную информацию в конфигурации, необходимо принять меры безопасности:
 - Указывать для приватной информации параметр [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output), чтобы отключить ее вывод в консоль при выполнении команд `terraform plan`, `terraform apply`.
@@ -73,7 +73,7 @@
 - [Osquery](https://osquery.readthedocs.io/en/stable/deployment/file-integrity-monitoring/)
 
 {% if product == "yandex-cloud" %}
-В [{{ marketplace-full-name }}](/marketplace?categories=security) также доступны платные решения — например, [Kaspersky Security](/marketplace/products/f2eghdh3f8nnbu389nsh).
+В {{ marketplace-full-name }} также доступны платные решения — например, [Kaspersky Security](/marketplace/products/kaspersky/kaspersky-hybrid-cloud-security-payg).
 
 {% endif %}
 ### Атаки по побочным каналам {#side-channel}
