@@ -1,8 +1,21 @@
-Полученный IAM-токен указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передайте в запросе следующие параметры: 
-* в заголовке `Authorization` укажите [IAM-токен](../iam/concepts/authorization/iam-token.md);
-* в заголовке `x-folder-id` укажите [идентификатор каталога](../resource-manager/operations/folder/get-id.md).
+При обращении к {{ speechkit-name }} через API в каждом запросе передавайте полученные параметры: 
 
-```
-Authorization: Bearer <IAM-токен> 
-x-folder-id <идентификатор каталога>
-```
+* Для API v1 и API v2:
+
+   Указывайте IAM-токен в заголовке `Authorization` в следующем формате:
+
+   ```
+   Authorization: Bearer <IAM-токен>
+   ```
+  
+   Идентификатор каталога указывайте в теле запроса в параметре `folderId`.
+
+* Для API v3:
+
+   * в заголовке `Authorization` указывайте IAM-токен;
+   * в заголовке `x-folder-id` указывайте идентификатор каталога.
+
+   ```
+   Authorization: Bearer <IAM-токен> 
+   x-folder-id <идентификатор каталога>
+   ```

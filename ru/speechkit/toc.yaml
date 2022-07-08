@@ -31,12 +31,14 @@ items:
       href: tts/index.md
     - name: Список голосов
       href: tts/voices.md
-    - name: Настройка генерации речи
-      href: tts/tts-markup.md
-    - name: Использование SSML
-      href: tts/ssml.md
-    - name: Список поддерживаемых фонем в SSML
-      href: tts/supported-phonemes.md
+    - name: Разметка текста
+      items:
+      - name: TTS-разметка
+        href: tts/tts-markup.md
+      - name: Разметка SSML
+        href: tts/ssml.md
+      - name: Список поддерживаемых фонем в SSML
+        href: tts/supported-phonemes.md
     - name: SpeechKit Brand Voice
       items:
       - name: О технологии SpeechKit Brand Voice
@@ -97,6 +99,12 @@ items:
         items:
         - name: Синтез API v3
           href: tts/api/tts-examples-v3.md
+        - name: Синтезировать речь в формате WAV — API v1
+          href: tts/api/tts-wav.md
+        - name: Синтезировать речь в формате OggOpus — API v1
+          href: tts/api/tts-ogg.md
+        - name: Синтезировать SSML-текст — API v1
+          href: tts/api/tts-ssml.md
   - name: SpeechKit Hybrid
     items:
         - name: О технологии

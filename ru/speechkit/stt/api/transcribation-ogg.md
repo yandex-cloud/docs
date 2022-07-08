@@ -2,6 +2,8 @@
 
 Чтобы распознать речь в формате [OggOpus](../../formats.md#oggopus), достаточно указать в конфигурации язык распознавания в поле `languageCode`. По умолчанию будет использована языковая модель `general`.
 
+{% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
+
 {% list tabs %}
 
 - cURL

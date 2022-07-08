@@ -3,8 +3,7 @@
 Языки, для которых поддерживается использование фонем в SSML (тег [`<phoneme>`](ssml.md#phoneme)):
 
 * [Русский](#ru-ru) (`ru-RU`)
-* [Английский, Американский](#en-us) (`en-US`)
-* [Турецкий](#tr-tr) (`tr-TR`)
+* [Английский](#en-us) (`en-US`)
 
 ## Русский {#ru-ru}
 
@@ -12,7 +11,7 @@
 
 {% include [phonemes-ru-ru_untranslatable](../../_includes/speechkit/phonemes-ru-ru_untranslatable.md) %}
 
-## Английский, Американский {#en-us}
+## Английский {#en-us}
 
 Список поддерживаемых фонем при использовании американского английского языка (`en-US`). [Подробнее об английской фонологии](https://en.wikipedia.org/wiki/English_phonology).
 
@@ -24,9 +23,12 @@
 
 {% include [phonemes-en-us_untranslatable](../../_includes/speechkit/phonemes-en-us_untranslatable.md) %}
 
+{% if audience == "test" %}
+
 ## Турецкий {#tr-tr}
 
 Список поддерживаемых фонем при использовании турецкого языка (`tr-TR`). [Подробнее о турецкой фонологии](https://en.wikipedia.org/wiki/Turkish_phonology).
 
 {% include [phonemes-tr-tr_untranslatable](../../_includes/speechkit/phonemes-tr-tr_untranslatable.md) %}
 
+{% endif %}
