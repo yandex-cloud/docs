@@ -74,6 +74,8 @@ items:
             href: concepts/chart/types.md
           - name: Настройки чарта
             href: concepts/chart/settings.md
+          - name: Measure Values и Measure Names
+            href: concepts/chart/measure-values.md
       - name: Дашборд
         href: concepts/dashboard.md
       - name: Объединение данных
