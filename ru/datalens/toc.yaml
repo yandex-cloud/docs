@@ -1,12 +1,11 @@
 title: Yandex DataLens
 href: index.yaml
 items:
-  - name: Начало работы
-    when: audience == "external"
-    href: quickstart.md
   - name: О сервисе Yandex.DataLens
     when: audience == "internal"
     href: overview.md
+  - name: Начало работы
+    href: quickstart.md
   - name: Практические руководства
     items:
       - name: Все руководства

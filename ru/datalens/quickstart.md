@@ -2,7 +2,11 @@
 
 В этой инструкции вы создадите свой первый [датасет](concepts/dataset/index.md), для визуализации данных построите несколько [чартов](concepts/chart/index.md) и разместите их на [дашборде](concepts/dashboard.md).
 
+{% if audience != "internal" %}
+
 {% include [before-you-begin](../_tutorials/includes/before-you-begin-datalens.md) %}
+
+{% endif %}
 
 ## Создайте подключение {#create-connection}
 
