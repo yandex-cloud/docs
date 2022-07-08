@@ -34,7 +34,7 @@
 
       Если ни одной сети нет, [создайте ее](../../../vpc/operations/network-create.md).
 
-  1. Выберите один из [публичных образов](../images-with-pre-installed-software/get-list.md) (например, [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo)).
+  1. Выберите один из [публичных образов](../images-with-pre-installed-software/get-list.md) {{ marketplace-name }} (например, [CentOS 7](/marketplace/products/yc/centos-7)).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 

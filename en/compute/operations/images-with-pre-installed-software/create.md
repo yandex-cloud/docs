@@ -23,7 +23,7 @@ To create a VM:
 
       {% note info %}
 
-      Each public image has its own minimum requirements for a virtual machine. A [GitLab](/marketplace/products/f2eb5e8deq602ccak537) image, for instance, requires at least 4 virtual cores and 8 GB of RAM.
+      Each public image has its own minimum requirements for a virtual machine. A [GitLab](/marketplace/products/yc/gitlab) image from {{ marketplace-name }}, for instance, requires at least 4 virtual cores and 8 GB of RAM.
 
       {% endnote %}
 

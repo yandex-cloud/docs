@@ -75,7 +75,7 @@ A list of operations available to each role is given in the table below.
 
 ## Adding a user {#set-member-role}
 
-The owner of a billing account can expand the **Users** list to include any {{ yandex-cloud }} user with the `billing.accounts.member` role to the cloud that is linked to the billing account. To add a user:
+The owner of a billing account can expand the **Users** list to include any {{ yandex-cloud }} user. To add a user:
 
 1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 1. In the upper-left corner, click ![image](../../_assets/main-menu.svg) **All services**.

@@ -14,7 +14,7 @@
 
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: настройка групп безопасности (dev/stage/prod) с помощью Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
 
-- Отдельная виртуальная машина — межсетевой экран на основе образа NGFW из [{{ marketplace-name }}](/marketplace?categories=network).
+- Отдельная виртуальная машина — межсетевой экран на основе образа [NGFW](/marketplace/products/usergate/ngfw) из {{ marketplace-name }}.
 
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: установка в {{ yandex-cloud }} ВМ — межсетевого экрана (NGFW): Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
 
@@ -32,14 +32,14 @@
 
 Чтобы обеспечить удаленное подключение администраторов к облачным ресурсам, используйте одно из следующих решений:
 
-- Site-to-site VPN между удаленной площадкой (например, вашим офисом) и облаком. В качестве шлюза для удаленного доступа используйте ВМ с функцией site-to-site VPN на основе образа из [{{ marketplace-name }}](/marketplace?categories=network).
+- Site-to-site VPN между удаленной площадкой (например, вашим офисом) и облаком. В качестве шлюза для удаленного доступа используйте ВМ с функцией site-to-site VPN на основе [образа](/marketplace?categories=network) из {{ marketplace-name }}.
 
   Варианты настройки:
 
   - [Создание туннеля IPSec VPN с использованием демона strongSwan](../../tutorials/routing/ipsec-vpn.md).
   - ![](../../_assets/overview/solution-library-icon.svg)[Решение: создание site-to-site VPN-соединения с {{ yandex-cloud }} с помощью Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn).
 
-- Client VPN между удаленными устройствами и {{ yandex-cloud }}. В качестве шлюза для удаленного доступа используйте ВМ с функцией client VPN на основе образа из [{{ marketplace-name }}](/marketplace?categories=network). См. инструкцию в разделе [Создание VPN-соединения с помощью OpenVPN](../../tutorials/routing/openvpn.md).
+- Client VPN между удаленными устройствами и {{ yandex-cloud }}. В качестве шлюза для удаленного доступа используйте ВМ с функцией client VPN на основе [образа](/marketplace?categories=network) из {{ marketplace-name }}. См. инструкцию в разделе [Создание VPN-соединения с помощью OpenVPN](../../tutorials/routing/openvpn.md).
 - Приватное выделенное соединение между удаленной площадкой и {{ yandex-cloud }} c помощью услуги [Cloud Interconnect](../../interconnect/index.yaml).
 {#gost-vpn}
 - ГОСТ VPN. Если требуется организовать защищенный канал с аппаратных сертифицированных СКЗИ, обратитесь к своему менеджеру. Услуга ГОСТ VPN включает установку аппаратного криптошлюза на стороне {{ yandex-cloud }} и, при необходимости, на стороне клиента, а также настройку и дальнейшую поддержку защищенного канала. Криптошлюзы предоставляются в аренду. Услуга оказывается совместно с партнером {{ yandex-cloud }}.
@@ -56,7 +56,7 @@
 
 - [Публичный IP-адрес](../../vpc/concepts/address.md#public-addresses). Адрес назначается ВМ по принципу one-to-one NAT.
 - [Egress NAT](../../vpc/operations/enable-nat.md). Включает доступ в интернет для подсети через общий пул публичных адресов {{ yandex-cloud }}. Не рекомендуется использовать Egress NAT для критичных взаимодействий, так как IP-адрес NAT-шлюза может использоваться несколькими клиентами одновременно. Следует учитывать эту особенность при моделировании угроз для инфраструктуры.
-- [NAT-инстанс](../../tutorials/routing/nat-instance.md). Функцию NAT выполняет отдельная ВМ. Для создания такой ВМ можно использовать образ из [{{ marketplace-name }}](/marketplace/products/f2etqeet87jshce7o7j8).
+- [NAT-инстанс](../../tutorials/routing/nat-instance.md). Функцию NAT выполняет отдельная ВМ. Для создания такой ВМ можно использовать образ [NAT-инстанс](/marketplace/products/yc/nat-instance-ubuntu-18-04-lts) из {{ marketplace-name }}.
 
 Сравнение способов доступа в интернет:
 

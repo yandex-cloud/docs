@@ -30,7 +30,6 @@
       yc iam create-token
       ```
   1. [Получите идентификатор любого каталога](../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `editor` или выше.
-
-
+  
 {% endlist %}
 

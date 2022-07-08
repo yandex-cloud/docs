@@ -1,5 +1,7 @@
 # Примеры использования API синхронного распознавания
 
+{% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
+
 ## Пример запроса {#request_examples}
 
 Выполните запрос, указав в параметрах [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) и [IAM-токен](../../../iam/concepts/authorization/iam-token.md) для авторизации:

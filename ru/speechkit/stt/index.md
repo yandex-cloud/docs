@@ -2,8 +2,6 @@
 
 _Распознавание речи (speech-to-text — STT)_ — это процесс преобразования речи в текст.
 
-{{ speechkit-full-name }} позволяет распознавать речь на русском языке.
-
 {% include [api-concepts](../../_includes/speechkit/api-concepts.md) %}
 
 ## Способы распознавания {#stt-ways}

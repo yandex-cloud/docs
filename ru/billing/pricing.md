@@ -9,7 +9,14 @@ editable: false
 
 ## Нетарифицируемые сервисы {#free}
 
-Расчет стоимости за использование сервисов [Yandex Identity and Access Management](../iam/pricing.md) и [Yandex Resource Manager](../resource-manager/pricing.md) не производится.
+Расчет стоимости за использование следующих сервисов не производится:
+* [{{ iam-full-name }}](../iam/pricing.md);
+* [{{ resmgr-full-name }}](../resource-manager/pricing.md);
+* [{{ certificate-manager-full-name }}](../certificate-manager/pricing.md);
+* [{{ org-full-name }}](../organization/pricing.md);
+* [{{ datalens-full-name }}](../datalens/pricing.md);
+* [{{ forms-full-name }}](../forms/pricing.md);
+* [{{ wiki-full-name }}](../wiki/pricing.md).
 
 ## Тарифы отдельных сервисов {#billable}
 
