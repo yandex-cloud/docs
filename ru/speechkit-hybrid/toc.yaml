@@ -8,10 +8,14 @@ items:
     items:
       - name: О технологии
         href: tts/index.md
+      - name: Тестирование производительности
+        href: tts/testing.md
   - name: Распознавание речи
     items:
       - name: О технологии
         href: stt/index.md
+      - name: Тестирование производительности
+        href: stt/testing.md
   - name: Мониторинг
     href: monitoring.md
   - name: Справочник API gRPC (англ.)

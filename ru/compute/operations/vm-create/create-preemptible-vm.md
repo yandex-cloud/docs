@@ -96,7 +96,7 @@
       ```
 
   1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на виртуальную машину.
-  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) на базе операционной системы Linux (например, [CentOS 7](/marketplace/products/f2esfplfav536pn90mdo)).
+  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) {{ marketplace-name }} на базе операционной системы Linux (например, [CentOS 7](/marketplace/products/yc/centos-7)).
 
       {% include [standard-images](../../../_includes/standard-images.md) %}
 

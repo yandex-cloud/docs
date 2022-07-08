@@ -17,11 +17,10 @@
 
 ## Windows Server {#win-server}
 
-Создавайте виртуальные машины с операционной системой Microsoft Windows Server, чтобы запускать приложения для Windows. Доступны несколько версий системы в редакции Datacenter:
-
-* Windows Server 2012 R2
-* Windows Server 2016
-* Windows Server 2019
+Создавайте виртуальные машины с операционной системой Microsoft Windows Server, чтобы запускать приложения для Windows. В {{ marketplace-name }} доступны несколько версий системы в редакции Datacenter:
+  * [Windows Server 2012 R2](/marketplace/products/yc/windows-server-2012r2-datacenter)
+  * [Windows Server 2016](/marketplace/products/yc/windows-server-2016-datacenter)
+  * [Windows Server 2019](/marketplace/products/yc/windows-server-2019-datacenter)
 
 При создании виртуальных машин необходимо указывать [уровень производительности](../compute/concepts/performance-levels.md) и количество ядер vCPU, который будет гарантированно зарезервирован за вашей ВМ. При этом процессор будет обрабатывать и вычислительные, и сетевые операции только в пределах зарезервированного уровня производительности. Используйте виртуальные машины с гарантированной долей vCPU меньше 100% для тестирования или запуска приложений, не требующих высокой производительности.
 
@@ -44,7 +43,7 @@ Windows Server 2016 и Windows Server 2019 в редакции Datacenter дос
  
 Remote Desktop Licensing Server (RDS) — это служба Windows Server, с помощью которой можно настроить безопасный доступ к виртуальным и удалённым рабочим столам в облаке. RDS позволяет запускать одновременно несколько сессий подключения к виртуальным машинам.
 
-Все образы виртуальных машин, доступные в {{ marketplace-name }}, имеют две лицензии RDS для администрирования. Если для решения ваших задач необходима возможность поддерживать большее количество удаленных сессий, воспользуйтесь образами с заранее активированной службой RDS, [доступными](/marketplace?search=rds) в {{ marketplace-name }}.
+Все образы виртуальных машин, доступные в {{ marketplace-name }}, имеют две лицензии RDS для администрирования. Если для решения ваших задач необходима возможность поддерживать большее количество удаленных сессий, воспользуйтесь образами с заранее активированной службой [RDS](/marketplace?tab=software&search=windows+rds), доступными в {{ marketplace-name }}.
 
 Образы с активированной службой RDS основаны на Windows Server 2019 Datacenter и подходят для увеличения числа сессий для всех доступных в {{ marketplace-name }} версий Windows Server.
 
@@ -55,11 +54,22 @@ Remote Desktop Licensing Server (RDS) — это служба Windows Server, с
 
 Microsoft SQL Server — это система управления базами данных. Вы можете использовать SQL Server на базе нашей инфраструктуры или в качестве дополнения для обеспечения высокой доступности ваших систем.
 
-{{ marketplace-name }} предоставляет образы Microsoft SQL Server, предустановленные на Windows Server. Доступны версии SQL Server в редакциях Web, Standard и Enterprise:
+{{ marketplace-name }} предоставляет образы Microsoft SQL Server, предустановленные на Windows Server. Доступны версии SQL Server в редакциях:
 
-* SQL Server 2016
-* SQL Server 2017
-* SQL Server 2019
+* Web:
+  * [Microsoft SQL Server 2016](/marketplace/products/yc/sql-server-2016-web)
+  * [Microsoft SQL Server 2017](/marketplace/products/yc/sql-server-2017-web)
+  * [Microsoft SQL Server 2019](/marketplace/products/yc/sql-server-2019-web)
+
+* Standard:
+  * [Microsoft SQL Server 2016](/marketplace/products/yc/sql-server-2016-standard)
+  * [Microsoft SQL Server 2017](/marketplace/products/yc/sql-server-2017-standard)
+  * [Microsoft SQL Server 2019](/marketplace/products/yc/sql-server-2019-standard)
+
+* Enterprise:
+  * [Microsoft SQL Server 2016](/marketplace/products/yc/sql-server-2016-enterprise)
+  * [Microsoft SQL Server 2017](/marketplace/products/yc/sql-server-2017-enterprise)
+  * [Microsoft SQL Server 2019](/marketplace/products/yc/sql-server-2019-enterprise)
 
 Вместо предактивированных образов ВМ из {{ marketplace-name }} вы можете воспользоваться сервисом {{ mms-name }} и доверить нам обслуживание базы данных. 
 

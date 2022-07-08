@@ -16,7 +16,7 @@ To control network access to your resources, use one of the following:
 
 ![](../../_assets/overview/solution-library-icon.svg)[Solution: Setting up security groups (dev/stage/prod) using Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
 
-- A separate VM as a firewall based on an NGFW image from [{{ marketplace-name }}](/marketplace?categories=network).
+- A separate VM as a firewall based on an [NGFW](/marketplace/products/usergate/ngfw) image from {{ marketplace-name }}.
 
    ![](../../_assets/overview/solution-library-icon.svg)[Solution: Installing an NGFW on a {{ yandex-cloud }} VM: Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
 
@@ -36,7 +36,7 @@ When assigning public IP addresses to your cloud resources, enable the built-in 
 
 To enable administrators to establish remote connections to your cloud resources, use one of the following:
 
-- A site-to-site VPN between a remote site (such as your office) and a cloud. As a remote access gateway, use a VM featuring a site-to-site VPN based on an image from [{{ marketplace-name }}](/marketplace?categories=network).
+- A site-to-site VPN between a remote site (such as your office) and a cloud. As a remote access gateway, use a VM featuring a site-to-site VPN based on an [image](/marketplace?categories=network) from {{ marketplace-name }}.
 
   Setup options:
 
@@ -44,7 +44,7 @@ To enable administrators to establish remote connections to your cloud resources
       
   - ![](../../_assets/overview/solution-library-icon.svg)[Solution: Creating a site-to-site VPN connection to {{ yandex-cloud }} using Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn).
 
-- A client VPN between remote devices and {{ yandex-cloud }}. As a remote access gateway, use a VM featuring a client VPN based on an image from [{{ marketplace-name }}](/marketplace?categories=network). See the instructions in [Creating a VPN connection using OpenVPN](../../tutorials/routing/openvpn.md).
+- A client VPN between remote devices and {{ yandex-cloud }}. As a remote access gateway, use a VM featuring a client VPN based on [image](/marketplace?categories=network) from {{ marketplace-name }}. See the instructions in [Creating a VPN connection using OpenVPN](../../tutorials/routing/openvpn.md).
    
 - A dedicated private connection between a remote site and {{ yandex-cloud }} using [Cloud Interconnect](../../interconnect/index.yaml).
    {#gost-vpn}
@@ -62,7 +62,7 @@ Possible options for setting up outbound internet access:
 
 - [Public IP address](../../vpc/concepts/address.md#public-addresses). Assigned to a VM according to the one-to-one NAT rule.
 - [Egress NAT](../../vpc/operations/enable-nat.md). Enables internet access for a subnet through a shared pool of {{ yandex-cloud }} public IP addresses. We don't recommend that you use Egress NAT for critical interactions, since the NAT gateway's IP address might be used by multiple clients at the same time. This feature must be taken into account when modeling threats for your infrastructure.
-- [NAT instance](../../tutorials/routing/nat-instance.md). The NAT function is performed by a separate VM. You can create this VM using an image from [{{ marketplace-name }}](/marketplace/products/f2etqeet87jshce7o7j8).
+- [NAT instance](../../tutorials/routing/nat-instance.md). The NAT function is performed by a separate VM. You can create this VM using an image [NAT instance](/marketplace/products/yc/nat-instance-ubuntu-18-04-lts) from {{ marketplace-name }}.
 
 Comparison of internet access methods:
 

@@ -72,7 +72,7 @@ Possible options for using encrypted communication channels are described in [{#
 
 
 Please note that [{{interconnect-full-name}}](../../interconnect/index.yaml) does not provide built-in encryption mechanisms. Be sure to enable encryption in transit on your own by:
-- Installing in the cloud VPN gateways with encryption enabled, such as VMs based on Check Point images from [{{ marketplace-full-name }}](/marketplace?categories=network). 
+- Installing in the cloud VPN gateways with encryption enabled, such as VMs based on [Check Point](/marketplace?search=Check+Point) images from {{ marketplace-full-name }}. 
 - Using application-level encryption.
 - Using [GOST VPN](network.md#gost-vpn).
 
@@ -180,7 +180,7 @@ To store secrets, such as passwords, OAuth tokens, and SSH keys, use one of the 
    See the instructions in the {{ lockbox-name }} documentation, [{#T}](../../lockbox/tutorials/kubernetes-lockbox-secrets.md).
 
 
-- HashiCorp Vault with {{ kms-short-name }} support from [{{ marketplace-full-name }}](/marketplace/products/yc/vault-yckms).
+- [HashiCorp Vault with {{ kms-short-name }} support](/marketplace/products/yc/vault-yckms) from {{ marketplace-full-name }}.
 
 ### Transferring secrets to a VM using Terraform and {{ kms-short-name }}
 

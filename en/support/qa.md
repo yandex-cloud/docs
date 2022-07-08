@@ -9,7 +9,7 @@ You can contact technical support in the management console under [Support]({{ l
 
 If you are unable to access your Yandex account, please see our [troubleshooting instructions](https://yandex.com/support/passport/troubleshooting/problems.html) in the Yandex ID Help.
 
-If you successfully logged in to your Yandex account but are unable to connect to the {{ yandex-cloud }} management console, contact technical support by email.
+If you successfully logged in to your Yandex account but are unable to connect to the {{ yandex-cloud }} management console, contact technical support by email [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
 
 
 #### What kinds of issues and cases does technical support resolve? {#support-cases-types}

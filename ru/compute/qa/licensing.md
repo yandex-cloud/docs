@@ -34,7 +34,7 @@
 
 #### Можно ли приобрести Windows Server у {{ yandex-cloud }}? {#buy-windows-server}
 
-Да, вы можете приобрести виртуальную машину с предустановленным образом Windows Server 2012 или Windows Server 2016 у {{ yandex-cloud }}. Лицензия на Windows Server входит в стоимость.
+Да, вы можете приобрести виртуальную машину с предустановленным образом [Windows Server 2012](/marketplace/products/yc/windows-server-2012r2-datacenter) или [Windows Server 2016](/marketplace/products/yc/windows-server-2016-datacenter) в {{ marketplace-full-name }}. Лицензия на Windows Server входит в стоимость.
 
 #### Как активировать Windows Server {#activate-windows-server}
 

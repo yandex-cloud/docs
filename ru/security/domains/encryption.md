@@ -69,7 +69,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 Возможные варианты организации шифрованных каналов связи приведены в разделе [{#T}](network.md#remote-access).
 
 Обратите внимание: услуга [{{interconnect-full-name}}](../../interconnect/index.yaml) не предоставляет встроенных механизмов шифрования. Необходимо защищать данные при передаче (encryption in transit) самостоятельно с помощью:
-- установки в облаке VPN-шлюзов с функцией шифрования: например, виртуальных машин на основе образов Check Point из [{{ marketplace-full-name }}](/marketplace?categories=network);
+- установки в облаке VPN-шлюзов с функцией шифрования: например, виртуальных машин на основе образов [Check Point](/marketplace?search=Check+Point) из {{ marketplace-full-name }};
 - шифрования на уровне приложений;
 - услуги [ГОСТ VPN](network.md#gost-vpn).
 
@@ -173,7 +173,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
    См. инструкцию в разделе [{#T}](../../lockbox/tutorials/kubernetes-lockbox-secrets.md) документации {{ lockbox-name }}.
 
-- HashiCorp Vault c поддержкой {{ kms-short-name }} из [{{ marketplace-full-name }}](/marketplace/products/yc/vault-yckms).
+- [HashiCorp Vault c поддержкой {{ kms-short-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-full-name }}.
 
 ### Передача секретов в ВМ с помощью Terraform и {{ kms-short-name }}
 

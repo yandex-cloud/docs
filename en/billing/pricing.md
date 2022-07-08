@@ -9,7 +9,14 @@ In {{ yandex-cloud }}, you can use resources of both billable and non-billable s
 
 ## Non-billable services {#free}
 
-The [Yandex Identity and Access Management](../iam/pricing.md) and [Yandex Resource Manager](../resource-manager/pricing.md) services are always free of charge.
+The following services are always free of charge:
+* [{{ iam-full-name }}](../iam/pricing.md);
+* [{{ resmgr-full-name }}](../resource-manager/pricing.md);
+* [{{ certificate-manager-full-name }}](../certificate-manager/pricing.md);
+* [{{ org-full-name }}](../organization/pricing.md);
+* [{{ datalens-full-name }}](../datalens/pricing.md);
+* [{{ forms-full-name }}](../forms/pricing.md);
+* [{{ wiki-full-name }}](../wiki/pricing.md).
 
 ## Fees for individual services {#billable}
 

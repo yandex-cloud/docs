@@ -34,7 +34,7 @@ No. Currently, you cannot upload your own images with Windows.
 
 #### Can I purchase Windows Server from {{ yandex-cloud }}? {#buy-windows-server}
 
-Yes, you can purchase a VM with a pre-installed Windows Server 2012 or Windows Server 2016 image from {{ yandex-cloud }}. The Windows Server license is included in the cost of using {{ yandex-cloud }}.
+Yes, you can purchase a VM with a pre-installed [Windows Server 2012](/marketplace/products/yc/windows-server-2012r2-datacenter) or [Windows Server 2016](/marketplace/products/yc/windows-server-2016-datacenter) image from {{ marketplace-full-name }}. The Windows Server license is included in the cost of using {{ yandex-cloud }}.
 
 #### How do I activate Windows Server {#activate-windows-server}
 
