@@ -1,8 +1,8 @@
 # Using the SDK for Java functions
 
-The runtime doesn't have a pre-installed library that lets you access the [{{ yandex-cloud }} API](../../../api-design-guide/). To use the library, add a [dependency](dependencies.md) to your Java application. See the library's source code on [GitHub](https://github.com/yandex-cloud/java-sdk).
+The runtime environment doesn't have a pre-installed library for working with the [{{ yandex-cloud }} API](../../../api-design-guide/). To use the library, add a [dependency](dependencies.md) to your Java application. The library source code is available on [GitHub](https://github.com/yandex-cloud/java-sdk).
 
-[Software development kits (SDK)](https://en.wikipedia.org/wiki/Software_development_kit) let you interact with {{ yandex-cloud }} services using the [service account](../../operations/function-sa.md) specified in the function.
+The [SDK (Software Development Kit)]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/SDK){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Software_development_kit){% endif %} helps you manage {{ yandex-cloud }} resources on behalf of the [service account](../../operations/function-sa.md) specified in the function parameters.
 
 ### Example:
 
@@ -10,7 +10,7 @@ The following function receives the `folderId` as an input, authorizes in the SD
 
 {% note warning %}
 
-Invoke the function using the [YC CLI](../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
+To invoke the function, use the [YC CLI](../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
 
 {% endnote %}
 
@@ -26,21 +26,21 @@ import java.util.function.Function;
 public class Handler implements Function<String, String> {
   @Override
   public String apply(String folderId) {
-    // Authorization in the SDK using a service account
+    // SDK authorization using service account
     var defaultComputeEngine = Auth.computeEngineBuilder().build();
     var factory = ServiceFactory.builder()
             .credentialProvider(defaultComputeEngine)
             .build();
     var instanceService = factory.create(InstanceServiceGrpc.InstanceServiceBlockingStub.class, InstanceServiceGrpc::newBlockingStub);
     var listInstancesRequest = InstanceServiceOuterClass.ListInstancesRequest.newBuilder().setFolderId(folderId).build();
-    // Getting the Compute Instance list by the FolderId specified in the request
+    // Retrieving Compute Instance list based on FolderId in request
     var listInstancesResponse = instanceService.list(listInstancesRequest);
     var instances = listInstancesResponse.getInstancesList();
     var count = 0;
     for (var instance : instances) {
       if (instance.getStatus() != InstanceOuterClass.Instance.Status.RUNNING) {
         var startInstanceRequest = InstanceServiceOuterClass.StartInstanceRequest.newBuilder().setInstanceId(instance.getId()).build();
-        // Operation that runs the Compute Instance with the specified ID
+        // Launching Compute Instance with specifid ID
         var startInstanceResponse = instanceService.start(startInstanceRequest);
         if (!startInstanceResponse.hasError()) {
           count++;
@@ -51,4 +51,3 @@ public class Handler implements Function<String, String> {
   }
 }
 ```
-
