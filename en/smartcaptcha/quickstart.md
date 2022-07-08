@@ -2,15 +2,34 @@
 
 To get started with the service:
 
+1. [Create a captcha](#creat-captcha).
 1. [Get keys](#get-keys).
 1. [Add the widget to the page](#add-widget).
 1. [Check the user response](#check-answer).
+
+## Create a captcha {#creat-captcha}
+
+1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+1. Select **{{ captcha-full-name }}**.
+1. Click **Create captcha**.
+1. Enter a captcha name.
+1. Select the complexity:
+   * **Easy**: A simple captcha.
+   * **Medium**: A captcha of intermediate complexity.
+   * **Hard**: A difficult captcha.
+1. Specify a list of sites where the captcha will be placed.
+1. Click **Create**.
 
 ## Get keys {#get-keys}
 
 To use {{ captcha-name }}, you need to get the keys for the client and server parts. Using a client key, you can [add the {{ captcha-name }} widget](#add-widget) on your page. You'll need a server key to [check the user response](#check-answer).
 
-To get the keys, contact your account manager.
+To get the keys:
+
+1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+1. Select **{{ captcha-full-name }}**.
+1. Click the name of the captcha or [create](#creat-captcha) a new one.
+1. On the **Overview** tab, copy the client and the server keys.
 
 ## Add the widget to the page {#add-widget}
 
