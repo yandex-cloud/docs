@@ -1,4 +1,4 @@
-# Управление {{ PG }}-расширениями
+# Управление расширениями
 
 {{ mpg-short-name }} поддерживает многие стандартные расширения {{ PG }} и некоторые нестандартные. Полный список доступных расширений и их версий в зависимости от версии {{ PG }} [приведен ниже](#postgresql).
 
@@ -10,14 +10,21 @@
 
 ## Подключение библиотек для расширений {#libraries-connection}
 
-Некоторые расширения требуют подключения библиотек общего пользования (shared libraries). Чтобы подключить библиотеку, при [создании](cluster-create.md) или [изменении](update.md#change-postgresql-config) кластера укажите ее имя в [параметре Shared preload libraries](../concepts/settings-list#setting-shared-libraries).
+Некоторые расширения требуют подключения библиотек общего пользования (shared libraries). Чтобы подключить библиотеку, при [создании](../cluster-create.md) или [изменении](../update.md#change-postgresql-config) кластера укажите ее имя в [параметре Shared preload libraries](../concepts/settings-list#setting-shared-libraries).
 
 {{ mpg-short-name }} поддерживает подключение библиотек:
 
 * `auto_explain` — необходима для работы [расширения auto_explain]({{ pg-docs }}/auto-explain.html);
+* `pg_cron` — необходима для работы [расширения pg_cron](https://github.com/citusdata/pg_cron);
 * `pg_hint_plan` — необходима для работы [расширения pg_hint_plan](https://pghintplan.osdn.jp/pg_hint_plan.html);
 * `pg_qualstats` — необходима для работы [расширения pg_qualstats](https://github.com/powa-team/pg_qualstats);
 * `timescaledb` — необходима для использования [расширения TimescaleDB](https://github.com/timescale/timescaledb).
+
+{% note warning %}
+
+Подключение библиотеки общего пользования приведет к перезагрузке {{ PG }} на хосте-мастере.
+
+{% endnote %}
 
 ## Получить список установленных расширений {#list-extensions}
 
@@ -31,9 +38,9 @@
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   Чтобы получить список расширений для базы данных, выполните команду:
 
@@ -46,7 +53,7 @@
 
 - API
 
-  Получить список расширений для базы данных кластера можно с помощью метода [get](../api-ref/Database/get.md).
+  Получить список расширений для базы данных кластера можно с помощью метода [get](../../api-ref/Database/get.md).
 
 {% endlist %}
 
@@ -58,14 +65,14 @@
 
   1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
-  1. В строке с нужной базой данных нажмите значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Настроить расширения PostgreSQL**.
+  1. В строке с нужной базой данных нажмите значок ![options](../../../_assets/horizontal-ellipsis.svg) и выберите пункт **Настроить расширения PostgreSQL**.
   1. Выберите необходимые расширения и нажмите кнопку **Изменить**.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   Чтобы изменить расширения для базы данных, передайте их список в аргументе `--extensions` команды CLI. При этом расширения, не упомянутые в списке, будут выключены.
 
@@ -85,7 +92,7 @@
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+     О том, как создать такой файл, см. в разделе [{#T}](../cluster-create.md).
 
      Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
@@ -108,17 +115,17 @@
 
   1. Проверьте корректность настроек.
 
-     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
   1. Подтвердите изменение ресурсов.
 
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-     {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+     {% include [Terraform timeouts](../../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
-  Передать новый список расширений для базы данных можно с помощью метода [update](../api-ref/Database/update.md).
+  Передать новый список расширений для базы данных можно с помощью метода [update](../../api-ref/Database/update.md).
 
 {% endlist %}
 
@@ -134,7 +141,7 @@
 | 2.5.2 | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 |||
 || [amcheck]({{ pg-docs }}/amcheck.html)
 Содержит функции проверки логической согласованности реляционной структуры баз данных.
-Для использования расширения необходима [роль `mdb_admin`](../concepts/roles.md#mdb-admin).
+Для использования расширения необходима [роль `mdb_admin`](../../concepts/roles.md#mdb-admin).
 | 1.0 | 1.1 | 1.2 | 1.2 | 1.3 ||
 || [autoinc]({{ pg-docs }}/contrib-spi.html#id-1.11.7.47.6)
 Содержит функцию `autoinc()`. Она возвращает следующее значение для последовательности, хранящейся в поле целочисленного типа. В отличие от встроенных типов, управляющих последовательностями, `autoinc()`:
@@ -161,7 +168,7 @@
 | 1.2 | 1.4 | 1.4 | 1.4 | 1.5 ||
 || [dblink]({{ pg-docs }}/static/dblink.html)
 Добавляет поддержку подключения к другим базам данных {{ PG }} из текущей сессии.
-Для использования расширения необходима [роль `mdb_admin`](../concepts/roles.md#mdb-admin).
+Для использования расширения необходима [роль `mdb_admin`](../../concepts/roles.md#mdb-admin).
 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
 || [dict_int]({{ pg-docs }}/static/dict-int.html)
 Содержит пример дополнительного шаблона словаря для полнотекстового поиска. Использование шаблона позволяет избежать разрастания списка уникальных слов и увеличивает скорость поиска.
@@ -181,7 +188,7 @@
 Содержит тип `hstore`, позволяющий хранить пары <q>ключ:значение</q> в одном поле таблицы и эффективно работать с ними.
 | 1.4 | 1.5 | 1.6 | 1.7 | 1.8 ||
 || [hypopg](https://hypopg.readthedocs.io/en/rel1_stable/)
-Содержит виртуальные индексы. Они позволяют с минимальными затратами ресурсов выяснить, будет ли {{ PG }} использовать реальные индексы при обработке [проблемных запросов](../tutorials/profiling.md#solving-inefficient-queries).
+Содержит виртуальные индексы. Они позволяют с минимальными затратами ресурсов выяснить, будет ли {{ PG }} использовать реальные индексы при обработке [проблемных запросов](../../tutorials/profiling.md#solving-inefficient-queries).
 | 1.3.1 | 1.3.1 | 1.3.1 | 1.3.1 | 1.3.1 ||
 || [intarray]({{ pg-docs }}/static/intarray.html)
 Содержит функции и операторы для работы с массивами целых чисел, в которых нет пустых (`NULL`) значений.
@@ -203,15 +210,18 @@
 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
 || [oracle_fdw](https://github.com/laurenz/oracle_fdw)
 Добавляет поддержку [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) для доступа к базам данных Oracle.
-Для использования расширения необходима [роль `mdb_admin`](../concepts/roles.md#mdb-admin).
+Для использования расширения необходима [роль `mdb_admin`](../../concepts/roles.md#mdb-admin).
 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
 || [orafce](https://github.com/orafce/orafce)
 Добавляет функции и операторы, которые эмулируют набор функций и пакетов БД Oracle.
 | 3.18 | 3.18 | 3.18 | 3.18 | 3.18 ||
 || [pg_buffercache]({{ pg-docs }}/pgbuffercache.html)
 Добавляет функции мониторинга общего буферного кеша.
-Для использования расширения необходима [роль `mdb_admin`](../concepts/roles.md#mdb-admin).
+Для использования расширения необходима [роль `mdb_admin`](../../concepts/roles.md#mdb-admin).
 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 ||
+|| [pg_cron](https://github.com/citusdata/pg_cron)
+Позволяет добавлять в базу данных задачи по расписанию и выполнять SQL-запросы непосредственно из задачи. Требует [подключения библиотеки общего пользования](#libraries-connection) `pg_cron`. Для использования расширения необходима [роль `mdb_admin`](../../concepts/roles.md#mdb-admin). Подключение расширения приводит к перезагрузке всех хостов. Подробнее см. в разделе [{#T}](./pg_cron.md).
+| 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 ||
 || [pg_hint_plan](http://pghintplan.osdn.jp/)
 Содержит функции для управления планировщиком {{ PG }}.
 Требует [подключения библиотеки общего пользования](#libraries-connection) `pg_hint_plan`.
@@ -225,16 +235,16 @@
 | 2.0.3 | 2.0.3 | 2.0.3 | 2.0.3 | 2.0.3 ||
 || [pg_repack](http://reorg.github.io/pg_repack/)
 Содержит функции для удаления раздувания (bloat) из таблиц и индексов. В отличие от `CLUSTER` и `VACUUM FULL`, не требует эксклюзивной блокировки таблиц.
-Для использования расширения необходима [роль `mdb_admin`](../concepts/roles.md#mdb-admin).
+Для использования расширения необходима [роль `mdb_admin`](../../concepts/roles.md#mdb-admin).
 | 1.4.6 | 1.4.6 | 1.4.6 | 1.4.6 | 1.4.7 ||
 || [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache)
 Добавляет возможность сбора статистики по операциям чтения и записи, выполненным на уровне файловой системы.
 Требует включения расширения `pg_stat_statements`.
-Для использования расширения необходима [роль `mdb_admin`](../concepts/roles.md#mdb-admin).
+Для использования расширения необходима [роль `mdb_admin`](../../concepts/roles.md#mdb-admin).
 | 2.1.1 | 2.1.1 | 2.1.1 | 2.1.3 | 2.2.0 ||
 || [pg_stat_statements]({{ pg-docs }}/pgstatstatements.html)
 Добавляет возможности отслеживания планирования и сбора статистики выполнения всех SQL-запросов, запущенных в кластере.
-Для использования расширения необходима [роль `mdb_monitor`](../concepts/roles.md#mdb_monitor).
+Для использования расширения необходима [роль `mdb_monitor`](../../concepts/roles.md#mdb_monitor).
 | 1.6 | 1.6 | 1.7 | 1.8 | 1.9 ||
 || [pg_tm_aux](https://github.com/x4m/pg_tm_aux)
 Позволяет создавать логический слот репликации в прошлом.
@@ -243,6 +253,7 @@
 Содержит инструменты для быстрого поиска похожих строк на основе сопоставления триграмм.
 | 1.3 | 1.4 | 1.4 | 1.5 | 1.6 ||
 || [pgcrypto]({{ pg-docs }}/static/pgcrypto.html)
+Предоставляет криптографические функции для PostgreSQL.
 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 ||
 || [pgrouting](http://pgrouting.org/)
 Содержит функции для геопространственной маршрутизации базы данных [PostGIS](https://www.postgis.net/).
@@ -252,7 +263,7 @@
 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
 || [pgstattuple]({{ pg-docs }}/pgstattuple.html)
 Содержит функции для получения статистики на уровне кортежей.
-Для использования расширения необходима [роль `mdb_admin`](../concepts/roles.md#mdb-admin).
+Для использования расширения необходима [роль `mdb_admin`](../../concepts/roles.md#mdb-admin).
 | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 ||
 || [pgvector](https://github.com/pgvector/pgvector)
 Добавляет поиск векторного подобия.
@@ -271,7 +282,7 @@
 | 2.5.2 | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 ||
 || [postgres_fdw]({{ pg-docs }}/static/postgres-fdw.html)
 Добавляет поддержку [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) для доступа к внешним серверам {{ PG }}.
-Для использования расширения необходима [роль `mdb_admin`](../concepts/roles.md#mdb-admin).
+Для использования расширения необходима [роль `mdb_admin`](../../concepts/roles.md#mdb-admin).
 | 1.0 | 1.0 | 1.0 | 1.0 | 1.1 ||
 || [rum](https://github.com/postgrespro/rum)
 Добавляет метод доступа для работы с индексами `RUM`.
@@ -310,4 +321,4 @@
 
 Требует включения расширения `pgstattuple`.
 
-Для использования утилиты необходима [роль `mdb_admin`](../concepts/roles.md#mdb-admin).
+Для использования утилиты необходима [роль `mdb_admin`](../../concepts/roles.md#mdb-admin).
