@@ -126,7 +126,7 @@
         ```bash
         mkdir --parents ~/.clickhouse-client && \
         wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" \
-        --output-document=~/.clickhouse-client/config.xml
+        --output-document ~/.clickhouse-client/config.xml
         ```
 
     Убедитесь, что можете с помощью `clickhouse-client` [подключиться к кластеру {{ mch-name }} через SSL](../operations/connect.md#connection-string).

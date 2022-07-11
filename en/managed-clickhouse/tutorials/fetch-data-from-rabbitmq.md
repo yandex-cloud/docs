@@ -126,7 +126,7 @@ If you no longer need these resources, [delete them](#clear-out).
       ```bash
       mkdir --parents ~/.clickhouse-client && \
       wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" \
-      --output-document=~/.clickhouse-client/config.xml
+      --output-document ~/.clickhouse-client/config.xml
       ```
 
    Check that you can use `clickhouse-client` [to connect to the {{ mch-name }} cluster over SSL](../operations/connect.md#connection-string).
