@@ -1,6 +1,38 @@
 # YC CLI Releases
 
-## Version 0.91.0 (12.05.22) {#latest-release}
+## Version 0.92.0 (05.06.22) {#latest-release}
+
+### Changes to the CLI {#cli}
+
+* Fixed the error running `yc` with a large number of arguments passed.
+
+### Changes to {{ yandex-cloud }} services {#services}
+
+#### {{ certificate-manager-name }} {#certificate-manager}
+
+* Added the `--deletion-protection` flag to the `yc certificate-manager certificate create` command to enable certificate deletion protection.
+
+* Added the `--deletion-protection` flag to the `yc certificate-manager certificate request` command to enable certificate deletion protection.
+
+* Added the `--deletion-protection` and `--no-deletion-protection` flags to the `yc certificate-manager certificate update` command to enable and disable certificate deletion protection, respectively.
+
+#### Managed database services {#managed-db}
+
+**{{ mrd-name }}**
+
+* Added the `--client-output-buffer-limit-normal` and `--client-output-buffer-limit-pubsub` flags for `create`, `restore`, and `update` to the `yc managed-redis cluster` command group (see the description in redis.conf).
+
+**{{ mgp-name }}**
+
+Added commands for {{ mgp-name }} primary support:
+* Commands in the `yc managed-greenplum cluster` group let you manage clusters.
+* Commands in the `yc managed-greenplum hosts` group let you manage hosts.
+
+**{{ mms-name }}**
+
+* Added the `yc managed-sqlserver hosts update <HOST> --assign-public-ip=true|false` command that assigns or deletes a host's public IP address.
+
+## Version 0.91.0 (12.05.22){#version0.91.0}
 
 ### Changes to {{ yandex-cloud }} services {#services}
 
@@ -68,7 +100,7 @@
 
 ## Previous releases {#previous-releases}
 
-### Version 0.90.0 (13.04.22) 
+### Version 0.90.0 (13.04.22) {#version0.90.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
@@ -287,7 +319,7 @@
 
 * Command `yc k8s cluster update`.
 
-   Added the `--node-ipv4-mask-size` parameter, which calculates the size of `CIDR` allocated to each cluster node.
+   Added the `--node-ipv4-mask-size` parameter that calculates the size of `CIDR` allocated to each cluster node.
 
 ##### {{ alb-name }} {#alb}
 
@@ -320,7 +352,7 @@ Fixed a bug in the `yc init` command. Now, when checking the availability of end
 
 **{{ mmg-name }}**
 
-* Added support for creating clusters with {{ MG }} version 5.0.
+* Added support for creating a cluster with {{ MG }} version 5.0.
 * Added the `{{ yc-mdb-mg }} hosts restart` command to reboot specified hosts.
 
 **{{ mmy-name }}**
@@ -532,7 +564,7 @@ Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-cl
 **{{ mms-name }}**
 
 * Added the `yc managed-sqlserver database restore` command.
-   
+
 
    It lets you restore the specified database on an existing cluster from a backup. You can restore it under a different name.
 
@@ -545,7 +577,7 @@ Added new flags to the `yc managed-clickhouse cluster create` and `yc managed-cl
 * Commands `yc dataproc cluster create` and `yc dataproc cluster update`.
 
    The `--deletion-protection` flag lets you enable/disable cluster protection against accidental deletion.
-   
+
 
    To disable cluster protection from deletion, specify `--deletion-protection=false`.
 
@@ -579,7 +611,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 {{ cloud-logging-name }} is a service for reading and recording service logs and user applications.
 
-{% if audience != "internal" %}The {{ cloud-logging-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage. {% endif %}Read more about  in the [documentation](../logging/).
+{% if audience != "internal" %}The {{ cloud-logging-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage. {% endif %}Read more about in the [documentation](../logging/).
 
 #### {{ sf-name }} {#serverless-functions}
 
@@ -603,7 +635,7 @@ Added support for {{ cloud-logging-full-name }}.
 #### {{ managed-k8s-name }} {#k8s}
 
 * Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`.
-   
+
 
    Added the `--network-acceleration-type` flag, which lets you specify a network type for node groups: standard or software-accelerated.
 
@@ -956,7 +988,7 @@ Added primary support for {{ mkf-name }}:
 
    Added the `--security-group-ids` flag to set cluster security groups.
 * Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`.
-   
+
 
    Added the `--network-interface` flag that lets you configure more detailed network specifications for nodes. For example, manage security group settings for network interfaces and configure node interfaces for concurrent use of IPv4 and IPv6 in {{ k8s }} clusters.
 
@@ -1187,7 +1219,7 @@ Added support for {{ api-gw-full-name }}.
 
 {{ api-gw-name }} is a service for managing API gateways that supports [OpenAPI Specification 3.0](https://github.com/OAI/OpenAPI-Specification) and a set of extensions for interacting with other cloud services.
 
-{% if audience != "internal" %}The {{ api-gw-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage. {% endif %}Read more about  in the [documentation](../api-gateway/).
+{% if audience != "internal" %}The {{ api-gw-name }} service is at the [Preview](../overview/concepts/launch-stages.md) stage. {% endif %}Read more about in the [documentation](../api-gateway/).
 
 #### {{ iam-name }} {#iam}
 
@@ -1215,7 +1247,7 @@ Added support for {{ api-gw-full-name }}.
 ##### {{ managed-k8s-name }} {#k8s}
 
 * Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`.
-   
+
 
    Added the `--gpus=GPUS` flag to specify the number of GPUs on the nodes.
 
@@ -1321,9 +1353,9 @@ Added support for {{ api-gw-full-name }}.
 
 * Command `yc managed-kubernetes cluster create`.
 
-   Added the `--node-ipv4-mask-size` flag to configure the size of `CIDRs` allocated to each cluster node.
+   Added the `--node-ipv4-mask-size` flag to configure the size of `CIDR` allocated to each cluster node.
 * Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`.
-   
+
 
    Added the `--max-unavailable` and `--max-expansion` flags to control the number of nodes deleted and created at instance group update.
 
@@ -1694,7 +1726,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **{{ mpg-name }}**
 
-* Added support for {{ PG }} version 12 database creation.
+* Added support for creating {{ PG }} version 12 databases.
 
 **{{ mmg-name }}**
 
@@ -1718,7 +1750,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * Command `yc managed-kubernetes cluster create`.
 
-   Deleted the `--default-gateway-v4-address flag`.
+   Deleted the `--default-gateway-v4-address` flag.
 
 #### Changes to managed database services {#managed-db}
 
@@ -1939,7 +1971,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * Commands for displaying a list of elements `yc <service> <resource> list`.
 
-   The maximum number of elements to output has been increased from 100 to 1000.
+   Increased the maximum number of elements to output from 100 to 1000.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
