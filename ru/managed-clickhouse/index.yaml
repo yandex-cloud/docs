@@ -7,7 +7,7 @@ description:
   - text:
       - >-
         Сервис Managed Service for ClickHouse помогает разворачивать и поддерживать
-        кластеры серверов <a href="https://{{ ch-domain }}">ClickHouse</a> в
+        кластеры серверов <a href="https://clickhouse.com">ClickHouse</a> в
         инфраструктуре Yandex Cloud. ClickHouse — это высокопроизводительная
         колоночная СУБД с открытым исходным кодом.
       - >-
@@ -20,7 +20,7 @@ description:
       - >-
         Взаимодействие с сервисом осуществляется с помощью консоли управления,
         интерфейса командной строки Yandex Cloud (CLI), API или <a
-        href="{{ ch.docs }}/interfaces/http">HTTP-интерфейса</a>.
+        href="https://clickhouse.com/docs/ru/interfaces/http">HTTP-интерфейса</a>.
         Managed Service for ClickHouse позволяет визуализировать структуру данных на
         вашем ClickHouse-кластере и отправлять SQL-запросы к базам из <a
         href="/docs/managed-clickhouse/operations/web-sql-query">консоли
@@ -46,7 +46,7 @@ description:
   - text:
       - >-
         Сервис Managed Service for ClickHouse помогает разворачивать и поддерживать
-        кластеры серверов <a href="https://clickhouse.tech">ClickHouse</a> в
+        кластеры серверов <a href="https://clickhouse.com">ClickHouse</a> в
         инфраструктуре CloudIL. ClickHouse — это высокопроизводительная
         колоночная СУБД с открытым исходным кодом.
       - >-
@@ -59,7 +59,7 @@ description:
       - >-
         Взаимодействие с сервисом осуществляется с помощью консоли управления,
         интерфейса командной строки CloudIL (CLI), API или <a
-        href="https://clickhouse.tech/docs/ru/interfaces/http">HTTP-интерфейса</a>.
+        href="https://clickhouse.com/docs/ru/interfaces/http">HTTP-интерфейса</a>.
         Managed Service for ClickHouse позволяет визуализировать структуру данных на
         вашем ClickHouse-кластере и отправлять SQL-запросы к базам из <a
         href="/docs/managed-clickhouse/operations/web-sql-query">консоли
