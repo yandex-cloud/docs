@@ -45,4 +45,4 @@ items:
     items:
     include:
       repo: docs
-      path: ru/_cli-ref/toc.yaml
+      path: en/_cli-ref/toc.yaml
