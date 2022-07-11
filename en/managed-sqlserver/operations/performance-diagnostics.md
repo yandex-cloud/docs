@@ -1,10 +1,10 @@
 # Performance diagnostics
 
-{{ mms-name }} uses the built-in {{ MS }} [performance diagnostic tools]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/query-store-usage-scenarios){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/performance/query-store-usage-scenarios){% endif %}.
+{{ mms-name }} uses the built-in {{ MS }} [performance diagnostic tools]({{ ms.docs }}/sql/relational-databases/performance/query-store-usage-scenarios).
 
 ## Enabling statistics collection {#activate-stats-collector}
 
-To begin gathering statistics, enable the [query store]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store){% endif %}:
+To begin gathering statistics, enable the [query store]({{ ms.docs }}/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store):
 
 1. [Connect to the {{ MS }}](../operations/connect.md#connection-ide) cluster.
 
@@ -34,6 +34,6 @@ To begin gathering statistics, enable the [query store]{% if lang == "ru" %}(htt
 
 To view this data:
 
-* [Run the SQL query]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15#performance-auditing-and-troubleshooting){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15#performance-auditing-and-troubleshooting){% endif %} directly to the query store.
-* Use [SQL Server Management Studio]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/performance-dashboard?view=sql-server-ver15){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/performance/performance-dashboard?view=sql-server-ver15){% endif %}.
+* [Run the SQL query]({{ ms.docs }}/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15#performance-auditing-and-troubleshooting) directly to the query store.
+* Use [SQL Server Management Studio]({{ ms.docs }}/sql/relational-databases/performance/performance-dashboard?view=sql-server-ver15).
 * Use [built-in stored procedures](sessions.md).

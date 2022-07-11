@@ -11,7 +11,7 @@
 
 #### Как дать пользователю права на создание и удаление таблиц или БД? {#create-delete-role}
 
-Включите в настройках кластера опцию [{#T}](../operations/cluster-users.md#sql-user-management) и выдайте пользователю нужные права [с помощью выражения]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/grant/){% endif %}{% if lang == "en" %}({{ ch-domain }}/docs/en/sql-reference/statements/grant/){% endif %} `GRANT`.
+Включите в настройках кластера опцию [{#T}](../operations/cluster-users.md#sql-user-management) и выдайте пользователю нужные права [с помощью выражения]({{ ch.docs }}/sql-reference/statements/grant/) `GRANT`.
 
 #### Как узнать значение настройки internal_replication? {#internal-replication}
 

@@ -136,7 +136,7 @@ There are no limits to the number of databases in a cluster.
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
-   To learn more about creating databases, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/create/database/).
+   To learn more about creating databases, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/create/database/).
 
 {% endlist %}
 
@@ -196,7 +196,7 @@ There are no limits to the number of databases in a cluster.
       DROP DATABASE <database name>;
       ```
 
-   To learn more about deleting objects, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/drop/).
+   To learn more about deleting objects, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/drop/).
 
 {% endlist %}
 

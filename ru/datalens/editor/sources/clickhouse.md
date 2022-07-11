@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-**Документация**: [`https://{{ ch-domain }}`](https://{{ ch-domain }})
+**Документация**: [`https://{{ ch.docs }}`](https://{{ ch.docs }})
 
 **Префиксы**:
 * `/_clickhouse_mtmega` -> `http://mtmega.yandex.ru:8123`

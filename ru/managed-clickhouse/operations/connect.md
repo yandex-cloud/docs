@@ -4,7 +4,7 @@
 
 {% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
 
-К кластеру можно подключиться как с использованием шифрования — через порты `9440` для [clickhouse-client]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/cli/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/cli/){% endif %} и `8443` для [HTTP-интерфейса]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/http/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/http/){% endif %}, так и без него — через порты `9000` и `8123` соответственно.
+К кластеру можно подключиться как с использованием шифрования — через порты `9440` для [clickhouse-client]({{ ch.docs }}/interfaces/cli/) и `8443` для [HTTP-интерфейса]({{ ch.docs }}/interfaces/http/), так и без него — через порты `9000` и `8123` соответственно.
 
 ## Настройка групп безопасности {#configuring-security-groups}
 

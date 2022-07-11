@@ -113,9 +113,9 @@
     ```
 {% endlist %}
 
-Пароль должен соответствовать [требованиям к сложности]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочные-материалы){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference){% endif %}.
+Пароль должен соответствовать [требованиям к сложности]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочные-материалы).
 
-Подробные рекомендации по защите Active Directory читайте на [сайте разработчика]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}.
+Подробные рекомендации по защите Active Directory читайте на [сайте разработчика]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 ## Создайте ВМ для Windows Server with Remote Desktop Services {#add-vm}
 

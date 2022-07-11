@@ -1,6 +1,6 @@
 * **Background pool size**{#setting-background-pool-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-    Количество потоков для выполнения фоновых операций слияния и [мутаций]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/alter/#mutations){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/#mutations){% endif %} в таблицах семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}.
+    Количество потоков для выполнения фоновых операций слияния и [мутаций]({{ ch.docs }}/sql-reference/statements/alter/#mutations) в таблицах семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/).
 
     По умолчанию выбрано значение `16`.
 
@@ -29,11 +29,11 @@
     1. `DEBUG` — системная информация для последующего использования в отладке;
     1. `TRACE` — вся доступная информация о работе кластера.
 
-    Подробнее об уровнях логирования см. в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-logger){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-logger){% endif %}.
+    Подробнее об уровнях логирования см. в [документации {{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings/#server_configuration_parameters-logger).
 
 * **Mark cache size**{#setting-mark-cache-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
-    Приблизительный размер (в байтах) кеша засечек, используемых движками таблиц семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}. Кеш общий для хоста кластера, память выделяется по мере необходимости.
+    Приблизительный размер (в байтах) кеша засечек, используемых движками таблиц семейства [MergeTree]({{ ch.docs }}//engines/table-engines/mergetree-family/mergetree/). Кеш общий для хоста кластера, память выделяется по мере необходимости.
 
     Выбранное значение настройки не является строгим ограничением. {{ CH }} может использовать чуть меньше или чуть больше памяти под этот кеш.
 
@@ -53,13 +53,13 @@
 
 * **Max partition size to drop**{#setting-max-partition-size-to-drop} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
-    Максимальный размер (в байтах) [партиции]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key){% endif %} таблицы семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}, при котором таблицу можно удалить с помощью запроса `DROP TABLE`. Настройку можно использовать, чтобы предотвратить ошибочное удаление таблиц с реальными данными: такие таблицы обычно имеют большой размер по сравнению с тестовыми таблицами.
+    Максимальный размер (в байтах) [партиции]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key) таблицы семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/), при котором таблицу можно удалить с помощью запроса `DROP TABLE`. Настройку можно использовать, чтобы предотвратить ошибочное удаление таблиц с реальными данными: такие таблицы обычно имеют большой размер по сравнению с тестовыми таблицами.
 
     По умолчанию выбрано значение `53687091200` (50 ГБ). При значении `0` можно удалять таблицы любого размера.
 
 * **Max table size to drop**{#setting-max-table-size-to-drop} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
-    Максимальный размер (в байтах) таблицы семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}, которую можно удалить с помощью запроса `DROP TABLE`. Настройку можно использовать, чтобы предотвратить ошибочное удаление таблиц с реальными данными: такие таблицы обычно имеют большой размер по сравнению с тестовыми таблицами.
+    Максимальный размер (в байтах) таблицы семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/), которую можно удалить с помощью запроса `DROP TABLE`. Настройку можно использовать, чтобы предотвратить ошибочное удаление таблиц с реальными данными: такие таблицы обычно имеют большой размер по сравнению с тестовыми таблицами.
 
     По умолчанию выбрано значение `53687091200` (50 ГБ). При значении `0` можно удалять таблицы любого размера.
 
@@ -111,7 +111,7 @@
 
     По умолчанию выбрано значение `true`.
 
-    Подробнее см. в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/system-tables/query_thread_log){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/system-tables/query_thread_log){% endif %}.
+    Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/system-tables/query_thread_log).
 
 * **Query thread log retention size**{#setting-query-thread-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
@@ -133,7 +133,7 @@
 
 * **Text log level**{#setting-text-log-level} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-    Уровень логирования событий в таблице [system.text_log]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/system-tables/text_log){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/system-tables/text_log){% endif %}. На каждом следующем уровне лог будет содержать всю информацию из предыдущего:
+    Уровень логирования событий в таблице [system.text_log]({{ ch.docs }}/operations/system-tables/text_log). На каждом следующем уровне лог будет содержать всю информацию из предыдущего:
     1. `ERROR` — информация об ошибках в работе СУБД;
     1. `WARNING` — информация о событиях, которые могут привести к ошибкам в работе СУБД;
     1. `INFORMATION` — подтверждения, информация о событиях, не приводящих к ошибкам в работе СУБД;
@@ -158,7 +158,7 @@
 
     Временная зона сервера. Указывается идентификатором IANA в виде часового пояса UTC или географического положения (например, Africa/Abidjan).
     
-    Подробнее см. в документации [{{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone){% endif %}.
+    Подробнее см. в документации [{{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone).
 
 * **Trace log enabled**{#setting-trace-log-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
@@ -180,25 +180,25 @@
 
 * **Uncompressed cache size**{#setting-uncompressed-cache-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
-    Размер кеша (в байтах) для несжатых данных, используемых движками таблиц семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}.
+    Размер кеша (в байтах) для несжатых данных, используемых движками таблиц семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/).
 
     По умолчанию выбрано значение `8589934592` (8 ГБ).
 
 * **Compression**{#setting-compression} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-    Правила сжатия данных для таблиц семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}. Для каждого правила указываются:
+    Правила сжатия данных для таблиц семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/). Для каждого правила указываются:
 
     * **Method** — метод сжатия. Доступно два метода: [LZ4](https://lz4.github.io/lz4/) и [zstd](https://facebook.github.io/zstd/).
-    * **Min part size** — минимальный размер [куска данных]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %} (в байтах).
+    * **Min part size** — минимальный размер [куска данных]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) (в байтах).
     * **Min part size ratio** — отношение размера наименьшего куска таблицы к полному размеру таблицы. {{ CH }} будет применять правило только к тем таблицам, у которых такое отношение больше или равно значению **Min part size ratio**.
 
     Вы можете добавить несколько правил сжатия. {{ CH }} проверит условия **Min part size** и **Min part size ratio** и применит правила к тем таблицам, для которых выполнены оба условия. Если к одной таблице подходит несколько правил, {{ CH }} применит первое из них. Если ни одно из правил не подходит, {{ CH }} применит метод сжатия [LZ4](https://lz4.github.io/lz4/).
 
-    Подробнее см. в документации [{{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings){% endif %}.
+    Подробнее см. в документации [{{ CH }}]({{ ch.docs }}/operations/settings/settings).
 
 * **Graphite rollup**{#setting-graphite-rollup} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-    Конфигурации движка [GraphiteMergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/graphitemergetree){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/table_engines/graphitemergetree/){% endif %} для прореживания и агрегирования/усреднения (rollup) данных [Graphite](http://graphite.readthedocs.io/en/latest/index.html):
+    Конфигурации движка [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree) для прореживания и агрегирования/усреднения (rollup) данных [Graphite](http://graphite.readthedocs.io/en/latest/index.html):
     * **Name** — имя конфигурации.
     * **Patterns** — набор правил прореживания. Правило применяется, если имя метрики соответствует значению параметра **Regexp**, а возраст данных соответствует значению группы параметров **Retention**.
         * **Function** — имя агрегирующей функции.
@@ -209,11 +209,11 @@
 
     Вы можете настроить несколько конфигураций и использовать их для разных таблиц.
 
-    Подробнее о поддержке Graphite см. в документации [{{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/graphitemergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/graphitemergetree/){% endif %}.
+    Подробнее о поддержке Graphite см. в документации [{{ CH }}]({{ ch.docs }}//engines/table-engines/mergetree-family/graphitemergetree/).
 
 * **Kafka**{#setting-kafka} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-    Глобальные настройки аутентификации для [интеграции с {{ KF }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/integrations/kafka/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/kafka/){% endif %}:
+    Глобальные настройки аутентификации для [интеграции с {{ KF }}]({{ ch.docs }}/engines/table-engines/integrations/kafka/):
     * **Sasl mechanism** — механизм аутентификации SASL:
       * `GSSAPI` — аутентификация c [использованием Kerberos](https://kafka.apache.org/documentation/#security_sasl_kerberos).
       * `PLAIN` — аутентификация с [использованием пары «логин-пароль» в виде открытого текста](https://kafka.apache.org/documentation/#security_sasl_plain).
@@ -228,7 +228,7 @@
     
 * **Kafka topics**{#setting-kafka-topics} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-    Настройки аутентификации на уровне [топиков](../../managed-kafka/concepts/topics.md) для [интеграции с {{ KF }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/integrations/kafka/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/kafka/){% endif %}:
+    Настройки аутентификации на уровне [топиков](../../managed-kafka/concepts/topics.md) для [интеграции с {{ KF }}]({{ ch.docs }}/engines/table-engines/integrations/kafka/):
 
     * **Name** — имя топика {{ KF }}.
     * **Settings** — настройки аутентификации для топика, аналогичные глобальным настройкам аутентификации в секции [**Kafka**](#setting-kafka).
@@ -245,7 +245,7 @@
 
         По умолчанию выбрано значение `1048576` (1 МБ).
 
-        Подробнее см. в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-min-space-in-pool){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-min-space-in-pool){% endif %}.
+        Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-min-space-in-pool).
 
     * **Max replicated merges in queue** — максимальное количество задач слияния, которые могут одновременно находиться в очереди `ReplicatedMergeTree`.
 
@@ -263,23 +263,23 @@
 
         По умолчанию выбрано значение `300`.
 
-        Подробнее см. в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/merge-tree-settings/#parts-to-throw-insert){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/merge-tree-settings/#parts-to-throw-insert){% endif %}.
+        Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/merge-tree-settings/#parts-to-throw-insert).
 
     * **Replicated deduplication window** — число блоков последних вставок хешей, которые {{ ZK }} будет хранить. Дедупликация работает только для последних вставленных данных. Старые блоки будут удалены.
 
         По умолчанию выбрано значение `100`.
 
-        Подробнее см. в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/merge-tree-settings/#replicated-deduplication-window){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/merge-tree-settings/#replicated-deduplication-window){% endif %}.
+        Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/merge-tree-settings/#replicated-deduplication-window).
 
     * **Replicated deduplication window seconds** — время, в течение которого {{ ZK }} хранит блоки последних вставок хешей. Дедупликация работает только для последних вставленных данных. Старые блоки будут удалены.
 
         По умолчанию выбрано значение `604800`.
 
-        Подробнее см. в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/merge-tree-settings/#replicated-deduplication-window-seconds){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/merge-tree-settings/#replicated-deduplication-window-seconds){% endif %}.
+        Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/merge-tree-settings/#replicated-deduplication-window-seconds).
 
 * **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-    Глобальные настройки аутентификации для [интеграции с {{ RMQ }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/integrations/rabbitmq/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/rabbitmq/){% endif %}:
+    Глобальные настройки аутентификации для [интеграции с {{ RMQ }}]({{ ch.docs }}/engines/table-engines/integrations/rabbitmq/):
 
     * **Password** — пароль учетной записи {{ RMQ }}.
     * **Username** — имя учетной записи {{ RMQ }}.

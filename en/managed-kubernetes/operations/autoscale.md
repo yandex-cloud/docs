@@ -10,7 +10,7 @@ For more information, see [{#T}](../concepts/autoscale.md).
 ## Before you start {#before-you-begin}
 
 1. [Create a cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
-1. Install the [{{ k8s }} CLI (kubectl)]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl/){% endif %}. And [configure](kubernetes-cluster/kubernetes-cluster-get-credetials.md) it to work with your cluster.
+1. Install the [{{ k8s }} CLI (kubectl)]({{ k8s-docs }}/tasks/tools/install-kubectl/). And [configure](kubernetes-cluster/kubernetes-cluster-get-credetials.md) it to work with your cluster.
 
 ## Configuring cluster autoscaling {#ca}
 

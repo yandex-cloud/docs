@@ -22,13 +22,13 @@ When creating backups and restoring data from them to a given point in time, kee
 
 * It takes some time to create and upload a transaction log archive to object storage. This is why the cluster state stored in object storage may differ from the actual one.
 
-For more information about PITR, see the [{{ MS }} documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model?view=sql-server-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model?view=sql-server-2016){% endif %}.
+For more information about PITR, see the [{{ MS }} documentation]({{ ms.docs }}/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model?view=sql-server-2016).
 
 To restore a cluster or an individual database from a backup, [follow the instructions](../operations/cluster-backups.md).
 
 {% note warning %}
 
-You cannot use SQL commands to modify the [recovery model]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016){% endif %} for backup and restore operations.
+You cannot use SQL commands to modify the [recovery model]({{ ms.docs }}/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016) for backup and restore operations.
 
 {% endnote %}
 

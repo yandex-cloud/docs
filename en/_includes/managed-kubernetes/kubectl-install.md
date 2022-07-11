@@ -1,1 +1,1 @@
-[Install the kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl){% endif %} and [configure it to work with the created cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md).
+[Install the kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure it to work with the created cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md).

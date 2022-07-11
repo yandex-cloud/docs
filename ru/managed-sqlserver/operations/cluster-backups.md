@@ -9,7 +9,7 @@ description: "Вы можете создавать резервные копии
 
 {% note warning %}
 
-Вы не можете с помощью команд SQL изменять [модель восстановления]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016){% endif %} для операций резервного копирования и восстановления.
+Вы не можете с помощью команд SQL изменять [модель восстановления]({{ ms.docs }}/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016) для операций резервного копирования и восстановления.
 
 {% endnote %}
 

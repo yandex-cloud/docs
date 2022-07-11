@@ -2,9 +2,9 @@
 
 ## Normal data insertion {#general-insert}
 
-To add data to the database as part of a normal routine, use the `INSERT` statement described in the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/insert-into/). The `INSERT` queries should be sent no more than once per second.
+To add data to the database as part of a normal routine, use the `INSERT` statement described in the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/insert-into/). The `INSERT` queries should be sent no more than once per second.
 
-To upload large data, use data compression during transmission: for example, you can enable it for HTTP or `clickhouse-client`. To learn more, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/interfaces/).
+To upload large data, use data compression during transmission: for example, you can enable it for HTTP or `clickhouse-client`. To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/interfaces/).
 
 ## Inserting data and specifying the format schema {#insert-with-format-schema}
 
@@ -39,7 +39,7 @@ To insert user data in the Cap'n Proto and Protobuf formats into the `db1.users`
    - The user's `id` is represented as an unsigned 64-bit integer (`Uint64` in Cap'n Proto and {{ CH }}, and `uint64` in Protobuf).
    - The username `name` is presented in the form of a string (`Text` in Cap'n Proto, `string` in Protobuf, and `String` in {{ CH }}).
 
-   To learn more about supported data types, see the documentation for [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3), and [{{ CH }}](https://{{ ch-domain }}/docs/en/sql-reference/data-types/).
+   To learn more about supported data types, see the documentation for [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3), and [{{ CH }}]({{ ch.docs }}/sql-reference/data-types/).
 
 1. [Connect to the cluster](connect.md) and create the `db1.users` table of the desired type, if you haven't created it yet:
 

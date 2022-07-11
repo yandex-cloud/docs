@@ -126,9 +126,9 @@ Create a file named `setpass` with a script that will set a password for the loc
 Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force)
 ```
 
-The password must meet the [complexity requirements]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference){% endif %}.
+The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
 
-Read more about the best practices for securing Active Directory on the [official website]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}.
+Read more about the best practices for securing Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 ## Create a VM for Active Directory {#ad-vm}
 

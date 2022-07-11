@@ -1,6 +1,6 @@
 # Connecting external dictionaries
 
-You can add [external dictionaries](../concepts/dictionaries.md#external-dicts) to your cluster and remove them. For more information about dictionaries, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/){% endif %}.
+You can add [external dictionaries](../concepts/dictionaries.md#external-dicts) to your cluster and remove them. For more information about dictionaries, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/).
 
 {{ mch-name }} supports several types of dictionary sources.
 
@@ -19,7 +19,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 * SQL
 
    1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
-   1. Run the `SHOW DICTIONARIES` [query]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/show/#show-dictionaries){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/show/#show-dictionaries){% endif %}.
+   1. Run the `SHOW DICTIONARIES` [query]({{ ch.docs }}/sql-reference/statements/show/#show-dictionaries).
 
 * Management console
 
@@ -67,7 +67,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
    {% endnote %}
 
    1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
-   1. Run a [DDL query]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/create/dictionary/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/create/dictionary/){% endif %} and specify [dictionary settings](#settings-sql):
+   1. Run a [DDL query]({{ ch.docs }}/sql-reference/statements/create/dictionary/) and specify [dictionary settings](#settings-sql):
 
       ```sql
       CREATE DICTIONARY <dictionary name>(
@@ -140,7 +140,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 * SQL
 
    1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
-   1. Run the `DROP DICTIONARY <DB name>.<dictionary name>` [query]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/drop/#drop-dictionary){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/drop/#drop-dictionary){% endif %}.
+   1. Run the `DROP DICTIONARY <DB name>.<dictionary name>` [query]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary).
 
 * Management console
 
@@ -187,7 +187,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 * LIFETIME: Frequency of dictionary updates.
 * LAYOUT: Method for storing a dictionary in memory. Supported methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`.
 
-For more information about the settings, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}.
+For more information about the settings, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
 ### Management console {#settings-console}
 
@@ -207,12 +207,12 @@ For more information about the settings, see the [{{ CH }} documentation]{% if l
    * **Table**: Source table name.
    * **Selection condition**: Condition for selecting rows to generate a dictionary from. For example, the selection condition `id=10` is the same as the SQL command `WHERE id=10`.
    * (Optional) **Dictionary status check**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
-      For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}.
+      For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
 * HTTP(s)
 
    * **URL**: HTTP(s) source URL.
-   * **File format**: File [format]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/formats/#formats){% endif %} for an HTTP(s) source. For more information about the formats, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/formats/#formats){% endif %}.
+   * **File format**: File [format]({{ ch.docs }}/interfaces/formats/#formats) for an HTTP(s) source. For more information about the formats, see the [{{ CH }} documentation]({{ ch.docs }}/interfaces/formats/#formats).
 
 * {{ MG }}
 
@@ -234,7 +234,7 @@ For more information about the settings, see the [{{ CH }} documentation]{% if l
    * **Table**: Source table name.
    * **Selection condition**: Condition for selecting rows to generate a dictionary from. For example, the selection condition `id=10` is the same as the SQL command `WHERE id=10`.
    * (Optional) **Dictionary status check**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
-      For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}.
+      For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
 * {{ PG }}
 
@@ -245,29 +245,29 @@ For more information about the settings, see the [{{ CH }} documentation]{% if l
    * **Database**: Name of source database.
    * **Table**: Source table name.
    * (Optional) **Dictionary status check**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
-      For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}.
+      For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
    * **SSL mode**: Mode for establishing a secure SSL TCP/IP connection to the {{ PG }} database.
       For more information, see the [{{ PG }}documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
 
 {% endlist %}
 
-For more information about dictionary sources and their connection settings, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}.
+For more information about dictionary sources and their connection settings, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
 
 #### Layout {#console-method}
 
-* **Layout**: Method for storing a dictionary in memory. Supported methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about layouts, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}.
-* **Cache size**: Number of cache cells for the `cache` and `complex_key_cache` methods. For more information about the cache, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache){% endif %}.
-* **Numeric key**: Dictionary key column name. The key column must be in UInt64 data type. Used for `flat`, `hashed`, `cache`, and `range_hashed` methods. For more information about the keys, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key){% endif %}.
+* **Layout**: Method for storing a dictionary in memory. Supported methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about layouts, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+* **Cache size**: Number of cache cells for the `cache` and `complex_key_cache` methods . For more information about the cache, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
+* **Numeric key**: Dictionary key column name. The key column must be in UInt64 data type. Used for `flat`, `hashed`, `cache`, and `range_hashed` methods. For more information about the keys, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
 * **Data columns**: List of columns with dictionary data:
 
    * **Name**: Column name.
    * **Type**: Column data type.
    * (Optional) **Default value**: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You can't use `NULL` in this field.
-   * (Optional) **Expression**: [Expression]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/syntax/#syntax-expressions){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/syntax/#syntax-expressions){% endif %} that {{ CH }} executes with the column value.
+   * (Optional) **Expression**: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} executes with the column value.
    * **Hierarchical**: Hierarchical support flag.
    * **Injective**: Flag that shows whether the `id` -> `attribute` image is injective
 
-For more information about the column settings, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict_structure-attributes){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict_structure-attributes){% endif %}.
+For more information about the column settings, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict_structure-attributes).
 
 #### Update rate {#console-rate}
 
@@ -282,7 +282,7 @@ For more information about the column settings, see the [{{ CH }} documentation]
       * **Minimum**: Minimum value of the interval between dictionary updates in seconds.
       * **Maximum**: Maximum value of the interval between dictionary updates in seconds.
 
-For more information about dictionary updates, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/){% endif %}.
+For more information about dictionary updates, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
 ### CLI {#settings-cli}
 
@@ -305,7 +305,7 @@ For more information about dictionary updates, see the [{{ CH }} documentation]{
 * HTTP(s)
 
    * `--http-source-url`: HTTP(s) source URL.
-   * `--http-source-format`: File [format]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/formats/#formats){% endif %} for an HTTP(s) source. For more information about the formats, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/formats/#formats){% endif %}.
+   * `--http-source-format`: File [format]({{ ch.docs }}/interfaces/formats/#formats) for an HTTP(s) source. For more information about the formats, see the [{{ CH }} documentation]({{ ch.docs }}/interfaces/formats/#formats).
 
 * {{ MG }}
 
@@ -356,13 +356,13 @@ For more information about dictionary updates, see the [{{ CH }} documentation]{
 
 {% endlist %}
 
-* `--structure-id`: Key column name. The key column must be in UInt64 data type. Used for `flat`, `hashed`, `cache`, and `range_hashed` methods. For more information about the keys, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key){% endif %}.
+* `--structure-id`: Key column name. The key column must be in UInt64 data type. Used for `flat`, `hashed`, `cache`, and `range_hashed` methods. For more information about the keys, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
 * `--structure-key`: List of columns with dictionary data:
 
    * `name`: Column name.
    * `type`: Type of column data.
    * `null-value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You can't use `NULL` in this field.
-   * `expression`: [Expression]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/syntax/#syntax-expressions){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/syntax/#syntax-expressions){% endif %} that {{ CH }} executes with the column value.
+   * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} executes with the column value.
    * `hierarchical`: Hierarchical support flag.
    * `injective`: Flag that shows whether the `id` → `attribute` image is injective
 
@@ -371,7 +371,7 @@ For more information about dictionary updates, see the [{{ CH }} documentation]{
    * `name`: Column name.
    * `type`: Type of column data.
    * `null-value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You can't use `NULL` in this field.
-   * `expression`: [Expression]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/syntax/#syntax-expressions){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/syntax/#syntax-expressions){% endif %} that {{ CH }} executes with the column value.
+   * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} executes with the column value.
    * `hierarchical`: Hierarchical support flag.
    * `injective`: Flag that shows whether the `id` → `attribute` image is injective
 
@@ -381,8 +381,8 @@ For more information about dictionary updates, see the [{{ CH }} documentation]{
    * `min`: Minimum interval between dictionary updates in seconds.
    * `max`: Maximum interval between dictionary updates in seconds.
 
-* `--layout-type`: Method of storing dictionary in memory. Supported methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about layouts, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/){% endif %}.
-* `--layout-size-in-cells`: Number of cache cells for the `cache` and `complex_key_cache` methods. For more information about the cache, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache){% endif %}.
+* `--layout-type`: Method of storing dictionary in memory. Supported methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about layouts, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+* `--layout-size-in-cells`: Number of cache cells for the `cache` and `complex_key_cache` methods. For more information about the cache, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
 
 ### API {#settings-api}
 

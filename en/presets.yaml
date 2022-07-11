@@ -502,6 +502,7 @@ default:
   links:
     es: # ElasticSearch
       reindex-api: https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html
+      docs: https://www.elastic.co/guide/en
     helm:
       install: https://helm.sh/docs/intro/install/
     wiki: # Wikipedia
@@ -513,6 +514,36 @@ default:
   yds-short-name: Data Streams
   yds: yds
   ch-domain: clickhouse.com
+
+  #DB
+  ch: #Clickhouse
+   docs: https://clickhouse.com/docs/en
+  gl:  #GitLab
+    docs: https://docs.gitlab.com
+  gp:  #Greenplum
+   docs:
+      org: https://docs.greenplum.org
+      pivotal: https://gpdb.docs.pivotal.io
+  kf:  #Apache Kafka
+    docs: https://kafka.apache.org/documentation/
+  md: #MongoDB
+    docs:
+       comd: https://www.mongodb.com/docs/manual
+       dcom: https://docs.mongodb.com/manual
+  ms: #SQL Server
+    docs: https://docs.microsoft.com/en-us
+  my: #MySQL
+    docs: https://dev.mysql.com/doc
+  pg: #PostgreSQL
+    docs:
+       org: https://www.postgresql.org/docs
+       pro: https://postgrespro.com/docs
+  rd: #Redis
+    docs: https://redis.io/docs
+  k8s-docs: https://kubernetes.io/docs #Kubernetes
+
+  ydb:
+    docs: https://ydb.tech/en/docs/
 
   # ML
   stt-short-fileSize: 1 MB

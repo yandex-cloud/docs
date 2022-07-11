@@ -40,7 +40,7 @@
       ...
       ```
 
-  1. Для обновления используйте клиентский ключ [KMS Client ProductKey's]{% if lang =="ru" %}(https://docs.microsoft.com/ru-ru/windows-server/get-started/kmsclientkeys){% endif %}{% if lang =="en" %}(https://docs.microsoft.com/en-us/windows-server/get-started/kmsclientkeys){% endif %}, соответствующий установленной редакции:
+  1. Для обновления используйте клиентский ключ [KMS Client ProductKey's]({{ ms.docs }}/windows-server/get-started/kmsclientkeys), соответствующий установленной редакции:
       * Windows Server **2019** Datacenter:
          ```
          WMDGN-G9PQG-XVVXX-R3X43-63DFG

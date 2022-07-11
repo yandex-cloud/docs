@@ -255,7 +255,7 @@ Create a VM with a static address:
 ## Configure the RDGW role {#role}
 
 1. [Connect](../../compute/operations/vm-connect/rdp.md) to the created VM via RDP.
-1. Install the required roles and [management snap-ins]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/troubleshoot/windows-server/system-management-components/what-is-microsoft-management-console#more-information){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/troubleshoot/windows-server/system-management-components/what-is-microsoft-management-console#more-information){% endif %}:
+1. Install the required roles and [management snap-ins]({{ ms.docs }}/troubleshoot/windows-server/system-management-components/what-is-microsoft-management-console#more-information):
 
     ```powershell
     Install-WindowsFeature RDS-Gateway -IncludeManagementTools
@@ -275,7 +275,7 @@ Create a VM with a static address:
     Import-Module -Name RemoteDesktopServices
     ```
 
-1. Create a client access policy to allow all `Administrators` local group accounts to connect to the RDGW. You can do this using a [Windows PowerShell drive]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/powershell/scripting/samples/managing-windows-powershell-drives?view=powershell-7.1){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/powershell/scripting/samples/managing-windows-powershell-drives?view=powershell-7.1){% endif %} that is created automatically when importing the role:
+1. Create a client access policy to allow all `Administrators` local group accounts to connect to the RDGW. You can do this using a [Windows PowerShell drive]({{ ms.docs }}/powershell/scripting/samples/managing-windows-powershell-drives?view=powershell-7.1) that is created automatically when importing the role:
 
    ```powershell
    New-Item -Path 'RDS:\GatewayServer\CAP' -Name 'Default-CAP' -UserGroups Administrators@Builtin -AuthMethod '1'
@@ -431,7 +431,7 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
     87.250.250.242 my-rds-gw
     ```
 
-1. Run the [`mstsc` utility]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/administration/windows-commands/mstsc){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/mstsc){% endif %} that creates remote desktop connections. In the settings on the **Advanced** tab, specify the `my-rds-gw` VM name as the gateway, the `test-vm` name as the destination node, and `Administrator` as the username.
+1. Run the [`mstsc` utility]({{ ms.docs }}/windows-server/administration/windows-commands/mstsc) that creates remote desktop connections. In the settings on the **Advanced** tab, specify the `my-rds-gw` VM name as the gateway, the `test-vm` name as the destination node, and `Administrator` as the username.
 
 ## Delete the created resources {#clear-out}
 

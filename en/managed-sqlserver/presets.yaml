@@ -1,6 +1,5 @@
 ---
 default:
-  link-ms-docs: https://docs.microsoft.com/en-us
   # SQL Server current versions
   versions:
     tf:

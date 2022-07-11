@@ -22,15 +22,15 @@ keywords:
 
 Резервные копии могут быть созданы автоматически и вручную, в обоих случаях используется инкрементальная схема:
 
-* При создании очередной резервной копии [куски данных]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %} проверяются на уникальность.
-* Если идентичные [куски данных]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %} уже есть в одной из существующих резервных копий и они не старше {{ mch-dedup-retention }} дней, то они не дублируются. Для холодных данных [гибридного хранилища](storage.md#hybrid-storage-features) этот срок составляет {{ mch-backup-retention }} дней.
+* При создании очередной резервной копии [куски данных]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) проверяются на уникальность.
+* Если идентичные [куски данных]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) уже есть в одной из существующих резервных копий и они не старше {{ mch-dedup-retention }} дней, то они не дублируются. Для холодных данных [гибридного хранилища](storage.md#hybrid-storage-features) этот срок составляет {{ mch-backup-retention }} дней.
 
 Резервные копии создаются отдельно для каждого [шарда](./sharding.md) кластера. Восстановление из резервных копий также производится пошардово, при этом можно восстановить:
 
 * одну или несколько резервных копий шардов в отдельный кластер;
 * весь кластер целиком, указав резервные копии всех шардов кластера.
 
-В резервной копии хранятся данные только для движков семейства `MergeTree`. Для остальных движков хранятся только схемы таблиц. Подробнее про движки см. в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/){% endif %}.
+В резервной копии хранятся данные только для движков семейства `MergeTree`. Для остальных движков хранятся только схемы таблиц. Подробнее про движки см. в [документации {{ CH }}]({{ ch.docs }}/engines/table-engines/).
 
 Для создания резервной копии используется случайный хост-реплика. Поэтому, если между хостами кластера нет консистентности данных, то восстановление из резервной копии не гарантирует полного восстановления данных. Например, такое может произойти, если:
 

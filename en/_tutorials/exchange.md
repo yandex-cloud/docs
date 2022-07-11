@@ -123,9 +123,9 @@ Create a file named `setpass` with a script that sets a password for the local a
 Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force)
 ```
 
-The password must meet the [complexity requirements]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference){% endif %}.
+The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference){.
 
-Read more about the best practices for securing Active Directory on the [official website]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}.
+Read more about the best practices for securing Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 ## Create a VM for Active Directory {#ad-vm}
 
@@ -379,7 +379,7 @@ VMs with Active Directory don't have internet access, so they should be configur
    mkdir c:\distrib
    ```
 
-1. Download the [Exchange Server distribution]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/exchange/new-features/updates?view=exchserver-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/exchange/new-features/updates?view=exchserver-2016){% endif %} and necessary dependencies:
+1. Download the [Exchange Server distribution]({{ ms.docs }}/exchange/new-features/updates?view=exchserver-2016) and necessary dependencies:
    1. [.NET Framework 4.7.1](https://go.microsoft.com/fwlink/p/?linkid=863265).
    1. [Visual C++ Redistributable Package for Visual Studio 2012](https://go.microsoft.com/fwlink/?linkid=327788). Rename the downloaded file to `vcredist_x64_2012.exe`.
    1. [Visual C++ Redistributable Package for Visual Studio 2013](https://go.microsoft.com/fwlink/?linkid=2002913). Rename the downloaded file to `vcredist_x64_2013.exe`.

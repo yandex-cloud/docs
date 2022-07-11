@@ -37,7 +37,7 @@ To connect to the VM:
   1. Connect to the remote machine by double-clicking the connection you created in the main Microsoft Remote Desktop window.
 
   #### See also
-  * [Getting started with Remote Desktop on Mac]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac){% endif %}.
+  * [Getting started with Remote Desktop on Mac]({{ ms.docs }}/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
 
 - Linux
 

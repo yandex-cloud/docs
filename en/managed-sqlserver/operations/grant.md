@@ -5,7 +5,7 @@ description: "Atomic permissions in SQL Server are called privileges, permission
 
 # Assigning privileges and roles to users
 
-Atomic permissions in **{{ MS }}** are called _privileges_ and permission groups are called _roles_. **{{ mms-name }}** supports [predefined roles](#predefined-db-roles). For more information about managing access rights, see the [{{ MS }} documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?view=sql-server-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?view=sql-server-2016){% endif %}.
+Atomic permissions in **{{ MS }}** are called _privileges_ and permission groups are called _roles_. **{{ mms-name }}** supports [predefined roles](#predefined-db-roles). For more information about managing access rights, see the [{{ MS }} documentation]({{ ms.docs }}/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?view=sql-server-2016).
 
 The user created with a **{{ mms-name }}** cluster is automatically assigned the owner (`DB_OWNER`) role for the first database in the cluster. After that, you can [create other users](cluster-users.md#adduser) and configure their permissions as you wish:
 * [Updating the list of user roles](#grant-role).
@@ -116,12 +116,12 @@ To assign a **role** to a user, use the management console or API{{ yandex-cloud
 ## Granting a privilege to a user {#grant-privilege}
 
 1. [Connect](connect.md) to the database under the database owner's account.
-1. Run the `GRANT` command. For a detailed description of the command syntax, see the [{{ MS }} documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/t-sql/statements/revoke-transact-sql?view=sql-server-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/t-sql/statements/grant-transact-sql?view=sql-server-2016){% endif %}.
+1. Run the `GRANT` command. For a detailed description of the command syntax, see the [{{ MS }} documentation]({{ ms.docs }}/sql/t-sql/statements/revoke-transact-sql?view=sql-server-2016).
 
 ## Revoking a privilege from a user {#revoke-privilege}
 
 1. [Connect](connect.md) to the database under the database owner's account.
-1. Run the `REVOKE` command. For a detailed description of the command syntax, see the [{{ MS }} documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/t-sql/statements/revoke-transact-sql?view=sql-server-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/t-sql/statements/revoke-transact-sql?view=sql-server-2016){% endif %}.
+1. Run the `REVOKE` command. For a detailed description of the command syntax, see the [{{ MS }} documentation]({{ ms.docs }}/sql/t-sql/statements/revoke-transact-sql?view=sql-server-2016).
 
 {% include [user-ro](../../_includes/mdb/mms-user-examples.md) %}
 

@@ -51,7 +51,7 @@ description: "Основная сущность, которой оперируе
 
   Полный список ограничений, накладываемых {{ mms-name }} на кластеры этих редакций, приведен в разделе [{#T}](limits.md).
   
-  Подробнее о возможностях этих редакций см. в [документации {{ MS }}]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/sql-server/editions-and-components-of-sql-server-2016?view=sql-server-ver15){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/sql-server/editions-and-components-of-sql-server-2016?view=sql-server-ver15){% endif %}. 
+  Подробнее о возможностях этих редакций см. в [документации {{ MS }}]({{ ms.docs }}/sql/sql-server/editions-and-components-of-sql-server-2016?view=sql-server-ver15). 
 
 {% if audience != "internal" %}
 Созданный в каталоге кластер БД доступен по сети для всех виртуальных машин, подключенных к этой же облачной сети. [Подробнее о работе сети](../../vpc/).

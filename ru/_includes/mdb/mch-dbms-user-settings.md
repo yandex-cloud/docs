@@ -9,7 +9,7 @@
 
   По умолчанию выполнение DDL-запросов разрешено.
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/permissions-for-queries/#settings_allow_ddl){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_allow_ddl).
 
   См. также: настройка [Readonly](#setting-readonly).
 * **Any join distinct right table keys**{#setting-any-join-distinct-right-table-keys} {{ tag-con }} {{ tag-sql }}
@@ -18,7 +18,7 @@
 
   По умолчанию устаревшее поведение операции `JOIN` выключено.
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#any_join_distinct_right_table_keys){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#any_join_distinct_right_table_keys){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#any_join_distinct_right_table_keys).
 * **Compile**{#setting-compile} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Определяет, компилировать ли запросы при их выполнении. При включенной компиляции структурно идентичные запросы могут выполняться быстрее за счет использования скомпилированных частей запроса.
@@ -27,7 +27,7 @@
 
   По умолчанию компиляция выключена.
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#compile){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#compile){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#compile).
 * **Compile expressions**{#setting-compile-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Определяет, компилировать ли выражения при выполнении запросов. При включенной компиляции запросы, в которых используются идентичные выражения, могут выполняться быстрее за счет использования скомпилированных выражений.
@@ -43,11 +43,11 @@
 * **Count distinct implementation**{#setting-count-distinct-implementation} {{ tag-all }}
 
   Определяет, какая из функций `uniq*` используется при выполнении конструкции `COUNT(DISTINCT …)`:
-  * [uniq]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniq/#agg_function-uniq){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/aggregate-functions/reference/uniq/#agg_function-uniq){% endif %}
-  * [uniqCombined]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniqcombined/#agg_function-uniqcombined){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/aggregate-functions/reference/uniqcombined/#agg_function-uniqcombined){% endif %}
-  * [uniqCombined64]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniqcombined64/#agg_function-uniqcombined64){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/aggregate-functions/reference/uniqcombined64/#agg_function-uniqcombined64){% endif %}
-  * [uniqHLL12]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniqhll12/#agg_function-uniqhll12){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/aggregate-functions/reference/uniqhll12/#agg_function-uniqhll12){% endif %}
-  * [uniqExact]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/aggregate-functions/reference/uniqexact/#agg_function-uniqexact){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/aggregate-functions/reference/uniqexact/#agg_function-uniqexact){% endif %}
+  * [uniq]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniq/#agg_function-uniq)
+  * [uniqCombined]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqcombined/#agg_function-uniqcombined)
+  * [uniqCombined64]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqcombined64/#agg_function-uniqcombined64)
+  * [uniqHLL12]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqhll12/#agg_function-uniqhll12)
+  * [uniqExact]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqexact/#agg_function-uniqexact)
 
   По умолчанию используется функция `uniqExact`.
 * **Date time input format**{#setting-date-time-input-format} {{ tag-con }} {{ tag-sql }}
@@ -58,7 +58,7 @@
 
   По умолчанию используется базовый парсер (`basic`).
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-date_time_input_format){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-date_time_input_format){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-date_time_input_format).
 * **Date time output format**{#setting-date-time-output-format} {{ tag-con }} {{ tag-sql }}
 
   Определяет выходной формат для текстового представления даты и времени:
@@ -68,17 +68,17 @@
 
   По умолчанию используется простой формат (`simple`).
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-date_time_output_format){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-date_time_output_format){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-date_time_output_format).
 * **Deduplicate blocks in dependent materialized views**{#setting-deduplicate-blocks-in-dependent-materialized-views} {{ tag-con }} {{ tag-sql }}
 
   Включает проверку дедупликации для материализованных представлений, которые получают данные из реплицируемых таблиц.
 
   По умолчанию проверка выключена (`0`).
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-deduplicate-blocks-in-dependent-materialized-views){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-deduplicate-blocks-in-dependent-materialized-views){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-deduplicate-blocks-in-dependent-materialized-views).
 * **Distinct overflow mode**{#setting-distinct-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Определяет поведение {{ CH }} в ситуации, когда количество данных при выполнении запроса `SELECT DISTINCT` [превысило ограничения]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}:
+  Определяет поведение {{ CH }} в ситуации, когда количество данных при выполнении запроса `SELECT DISTINCT` [превысило ограничения]({{ ch.docs }}/operations/settings/query-complexity/#restrictions-on-query-complexity):
   * `throw` — прервать выполнение, вернуть ошибку.
   * `break` — вернуть неполный результат.
 
@@ -91,7 +91,7 @@
 
   По умолчанию режим экономии памяти выключен.
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/select/group-by/#select-group-by-in-external-memory).
 * **Distributed ddl task timeout**{#setting-distributed-ddl-task-timeout} {{ tag-all }}
 
   Устанавливает время ожидания для ответов на DDL-запросы от всех хостов в кластере. Если DDL-запрос не был выполнен на всех хостах, то ответ будет содержать ошибку времени ожидания, и запрос будет выполнен в асинхронном режиме. Возможные значения:
@@ -110,7 +110,7 @@
 
   По умолчанию значение не выбрано (эквивалентно `deny`).
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#distributed-product-mode){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#distributed-product-mode){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#distributed-product-mode).
 * **Empty result for aggregation by empty set**{#setting-empty-result-for-aggregation-by-empty-set} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Определяет, в каком формате возвращается результат при агрегации данных без ключей (без `GROUP BY`) для пустого множества (например, `SELECT count(*) FROM table WHERE 0`):
@@ -127,7 +127,7 @@
 
   По умолчанию сжатие данных в ответе на HTTP-запрос выключено.
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/http/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/http/){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/interfaces/http/).
 * **Fallback to stale replicas for distributed queries**{#setting-fallback-to-stale-replicas-for-distributed-queries} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Форсирует запрос в устаревшую реплику в случае, если актуальные данные недоступны.
@@ -136,23 +136,23 @@
 
   По умолчанию форсирование запроса включено.
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
 
   См. также настройку [Max replica delay for distributed queries](#setting-max-replica-delay-for-distributed-queries).
 * **Force index by date**{#setting-force-index-by-date} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Запрещает выполнение запросов, если использовать индекс по дате невозможно. Работает с таблицами семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}.
+  Запрещает выполнение запросов, если использовать индекс по дате невозможно. Работает с таблицами семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/).
 
   По умолчанию настройка выключена (выполнение запросов разрешено).
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-force_index_by_date){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-force_index_by_date){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-force_index_by_date).
 * **Force primary key**{#setting-force-primary-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Запрещает выполнение запросов, если использовать индекс по первичному ключу невозможно. Работает с таблицами семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}.
+  Запрещает выполнение запросов, если использовать индекс по первичному ключу невозможно. Работает с таблицами семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/).
 
   По умолчанию настройка выключена (выполнение запросов разрешено).
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-force_primary_key){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-force_primary_key){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-force_primary_key).
 * **Format regexp**{#setting-format-regexp} {{ tag-con }} {{ tag-sql }}
 
   Задает регулярное выражение в [формате re2](https://github.com/google/re2/wiki/Syntax), которое будет применяться к каждой строке импортируемых данных. Количество подшаблонов (скобочных групп) в выражении должно быть равно количеству столбцов в таблице, куда помещаются импортируемые данные. В качестве разделителей строк должны использоваться символы переноса строки `\n` или `\r\n`, экранировать перенос строки невозможно. Если строка не подходит регулярному выражению, то она пропускается.
@@ -175,7 +175,7 @@
   По умолчанию сообщение не выводится (`0`).
 * **Group by overflow mode**{#setting-group-by-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Определяет поведение {{ CH }}, когда количество уникальных ключей при агрегации [превысило ограничение]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}:
+  Определяет поведение {{ CH }}, когда количество уникальных ключей при агрегации [превысило ограничение]({{ ch.docs }}/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity):
   * `throw` — прервать выполнение, вернуть ошибку.
   * `break` — вернуть неполный результат.
   * `any` — выполнить `GROUP BY` приближенно. Качество такого вычисления зависит от статистических свойств данных.
@@ -217,32 +217,32 @@
 
   По умолчанию замена включена.
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields).
 * **Input format null as default**{#setting-input-format-null-as-default} {{ tag-con }} {{ tag-sql }}
 
   Определяет, заполнять ли ячейки со значением `NULL` значениями по умолчанию, если тип данных столбца не позволяет хранить значение `NULL`.
 
   По умолчанию настройка включена (ячейки `NULL` заполняются значениями по умолчанию).
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-input-format-null-as-default){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-input-format-null-as-default){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-input-format-null-as-default).
 * **Input format values interpret expressions**{#setting-input-format-values-interpret-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Включает SQL-парсер, если потоковый парсер не может проанализировать данные. Используйте эту настройку, если вставляете в таблицу значения, содержащие выражения SQL.
 
   Например, потоковый парсер не распознает значение, содержащее в себе выражение `now()`, в то время как при включенном SQL-парсере выражение будет распознано корректно и в качестве значения будет вставлен результат выполнения SQL-функции `now()` (текущая дата и время).
 
-  Эта настройка используется только для формата [Values]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/formats/#data-format-values){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/formats/#data-format-values){% endif %} при вставке данных.
+  Эта настройка используется только для формата [Values]({{ ch.docs }}/interfaces/formats/#data-format-values) при вставке данных.
 
   По умолчанию парсер SQL включен.
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-input_format_values_interpret_expressions){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-input_format_values_interpret_expressions){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-input_format_values_interpret_expressions).
 * **Input format with names use header**{#setting-input-format-with-names-use-header} {{ tag-con }} {{ tag-sql }}
 
   Определяет, выполнять ли проверку порядка столбцов при вставке данных.
 
   По умолчанию проверка включена.
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-input-format-with-names-use-header){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-input-format-with-names-use-header){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-input-format-with-names-use-header).
 * **Insert quorum**{#setting-insert-quorum} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Управляет кворумной записью в кластере {{ CH }}:
@@ -253,7 +253,7 @@
 
   При чтении данных, записанных с помощью Insert quorum, можно использовать настройку [Select sequential consistency](#setting-select-sequential-consistency).
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-insert_quorum){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-insert_quorum){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-insert_quorum).
 * **Insert quorum parallel**{#setting-insert-quorum-parallel} {{ tag-con }} {{ tag-sql }}
 
   Когда настройка включена, возможно одновременно выполнять несколько запросов `INSERT` с кворумной записью. Когда настройка выключена, будет выполнен только один запрос `INSERT` с кворумной записью к одной и той же таблице.
@@ -274,7 +274,7 @@
 
   По умолчанию используется алгоритм `hash`.
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-join_algorithm){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-join_algorithm){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-join_algorithm).
 * **Join overflow mode**{#setting-join-overflow-mode} {{ tag-all }}
 
   Определяет, какое действие выполняет {{ CH }} при достижении любого из следующих ограничений для `JOIN`:
@@ -292,7 +292,7 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#join_use_nulls){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#join_use_nulls){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#join_use_nulls).
 * **Joined subquery requires alias**{#setting-joined-subquery-requires-alias} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
   Требует наличия псевдонимов для подзапросов при выполнении операции `JOIN`.
@@ -312,7 +312,7 @@
   По умолчанию настройка выключена.
 * **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Определяет, использовать ли [тип LowCardinality]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/data-types/lowcardinality/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/data-types/lowcardinality/){% endif %} в native-формате:
+  Определяет, использовать ли [тип LowCardinality]}({{ ch.docs }}/sql-reference/data-types/lowcardinality/) в native-формате:
   * Настройка включена (по умолчанию) — использовать.
   * Настройка выключена — не использовать:
     * Для запроса `SELECT` конвертировать столбцы типа LowCardinality в обычные.
@@ -356,7 +356,7 @@
 
   При использовании агрегации во внешней памяти рекомендуется задать значение этой настройки в два раза меньше значения настройки [Max memory usage](#setting-max-memory-usage) (по умолчанию максимальное использование памяти ограничено десятью гигабайтами).
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/select/group-by/#select-group-by-in-external-memory).
 
   См. также настройку [Distributed aggregation memory efficient](#setting-distributed-aggregation-memory-efficient).
 * **Max bytes before external sort**{#setting-max-bytes-before-external-sort} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
@@ -399,7 +399,7 @@
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 * **Max concurrent queries for user**{#setting-max-concurrent-queries-for-user} {{ tag-con }} {{ tag-sql }}
 
-  Максимальное количество одновременно обрабатываемых пользовательских запросов к таблице семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}.
+  Максимальное количество одновременно обрабатываемых пользовательских запросов к таблице семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/).
 
   Минимальное значение `0` (нет ограничения), по умолчанию — `450`.
 * **Max execution time**{#setting-max-execution-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
@@ -422,7 +422,7 @@
 
   По умолчанию выбрано значение `1048576`.
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-max_insert_block_size){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-max_insert_block_size){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-max_insert_block_size).
 
 * **Max memory usage**{#setting-max-memory-usage} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -432,7 +432,7 @@
 
   Если вы используете настройки [Max bytes before external `GROUP BY`](#setting-max-bytes-before-external-group-by) или [Max bytes before external sort](#setting-max-bytes-before-external-sort), рекомендуется задать им значения в два раза меньше значения Max memory usage.
 
-  Подробнее см. [в документации {{ CH }}]({% if lang =="en" %}https://{{ ch-domain }}/docs/en/operations/settings/query-complexity#settings_max_memory_usage{% else %}https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity#settings_max_memory_usage{% endif %}).
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/query-complexity#settings_max_memory_usage).
 
 * **Max memory usage for user**{#setting-max-memory-usage-for-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -457,7 +457,7 @@
 
   Минимальное значение — `0` (количество разделов не ограничено), по умолчанию — `100`.
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#max-partitions-per-insert-block){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#max-partitions-per-insert-block){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/query-complexity/#max-partitions-per-insert-block).
 * **Max query size**{#setting-max-query-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Ограничивает размер (в байтах) наибольшей части запроса, которая может быть передана в оперативную память для разбора с помощью SQL-парсера.
@@ -491,7 +491,7 @@
 
   Минимальное значение и значение по умолчанию — `0` (нет ограничения).
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#settings-max_rows_in_join){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#settings-max_rows_in_join){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/query-complexity/#settings-max_rows_in_join).
 * **Max rows in set**{#setting-max-rows-in-set} {{ tag-all }}
 
   Максимальное количество строк для множества в секции `IN`, которое создается из подзапроса.
@@ -533,7 +533,7 @@
 
   Минимальное значение и значение по умолчанию — `0` (вычислять значение автоматически как количество процессорных ядер без учета Hyper-Threading).
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-max_threads){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-max_threads){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-max_threads).
 * **Merge tree max bytes to use cache**{#setting-merge-tree-max-bytes-to-use-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Максимальный размер запроса (в байтах), при котором используется кеш несжатых данных. Кеш не используется для запросов, превышающих указанный размер.
@@ -587,12 +587,12 @@
   Минимальное значение — `0`, по умолчанию — `3`.
 * **Min insert block size bytes**{#setting-min-insert-block-size-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Минимальный размер блока (в байтах), который может быть вставлен в таблицу запросом `INSERT`. Блоки меньшего размера [склеиваются вместе]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}.
+  Минимальный размер блока (в байтах), который может быть вставлен в таблицу запросом `INSERT`. Блоки меньшего размера [склеиваются вместе]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage).
 
   Минимальное значение — `0` (склейка блоков выключена), по умолчанию — `‭268435456‬‬` (256 МБ).
 * **Min insert block size rows**{#setting-min-insert-block-size-rows} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Минимальный размер блока (в строках), который может быть вставлен в таблицу запросом `INSERT`. Блоки меньшего размера [склеиваются вместе]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}.
+  Минимальный размер блока (в строках), который может быть вставлен в таблицу запросом `INSERT`. Блоки меньшего размера [склеиваются вместе]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage).
 
   Минимальное значение — `0` (склейка блоков выключена), по умолчанию — `1048576`.
 * **Output format json quote denormals**{#setting-output-format-json-quote-denormals} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
@@ -626,10 +626,10 @@
 
   По умолчанию значение не выбрано (эквивалентно `default`).
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/quotas/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/quotas/){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/quotas/).
 * **Read overflow mode**{#setting-read-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Определяет поведение {{ CH }}, когда количество прочитанных данных [превысило одно из ограничений]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}:
+  Определяет поведение {{ CH }}, когда количество прочитанных данных [превысило одно из ограничений]({{ ch.docs }}/operations/settings/query-complexity/#restrictions-on-query-complexity):
   * `throw` — прервать выполнение, вернуть ошибку.
   * `break` — вернуть неполный результат.
 
@@ -656,10 +656,10 @@
   * `1` — ждать выполнения только у себя (значение по умолчанию).
   * `2` — ждать всех.
   
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/sql-reference/statements/alter/#synchronicity-of-alter-queries){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/#synchronicity-of-alter-queries){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/alter/#synchronicity-of-alter-queries).
 * **Result overflow mode**{#setting-result-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Определяет поведение {{ CH }}, когда объем результата [превысил одно из ограничений]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}:
+  Определяет поведение {{ CH }}, когда объем результата [превысил одно из ограничений]({{ ch.docs }}/operations/settings/query-complexity/#restrictions-on-query-complexity):
   * `throw` — прервать выполнение, вернуть ошибку.
   * `break` — вернуть неполный результат.
 
@@ -670,7 +670,7 @@
 
   По умолчанию последовательная консистентность не обеспечивается.
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#settings-select_sequential_consistency){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-select_sequential_consistency){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-select_sequential_consistency).
 * **Send progress in http headers**{#setting-send-progress-in-http-headers} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Разрешает отправку уведомлений о ходе выполнения запроса с использованием заголовков `X-ClickHouse-Progress`.
@@ -683,7 +683,7 @@
   По умолчанию выбрано значение `300000` (5 минут).
 * **Set overflow mode**{#setting-set-overflow-mode} {{ tag-all }}
 
-  Определяет поведение {{ CH }}, когда количество данных [превысило одно из ограничений на сложность запроса]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}:
+  Определяет поведение {{ CH }}, когда количество данных [превысило одно из ограничений на сложность запроса]({{ ch.docs }}/operations/settings/query-complexity/#restrictions-on-query-complexity):
   * `throw` — прервать выполнение, вернуть ошибку.
   * `break` — вернуть неполный результат.
 
@@ -695,7 +695,7 @@
   По умолчанию тихий пропуск недоступных шардов выключен.
 * **Sort overflow mode**{#setting-sort-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Определяет поведение {{ CH }}, когда количество полученных перед сортировкой строк [превысило одно из ограничений]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}:
+  Определяет поведение {{ CH }}, когда количество полученных перед сортировкой строк [превысило одно из ограничений]({{ ch.docs }}/operations/settings/query-complexity/#restrictions-on-query-complexity):
   * `throw` — прервать выполнение, вернуть ошибку.
   * `break` — вернуть неполный результат.
 
@@ -709,7 +709,7 @@
   По умолчанию значение не выбрано (эквивалентно `throw`).
 * **Transfer overflow mode**{#setting-transfer-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Определяет поведение {{ CH }}, когда количество данных для передачи на другой сервер [превысило одно из ограничений]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity){% endif %}:
+  Определяет поведение {{ CH }}, когда количество данных для передачи на другой сервер [превысило одно из ограничений]({{ ch.docs }}/operations/settings/query-complexity/#restrictions-on-query-complexity):
   * `throw` — прервать выполнение, вернуть ошибку.
   * `break` — вернуть неполный результат.
 
@@ -720,13 +720,13 @@
 
   По умолчанию настройка выключена.
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#transform_null_in){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#transform_null_in){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#transform_null_in).
 * **Use uncompressed cache**{#setting-use-uncompressed-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Определяет, использовать ли кеш разжатых блоков. Использование этого кеша может существенно сократить задержку и увеличить пропускную способность при работе с большим количеством коротких запросов (только для таблиц семейства [MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %}. Включите эту настройку для пользователей, от которых идут частые короткие запросы.
+  Определяет, использовать ли кеш разжатых блоков. Использование этого кеша может существенно сократить задержку и увеличить пропускную способность при работе с большим количеством коротких запросов (только для таблиц семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/). Включите эту настройку для пользователей, от которых идут частые короткие запросы.
 
   По умолчанию кеш не используется.
 
-  Подробнее см. [в документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/settings/#setting-use_uncompressed_cache){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/settings/#setting-use_uncompressed_cache){% endif %}.
+  Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#setting-use_uncompressed_cache).
 
   См. также настройки [Merge tree max bytes to use cache](#setting-merge-tree-max-bytes-to-use-cache) и [Merge tree max rows to use cache](#setting-merge-tree-max-rows-to-use-cache).

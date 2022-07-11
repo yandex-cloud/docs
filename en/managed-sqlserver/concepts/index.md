@@ -47,7 +47,7 @@ When creating a cluster, specify:
 
   For a full list of limitations imposed by {{ mms-name }} on these cluster editions, see [{#T}](limits.md).
 
-  For more information about the features of these editions, see the [{{ MS }} documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/sql-server/editions-and-components-of-sql-server-2016?view=sql-server-ver15){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/sql-server/editions-and-components-of-sql-server-2016?view=sql-server-ver15){% endif %}.
+  For more information about the features of these editions, see the [{{ MS }} documentation]({{ ms.docs }}/sql/sql-server/editions-and-components-of-sql-server-2016?view=sql-server-ver15).
 
 {% if audience != "internal" %}
 A database cluster created in a folder can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/).

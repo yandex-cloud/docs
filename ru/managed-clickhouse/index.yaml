@@ -20,7 +20,7 @@ description:
       - >-
         Взаимодействие с сервисом осуществляется с помощью консоли управления,
         интерфейса командной строки Yandex Cloud (CLI), API или <a
-        href="https://{{ ch-domain }}/docs/ru/interfaces/http">HTTP-интерфейса</a>.
+        href="{{ ch.docs }}/interfaces/http">HTTP-интерфейса</a>.
         Managed Service for ClickHouse позволяет визуализировать структуру данных на
         вашем ClickHouse-кластере и отправлять SQL-запросы к базам из <a
         href="/docs/managed-clickhouse/operations/web-sql-query">консоли

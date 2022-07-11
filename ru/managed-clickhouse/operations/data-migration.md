@@ -2,7 +2,7 @@
 
 Чтобы перенести вашу базу данных в сервис {{ mch-name }}, нужно непосредственно перенести данные, закрыть старую базу данных на запись и перенести нагрузку на кластер БД в {{ yandex-cloud }}.
 
-Перенести данные в кластер {{ mch-name }} можно с помощью [Apache ZooKeeper](http://zookeeper.apache.org) и стандартной утилиты [clickhouse-copier](https://{{ ch-domain }}/docs/ru/operations/utils/clickhouse-copier/).
+Перенести данные в кластер {{ mch-name }} можно с помощью [Apache ZooKeeper](http://zookeeper.apache.org) и стандартной утилиты [clickhouse-copier]({{ ch.docs }}/operations/utils/clickhouse-copier/).
 
 Переносить данные на промежуточную виртуальную машину в Compute Cloud нужно, если:
 
@@ -130,7 +130,7 @@
 * конфигурационный файл для Zookeeper (`config.xml`);
 * файл описания задачи (`cp-task.xml`).
 
-Инструкция по использованию `clickhouse-copier` приведена в [документации ClickHouse](https://{{ ch-domain }}/docs/ru/operations/utils/clickhouse-copier/).
+Инструкция по использованию `clickhouse-copier` приведена в [документации ClickHouse]({{ ch.docs }}/operations/utils/clickhouse-copier/).
 
 
 ### Подготовьте конфигурационный файл ZooKeeper {#zookeeper-config}

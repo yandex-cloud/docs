@@ -19,7 +19,7 @@ description: "В этой инструкции вы создайте класт�
 {% endif %}
 
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md).
-1. Установите [{{ k8s }} CLI (kubectl)]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl/){% endif %}.
+1. Установите [{{ k8s }} CLI (kubectl)]({{ k8s-docs }}/tasks/tools/install-kubectl/).
 1. Убедитесь, что у вас достаточно [свободных ресурсов в облаке](concepts/limits.md).
 1. Если у вас еще нет сети, [создайте ее](../vpc/operations/network-create.md).
 1. Если у вас еще нет подсетей, [создайте их](../vpc/operations/subnet-create.md){% if product == "yandex-cloud" %} в зонах доступности, где будут созданы кластер {{ k8s }} и группа узлов{% endif %}.

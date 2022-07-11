@@ -13,7 +13,7 @@ To set up a local DNS in a {{ k8s }} cluster:
    1. **Release channel**: `RAPID`.
    1. Under **Cluster network settings**, select **Enable tunnel mode**.
 1. [Create a node group](node-group/node-group-create.md) in any suitable configuration.
-1. [Install kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/){% endif %} and [set it up](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) for working with the cluster created.
+1. [Install kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl/) and [set it up](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) for working with the cluster created.
 1. Retrieve the service IP address for `kube-dns`:
 
    ```bash

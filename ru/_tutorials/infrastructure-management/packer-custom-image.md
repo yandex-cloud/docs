@@ -5,7 +5,7 @@
 Соберите с помощью утилиты Packer образ ВМ на основе [Ubuntu Linux 20.04 LTS]({{ link-cloud-marketplace }}/products/yc/ubuntu-20-04-lts) с заданными в конфигурационном файле параметрами. Добавьте в образ часто используемые при работе с {{ yandex-cloud }} инструменты:
 * [{{ yandex-cloud }} CLI](../../cli/quickstart.md) версии 0.91.0 или выше.
 * [Terraform](https://www.terraform.io/) версии 1.1.9.
-* [kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/reference/kubectl/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/reference/kubectl/){% endif %} версии 1.23.
+* [kubectl]({{ k8s-docs }}/reference/kubectl/) версии 1.23.
 * [Docker](https://docs.docker.com/get-started/overview/) версии 20.10.16 или выше.
 * [Git](https://git-scm.com/about) версии 2.25.1 или выше.
 * [Helm]{% if lang == "ru" %}(https://helm.sh/ru/docs/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/){% endif %} версии 3.9.0.

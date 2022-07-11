@@ -1,6 +1,6 @@
 # Enabling machine learning models
 
-{{ mch-short-name }} lets you analyze data by applying [CatBoost](https://catboost.ai/) machine learning models without additional tools. To apply a model, add it to your cluster and call it in an SQL query using the built-in [`modelEvaluate()`](https://{{ ch-domain }}/docs/en/query_language/functions/other_functions/#function-modelevaluate) function. After running this query, you get model predictions for each row of input data. For more information about machine learning in {{ CH }}, see the [documentation](https://{{ ch-domain }}/docs/en/guides/apply_catboost_model/).
+{{ mch-short-name }} lets you analyze data by applying [CatBoost](https://catboost.ai/) machine learning models without additional tools. To apply a model, add it to your cluster and call it in an SQL query using the built-in [`modelEvaluate()`]({{ ch.docs }}/query_language/functions/other_functions/#function-modelevaluate) function. After running this query, you get model predictions for each row of input data. For more information about machine learning in {{ CH }}, see the [documentation]({{ ch.docs }}/guides/apply_catboost_model/).
 
 ## Before adding a model {#prereq}
 
@@ -356,13 +356,13 @@ If you don't have a suitable data set or model to process it, you can test machi
 
 {% note info %}
 
-In this example, we'll use public data from the [Amazon Employee Access Challenge](https://www.kaggle.com/c/amazon-employee-access-challenge). The model is trained to predict values in the `ACTION` column. The same data and model are used in the examples provided in the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/guides/apply_catboost_model/) and on [GitHub](https://github.com/ClickHouse/clickhouse-presentations/blob/master/tutorials/catboost_with_clickhouse_ru.md).
+In this example, we'll use public data from the [Amazon Employee Access Challenge](https://www.kaggle.com/c/amazon-employee-access-challenge). The model is trained to predict values in the `ACTION` column. The same data and model are used in the examples provided in the [{{ CH }} documentation]({{ ch.docs }}/guides/apply_catboost_model/) and on [GitHub](https://github.com/ClickHouse/clickhouse-presentations/blob/master/tutorials/catboost_with_clickhouse_ru.md).
 
 {% endnote %}
 
 To upload data to {{ CH }} and test the model:
 
-1. Install the [{{ CH }} CLI](https://{{ ch-domain }}/docs/en/interfaces/cli/) and set up a cluster connection as described in the [documentation](../../managed-clickhouse/operations/connect.md#cli).
+1. Install the [{{ CH }} CLI]({{ ch.docs }}/interfaces/cli/) and set up a cluster connection as described in the [documentation](../../managed-clickhouse/operations/connect.md#cli).
 1. Download a [data file](https://{{ s3-storage-host }}/managed-clickhouse/train.csv) for analysis:
    ```bash
    wget https://{{ s3-storage-host }}/managed-clickhouse/train.csv

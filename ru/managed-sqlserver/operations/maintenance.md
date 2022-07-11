@@ -18,7 +18,7 @@
    * SQL-токен пакета (sql_handle), чтобы удалить указанный пакет.
    * Имя пула ресурсов (pool_name), чтобы удалить все записи кэша, связанные с указанным пулом ресурсов.
 
-   Подробнее о том, как получить идентификатор объекта, см. в [документации {{ MS }}]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/t-sql/database-console-commands/dbcc-freeproccache-transact-sql#arguments){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-freeproccache-transact-sql#arguments){% endif %}.
+   Подробнее о том, как получить идентификатор объекта, см. в [документации {{ MS }}]({{ ms.docs }}/sql/t-sql/database-console-commands/dbcc-freeproccache-transact-sql#arguments).
 
 ## Обслуживание индексов {#indexes}
 

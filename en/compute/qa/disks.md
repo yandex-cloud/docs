@@ -44,7 +44,7 @@ This happens because occupied sectors remain on the disk after deleting the file
 
 The solution is to write a file consisting of zeros to the entire unoccupied disk space, then flush the cache to the disk and delete the record about this file.
 
-1. For Windows: stop disk operations and use the `SDelete` utility. You can find out how it works and download it in the [Microsoft documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sysinternals/downloads/sdelete){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sysinternals/downloads/sdelete){% endif %}.
+1. For Windows: stop disk operations and use the `SDelete` utility. You can find out how it works and download it in the [Microsoft documentation]({{ ms.docs }}/sysinternals/downloads/sdelete).
 1. For Linux: stop disk operations and enter the following commands one by one:
 
    ```bash

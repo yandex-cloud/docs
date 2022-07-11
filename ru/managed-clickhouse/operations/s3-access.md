@@ -2,7 +2,7 @@
 
 {{ mch-name }} поддерживает работу с {{ objstorage-full-name }} для:
 * подключения [моделей машинного обучения](ml-models.md), [схем формата данных](format-schemas.md) и [собственной геобазы](internal-dictionaries.md);
-* обработки данных, которые находятся в объектном хранилище, если эти данные представлены в любом из [поддерживаемых {{ CH }} форматов]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/interfaces/formats/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/interfaces/formats/){% endif %}.
+* обработки данных, которые находятся в объектном хранилище, если эти данные представлены в любом из [поддерживаемых {{ CH }} форматов]({{ ch.docs }}/interfaces/formats/).
 
 {% if audience != "internal" %}
 
@@ -98,7 +98,7 @@
 
 [Ссылки на объекты](#get-link-to-object) вида `https://{{ s3-storage-host }}/<имя бакета>/<имя объекта>` можно использовать при работе с геометками, схемами, а также при использовании табличной функции `s3` и табличного движка `S3`.
 
-Табличный движок `S3` аналогичен движкам [File]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/special/file/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/special/file/){% endif %} и [URL]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/special/url/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/special/url/){% endif %}, за исключением того, что данные хранятся в S3-совместимом хранилище (таком как {{ objstorage-full-name }}), а не на файловой системе или удаленном HTTP/HTTPS сервере. Этот движок позволяет читать и записывать данные в хранилище с использование стандартных SQL-запросов `SELECT` и `INSERT`. 
+Табличный движок `S3` аналогичен движкам [File]({{ ch.docs }}/engines/table-engines/special/file/) и [URL]({{ ch.docs }}/engines/table-engines/special/url/), за исключением того, что данные хранятся в S3-совместимом хранилище (таком как {{ objstorage-full-name }}), а не на файловой системе или удаленном HTTP/HTTPS сервере. Этот движок позволяет читать и записывать данные в хранилище с использование стандартных SQL-запросов `SELECT` и `INSERT`. 
 
 Табличная функция `s3` предоставляет ту же самую функциональность, что и движок таблиц `S3`, но при ее использовании не требуется предварительно создавать таблицу.
 

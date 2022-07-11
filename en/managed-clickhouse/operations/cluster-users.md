@@ -16,7 +16,7 @@ In a cluster with user management via SQL enabled:
 * The existing users as well as user settings made with the standard {{ yandex-cloud }} interfaces will be saved.
 * Users are managed under the `admin` account. You set its password when you select the **User management via SQL** option.
 
-For more information about managing users using SQL, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/access-rights).
+For more information about managing users using SQL, see the [{{ CH }} documentation]({{ ch.docs }}/operations/access-rights).
 
 ## Getting a list of users {#list-users}
 
@@ -157,7 +157,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
-   To learn more about creating users, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/create/user/).
+   To learn more about creating users, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/create/user/).
 
 {% endlist %}
 
@@ -236,7 +236,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-   To learn more about changing users, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/user/).
+   To learn more about changing users, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user/).
 
 {% endlist %}
 
@@ -305,7 +305,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/user/).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user/).
 
 - API
 
@@ -473,19 +473,19 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 - SQL
 
    1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
-   1. To change a set of user privileges and roles, use the [GRANT](https://{{ ch-domain }}/docs/en/sql-reference/statements/grant/) and [REVOKE](https://{{ ch-domain }}/docs/en/sql-reference/statements/revoke/) statements. For example, grant the user read rights to all objects in a specific database:
+   1. To change a set of user privileges and roles, use the [GRANT]({{ ch.docs }}/sql-reference/statements/grant/) and [REVOKE]({{ ch.docs }}/sql-reference/statements/revoke/) statements. For example, grant the user read rights to all objects in a specific database:
 
       ```sql
       GRANT SELECT ON <database name>.* TO <username>;
       ```
 
-   1. To change [quota settings](../concepts/settings-list.md#quota-settings) for the user, use the [CREATE QUOTA](https://{{ ch-domain }}/docs/en/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA](https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/quota/#alter-quota-statement), and [DROP QUOTA](https://{{ ch-domain }}/docs/en/sql-reference/statements/drop/#drop-quota-statement) statements. For example, limit the total number of user requests for a 15-month period:
+   1. To change [quota settings](../concepts/settings-list.md#quota-settings) for the user, use the [CREATE QUOTA]({{ ch.docs }}/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA]({{ ch.docs }}/sql-reference/statements/alter/quota/#alter-quota-statement), and [DROP QUOTA]({{ ch.docs }}/sql-reference/statements/drop/#drop-quota-statement) statements. For example, limit the total number of user requests for a 15-month period:
 
       ```sql
       CREATE QUOTA <quota name> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <username>;
       ```
 
-   1. To change the user account, use the [ALTER USER](https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/user/) statement. To edit the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), for instance, run the command below listing the settings to modify:
+   1. To change the user account, use the [ALTER USER]({{ ch.docs }}/sql-reference/statements/alter/user/) statement. To edit the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), for instance, run the command below listing the settings to modify:
 
       ```sql
       ALTER USER <username> SETTINGS <list of {{ CH }} settings>;
@@ -545,7 +545,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
       DROP USER <username>;
       ```
 
-   To learn more about deleting objects, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/drop/).
+   To learn more about deleting objects, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/drop/).
 
 {% endlist %}
 

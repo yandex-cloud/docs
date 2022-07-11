@@ -33,7 +33,7 @@ If the user exceeds one of the quota limits, they can't execute new queries unti
 For each user, there is a default quota that takes into account the consumption of all resources per hour, but doesn't impose any restrictions.
 Information about the resource consumption level is written to the {{ CH }} server log.
 
-For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/quotas/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/quotas/){% endif %}.
+For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/quotas/).
 
 You can use the following quota settings:
 
@@ -51,6 +51,6 @@ You can use the following settings:
 
 {{ tag-sql }}
 
-You can redefine [custom settings]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/settings/#custom_settings){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/settings/#custom_settings){% endif %} as variables in the [settings profile]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/operations/access-rights/#settings-profiles-management){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/operations/access-rights/#settings-profiles-management){% endif %}, session, or request. Working with settings profiles is available if the [user management via SQL](../operations/cluster-users.md#sql-user-management) is enabled for the cluster.
+You can redefine [custom settings]({{ ch.docs }}/operations/settings/#custom_settings) as variables in the [settings profile]({{ ch.docs }}/operations/access-rights/#settings-profiles-management), session, or request. Working with settings profiles is available if the [user management via SQL](../operations/cluster-users.md#sql-user-management) is enabled for the cluster.
 
 The name of the user setting in {{ mch-name }} must start with a predefined prefix `custom_`. The prefix is fixed, users cannot change it.

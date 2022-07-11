@@ -13,7 +13,7 @@ sourcePath: overlay/quickstart/document-api/aws-cli/cleanup.md
 
     {% note warning %}
 
-    Для работы с AWS CLI из Windows рекомендуется использовать [WSL]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows/wsl/){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows/wsl/){% endif %}.
+    Для работы с AWS CLI из Windows рекомендуется использовать [WSL]({{ ms.docs }}/windows/wsl/).
 
     {% endnote %}
 

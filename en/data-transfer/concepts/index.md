@@ -73,8 +73,8 @@ For more information about the differences between transfer types, see [{#T}](./
 
 If replication is enabled on a {{ CH }} target, the engines for recreating tables are selected depending on the source type:
 
-* Data transfer from row-oriented DBMS systems will use engines like [ReplicatedReplacingMergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/replication/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/replication/){% endif %} and [ReplacingMergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/replacingmergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/replacingmergetree/){% endif %}.
-* Date transfers from {{ CH }} will use engines from the [ReplicatedMergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/replication/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/replication/){% endif %} family.
+* Data transfer from row-oriented DBMS systems will use engines like [ReplicatedReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) and [ReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replacingmergetree/).
+* Date transfers from {{ CH }} will use engines from the [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) family.
 
 ### {{ GP }} {#greenplum}
 

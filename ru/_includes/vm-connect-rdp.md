@@ -43,7 +43,7 @@
 
   #### См. также
 
-  * [Начало работы с удаленного рабочего стола в Mac]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac){% endif %}.
+  * [Начало работы с удаленного рабочего стола в Mac]({{ ms.docs }}/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
 
 - Linux
 

@@ -13,7 +13,7 @@ To read data from the `series` table:
 
    {% note warning %}
 
-   To work with the AWS CLI from Windows, we recommend using the [WSL]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows/wsl/){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows/wsl/){% endif %}.
+   To work with the AWS CLI from Windows, we recommend using the [WSL]({{ ms.docs }}/windows/wsl/).
 
    {% endnote %}
 

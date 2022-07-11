@@ -64,7 +64,7 @@ To work in the cloud, changes have been made to the operating system to anonymiz
 
 * The `ShutDownWithoutLogon` registry parameter allows responding to ACPI Call without having an interactive session.
 * SMBv1 is disabled.
-* The [serial console]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% endif %} is enabled.
+* The [serial console]({{ ms.docs }}/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection) is enabled.
 * The system is optimized using the [Ngen]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Ngen){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Native_Image_Generator){% endif %} utility.
 * The `cloudbase-init` utility is installed to automate operations when initializing VMs.
 

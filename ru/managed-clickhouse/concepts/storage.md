@@ -21,7 +21,7 @@
 
 ## Особенности гибридного хранилища {#hybrid-storage-features}
 
-Гибридное хранилище обеспечивает для таблиц на [движке MergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/){% endif %} отказоустойчивое хранение данных и управляет их размещением: данные размещаются либо в кластерном, либо в объектном хранилище в зависимости от заданной политики хранения для таблиц.
+Гибридное хранилище обеспечивает для таблиц на [движке MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) отказоустойчивое хранение данных и управляет их размещением: данные размещаются либо в кластерном, либо в объектном хранилище в зависимости от заданной политики хранения для таблиц.
 
 {% note warning %}
 
@@ -64,7 +64,7 @@
 
 В кластере {{ mch-name }} с включенным гибридным хранилищем предустановлены следующие политики хранения:
 
-* `default` (по умолчанию) — кластер автоматически управляет размещением данных в зависимости от объема свободного места в кластерном хранилище и настроек [TTL](https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl) (время жизни) для таблиц.
+* `default` (по умолчанию) — кластер автоматически управляет размещением данных в зависимости от объема свободного места в кластерном хранилище и настроек [TTL]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl) (время жизни) для таблиц.
 
     Если в кластерном хранилище меньше {{ mch-hs-move-factor }} (неизменяемая настройка `move_factor` для политики хранения) свободного места, часть данных из таблиц с такой политикой начнет перемещаться в объектное хранилище.
 
@@ -76,7 +76,7 @@
 
 * `object_storage` — строки таблицы с такой политикой размещаются только в объектном хранилище. Перемещения данных между хранилищами не происходит.
 
-Политики хранения не оказывают влияния на [операции слияния]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/){% endif %} кусков данных:
+Политики хранения не оказывают влияния на [операции слияния]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) кусков данных:
 
 * Разрешено выполнять слияние кусков данных, находящихся в хранилищах (настройка политики `prefer_not_to_merge`).
 * Не накладывается ограничений на максимальный размер итогового куска данных (настройка политики `max_data_part_size_bytes`), который может получиться в результате слияния меньших кусков.
@@ -90,7 +90,7 @@ SELECT *
 FROM system.storage_policies;
 ```
 
-Подробнее о политиках хранения и их настройках см. в [документации {{ CH }}]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes){% endif %}.
+Подробнее о политиках хранения и их настройках см. в [документации {{ CH }}]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes).
 
 ## Выбор типа хранилища при создании кластера {#storage-type-selection}
 

@@ -5,7 +5,7 @@ description: "Атомарные полномочия в SQL Server называ
 
 # Назначение привилегий и ролей пользователям
 
-Атомарные полномочия в **{{ MS }}** называются _привилегиями_, группы полномочий — _ролями_. **{{ mms-name }}** поддерживает [предопределенные роли](#predefined-db-roles). Подробнее об организации прав доступа читайте [documentation for {{ MS }}]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?view=sql-server-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?view=sql-server-2016){% endif %}.
+Атомарные полномочия в **{{ MS }}** называются _привилегиями_, группы полномочий — _ролями_. **{{ mms-name }}** поддерживает [предопределенные роли](#predefined-db-roles). Подробнее об организации прав доступа читайте в [документации {{ MS }}]({{ ms.docs }}/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?view=sql-server-2016).
 
 Пользователь, создаваемый вместе с кластером **{{ mms-name }}**, автоматически получает роль владельца (`DB_OWNER`) первой базы данных в кластере. После этого вы можете [создавать других пользователей](cluster-users.md#adduser) и настраивать их права по своему усмотрению:
 * [Изменить список ролей пользователя](#grant-role).
@@ -118,12 +118,12 @@ description: "Атомарные полномочия в SQL Server называ
 ## Выдать привилегию пользователю {#grant-privilege}
 
 1. [Подключитесь](connect.md) к базе данных с помощью учетной записи владельца базы данных.
-1. Выполните команду `GRANT`. Подробное описание синтаксиса команды смотрите в [documentation for {{ MS }}]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/t-sql/statements/revoke-transact-sql?view=sql-server-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/t-sql/statements/grant-transact-sql?view=sql-server-2016){% endif %}.
+1. Выполните команду `GRANT`. Подробное описание синтаксиса команды смотрите в [документации {{ MS }}]({{ ms.docs }}/sql/t-sql/statements/revoke-transact-sql?view=sql-server-2016).
 
 ## Отозвать привилегию у пользователя {#revoke-privilege}
 
 1. [Подключитесь](connect.md) к базе данных с помощью учетной записи владельца базы данных.
-1. Выполните команду `REVOKE`. Подробное описание синтаксиса команды смотрите в [documentation for {{ MS }}]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/t-sql/statements/revoke-transact-sql?view=sql-server-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/t-sql/statements/revoke-transact-sql?view=sql-server-2016){% endif %}.
+1. Выполните команду `REVOKE`. Подробное описание синтаксиса команды смотрите в [документации {{ MS }}]({{ ms.docs }}/sql/t-sql/statements/revoke-transact-sql?view=sql-server-2016).
 
 {% include [user-ro](../../_includes/mdb/mms-user-examples.md) %}
 

@@ -23,7 +23,7 @@ For more detail on obtaining a certificate and on connecting to a database, plea
 
 #### How do I install an SSL certificate to connect Power BI to {{ mpg-name }} via psql? {#power-bi}
 
-1. Install [Windows Subsystem for Linux]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows/wsl/){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows/wsl/){% endif %} (WSL) and run the command below in the terminal window:
+1. Install [Windows Subsystem for Linux]({{ ms.docs }}/windows/wsl/) (WSL) and run the command below in the terminal window:
 
    ```bash
    mkdir /mnt/c/temp && \

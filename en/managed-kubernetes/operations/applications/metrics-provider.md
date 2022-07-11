@@ -97,7 +97,7 @@ For the provider to work, you need to create a [service account](../../../iam/co
 
 ## Installation using a Helm chart {#helm-install}
 
-1. [Install kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl){% endif %} and [configure](../kubernetes-cluster/kubernetes-cluster-get-credetials.md) it to work with your cluster.
+1. [Install kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure](../kubernetes-cluster/kubernetes-cluster-get-credetials.md) it to work with your cluster.
 1. Install the [Helm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %} package manager for {{ k8s }}.
 1. Add the `metric-provider` repository:
 

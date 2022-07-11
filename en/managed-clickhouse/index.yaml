@@ -20,7 +20,7 @@ description:
       - >-
         You can manage the service using the management console,
         the Yandex Cloud command-line interface (CLI), API, or the <a
-        href="https://{{ ch-domain }}/docs/en/interfaces/http">HTTP interface</a>.
+        href="{{ ch.docs }}/interfaces/http">HTTP interface</a>.
         Managed Service for ClickHouse lets you visualize the data structure in
         your ClickHouse cluster and send SQL queries to databases from the Yandex Cloud <a
         href="/docs/managed-clickhouse/operations/web-sql-query">management

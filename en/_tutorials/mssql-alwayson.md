@@ -250,9 +250,9 @@ Create a file named `setpass` with a script to set the administrator's local acc
 
 The set password is only used for testing. Use your own complex password when deploying a cluster to work in a product environment.
 
-The password must meet the [complexity requirements]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочные-материалы){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference){% endif %}.
+The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочные-материалы).
 
-Read more about the best practices for securing Active Directory on the [official website]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}.
+Read more about the best practices for securing Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 {% endnote %}
 

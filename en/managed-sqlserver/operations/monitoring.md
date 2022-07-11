@@ -22,7 +22,7 @@ The following charts open on the page:
 
 * **Active Transactions [count]**: The number of active transactions per host.
 
-* **Batch Requests/sec**: The number of batch operations performed on each host per second. For more information about batch operations, see the [documentation {{ MS }}]({% if lang=="ru" %}https://docs.microsoft.com/ru-ru/sql/odbc/reference/develop-app/batches-of-sql-statements{% endif %}{% if lang=="en" %}https://docs.microsoft.com/en-us/sql/odbc/reference/develop-app/batches-of-sql-statements{% endif %}).
+* **Batch Requests/sec**: The number of batch operations performed on each host per second. For more information about batch operations, see the [documentation {{ MS }}]({{ ms.docs }}/sql/odbc/reference/develop-app/batches-of-sql-statements).
 
 * **CPU**: The load on processor cores. As the load goes up, the `percent_idle_time` value goes down.
 
@@ -36,9 +36,9 @@ The following charts open on the page:
     * _Logical writes_: Updating data in RAM.
     * _Physical writes_: Writing modified pages from RAM to storage.
 
-    For more information, see the [documentation {{ MS }}]({% if lang=="ru" %}https://docs.microsoft.com/ru-ru/sql/relational-databases/writing-pages{% endif %}{% if lang=="en" %}https://docs.microsoft.com/en-us/sql/relational-databases/writing-pages{% endif %}).
+    For more information, see the [documentation {{ MS }}]({{ ms.docs }}/sql/relational-databases/writing-pages).
 
-* **Memory Grants Pending on primary**: The number of queries waiting for a memory grant. For more information, see the [documentation {{ MS }}]({% if lang=="ru" %}https://docs.microsoft.com/ru-ru/sql/relational-databases/memory-management-architecture-guide{% endif %}{% if lang=="en" %}https://docs.microsoft.com/en-us/sql/relational-databases/memory-management-architecture-guide{% endif %}).
+* **Memory Grants Pending on primary**: The number of queries waiting for a memory grant. For more information, see the [documentation {{ MS }}]({{ ms.docs }}/sql/relational-databases/memory-management-architecture-guide).
 
 * **Page Life Expectancy [sec]**: Shows how long (in seconds) pages stay in memory before they're written to storage. The larger its value, the more efficiently the buffer is used and the less often the cluster has to access storage to fetch the necessary data.
 

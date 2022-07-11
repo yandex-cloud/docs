@@ -4,7 +4,7 @@ You can migrate a {{ MS }} cluster to a {{ mms-short-name }} cluster using a [lo
   - In the process of creating a snapshot, table locks are used.
   - The snapshot import process is relatively slow compared to transactional replication.
   - Data in the target cluster is only relevant when the snapshot is created and might become outdated.
-  - This method can't be used for a database with logical inconsistencies: for example, if dependencies or tables referenced by views have been deleted from it. If this limitation applies to you, then you can create a [database snapshot]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/databases/create-a-database-snapshot-transact-sql){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/databases/create-a-database-snapshot-transact-sql){% endif %} and send it to the [support]({{ link-console-support }}) so our specialists can restore the database from the snapshot manually.
+  - This method can't be used for a database with logical inconsistencies: for example, if dependencies or tables referenced by views have been deleted from it. If this limitation applies to you, then you can create a [database snapshot]({{ ms.docs }}/sql/relational-databases/databases/create-a-database-snapshot-transact-sql) and send it to the [support]({{ link-console-support }}) so our specialists can restore the database from the snapshot manually.
 
 - Migrating with transactional replication:
   - Unidirectional replication: Changes on the target cluster aren't replicated to the source cluster.
@@ -12,7 +12,7 @@ You can migrate a {{ MS }} cluster to a {{ mms-short-name }} cluster using a [lo
 
 ## Migrating with logical import {#snapshot}
 
-To migrate data from a {{ MS }} cluster to a {{ mms-short-name }} cluster, you can use [sqlpackage]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/tools/sqlpackage/sqlpackage-download){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-download){% endif %}. It will create a snapshot of your {{ MS }} database, including a schema and data from tables and other objects, and then it will import the snapshot to the {{ mms-short-name }} cluster.
+To migrate data from a {{ MS }} cluster to a {{ mms-short-name }} cluster, you can use [sqlpackage]({{ ms.docs }}/sql/tools/sqlpackage/sqlpackage-download). It will create a snapshot of your {{ MS }} database, including a schema and data from tables and other objects, and then it will import the snapshot to the {{ mms-short-name }} cluster.
 
 To migrate a database from the source {{ MS }} cluster to the target {{ mms-name }} cluster with logical import:
 
@@ -30,7 +30,7 @@ To migrate a database from the source {{ MS }} cluster to the target {{ mms-name
 
 1. Check that you can [connect to the target cluster](../managed-sqlserver/operations/connect.md#connection-ide) and the source cluster using {{ ssms }}.
 
-1. [Download and set up the sqlpackage programm]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/tools/sqlpackage/sqlpackage-download){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-download){% endif %}.
+1. [Download and set up the sqlpackage programm]({{ ms.docs }}/sql/tools/sqlpackage/sqlpackage-download).
 
 ### Set up the source cluster {#configure-source}
 
@@ -73,7 +73,7 @@ To export only the table schema without the data, remove the `/p:ExtractAllTable
 
 {% endnote %}
 
-For more information, see the [{{ MS }} documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/tools/sqlpackage/sqlpackage-extract){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-extract){% endif %}.
+For more information, see the [{{ MS }} documentation]({{ ms.docs }}/sql/tools/sqlpackage/sqlpackage-extract).
 
 ### Import a snapshot of the database to the target {#import-snapshot} cluster
 
@@ -100,15 +100,15 @@ To import the snapshot to the {{ mms-name }} cluster, run PowerShell, go to the 
        /p:ScriptRefreshModule=False
    ```
 
-For more information, see the [{{ MS }} documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/tools/sqlpackage/sqlpackage-publish){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-publish){% endif %}.
+For more information, see the [{{ MS }} documentation]({{ ms.docs }}/sql/tools/sqlpackage/sqlpackage-publish).
 
 ## Migrating with transactional replication {#replication}
 
-You can transfer data from an {{ MS }} cluster to a {{ mms-name }} cluster with minimal downtime using [transactional replication]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/transactional/transactional-replication){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/replication/transactional/transactional-replication){% endif %}. This type of replication is supported starting from {{ MS }} 2016 and lets you migrate data to newer versions of SQL Server in {{ mms-name }} clusters.
+You can transfer data from an {{ MS }} cluster to a {{ mms-name }} cluster with minimal downtime using [transactional replication]({{ ms.docs }}/sql/relational-databases/replication/transactional/transactional-replication). This type of replication is supported starting from {{ MS }} 2016 and lets you migrate data to newer versions of SQL Server in {{ mms-name }} clusters.
 
 When replicating transactions:
 
-* Once initialized, the [snapshot agent]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/agents/replication-agents-overview#snapshot-agent){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/replication/agents/replication-agents-overview#snapshot-agent){% endif %} creates a snapshot of a database with a schema and data files of tables and other objects and copies it from the [publisher]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/publish/replication-publishing-model-overview#publisher){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/replication/publish/replication-publishing-model-overview#publisher){% endif %} to the [distributor]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/publish/replication-publishing-model-overview#distributor){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/replication/publish/replication-publishing-model-overview#distributor){% endif %} that manages the transfer of data.
+* Once initialized, the [snapshot agent]({{ ms.docs }}/sql/relational-databases/replication/agents/replication-agents-overview#snapshot-agent) creates a snapshot of a database with a schema and data files of tables and other objects and copies it from the [publisher]({{ ms.docs }}/sql/relational-databases/replication/publish/replication-publishing-model-overview#publisher) to the [distributor]({{ ms.docs }}/sql/relational-databases/replication/publish/replication-publishing-model-overview#distributor) that manages the transfer of data.
 
    {% note info %}
 
@@ -116,9 +116,9 @@ When replicating transactions:
 
    {% endnote %}
 
-* [The Log Reader Agent]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/agents/replication-agents-overview#log-reader-agent){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/replication/agents/replication-agents-overview#log-reader-agent){% endif %} transfers transactions from the transaction log to the distributor.
+* [The Log Reader Agent]({{ ms.docs }}/sql/relational-databases/replication/agents/replication-agents-overview#log-reader-agent) transfers transactions from the transaction log to the distributor.
 
-* The snapshot and transactions from the distributor are transferred using the [Distribution Agent]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/agents/replication-agents-overview#distribution-agent){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/replication/agents/replication-agents-overview#distribution-agent){% endif %} to a [subscriber]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/publish/replication-publishing-model-overview#subscribers){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/replication/publish/replication-publishing-model-overview#subscribers){% endif %}.
+* The snapshot and transactions from the distributor are transferred using the [Distribution Agent]({{ ms.docs }}/sql/relational-databases/replication/agents/replication-agents-overview#distribution-agent) to a [subscriber]({{ ms.docs }}/sql/relational-databases/replication/publish/replication-publishing-model-overview#subscribers).
 
 Under this scheme, the publisher, distributor, and two agents are located in the source cluster, while the subscriber is in the target cluster. The roles can also be assigned differently, such as using dedicated servers for the distributor.
 
@@ -166,7 +166,7 @@ If you no longer need the created resources, [delete them](#clear-out).
    1. In the list of articles to publish, select all DB entities that you want to replicate (tables, views, and stored procedures).
    1. Select the DB snapshot creation time.
 
-   For more information, see [{{ MS }} documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/publish/create-a-publication){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/replication/publish/create-a-publication){% endif %}.
+   For more information, see [{{ MS }} documentation]({{ ms.docs }}/sql/relational-databases/replication/publish/create-a-publication).
 
 1. Click **Finish**.
 
@@ -192,11 +192,11 @@ If you no longer need the created resources, [delete them](#clear-out).
    1. Select the target cluster's database for the subscriber.
    1. In the **Distribution Agent Security** settings under **Connect to the Subscriber**, specify the name and password of the DB owner's account on the target cluster.
 
-   For more information, see [{{ MS }} documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/create-a-push-subscription){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/replication/create-a-push-subscription){% endif %}.
+   For more information, see [{{ MS }} documentation]({{ ms.docs }}/sql/relational-databases/replication/create-a-push-subscription).
 
 1. Click **Finish**.
 
-This starts replication. To monitor its status, [start the replication monitor]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/monitor/start-the-replication-monitor){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/replication/monitor/start-the-replication-monitor){% endif %} and [add a tracking subscription]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/monitor/add-and-remove-publishers-from-replication-monitor){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/replication/monitor/add-and-remove-publishers-from-replication-monitor){% endif %}.
+This starts replication. To monitor its status, [start the replication monitor]({{ ms.docs }}/sql/relational-databases/replication/monitor/start-the-replication-monitor) and [add a tracking subscription]({{ ms.docs }}/sql/relational-databases/replication/monitor/add-and-remove-publishers-from-replication-monitor).
 
 ### Stop the replication and transfer the load {#transfer-load}
 
@@ -205,7 +205,7 @@ This starts replication. To monitor its status, [start the replication monitor]{
    1. Open {{ ssms }}.
    1. Open the context menu for the replicated database and select **Properties**.
    1. Select **Database Properties → Options** and, under **State**, change **Database Read Only** to **True**.
-1. [Stop the replication]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/agents/start-and-stop-a-replication-agent-sql-server-management-studio){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/replication/agents/start-and-stop-a-replication-agent-sql-server-management-studio){% endif %} on the source cluster.
+1. [Stop the replication]({{ ms.docs }}/sql/relational-databases/replication/agents/start-and-stop-a-replication-agent-sql-server-management-studio) on the source cluster.
 1. Delete the subscription and publication on the source cluster. Allow {{ ssms }} to delete the subscriber on the target cluster.
 1. Switch over the load to the target cluster.
 

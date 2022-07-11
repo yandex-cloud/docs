@@ -2,11 +2,11 @@
 
 {{ mch-full-name }} можно использовать как хранилище данных для [Graphite](https://graphite.readthedocs.io/en/latest/index.html).
 
-Движок таблиц [GraphiteMergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/graphitemergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/graphitemergetree/){% endif %} позволяет прореживать и агрегировать или усреднять содержимое БД специально для Graphite. Движок уменьшает объем хранения данных и повышает эффективность запросов от Graphite.
+Движок таблиц [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/) позволяет прореживать и агрегировать или усреднять содержимое БД специально для Graphite. Движок уменьшает объем хранения данных и повышает эффективность запросов от Graphite.
 
 {% note info %}
 
-Если прореживние и агрегирование или усреднение не требуется, то для хранения данных Graphite можно использовать любой [движок таблиц]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/){% endif %} {{ CH }}.
+Если прореживние и агрегирование или усреднение не требуется, то для хранения данных Graphite можно использовать любой [движок таблиц]({{ ch.docs }}/engines/table-engines/) {{ CH }}.
 
 {% endnote %}
 
@@ -109,7 +109,7 @@
 
 1. {% if audience != "internal" %}В той же [облачной сети](../vpc/concepts/network.md), где расположен кластер, [создайте](../compute/operations/vm-create/create-linux-vm.md) ВМ на основе Linux. {% else %}В той же облачной сети, где расположен кластер, создайте ВМ на основе Linux. {% endif %}
 1. [Подключитесь](https://cloud.yandex.ru/docs/compute/operations/vm-connect/ssh) к ВМ по SSH. 
-1. Подключите [DEB-репозиторий]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/getting-started/install/#install-from-deb-packages){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/getting-started/install/#install-from-deb-packages){% endif %} {{ CH }}:
+1. Подключите [DEB-репозиторий]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
     ```bash
     sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
@@ -170,7 +170,7 @@
 
 - ClickHouse CLI
 
-  В интерфейсе ClickHouse CLI выполните запрос на создание таблицы на основе [GraphiteMergeTree]{% if lang == "ru" %}(https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/graphitemergetree/){% endif %}{% if lang == "en" %}(https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/graphitemergetree/){% endif %}. В качестве параметра передайте имя секции `rollup`, описанной ранее:
+  В интерфейсе ClickHouse CLI выполните запрос на создание таблицы на основе [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/). В качестве параметра передайте имя секции `rollup`, описанной ранее:
 
     ```bash
     CREATE TABLE GraphiteTable

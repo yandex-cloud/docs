@@ -18,7 +18,7 @@ To clear the procedure (plan) cache in a database:
    * SQL token (sql_handle) to clear a specific batch.
    * Resource pool name (pool_name) to clear all the cache entries for a specific resource pool.
 
-   For more information on getting an object ID, see [{{ MS }} documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/t-sql/database-console-commands/dbcc-freeproccache-transact-sql#arguments){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-freeproccache-transact-sql#arguments){% endif %}.
+   For more information on getting an object ID, see [{{ MS }} documentation]({{ ms.docs }}/sql/t-sql/database-console-commands/dbcc-freeproccache-transact-sql#arguments).
 
 ## Index maintenance {#indexes}
 

@@ -64,7 +64,7 @@
 
 * Параметр реестра `ShutDownWithoutLogon` разрешает реагировать на ACPI Call без наличия интерактивной сессии.
 * Отключена поддержка SMBv1.
-* Разрешено использование [серийной консоли]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% endif %}.
+* Разрешено использование [серийной консоли]{% if lang == "ru" %}({{ ms.docs }}/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% endif %}.
 * Проведена оптимизация системы с помощью утилиты [Ngen]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Ngen){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Native_Image_Generator){% endif %}.
 * Установлена утилита `cloudbase-init` для автоматизации операций в процессе запуска виртуальной машины.
 

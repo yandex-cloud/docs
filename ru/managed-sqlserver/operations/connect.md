@@ -167,7 +167,7 @@
       1. Выберите опции **Шифровать соединение** и **Доверять сертификату сервера**.
   1. Нажмите **Соединить**, чтобы подключиться к хосту {{ MS }}.
 
-  Подробнее про подключение см. в [документации]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/linux/sql-server-linux-manage-ssms?view=sql-server-ver15#connect-to-sql-server-on-linux){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-manage-ssms?view=sql-server-ver15#connect-to-sql-server-on-linux){% endif %} разработчика.
+  Подробнее про подключение см. в [документации]({{ ms.docs }}/sql/linux/sql-server-linux-manage-ssms?view=sql-server-ver15#connect-to-sql-server-on-linux) разработчика.
 
   При успешном подключении в окне **Обозреватель объектов** будет отображена информация обо всех объектах {{ MS }}.
 
