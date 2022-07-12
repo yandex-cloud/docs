@@ -82,25 +82,26 @@
         ```
 {% endif %}
 {% if product == "cloud-il" %}
-   1. [Получите ID пользователя](../users/get.md).
+    1. [Получите ID пользователя](../users/get.md).
 {% endif %}
 
     1. Назначьте пользователю {% if product == "yandex-cloud" %}`test-user`{% endif %} роль `editor` на сервисный аккаунт `my-robot`. В субъекте укажите тип {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} и ID пользователя:
 
-        {% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" %}
         ```bash
         yc iam service-account add-access-binding my-robot \
           --role editor \
           --subject userAccount:gfei8n54hmfhuk5nogse
         ```
-       {% endif %}
-       {% if product == "cloud-il" %}
+{% endif %}
+{% if product == "cloud-il" %}
         ```bash
         yc iam service-account add-access-binding my-robot \
           --role editor \
           --subject federatedUser:<ID пользователя>
         ```
-       {% endif %}
+{% endif %}
+
 - API
 
     Воспользуйтесь методом [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md). Вам понадобится ID сервисного аккаунта и ID пользователя, которому назначается роль на сервисный аккаунт.

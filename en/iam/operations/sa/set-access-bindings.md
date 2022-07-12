@@ -10,99 +10,100 @@ You can't set service account access rights via the management console. You can 
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-   1. Go to the **Service accounts** tab.
-   1. Choose a service account and click the line with its name.
-   1. Go to **Access bindings to the service account** (the **Access bindings** button in the left panel).
-   1. Click **Assign roles**.
-   1. In the folder's **Field permission** settings window, click **Select user**.
-   1. Select a user from the list or search for a user.
-   1. Click **Add role**.
-   1. Choose the role.
-   1. Click **Save**.
+    1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
+    1. Go to the **Service accounts** tab.
+    1. Choose a service account and click the line with its name.
+    1. Go to **Access bindings to the service account** (the **Access bindings** button in the left panel).
+    1. Click **Assign roles**.
+    1. In the folder's **Field permission** settings window, click **Select user**.
+    1. Select a user from the list or search for a user.
+    1. Click **Add role**.
+    1. Choose the role.
+    1. Click **Save**.
 
 - CLI
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. See the description of the command to assign a role for a service account as a resource:
+    1. See the description of the command to assign a role for a service account as a resource:
 
-      ```bash
-      yc iam service-account add-access-binding --help
-      ```
+        ```bash
+        yc iam service-account add-access-binding --help
+        ```
 
-   1. Select a service account (for example, `my-robot`):
+    1. Select a service account (for example, `my-robot`):
 
-      ```bash
-      yc iam service-account list
-      ```
+        ```bash
+        yc iam service-account list
+        ```
 
-      Result:
+        Result:
 
-      ```
-      +----------------------+----------+------------------+
-      |          ID          |   NAME   |   DESCRIPTION    |
-      +----------------------+----------+------------------+
-      | ajebqtreob2dpblin8pe | test-sa  | test-description |
-      | aje6o61dvog2h6g9a33s | my-robot |                  |
-      +----------------------+----------+------------------+
-      ```
+        ```
+        +----------------------+----------+------------------+
+        |          ID          |   NAME   |   DESCRIPTION    |
+        +----------------------+----------+------------------+
+        | ajebqtreob2dpblin8pe | test-sa  | test-description |
+        | aje6o61dvog2h6g9a33s | my-robot |                  |
+        +----------------------+----------+------------------+
+        ```
 
-   1. Choose the [role](../../concepts/access-control/roles.md).
+    1. Choose the [role](../../concepts/access-control/roles.md).
 
-      ```bash
-      yc iam role list
-      ```
+        ```bash
+        yc iam role list
+        ```
 
-      Result:
+        Result:
 
-      ```
-      +--------------------------------+-------------+
-      |               ID               | DESCRIPTION |
-      +--------------------------------+-------------+
-      | admin                          |             |
-      | compute.images.user            |             |
-      | editor                         |             |
-      | ...                            |             |
-      +--------------------------------+-------------+
-      ```
+        ```
+        +--------------------------------+-------------+
+        |               ID               | DESCRIPTION |
+        +--------------------------------+-------------+
+        | admin                          |             |
+        | compute.images.user            |             |
+        | editor                         |             |
+        | ...                            |             |
+        +--------------------------------+-------------+
+        ```
       
 {% if product == "yandex-cloud" %}
     1. Find out the user's ID from the login or email address. To assign a role to a service account or group of users rather than one user, see the [examples](#examples) below.
 
-      ```bash
-      yc iam user-account get test-user
-      ```
+        ```bash
+        yc iam user-account get test-user
+        ```
 
-      Result:
+        Result:
 
-      ```
-      id: gfei8n54hmfhuk5nogse
-      yandex_passport_user_account:
-          login: test-user
-          default_email: test-user@yandex.ru
-      ```
+        ```
+        id: gfei8n54hmfhuk5nogse
+        yandex_passport_user_account:
+            login: test-user
+            default_email: test-user@yandex.ru
+        ```
 {% endif %}
 {% if product == "cloud-il" %}
-   1. [Get user ID](../users/get.md).
+    1. [Get user ID](../users/get.md).
 {% endif %}
 
-   1. Assign a user named {% if product == "yandex-cloud" %}`test-user`{% endif %} the `editor` role for the `my-robot` service account. In the subject, specify the {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} type and user ID:
+    1. Assign a user named {% if product == "yandex-cloud" %}`test-user`{% endif %} the `editor` role for the `my-robot` service account. In the subject, specify the {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} type and user ID:
 
-     {% if product == "yandex-cloud" %}
-      ```bash
-      yc iam service-account add-access-binding my-robot \
-        --role editor \
-        --subject userAccount:gfei8n54hmfhuk5nogse
-      ```
-      {% endif %}
-      {% if product == "cloud-il" %}
-      ```bash
-      yc iam service-account add-access-binding my-robot \
-        --role editor \
-        -subject federatedUser:<ID пользователя>
-      ```
-      {% endif %}
+{% if product == "yandex-cloud" %}
+        ```bash
+        yc iam service-account add-access-binding my-robot \
+            --role editor \
+            --subject userAccount:gfei8n54hmfhuk5nogse
+        ```
+{% endif %}
+{% if product == "cloud-il" %}
+        ```bash
+        yc iam service-account add-access-binding my-robot \
+            --role editor \
+            -subject federatedUser:<user ID>
+        ```
+{% endif %}
+
 - API
 
    Use the [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource. You will need the service account ID and the ID of the user who is assigned the role for the service account.
