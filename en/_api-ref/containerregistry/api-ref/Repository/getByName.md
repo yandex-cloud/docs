@@ -16,7 +16,7 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/repositories
  
 Parameter | Description
 --- | ---
-repositoryName | Required. Name of the Repository resource to return.  To get the repository name use a [list](/docs/container-registry/api-ref/Repository/list) request.  Value must match the regular expression `` [a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ``.
+repositoryName | <p>Required. Name of the Repository resource to return.</p> <p>To get the repository name use a <a href="/docs/container-registry/api-ref/Repository/list">list</a> request.</p> <p>Value must match the regular expression ``[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))*``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

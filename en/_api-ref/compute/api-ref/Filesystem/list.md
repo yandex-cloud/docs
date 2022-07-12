@@ -16,10 +16,10 @@ GET https://compute.{{ api-host }}/compute/v1/filesystems
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list filesystems in.  To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/compute/api-ref/Filesystem/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/compute/api-ref/Filesystem/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters filesystems listed in the response.  The expression must specify: 1. The field name. Currently you can use filtering only on the [Filesystem.name](/docs/compute/api-ref/Filesystem#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{,61}[a-z0-9])?`. Example of a filter: `name=my-filesystem`.
+folderId | <p>Required. ID of the folder to list filesystems in.</p> <p>To get the folder ID, make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than ``page_size``, the service returns a <a href="/docs/compute/api-ref/Filesystem/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/compute/api-ref/Filesystem/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters filesystems listed in the response.</p> <p>The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on the <a href="/docs/compute/api-ref/Filesystem#representation">Filesystem.name</a> field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be 3-63 characters long and match the regular expression ``[a-z]([-a-z0-9]{,61}[a-z0-9])?``. Example of a filter: ``name=my-filesystem``.</li> </ol> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -48,7 +48,7 @@ filter | A filter expression that filters filesystems listed in the response.  T
  
 Field | Description
 --- | ---
-filesystems[] | **object**<br><p>A filesystem resource. For details about the concept, see <a href="/docs/compute/concepts/filesystem">documentation</a>.</p> 
+filesystems[] | **object**<br><p>List of filesystems in the specified folder.</p> 
 filesystems[].<br>id | **string**<br><p>ID of the filesystem. Generated at creation time.</p> 
 filesystems[].<br>folderId | **string**<br><p>ID of the folder that the filesystem belongs to.</p> 
 filesystems[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

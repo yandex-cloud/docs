@@ -66,7 +66,7 @@ createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a
 name | **string**<br><p>Name of the cluster. The name is unique within the folder.</p> <p>The string length in characters must be 1-63.</p> 
 description | **string**<br><p>Description of the cluster.</p> <p>The string length in characters must be 0-256.</p> 
 labels | **object**<br><p>Cluster labels as ``key:value`` pairs.</p> <p>No more than 64 per resource.</p> 
-monitoring[] | **object**<br><p>Metadata of a monitoring system for a Data Proc cluster.</p> 
+monitoring[] | **object**<br><p>Monitoring systems relevant to the cluster.</p> 
 monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p> 
 monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 
 monitoring[].<br>link | **string**<br><p>Link to the monitoring system.</p> 

@@ -16,8 +16,8 @@ DELETE https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}
  
 Parameter | Description
 --- | ---
-registryId | Required. ID of the registry to delete a password for.  To get a registry ID make a [list](/docs/iot-core/api-ref/Device/list) request.  The maximum string length in characters is 50.
-passwordId | Required. ID of the password to delete.  To get a password ID make a [listPasswords](/docs/iot-core/api-ref/Registry/listPasswords) request.  The maximum string length in characters is 50.
+registryId | <p>Required. ID of the registry to delete a password for.</p> <p>To get a registry ID make a <a href="/docs/iot-core/api-ref/Device/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+passwordId | <p>Required. ID of the password to delete.</p> <p>To get a password ID make a <a href="/docs/iot-core/api-ref/Registry/listPasswords">listPasswords</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

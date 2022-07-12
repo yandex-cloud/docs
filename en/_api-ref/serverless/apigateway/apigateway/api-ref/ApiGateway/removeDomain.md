@@ -16,7 +16,7 @@ POST https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{ap
  
 Parameter | Description
 --- | ---
-apiGatewayId | Required. ID of the API gateway from which the domain is being detached.
+apiGatewayId | <p>Required. ID of the API gateway from which the domain is being detached.</p> 
  
 ## Body parameters {#body_params}
  

@@ -16,14 +16,14 @@ GET https://servicename.{{ api-host }}/servicename/v1/resourceNames/{resourceNam
  
 Parameter | Description
 --- | ---
-resourceNameId | Required. ID of the resource name to list operations for.  To get a resource name ID make a [list](/docs/service-name/api-ref/ResourceName/list) request.  The maximum string length in characters is 50.
+resourceNameId | <p>Required. ID of the resource name to list operations for.</p> <p>To get a resource name ID make a <a href="/docs/service-name/api-ref/ResourceName/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/service-name/api-ref/ResourceName/listOperations#query_params), the service returns a [nextPageToken](/docs/service-name/api-ref/ResourceName/listOperations#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/service-name/api-ref/ResourceName/listOperations#query_params) to the [nextPageToken](/docs/service-name/api-ref/ResourceName/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/service-name/api-ref/ResourceName/listOperations#query_params">pageSize</a>, the service returns a <a href="/docs/service-name/api-ref/ResourceName/listOperations#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/service-name/api-ref/ResourceName/listOperations#query_params">pageToken</a> to the <a href="/docs/service-name/api-ref/ResourceName/listOperations#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -60,7 +60,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/s
  
 Field | Description
 --- | ---
-operations[] | **object**<br><p>An Operation resource. For more information, see <a href="/docs/api-design-guide/concepts/operation">Operation</a>.</p> 
+operations[] | **object**<br><p>List of operations for the specified resource name.</p> 
 operations[].<br>id | **string**<br><p>ID of the operation.</p> 
 operations[].<br>description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
 operations[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

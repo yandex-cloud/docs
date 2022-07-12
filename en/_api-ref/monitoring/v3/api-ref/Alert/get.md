@@ -16,7 +16,7 @@ GET https://monitoring.{{ api-host }}/monitoring/v3/alerts/{alertId}
  
 Parameter | Description
 --- | ---
-alertId | Required. ID of the Alert resource to return.  The maximum string length in characters is 50.
+alertId | <p>Required. ID of the Alert resource to return.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

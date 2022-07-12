@@ -47,7 +47,7 @@ Retrieves the list of available ResourcePreset resources.
 Field | Description
 --- | ---
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListResourcePresetsResponse.next_page_token](#ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
-page_token | **string**<br>Page token. To get the next page of results, Set `page_token` to the [ListResourcePresetsResponse.next_page_token](#ListResourcePresetsResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, Set `page_token` to the [ListResourcePresetsResponse.next_page_token](#ListResourcePresetsResponse) returned by the previous list request. The maximum string length in characters is 100.
 
 
 ### ListResourcePresetsResponse {#ListResourcePresetsResponse}

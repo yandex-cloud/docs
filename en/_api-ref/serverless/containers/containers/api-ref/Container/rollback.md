@@ -16,7 +16,7 @@ POST https://serverless-containers.{{ api-host }}/containers/v1/containers/{cont
  
 Parameter | Description
 --- | ---
-containerId | Required.
+containerId | <p>Required.</p> 
  
 ## Body parameters {#body_params}
  

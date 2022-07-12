@@ -16,10 +16,10 @@ GET https://compute.{{ api-host }}/compute/v1/placementGroups
  
 Parameter | Description
 --- | ---
-folderId | ID of the folder to list placement groups in.  To get the folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/PlacementGroup/list#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/PlacementGroup/list#responses) that can be used to get the next page of results in subsequent list requests.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/PlacementGroup/list#query_params) to the [nextPageToken](/docs/compute/api-ref/PlacementGroup/list#responses) returned by a previous list request.
-filter | A filter expression that filters resources listed in the response. Currently you can use filtering only on the [PlacementGroup.name](/docs/compute/api-ref/PlacementGroup#representation) field.
+folderId | <p>ID of the folder to list placement groups in.</p> <p>To get the folder ID make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/PlacementGroup/list#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/PlacementGroup/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/compute/api-ref/PlacementGroup/list#query_params">pageToken</a> to the <a href="/docs/compute/api-ref/PlacementGroup/list#responses">nextPageToken</a> returned by a previous list request.</p> 
+filter | <p>A filter expression that filters resources listed in the response. Currently you can use filtering only on the <a href="/docs/compute/api-ref/PlacementGroup#representation">PlacementGroup.name</a> field.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

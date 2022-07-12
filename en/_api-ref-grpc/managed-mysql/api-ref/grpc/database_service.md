@@ -59,7 +59,7 @@ page_token | **string**<br>Page token that can be used to iterate through multip
 Field | Description
 --- | ---
 databases[] | **[Database](#Database1)**<br>List of databases. 
-next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListDatabasesRequest.page_size](#ListDatabasesRequest), use the `next_page_token` as the value for the [ListDatabasesRequest.page_token](#ListDatabasesRequest) in the subsequent [DatabaseService.List](#List)(#List) request to iterate through multiple pages of results. <br>Each of the subsequent [DatabaseService.List] requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListDatabasesRequest.page_size](#ListDatabasesRequest), use the `next_page_token` as the value for the [ListDatabasesRequest.page_token](#ListDatabasesRequest) in the subsequent [DatabaseService.List](#List) request to iterate through multiple pages of results. <br>Each of the subsequent [DatabaseService.List](#List) requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
 
 
 ### Database {#Database1}

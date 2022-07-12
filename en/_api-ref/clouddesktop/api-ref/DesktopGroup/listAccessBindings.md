@@ -16,14 +16,14 @@ GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{resourc
  
 Parameter | Description
 --- | ---
-resourceId | Required. ID of the resource to list access bindings for.  To get the resource ID, use a corresponding List request. For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.  The maximum string length in characters is 50.
+resourceId | <p>Required. ID of the resource to list access bindings for.</p> <p>To get the resource ID, use a corresponding List request. For example, use the <a href="/docs/resource-manager/api-ref/Cloud/list">list</a> request to get the Cloud resource ID.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than [page_size], the service returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. Set [page_token] to the nextPageToken returned by a previous list request to get the next page of results.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page that should be returned. If the number of available results is larger than [page_size], the service returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. Set [page_token] to the nextPageToken returned by a previous list request to get the next page of results.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

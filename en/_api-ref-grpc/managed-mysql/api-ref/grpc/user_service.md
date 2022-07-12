@@ -84,7 +84,7 @@ page_token | **string**<br>Page token that can be used to iterate through multip
 Field | Description
 --- | ---
 users[] | **[User](#User1)**<br>List of users. 
-next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest) in the subsequent [UserService.List](#List)(#List) request to iterate through multiple pages of results. <br>Each of the subsequent [UserService.List] requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListUsersRequest.page_size](#ListUsersRequest), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#ListUsersRequest) in the subsequent [UserService.List](#List) request to iterate through multiple pages of results. <br>Each of the subsequent [UserService.List](#List) requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
 
 
 ### User {#User1}

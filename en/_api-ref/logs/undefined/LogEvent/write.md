@@ -16,8 +16,8 @@ POST undefined/logs/v1/events/{logGroupId}/{streamName}
  
 Parameter | Description
 --- | ---
-logGroupId | Required.
-streamName | Required.
+logGroupId | <p>Required.</p> 
+streamName | <p>Required.</p> 
  
 ## Body parameters {#body_params}
  

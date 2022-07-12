@@ -1750,7 +1750,7 @@ components:
           items:
             $ref: '#/components/schemas/PlacementPolicyHostAffinityRule'
     PlacementPolicyHostAffinityRule:
-      description: Affinitity definition
+      description: Affinity definition
       type: object
       properties:
         key:

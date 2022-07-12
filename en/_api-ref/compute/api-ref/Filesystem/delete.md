@@ -18,7 +18,7 @@ DELETE https://compute.{{ api-host }}/compute/v1/filesystems/{filesystemId}
  
 Parameter | Description
 --- | ---
-filesystemId | Required. ID of the filesystem to delete.  To get the filesystem ID, make a [list](/docs/compute/api-ref/Filesystem/list) request.  The maximum string length in characters is 50.
+filesystemId | <p>Required. ID of the filesystem to delete.</p> <p>To get the filesystem ID, make a <a href="/docs/compute/api-ref/Filesystem/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

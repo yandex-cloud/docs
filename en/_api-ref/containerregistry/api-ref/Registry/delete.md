@@ -16,7 +16,7 @@ DELETE https://container-registry.{{ api-host }}/container-registry/v1/registrie
  
 Parameter | Description
 --- | ---
-registryId | Required. ID of the registry to delete.  The maximum string length in characters is 50.
+registryId | <p>Required. ID of the registry to delete.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

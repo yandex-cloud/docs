@@ -16,7 +16,7 @@ GET undefined/microcosm/v1/deploymentTemplates/{deploymentTemplateId}
  
 Parameter | Description
 --- | ---
-deploymentTemplateId | Required. The maximum string length in characters is 50.
+deploymentTemplateId | <p>Required. The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

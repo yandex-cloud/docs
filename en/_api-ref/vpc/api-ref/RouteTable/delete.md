@@ -16,7 +16,7 @@ DELETE https://vpc.{{ api-host }}/vpc/v1/routeTables/{routeTableId}
  
 Parameter | Description
 --- | ---
-routeTableId | Required. ID of the route table to delete. To get the route table ID use a [list](/docs/vpc/api-ref/RouteTable/list) request.  The maximum string length in characters is 50.
+routeTableId | <p>Required. ID of the route table to delete. To get the route table ID use a <a href="/docs/vpc/api-ref/RouteTable/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

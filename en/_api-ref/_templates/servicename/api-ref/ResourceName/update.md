@@ -16,7 +16,7 @@ PATCH https://servicename.{{ api-host }}/servicename/v1/resourceNames/{resourceN
  
 Parameter | Description
 --- | ---
-resourceNameId | Required. ID of the resource name to update.  To get the resource name ID make a [list](/docs/service-name/api-ref/ResourceName/list) request.  The maximum string length in characters is 50.
+resourceNameId | <p>Required. ID of the resource name to update.</p> <p>To get the resource name ID make a <a href="/docs/service-name/api-ref/ResourceName/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

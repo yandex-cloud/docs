@@ -633,6 +633,24 @@ components:
 
             Acceptable values are 1 seconds to 60 seconds, inclusive.
           type: string
+    Mail:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          email:
+            description: |-
+              Address to receive emails for trigger activation.
+              Field is ignored for write requests and populated on trigger creation.
+            type: string
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
+          invokeContainer:
+            $ref: '#/components/schemas/InvokeContainerWithRetry'
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -1028,6 +1046,8 @@ components:
             $ref: '#/components/schemas/BillingBudget'
           dataStream:
             $ref: '#/components/schemas/DataStream'
+          mail:
+            $ref: '#/components/schemas/Mail'
     TriggerStatus:
       type: string
       enum:
@@ -1149,6 +1169,8 @@ components:
             $ref: '#/components/schemas/BillingBudget'
           dataStream:
             $ref: '#/components/schemas/DataStream'
+          mail:
+            $ref: '#/components/schemas/Mail'
     RetrySettings_in_InvokeContainerWithRetry_retrySettings:
       description: |-
         Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
@@ -1248,6 +1270,8 @@ components:
             $ref: '#/components/schemas/BillingBudget'
           dataStream:
             $ref: '#/components/schemas/DataStream'
+          mail:
+            $ref: '#/components/schemas/Mail'
     TriggerStatus_in_Trigger_status:
       description: Trigger status.
       type: string

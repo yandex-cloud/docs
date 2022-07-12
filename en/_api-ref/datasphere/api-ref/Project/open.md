@@ -16,7 +16,7 @@ POST https://datasphere.{{ api-host }}/datasphere/v1/projects/{projectId}:open
  
 Parameter | Description
 --- | ---
-projectId | Required. ID of the Project resource to open. To get the project ID use a [list](/docs/datasphere/api-ref/Project/list) request.  The maximum string length in characters is 200.
+projectId | <p>Required. ID of the Project resource to open. To get the project ID use a <a href="/docs/datasphere/api-ref/Project/list">list</a> request.</p> <p>The maximum string length in characters is 200.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

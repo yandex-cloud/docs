@@ -16,7 +16,7 @@ POST https://datasphere.{{ api-host }}/datasphere/v1/folders/{folderId}:budget
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to set a budget for.  The maximum string length in characters is 50.
+folderId | <p>Required. ID of the folder to set a budget for.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

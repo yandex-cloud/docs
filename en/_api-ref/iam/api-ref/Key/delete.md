@@ -16,7 +16,7 @@ DELETE https://iam.{{ api-host }}/iam/v1/keys/{keyId}
  
 Parameter | Description
 --- | ---
-keyId | Required. ID of the key to delete. To get key ID use a [list](/docs/iam/api-ref/Key/list) request.  The maximum string length in characters is 50.
+keyId | <p>Required. ID of the key to delete. To get key ID use a <a href="/docs/iam/api-ref/Key/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

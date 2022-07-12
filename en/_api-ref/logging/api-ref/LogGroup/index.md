@@ -29,9 +29,9 @@ createdAt | **string** (date-time)<br><p>Log group creation time.</p> <p>String 
 name | **string**<br><p>Log group name.</p> 
 description | **string**<br><p>Log group description.</p> 
 labels | **object**<br><p>Log group labels.</p> 
-status | **string**<br><p>Status of the log group.</p> <p>Possible log group statuses.</p> <ul> <li>STATUS_UNSPECIFIED: Unknown status.</li> </ul> <p>Should never occur.</p> <ul> <li>CREATING: Log group is creating.</li> <li>ACTIVE: Log group is ready to accept messages,</li> <li>DELETING: Log group is being deleted.</li> </ul> <p>No messages will be accepted.</p> <ul> <li>ERROR: Log group is in failed state.</li> </ul> 
+status | **string**<br><p>Status of the log group.</p> <p>Possible log group statuses.</p> <ul> <li>STATUS_UNSPECIFIED: Unknown status.</li> </ul> <p>Should never occur. - CREATING: Log group is creating.</p> <ul> <li> <p>ACTIVE: Log group is ready to accept messages,</p> </li> <li> <p>DELETING: Log group is being deleted.</p> <p>No messages will be accepted.</p> </li> <li> <p>ERROR: Log group is in failed state.</p> </li> </ul> 
 retentionPeriod | **string**<br><p>Log group entry retention period.</p> <p>Entries will be present in group during this period.</p> 
-dataStream | **string**<br>
+dataStream | **string**<br><p>Data stream name</p> 
 
 ## Methods {#methods}
 Method | Description

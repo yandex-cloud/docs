@@ -17,7 +17,7 @@ PATCH https://cdn.{{ api-host }}/cdn/v1/origins/{originId}
  
 Parameter | Description
 --- | ---
-originId | ID of the origin.  Value must be greater than 0.
+originId | <p>ID of the origin.</p> <p>Value must be greater than 0.</p> 
  
 ## Body parameters {#body_params}
  

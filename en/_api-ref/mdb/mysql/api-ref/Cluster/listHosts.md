@@ -16,14 +16,14 @@ GET https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}/hosts
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster to list hosts for.  To get this ID, make a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the cluster to list hosts for.</p> <p>To get this ID, make a <a href="/docs/managed-mysql/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return.  If the number of available results is larger than [pageSize](/docs/managed-mysql/api-ref/Cluster/listHosts#query_params), the API returns a [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#responses) that can be used to get the next page of results in the subsequent [listHosts](/docs/managed-mysql/api-ref/Cluster/listHosts) requests.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token that can be used to iterate through multiple pages of results.  To get the next page of results, set [pageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#query_params) to the [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listHosts#responses) returned by the previous [listHosts](/docs/managed-mysql/api-ref/Cluster/listHosts) request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return.</p> <p>If the number of available results is larger than <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#query_params">pageSize</a>, the API returns a <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#responses">nextPageToken</a> that can be used to get the next page of results in the subsequent <a href="/docs/managed-mysql/api-ref/Cluster/listHosts">listHosts</a> requests.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token that can be used to iterate through multiple pages of results.</p> <p>To get the next page of results, set <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#query_params">pageToken</a> to the <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#responses">nextPageToken</a> returned by the previous <a href="/docs/managed-mysql/api-ref/Cluster/listHosts">listHosts</a> request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

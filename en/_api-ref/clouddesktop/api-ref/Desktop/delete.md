@@ -16,7 +16,7 @@ DELETE https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId
  
 Parameter | Description
 --- | ---
-desktopId | Required. ID of the desktop to delete.  The maximum string length in characters is 50.
+desktopId | <p>Required. ID of the desktop to delete.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

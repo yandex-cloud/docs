@@ -16,7 +16,7 @@ GET https://ydb.{{ api-host }}/ydb/v1/locations/{locationId}
  
 Parameter | Description
 --- | ---
-locationId | Required. Required. ID of the location to return.
+locationId | <p>Required. Required. ID of the location to return.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

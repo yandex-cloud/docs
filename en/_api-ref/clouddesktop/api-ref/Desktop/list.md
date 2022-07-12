@@ -16,11 +16,11 @@ GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to create a DesktopGroup in.  To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/cloud-desktop/api-ref/Desktop/list#query_params), the service returns a [nextPageToken](/docs/cloud-desktop/api-ref/Desktop/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/cloud-desktop/api-ref/Desktop/list#query_params) to the [nextPageToken](/docs/cloud-desktop/api-ref/Desktop/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on [Desktop.name](/docs/cloud-desktop/api-ref/Desktop#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. Value or a list of values to compare against the values of the field.  The maximum string length in characters is 1000.
-orderBy | Sorting the list by [Desktop.name](/docs/cloud-desktop/api-ref/Desktop#representation), [Desktop.createdAt](/docs/cloud-desktop/api-ref/Desktop#representation) and [Desktop.status](/docs/cloud-desktop/api-ref/Desktop#representation) fields. The default sorting order is ascending.  The maximum string length in characters is 100.
+folderId | <p>Required. ID of the folder to create a DesktopGroup in.</p> <p>To get a folder ID make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/cloud-desktop/api-ref/Desktop/list#query_params">pageSize</a>, the service returns a <a href="/docs/cloud-desktop/api-ref/Desktop/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/cloud-desktop/api-ref/Desktop/list#query_params">pageToken</a> to the <a href="/docs/cloud-desktop/api-ref/Desktop/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resources listed in the response. The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on <a href="/docs/cloud-desktop/api-ref/Desktop#representation">Desktop.name</a> field.</li> <li>An operator. Can be either ``=`` or ``!=`` for single values, ``IN`` or ``NOT IN`` for lists of values.</li> <li>Value or a list of values to compare against the values of the field.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
+orderBy | <p>Sorting the list by <a href="/docs/cloud-desktop/api-ref/Desktop#representation">Desktop.name</a>, <a href="/docs/cloud-desktop/api-ref/Desktop#representation">Desktop.createdAt</a> and <a href="/docs/cloud-desktop/api-ref/Desktop#representation">Desktop.status</a> fields. The default sorting order is ascending.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -60,7 +60,7 @@ orderBy | Sorting the list by [Desktop.name](/docs/cloud-desktop/api-ref/Desktop
  
 Field | Description
 --- | ---
-desktops[] | **object**<br><p>A desktop resource.</p> 
+desktops[] | **object**<br><p>List of desktops.</p> 
 desktops[].<br>id | **string**<br><p>Desktop ID.</p> 
 desktops[].<br>folderId | **string**<br><p>ID of the folder that the desktop belongs to.</p> 
 desktops[].<br>desktopGroupId | **string**<br><p>ID of the desktop group that the desktop belongs to.</p> 

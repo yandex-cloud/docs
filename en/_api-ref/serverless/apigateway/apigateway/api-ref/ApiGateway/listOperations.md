@@ -16,15 +16,15 @@ GET https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{api
  
 Parameter | Description
 --- | ---
-apiGatewayId | Required. ID of the API gateway to list operations for.
+apiGatewayId | <p>Required. ID of the API gateway to list operations for.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/api-gateway/api-ref/ApiGateway/listOperations#responses) that can be used to get the next page of results in subsequent list requests.  Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set `pageToken` to the [nextPageToken](/docs/functions/api-gateway/api-ref/ApiGateway/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response.  The expression must specify: 1. The field name. Currently filtering can be applied to the [Operation.done](/docs/operation/api-ref/Operation#representation), [Operation.createdBy](/docs/operation/api-ref/Operation#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Examples of a filter: `done=false`, `created_by='John.Doe'`.  The maximum string length in characters is 1000.
+pageSize | <p>The maximum number of results per page that should be returned. If the number of available results is larger than ``pageSize``, the service returns a <a href="/docs/functions/api-gateway/api-ref/ApiGateway/listOperations#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``pageToken`` to the <a href="/docs/functions/api-gateway/api-ref/ApiGateway/listOperations#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resources listed in the response.</p> <p>The expression must specify:</p> <ol> <li>The field name. Currently filtering can be applied to the <a href="/docs/operation/api-ref/Operation#representation">Operation.done</a>, <a href="/docs/operation/api-ref/Operation#representation">Operation.createdBy</a> field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be 3-63 characters long and match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``. Examples of a filter: ``done=false``, ``created_by='John.Doe'``.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -61,7 +61,7 @@ filter | A filter expression that filters resources listed in the response.  The
  
 Field | Description
 --- | ---
-operations[] | **object**<br><p>An Operation resource. For more information, see <a href="/docs/api-design-guide/concepts/operation">Operation</a>.</p> 
+operations[] | **object**<br><p>List of operations for the specified API gateway.</p> 
 operations[].<br>id | **string**<br><p>ID of the operation.</p> 
 operations[].<br>description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
 operations[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

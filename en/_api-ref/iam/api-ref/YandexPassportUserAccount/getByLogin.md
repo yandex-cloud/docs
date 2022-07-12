@@ -16,7 +16,7 @@ GET https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin
  
 Parameter | Description
 --- | ---
-login | Required. Login of the YandexPassportUserAccount resource to return.
+login | <p>Required. Login of the YandexPassportUserAccount resource to return.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

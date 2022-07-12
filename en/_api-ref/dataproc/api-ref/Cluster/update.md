@@ -16,7 +16,7 @@ PATCH https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}
  
 Parameter | Description
 --- | ---
-clusterId | ID of the cluster to update.  To get the cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>ID of the cluster to update.</p> <p>To get the cluster ID, make a <a href="/docs/data-proc/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

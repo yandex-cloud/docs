@@ -16,14 +16,14 @@ GET https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}/operations
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster to list operations for.  To get this ID, make a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the cluster to list operations for.</p> <p>To get this ID, make a <a href="/docs/managed-mysql/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return.  If the number of available results is larger than [pageSize](/docs/managed-mysql/api-ref/Cluster/listOperations#query_params), the API returns a [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listOperations#responses) that can be used to get the next page of results in the subsequent [listOperations](/docs/managed-mysql/api-ref/Cluster/listOperations) requests.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token that can be used to iterate through multiple pages of results.  To get the next page of results, set [pageToken](/docs/managed-mysql/api-ref/Cluster/listOperations#query_params) to the [nextPageToken](/docs/managed-mysql/api-ref/Cluster/listOperations#responses) returned by the previous [listOperations](/docs/managed-mysql/api-ref/Cluster/listOperations) request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return.</p> <p>If the number of available results is larger than <a href="/docs/managed-mysql/api-ref/Cluster/listOperations#query_params">pageSize</a>, the API returns a <a href="/docs/managed-mysql/api-ref/Cluster/listOperations#responses">nextPageToken</a> that can be used to get the next page of results in the subsequent <a href="/docs/managed-mysql/api-ref/Cluster/listOperations">listOperations</a> requests.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token that can be used to iterate through multiple pages of results.</p> <p>To get the next page of results, set <a href="/docs/managed-mysql/api-ref/Cluster/listOperations#query_params">pageToken</a> to the <a href="/docs/managed-mysql/api-ref/Cluster/listOperations#responses">nextPageToken</a> returned by the previous <a href="/docs/managed-mysql/api-ref/Cluster/listOperations">listOperations</a> request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -60,7 +60,7 @@ pageToken | Page token that can be used to iterate through multiple pages of res
  
 Field | Description
 --- | ---
-operations[] | **object**<br><p>An Operation resource. For more information, see <a href="/docs/api-design-guide/concepts/operation">Operation</a>.</p> 
+operations[] | **object**<br><p>List of operations in the cluster.</p> 
 operations[].<br>id | **string**<br><p>ID of the operation.</p> 
 operations[].<br>description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
 operations[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

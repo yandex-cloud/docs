@@ -16,15 +16,15 @@ GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktop
  
 Parameter | Description
 --- | ---
-desktopGroupId | Required. ID of the desktop group.  The maximum string length in characters is 50.
+desktopGroupId | <p>Required. ID of the desktop group.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#query_params), the service returns a [nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#query_params) to the [nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | Sorting the list by [DesktopGroup.name](/docs/cloud-desktop/api-ref/DesktopGroup#representation) field. The default sorting order is ascending.  The maximum string length in characters is 1000.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#query_params">pageSize</a>, the service returns a <a href="/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#query_params">pageToken</a> to the <a href="/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>Sorting the list by <a href="/docs/cloud-desktop/api-ref/DesktopGroup#representation">DesktopGroup.name</a> field. The default sorting order is ascending.</p> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -61,7 +61,7 @@ filter | Sorting the list by [DesktopGroup.name](/docs/cloud-desktop/api-ref/Des
  
 Field | Description
 --- | ---
-operations[] | **object**<br><p>An Operation resource. For more information, see <a href="/docs/api-design-guide/concepts/operation">Operation</a>.</p> 
+operations[] | **object**<br><p>List of operations for the specified desktop group.</p> 
 operations[].<br>id | **string**<br><p>ID of the operation.</p> 
 operations[].<br>description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
 operations[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

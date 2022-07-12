@@ -250,7 +250,7 @@ Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder that the origin belongs to. The maximum string length in characters is 50.
 origin_id | **int64**<br>ID of the origin. Value must be greater than 0.
-source | **string**<br>PUT behavior, parameter below will be fully rewritten IP address or Domain name of your origin and the port (if custom). Used if `meta` variant is `common`. Required. 
+source | **string**<br>IP address or Domain name of your origin and the port (if custom). Used if `meta` variant is `common`. Required. 
 enabled | **bool**<br>The setting allows to enable or disable an Origin source in the Origins group. <br>It has two possible values: <br>True - The origin is enabled and used as a source for the CDN. An origins group must contain at least one enabled origin. Default value. False - The origin is disabled and the CDN is not using it to pull content. <br>Required. 
 backup | **bool**<br>Specifies whether the origin is used in its origin group as backup. A backup origin is used when one of active origins becomes unavailable. <br>Required. 
 meta | **[OriginMeta](#OriginMeta4)**<br>Set up type of the origin. 

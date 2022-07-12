@@ -16,7 +16,7 @@ POST https://cdn.{{ api-host }}/cdn/v1/cache/{resourceId}:prefetch
  
 Parameter | Description
 --- | ---
-resourceId | Required. ID of the resource to perform prefetch operation on.  The maximum string length in characters is 50.
+resourceId | <p>Required. ID of the resource to perform prefetch operation on.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

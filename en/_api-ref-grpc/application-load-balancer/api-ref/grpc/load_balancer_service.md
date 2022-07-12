@@ -15,7 +15,7 @@ A set of methods for managing application load balancers.
 | [Delete](#Delete) | Deletes the specified application load balancer. |
 | [Start](#Start) | Starts the specified application load balancer. |
 | [Stop](#Stop) | Stops the specified application load balancer. |
-| [AddListener](#AddListener) | AddListener/UpdateListener technically do the same, but have different semantics. |
+| [AddListener](#AddListener) | Adds a listener to the specified application load balancer. |
 | [RemoveListener](#RemoveListener) | Deletes the specified listener. |
 | [UpdateListener](#UpdateListener) | Updates the specified listener of the specified application load balancer. |
 | [AddSniMatch](#AddSniMatch) | Adds a SNI handler to the specified listener. |
@@ -1986,7 +1986,7 @@ disable_traffic | **bool**<br>Disables the load balancer node in the specified a
 
 ## AddListener {#AddListener}
 
-AddListener/UpdateListener technically do the same, but have different semantics. Adds a listener to the specified application load balancer.
+Adds a listener to the specified application load balancer.
 
 **rpc AddListener ([AddListenerRequest](#AddListenerRequest)) returns ([operation.Operation](#Operation5))**
 

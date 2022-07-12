@@ -16,7 +16,7 @@ DELETE https://serverless-triggers.{{ api-host }}/triggers/v1/triggers/{triggerI
  
 Parameter | Description
 --- | ---
-triggerId | Required. ID of the trigger to delete.  To get a trigger ID make a [list](/docs/functions/triggers/api-ref/Trigger/list) request.
+triggerId | <p>Required. ID of the trigger to delete.</p> <p>To get a trigger ID make a <a href="/docs/functions/triggers/api-ref/Trigger/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

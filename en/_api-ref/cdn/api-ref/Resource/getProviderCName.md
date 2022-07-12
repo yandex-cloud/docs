@@ -17,7 +17,7 @@ GET https://cdn.{{ api-host }}/cdn/v1/cname/{folderId}
  
 Parameter | Description
 --- | ---
-folderId | Required. Folder ID to get provider's CNAME.  The maximum string length in characters is 50.
+folderId | <p>Required. Folder ID to get provider's CNAME.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

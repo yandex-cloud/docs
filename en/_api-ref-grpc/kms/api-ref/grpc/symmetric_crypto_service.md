@@ -4,7 +4,6 @@ editable: false
 
 # SymmetricCryptoService
 
---- Data plane for KMS symmetric cryptography operations 
 Set of methods that perform symmetric encryption and decryption.
 
 | Call | Description |

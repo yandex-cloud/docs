@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}:start
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Apache Kafka® cluster to start.  To get the Apache Kafka® cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the Apache Kafka® cluster to start.</p> <p>To get the Apache Kafka® cluster ID, make a <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

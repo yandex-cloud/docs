@@ -16,7 +16,7 @@ POST https://serverless-functions.{{ api-host }}/functions/v1/functions/{functio
  
 Parameter | Description
 --- | ---
-functionId | Required. ID of the function to remove scaling policies for.  To get a function ID, make a [list](/docs/functions/functions/api-ref/Function/list) request.
+functionId | <p>Required. ID of the function to remove scaling policies for.</p> <p>To get a function ID, make a <a href="/docs/functions/functions/api-ref/Function/list">list</a> request.</p> 
  
 ## Body parameters {#body_params}
  

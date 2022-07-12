@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/managed-redis/v1/clusters/{clusterId}:start
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Redis cluster to start.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the Redis cluster to start.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -16,7 +16,7 @@ POST https://datasphere.{{ api-host }}/datasphere/v1/projects/{projectId}:unitBa
  
 Parameter | Description
 --- | ---
-projectId | Required. ID of the project to set the unit balance for.  The maximum string length in characters is 200.
+projectId | <p>Required. ID of the project to set the unit balance for.</p> <p>The maximum string length in characters is 200.</p> 
  
 ## Body parameters {#body_params}
  

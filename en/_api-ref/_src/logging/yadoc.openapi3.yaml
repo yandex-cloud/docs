@@ -868,6 +868,7 @@ components:
             Entries will be present in group during this period.
           type: string
         dataStream:
+          description: Data stream name
           type: string
     LogGroupResource:
       description: Log group resource.

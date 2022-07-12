@@ -16,7 +16,7 @@ GET https://iam.{{ api-host }}/iam/v1/userAccounts/{userAccountId}
  
 Parameter | Description
 --- | ---
-userAccountId | Required. ID of the UserAccount resource to return.  The maximum string length in characters is 50.
+userAccountId | <p>Required. ID of the UserAccount resource to return.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

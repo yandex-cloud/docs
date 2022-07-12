@@ -16,14 +16,14 @@ GET https://datatransfer.{{ api-host }}/v1/transfers/list/{folderId}
  
 Parameter | Description
 --- | ---
-folderId | Identifier of the folder containing the transfers to be listed.
+folderId | <p>Identifier of the folder containing the transfers to be listed.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of transfers to be sent in the response message. If the folder contains more transfers than page_size, next_page_token will be included in the response message. Include it into the subsequent ListTransfersRequest to fetch the next page. Defaults to 100 if not specified. The maximum allowed value for this field is 500.
-pageToken | Opaque value identifying the transfers page to be fetched. Should be empty in the first ListTransfersRequest. Subsequent request should have this field filled with the next_page_token from the previous ListTransfersResponse.
+pageSize | <p>The maximum number of transfers to be sent in the response message. If the folder contains more transfers than page_size, next_page_token will be included in the response message. Include it into the subsequent ListTransfersRequest to fetch the next page. Defaults to 100 if not specified. The maximum allowed value for this field is 500.</p> 
+pageToken | <p>Opaque value identifying the transfers page to be fetched. Should be empty in the first ListTransfersRequest. Subsequent request should have this field filled with the next_page_token from the previous ListTransfersResponse.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

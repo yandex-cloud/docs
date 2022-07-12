@@ -16,10 +16,10 @@ GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list Elasticsearch clusters in.  To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response.  The expression must specify: 1. The field name to filter by. Currently you can only use filtering with the [Cluster.name](/docs/managed-elasticsearch/api-ref/Cluster#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.  Example of a filter: `name NOT IN 'test,beta'`.  The maximum string length in characters is 1000.
+folderId | <p>Required. ID of the folder to list Elasticsearch clusters in.</p> <p>To get the folder ID, make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than ``page_size``, the service returns a <a href="/docs/managed-elasticsearch/api-ref/Cluster/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/managed-elasticsearch/api-ref/Cluster/list#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resources listed in the response.</p> <p>The expression must specify:</p> <ol> <li>The field name to filter by. Currently you can only use filtering with the <a href="/docs/managed-elasticsearch/api-ref/Cluster#representation">Cluster.name</a> field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be 1-63 characters long and match the regular expression ``[a-zA-Z0-9_-]+``.</li> </ol> <p>Example of a filter: ``name NOT IN 'test,beta'``.</p> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -117,7 +117,7 @@ filter | A filter expression that filters resources listed in the response.  The
  
 Field | Description
 --- | ---
-clusters[] | **object**<br><p>An Elasticsearch cluster resource. For more information, see the <a href="/docs/managed-elasticsearch/concepts">Concepts</a> section of the documentation.</p> 
+clusters[] | **object**<br><p>List of Elasticsearch clusters.</p> 
 clusters[].<br>id | **string**<br><p>ID of the Elasticsearch cluster. This ID is assigned at creation time.</p> 
 clusters[].<br>folderId | **string**<br><p>ID of the folder that the Elasticsearch cluster belongs to.</p> 
 clusters[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
@@ -125,7 +125,7 @@ clusters[].<br>name | **string**<br><p>Name of the Elasticsearch cluster. The na
 clusters[].<br>description | **string**<br><p>Description of the Elasticsearch cluster. 0-256 characters long.</p> 
 clusters[].<br>labels | **object**<br><p>Custom labels for the Elasticsearch cluster as ``key:value`` pairs. A maximum of 64 labels per resource is allowed.</p> 
 clusters[].<br>environment | **string**<br><p>Deployment environment of the Elasticsearch cluster.</p> <ul> <li>PRODUCTION: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li> </ul> 
-clusters[].<br>monitoring[] | **object**<br><p>Metadata of monitoring system.</p> 
+clusters[].<br>monitoring[] | **object**<br><p>Description of monitoring systems relevant to the Elasticsearch cluster.</p> 
 clusters[].<br>monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p> 
 clusters[].<br>monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 
 clusters[].<br>monitoring[].<br>link | **string**<br><p>Link to the monitoring system charts for the Elasticsearch cluster.</p> 

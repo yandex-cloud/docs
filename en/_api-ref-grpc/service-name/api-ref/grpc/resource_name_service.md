@@ -13,7 +13,7 @@ A set of methods for managing resource names.
 | [Create](#Create) | Creates a resource name in the specified folder. |
 | [Update](#Update) | Updates the specified resource name. |
 | [Delete](#Delete) | Deletes the specified resource name. |
-| [ListAccessBindings](#ListAccessBindings) | access Lists access bindings for the specified resource name. |
+| [ListAccessBindings](#ListAccessBindings) | Lists access bindings for the specified resource name. |
 | [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the resource name. |
 | [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for the specified resource name. |
 | [ListOperations](#ListOperations) | Lists operations for the specified resource name. |
@@ -243,7 +243,7 @@ resource_name_id | **string**<br>ID of the resource name that is being deleted.
 
 ## ListAccessBindings {#ListAccessBindings}
 
-access Lists access bindings for the specified resource name.
+Lists access bindings for the specified resource name.
 
 **rpc ListAccessBindings ([ListAccessBindingsRequest](#ListAccessBindingsRequest)) returns ([ListAccessBindingsResponse](#ListAccessBindingsResponse))**
 

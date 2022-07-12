@@ -16,8 +16,8 @@ PATCH https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subcluste
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster to update a subcluster in.  To get a cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-subclusterId | Required. ID of the subcluster to update.  To get a subcluster ID, make a [list](/docs/data-proc/api-ref/Subcluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the cluster to update a subcluster in.</p> <p>To get a cluster ID, make a <a href="/docs/data-proc/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+subclusterId | <p>Required. ID of the subcluster to update.</p> <p>To get a subcluster ID, make a <a href="/docs/data-proc/api-ref/Subcluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

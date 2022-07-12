@@ -16,7 +16,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}:move
  
 Parameter | Description
 --- | ---
-securityGroupId | Required.
+securityGroupId | <p>Required.</p> 
  
 ## Body parameters {#body_params}
  

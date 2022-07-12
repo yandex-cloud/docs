@@ -16,7 +16,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/gateways/{gatewayId}:move
  
 Parameter | Description
 --- | ---
-gatewayId | Required. The maximum string length in characters is 50.
+gatewayId | <p>Required. The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

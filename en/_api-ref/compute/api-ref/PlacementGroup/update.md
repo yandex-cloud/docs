@@ -16,7 +16,7 @@ PATCH https://compute.{{ api-host }}/compute/v1/placementGroups/{placementGroupI
  
 Parameter | Description
 --- | ---
-placementGroupId | ID of the placement group to update.  To get the placement group ID, use an [list](/docs/compute/api-ref/PlacementGroup/list) request.
+placementGroupId | <p>ID of the placement group to update.</p> <p>To get the placement group ID, use an <a href="/docs/compute/api-ref/PlacementGroup/list">list</a> request.</p> 
  
 ## Body parameters {#body_params}
  

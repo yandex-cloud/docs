@@ -16,14 +16,14 @@ GET https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/format
  
 Parameter | Description
 --- | ---
-clusterId | Required. The maximum string length in characters is 50.
+clusterId | <p>Required. The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum value is 1000.
-pageToken | The maximum string length in characters is 100.
+pageSize | <p>The maximum value is 1000.</p> 
+pageToken | <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -23,7 +23,7 @@ POST https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:attachFile
  
 Parameter | Description
 --- | ---
-instanceId | Required. ID of the instance to attach the filesystem to.  To get the instance ID, make a [list](/docs/compute/api-ref/Instance/list) request.  The maximum string length in characters is 50.
+instanceId | <p>Required. ID of the instance to attach the filesystem to.</p> <p>To get the instance ID, make a <a href="/docs/compute/api-ref/Instance/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

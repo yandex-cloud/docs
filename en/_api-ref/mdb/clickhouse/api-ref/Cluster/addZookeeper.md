@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}:addZo
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the ClickHouse cluster to modify.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the ClickHouse cluster to modify.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

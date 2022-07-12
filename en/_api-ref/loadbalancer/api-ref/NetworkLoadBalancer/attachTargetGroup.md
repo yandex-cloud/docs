@@ -16,7 +16,7 @@ POST https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/
  
 Parameter | Description
 --- | ---
-networkLoadBalancerId | Required. ID of the network load balancer to attach the target group to. To get the network load balancer ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.  The maximum string length in characters is 50.
+networkLoadBalancerId | <p>Required. ID of the network load balancer to attach the target group to. To get the network load balancer ID, use a <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  
@@ -53,7 +53,7 @@ Field | Description
 --- | ---
 attachedTargetGroup | **object**<br><p>Required. ID of the attached target group to attach to the network load balancer. To get the network load balancer ID, use a <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list">list</a> request.</p> <p>An AttachedTargetGroup resource. For more information, see <a href="/docs/network-load-balancer/concepts/target-resources">Targets and groups</a>.</p> 
 attachedTargetGroup.<br>targetGroupId | **string**<br><p>Required. ID of the target group.</p> <p>The maximum string length in characters is 50.</p> 
-attachedTargetGroup.<br>healthChecks[] | **object**<br><p>A HealthCheck resource. For more information, see <a href="/docs/network-load-balancer/concepts/health-check">Health check</a>.</p> 
+attachedTargetGroup.<br>healthChecks[] | **object**<br><p>Required. A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup.</p> <p>Must contain exactly 1 element.</p> 
 attachedTargetGroup.<br>healthChecks[].<br>name | **string**<br><p>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 attachedTargetGroup.<br>healthChecks[].<br>interval | **string**<br><p>The interval between health checks. The default is 2 seconds.</p> 
 attachedTargetGroup.<br>healthChecks[].<br>timeout | **string**<br><p>Timeout for a target to return a response for the health check. The default is 1 second.</p> 

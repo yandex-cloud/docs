@@ -16,10 +16,10 @@ GET https://mdb.{{ api-host }}/managed-kafka/v1/clusters
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list Apache Kafka® clusters in.  To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return.  If the number of available results is larger than [pageSize](/docs/managed-kafka/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token.  To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Cluster/list#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | Filter support is not currently implemented. Any filters are ignored.  The maximum string length in characters is 1000.
+folderId | <p>Required. ID of the folder to list Apache Kafka® clusters in.</p> <p>To get the folder ID, make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return.</p> <p>If the number of available results is larger than <a href="/docs/managed-kafka/api-ref/Cluster/list#query_params">pageSize</a>, the service returns a <a href="/docs/managed-kafka/api-ref/Cluster/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token.</p> <p>To get the next page of results, set <a href="/docs/managed-kafka/api-ref/Cluster/list#query_params">pageToken</a> to the <a href="/docs/managed-kafka/api-ref/Cluster/list#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>Filter support is not currently implemented. Any filters are ignored.</p> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -67,7 +67,13 @@ filter | Filter support is not currently implemented. Any filters are ignored.  
             "socketReceiveBufferBytes": "integer",
             "autoCreateTopicsEnable": true,
             "numPartitions": "integer",
-            "defaultReplicationFactor": "integer"
+            "defaultReplicationFactor": "integer",
+            "messageMaxBytes": "integer",
+            "replicaFetchMaxBytes": "integer",
+            "sslCipherSuites": [
+              "string"
+            ],
+            "offsetsRetentionMinutes": "integer"
           },
           "kafkaConfig_2_6": {
             "compressionType": "string",
@@ -84,7 +90,13 @@ filter | Filter support is not currently implemented. Any filters are ignored.  
             "socketReceiveBufferBytes": "integer",
             "autoCreateTopicsEnable": true,
             "numPartitions": "integer",
-            "defaultReplicationFactor": "integer"
+            "defaultReplicationFactor": "integer",
+            "messageMaxBytes": "integer",
+            "replicaFetchMaxBytes": "integer",
+            "sslCipherSuites": [
+              "string"
+            ],
+            "offsetsRetentionMinutes": "integer"
           },
           "kafkaConfig_2_8": {
             "compressionType": "string",
@@ -101,7 +113,13 @@ filter | Filter support is not currently implemented. Any filters are ignored.  
             "socketReceiveBufferBytes": "integer",
             "autoCreateTopicsEnable": true,
             "numPartitions": "integer",
-            "defaultReplicationFactor": "integer"
+            "defaultReplicationFactor": "integer",
+            "messageMaxBytes": "integer",
+            "replicaFetchMaxBytes": "integer",
+            "sslCipherSuites": [
+              "string"
+            ],
+            "offsetsRetentionMinutes": "integer"
           },
           // end of the list of possible fields`clusters[].config.kafka`
 
@@ -158,7 +176,7 @@ filter | Filter support is not currently implemented. Any filters are ignored.  
  
 Field | Description
 --- | ---
-clusters[] | **object**<br><p>An Apache Kafka® cluster resource. For more information, see the <a href="/docs/managed-kafka/concepts">Concepts</a> section of the documentation.</p> 
+clusters[] | **object**<br><p>List of Apache Kafka® clusters.</p> 
 clusters[].<br>id | **string**<br><p>ID of the Apache Kafka® cluster. This ID is assigned at creation time.</p> 
 clusters[].<br>folderId | **string**<br><p>ID of the folder that the Apache Kafka® cluster belongs to.</p> 
 clusters[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
@@ -166,7 +184,7 @@ clusters[].<br>name | **string**<br><p>Name of the Apache Kafka® cluster. The n
 clusters[].<br>description | **string**<br><p>Description of the Apache Kafka® cluster. 0-256 characters long.</p> 
 clusters[].<br>labels | **object**<br><p>Custom labels for the Apache Kafka® cluster as ``key:value`` pairs. A maximum of 64 labels per resource is allowed.</p> 
 clusters[].<br>environment | **string**<br><p>Deployment environment of the Apache Kafka® cluster.</p> <ul> <li>PRODUCTION: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li> </ul> 
-clusters[].<br>monitoring[] | **object**<br><p>Metadata of monitoring system.</p> 
+clusters[].<br>monitoring[] | **object**<br><p>Description of monitoring systems relevant to the Apache Kafka® cluster.</p> 
 clusters[].<br>monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p> 
 clusters[].<br>monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 
 clusters[].<br>monitoring[].<br>link | **string**<br><p>Link to the monitoring system charts for the Apache Kafka® cluster.</p> 
@@ -193,6 +211,10 @@ clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>socketReceiveBufferBytes
 clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>autoCreateTopicsEnable | **boolean** (boolean)<br><p>Enable auto creation of topic on the server</p> 
 clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>numPartitions | **integer** (int64)<br><p>Default number of partitions per topic on the whole cluster</p> 
 clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>defaultReplicationFactor | **integer** (int64)<br><p>Default replication factor of the topic on the whole cluster</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>messageMaxBytes | **integer** (int64)<br><p>The largest record batch size allowed by Kafka. Default value: 1048588.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>replicaFetchMaxBytes | **integer** (int64)<br><p>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>sslCipherSuites[] | **string**<br><p>A list of cipher suites.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_1.<br>offsetsRetentionMinutes | **integer** (int64)<br><p>Offset storage time after a consumer group loses all its consumers. Default: 10080.</p> 
 clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6 | **object** <br>`clusters[].config.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`, `kafkaConfig_2_8`<br><br><p>Kafka version 2.6 broker configuration.</p> 
 clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>compressionType | **string**<br><p>Cluster topics compression type.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of ``ZSTD``, ``LZ4``, ``GZIP`` or ``SNAPPY`` codecs).</li> </ul> 
 clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>logFlushIntervalMessages | **integer** (int64)<br><p>The number of messages accumulated on a log partition before messages are flushed to disk.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the ``flushMessages`` setting.</p> 
@@ -209,6 +231,10 @@ clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>socketReceiveBufferBytes
 clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>autoCreateTopicsEnable | **boolean** (boolean)<br><p>Enable auto creation of topic on the server</p> 
 clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>numPartitions | **integer** (int64)<br><p>Default number of partitions per topic on the whole cluster</p> 
 clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>defaultReplicationFactor | **integer** (int64)<br><p>Default replication factor of the topic on the whole cluster</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>messageMaxBytes | **integer** (int64)<br><p>The largest record batch size allowed by Kafka. Default value: 1048588.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>replicaFetchMaxBytes | **integer** (int64)<br><p>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>sslCipherSuites[] | **string**<br><p>A list of cipher suites.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_6.<br>offsetsRetentionMinutes | **integer** (int64)<br><p>Offset storage time after a consumer group loses all its consumers. Default: 10080.</p> 
 clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_8 | **object** <br>`clusters[].config.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`, `kafkaConfig_2_8`<br><br><p>Kafka version 2.8 broker configuration.</p> 
 clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_8.<br>compressionType | **string**<br><p>Cluster topics compression type.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of ``ZSTD``, ``LZ4``, ``GZIP`` or ``SNAPPY`` codecs).</li> </ul> 
 clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_8.<br>logFlushIntervalMessages | **integer** (int64)<br><p>The number of messages accumulated on a log partition before messages are flushed to disk.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the ``flushMessages`` setting.</p> 
@@ -225,6 +251,10 @@ clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_8.<br>socketReceiveBufferBytes
 clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_8.<br>autoCreateTopicsEnable | **boolean** (boolean)<br><p>Enable auto creation of topic on the server</p> 
 clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_8.<br>numPartitions | **integer** (int64)<br><p>Default number of partitions per topic on the whole cluster</p> 
 clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_8.<br>defaultReplicationFactor | **integer** (int64)<br><p>Default replication factor of the topic on the whole cluster</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_8.<br>messageMaxBytes | **integer** (int64)<br><p>The largest record batch size allowed by Kafka. Default value: 1048588.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_8.<br>replicaFetchMaxBytes | **integer** (int64)<br><p>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_8.<br>sslCipherSuites[] | **string**<br><p>A list of cipher suites.</p> 
+clusters[].<br>config.<br>kafka.<br>kafkaConfig_2_8.<br>offsetsRetentionMinutes | **integer** (int64)<br><p>Offset storage time after a consumer group loses all its consumers. Default: 10080.</p> 
 clusters[].<br>config.<br>zookeeper | **object**<br><p>Configuration and resource allocation for ZooKeeper hosts.</p> 
 clusters[].<br>config.<br>zookeeper.<br>resources | **object**<br><p>Resources allocated to ZooKeeper hosts.</p> 
 clusters[].<br>config.<br>zookeeper.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the <a href="/docs/managed-kafka/concepts/instance-types">documentation</a>.</p> 

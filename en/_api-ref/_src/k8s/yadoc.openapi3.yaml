@@ -888,7 +888,7 @@ components:
             $ref: '#/components/schemas/MasterSpec'
             description: |-
               Required.
-              IP allocation policy of the Kubernetes cluster.
+              Master specification of the Kubernetes cluster.
           ipAllocationPolicy:
             $ref: '#/components/schemas/IPAllocationPolicy'
             description: IP allocation policy of the Kubernetes cluster.
@@ -1130,7 +1130,10 @@ components:
       maxProperties: 0
     ExternalAddressSpec:
       type: object
-      properties: {}
+      properties:
+        address:
+          description: IP address.
+          type: string
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -1393,6 +1396,10 @@ components:
         externalV4Endpoint:
           description: External endpoint that can be used to access Kubernetes cluster
             API from the internet (outside of the cloud).
+          type: string
+        externalV6Endpoint:
+          description: External IPv6 endpoint that can be used to access Kubernetes
+            cluster API from the internet (outside of the cloud).
           type: string
     MasterLocation:
       type: object
@@ -1705,6 +1712,17 @@ components:
 
             The maximum string length in characters is 128.
           type: string
+        labels:
+          description: |-
+            these labels will be assigned to compute nodes (instances), created by the nodegroup
+
+            No more than 32 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+            The maximum string length in characters for each value is 128.
+          type: object
+          additionalProperties:
+            type: string
         platformId:
           description: ID of the hardware platform configuration for the node.
           type: string
@@ -1858,6 +1876,8 @@ components:
             $ref: '#/components/schemas/MasterLocation'
         externalV4AddressSpec:
           $ref: '#/components/schemas/ExternalAddressSpec_in_RegionalMasterSpec_externalV4AddressSpec'
+        externalV6AddressSpec:
+          $ref: '#/components/schemas/ExternalAddressSpec_in_RegionalMasterSpec_externalV6AddressSpec'
     ReleaseChannel:
       description: |2-
          - RAPID: Minor updates with new functions and improvements are often added.
@@ -2295,6 +2315,17 @@ components:
 
             The maximum string length in characters is 128.
           type: string
+        labels:
+          description: |-
+            these labels will be assigned to compute nodes (instances), created by the nodegroup
+
+            No more than 32 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+            The maximum string length in characters for each value is 128.
+          type: object
+          additionalProperties:
+            type: string
         platformId:
           description: ID of the hardware platform configuration for the node.
           type: string
@@ -2672,6 +2703,17 @@ components:
 
             The maximum string length in characters is 128.
           type: string
+        labels:
+          description: |-
+            these labels will be assigned to compute nodes (instances), created by the nodegroup
+
+            No more than 32 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+            The maximum string length in characters for each value is 128.
+          type: object
+          additionalProperties:
+            type: string
         platformId:
           description: ID of the hardware platform configuration for the node.
           type: string
@@ -2992,7 +3034,17 @@ components:
     ExternalAddressSpec_in_RegionalMasterSpec_externalV4AddressSpec:
       description: Specify to allocate a static public IP for the master.
       type: object
-      properties: {}
+      properties:
+        address:
+          description: IP address.
+          type: string
+    ExternalAddressSpec_in_RegionalMasterSpec_externalV6AddressSpec:
+      description: Specification of parameters for external IPv6 networking.
+      type: object
+      properties:
+        address:
+          description: IP address.
+          type: string
     TaintEffect_in_Taint_effect:
       description: |-
         The effect of the taint on pods that do not tolerate the taint.
@@ -3041,6 +3093,17 @@ components:
 
             The maximum string length in characters is 128.
           type: string
+        labels:
+          description: |-
+            these labels will be assigned to compute nodes (instances), created by the nodegroup
+
+            No more than 32 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+            The maximum string length in characters for each value is 128.
+          type: object
+          additionalProperties:
+            type: string
         platformId:
           description: ID of the hardware platform configuration for the node.
           type: string
@@ -3172,7 +3235,10 @@ components:
     ExternalAddressSpec_in_ZonalMasterSpec_externalV4AddressSpec:
       description: Specification of parameters for external IPv4 networking.
       type: object
-      properties: {}
+      properties:
+        address:
+          description: IP address.
+          type: string
 tags:
 - name: Cluster
   description: A set of methods for managing Kubernetes cluster.

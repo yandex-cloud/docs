@@ -16,7 +16,7 @@ POST https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}/p
  
 Parameter | Description
 --- | ---
-registryId | Required. ID of registry publishing message  The maximum string length in characters is 50.
+registryId | <p>Required. ID of registry publishing message</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

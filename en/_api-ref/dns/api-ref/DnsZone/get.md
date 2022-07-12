@@ -16,7 +16,7 @@ GET https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}
  
 Parameter | Description
 --- | ---
-dnsZoneId | Required. ID of the DNS zone to return.  To get a DNS zone ID, make a [list](/docs/dns/api-ref/DnsZone/list) request.
+dnsZoneId | <p>Required. ID of the DNS zone to return.</p> <p>To get a DNS zone ID, make a <a href="/docs/dns/api-ref/DnsZone/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -1,3 +1,25 @@
 items:
   - name: Overview
     href: api-ref/index.md
+  - name: ResourcePreset
+    items:
+      - name: Overview
+        href: api-ref/ResourcePreset/index.md
+      - name: get
+        href: api-ref/ResourcePreset/get.md
+      - name: list
+        href: api-ref/ResourcePreset/list.md
+  - name: Storage
+    items:
+      - name: Overview
+        href: api-ref/Storage/index.md
+      - name: create
+        href: api-ref/Storage/create.md
+      - name: delete
+        href: api-ref/Storage/delete.md
+      - name: get
+        href: api-ref/Storage/get.md
+      - name: list
+        href: api-ref/Storage/list.md
+      - name: uploadObject
+        href: api-ref/Storage/uploadObject.md

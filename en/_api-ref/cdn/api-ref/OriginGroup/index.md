@@ -47,7 +47,7 @@ id | **string** (int64)<br><p>ID of the origin group. Generated at creation time
 folderId | **string**<br><p>ID of the folder that the origin group belongs to.</p> 
 name | **string**<br><p>Name of the origin group.</p> 
 useNext | **boolean** (boolean)<br><p>This option have two possible conditions: true - the option is active. In case the origin responds with 4XX or 5XX codes, use the next origin from the list. false - the option is disabled.</p> 
-origins[] | **object**<br><p>An origin. For details about the concept, see <a href="/docs/cdn/concepts/origins">documentation</a>.</p> 
+origins[] | **object**<br><p>List of origins.</p> 
 origins[].<br>id | **string** (int64)<br><p>ID of the origin.</p> 
 origins[].<br>originGroupId | **string** (int64)<br><p>ID of the parent origin group.</p> 
 origins[].<br>source | **string**<br><p>IP address or Domain name of your origin and the port (if custom). Used if <a href="/docs/cdn/api-ref/Origin#representation">meta</a> variant is ``common``.</p> 

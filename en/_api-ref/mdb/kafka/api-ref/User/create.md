@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}/users
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Apache Kafka® cluster to create a user in.  To get the cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the Apache Kafka® cluster to create a user in.</p> <p>To get the cluster ID, make a <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

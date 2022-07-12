@@ -16,8 +16,8 @@ POST https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}/connectors
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Apache Kafka® cluster to resume the connector in.  To get this ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-connectorName | Required. Name of the Apache Kafka® connector to resume.  To get this name, make a [list](/docs/managed-kafka/api-ref/Connector/list) request.  The maximum string length in characters is 256. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+clusterId | <p>Required. ID of the Apache Kafka® cluster to resume the connector in.</p> <p>To get this ID, make a <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+connectorName | <p>Required. Name of the Apache Kafka® connector to resume.</p> <p>To get this name, make a <a href="/docs/managed-kafka/api-ref/Connector/list">list</a> request.</p> <p>The maximum string length in characters is 256. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
  
 ## Body parameters {#body_params}
  

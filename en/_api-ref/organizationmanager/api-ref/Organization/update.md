@@ -16,7 +16,7 @@ PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/organi
  
 Parameter | Description
 --- | ---
-organizationId | Required. ID of the organization to update. To get the organization ID, use a [list](/docs/organization/api-ref/Organization/list) request.  The maximum string length in characters is 50.
+organizationId | <p>Required. ID of the organization to update. To get the organization ID, use a <a href="/docs/organization/api-ref/Organization/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

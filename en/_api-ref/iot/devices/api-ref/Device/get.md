@@ -16,13 +16,13 @@ GET https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}
  
 Parameter | Description
 --- | ---
-deviceId | Required. ID of the device to return.  To get a device ID make a [list](/docs/iot-core/api-ref/Device/list) request.  The maximum string length in characters is 50.
+deviceId | <p>Required. ID of the device to return.</p> <p>To get a device ID make a <a href="/docs/iot-core/api-ref/Device/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-deviceView | Specifies which parts of the device resource should be returned in the response.<ul> <li>BASIC: Server responses without monitoring data. The default value.</li> <li>FULL: Server responses with monitoring data.</li> </ul> 
+deviceView | <p>Specifies which parts of the device resource should be returned in the response.</p> <ul> <li>BASIC: Server responses without monitoring data. The default value.</li> <li>FULL: Server responses with monitoring data.</li> </ul> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

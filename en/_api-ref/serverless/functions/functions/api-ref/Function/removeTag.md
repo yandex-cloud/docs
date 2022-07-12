@@ -16,7 +16,7 @@ POST https://serverless-functions.{{ api-host }}/functions/v1/versions/{function
  
 Parameter | Description
 --- | ---
-functionVersionId | Required. ID of the version to remove a tag from.  To get the a version ID make a [listVersions](/docs/functions/functions/api-ref/Function/listVersions) request.
+functionVersionId | <p>Required. ID of the version to remove a tag from.</p> <p>To get the a version ID make a <a href="/docs/functions/functions/api-ref/Function/listVersions">listVersions</a> request.</p> 
  
 ## Body parameters {#body_params}
  

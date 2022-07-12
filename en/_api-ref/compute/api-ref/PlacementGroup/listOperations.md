@@ -16,14 +16,14 @@ GET https://compute.{{ api-host }}/compute/v1/placementGroups/{placementGroupId}
  
 Parameter | Description
 --- | ---
-placementGroupId | ID of the placement group to list operations for.  To get the placement group ID, use [list](/docs/compute/api-ref/PlacementGroup/list) request.
+placementGroupId | <p>ID of the placement group to list operations for.</p> <p>To get the placement group ID, use <a href="/docs/compute/api-ref/PlacementGroup/list">list</a> request.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/PlacementGroup/listOperations#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/PlacementGroup/listOperations#responses) that can be used to get the next page of results in subsequent list requests.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/PlacementGroup/listOperations#query_params) to the [nextPageToken](/docs/compute/api-ref/PlacementGroup/listOperations#responses) returned by a previous list request.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/PlacementGroup/listOperations#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/PlacementGroup/listOperations#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/compute/api-ref/PlacementGroup/listOperations#query_params">pageToken</a> to the <a href="/docs/compute/api-ref/PlacementGroup/listOperations#responses">nextPageToken</a> returned by a previous list request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -60,7 +60,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/c
  
 Field | Description
 --- | ---
-operations[] | **object**<br><p>An Operation resource. For more information, see <a href="/docs/api-design-guide/concepts/operation">Operation</a>.</p> 
+operations[] | **object**<br><p>List of operations for the specified placement group.</p> 
 operations[].<br>id | **string**<br><p>ID of the operation.</p> 
 operations[].<br>description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
 operations[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

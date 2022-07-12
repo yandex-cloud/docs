@@ -16,7 +16,7 @@ DELETE https://load-balancer.{{ api-host }}/load-balancer/v1/targetGroups/{targe
  
 Parameter | Description
 --- | ---
-targetGroupId | Required. ID of the target group to delete. To get the target group ID, use a [list](/docs/network-load-balancer/api-ref/TargetGroup/list) request.  The maximum string length in characters is 50.
+targetGroupId | <p>Required. ID of the target group to delete. To get the target group ID, use a <a href="/docs/network-load-balancer/api-ref/TargetGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

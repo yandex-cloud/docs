@@ -136,7 +136,7 @@ paths:
         description: |-
           Page token.
 
-          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Cluster/list#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses) returned by a previous list request.
+          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Cluster/list#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Cluster/list#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -374,7 +374,7 @@ paths:
         description: |-
           Page token.
 
-          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses) returned by a previous list request.
+          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listLogs#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -528,7 +528,7 @@ paths:
         description: |-
           Page token.
 
-          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses) returned by a previous list request.
+          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listOperations#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -576,7 +576,7 @@ paths:
         description: |-
           Page token.
 
-          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#responses) returned by a previous list request.
+          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Cluster/listHosts#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -950,7 +950,7 @@ paths:
         description: |-
           Page token.
 
-          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses), returned by a previous list request.
+          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/ResourcePreset/list#responses), returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -1130,7 +1130,7 @@ paths:
         description: |-
           Page token.
 
-          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Topic/list#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses) returned by a previous list request.
+          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/Topic/list#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/Topic/list#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -1343,7 +1343,7 @@ paths:
         description: |-
           Page token.
 
-          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/User/list#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses) returned by a previous list request.
+          To get the next page of results, set [pageToken](/docs/managed-kafka/api-ref/User/list#query_params) to the [nextPageToken](/docs/managed-kafka/api-ref/User/list#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -1771,6 +1771,8 @@ components:
           connectorConfigMirrormaker:
             $ref: '#/components/schemas/ConnectorConfigMirrorMaker'
             description: Configuration of the MirrorMaker connector.
+          connectorConfigS3Sink:
+            $ref: '#/components/schemas/ConnectorConfigS3Sink'
     ConnectorConfigMirrorMaker:
       type: object
       properties:
@@ -1799,6 +1801,46 @@ components:
           description: Replication factor for automatically created topics.
           type: integer
           format: int64
+    ConnectorConfigS3Sink:
+      description: |-
+        An Apache Kafka® S3-Sink
+        connector resource.
+      type: object
+      properties:
+        topics:
+          description: List of Kafka topics, separated by ','
+          type: string
+        fileCompressionType:
+          description: |-
+            The compression type used for files put on GCS.
+            The supported values are: `gzip`, `snappy`, `zstd`, `none`.
+            Optional, the default is `none`.
+          type: string
+        fileMaxRecords:
+          description: Max records per file.
+          type: integer
+          format: int64
+        s3Connection:
+          $ref: '#/components/schemas/S3Connection_in_ConnectorConfigS3Sink_s3Connection'
+    ConnectorConfigS3SinkSpec:
+      description: Specification for Kafka S3-Sink Connector
+      type: object
+      properties:
+        topics:
+          description: List of Kafka topics, separated by ','.
+          type: string
+        fileCompressionType:
+          description: |-
+            The compression type used for files put on GCS.
+            The supported values are: `gzip`, `snappy`, `zstd`, `none`.
+            Optional, the default is `none`.
+          type: string
+        fileMaxRecords:
+          description: Max records per file.
+          type: integer
+          format: int64
+        s3Connection:
+          $ref: '#/components/schemas/S3ConnectionSpec_in_ConnectorConfigS3SinkSpec_s3Connection'
     ConnectorHealth:
       description: |2-
          - HEALTH_UNKNOWN: Health of the connector is unknown.
@@ -1841,6 +1883,9 @@ components:
           connectorConfigMirrormaker:
             $ref: '#/components/schemas/ConnectorConfigMirrorMakerSpec'
             description: Configuration of the MirrorMaker connector.
+          connectorConfigS3Sink:
+            $ref: '#/components/schemas/ConnectorConfigS3SinkSpec'
+            description: Configuration of S3-Sink connector
     ConnectorStatus:
       description: |2-
          - STATUS_UNKNOWN: Connector state is unknown.
@@ -2072,6 +2117,28 @@ components:
             CA in PEM format to connect to external cluster.
             Lines of certificate separated by '\n' symbol.
           type: string
+    ExternalS3Storage:
+      type: object
+      properties:
+        accessKeyId:
+          type: string
+        endpoint:
+          type: string
+        region:
+          description: Default is 'us-east-1'
+          type: string
+    ExternalS3StorageSpec:
+      type: object
+      properties:
+        accessKeyId:
+          type: string
+        secretAccessKey:
+          type: string
+        endpoint:
+          type: string
+        region:
+          description: Default is 'us-east-1'
+          type: string
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -2242,6 +2309,26 @@ components:
           description: Default replication factor of the topic on the whole cluster
           type: integer
           format: int64
+        messageMaxBytes:
+          description: 'The largest record batch size allowed by Kafka. Default value:
+            1048588.'
+          type: integer
+          format: int64
+        replicaFetchMaxBytes:
+          description: 'The number of bytes of messages to attempt to fetch for each
+            partition. Default value: 1048576.'
+          type: integer
+          format: int64
+        sslCipherSuites:
+          description: A list of cipher suites.
+          type: array
+          items:
+            type: string
+        offsetsRetentionMinutes:
+          description: 'Offset storage time after a consumer group loses all its consumers.
+            Default: 10080.'
+          type: integer
+          format: int64
     KafkaConfig2_6:
       description: Kafka version 2.6 broker configuration.
       type: object
@@ -2334,6 +2421,26 @@ components:
           description: Default replication factor of the topic on the whole cluster
           type: integer
           format: int64
+        messageMaxBytes:
+          description: 'The largest record batch size allowed by Kafka. Default value:
+            1048588.'
+          type: integer
+          format: int64
+        replicaFetchMaxBytes:
+          description: 'The number of bytes of messages to attempt to fetch for each
+            partition. Default value: 1048576.'
+          type: integer
+          format: int64
+        sslCipherSuites:
+          description: A list of cipher suites.
+          type: array
+          items:
+            type: string
+        offsetsRetentionMinutes:
+          description: 'Offset storage time after a consumer group loses all its consumers.
+            Default: 10080.'
+          type: integer
+          format: int64
     KafkaConfig2_8:
       description: Kafka version 2.8 broker configuration.
       type: object
@@ -2424,6 +2531,26 @@ components:
           format: int64
         defaultReplicationFactor:
           description: Default replication factor of the topic on the whole cluster
+          type: integer
+          format: int64
+        messageMaxBytes:
+          description: 'The largest record batch size allowed by Kafka. Default value:
+            1048588.'
+          type: integer
+          format: int64
+        replicaFetchMaxBytes:
+          description: 'The number of bytes of messages to attempt to fetch for each
+            partition. Default value: 1048576.'
+          type: integer
+          format: int64
+        sslCipherSuites:
+          description: A list of cipher suites.
+          type: array
+          items:
+            type: string
+        offsetsRetentionMinutes:
+          description: 'Offset storage time after a consumer group loses all its consumers.
+            Default: 10080.'
           type: integer
           format: int64
     ListClusterHostsResponse:
@@ -2824,6 +2951,42 @@ components:
       properties:
         permission:
           $ref: '#/components/schemas/Permission_in_RevokeUserPermissionRequest_permission'
+    S3Connection:
+      description: |-
+        Resource for S3Connection -
+        settings of connection to AWS-compatible S3 storage, that
+        are source or target of Kafka S3-connectors.
+        YC Object Storage is AWS-compatible.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          bucketName:
+            type: string
+      - title: storage
+        type: object
+        maxProperties: 1
+        properties:
+          externalS3:
+            $ref: '#/components/schemas/ExternalS3Storage'
+    S3ConnectionSpec:
+      description: |-
+        Specification for S3Connection -
+        settings of connection to AWS-compatible S3 storage, that
+        are source or target of Kafka S3-connectors.
+        YC Object Storage is AWS-compatible.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          bucketName:
+            type: string
+      - title: storage
+        type: object
+        maxProperties: 1
+        properties:
+          externalS3:
+            $ref: '#/components/schemas/ExternalS3StorageSpec'
     StartClusterMetadata:
       type: object
       properties:
@@ -3228,6 +3391,19 @@ components:
           format: boolean
         maintenanceWindow:
           $ref: '#/components/schemas/MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow'
+    UpdateConnectorConfigS3SinkSpec:
+      description: Specification for update Kafka S3-Sink Connector
+      type: object
+      properties:
+        topics:
+          description: List of Kafka topics, separated by ','.
+          type: string
+        fileMaxRecords:
+          description: Max records per file.
+          type: integer
+          format: int64
+        s3Connection:
+          $ref: '#/components/schemas/S3ConnectionSpec_in_UpdateConnectorConfigS3SinkSpec_s3Connection'
     UpdateConnectorMetadata:
       type: object
       properties:
@@ -3276,6 +3452,9 @@ components:
           connectorConfigMirrormaker:
             $ref: '#/components/schemas/ConnectorConfigMirrorMakerSpec'
             description: Configuration of the MirrorMaker connector.
+          connectorConfigS3Sink:
+            $ref: '#/components/schemas/UpdateConnectorConfigS3SinkSpec'
+            description: Update specification for S3-Sink Connector.
     UpdateTopicMetadata:
       type: object
       properties:
@@ -3651,6 +3830,46 @@ components:
             $ref: '#/components/schemas/ExternalClusterConnectionSpec'
             description: Configuration of connection to an external cluster with all
               the necessary credentials.
+    S3Connection_in_ConnectorConfigS3Sink_s3Connection:
+      description: |-
+        Credentials for connecting to S3 storage
+
+        Resource for S3Connection -
+        settings of connection to AWS-compatible S3 storage, that
+        are source or target of Kafka S3-connectors.
+        YC Object Storage is AWS-compatible.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          bucketName:
+            type: string
+      - title: storage
+        type: object
+        maxProperties: 1
+        properties:
+          externalS3:
+            $ref: '#/components/schemas/ExternalS3Storage'
+    S3ConnectionSpec_in_ConnectorConfigS3SinkSpec_s3Connection:
+      description: |-
+        Credentials for connecting to S3 storage
+
+        Specification for S3Connection -
+        settings of connection to AWS-compatible S3 storage, that
+        are source or target of Kafka S3-connectors.
+        YC Object Storage is AWS-compatible.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          bucketName:
+            type: string
+      - title: storage
+        type: object
+        maxProperties: 1
+        properties:
+          externalS3:
+            $ref: '#/components/schemas/ExternalS3StorageSpec'
     ClusterEnvironment_in_CreateClusterRequest_environment:
       description: |-
         Deployment environment of the Apache Kafka® cluster.
@@ -3744,6 +3963,9 @@ components:
           connectorConfigMirrormaker:
             $ref: '#/components/schemas/ConnectorConfigMirrorMakerSpec'
             description: Configuration of the MirrorMaker connector.
+          connectorConfigS3Sink:
+            $ref: '#/components/schemas/ConnectorConfigS3SinkSpec'
+            description: Configuration of S3-Sink connector
     TopicSpec_in_CreateTopicRequest_topicSpec:
       description: |-
         Required.
@@ -4122,6 +4344,26 @@ components:
             $ref: '#/components/schemas/AnytimeMaintenanceWindow'
           weeklyMaintenanceWindow:
             $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+    S3ConnectionSpec_in_UpdateConnectorConfigS3SinkSpec_s3Connection:
+      description: |-
+        Credentials for connecting to S3 storage
+
+        Specification for S3Connection -
+        settings of connection to AWS-compatible S3 storage, that
+        are source or target of Kafka S3-connectors.
+        YC Object Storage is AWS-compatible.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          bucketName:
+            type: string
+      - title: storage
+        type: object
+        maxProperties: 1
+        properties:
+          externalS3:
+            $ref: '#/components/schemas/ExternalS3StorageSpec'
     FieldMask_in_UpdateConnectorRequest_updateMask:
       description: |-
         Field mask that specifies which settings of the connector should be updated.
@@ -4161,6 +4403,9 @@ components:
           connectorConfigMirrormaker:
             $ref: '#/components/schemas/ConnectorConfigMirrorMakerSpec'
             description: Configuration of the MirrorMaker connector.
+          connectorConfigS3Sink:
+            $ref: '#/components/schemas/UpdateConnectorConfigS3SinkSpec'
+            description: Update specification for S3-Sink Connector.
     FieldMask_in_UpdateTopicRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.

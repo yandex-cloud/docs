@@ -16,14 +16,14 @@ GET https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}:getRecordSet
  
 Parameter | Description
 --- | ---
-dnsZoneId | ID of the DNS zone to get record set from.  To get a DNS zone ID, make a [list](/docs/dns/api-ref/DnsZone/list) request.  The string length in characters must be equal to 20.
+dnsZoneId | <p>ID of the DNS zone to get record set from.</p> <p>To get a DNS zone ID, make a <a href="/docs/dns/api-ref/DnsZone/list">list</a> request.</p> <p>The string length in characters must be equal to 20.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-name | Required. Name of the record set.  The maximum string length in characters is 255.
-type | Required. Type of the record set.  The maximum string length in characters is 10.
+name | <p>Required. Name of the record set.</p> <p>The maximum string length in characters is 255.</p> 
+type | <p>Required. Type of the record set.</p> <p>The maximum string length in characters is 10.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

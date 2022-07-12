@@ -16,7 +16,7 @@ PATCH https://compute.{{ api-host }}/compute/v1/instances/{instanceId}
  
 Parameter | Description
 --- | ---
-instanceId | Required. ID of the Instance resource to update. To get the instance ID, use a [list](/docs/compute/api-ref/Instance/list) request.  The maximum string length in characters is 50.
+instanceId | <p>Required. ID of the Instance resource to update. To get the instance ID, use a <a href="/docs/compute/api-ref/Instance/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  
@@ -34,6 +34,12 @@ instanceId | Required. ID of the Instance resource to update. To get the instanc
     "gpus": "string"
   },
   "metadata": "object",
+  "metadataOptions": {
+    "gceHttpEndpoint": "string",
+    "awsV1HttpEndpoint": "string",
+    "gceHttpToken": "string",
+    "awsV1HttpToken": "string"
+  },
   "serviceAccountId": "string",
   "networkSettings": {
     "type": "string"
@@ -70,12 +76,17 @@ resourcesSpec.<br>cores | **string** (int64)<br><p>Required. The number of cores
 resourcesSpec.<br>coreFraction | **string** (int64)<br><p>Baseline level of CPU performance with the ability to burst performance above that baseline level. This field sets baseline performance for each core.</p> <p>For example, if you need only 5% of the CPU performance, you can set core_fraction=5. For more information, see <a href="/docs/compute/concepts/performance-levels">Levels of core performance</a>.</p> <p>Value must be one of 0, 5, 20, 50 or 100.</p> 
 resourcesSpec.<br>gpus | **string** (int64)<br><p>The number of GPUs available to the instance.</p> <p>Value must be one of 0, 1, 2 or 4.</p> 
 metadata | **object**<br><p>The metadata ``key:value`` pairs that will be assigned to this instance. This includes custom metadata and predefined keys. The total size of all keys and values must be less than 512 KB.</p> <p>Existing set of ``metadata`` is completely replaced by the provided set.</p> <p>Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance. The values must be 256 KB or less.</p> <p>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see <a href="/docs/compute/concepts/vm-metadata">Metadata</a>.</p> 
+metadataOptions | **object**<br><p>Options allow user to configure access to instance's metadata</p> 
+metadataOptions.<br>gceHttpEndpoint | **string**<br><p>Enabled access to GCE flavored metadata</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
+metadataOptions.<br>awsV1HttpEndpoint | **string**<br><p>Enabled access to AWS flavored metadata (IMDSv1)</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
+metadataOptions.<br>gceHttpToken | **string**<br><p>Enabled access to IAM credentials with GCE flavored metadata</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
+metadataOptions.<br>awsV1HttpToken | **string**<br><p>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
 serviceAccountId | **string**<br><p>ID of the service account to use for <a href="/docs/compute/operations/vm-connect/auth-inside-vm">authentication inside the instance</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 
 networkSettings | **object**<br><p>Network settings.</p> 
 networkSettings.<br>type | **string**<br><p>Network Type</p> <ul> <li>STANDARD: Standard network.</li> <li>SOFTWARE_ACCELERATED: Software accelerated network.</li> <li>HARDWARE_ACCELERATED: Hardware accelerated network (not available yet, reserved for future use).</li> </ul> 
 placementPolicy | **object**<br><p>Placement policy configuration.</p> 
 placementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
-placementPolicy.<br>hostAffinityRules[] | **object**<br><p>Affinitity definition</p> 
+placementPolicy.<br>hostAffinityRules[] | **object**<br><p>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules.</p> 
 placementPolicy.<br>hostAffinityRules[].<br>key | **string**<br><p>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'</p> 
 placementPolicy.<br>hostAffinityRules[].<br>op | **string**<br><p>Include or exclude action</p> 
 placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity value or host ID or host group ID</p> 

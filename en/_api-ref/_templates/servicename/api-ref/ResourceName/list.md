@@ -16,10 +16,10 @@ GET https://servicename.{{ api-host }}/servicename/v1/resourceNames
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list resource names in.  To get the folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/service-name/api-ref/ResourceName/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/service-name/api-ref/ResourceName/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resource names listed in the response.  The expression must specify: 1. The field name. Currently you can use filtering only on [ResourceName.name](/docs/service-name/api-ref/ResourceName#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter: `name=my-resourcename`.  The maximum string length in characters is 1000.
+folderId | <p>Required. ID of the folder to list resource names in.</p> <p>To get the folder ID make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than ``page_size``, the service returns a <a href="/docs/service-name/api-ref/ResourceName/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/service-name/api-ref/ResourceName/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resource names listed in the response.</p> <p>The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on <a href="/docs/service-name/api-ref/ResourceName#representation">ResourceName.name</a> field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be 3-63 characters long and match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``. Example of a filter: ``name=my-resourcename``.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -45,7 +45,7 @@ filter | A filter expression that filters resource names listed in the response.
  
 Field | Description
 --- | ---
-resourceNames[] | **object**<br><p>A resource name. For details about the concept, see <a href="/docs/service-name/concepts/resource-name">documentation</a>.</p> 
+resourceNames[] | **object**<br><p>List of resource name in the specified folder.</p> 
 resourceNames[].<br>id | **string**<br><p>ID of the resource name. Generated at creation time.</p> 
 resourceNames[].<br>folderId | **string**<br><p>ID of the folder that the resource name belongs to.</p> 
 resourceNames[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

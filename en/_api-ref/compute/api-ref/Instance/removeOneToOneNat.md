@@ -16,7 +16,7 @@ POST https://compute.{{ api-host }}/compute/v1/instances/{instanceId}/removeOneT
  
 Parameter | Description
 --- | ---
-instanceId | ID of the instance to remove One-to-one NAT.
+instanceId | <p>ID of the instance to remove One-to-one NAT.</p> 
  
 ## Body parameters {#body_params}
  

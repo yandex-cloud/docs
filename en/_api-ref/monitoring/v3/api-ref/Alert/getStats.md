@@ -16,7 +16,7 @@ GET https://monitoring.{{ api-host }}/monitoring/v3/alerts:getStats
  
 Parameter | Description
 --- | ---
-folderId | Required. Folder ID.  The maximum string length in characters is 50.
+folderId | <p>Required. Folder ID.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -16,7 +16,7 @@ POST https://billing.{{ api-host }}/billing/v1/billingAccounts/{billingAccountId
  
 Parameter | Description
 --- | ---
-billingAccountId | Required. ID of the billing account to bind billable object. To get the billing account ID, use [list](/docs/billing/api-ref/BillingAccount/list) request.  The maximum string length in characters is 50.
+billingAccountId | <p>Required. ID of the billing account to bind billable object. To get the billing account ID, use <a href="/docs/billing/api-ref/BillingAccount/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

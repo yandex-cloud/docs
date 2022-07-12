@@ -16,11 +16,11 @@ GET https://monitoring.{{ api-host }}/monitoring/v3/metrics/labelValues
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the fodler that the metric belongs to.  The maximum string length in characters is 50.
-labels | For which label key perform values lookup.
-selectors | Metric selectors.
-valueFilter | Substring value filter text.
-pageSize | Maximum number of label values for concrete key in response. 0 means default page size = 30, maximum page size = 10000.
+folderId | <p>Required. ID of the fodler that the metric belongs to.</p> <p>The maximum string length in characters is 50.</p> 
+labels | <p>For which label key perform values lookup.</p> 
+selectors | <p>Metric selectors.</p> 
+valueFilter | <p>Substring value filter text.</p> 
+pageSize | <p>Maximum number of label values for concrete key in response. 0 means default page size = 30, maximum page size = 10000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

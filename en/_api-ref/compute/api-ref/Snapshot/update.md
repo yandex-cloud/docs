@@ -16,7 +16,7 @@ PATCH https://compute.{{ api-host }}/compute/v1/snapshots/{snapshotId}
  
 Parameter | Description
 --- | ---
-snapshotId | Required. ID of the Snapshot resource to update. To get the snapshot ID use a [list](/docs/compute/api-ref/Snapshot/list) request.  The maximum string length in characters is 50.
+snapshotId | <p>Required. ID of the Snapshot resource to update. To get the snapshot ID use a <a href="/docs/compute/api-ref/Snapshot/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

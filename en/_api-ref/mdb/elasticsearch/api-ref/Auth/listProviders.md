@@ -16,7 +16,7 @@ GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/aut
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the ElasticSearch cluster.  The maximum string length in characters is 50.
+clusterId | <p>Required. Required. ID of the ElasticSearch cluster.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

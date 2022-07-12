@@ -16,7 +16,7 @@ POST https://certificate-manager.{{ api-host }}/certificate-manager/v1/certifica
  
 Parameter | Description
 --- | ---
-resourceId | Required. ID of the resource for which access bindings are being updated.  The maximum string length in characters is 50.
+resourceId | <p>Required. ID of the resource for which access bindings are being updated.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

@@ -16,7 +16,7 @@ POST https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId
  
 Parameter | Description
 --- | ---
-loadBalancerId | Required. ID of the application load balancer to remove the listener from.
+loadBalancerId | <p>Required. ID of the application load balancer to remove the listener from.</p> 
  
 ## Body parameters {#body_params}
  

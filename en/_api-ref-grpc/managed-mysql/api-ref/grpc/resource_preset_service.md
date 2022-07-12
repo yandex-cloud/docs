@@ -57,7 +57,7 @@ page_token | **string**<br>Page token that can be used to iterate through multip
 Field | Description
 --- | ---
 resource_presets[] | **[ResourcePreset](#ResourcePreset1)**<br>List of resource presets. 
-next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListResourcePresetsRequest.page_size](#ListResourcePresetsRequest), use the `next_page_token` as the value for the [ListResourcePresetsRequest.page_token](#ListResourcePresetsRequest) in the subsequent [ResourcePresetService.List](#List)(#List) request to iterate through multiple pages of results. <br>Each of the subsequent [ResourcePresetService.List] requests should use the `next_page_token` value returned by the previous request to continue paging through the results. The maximum string length in characters is 100.
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListResourcePresetsRequest.page_size](#ListResourcePresetsRequest), use the `next_page_token` as the value for the [ListResourcePresetsRequest.page_token](#ListResourcePresetsRequest) in the subsequent [ResourcePresetService.List](#List) request to iterate through multiple pages of results. <br>Each of the subsequent [ResourcePresetService.List](#List) requests should use the `next_page_token` value returned by the previous request to continue paging through the results. The maximum string length in characters is 100.
 
 
 ### ResourcePreset {#ResourcePreset1}

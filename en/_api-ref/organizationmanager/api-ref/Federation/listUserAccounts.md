@@ -16,14 +16,14 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/fed
  
 Parameter | Description
 --- | ---
-federationId | Required. ID of the federation to list user accounts for.  The maximum string length in characters is 50.
+federationId | <p>Required. ID of the federation to list user accounts for.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/organization/api-ref/Federation/listUserAccounts#query_params), the service returns a [nextPageToken](/docs/organization/api-ref/Federation/listUserAccounts#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/organization/api-ref/Federation/listUserAccounts#query_params) to the [nextPageToken](/docs/organization/api-ref/Federation/listUserAccounts#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/organization/api-ref/Federation/listUserAccounts#query_params">pageSize</a>, the service returns a <a href="/docs/organization/api-ref/Federation/listUserAccounts#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/organization/api-ref/Federation/listUserAccounts#query_params">pageToken</a> to the <a href="/docs/organization/api-ref/Federation/listUserAccounts#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -55,7 +55,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/o
  
 Field | Description
 --- | ---
-userAccounts[] | **object**<br><p>Currently represents only <a href="/docs/iam/concepts/#passport">Yandex account</a>.</p> 
+userAccounts[] | **object**<br><p>List of user accounts for the specified federation.</p> 
 userAccounts[].<br>id | **string**<br><p>ID of the user account.</p> 
 userAccounts[].<br>yandexPassportUserAccount | **object**<br>A YandexPassportUserAccount resource. <br>`userAccounts[]` includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`<br><br><p>A YandexPassportUserAccount resource. For more information, see <a href="/docs/iam/concepts/#passport">Yandex account</a>.</p> 
 userAccounts[].<br>yandexPassportUserAccount.<br>login | **string**<br><p>Login of the Yandex user account.</p> 

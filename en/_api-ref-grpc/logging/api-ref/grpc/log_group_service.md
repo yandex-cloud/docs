@@ -132,7 +132,7 @@ name | **string**<br>Name of the log group. The name must be unique within the f
 description | **string**<br>Description of the log group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Log group labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Log group entry retention period. <br>Entries will be present in group during this period. If specified, must be non-negative. Empty or zero value is treated as no limit. 
-data_stream | **string**<br>Data stream name If specified, all log records will be written to this data stream The maximum string length in characters is 512.
+data_stream | **string**<br>If specified, all log records will be written to this data stream The maximum string length in characters is 512.
 
 
 ### Operation {#Operation}
@@ -194,7 +194,7 @@ name | **string**<br>New name of the log group. The name must be unique within t
 description | **string**<br>New Description of the log group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>New log group labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>New log group entry retention period. <br>Entries will be present in group during this period. If specified, must be non-negative. Empty or zero value is treated as no limit. 
-data_stream | **string**<br>Data stream name If specified, log records will be written to this data stream The maximum string length in characters is 512.
+data_stream | **string**<br>If specified, log records will be written to this data stream The maximum string length in characters is 512.
 
 
 ### Operation {#Operation1}

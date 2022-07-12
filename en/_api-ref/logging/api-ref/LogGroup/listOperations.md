@@ -16,15 +16,15 @@ GET https://logging.{{ api-host }}/logging/v1/logGroups/{logGroupId}/operations
  
 Parameter | Description
 --- | ---
-logGroupId | Required. ID of the log group to list operations for.  To get a log group ID make a [list](/docs/logging/api-ref/LogGroup/list) request.  The maximum string length in characters is 64.
+logGroupId | <p>Required. ID of the log group to list operations for.</p> <p>To get a log group ID make a <a href="/docs/logging/api-ref/LogGroup/list">list</a> request.</p> <p>The maximum string length in characters is 64.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/logging/api-ref/LogGroup/listOperations#responses) that can be used to get the next page of results in subsequent list requests.  Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/logging/api-ref/LogGroup/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response.  The expression must specify: 1. The field name. Currently filtering can be applied to the [Operation.description](/docs/operation/api-ref/Operation#representation), [Operation.createdAt](/docs/operation/api-ref/Operation#representation), [Operation.modifiedAt](/docs/operation/api-ref/Operation#representation), [Operation.createdBy](/docs/operation/api-ref/Operation#representation), [Operation.done](/docs/operation/api-ref/Operation#representation) fields. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Examples of a filter: `done=false`, `created_by='John.Doe'`.  The maximum string length in characters is 1000.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than ``page_size``, the service returns a <a href="/docs/logging/api-ref/LogGroup/listOperations#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/logging/api-ref/LogGroup/listOperations#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resources listed in the response.</p> <p>The expression must specify:</p> <ol> <li>The field name. Currently filtering can be applied to the <a href="/docs/operation/api-ref/Operation#representation">Operation.description</a>, <a href="/docs/operation/api-ref/Operation#representation">Operation.createdAt</a>, <a href="/docs/operation/api-ref/Operation#representation">Operation.modifiedAt</a>, <a href="/docs/operation/api-ref/Operation#representation">Operation.createdBy</a>, <a href="/docs/operation/api-ref/Operation#representation">Operation.done</a> fields.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be 3-63 characters long and match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``. Examples of a filter: ``done=false``, ``created_by='John.Doe'``.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -61,7 +61,7 @@ filter | A filter expression that filters resources listed in the response.  The
  
 Field | Description
 --- | ---
-operations[] | **object**<br><p>An Operation resource. For more information, see <a href="/docs/api-design-guide/concepts/operation">Operation</a>.</p> 
+operations[] | **object**<br><p>List of operations for the specified log group.</p> 
 operations[].<br>id | **string**<br><p>ID of the operation.</p> 
 operations[].<br>description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
 operations[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

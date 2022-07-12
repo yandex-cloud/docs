@@ -16,7 +16,7 @@ GET https://mdb.{{ api-host }}/managed-redis/v1/backups/{backupId}
  
 Parameter | Description
 --- | ---
-backupId | Required. ID of the Redis backup to return. To get the backup ID, use a [listBackups](/docs/managed-redis/api-ref/Cluster/listBackups) request.
+backupId | <p>Required. ID of the Redis backup to return. To get the backup ID, use a <a href="/docs/managed-redis/api-ref/Cluster/listBackups">listBackups</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

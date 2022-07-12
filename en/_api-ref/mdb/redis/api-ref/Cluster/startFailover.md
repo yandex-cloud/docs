@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/managed-redis/v1/clusters/{clusterId}:startFailo
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Redis cluster to start failover on.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the Redis cluster to start failover on.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

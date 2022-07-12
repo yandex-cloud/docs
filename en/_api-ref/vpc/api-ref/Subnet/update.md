@@ -17,7 +17,7 @@ PATCH https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}
  
 Parameter | Description
 --- | ---
-subnetId | Required. ID of the Subnet resource to update.  The maximum string length in characters is 50.
+subnetId | <p>Required. ID of the Subnet resource to update.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

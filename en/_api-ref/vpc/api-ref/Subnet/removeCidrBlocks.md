@@ -17,7 +17,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}:remove-cidr-blocks
  
 Parameter | Description
 --- | ---
-subnetId | Required. ID of the Subnet resource that is being updated.  The maximum string length in characters is 50.
+subnetId | <p>Required. ID of the Subnet resource that is being updated.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

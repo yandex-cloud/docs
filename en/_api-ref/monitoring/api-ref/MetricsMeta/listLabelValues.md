@@ -16,17 +16,17 @@ GET https://monitoring.{{ api-host }}/monitoring/v2/metrics/labels/{labelKey}/va
  
 Parameter | Description
 --- | ---
-labelKey | Required. For which label key perform values lookup.
+labelKey | <p>Required. For which label key perform values lookup.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder that the metric belongs to.  The maximum string length in characters is 50.
-selectors | Metric selectors.
-valueFilter | Substring value filter text.
-pageSize | Maximum number of metrics in response. 0 means default page size = 30, maximum page size = 10000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/monitoring/api-ref/MetricsMeta/listLabelValues#query_params) to the [nextPageToken](/docs/monitoring/api-ref/MetricsMeta/listMetrics#responses) returned by a previous list request.
+folderId | <p>Required. ID of the folder that the metric belongs to.</p> <p>The maximum string length in characters is 50.</p> 
+selectors | <p>Metric selectors.</p> 
+valueFilter | <p>Substring value filter text.</p> 
+pageSize | <p>Maximum number of metrics in response. 0 means default page size = 30, maximum page size = 10000.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/monitoring/api-ref/MetricsMeta/listLabelValues#query_params">pageToken</a> to the <a href="/docs/monitoring/api-ref/MetricsMeta/listMetrics#responses">nextPageToken</a> returned by a previous list request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

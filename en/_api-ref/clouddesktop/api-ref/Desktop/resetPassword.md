@@ -16,7 +16,7 @@ POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:
  
 Parameter | Description
 --- | ---
-desktopId | Required. ID of the desktop.  The maximum string length in characters is 50.
+desktopId | <p>Required. ID of the desktop.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

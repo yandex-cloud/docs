@@ -16,10 +16,10 @@ GET https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/resource-manager/api-ref/Cloud/list#query_params), the service returns a [nextPageToken](/docs/resource-manager/api-ref/Cloud/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. Set [pageToken](/docs/resource-manager/api-ref/Cloud/list#query_params) to the [nextPageToken](/docs/resource-manager/api-ref/Cloud/list#responses) returned by a previous list request to get the next page of results.  The maximum string length in characters is 1000.
-filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on the [Cloud.name](/docs/resource-manager/api-ref/Cloud#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.  The maximum string length in characters is 1000.
-organizationId | ID of the organization to list clouds in. To get the organization ID, use a [list](/docs/organization/api-ref/Organization/list) request.  The maximum string length in characters is 50.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/resource-manager/api-ref/Cloud/list#query_params">pageSize</a>, the service returns a <a href="/docs/resource-manager/api-ref/Cloud/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. Set <a href="/docs/resource-manager/api-ref/Cloud/list#query_params">pageToken</a> to the <a href="/docs/resource-manager/api-ref/Cloud/list#responses">nextPageToken</a> returned by a previous list request to get the next page of results.</p> <p>The maximum string length in characters is 1000.</p> 
+filter | <p>A filter expression that filters resources listed in the response. The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on the <a href="/docs/resource-manager/api-ref/Cloud#representation">Cloud.name</a> field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be 3-63 characters long and match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
+organizationId | <p>ID of the organization to list clouds in. To get the organization ID, use a <a href="/docs/organization/api-ref/Organization/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -43,7 +43,7 @@ organizationId | ID of the organization to list clouds in. To get the organizati
  
 Field | Description
 --- | ---
-clouds[] | **object**<br><p>A Cloud resource. For more information, see <a href="/docs/resource-manager/concepts/resources-hierarchy#cloud">Cloud</a>.</p> 
+clouds[] | **object**<br><p>List of Cloud resources.</p> 
 clouds[].<br>id | **string**<br><p>ID of the cloud.</p> 
 clouds[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 clouds[].<br>name | **string**<br><p>Name of the cloud. 3-63 characters long.</p> 

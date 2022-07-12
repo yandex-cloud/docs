@@ -16,8 +16,8 @@ GET https://cdn.{{ api-host }}/cdn/v1/origins
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder that the origin belongs to.  The maximum string length in characters is 50.
-originGroupId | ID of the group to request origins from.  Value must be greater than 0.
+folderId | <p>Required. ID of the folder that the origin belongs to.</p> <p>The maximum string length in characters is 50.</p> 
+originGroupId | <p>ID of the group to request origins from.</p> <p>Value must be greater than 0.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -57,7 +57,7 @@ originGroupId | ID of the group to request origins from.  Value must be greater 
  
 Field | Description
 --- | ---
-origins[] | **object**<br><p>An origin. For details about the concept, see <a href="/docs/cdn/concepts/origins">documentation</a>.</p> 
+origins[] | **object**<br><p>Origin from response.</p> 
 origins[].<br>id | **string** (int64)<br><p>ID of the origin.</p> 
 origins[].<br>originGroupId | **string** (int64)<br><p>ID of the parent origin group.</p> 
 origins[].<br>source | **string**<br><p>IP address or Domain name of your origin and the port (if custom). Used if <a href="/docs/cdn/api-ref/Origin#representation">meta</a> variant is ``common``.</p> 

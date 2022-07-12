@@ -16,7 +16,7 @@ DELETE https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroup
  
 Parameter | Description
 --- | ---
-backendGroupId | Required. ID of the backend group to delete.  To get the backend group ID, make a [list](/docs/application-load-balancer/api-ref/BackendGroup/list) request.
+backendGroupId | <p>Required. ID of the backend group to delete.</p> <p>To get the backend group ID, make a <a href="/docs/application-load-balancer/api-ref/BackendGroup/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

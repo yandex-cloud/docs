@@ -16,7 +16,7 @@ GET https://billing.{{ api-host }}/billing/v1/services/{id}
  
 Parameter | Description
 --- | ---
-id | Required. ID of the service to return. To get the service ID, use [list](/docs/billing/api-ref/Service/list) request.  The maximum string length in characters is 50.
+id | <p>Required. ID of the service to return. To get the service ID, use <a href="/docs/billing/api-ref/Service/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -17,7 +17,7 @@ PATCH https://vpc.{{ api-host }}/vpc/v1/routeTables/{routeTableId}
  
 Parameter | Description
 --- | ---
-routeTableId | Required. ID of the RouteTable resource to update.  The maximum string length in characters is 50.
+routeTableId | <p>Required. ID of the RouteTable resource to update.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  
@@ -44,7 +44,7 @@ updateMask | **string**<br><p>Field mask that specifies which fields of the Rout
 name | **string**<br><p>Name of the route table. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 description | **string**<br><p>Description of the route table.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
-staticRoutes[] | **object**<br><p>A StaticRoute resource. For more information, see <a href="/docs/vpc/concepts/static-routes">Static Routes</a>.</p> 
+staticRoutes[] | **object**<br><p>List of static routes.</p> 
 staticRoutes[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 staticRoutes[].<br>destinationPrefix | **string**<br><p>Destination subnet in CIDR notation</p> 
 staticRoutes[].<br>nextHopAddress | **string**<br><p>Next hop IP address</p> 

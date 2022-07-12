@@ -16,15 +16,15 @@ GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}/o
  
 Parameter | Description
 --- | ---
-desktopId | Required. ID of the desktop.  The maximum string length in characters is 50.
+desktopId | <p>Required. ID of the desktop.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/cloud-desktop/api-ref/Desktop/listOperations#query_params), the service returns a [nextPageToken](/docs/cloud-desktop/api-ref/Desktop/listOperations#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/cloud-desktop/api-ref/Desktop/listOperations#query_params) to the [nextPageToken](/docs/cloud-desktop/api-ref/Desktop/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on [Desktop.name](/docs/cloud-desktop/api-ref/Desktop#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. Value or a list of values to compare against the values of the field.  The maximum string length in characters is 1000.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/cloud-desktop/api-ref/Desktop/listOperations#query_params">pageSize</a>, the service returns a <a href="/docs/cloud-desktop/api-ref/Desktop/listOperations#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/cloud-desktop/api-ref/Desktop/listOperations#query_params">pageToken</a> to the <a href="/docs/cloud-desktop/api-ref/Desktop/listOperations#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resources listed in the response. The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on <a href="/docs/cloud-desktop/api-ref/Desktop#representation">Desktop.name</a> field.</li> <li>An operator. Can be either ``=`` or ``!=`` for single values, ``IN`` or ``NOT IN`` for lists of values.</li> <li>Value or a list of values to compare against the values of the field.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -61,7 +61,7 @@ filter | A filter expression that filters resources listed in the response. The 
  
 Field | Description
 --- | ---
-operations[] | **object**<br><p>An Operation resource. For more information, see <a href="/docs/api-design-guide/concepts/operation">Operation</a>.</p> 
+operations[] | **object**<br><p>List of operations for the specified desktop.</p> 
 operations[].<br>id | **string**<br><p>ID of the operation.</p> 
 operations[].<br>description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
 operations[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

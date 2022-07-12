@@ -8,19 +8,19 @@ editable: false
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) |  |
-| [List](#List) |  |
-| [Create](#Create) |  |
-| [Update](#Update) |  |
-| [Stop](#Stop) |  |
-| [Delete](#Delete) |  |
+| [Get](#Get) | Returns test by test id. |
+| [List](#List) | Retrieves the list of tests for the specified folder. |
+| [Create](#Create) | Creates a test in the specified folder. |
+| [Update](#Update) | Updates the specified test. |
+| [Stop](#Stop) | Stops the specified test. |
+| [Delete](#Delete) | Deletes the specified test |
 | [ValidateConfig](#ValidateConfig) |  |
 
 ## Calls TestService {#calls}
 
 ## Get {#Get}
 
-
+Returns test by test id.
 
 **rpc Get ([GetTestRequest](#GetTestRequest)) returns ([Test](#Test))**
 
@@ -73,7 +73,7 @@ autostop_case | **string**<br>
 
 ## List {#List}
 
-
+Retrieves the list of tests for the specified folder.
 
 **rpc List ([ListTestsRequest](#ListTestsRequest)) returns ([ListTestsResponse](#ListTestsResponse))**
 
@@ -138,7 +138,7 @@ autostop_case | **string**<br>
 
 ## Create {#Create}
 
-
+Creates a test in the specified folder.
 
 **rpc Create ([CreateTestRequest](#CreateTestRequest)) returns ([operation.Operation](#Operation))**
 
@@ -150,7 +150,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>The rest The maximum string length in characters is 50.
+folder_id | **string**<br> The maximum string length in characters is 50.
 name | **string**<br> Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br> The maximum string length in characters is 256.
 labels | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each value must be 1-63. Each value must match the regular expression ` [a-z][-_0-9a-z]* `.
@@ -233,7 +233,7 @@ autostop_case | **string**<br>
 
 ## Update {#Update}
 
-
+Updates the specified test.
 
 **rpc Update ([UpdateTestRequest](#UpdateTestRequest)) returns ([operation.Operation](#Operation1))**
 
@@ -319,7 +319,7 @@ autostop_case | **string**<br>
 
 ## Stop {#Stop}
 
-
+Stops the specified test.
 
 **rpc Stop ([StopTestRequest](#StopTestRequest)) returns ([operation.Operation](#Operation2))**
 
@@ -399,7 +399,7 @@ autostop_case | **string**<br>
 
 ## Delete {#Delete}
 
-
+Deletes the specified test
 
 **rpc Delete ([DeleteTestRequest](#DeleteTestRequest)) returns ([operation.Operation](#Operation3))**
 

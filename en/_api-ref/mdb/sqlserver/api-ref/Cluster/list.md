@@ -16,10 +16,10 @@ GET https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list SQL Server clusters in.  To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return.  If the number of available results is larger than [pageSize](/docs/managed-sqlserver/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/list#responses) that can be used to get the next page of results in subsequent list requests.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/managed-sqlserver/api-ref/Cluster/list#query_params) to the [nextPageToken](/docs/managed-sqlserver/api-ref/Cluster/list#responses) returned by the previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response.  The expression must specify:  1. A field name to filter by. Currently you can only use filtering with the [Cluster.name](/docs/managed-sqlserver/api-ref/Cluster#representation) field. 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. A value. Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.  Example of a filter expression: `name NOT IN 'test,beta'`.  The maximum string length in characters is 1000.
+folderId | <p>Required. ID of the folder to list SQL Server clusters in.</p> <p>To get the folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return.</p> <p>If the number of available results is larger than <a href="/docs/managed-sqlserver/api-ref/Cluster/list#query_params">pageSize</a>, the service returns a <a href="/docs/managed-sqlserver/api-ref/Cluster/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/managed-sqlserver/api-ref/Cluster/list#query_params">pageToken</a> to the <a href="/docs/managed-sqlserver/api-ref/Cluster/list#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resources listed in the response.</p> <p>The expression must specify:</p> <ol> <li>A field name to filter by. Currently you can only use filtering with the <a href="/docs/managed-sqlserver/api-ref/Cluster#representation">Cluster.name</a> field.</li> <li>A conditional operator. Can be either ``=`` or ``!=`` for single values, ``IN`` or ``NOT IN`` for lists of values.</li> <li>A value. Must be 1-63 characters long and match the regular expression ``[a-zA-Z0-9_-]+``.</li> </ol> <p>Example of a filter expression: ``name NOT IN 'test,beta'``.</p> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -224,7 +224,7 @@ filter | A filter expression that filters resources listed in the response.  The
  
 Field | Description
 --- | ---
-clusters[] | **object**<br><p>An SQL Server cluster.</p> <p>For more information, see the <a href="/docs/managed-sqlserver/concepts">Concepts</a> section of the documentation.</p> 
+clusters[] | **object**<br><p>List of SQL Server clusters.</p> 
 clusters[].<br>id | **string**<br><p>ID of the SQL Server cluster.</p> <p>This ID is assigned by Managed Service for SQL Server at the moment of creation.</p> 
 clusters[].<br>folderId | **string**<br><p>ID of the folder the SQL Server cluster belongs to.</p> 
 clusters[].<br>createdAt | **string** (date-time)<br><p>Time when SQL Server cluster was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
@@ -243,7 +243,7 @@ clusters[].<br>config.<br>resources.<br>resourcePresetId | **string**<br><p>ID o
 clusters[].<br>config.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host.</p> 
 clusters[].<br>config.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> <p>Possible values:</p> <ul> <li>``network-hdd`` - network HDD drive;</li> <li>``network-ssd`` - network SSD drive;</li> <li>``local-ssd`` - local SSD storage.</li> </ul> 
 clusters[].<br>config.<br>backupWindowStart | **object**<br>Start time for the daily backup in UTC timezone.<br><p>Represents a time of day. The date and time zone are either not significant or are specified elsewhere. An API may choose to allow leap seconds. Related types are <a href="https://github.com/googleapis/googleapis/blob/master/google/type/date.proto">google.type.Date</a> and <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/timestamp.proto">google.protobuf.Timestamp</a>.</p> 
-clusters[].<br>config.<br>backupWindowStart.<br>hours | **integer** (int32)<br><p>Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value &quot;24:00:00&quot; for scenarios like business closing time.</p> 
+clusters[].<br>config.<br>backupWindowStart.<br>hours | **integer** (int32)<br><p>Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value "24:00:00" for scenarios like business closing time.</p> 
 clusters[].<br>config.<br>backupWindowStart.<br>minutes | **integer** (int32)<br><p>Minutes of hour of day. Must be from 0 to 59.</p> 
 clusters[].<br>config.<br>backupWindowStart.<br>seconds | **integer** (int32)<br><p>Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds.</p> 
 clusters[].<br>config.<br>backupWindowStart.<br>nanos | **integer** (int32)<br><p>Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.</p> 

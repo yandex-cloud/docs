@@ -16,14 +16,14 @@ GET https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificat
  
 Parameter | Description
 --- | ---
-certificateId | Required. ID of the certificate to list versions for.  The maximum string length in characters is 50.
+certificateId | <p>Required. ID of the certificate to list versions for.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses) returned by a previous list request.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/certificate-manager/api-ref/Certificate/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/certificate-manager/api-ref/Certificate/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -44,7 +44,7 @@ pageToken | Page token. To get the next page of results, set `page_token` to the
  
 Field | Description
 --- | ---
-versions[] | **object**<br><p>A certificate version</p> 
+versions[] | **object**<br><p>List of versions for the specified certificate.</p> 
 versions[].<br>id | **string**<br><p>ID of the version.</p> 
 versions[].<br>certificateId | **string**<br><p>ID of the certificate that the version belongs to.</p> 
 versions[].<br>createdAt | **string** (date-time)<br><p>Time when the version was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

@@ -16,7 +16,7 @@ GET https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}/operation
  
 Parameter | Description
 --- | ---
-securityGroupId | Required.
+securityGroupId | <p>Required.</p> 
  
 ## Query parameters {#query_params}
  

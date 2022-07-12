@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Managed Service for Greenplum API
+  title: Managed Service for Greenplum® API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
     about API architecture, see [API Concepts](/docs/api-design-guide/).
@@ -19,7 +19,7 @@ paths:
         in: path
         description: |-
           Required.
-          Required. ID of the backup to return.
+          ID of the backup to return.
         required: true
         schema:
           type: string
@@ -43,7 +43,7 @@ paths:
         in: query
         description: |-
           Required.
-          Required. ID of the folder to list backups in.
+          ID of the folder to list backups in.
 
           The maximum string length in characters is 50.
         schema:
@@ -51,10 +51,11 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page that should be returned. If the number of available
-          results is larger than `page_size`, the service returns a `next_page_token` that can be used
-          to get the next page of results in subsequent ListBackups requests.
-          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+          The maximum number of results per page to return.
+
+          If the number of available results is larger than [pageSize](/docs/managed-greenplum/api-ref/Backup/list#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/Backup/list#responses) that can be used to get the next page of results in subsequent list requests.
+
+          Default value is 100.
 
           Acceptable values are 0 to 1000, inclusive.
         schema:
@@ -63,8 +64,7 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. Set `page_token` to the `next_page_token` returned by a previous ListBackups
-          request to get the next page of results.
+          The page token. To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Backup/list#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Backup/list#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -82,7 +82,7 @@ paths:
       tags:
       - Cluster
       summary: Returns the specified Greenplum® cluster.
-      description: To get the list of available Greenplum® clusters, make a [list](/docs/managed-greenplum/api-ref/Cluster/list)
+      description: To get the list of all available Greenplum® clusters, make a [list](/docs/managed-greenplum/api-ref/Cluster/list)
         request.
       operationId: ClusterGet
       parameters:
@@ -90,7 +90,8 @@ paths:
         in: path
         description: |-
           Required.
-          ID of the Greenplum® Cluster resource to return.
+          ID of the Greenplum® cluster resource to return.
+
           To get the cluster ID, use a [list](/docs/managed-greenplum/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
@@ -143,7 +144,7 @@ paths:
         in: path
         description: |-
           Required.
-          ID of the Greenplum® Cluster resource to update.
+          ID of the Greenplum® cluster resource to update.
           To get the Greenplum® cluster ID, use a [list](/docs/managed-greenplum/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
@@ -180,6 +181,7 @@ paths:
         description: |-
           Required.
           ID of the folder to list Greenplum® clusters in.
+
           To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.
 
           The maximum string length in characters is 50.
@@ -188,9 +190,9 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/list#responses)
-          that can be used to get the next page of results in subsequent list requests.
+          The maximum number of results per page to return.
+
+          If the number of available results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/list#responses) that can be used to get the next page of results in subsequent list requests.
 
           The maximum value is 1000.
         schema:
@@ -199,8 +201,7 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Cluster/list#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/list#responses)
-          returned by a previous list request.
+          Page token. To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Cluster/list#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/list#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -209,9 +210,13 @@ paths:
         in: query
         description: |-
           A filter expression that filters resources listed in the response.
+
           The expression must specify:
+
           1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-greenplum/api-ref/Cluster#representation) field.
+
           2. An `=` operator.
+
           3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
 
           The maximum string length in characters is 1000.
@@ -316,7 +321,7 @@ paths:
         in: path
         description: |-
           Required.
-          ID of the Greenplum® Cluster resource to list operations for.
+          ID of the Greenplum® cluster resource to list operations for.
 
           The maximum string length in characters is 50.
         required: true
@@ -325,9 +330,9 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listOperations#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listOperations#responses)
-          that can be used to get the next page of results in subsequent list requests.
+          The maximum number of results per page to return.
+
+          If the number of available results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listOperations#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listOperations#responses) that can be used to get the next page of results in subsequent list requests.
 
           The maximum value is 1000.
         schema:
@@ -336,8 +341,7 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Cluster/listOperations#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listOperations#responses)
-          returned by a previous list request.
+          Page token. To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Cluster/listOperations#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listOperations#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -362,6 +366,7 @@ paths:
         description: |-
           Required.
           ID of the Greenplum® cluster.
+
           To get the Greenplum® cluster ID use a [list](/docs/managed-greenplum/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
@@ -371,9 +376,9 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#responses)
-          that can be used to get the next page of results in subsequent list requests.
+          The maximum number of results per page to return.
+
+          If the number of available results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#responses) that can be used to get the next page of results in subsequent list requests.
 
           The maximum value is 1000.
         schema:
@@ -382,8 +387,7 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#responses)
-          returned by a previous list request.
+          Page token. To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -408,6 +412,7 @@ paths:
         description: |-
           Required.
           ID of the Greenplum® cluster.
+
           To get the Greenplum® cluster ID use a [list](/docs/managed-greenplum/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
@@ -417,9 +422,9 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#responses)
-          that can be used to get the next page of results in subsequent list requests.
+          The maximum number of results per page to return.
+
+          If the number of available results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#responses) that can be used to get the next page of results in subsequent list requests.
 
           The maximum value is 1000.
         schema:
@@ -428,8 +433,7 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#responses)
-          returned by a previous list request.
+          Page token. To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -454,6 +458,7 @@ paths:
         description: |-
           Required.
           ID of the Greenplum® cluster to request logs for.
+
           To get the Greenplum® cluster ID, use a [list](/docs/managed-greenplum/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
@@ -463,7 +468,7 @@ paths:
       - name: columnFilter
         in: query
         description: |-
-          Columns from logs table to request.
+          Columns from log table to request.
           If no columns are specified, entire log records are returned.
         schema:
           type: array
@@ -477,7 +482,7 @@ paths:
       - name: fromTime
         in: query
         description: |-
-          Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          Start timestamp for the logs request.
 
           String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
         schema:
@@ -486,7 +491,7 @@ paths:
       - name: toTime
         in: query
         description: |-
-          End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          End timestamp for the logs request.
 
           String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
         schema:
@@ -495,9 +500,9 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses)
-          that can be used to get the next page of results in subsequent list requests.
+          The maximum number of results per page to return.
+
+          If the number of available results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses) that can be used to get the next page of results in subsequent list requests.
 
           The maximum value is 1000.
         schema:
@@ -506,16 +511,15 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses)
-          returned by a previous list request.
+          Page token. To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
           type: string
       - name: alwaysNextPageToken
         in: query
-        description: Always return `next_page_token`, even if the current page is
-          empty.
+        description: The service always returns a [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses),
+          even if the current page is empty.
         schema:
           type: boolean
           format: boolean
@@ -523,14 +527,18 @@ paths:
         in: query
         description: |-
           A filter expression that filters resources listed in the response.
+
           The expression must specify:
-          1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname],
-          [LogRecord.logs.message.error_severity] (for `GREENPLUM` service) and [LogRecord.logs.message.level] (for `GREENPLUM_POOLER` service) fields.
+
+          1. A field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname], [LogRecord.logs.message.error_severity] (for `GREENPLUM` service) and [LogRecord.logs.message.level] (for `GREENPLUM_POOLER` service) fields.
+
           2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-          3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
+
+          3. A value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
+
           Examples of a filter:
-          * `message.hostname='node1.db.cloud.yandex.net'`
-          * `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`
+          * `message.hostname='node1.db.cloud.yandex.net'`;
+          * `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`.
 
           The maximum string length in characters is 1000.
         schema:
@@ -547,15 +555,15 @@ paths:
     get:
       tags:
       - Cluster
-      summary: Same as ListLogs but using server-side streaming. Also allows for 'tail
-        -f' semantics.
+      summary: Same as [listLogs](/docs/managed-greenplum/api-ref/Cluster/listLogs)
+        but using server-side streaming. Also allows for `tail -f` semantics.
       operationId: ClusterStreamLogs
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          Required. ID of the Greenplum cluster.
+          ID of the Greenplum® cluster.
 
           The maximum string length in characters is 50.
         required: true
@@ -563,13 +571,16 @@ paths:
           type: string
       - name: columnFilter
         in: query
-        description: Columns from logs table to get in the response.
+        description: |-
+          Columns from log table to get in the response.
+          If no columns are specified, entire log records are returned.
         schema:
           type: array
           items:
             type: string
       - name: serviceType
         in: query
+        description: Type of the service to request logs about.
         schema:
           $ref: '#/components/schemas/StreamClusterLogsRequestServiceType'
       - name: fromTime
@@ -585,8 +596,11 @@ paths:
         in: query
         description: |-
           End timestamp for the logs request.
-          If this field is not set, all existing logs will be sent and then the new ones as
-          they appear. In essence it has 'tail -f' semantics.
+
+          If this field is not set, all existing logs are sent as well as the new ones as they appear.
+
+          In essence it has `tail -f` semantics.
+
 
           String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
         schema:
@@ -595,8 +609,7 @@ paths:
       - name: recordToken
         in: query
         description: |-
-          Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs
-          request to start streaming from next log record.
+          Record token. Set [recordToken](/docs/managed-greenplum/api-ref/Cluster/streamLogs#query_params) to the [StreamLogs.next_record_token] returned by the previous [StreamLogs] request to start streaming from the next log record.
 
           The maximum string length in characters is 100.
         schema:
@@ -605,14 +618,19 @@ paths:
         in: query
         description: |-
           A filter expression that filters resources listed in the response.
+
           The expression must specify:
-          1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname],
-          [LogRecord.logs.message.error_severity] (for GREENPLUM service), [LogRecord.logs.message.level] (for POOLER service) fields.
+
+          1. A field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname], [LogRecord.logs.message.error_severity] (for GREENPLUM service), [LogRecord.logs.message.level] (for POOLER service) fields.
+
           2. An `=` operator.
-          3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
+
+          3. A value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
+
           Examples of a filter:
-          `message.hostname='node1.db.cloud.yandex.net'`
-          `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`
+
+          * `message.hostname='node1.db.cloud.yandex.net'`;
+          * `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`.
 
           The maximum string length in characters is 1000.
         schema:
@@ -629,7 +647,7 @@ paths:
     get:
       tags:
       - Cluster
-      summary: Retrieves the list of available backups for the specified Greenplum
+      summary: Retrieves a list of available backups for the specified Greenplum®
         cluster.
       operationId: ClusterListBackups
       parameters:
@@ -638,6 +656,7 @@ paths:
         description: |-
           Required.
           ID of the Greenplum® cluster.
+
           To get the Greenplum® cluster ID use a [list](/docs/managed-greenplum/api-ref/Cluster/list) request.
 
           The maximum string length in characters is 50.
@@ -647,9 +666,9 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listBackups#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#responses)
-          that can be used to get the next page of results in subsequent list requests.
+          The maximum number of results per page to return.
+
+          If the number of available results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listBackups#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#responses) that can be used to get the next page of results in subsequent list requests.
 
           The maximum value is 1000.
         schema:
@@ -658,8 +677,7 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token.  To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#responses)
-          returned by a previous list request.
+          Page token. To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -708,11 +726,19 @@ paths:
         in: path
         description: |-
           Required.
-          Required. ID of the resource preset to return.
+          ID of the resource preset to return.
+
           To get the resource preset ID, use a [list](/docs/managed-greenplum/api-ref/ResourcePreset/list) request.
         required: true
         schema:
           type: string
+      - name: type
+        in: query
+        description: |-
+          Required.
+          Required. ResourcePreset type - master or segment.
+        schema:
+          $ref: '#/components/schemas/ResourcePresetType'
       responses:
         "200":
           description: OK
@@ -731,9 +757,9 @@ paths:
       - name: pageSize
         in: query
         description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/managed-greenplum/api-ref/ResourcePreset/list#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/ResourcePreset/list#responses)
-          that can be used to get the next page of results in subsequent list requests.
+          The maximum number of results per page to return.
+
+          If the number of available results is larger than [pageSize](/docs/managed-greenplum/api-ref/ResourcePreset/list#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/ResourcePreset/list#responses) that can be used to get the next page of results in subsequent list requests.
 
           Acceptable values are 0 to 1000, inclusive.
         schema:
@@ -742,12 +768,18 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/ResourcePreset/list#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/ResourcePreset/list#responses)
-          returned by a previous list request.
+          Page token. To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/ResourcePreset/list#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/ResourcePreset/list#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
           type: string
+      - name: type
+        in: query
+        description: |-
+          Required.
+          Required. ResourcePreset type - master or segment.
+        schema:
+          $ref: '#/components/schemas/ResourcePresetType'
       responses:
         "200":
           description: OK
@@ -759,7 +791,6 @@ paths:
 components:
   schemas:
     Access:
-      description: Greenplum® cluster access options.
       type: object
       properties:
         dataLens:
@@ -772,7 +803,7 @@ components:
           type: boolean
           format: boolean
         dataTransfer:
-          description: Allow access for DataTransfer.
+          description: Allows access for DataTransfer.
           type: boolean
           format: boolean
     AnytimeMaintenanceWindow:
@@ -790,14 +821,13 @@ components:
           type: string
         createdAt:
           description: |-
-            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
-            (i.e. when the backup operation was completed).
+            Time when the backup operation was completed.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         sourceClusterId:
-          description: ID of the PostgreSQL cluster that the backup was created for.
+          description: ID of the Greenplum® cluster that the backup was created for.
           type: string
         startedAt:
           description: |-
@@ -807,7 +837,7 @@ components:
           type: string
           format: date-time
         size:
-          description: Size of backup in bytes
+          description: Size of the backup in bytes.
           type: string
           format: int64
     Cluster:
@@ -817,14 +847,14 @@ components:
         id:
           description: |-
             ID of the Greenplum® cluster.
-            This ID is assigned by the platform at the time of cluster creation.
+            This ID is assigned by the platform at the moment of cluster creation.
           type: string
         folderId:
           description: ID of the folder that the Greenplum® cluster belongs to.
           type: string
         createdAt:
           description: |-
-            Cluster creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            Time when the cluster was created.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
@@ -833,14 +863,17 @@ components:
           description: |-
             Required.
             Name of the Greenplum® cluster.
-            The name is unique within the folder and is 1-63 characters long.
+            The name is unique within the folder.
 
             The maximum string length in characters is 63.
           type: string
         config:
           $ref: '#/components/schemas/GreenplumConfig_in_Cluster_config'
         description:
-          description: Description of the Greenplum® cluster. 0-256 characters long.
+          description: |-
+            Description of the Greenplum® cluster.
+
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: Custom labels for the Greenplum® cluster as `key:value` pairs.
@@ -892,7 +925,7 @@ components:
           description: Owner user name.
           type: string
         deletionProtection:
-          description: Whether or not cluster is protected from being deleted.
+          description: Determines whether the cluster is protected from being deleted.
           type: boolean
           format: boolean
         hostGroupIds:
@@ -909,7 +942,7 @@ components:
         properties:
           pool:
             $ref: '#/components/schemas/ConnectionPoolerConfigSet'
-            description: Odyssey pool settings
+            description: Odyssey® pool settings.
       - title: greenplum_config
         type: object
         maxProperties: 1
@@ -920,10 +953,8 @@ components:
             $ref: '#/components/schemas/GreenplumConfigSet6_19'
     ClusterEnvironment:
       description: |2-
-         - PRODUCTION: Stable environment with a conservative update policy:
-        only hotfixes are applied during regular maintenance.
-         - PRESTABLE: Environment with more aggressive update policy: new versions
-        are rolled out irrespective of backward compatibility.
+         - PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.
+         - PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.
       type: string
       enum:
       - PRODUCTION
@@ -944,9 +975,7 @@ components:
       - UNBALANCED
       default: HEALTH_UNKNOWN
     ClusterStatus:
-      description: |-
-        Current state of the cluster.
-
+      description: |2-
          - STATUS_UNKNOWN: Cluster state is unknown.
          - CREATING: Cluster is being created.
          - RUNNING: Cluster is running normally.
@@ -967,14 +996,13 @@ components:
       - STARTING
       default: STATUS_UNKNOWN
     ConfigSpec:
-      description: Configuration of greenplum and odyssey
       type: object
       allOf:
       - type: object
         properties:
           pool:
             $ref: '#/components/schemas/ConnectionPoolerConfig'
-            description: Odyssey pool settings
+            description: Odyssey® pool settings.
       - title: greenplum_config
         type: object
         maxProperties: 1
@@ -984,7 +1012,6 @@ components:
           greenplumConfig_6_19:
             $ref: '#/components/schemas/GreenplumConfig6_19'
     ConnectionPoolerConfig:
-      description: Route server configuration.
       type: object
       properties:
         mode:
@@ -992,19 +1019,21 @@ components:
         size:
           description: |-
             The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.
+
             Set to zero to disable the limit.
           type: integer
           format: int64
         clientIdleTimeout:
           description: |-
-            Server pool idle timeout, in seconds. A server connection closes after it has been idle for the specified duration.
+            Server pool idle timeout, in seconds.
+
+            A server connection closes after being idle for the specified time.
+
             Set to zero to disable the limit.
           type: integer
           format: int64
     ConnectionPoolerConfigPoolMode:
-      description: |-
-        Route server pool mode.
-
+      description: |2-
          - SESSION: Assign server connection to a client until it disconnects. Default value.
          - TRANSACTION: Assign server connection to a client for a transaction processing.
       type: string
@@ -1039,7 +1068,7 @@ components:
         name:
           description: |-
             Required.
-            Name of the Greenplum® cluster. The name must be unique within the folder. Maximum 63 characters.
+            Name of the Greenplum® cluster. The name must be unique within the folder.
 
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
@@ -1052,8 +1081,8 @@ components:
           type: string
         labels:
           description: |-
-            Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 per resource.
-            For example, "project":"mvp" or "source":"dictionary".
+            Custom labels for the Greenplum® cluster as `key:value` pairs.
+            For example, `"project":"mvp"` or `"source":"dictionary"`.
 
             No more than 64 per resource.
             The maximum string length in characters for each key is 63.
@@ -1084,12 +1113,14 @@ components:
           type: string
           format: int64
         userName:
-          description: Owner user name.
+          description: |-
+            Required.
+            Owner user name.
           type: string
         userPassword:
           description: |-
             Required.
-            Owner user password. Must be 8-128 characters long
+            Owner user password.
 
             The string length in characters must be 8-128.
           type: string
@@ -1106,7 +1137,7 @@ components:
           items:
             type: string
         deletionProtection:
-          description: Whether or not cluster is protected from being deleted.
+          description: Determines whether the cluster is protected from being deleted.
           type: boolean
           format: boolean
         hostGroupIds:
@@ -1140,7 +1171,6 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     GreenplumConfig:
-      description: Greenplum® cluster configuration.
       type: object
       properties:
         version:
@@ -1159,14 +1189,13 @@ components:
           type: string
         subnetId:
           description: |-
-            ID of the subnet the cluster belongs to. This subnet should be a part
-            of the cloud network the cluster belongs to (see [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation)).
+            ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation)).
 
             The maximum string length in characters is 50.
           type: string
         assignPublicIp:
           description: |-
-            Whether or not the cluster has a public IP address.
+            Determines whether the cluster has a public IP address.
 
             After the cluster has been created, this setting cannot be changed.
           type: boolean
@@ -1175,113 +1204,147 @@ components:
       type: object
       properties:
         maxConnections:
-          description: Maximum number of inbound connections on master segment
+          description: Maximum number of inbound connections on master segment.
           type: integer
           format: int64
         maxSlotWalKeepSize:
           description: |-
-            Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
-            https://www.postgresql.org/docs/current/runtime-config-replication.html
+            The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
+
+            More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
           type: integer
           format: int64
         gpWorkfileLimitPerSegment:
           description: |-
-            Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment
+            The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
+
+            The default value is 0 (no limit).
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment).
           type: integer
           format: int64
         gpWorkfileLimitPerQuery:
           description: |-
-            Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query
+            The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
+
+            The default value is 0 (no limit).
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query).
           type: integer
           format: int64
         gpWorkfileLimitFilesPerQuery:
           description: |-
-            Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
-            Spill files are created when executing a query that requires more memory than it is allocated.
-            The current query is terminated when the limit is exceeded.
-            Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query
-            Default value is 10000
+            The maximum number of temporary spill files allowed per query at each segment.
+
+            Spill files, also known as workfiles, are created when a query requires more memory than there is allocated.
+
+            The current query is terminated if the limit is exceeded.
+
+            Set to zero to disable the limit.
+
+            Master session reloads if the parameter changes.
+
+            Default value is 10000.
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query).
           type: integer
           format: int64
         maxPreparedTransactions:
           description: |-
-            Sets the maximum number of transactions that can be in the "prepared" state simultaneously
-            https://www.postgresql.org/docs/9.6/runtime-config-resource.html
+            The maximum number of transactions that can be in the `prepared` state simultaneously.
+
+            More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html).
           type: integer
           format: int64
         gpWorkfileCompression:
           description: |-
-            Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
+            Whether the spill files are compressed or not.
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression).
           type: boolean
           format: boolean
     GreenplumConfig6_19:
       type: object
       properties:
         maxConnections:
-          description: Maximum number of inbound connections on master segment
+          description: Maximum number of inbound connections on master segment.
           type: integer
           format: int64
         maxSlotWalKeepSize:
           description: |-
-            Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
-            https://www.postgresql.org/docs/current/runtime-config-replication.html
+            The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
+
+            More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
           type: integer
           format: int64
         gpWorkfileLimitPerSegment:
           description: |-
-            Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment
+            The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
+
+            The default value is 0 (no limit).
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment).
           type: integer
           format: int64
         gpWorkfileLimitPerQuery:
           description: |-
-            Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query
+            The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
+
+            The default value is 0 (no limit).
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query).
           type: integer
           format: int64
         gpWorkfileLimitFilesPerQuery:
           description: |-
-            Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
-            Spill files are created when executing a query that requires more memory than it is allocated.
-            The current query is terminated when the limit is exceeded.
-            Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query
-            Default value is 10000
+            The maximum number of temporary spill files allowed per query at each segment.
+
+            Spill files, also known as workfiles, are created when a query requires more memory than there is allocated.
+
+            The current query is terminated if the limit is exceeded.
+
+            Set to zero to disable the limit.
+
+            Master session reloads if the parameter changes.
+
+            Default value is 10000.
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query).
           type: integer
           format: int64
         maxPreparedTransactions:
           description: |-
-            Sets the maximum number of transactions that can be in the "prepared" state simultaneously
-            https://www.postgresql.org/docs/9.6/runtime-config-resource.html
+            The maximum number of transactions that can be in the `prepared` state simultaneously.
+
+            More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html).
           type: integer
           format: int64
         gpWorkfileCompression:
           description: |-
-            Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
+            Whether the spill files are compressed or not.
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression).
           type: boolean
           format: boolean
         maxStatementMem:
           description: |-
-            Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
-            Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
-            (seghost_physical_memory) / (average_number_concurrent_queries)
-            When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
-            https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
-            Default value is 2097152000 (2000MB)
+            The maximum memory limit for a query, in bytes.
+
+            Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high.
+
+            Taking into account the configuration of a single segment host, calculate `maxStatementMem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`.
+
+            When changing both `maxStatementMem` and `statement_mem`, `maxStatementMem` must be changed first, or listed first in the `postgresql.conf` file.
+
+            Default value is 2097152000 (2000 MB).
+
+            More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem).
           type: integer
           format: int64
         logStatement:
           $ref: '#/components/schemas/LogStatement_in_GreenplumConfig6_19_logStatement'
     GreenplumConfigSet6_17:
+      description: Configuration settings version 6.17
       type: object
       properties:
         effectiveConfig:
@@ -1291,6 +1354,7 @@ components:
         defaultConfig:
           $ref: '#/components/schemas/GreenplumConfig6_17_in_GreenplumConfigSet6_17_defaultConfig'
     GreenplumConfigSet6_19:
+      description: Configuration settings version 6.19
       type: object
       properties:
         effectiveConfig:
@@ -1309,28 +1373,29 @@ components:
         zoneId:
           description: |-
             ID of the availability zone where the host resides.
+
             To get a list of available zones, use the [list](/docs/compute/api-ref/Zone/list) request.
 
             The maximum string length in characters is 50.
           type: string
         subnetId:
           description: |-
-            ID of the subnet that the host should belong to. This subnet should be a part
-            of the network that the cluster belongs to.
+            ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to.
             The ID of the network is set in the field [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation).
 
             The maximum string length in characters is 50.
           type: string
         assignPublicIp:
           description: |-
-            Whether the host should get a public IP address on creation.
+            Determines whether the host should get a public IP address on creation.
 
-            After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
-            a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
+            After a host has been created, this setting cannot be changed.
+
+            To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
 
             Possible values:
-            * false - don't assign a public IP to the master hosts.
-            * true - the master hosts should have a public IP address.
+            * `false` - do not assign a public IP to the master host.
+            * `true` - assign a public IP to the master host.
           type: boolean
           format: boolean
     Host:
@@ -1340,8 +1405,9 @@ components:
         name:
           description: |-
             Required.
-            Name of the Greenplum® host. The host name is assigned by the platform at creation time and cannot be changed.
-            1-63 characters long.
+            Name of the Greenplum® host.
+
+            The host name is assigned by the platform at creation time and cannot be changed.
 
             The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.
 
@@ -1364,7 +1430,7 @@ components:
           description: ID of the subnet that the host belongs to.
           type: string
         assignPublicIp:
-          description: Whether or not a public IP is assigned to the host.
+          description: Determines whether a public IP is assigned to the host.
           type: boolean
           format: boolean
     HostHealth:
@@ -1373,7 +1439,7 @@ components:
          - ALIVE: The host is performing all its functions normally.
          - DEAD: The host is inoperable and cannot perform any of its essential functions.
          - DEGRADED: The host is working below capacity or not fully functional.
-         - UNBALANCED: One or more segments are not in preferred role.
+         - UNBALANCED: One or more segments are not in the preferred role.
       type: string
       enum:
       - UNKNOWN
@@ -1403,11 +1469,11 @@ components:
             $ref: '#/components/schemas/Backup'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for ListBackups requests,
-            if the number of results is larger than `page_size` specified in the request.
-            To get the next page, specify the value of `next_page_token` as a value for
-            the `page_token` parameter in the next ListBackups request. Subsequent ListBackups
-            requests will have their own `next_page_token` to continue paging through the results.
+            This token allows you to get the next page of results for a list request.
+
+            If the number of results is larger than [pageSize](/docs/managed-greenplum/api-ref/Backup/list#query_params) specified in the request, use the [nextPageToken](/docs/managed-greenplum/api-ref/Backup/list#responses) as the value for the [pageToken](/docs/managed-greenplum/api-ref/Backup/list#query_params) parameter in the next list request.
+
+            Each subsequent ListBackups request has its own [nextPageToken](/docs/managed-greenplum/api-ref/Backup/list#responses) to continue paging through the results.
           type: string
     ListClusterBackupsResponse:
       type: object
@@ -1419,10 +1485,11 @@ components:
             $ref: '#/components/schemas/Backup'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listBackups#query_params), use the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#responses) as the value
-            for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#responses) to continue paging through the results.
+            This token allows you to get the next page of results for list requests.
+
+            If the number of results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listBackups#query_params), use the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#responses) as the value for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#query_params) query parameter in the next list request.
+
+            Each subsequent list request has its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listBackups#responses) to continue paging through the results.
           type: string
     ListClusterHostsResponse:
       type: object
@@ -1434,15 +1501,14 @@ components:
             $ref: '#/components/schemas/Host'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#query_params), use the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#responses) as the value
-            for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#responses) to continue paging through the results.
+            This token allows you to get the next page of results for list requests.
+
+            If the number of results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#query_params), use the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#responses) as the value for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#query_params) query parameter in the next list request.
+
+            Each subsequent list request has its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#responses) to continue paging through the results.
           type: string
     ListClusterLogsRequestServiceType:
-      description: |-
-        Type of the service to request logs about.
-
+      description: |2-
          - SERVICE_TYPE_UNSPECIFIED: Type is not specified.
          - GREENPLUM: Greenplum® activity logs.
          - GREENPLUM_POOLER: Greenplum® pooler logs.
@@ -1460,11 +1526,13 @@ components:
             $ref: '#/components/schemas/LogRecord'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params), use the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses) as the value
-            for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses) to continue paging through the results.
-            This value is interchangeable with the `nextRecordToken` from StreamLogs method.
+            This token allows you to get the next page of results for list requests.
+
+            If the number of results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params), use the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses) as the value for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params) query parameter in the next list request.
+
+            Each subsequent list request has its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses) to continue paging through the results.
+
+            This value is interchangeable with the `nextRecordToken` from [StreamLogs] method.
           type: string
     ListClusterOperationsResponse:
       type: object
@@ -1476,25 +1544,27 @@ components:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listOperations#query_params), use the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listOperations#responses) as the value
-            for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/listOperations#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listOperations#responses) to continue paging through the results.
+            This token allows you to get the next page of results for list requests.
+
+            If the number of results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listOperations#query_params), use the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listOperations#responses) as the value for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/listOperations#query_params) query parameter in the next list request.
+
+            Each subsequent list request has its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listOperations#responses) to continue paging through the results.
           type: string
     ListClustersResponse:
       type: object
       properties:
         clusters:
-          description: List of Greenplum Cluster resources.
+          description: List of Greenplum® cluster resources.
           type: array
           items:
             $ref: '#/components/schemas/Cluster'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/list#query_params), use the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/list#responses) as the value
-            for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/list#query_params) parameter in the next list request. Each subsequent
-            list request will have its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/list#responses) to continue paging through the results.
+            This token allows you to get the next page of results for list requests.
+
+            If the number of results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/list#query_params), use the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/list#responses) as the value for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/list#query_params) parameter in the next list request.
+
+            Each subsequent list request has its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/list#responses) to continue paging through the results.
           type: string
     ListResourcePresetsResponse:
       type: object
@@ -1506,10 +1576,11 @@ components:
             $ref: '#/components/schemas/ResourcePreset'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/managed-greenplum/api-ref/ResourcePreset/list#query_params), use the [nextPageToken](/docs/managed-greenplum/api-ref/ResourcePreset/list#responses) as the value
-            for the [pageToken](/docs/managed-greenplum/api-ref/ResourcePreset/list#query_params) parameter in the next list request. Each subsequent
-            list request will have its own [nextPageToken](/docs/managed-greenplum/api-ref/ResourcePreset/list#responses) to continue paging through the results.
+            This token allows you to get the next page of results for list requests.
+
+            If the number of results is larger than [pageSize](/docs/managed-greenplum/api-ref/ResourcePreset/list#query_params), use the [nextPageToken](/docs/managed-greenplum/api-ref/ResourcePreset/list#responses) as the value for the [pageToken](/docs/managed-greenplum/api-ref/ResourcePreset/list#query_params) parameter in the next list request.
+
+            Each subsequent list request has its own [nextPageToken](/docs/managed-greenplum/api-ref/ResourcePreset/list#responses) to continue paging through the results.
 
             The maximum string length in characters is 100.
           type: string
@@ -1518,7 +1589,7 @@ components:
       properties:
         timestamp:
           description: |-
-            Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            Time when the log was recorded.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
@@ -1529,6 +1600,11 @@ components:
           additionalProperties:
             type: string
     LogStatement:
+      description: |2-
+         - NONE: None statements are logged.
+         - DDL: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
+         - MOD: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
+         - ALL: Logs all statements.
       type: string
       enum:
       - NONE
@@ -1536,12 +1612,11 @@ components:
       - MOD
       - ALL
     MaintenanceOperation:
-      description: The operation to perform during maintenance.
       type: object
       properties:
         info:
           description: |-
-            The description of the operation, 1-256 characters long.
+            The description of the operation.
 
             The maximum string length in characters is 256.
           type: string
@@ -1553,8 +1628,6 @@ components:
           type: string
           format: date-time
     MaintenanceWindow:
-      description: A Greenplum® cluster maintenance window. Should be defined by either
-        one of the two options.
       type: object
       allOf:
       - title: policy
@@ -1568,13 +1641,11 @@ components:
             $ref: '#/components/schemas/WeeklyMaintenanceWindow'
             description: A weekly maintenance window.
     MasterSubclusterConfig:
-      description: Configuration of the master subcluster.
       type: object
       properties:
         resources:
           $ref: '#/components/schemas/Resources_in_MasterSubclusterConfig_resources'
     MasterSubclusterConfigSpec:
-      description: Configuration of the master subcluster.
       type: object
       properties:
         resources:
@@ -1650,7 +1721,8 @@ components:
               Any method that returns a long-running operation should document the response type, if any.
             type: object
     ResourcePreset:
-      description: A preset of resources for hardware configuration of Greenplum hosts.
+      description: A preset of resources for hardware configuration of Greenplum®
+        hosts.
       type: object
       properties:
         id:
@@ -1667,39 +1739,40 @@ components:
           items:
             type: string
         cores:
-          description: Number of CPU cores for a Greenplum host created with the preset.
+          description: Number of CPU cores for a Greenplum® host created with the
+            preset.
           type: string
           format: int64
         memory:
-          description: RAM volume for a Greenplum host created with the preset, in
+          description: RAM volume for a Greenplum® host created with the preset, in
             bytes.
           type: string
           format: int64
         type:
           $ref: '#/components/schemas/ResourcePresetType_in_ResourcePreset_type'
         hostCountDivider:
-          description: The number of hosts must be divisible by host_count_divider
+          description: The number of hosts must be divisible by [hostCountDivider](/docs/managed-greenplum/api-ref/ResourcePreset#representation).
           type: string
           format: int64
         maxSegmentInHostCount:
-          description: Max segment count in host (actual only for segment host)
+          description: Maximum number of segments in segment host.
           type: string
           format: int64
     ResourcePresetType:
       description: |2-
-         - MASTER: Greenplum master host.
-         - SEGMENT: Greenplum segment host.
+         - MASTER: Greenplum® master host.
+         - SEGMENT: Greenplum® segment host.
       type: string
       enum:
       - MASTER
       - SEGMENT
     Resources:
-      description: A list of computational resources allocated to a host.
       type: object
       properties:
         resourcePresetId:
           description: |-
             ID of the preset for computational resources allocated to a host.
+
             Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
           type: string
         diskSize:
@@ -1727,6 +1800,7 @@ components:
           description: |-
             Required.
             ID of the backup to create a cluster from.
+
             To get the backup ID, use a [listBackups](/docs/managed-greenplum/api-ref/Cluster/listBackups) request.
           type: string
         folderId:
@@ -1752,8 +1826,8 @@ components:
           type: string
         labels:
           description: |-
-            Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 per resource.
-            For example, "project": "mvp" or "source": "dictionary".
+            Custom labels for the Greenplum® cluster as `key:value` pairs.
+            For example, "project":"mvp" or "source":"dictionary".
 
             No more than 64 per resource.
             The maximum string length in characters for each key is 63.
@@ -1779,12 +1853,12 @@ components:
             The maximum string length in characters is 50.
           type: string
         securityGroupIds:
-          description: User security groups
+          description: User security groups.
           type: array
           items:
             type: string
         deletionProtection:
-          description: Deletion Protection inhibits deletion of the cluster
+          description: Determines whether the cluster is protected from being deleted.
           type: boolean
           format: boolean
         hostGroupIds:
@@ -1793,18 +1867,16 @@ components:
           items:
             type: string
         placementGroupId:
-          description: ID of placement group
+          description: ID of the placement group.
           type: string
         maintenanceWindow:
           $ref: '#/components/schemas/MaintenanceWindow_in_RestoreClusterRequest_maintenanceWindow'
     SegmentSubclusterConfig:
-      description: Configuration of the segment subcluster.
       type: object
       properties:
         resources:
           $ref: '#/components/schemas/Resources_in_SegmentSubclusterConfig_resources'
     SegmentSubclusterConfigSpec:
-      description: Configuration of the segment subcluster.
       type: object
       properties:
         resources:
@@ -1837,10 +1909,11 @@ components:
           $ref: '#/components/schemas/LogRecord_in_StreamLogRecord_record'
         nextRecordToken:
           description: |-
-            This token allows you to continue streaming logs starting from the exact
-            same record. To continue streaming, specify value of `next_record_token`
-            as value for `record_token` parameter in the next StreamLogs request.
-            This value is interchangeable with `next_page_token` from ListLogs method.
+            This token allows you to continue streaming logs starting from the exact same record.
+
+            To do that, specify value of `nextRecordToken` as the value for [StreamLogs.record_token] parameter in the next [StreamLogs] request.
+
+            This value is interchangeable with [ListLogs.next_page_token] from [ListLogs] method.
           type: string
     TimeOfDay:
       description: |-
@@ -1873,7 +1946,7 @@ components:
       type: object
       properties:
         clusterId:
-          description: ID of the Greenplum® Cluster resource that is being updated.
+          description: ID of the Greenplum® cluster resource that is being updated.
           type: string
     UpdateClusterRequest:
       type: object
@@ -1888,11 +1961,11 @@ components:
           type: string
         labels:
           description: |-
-            Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 per resource.
-            For example, "project":"mvp" or "source":"dictionary".
+            Custom labels for the Greenplum® cluster as `key:value` pairs.
+            For example, `"project":"mvp"` or `"source":"dictionary"`.
 
-            The new set of labels will completely replace the old ones. To add a label, request the current
-            set with the [get](/docs/managed-greenplum/api-ref/Cluster/get) method, then send an [update](/docs/managed-greenplum/api-ref/Cluster/update) request with the new label added to the set.
+            The new set of labels completely replaces the old one.
+            To add a label, request the current set with the [get](/docs/managed-greenplum/api-ref/Cluster/get) method, then send an [update](/docs/managed-greenplum/api-ref/Cluster/update) request with the new label added to the set.
 
             No more than 64 per resource.
             The maximum string length in characters for each key is 63.
@@ -1918,7 +1991,7 @@ components:
         userPassword:
           description: |-
             Required.
-            Owner user password. Must be 8-128 characters long
+            Owner user password.
 
             The string length in characters must be 8-128.
           type: string
@@ -1930,7 +2003,7 @@ components:
           items:
             type: string
         deletionProtection:
-          description: Whether or not cluster is protected from being deleted.
+          description: Determines whether the cluster is protected from being deleted.
           type: boolean
           format: boolean
         configSpec:
@@ -1949,6 +2022,14 @@ components:
           type: string
           format: int64
     WeeklyMaintenanceWindowWeekDay:
+      description: |2-
+         - MON: Monday
+         - TUE: Tuesday
+         - WED: Wednesday
+         - THU: Thursday
+         - FRI: Friday
+         - SAT: Saturday
+         - SUN: Sunday
       type: string
       enum:
       - MON
@@ -1975,10 +2056,7 @@ components:
           items:
             type: object
     GreenplumConfig_in_Cluster_config:
-      description: |-
-        Greenplum® cluster configuration.
-
-        Greenplum® cluster configuration.
+      description: Greenplum® cluster configuration.
       type: object
       properties:
         version:
@@ -1997,14 +2075,13 @@ components:
           type: string
         subnetId:
           description: |-
-            ID of the subnet the cluster belongs to. This subnet should be a part
-            of the cloud network the cluster belongs to (see [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation)).
+            ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation)).
 
             The maximum string length in characters is 50.
           type: string
         assignPublicIp:
           description: |-
-            Whether or not the cluster has a public IP address.
+            Determines whether the cluster has a public IP address.
 
             After the cluster has been created, this setting cannot be changed.
           type: boolean
@@ -2013,28 +2090,20 @@ components:
       description: |-
         Deployment environment of the Greenplum® cluster.
 
-         - PRODUCTION: Stable environment with a conservative update policy:
-        only hotfixes are applied during regular maintenance.
-         - PRESTABLE: Environment with more aggressive update policy: new versions
-        are rolled out irrespective of backward compatibility.
+         - PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.
+         - PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.
       type: string
       enum:
       - PRODUCTION
       - PRESTABLE
     MasterSubclusterConfig_in_Cluster_masterConfig:
-      description: |-
-        Configuration of the Greenplum® master subcluster.
-
-        Configuration of the master subcluster.
+      description: Configuration of the Greenplum® master subcluster.
       type: object
       properties:
         resources:
           $ref: '#/components/schemas/Resources_in_MasterSubclusterConfig_resources'
     SegmentSubclusterConfig_in_Cluster_segmentConfig:
-      description: |-
-        Configuration of the Greenplum® segment subcluster.
-
-        Configuration of the segment subcluster.
+      description: Configuration of the Greenplum® segment subcluster.
       type: object
       properties:
         resources:
@@ -2060,8 +2129,6 @@ components:
       description: |-
         Current state of the cluster.
 
-        Current state of the cluster.
-
          - STATUS_UNKNOWN: Cluster state is unknown.
          - CREATING: Cluster is being created.
          - RUNNING: Cluster is running normally.
@@ -2082,10 +2149,8 @@ components:
       - STARTING
       default: STATUS_UNKNOWN
     MaintenanceWindow_in_Cluster_maintenanceWindow:
-      description: |-
-        Window of maintenance operations.
-
-        A Greenplum® cluster maintenance window. Should be defined by either one of the two options.
+      description: A Greenplum® cluster maintenance window. Should be defined by either
+        one of the two options.
       type: object
       allOf:
       - title: policy
@@ -2099,15 +2164,12 @@ components:
             $ref: '#/components/schemas/WeeklyMaintenanceWindow'
             description: A weekly maintenance window.
     MaintenanceOperation_in_Cluster_plannedOperation:
-      description: |-
-        Maintenance operation planned at nearest [maintenanceWindow](/docs/managed-greenplum/api-ref/Cluster#representation).
-
-        The operation to perform during maintenance.
+      description: Maintenance operation planned at nearest [maintenanceWindow](/docs/managed-greenplum/api-ref/Cluster#representation).
       type: object
       properties:
         info:
           description: |-
-            The description of the operation, 1-256 characters long.
+            The description of the operation.
 
             The maximum string length in characters is 256.
           type: string
@@ -2119,14 +2181,14 @@ components:
           type: string
           format: date-time
     ClusterConfigSet_in_Cluster_clusterConfig:
-      description: Greenplum and Odyssey configuration;
+      description: Greenplum® and Odyssey® configuration.
       type: object
       allOf:
       - type: object
         properties:
           pool:
             $ref: '#/components/schemas/ConnectionPoolerConfigSet'
-            description: Odyssey pool settings
+            description: Odyssey® pool settings.
       - title: greenplum_config
         type: object
         maxProperties: 1
@@ -2139,8 +2201,6 @@ components:
       description: |-
         Route server pool mode.
 
-        Route server pool mode.
-
          - SESSION: Assign server connection to a client until it disconnects. Default value.
          - TRANSACTION: Assign server connection to a client for a transaction processing.
       type: string
@@ -2150,10 +2210,7 @@ components:
     ConnectionPoolerConfig_in_ConnectionPoolerConfigSet_effectiveConfig:
       description: |-
         Required.
-        Effective settings for a odyssey (a combination of settings defined
-        in `userConfig` and `defaultConfig`).
-
-        Route server configuration.
+        Effective settings for an Odyssey® pooler (a combination of settings defined in `userConfig` and `defaultConfig`).
       type: object
       properties:
         mode:
@@ -2161,20 +2218,21 @@ components:
         size:
           description: |-
             The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.
+
             Set to zero to disable the limit.
           type: integer
           format: int64
         clientIdleTimeout:
           description: |-
-            Server pool idle timeout, in seconds. A server connection closes after it has been idle for the specified duration.
+            Server pool idle timeout, in seconds.
+
+            A server connection closes after being idle for the specified time.
+
             Set to zero to disable the limit.
           type: integer
           format: int64
     ConnectionPoolerConfig_in_ConnectionPoolerConfigSet_userConfig:
-      description: |-
-        User-defined settings for a odyssey.
-
-        Route server configuration.
+      description: User-defined settings for an Odyssey® pooler.
       type: object
       properties:
         mode:
@@ -2182,20 +2240,21 @@ components:
         size:
           description: |-
             The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.
+
             Set to zero to disable the limit.
           type: integer
           format: int64
         clientIdleTimeout:
           description: |-
-            Server pool idle timeout, in seconds. A server connection closes after it has been idle for the specified duration.
+            Server pool idle timeout, in seconds.
+
+            A server connection closes after being idle for the specified time.
+
             Set to zero to disable the limit.
           type: integer
           format: int64
     ConnectionPoolerConfig_in_ConnectionPoolerConfigSet_defaultConfig:
-      description: |-
-        Default configuration for a odyssey.
-
-        Route server configuration.
+      description: Default configuration for an Odyssey® pooler.
       type: object
       properties:
         mode:
@@ -2203,12 +2262,16 @@ components:
         size:
           description: |-
             The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.
+
             Set to zero to disable the limit.
           type: integer
           format: int64
         clientIdleTimeout:
           description: |-
-            Server pool idle timeout, in seconds. A server connection closes after it has been idle for the specified duration.
+            Server pool idle timeout, in seconds.
+
+            A server connection closes after being idle for the specified time.
+
             Set to zero to disable the limit.
           type: integer
           format: int64
@@ -2217,19 +2280,14 @@ components:
         Required.
         Deployment environment of the Greenplum® cluster.
 
-         - PRODUCTION: Stable environment with a conservative update policy:
-        only hotfixes are applied during regular maintenance.
-         - PRESTABLE: Environment with more aggressive update policy: new versions
-        are rolled out irrespective of backward compatibility.
+         - PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.
+         - PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.
       type: string
       enum:
       - PRODUCTION
       - PRESTABLE
     GreenplumConfig_in_CreateClusterRequest_config:
-      description: |-
-        Greenplum® cluster configuration.
-
-        Greenplum® cluster configuration.
+      description: Greenplum® cluster configuration.
       type: object
       properties:
         version:
@@ -2248,41 +2306,32 @@ components:
           type: string
         subnetId:
           description: |-
-            ID of the subnet the cluster belongs to. This subnet should be a part
-            of the cloud network the cluster belongs to (see [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation)).
+            ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation)).
 
             The maximum string length in characters is 50.
           type: string
         assignPublicIp:
           description: |-
-            Whether or not the cluster has a public IP address.
+            Determines whether the cluster has a public IP address.
 
             After the cluster has been created, this setting cannot be changed.
           type: boolean
           format: boolean
     MasterSubclusterConfigSpec_in_CreateClusterRequest_masterConfig:
-      description: |-
-        Configuration of the Greenplum® master subcluster.
-
-        Configuration of the master subcluster.
+      description: Configuration of the Greenplum® master subcluster.
       type: object
       properties:
         resources:
           $ref: '#/components/schemas/Resources_in_MasterSubclusterConfigSpec_resources'
     SegmentSubclusterConfigSpec_in_CreateClusterRequest_segmentConfig:
-      description: |-
-        Configuration of the Greenplum® segment subcluster.
-
-        Configuration of the segment subcluster.
+      description: Configuration of the Greenplum® segment subcluster.
       type: object
       properties:
         resources:
           $ref: '#/components/schemas/Resources_in_SegmentSubclusterConfigSpec_resources'
     MaintenanceWindow_in_CreateClusterRequest_maintenanceWindow:
-      description: |-
-        Window of maintenance operations.
-
-        A Greenplum® cluster maintenance window. Should be defined by either one of the two options.
+      description: A Greenplum® cluster maintenance window. Should be defined by either
+        one of the two options.
       type: object
       allOf:
       - title: policy
@@ -2296,14 +2345,14 @@ components:
             $ref: '#/components/schemas/WeeklyMaintenanceWindow'
             description: A weekly maintenance window.
     ConfigSpec_in_CreateClusterRequest_configSpec:
-      description: Configuration of greenplum and odyssey
+      description: Configuration of Greenplum® and Odyssey®.
       type: object
       allOf:
       - type: object
         properties:
           pool:
             $ref: '#/components/schemas/ConnectionPoolerConfig'
-            description: Odyssey pool settings
+            description: Odyssey® pool settings.
       - title: greenplum_config
         type: object
         maxProperties: 1
@@ -2342,10 +2391,7 @@ components:
           type: integer
           format: int32
     Access_in_GreenplumConfig_access:
-      description: |-
-        Access policy for external services.
-
-        Greenplum® cluster access options.
+      description: Access policy for external services.
       type: object
       properties:
         dataLens:
@@ -2358,16 +2404,21 @@ components:
           type: boolean
           format: boolean
         dataTransfer:
-          description: Allow access for DataTransfer.
+          description: Allows access for DataTransfer.
           type: boolean
           format: boolean
     LogStatement_in_GreenplumConfig6_19_logStatement:
       description: |-
-        Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands.
-        MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM.
-        PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type.
-        https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement
-        Default value is ddl
+        Logged SQL statements.
+
+        `PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type.
+
+        More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement).
+
+         - NONE: None statements are logged.
+         - DDL: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
+         - MOD: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
+         - ALL: Logs all statements.
       type: string
       enum:
       - NONE
@@ -2377,341 +2428,438 @@ components:
     GreenplumConfig6_17_in_GreenplumConfigSet6_17_effectiveConfig:
       description: |-
         Required.
-        Effective settings for a Greenplum (a combination of settings defined
-        in `userConfig` and `defaultConfig`).
+        Effective settings for a Greenplum® cluster (a combination of settings defined in `userConfig` and `defaultConfig`).
       type: object
       properties:
         maxConnections:
-          description: Maximum number of inbound connections on master segment
+          description: Maximum number of inbound connections on master segment.
           type: integer
           format: int64
         maxSlotWalKeepSize:
           description: |-
-            Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
-            https://www.postgresql.org/docs/current/runtime-config-replication.html
+            The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
+
+            More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
           type: integer
           format: int64
         gpWorkfileLimitPerSegment:
           description: |-
-            Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment
+            The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
+
+            The default value is 0 (no limit).
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment).
           type: integer
           format: int64
         gpWorkfileLimitPerQuery:
           description: |-
-            Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query
+            The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
+
+            The default value is 0 (no limit).
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query).
           type: integer
           format: int64
         gpWorkfileLimitFilesPerQuery:
           description: |-
-            Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
-            Spill files are created when executing a query that requires more memory than it is allocated.
-            The current query is terminated when the limit is exceeded.
-            Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query
-            Default value is 10000
+            The maximum number of temporary spill files allowed per query at each segment.
+
+            Spill files, also known as workfiles, are created when a query requires more memory than there is allocated.
+
+            The current query is terminated if the limit is exceeded.
+
+            Set to zero to disable the limit.
+
+            Master session reloads if the parameter changes.
+
+            Default value is 10000.
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query).
           type: integer
           format: int64
         maxPreparedTransactions:
           description: |-
-            Sets the maximum number of transactions that can be in the "prepared" state simultaneously
-            https://www.postgresql.org/docs/9.6/runtime-config-resource.html
+            The maximum number of transactions that can be in the `prepared` state simultaneously.
+
+            More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html).
           type: integer
           format: int64
         gpWorkfileCompression:
           description: |-
-            Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
+            Whether the spill files are compressed or not.
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression).
           type: boolean
           format: boolean
     GreenplumConfig6_17_in_GreenplumConfigSet6_17_userConfig:
-      description: User-defined settings for a Greenplum.
+      description: User-defined settings for a Greenplum® cluster.
       type: object
       properties:
         maxConnections:
-          description: Maximum number of inbound connections on master segment
+          description: Maximum number of inbound connections on master segment.
           type: integer
           format: int64
         maxSlotWalKeepSize:
           description: |-
-            Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
-            https://www.postgresql.org/docs/current/runtime-config-replication.html
+            The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
+
+            More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
           type: integer
           format: int64
         gpWorkfileLimitPerSegment:
           description: |-
-            Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment
+            The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
+
+            The default value is 0 (no limit).
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment).
           type: integer
           format: int64
         gpWorkfileLimitPerQuery:
           description: |-
-            Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query
+            The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
+
+            The default value is 0 (no limit).
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query).
           type: integer
           format: int64
         gpWorkfileLimitFilesPerQuery:
           description: |-
-            Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
-            Spill files are created when executing a query that requires more memory than it is allocated.
-            The current query is terminated when the limit is exceeded.
-            Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query
-            Default value is 10000
+            The maximum number of temporary spill files allowed per query at each segment.
+
+            Spill files, also known as workfiles, are created when a query requires more memory than there is allocated.
+
+            The current query is terminated if the limit is exceeded.
+
+            Set to zero to disable the limit.
+
+            Master session reloads if the parameter changes.
+
+            Default value is 10000.
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query).
           type: integer
           format: int64
         maxPreparedTransactions:
           description: |-
-            Sets the maximum number of transactions that can be in the "prepared" state simultaneously
-            https://www.postgresql.org/docs/9.6/runtime-config-resource.html
+            The maximum number of transactions that can be in the `prepared` state simultaneously.
+
+            More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html).
           type: integer
           format: int64
         gpWorkfileCompression:
           description: |-
-            Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
+            Whether the spill files are compressed or not.
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression).
           type: boolean
           format: boolean
     GreenplumConfig6_17_in_GreenplumConfigSet6_17_defaultConfig:
-      description: Default configuration for a Greenplum.
+      description: Default configuration for a Greenplum® cluster.
       type: object
       properties:
         maxConnections:
-          description: Maximum number of inbound connections on master segment
+          description: Maximum number of inbound connections on master segment.
           type: integer
           format: int64
         maxSlotWalKeepSize:
           description: |-
-            Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
-            https://www.postgresql.org/docs/current/runtime-config-replication.html
+            The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
+
+            More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
           type: integer
           format: int64
         gpWorkfileLimitPerSegment:
           description: |-
-            Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment
+            The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
+
+            The default value is 0 (no limit).
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment).
           type: integer
           format: int64
         gpWorkfileLimitPerQuery:
           description: |-
-            Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query
+            The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
+
+            The default value is 0 (no limit).
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query).
           type: integer
           format: int64
         gpWorkfileLimitFilesPerQuery:
           description: |-
-            Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
-            Spill files are created when executing a query that requires more memory than it is allocated.
-            The current query is terminated when the limit is exceeded.
-            Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query
-            Default value is 10000
+            The maximum number of temporary spill files allowed per query at each segment.
+
+            Spill files, also known as workfiles, are created when a query requires more memory than there is allocated.
+
+            The current query is terminated if the limit is exceeded.
+
+            Set to zero to disable the limit.
+
+            Master session reloads if the parameter changes.
+
+            Default value is 10000.
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query).
           type: integer
           format: int64
         maxPreparedTransactions:
           description: |-
-            Sets the maximum number of transactions that can be in the "prepared" state simultaneously
-            https://www.postgresql.org/docs/9.6/runtime-config-resource.html
+            The maximum number of transactions that can be in the `prepared` state simultaneously.
+
+            More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html).
           type: integer
           format: int64
         gpWorkfileCompression:
           description: |-
-            Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
+            Whether the spill files are compressed or not.
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression).
           type: boolean
           format: boolean
     GreenplumConfig6_19_in_GreenplumConfigSet6_19_effectiveConfig:
       description: |-
         Required.
-        Effective settings for a Greenplum (a combination of settings defined
-        in `userConfig` and `defaultConfig`).
+        Effective settings for a Greenplum® cluster (a combination of settings defined in `userConfig` and `defaultConfig`).
       type: object
       properties:
         maxConnections:
-          description: Maximum number of inbound connections on master segment
+          description: Maximum number of inbound connections on master segment.
           type: integer
           format: int64
         maxSlotWalKeepSize:
           description: |-
-            Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
-            https://www.postgresql.org/docs/current/runtime-config-replication.html
+            The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
+
+            More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
           type: integer
           format: int64
         gpWorkfileLimitPerSegment:
           description: |-
-            Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment
+            The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
+
+            The default value is 0 (no limit).
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment).
           type: integer
           format: int64
         gpWorkfileLimitPerQuery:
           description: |-
-            Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query
+            The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
+
+            The default value is 0 (no limit).
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query).
           type: integer
           format: int64
         gpWorkfileLimitFilesPerQuery:
           description: |-
-            Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
-            Spill files are created when executing a query that requires more memory than it is allocated.
-            The current query is terminated when the limit is exceeded.
-            Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query
-            Default value is 10000
+            The maximum number of temporary spill files allowed per query at each segment.
+
+            Spill files, also known as workfiles, are created when a query requires more memory than there is allocated.
+
+            The current query is terminated if the limit is exceeded.
+
+            Set to zero to disable the limit.
+
+            Master session reloads if the parameter changes.
+
+            Default value is 10000.
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query).
           type: integer
           format: int64
         maxPreparedTransactions:
           description: |-
-            Sets the maximum number of transactions that can be in the "prepared" state simultaneously
-            https://www.postgresql.org/docs/9.6/runtime-config-resource.html
+            The maximum number of transactions that can be in the `prepared` state simultaneously.
+
+            More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html).
           type: integer
           format: int64
         gpWorkfileCompression:
           description: |-
-            Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
+            Whether the spill files are compressed or not.
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression).
           type: boolean
           format: boolean
         maxStatementMem:
           description: |-
-            Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
-            Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
-            (seghost_physical_memory) / (average_number_concurrent_queries)
-            When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
-            https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
-            Default value is 2097152000 (2000MB)
+            The maximum memory limit for a query, in bytes.
+
+            Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high.
+
+            Taking into account the configuration of a single segment host, calculate `maxStatementMem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`.
+
+            When changing both `maxStatementMem` and `statement_mem`, `maxStatementMem` must be changed first, or listed first in the `postgresql.conf` file.
+
+            Default value is 2097152000 (2000 MB).
+
+            More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem).
           type: integer
           format: int64
         logStatement:
           $ref: '#/components/schemas/LogStatement_in_GreenplumConfig6_19_logStatement'
     GreenplumConfig6_19_in_GreenplumConfigSet6_19_userConfig:
-      description: User-defined settings for a Greenplum.
+      description: User-defined settings for a Greenplum® cluster.
       type: object
       properties:
         maxConnections:
-          description: Maximum number of inbound connections on master segment
+          description: Maximum number of inbound connections on master segment.
           type: integer
           format: int64
         maxSlotWalKeepSize:
           description: |-
-            Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
-            https://www.postgresql.org/docs/current/runtime-config-replication.html
+            The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
+
+            More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
           type: integer
           format: int64
         gpWorkfileLimitPerSegment:
           description: |-
-            Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment
+            The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
+
+            The default value is 0 (no limit).
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment).
           type: integer
           format: int64
         gpWorkfileLimitPerQuery:
           description: |-
-            Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query
+            The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
+
+            The default value is 0 (no limit).
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query).
           type: integer
           format: int64
         gpWorkfileLimitFilesPerQuery:
           description: |-
-            Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
-            Spill files are created when executing a query that requires more memory than it is allocated.
-            The current query is terminated when the limit is exceeded.
-            Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query
-            Default value is 10000
+            The maximum number of temporary spill files allowed per query at each segment.
+
+            Spill files, also known as workfiles, are created when a query requires more memory than there is allocated.
+
+            The current query is terminated if the limit is exceeded.
+
+            Set to zero to disable the limit.
+
+            Master session reloads if the parameter changes.
+
+            Default value is 10000.
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query).
           type: integer
           format: int64
         maxPreparedTransactions:
           description: |-
-            Sets the maximum number of transactions that can be in the "prepared" state simultaneously
-            https://www.postgresql.org/docs/9.6/runtime-config-resource.html
+            The maximum number of transactions that can be in the `prepared` state simultaneously.
+
+            More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html).
           type: integer
           format: int64
         gpWorkfileCompression:
           description: |-
-            Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
+            Whether the spill files are compressed or not.
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression).
           type: boolean
           format: boolean
         maxStatementMem:
           description: |-
-            Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
-            Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
-            (seghost_physical_memory) / (average_number_concurrent_queries)
-            When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
-            https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
-            Default value is 2097152000 (2000MB)
+            The maximum memory limit for a query, in bytes.
+
+            Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high.
+
+            Taking into account the configuration of a single segment host, calculate `maxStatementMem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`.
+
+            When changing both `maxStatementMem` and `statement_mem`, `maxStatementMem` must be changed first, or listed first in the `postgresql.conf` file.
+
+            Default value is 2097152000 (2000 MB).
+
+            More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem).
           type: integer
           format: int64
         logStatement:
           $ref: '#/components/schemas/LogStatement_in_GreenplumConfig6_19_logStatement'
     GreenplumConfig6_19_in_GreenplumConfigSet6_19_defaultConfig:
-      description: Default configuration for a Greenplum.
+      description: Default configuration for a Greenplum® cluster.
       type: object
       properties:
         maxConnections:
-          description: Maximum number of inbound connections on master segment
+          description: Maximum number of inbound connections on master segment.
           type: integer
           format: int64
         maxSlotWalKeepSize:
           description: |-
-            Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
-            https://www.postgresql.org/docs/current/runtime-config-replication.html
+            The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
+
+            More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
           type: integer
           format: int64
         gpWorkfileLimitPerSegment:
           description: |-
-            Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment
+            The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
+
+            The default value is 0 (no limit).
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment).
           type: integer
           format: int64
         gpWorkfileLimitPerQuery:
           description: |-
-            Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-            The default value is 0, which means a limit is not enforced.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query
+            The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
+
+            The default value is 0 (no limit).
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query).
           type: integer
           format: int64
         gpWorkfileLimitFilesPerQuery:
           description: |-
-            Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
-            Spill files are created when executing a query that requires more memory than it is allocated.
-            The current query is terminated when the limit is exceeded.
-            Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query
-            Default value is 10000
+            The maximum number of temporary spill files allowed per query at each segment.
+
+            Spill files, also known as workfiles, are created when a query requires more memory than there is allocated.
+
+            The current query is terminated if the limit is exceeded.
+
+            Set to zero to disable the limit.
+
+            Master session reloads if the parameter changes.
+
+            Default value is 10000.
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query).
           type: integer
           format: int64
         maxPreparedTransactions:
           description: |-
-            Sets the maximum number of transactions that can be in the "prepared" state simultaneously
-            https://www.postgresql.org/docs/9.6/runtime-config-resource.html
+            The maximum number of transactions that can be in the `prepared` state simultaneously.
+
+            More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html).
           type: integer
           format: int64
         gpWorkfileCompression:
           description: |-
-            Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
-            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
+            Whether the spill files are compressed or not.
+
+            More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression).
           type: boolean
           format: boolean
         maxStatementMem:
           description: |-
-            Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
-            Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
-            (seghost_physical_memory) / (average_number_concurrent_queries)
-            When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
-            https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
-            Default value is 2097152000 (2000MB)
+            The maximum memory limit for a query, in bytes.
+
+            Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high.
+
+            Taking into account the configuration of a single segment host, calculate `maxStatementMem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`.
+
+            When changing both `maxStatementMem` and `statement_mem`, `maxStatementMem` must be changed first, or listed first in the `postgresql.conf` file.
+
+            Default value is 2097152000 (2000 MB).
+
+            More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem).
           type: integer
           format: int64
         logStatement:
@@ -2746,10 +2894,7 @@ components:
           type: integer
           format: int32
     Access_in_GreenplumRestoreConfig_access:
-      description: |-
-        Access policy for external services.
-
-        Greenplum® cluster access options.
+      description: Access policy for external services.
       type: object
       properties:
         dataLens:
@@ -2762,7 +2907,7 @@ components:
           type: boolean
           format: boolean
         dataTransfer:
-          description: Allow access for DataTransfer.
+          description: Allows access for DataTransfer.
           type: boolean
           format: boolean
     HostType_in_Host_type:
@@ -2779,15 +2924,13 @@ components:
       - REPLICA
       - SEGMENT
     Resources_in_Host_resources:
-      description: |-
-        Resources allocated to the Greenplum® host.
-
-        A list of computational resources allocated to a host.
+      description: Resources allocated to the Greenplum® host.
       type: object
       properties:
         resourcePresetId:
           description: |-
             ID of the preset for computational resources allocated to a host.
+
             Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
           type: string
         diskSize:
@@ -2806,7 +2949,7 @@ components:
          - ALIVE: The host is performing all its functions normally.
          - DEAD: The host is inoperable and cannot perform any of its essential functions.
          - DEGRADED: The host is working below capacity or not fully functional.
-         - UNBALANCED: One or more segments are not in preferred role.
+         - UNBALANCED: One or more segments are not in the preferred role.
       type: string
       enum:
       - UNKNOWN
@@ -2816,15 +2959,14 @@ components:
       - UNBALANCED
       default: UNKNOWN
     Resources_in_MasterSubclusterConfig_resources:
-      description: |-
-        Computational resources allocated to Greenplum® master subcluster hosts.
-
-        A list of computational resources allocated to a host.
+      description: Computational resources allocated to Greenplum® master subcluster
+        hosts.
       type: object
       properties:
         resourcePresetId:
           description: |-
             ID of the preset for computational resources allocated to a host.
+
             Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
           type: string
         diskSize:
@@ -2836,15 +2978,13 @@ components:
             or `local-ssd`.'
           type: string
     Resources_in_MasterSubclusterConfigSpec_resources:
-      description: |-
-        Resources allocated to Greenplum® master subcluster hosts.
-
-        A list of computational resources allocated to a host.
+      description: Resources allocated to Greenplum® master subcluster hosts.
       type: object
       properties:
         resourcePresetId:
           description: |-
             ID of the preset for computational resources allocated to a host.
+
             Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
           type: string
         diskSize:
@@ -2857,10 +2997,10 @@ components:
           type: string
     ResourcePresetType_in_ResourcePreset_type:
       description: |-
-        Host type
+        Host type.
 
-         - MASTER: Greenplum master host.
-         - SEGMENT: Greenplum segment host.
+         - MASTER: Greenplum® master host.
+         - SEGMENT: Greenplum® segment host.
       type: string
       enum:
       - MASTER
@@ -2870,16 +3010,14 @@ components:
         Required.
         Deployment environment of the Greenplum® cluster.
 
-         - PRODUCTION: Stable environment with a conservative update policy:
-        only hotfixes are applied during regular maintenance.
-         - PRESTABLE: Environment with more aggressive update policy: new versions
-        are rolled out irrespective of backward compatibility.
+         - PRODUCTION: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.
+         - PRESTABLE: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.
       type: string
       enum:
       - PRODUCTION
       - PRESTABLE
     GreenplumRestoreConfig_in_RestoreClusterRequest_config:
-      description: Greenplum® cluster config
+      description: Greenplum® cluster config.
       type: object
       properties:
         backupWindowStart:
@@ -2889,40 +3027,39 @@ components:
         zoneId:
           description: |-
             ID of the availability zone where the host resides.
+
             To get a list of available zones, use the [list](/docs/compute/api-ref/Zone/list) request.
 
             The maximum string length in characters is 50.
           type: string
         subnetId:
           description: |-
-            ID of the subnet that the host should belong to. This subnet should be a part
-            of the network that the cluster belongs to.
+            ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to.
             The ID of the network is set in the field [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation).
 
             The maximum string length in characters is 50.
           type: string
         assignPublicIp:
           description: |-
-            Whether the host should get a public IP address on creation.
+            Determines whether the host should get a public IP address on creation.
 
-            After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
-            a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
+            After a host has been created, this setting cannot be changed.
+
+            To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
 
             Possible values:
-            * false - don't assign a public IP to the master hosts.
-            * true - the master hosts should have a public IP address.
+            * `false` - do not assign a public IP to the master host.
+            * `true` - assign a public IP to the master host.
           type: boolean
           format: boolean
     Resources_in_RestoreClusterRequest_masterResources:
-      description: |-
-        Resources of the Greenplum® master subcluster.
-
-        A list of computational resources allocated to a host.
+      description: Resources of the Greenplum® master subcluster.
       type: object
       properties:
         resourcePresetId:
           description: |-
             ID of the preset for computational resources allocated to a host.
+
             Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
           type: string
         diskSize:
@@ -2934,15 +3071,13 @@ components:
             or `local-ssd`.'
           type: string
     Resources_in_RestoreClusterRequest_segmentResources:
-      description: |-
-        Resources of the Greenplum® segment subcluster.
-
-        A list of computational resources allocated to a host.
+      description: Resources of the Greenplum® segment subcluster.
       type: object
       properties:
         resourcePresetId:
           description: |-
             ID of the preset for computational resources allocated to a host.
+
             Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
           type: string
         diskSize:
@@ -2954,10 +3089,8 @@ components:
             or `local-ssd`.'
           type: string
     MaintenanceWindow_in_RestoreClusterRequest_maintenanceWindow:
-      description: |-
-        Window of maintenance operations.
-
-        A Greenplum® cluster maintenance window. Should be defined by either one of the two options.
+      description: A Greenplum® cluster maintenance window. Should be defined by either
+        one of the two options.
       type: object
       allOf:
       - title: policy
@@ -2971,15 +3104,14 @@ components:
             $ref: '#/components/schemas/WeeklyMaintenanceWindow'
             description: A weekly maintenance window.
     Resources_in_SegmentSubclusterConfig_resources:
-      description: |-
-        Computational resources allocated to Greenplum® segment subcluster hosts.
-
-        A list of computational resources allocated to a host.
+      description: Computational resources allocated to Greenplum® segment subcluster
+        hosts.
       type: object
       properties:
         resourcePresetId:
           description: |-
             ID of the preset for computational resources allocated to a host.
+
             Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
           type: string
         diskSize:
@@ -2991,15 +3123,13 @@ components:
             or `local-ssd`.'
           type: string
     Resources_in_SegmentSubclusterConfigSpec_resources:
-      description: |-
-        Resources allocated to Greenplum® segment subcluster hosts.
-
-        A list of computational resources allocated to a host.
+      description: Resources allocated to Greenplum® segment subcluster hosts.
       type: object
       properties:
         resourcePresetId:
           description: |-
             ID of the preset for computational resources allocated to a host.
+
             Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
           type: string
         diskSize:
@@ -3016,7 +3146,7 @@ components:
       properties:
         timestamp:
           description: |-
-            Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            Time when the log was recorded.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
@@ -3028,7 +3158,7 @@ components:
             type: string
     FieldMask_in_UpdateClusterRequest_updateMask:
       description: |-
-        Field mask that specifies which fields of the Greenplum® Cluster resource should be updated.
+        Field mask that specifies which fields of the Greenplum® cluster resource should be updated.
 
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
@@ -3040,10 +3170,7 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     GreenplumConfig_in_UpdateClusterRequest_config:
-      description: |-
-        Greenplum® cluster configuration.
-
-        Greenplum® cluster configuration.
+      description: The Greenplum® cluster configuration.
       type: object
       properties:
         version:
@@ -3062,41 +3189,32 @@ components:
           type: string
         subnetId:
           description: |-
-            ID of the subnet the cluster belongs to. This subnet should be a part
-            of the cloud network the cluster belongs to (see [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation)).
+            ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation)).
 
             The maximum string length in characters is 50.
           type: string
         assignPublicIp:
           description: |-
-            Whether or not the cluster has a public IP address.
+            Determines whether the cluster has a public IP address.
 
             After the cluster has been created, this setting cannot be changed.
           type: boolean
           format: boolean
     MasterSubclusterConfigSpec_in_UpdateClusterRequest_masterConfig:
-      description: |-
-        Configuration of the Greenplum® master subcluster.
-
-        Configuration of the master subcluster.
+      description: Configuration of the Greenplum® master subcluster.
       type: object
       properties:
         resources:
           $ref: '#/components/schemas/Resources_in_MasterSubclusterConfigSpec_resources'
     SegmentSubclusterConfigSpec_in_UpdateClusterRequest_segmentConfig:
-      description: |-
-        Configuration of the Greenplum® segment subcluster.
-
-        Configuration of the segment subcluster.
+      description: Configuration of the Greenplum® segment subcluster.
       type: object
       properties:
         resources:
           $ref: '#/components/schemas/Resources_in_SegmentSubclusterConfigSpec_resources'
     MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
-      description: |-
-        Window of maintenance operations.
-
-        A Greenplum® cluster maintenance window. Should be defined by either one of the two options.
+      description: The Greenplum® cluster maintenance window. Should be defined by
+        either one of the two options.
       type: object
       allOf:
       - title: policy
@@ -3110,17 +3228,14 @@ components:
             $ref: '#/components/schemas/WeeklyMaintenanceWindow'
             description: A weekly maintenance window.
     ConfigSpec_in_UpdateClusterRequest_configSpec:
-      description: |-
-        Settings of the Greenplum® cluster.
-
-        Configuration of greenplum and odyssey
+      description: Settings of the Greenplum® cluster.
       type: object
       allOf:
       - type: object
         properties:
           pool:
             $ref: '#/components/schemas/ConnectionPoolerConfig'
-            description: Odyssey pool settings
+            description: Odyssey® pool settings.
       - title: greenplum_config
         type: object
         maxProperties: 1
@@ -3130,7 +3245,16 @@ components:
           greenplumConfig_6_19:
             $ref: '#/components/schemas/GreenplumConfig6_19'
     WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
-      description: Day of the week.
+      description: |-
+        Day of the week.
+
+         - MON: Monday
+         - TUE: Tuesday
+         - WED: Wednesday
+         - THU: Thursday
+         - FRI: Friday
+         - SAT: Saturday
+         - SUN: Sunday
       type: string
       enum:
       - MON
@@ -3142,6 +3266,7 @@ components:
       - SUN
 tags:
 - name: Backup
+  description: A set of methods for managing backups.
 - name: Cluster
   description: A set of methods for managing Greenplum® clusters.
 - name: ResourcePreset

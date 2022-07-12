@@ -16,7 +16,7 @@ DELETE https://mdb.{{ api-host }}/managed-mongodb/v1/backups/{backupId}
  
 Parameter | Description
 --- | ---
-backupId | Required. Required. ID of the backup to delete.
+backupId | <p>Required. Required. ID of the backup to delete.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

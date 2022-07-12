@@ -16,7 +16,7 @@ PATCH https://container-registry.{{ api-host }}/container-registry/v1/registries
  
 Parameter | Description
 --- | ---
-registryId | Required. ID of the Registry resource to update.  To get the registry ID use a [list](/docs/container-registry/api-ref/Registry/list) request.  The maximum string length in characters is 50.
+registryId | <p>Required. ID of the Registry resource to update.</p> <p>To get the registry ID use a <a href="/docs/container-registry/api-ref/Registry/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

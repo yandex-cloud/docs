@@ -16,7 +16,7 @@ PATCH https://monitoring.{{ api-host }}/monitoring/v3/alerts/{alertId}
  
 Parameter | Description
 --- | ---
-alertId | Required. ID of the alert.  The maximum string length in characters is 50.
+alertId | <p>Required. ID of the alert.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

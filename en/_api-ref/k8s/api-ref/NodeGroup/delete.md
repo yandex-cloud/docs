@@ -16,7 +16,7 @@ DELETE https://mks.{{ api-host }}/managed-kubernetes/v1/nodeGroups/{nodeGroupId}
  
 Parameter | Description
 --- | ---
-nodeGroupId | Required. ID of the node group to delete. To get node group ID use a [list](/docs/managed-kubernetes/api-ref/NodeGroup/list) request.
+nodeGroupId | <p>Required. ID of the node group to delete. To get node group ID use a <a href="/docs/managed-kubernetes/api-ref/NodeGroup/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

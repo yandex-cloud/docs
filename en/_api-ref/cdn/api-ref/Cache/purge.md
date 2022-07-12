@@ -16,7 +16,7 @@ POST https://cdn.{{ api-host }}/cdn/v1/cache/{resourceId}:purge
  
 Parameter | Description
 --- | ---
-resourceId | Required. ID of the resource to perform purge operation on.  The maximum string length in characters is 50.
+resourceId | <p>Required. ID of the resource to perform purge operation on.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

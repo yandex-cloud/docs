@@ -16,7 +16,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/networks/{networkId}:move
  
 Parameter | Description
 --- | ---
-networkId | Required. ID of the Network resource to move.  The maximum string length in characters is 50.
+networkId | <p>Required. ID of the Network resource to move.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

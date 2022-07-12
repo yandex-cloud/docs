@@ -16,7 +16,7 @@ DELETE https://container-registry.{{ api-host }}/container-registry/v1/repositor
  
 Parameter | Description
 --- | ---
-repositoryId | Required. ID of the repository to delete.  The maximum string length in characters is 50.
+repositoryId | <p>Required. ID of the repository to delete.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

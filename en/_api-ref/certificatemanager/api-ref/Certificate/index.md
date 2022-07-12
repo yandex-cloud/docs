@@ -71,7 +71,7 @@ updatedAt | **string** (date-time)<br><p>Time when the certificate is updated.</
 issuedAt | **string** (date-time)<br><p>Time when the certificate is issued.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 notAfter | **string** (date-time)<br><p>Time after which the certificate is not valid.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 notBefore | **string** (date-time)<br><p>Time before which the certificate is not valid.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-challenges[] | **object**<br><p>Domain validation challenge.</p> 
+challenges[] | **object**<br><p>Domains validation challenges of the certificate. Used only for managed certificates.</p> 
 challenges[].<br>domain | **string**<br><p>Domain of the challenge.</p> 
 challenges[].<br>type | **string**<br>Type of the challenge.<br><p>Supported domain validation types.</p> <ul> <li>DNS: Domain validation type that using DNS-records.</li> <li>HTTP: Domain validation type that using HTTP-files.</li> </ul> 
 challenges[].<br>createdAt | **string** (date-time)<br><p>Time when the challenge is created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

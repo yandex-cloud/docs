@@ -16,7 +16,7 @@ DELETE https://storage.{{ api-host }}/storage/v1/buckets/{name}
  
 Parameter | Description
 --- | ---
-name | Required. Name of the bucket to update.  To get the bucket name, make a [list](/docs/storage/api-ref/Bucket/list) request.
+name | <p>Required. Name of the bucket to update.</p> <p>To get the bucket name, make a <a href="/docs/storage/api-ref/Bucket/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

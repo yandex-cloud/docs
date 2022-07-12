@@ -16,10 +16,10 @@ GET https://serverless-mdbproxy.{{ api-host }}/mdbproxy/v1/proxies
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list proxies in.  To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/mdbproxy/api-ref/Proxy/list#responses) that can be used to get the next page of results in subsequent list requests.  Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set `pageToken` to the [nextPageToken](/docs/functions/mdbproxy/api-ref/Proxy/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters proxies listed in the response.  The expression must specify: 1. The field name. Currently filtering can only be applied to the [Proxy.name](/docs/functions/mdbproxy/api-ref/Proxy#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter: `name=my-proxy`.  The maximum string length in characters is 1000.
+folderId | <p>Required. ID of the folder to list proxies in.</p> <p>To get a folder ID make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than ``pageSize``, the service returns a <a href="/docs/functions/mdbproxy/api-ref/Proxy/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``pageToken`` to the <a href="/docs/functions/mdbproxy/api-ref/Proxy/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters proxies listed in the response.</p> <p>The expression must specify:</p> <ol> <li>The field name. Currently filtering can only be applied to the <a href="/docs/functions/mdbproxy/api-ref/Proxy#representation">Proxy.name</a> field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be 3-63 characters long and match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``. Example of a filter: ``name=my-proxy``.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

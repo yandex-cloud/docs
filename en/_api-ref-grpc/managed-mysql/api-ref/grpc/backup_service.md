@@ -59,7 +59,7 @@ page_token | **string**<br>Page token that can be used to iterate through multip
 Field | Description
 --- | ---
 backups[] | **[Backup](#Backup1)**<br>List of backups. 
-next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListBackupsRequest.page_size](#ListBackupsRequest), use the `next_page_token` as the value for the [ListBackupsRequest.page_token](#ListBackupsRequest) in the subsequent [BackupService.List](#List)(#List) request to iterate through multiple pages of results. <br>Each of the subsequent [BackupService.List] requests should use the `next_page_token` value returned by the previous request to continue paging through the results. The maximum string length in characters is 100.
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListBackupsRequest.page_size](#ListBackupsRequest), use the `next_page_token` as the value for the [ListBackupsRequest.page_token](#ListBackupsRequest) in the subsequent [BackupService.List](#List) request to iterate through multiple pages of results. <br>Each of the subsequent [BackupService.List](#List) requests should use the `next_page_token` value returned by the previous request to continue paging through the results. The maximum string length in characters is 100.
 
 
 ### Backup {#Backup1}

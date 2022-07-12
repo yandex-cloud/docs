@@ -16,8 +16,8 @@ DELETE https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}/cert
  
 Parameter | Description
 --- | ---
-deviceId | Required. ID of the device to delete a certificate for.  To get a device ID make a [list](/docs/iot-core/api-ref/Device/list) request.  The maximum string length in characters is 50.
-fingerprint | Required. Fingerprint of the certificate to delete.  The maximum string length in characters is 50.
+deviceId | <p>Required. ID of the device to delete a certificate for.</p> <p>To get a device ID make a <a href="/docs/iot-core/api-ref/Device/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+fingerprint | <p>Required. Fingerprint of the certificate to delete.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

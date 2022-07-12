@@ -16,7 +16,7 @@ PATCH https://serverless-mdbproxy.{{ api-host }}/mdbproxy/v1/proxies/{proxyId}
  
 Parameter | Description
 --- | ---
-proxyId | Required. ID of the proxy to update.
+proxyId | <p>Required. ID of the proxy to update.</p> 
  
 ## Body parameters {#body_params}
  

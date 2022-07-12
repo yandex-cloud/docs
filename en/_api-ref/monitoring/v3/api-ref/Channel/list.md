@@ -16,10 +16,10 @@ GET https://monitoring.{{ api-host }}/monitoring/v3/channels
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list channels in.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/monitoring/api-ref/Channel/list#query_params), the service returns a [nextPageToken](/docs/monitoring/api-ref/Channel/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/monitoring/api-ref/Channel/list#query_params) to the [nextPageToken](/docs/monitoring/api-ref/Channel/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response. Currently you can use filtering only on the [Channel.id](/docs/monitoring/api-ref/Channel#representation) or [Channel.name](/docs/monitoring/api-ref/Channel#representation) field.  The maximum string length in characters is 1000.
+folderId | <p>Required. ID of the folder to list channels in.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/monitoring/api-ref/Channel/list#query_params">pageSize</a>, the service returns a <a href="/docs/monitoring/api-ref/Channel/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/monitoring/api-ref/Channel/list#query_params">pageToken</a> to the <a href="/docs/monitoring/api-ref/Channel/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resources listed in the response. Currently you can use filtering only on the <a href="/docs/monitoring/api-ref/Channel#representation">Channel.id</a> or <a href="/docs/monitoring/api-ref/Channel#representation">Channel.name</a> field.</p> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -62,7 +62,7 @@ filter | A filter expression that filters resources listed in the response. Curr
  
 Field | Description
 --- | ---
-channels[] | **object**<br><p>An Channel resource.</p> 
+channels[] | **object**<br><p>List of Channel resources.</p> 
 channels[].<br>id | **string**<br><p>ID of the channel.</p> 
 channels[].<br>folderId | **string**<br><p>ID of the folder that the channel belongs on.</p> 
 channels[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

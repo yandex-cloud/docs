@@ -16,7 +16,7 @@ PATCH https://vpc.{{ api-host }}/vpc/v1/gateways/{gatewayId}
  
 Parameter | Description
 --- | ---
-gatewayId | Required. ID of the gateway to update.  To get the gateway ID make a [list](/docs/vpc/api-ref/Gateway/list) request.  The maximum string length in characters is 50.
+gatewayId | <p>Required. ID of the gateway to update.</p> <p>To get the gateway ID make a <a href="/docs/vpc/api-ref/Gateway/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

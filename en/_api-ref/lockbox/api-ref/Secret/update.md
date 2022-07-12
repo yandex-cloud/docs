@@ -16,7 +16,7 @@ PATCH https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}
  
 Parameter | Description
 --- | ---
-secretId | Required. ID of the secret to update.  The maximum string length in characters is 50.
+secretId | <p>Required. ID of the secret to update.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

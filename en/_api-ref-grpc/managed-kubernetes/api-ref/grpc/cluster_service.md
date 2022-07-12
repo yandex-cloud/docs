@@ -100,6 +100,7 @@ Field | Description
 --- | ---
 internal_v4_endpoint | **string**<br>Internal endpoint that can be used to connect to the master from cloud networks. 
 external_v4_endpoint | **string**<br>External endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud). 
+external_v6_endpoint | **string**<br>External IPv6 endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud). 
 
 
 ### MasterAuth {#MasterAuth}
@@ -287,6 +288,7 @@ Field | Description
 --- | ---
 internal_v4_endpoint | **string**<br>Internal endpoint that can be used to connect to the master from cloud networks. 
 external_v4_endpoint | **string**<br>External endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud). 
+external_v6_endpoint | **string**<br>External IPv6 endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud). 
 
 
 ### MasterAuth {#MasterAuth1}
@@ -403,7 +405,7 @@ name | **string**<br>Name of the Kubernetes cluster. The name must be unique wit
 description | **string**<br>Description of the Kubernetes cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 network_id | **string**<br>Required. ID of the network. 
-master_spec | **[MasterSpec](#MasterSpec)**<br>Required. IP allocation policy of the Kubernetes cluster. 
+master_spec | **[MasterSpec](#MasterSpec)**<br>Required. Master specification of the Kubernetes cluster. 
 ip_allocation_policy | **[IPAllocationPolicy](#IPAllocationPolicy2)**<br>IP allocation policy of the Kubernetes cluster. 
 internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. 
@@ -446,6 +448,9 @@ subnet_id | **string**<br>ID of the subnet. If no ID is specified, and there onl
 
 ### ExternalAddressSpec {#ExternalAddressSpec}
 
+Field | Description
+--- | ---
+address | **string**<br>IP address. 
 
 
 ### RegionalMasterSpec {#RegionalMasterSpec}
@@ -455,6 +460,7 @@ Field | Description
 region_id | **string**<br>Required. ID of the availability zone where the master resides. 
 locations[] | **[MasterLocation](#MasterLocation)**<br>List of locations where the master will be allocated. 
 external_v4_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec)**<br>Specify to allocate a static public IP for the master. 
+external_v6_address_spec | **[ExternalAddressSpec](#ExternalAddressSpec)**<br>Specification of parameters for external IPv6 networking. 
 
 
 ### MasterLocation {#MasterLocation}
@@ -474,6 +480,9 @@ subnet_id | **string**<br>ID of the subnet. If no ID is specified, and there onl
 
 ### ExternalAddressSpec {#ExternalAddressSpec1}
 
+Field | Description
+--- | ---
+address | **string**<br>IP address. 
 
 
 ### MasterMaintenancePolicy {#MasterMaintenancePolicy2}
@@ -643,6 +652,7 @@ Field | Description
 --- | ---
 internal_v4_endpoint | **string**<br>Internal endpoint that can be used to connect to the master from cloud networks. 
 external_v4_endpoint | **string**<br>External endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud). 
+external_v6_endpoint | **string**<br>External IPv6 endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud). 
 
 
 ### MasterAuth {#MasterAuth2}
@@ -939,6 +949,7 @@ Field | Description
 --- | ---
 internal_v4_endpoint | **string**<br>Internal endpoint that can be used to connect to the master from cloud networks. 
 external_v4_endpoint | **string**<br>External endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud). 
+external_v6_endpoint | **string**<br>External IPv6 endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud). 
 
 
 ### MasterAuth {#MasterAuth3}
@@ -1182,6 +1193,7 @@ Field | Description
 --- | ---
 internal_v4_endpoint | **string**<br>Internal endpoint that can be used to connect to the master from cloud networks. 
 external_v4_endpoint | **string**<br>External endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud). 
+external_v6_endpoint | **string**<br>External IPv6 endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud). 
 
 
 ### MasterAuth {#MasterAuth4}
@@ -1385,6 +1397,7 @@ Field | Description
 --- | ---
 internal_v4_endpoint | **string**<br>Internal endpoint that can be used to connect to the master from cloud networks. 
 external_v4_endpoint | **string**<br>External endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud). 
+external_v6_endpoint | **string**<br>External IPv6 endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud). 
 
 
 ### MasterAuth {#MasterAuth5}
@@ -1535,6 +1548,7 @@ node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of
 Field | Description
 --- | ---
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+labels | **map<string,string>**<br>these labels will be assigned to compute nodes (instances), created by the nodegroup No more than 32 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec)**<br>Specification for the boot disk that will be attached to the node. 

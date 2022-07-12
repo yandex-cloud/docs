@@ -16,7 +16,7 @@ PATCH https://serverless-containers.{{ api-host }}/containers/v1/containers/{con
  
 Parameter | Description
 --- | ---
-containerId | Required.
+containerId | <p>Required.</p> 
  
 ## Body parameters {#body_params}
  

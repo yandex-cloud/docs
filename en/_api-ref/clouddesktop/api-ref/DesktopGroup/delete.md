@@ -16,7 +16,7 @@ DELETE https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desk
  
 Parameter | Description
 --- | ---
-desktopGroupId | Required. ID of the desktop group to delete.  To get a desktop group ID make a [list](/docs/cloud-desktop/api-ref/DesktopGroup/list) request.  The maximum string length in characters is 50.
+desktopGroupId | <p>Required. ID of the desktop group to delete.</p> <p>To get a desktop group ID make a <a href="/docs/cloud-desktop/api-ref/DesktopGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

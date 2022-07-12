@@ -16,9 +16,9 @@ GET https://lockbox.{{ api-host }}/lockbox/v1/secrets
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list secrets in.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSecretsRequest.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set `page_token` to the [ListSecretsRequest.next_page_token] returned by a previous list request.  The maximum string length in characters is 100.
+folderId | <p>Required. ID of the folder to list secrets in.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than ``page_size``, the service returns a [ListSecretsRequest.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the [ListSecretsRequest.next_page_token] returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -56,7 +56,7 @@ pageToken | Page token. To get the next page of results, set `page_token` to the
  
 Field | Description
 --- | ---
-secrets[] | **object**<br><p>A secret that may contain several versions of the payload.</p> 
+secrets[] | **object**<br><p>List of secrets in the specified folder.</p> 
 secrets[].<br>id | **string**<br><p>ID of the secret.</p> 
 secrets[].<br>folderId | **string**<br><p>ID of the folder that the secret belongs to.</p> 
 secrets[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
@@ -64,7 +64,7 @@ secrets[].<br>name | **string**<br><p>Name of the secret.</p>
 secrets[].<br>description | **string**<br><p>Description of the secret.</p> 
 secrets[].<br>labels | **object**<br><p>Custom labels for the secret as ``key:value`` pairs. Maximum 64 per key.</p> 
 secrets[].<br>kmsKeyId | **string**<br><p>Optional ID of the KMS key will be used to encrypt and decrypt the secret.</p> 
-secrets[].<br>status | **string**<br><p>Status of the secret.</p> <ul> <li>CREATING: The secret is being created.</li> <li>ACTIVE: The secret is active and the secret payload can be accessed.</li> </ul> <p>Can be set to INACTIVE using the <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a> method.</p> <ul> <li>INACTIVE: The secret is inactive and unusable.</li> </ul> <p>Can be set to ACTIVE using the <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a> method.</p> 
+secrets[].<br>status | **string**<br><p>Status of the secret.</p> <ul> <li> <p>CREATING: The secret is being created.</p> </li> <li> <p>ACTIVE: The secret is active and the secret payload can be accessed.</p> <p>Can be set to INACTIVE using the <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a> method.</p> </li> <li> <p>INACTIVE: The secret is inactive and unusable.</p> <p>Can be set to ACTIVE using the <a href="/docs/lockbox/api-ref/Secret/deactivate">deactivate</a> method.</p> </li> </ul> 
 secrets[].<br>currentVersion | **object**<br><p>Current (i.e. the ``latest``) version of the secret.</p> 
 secrets[].<br>currentVersion.<br>id | **string**<br><p>ID of the version.</p> 
 secrets[].<br>currentVersion.<br>secretId | **string**<br><p>ID of the secret that the version belongs to.</p> 

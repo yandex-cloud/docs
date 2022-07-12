@@ -16,12 +16,12 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/scans
  
 Parameter | Description
 --- | ---
-imageId | The maximum string length in characters is 50.
-repositoryId | The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/container-registry/api-ref/Scanner/list#query_params), the service returns a [nextPageToken](/docs/container-registry/api-ref/Registry/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/container-registry/api-ref/Scanner/list#query_params) to the [nextPageToken](/docs/container-registry/api-ref/Registry/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on `status` field. 2. An `=` operator. 3. The value in double quotes (`"`).  The maximum string length in characters is 1000.
-orderBy | An order expression that orders resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on `status` field. 2. Order selector. Currently you can use ordering only on `ScanResult.status` field (critical first).  The maximum string length in characters is 100.
+imageId | <p>The maximum string length in characters is 50.</p> 
+repositoryId | <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/container-registry/api-ref/Scanner/list#query_params">pageSize</a>, the service returns a <a href="/docs/container-registry/api-ref/Registry/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/container-registry/api-ref/Scanner/list#query_params">pageToken</a> to the <a href="/docs/container-registry/api-ref/Registry/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resources listed in the response. The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on ``status`` field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``).</li> </ol> <p>The maximum string length in characters is 1000.</p> 
+orderBy | <p>An order expression that orders resources listed in the response. The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on ``status`` field.</li> <li>Order selector. Currently you can use ordering only on ``ScanResult.status`` field (critical first).</li> </ol> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -51,7 +51,7 @@ orderBy | An order expression that orders resources listed in the response. The 
  
 Field | Description
 --- | ---
-scanResults[] | **object**<br><p>A ScanResult resource.</p> 
+scanResults[] | **object**<br><p>List of ScanResult resources.</p> 
 scanResults[].<br>id | **string**<br><p>Output only. ID of the ScanResult.</p> 
 scanResults[].<br>imageId | **string**<br><p>Output only. ID of the Image that the ScanResult belongs to.</p> 
 scanResults[].<br>scannedAt | **string** (date-time)<br><p>Output only. The timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format when the scan been finished.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

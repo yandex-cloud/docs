@@ -16,11 +16,11 @@ GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list desktop groups in.  To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/cloud-desktop/api-ref/DesktopGroup/list#query_params), the service returns a [nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/cloud-desktop/api-ref/DesktopGroup/list#query_params) to the [nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on [DesktopGroup.name](/docs/cloud-desktop/api-ref/DesktopGroup#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. Value or a list of values to compare against the values of the field.  The maximum string length in characters is 1000.
-orderBy | Sorting the list by [DesktopGroup.name](/docs/cloud-desktop/api-ref/DesktopGroup#representation), [DesktopGroup.createdAt](/docs/cloud-desktop/api-ref/DesktopGroup#representation) and [DesktopGroup.status](/docs/cloud-desktop/api-ref/DesktopGroup#representation) fields. The default sorting order is ascending.  The maximum string length in characters is 100.
+folderId | <p>Required. ID of the folder to list desktop groups in.</p> <p>To get the folder ID use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/cloud-desktop/api-ref/DesktopGroup/list#query_params">pageSize</a>, the service returns a <a href="/docs/cloud-desktop/api-ref/DesktopGroup/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/cloud-desktop/api-ref/DesktopGroup/list#query_params">pageToken</a> to the <a href="/docs/cloud-desktop/api-ref/DesktopGroup/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resources listed in the response. The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on <a href="/docs/cloud-desktop/api-ref/DesktopGroup#representation">DesktopGroup.name</a> field.</li> <li>An operator. Can be either ``=`` or ``!=`` for single values, ``IN`` or ``NOT IN`` for lists of values.</li> <li>Value or a list of values to compare against the values of the field.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
+orderBy | <p>Sorting the list by <a href="/docs/cloud-desktop/api-ref/DesktopGroup#representation">DesktopGroup.name</a>, <a href="/docs/cloud-desktop/api-ref/DesktopGroup#representation">DesktopGroup.createdAt</a> and <a href="/docs/cloud-desktop/api-ref/DesktopGroup#representation">DesktopGroup.status</a> fields. The default sorting order is ascending.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -55,7 +55,7 @@ orderBy | Sorting the list by [DesktopGroup.name](/docs/cloud-desktop/api-ref/De
  
 Field | Description
 --- | ---
-desktopGroups[] | **object**<br><p>A desktop group resource.</p> 
+desktopGroups[] | **object**<br><p>List of desktop groups.</p> 
 desktopGroups[].<br>id | **string**<br><p>Desktop group ID.</p> 
 desktopGroups[].<br>folderId | **string**<br><p>ID of the folder that the desktop group belongs to.</p> 
 desktopGroups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

@@ -16,8 +16,8 @@ GET https://mdb.{{ api-host }}/managed-redis/v1/resourcePresets
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/managed-redis/api-ref/ResourcePreset/list#query_params), the service returns a [nextPageToken](/docs/managed-redis/api-ref/ResourcePreset/list#responses) that can be used to get the next page of results in subsequent list requests.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/managed-redis/api-ref/ResourcePreset/list#query_params) to the [nextPageToken](/docs/managed-redis/api-ref/ResourcePreset/list#responses) returned by a previous list request.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-redis/api-ref/ResourcePreset/list#query_params">pageSize</a>, the service returns a <a href="/docs/managed-redis/api-ref/ResourcePreset/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/managed-redis/api-ref/ResourcePreset/list#query_params">pageToken</a> to the <a href="/docs/managed-redis/api-ref/ResourcePreset/list#responses">nextPageToken</a> returned by the previous list request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -41,7 +41,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/m
  
 Field | Description
 --- | ---
-resourcePresets[] | **object**<br><p>A resource preset that describes hardware configuration for a host.</p> 
+resourcePresets[] | **object**<br><p>List of resource presets.</p> 
 resourcePresets[].<br>id | **string**<br><p>ID of the resource preset.</p> 
 resourcePresets[].<br>zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
 resourcePresets[].<br>memory | **string** (int64)<br><p>RAM volume for a Redis host created with the preset, in bytes.</p> 

@@ -16,7 +16,7 @@ DELETE https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId
  
 Parameter | Description
 --- | ---
-instanceGroupId | Required. ID of the instance group to delete. To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.  The maximum string length in characters is 50.
+instanceGroupId | <p>Required. ID of the instance group to delete. To get the instance group ID, use a <a href="/docs/compute/api-ref/InstanceGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

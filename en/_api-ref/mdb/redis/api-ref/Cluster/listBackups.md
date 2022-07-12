@@ -16,14 +16,14 @@ GET https://mdb.{{ api-host }}/managed-redis/v1/clusters/{clusterId}/backups
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Redis cluster. To get the Redis cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the Redis cluster. To get the Redis cluster ID use a <a href="/docs/managed-redis/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/managed-redis/api-ref/Cluster/listBackups#query_params), the service returns a [nextPageToken](/docs/managed-redis/api-ref/Cluster/listBackups#responses) that can be used to get the next page of results in subsequent list requests.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token.  To get the next page of results, set [pageToken](/docs/managed-redis/api-ref/Cluster/listBackups#query_params) to the [nextPageToken](/docs/managed-redis/api-ref/Cluster/listBackups#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-redis/api-ref/Cluster/listBackups#query_params">pageSize</a>, the service returns a <a href="/docs/managed-redis/api-ref/Cluster/listBackups#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token.  To get the next page of results, set <a href="/docs/managed-redis/api-ref/Cluster/listBackups#query_params">pageToken</a> to the <a href="/docs/managed-redis/api-ref/Cluster/listBackups#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -49,7 +49,7 @@ pageToken | Page token.  To get the next page of results, set [pageToken](/docs/
  
 Field | Description
 --- | ---
-backups[] | **object**<br><p>Description of a Redis backup. For more information, see the Managed Service for Redis <a href="/docs/managed-redis/concepts/backup">documentation</a>.</p> 
+backups[] | **object**<br><p>List of Redis backups.</p> 
 backups[].<br>id | **string**<br><p>ID of the backup.</p> 
 backups[].<br>folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
 backups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format (i.e. when the backup operation was completed).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

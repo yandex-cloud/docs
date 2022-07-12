@@ -5,6 +5,6 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 
 Service | Description
 --- | ---
-[SymmetricCryptoService](./symmetric_crypto_service.md) | --- Data plane for KMS symmetric cryptography operations Set of methods that perform symmetric encryption and decryption.
+[SymmetricCryptoService](./symmetric_crypto_service.md) | Set of methods that perform symmetric encryption and decryption.
 [SymmetricKeyService](./symmetric_key_service.md) | Set of methods for managing symmetric KMS keys.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

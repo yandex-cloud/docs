@@ -3365,6 +3365,8 @@ components:
           type: object
           additionalProperties:
             type: string
+        metadataOptions:
+          $ref: '#/components/schemas/MetadataOptions_in_CreateInstanceRequest_metadataOptions'
         bootDiskSpec:
           $ref: '#/components/schemas/AttachedDiskSpec_in_CreateInstanceRequest_bootDiskSpec'
         secondaryDiskSpecs:
@@ -4121,6 +4123,8 @@ components:
           type: object
           additionalProperties:
             type: string
+        metadataOptions:
+          $ref: '#/components/schemas/MetadataOptions_in_Instance_metadataOptions'
         bootDisk:
           $ref: '#/components/schemas/AttachedDisk_in_Instance_bootDisk'
         secondaryDisks:
@@ -4582,6 +4586,25 @@ components:
       enum:
       - RESTART
       - MIGRATE
+    MetadataOption:
+      description: |2-
+         - ENABLED: Option is enabled
+         - DISABLED: Option is disabled
+      type: string
+      enum:
+      - ENABLED
+      - DISABLED
+    MetadataOptions:
+      type: object
+      properties:
+        gceHttpEndpoint:
+          $ref: '#/components/schemas/MetadataOption_in_MetadataOptions_gceHttpEndpoint'
+        awsV1HttpEndpoint:
+          $ref: '#/components/schemas/MetadataOption_in_MetadataOptions_awsV1HttpEndpoint'
+        gceHttpToken:
+          $ref: '#/components/schemas/MetadataOption_in_MetadataOptions_gceHttpToken'
+        awsV1HttpToken:
+          $ref: '#/components/schemas/MetadataOption_in_MetadataOptions_awsV1HttpToken'
     MoveDiskMetadata:
       type: object
       properties:
@@ -4835,7 +4858,7 @@ components:
           items:
             $ref: '#/components/schemas/PlacementPolicyHostAffinityRule'
     PlacementPolicyHostAffinityRule:
-      description: Affinitity definition
+      description: Affinity definition
       type: object
       properties:
         key:
@@ -5399,6 +5422,8 @@ components:
           type: object
           additionalProperties:
             type: string
+        metadataOptions:
+          $ref: '#/components/schemas/MetadataOptions_in_UpdateInstanceRequest_metadataOptions'
         serviceAccountId:
           description: |-
             ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm).
@@ -5679,6 +5704,18 @@ components:
             Value must be one of 0, 1, 2 or 4.
           type: string
           format: int64
+    MetadataOptions_in_CreateInstanceRequest_metadataOptions:
+      description: Options allow user to configure access to instance's metadata
+      type: object
+      properties:
+        gceHttpEndpoint:
+          $ref: '#/components/schemas/MetadataOption_in_MetadataOptions_gceHttpEndpoint'
+        awsV1HttpEndpoint:
+          $ref: '#/components/schemas/MetadataOption_in_MetadataOptions_awsV1HttpEndpoint'
+        gceHttpToken:
+          $ref: '#/components/schemas/MetadataOption_in_MetadataOptions_gceHttpToken'
+        awsV1HttpToken:
+          $ref: '#/components/schemas/MetadataOption_in_MetadataOptions_awsV1HttpToken'
     AttachedDiskSpec_in_CreateInstanceRequest_bootDiskSpec:
       description: |-
         Required.
@@ -5866,6 +5903,18 @@ components:
       - ERROR
       - CRASHED
       - DELETING
+    MetadataOptions_in_Instance_metadataOptions:
+      description: Options allow user to configure access to instance's metadata
+      type: object
+      properties:
+        gceHttpEndpoint:
+          $ref: '#/components/schemas/MetadataOption_in_MetadataOptions_gceHttpEndpoint'
+        awsV1HttpEndpoint:
+          $ref: '#/components/schemas/MetadataOption_in_MetadataOptions_awsV1HttpEndpoint'
+        gceHttpToken:
+          $ref: '#/components/schemas/MetadataOption_in_MetadataOptions_gceHttpToken'
+        awsV1HttpToken:
+          $ref: '#/components/schemas/MetadataOption_in_MetadataOptions_awsV1HttpToken'
     AttachedDisk_in_Instance_bootDisk:
       description: Boot disk that is attached to the instance.
       type: object
@@ -5915,6 +5964,46 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PlacementPolicyHostAffinityRule'
+    MetadataOption_in_MetadataOptions_gceHttpEndpoint:
+      description: |-
+        Enabled access to GCE flavored metadata
+
+         - ENABLED: Option is enabled
+         - DISABLED: Option is disabled
+      type: string
+      enum:
+      - ENABLED
+      - DISABLED
+    MetadataOption_in_MetadataOptions_awsV1HttpEndpoint:
+      description: |-
+        Enabled access to AWS flavored metadata (IMDSv1)
+
+         - ENABLED: Option is enabled
+         - DISABLED: Option is disabled
+      type: string
+      enum:
+      - ENABLED
+      - DISABLED
+    MetadataOption_in_MetadataOptions_gceHttpToken:
+      description: |-
+        Enabled access to IAM credentials with GCE flavored metadata
+
+         - ENABLED: Option is enabled
+         - DISABLED: Option is disabled
+      type: string
+      enum:
+      - ENABLED
+      - DISABLED
+    MetadataOption_in_MetadataOptions_awsV1HttpToken:
+      description: |-
+        Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
+
+         - ENABLED: Option is enabled
+         - DISABLED: Option is disabled
+      type: string
+      enum:
+      - ENABLED
+      - DISABLED
     PrimaryAddress_in_NetworkInterface_primaryV4Address:
       description: Primary IPv4 address that is assigned to the instance for this
         network interface.
@@ -6268,6 +6357,18 @@ components:
             Value must be one of 0, 1, 2 or 4.
           type: string
           format: int64
+    MetadataOptions_in_UpdateInstanceRequest_metadataOptions:
+      description: Options allow user to configure access to instance's metadata
+      type: object
+      properties:
+        gceHttpEndpoint:
+          $ref: '#/components/schemas/MetadataOption_in_MetadataOptions_gceHttpEndpoint'
+        awsV1HttpEndpoint:
+          $ref: '#/components/schemas/MetadataOption_in_MetadataOptions_awsV1HttpEndpoint'
+        gceHttpToken:
+          $ref: '#/components/schemas/MetadataOption_in_MetadataOptions_gceHttpToken'
+        awsV1HttpToken:
+          $ref: '#/components/schemas/MetadataOption_in_MetadataOptions_awsV1HttpToken'
     NetworkSettings_in_UpdateInstanceRequest_networkSettings:
       description: Network settings.
       type: object

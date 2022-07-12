@@ -16,7 +16,7 @@ DELETE https://serverless-functions.{{ api-host }}/functions/v1/functions/{funct
  
 Parameter | Description
 --- | ---
-functionId | Required. ID of the function to delete. To get a function ID make a [list](/docs/functions/functions/api-ref/Function/list) request.
+functionId | <p>Required. ID of the function to delete. To get a function ID make a <a href="/docs/functions/functions/api-ref/Function/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

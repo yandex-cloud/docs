@@ -16,7 +16,7 @@ PATCH https://resource-manager.{{ api-host }}/resource-manager/v1/folders/{folde
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the Folder resource to update. To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
+folderId | <p>Required. ID of the Folder resource to update. To get the folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

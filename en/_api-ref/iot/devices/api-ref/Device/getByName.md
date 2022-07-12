@@ -16,9 +16,9 @@ GET https://iot-devices.{{ api-host }}/iot-devices/v1/devices:getByName
  
 Parameter | Description
 --- | ---
-registryId | Required. ID of the registry to get device.  To get a registry ID make a [list](/docs/iot-core/api-ref/Registry/list) request.  The maximum string length in characters is 50.
-deviceName | Required. Name of the device to return.  To get a device name make a [list](/docs/iot-core/api-ref/Device/list) request.  The maximum string length in characters is 50. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
-deviceView | Specifies which parts of the device resource should be returned in the response.<ul> <li>BASIC: Server responses without monitoring data. The default value.</li> <li>FULL: Server responses with monitoring data.</li> </ul> 
+registryId | <p>Required. ID of the registry to get device.</p> <p>To get a registry ID make a <a href="/docs/iot-core/api-ref/Registry/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+deviceName | <p>Required. Name of the device to return.</p> <p>To get a device name make a <a href="/docs/iot-core/api-ref/Device/list">list</a> request.</p> <p>The maximum string length in characters is 50. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
+deviceView | <p>Specifies which parts of the device resource should be returned in the response.</p> <ul> <li>BASIC: Server responses without monitoring data. The default value.</li> <li>FULL: Server responses with monitoring data.</li> </ul> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

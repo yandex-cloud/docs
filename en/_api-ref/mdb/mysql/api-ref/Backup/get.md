@@ -16,7 +16,7 @@ GET https://mdb.{{ api-host }}/managed-mysql/v1/backups/{backupId}
  
 Parameter | Description
 --- | ---
-backupId | Required. ID of the backup to return information about.  To get this ID, make a [list](/docs/managed-mysql/api-ref/Backup/list) request (lists all backups in a folder) or a [listBackups](/docs/managed-mysql/api-ref/Cluster/listBackups) request (lists all backups for an existing cluster).
+backupId | <p>Required. ID of the backup to return information about.</p> <p>To get this ID, make a <a href="/docs/managed-mysql/api-ref/Backup/list">list</a> request (lists all backups in a folder) or a <a href="/docs/managed-mysql/api-ref/Cluster/listBackups">listBackups</a> request (lists all backups for an existing cluster).</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

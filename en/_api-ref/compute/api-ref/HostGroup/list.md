@@ -16,10 +16,10 @@ GET https://compute.{{ api-host }}/compute/v1/hostGroups
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list host groups in. To get the folder ID, use [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/HostGroup/list#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/HostGroup/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/HostGroup/list#query_params) to the [nextPageToken](/docs/compute/api-ref/HostGroup/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response. Currently you can use filtering only on the [HostGroup.name](/docs/compute/api-ref/HostGroup#representation) field.  The maximum string length in characters is 1000.
+folderId | <p>Required. ID of the folder to list host groups in. To get the folder ID, use <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/HostGroup/list#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/HostGroup/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/compute/api-ref/HostGroup/list#query_params">pageToken</a> to the <a href="/docs/compute/api-ref/HostGroup/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resources listed in the response. Currently you can use filtering only on the <a href="/docs/compute/api-ref/HostGroup#representation">HostGroup.name</a> field.</p> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -52,7 +52,7 @@ filter | A filter expression that filters resources listed in the response. Curr
  
 Field | Description
 --- | ---
-hostGroups[] | **object**<br><p>Represents group of dedicated hosts</p> 
+hostGroups[] | **object**<br><p>Lists host groups for the specified folder.</p> 
 hostGroups[].<br>id | **string**<br><p>ID of the group.</p> 
 hostGroups[].<br>folderId | **string**<br><p>ID of the folder that the group belongs to.</p> 
 hostGroups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

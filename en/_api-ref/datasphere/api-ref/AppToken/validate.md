@@ -16,7 +16,7 @@ POST https://datasphere.{{ api-host }}/datasphere/v1/appTokens/{token}:validate
  
 Parameter | Description
 --- | ---
-token | App token to validate.
+token | <p>App token to validate.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

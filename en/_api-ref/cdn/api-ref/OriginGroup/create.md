@@ -53,7 +53,7 @@ Field | Description
 folderId | **string**<br><p>Required. ID of the folder that the origin group belongs to.</p> <p>The maximum string length in characters is 50.</p> 
 name | **string**<br><p>Name of the origin group.</p> 
 useNext | **boolean** (boolean)<br><p>This option have two possible conditions: true - The option is active. In case the origin responds with 4XX or 5XX codes, use the next origin from the list. false - The option is disabled.</p> <p>default value is true</p> 
-origins[] | **object**<br><p>Origin parameters. For details about the concept, see <a href="/docs/cdn/concepts/origins">documentation</a>.</p> 
+origins[] | **object**<br><p>List of origins: IP addresses or Domain names of your origins and the port (if custom).</p> 
 origins[].<br>source | **string**<br><p>Source: IP address or Domain name of your origin and the port (if custom).</p> 
 origins[].<br>enabled | **boolean** (boolean)<br><p>The setting allows to enable or disable an Origin source in the Origins group.</p> <p>It has two possible values:</p> <p>True - The origin is enabled and used as a source for the CDN. An origins group must contain at least one enabled origins. False - The origin is disabled and the CDN is not using it to pull content.</p> 
 origins[].<br>backup | **boolean** (boolean)<br><p>backup option has two possible values:</p> <p>True - The option is active. The origin will not be used until one of active origins become unavailable. False - The option is disabled.</p> 

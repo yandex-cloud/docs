@@ -16,7 +16,7 @@ GET https://serverless-functions.{{ api-host }}/functions/v1/versions/{functionV
  
 Parameter | Description
 --- | ---
-functionVersionId | Required. ID of the version to return.  To get a version ID make a [listVersions](/docs/functions/functions/api-ref/Function/listVersions) request.
+functionVersionId | <p>Required. ID of the version to return.</p> <p>To get a version ID make a <a href="/docs/functions/functions/api-ref/Function/listVersions">listVersions</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -81,7 +81,7 @@ connectivity | **object**<br><p>Network access. If specified the version will be
 connectivity.<br>networkId | **string**<br><p>Network the version will have access to. It's essential to specify network with subnets in all availability zones.</p> 
 connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones.</p> 
 namedServiceAccounts | **object**<br><p>Additional service accounts to be used by the version.</p> 
-secrets[] | **object**<br><p>Secret for serverless function</p> 
+secrets[] | **object**<br><p>Lockbox secrets to be used by the version</p> 
 secrets[].<br>id | **string**<br><p>ID of lockbox secret</p> 
 secrets[].<br>versionId | **string**<br><p>ID of secret version</p> 
 secrets[].<br>key | **string**<br><p>Key in secret's payload, which value to be delivered into function environment</p> 

@@ -36,7 +36,7 @@ folderId | **string**<br><p>Required. ID of the folder to create a registry in.<
 name | **string**<br><p>Required. Name of the registry. The name must be unique within the folder.</p> <p>The maximum string length in characters is 50. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 description | **string**<br><p>Description of the registry.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
-certificates[] | **object**<br><p>Specification of a registry certificate.</p> 
+certificates[] | **object**<br><p>Registry certificates.</p> 
 certificates[].<br>certificateData | **string**<br><p>Public part of the registry certificate.</p> 
 password | **string**<br><p>Registry passwords.</p> <p>The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.</p> 
  

@@ -16,7 +16,7 @@ GET https://serverless-containers.{{ api-host }}/containers/v1/containers/{conta
  
 Parameter | Description
 --- | ---
-containerId | Required.
+containerId | <p>Required.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

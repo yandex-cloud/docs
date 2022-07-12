@@ -16,8 +16,8 @@ DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/organ
  
 Parameter | Description
 --- | ---
-organizationId | Required. ID of the organization to delete membership.  The maximum string length in characters is 50.
-subjectId | ID of the subject that is being deleted from organization. By default equals to authenticated subject.  The maximum string length in characters is 50.
+organizationId | <p>Required. ID of the organization to delete membership.</p> <p>The maximum string length in characters is 50.</p> 
+subjectId | <p>ID of the subject that is being deleted from organization. By default equals to authenticated subject.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -3,7 +3,289 @@ info:
   title: Title not set.
   description: Description not set.
   version: Version not set.
-paths: {}
+paths:
+  /loadtesting/agent/v1/agents/register:
+    post:
+      tags:
+      - AgentRegistration
+      summary: Registers specified agent.
+      operationId: AgentRegistrationRegister
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegisterResponse'
+      x-y-navtitle: register
+  /loadtesting/agent/v1/agents/externalAgentsRegister:
+    post:
+      tags:
+      - AgentRegistration
+      summary: Registers external agent.
+      operationId: AgentRegistrationExternalAgentRegister
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExternalAgentRegisterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: externalAgentRegister
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/ExternalAgentRegisterMetadata'
+      x-y-operation-response: '`AgentInstance`'
+  /loadtesting/agent/v1/agents/{agentInstanceId}/claimStatus:
+    post:
+      tags:
+      - Agent
+      summary: Claims status for the specified agent.
+      operationId: AgentClaimStatus
+      parameters:
+      - name: agentInstanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClaimAgentStatusRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClaimAgentStatusResponse'
+      x-y-navtitle: claimStatus
+  /loadtesting/agent/v1/tanks/{tankId}/sayHello:
+    get:
+      tags:
+      - Greeter
+      summary: Says hello from specified tank.
+      operationId: GreeterSayHello
+      parameters:
+      - name: tankId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SayHelloResponse'
+      x-y-navtitle: sayHello
+  /loadtesting/agent/v1/jobs/{jobId}/claimStatus:
+    post:
+      tags:
+      - Job
+      summary: Claims status for the specified job.
+      operationId: JobClaimStatus
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClaimJobStatusRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClaimJobStatusResponse'
+      x-y-navtitle: claimStatus
+  /loadtesting/agent/v1/agents/{agentInstanceId}/getJob:
+    get:
+      tags:
+      - Job
+      summary: Returns the job for the specified agent.
+      operationId: JobGet
+      parameters:
+      - name: agentInstanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: computeInstanceId
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+      x-y-navtitle: get
+  /loadtesting/agent/v1/jobs/{jobId}/getSignal:
+    get:
+      tags:
+      - Job
+      summary: Returns the signal for the specified job.
+      operationId: JobGetSignal
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobSignalResponse'
+      x-y-navtitle: getSignal
+  /loadtesting/agent/v1/tanks/{computeInstanceId}/claimStatus:
+    post:
+      tags:
+      - Tank
+      summary: Claims specified tank's status.
+      operationId: TankClaimStatus
+      parameters:
+      - name: computeInstanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClaimTankStatusRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClaimTankStatusResponse'
+      x-y-navtitle: claimStatus
+  /loadtesting/agent/v1/tests/{testId}:
+    get:
+      tags:
+      - Test
+      summary: Returns test by test id.
+      operationId: TestGet
+      parameters:
+      - name: testId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Test'
+      x-y-navtitle: get
+    patch:
+      tags:
+      - Test
+      summary: Updates the specified test.
+      operationId: TestUpdate
+      parameters:
+      - name: testId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTestRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateTestMetadata'
+      x-y-operation-response: '[Test](/Test#representation)'
+  /loadtesting/agent/v1/tests:
+    post:
+      tags:
+      - Test
+      summary: Creates test for the specified folder.
+      operationId: TestCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTestRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateTestMetadata'
+      x-y-operation-response: '[Test](/Test#representation)'
+  /loadtesting/agent/v1/trails:
+    post:
+      tags:
+      - Trail
+      summary: Creates trail for specified job.
+      operationId: TrailCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTrailRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateTrailResponse'
+      x-y-navtitle: create
 components:
   schemas:
     AgentInstance:
@@ -23,6 +305,11 @@ components:
       - URIPOST
       - PHANTOM
       - ACCESS
+    ClaimAgentStatusRequest:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/ClaimAgentStatusRequestStatus_in_ClaimAgentStatusRequest_status'
     ClaimAgentStatusRequestStatus:
       type: string
       enum:
@@ -36,6 +323,13 @@ components:
         code:
           type: string
           format: int64
+    ClaimJobStatusRequest:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/ClaimJobStatusRequestJobStatus_in_ClaimJobStatusRequest_status'
+        error:
+          type: string
     ClaimJobStatusRequestJobStatus:
       type: string
       enum:
@@ -55,6 +349,11 @@ components:
         code:
           type: string
           format: int64
+    ClaimTankStatusRequest:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/ClaimTankStatusRequestStatus_in_ClaimTankStatusRequest_status'
     ClaimTankStatusRequestStatus:
       type: string
       enum:
@@ -73,6 +372,96 @@ components:
       properties:
         testId:
           type: string
+    CreateTestRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+            ``.
+          type: string
+        description:
+          description: The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        generator:
+          $ref: '#/components/schemas/TestGenerator_in_CreateTestRequest_generator'
+        agentInstanceId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        targetAddress:
+          description: |-
+            Required.
+            Fields for TankConfig creation. These fields have the higher priority than yaml config.
+            These fields are taken from Form
+
+            The maximum string length in characters is 50.
+          type: string
+        targetPort:
+          type: string
+          format: int64
+        targetVersion:
+          description: The maximum string length in characters is 50.
+          type: string
+        instances:
+          type: string
+          format: int64
+        loadSchedule:
+          $ref: '#/components/schemas/Schedule_in_CreateTestRequest_loadSchedule'
+        config:
+          description: Required.
+          type: string
+        ammoId:
+          description: The maximum string length in characters is 50.
+          type: string
+        ammoUrls:
+          description: The maximum string length in characters for each value is 1024.
+          type: array
+          items:
+            type: string
+        ammoHeaders:
+          type: array
+          items:
+            type: string
+        ammoType:
+          $ref: '#/components/schemas/AmmoType_in_CreateTestRequest_ammoType'
+        ssl:
+          type: boolean
+          format: boolean
+        imbalancePoint:
+          type: string
+          format: int64
+        imbalanceTs:
+          type: string
+          format: int64
+        loggingLogGroupId:
+          type: string
+    CreateTrailRequest:
+      type: object
+      properties:
+        computeInstanceId:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Trail'
+        jobId:
+          type: string
     CreateTrailResponse:
       type: object
       properties:
@@ -85,6 +474,17 @@ components:
       type: object
       properties:
         agentInstanceId:
+          type: string
+    ExternalAgentRegisterRequest:
+      type: object
+      properties:
+        folderId:
+          type: string
+        computeInstanceId:
+          type: string
+        name:
+          type: string
+        agentVersion:
           type: string
     FieldMask:
       description: |-
@@ -219,6 +619,11 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    RegisterRequest:
+      type: object
+      properties:
+        computeInstanceId:
+          type: string
     RegisterResponse:
       type: object
       properties:
@@ -458,6 +863,42 @@ components:
       properties:
         testId:
           type: string
+    UpdateTestRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateTestRequest_updateMask'
+        name:
+          description: Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+            ``.
+          type: string
+        description:
+          description: The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        favorite:
+          type: boolean
+          format: boolean
+        targetVersion:
+          description: The maximum string length in characters is 50.
+          type: string
+        imbalancePoint:
+          type: string
+          format: int64
+        imbalanceTs:
+          type: string
+          format: int64
+        imbalanceComment:
+          type: string
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -474,6 +915,65 @@ components:
           type: array
           items:
             type: object
+    ClaimAgentStatusRequestStatus_in_ClaimAgentStatusRequest_status:
+      type: string
+      enum:
+      - READY_FOR_TEST
+      - PREPARING_TEST
+      - TESTING
+      - TANK_FAILED
+    ClaimJobStatusRequestJobStatus_in_ClaimJobStatusRequest_status:
+      type: string
+      enum:
+      - POST_PROCESS
+      - INITIATED
+      - PREPARING
+      - NOT_FOUND
+      - RUNNING
+      - FINISHING
+      - FINISHED
+      - STOPPED
+      - FAILED
+      - AUTOSTOPPED
+    ClaimTankStatusRequestStatus_in_ClaimTankStatusRequest_status:
+      type: string
+      enum:
+      - READY_FOR_TEST
+      - PREPARING_TEST
+      - TESTING
+      - TANK_FAILED
+    TestGenerator_in_CreateTestRequest_generator:
+      type: string
+      enum:
+      - PANDORA
+      - PHANTOM
+    Schedule_in_CreateTestRequest_loadSchedule:
+      description: 'Load profile in general: phantom.load_profile, pool schedule for
+        pandora'
+      type: object
+      properties:
+        loadType:
+          $ref: '#/components/schemas/LoadType_in_Schedule_loadType'
+        loadSchedule:
+          type: array
+          items:
+            $ref: '#/components/schemas/LoadSchedule'
+        loadProfile:
+          type: array
+          items:
+            type: string
+    AmmoType_in_CreateTestRequest_ammoType:
+      description: |-
+        Ammo type for generators: phantom.ammo_type,
+        ammo.type in pandora.config_content.pool
+      type: string
+      enum:
+      - HTTP_JSON
+      - RAW
+      - URI
+      - URIPOST
+      - PHANTOM
+      - ACCESS
     File_in_Job_ammo:
       type: object
       properties:
@@ -510,6 +1010,17 @@ components:
       - RPS
       - INSTANCES
       - STPD_FILE
+    FieldMask_in_UpdateTestRequest_updateMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
 tags:
 - name: AgentRegistration
 - name: Agent

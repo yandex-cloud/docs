@@ -16,14 +16,14 @@ GET https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/mlMode
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster that models belongs to.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the cluster that models belongs to.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/managed-clickhouse/api-ref/MlModel/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-clickhouse/api-ref/MlModel/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than ``page_size``, the service returns a <a href="/docs/managed-clickhouse/api-ref/MlModel/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/managed-clickhouse/api-ref/MlModel/list#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

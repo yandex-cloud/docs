@@ -16,7 +16,7 @@ GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktop
  
 Parameter | Description
 --- | ---
-desktopGroupId | Required. ID of the desktop group resource to return.  To get the desktop group ID use a [list](/docs/cloud-desktop/api-ref/DesktopGroup/list) request.  The maximum string length in characters is 50.
+desktopGroupId | <p>Required. ID of the desktop group resource to return.</p> <p>To get the desktop group ID use a <a href="/docs/cloud-desktop/api-ref/DesktopGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

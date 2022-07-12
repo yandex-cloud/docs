@@ -16,14 +16,14 @@ DELETE https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subclust
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster to remove a subcluster from.  To get a cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-subclusterId | Required. ID of the subcluster to delete.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the cluster to remove a subcluster from.</p> <p>To get a cluster ID, make a <a href="/docs/data-proc/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+subclusterId | <p>Required. ID of the subcluster to delete.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-decommissionTimeout | Timeout to gracefully decommission nodes. In seconds. Default value: 0  Acceptable values are 0 to 86400, inclusive.
+decommissionTimeout | <p>Timeout to gracefully decommission nodes. In seconds. Default value: 0</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -16,10 +16,10 @@ GET undefined/microcosm/v1/infrastructures
  
 Parameter | Description
 --- | ---
-folderId | Required. The maximum string length in characters is 50.
-pageSize | The maximum value is 1000.
-pageToken | The maximum string length in characters is 100.
-filter | The maximum string length in characters is 1000.
+folderId | <p>Required. The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum value is 1000.</p> 
+pageToken | <p>The maximum string length in characters is 100.</p> 
+filter | <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

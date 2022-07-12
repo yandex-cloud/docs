@@ -16,13 +16,13 @@ DELETE https://cdn.{{ api-host }}/cdn/v1/origins/{originId}
  
 Parameter | Description
 --- | ---
-originId | ID of the origin.  Value must be greater than 0.
+originId | <p>ID of the origin.</p> <p>Value must be greater than 0.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder that the origin belongs to.  The maximum string length in characters is 50.
+folderId | <p>Required. ID of the folder that the origin belongs to.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

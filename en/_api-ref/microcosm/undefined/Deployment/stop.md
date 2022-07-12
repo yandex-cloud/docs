@@ -16,7 +16,7 @@ POST undefined/microcosm/v1/deployments/{deploymentId}:stop
  
 Parameter | Description
 --- | ---
-deploymentId | Required. The maximum string length in characters is 50.
+deploymentId | <p>Required. The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

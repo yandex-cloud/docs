@@ -18,9 +18,9 @@ Parameter | Description
 --- | ---
 folderId | 
 containerId | 
-pageSize | Acceptable values are 0 to 1000, inclusive.
-pageToken | The maximum string length in characters is 100.
-filter | The maximum string length in characters is 1000.
+pageSize | <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>The maximum string length in characters is 100.</p> 
+filter | <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

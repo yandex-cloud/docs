@@ -451,7 +451,7 @@ paths:
         in: query
         description: |-
           Page token.
-          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#responses) returned by a previous list request.
+          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/list#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -760,7 +760,7 @@ paths:
         description: |-
           Page token.
 
-          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses) returned by a previous list request.
+          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -926,7 +926,7 @@ paths:
         description: |-
           Page token.
 
-          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#responses) returned by a previous list request.
+          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listOperations#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -974,7 +974,7 @@ paths:
         description: |-
           Page token.
 
-          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#responses) returned by a previous list request.
+          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -1332,7 +1332,7 @@ paths:
         description: |-
           Page token.
 
-          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#responses) returned by a previous list request.
+          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/ResourcePreset/list#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -1512,7 +1512,7 @@ paths:
         description: |-
           Page token.
 
-          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/User/list#responses) returned by a previous list request.
+          To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-elasticsearch/api-ref/User/list#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:

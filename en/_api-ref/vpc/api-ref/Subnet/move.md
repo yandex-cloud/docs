@@ -16,7 +16,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}:move
  
 Parameter | Description
 --- | ---
-subnetId | Required. ID of the Subnet resource to move.  The maximum string length in characters is 50.
+subnetId | <p>Required. ID of the Subnet resource to move.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

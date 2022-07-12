@@ -16,7 +16,7 @@ POST https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/
  
 Parameter | Description
 --- | ---
-networkLoadBalancerId | Required. ID of the network load balancer to remove the listener from. To get the network load balancer ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.  The maximum string length in characters is 50.
+networkLoadBalancerId | <p>Required. ID of the network load balancer to remove the listener from. To get the network load balancer ID, use a <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

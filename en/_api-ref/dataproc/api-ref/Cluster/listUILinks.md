@@ -16,7 +16,7 @@ GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/ui_links
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Hadoop cluster.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the Hadoop cluster.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -16,7 +16,7 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/images/{imag
  
 Parameter | Description
 --- | ---
-imageId | ID of the Image to get last finished ScanResult.  The maximum string length in characters is 50.
+imageId | <p>ID of the Image to get last finished ScanResult.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

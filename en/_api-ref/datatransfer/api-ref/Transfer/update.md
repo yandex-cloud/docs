@@ -16,7 +16,7 @@ PATCH https://datatransfer.{{ api-host }}/v1/transfer/{transferId}
  
 Parameter | Description
 --- | ---
-transferId | Identifier of the transfer to be updated.
+transferId | <p>Identifier of the transfer to be updated.</p> 
  
 ## Body parameters {#body_params}
  

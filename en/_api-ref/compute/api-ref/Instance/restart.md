@@ -16,7 +16,7 @@ POST https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:restart
  
 Parameter | Description
 --- | ---
-instanceId | Required. ID of the instance to restart. To get the instance ID, use a [list](/docs/compute/api-ref/Instance/list) request.  The maximum string length in characters is 50.
+instanceId | <p>Required. ID of the instance to restart. To get the instance ID, use a <a href="/docs/compute/api-ref/Instance/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

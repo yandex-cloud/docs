@@ -16,7 +16,7 @@ PATCH https://monitoring.{{ api-host }}/monitoring/v3/channels/{channelId}
  
 Parameter | Description
 --- | ---
-channelId | Required. ID of the Channel resource to update.  The maximum string length in characters is 50.
+channelId | <p>Required. ID of the Channel resource to update.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

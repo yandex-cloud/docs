@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}/hosts:batc
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster to add hosts to.  To get this ID, make a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the cluster to add hosts to.</p> <p>To get this ID, make a <a href="/docs/managed-mysql/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

@@ -16,7 +16,7 @@ POST https://serverless-functions.{{ api-host }}/functions/v1/versions/{function
  
 Parameter | Description
 --- | ---
-functionVersionId | Required. ID of the version to set the tag for.  To get a version ID make a [listVersions](/docs/functions/functions/api-ref/Function/listVersions) request.
+functionVersionId | <p>Required. ID of the version to set the tag for.</p> <p>To get a version ID make a <a href="/docs/functions/functions/api-ref/Function/listVersions">listVersions</a> request.</p> 
  
 ## Body parameters {#body_params}
  

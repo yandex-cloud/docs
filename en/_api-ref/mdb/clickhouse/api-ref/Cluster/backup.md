@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}:backu
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the ClickHouse cluster to back up. To get the ClickHouse cluster ID use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the ClickHouse cluster to back up. To get the ClickHouse cluster ID use a <a href="/docs/managed-clickhouse/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -16,16 +16,16 @@ GET https://serverless-functions.{{ api-host }}/functions/v1/functions/{function
  
 Parameter | Description
 --- | ---
-functionId | Required. ID of the function to retrieve tag history for.  To get a function ID, make a [list](/docs/functions/functions/api-ref/Function/list) request.
+functionId | <p>Required. ID of the function to retrieve tag history for.</p> <p>To get a function ID, make a <a href="/docs/functions/functions/api-ref/Function/list">list</a> request.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-tag | Specific tag that history should be limited to.  Value must match the regular expression `` [a-z][-_0-9a-z]*|[$]latest ``.
-pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set `pageToken` to the [nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response.  The expression must specify: 1. The field name. Currently filtering can only be applied to the [FunctionTagHistoryRecord.effective_from] and [FunctionTagHistoryRecord.effective_to] fields. 2. An `=` or `>` or `<` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. For example, `effective_to>2021-01-01T12:00:00Z`.  The maximum string length in characters is 1000.
+tag | <p>Specific tag that history should be limited to.</p> <p>Value must match the regular expression ``[a-z][-_0-9a-z]*\|[$]latest``.</p> 
+pageSize | <p>The maximum number of results per page that should be returned. If the number of available results is larger than ``pageSize``, the service returns a <a href="/docs/functions/functions/api-ref/Function/listOperations#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``pageToken`` to the <a href="/docs/functions/functions/api-ref/Function/listOperations#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resources listed in the response.</p> <p>The expression must specify:</p> <ol> <li>The field name. Currently filtering can only be applied to the [FunctionTagHistoryRecord.effective_from] and [FunctionTagHistoryRecord.effective_to] fields.</li> <li>An ``=`` or ``&gt;`` or ``&lt;`` operator.</li> <li>The value in double quotes (``"``). Must be 3-63 characters long and match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``. For example, ``effective_to&gt;2021-01-01T12:00:00Z``.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -48,7 +48,7 @@ filter | A filter expression that filters resources listed in the response.  The
  
 Field | Description
 --- | ---
-functionTagHistoryRecord[] | **object**<br><p>A record in the tag history.</p> 
+functionTagHistoryRecord[] | **object**<br><p>Set of relevant tag history records.</p> 
 functionTagHistoryRecord[].<br>functionId | **string**<br><p>ID of the function that the record is about.</p> 
 functionTagHistoryRecord[].<br>functionVersionId | **string**<br><p>ID of the function version that the record is about.</p> 
 functionTagHistoryRecord[].<br>tag | **string**<br><p>Tag that was set for the version at some point.</p> 

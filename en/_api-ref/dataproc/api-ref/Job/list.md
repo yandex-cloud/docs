@@ -16,15 +16,15 @@ GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster to list jobs for.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the cluster to list jobs for.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/data-proc/api-ref/Job/list#query_params), the service returns a [nextPageToken](/docs/data-proc/api-ref/Job/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/data-proc/api-ref/Job/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters jobs listed in the response.  The expression must specify: 1. The field name. Currently you can use filtering only on [Job.name](/docs/data-proc/api-ref/Job#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter: `name=my-job`.  The maximum string length in characters is 1000.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/data-proc/api-ref/Job/list#query_params">pageSize</a>, the service returns a <a href="/docs/data-proc/api-ref/Job/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/data-proc/api-ref/Job/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters jobs listed in the response.</p> <p>The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on <a href="/docs/data-proc/api-ref/Job#representation">Job.name</a> field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be 3-63 characters long and match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``. Example of a filter: ``name=my-job``.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -156,7 +156,7 @@ filter | A filter expression that filters jobs listed in the response.  The expr
  
 Field | Description
 --- | ---
-jobs[] | **object**<br><p>A Data Proc job. For details about the concept, see <a href="/docs/dataproc/concepts/jobs">documentation</a>.</p> 
+jobs[] | **object**<br><p>List of jobs for the specified cluster.</p> 
 jobs[].<br>id | **string**<br><p>ID of the job. Generated at creation time.</p> 
 jobs[].<br>clusterId | **string**<br><p>ID of the Data Proc cluster that the job belongs to.</p> 
 jobs[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

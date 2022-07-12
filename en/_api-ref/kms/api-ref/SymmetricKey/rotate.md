@@ -17,7 +17,7 @@ POST https://kms.{{ api-host }}/kms/v1/keys/{keyId}:rotate
  
 Parameter | Description
 --- | ---
-keyId | Required. ID of the key to be rotated.  The maximum string length in characters is 50.
+keyId | <p>Required. ID of the key to be rotated.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

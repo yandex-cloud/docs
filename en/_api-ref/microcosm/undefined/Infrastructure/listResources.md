@@ -16,15 +16,15 @@ GET undefined/microcosm/v1/infrastructures/{infrastructureId}/resources
  
 Parameter | Description
 --- | ---
-infrastructureId | Required. The maximum string length in characters is 50.
+infrastructureId | <p>Required. The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum value is 1000.
-pageToken | The maximum string length in characters is 100.
-filter | The maximum string length in characters is 1000.
+pageSize | <p>The maximum value is 1000.</p> 
+pageToken | <p>The maximum string length in characters is 100.</p> 
+filter | <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

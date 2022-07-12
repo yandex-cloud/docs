@@ -16,13 +16,13 @@ GET https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{api
  
 Parameter | Description
 --- | ---
-apiGatewayId | Required. ID of the API gateway to get specification from.
+apiGatewayId | <p>Required. ID of the API gateway to get specification from.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-format | Format of returned specification. Default is the original format used in `CreateApiGatewayRequest`.
+format | <p>Format of returned specification. Default is the original format used in ``CreateApiGatewayRequest``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

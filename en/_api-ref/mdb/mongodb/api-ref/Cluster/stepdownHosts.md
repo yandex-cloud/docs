@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}:stepdown
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the MongoDB cluster.  The maximum string length in characters is 50.
+clusterId | <p>Required. Required. ID of the MongoDB cluster.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

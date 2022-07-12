@@ -16,7 +16,7 @@ GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Elasticsearch cluster to return.  To get the cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the Elasticsearch cluster to return.</p> <p>To get the cluster ID, make a <a href="/docs/managed-elasticsearch/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -117,7 +117,7 @@ name | **string**<br><p>Name of the Elasticsearch cluster. The name must be uniq
 description | **string**<br><p>Description of the Elasticsearch cluster. 0-256 characters long.</p> 
 labels | **object**<br><p>Custom labels for the Elasticsearch cluster as ``key:value`` pairs. A maximum of 64 labels per resource is allowed.</p> 
 environment | **string**<br><p>Deployment environment of the Elasticsearch cluster.</p> <ul> <li>PRODUCTION: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.</li> <li>PRESTABLE: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.</li> </ul> 
-monitoring[] | **object**<br><p>Metadata of monitoring system.</p> 
+monitoring[] | **object**<br><p>Description of monitoring systems relevant to the Elasticsearch cluster.</p> 
 monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p> 
 monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 
 monitoring[].<br>link | **string**<br><p>Link to the monitoring system charts for the Elasticsearch cluster.</p> 

@@ -31,7 +31,7 @@ Field | Description
 folderId | **string**<br><p>Required. ID of the folder that the metric belongs to.</p> <p>The maximum string length in characters is 50.</p> 
 service | **string**<br><p>Required. ID of the service that the metric belongs to. Use ``service=custom`` for custom metrics.</p> <p>The maximum string length in characters is 50.</p> 
 rawData | **object**<br>Raw metrics data.<br>
-rawData.<br>contentType | **string**<br><p>Required. Query content type. Use &quot;application/json&quot;.</p> 
+rawData.<br>contentType | **string**<br><p>Required. Query content type. Use "application/json".</p> 
 rawData.<br>content | **string** (byte)<br><p>Required. Query content.</p> 
  
 ## Response {#responses}

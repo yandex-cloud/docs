@@ -16,7 +16,7 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/images/{imag
  
 Parameter | Description
 --- | ---
-imageId | Required. ID of the Docker image resource to return.  To get the Docker image ID use a [list](/docs/container-registry/api-ref/Image/list) request.  The maximum string length in characters is 50.
+imageId | <p>Required. ID of the Docker image resource to return.</p> <p>To get the Docker image ID use a <a href="/docs/container-registry/api-ref/Image/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -64,7 +64,7 @@ config.<br>id | **string**<br><p>Output only. ID of the blob.</p>
 config.<br>digest | **string**<br><p>Content-addressable identifier of the blob.</p> 
 config.<br>size | **string** (int64)<br><p>Size of the blob, specified in bytes.</p> 
 config.<br>urls[] | **string**<br><p>List of blob urls.</p> 
-layers[] | **object**<br><p>A Blob resource.</p> 
+layers[] | **object**<br><p>Layers of the Docker image.</p> 
 layers[].<br>id | **string**<br><p>Output only. ID of the blob.</p> 
 layers[].<br>digest | **string**<br><p>Content-addressable identifier of the blob.</p> 
 layers[].<br>size | **string** (int64)<br><p>Size of the blob, specified in bytes.</p> 

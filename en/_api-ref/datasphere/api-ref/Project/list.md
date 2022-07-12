@@ -16,9 +16,9 @@ GET https://datasphere.{{ api-host }}/datasphere/v1/projects
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list projects in. To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/datasphere/api-ref/Project/list#query_params), the service returns a [nextPageToken](/docs/datasphere/api-ref/Project/list#responses) that can be used to get the next page of results in subsequent list requests.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/datasphere/api-ref/Project/list#query_params) to the [nextPageToken](/docs/datasphere/api-ref/Project/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+folderId | <p>Required. ID of the folder to list projects in. To get the folder ID use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/datasphere/api-ref/Project/list#query_params">pageSize</a>, the service returns a <a href="/docs/datasphere/api-ref/Project/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/datasphere/api-ref/Project/list#query_params">pageToken</a> to the <a href="/docs/datasphere/api-ref/Project/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -54,7 +54,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/d
  
 Field | Description
 --- | ---
-projects[] | **object**<br><p>A Project resource.</p> 
+projects[] | **object**<br><p>List of Project resources.</p> 
 projects[].<br>id | **string**<br><p>ID of the project.</p> 
 projects[].<br>folderId | **string**<br><p>ID of the folder that the project belongs to.</p> 
 projects[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

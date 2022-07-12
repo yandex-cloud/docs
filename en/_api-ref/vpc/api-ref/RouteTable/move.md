@@ -16,7 +16,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/routeTables/{routeTableId}:move
  
 Parameter | Description
 --- | ---
-routeTableId | Required. ID of the RouteTable resource to move.  The maximum string length in characters is 50.
+routeTableId | <p>Required. ID of the RouteTable resource to move.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

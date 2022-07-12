@@ -16,7 +16,7 @@ GET https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}/ce
  
 Parameter | Description
 --- | ---
-registryId | Required. ID of the registry to list certificates for.  The maximum string length in characters is 50.
+registryId | <p>Required. ID of the registry to list certificates for.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -37,7 +37,7 @@ registryId | Required. ID of the registry to list certificates for.  The maximum
  
 Field | Description
 --- | ---
-certificates[] | **object**<br><p>A registry certificate. For more information, see <a href="/docs/iot-core/operations/certificates/registry-certificates">Managing registry certificates</a>.</p> 
+certificates[] | **object**<br><p>List of certificates for the specified registry.</p> 
 certificates[].<br>registryId | **string**<br><p>ID of the registry that the certificate belongs to.</p> 
 certificates[].<br>fingerprint | **string**<br><p>SHA256 hash of the certificates.</p> 
 certificates[].<br>certificateData | **string**<br><p>Public part of the certificate.</p> 

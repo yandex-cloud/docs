@@ -16,7 +16,7 @@ PATCH https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers
  
 Parameter | Description
 --- | ---
-networkLoadBalancerId | Required. ID of the network load balancer to update. To get the network load balancer ID, use a [list](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list) request.  The maximum string length in characters is 50.
+networkLoadBalancerId | <p>Required. ID of the network load balancer to update. To get the network load balancer ID, use a <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  
@@ -82,7 +82,7 @@ updateMask | **string**<br><p>Field mask that specifies which fields of the Netw
 name | **string**<br><p>Name of the network load balancer. The name must be unique within the folder.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 description | **string**<br><p>Description of the network load balancer.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>The existing set of ``labels`` is completely replaced with the provided set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
-listenerSpecs[] | **object**<br><p>Listener specification that will be used by a network load balancer.</p> 
+listenerSpecs[] | **object**<br><p>A list of listeners and their specs for the network load balancer.</p> <p>The maximum number of elements is 1000.</p> 
 listenerSpecs[].<br>name | **string**<br><p>Required. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 listenerSpecs[].<br>port | **string** (int64)<br><p>Port for incoming traffic.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
 listenerSpecs[].<br>protocol | **string**<br>Required. Protocol for incoming traffic.<br><p>Network protocol to use.</p> 
@@ -94,9 +94,9 @@ listenerSpecs[].<br>internalAddressSpec | **object**<br>Internal IP address spec
 listenerSpecs[].<br>internalAddressSpec.<br>address | **string**<br><p>Internal IP address for a listener.</p> 
 listenerSpecs[].<br>internalAddressSpec.<br>subnetId | **string**<br><p>ID of the subnet.</p> 
 listenerSpecs[].<br>internalAddressSpec.<br>ipVersion | **string**<br><p>IP version.</p> <p>IP version of the addresses that the load balancer works with. Only IPv4 is currently available.</p> <ul> <li>IPV4: IPv4</li> <li>IPV6: IPv6</li> </ul> 
-attachedTargetGroups[] | **object**<br><p>An AttachedTargetGroup resource. For more information, see <a href="/docs/network-load-balancer/concepts/target-resources">Targets and groups</a>.</p> 
+attachedTargetGroups[] | **object**<br><p>A list of attached target groups for the network load balancer.</p> <p>The maximum number of elements is 1000.</p> 
 attachedTargetGroups[].<br>targetGroupId | **string**<br><p>Required. ID of the target group.</p> <p>The maximum string length in characters is 50.</p> 
-attachedTargetGroups[].<br>healthChecks[] | **object**<br><p>A HealthCheck resource. For more information, see <a href="/docs/network-load-balancer/concepts/health-check">Health check</a>.</p> 
+attachedTargetGroups[].<br>healthChecks[] | **object**<br><p>Required. A health check to perform on the target group. For now we accept only one health check per AttachedTargetGroup.</p> <p>Must contain exactly 1 element.</p> 
 attachedTargetGroups[].<br>healthChecks[].<br>name | **string**<br><p>Required. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 attachedTargetGroups[].<br>healthChecks[].<br>interval | **string**<br><p>The interval between health checks. The default is 2 seconds.</p> 
 attachedTargetGroups[].<br>healthChecks[].<br>timeout | **string**<br><p>Timeout for a target to return a response for the health check. The default is 1 second.</p> 

@@ -35,7 +35,7 @@ Field | Description
 registryId | **string**<br><p>Required. ID of the registry to create a device in.</p> <p>To get a registry ID, make a <a href="/docs/iot-core/api-ref/Registry/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 name | **string**<br><p>Required. Name of the device. The name must be unique within the registry.</p> <p>The maximum string length in characters is 50. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 description | **string**<br><p>Description of the device.</p> <p>The maximum string length in characters is 256.</p> 
-certificates[] | **object**<br><p>Specification of a device certificate.</p> 
+certificates[] | **object**<br><p>Device certificate.</p> 
 certificates[].<br>certificateData | **string**<br><p>Public part of the device certificate.</p> 
 topicAliases | **object**<br><p>Alias of a device topic.</p> <p>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. ``my/custom/alias`` match to ``$device/{id}/events``.</p> 
 password | **string**<br><p>Device password.</p> <p>The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.</p> 

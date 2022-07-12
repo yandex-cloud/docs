@@ -16,8 +16,8 @@ PATCH https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}/data
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the PostgreSQL cluster to update a database in. To get the cluster ID use a [list](/docs/managed-postgresql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-databaseName | Required. Name of the database to update. To get the name of the database use a [list](/docs/managed-postgresql/api-ref/Database/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+clusterId | <p>Required. ID of the PostgreSQL cluster to update a database in. To get the cluster ID use a <a href="/docs/managed-postgresql/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+databaseName | <p>Required. Name of the database to update. To get the name of the database use a <a href="/docs/managed-postgresql/api-ref/Database/list">list</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
  
 ## Body parameters {#body_params}
  

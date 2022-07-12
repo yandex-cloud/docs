@@ -16,9 +16,9 @@ GET https://cdn.{{ api-host }}/cdn/v1/resources
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to request listing for.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/cdn/api-ref/Resource/list#query_params), the service returns a [nextPageToken](/docs/cdn/api-ref/Resource/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/cdn/api-ref/Resource/list#query_params) to the [nextPageToken](/docs/cdn/api-ref/Resource/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+folderId | <p>Required. ID of the folder to request listing for.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/cdn/api-ref/Resource/list#query_params">pageSize</a>, the service returns a <a href="/docs/cdn/api-ref/Resource/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/cdn/api-ref/Resource/list#query_params">pageToken</a> to the <a href="/docs/cdn/api-ref/Resource/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -206,7 +206,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/c
  
 Field | Description
 --- | ---
-resources[] | **object**<br><p>A CDN resource - representation of providers resource.</p> 
+resources[] | **object**<br><p>List of the resources</p> 
 resources[].<br>id | **string**<br><p>ID of the resource.</p> 
 resources[].<br>folderId | **string**<br><p>Folder id.</p> 
 resources[].<br>cname | **string**<br><p>CDN endpoint CNAME, must be unique among resources.</p> 
@@ -296,14 +296,14 @@ resources[].<br>options.<br>ignoreCookie.<br>value | **boolean** (boolean)<br><p
 resources[].<br>options.<br>rewrite | **object**<br><p>Changing or redirecting query paths.</p> <p>An option for changing or redirecting query paths.</p> 
 resources[].<br>options.<br>rewrite.<br>enabled | **boolean** (boolean)<br><p>True - the option is enabled and its ``flag`` is applied to the resource. False - the option is disabled and its default value of the ``flag`` is used for the resource.</p> 
 resources[].<br>options.<br>rewrite.<br>body | **string**<br><p>Pattern for rewrite.</p> <p>The value must have the following format: ``&lt;source path&gt; &lt;destination path&gt;``, where both paths are regular expressions which use at least one group. E.g., ``/foo/(.*) /bar/$1``.</p> 
-resources[].<br>options.<br>rewrite.<br>flag | **string**<br><p>Break flag is applied to the option by default. It is not shown in the field.</p> <p>RewriteFlag defines flag for the Rewrite option.</p> <ul> <li>LAST: Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.</li> <li>BREAK: Stops processing of the current set of the Rewrite option.</li> <li>REDIRECT: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with &quot;http://&quot;, &quot;https://&quot;, or &quot;$scheme&quot;.</li> <li>PERMANENT: Returns a permanent redirect with the 301 code.</li> </ul> 
+resources[].<br>options.<br>rewrite.<br>flag | **string**<br><p>Break flag is applied to the option by default. It is not shown in the field.</p> <p>RewriteFlag defines flag for the Rewrite option.</p> <ul> <li>LAST: Stops processing of the current set of ngx_http_rewrite_module directives and starts a search for a new location matching changed URI.</li> <li>BREAK: Stops processing of the current set of the Rewrite option.</li> <li>REDIRECT: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start with "http://", "https://", or "$scheme".</li> <li>PERMANENT: Returns a permanent redirect with the 301 code.</li> </ul> 
 resources[].<br>secondaryHostnames[] | **string**<br><p>List of secondary hostname strings.</p> 
 resources[].<br>originGroupId | **string** (int64)<br><p>ID of the origin group.</p> 
 resources[].<br>originGroupName | **string**<br><p>Name of the origin group.</p> 
 resources[].<br>originProtocol | **string**<br><p>Specify the protocol schema to be used in communication with origin.</p> <p>This option defines the protocol that will be used by CDN servers to request content from an origin source. If not specified, we will use HTTP to connect to an origin server.</p> <ul> <li>HTTP: CDN servers will connect to your origin via HTTP.</li> <li>HTTPS: CDN servers will connect to your origin via HTTPS.</li> <li>MATCH: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li> </ul> 
 resources[].<br>sslCertificate | **object**<br><p>SSL certificate options.</p> <p>A SSL certificate parameters.</p> 
-resources[].<br>sslCertificate.<br>type | **string**<br><p>Type of the certificate.</p> <p>A certificate type parameters.</p> <ul> <li>SSL_CERTIFICATE_TYPE_UNSPECIFIED: SSL certificate is unspecified.</li> <li>DONT_USE: No SSL certificate is added, the requests are sent via HTTP.</li> <li>LETS_ENCRYPT_GCORE: Works only if you have already pointed your domain name to the protected IP address in your DNS</li> <li>CM: Add your SSL certificate by uploading the certificate in PEM format and your private key</li> </ul> 
-resources[].<br>sslCertificate.<br>status | **string**<br><p>Active status.</p> <p>A certificate status parameters.</p> <ul> <li>SSL_CERTIFICATE_STATUS_UNSPECIFIED: SSL certificate is unspecified.</li> <li>READY: SSL certificate is ready to use.</li> <li>CREATING: SSL certificate is creating.</li> </ul> 
+resources[].<br>sslCertificate.<br>type | **string**<br><p>Type of the certificate.</p> <p>A certificate type parameters.</p> <ul> <li>SSL_CERTIFICATE_TYPE_UNSPECIFIED: SSL certificate is unspecified. - DONT_USE: No SSL certificate is added, the requests are sent via HTTP.</li> <li>LETS_ENCRYPT_GCORE: Works only if you have already pointed your domain name to the protected IP address in your DNS</li> <li>CM: Add your SSL certificate by uploading the certificate in PEM format and your private key</li> </ul> 
+resources[].<br>sslCertificate.<br>status | **string**<br><p>Active status.</p> <p>A certificate status parameters.</p> <ul> <li>SSL_CERTIFICATE_STATUS_UNSPECIFIED: SSL certificate is unspecified. - READY: SSL certificate is ready to use.</li> <li>CREATING: SSL certificate is creating.</li> </ul> 
 resources[].<br>sslCertificate.<br>data | **object**<br><p>Certificate data.</p> <p>A certificate data parameters.</p> 
 resources[].<br>sslCertificate.<br>data.<br>cm | **object**<br>Custom (add your SSL certificate by uploading the certificate in PEM format and your private key).<br><p>A certificate data custom parameters.</p> 
 resources[].<br>sslCertificate.<br>data.<br>cm.<br>id | **string**<br><p>ID of the custom certificate.</p> 

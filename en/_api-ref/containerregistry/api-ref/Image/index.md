@@ -47,7 +47,7 @@ config.<br>id | **string**<br><p>Output only. ID of the blob.</p>
 config.<br>digest | **string**<br><p>Content-addressable identifier of the blob.</p> 
 config.<br>size | **string** (int64)<br><p>Size of the blob, specified in bytes.</p> 
 config.<br>urls[] | **string**<br><p>List of blob urls.</p> 
-layers[] | **object**<br><p>A Blob resource.</p> 
+layers[] | **object**<br><p>Layers of the Docker image.</p> 
 layers[].<br>id | **string**<br><p>Output only. ID of the blob.</p> 
 layers[].<br>digest | **string**<br><p>Content-addressable identifier of the blob.</p> 
 layers[].<br>size | **string** (int64)<br><p>Size of the blob, specified in bytes.</p> 

@@ -16,7 +16,7 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/repositories
  
 Parameter | Description
 --- | ---
-repositoryId | Required. ID of the Repository resource to return.  To get the repository ID use a [list](/docs/container-registry/api-ref/Repository/list) request.  The maximum string length in characters is 50.
+repositoryId | <p>Required. ID of the Repository resource to return.</p> <p>To get the repository ID use a <a href="/docs/container-registry/api-ref/Repository/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

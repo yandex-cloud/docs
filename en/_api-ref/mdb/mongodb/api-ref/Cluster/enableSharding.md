@@ -17,7 +17,7 @@ POST https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}:enableSh
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the MongoDB cluster to enable sharding for.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the MongoDB cluster to enable sharding for.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

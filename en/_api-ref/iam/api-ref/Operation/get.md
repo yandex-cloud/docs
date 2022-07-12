@@ -16,7 +16,7 @@ GET https://operation.{{ api-host }}/operations/{operationId}
  
 Parameter | Description
 --- | ---
-operationId | Required. ID of the Operation resource to return.
+operationId | <p>Required. ID of the Operation resource to return.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

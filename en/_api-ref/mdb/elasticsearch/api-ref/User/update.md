@@ -16,8 +16,8 @@ PATCH https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/u
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Elasticsearch cluster the user belongs to.  To get the cluster ID, make a [list](/docs/managed-elasticsearch/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-userName | Required. Name of the user to be updated.  To get the name of the user, make a [list](/docs/managed-elasticsearch/api-ref/User/list) request.  The string length in characters must be 1-63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+clusterId | <p>Required. ID of the Elasticsearch cluster the user belongs to.</p> <p>To get the cluster ID, make a <a href="/docs/managed-elasticsearch/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+userName | <p>Required. Name of the user to be updated.</p> <p>To get the name of the user, make a <a href="/docs/managed-elasticsearch/api-ref/User/list">list</a> request.</p> <p>The string length in characters must be 1-63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
  
 ## Body parameters {#body_params}
  

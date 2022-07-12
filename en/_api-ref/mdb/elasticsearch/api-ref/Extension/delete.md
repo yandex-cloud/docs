@@ -16,8 +16,8 @@ DELETE https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster.  The maximum string length in characters is 50.
-extensionId | Required. ID of the extension to delete.
+clusterId | <p>Required. ID of the cluster.</p> <p>The maximum string length in characters is 50.</p> 
+extensionId | <p>Required. ID of the extension to delete.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

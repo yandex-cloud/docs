@@ -16,7 +16,7 @@ GET https://mdb.{{ api-host }}/managed-kafka/v1/resourcePresets/{resourcePresetI
  
 Parameter | Description
 --- | ---
-resourcePresetId | Required. ID of the resource preset to return.  To get the resource preset ID, use a [list](/docs/managed-kafka/api-ref/ResourcePreset/list) request.
+resourcePresetId | <p>Required. ID of the resource preset to return.</p> <p>To get the resource preset ID, use a <a href="/docs/managed-kafka/api-ref/ResourcePreset/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

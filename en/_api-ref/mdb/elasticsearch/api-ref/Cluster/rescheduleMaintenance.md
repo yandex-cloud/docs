@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}:re
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the Elasticsearch cluster to maintenance reschedule.  The maximum string length in characters is 50.
+clusterId | <p>Required. Required. ID of the Elasticsearch cluster to maintenance reschedule.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

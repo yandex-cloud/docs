@@ -16,7 +16,7 @@ GET undefined/microcosm/v1/infrastructures/{infrastructureId}
  
 Parameter | Description
 --- | ---
-infrastructureId | Required. The maximum string length in characters is 50.
+infrastructureId | <p>Required. The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

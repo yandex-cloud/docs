@@ -16,18 +16,18 @@ GET https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}:stream_logs
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster to stream logs for.  To get this ID, make a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the cluster to stream logs for.</p> <p>To get this ID, make a <a href="/docs/managed-mysql/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-columnFilter | Columns from the logs table to request. If no columns are specified, complete log records are returned.
-serviceType | The log type.<ul> <li>MYSQL_ERROR: MySQL error log.</li> <li>MYSQL_GENERAL: MySQL general query log.</li> <li>MYSQL_SLOW_QUERY: MySQL slow query log.</li> <li>MYSQL_AUDIT: MySQL audit log.</li> </ul> 
-fromTime | Start timestamp for the logs request.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-toTime | End timestamp for the logs request. If this field is not set, all existing log records beginning from [fromTime](/docs/managed-mysql/api-ref/Cluster/streamLogs#query_params) will be returned first, and then the new records will be returned as they appear.  In essence it has `tail -f` command semantics.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-recordToken | Record token that can be used to control logs streaming.  Set [recordToken](/docs/managed-mysql/api-ref/Cluster/streamLogs#query_params) to the `nextRecordToken`, returned by the previous [streamLogs](/docs/managed-mysql/api-ref/Cluster/streamLogs) request to start streaming from the next log record.  The maximum string length in characters is 100.
-filter | A filter expression that selects clusters logs listed in the response.  The expression must specify: 1. The field name. Currently filtering can be applied to the [LogRecord.logs.hostname] field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`  The maximum string length in characters is 1000.
+columnFilter | <p>Columns from the logs table to request. If no columns are specified, complete log records are returned.</p> 
+serviceType | <p>The log type.</p> <ul> <li>MYSQL_ERROR: MySQL error log.</li> <li>MYSQL_GENERAL: MySQL general query log.</li> <li>MYSQL_SLOW_QUERY: MySQL slow query log.</li> <li>MYSQL_AUDIT: MySQL audit log.</li> </ul> 
+fromTime | <p>Start timestamp for the logs request.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+toTime | <p>End timestamp for the logs request. If this field is not set, all existing log records beginning from <a href="/docs/managed-mysql/api-ref/Cluster/streamLogs#query_params">fromTime</a> will be returned first, and then the new records will be returned as they appear.</p> <p>In essence it has ``tail -f`` command semantics.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+recordToken | <p>Record token that can be used to control logs streaming.</p> <p>Set <a href="/docs/managed-mysql/api-ref/Cluster/streamLogs#query_params">recordToken</a> to the ``nextRecordToken``, returned by the previous <a href="/docs/managed-mysql/api-ref/Cluster/streamLogs">streamLogs</a> request to start streaming from the next log record.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that selects clusters logs listed in the response.</p> <p>The expression must specify:</p> <ol> <li>The field name. Currently filtering can be applied to the [LogRecord.logs.hostname] field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be 3-63 characters long and match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``. Examples of a filter: ``message.hostname='node1.db.cloud.yandex.net'``</li> </ol> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

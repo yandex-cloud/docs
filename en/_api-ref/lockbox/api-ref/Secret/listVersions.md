@@ -16,14 +16,14 @@ GET https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}/versions
  
 Parameter | Description
 --- | ---
-secretId | Required. ID of the secret to list versions for.  The maximum string length in characters is 50.
+secretId | <p>Required. ID of the secret to list versions for.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListVersionsRequest.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set `page_token` to the [ListVersionsRequest.next_page_token] returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than ``page_size``, the service returns a [ListVersionsRequest.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the [ListVersionsRequest.next_page_token] returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}:reschedule
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Kafka cluster to reschedule the maintenance operation for.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the Kafka cluster to reschedule the maintenance operation for.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

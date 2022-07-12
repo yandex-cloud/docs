@@ -16,8 +16,8 @@ GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs/{jobId
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster to request a job from.  The maximum string length in characters is 50.
-jobId | Required. ID of the job to return.  To get a job ID make a [list](/docs/data-proc/api-ref/Job/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the cluster to request a job from.</p> <p>The maximum string length in characters is 50.</p> 
+jobId | <p>Required. ID of the job to return.</p> <p>To get a job ID make a <a href="/docs/data-proc/api-ref/Job/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

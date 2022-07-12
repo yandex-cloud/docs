@@ -16,13 +16,13 @@ GET https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificat
  
 Parameter | Description
 --- | ---
-certificateId | Required. ID of the certificate to return.  To get the ID of a certificate use a [list](/docs/certificate-manager/api-ref/Certificate/list) request.  The maximum string length in characters is 50.
+certificateId | <p>Required. ID of the certificate to return.</p> <p>To get the ID of a certificate use a <a href="/docs/certificate-manager/api-ref/Certificate/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-view | The output type of the certificate.<ul> <li>BASIC: Output basic information about the certificate.</li> <li>FULL: Output full information about the certificate including domain challenges.</li> </ul> 
+view | <p>The output type of the certificate.</p> <ul> <li>BASIC: Output basic information about the certificate.</li> <li>FULL: Output full information about the certificate including domain challenges.</li> </ul> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -94,7 +94,7 @@ updatedAt | **string** (date-time)<br><p>Time when the certificate is updated.</
 issuedAt | **string** (date-time)<br><p>Time when the certificate is issued.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 notAfter | **string** (date-time)<br><p>Time after which the certificate is not valid.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 notBefore | **string** (date-time)<br><p>Time before which the certificate is not valid.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-challenges[] | **object**<br><p>Domain validation challenge.</p> 
+challenges[] | **object**<br><p>Domains validation challenges of the certificate. Used only for managed certificates.</p> 
 challenges[].<br>domain | **string**<br><p>Domain of the challenge.</p> 
 challenges[].<br>type | **string**<br>Type of the challenge.<br><p>Supported domain validation types.</p> <ul> <li>DNS: Domain validation type that using DNS-records.</li> <li>HTTP: Domain validation type that using HTTP-files.</li> </ul> 
 challenges[].<br>createdAt | **string** (date-time)<br><p>Time when the challenge is created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

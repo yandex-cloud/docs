@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/ex
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the cluster.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

@@ -16,10 +16,10 @@ GET https://monitoring.{{ api-host }}/monitoring/v3/alerts
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list alerts in.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/monitoring/api-ref/Alert/list#query_params), the service returns a [nextPageToken](/docs/monitoring/api-ref/Alert/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/monitoring/api-ref/Alert/list#query_params) to the [nextPageToken](/docs/monitoring/api-ref/Alert/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response. Currently you can use filtering only on the [Alert.id](/docs/monitoring/api-ref/Alert#representation) or [Alert.name](/docs/monitoring/api-ref/Alert#representation) field.  The maximum string length in characters is 1000.
+folderId | <p>Required. ID of the folder to list alerts in.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/monitoring/api-ref/Alert/list#query_params">pageSize</a>, the service returns a <a href="/docs/monitoring/api-ref/Alert/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/monitoring/api-ref/Alert/list#query_params">pageToken</a> to the <a href="/docs/monitoring/api-ref/Alert/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resources listed in the response. Currently you can use filtering only on the <a href="/docs/monitoring/api-ref/Alert#representation">Alert.id</a> or <a href="/docs/monitoring/api-ref/Alert#representation">Alert.name</a> field.</p> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -68,7 +68,7 @@ filter | A filter expression that filters resources listed in the response. Curr
  
 Field | Description
 --- | ---
-alerts[] | **object**<br><p>An Alert resource.</p> 
+alerts[] | **object**<br><p>List of Alert resources.</p> 
 alerts[].<br>id | **string**<br><p>ID of the alert.</p> 
 alerts[].<br>folderId | **string**<br><p>ID of the folder that the alert belongs on.</p> 
 alerts[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

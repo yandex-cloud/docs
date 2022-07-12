@@ -16,8 +16,8 @@ GET https://iot-devices.{{ api-host }}/iot-devices/v1/registries:getByName
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list registries in.  To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
-registryName | Required. Name of the registry to return.  To get a registry Name make a [list](/docs/iot-core/api-ref/Registry/list) request.  The maximum string length in characters is 50. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+folderId | <p>Required. ID of the folder to list registries in.</p> <p>To get a folder ID make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+registryName | <p>Required. Name of the registry to return.</p> <p>To get a registry Name make a <a href="/docs/iot-core/api-ref/Registry/list">list</a> request.</p> <p>The maximum string length in characters is 50. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

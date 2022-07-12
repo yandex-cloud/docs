@@ -16,7 +16,7 @@ PATCH https://datatransfer.{{ api-host }}/v1/endpoint/{endpointId}
  
 Parameter | Description
 --- | ---
-endpointId | Identifier of the endpoint to be updated.
+endpointId | <p>Identifier of the endpoint to be updated.</p> 
  
 ## Body parameters {#body_params}
  

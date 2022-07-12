@@ -16,8 +16,8 @@ POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/users
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the ClickHouse cluster the user belongs to. To get the cluster ID, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-userName | Required. Name of the user to revoke a permission from. To get the name of the user, use a [list](/docs/managed-clickhouse/api-ref/User/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+clusterId | <p>Required. ID of the ClickHouse cluster the user belongs to. To get the cluster ID, use a <a href="/docs/managed-clickhouse/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+userName | <p>Required. Name of the user to revoke a permission from. To get the name of the user, use a <a href="/docs/managed-clickhouse/api-ref/User/list">list</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
  
 ## Body parameters {#body_params}
  

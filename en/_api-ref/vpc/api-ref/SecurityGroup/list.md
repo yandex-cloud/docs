@@ -16,7 +16,7 @@ GET https://vpc.{{ api-host }}/vpc/v1/securityGroups
  
 Parameter | Description
 --- | ---
-folderId | Required.
+folderId | <p>Required.</p> 
 pageSize | 
 pageToken | 
 filter | 

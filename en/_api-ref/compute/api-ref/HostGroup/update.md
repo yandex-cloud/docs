@@ -16,7 +16,7 @@ PATCH https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}
  
 Parameter | Description
 --- | ---
-hostGroupId | Required. ID of the host group to update. To get the host group ID, use an [list](/docs/compute/api-ref/HostGroup/list) request.  The maximum string length in characters is 50.
+hostGroupId | <p>Required. ID of the host group to update. To get the host group ID, use an <a href="/docs/compute/api-ref/HostGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

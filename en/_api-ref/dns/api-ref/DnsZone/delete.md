@@ -16,7 +16,7 @@ DELETE https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}
  
 Parameter | Description
 --- | ---
-dnsZoneId | ID of the DNS zone to delete.  To get a DNS zone ID, make a [list](/docs/dns/api-ref/DnsZone/list) request.  The string length in characters must be equal to 20.
+dnsZoneId | <p>ID of the DNS zone to delete.</p> <p>To get a DNS zone ID, make a <a href="/docs/dns/api-ref/DnsZone/list">list</a> request.</p> <p>The string length in characters must be equal to 20.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

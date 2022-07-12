@@ -16,7 +16,7 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/fe
  
 Parameter | Description
 --- | ---
-federationId | ID of the federation to add users.  The maximum string length in characters is 50.
+federationId | <p>ID of the federation to add users.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

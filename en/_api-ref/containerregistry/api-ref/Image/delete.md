@@ -16,7 +16,7 @@ DELETE https://container-registry.{{ api-host }}/container-registry/v1/images/{i
  
 Parameter | Description
 --- | ---
-imageId | Required. ID of the Docker image to delete.  To get Docker image ID use a [list](/docs/container-registry/api-ref/Image/list) request.  The maximum string length in characters is 50.
+imageId | <p>Required. ID of the Docker image to delete.</p> <p>To get Docker image ID use a <a href="/docs/container-registry/api-ref/Image/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

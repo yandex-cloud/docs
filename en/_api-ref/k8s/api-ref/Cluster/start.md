@@ -16,7 +16,7 @@ POST https://mks.{{ api-host }}/managed-kubernetes/v1/clusters/{clusterId}:start
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Kubernetes cluster to start. To get Kubernetes cluster ID use a [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
+clusterId | <p>Required. ID of the Kubernetes cluster to start. To get Kubernetes cluster ID use a <a href="/docs/managed-kubernetes/api-ref/Cluster/list">list</a> request.</p> 
  
 ## Body parameters {#body_params}
  

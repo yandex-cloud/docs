@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/forma
  
 Parameter | Description
 --- | ---
-clusterId | Required. The maximum string length in characters is 50.
+clusterId | <p>Required. The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

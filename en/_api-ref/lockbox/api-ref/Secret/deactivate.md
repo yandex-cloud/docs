@@ -16,7 +16,7 @@ POST https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}:deactivate
  
 Parameter | Description
 --- | ---
-secretId | Required. ID of the secret to be deactivated.  The maximum string length in characters is 50.
+secretId | <p>Required. ID of the secret to be deactivated.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

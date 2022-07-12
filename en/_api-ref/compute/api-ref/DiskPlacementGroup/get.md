@@ -16,7 +16,7 @@ GET https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlacement
  
 Parameter | Description
 --- | ---
-diskPlacementGroupId | Required. ID of the placement group to return. To get the placement group ID, use [list](/docs/compute/api-ref/DiskPlacementGroup/list) request.  The maximum string length in characters is 50.
+diskPlacementGroupId | <p>Required. ID of the placement group to return. To get the placement group ID, use <a href="/docs/compute/api-ref/DiskPlacementGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

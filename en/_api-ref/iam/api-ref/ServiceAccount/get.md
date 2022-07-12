@@ -16,7 +16,7 @@ GET https://iam.{{ api-host }}/iam/v1/serviceAccounts/{serviceAccountId}
  
 Parameter | Description
 --- | ---
-serviceAccountId | Required. ID of the ServiceAccount resource to return. To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request.  The maximum string length in characters is 50.
+serviceAccountId | <p>Required. ID of the ServiceAccount resource to return. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -16,7 +16,7 @@ DELETE https://compute.{{ api-host }}/compute/v1/placementGroups/{placementGroup
  
 Parameter | Description
 --- | ---
-placementGroupId | ID of the placement group to delete.  To get the placement group ID, use [list](/docs/compute/api-ref/PlacementGroup/list) request.
+placementGroupId | <p>ID of the placement group to delete.</p> <p>To get the placement group ID, use <a href="/docs/compute/api-ref/PlacementGroup/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

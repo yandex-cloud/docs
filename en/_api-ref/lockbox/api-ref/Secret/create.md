@@ -43,7 +43,7 @@ Field | Description
 folderId | **string**<br><p>Required. ID of the folder to create a secret in.</p> <p>The maximum string length in characters is 50.</p> 
 name | **string**<br><p>Name of the secret.</p> <p>The maximum string length in characters is 100.</p> 
 description | **string**<br><p>Description of the secret.</p> <p>The maximum string length in characters is 1024.</p> 
-labels | **object**<br><p>Custom labels for the secret as ``key:value`` pairs. Maximum 64 per key. For example, ``&quot;project&quot;: &quot;mvp&quot;`` or ``&quot;source&quot;: &quot;dictionary&quot;``.</p> <p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
+labels | **object**<br><p>Custom labels for the secret as ``key:value`` pairs. Maximum 64 per key. For example, ``"project": "mvp"`` or ``"source": "dictionary"``.</p> <p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 kmsKeyId | **string**<br><p>Optional ID of the KMS key will be used to encrypt and decrypt the secret.</p> <p>The maximum string length in characters is 50.</p> 
 versionDescription | **string**<br><p>Description of the first version.</p> <p>The maximum string length in characters is 256.</p> 
 versionPayloadEntries[] | **object**<br><p>Payload entries added to the first version.</p> <p>The maximum number of elements is 32.</p> 

@@ -16,7 +16,7 @@ GET https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/{cloudId}
  
 Parameter | Description
 --- | ---
-cloudId | Required. ID of the Cloud resource to return. To get the cloud ID, use a [list](/docs/resource-manager/api-ref/Cloud/list) request.  The maximum string length in characters is 50.
+cloudId | <p>Required. ID of the Cloud resource to return. To get the cloud ID, use a <a href="/docs/resource-manager/api-ref/Cloud/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

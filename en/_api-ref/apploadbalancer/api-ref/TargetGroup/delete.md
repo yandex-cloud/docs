@@ -16,7 +16,7 @@ DELETE https://alb.{{ api-host }}/apploadbalancer/v1/targetGroups/{targetGroupId
  
 Parameter | Description
 --- | ---
-targetGroupId | Required. ID of the target group to delete.  To get the target group ID, make a [list](/docs/application-load-balancer/api-ref/TargetGroup/list) request.
+targetGroupId | <p>Required. ID of the target group to delete.</p> <p>To get the target group ID, make a <a href="/docs/application-load-balancer/api-ref/TargetGroup/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

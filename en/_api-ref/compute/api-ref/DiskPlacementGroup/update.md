@@ -16,7 +16,7 @@ PATCH https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlaceme
  
 Parameter | Description
 --- | ---
-diskPlacementGroupId | Required. ID of the placement group to update. To get the placement group ID, use an [list](/docs/compute/api-ref/DiskPlacementGroup/list) request.  The maximum string length in characters is 50.
+diskPlacementGroupId | <p>Required. ID of the placement group to update. To get the placement group ID, use an <a href="/docs/compute/api-ref/DiskPlacementGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

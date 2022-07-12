@@ -8,20 +8,20 @@ editable: false
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) |  |
-| [List](#List) |  |
-| [Create](#Create) |  |
-| [Delete](#Delete) |  |
-| [Restart](#Restart) |  |
-| [Stop](#Stop) |  |
-| [Start](#Start) |  |
-| [UpgradeImage](#UpgradeImage) |  |
+| [Get](#Get) | Returns the specified agent instance |
+| [List](#List) | Retrieves the list of agent instances in the specified folder |
+| [Create](#Create) | Creates the agent instance in specified folder |
+| [Delete](#Delete) | Deletes the specified agent instance |
+| [Restart](#Restart) | Restarts the specified agent instance. |
+| [Stop](#Stop) | Stops the specified agent instance. |
+| [Start](#Start) | Starts the specified agent instance. |
+| [UpgradeImage](#UpgradeImage) | Upgrades the specified agent instance to the latest agent image. |
 
 ## Calls AgentInstanceService {#calls}
 
 ## Get {#Get}
 
-
+Returns the specified agent instance
 
 **rpc Get ([GetAgentInstanceRequest](#GetAgentInstanceRequest)) returns ([GetAgentInstanceResponse](#GetAgentInstanceResponse))**
 
@@ -73,7 +73,7 @@ status_comment | **string**<br>
 
 ## List {#List}
 
-
+Retrieves the list of agent instances in the specified folder
 
 **rpc List ([ListAgentInstancesRequest](#ListAgentInstancesRequest)) returns ([ListAgentInstancesResponse](#ListAgentInstancesResponse))**
 
@@ -130,7 +130,7 @@ status_comment | **string**<br>
 
 ## Create {#Create}
 
-
+Creates the agent instance in specified folder
 
 **rpc Create ([CreateAgentInstanceRequest](#CreateAgentInstanceRequest)) returns ([operation.Operation](#Operation))**
 
@@ -210,7 +210,7 @@ status_comment | **string**<br>
 
 ## Delete {#Delete}
 
-
+Deletes the specified agent instance
 
 **rpc Delete ([DeleteAgentInstanceRequest](#DeleteAgentInstanceRequest)) returns ([operation.Operation](#Operation1))**
 
@@ -250,7 +250,7 @@ agent_instance_id | **string**<br>
 
 ## Restart {#Restart}
 
-
+Restarts the specified agent instance.
 
 **rpc Restart ([RestartAgentInstanceRequest](#RestartAgentInstanceRequest)) returns ([operation.Operation](#Operation2))**
 
@@ -322,7 +322,7 @@ status_comment | **string**<br>
 
 ## Stop {#Stop}
 
-
+Stops the specified agent instance.
 
 **rpc Stop ([StopAgentInstanceRequest](#StopAgentInstanceRequest)) returns ([operation.Operation](#Operation3))**
 
@@ -394,7 +394,7 @@ status_comment | **string**<br>
 
 ## Start {#Start}
 
-
+Starts the specified agent instance.
 
 **rpc Start ([StartAgentInstanceRequest](#StartAgentInstanceRequest)) returns ([operation.Operation](#Operation4))**
 
@@ -466,7 +466,7 @@ status_comment | **string**<br>
 
 ## UpgradeImage {#UpgradeImage}
 
-
+Upgrades the specified agent instance to the latest agent image.
 
 **rpc UpgradeImage ([UpgradeImageAgentInstanceRequest](#UpgradeImageAgentInstanceRequest)) returns ([operation.Operation](#Operation5))**
 

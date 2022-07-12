@@ -16,14 +16,14 @@ GET https://vpc.{{ api-host }}/vpc/v1/networks/{networkId}/security_groups
  
 Parameter | Description
 --- | ---
-networkId | Required. ID of the Network resource to list security groups for.  The maximum string length in characters is 50.
+networkId | <p>Required. ID of the Network resource to list security groups for.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than [pageSize](/docs/vpc/api-ref/Network/listSecurityGroups#query_params), the service returns a [nextPageToken](/docs/vpc/api-ref/Network/listSecurityGroups#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. Set [pageToken](/docs/vpc/api-ref/Network/listSecurityGroups#query_params) to the [nextPageToken](/docs/vpc/api-ref/Network/listSecurityGroups#responses) returned by a previous list request to get the next page of results.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page that should be returned. If the number of available results is larger than <a href="/docs/vpc/api-ref/Network/listSecurityGroups#query_params">pageSize</a>, the service returns a <a href="/docs/vpc/api-ref/Network/listSecurityGroups#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. Set <a href="/docs/vpc/api-ref/Network/listSecurityGroups#query_params">pageToken</a> to the <a href="/docs/vpc/api-ref/Network/listSecurityGroups#responses">nextPageToken</a> returned by a previous list request to get the next page of results.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

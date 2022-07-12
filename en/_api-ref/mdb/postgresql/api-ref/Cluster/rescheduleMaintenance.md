@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}:resch
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the PostgreSQL cluster to reschedule the maintenance operation for.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the PostgreSQL cluster to reschedule the maintenance operation for.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

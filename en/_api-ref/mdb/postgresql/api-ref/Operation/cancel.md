@@ -16,7 +16,7 @@ GET https://operation.{{ api-host }}/operations/{operationId}:cancel
  
 Parameter | Description
 --- | ---
-operationId | Required. ID of the operation to cancel.
+operationId | <p>Required. ID of the operation to cancel.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

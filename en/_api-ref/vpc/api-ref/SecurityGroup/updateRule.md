@@ -16,8 +16,8 @@ PATCH https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}/rules/{
  
 Parameter | Description
 --- | ---
-securityGroupId | Required.
-ruleId | Required.
+securityGroupId | <p>Required.</p> 
+ruleId | <p>Required.</p> 
  
 ## Body parameters {#body_params}
  

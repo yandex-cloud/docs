@@ -16,7 +16,7 @@ DELETE https://serverless-mdbproxy.{{ api-host }}/mdbproxy/v1/proxies/{proxyId}
  
 Parameter | Description
 --- | ---
-proxyId | Required. ID of the proxy.  The maximum string length in characters is 50.
+proxyId | <p>Required. ID of the proxy.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

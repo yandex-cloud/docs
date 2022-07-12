@@ -17,7 +17,7 @@ POST https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}:upsertRecordSets
  
 Parameter | Description
 --- | ---
-dnsZoneId | ID of the DNS zone to upsert record sets to.   To get a DNS zone ID, make a [list](/docs/dns/api-ref/DnsZone/list) request.  The string length in characters must be equal to 20.
+dnsZoneId | <p>ID of the DNS zone to upsert record sets to.</p> <p>To get a DNS zone ID, make a <a href="/docs/dns/api-ref/DnsZone/list">list</a> request.</p> <p>The string length in characters must be equal to 20.</p> 
  
 ## Body parameters {#body_params}
  
@@ -59,17 +59,17 @@ dnsZoneId | ID of the DNS zone to upsert record sets to.   To get a DNS zone ID,
  
 Field | Description
 --- | ---
-deletions[] | **object**<br><p>A record set. For details about the concept, see <a href="/docs/dns/concepts/resource-record">Resource record</a>.</p> 
+deletions[] | **object**<br><p>Delete only specified records from corresponding record sets.</p> <p>The maximum number of elements is 1000.</p> 
 deletions[].<br>name | **string**<br><p>Domain name.</p> <p>The string length in characters must be 1-254.</p> 
 deletions[].<br>type | **string**<br><p>Record type.</p> <p>The string length in characters must be 1-20.</p> 
 deletions[].<br>ttl | **string** (int64)<br><p>Time to live in seconds.</p> <p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 deletions[].<br>data[] | **string**<br><p>Required. Data of the record set.</p> <p>The number of elements must be in the range 1-100. The string length in characters for each value must be 1-255.</p> 
-replacements[] | **object**<br><p>A record set. For details about the concept, see <a href="/docs/dns/concepts/resource-record">Resource record</a>.</p> 
+replacements[] | **object**<br><p>Entirely replace specified record sets.</p> <p>The maximum number of elements is 1000.</p> 
 replacements[].<br>name | **string**<br><p>Domain name.</p> <p>The string length in characters must be 1-254.</p> 
 replacements[].<br>type | **string**<br><p>Record type.</p> <p>The string length in characters must be 1-20.</p> 
 replacements[].<br>ttl | **string** (int64)<br><p>Time to live in seconds.</p> <p>Acceptable values are 0 to 2147483647, inclusive.</p> 
 replacements[].<br>data[] | **string**<br><p>Required. Data of the record set.</p> <p>The number of elements must be in the range 1-100. The string length in characters for each value must be 1-255.</p> 
-merges[] | **object**<br><p>A record set. For details about the concept, see <a href="/docs/dns/concepts/resource-record">Resource record</a>.</p> 
+merges[] | **object**<br><p>Replace specified records or add new ones if no such record sets exists.</p> <p>The maximum number of elements is 1000.</p> 
 merges[].<br>name | **string**<br><p>Domain name.</p> <p>The string length in characters must be 1-254.</p> 
 merges[].<br>type | **string**<br><p>Record type.</p> <p>The string length in characters must be 1-20.</p> 
 merges[].<br>ttl | **string** (int64)<br><p>Time to live in seconds.</p> <p>Acceptable values are 0 to 2147483647, inclusive.</p> 

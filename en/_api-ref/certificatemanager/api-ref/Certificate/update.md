@@ -16,7 +16,7 @@ PATCH https://certificate-manager.{{ api-host }}/certificate-manager/v1/certific
  
 Parameter | Description
 --- | ---
-certificateId | Required. ID of the certificate to update. To get the ID of a certificate use a [list](/docs/certificate-manager/api-ref/Certificate/list) request.  The maximum string length in characters is 50.
+certificateId | <p>Required. ID of the certificate to update. To get the ID of a certificate use a <a href="/docs/certificate-manager/api-ref/Certificate/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

@@ -17,11 +17,11 @@ GET https://serverless-functions.{{ api-host }}/functions/v1/versions
  
 Parameter | Description
 --- | ---
-folderId | ID of the folder to list function versions for. To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
-functionId | ID of the function to list versions for. To get a function ID use a [list](/docs/functions/functions/api-ref/Function/list) request.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/functions/api-ref/Function/listVersions#responses) that can be used to get the next page of results in subsequent list requests.  Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set `pageToken` to the [nextPageToken](/docs/functions/functions/api-ref/Function/listVersions#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response.  The expression must specify: 1. The field name. Currently filtering can only be applied to the `status` and `runtime` fields. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter: `status="ACTIVE"`.  The maximum string length in characters is 1000.
+folderId | <p>ID of the folder to list function versions for. To get a folder ID make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> 
+functionId | <p>ID of the function to list versions for. To get a function ID use a <a href="/docs/functions/functions/api-ref/Function/list">list</a> request.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than ``pageSize``, the service returns a <a href="/docs/functions/functions/api-ref/Function/listVersions#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``pageToken`` to the <a href="/docs/functions/functions/api-ref/Function/listVersions#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resources listed in the response.</p> <p>The expression must specify:</p> <ol> <li>The field name. Currently filtering can only be applied to the ``status`` and ``runtime`` fields.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be 3-63 characters long and match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``. Example of a filter: ``status="ACTIVE"``.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -72,7 +72,7 @@ filter | A filter expression that filters resources listed in the response.  The
  
 Field | Description
 --- | ---
-versions[] | **object**<br><p>Version of a function. For details about the concept, see <a href="/docs/functions/concepts/function#version">Function versions</a>.</p> 
+versions[] | **object**<br><p>List of versions for the specified folder or function.</p> 
 versions[].<br>id | **string**<br><p>ID of the version.</p> 
 versions[].<br>functionId | **string**<br><p>ID of the function that the version belongs to.</p> 
 versions[].<br>description | **string**<br><p>Description of the version.</p> <p>The string length in characters must be 0-256.</p> 
@@ -92,7 +92,7 @@ versions[].<br>connectivity | **object**<br><p>Network access. If specified the 
 versions[].<br>connectivity.<br>networkId | **string**<br><p>Network the version will have access to. It's essential to specify network with subnets in all availability zones.</p> 
 versions[].<br>connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones.</p> 
 versions[].<br>namedServiceAccounts | **object**<br><p>Additional service accounts to be used by the version.</p> 
-versions[].<br>secrets[] | **object**<br><p>Secret for serverless function</p> 
+versions[].<br>secrets[] | **object**<br><p>Lockbox secrets to be used by the version</p> 
 versions[].<br>secrets[].<br>id | **string**<br><p>ID of lockbox secret</p> 
 versions[].<br>secrets[].<br>versionId | **string**<br><p>ID of secret version</p> 
 versions[].<br>secrets[].<br>key | **string**<br><p>Key in secret's payload, which value to be delivered into function environment</p> 

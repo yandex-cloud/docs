@@ -17,7 +17,7 @@ POST https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}:
  
 Parameter | Description
 --- | ---
-instanceGroupId | ID of the instance group to resume processes in.  The instance group must have a `PAUSED` status ([InstanceGroup.status](/docs/compute/api-ref/InstanceGroup#representation)).  To get the instance group ID, make a [list](/docs/compute/api-ref/InstanceGroup/list) request.  The maximum string length in characters is 50.
+instanceGroupId | <p>ID of the instance group to resume processes in.</p> <p>The instance group must have a ``PAUSED`` status (<a href="/docs/compute/api-ref/InstanceGroup#representation">InstanceGroup.status</a>).</p> <p>To get the instance group ID, make a <a href="/docs/compute/api-ref/InstanceGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

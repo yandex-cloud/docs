@@ -16,7 +16,7 @@ DELETE https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}
  
 Parameter | Description
 --- | ---
-httpRouterId | Required. ID of the HTTP router to delete.  To get the HTTP router ID, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
+httpRouterId | <p>Required. ID of the HTTP router to delete.</p> <p>To get the HTTP router ID, make a <a href="/docs/application-load-balancer/api-ref/HttpRouter/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

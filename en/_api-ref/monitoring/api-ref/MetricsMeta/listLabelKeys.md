@@ -16,8 +16,8 @@ GET https://monitoring.{{ api-host }}/monitoring/v2/metrics/labels
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder that the metric belongs to.  The maximum string length in characters is 50.
-selectors | Metric selectors.
+folderId | <p>Required. ID of the folder that the metric belongs to.</p> <p>The maximum string length in characters is 50.</p> 
+selectors | <p>Metric selectors.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

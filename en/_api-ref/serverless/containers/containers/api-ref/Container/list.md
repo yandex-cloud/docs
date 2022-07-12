@@ -16,7 +16,7 @@ GET https://serverless-containers.{{ api-host }}/containers/v1/containers
  
 Parameter | Description
 --- | ---
-folderId | Required.
+folderId | <p>Required.</p> 
 pageSize | 
 pageToken | 
 filter | 

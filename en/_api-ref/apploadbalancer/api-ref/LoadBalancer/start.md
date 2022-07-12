@@ -16,7 +16,7 @@ POST https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId
  
 Parameter | Description
 --- | ---
-loadBalancerId | Required. ID of the application load balancer to start.  The application load balancer must have a `STOPPED` status ([LoadBalancer.status](/docs/application-load-balancer/api-ref/LoadBalancer#representation)).  To get the application load balancer ID, make a [list](/docs/application-load-balancer/api-ref/LoadBalancer/list) request.
+loadBalancerId | <p>Required. ID of the application load balancer to start.</p> <p>The application load balancer must have a ``STOPPED`` status (<a href="/docs/application-load-balancer/api-ref/LoadBalancer#representation">LoadBalancer.status</a>).</p> <p>To get the application load balancer ID, make a <a href="/docs/application-load-balancer/api-ref/LoadBalancer/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

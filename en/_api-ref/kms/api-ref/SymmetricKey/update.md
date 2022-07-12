@@ -16,7 +16,7 @@ PATCH https://kms.{{ api-host }}/kms/v1/keys/{keyId}
  
 Parameter | Description
 --- | ---
-keyId | Required. ID of the symmetric KMS key to update. To get the ID of a symmetric KMS key use a [list](/docs/kms/api-ref/SymmetricKey/list) request.  The maximum string length in characters is 50.
+keyId | <p>Required. ID of the symmetric KMS key to update. To get the ID of a symmetric KMS key use a <a href="/docs/kms/api-ref/SymmetricKey/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

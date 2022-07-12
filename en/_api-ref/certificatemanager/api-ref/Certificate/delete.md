@@ -16,7 +16,7 @@ DELETE https://certificate-manager.{{ api-host }}/certificate-manager/v1/certifi
  
 Parameter | Description
 --- | ---
-certificateId | Required. ID of the certificate to be deleted.  The maximum string length in characters is 50.
+certificateId | <p>Required. ID of the certificate to be deleted.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

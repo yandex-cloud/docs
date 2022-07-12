@@ -16,7 +16,7 @@ PATCH https://mdb.{{ api-host }}/managed-kafka/v1/clusters/{clusterId}
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Apache Kafka® cluster to update.  To get the Apache Kafka® cluster ID, make a [list](/docs/managed-kafka/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the Apache Kafka® cluster to update.</p> <p>To get the Apache Kafka® cluster ID, make a <a href="/docs/managed-kafka/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  
@@ -50,7 +50,13 @@ clusterId | Required. ID of the Apache Kafka® cluster to update.  To get the Ap
         "socketReceiveBufferBytes": "integer",
         "autoCreateTopicsEnable": true,
         "numPartitions": "integer",
-        "defaultReplicationFactor": "integer"
+        "defaultReplicationFactor": "integer",
+        "messageMaxBytes": "integer",
+        "replicaFetchMaxBytes": "integer",
+        "sslCipherSuites": [
+          "string"
+        ],
+        "offsetsRetentionMinutes": "integer"
       },
       "kafkaConfig_2_6": {
         "compressionType": "string",
@@ -67,7 +73,13 @@ clusterId | Required. ID of the Apache Kafka® cluster to update.  To get the Ap
         "socketReceiveBufferBytes": "integer",
         "autoCreateTopicsEnable": true,
         "numPartitions": "integer",
-        "defaultReplicationFactor": "integer"
+        "defaultReplicationFactor": "integer",
+        "messageMaxBytes": "integer",
+        "replicaFetchMaxBytes": "integer",
+        "sslCipherSuites": [
+          "string"
+        ],
+        "offsetsRetentionMinutes": "integer"
       },
       "kafkaConfig_2_8": {
         "compressionType": "string",
@@ -84,7 +96,13 @@ clusterId | Required. ID of the Apache Kafka® cluster to update.  To get the Ap
         "socketReceiveBufferBytes": "integer",
         "autoCreateTopicsEnable": true,
         "numPartitions": "integer",
-        "defaultReplicationFactor": "integer"
+        "defaultReplicationFactor": "integer",
+        "messageMaxBytes": "integer",
+        "replicaFetchMaxBytes": "integer",
+        "sslCipherSuites": [
+          "string"
+        ],
+        "offsetsRetentionMinutes": "integer"
       },
       // end of the list of possible fields`configSpec.kafka`
 
@@ -131,7 +149,7 @@ Field | Description
 --- | ---
 updateMask | **string**<br><p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
 description | **string**<br><p>New description of the Apache Kafka® cluster.</p> <p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>Custom labels for the Apache Kafka® cluster as ``key:value`` pairs.</p> <p>For example, &quot;project&quot;: &quot;mvp&quot; or &quot;source&quot;: &quot;dictionary&quot;.</p> <p>The new set of labels will completely replace the old ones. To add a label, request the current set with the <a href="/docs/managed-kafka/api-ref/Cluster/get">get</a> method, then send an <a href="/docs/managed-kafka/api-ref/Cluster/update">update</a> request with the new label added to the set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
+labels | **object**<br><p>Custom labels for the Apache Kafka® cluster as ``key:value`` pairs.</p> <p>For example, "project": "mvp" or "source": "dictionary".</p> <p>The new set of labels will completely replace the old ones. To add a label, request the current set with the <a href="/docs/managed-kafka/api-ref/Cluster/get">get</a> method, then send an <a href="/docs/managed-kafka/api-ref/Cluster/update">update</a> request with the new label added to the set.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 configSpec | **object**<br><p>New configuration and resources for hosts in the Apache Kafka® cluster.</p> <p>Use <a href="/docs/managed-kafka/api-ref/Cluster/update#body_params">updateMask</a> to prevent reverting all cluster settings that are not listed in <a href="/docs/managed-kafka/api-ref/Cluster/update#body_params">configSpec</a> to their default values.</p> 
 configSpec.<br>version | **string**<br><p>Version of Apache Kafka® used in the cluster. Possible values: ``2.1``, ``2.6``.</p> 
 configSpec.<br>kafka | **object**<br><p>Configuration and resource allocation for Kafka brokers.</p> 
@@ -155,6 +173,10 @@ configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>socketReceiveBufferBytes | **intege
 configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>autoCreateTopicsEnable | **boolean** (boolean)<br><p>Enable auto creation of topic on the server</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>numPartitions | **integer** (int64)<br><p>Default number of partitions per topic on the whole cluster</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>defaultReplicationFactor | **integer** (int64)<br><p>Default replication factor of the topic on the whole cluster</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>messageMaxBytes | **integer** (int64)<br><p>The largest record batch size allowed by Kafka. Default value: 1048588.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>replicaFetchMaxBytes | **integer** (int64)<br><p>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>sslCipherSuites[] | **string**<br><p>A list of cipher suites.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_1.<br>offsetsRetentionMinutes | **integer** (int64)<br><p>Offset storage time after a consumer group loses all its consumers. Default: 10080.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_6 | **object** <br>`configSpec.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`, `kafkaConfig_2_8`<br><br><p>Kafka version 2.6 broker configuration.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>compressionType | **string**<br><p>Cluster topics compression type.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of ``ZSTD``, ``LZ4``, ``GZIP`` or ``SNAPPY`` codecs).</li> </ul> 
 configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>logFlushIntervalMessages | **integer** (int64)<br><p>The number of messages accumulated on a log partition before messages are flushed to disk.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the ``flushMessages`` setting.</p> 
@@ -171,6 +193,10 @@ configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>socketReceiveBufferBytes | **intege
 configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>autoCreateTopicsEnable | **boolean** (boolean)<br><p>Enable auto creation of topic on the server</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>numPartitions | **integer** (int64)<br><p>Default number of partitions per topic on the whole cluster</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>defaultReplicationFactor | **integer** (int64)<br><p>Default replication factor of the topic on the whole cluster</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>messageMaxBytes | **integer** (int64)<br><p>The largest record batch size allowed by Kafka. Default value: 1048588.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>replicaFetchMaxBytes | **integer** (int64)<br><p>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>sslCipherSuites[] | **string**<br><p>A list of cipher suites.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_6.<br>offsetsRetentionMinutes | **integer** (int64)<br><p>Offset storage time after a consumer group loses all its consumers. Default: 10080.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_8 | **object** <br>`configSpec.kafka` includes only one of the fields `kafkaConfig_2_1`, `kafkaConfig_2_6`, `kafkaConfig_2_8`<br><br><p>Kafka version 2.8 broker configuration.</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_8.<br>compressionType | **string**<br><p>Cluster topics compression type.</p> <ul> <li>COMPRESSION_TYPE_UNCOMPRESSED: no codec (uncompressed).</li> <li>COMPRESSION_TYPE_ZSTD: Zstandard codec.</li> <li>COMPRESSION_TYPE_LZ4: LZ4 codec.</li> <li>COMPRESSION_TYPE_SNAPPY: Snappy codec.</li> <li>COMPRESSION_TYPE_GZIP: GZip codec.</li> <li>COMPRESSION_TYPE_PRODUCER: the codec to use is set by a producer (can be any of ``ZSTD``, ``LZ4``, ``GZIP`` or ``SNAPPY`` codecs).</li> </ul> 
 configSpec.<br>kafka.<br>kafkaConfig_2_8.<br>logFlushIntervalMessages | **integer** (int64)<br><p>The number of messages accumulated on a log partition before messages are flushed to disk.</p> <p>This is the global cluster-level setting that can be overridden on a topic level by using the ``flushMessages`` setting.</p> 
@@ -187,6 +213,10 @@ configSpec.<br>kafka.<br>kafkaConfig_2_8.<br>socketReceiveBufferBytes | **intege
 configSpec.<br>kafka.<br>kafkaConfig_2_8.<br>autoCreateTopicsEnable | **boolean** (boolean)<br><p>Enable auto creation of topic on the server</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_8.<br>numPartitions | **integer** (int64)<br><p>Default number of partitions per topic on the whole cluster</p> 
 configSpec.<br>kafka.<br>kafkaConfig_2_8.<br>defaultReplicationFactor | **integer** (int64)<br><p>Default replication factor of the topic on the whole cluster</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_8.<br>messageMaxBytes | **integer** (int64)<br><p>The largest record batch size allowed by Kafka. Default value: 1048588.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_8.<br>replicaFetchMaxBytes | **integer** (int64)<br><p>The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_8.<br>sslCipherSuites[] | **string**<br><p>A list of cipher suites.</p> 
+configSpec.<br>kafka.<br>kafkaConfig_2_8.<br>offsetsRetentionMinutes | **integer** (int64)<br><p>Offset storage time after a consumer group loses all its consumers. Default: 10080.</p> 
 configSpec.<br>zookeeper | **object**<br><p>Configuration and resource allocation for ZooKeeper hosts.</p> 
 configSpec.<br>zookeeper.<br>resources | **object**<br><p>Resources allocated to ZooKeeper hosts.</p> 
 configSpec.<br>zookeeper.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the <a href="/docs/managed-kafka/concepts/instance-types">documentation</a>.</p> 

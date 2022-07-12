@@ -13,7 +13,7 @@ A set of methods for managing ServiceAccount resources.
 | [Create](#Create) | Creates a service account in the specified folder. |
 | [Update](#Update) | Updates the specified service account. |
 | [Delete](#Delete) | Deletes the specified service account. |
-| [ListAccessBindings](#ListAccessBindings) | access Lists access bindings for the specified service account. |
+| [ListAccessBindings](#ListAccessBindings) | Lists access bindings for the specified service account. |
 | [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the service account. |
 | [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for the specified service account. |
 | [ListOperations](#ListOperations) | Lists operations for the specified service account. |
@@ -234,7 +234,7 @@ service_account_id | **string**<br>ID of the service account that is being delet
 
 ## ListAccessBindings {#ListAccessBindings}
 
-access Lists access bindings for the specified service account.
+Lists access bindings for the specified service account.
 
 **rpc ListAccessBindings ([ListAccessBindingsRequest](#ListAccessBindingsRequest)) returns ([ListAccessBindingsResponse](#ListAccessBindingsResponse))**
 

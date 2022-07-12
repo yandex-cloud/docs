@@ -16,8 +16,8 @@ POST https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs/{jobI
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the Dataproc cluster.  The maximum string length in characters is 50.
-jobId | Required. Required. ID of the Dataproc job to cancel.  The maximum string length in characters is 50.
+clusterId | <p>Required. Required. ID of the Dataproc cluster.</p> <p>The maximum string length in characters is 50.</p> 
+jobId | <p>Required. Required. ID of the Dataproc job to cancel.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

@@ -16,7 +16,7 @@ GET https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/certifica
  
 Parameter | Description
 --- | ---
-brokerId | Required. ID of the broker to list certificates for.  The maximum string length in characters is 50.
+brokerId | <p>Required. ID of the broker to list certificates for.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -37,7 +37,7 @@ brokerId | Required. ID of the broker to list certificates for.  The maximum str
  
 Field | Description
 --- | ---
-certificates[] | **object**<br><p>A broker certificate.</p> 
+certificates[] | **object**<br><p>List of certificates for the specified broker.</p> 
 certificates[].<br>brokerId | **string**<br><p>ID of the broker that the certificate belongs to.</p> 
 certificates[].<br>fingerprint | **string**<br><p>SHA256 hash of the certificates.</p> 
 certificates[].<br>certificateData | **string**<br><p>Public part of the certificate.</p> 

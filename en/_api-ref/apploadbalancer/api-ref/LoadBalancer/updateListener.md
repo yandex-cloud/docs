@@ -16,7 +16,7 @@ POST https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId
  
 Parameter | Description
 --- | ---
-loadBalancerId | Required. ID of the application load balancer to update the listener in.
+loadBalancerId | <p>Required. ID of the application load balancer to update the listener in.</p> 
  
 ## Body parameters {#body_params}
  
@@ -169,7 +169,7 @@ listenerSpec.<br>tls.<br>defaultHandler.<br>httpHandler.<br>http2Options.<br>max
 listenerSpec.<br>tls.<br>defaultHandler.<br>httpHandler.<br>allowHttp10 | **boolean** (boolean) <br>`listenerSpec.tls.defaultHandler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br><p>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.</p> 
 listenerSpec.<br>tls.<br>defaultHandler.<br>streamHandler | **object**<br>Stream (TCP) handler. <br>`listenerSpec.tls.defaultHandler` includes only one of the fields `httpHandler`, `streamHandler`<br><br><p>A stream (TCP) handler resource.</p> 
 listenerSpec.<br>tls.<br>defaultHandler.<br>streamHandler.<br>backendGroupId | **string**<br><p>Required. ID of the backend group processing requests. For details about the concept, see <a href="/docs/application-load-balancer/concepts/backend-group">documentation</a>.</p> <p>The backend group type, specified via [BackendGroup.backend], must be ``stream``.</p> <p>To get the list of all available backend groups, make a <a href="/docs/application-load-balancer/api-ref/BackendGroup/list">list</a> request.</p> 
-listenerSpec.<br>tls.<br>sniHandlers[] | **object**<br><p>A SNI handler resource.</p> 
+listenerSpec.<br>tls.<br>sniHandlers[] | **object**<br><p>Settings for handling requests with Server Name Indication (SNI) matching one of ``serverNames`` values.</p> 
 listenerSpec.<br>tls.<br>sniHandlers[].<br>name | **string**<br><p>Required. Name of the SNI handler.</p> 
 listenerSpec.<br>tls.<br>sniHandlers[].<br>serverNames[] | **string**<br><p>Required. Server names that are matched by the SNI handler.</p> <p>Must contain at least one element.</p> 
 listenerSpec.<br>tls.<br>sniHandlers[].<br>handler | **object**<br><p>Required. Settings for handling requests with Server Name Indication (SNI) matching one of ``serverNames`` values.</p> <p>A TLS-encrypted (HTTP or TCP stream) handler resource.</p> 

@@ -16,14 +16,14 @@ GET https://vpc.{{ api-host }}/vpc/v1/gateways/{gatewayId}/operations
  
 Parameter | Description
 --- | ---
-gatewayId | Required. ID of the gateway to list operations for.  To get a gateway ID make a [list](/docs/vpc/api-ref/Gateway/list) request.  The maximum string length in characters is 50.
+gatewayId | <p>Required. ID of the gateway to list operations for.</p> <p>To get a gateway ID make a <a href="/docs/vpc/api-ref/Gateway/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/vpc/api-ref/Gateway/listOperations#query_params), the service returns a [nextPageToken](/docs/vpc/api-ref/Gateway/listOperations#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/vpc/api-ref/Gateway/listOperations#query_params) to the [nextPageToken](/docs/vpc/api-ref/Gateway/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/vpc/api-ref/Gateway/listOperations#query_params">pageSize</a>, the service returns a <a href="/docs/vpc/api-ref/Gateway/listOperations#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/vpc/api-ref/Gateway/listOperations#query_params">pageToken</a> to the <a href="/docs/vpc/api-ref/Gateway/listOperations#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -60,7 +60,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/v
  
 Field | Description
 --- | ---
-operations[] | **object**<br><p>An Operation resource. For more information, see <a href="/docs/api-design-guide/concepts/operation">Operation</a>.</p> 
+operations[] | **object**<br><p>List of operations for the specified gateway.</p> 
 operations[].<br>id | **string**<br><p>ID of the operation.</p> 
 operations[].<br>description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
 operations[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

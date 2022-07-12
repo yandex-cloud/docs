@@ -16,7 +16,7 @@ GET https://vpc.{{ api-host }}/vpc/v1/addresses/{addressId}
  
 Parameter | Description
 --- | ---
-addressId | Required. ID of the Address resource to return.  To get Address resource ID make a [list](/docs/vpc/api-ref/Address/list) request.  The maximum string length in characters is 50.
+addressId | <p>Required. ID of the Address resource to return.</p> <p>To get Address resource ID make a <a href="/docs/vpc/api-ref/Address/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

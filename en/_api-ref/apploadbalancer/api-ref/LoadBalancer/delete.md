@@ -16,7 +16,7 @@ DELETE https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancer
  
 Parameter | Description
 --- | ---
-loadBalancerId | Required. ID of the application load balancer to delete.  To get the application load balancer ID, make a [list](/docs/application-load-balancer/api-ref/LoadBalancer/list) request.
+loadBalancerId | <p>Required. ID of the application load balancer to delete.</p> <p>To get the application load balancer ID, make a <a href="/docs/application-load-balancer/api-ref/LoadBalancer/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -16,8 +16,8 @@ DELETE https://mdb.{{ api-host }}/managed-mysql/v1/clusters/{clusterId}/users/{u
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster to delete the user from.  To get this ID, make a [list](/docs/managed-mysql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-userName | Required. Name of the user to delete.  To get this name, make a [list](/docs/managed-mysql/api-ref/User/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+clusterId | <p>Required. ID of the cluster to delete the user from.</p> <p>To get this ID, make a <a href="/docs/managed-mysql/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+userName | <p>Required. Name of the user to delete.</p> <p>To get this name, make a <a href="/docs/managed-mysql/api-ref/User/list">list</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

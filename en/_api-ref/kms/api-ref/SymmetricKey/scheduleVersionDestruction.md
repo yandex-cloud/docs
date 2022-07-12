@@ -16,7 +16,7 @@ POST https://kms.{{ api-host }}/kms/v1/keys/{keyId}:scheduleVersionDestruction
  
 Parameter | Description
 --- | ---
-keyId | Required. ID of the key whose version should be scheduled for destruction.  The maximum string length in characters is 50.
+keyId | <p>Required. ID of the key whose version should be scheduled for destruction.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

@@ -16,8 +16,8 @@ DELETE https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}/database
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the SQL Server cluster to delete a database in.  To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
-databaseName | Required. Name of the database to delete.  To get the name of the database, use a [list](/docs/managed-sqlserver/api-ref/Database/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+clusterId | <p>Required. ID of the SQL Server cluster to delete a database in.</p> <p>To get the cluster ID, use a <a href="/docs/managed-sqlserver/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+databaseName | <p>Required. Name of the database to delete.</p> <p>To get the name of the database, use a <a href="/docs/managed-sqlserver/api-ref/Database/list">list</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

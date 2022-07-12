@@ -16,7 +16,7 @@ GET https://dataproc.{{ api-host }}/dataproc/v1/resourcePresets/{resourcePresetI
  
 Parameter | Description
 --- | ---
-resourcePresetId | Required. Required. ID of the resource preset to return. To get the resource preset ID, use a [list](/docs/data-proc/api-ref/ResourcePreset/list) request.
+resourcePresetId | <p>Required. Required. ID of the resource preset to return. To get the resource preset ID, use a <a href="/docs/data-proc/api-ref/ResourcePreset/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

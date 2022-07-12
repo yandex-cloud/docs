@@ -16,7 +16,7 @@ PATCH https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}
  
 Parameter | Description
 --- | ---
-registryId | Required. ID of the registry to update.  To get a registry ID make a [list](/docs/iot-core/api-ref/Registry/list) request.  The maximum string length in characters is 50.
+registryId | <p>Required. ID of the registry to update.</p> <p>To get a registry ID make a <a href="/docs/iot-core/api-ref/Registry/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

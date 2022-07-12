@@ -16,7 +16,7 @@ GET https://datasphere.{{ api-host }}/datasphere/v1/projects/{projectId}:unitBal
  
 Parameter | Description
 --- | ---
-projectId | Required. ID of the project to return the unit balance for.  The maximum string length in characters is 200.
+projectId | <p>Required. ID of the project to return the unit balance for.</p> <p>The maximum string length in characters is 200.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

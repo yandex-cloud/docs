@@ -16,8 +16,8 @@ GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/aut
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the ElasticSearch cluster.  The maximum string length in characters is 50.
-name | Required. Required. Name of the provider to delete.  The maximum string length in characters is 50. Value must match the regular expression `` [a-z][a-z0-9_-]* ``.
+clusterId | <p>Required. Required. ID of the ElasticSearch cluster.</p> <p>The maximum string length in characters is 50.</p> 
+name | <p>Required. Required. Name of the provider to delete.</p> <p>The maximum string length in characters is 50. Value must match the regular expression ``[a-z][a-z0-9_-]*``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

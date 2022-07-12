@@ -16,7 +16,7 @@ POST https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}:addVersion
  
 Parameter | Description
 --- | ---
-secretId | Required. ID of the secret.  The maximum string length in characters is 50.
+secretId | <p>Required. ID of the secret.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

@@ -16,7 +16,7 @@ GET https://mdb.{{ api-host }}/managed-greenplum/v1/backups/{backupId}
  
 Parameter | Description
 --- | ---
-backupId | Required. Required. ID of the backup to return.
+backupId | <p>Required. ID of the backup to return.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -37,7 +37,7 @@ Field | Description
 --- | ---
 id | **string**<br><p>Required. ID of the backup.</p> 
 folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format (i.e. when the backup operation was completed).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-sourceClusterId | **string**<br><p>ID of the PostgreSQL cluster that the backup was created for.</p> 
+createdAt | **string** (date-time)<br><p>Time when the backup operation was completed.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+sourceClusterId | **string**<br><p>ID of the Greenplum® cluster that the backup was created for.</p> 
 startedAt | **string** (date-time)<br><p>Time when the backup operation was started.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-size | **string** (int64)<br><p>Size of backup in bytes</p> 
+size | **string** (int64)<br><p>Size of the backup in bytes.</p> 

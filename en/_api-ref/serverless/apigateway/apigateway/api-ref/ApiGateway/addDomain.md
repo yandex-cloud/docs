@@ -16,7 +16,7 @@ POST https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{ap
  
 Parameter | Description
 --- | ---
-apiGatewayId | Required. ID of the API gateway that the domain is attached to.
+apiGatewayId | <p>Required. ID of the API gateway that the domain is attached to.</p> 
  
 ## Body parameters {#body_params}
  

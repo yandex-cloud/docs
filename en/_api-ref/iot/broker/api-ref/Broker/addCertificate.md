@@ -16,7 +16,7 @@ POST https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/certific
  
 Parameter | Description
 --- | ---
-brokerId | Required. ID of the broker for which the certificate is being added.  To get a broker ID make a [list](/docs/iot-core/broker/api-ref/Broker/list) request.  The maximum string length in characters is 50.
+brokerId | <p>Required. ID of the broker for which the certificate is being added.</p> <p>To get a broker ID make a <a href="/docs/iot-core/broker/api-ref/Broker/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

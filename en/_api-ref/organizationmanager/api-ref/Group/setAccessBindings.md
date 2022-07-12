@@ -16,7 +16,7 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/groups/
  
 Parameter | Description
 --- | ---
-resourceId | Required. ID of the resource for which access bindings are being set.  To get the resource ID, use a corresponding List request.  The maximum string length in characters is 50.
+resourceId | <p>Required. ID of the resource for which access bindings are being set.</p> <p>To get the resource ID, use a corresponding List request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

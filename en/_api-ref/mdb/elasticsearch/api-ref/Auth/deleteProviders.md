@@ -16,13 +16,13 @@ DELETE https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the ElasticSearch cluster.  The maximum string length in characters is 50.
+clusterId | <p>Required. Required. ID of the ElasticSearch cluster.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-providerNames | Required. List of providers to delete.  The maximum number of elements is 10. The maximum string length in characters for each value is 50. Each value must match the regular expression `` [a-z][a-z0-9_-]* ``.
+providerNames | <p>Required. List of providers to delete.</p> <p>The maximum number of elements is 10. The maximum string length in characters for each value is 50. Each value must match the regular expression ``[a-z][a-z0-9_-]*``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

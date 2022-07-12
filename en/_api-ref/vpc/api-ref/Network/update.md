@@ -17,7 +17,7 @@ PATCH https://vpc.{{ api-host }}/vpc/v1/networks/{networkId}
  
 Parameter | Description
 --- | ---
-networkId | Required. ID of the Network resource to update. To get the network ID use a [list](/docs/vpc/api-ref/Network/list) request.  The maximum string length in characters is 50.
+networkId | <p>Required. ID of the Network resource to update. To get the network ID use a <a href="/docs/vpc/api-ref/Network/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

@@ -16,7 +16,7 @@ POST https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}:stop
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster to stop.  To get a cluster ID, make a [list](/docs/data-proc/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the cluster to stop.</p> <p>To get a cluster ID, make a <a href="/docs/data-proc/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

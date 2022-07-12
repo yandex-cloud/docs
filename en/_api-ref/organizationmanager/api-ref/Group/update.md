@@ -16,7 +16,7 @@ PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/groups
  
 Parameter | Description
 --- | ---
-groupId | Required. ID of the Group resource to update. To get the group ID, use a [list](/docs/organization/api-ref/Group/list) request.  The maximum string length in characters is 50.
+groupId | <p>Required. ID of the Group resource to update. To get the group ID, use a <a href="/docs/organization/api-ref/Group/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

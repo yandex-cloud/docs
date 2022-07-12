@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}:delet
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the ClickHouse cluster to delete the external dictionary from. To get the cluster ID, use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the ClickHouse cluster to delete the external dictionary from. To get the cluster ID, use a <a href="/docs/managed-clickhouse/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

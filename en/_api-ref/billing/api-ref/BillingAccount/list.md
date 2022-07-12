@@ -16,8 +16,8 @@ GET https://billing.{{ api-host }}/billing/v1/billingAccounts
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/billing/api-ref/BillingAccount/list#query_params), the service returns a [nextPageToken](/docs/billing/api-ref/BillingAccount/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/billing/api-ref/BillingAccount/list#query_params) to the [nextPageToken](/docs/billing/api-ref/BillingAccount/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/billing/api-ref/BillingAccount/list#query_params">pageSize</a>, the service returns a <a href="/docs/billing/api-ref/BillingAccount/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/billing/api-ref/BillingAccount/list#query_params">pageToken</a> to the <a href="/docs/billing/api-ref/BillingAccount/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -42,7 +42,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/b
  
 Field | Description
 --- | ---
-billingAccounts[] | **object**<br><p>A BillingAccount resource. For more information, see <a href="/docs/billing/concepts/billing-account">BillingAccount</a>.</p> 
+billingAccounts[] | **object**<br><p>List of billing accounts.</p> 
 billingAccounts[].<br>id | **string**<br><p>ID of the billing account.</p> 
 billingAccounts[].<br>name | **string**<br><p>Name of the billing account.</p> 
 billingAccounts[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

@@ -167,7 +167,7 @@ filter | **string**<br>A filter expression that selects clusters listed in the r
 Field | Description
 --- | ---
 clusters[] | **[Cluster](#Cluster1)**<br>List of clusters. 
-next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest) in the subsequent [ClusterService.List](#List)(#List) request to iterate through multiple pages of results. <br>Each of the subsequent [ClusterService.List] requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListClustersRequest.page_size](#ListClustersRequest), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#ListClustersRequest) in the subsequent [ClusterService.List](#List) request to iterate through multiple pages of results. <br>Each of the subsequent [ClusterService.List](#List) requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
 
 
 ### Cluster {#Cluster1}
@@ -1860,7 +1860,7 @@ always_next_page_token | **bool**<br>Option that controls the behavior of result
 Field | Description
 --- | ---
 logs[] | **[LogRecord](#LogRecord)**<br>Requested log records. 
-next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) in the subsequent [ClusterService.ListLogs](#ListLogs)(#ListLogs) request to iterate through multiple pages of results. <br>Each of the subsequent [ClusterService.ListLogs] requests should use the `next_page_token` value returned by the previous request to continue paging through the results. <br>This value is interchangeable with [StreamLogRecord.next_record_token](#StreamLogRecord) from [ClusterService.StreamLogs](#StreamLogs) method. 
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) in the subsequent [ClusterService.ListLogs](#ListLogs) request to iterate through multiple pages of results. <br>Each of the subsequent [ClusterService.ListLogs](#ListLogs) requests should use the `next_page_token` value returned by the previous request to continue paging through the results. <br>This value is interchangeable with [StreamLogRecord.next_record_token](#StreamLogRecord) from [ClusterService.StreamLogs](#StreamLogs) method. 
 
 
 ### LogRecord {#LogRecord}
@@ -1926,7 +1926,7 @@ page_token | **string**<br>Page token that can be used to iterate through multip
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation10)**<br>List of operations in the cluster. 
-next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) in the subsequent [ClusterService.ListOperations](#ListOperations)(#ListOperations) request to iterate through multiple pages of results. <br>Each of the subsequent [ClusterService.ListOperations] requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) in the subsequent [ClusterService.ListOperations](#ListOperations) request to iterate through multiple pages of results. <br>Each of the subsequent [ClusterService.ListOperations](#ListOperations) requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
 
 
 ### Operation {#Operation10}
@@ -1965,7 +1965,7 @@ page_token | **string**<br>Page token that can be used to iterate through multip
 Field | Description
 --- | ---
 backups[] | **[Backup](#Backup)**<br>List of the cluster backups. 
-next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListClusterBackupsRequest.page_size](#ListClusterBackupsRequest), use the `next_page_token` as the value for the [ListClusterBackupsRequest.page_token](#ListClusterBackupsRequest) in the subsequent [ClusterService.ListBackups](#ListBackups)(#ListBackups) request to iterate through multiple pages of results. <br>Each of the subsequent [ClusterService.ListBackups] requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListClusterBackupsRequest.page_size](#ListClusterBackupsRequest), use the `next_page_token` as the value for the [ListClusterBackupsRequest.page_token](#ListClusterBackupsRequest) in the subsequent [ClusterService.ListBackups](#ListBackups) request to iterate through multiple pages of results. <br>Each of the subsequent [ClusterService.ListBackups](#ListBackups) requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
 
 
 ### Backup {#Backup}
@@ -1999,7 +1999,7 @@ page_token | **string**<br>Page token that can be used to iterate through multip
 Field | Description
 --- | ---
 hosts[] | **[Host](#Host)**<br>List of hosts in the cluster. 
-next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) in the subsequent [ClusterService.ListHosts](#ListHosts)(#ListHosts) request to iterate through multiple pages of results. <br>Each of the subsequent [ClusterService.ListHosts] requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListClusterHostsRequest.page_size](#ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#ListClusterHostsRequest) in the subsequent [ClusterService.ListHosts](#ListHosts) request to iterate through multiple pages of results. <br>Each of the subsequent [ClusterService.ListHosts](#ListHosts) requests should use the `next_page_token` value returned by the previous request to continue paging through the results. 
 
 
 ### Host {#Host}

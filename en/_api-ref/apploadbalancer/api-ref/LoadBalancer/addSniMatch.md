@@ -16,7 +16,7 @@ POST https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId
  
 Parameter | Description
 --- | ---
-loadBalancerId | Required. ID of the application load balancer to add a SNI handler to.
+loadBalancerId | <p>Required. ID of the application load balancer to add a SNI handler to.</p> 
  
 ## Body parameters {#body_params}
  

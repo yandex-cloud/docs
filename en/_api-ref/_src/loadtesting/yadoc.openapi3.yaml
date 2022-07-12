@@ -7,13 +7,215 @@ info:
   version: v1
   x-y-docUri: api-ref
   x-y-baseUrl: https://loadtesting.api.cloud.yandex.net
-paths: {}
+paths:
+  /loadtesting/v1/resourcepresets/{presetId}:
+    get:
+      tags:
+      - ResourcePreset
+      summary: Returns the specified resource preset.
+      operationId: ResourcePresetGet
+      parameters:
+      - name: presetId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourcePreset'
+      x-y-navtitle: get
+  /loadtesting/v1/resourcepresets:
+    get:
+      tags:
+      - ResourcePreset
+      summary: Retrieves the list of resource presets.
+      operationId: ResourcePresetList
+      parameters:
+      - name: pageSize
+        in: query
+        description: Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListResourcePresetsResponse'
+      x-y-navtitle: list
+  /loadtesting/v1/storages:
+    get:
+      tags:
+      - Storage
+      summary: Retrieves the list of storages for the specified folder.
+      operationId: StorageList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListStorageResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Storage
+      summary: Creates a storage for the specified folder.
+      operationId: StorageCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateStorageRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateStorageMetadata'
+      x-y-operation-response: '[Storage](/docs/load-testing/api-ref/Storage#representation)'
+  /loadtesting/v1/storages/{storageId}:
+    get:
+      tags:
+      - Storage
+      summary: Returns the specified storage.
+      operationId: StorageGet
+      parameters:
+      - name: storageId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Storage'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Storage
+      summary: Deletes the specified storage
+      operationId: StorageDelete
+      parameters:
+      - name: storageId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteStorageMetadata'
+      x-y-operation-response: Empty
+  /loadtesting/v1/storages/{storageId}/uploadObject:
+    post:
+      tags:
+      - Storage
+      summary: Uploads the object to the specified storage.
+      operationId: StorageUploadObject
+      parameters:
+      - name: storageId
+        in: path
+        description: The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadStorageObjectRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StorageObject'
+      x-y-navtitle: uploadObject
 components:
   schemas:
     CreateStorageMetadata:
       type: object
       properties:
         storageId:
+          type: string
+    CreateStorageRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        objectStorageBucketName:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
           type: string
     DeleteStorageMetadata:
       type: object
@@ -173,6 +375,21 @@ components:
           type: string
         objectStorageFilename:
           type: string
+    UploadStorageObjectRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        filename:
+          description: The maximum string length in characters is 50.
+          type: string
+        testData:
+          description: Required.
+          type: string
+          format: byte
 tags:
 - name: ResourcePreset
 - name: Storage

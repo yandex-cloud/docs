@@ -16,7 +16,7 @@ POST https://billing.{{ api-host }}/billing/v1/customers/{customerId}:suspend
  
 Parameter | Description
 --- | ---
-customerId | Required. ID of the customer. To get the customer ID, use [list](/docs/billing/api-ref/Customer/list) request.  The maximum string length in characters is 50.
+customerId | <p>Required. ID of the customer. To get the customer ID, use <a href="/docs/billing/api-ref/Customer/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

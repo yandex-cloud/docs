@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/mdb/sqlserver/v1/clusters/{clusterId}:move
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the SQL Server cluster to move.  To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the SQL Server cluster to move.</p> <p>To get the cluster ID, use a <a href="/docs/managed-sqlserver/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

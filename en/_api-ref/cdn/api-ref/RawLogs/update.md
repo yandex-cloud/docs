@@ -16,7 +16,7 @@ PATCH https://cdn.{{ api-host }}/cdn/v1/rawLogs/{resourceId}
  
 Parameter | Description
 --- | ---
-resourceId | Required. ID of CDN resource.  The maximum string length in characters is 50.
+resourceId | <p>Required. ID of CDN resource.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

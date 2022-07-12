@@ -38,7 +38,7 @@ name | **string**<br><p>Name of the target group. The name must be unique within
 description | **string**<br><p>Description of the target group.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 regionId | **string**<br><p>ID of the availability zone where the target group resides.</p> <p>The maximum string length in characters is 50.</p> 
-targets[] | **object**<br><p>A Target resource. For more information, see <a href="/docs/network-load-balancer/concepts/target-resources">Target groups and resources</a>.</p> 
+targets[] | **object**<br><p>List of targets within the target group.</p> 
 targets[].<br>subnetId | **string**<br><p>ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone.</p> <p>The maximum string length in characters is 50.</p> 
 targets[].<br>address | **string**<br><p>IP address of the target.</p> 
  

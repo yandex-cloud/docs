@@ -16,13 +16,13 @@ DELETE https://monitoring.{{ api-host }}/monitoring/v3/dashboards/{dashboardId}
  
 Parameter | Description
 --- | ---
-dashboardId | Required. Required. Dashboard ID.  The maximum string length in characters is 50.
+dashboardId | <p>Required. Required. Dashboard ID.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-etag | The current etag of the dashboard.
+etag | <p>The current etag of the dashboard.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

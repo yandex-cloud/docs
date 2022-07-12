@@ -16,7 +16,7 @@ POST https://iam.{{ api-host }}/iam/v1/saml/federations/{federationId}:addUserAc
  
 Parameter | Description
 --- | ---
-federationId | ID of the federation to add users.  The maximum string length in characters is 50.
+federationId | <p>ID of the federation to add users.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

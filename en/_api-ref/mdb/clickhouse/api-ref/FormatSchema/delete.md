@@ -16,8 +16,8 @@ DELETE https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/for
  
 Parameter | Description
 --- | ---
-clusterId | Required. The maximum string length in characters is 50.
-formatSchemaName | Required. The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+clusterId | <p>Required. The maximum string length in characters is 50.</p> 
+formatSchemaName | <p>Required. The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

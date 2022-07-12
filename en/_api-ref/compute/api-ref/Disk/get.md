@@ -16,7 +16,7 @@ GET https://compute.{{ api-host }}/compute/v1/disks/{diskId}
  
 Parameter | Description
 --- | ---
-diskId | Required. ID of the Disk resource to return. To get the disk ID use a [list](/docs/compute/api-ref/Disk/list) request.  The maximum string length in characters is 50.
+diskId | <p>Required. ID of the Disk resource to return. To get the disk ID use a <a href="/docs/compute/api-ref/Disk/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

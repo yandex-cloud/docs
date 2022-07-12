@@ -16,7 +16,7 @@ GET https://compute.{{ api-host }}/compute/v1/placementGroups/{placementGroupId}
  
 Parameter | Description
 --- | ---
-placementGroupId | ID of the placement group to return.  To get a placement group ID make a [list](/docs/compute/api-ref/PlacementGroup/list) request.
+placementGroupId | <p>ID of the placement group to return.</p> <p>To get a placement group ID make a <a href="/docs/compute/api-ref/PlacementGroup/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

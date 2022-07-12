@@ -16,13 +16,13 @@ GET https://cdn.{{ api-host }}/cdn/v1/origins/{originId}
  
 Parameter | Description
 --- | ---
-originId | [originId](/docs/cdn/api-ref/Origin/get#path_params) group ID to request origin from.  Value must be greater than 0.
+originId | <p><a href="/docs/cdn/api-ref/Origin/get#path_params">originId</a> group ID to request origin from.</p> <p>Value must be greater than 0.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder that the origin belongs to.  The maximum string length in characters is 50.
+folderId | <p>Required. ID of the folder that the origin belongs to.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

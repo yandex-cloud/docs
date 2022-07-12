@@ -16,14 +16,14 @@ GET https://load-balancer.{{ api-host }}/load-balancer/v1/targetGroups/{targetGr
  
 Parameter | Description
 --- | ---
-targetGroupId | Required. ID of the TargetGroup resource to update. To get the target group ID, use a [list](/docs/network-load-balancer/api-ref/TargetGroup/list) request.  The maximum string length in characters is 50.
+targetGroupId | <p>Required. ID of the TargetGroup resource to update. To get the target group ID, use a <a href="/docs/network-load-balancer/api-ref/TargetGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than [pageSize](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#query_params), the service returns a [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#query_params) to the  [nextPageToken](/docs/network-load-balancer/api-ref/TargetGroup/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page that should be returned. If the number of available results is larger than <a href="/docs/network-load-balancer/api-ref/TargetGroup/listOperations#query_params">pageSize</a>, the service returns a <a href="/docs/network-load-balancer/api-ref/TargetGroup/listOperations#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/network-load-balancer/api-ref/TargetGroup/listOperations#query_params">pageToken</a> to the <a href="/docs/network-load-balancer/api-ref/TargetGroup/listOperations#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -60,7 +60,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/n
  
 Field | Description
 --- | ---
-operations[] | **object**<br><p>An Operation resource. For more information, see <a href="/docs/api-design-guide/concepts/operation">Operation</a>.</p> 
+operations[] | **object**<br><p>List of operations for the specified target group.</p> 
 operations[].<br>id | **string**<br><p>ID of the operation.</p> 
 operations[].<br>description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
 operations[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

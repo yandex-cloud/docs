@@ -13,10 +13,10 @@ A set of methods for managing Registry resources.
 | [Create](#Create) | Creates a registry in the specified folder. |
 | [Update](#Update) | Updates the specified registry. |
 | [Delete](#Delete) | Deletes the specified registry. |
-| [ListAccessBindings](#ListAccessBindings) | access Lists access bindings for the specified registry. |
+| [ListAccessBindings](#ListAccessBindings) | Lists access bindings for the specified registry. |
 | [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the specified registry. |
 | [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for the specified registry. |
-| [ListIpPermission](#ListIpPermission) | ip permissions List ip permissions for the specified registry. |
+| [ListIpPermission](#ListIpPermission) | List ip permissions for the specified registry. |
 | [SetIpPermission](#SetIpPermission) | Set ip permissions for the specified registry. |
 | [UpdateIpPermission](#UpdateIpPermission) | Update ip permissions for the specified registry. |
 
@@ -234,7 +234,7 @@ registry_id | **string**<br>ID of the registry that is being deleted.
 
 ## ListAccessBindings {#ListAccessBindings}
 
-access Lists access bindings for the specified registry.
+Lists access bindings for the specified registry.
 
 **rpc ListAccessBindings ([ListAccessBindingsRequest](#ListAccessBindingsRequest)) returns ([ListAccessBindingsResponse](#ListAccessBindingsResponse))**
 
@@ -395,7 +395,7 @@ resource_id | **string**<br>ID of the resource for which access bindings are bei
 
 ## ListIpPermission {#ListIpPermission}
 
-ip permissions List ip permissions for the specified registry.
+List ip permissions for the specified registry.
 
 **rpc ListIpPermission ([ListIpPermissionRequest](#ListIpPermissionRequest)) returns ([ListIpPermissionsResponse](#ListIpPermissionsResponse))**
 

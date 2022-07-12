@@ -16,9 +16,9 @@ GET https://kms.{{ api-host }}/kms/v1/keys
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list symmetric KMS keys in.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/kms/api-ref/SymmetricKey/list#query_params), the service returns a [nextPageToken](/docs/kms/api-ref/SymmetricKey/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/kms/api-ref/SymmetricKey/list#query_params) to the [nextPageToken](/docs/kms/api-ref/SymmetricKey/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+folderId | <p>Required. ID of the folder to list symmetric KMS keys in.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/kms/api-ref/SymmetricKey/list#query_params">pageSize</a>, the service returns a <a href="/docs/kms/api-ref/SymmetricKey/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/kms/api-ref/SymmetricKey/list#query_params">pageToken</a> to the <a href="/docs/kms/api-ref/SymmetricKey/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -57,7 +57,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/k
  
 Field | Description
 --- | ---
-keys[] | **object**<br><p>A symmetric KMS key that may contain several versions of the cryptographic material.</p> 
+keys[] | **object**<br><p>List of symmetric KMS keys in the specified folder.</p> 
 keys[].<br>id | **string**<br><p>ID of the key.</p> 
 keys[].<br>folderId | **string**<br><p>ID of the folder that the key belongs to.</p> 
 keys[].<br>createdAt | **string** (date-time)<br><p>Time when the key was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

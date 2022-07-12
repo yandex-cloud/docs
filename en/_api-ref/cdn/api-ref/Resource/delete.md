@@ -16,7 +16,7 @@ DELETE https://cdn.{{ api-host }}/cdn/v1/resources/{resourceId}
  
 Parameter | Description
 --- | ---
-resourceId | Required. ID of resource to delete.  The maximum string length in characters is 50.
+resourceId | <p>Required. ID of resource to delete.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -1,3 +1,55 @@
 items:
   - name: Overview
     href: undefined/index.md
+  - name: AgentRegistration
+    items:
+      - name: Overview
+        href: undefined/AgentRegistration/index.md
+      - name: externalAgentRegister
+        href: undefined/AgentRegistration/externalAgentRegister.md
+      - name: register
+        href: undefined/AgentRegistration/register.md
+  - name: Agent
+    items:
+      - name: Overview
+        href: undefined/Agent/index.md
+      - name: claimStatus
+        href: undefined/Agent/claimStatus.md
+  - name: Greeter
+    items:
+      - name: Overview
+        href: undefined/Greeter/index.md
+      - name: sayHello
+        href: undefined/Greeter/sayHello.md
+  - name: Job
+    items:
+      - name: Overview
+        href: undefined/Job/index.md
+      - name: claimStatus
+        href: undefined/Job/claimStatus.md
+      - name: get
+        href: undefined/Job/get.md
+      - name: getSignal
+        href: undefined/Job/getSignal.md
+  - name: Tank
+    items:
+      - name: Overview
+        href: undefined/Tank/index.md
+      - name: claimStatus
+        href: undefined/Tank/claimStatus.md
+  - name: Test
+    items:
+      - name: Overview
+        href: undefined/Test/index.md
+      - name: create
+        href: undefined/Test/create.md
+      - name: get
+        href: undefined/Test/get.md
+      - name: update
+        href: undefined/Test/update.md
+  - name: Trail
+    items:
+      - name: Overview
+        href: undefined/Trail/index.md
+      - name: create
+        href: undefined/Trail/create.md

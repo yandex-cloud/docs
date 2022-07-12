@@ -16,7 +16,7 @@ POST https://serverless-triggers.{{ api-host }}/triggers/v1/triggers/{triggerId}
  
 Parameter | Description
 --- | ---
-triggerId | Required. ID of the trigger to pause  To get a trigger ID make a [list](/docs/functions/triggers/api-ref/Trigger/list) request.
+triggerId | <p>Required. ID of the trigger to pause</p> <p>To get a trigger ID make a <a href="/docs/functions/triggers/api-ref/Trigger/list">list</a> request.</p> 
  
 ## Body parameters {#body_params}
  

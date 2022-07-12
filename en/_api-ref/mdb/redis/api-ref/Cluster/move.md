@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/managed-redis/v1/clusters/{clusterId}:move
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Redis cluster to move.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the Redis cluster to move.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

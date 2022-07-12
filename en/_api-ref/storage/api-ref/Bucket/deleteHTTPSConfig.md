@@ -16,7 +16,7 @@ POST https://storage.{{ api-host }}/storage/v1/buckets/{name}:deleteHttpsConfig
  
 Parameter | Description
 --- | ---
-name | Required. Name of the bucket to delete the HTTPS configuration for.
+name | <p>Required. Name of the bucket to delete the HTTPS configuration for.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

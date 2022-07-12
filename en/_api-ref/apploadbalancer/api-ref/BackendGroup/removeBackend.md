@@ -16,7 +16,7 @@ POST https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroupId
  
 Parameter | Description
 --- | ---
-backendGroupId | Required. ID of the backend group to remove a backend from.  To get the backend group ID, make a [list](/docs/application-load-balancer/api-ref/BackendGroup/list) request.
+backendGroupId | <p>Required. ID of the backend group to remove a backend from.</p> <p>To get the backend group ID, make a <a href="/docs/application-load-balancer/api-ref/BackendGroup/list">list</a> request.</p> 
  
 ## Body parameters {#body_params}
  

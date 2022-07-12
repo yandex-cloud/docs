@@ -16,8 +16,8 @@ POST https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/vi
  
 Parameter | Description
 --- | ---
-httpRouterId | Required. ID of the HTTP router to update a route in.  To get the HTTP router ID, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
-virtualHostName | Required. Name of the virtual host to update a route in.  To get the virtual host name, make a [list](/docs/application-load-balancer/api-ref/VirtualHost/list) request.
+httpRouterId | <p>Required. ID of the HTTP router to update a route in.</p> <p>To get the HTTP router ID, make a <a href="/docs/application-load-balancer/api-ref/HttpRouter/list">list</a> request.</p> 
+virtualHostName | <p>Required. Name of the virtual host to update a route in.</p> <p>To get the virtual host name, make a <a href="/docs/application-load-balancer/api-ref/VirtualHost/list">list</a> request.</p> 
  
 ## Body parameters {#body_params}
  

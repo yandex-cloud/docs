@@ -16,8 +16,8 @@ DELETE https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/
  
 Parameter | Description
 --- | ---
-httpRouterId | Required. ID of the HTTP router to delete a virtual host from.  To get the HTTP router ID, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
-virtualHostName | Required. Name of the virtual host to delete.  To get the virtual host name, make a [list](/docs/application-load-balancer/api-ref/VirtualHost/list) request.  Value must match the regular expression `` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? ``.
+httpRouterId | <p>Required. ID of the HTTP router to delete a virtual host from.</p> <p>To get the HTTP router ID, make a <a href="/docs/application-load-balancer/api-ref/HttpRouter/list">list</a> request.</p> 
+virtualHostName | <p>Required. Name of the virtual host to delete.</p> <p>To get the virtual host name, make a <a href="/docs/application-load-balancer/api-ref/VirtualHost/list">list</a> request.</p> <p>Value must match the regular expression ``([a-z]([-a-z0-9]{0,61}[a-z0-9])?)?``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

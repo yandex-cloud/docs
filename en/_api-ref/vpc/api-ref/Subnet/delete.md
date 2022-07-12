@@ -16,7 +16,7 @@ DELETE https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}
  
 Parameter | Description
 --- | ---
-subnetId | Required. ID of the subnet to delete. To get the subnet ID use a [list](/docs/vpc/api-ref/Subnet/list) request.  The maximum string length in characters is 50.
+subnetId | <p>Required. ID of the subnet to delete. To get the subnet ID use a <a href="/docs/vpc/api-ref/Subnet/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

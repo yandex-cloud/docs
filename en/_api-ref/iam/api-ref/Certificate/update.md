@@ -16,7 +16,7 @@ PATCH https://iam.{{ api-host }}/iam/v1/saml/certificates/{certificateId}
  
 Parameter | Description
 --- | ---
-certificateId | ID of the certificate to update. To get the certificate ID, make a [list](/docs/iam/api-ref/Certificate/list) request.  The maximum string length in characters is 50.
+certificateId | <p>ID of the certificate to update. To get the certificate ID, make a <a href="/docs/iam/api-ref/Certificate/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

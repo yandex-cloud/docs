@@ -16,8 +16,8 @@ GET undefined/logs/v1/events/{logGroupId}/{streamName}
  
 Parameter | Description
 --- | ---
-logGroupId | Required.
-streamName | Required.
+logGroupId | <p>Required.</p> 
+streamName | <p>Required.</p> 
  
 ## Query parameters {#query_params}
  
@@ -25,8 +25,8 @@ Parameter | Description
 --- | ---
 pageSize | 
 pageToken | 
-criteria.since | String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-criteria.until | String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+criteria.since | <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+criteria.until | <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

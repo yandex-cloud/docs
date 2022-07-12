@@ -16,7 +16,7 @@ GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/backups/{backupId}
  
 Parameter | Description
 --- | ---
-backupId | Required. Required. ID of the backup to return.
+backupId | <p>Required. Required. ID of the backup to return.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

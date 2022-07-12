@@ -16,7 +16,7 @@ GET https://compute.{{ api-host }}/compute/v1/images/{imageId}
  
 Parameter | Description
 --- | ---
-imageId | Required. ID of the Image resource to return. To get the image ID, use a [list](/docs/compute/api-ref/Image/list) request.  The maximum string length in characters is 50.
+imageId | <p>Required. ID of the Image resource to return. To get the image ID, use a <a href="/docs/compute/api-ref/Image/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

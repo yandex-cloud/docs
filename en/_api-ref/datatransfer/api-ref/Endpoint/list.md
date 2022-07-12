@@ -16,14 +16,14 @@ GET https://datatransfer.{{ api-host }}/v1/endpoints/list/{folderId}
  
 Parameter | Description
 --- | ---
-folderId | Identifier of the folder containing the endpoints to be listed.
+folderId | <p>Identifier of the folder containing the endpoints to be listed.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of endpoints to be sent in the response message. If the folder contains more endpoints than page_size, next_page_token will be included in the response message. Include it into the subsequent ListEndpointRequest to fetch the next page. Defaults to 100 if not specified. The maximum allowed value for this field is 500.
-pageToken | Opaque value identifying the endpoints page to be fetched. Should be empty in the first ListEndpointsRequest. Subsequent request should have this field filled with the next_page_token from the previous ListEndpointsResponse.
+pageSize | <p>The maximum number of endpoints to be sent in the response message. If the folder contains more endpoints than page_size, next_page_token will be included in the response message. Include it into the subsequent ListEndpointRequest to fetch the next page. Defaults to 100 if not specified. The maximum allowed value for this field is 500.</p> 
+pageToken | <p>Opaque value identifying the endpoints page to be fetched. Should be empty in the first ListEndpointsRequest. Subsequent request should have this field filled with the next_page_token from the previous ListEndpointsResponse.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

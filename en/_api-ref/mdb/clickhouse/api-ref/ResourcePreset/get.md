@@ -16,7 +16,7 @@ GET https://mdb.{{ api-host }}/managed-clickhouse/v1/resourcePresets/{resourcePr
  
 Parameter | Description
 --- | ---
-resourcePresetId | Required. ID of the resource preset to return. To get the resource preset ID, use a [list](/docs/managed-clickhouse/api-ref/ResourcePreset/list) request.  The maximum string length in characters is 50.
+resourcePresetId | <p>Required. ID of the resource preset to return. To get the resource preset ID, use a <a href="/docs/managed-clickhouse/api-ref/ResourcePreset/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

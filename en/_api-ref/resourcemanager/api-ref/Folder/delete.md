@@ -16,13 +16,13 @@ DELETE https://resource-manager.{{ api-host }}/resource-manager/v1/folders/{fold
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to delete. To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
+folderId | <p>Required. ID of the folder to delete. To get the folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-deleteAfter | The timestamp after which the process of deleting the folder should begin. Until this timestamp, the folder goes into the `PENDING_DELETION` state and all resources in this folder are stopped. In this state, it is possible to cancel the delete operation without any loss. After this timestamp, the status of the folder will become `DELETING` and the process of deleting all the resources  of the folder will be started. If [deleteAfter](/docs/resource-manager/api-ref/Folder/delete#query_params) is not specified it will be (now + 24 hours). To initiate an immediate deletion [deleteAfter](/docs/resource-manager/api-ref/Folder/delete#query_params) must be <= now.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+deleteAfter | <p>The timestamp after which the process of deleting the folder should begin. Until this timestamp, the folder goes into the ``PENDING_DELETION`` state and all resources in this folder are stopped. In this state, it is possible to cancel the delete operation without any loss. After this timestamp, the status of the folder will become ``DELETING`` and the process of deleting all the resources  of the folder will be started. If <a href="/docs/resource-manager/api-ref/Folder/delete#query_params">deleteAfter</a> is not specified it will be (now + 24 hours). To initiate an immediate deletion <a href="/docs/resource-manager/api-ref/Folder/delete#query_params">deleteAfter</a> must be &lt;= now.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

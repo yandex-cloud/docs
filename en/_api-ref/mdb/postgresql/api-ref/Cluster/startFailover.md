@@ -16,7 +16,7 @@ POST https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}:start
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of PostgreSQL cluster.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of PostgreSQL cluster.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

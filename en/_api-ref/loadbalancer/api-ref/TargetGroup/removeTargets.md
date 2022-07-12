@@ -16,7 +16,7 @@ POST https://load-balancer.{{ api-host }}/load-balancer/v1/targetGroups/{targetG
  
 Parameter | Description
 --- | ---
-targetGroupId | Required. ID of the target group to remove targets from. To get the target group ID, use a [list](/docs/network-load-balancer/api-ref/TargetGroup/list) request.  The maximum string length in characters is 50.
+targetGroupId | <p>Required. ID of the target group to remove targets from. To get the target group ID, use a <a href="/docs/network-load-balancer/api-ref/TargetGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  
@@ -34,7 +34,7 @@ targetGroupId | Required. ID of the target group to remove targets from. To get 
  
 Field | Description
 --- | ---
-targets[] | **object**<br><p>A Target resource. For more information, see <a href="/docs/network-load-balancer/concepts/target-resources">Target groups and resources</a>.</p> 
+targets[] | **object**<br><p>Required. List of targets to remove from the target group.</p> <p>The minimum number of elements is 1.</p> 
 targets[].<br>subnetId | **string**<br><p>ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone.</p> <p>The maximum string length in characters is 50.</p> 
 targets[].<br>address | **string**<br><p>IP address of the target.</p> 
  

@@ -16,7 +16,7 @@ POST https://storage.{{ api-host }}/storage/v1/buckets/{name}:setHttpsConfig
  
 Parameter | Description
 --- | ---
-name | Required. Name of the bucket to update the HTTPS configuration for.
+name | <p>Required. Name of the bucket to update the HTTPS configuration for.</p> 
  
 ## Body parameters {#body_params}
  

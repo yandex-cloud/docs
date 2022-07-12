@@ -16,7 +16,7 @@ POST https://container-registry.{{ api-host }}/container-registry/v1/registries/
  
 Parameter | Description
 --- | ---
-registryId | Required. ID of the registry for which ip permissions are being updated.  The maximum string length in characters is 50.
+registryId | <p>Required. ID of the registry for which ip permissions are being updated.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

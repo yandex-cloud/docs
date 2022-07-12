@@ -16,7 +16,7 @@ PATCH undefined/microcosm/v1/infrastructureTemplates/{infrastructureTemplateId}
  
 Parameter | Description
 --- | ---
-infrastructureTemplateId | Required. The maximum string length in characters is 50.
+infrastructureTemplateId | <p>Required. The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

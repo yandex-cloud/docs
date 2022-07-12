@@ -61,7 +61,7 @@ page_token | **string**<br>Page token that can be used to iterate through multip
 Field | Description
 --- | ---
 extensions[] | **[Extension](#Extension1)**<br>Requested list of extensions. 
-next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListExtensionsRequest.page_size](#ListExtensionsRequest), use the `next_page_token` as the value for the [ListExtensionsRequest.page_token](#ListExtensionsRequest) in the subsequent [ExtensionService.List](#List)(#List) request to iterate through multiple pages of results. <br>Each of the subsequent [ExtensionService.List] requests should use the `next_page_token` value returned in the previous request to continue paging through the results. 
+next_page_token | **string**<br>The token that can be used to get the next page of results. <br>If the number of results is larger than [ListExtensionsRequest.page_size](#ListExtensionsRequest), use the `next_page_token` as the value for the [ListExtensionsRequest.page_token](#ListExtensionsRequest) in the subsequent [ExtensionService.List](#List) request to iterate through multiple pages of results. <br>Each of the subsequent [ExtensionService.List](#List) requests should use the `next_page_token` value returned in the previous request to continue paging through the results. 
 
 
 ### Extension {#Extension1}

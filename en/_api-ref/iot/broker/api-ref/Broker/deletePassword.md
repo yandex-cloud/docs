@@ -16,8 +16,8 @@ DELETE https://iot-broker.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/passwo
  
 Parameter | Description
 --- | ---
-brokerId | Required. ID of the broker to delete a password for.  To get a broker ID make a [list](/docs/iot-core/broker/api-ref/Broker/list) request.  The maximum string length in characters is 50.
-passwordId | Required. ID of the password to delete.  To get a password ID make a [listPasswords](/docs/iot-core/broker/api-ref/Broker/listPasswords) request.  The maximum string length in characters is 50.
+brokerId | <p>Required. ID of the broker to delete a password for.</p> <p>To get a broker ID make a <a href="/docs/iot-core/broker/api-ref/Broker/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+passwordId | <p>Required. ID of the password to delete.</p> <p>To get a password ID make a <a href="/docs/iot-core/broker/api-ref/Broker/listPasswords">listPasswords</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

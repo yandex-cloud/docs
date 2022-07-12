@@ -16,14 +16,14 @@ GET https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlacement
  
 Parameter | Description
 --- | ---
-diskPlacementGroupId | Required. ID of the placement group to list disks for. To get the placement group ID, use [list](/docs/compute/api-ref/DiskPlacementGroup/list) request.  The maximum string length in characters is 50.
+diskPlacementGroupId | <p>Required. ID of the placement group to list disks for. To get the placement group ID, use <a href="/docs/compute/api-ref/DiskPlacementGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/DiskPlacementGroup/listDisks#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/listDisks#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/DiskPlacementGroup/listDisks#query_params) to the [nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/listDisks#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/DiskPlacementGroup/listDisks#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/DiskPlacementGroup/listDisks#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/compute/api-ref/DiskPlacementGroup/listDisks#query_params">pageToken</a> to the <a href="/docs/compute/api-ref/DiskPlacementGroup/listDisks#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -67,7 +67,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/c
  
 Field | Description
 --- | ---
-disks[] | **object**<br><p>A Disk resource. For more information, see <a href="/docs/compute/concepts/disk">Disks</a>.</p> 
+disks[] | **object**<br><p>Lists disks for the specified placement group.</p> 
 disks[].<br>id | **string**<br><p>ID of the disk.</p> 
 disks[].<br>folderId | **string**<br><p>ID of the folder that the disk belongs to.</p> 
 disks[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

@@ -16,7 +16,7 @@ GET https://mdb.{{ api-host }}/managed-mysql/v1/resourcePresets/{resourcePresetI
  
 Parameter | Description
 --- | ---
-resourcePresetId | Required. ID of the resource preset to return information about.  To get this ID, make a [list](/docs/managed-mysql/api-ref/ResourcePreset/list) request.
+resourcePresetId | <p>Required. ID of the resource preset to return information about.</p> <p>To get this ID, make a <a href="/docs/managed-mysql/api-ref/ResourcePreset/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

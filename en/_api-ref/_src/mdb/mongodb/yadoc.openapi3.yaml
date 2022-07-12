@@ -78,7 +78,12 @@ paths:
           type: string
       - name: pageSize
         in: query
-        description: The maximum value is 1000.
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-mongodb/api-ref/Backup/list#query_params), the service returns a [nextPageToken](/docs/managed-mongodb/api-ref/Backup/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
         schema:
           type: string
           format: int64
@@ -86,7 +91,7 @@ paths:
         in: query
         description: "Page token. To get the next page of results, set [pageToken](/docs/managed-mongodb/api-ref/Backup/list#query_params)
           to the \n[nextPageToken](/docs/managed-mongodb/api-ref/Backup/list#responses)
-          returned by a previous list request.\n\nThe maximum string length in characters
+          returned by the previous list request.\n\nThe maximum string length in characters
           is 100."
         schema:
           type: string
@@ -209,7 +214,12 @@ paths:
           type: string
       - name: pageSize
         in: query
-        description: The maximum value is 1000.
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-mongodb/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
         schema:
           type: string
           format: int64
@@ -217,7 +227,7 @@ paths:
         in: query
         description: |-
           Page token. To get the next page of results, set [pageToken](/docs/managed-mongodb/api-ref/Cluster/list#query_params)
-          to the [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/list#responses) returned by a previous list request.
+          to the [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/list#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -492,7 +502,12 @@ paths:
           format: date-time
       - name: pageSize
         in: query
-        description: The maximum value is 1000.
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-mongodb/api-ref/Cluster/listLogs#query_params), the service returns a [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listLogs#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
         schema:
           type: string
           format: int64
@@ -500,7 +515,7 @@ paths:
         in: query
         description: |-
           Page token. To get the next page of results, set [pageToken](/docs/managed-mongodb/api-ref/Cluster/listLogs#query_params) to the
-          [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listLogs#responses) returned by a previous list request.
+          [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listLogs#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -611,7 +626,12 @@ paths:
           type: string
       - name: pageSize
         in: query
-        description: The maximum value is 1000.
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-mongodb/api-ref/Cluster/listOperations#query_params), the service returns a [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
         schema:
           type: string
           format: int64
@@ -619,7 +639,7 @@ paths:
         in: query
         description: |-
           Page token. To get the next page of results, set [pageToken](/docs/managed-mongodb/api-ref/Cluster/listOperations#query_params) to the
-          [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listOperations#responses) returned by a previous list request.
+          [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listOperations#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -652,7 +672,12 @@ paths:
           type: string
       - name: pageSize
         in: query
-        description: The maximum value is 1000.
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-mongodb/api-ref/Cluster/listBackups#query_params), the service returns a [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listBackups#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
         schema:
           type: string
           format: int64
@@ -660,7 +685,7 @@ paths:
         in: query
         description: |-
           Page token.  To get the next page of results, set [pageToken](/docs/managed-mongodb/api-ref/Cluster/listBackups#query_params) to the
-          [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listBackups#responses) returned by a previous list request.
+          [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listBackups#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -693,7 +718,12 @@ paths:
           type: string
       - name: pageSize
         in: query
-        description: The maximum value is 1000.
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-mongodb/api-ref/Cluster/listHosts#query_params), the service returns a [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listHosts#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
         schema:
           type: string
           format: int64
@@ -701,7 +731,7 @@ paths:
         in: query
         description: |-
           Page token. To get the next page of results, set [pageToken](/docs/managed-mongodb/api-ref/Cluster/listHosts#query_params) to the
-          [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listHosts#responses) returned by a previous list request.
+          [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listHosts#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -931,7 +961,7 @@ paths:
         in: query
         description: |-
           Page token. To get the next page of results, set [pageToken](/docs/managed-mongodb/api-ref/Cluster/listShards#query_params) to the
-          [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listShards#responses) returned by a previous list request.
+          [nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listShards#responses) returned by the previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -1193,7 +1223,7 @@ paths:
         in: query
         description: "Page token. To get the next page of results, set [pageToken](/docs/managed-mongodb/api-ref/Database/list#query_params)
           to the \n[nextPageToken](/docs/managed-mongodb/api-ref/Database/list#responses)
-          returned by a previous list request.\n\nThe maximum string length in characters
+          returned by the previous list request.\n\nThe maximum string length in characters
           is 100."
         schema:
           type: string
@@ -1287,7 +1317,7 @@ paths:
         in: query
         description: "Page token. To get the next page of results, set [pageToken](/docs/managed-mongodb/api-ref/ResourcePreset/list#query_params)
           to the \n[nextPageToken](/docs/managed-mongodb/api-ref/ResourcePreset/list#responses)
-          returned by a previous list request.\n\nThe maximum string length in characters
+          returned by the previous list request.\n\nThe maximum string length in characters
           is 100."
         schema:
           type: string
@@ -1445,7 +1475,12 @@ paths:
           type: string
       - name: pageSize
         in: query
-        description: The maximum value is 1000.
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-mongodb/api-ref/User/list#query_params), the service returns a [nextPageToken](/docs/managed-mongodb/api-ref/User/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
         schema:
           type: string
           format: int64
@@ -1453,7 +1488,7 @@ paths:
         in: query
         description: "Page token. To get the next page of results, set [pageToken](/docs/managed-mongodb/api-ref/User/list#query_params)
           to the \n[nextPageToken](/docs/managed-mongodb/api-ref/User/list#responses)
-          returned by a previous list request.\n\nThe maximum string length in characters
+          returned by the previous list request.\n\nThe maximum string length in characters
           is 100."
         schema:
           type: string

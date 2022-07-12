@@ -16,7 +16,7 @@ DELETE https://monitoring.{{ api-host }}/monitoring/v3/channels/{channelId}
  
 Parameter | Description
 --- | ---
-channelId | Required. ID of the channel to delete.  The maximum string length in characters is 50.
+channelId | <p>Required. ID of the channel to delete.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

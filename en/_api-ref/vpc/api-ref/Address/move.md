@@ -16,7 +16,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/addresses/{addressId}:move
  
 Parameter | Description
 --- | ---
-addressId | Required. The maximum string length in characters is 50.
+addressId | <p>Required. The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

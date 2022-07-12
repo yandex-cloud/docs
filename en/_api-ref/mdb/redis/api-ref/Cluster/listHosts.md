@@ -16,14 +16,14 @@ GET https://mdb.{{ api-host }}/managed-redis/v1/clusters/{clusterId}/hosts
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Redis cluster. To get the Redis cluster ID use a [list](/docs/managed-redis/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the Redis cluster. To get the Redis cluster ID use a <a href="/docs/managed-redis/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/managed-redis/api-ref/Cluster/listHosts#query_params), the service returns a [nextPageToken](/docs/managed-redis/api-ref/Cluster/listHosts#responses) that can be used to get the next page of results in subsequent list requests.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token.  To get the next page of results, set [pageToken](/docs/managed-redis/api-ref/Cluster/listHosts#query_params) to the [nextPageToken](/docs/managed-redis/api-ref/Cluster/listHosts#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-redis/api-ref/Cluster/listHosts#query_params">pageSize</a>, the service returns a <a href="/docs/managed-redis/api-ref/Cluster/listHosts#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token.  To get the next page of results, set <a href="/docs/managed-redis/api-ref/Cluster/listHosts#query_params">pageToken</a> to the <a href="/docs/managed-redis/api-ref/Cluster/listHosts#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
