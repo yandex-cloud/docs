@@ -203,7 +203,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
@@ -296,7 +296,7 @@ For each host in a {{ mpg-short-name }} cluster, you can change the priority, sp
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
@@ -367,7 +367,7 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 

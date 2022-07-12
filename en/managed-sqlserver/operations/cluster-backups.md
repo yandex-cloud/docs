@@ -401,6 +401,8 @@ When restoring a database from a backup, you create a new database in the curren
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mms }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:

@@ -96,6 +96,8 @@ To assign a **role** to a user, use the management console or API{{ yandex-cloud
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mms }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
    Use the [update](../api-ref/User/update.md) API method and pass the following in the request:

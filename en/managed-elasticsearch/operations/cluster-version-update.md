@@ -144,6 +144,8 @@ You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the clu
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_elasticsearch_cluster).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:

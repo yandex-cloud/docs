@@ -177,6 +177,8 @@ You can add different types of hosts to a cluster. Their number depends on the [
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mongodb_cluster).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 - API
 
    To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) method.
@@ -242,6 +244,8 @@ From a [sharded cluster](../operations/shards.md#enable), you may remove the `MO
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mongodb_cluster).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 

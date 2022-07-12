@@ -346,7 +346,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      {% include [maintenance-window](../../_includes/mdb/mpg/terraform-maintenance-window.md) %}
+      {% include [maintenance-window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
@@ -358,7 +358,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 

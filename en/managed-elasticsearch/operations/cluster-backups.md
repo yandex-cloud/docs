@@ -174,6 +174,8 @@ When creating a new cluster, set all required parameters.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
 {% endif %}
 
 {% endlist %}
@@ -354,6 +356,8 @@ When creating a new cluster, set all required parameters.
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
 {% endlist %}
 

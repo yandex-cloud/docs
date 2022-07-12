@@ -41,6 +41,8 @@ description: "After deleting a SQL Server database cluster, its backups are pres
 
    {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
+   {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
    Use the API [delete](../api-ref/Cluster/delete.md) method: transmit the requisite `cluster` ID in the clusterId parameter.

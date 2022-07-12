@@ -115,6 +115,8 @@ After creating a cluster, you can:
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 - API
 
    Use the API [update](../api-ref/Cluster/update.md) method and transmit the requisite values in the `configSpec.mongodbSpec_4_2.mongod.resources.resourcePresetId` parameter.
@@ -190,6 +192,8 @@ After creating a cluster, you can:
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 
@@ -344,7 +348,7 @@ You can change the DBMS settings of the hosts in your cluster.
       }
       ```
 
-   1. {% include [maintenance-window](../../_includes/mdb/mmg/terraform-maintenance-window.md) %}
+   1. {% include [maintenance-window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
@@ -366,6 +370,8 @@ You can change the DBMS settings of the hosts in your cluster.
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 
@@ -492,6 +498,8 @@ You can change the DBMS settings of the hosts in your cluster.
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 

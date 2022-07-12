@@ -165,6 +165,8 @@ The host class affects the amount of RAM that can be used by {{ CH }}. For more 
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
    Use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.clickhouse.resources.resourcePresetId` parameter (`configSpec.zookeeper.resources.resourcePresetId` for ZooKeeper).
@@ -255,6 +257,8 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
    To {% if audience != "internal" %}increase{% else %}modify{% endif %} storage size, use the API [update](../api-ref/Cluster/update.md) method and pass the following in in the call:
@@ -338,6 +342,8 @@ Once enabled, user and database management settings for SQL cannot be disabled.
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [Terraform provider documentation]({{ tf-provider-mch }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -465,6 +471,8 @@ For more information, see [{#T}](../concepts/memory-management.md).
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -599,7 +607,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
       {% endif %}
 
-   1. {% include [maintenance-window](../../_includes/mdb/mch/terraform-maintenance-window.md) %}
+   1. {% include [maintenance-window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
@@ -621,6 +629,8 @@ For more information, see [{#T}](../concepts/memory-management.md).
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -715,6 +725,8 @@ For more information, see [{#T}](../concepts/memory-management.md).
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

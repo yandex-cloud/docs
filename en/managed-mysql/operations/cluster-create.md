@@ -271,7 +271,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform-maintenance-window.md) %}
+      1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
       For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-mmy }}).
 
@@ -283,7 +283,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 

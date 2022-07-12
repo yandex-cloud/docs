@@ -146,6 +146,8 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - SQL
 
    1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
@@ -225,6 +227,8 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - SQL
 
    1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
@@ -293,6 +297,8 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - SQL
 
@@ -470,6 +476,8 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - SQL
 
    1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
@@ -535,6 +543,8 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - SQL
 

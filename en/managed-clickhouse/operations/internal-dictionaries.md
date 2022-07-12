@@ -103,4 +103,6 @@ To create a geobase:
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 {% endlist %}

@@ -116,6 +116,8 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mms }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
@@ -208,6 +210,8 @@ Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mms }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
    To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in in the call:
@@ -290,6 +294,8 @@ Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mms }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
 
 - API
 
@@ -392,6 +398,8 @@ Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mms }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
@@ -484,6 +492,8 @@ Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mms }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
 
 - API
 

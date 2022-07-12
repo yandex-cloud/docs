@@ -100,6 +100,8 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
 
    For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
    To add a shard to the cluster, use the [addShard](../api-ref/Cluster/addShard.md) method.
@@ -243,6 +245,8 @@ When you delete a shard, all tables and data that are saved on that shard are de
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

@@ -133,7 +133,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
@@ -217,7 +217,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
@@ -316,7 +316,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
@@ -447,7 +447,7 @@ You can change the DBMS settings of the hosts in your cluster.
       }
       ```
 
-   1. {% include [maintenance-window](../../_includes/mdb/mkf/terraform-maintenance-window.md) %}
+   1. {% include [maintenance-window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
@@ -468,7 +468,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
@@ -572,7 +572,7 @@ To switch the master:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
@@ -682,7 +682,7 @@ To switch the master:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 

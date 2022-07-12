@@ -162,6 +162,8 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
    Use the [create](../api-ref/MlModel/create) API method and pass the following information in the request:
@@ -267,6 +269,8 @@ To update the contents of a model that is already connected to the cluster:
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
    Use the [update](../api-ref/MlModel/update.md) API method and pass the following in the request:
@@ -338,6 +342,8 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-n
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

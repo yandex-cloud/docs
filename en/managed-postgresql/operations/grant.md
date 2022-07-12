@@ -69,7 +69,7 @@ To assign a [role](../concepts/roles.md) to a user, use the {{ yandex-cloud }} C
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 

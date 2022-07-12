@@ -121,6 +121,8 @@ You can query the cluster ID and name with a [list of clusters in the folder](cl
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
+
 {% endlist %}
 
 To be able to place data in the new shard, start [rebalancing](#rebalance-cluster) the {{ mrd-name }} cluster.
@@ -175,6 +177,8 @@ All the shard hosts are deleted with the shard.
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 {% endlist %}
 

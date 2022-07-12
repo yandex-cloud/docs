@@ -320,7 +320,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      1. {% include [maintenance-window](../../_includes/mdb/mmg/terraform-maintenance-window.md) %}
+      1. {% include [maintenance-window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
       For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-mmg }}).
 
@@ -333,6 +333,8 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
       After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources appear with correct settings, using the [management console]({{ link-console-main }}).
+
+      {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 {% endlist %}
 

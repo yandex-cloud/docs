@@ -173,7 +173,7 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -274,7 +274,7 @@ For each host in a {{ mmy-short-name }} cluster, you can:
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -340,7 +340,7 @@ If the host is the master when deleted, {{ mmy-short-name }} automatically assig
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 

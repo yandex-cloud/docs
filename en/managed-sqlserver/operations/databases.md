@@ -133,6 +133,8 @@ You can create an unlimited number of databases in each {{ mms-name }} cluster.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mms }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
    Use the [create](../api-ref/Database/create.md) API method and pass the following information in the request:
@@ -200,6 +202,8 @@ For more information, see the [{{ MS }} documentation]({{ ms.docs }}/sql/relatio
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mms }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
 
 - API
 

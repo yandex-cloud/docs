@@ -122,7 +122,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -199,7 +199,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -280,7 +280,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mysql_cluster#mysql-config).
 
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -383,9 +383,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       }
       ```
 
-   1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform-maintenance-window.md) %}
+   1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
-   1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform-maintenance-window.md) %}
+   1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
@@ -408,7 +408,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -530,7 +530,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 

@@ -164,6 +164,8 @@ The number of hosts in {{ mrd-short-name }} clusters is limited by the CPU and R
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
+
 - API
 
    To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) method.
@@ -228,6 +230,8 @@ If the host is the master when deleted, {{ mrd-short-name }} automatically assig
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 - API
 

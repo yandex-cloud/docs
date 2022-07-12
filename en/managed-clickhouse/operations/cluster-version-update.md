@@ -126,6 +126,8 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
    Use the API [update](../api-ref/Cluster/update.md) method and pass the required value in the `configSpec.clickhouse.config.version` request parameter.

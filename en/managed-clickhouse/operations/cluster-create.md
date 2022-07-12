@@ -325,7 +325,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      1. {% include [maintenance-window](../../_includes/mdb/mch/terraform-maintenance-window.md) %}
+      1. {% include [maintenance-window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
       1. To enable access from other services and [SQL query execution from the management console](web-sql-query.md), add an `access` block with the necessary settings:
 
@@ -380,6 +380,8 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
