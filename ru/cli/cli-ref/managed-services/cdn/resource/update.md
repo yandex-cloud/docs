@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/cdn/resource/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/resource/update.md
 ---
 # yc cdn resource update
 

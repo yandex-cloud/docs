@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/get-serial-port-output.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/get-serial-port-output.md
 ---
 # yc compute instance get-serial-port-output
 

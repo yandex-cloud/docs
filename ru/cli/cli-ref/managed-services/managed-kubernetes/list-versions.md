@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kubernetes/list-versions.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/list-versions.md
 ---
 # yc managed-kubernetes list-versions
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/device/logs.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/device/logs.md
 ---
 # yc iot device logs
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/list-access-bindings.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/list-access-bindings.md
 ---
 # yc serverless function list-access-bindings
 

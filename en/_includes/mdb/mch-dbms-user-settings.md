@@ -9,7 +9,7 @@
 
    By default, DDL queries are allowed.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_allow_ddl).
 
    See also the [Readonly](#setting-readonly) setting.
 * **Any join distinct right table keys**{#setting-any-join-distinct-right-table-keys} {{ tag-con }} {{ tag-sql }}
@@ -18,7 +18,7 @@
 
    By default, the outdated behavior for `JOINs` is disabled.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#any_join_distinct_right_table_keys).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#any_join_distinct_right_table_keys).
 * **Compile**{#setting-compile} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Defines whether to compile queries when running them. With compilation enabled, structurally identical queries may run faster by using their compiled parts.
@@ -27,7 +27,7 @@
 
    Compilation is disabled by default.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#compile).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#compile).
 * **Compile expressions**{#setting-compile-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Defines whether to compile expressions when running queries. With compilation enabled, queries that use identical expressions may run faster by using compiled expressions.
@@ -43,11 +43,11 @@
 * **Count distinct implementation**{#setting-count-distinct-implementation} {{ tag-all }}
 
    Determines the `uniq*` function to be used when performing a `COUNT(DISTINCT …)`:
-   * [uniq](https://{{ ch-domain }}/docs/en/sql-reference/aggregate-functions/reference/uniq/#agg_function-uniq)
-   * [uniqCombined](https://{{ ch-domain }}/docs/en/sql-reference/aggregate-functions/reference/uniqcombined/#agg_function-uniqcombined)
-   * [uniqCombined64](https://{{ ch-domain }}/docs/en/sql-reference/aggregate-functions/reference/uniqcombined64/#agg_function-uniqcombined64)
-   * [uniqHLL12](https://{{ ch-domain }}/docs/en/sql-reference/aggregate-functions/reference/uniqhll12/#agg_function-uniqhll12)
-   * [uniqExact](https://{{ ch-domain }}/docs/en/sql-reference/aggregate-functions/reference/uniqexact/#agg_function-uniqexact)
+   * [uniq]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniq/#agg_function-uniq)
+   * [uniqCombined]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqcombined/#agg_function-uniqcombined)
+   * [uniqCombined64]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqcombined64/#agg_function-uniqcombined64)
+   * [uniqHLL12]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqhll12/#agg_function-uniqhll12)
+   * [uniqExact]({{ ch.docs }}/sql-reference/aggregate-functions/reference/uniqexact/#agg_function-uniqexact)
 
    By default, the `uniqExact` function is used.
 * **Date time input format**{#setting-date-time-input-format} {{ tag-con }} {{ tag-sql }}
@@ -58,7 +58,7 @@
 
    By default, the `basic` parser is used.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-date_time_input_format).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-date_time_input_format).
 * **Date time output format**{#setting-date-time-output-format} {{ tag-con }} {{ tag-sql }}
 
    Determines the output format for a text representation of date and time:
@@ -68,17 +68,17 @@
 
    Defaults to `simple`.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-date_time_output_format).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-date_time_output_format).
 * **Deduplicate blocks in dependent materialized views**{#setting-deduplicate-blocks-in-dependent-materialized-views} {{ tag-con }} {{ tag-sql }}
 
    Enables checks for deduplication of materialized views that get data from replicated tables.
 
    Disabled by default (`0`).
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-deduplicate-blocks-in-dependent-materialized-views).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-deduplicate-blocks-in-dependent-materialized-views).
 * **Distinct overflow mode**{#setting-distinct-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Determines {{ CH }} behavior when making a `SELECT DISTINCT` if the amount of data [exceeds the limits](https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity):
+   Determines {{ CH }} behavior when making a `SELECT DISTINCT` if the amount of data [exceeds the limits]({{ ch.docs }}/operations/settings/query-complexity/#restrictions-on-query-complexity):
    * `throw`: Abort query execution and return an error.
    * `break`: Return a partial result.
 
@@ -91,7 +91,7 @@
 
    By default, memory saving mode is disabled.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/select/group-by/#select-group-by-in-external-memory).
 * **Distributed ddl task timeout**{#setting-distributed-ddl-task-timeout} {{ tag-all }}
 
    Sets the waiting time for responses to DDL queries from all cluster hosts. If a DDL query isn't executed on all hosts, a response contains the timeout error and the query is run in asynchronous mode. Possible values:
@@ -110,7 +110,7 @@
 
    By default, the value is not set (equivalent to `deny`).
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#distributed-product-mode).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#distributed-product-mode).
 * **Empty result for aggregation by empty set**{#setting-empty-result-for-aggregation-by-empty-set} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Defines the output format when aggregating data without keys (without `GROUP BY`) for an empty set (for example, `SELECT count(*) FROM table WHERE 0`):
@@ -127,7 +127,7 @@
 
    By default, data compression in HTTP responses is disabled.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/interfaces/http/).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/interfaces/http/).
 * **Fallback to stale replicas for distributed queries**{#setting-fallback-to-stale-replicas-for-distributed-queries} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Forces a query to a stale replica if up-to-date data is unavailable.
@@ -136,23 +136,23 @@
 
    By default, query forcing is enabled.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
 
    See also the [Max replica delay for distributed queries](#setting-max-replica-delay-for-distributed-queries) setting.
 * **Force index by date**{#setting-force-index-by-date} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Disables queries if you can't use an index by date. Works with the [MergeTree](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/) family of tables.
+   Disables queries if you can't use an index by date. Works with the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) family of tables.
 
    By default, the setting is disabled (query execution is enabled).
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-force_index_by_date).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-force_index_by_date).
 * **Force primary key**{#setting-force-primary-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Disables queries if you can't use an index by primary key. Works with the [MergeTree](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/) family of tables.
+   Disables queries if you can't use an index by primary key. Works with the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) family of tables.
 
    By default, the setting is disabled (query execution is enabled).
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-force_primary_key).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-force_primary_key).
 * **Format regexp**{#setting-format-regexp} {{ tag-con }} {{ tag-sql }}
 
    Sets a regular expression in [re2 format](https://github.com/google/re2/wiki/Syntax) to be applied to each row of imported data. The number of subtemplates (parenthetical groups) in the expression must be equal to the number of columns in the table the data is imported to. Use the `\n` or `\r\n` line break characters as delimiters, line breaks can't be escaped. If a row doesn't match the regular expression, it's skipped.
@@ -175,7 +175,7 @@
    By default, no message is output (`0`).
 * **Group by overflow mode**{#setting-group-by-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Determines {{ CH }} behavior if, during aggregation, the number of unique keys [exceeds the limit](https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity):
+   Determines {{ CH }} behavior if, during aggregation, the number of unique keys [exceeds the limit]({{ ch.docs }}/operations/settings/query-complexity/#restrictions-on-query-complexity):
    * `throw`: Abort query execution and return an error.
    * `break`: Return a partial result.
    * `any`: Run `GROUP BY` in fuzzy mode. The quality of this computation depends on the data's statistical properties.
@@ -217,32 +217,32 @@
 
    By default, replacement is enabled.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields).
 * **Input format null as default**{#setting-input-format-null-as-default} {{ tag-con }} {{ tag-sql }}
 
    Defines if `NULL` cells should be filled in with the default values if the cell data type doesn't allow storing `NULL`.
 
    Enabled by default (`NULL` cells are filled in with the defaults).
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-input-format-null-as-default).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-input-format-null-as-default).
 * **Input format values interpret expressions**{#setting-input-format-values-interpret-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Enables the SQL parser if the stream parser is unable to parse the data. Use this setting when inserting values containing SQL expressions into the table.
 
    For instance, the stream parser does not recognize a value containing `now`() while the SQL parser, if enabled, will parse the value correctly causing the output of the `now`() SQL function (current date and time) to be inserted.
 
-   This setting is only used for the [Values](https://{{ ch-domain }}/docs/en/interfaces/formats/#data-format-values) format when inserting data.
+   This setting is only used for the [Values]({{ ch.docs }}/interfaces/formats/#data-format-values) format when inserting data.
 
    By default, the SQL parser is enabled.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-input_format_values_interpret_expressions).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-input_format_values_interpret_expressions).
 * **Input format with names use header**{#setting-input-format-with-names-use-header} {{ tag-con }} {{ tag-sql }}
 
    Defines if the order of columns should be checked when inserting data.
 
    By default, the check is enabled.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-input-format-with-names-use-header).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-input-format-with-names-use-header).
 * **Insert quorum**{#setting-insert-quorum} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Manages a {{ CH }} cluster's quorum write:
@@ -253,7 +253,7 @@
 
    You can use the [Select sequential consistency](#setting-select-sequential-consistency) setting to read data written with Insert quorum.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-insert_quorum).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-insert_quorum).
 * **Insert quorum parallel**{#setting-insert-quorum-parallel} {{ tag-con }} {{ tag-sql }}
 
    If this setting is enabled, multiple `INSERT` queries with quorum write can be run in parallel. If disabled, only one `INSERT` query with quorum write is made to the same table.
@@ -274,7 +274,7 @@
 
    The default algorithm is `hash`.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-join_algorithm).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-join_algorithm).
 * **Join overflow mode**{#setting-join-overflow-mode} {{ tag-all }}
 
    Defines the action to be performed by {{ CH }} if any of the following `JOIN` limits is reached:
@@ -292,7 +292,7 @@
 
    This setting is disabled by default.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#join_use_nulls).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#join_use_nulls).
 * **Joined subquery requires alias**{#setting-joined-subquery-requires-alias} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
    Requires aliases for subqueries when executing the `JOIN` command.
@@ -312,7 +312,7 @@
    This setting is disabled by default.
 * **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Determines whether to use [LowCardinality](https://{{ ch-domain }}/docs/en/sql-reference/data-types/lowcardinality/) in native format:
+   Determines whether to use [LowCardinality]({{ ch.docs }}/sql-reference/data-types/lowcardinality/) in native format:
    * If this setting is enabled (by default), use native format.
    * If the setting is off, do not use native format:
       * For `SELECT` queries, convert LowCardinality type columns to regular ones.
@@ -356,7 +356,7 @@
 
    When using aggregation in the external memory, we recommend setting the value of this setting twice as low as the [Max memory usage](#setting-max-memory-usage) setting value (by default, the maximum memory usage is limited to 10 GB).
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/select/group-by/#select-group-by-in-external-memory).
 
    See also the [Distributed aggregation memory efficient](#setting-distributed-aggregation-memory-efficient) setting.
 * **Max bytes before external sort**{#setting-max-bytes-before-external-sort} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
@@ -399,7 +399,7 @@
    The minimum and default value is `0` (no limitation is set).
 * **Max concurrent queries for user**{#setting-max-concurrent-queries-for-user} {{ tag-con }} {{ tag-sql }}
 
-   The maximum number of simultaneously processed user queries to a [MergeTree](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/) table.
+   The maximum number of simultaneously processed user queries to a [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table.
 
    The minimum value is `0` (no limit), defaults to `450`.
 * **Max execution time**{#setting-max-execution-time} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
@@ -422,7 +422,7 @@
 
    The default value is `1048576`.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-max_insert_block_size).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-max_insert_block_size).
 
 * **Max memory usage**{#setting-max-memory-usage} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -432,7 +432,7 @@
 
    If you are using [Max bytes before external `GROUP BY`](#setting-max-bytes-before-external-group-by) or [Max bytes before external sort](#setting-max-bytes-before-external-sort), we recommend setting their values to half of Max memory usage.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/query-complexity#settings_max_memory_usage).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/query-complexity#settings_max_memory_usage).
 
 * **Max memory usage for user**{#setting-max-memory-usage-for-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -457,7 +457,7 @@
 
    The minimum value is `0` (no limit), defaults to `100`.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#max-partitions-per-insert-block).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/query-complexity/#max-partitions-per-insert-block).
 * **Max query size**{#setting-max-query-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Limits the size of the largest part of a query (in bytes) that can be transferred to RAM for parsing using the SQL parser.
@@ -491,7 +491,7 @@
 
    The minimum and default value is `0` (no limitation is set).
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#settings-max_rows_in_join).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/query-complexity/#settings-max_rows_in_join).
 * **Max rows in set**{#setting-max-rows-in-set} {{ tag-all }}
 
    The maximum number of rows for a set created from a subquery in the `IN` section.
@@ -533,7 +533,7 @@
 
    Minimum and default values are `0` (compute the value automatically as the number of processor cores without accounting for Hyper-Threading).
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-max_threads).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-max_threads).
 * **Merge tree max bytes to use cache**{#setting-merge-tree-max-bytes-to-use-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    The maximum size of a query (in bytes) that uses the uncompressed data cache. Queries larger than the specified value do not use the cache.
@@ -587,12 +587,12 @@
    Minimum value is `0`. Default is `3`.
 * **Min insert block size bytes**{#setting-min-insert-block-size-bytes} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   The minimum block size (in bytes) that can be inserted into a table by an `INSERT` query. Smaller blocks are [merged](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage).
+   The minimum block size (in bytes) that can be inserted into a table by an `INSERT` query. Smaller blocks are [merged]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage).
 
    Minimum value is `0` (block squashing disabled). Default is ‭`268435456`‬‬ (256 MB).
 * **Min insert block size rows**{#setting-min-insert-block-size-rows} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   The minimum block size (in rows) that can be inserted into a table by an `INSERT` query. Smaller blocks are [merged](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage).
+   The minimum block size (in rows) that can be inserted into a table by an `INSERT` query. Smaller blocks are [merged]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage).
 
    Minimum value is `0` (block squashing disabled). Default is `1048576`.
 * **Output format json quote denormals**{#setting-output-format-json-quote-denormals} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
@@ -626,10 +626,10 @@
 
    By default, no value is set (equivalent to `default`).
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/quotas/).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/quotas/).
 * **Read overflow mode**{#setting-read-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Determines {{ CH }} behavior if the amount of data read [exceeds one of the limits](https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity):
+   Determines {{ CH }} behavior if the amount of data read [exceeds one of the limits]({{ ch.docs }}/operations/settings/query-complexity/#restrictions-on-query-complexity):
    * `throw`: Abort query execution and return an error.
    * `break`: Return a partial result.
 
@@ -656,10 +656,10 @@
    * `1`: Only wait for execution at its own (default).
    * `2`: Wait for every action to complete.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/sql-reference/statements/alter/#synchronicity-of-alter-queries).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/#synchronicity-of-alter-queries).
 * **Result overflow mode**{#setting-result-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Determines {{ CH }} behavior if the size of result [exceeds one of the limits](https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity):
+   Determines {{ CH }} behavior if the size of result [exceeds one of the limits]({{ ch.docs }}/operations/settings/query-complexity/#restrictions-on-query-complexity):
    * `throw`: Abort query execution and return an error.
    * `break`: Return a partial result.
 
@@ -670,7 +670,7 @@
 
    By default, sequential consistency is disabled.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#settings-select_sequential_consistency).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#settings-select_sequential_consistency).
 * **Send progress in http headers**{#setting-send-progress-in-http-headers} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
    Enables the sending of notifications regarding query execution status using `X-ClickHouse-Progress` headers.
@@ -683,7 +683,7 @@
    The default value is `300000` (5 minutes).
 * **Set overflow mode**{#setting-set-overflow-mode} {{ tag-all }}
 
-   Determines {{ CH }} behavior if the amount of data [exceeds one of the query complexity restrictions](https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity):
+   Determines {{ CH }} behavior if the amount of data [exceeds one of the query complexity restrictions]({{ ch.docs }}/operations/settings/query-complexity/#restrictions-on-query-complexity):
    * `throw`: Abort query execution and return an error.
    * `break`: Return a partial result.
 
@@ -695,7 +695,7 @@
    By default, silent skip is disabled.
 * **Sort overflow mode**{#setting-sort-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Determines {{ CH }} behavior if the number of rows received before sorting [exceeds one of the limits](https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity):
+   Determines {{ CH }} behavior if the number of rows received before sorting [exceeds one of the limits]({{ ch.docs }}/operations/settings/query-complexity/#restrictions-on-query-complexity):
    * `throw`: Abort query execution and return an error.
    * `break`: Return a partial result.
 
@@ -709,7 +709,7 @@
    By default, the value is not set (equivalent to `throw`).
 * **Transfer overflow mode**{#setting-transfer-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Determines {{ CH }} behavior if the amount of data to be transferred to another server [exceeds one of the limits](https://{{ ch-domain }}/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity):
+   Determines {{ CH }} behavior if the amount of data to be transferred to another server [exceeds one of the limits]({{ ch.docs }}/operations/settings/query-complexity/#restrictions-on-query-complexity):
    * `throw`: Abort query execution and return an error.
    * `break`: Return a partial result.
 
@@ -720,13 +720,13 @@
 
    This setting is disabled by default.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#transform_null_in).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#transform_null_in).
 * **Use uncompressed cache**{#setting-use-uncompressed-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Determines whether to use a cache of uncompressed blocks. Using this type of cache can help significantly reduce latency and improve throughput for a large number of short queries (only for the [MergeTree](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/) family). Enable this setting for users who initiate small queries frequently.
+   Determines whether to use a cache of uncompressed blocks. Using this type of cache can help significantly reduce latency and improve throughput for a large number of short queries (only for the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) family). Enable this setting for users who initiate small queries frequently.
 
    By default, the cache is disabled.
 
-   For more information, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/settings/settings/#setting-use_uncompressed_cache).
+   For more information, see the [{{ CH }} documentation]({{ ch.docs }}/operations/settings/settings/#setting-use_uncompressed_cache).
 
    See [Merge tree max bytes to use cache](#setting-merge-tree-max-bytes-to-use-cache) and [Merge tree max rows to use cache](#setting-merge-tree-max-rows-to-use-cache).

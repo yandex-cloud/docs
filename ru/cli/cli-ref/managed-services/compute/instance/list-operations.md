@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/list-operations.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/list-operations.md
 ---
 # yc compute instance list-operations
 

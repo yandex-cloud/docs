@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/version/list.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/version/list.md
 ---
 # yc managed-clickhouse version list
 

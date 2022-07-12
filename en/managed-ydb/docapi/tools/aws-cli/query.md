@@ -13,7 +13,7 @@ To select data from the `series` table by the `series_id` key:
 
    {% note warning %}
 
-   To work with the AWS CLI from Windows, we recommend using the [WSL](https://docs.microsoft.com/en-us/windows/wsl/).
+   To work with the AWS CLI from Windows, we recommend using the [WSL]({{ ms.docs }}/windows/wsl/).
 
    {% endnote %}
 

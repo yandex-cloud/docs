@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/trigger/delete.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/delete.md
 ---
 # yc serverless trigger delete
 

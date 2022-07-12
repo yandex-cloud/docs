@@ -1,5 +1,4 @@
 default:
-  link-ms-docs: https://docs.microsoft.com/ru-ru
   versions:
     tf:
       latest:

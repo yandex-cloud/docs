@@ -22,7 +22,7 @@ Using {{ CK }} is associated with the following limitations:
 * To use {{ CK }}, you need {{ CH }} {{ mch-ck-version }} or higher.
 * Clusters using {{ ZK }} hosts cannot be changed to use {{ CK }}.
 
-For more information about {{ CK }}, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/clickhouse-keeper/).
+For more information about {{ CK }}, see the [{{ CH }} documentation]({{ ch.docs }}/operations/clickhouse-keeper/).
 
 ## {{ ZK }} {#zk}
 
@@ -52,7 +52,7 @@ Note:
 
 ## Replicated tables {#replicated-tables}
 
-{{ CH }} only supports automatic replication for tables on the [ReplicatedMergeTree](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/replication/) engine. To enable replication, you can create the tables on each host separately or use a distributed DDL query.
+{{ CH }} only supports automatic replication for tables on the [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) engine. To enable replication, you can create the tables on each host separately or use a distributed DDL query.
 
 {% note warning %}
 
@@ -79,7 +79,7 @@ Where:
 * `/table_01` is the path to the table in {{ ZK }} or {{ CK }}, which must start with the forward slash <q>/</q>.
 * `{replica}` is the host ID macro.
 
-To create replicated tables on all cluster hosts, make a [distributed DDL query](https://{{ ch-domain }}/docs/en/sql-reference/distributed-ddl/):
+To create replicated tables on all cluster hosts, make a [distributed DDL query]({{ ch.docs }}/sql-reference/distributed-ddl/):
 
 ```sql
 CREATE TABLE db_01.table_01 ON CLUSTER '{cluster}' (

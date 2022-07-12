@@ -1,6 +1,6 @@
 # Getting data from {{ RMQ }}
 
-A {{ mch-name }} cluster can get data from {{ RMQ }} in real time. {{ mch-name }} will automatically insert the data sent to certain exchanges of the specified {{ RMQ }} queues into the table run on the [{{ RMQ }} engine](https://{{ ch-domain }}/docs/en/engines/table-engines/integrations/rabbitmq/).
+A {{ mch-name }} cluster can get data from {{ RMQ }} in real time. {{ mch-name }} will automatically insert the data sent to certain exchanges of the specified {{ RMQ }} queues into the table run on the [{{ RMQ }} engine]({{ ch.docs }}/engines/table-engines/integrations/rabbitmq/).
 
 To set up data delivery from {{ RMQ }} to {{ mch-name }}:
 
@@ -106,7 +106,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 1. Install the `clickhouse-client` utility to connect to the database in the {{ mch-name }} cluster.
 
-   1. Add the [DEB repository](https://{{ ch-domain }}/docs/en/getting-started/install/#install-from-deb-packages) {{ CH }}:
+   1. Add the [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
       ```bash
       sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -126,7 +126,7 @@ If you no longer need these resources, [delete them](#clear-out).
       ```bash
       mkdir --parents ~/.clickhouse-client && \
       wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" \
-      --output-document=~/.clickhouse-client/config.xml
+      --output-document ~/.clickhouse-client/config.xml
       ```
 
    Check that you can use `clickhouse-client` [to connect to the {{ mch-name }} cluster over SSL](../operations/connect.md#connection-string).
@@ -184,7 +184,7 @@ This data will be transmitted as {{ RMQ }} messages. Each message will contain a
 {"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
-A {{ mch-name }} cluster will insert data into a table in [JSONEachRow format](https://{{ ch-domain }}/docs/en/interfaces/formats/#jsoneachrow). It converts strings from {{ RMQ }} messages to the appropriate column values.
+A {{ mch-name }} cluster will insert data into a table in [JSONEachRow format]({{ ch.docs }}/interfaces/formats/#jsoneachrow). It converts strings from {{ RMQ }} messages to the appropriate column values.
 
 Create in the {{ mch-name }} cluster a table to accept data received from {{ RMQ }}:
 

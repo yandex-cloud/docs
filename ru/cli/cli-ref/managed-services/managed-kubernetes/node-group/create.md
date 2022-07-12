@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kubernetes/node-group/create.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/node-group/create.md
 ---
 # yc managed-kubernetes node-group create
 

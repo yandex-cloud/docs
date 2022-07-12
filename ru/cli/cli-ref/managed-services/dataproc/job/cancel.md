@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/dataproc/job/cancel.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/job/cancel.md
 ---
 # yc dataproc job cancel
 

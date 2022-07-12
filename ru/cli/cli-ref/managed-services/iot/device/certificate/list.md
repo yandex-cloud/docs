@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/device/certificate/list.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/device/certificate/list.md
 ---
 # yc iot device certificate list
 

@@ -23,7 +23,7 @@
    {% endnote %}
 
 1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
-1. Подключите [DEB-репозиторий](https://{{ ch-domain }}/docs/ru/getting-started/install/#install-from-deb-packages) {{ CH }}:
+1. Подключите [DEB-репозиторий]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
    ```bash
    sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
@@ -61,7 +61,7 @@
     {% include [install-certificate](../_includes/mdb/mch/install-certificate.md) %}
 
 1. Используйте для подключения ClickHouse CLI:
-   1. Укажите путь к SSL-сертификату в [конфигурационном файле](https://{{ ch-domain }}/docs/ru/interfaces/cli/#interfaces_cli_configuration), в элементе `<caConfig>`:
+   1. Укажите путь к SSL-сертификату в [конфигурационном файле]({{ ch.docs }}/interfaces/cli/#interfaces_cli_configuration), в элементе `<caConfig>`:
 
       ```xml
       <config>

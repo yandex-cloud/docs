@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/container/registry/list-access-bindings.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/registry/list-access-bindings.md
 ---
 # yc container registry list-access-bindings
 

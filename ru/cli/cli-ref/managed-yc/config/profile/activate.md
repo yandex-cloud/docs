@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-yc/config/profile/activate.md
+sourcePath: en/_cli-ref/cli-ref/managed-yc/config/profile/activate.md
 ---
 # yc config profile activate
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/container/repository/lifecycle-policy/delete.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/repository/lifecycle-policy/delete.md
 ---
 # yc container repository lifecycle-policy delete
 

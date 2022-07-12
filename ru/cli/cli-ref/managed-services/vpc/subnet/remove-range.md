@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/subnet/remove-range.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/subnet/remove-range.md
 ---
 # yc vpc subnet remove-range
 

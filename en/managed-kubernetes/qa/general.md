@@ -9,7 +9,7 @@ The following services are available by default:
 
 #### Which version of the {{ k8s }} CLI (kubectl) must be installed for comprehensive work with a cluster? {#kubectl-version}
 
-We recommend using the latest official version of [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) to avoid compatibility issues.
+We recommend using the latest official version of [kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl/) to avoid compatibility issues.
 
 #### Can {{ yandex-cloud }} restore the health of the cluster if I configure it incorrectly? {#tech-support-cases}
 

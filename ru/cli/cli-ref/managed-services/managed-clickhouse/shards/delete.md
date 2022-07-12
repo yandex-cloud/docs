@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/shards/delete.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/shards/delete.md
 ---
 # yc managed-clickhouse shards delete
 

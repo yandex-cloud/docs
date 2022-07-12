@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/load-balancer/network-load-balancer/get.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/network-load-balancer/get.md
 ---
 # yc load-balancer network-load-balancer get
 

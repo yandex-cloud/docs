@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/add-access-binding.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/add-access-binding.md
 ---
 # yc certificate-manager certificate add-access-binding
 

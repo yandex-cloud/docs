@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/cdn/provider/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/provider/index.md
 ---
 # yc cdn provider
 

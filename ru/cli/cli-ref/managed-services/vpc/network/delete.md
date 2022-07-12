@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/network/delete.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/network/delete.md
 ---
 # yc vpc network delete
 

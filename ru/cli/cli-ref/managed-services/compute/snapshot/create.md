@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/snapshot/create.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot/create.md
 ---
 # yc compute snapshot create
 

@@ -152,7 +152,7 @@ You can only use graphical IDEs to connect to publicly accessible cluster hosts.
       1. Select **Encrypt connection** and **Trust server certificate**.
   1. Click **Connect** to connect to the {{ MS }} host.
 
-  For more information about the connection, see the developer's [documentation](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-manage-ssms?view=sql-server-ver15#connect-to-sql-server-on-linux).
+  For more information about the connection, see the developer's [documentation]({{ ms.docs }}/sql/linux/sql-server-linux-manage-ssms?view=sql-server-ver15#connect-to-sql-server-on-linux).
 
   If the connection is successful, **Object Explorer** will display information about all {{ MS }} objects.
 

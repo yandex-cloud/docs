@@ -23,7 +23,7 @@ curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt https://{{ s3-storage-host
 
 #### Как установить SSL-сертификат для подключения Power BI к {{ mpg-name }} через psql? {#power-bi}
 
-1. Установите [Windows Subsystem for Linux](https://docs.microsoft.com/ru-ru/windows/wsl/) (WSL) и выполните в терминале команду:
+1. Установите [Windows Subsystem for Linux]({{ ms.docs }}/windows/wsl/) (WSL) и выполните в терминале команду:
 
    ```bash
    mkdir /mnt/c/temp && \

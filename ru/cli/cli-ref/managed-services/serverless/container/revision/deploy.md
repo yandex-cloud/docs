@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/container/revision/deploy.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/revision/deploy.md
 ---
 # yc serverless container revision deploy
 

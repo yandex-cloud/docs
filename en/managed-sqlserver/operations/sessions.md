@@ -1,6 +1,6 @@
 # Managing user sessions
 
-You can [request](#get) a list of active user [sessions](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) in a {{ MS }} cluster and forcibly [terminate](#kill) any of them.
+You can [request](#get) a list of active user [sessions]({{ ms.docs }}/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) in a {{ MS }} cluster and forcibly [terminate](#kill) any of them.
 
 ## Getting a list of sessions {#get}
 
@@ -53,9 +53,9 @@ To get a list of active user sessions:
          * `Suspended`: On hold.
       1. `request_command`: The type of the currently running command.
       1. `blocking_session_id`: The ID of the session blocking the request.
-      1. `wait_type`: The [type of wait](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits) for the blocked request.
+      1. `wait_type`: The [type of wait]({{ ms.docs }}/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits) for the blocked request.
       1. `wait_time`: The waiting time when blocking the request (in milliseconds).
-      1. `last_wait_type`: The [type of the last wait](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits) if the request has previously been blocked.
+      1. `last_wait_type`: The [type of the last wait]({{ ms.docs }}/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits) if the request has previously been blocked.
       1. `wait_resource`: The resource that the request is waiting for when blocked.
    1. Information about text and query plans from the `sys.dm_exec_sql_text` and `sys.dm_exec_query_plan` views:
       1. `object_id`: The ID of an object (such as a stored procedure or function) for this query plan.

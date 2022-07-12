@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/load-balancer/target-group/add-targets.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/target-group/add-targets.md
 ---
 # yc load-balancer target-group add-targets
 

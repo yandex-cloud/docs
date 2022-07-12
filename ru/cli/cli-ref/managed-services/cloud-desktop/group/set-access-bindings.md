@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/cloud-desktop/group/set-access-bindings.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/cloud-desktop/group/set-access-bindings.md
 ---
 # yc cloud-desktop group set-access-bindings
 

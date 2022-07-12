@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/device/password/add.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/device/password/add.md
 ---
 # yc iot device password add
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/disk-placement-group/list-disks.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/disk-placement-group/list-disks.md
 ---
 # yc compute disk-placement-group list-disks
 

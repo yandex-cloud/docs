@@ -11,7 +11,7 @@ After creating a cluster, you can:
 
 * [{#T}](#SQL-management)
 
-* [Configure {{ CH }} servers](#change-clickhouse-config) by following the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/server_settings/settings/).
+* [Configure {{ CH }} servers](#change-clickhouse-config) by following the [{{ CH }} documentation]({{ ch.docs }}/operations/server_settings/settings/).
 
 * [Change additional cluster settings](#change-additional-settings).
 
@@ -322,7 +322,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
 {% note info %}
 
-You can only change the [Max server memory usage](https://{{ ch-domain }}/docs/en/operations/server-configuration-parameters/settings/#max_server_memory_usage) setting value by [changing the class of {{ CH }} hosts](#change-resource-preset).
+You can only change the [Max server memory usage]({{ ch.docs }}/operations/server-configuration-parameters/settings/#max_server_memory_usage) setting value by [changing the class of {{ CH }} hosts](#change-resource-preset).
 
 For more information, see [{#T}](../concepts/memory-management.md).
 

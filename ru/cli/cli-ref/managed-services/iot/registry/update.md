@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/registry/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/update.md
 ---
 # yc iot registry update
 

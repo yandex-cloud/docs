@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/ydb/backup/list.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/backup/list.md
 ---
 # yc ydb backup list
 

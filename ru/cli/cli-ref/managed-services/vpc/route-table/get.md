@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/route-table/get.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/route-table/get.md
 ---
 # yc vpc route-table get
 

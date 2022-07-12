@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/dns/zone/list.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/list.md
 ---
 # yc dns zone list
 

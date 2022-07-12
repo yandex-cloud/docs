@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/deny-unauthenticated-invoke.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/deny-unauthenticated-invoke.md
 ---
 # yc serverless function deny-unauthenticated-invoke
 

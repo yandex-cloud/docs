@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/cluster/get.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/cluster/get.md
 ---
 # yc managed-sqlserver cluster get
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/filesystem/resize.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/filesystem/resize.md
 ---
 # yc compute filesystem resize
 

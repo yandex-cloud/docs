@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/container/cluster/stop.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/cluster/stop.md
 ---
 # yc container cluster stop
 

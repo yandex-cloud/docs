@@ -138,7 +138,7 @@ To use the attached disk:
 - Windows
 
    1. Connect to the VM [via RDP](../vm-connect/rdp.md).
-   1. Assign a letter to the attached disk. Learn how to do this in the [Microsoft documentation](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter).
+   1. Assign a letter to the attached disk. Learn how to do this in the [Microsoft documentation]({{ ms.docs }}/windows-server/storage/disk-management/change-a-drive-letter).
 
 {% endlist %}
 
@@ -269,8 +269,8 @@ To partition and mount an empty disk yourself:
       {% endnote %}
 
    1. Initialize the disk. To do this, right-click on the empty disk and select **Initialize Disk**. This opens the **Initialize Disk** dialog.
-   1. Select your [partition style](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr) and click **OK**.
+   1. Select your [partition style]({{ ms.docs }}/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr) and click **OK**.
    1. Create partitions on the disk. To do this, right-click on the empty disk and select **New Simple Volume**.
-   1. Use the **New Simple Volume Wizard** to set the partition size, [select a letter](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter) for the disk, and specify the file system.
+   1. Use the **New Simple Volume Wizard** to set the partition size, [select a letter]({{ ms.docs }}/windows-server/storage/disk-management/change-a-drive-letter) for the disk, and specify the file system.
 
 {% endlist %}

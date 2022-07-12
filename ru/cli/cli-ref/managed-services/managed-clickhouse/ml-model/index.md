@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/ml-model/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/ml-model/index.md
 ---
 # yc managed-clickhouse ml-model
 

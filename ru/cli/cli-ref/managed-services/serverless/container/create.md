@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/container/create.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/create.md
 ---
 # yc serverless container create
 

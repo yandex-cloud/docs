@@ -42,17 +42,17 @@
 
 * {{ mch-name }}
 
-    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления](https://{{ ch-domain }}/docs/ru/engines/table-engines/special/materializedview/) (MaterializedView).
+    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления]({{ ch.docs }}/engines/table-engines/special/materializedview/) (MaterializedView).
     1. [Создайте пользователя](../../managed-clickhouse/operations/cluster-users.md) с доступом к базе источника.
 
 * {{ CH }}
 
-    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления](https://{{ ch-domain }}/docs/ru/engines/table-engines/special/materializedview/) (MaterializedView).
+    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления]({{ ch.docs }}/engines/table-engines/special/materializedview/) (MaterializedView).
     1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
     1. Настройте кластер-источник, чтобы к нему можно было подключиться из интернета.
 
-    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления](https://{{ ch-domain }}/docs/ru/engines/table-engines/special/materializedview/) (MaterializedView).
+    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления]({{ ch.docs }}/engines/table-engines/special/materializedview/) (MaterializedView).
 
     1. Создайте пользователя с доступом к базе источника.
 
@@ -392,7 +392,7 @@
             * `USAGE` на схемы этих таблиц и последовательностей.
             * `ALL PRIVILEGES` (`CREATE` и `USAGE`) на задаваемую [параметром эндпоинта](./endpoint/source/postgresql.md#additional-settings) схему служебных таблиц, если эндпоинт будет использоваться для типов трансфера _{{ dt-type-repl }}_ или _{{ dt-type-copy-repl }}_.
 
-    1. Если источник репликации — кластер, [включите](../../managed-postgresql/operations/cluster-extensions.md) для него расширение `pg_tm_aux`. Это позволит продолжить репликацию в случае смены хоста-мастера.
+    1. Если источник репликации — кластер, [включите](../../managed-postgresql/operations/extensions/cluster-extensions.md) для него расширение `pg_tm_aux`. Это позволит продолжить репликацию в случае смены хоста-мастера.
 
     1. {% include [Таблицы без первичных ключей](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
@@ -999,3 +999,4 @@
 {% include [airbyte-trademark](../../_includes/data-transfer/airbyte-trademark.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+

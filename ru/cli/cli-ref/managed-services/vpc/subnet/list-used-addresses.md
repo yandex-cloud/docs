@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/subnet/list-used-addresses.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/subnet/list-used-addresses.md
 ---
 # yc vpc subnet list-used-addresses
 
