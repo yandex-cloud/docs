@@ -57,7 +57,6 @@
     {% include [include](../../../_includes/sa-assign-role-note.md) %}
 * `federatedUser` — аккаунт пользователя {% if product == "cloud-il" %}Google или из{% endif %} [федерации удостоверений](../../../organization/add-federation.md), например из Active Directory.
 
-    {% include [include](../../../_includes/saml-assign-role-note.md) %}
 * `system` — [системная группа](system-group.md).
 
 ### Привязка прав доступа {#access-bindings}

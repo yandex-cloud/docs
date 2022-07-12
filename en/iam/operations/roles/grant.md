@@ -5,7 +5,7 @@ To provide access to a resource, assign a user a [role](../../../iam/concepts/ac
 {% if product == "yandex-cloud" %}
 ## Assigning a role to a user {#access-to-user}
 
-This section describes how to assign a role to a user with a {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %}. The following examples explain how to assign a role to a [service account](#access-to-sa), [federated users](#access-to-federated-user), or [all users](#access-to-all).
+This section describes how to assign a role to a user with a Yandex. The following examples explain how to assign a role to a [service account](#access-to-sa), [federated users](#access-to-federated-user), or [all users](#access-to-all).
 
 {% endif %}
 {% if product == "cloud-il" %}
@@ -84,8 +84,10 @@ You can assign a role to a [federated user](../../../organization/add-federation
         --role viewer \
         --subject userAccount:aje6o61dvog2h6g9a33s
       ```
+
 {% endif %}
-{% if product == "yandex-cloud" %}
+
+{% if product == "cloud-il" %}
 
       ```bash
       yc resource-manager cloud add-access-binding mycloud \
@@ -305,6 +307,8 @@ You can assign a role to a [federated user](../../../organization/add-federation
 
 {% include [grant-role-for-sa](../../../_includes/iam/grant-role-for-sa.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ### Resource access for a federated user {#access-to-federated-user}
 
 {% include [saml-assign-role-note](../../../_includes/saml-assign-role-note.md) %}
@@ -315,11 +319,7 @@ In the management console, you can assign a [federated user](../../../organizati
 
 - Management console
 
-{% if product == "yandex-cloud" %}
-
    The role assignment procedure is the same as for a user with a Yandex account. The user's federation name is shown next to the username.
-
-{% endif %}
 
    In the management console, you can only assign a role for a cloud or folder:
 
@@ -342,6 +342,8 @@ In the management console, you can assign a [federated user](../../../organizati
       1. Click **Save**.
 
 {% endlist %}
+
+{% endif %}
 
 ### Access to a resource for all users {#access-to-all}
 

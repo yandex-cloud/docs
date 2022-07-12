@@ -13,7 +13,7 @@ You can get the following information about any registered {{ yandex-cloud }} us
 
    1. Log in to the [management console]({{ link-console-main }}).
    2. [Select the desired cloud](../../../resource-manager/operations/cloud/switch-cloud.md).
-   3. Go to [Access bindings in cloud]({{ link-console-cloud }}?section=resource-acl) (the **Access bindings** button in the left panel).
+   3. Go to [Access bindings in cloud]({{ link-console-cloud }}?section=resource-acl) (the **Access bindings** tab).
 
 {% if product == "yandex-cloud" %}
 - CLI
