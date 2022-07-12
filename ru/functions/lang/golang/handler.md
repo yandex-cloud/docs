@@ -274,7 +274,7 @@ Hello, Anonymous
 
 #### Необходимые структуры для обработки запроса
 
-Функция декодирует тело входящего запроса при помощи `json.Unmarshal()`
+Функция декодирует тело входящего запроса при помощи `json.Unmarshal()`.
 
 ```golang
 package main
@@ -344,7 +344,7 @@ func Greet(ctx context.Context, event *APIGatewayRequest) (*APIGatewayResponse, 
 
 {% note warning %}
 
-Запрос необходимо отправить на служебный домен API Gateway.
+Обращаться к функции нужно через API-шлюз.
 
 {% endnote %}
 
