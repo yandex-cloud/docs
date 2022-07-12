@@ -272,14 +272,20 @@ Hello, Anonymous
 
 Функция вызывается сервисом API Gateway с сервисным аккаунтом, записывает в журнал метод и тело запроса и возвращает приветствие.
 
-#### Необходимые структуры для обраблотки запроса
+#### Необходимые структуры для обработки запроса
 
-Функция сама декодирует тело входящего запроса при помощи `json.Unmarshal()`
+Функция декодирует тело входящего запроса при помощи `json.Unmarshal()`
 
 ```golang
-// Структура запроса API Gateway v1 (см. https://cloud.yandex.ru/docs/functions/concepts/function-invoke#request)
-// Также https://github.com/aws/aws-lambda-go/blob/main/events/apigw.go
+package main
 
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+)
+
+// Структура запроса API Gateway v1
 type APIGatewayRequest struct {
 	OperationID string `json:"operationId"`
 	Resource    string `json:"resource"`
@@ -298,7 +304,7 @@ type APIGatewayRequest struct {
 	Parameters           map[string]string   `json:"parameters"`
 	MultiValueParameters map[string][]string `json:"multiValueParameters"`
 
-	Body            string `json:"body"`
+	Body            []byte `json:"body"`
 	IsBase64Encoded bool   `json:"isBase64Encoded,omitempty"`
 
 	RequestContext interface{} `json:"requestContext"`
@@ -312,45 +318,33 @@ type APIGatewayResponse struct {
 	Body              string              `json:"body"`
 	IsBase64Encoded   bool                `json:"isBase64Encoded,omitempty"`
 }
-```
 
-
-```golang
-package main
-
-import (
-  "context"
-  "encoding/json"
-  "fmt"
-)
+type Request struct {
+	Name string `json:"name"`
+}
 
 func Greet(ctx context.Context, event *APIGatewayRequest) (*APIGatewayResponse, error) {
-  // В журнале будет напечатано название HTTP-метода, с помощью которого осуществлен запрос, а также тело запроса
-  fmt.Println(requestBody.HttpMethod, event.Body)
+	req := &Request{}
 
-  type Request struct {
-    Name string `json:"name"`
-  }
+	// Поле event.Body запроса преобразуется в объект типа Request для получения переданного имени
+	if err := json.Unmarshal(event.Body, &req); err != nil {
+		return nil, fmt.Errorf("an error has occurred when parsing body: %v", err)
+	}
 
-  req := &Request{}
+	// В журнале будет напечатано название HTTP-метода, с помощью которого осуществлен запрос, а также путь
+	fmt.Println(event.HTTPMethod, event.Path)
 
-  // Поле event.Body запроса преобразуется в объект типа Request для получения переданного имени
-  if err = json.Unmarshal(requestBody.Body, &req); err != nil {
-    return nil, fmt.Errorf("an error has occurred when parsing body: %v", err)
-  }
-
-  // Тело ответа.
-  return &APIGatewayResponse{
-    StatusCode: 200,
-    Body: fmt.Sprintf("Hello, %s", req.Name),
-  }, nil
+	// Тело ответа.
+	return &APIGatewayResponse{
+		StatusCode: 200,
+		Body:       fmt.Sprintf("Hello, %s", req.Name),
+	}, nil
 }
 ```
 
-
 {% note warning %}
 
-Запрос необходимо отправить на endpoint API Gateway.
+Запрос необходимо отправить на служебный домен API Gateway.
 
 {% endnote %}
 
