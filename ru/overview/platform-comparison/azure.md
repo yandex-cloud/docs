@@ -38,7 +38,7 @@
 | Key Vault | [{{ kms-full-name }}](../../kms/) |
 | Load Balancer | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
 | Microsoft Power BI | [{{ datalens-full-name }}](../../datalens/) |
-| Microsoft: Azure Cosmos DB | [{{ ydb-full-name }}](../../managed-ydb/) |
+| Microsoft: Azure Cosmos DB | [{{ ydb-full-name }}](../../ydb/) |
 | Queue Storage, Service Bus | [{{ message-queue-full-name }}](../../message-queue/) |
 | Virtual Machine Scale Sets | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
 | Virtual Machines | [{{ compute-full-name }}](../../compute/) |

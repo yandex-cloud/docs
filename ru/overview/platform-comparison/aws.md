@@ -8,7 +8,7 @@
 | Amazon CloudWatch | [{{ monitoring-full-name }}](../../monitoring/) |
 | Amazon CloudFront | [{{ cdn-full-name }}](../../cdn/) |
 | Amazon DocumentDB (with MongoDB compatibility) | [{{ mmg-full-name }}](../../managed-mongodb/) |
-| Amazon DynamoDB | [{{ ydb-full-name }}](../../managed-ydb/) |
+| Amazon DynamoDB | [{{ ydb-full-name }}](../../ydb/) |
 | Amazon EC2 Auto Scaling | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
 | Amazon Elastic Compute Cloud | [{{ compute-full-name }}](../../compute/) |
 | Amazon Elastic Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |

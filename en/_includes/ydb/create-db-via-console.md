@@ -12,15 +12,15 @@ To create a database:
 
     {% include [name-format](../name-format.md) %}
 
-1. Under **Computing resources**, select the type and amount of [computing resources](../../managed-ydb/concepts/resources.md#resource-presets).
+1. Under **Computing resources**, select the type and amount of [computing resources](../../ydb/concepts/resources.md#resource-presets).
 
-1. Under **Storage groups**, select the disk type and number of [storage groups](../../managed-ydb/concepts/resources.md#storage-groups) that determine the total storage size.
+1. Under **Storage groups**, select the disk type and number of [storage groups](../../ydb/concepts/resources.md#storage-groups) that determine the total storage size.
 
 1. Under **Network**, select a network and allow assigning public IP addresses to DB nodes.
 
    If you plan to send DB requests both from the {{ yandex-cloud }} network and the internet, select the **Assign** option next to the **Public IP addresses** field.
 
-   {% include  [traffic_metering](../../managed-ydb/_includes/traffic_metering.md) %}
+   {% include  [traffic_metering](../../ydb/_includes/traffic_metering.md) %}
 
    Select an existing network from the **Cloud network** list.
 

@@ -158,5 +158,5 @@ items:
     href: vpc/index.yaml
     when: audience == "external"
   - name: Managed Service for YDB
-    href: managed-ydb/index.yaml
+    href: ydb/index.yaml
     when: product == "yandex-cloud" and audience == "external"

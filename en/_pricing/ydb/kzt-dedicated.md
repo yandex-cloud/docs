@@ -1,6 +1,6 @@
 ## Estimated cost of computing resources {#calculated-prices}
 
-The cost of operation time is given for [computing resource classes](../../managed-ydb/concepts/resources.md#resource-presets).
+The cost of operation time is given for [computing resource classes](../../ydb/concepts/resources.md#resource-presets).
 
 At the rate of 720 hours per month.
 

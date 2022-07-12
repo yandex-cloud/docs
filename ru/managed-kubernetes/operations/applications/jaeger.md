@@ -26,7 +26,7 @@
 
 ### Подготовка {{ ydb-name }} {#create-ydb}
 
-1. [Создайте базу данных](../../../managed-ydb/operations/manage-database.md#create-db) подходящей вам конфигурации с [типом БД](../../../managed-ydb/concepts/serverless-and-dedicated.md) `Dedicated`.
+1. [Создайте базу данных](../../../ydb/operations/manage-database.md#create-db) подходящей вам конфигурации с [типом БД](../../../ydb/concepts/serverless-and-dedicated.md) `Dedicated`.
 
    {% note warning %}
 
@@ -34,7 +34,7 @@
 
    {% endnote %}
 
-1. [Создайте директорию](../../../managed-ydb/operations/schema.md#directories) с именем `jaeger`.
+1. [Создайте директорию](../../../ydb/operations/schema.md#directories) с именем `jaeger`.
 
 ### Создание сервисного аккаунта {#create-sa-key}
 

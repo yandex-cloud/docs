@@ -1,7 +1,7 @@
-# Обзор
+# Пошаговые инструкции для {{ ydb-name }}
 
-{% note info %}
-
-Страница перемещена по новому [адресу](../../managed-ydb/operations/index.md).
-
-{% endnote %}
+* [{#T}](manage-database.md).
+* [{#T}](yc-cli.md).
+* [{#T}](schema.md).
+* [{#T}](crud.md).
+* [{#T}](monitoring.md).

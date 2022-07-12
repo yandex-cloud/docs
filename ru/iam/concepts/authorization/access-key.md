@@ -13,7 +13,7 @@ _Статические ключи доступа_ — секретный клю
 
 {% if audience == "external" and product == "yandex-cloud" %}
       
-* [{{ ydb-name }}](../../../managed-ydb/docapi/tools/aws-setup.md)
+* [{{ ydb-name }}](../../../ydb/docapi/tools/aws-setup.md)
       
 {% endif %}
 

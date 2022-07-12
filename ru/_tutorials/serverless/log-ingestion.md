@@ -54,7 +54,7 @@
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать поток данных.
 1. Выберите сервис **{{ yds-full-name }}**.
 1. Нажмите кнопку **Создать поток**.
-1. Укажите существующую [бессерверную](../../managed-ydb/concepts/serverless-and-dedicated.md#serverless) базу данных {{ ydb-short-name }} или [создайте](../../managed-ydb/quickstart.md#serverless) новую. Если вы создали новую базу данных, после ее создания нажмите кнопку ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Обновить** для обновления списка баз.
+1. Укажите существующую [бессерверную](../../ydb/concepts/serverless-and-dedicated.md#serverless) базу данных {{ ydb-short-name }} или [создайте](../../ydb/quickstart.md#serverless) новую. Если вы создали новую базу данных, после ее создания нажмите кнопку ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Обновить** для обновления списка баз.
 1. Введите имя потока данных.
 1. Нажмите кнопку **Создать**.
 

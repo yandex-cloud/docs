@@ -32,7 +32,7 @@ _Эндпоинт_ — это конфигурация для подключен
 | База данных {{ PG }} — собственная или в составе [сервиса {{ mpg-short-name }}](../../managed-postgresql/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | S3-совместимый бакет                                                                                       | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
 | Поток данных [{{ yds-full-name }}](../../data-streams/)                                                    | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
-| База данных {{ ydb-name }} — в составе [сервиса {{ ydb-name }}](../../managed-ydb/)                                | ![no](../../_assets/common/no.svg)   | ![yes](../../_assets/common/yes.svg) |
+| База данных {{ ydb-name }} — в составе [сервиса {{ ydb-name }}](../../ydb/)                                | ![no](../../_assets/common/no.svg)   | ![yes](../../_assets/common/yes.svg) |
 | Бакет [{{ objstorage-full-name }}](../../storage/)                                                         | ![no](../../_assets/common/no.svg)   | ![yes](../../_assets/common/yes.svg) |
 
 {% endif %}

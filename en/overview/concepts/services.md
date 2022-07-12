@@ -22,7 +22,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 {% if product == "yandex-cloud" %} * [{{ dataproc-full-name }}](../../data-proc/) (Managed Apache Hadoop® clusters).{% endif %}
 {% if product == "yandex-cloud" %}* [{{ yds-full-name }}](../../data-streams/) (Managed data streams in real time).{% endif %}
 * [{{ data-transfer-full-name }}](../../data-transfer/) (A service for database migration).
-{% if product == "yandex-cloud" %}* [{{ ydb-full-name }}](../../managed-ydb/) (Database management service {{ ydb-full-name }}).{% endif %}
+{% if product == "yandex-cloud" %}* [{{ ydb-full-name }}](../../ydb/) (Database management service {{ ydb-full-name }}).{% endif %}
 {% if product == "yandex-cloud" %}* [{{ datalens-full-name }}](../../datalens/) (Data visualization and analytics).{% endif %}
 {% if product == "yandex-cloud" %}* [{{ ml-platform-full-name }}](../../datasphere/) (ML development).{% endif %}
 {% if product == "yandex-cloud" %}* [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) (Protection from DDoS attacks).{% endif %}
@@ -254,7 +254,7 @@ List of services whose resources support labels:
 {% if product == "yandex-cloud" %}* [{{ dataproc-full-name }}](../../data-proc/){% endif %}
 {% if product == "yandex-cloud" %}* [{{ sf-full-name }}](../../functions/){% endif %}
 {% if product == "yandex-cloud" %}* [{{ iot-full-name }}](../../iot-core/){% endif %}
-{% if product == "yandex-cloud" %}* [{{ ydb-full-name }}](../../managed-ydb/){% endif %}
+{% if product == "yandex-cloud" %}* [{{ ydb-full-name }}](../../ydb/){% endif %}
 
 {% if product == "yandex-cloud" %}
 

@@ -243,5 +243,5 @@ links:
     when: audience == "external"
   - title: Yandex Managed Service for YDB
     description: Fault-tolerant distributed NewSQL DBMS
-    href: managed-ydb/
+    href: ydb/
     when: product == "yandex-cloud" and audience == "external"

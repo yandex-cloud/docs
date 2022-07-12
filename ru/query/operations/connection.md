@@ -36,7 +36,7 @@
 ### Соединение с {{yds-full-name}}
 Для создания соединения с {{yds-full-name}} выполните следующие действия:
 1. Укажите cloud и folder, где находится источник данных. 
-1. Выберите базу данных [{{ydb-name}}](../../managed-ydb/concepts/index.md), где создан поток данных [{{yds-full-name}}](../../data-streams/concepts/index.md)
+1. Выберите базу данных [{{ydb-name}}](../../ydb/concepts/index.md), где создан поток данных [{{yds-full-name}}](../../data-streams/concepts/index.md)
 1. Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет выполняться доступ к данным.
 1. Нажмите кнопку **Create** для завершения создания подключения.
 

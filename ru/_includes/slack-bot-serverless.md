@@ -92,9 +92,9 @@ description: "В этом сценарии вы узнаете, как с пом
 
 Ответы на команды и сообщения в чате бот будет брать из {{ ydb-name }}. Для этого подготовьте таблицу:
 
-1. [Создайте]{% if audience == "external" %}(../managed-ydb/quickstart.md#serverless){% else %}(https://cloud.yandex.ru/docs/managed-ydb/quickstart#serverless){% endif %} базу данных с именем `for-slack-bot` в режиме Serverless.
+1. [Создайте]{% if audience == "external" %}(../ydb/quickstart.md#serverless){% else %}(https://cloud.yandex.ru/docs/ydb/quickstart#serverless){% endif %} базу данных с именем `for-slack-bot` в режиме Serverless.
 
-1. В базе `for-slack-bot` [создайте]{% if audience == "external" %}[](../managed-ydb/operations/schema.md#create-table){% else %}(https://cloud.yandex.ru/docs/managed-ydb/operations/schema#create-table){% endif %} YDB-таблицу с именем `coffee`:
+1. В базе `for-slack-bot` [создайте]{% if audience == "external" %}[](../ydb/operations/schema.md#create-table){% else %}(https://cloud.yandex.ru/docs/ydb/operations/schema#create-table){% endif %} YDB-таблицу с именем `coffee`:
    1. Перейдите на вкладку **Навигация**.
    1. В правом верхнем углу нажмите кнопку **SQL-запрос**. Откроется страница **Запрос**.
    1. В поле **Запрос** введите:
@@ -108,7 +108,7 @@ description: "В этом сценарии вы узнаете, как с пом
           ```
    1. Нажмите кнопку **Выполнить**.
 
-1. [Добавьте]{% if audience == "external" %}(../managed-ydb/operations/crud.md#web-sql){% else %}(https://cloud.yandex.ru/docs/managed-ydb/operations/crud#web-sql){% endif %} в таблицу запись. Например, укажите название сорта кофе и id = 1.
+1. [Добавьте]{% if audience == "external" %}(../ydb/operations/crud.md#web-sql){% else %}(https://cloud.yandex.ru/docs/ydb/operations/crud#web-sql){% endif %} в таблицу запись. Например, укажите название сорта кофе и id = 1.
 
 ## Создайте функции {#create-functions}
 

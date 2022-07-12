@@ -195,13 +195,13 @@ When working with the database, use [parameterized prepared statements](https://
 
 ### Network access {#ydb-network}
 
-When accessing the database in Dedicated mode, we recommend that you use it inside VPC, disabling public access to it from the internet. In Serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your PCI DSS infrastructure. {% if audience == "external" %} For more information about operating modes, see the YDB documentation, [Serverless and Dedicated modes](../../managed-ydb/concepts/serverless-and-dedicated.md). {% endif %}
+When accessing the database in Dedicated mode, we recommend that you use it inside VPC, disabling public access to it from the internet. In Serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your PCI DSS infrastructure. {% if audience == "external" %} For more information about operating modes, see the YDB documentation, [Serverless and Dedicated modes](../../ydb/concepts/serverless-and-dedicated.md). {% endif %}
 
 When setting up database permissions, use the principle of least privilege.
 
 ### Backups {#ydb-backup}
 
-When creating [on-demand backups](../../managed-ydb/pricing/serverless.md#rules-auto-backup-storage), make sure that the backup data is properly protected.
+When creating [on-demand backups](../../ydb/pricing/serverless.md#rules-auto-backup-storage), make sure that the backup data is properly protected.
 
 When creating backups on demand in {{ objstorage-short-name }}, follow the recommendations in the [{{ objstorage-short-name }}](#object-storage) subsection above (for example, use the built-in bucket encryption feature).
 {% endif %}

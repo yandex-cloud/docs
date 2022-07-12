@@ -1,7 +1,7 @@
-# Overview
+# Step-by-step instructions for {{ ydb-name }}
 
-{% note info %}
-
-This page has been moved to a [new address](../../managed-ydb/operations/index.md).
-
-{% endnote %}
+* [{#T}](manage-database.md).
+* [{#T}](yc-cli.md).
+* [{#T}](schema.md).
+* [{#T}](crud.md).
+* [{#T}](monitoring.md).

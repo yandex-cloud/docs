@@ -40,7 +40,7 @@
 
 1. [Создайте бакет](../storage/operations/buckets/create) в {{ objstorage-name }} с именем `frontend-statics`.
 1. [Создайте API-шлюз](../api-gateway/operations/api-gw-create) с именем `gate-1`. Для использования в конфигурации сохраните поля **Идентификатор** и **Служебный домен** из раздела **Общая информация**.
-1. [Создайте базу данных](../managed-ydb/quickstart.md#serverless) в режиме Serverless. Для использовании в конфигурации сохраните поля **База данных** и **Эндпойнт** из раздела **YDB эндпойнт**.
+1. [Создайте базу данных](../ydb/quickstart.md#serverless) в режиме Serverless. Для использовании в конфигурации сохраните поля **База данных** и **Эндпойнт** из раздела **YDB эндпойнт**.
 1. [Создайте приложение]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} в Яндекс.OAuth:
     1. Перейдите на [сайт сервиса]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} и авторизуйтесь.
     1. Нажмите кнопку **Зарегистрировать новое приложение**:

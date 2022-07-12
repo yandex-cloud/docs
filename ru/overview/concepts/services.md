@@ -23,7 +23,7 @@ _Сервис_ в составе {{ yandex-cloud }} позволяет упра�
 {% if product == "yandex-cloud" %}* [{{ yds-full-name }}](../../data-streams/) (Сервис для управления потоками данных
 в режиме реального времени).{% endif %}
 * [{{ data-transfer-full-name }}](../../data-transfer/) (Сервис для миграции баз данных).
-{% if product == "yandex-cloud" %}* [{{ ydb-full-name }}](../../managed-ydb/) (Сервис управления для базы данных {{ ydb-full-name }}).{% endif %}
+{% if product == "yandex-cloud" %}* [{{ ydb-full-name }}](../../ydb/) (Сервис управления для базы данных {{ ydb-full-name }}).{% endif %}
 {% if product == "yandex-cloud" %}* [{{ datalens-full-name }}](../../datalens/) (Сервис визуализации и анализа данных).{% endif %}
 {% if product == "yandex-cloud" %}* [{{ ml-platform-full-name }}](../../datasphere/) (Сервис для ML-разработки).{% endif %}
 {% if product == "yandex-cloud" %}* [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) (Сервис защиты от DDoS-атак).{% endif %}
@@ -255,7 +255,7 @@ _Метка_ — это пара ключ-значение в формате `<�
 {% if product == "yandex-cloud" %}* [{{ dataproc-full-name }}](../../data-proc/){% endif %}
 {% if product == "yandex-cloud" %}* [{{ sf-full-name }}](../../functions/){% endif %}
 {% if product == "yandex-cloud" %}* [{{ iot-full-name }}](../../iot-core/){% endif %}
-{% if product == "yandex-cloud" %}* [{{ ydb-full-name }}](../../managed-ydb/){% endif %}
+{% if product == "yandex-cloud" %}* [{{ ydb-full-name }}](../../ydb/){% endif %}
 
 {% if product == "yandex-cloud" %}
 

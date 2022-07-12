@@ -46,7 +46,7 @@
   * [{{ KF }}](../managed-kafka/quickstart.md).
   {% if product == "yandex-cloud" %}* [{{ GP }}](../managed-greenplum/quickstart.md).{% endif %}
   {% if audience != "internal" and product == "yandex-cloud" %}
-  * [{{ ydb-name }}](../managed-ydb/quickstart.md#create-db).
+  * [{{ ydb-name }}](../ydb/quickstart.md#create-db).
   {% endif %}
   * [Копируйте и реплицируйте данные из одной базы в другую с помощью {{ data-transfer-name }}](../data-transfer/quickstart.md).
 {% if product == "yandex-cloud" %}

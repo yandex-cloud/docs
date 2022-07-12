@@ -39,7 +39,7 @@ The name of the metric is written in the `name` label.
 
 {% include [managed-redis.md](../../_includes/monitoring/metrics-ref/managed-redis.md) %}
 
-{% include [managed-ydb.md](../../_includes/monitoring/metrics-ref/managed-ydb.md) %}
+{% include [managed-ydb.md](../../_includes/monitoring/metrics-ref/ydb.md) %}
 
 {% endif %}
 

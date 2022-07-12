@@ -7,7 +7,7 @@
   Use the `create_stream` method to create a stream. When calling this method, specify the following parameters:
   * The name of a stream to create, for example, `example-stream`.
   * [ID of the folder](../../../resource-manager/operations/folder/get-id.md) in which the stream is created, for example, `aoeu1kuj2dhtaupdb5es`.
-  * ID of an existing [serverless]{% if audience == "external" %}(../../../managed-ydb/pricing/serverless.md){% else %}(https://cloud.yandex.com/en/docs/managed-ydb/pricing/serverless){% endif %} {{ ydb-full-name }} database, for example, `cc8028jgtuabcqutgtbv`. For information about how to create a database, see [{{ ydb-short-name }} documentation]{% if audience == "external" %}(../../../managed-ydb/quickstart.md#create-db){% else %}(https://cloud.yandex.com/en/docs/managed-ydb/quickstart#create-db){% endif %}.
+  * ID of an existing [serverless]{% if audience == "external" %}(../../../ydb/pricing/serverless.md){% else %}(https://cloud.yandex.com/en/docs/ydb/pricing/serverless){% endif %} {{ ydb-full-name }} database, for example, `cc8028jgtuabcqutgtbv`. For information about how to create a database, see [{{ ydb-short-name }} documentation]{% if audience == "external" %}(../../../ydb/quickstart.md#create-db){% else %}(https://cloud.yandex.com/en/docs/ydb/quickstart#create-db){% endif %}.
   * The number of shards, for example, `1`.
 
   To create a stream with the parameters specified above:

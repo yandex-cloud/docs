@@ -14,7 +14,7 @@
    - [{{ vpc-full-name }}](../vpc/qa/)
 
 - Платформа данных:
-   {% if product == "yandex-cloud" %}- [{{ ydb-full-name }}](../managed-ydb/faq.md){% endif %}
+   {% if product == "yandex-cloud" %}- [{{ ydb-full-name }}](../ydb/faq.md){% endif %}
    {% if product == "yandex-cloud" %}- [{{ datalens-full-name }}](../datalens/qa/){% endif %}
    {% if product == "yandex-cloud" %}- [{{ dataproc-full-name }}](../data-proc/qa/){% endif %}
    - [{{ mkf-full-name }}](../managed-kafka/qa/)
@@ -35,7 +35,7 @@
 {% if product == "yandex-cloud" %}
 - Бессерверные вычисления:
    - [{{ sf-full-name }}](../functions/qa/)
-   - [{{ ydb-full-name }}](../managed-ydb/faq.md)
+   - [{{ ydb-full-name }}](../ydb/faq.md)
    - [{{ objstorage-full-name }}](../storage/qa/)
 {% endif %}
 

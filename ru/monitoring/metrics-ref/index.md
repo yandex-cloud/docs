@@ -42,7 +42,7 @@ editable: false
 
 {% if product == "yandex-cloud" %}
 
-{% include [managed-ydb.md](../../_includes/monitoring/metrics-ref/managed-ydb.md) %}
+{% include [ydb.md](../../_includes/monitoring/metrics-ref/ydb.md) %}
 
 {% endif %}
 

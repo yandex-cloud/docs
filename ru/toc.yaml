@@ -170,5 +170,5 @@ items:
     href: wiki/index.yaml
     when: product == "yandex-cloud"
   - name: Managed Service for YDB
-    href: managed-ydb/index.yaml
+    href: ydb/index.yaml
     when: audience == "external" and product == "yandex-cloud"

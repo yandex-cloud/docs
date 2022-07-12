@@ -49,7 +49,7 @@
   {% if product == "yandex-cloud" %}* [{{ ES }}](../managed-elasticsearch/quickstart.md).{% endif %}
   * [{{ KF }}](../managed-kafka/quickstart.md).
   {% if product == "yandex-cloud" %}* [{{ GP }}](../managed-greenplum/quickstart.md).{% endif %}
-  {% if audience != "internal" and product == "yandex-cloud" %}* [{{ ydb-name }}](../managed-ydb/quickstart.md#create-db). {% endif %}
+  {% if audience != "internal" and product == "yandex-cloud" %}* [{{ ydb-name }}](../ydb/quickstart.md#create-db). {% endif %}
   * [Copy and replicate the data between databases using {{ data-transfer-name }}](../data-transfer/quickstart.md).
 {% if product == "yandex-cloud" %}
 * Machine learning:

@@ -29,7 +29,7 @@ As the data source or target you can use:
 | {{ PG }} database: your own or as part of the [{{ mpg-short-name }} service](../../managed-postgresql/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | {{ KF }} topic: your own topic or a topic in [{{ mkf-short-name }}](../../managed-kafka/). | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | Data stream [{{ yds-full-name }}](../../data-streams/) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
-| {{ ydb-name }} database: A database in [{{ ydb-name }}](../../managed-ydb/). | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
+| {{ ydb-name }} database: A database in [{{ ydb-name }}](../../ydb/). | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
 | Bucket [{{ objstorage-full-name }}](../../storage/) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
 
 {% endif %}
