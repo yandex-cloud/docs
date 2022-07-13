@@ -129,9 +129,11 @@ resource "yandex_compute_instance" "vm-1" {
 
    {% include [terraform-prepare-plan-linux](../../_tutorials/terraform-prepare-plan-linux.md) %}
 
+{% if product == "yandex-cloud" %}
 - Creating a Windows VM
 
    {% include [terraform-prepare-plan-windows](../../_tutorials/terraform-prepare-plan-windows.md) %}
+{% endif %}
 
 {% endlist %}
 
@@ -143,9 +145,11 @@ resource "yandex_compute_instance" "vm-1" {
 
    {% include [terraform-vm-user-linux](../../_tutorials/terraform-vm-user-linux.md) %}
 
+{% if product == "yandex-cloud" %}
 - Windows
 
    {% include [terraform-vm-user-windows](../../_tutorials/terraform-vm-user-windows.md) %}
+{% endif %}
 
 {% endlist %}
 

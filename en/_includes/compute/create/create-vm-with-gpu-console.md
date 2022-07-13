@@ -50,22 +50,26 @@ To create a VM:
    * (optional) Select or create a [service account](../../../iam/concepts/index.md#sa). By using a service account, you can flexibly configure access rights for your resources.
 
       For VMs with a Linux-based operating system:
-   * Enter the username in the **Login** field.
+      * Enter the username in the **Login** field.
+   
+      {% note alert %}
+   
+      Don't use the username `root` or other names reserved by the operating system. To perform operations that require superuser permissions, use the command `sudo`.
+   
+      {% endnote %}
+   
+      * In the **SSH key** field, paste the contents of the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
 
-   {% note alert %}
-
-   Don't use the username `root` or other names reserved by the operating system. To perform operations that require superuser permissions, use the command `sudo`.
-
-   {% endnote %}
-
-   * In the **SSH key** field, paste the contents of the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
-
+      {% if product == "yandex-cloud" %}
+     
       For VMs with a Windows-based operating system:
-   * When you create a VM, the `Administrator` user is automatically created in the operating system. In the **Password** field, set a password for this user to log in to the VM via RDP.
+      * When you create a VM, the `Administrator` user is automatically created in the operating system. In the **Password** field, set a password for this user to log in to the VM via RDP.
+   
+         {% include [password-requirements](../password-requirements.md) %}
+   
+      * (optional) If necessary, enable access to the [serial console](../../../compute/operations/index.md#serial-console).
 
-      {% include [password-requirements](../password-requirements.md) %}
-
-   * (optional) If necessary, enable access to the [serial console](../../../compute/operations/index.md#serial-console).
+      {% endif %}
 
 1. Click **Create VM**.
 

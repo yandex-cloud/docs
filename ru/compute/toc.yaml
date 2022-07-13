@@ -13,6 +13,7 @@ items:
         href: quickstart/quick-create-linux.md
       - name: Создание виртуальной машины Windows
         href: quickstart/quick-create-windows.md
+        when: product == "yandex-cloud"
       - name: Создание группы виртуальных машин
         href: quickstart/ig.md
   - name: Пошаговые инструкции
@@ -25,6 +26,7 @@ items:
             href: operations/vm-create/create-linux-vm.md
           - name: Создать ВМ Windows
             href: operations/vm-create/create-windows-vm.md
+            when: product == "yandex-cloud"
           - name: Создать ВМ из набора дисков
             href: operations/vm-create/create-from-disks.md
           - name: Создать ВМ с дисками из снимков
@@ -101,15 +103,18 @@ items:
             href: operations/vm-connect/ssh.md
           - name: Подключиться к ВМ по RDP
             href: operations/vm-connect/rdp.md
+            when: product == "yandex-cloud"
           - name: Подключиться к ВМ через PowerShell
             href: operations/vm-connect/powershell.md
-          - name: Работа с Yandex Cloud изнутри ВМ
+            when: product == "yandex-cloud"
+          - name: Работа с {{ yandex-cloud }} изнутри ВМ
             href: operations/vm-connect/auth-inside-vm.md
           - name: Установить NVIDIA-драйверы
             href: operations/vm-operate/install-nvidia-drivers.md
           - name: Восстановить доступ к ВМ
             href: operations/vm-connect/recovery-access.md
       - name: Управление агентом для сброса паролей
+        when: product == "yandex-cloud"
         items:
           - name: Проверить работу агента
             href: operations/vm-guest-agent/check.md
@@ -185,6 +190,7 @@ items:
             href: operations/serial-console/connect-cli.md
           - name: Запустить командную оболочку в Windows SAC
             href: operations/serial-console/windows-sac.md
+            when: product == "yandex-cloud"
           - name: Отключить доступ к серийной консоли
             href: operations/serial-console/disable.md
       - name: Создание группы виртуальных машин
@@ -260,6 +266,7 @@ items:
         when: product == "yandex-cloud"
       - name: Развертывание Remote Desktop Gateway
         href: tutorials/rds-gw
+        when: product == "yandex-cloud"
       - name: Передача логов с ВМ в Yandex Cloud Logging
         href: tutorials/vm-fluent-bit-logging.md
         when: product == "yandex-cloud"
@@ -293,6 +300,7 @@ items:
             href: concepts/vm-metadata.md
           - name: Сброс паролей на ВМ Windows
             href: concepts/guest-agent.md
+            when: product == "yandex-cloud"
       - name: Графические ускорители
         href: concepts/gpus.md
       - name: Диски и файловые хранилища
@@ -420,5 +428,6 @@ items:
         href: qa/monitoring.md  
       - name: Лицензирование
         href: qa/licensing.md
+        when: product == "yandex-cloud"
       - name: Все вопросы на одной странице
         href: qa/all.md

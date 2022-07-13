@@ -246,6 +246,7 @@
      └─vdb1 252:17   0  64G  0 part /data
      ```
 
+{% if product == "yandex-cloud" %}
 - Windows
 
   1. Подключитесь к ВМ Windows [с помощью RDP](../../quickstart/quick-create-windows.md#connect-rdp).
@@ -257,5 +258,6 @@
   1. Введите новый объем раздела и подтвердите действие.
 
   1. Убедитесь, что раздел увеличился.
+{% endif %}
 
 {% endlist %}

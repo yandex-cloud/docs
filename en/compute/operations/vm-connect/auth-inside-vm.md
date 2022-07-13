@@ -79,7 +79,7 @@ To authenticate from inside a VM on behalf of the linked service account:
 
 - CLI
 
-   1. Connect to the VM via [SSH](../vm-connect/ssh.md) or [RDP](../vm-connect/rdp.md).
+   1. Connect to the VM via [SSH](../vm-connect/ssh.md){% if product == "yandex-cloud" %} or [RDP](../vm-connect/rdp.md){% endif %}.
    1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
    1. Create a new profile:
@@ -100,7 +100,7 @@ To authenticate from inside a VM on behalf of the linked service account:
       [Lifetime of an IAM token](../../../iam/concepts/authorization/iam-token.md#lifetime) in this case will be less than {{ iam-token-lifetime }}. Request an IAM token more often, like once per hour or with every operation. To find out the remaining lifetime of the token, use the API instructions.
 - API
 
-   1. Connect to the VM via [SSH](../vm-connect/ssh.md) or [RDP](../vm-connect/rdp.md).
+   1. Connect to the VM via [SSH](../vm-connect/ssh.md){% if product == "yandex-cloud" %} or [RDP](../vm-connect/rdp.md){% endif %}.
    1. Get an IAM token from metadata in Google Compute Engine format:
 
       ```bash

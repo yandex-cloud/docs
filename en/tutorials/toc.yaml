@@ -104,6 +104,7 @@ items:
       - name: >-
           Creating a cluster of 1C:Enterprise Windows servers with {{ MS }}
         href: infrastructure-management/1c-mssql-windows.md
+        when: product == "yandex-cloud"
       - name: Migrating to {{ yandex-cloud }} using Hystax Acura
         href: infrastructure-management/hystax-migration.md
       - name: Emergency recovery in {{ yandex-cloud }} using Hystax Acura
@@ -140,6 +141,7 @@ items:
           Configuring Kafka Connect for {{ mkf-full-name }} clusters
         href: dataplatform/kafka-connect.md
   - name: Windows in {{ yandex-cloud }}
+    when: product == "yandex-cloud"
     items:
       - name: All tutorials
         href: windows/index.md

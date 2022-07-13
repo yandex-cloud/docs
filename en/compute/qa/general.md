@@ -44,7 +44,7 @@ You can get the IP addresses, FQDNs, and other information in the management con
 
 For more information, see [{#T}](../concepts/network.md).
 
-[Use SSH](../operations/vm-connect/ssh.md) to connect to a Linux VM. Use RDP to connect to a Windows VM.
+[Use SSH](../operations/vm-connect/ssh.md) to connect to a Linux VM. {% if product == "yandex-cloud" %}Use RDP to connect to a Windows VM.{% endif %}
 
 #### How quickly can I change the performance of my information systems? {#scalability}
 
@@ -78,7 +78,7 @@ General recommendations for improving VM performance:
 
 #### What operating systems are supported by {{ yandex-cloud }} VMs? {#os}
 
-Linux and Windows-based operating systems are supported.
+Linux{% if product == "yandex-cloud" %} and Windows{% endif %}-based operating systems are supported.
 
 Public boot disk images that have been tested in {{ yandex-cloud }} are available for popular distributions of these systems.
 

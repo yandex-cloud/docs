@@ -43,7 +43,7 @@ description:
         groups</a>.
       - >-
         You can attach disks with Linux
-        and Windows images from <a
+        images from <a
         href="/marketplace">Marketplace</a>. Each disk
         is automatically replicated in its availability zone, ensuring
         reliable data storage. Additionally, to make it easier to migrate data from one disk

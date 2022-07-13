@@ -9,7 +9,7 @@
   * Go: `1.13.8`.
   * Ruby: `2.7.0p0`.
   * unixODBC: `2.3.6`.
-* Виртуальная машина в {{ yandex-cloud }} c Windows Server 2019 Datacenter:
+* {% if product == "yandex-cloud" %}Виртуальная машина в {{ yandex-cloud }}{% endif %}{% if product == "cloud-il" %}Машина{% endif %} c Windows Server 2019 Datacenter:
   * PostgreSQL: `13`.
   * PowerShell: ` 5.1.17763.1490 Desktop`.  
   * .NET 5

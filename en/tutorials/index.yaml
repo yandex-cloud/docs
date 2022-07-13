@@ -39,10 +39,6 @@ links:
     description: Use Windows services in Yandex Cloud
     href: windows/
     when: product == "yandex-cloud"
-  - title: Use Windows services in CloudIL
-    description: Use Windows services in CloudIL
-    href: windows/
-    when: product == "cloud-il"
   - title: Data visualization and analytics
     description: Collect, visualize, and analyze data from various sources
     href: datalens/

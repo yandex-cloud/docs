@@ -80,7 +80,7 @@ This section provides guidelines for changing the number and performance of vCPU
 
 {% note warning %}
 
-When you edit VM resources, the PCI topology might change. Keep this in mind when working with operating systems that are sensitive to such changes. For example, if you make substantial changes in network settings in Windows Server, you may lose network connectivity and access to the VM.
+When you edit VM resources, the PCI topology might change. Keep this in mind when working with operating systems that are sensitive to such changes. {% if product == "yandex-cloud" %}For example, if you make substantial changes in network settings in Windows Server, you may lose network connectivity and access to the VM.{% endif %}
 
 {% endnote %}
 

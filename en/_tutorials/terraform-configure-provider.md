@@ -77,10 +77,10 @@ The settings apply to Terraform `0.13` and higher.
 
    provider "yandex" {
      endpoint  = "{{ api-host }}:443"
-     token     = "<статический ключ сервисного аккаунта>"
-     cloud_id  = "<идентификатор облака>"
-     folder_id = "<идентификатор каталога>"
-     zone      = "<зона доступности по умолчанию>"
+     token     = "<static key of the service account>"
+     cloud_id  = "<cloud ID>"
+     folder_id = "<folder ID>"
+     zone      = "<default availability zone>"
    }
    ```
 

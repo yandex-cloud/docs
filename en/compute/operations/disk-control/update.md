@@ -231,6 +231,7 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
       └─vdb1 252:17   0  64G  0 part
       ```
 
+{% if product == "yandex-cloud" %}
 - Windows
 
    1. Connect to the Windows VM [using RDP](../../quickstart/quick-create-windows.md#connect-rdp).
@@ -242,5 +243,6 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
    1. Enter a new partition volume and confirm the action.
 
    1. Make sure that the partition increased.
+{% endif %}
 
 {% endlist %}

@@ -25,11 +25,15 @@
       1. In the **DNS servers** field, click **Add DNS server** and enter the address of your DNS server. You can specify multiple DNS servers.
       1. In the **NTP servers** field, click **Add NTP server** and specify the address of your NTP server. You can specify multiple NTP servers.
 
+        {% if product == "yandex-cloud" %}
+     
         {% note info %}
 
         NTP settings do not apply to Windows VMs. For more information, see [NTP settings in Windows](../concepts/dhcp-options.md#ntp-windows).
 
         {% endnote %}
+ 
+        {% endif %}
 
   1. Click **Create subnet**.
 

@@ -44,8 +44,10 @@ This happens because occupied sectors remain on the disk after deleting the file
 
 The solution is to write a file consisting of zeros to the entire unoccupied disk space, then flush the cache to the disk and delete the record about this file.
 
-1. For Windows: stop disk operations and use the `SDelete` utility. You can find out how it works and download it in the [Microsoft documentation]({{ ms.docs }}/sysinternals/downloads/sdelete).
-1. For Linux: stop disk operations and enter the following commands one by one:
+{% if product == "yandex-cloud" %}
+* For Windows: stop disk operations and use the `SDelete` utility. You can find out how it works and download it in the [Microsoft documentation]({{ ms.docs }}/sysinternals/downloads/sdelete).
+{% endif %}
+* For Linux: stop disk operations and enter the following commands one by one:
 
    ```bash
    dd if=/dev/zero | pv > full.disk

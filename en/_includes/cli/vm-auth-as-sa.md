@@ -6,7 +6,7 @@ The authentication process from inside a VM is simplified for a service account:
 {% endif %}
 1. Authenticate from inside a VM:
    {% if audience != "internal" %}
-   1. Connect to the virtual machine [over SSH](../../compute/operations/vm-connect/ssh.md) or [via RDP](../../compute/operations/vm-connect/rdp.md).
+   1. Connect to the virtual machine [over SSH](../../compute/operations/vm-connect/ssh.md){% if product == "yandex-cloud" %} or [via RDP](../../compute/operations/vm-connect/rdp.md){% endif %}.
    {% else %}
    1. Connect to the virtual machine over SSH or via RDP.
    {% endif %}

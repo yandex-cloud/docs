@@ -131,7 +131,7 @@ The agents are installed on virtual machines to be migrated to {{ yandex-cloud }
 1. Select the source cloud platform for migration. Click **Next**.
 1. Choose one out of three types of agents depending on the OS:
    * VMware.
-   * Windows.
+   {% if product == "yandex-cloud" %}* Windows.{% endif %}
    * Linux.
 
    Click **Next**.
@@ -152,10 +152,12 @@ The agents are installed on virtual machines to be migrated to {{ yandex-cloud }
      1. Unpack the downloaded OVA agent file to the VMs in your cluster.
      1. Start the VMs with the agent.
 
+   {% if product == "yandex-cloud" %}
    - Windows
      1. Click **Next**.
      1. Click **Download Agent** and wait for the agent to download.
      1. Unpack the archive and install the agent from the file `hwragent.msi` on the VMs you would like to migrate.
+   {% endif %}
 
    - Linux
 

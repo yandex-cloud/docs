@@ -13,6 +13,7 @@ items:
         href: quickstart/quick-create-linux.md
       - name: Creating a Windows VM
         href: quickstart/quick-create-windows.md
+        when: product == "yandex-cloud"
       - name: Creating instance groups
         href: quickstart/ig.md
   - name: Step-by-step instructions
@@ -25,6 +26,7 @@ items:
             href: operations/vm-create/create-linux-vm.md
           - name: Creating a Windows VM
             href: operations/vm-create/create-windows-vm.md
+            when: product == "yandex-cloud"
           - name: Creating a VM from a set of disks
             href: operations/vm-create/create-from-disks.md
           - name: Creating a VM with disks from snapshots
@@ -99,9 +101,11 @@ items:
             href: operations/vm-connect/ssh.md
           - name: Connecting to a VM via RDP
             href: operations/vm-connect/rdp.md
+            when: product == "yandex-cloud"
           - name: Connecting to a VM via PowerShell
             href: operations/vm-connect/powershell.md
-          - name: Working with Yandex Cloud from inside a VM
+            when: product == "yandex-cloud"
+          - name: Working with {{ yandex-cloud }} from inside a VM
             href: operations/vm-connect/auth-inside-vm.md
           - name: Installing NVIDIA drivers
             href: operations/vm-operate/install-nvidia-drivers.md
@@ -175,6 +179,7 @@ items:
             href: operations/serial-console/connect-cli.md
           - name: Starting your terminal in the Windows serial console (SAC)
             href: operations/serial-console/windows-sac.md
+            when: product == "yandex-cloud"
           - name: Disabling access to the serial console
             href: operations/serial-console/disable.md
       - name: Creating instance groups
@@ -248,6 +253,7 @@ items:
         when: product == "yandex-cloud"
       - name: Deploying Remote Desktop Gateway
         href: tutorials/rds-gw.md
+        when: product == "yandex-cloud"
       - name: Transferring logs from a VM instance to Yandex Cloud Logging
         href: tutorials/vm-fluent-bit-logging.md
         when: product == "yandex-cloud"
@@ -404,5 +410,6 @@ items:
         href: qa/monitoring.md
       - name: Licensing
         href: qa/licensing.md
+        when: product == "yandex-cloud"
       - name: All questions on the same page
         href: qa/all.md

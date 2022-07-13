@@ -175,6 +175,7 @@ items:
       - name: Миграция базы данных из стороннего кластера {{ MY }} в кластер {{ mmy-full-name }}
         href: dataplatform/mysql-data-migration.md
   - name: Windows в {{ yandex-cloud }}
+    when: product == "yandex-cloud"
     items:
       - name: Все руководства
         href: windows/index.md

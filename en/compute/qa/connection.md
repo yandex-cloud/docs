@@ -1,5 +1,7 @@
 # Connection
 
+{% if product == "yandex-cloud" %}
+
 #### How do I connect to a VM running Windows Server {#conn-vm-windows-server}
 
 See: [{#T}](../operations/vm-connect/rdp.md).
@@ -7,6 +9,9 @@ See: [{#T}](../operations/vm-connect/rdp.md).
 For the first connection, use the `Administrator` account. It's a good idea to choose a strong password for this account and create another account for everyday work and connect via the latter in the future.
 
 For images without [additional Remote Desktop Services licenses](../pricing.md#prices-os), a maximum of two simultaneous RDP connections are possible.
+
+{% endif %}
+
 
 #### How do I connect to a Linux VM {#conn-vm-linux}
 
@@ -42,7 +47,7 @@ sudo poweroff
 
 #### What do I do if I can't connect to the VM, even though the connection was working before {#new-fail-connection}
 
-Your data was likely taken over and third parties gained access to the VM. Take a snapshot of the VM's disk (see [{#T}](../operations/disk-control/create-snapshot.md)) and create a new VM from it (see [{#T}](../operations/vm-create/create-from-snapshots.md)). If you were able to connect to the new VM, use stronger passwords (for Windows Server) and don't share your private data.
+Your data was likely taken over and third parties gained access to the VM. Take a snapshot of the VM's disk (see [{#T}](../operations/disk-control/create-snapshot.md)) and create a new VM from it (see [{#T}](../operations/vm-create/create-from-snapshots.md)). If you were able to connect to the new VM, use stronger passwords and don't share your private data.
 
 If the VM created from the snapshot is also unavailable for connection, see [How do I get important data from a broken VM](#get-data-from-fail-vm).
 

@@ -31,6 +31,7 @@ ignore:
   - "en/managed-ydb/*"
   - "en/marketplace/*"
   - "en/mdb/*"
+  - "en/microsoft/*"
   - "en/partner/*"
   - "en/serverless-containers/*"
   - "en/smartcaptcha/*"

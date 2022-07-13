@@ -49,7 +49,7 @@ To create an instance group with an L7 load balancer:
       * Under **Access**, specify the data required to access the VM:
          * Specify a **Service account** to be linked to the instance.
          * If you selected a Linux image, fill out **Login** and **SSH key**. As the key, use the [public key](../vm-connect/ssh.md#creating-ssh-keys) file contents.
-         * If you selected a Windows image, enter the **Password** for your `Administrator` user.
+         {% if product == "yandex-cloud" %}* If you selected a Windows image, enter the **Password** for your `Administrator` user.{% endif %}
          * If needed, **Grant access to the serial console**.
       * Click **Save**.
    1. Under **Allow when creating and updating**:

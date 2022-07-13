@@ -6,7 +6,11 @@
 
 {% endif %}
 
+{% if product == "yandex-cloud" %}
+
 This section provides guidelines for creating a VM with a Linux OS. To create a Windows-based VM, follow the instructions [{#T}](create-windows-vm.md).
+
+{% endif %}
 
 {% list tabs %}
 

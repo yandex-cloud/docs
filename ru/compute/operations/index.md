@@ -8,7 +8,9 @@ description: "Пошаговые инструкции по работе и уп�
 ## Создание виртуальной машины {#vm-create}
 
 * [{#T}](vm-create/create-linux-vm.md)
+{% if product == "yandex-cloud" %}
 * [{#T}](vm-create/create-windows-vm.md)
+{% endif %}
 * [{#T}](vm-create/create-from-disks.md)
 * [{#T}](vm-create/create-from-snapshots.md)
 * [{#T}](vm-create/create-from-user-image.md)
@@ -58,17 +60,25 @@ description: "Пошаговые инструкции по работе и уп�
 ## Работа на виртуальной машине {#vm-use}
 
 * [{#T}](vm-connect/ssh.md)
+{% if product == "yandex-cloud" %}
 * [{#T}](vm-connect/rdp.md)
 * [{#T}](vm-connect/powershell.md)
+{% endif %}
 * [{#T}](vm-connect/auth-inside-vm.md)
 * [{#T}](vm-operate/install-nvidia-drivers.md)
 * [{#T}](vm-connect/recovery-access.md)
+
+
+{% if product == "yandex-cloud" %}
 
 ## Управление агентом для сброса паролей {#guest-agent}
 
 * [{#T}](vm-guest-agent/check.md)
 * [{#T}](vm-guest-agent/install.md)
 * [{#T}](vm-guest-agent/uninstall.md)
+
+{% endif %}
+
 
 ## Создание диска {#disk-create}
 
@@ -125,7 +135,9 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](serial-console/index.md)
 * [{#T}](serial-console/connect-ssh.md)
 * [{#T}](serial-console/connect-cli.md)
+{% if product == "yandex-cloud" %}
 * [{#T}](serial-console/windows-sac.md)
+{% endif %}
 * [{#T}](serial-console/disable.md)
 
 ## Создание группы виртуальных машин {#ig-create}
