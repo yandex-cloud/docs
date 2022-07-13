@@ -59,8 +59,6 @@ Roles are assigned to subjects{% if product == "yandex-cloud" %}. There are four
 
 * `federatedUser`: A user account {% if product == "cloud-il" %}by Google or{% endif %} from an [identity federation](../../../organization/add-federation.md), like Active Directory.
 
-    {% include [include](../../../_includes/saml-assign-role-note.md) %}
-
 * `system`: A [system group](system-group.md).
 
 ### Assign access rights {#access-bindings}

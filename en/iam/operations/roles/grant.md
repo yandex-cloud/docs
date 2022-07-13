@@ -12,9 +12,7 @@ This section describes how to assign a role to a user with a Yandex. The followi
 
 ### Access to a federated user {#access-to-federated-user}
 
-{% include [saml-assign-role-note](../../../_includes/saml-assign-role-note.md) %}
-
-You can assign a role to a [federated user](../../../organization/add-federation.md) for the entire cloud or a specific folder.
+In the management console, you can assign a [federated user](../../../organization/add-federation.md) a role for an individual cloud or folder.
 
 {% endif %}
 {% list tabs %}
@@ -310,8 +308,6 @@ You can assign a role to a [federated user](../../../organization/add-federation
 {% if product == "yandex-cloud" %}
 
 ### Resource access for a federated user {#access-to-federated-user}
-
-{% include [saml-assign-role-note](../../../_includes/saml-assign-role-note.md) %}
 
 In the management console, you can assign a [federated user](../../../organization/add-federation.md) a role for an individual cloud or folder.
 
