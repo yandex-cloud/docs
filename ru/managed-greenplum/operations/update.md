@@ -36,13 +36,19 @@
 
 - Консоль управления
 
-  1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgp-name }}**.
-  1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
-  1. Измените дополнительные настройки кластера:
+    1. Перейдите на страницу каталога и выберите сервис **{{ mgp-name }}**.
+    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+    1. Измените дополнительные настройки кластера:
 
-     {% include [Дополнительные настройки кластера](../../_includes/mdb/mgp/extra-settings.md) %}
+        * {% include [Backup time](../../_includes/mdb/console/backup-time.md) %}
+        * {% include [Maintenance window](../../_includes/mdb/console/maintenance-window.md) %}
+        * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
+        * {% include [DataTransfer access](../../_includes/mdb/console/datatransfer-access.md) %}
+        * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
-  1. Нажмите кнопку **Сохранить**.
+        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+    1. Нажмите кнопку **Сохранить**.
 
 - API
 

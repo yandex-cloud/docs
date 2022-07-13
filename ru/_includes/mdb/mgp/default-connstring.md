@@ -4,5 +4,5 @@ psql "host=c-<идентификатор кластера>.rw.{{ dns-zone }} \
       sslmode=verify-full \
       dbname=postgres \
       user=<имя пользователя> \
-      target_session_attrs=read-write""
+      target_session_attrs=read-write"
 ```

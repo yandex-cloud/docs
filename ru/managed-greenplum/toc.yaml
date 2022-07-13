@@ -75,14 +75,6 @@ items:
   - name: История изменений
     href: release-notes.md
   - name: Вопросы и ответы
-    when: audience == "draft"
     items:
       - name: Общие вопросы
         href: qa/general.md
-        when: audience == "draft"
-      - name: Вопросы о Greenplum Database®
-        href: qa/greenplum.md
-        when: audience == "draft"
-      - name: Все вопросы на одной странице
-        href: qa/all.md
-        when: audience == "draft"
