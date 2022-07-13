@@ -346,6 +346,12 @@ func Greet(ctx context.Context, event *APIGatewayRequest) (*APIGatewayResponse, 
 }
  ```
 
+{% note warning %}
+
+You need to access the function via the API gateway.
+
+{% endnote %}
+
 Example of input data (the POST method):
 
 ```json
