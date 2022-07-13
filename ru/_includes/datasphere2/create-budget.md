@@ -1,4 +1,4 @@
-Чтобы настроить [бюджет](../../datasphere2/concepts/budget.md) проекта:
+Чтобы настроить [бюджет](../../datasphere-ui-preview/concepts/budget.md) проекта:
 
 1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}.
 1. На вкладке **Бюджеты** нажмите кнопку ![image](../../_assets/plus-sign.svg) **Создать**.

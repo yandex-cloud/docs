@@ -1,4 +1,4 @@
-Чтобы создать [проект](../../datasphere2/concepts/project.md) в {{ ml-platform-name }}:
+Чтобы создать [проект](../../datasphere-ui-preview/concepts/project.md) в {{ ml-platform-name }}:
 
 1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}.
 1. На вкладке **Недавние проекты** нажмите кнопку **Создать проект**.
@@ -8,6 +8,6 @@
         {% include [name-format](../name-format.md) %}
 
     * Введите описание проекта (опционально).
-    * Выберите [сообщество](../../datasphere2/concepts/community.md) для проекта.
+    * Выберите [сообщество](../../datasphere-ui-preview/concepts/community.md) для проекта.
     * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться проект.
 1. Нажмите кнопку **Создать**.
