@@ -274,3 +274,100 @@ Response returned:
 Hello, Anonymous
 ```
 
+### Parsing an HTTP request from API Gateway
+
+The function is invoked by API Gateway service, logs the request method and body, and returns a greeting.
+
+The function decode request body via `json.Unmarshal()`.
+
+ ```golang
+ package main
+
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+)
+
+// The request structure
+type APIGatewayRequest struct {
+	OperationID string `json:"operationId"`
+	Resource    string `json:"resource"`
+
+	HTTPMethod string `json:"httpMethod"`
+
+	Path           string            `json:"path"`
+	PathParameters map[string]string `json:"pathParameters"`
+
+	Headers           map[string]string   `json:"headers"`
+	MultiValueHeaders map[string][]string `json:"multiValueHeaders"`
+
+	QueryStringParameters           map[string]string   `json:"queryStringParameters"`
+	MultiValueQueryStringParameters map[string][]string `json:"multiValueQueryStringParameters"`
+
+	Parameters           map[string]string   `json:"parameters"`
+	MultiValueParameters map[string][]string `json:"multiValueParameters"`
+
+	Body            []byte `json:"body"`
+	IsBase64Encoded bool   `json:"isBase64Encoded,omitempty"`
+
+	RequestContext interface{} `json:"requestContext"`
+}
+
+// The response structure
+type APIGatewayResponse struct {
+	StatusCode        int                 `json:"statusCode"`
+	Headers           map[string]string   `json:"headers"`
+	MultiValueHeaders map[string][]string `json:"multiValueHeaders"`
+	Body              string              `json:"body"`
+	IsBase64Encoded   bool                `json:"isBase64Encoded,omitempty"`
+}
+
+type Request struct {
+	Name string `json:"name"`
+}
+
+func Greet(ctx context.Context, event *APIGatewayRequest) (*APIGatewayResponse, error) {
+	req := &Request{}
+
+	// The event.Body field is converted to a Request object to get the passed name
+	if err := json.Unmarshal(event.Body, &req); err != nil {
+		return nil, fmt.Errorf("an error has occurred when parsing body: %v", err)
+	}
+
+	// The log will show the name of the HTTP method used to make the request and the request body
+	fmt.Println(event.HTTPMethod, event.Path)
+
+	// The API Gateway response
+	return &APIGatewayResponse{
+		StatusCode: 200,
+		Body:       fmt.Sprintf("Hello, %s", req.Name),
+	}, nil
+}
+ ```
+
+{% note warning %}
+
+You need to access the function via the API gateway.
+
+{% endnote %}
+
+Example of input data (the POST method):
+
+```json
+{
+  "name": "Anonymous"
+}
+```
+
+The log will contain the following:
+
+```
+POST { "name": "Anonymous" }
+```
+
+Response returned:
+
+```
+Hello, Anonymous
+```

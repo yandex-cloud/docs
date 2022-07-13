@@ -266,3 +266,102 @@ POST { "name": "Anonymous" }
 ```
 Hello, Anonymous
 ```
+
+
+### Разбор HTTP-запроса за API Gateway
+
+Функция вызывается сервисом API Gateway с сервисным аккаунтом, записывает в журнал метод и тело запроса и возвращает приветствие.
+
+Функция декодирует тело входящего запроса при помощи `json.Unmarshal()`.
+
+```golang
+package main
+
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+)
+
+// Структура запроса API Gateway v1
+type APIGatewayRequest struct {
+	OperationID string `json:"operationId"`
+	Resource    string `json:"resource"`
+
+	HTTPMethod string `json:"httpMethod"`
+
+	Path           string            `json:"path"`
+	PathParameters map[string]string `json:"pathParameters"`
+
+	Headers           map[string]string   `json:"headers"`
+	MultiValueHeaders map[string][]string `json:"multiValueHeaders"`
+
+	QueryStringParameters           map[string]string   `json:"queryStringParameters"`
+	MultiValueQueryStringParameters map[string][]string `json:"multiValueQueryStringParameters"`
+
+	Parameters           map[string]string   `json:"parameters"`
+	MultiValueParameters map[string][]string `json:"multiValueParameters"`
+
+	Body            []byte `json:"body"`
+	IsBase64Encoded bool   `json:"isBase64Encoded,omitempty"`
+
+	RequestContext interface{} `json:"requestContext"`
+}
+
+// Структура ответа API Gateway v1
+type APIGatewayResponse struct {
+	StatusCode        int                 `json:"statusCode"`
+	Headers           map[string]string   `json:"headers"`
+	MultiValueHeaders map[string][]string `json:"multiValueHeaders"`
+	Body              string              `json:"body"`
+	IsBase64Encoded   bool                `json:"isBase64Encoded,omitempty"`
+}
+
+type Request struct {
+	Name string `json:"name"`
+}
+
+func Greet(ctx context.Context, event *APIGatewayRequest) (*APIGatewayResponse, error) {
+	req := &Request{}
+
+	// Поле event.Body запроса преобразуется в объект типа Request для получения переданного имени
+	if err := json.Unmarshal(event.Body, &req); err != nil {
+		return nil, fmt.Errorf("an error has occurred when parsing body: %v", err)
+	}
+
+	// В журнале будет напечатано название HTTP-метода, с помощью которого осуществлен запрос, а также путь
+	fmt.Println(event.HTTPMethod, event.Path)
+
+	// Тело ответа.
+	return &APIGatewayResponse{
+		StatusCode: 200,
+		Body:       fmt.Sprintf("Hello, %s", req.Name),
+	}, nil
+}
+```
+
+{% note warning %}
+
+Обращаться к функции нужно через API-шлюз.
+
+{% endnote %}
+
+Пример входных данных (метод POST):
+
+```json
+{
+  "name": "Anonymous"
+}
+```
+
+В журнале будет напечатано:
+```
+POST { "name": "Anonymous" }
+```
+
+Возвращаемый ответ:
+```
+Hello, Anonymous
+```
+
+
