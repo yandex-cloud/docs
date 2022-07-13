@@ -278,8 +278,6 @@ Hello, Anonymous
 
 The function is invoked by API Gateway service, logs the request method and body, and returns a greeting.
 
-#### Necessary structs fro request processing
-
 The function decode request body via `json.Unmarshal()`.
 
  ```golang
