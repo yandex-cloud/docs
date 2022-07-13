@@ -1,0 +1,56 @@
+title: Yandex Managed Service for YDB
+description:
+  - >-
+    Yandex Managed Service for YDB помогает разворачивать и поддерживать базы данных YDB в инфраструктуре Yandex Cloud.
+  - >-
+    <a href="https://ydb.tech/ru">YDB</a> — это распределенная отказоустойчивая Distributed SQL СУБД.
+    YDB обеспечивает высокую доступность, горизонтальную масштабируемость, а также строгую консистентность и поддержку ACID-транзакций.
+    Для запросов используется диалект SQL (<a
+    href="https://ydb.tech/ru/docs/yql/reference/">YQL</a>).
+nav:
+  title: Yandex Managed Service for YDB
+meta:
+  title: Yandex Managed Service for YDB
+links:
+  - title: Начало работы
+    description: Создайте первую базу данных
+    href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Основные понятия
+    description: Узнайте про концепции и общее устройство сервиса
+    href: concepts/
+  - title: Document API
+    description: Узнайте как работать с базами данных через Document API, совместимый с Amazon DynamoDB
+    href: docapi/tools/aws-setup
+  - title: Справочник API (англ.)
+    description: Описание методов HTTP API
+    href: docapi/api-ref/
+  # - title: Работа с CLI
+  #   description: Справочник по YDB Command Line Interface
+  #   href: reference/ydb-cli/install
+  # - title: Работа с SDK
+  #   description: Справочник по YDB Software Development Kits
+  #   href: reference/ydb-sdk/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Безопасность и управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  # - title: Рекомендации
+  #   description: Набор рекомендаций по практическому использованию сервиса
+  #   href: best_practices/
+  # - title: Справочник YQL
+  #   description: Описание синтаксиса и встроенных функций YQL
+  #   href: yql/reference/
+  # - title: Туториал YQL
+  #   description: Серия уроков для знакомства с базовыми возможностями YQL
+  #   href: yql/tutorial/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing/
+  # - title: Полезные ссылки
+  #   description: Ссылки на различные ресурсы, имеющие отношение к YDB
+  #   href: getting_started/useful_links

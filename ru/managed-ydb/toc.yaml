@@ -1,0 +1,796 @@
+title: Yandex Managed Service for YDB
+href: index.yaml
+hidden: true
+items:
+  # - name: Начало работы
+  #   items:
+  #     - name: Обзор
+  #       href: quickstart/index.md
+  #       hidden: true
+  #     - name: Создание облачной базы данных
+  #       href: quickstart/create-db.md
+  #       hidden: true
+  #     - name: YQL API
+  #       hidden: true
+  #       items:
+  #         - name: Работа с YDB CLI
+  #           href: quickstart/yql-api/ydb-cli.md
+  #           hidden: true
+  #         - name: Работа с данными через консоль управления
+  #           href: quickstart/yql-api/ydb-ui.md
+  #           hidden: true
+  #         - name: Работа с YDB SDK
+  #           href: reference/ydb-sdk/index.md
+  #           hidden: true
+  #     - name: Обзор
+  #       href: getting_started/index.md
+  #     - name: Создание базы данных
+  #       href: getting_started/create_db.md
+  #     - name: Dummy
+  #       hidden: true
+  #     - name: Аутентификация
+  #       href: getting_started/auth.md
+  #     - name: Интерфейс командной строки YDB CLI
+  #       href: getting_started/cli.md
+  #     - name: Язык запросов YQL
+  #       href: getting_started/yql.md
+  #     - name: YDB SDK
+  #       href: getting_started/sdk.md
+  #     - name: Самостоятельное развертывание
+  #       items:
+  #         - name: Обзор
+  #           href: getting_started/self_hosted/index.md
+  #         - name: Docker
+  #           href: getting_started/self_hosted/ydb_docker.md
+  #         - name: Бинарный файл
+  #           href: getting_started/self_hosted/ydb_local.md
+  #         - name: Minikube
+  #           href: getting_started/self_hosted/ydb_minikube.md
+  #     - name: Полезные ссылки
+  #       href: getting_started/useful_links.md
+  #     - name: Document API, совместимый с Amazon DynamoDB
+  #       items: > docapi/tools/
+  #         - name: Настройка инструментов AWS
+  #           href: quickstart/document-api/aws-setup.md
+  #         - name: Работа с данными через HTTP-интерфейс
+  #           href: quickstart/document-api/aws-http.md
+  #         - name: Работа с AWS CLI
+  #           items:
+  #             - name: Обзор
+  #               href: quickstart/document-api/aws-cli/index.md
+  #             - name: Создание таблицы
+  #               href: quickstart/document-api/aws-cli/create-table.md
+  #             - name: Добавление данных в таблицу
+  #               href: quickstart/document-api/aws-cli/put-item.md
+  #             - name: Чтение данных из таблицы
+  #               href: quickstart/document-api/aws-cli/get-item.md
+  #             - name: Обновление данных
+  #               href: quickstart/document-api/aws-cli/update-item.md
+  #             - name: Выборка данных
+  #               href: quickstart/document-api/aws-cli/query.md
+  #             - name: Удаление созданных ресурсов
+  #               href: quickstart/document-api/aws-cli/cleanup.md
+  #         - name: Работа с AWS SDK
+  #           items:
+  #             - name: Обзор
+  #               href: quickstart/document-api/aws-sdk/index.md
+  #             - name: Создание таблицы
+  #               href: quickstart/document-api/aws-sdk/create-table.md
+  #             - name: Загрузка данных в таблицу
+  #               href: quickstart/document-api/aws-sdk/load-data.md
+  #             - name: Управление записями в таблице
+  #               items:
+  #                 - name: Создание записи
+  #                   href: quickstart/document-api/aws-sdk/create-item.md
+  #                 - name: Чтение записи
+  #                   href: quickstart/document-api/aws-sdk/read-item.md
+  #                 - name: Обновление записи
+  #                   href: quickstart/document-api/aws-sdk/update-item.md
+  #                 - name: Удаление записи
+  #                   href: quickstart/document-api/aws-sdk/delete-item.md
+  #             - name: Поиск и извлечение данных
+  #               href: quickstart/document-api/aws-sdk/query-and-scan.md
+  #             - name: Удаление таблицы
+  #               href: quickstart/document-api/aws-sdk/delete-table.md
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Обзор
+        href: operations/index.md
+      - name: Управление базами данных через консоль {{ yandex-cloud }}
+        href: operations/manage-database.md
+      - name: Управление базами данных с помощью YC CLI
+        href: operations/yc-cli.md
+      - name: Управление таблицами и директориями
+        href: operations/schema.md
+      # - name: Переименование
+      #   href: operations/rename.md
+      # - name: Использование плана запроса и AST
+      #   href: operations/get-query-plan.md
+      # - name: Управление базами данных
+      #   href: operations/create_manage_database.md
+      #   hidden: true
+      # - name: Управление таблицами
+      #   href: operations/schema.md
+      #   hidden: true
+      - name: Чтение и запись данных
+        href: operations/crud.md
+      - name: Мониторинг состояния базы данных
+        href: operations/monitoring.md
+      # - name: Работа со вторичными индексами
+      #   href: operations/secondary_indexes.md
+  - name: Практические руководства
+    items:
+      - name: Развертывание веб-приложения
+        href: tutorials/java-servlet-todo-list.md
+      - name: Разработка Slack-бота
+        href: tutorials/slack-bot-serverless.md
+      # - name: Использование Docker-контейнера YDB
+      #   href: tutorials/ydb_docker.md
+      #   hidden: true
+      - name: Подключение к YDB из функции Yandex Cloud Functions на Python
+        href: tutorials/connect-from-cf.md
+      - name: Подключение к базе данных YDB из функции Yandex Cloud Functions на Node.js
+        href: tutorials/connect-from-cf-nodejs.md
+      - name: Конвертация видео в GIF на Python
+        href: tutorials/video-converting-queue.md
+      - name: Разработка навыка Алисы и сайта с авторизацией
+        href: tutorials/alice-shareable-todolist.md
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Термины и определения
+        href: concepts/resources.md
+      # - name: Термины и определения
+      #   href: concepts/databases.md
+      - name: Соединение с БД и аутентификация с помощью IAM
+        href: concepts/connect.md
+      # - name: Модель данных и схема
+      #   href: concepts/datamodel.md
+      # - name: Режимы работы Serverless и Dedicated
+      #   href: concepts/serverless_and_dedicated.md > concepts/serverless-and-dedicated.md
+      - name: Режимы работы Serverless и Dedicated
+        href: concepts/serverless-and-dedicated.md
+      - name: Таблицы DynamoDB
+        href: concepts/dynamodb-tables.md
+      # - name: Типы данных
+      #   href: concepts/datatypes.md
+      #   hidden: true
+      # - name: Транзакции
+      #   href: concepts/transactions.md
+      # - name: Вторичные индексы
+      #   href: concepts/secondary_indexes.md
+      # - name: Time to Live (TTL)
+      #   href: concepts/ttl.md
+      # - name: Скан запросы
+      #   href: concepts/scan_query.md
+      # - name: Ограничения базы данных
+      #   href: concepts/limits-ydb.md
+      # - name: Кластер YDB
+      #   items:
+      #     - name: Обзор
+      #       href: concepts/cluster/index.md
+      #     - name: Общая схема YDB
+      #       href: concepts/cluster/common_scheme_ydb.md
+      #     - name: Дисковая подсистема кластера
+      #       href: concepts/cluster/distributed_storage.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  # - name: Рекомендации
+  #   items:
+  #     - name: Обзор
+  #       href: best_practices/index.md
+  #     - name: Выбор первичного ключа для максимальной производительности
+  #       href: best_practices/pk_scalability.md
+  #     - name: Проектирование схемы
+  #       href: best_practices/schema_design.md
+  #       hidden: true
+  #     - name: Партиционирование таблиц
+  #       href: best_practices/table_sharding.md
+  #       hidden: true
+  #     - name: Вторичные индексы
+  #       href: best_practices/secondary_indexes.md
+  #     - name: Постраничный вывод
+  #       href: best_practices/paging.md
+  #     - name: Загрузка больших объемов данных
+  #       href: best_practices/batch_upload.md
+  #     - name: Использование таймаутов
+  #       href: best_practices/timeouts.md
+  # - name: Управление базами данных
+  #   items:
+  #     - name: Обзор
+  #       href: db/index.md
+  #     - name: Облачная консоль управления
+  #       items:
+  #         - name: Обзор
+  #           href: db/cloud_console/index.md > operations/index.md
+  #         - name: Создание, изменение, удаление баз данных
+  #           href: db/cloud_console/create_manage_database.md > operations/manage-database.md
+  #         - name: Таблицы и директории
+  #           href: db/cloud_console/schema.md > operations/schema.md
+  - name: Управление доступом
+    href: security/index.md
+      # - name: Интерфейс командной строки YC CLI
+      #   href: db/yc_cli.md > operations/yc-cli.md
+      # - name: Резервное копирование и восстановление
+      #   href: maintenance/backup_and_recovery.md
+      # - name: Диагностика
+      #   items:
+      #     - name: Обзор
+      #       href: troubleshooting/index.md
+      #     - name: Системные таблицы
+      #       href: troubleshooting/system_views_db.md
+      #     - name: Мониторинг
+      #       href: troubleshooting/monitoring.md > operations/monitoring.md
+      #     - name: System views (deprecated)
+      #       href: troubleshooting/system_views.md
+      #       hidden: true
+      # - name: Справочник метрик
+      #   href: maintenance/yc_metrics.md
+      #   hidden: true
+  - name: Правила тарификации
+    items:
+      - name: Обзор
+        href: pricing/index.md
+      - name: Бессерверный режим
+        items:
+          - name: Правила тарификации для бессерверного режима
+            href: pricing/serverless.md
+          - name: Стоимость запроса для YQL
+            href: pricing/ru-yql.md
+          - name: Стоимость запроса для Document API
+            href: pricing/ru-docapi.md
+          - name: Стоимость запроса для специальных API
+            href: pricing/ru-special.md
+          # - name: Стоимость запроса для YQL
+          #   href: pricing/request_units_yql.md > pricing/ru-yql.md
+          # - name: Стоимость запроса для Document API
+          #   href: pricing/request_units_docapi.md > pricing/ru-docapi.md
+          # - name: Стоимость запроса для специальных API
+          #   href: pricing/request_units_special.md > pricing/ru-special.md
+      - name: Режим с выделенными инстансами
+        href: pricing/dedicated.md
+  - name: Document API, совместимый с Amazon DynamoDB
+    items:
+      - name: Инструменты
+        items:
+          - name: Настройка инструментов AWS
+            href: docapi/tools/aws-setup.md
+          - name: Работа с данными через HTTP-интерфейс
+            href: docapi/tools/aws-http.md
+          - name: Работа с AWS CLI
+            items:
+              - name: Обзор
+                href: docapi/tools/aws-cli/index.md
+              - name: Создание таблицы
+                href: docapi/tools/aws-cli/create-table.md
+              - name: Добавление данных в таблицу
+                href: docapi/tools/aws-cli/put-item.md
+              - name: Чтение данных из таблицы
+                href: docapi/tools/aws-cli/get-item.md
+              - name: Обновление данных
+                href: docapi/tools/aws-cli/update-item.md
+              - name: Выборка данных
+                href: docapi/tools/aws-cli/query.md
+              - name: Удаление созданных ресурсов
+                href: docapi/tools/aws-cli/cleanup.md
+          - name: Работа с AWS SDK
+            items:
+              - name: Обзор
+                href: docapi/tools/aws-sdk/index.md
+              - name: Создание таблицы
+                href: docapi/tools/aws-sdk/create-table.md
+              - name: Загрузка данных в таблицу
+                href: docapi/tools/aws-sdk/load-data.md
+              - name: Управление записями в таблице
+                items:
+                  - name: Создание записи
+                    href: docapi/tools/aws-sdk/create-item.md
+                  - name: Чтение записи
+                    href: docapi/tools/aws-sdk/read-item.md
+                  - name: Обновление записи
+                    href: docapi/tools/aws-sdk/update-item.md
+                  - name: Удаление записи
+                    href: docapi/tools/aws-sdk/delete-item.md
+              - name: Поиск и извлечение данных
+                href: docapi/tools/aws-sdk/query-and-scan.md
+              - name: Удаление таблицы
+                href: docapi/tools/aws-sdk/delete-table.md
+      - name: Справочник Document API
+        items:
+          - name: Все методы
+            href: docapi/api-ref/index.md
+          - name: Actions
+            items:
+              - name: BatchGetItem
+                href: docapi/api-ref/actions/batchGetItem.md
+              - name: BatchWriteItem
+                href: docapi/api-ref/actions/batchWriteItem.md
+              - name: CreateTable
+                href: docapi/api-ref/actions/createTable.md
+              - name: DeleteItem
+                href: docapi/api-ref/actions/deleteItem.md
+              - name: DeleteTable
+                href: docapi/api-ref/actions/deleteTable.md
+              - name: DescribeTable
+                href: docapi/api-ref/actions/describeTable.md
+              - name: DescribeTimeToLive
+                href: docapi/api-ref/actions/describeTimeToLive.md
+              - name: GetItem
+                href: docapi/api-ref/actions/getItem.md
+              - name: ListTables
+                href: docapi/api-ref/actions/listTables.md
+              - name: PutItem
+                href: docapi/api-ref/actions/putItem.md
+              - name: Query
+                href: docapi/api-ref/actions/query.md
+              - name: Scan
+                href: docapi/api-ref/actions/scan.md
+              - name: TransactGetItems
+                href: docapi/api-ref/actions/transactGetItems.md
+              - name: TransactWriteItems
+                href: docapi/api-ref/actions/transactWriteItems.md
+              - name: UpdateItem
+                href: docapi/api-ref/actions/updateItem.md
+              - name: UpdateTimeToLive
+                href: docapi/api-ref/actions/updateTimeToLive.md
+      - name: Общие ошибки при работе с Document API
+        href: docapi/common-errors.md
+  # - name: YQL
+  #   items:
+  #     - name: Обзор
+  #       href: yql/reference/index.md
+  #     - name: Типы данных
+  #       items:
+  #         - name: Обзор
+  #           href: yql/reference/types/index.md
+  #         - name: Простые
+  #           href: yql/reference/types/primitive.md
+  #         - name: Опциональные
+  #           href: yql/reference/types/optional.md
+  #         - name: Контейнеры
+  #           href: yql/reference/types/containers.md
+  #         - name: Специальные
+  #           href: yql/reference/types/special.md
+  #         - name: Преобразования типов
+  #           href: yql/reference/types/cast.md
+  #         - name: Текстовое представление типов данных
+  #           href: yql/reference/types/type_string.md
+  #         - name: JSON
+  #           href: yql/reference/types/json.md
+  #     - name: Синтаксис
+  #       items:
+  #         - name: Обзор
+  #           href: yql/reference/syntax/index.md
+  #         - name: Лексическая структура
+  #           href: yql/reference/syntax/lexer.md
+  #         - name: Выражения
+  #           href: yql/reference/syntax/expressions.md
+  #         - name: ACTION
+  #           href: yql/reference/syntax/action.md
+  #         - name: ALTER TABLE
+  #           href: yql/reference/syntax/alter_table.md
+  #           when: feature_map_tables
+  #         - name: CREATE TABLE
+  #           href: yql/reference/syntax/create_table.md
+  #         - name: DECLARE
+  #           href: yql/reference/syntax/declare.md
+  #         - name: DELETE
+  #           href: yql/reference/syntax/delete.md
+  #           when: feature_map_tables
+  #         - name: DISCARD
+  #           href: yql/reference/syntax/discard.md
+  #         - name: DROP TABLE
+  #           href: yql/reference/syntax/drop_table.md
+  #         - name: GROUP BY
+  #           href: yql/reference/syntax/group_by.md
+  #         - name: EXPORT и IMPORT
+  #           href: yql/reference/syntax/export_import.md
+  #           when: feature_mapreduce
+  #         - name: FLATTEN
+  #           href: yql/reference/syntax/flatten.md
+  #         - name: INSERT
+  #           href: yql/reference/syntax/insert_into.md
+  #         - name: INTO RESULT
+  #           href: yql/reference/syntax/into_result.md
+  #         - name: JOIN
+  #           href: yql/reference/syntax/join.md
+  #           when: feature_join
+  #         - name: PRAGMA
+  #           href: yql/reference/syntax/pragma.md
+  #         - name: PROCESS STREAM
+  #           href: yql/reference/syntax/process.md
+  #           when: feature_mapreduce and process_command == "PROCESS STREAM"
+  #         - name: PROCESS
+  #           href: yql/reference/syntax/process.md
+  #           when: feature_mapreduce and process_command == "PROCESS"
+  #         - name: REDUCE
+  #           href: yql/reference/syntax/reduce.md
+  #           when: feature_mapreduce and reduce_command == "REDUCE"
+  #         - name: REPLACE
+  #           href: yql/reference/syntax/replace_into.md
+  #           when: feature_replace
+  #         - name: SELECT
+  #           href: yql/reference/syntax/select.md
+  #         - name: SELECT STREAM
+  #           href: yql/reference/syntax/select_stream.md
+  #           when: feature_mapreduce and process_command == "PROCESS STREAM"
+  #         - name: SUBQUERY
+  #           href: yql/reference/syntax/subquery.md
+  #           when: feature_subquery
+  #         - name: UPDATE
+  #           href: yql/reference/syntax/update.md
+  #           when: feature_map_tables
+  #         - name: UPSERT
+  #           href: yql/reference/syntax/upsert_into.md
+  #           when: feature_upsert
+  #         - name: USE
+  #           href: yql/reference/syntax/use.md
+  #           when: feature_mapreduce
+  #         - name: VALUES
+  #           href: yql/reference/syntax/values.md
+  #         - name: WINDOW
+  #           href: yql/reference/syntax/window.md
+  #           when: feature_window_functions
+  #         - name: Неподдерживаемые конструкции
+  #           href: yql/reference/syntax/not_yet_supported.md
+  #     - name: Встроенные функции
+  #       items:
+  #         - name: Обзор
+  #           href: yql/reference/builtins/index.md
+  #         - name: Базовые
+  #           href: yql/reference/builtins/basic.md
+  #         - name: Агрегатные
+  #           href: yql/reference/builtins/aggregation.md
+  #         - name: Оконные
+  #           href: yql/reference/builtins/window.md
+  #           when: feature_window_functions
+  #         - name: Для работы со списками
+  #           href: yql/reference/builtins/list.md
+  #         - name: Для работы со словарями
+  #           href: yql/reference/builtins/dict.md
+  #         - name: Для работы со структурами
+  #           href: yql/reference/builtins/struct.md
+  #         - name: Для работы с типами
+  #           href: yql/reference/builtins/types.md
+  #         - name: Для работы с генерацией кода
+  #           href: yql/reference/builtins/codegen.md
+  #           when: feature_codegen
+  #         - name: Для работы с JSON
+  #           href: yql/reference/builtins/json.md
+  #         - name: Библиотеки C++
+  #           items:
+  #             - name: Обзор
+  #               href: yql/reference/udf/list/index.md
+  #             - name: Hyperscan
+  #               href: yql/reference/udf/list/hyperscan.md
+  #             - name: Pcre
+  #               href: yql/reference/udf/list/pcre.md
+  #             - name: Pire
+  #               href: yql/reference/udf/list/pire.md
+  #             - name: Re2
+  #               href: yql/reference/udf/list/re2.md
+  #             - name: String
+  #               href: yql/reference/udf/list/string.md
+  #             - name: Unicode
+  #               href: yql/reference/udf/list/unicode.md
+  #             - name: DateTime
+  #               href: yql/reference/udf/list/datetime.md
+  #             - name: Url
+  #               href: yql/reference/udf/list/url.md
+  #             - name: Ip
+  #               href: yql/reference/udf/list/ip.md
+  #             - name: Yson
+  #               href: yql/reference/udf/list/yson.md
+  #             - name: Digest
+  #               href: yql/reference/udf/list/digest.md
+  #             - name: Math
+  #               href: yql/reference/udf/list/math.md
+  #             - name: Histogram
+  #               href: yql/reference/udf/list/histogram.md
+  #     - name: Туториал YQL
+  #       items:
+  #         - name: Обзор
+  #           href: yql/tutorial/index.md
+  #         - name: Создание таблицы
+  #           href: yql/tutorial/create_demo_tables.md
+  #         - name: Добавление данных в таблицу
+  #           href: yql/tutorial/fill_tables_with_data.md
+  #         - name: Выборка данных из всех колонок
+  #           href: yql/tutorial/select_all_columns.md
+  #         - name: Выборка данных из определенных колонок
+  #           href: yql/tutorial/select_specific_columns.md
+  #         - name: Сортировка и фильтрация
+  #           href: yql/tutorial/basic_filter_and_sort.md
+  #         - name: Агрегирование данных
+  #           href: yql/tutorial/basic_aggregation.md
+  #         - name: Дополнительные условия выборки
+  #           href: yql/tutorial/conditional_values.md
+  #         - name: Объединение таблиц с помощью JOIN
+  #           href: yql/tutorial/join_tables.md
+  #         - name: Вставка и модификация данных с помощью REPLACE
+  #           href: yql/tutorial/replace_into.md
+  #         - name: Вставка и модификация данных с помощью UPSERT
+  #           href: yql/tutorial/upsert_into.md
+  #         - name: Вставка данных с помощью INSERT
+  #           href: yql/tutorial/insert_into.md
+  #         - name: Обновление данных с помощью UPDATE
+  #           href: yql/tutorial/update.md
+  #         - name: Удаление данных
+  #           href: yql/tutorial/delete.md
+  #         - name: Добавление и удаление колонок
+  #           href: yql/tutorial/alter_table.md
+  #         - name: Удаление таблицы
+  #           href: yql/tutorial/delete_table.md
+  # - name: Работа с YDB CLI
+  #   items:
+  #     - name: Обзор
+  #       href: reference/ydb-cli/index.md
+  #     - name: Установка
+  #       href: reference/ydb-cli/install.md
+  #     - name: Структура команд YDB CLI
+  #       href: reference/ydb-cli/commands.md
+  #     - name: Сервисные команды
+  #       href: reference/ydb-cli/commands/service.md
+  #     - name: Соединение с БД и аутентификация
+  #       href: reference/ydb-cli/connect.md
+  #     - name: Глобальные параметры
+  #       href: reference/ydb-cli/commands/global-options.md
+  #     - name: Работа со схемой БД
+  #       items:
+  #         - name: Список объектов
+  #           href: reference/ydb-cli/commands/scheme-ls.md
+  #         - name: Информация об объекте
+  #           href: reference/ydb-cli/commands/scheme-describe.md
+  #         - name: Директории
+  #           href: reference/ydb-cli/commands/dir.md
+  #         - name: Вторичные индексы
+  #           href: reference/ydb-cli/commands/secondary_index.md
+  #         - name: Переименование таблиц
+  #           href: reference/ydb-cli/commands/tools/rename.md
+  #     - name: Работа с данными
+  #       items:
+  #         - name: Выполнение запроса к данным
+  #           href: reference/ydb-cli/commands/query.md
+  #         - name: План исполнения запроса
+  #           href: reference/ydb-cli/commands/explain-plan.md
+  #         - name: Потоковое чтение таблицы
+  #           href: reference/ydb-cli/commands/readtable.md
+  #         - name: Скан запросы
+  #           href: reference/ydb-cli/commands/scan-query.md
+  #     - name: Загрузка и выгрузка данных
+  #       items:
+  #         - name: Обзор
+  #           href: reference/ydb-cli/export_import/index.md
+  #         - name: Файловая структура выгрузки
+  #           href: reference/ydb-cli/export_import/file_structure.md
+  #         - name: Выгрузка в файловую систему
+  #           href: reference/ydb-cli/export_import/tools_dump.md
+  #         - name: Загрузка из файловой системы
+  #           href: reference/ydb-cli/export_import/tools_restore.md
+  #         - name: Соединение и аутентификация с S3
+  #           href: reference/ydb-cli/export_import/s3_conn.md
+  #         - name: Выгрузка в S3
+  #           href: reference/ydb-cli/export_import/s3_export.md
+  #         - name: Загрузка из S3
+  #           href: reference/ydb-cli/export_import/s3_import.md
+  #         - name: Импорт данных из файла в существующую таблицу
+  #           href: reference/ydb-cli/export_import/import-file.md
+  #     - name: Управление профилями
+  #       items:
+  #         - name: Обзор
+  #           href: reference/ydb-cli/profile/index.md
+  #         - name: Создание профиля
+  #           href: reference/ydb-cli/profile/create.md
+  #         - name: Использование профиля в запросах
+  #           href: reference/ydb-cli/profile/use.md
+  #         - name: Получение информации о профиле
+  #           href: reference/ydb-cli/profile/list-and-get.md
+  #         - name: Удаление профиля
+  #           href: reference/ydb-cli/profile/delete.md
+  #         - name: Активированный профиль
+  #           href: reference/ydb-cli/profile/activate.md
+  #     - name: Информационные сервисы
+  #       items:
+  #         - name: Список эндпоинтов
+  #           href: reference/ydb-cli/commands/discovery-list.md
+  #         - name: Проверка аутентификации
+  #           href: reference/ydb-cli/commands/discovery-whoami.md
+  #     - name: Нагрузочное тестирование
+  #       items:
+  #         - name: Обзор
+  #           href: reference/ydb-cli/commands/workload/index.md
+  #         - name: Stock нагрузка
+  #           href: reference/ydb-cli/commands/workload/stock.md
+  # - name: Работа с YDB SDK
+  #   items:
+  #     - name: Обзор
+  #       href: reference/ydb-sdk/index.md
+  #     - name: Установка
+  #       href: reference/ydb-sdk/install.md
+  #     - name: Аутентификация
+  #       href: reference/ydb-sdk/auth.md
+  #     - name: Тестовое приложение
+  #       items:
+  #         - name: Обзор
+  #           href: reference/ydb-sdk/example/index.md
+  #         - name: C++
+  #           href: reference/ydb-sdk/example/example-cpp.md
+  #         - name: C# (.NET)
+  #           href: reference/ydb-sdk/example/example-dotnet.md
+  #         - name: Go
+  #           href: reference/ydb-sdk/example/go/index.md
+  #         - name: Java
+  #           href: reference/ydb-sdk/example/java/index.md
+  #         - name: Node.js
+  #           href: reference/ydb-sdk/example/example-nodejs.md
+  #         - name: PHP
+  #           href: reference/ydb-sdk/example/example-php.md
+  #         - name: Python
+  #           href: reference/ydb-sdk/example/python/index.md
+  #         - name: Архив
+  #           items:
+  #             - name: Go v1
+  #               href: reference/ydb-sdk/example/archive/example-go-v1.md
+  #             - name: Go v2
+  #               href: reference/ydb-sdk/example/archive/example-go-v2.md
+  #     - name: Обработка ошибок в API
+  #       href: reference/ydb-sdk/error_handling.md
+  #     - name: Рецепты кода
+  #       items:
+  #         - name: Обзор
+  #           href: reference/ydb-sdk/recipes/index.md
+  #         - name: Аутентификация
+  #           items:
+  #             - name: Обзор
+  #               href: reference/ydb-sdk/recipes/auth/index.md
+  #             - name: С помощью токена
+  #               href: reference/ydb-sdk/recipes/auth/access_token.md
+  #             - name: Анонимная
+  #               href: reference/ydb-sdk/recipes/auth/anonymous.md
+  #             - name: Файл сервисного аккаунта
+  #               href: reference/ydb-sdk/recipes/auth/service_account.md
+  #             - name: Сервис метаданных
+  #               href: reference/ydb-sdk/recipes/auth/metadata.md
+  #             - name: С помощью переменных окружения
+  #               href: reference/ydb-sdk/recipes/auth/env.md
+  #             - name: С помощью логина и пароля
+  #               href: reference/ydb-sdk/recipes/auth/static.md
+  #         - name: Балансировка
+  #           items:
+  #             - name: Обзор
+  #               href: reference/ydb-sdk/recipes/balancing/index.md
+  #             - name: Равномерный случайный выбор
+  #               href: reference/ydb-sdk/recipes/balancing/random_choice.md
+  #             - name: Предпочитать ближайший дата-центр
+  #               href: reference/ydb-sdk/recipes/balancing/prefer_local.md
+  #             - name: Предпочитать зону доступности
+  #               href: reference/ydb-sdk/recipes/balancing/prefer_location.md
+  #         - name: Выполнение повторных запросов
+  #           href: reference/ydb-sdk/recipes/retry/index.md
+  #         - name: Диагностика проблем
+  #           items:
+  #             - name: Обзор
+  #               href: reference/ydb-sdk/recipes/debug/index.md
+  #             - name: Включить логирование
+  #               href: reference/ydb-sdk/recipes/debug/logs.md
+  #             - name: Подключить метрики в Prometheus
+  #               href: reference/ydb-sdk/recipes/debug/prometheus.md
+  #             - name: Подключить трассировку в Jaeger
+  #               href: reference/ydb-sdk/recipes/debug/jaeger.md
+  #         - name: Установить размер пула сессий
+  #           href: reference/ydb-sdk/recipes/session_pool_limit/index.md
+  #         - name: Вставка данных
+  #           href: reference/ydb-sdk/recipes/upsert/index.md
+  #         - name: Пакетная вставка данных
+  #           href: reference/ydb-sdk/recipes/bulk_upsert/index.md
+  # - name: Управление кластером
+  #   items:
+  #     - name: Обзор
+  #       href: cluster/index.md
+  #     - name: Kubernetes
+  #       items:
+  #         - name: Обзор
+  #           href: deploy/orchestrated/concepts.md
+  #         - name: Развертывание в Yandex Managed Service for Kubernetes
+  #           href: deploy/orchestrated/yc_managed_kubernetes.md
+  #         - name: Развертывание в AWS Elastic Kubernetes Service
+  #           href: deploy/orchestrated/aws_eks.md
+  #         - name: Эксплуатация
+  #           href: deploy/orchestrated/operate.md
+  #     - name: Вручную
+  #       items:
+  #         - name: Локальная установка
+  #           href: deploy/manual/deploy-ydb-on-premises.md
+  #         - name: Конфигурация кластера
+  #           href: deploy/configuration/config.md
+  #         - name: Обслуживание дисковой подсистемы кластера
+  #           items:
+  #             - name: Обзор
+  #               href: maintenance/manual/index.md
+  #             - name: Способы предотвращения выхода за модель отказа
+  #               href: maintenance/manual/failure_model.md
+  #             - name: Балансировка нагрузки на диски
+  #               href: maintenance/manual/balancing_load.md
+  #             - name: Способы освобождения места на физических устройствах
+  #               href: maintenance/manual/disk_end_space.md
+  #             - name: Расширение кластера
+  #               href: maintenance/manual/cluster_expansion.md
+  #             - name: Добавление групп хранения
+  #               href: maintenance/manual/adding_storage_groups.md
+  #             - name: Безопасные рестарт и выключение узлов
+  #               href: maintenance/manual/node_restarting.md
+  #             - name: Включение/выключение SelfHeal
+  #               href: maintenance/manual/selfheal.md
+  #             - name: Включение/выключение Scrubbing
+  #               href: maintenance/manual/scrubbing.md
+  #             - name: Перевоз VDisk'ов
+  #               href: maintenance/manual/moving_vdisks.md
+  #             - name: Изменение конфигураций через CMS
+  #               href: maintenance/manual/cms.md
+  #             - name: Изменение конфигурации акторсистемы
+  #               href: maintenance/manual/change_actorsystem_configs.md
+  #     - name: Встроенный UI
+  #       items:
+  #         - name: Обзор
+  #           href: maintenance/embedded_monitoring/index.md
+  #         - name: Обзор
+  #           href: maintenance/embedded_monitoring/overview.md
+  #           hidden: true
+  #         - name: Viewer
+  #           href: maintenance/embedded_monitoring/viewer.md
+  #           when: false
+  #         - name: YDB Monitoring
+  #           href: maintenance/embedded_monitoring/ydb_monitoring.md
+  #         - name: Hive web-viewer
+  #           href: maintenance/embedded_monitoring/hive.md
+  #         - name: Обзор соединений
+  #           href: maintenance/embedded_monitoring/interconnect_overview.md
+  #         - name: Логи
+  #           href: maintenance/embedded_monitoring/logs.md
+  #         - name: Графики
+  #           href: maintenance/embedded_monitoring/charts.md
+  #     - name: Системные таблицы
+  #       href: troubleshooting/system_views_cluster.md
+  - name: Справочник API {{ yandex-cloud }} для {{ ydb-name }}
+    items:
+      - name: Обзор
+        href: api-ref/overview.md
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/ydb/toc.yaml
+      - name: REST (англ.)
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref/ydb/toc.yaml
+  - name: Вопросы и ответы
+    href: faq.md
+    # items:
+    #   - name: Обзор
+    #     href: faq/index.md
+      # - name: Общие вопросы
+      #   href: faq/common.md
+      # - name: SDK
+      #   href: faq/sdk.md
+      #   when: oss
+      # - name: Ошибки
+      #   href: faq/errors.md
+      # - name: YQL
+      #   href: faq/yql.md
+      # - name: Serverless
+      #   href: faq/serverless.md > faq.md
+      # - name: Все вопросы на одной странице
+      #   href: faq/all.md
+      # - name: SDK-Hidden
+      #   href: faq/sdk.md
+      #   hidden: true
+  - name: Публичные материалы
+    href: public_talks.md
+    when: lang == "ru"
