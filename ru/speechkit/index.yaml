@@ -54,7 +54,7 @@ links:
     href: concepts/auth
   - title: Справочник APIv3
     description: Описание методов API
-    href: api-ref/authentication
+    href: concepts/auth
   - title: Формат ответа
     description: Заголовки ответа, коды ответа
     href: concepts/response
