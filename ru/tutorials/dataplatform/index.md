@@ -9,7 +9,10 @@
 {% if product == "yandex-cloud" %}
 * [Импорт базы данных в {{ dataproc-full-name }} с использованием Sqoop](sqoop.md)
 {% endif %}
-* [Использование Confluent Schema Registry с {{ mkf-name }}](confluent-schema-registry.md)
+* Использование реестра схем форматов данных с Managed Service for Apache Kafka®:
+    * [Управление схемами данных](schema-registry-overview.md)
+    * [Использование {{ mkf-msr }} с {{ mkf-full-name }}](managed-schema-registry.md)
+    * [Использование Confluent Schema Registry](confluent-schema-registry.md)
 * [Настройка Kafka Connect для работы с кластером {{ mkf-name }}](kafka-connect.md)
 * [{#T}](kafka-cdc.md)
 * [{#T}](./kafka-cdc-data-transfer.md)

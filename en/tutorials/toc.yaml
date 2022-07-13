@@ -118,13 +118,11 @@ items:
         href: dataplatform/index.md
       - name: Syncing MySQL data using {{ data-transfer-full-name }}
         href: dataplatform/sync-mysql.md
-      - name: Using schema registries with {{ mkf-full-name }}
-        items:
-        - name: Overview
-          href: dataplatform/schema-registry-overview.md
-        - name: Using {{ mkf-msr }} with {{ mkf-full-name }}
-          href: dataplatform/managed-schema-registry.md
-        - name: Using Confluent Schema Registry with {{ mkf-full-name }}
+      - name: Managing data schemas in {{ mkf-full-name }}
+        href: dataplatform/schema-registry-overview.md
+      - name: Using {{ mkf-msr }} with {{ mkf-full-name }}
+        href: dataplatform/managed-schema-registry.md
+      - name: Using Confluent Schema Registry with {{ mkf-full-name }}
         href: dataplatform/confluent-schema-registry.md
       - name: Delivering data using Debezium
         href: dataplatform/kafka-cdc.md

@@ -135,6 +135,10 @@ items:
       - name: Импорт базы данных в {{ dataproc-full-name }} с использованием Sqoop
         href: dataplatform/sqoop.md
         when: product == "yandex-cloud"
+      - name: Управление схемами данных в {{ mkf-full-name }}
+        href: dataplatform/schema-registry-overview.md
+      - name: Использование {{ mkf-msr }} с {{ mkf-full-name }}
+        href: dataplatform/managed-schema-registry.md
       - name: Использование Confluent Schema Registry с {{ mkf-full-name }}
         href: dataplatform/confluent-schema-registry.md
       - name: Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью Debezium

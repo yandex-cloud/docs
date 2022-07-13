@@ -965,7 +965,7 @@
 
         {% endnote %}
 
-    1. [Включите те же расширения](../../managed-postgresql/operations/cluster-extensions.md) в базе приемника, что и в базе источника.
+    1. [Включите те же расширения](../../managed-postgresql/operations/extensions/cluster-extensions.md) в базе приемника, что и в базе источника.
 
     1. [Создайте пользователя](../../managed-postgresql/operations/cluster-users.md#adduser) с доступом к базе приемника.
 
