@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/certificate/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/iam/certificate/update.md
 ---
 # yc iam certificate update
 

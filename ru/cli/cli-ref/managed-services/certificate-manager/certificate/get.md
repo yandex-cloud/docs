@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/get.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/get.md
 ---
 # yc certificate-manager certificate get
 

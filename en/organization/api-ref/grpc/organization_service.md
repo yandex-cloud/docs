@@ -13,7 +13,7 @@ A set of methods for managing Organization resources.
 | [List](#List) | Retrieves the list of Organization resources. |
 | [Update](#Update) | Updates the specified organization. |
 | [ListOperations](#ListOperations) | Lists operations for the specified organization. |
-| [ListAccessBindings](#ListAccessBindings) | access Lists access bindings for the specified organization. |
+| [ListAccessBindings](#ListAccessBindings) | Lists access bindings for the specified organization. |
 | [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the specified organization. |
 | [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for the specified organization. |
 
@@ -177,7 +177,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 ## ListAccessBindings {#ListAccessBindings}
 
-access Lists access bindings for the specified organization.
+Lists access bindings for the specified organization.
 
 **rpc ListAccessBindings ([ListAccessBindingsRequest](#ListAccessBindingsRequest)) returns ([ListAccessBindingsResponse](#ListAccessBindingsResponse))**
 

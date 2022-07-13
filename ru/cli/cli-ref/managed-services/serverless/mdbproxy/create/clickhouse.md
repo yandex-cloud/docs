@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/create/clickhouse.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/create/clickhouse.md
 ---
 # yc serverless mdbproxy create clickhouse
 

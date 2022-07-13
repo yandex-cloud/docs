@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/dns/zone/add-access-binding.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/add-access-binding.md
 ---
 # yc dns zone add-access-binding
 

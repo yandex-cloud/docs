@@ -18,7 +18,7 @@ PATCH https://cdn.{{ api-host }}/cdn/v1/origins/{originId}
  
 Parameter | Description
 --- | ---
-originId | ID of the origin.  Value must be greater than 0.
+originId | <p>ID of the origin.</p> <p>Value must be greater than 0.</p> 
  
 ## Body parameters {#body_params}
  
@@ -57,13 +57,13 @@ source | **string**<br><p>IP address or Domain name of your origin and the port 
 enabled | **boolean** (boolean)<br><p>The setting allows to enable or disable an Origin source in the Origins group.</p> <p>It has two possible values:</p> <p>True - The origin is enabled and used as a source for the CDN. An origins group must contain at least one enabled origin. Default value. False - The origin is disabled and the CDN is not using it to pull content.</p> <p>Required.</p> 
 backup | **boolean** (boolean)<br><p>Specifies whether the origin is used in its origin group as backup. A backup origin is used when one of active origins becomes unavailable.</p> <p>Required.</p> 
 meta | **object**<br><p>Set up type of the origin.</p> <p>Origin type. For details about the concept, see <a href="/docs/cdn/concepts/origins">documentation</a>.</p> 
-meta.<br>common | **object**<br>An Object Storage bucket configured as a static site hosting. <br>`meta` includes only one of the fields `common`, `bucket`, `website`, `balancer`<br><br><p>Origin info. For details about the concept, see <a href="/docs/cdn/concepts/origins">documentation</a>.</p> 
+meta.<br>common | **object**<br>An Object Storage bucket configured as a static site hosting. <br>`meta` includes only one of the fields `common`, `bucket`, `website`, `balancer`<br>
 meta.<br>common.<br>name | **string**<br><p>Name of the origin.</p> 
-meta.<br>bucket | **object**<br>A server with a domain name linked to it <br>`meta` includes only one of the fields `common`, `bucket`, `website`, `balancer`<br><br><p>Origin info. For details about the concept, see <a href="/docs/cdn/concepts/origins">documentation</a>.</p> 
+meta.<br>bucket | **object**<br>A server with a domain name linked to it <br>`meta` includes only one of the fields `common`, `bucket`, `website`, `balancer`<br>
 meta.<br>bucket.<br>name | **string**<br><p>Name of the origin.</p> 
-meta.<br>website | **object**<br>An Object Storage bucket not configured as a static site hosting. <br>`meta` includes only one of the fields `common`, `bucket`, `website`, `balancer`<br><br><p>Origin info. For details about the concept, see <a href="/docs/cdn/concepts/origins">documentation</a>.</p> 
+meta.<br>website | **object**<br>An Object Storage bucket not configured as a static site hosting. <br>`meta` includes only one of the fields `common`, `bucket`, `website`, `balancer`<br>
 meta.<br>website.<br>name | **string**<br><p>Name of the origin.</p> 
-meta.<br>balancer | **object**<br>An L7 load balancer from Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. <br>`meta` includes only one of the fields `common`, `bucket`, `website`, `balancer`<br><br><p>Application Load Balancer origin info. For details about the concept, see <a href="/docs/cdn/concepts/origins">documentation</a>.</p> 
+meta.<br>balancer | **object**<br>An L7 load balancer from Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. <br>`meta` includes only one of the fields `common`, `bucket`, `website`, `balancer`<br>
 meta.<br>balancer.<br>id | **string**<br><p>ID of the origin.</p> 
  
 ## Response {#responses}
@@ -103,7 +103,7 @@ createdBy | **string**<br><p>ID of the user or service account who initiated the
 modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
 metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>
 error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
 error.<br>message | **string**<br><p>An error message.</p> 
 error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 

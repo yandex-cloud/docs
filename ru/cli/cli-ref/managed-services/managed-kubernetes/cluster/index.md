@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kubernetes/cluster/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/cluster/index.md
 ---
 # yc managed-kubernetes cluster
 

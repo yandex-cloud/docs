@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/service-account/remove-access-binding.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/iam/service-account/remove-access-binding.md
 ---
 # yc iam service-account remove-access-binding
 

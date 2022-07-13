@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/backup.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/backup.md
 ---
 # yc managed-mongodb cluster backup
 

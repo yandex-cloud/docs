@@ -61,6 +61,7 @@ node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of
 Field | Description
 --- | ---
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+labels | **map<string,string>**<br>these labels will be assigned to compute nodes (instances), created by the nodegroup No more than 32 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec)**<br>Specification for the boot disk that will be attached to the node. 
@@ -346,6 +347,7 @@ node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of
 Field | Description
 --- | ---
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+labels | **map<string,string>**<br>these labels will be assigned to compute nodes (instances), created by the nodegroup No more than 32 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec1)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec1)**<br>Specification for the boot disk that will be attached to the node. 
@@ -612,6 +614,7 @@ node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of
 Field | Description
 --- | ---
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+labels | **map<string,string>**<br>these labels will be assigned to compute nodes (instances), created by the nodegroup No more than 32 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec2)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec2)**<br>Specification for the boot disk that will be attached to the node. 
@@ -886,6 +889,7 @@ node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of
 Field | Description
 --- | ---
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+labels | **map<string,string>**<br>these labels will be assigned to compute nodes (instances), created by the nodegroup No more than 32 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec3)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec3)**<br>Specification for the boot disk that will be attached to the node. 
@@ -1153,6 +1157,7 @@ node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of
 Field | Description
 --- | ---
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+labels | **map<string,string>**<br>these labels will be assigned to compute nodes (instances), created by the nodegroup No more than 32 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec4)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec4)**<br>Specification for the boot disk that will be attached to the node. 
@@ -1436,6 +1441,7 @@ node_labels | **map<string,string>**<br>Labels that are assigned to the nodes of
 Field | Description
 --- | ---
 name | **string**<br>Name of the instance. In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, default is used: {instance_group.id}-{instance.short_id} It may also contain another placeholders, see metadata doc for full list. The maximum string length in characters is 128.
+labels | **map<string,string>**<br>these labels will be assigned to compute nodes (instances), created by the nodegroup No more than 32 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 platform_id | **string**<br>ID of the hardware platform configuration for the node. 
 resources_spec | **[ResourcesSpec](#ResourcesSpec5)**<br>Computing resources of the node such as the amount of memory and number of cores. 
 boot_disk_spec | **[DiskSpec](#DiskSpec5)**<br>Specification for the boot disk that will be attached to the node. 

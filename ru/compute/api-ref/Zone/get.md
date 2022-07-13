@@ -17,7 +17,7 @@ GET https://compute.{{ api-host }}/compute/v1/zones/{zoneId}
  
 Parameter | Description
 --- | ---
-zoneId | Required. ID of the availability zone to return information about.  The maximum string length in characters is 50.
+zoneId | <p>Required. ID of the availability zone to return information about.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

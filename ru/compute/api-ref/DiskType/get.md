@@ -17,7 +17,7 @@ GET https://compute.{{ api-host }}/compute/v1/diskTypes/{diskTypeId}
  
 Parameter | Description
 --- | ---
-diskTypeId | Required. ID of the disk type to return information about. To get the disk type ID use a [list](/docs/compute/api-ref/DiskType/list) request.
+diskTypeId | <p>Required. ID of the disk type to return information about. To get the disk type ID use a <a href="/docs/compute/api-ref/DiskType/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

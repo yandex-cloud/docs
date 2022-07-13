@@ -5,7 +5,10 @@
 * [Настройка управляемой базы данных в кластере {{ CH }} для Graphite](clickhouse-for-graphite.md)
 * [Обмен данными между {{ mch-name }} и {{ dataproc-full-name }}](dp-mch-data-exchange.md)
 * [Импорт базы данных в {{ dataproc-full-name }} с использованием Sqoop](sqoop.md)
-* [Использование Confluent Schema Registry с {{ mkf-name }}](confluent-schema-registry.md)
+* Использование реестра схем форматов данных с Managed Service for Apache Kafka®:
+    * [Управление схемами данных](schema-registry-overview.md)
+    * [Использование {{ mkf-msr }} с {{ mkf-full-name }}](managed-schema-registry.md)
+    * [Использование Confluent Schema Registry](confluent-schema-registry.md)
 * [Настройка Kafka Connect для работы с кластером {{ mkf-name }}](kafka-connect.md)
 * [{#T}](kafka-cdc.md)
 * [{#T}](./kafka-cdc-data-transfer.md)

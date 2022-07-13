@@ -91,6 +91,8 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
+
 - API
 
    Use the API [update](../api-ref/Cluster/update.md) method: pass the requisite values in the `name` and `description` parameters.
@@ -193,6 +195,8 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
+
 - API
 
    Use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.resources.resourcePresetId` parameter.
@@ -271,6 +275,8 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
+
 - API
 
    To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass the required values in in the call using the `configSpec.resources.diskSize` parameter.
@@ -326,6 +332,8 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 - API
 
@@ -489,6 +497,8 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 - API
 

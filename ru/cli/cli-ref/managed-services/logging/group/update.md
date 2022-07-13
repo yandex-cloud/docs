@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/logging/group/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/logging/group/update.md
 ---
 # yc logging group update
 

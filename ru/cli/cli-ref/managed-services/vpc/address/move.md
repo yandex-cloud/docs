@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/address/move.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/address/move.md
 ---
 # yc vpc address move
 

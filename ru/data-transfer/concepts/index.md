@@ -31,7 +31,7 @@ _Эндпоинт_ — это конфигурация для подключен
 | База данных {{ PG }} — собственная или в составе [сервиса {{ mpg-short-name }}](../../managed-postgresql/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | S3-совместимый бакет                                                                                       | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
 | Поток данных [{{ yds-full-name }}](../../data-streams/)                                                    | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
-| База данных {{ ydb-name }} — в составе [сервиса {{ ydb-name }}](../../managed-ydb/)                                | ![no](../../_assets/common/no.svg)   | ![yes](../../_assets/common/yes.svg) |
+| База данных {{ ydb-name }} — в составе [сервиса {{ ydb-name }}](../../ydb/)                                | ![no](../../_assets/common/no.svg)   | ![yes](../../_assets/common/yes.svg) |
 | Бакет [{{ objstorage-full-name }}](../../storage/)                                                         | ![no](../../_assets/common/no.svg)   | ![yes](../../_assets/common/yes.svg) |
 
 
@@ -62,8 +62,8 @@ _Трансфер_ — это процесс переноса данных ме�
 
 Если на приемнике {{ CH }} включена репликация, то движки для воссоздания таблиц будут выбраны в зависимости от типа источника:
 
-* При переносе данных из строковых СУБД будут использоваться движки [ReplicatedReplacingMergeTree](https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/replication/) и [ReplacingMergeTree](https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/replacingmergetree/).
-* При переносе данных из {{ CH }} будут использоваться движки семейства [ReplicatedMergeTree](https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/replication/).
+* При переносе данных из строковых СУБД будут использоваться движки [ReplicatedReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) и [ReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replacingmergetree/).
+* При переносе данных из {{ CH }} будут использоваться движки семейства [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/).
 
 ### {{ GP }} {#greenplum}
 

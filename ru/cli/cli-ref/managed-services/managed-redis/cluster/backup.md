@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-redis/cluster/backup.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/cluster/backup.md
 ---
 # yc managed-redis cluster backup
 

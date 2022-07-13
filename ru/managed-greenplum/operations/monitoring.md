@@ -88,7 +88,29 @@
 
 {% endlist %}
 
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+## Интеграция с {{ monitoring-full-name }} {#monitoring-integration}
+
+Чтобы настроить алерты показателей состояния [кластера](#monitoring-cluster) и [хостов](#monitoring-hosts):
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
+  1. В списке сервисов выберите ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
+  1. В блоке **Сервисные дашборды** выберите:
+      * **{{ mes-name }} — Cluster Overview** для настройки алертов кластера;
+      * **{{ mes-name }} — Host Overview** для настройки алертов хостов.
+  1. На нужном графике с показателями нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Создать алерт**.
+  1. Если показателей на графике больше одного, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов см. в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
+  1. Задайте значения порогов `Alarm` и `Warning` для оповещения.
+  1. Нажмите кнопку **Создать алерт**.
+
+{% endlist %}
+
+{% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
+
+Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#managed-greenplum).
 
 ## Состояние и статус кластера {#cluster-health-and-status}
 
@@ -106,3 +128,5 @@
 ### Статусы кластера {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
+
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

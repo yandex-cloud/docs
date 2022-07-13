@@ -2,7 +2,7 @@
 
 With this script, you'll create a URL shortening service using serverless technologies available in {{ yandex-cloud }}.
 
-The service accepts user requests via a public [API gateway](../../api-gateway/concepts/index.md). The [hosting service](../../storage/concepts/hosting.md) sends the user an HTML page with a field for entering the URL. A [function](../../functions/concepts/function.md) sends the entered URL for storage in a [serverless database](../../managed-ydb/concepts/serverless-and-dedicated.md#serverless), shortens it, and returns it to the user. When the user enters the shortened URL, the function finds the full URL in the database and redirects the user's request to it.
+The service accepts user requests via a public [API gateway](../../api-gateway/concepts/index.md). The [hosting service](../../storage/concepts/hosting.md) sends the user an HTML page with a field for entering the URL. A [function](../../functions/concepts/function.md) sends the entered URL for storage in a [serverless database](../../ydb/concepts/serverless-and-dedicated.md#serverless), shortens it, and returns it to the user. When the user enters the shortened URL, the function finds the full URL in the database and redirects the user's request to it.
 
 To configure and test the service:
 
@@ -26,7 +26,7 @@ If you no longer need the created resources, [delete them](#clear-out).
 The cost of resources for the script includes:
 
 * A fee for using the storage (see [{{objstorage-full-name}} pricing](../../storage/pricing.md)).
-* A fee for accessing the database (see [{{ydb-full-name}} pricing](../../managed-ydb/pricing/serverless.md)).
+* A fee for accessing the database (see [{{ydb-full-name}} pricing](../../ydb/pricing/serverless.md)).
 * A fee for function calls (see [{{sf-full-name}} pricing](../../functions/pricing.md)).
 * A fee for requests to the API gateway (see [{{api-gw-full-name}} pricing](../../api-gateway/pricing.md)).
 

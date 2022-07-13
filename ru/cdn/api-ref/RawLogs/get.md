@@ -17,7 +17,7 @@ GET https://cdn.{{ api-host }}/cdn/v1/rawLogs/{resourceId}
  
 Parameter | Description
 --- | ---
-resourceId | Required. ID of CDN resource to request status and settings.  The maximum string length in characters is 50.
+resourceId | <p>Required. ID of CDN resource to request status and settings.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

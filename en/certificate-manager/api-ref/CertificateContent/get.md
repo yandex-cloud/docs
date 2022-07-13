@@ -17,13 +17,13 @@ GET https://{{ api-host-certmanager-certcontent }}/certificate-manager/v1/certif
  
 Parameter | Description
 --- | ---
-certificateId | ID of the certificate to download content.
+certificateId | <p>ID of the certificate to download content.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-versionId | Optional ID of the version.
+versionId | <p>Optional ID of the version.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

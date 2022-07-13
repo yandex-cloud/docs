@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/zone/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/zone/index.md
 ---
 # yc compute zone
 

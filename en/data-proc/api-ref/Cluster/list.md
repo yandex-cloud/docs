@@ -17,10 +17,10 @@ GET https://dataproc.{{ api-host }}/dataproc/v1/clusters
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list clusters in.  To get the folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/data-proc/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/data-proc/api-ref/Cluster/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/data-proc/api-ref/Cluster/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters clusters listed in the response.  The expression must specify: 1. The field name. Currently you can use filtering only on [Cluster.name](/docs/data-proc/api-ref/Cluster#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter: `name=my-cluster`.  The maximum string length in characters is 1000.
+folderId | <p>Required. ID of the folder to list clusters in.</p> <p>To get the folder ID make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/data-proc/api-ref/Cluster/list#query_params">pageSize</a>, the service returns a <a href="/docs/data-proc/api-ref/Cluster/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/data-proc/api-ref/Cluster/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters clusters listed in the response.</p> <p>The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on <a href="/docs/data-proc/api-ref/Cluster#representation">Cluster.name</a> field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be 3-63 characters long and match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``. Example of a filter: ``name=my-cluster``.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -86,14 +86,14 @@ filter | A filter expression that filters clusters listed in the response.  The 
  
 Field | Description
 --- | ---
-clusters[] | **object**<br><p>A Data Proc cluster. For details about the concept, see <a href="/docs/data-proc/concepts/">documentation</a>.</p> 
+clusters[] | **object**<br><p>List of clusters in the specified folder.</p> 
 clusters[].<br>id | **string**<br><p>ID of the cluster. Generated at creation time.</p> 
 clusters[].<br>folderId | **string**<br><p>ID of the folder that the cluster belongs to.</p> 
 clusters[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 clusters[].<br>name | **string**<br><p>Name of the cluster. The name is unique within the folder.</p> <p>The string length in characters must be 1-63.</p> 
 clusters[].<br>description | **string**<br><p>Description of the cluster.</p> <p>The string length in characters must be 0-256.</p> 
 clusters[].<br>labels | **object**<br><p>Cluster labels as ``key:value`` pairs.</p> <p>No more than 64 per resource.</p> 
-clusters[].<br>monitoring[] | **object**<br><p>Metadata of a monitoring system for a Data Proc cluster.</p> 
+clusters[].<br>monitoring[] | **object**<br><p>Monitoring systems relevant to the cluster.</p> 
 clusters[].<br>monitoring[].<br>name | **string**<br><p>Name of the monitoring system.</p> 
 clusters[].<br>monitoring[].<br>description | **string**<br><p>Description of the monitoring system.</p> 
 clusters[].<br>monitoring[].<br>link | **string**<br><p>Link to the monitoring system.</p> 

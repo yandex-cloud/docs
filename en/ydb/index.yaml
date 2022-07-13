@@ -1,8 +1,39 @@
 title: Yandex Managed Service for YDB
 description:
-  - This page has been moved to a <a href="../managed-ydb/">new address</a>.
+  - >-
+    Yandex Managed Service for YDB helps you deploy and maintain YDB databases
+    in the Yandex Cloud infrastructure.
+  - >-
+    <a href="https://ydb.tech/en">YDB</a> is a distributed fault-tolerant SQL
+    DBMS. YDB provides high availability, horizontal scalability, strict
+    consistency, and ACID transaction support. Queries are made using an SQL
+    dialect (<a href="https://ydb.tech/en/docs/yql/reference/">YQL</a>).
 nav:
   title: Yandex Managed Service for YDB
 meta:
   title: Yandex Managed Service for YDB
-links: []
+links:
+  - title: Getting started
+    description: Create your first database
+    href: quickstart
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations/
+  - title: Concepts
+    description: Learn about basic concepts and how the service works
+    href: concepts/
+  - title: Document API
+    description: Learn how to use databases via the Amazon DynamoDB-compatible Document API
+    href: docapi/tools/aws-setup
+  - title: API reference
+    description: HTTP API method descriptions
+    href: docapi/api-ref/
+  - title: Quotas and limits
+    description: Technical and organizational limitations of the service
+    href: concepts/limits
+  - title: Identity and access management
+    description: Configure access rights to work with the service
+    href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing/

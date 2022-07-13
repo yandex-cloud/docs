@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/delete.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/delete.md
 ---
 # yc certificate-manager certificate delete
 

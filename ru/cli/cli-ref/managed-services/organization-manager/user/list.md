@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/organization-manager/user/list.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/user/list.md
 ---
 # yc organization-manager user list
 

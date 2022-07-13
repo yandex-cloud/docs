@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-yc/components/restore.md
+sourcePath: en/_cli-ref/cli-ref/managed-yc/components/restore.md
 ---
 # yc components restore
 

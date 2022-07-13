@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/stop.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/stop.md
 ---
 # yc managed-clickhouse cluster stop
 

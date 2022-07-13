@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/container/image/get-last-scan-result.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/image/get-last-scan-result.md
 ---
 # yc container image get-last-scan-result
 

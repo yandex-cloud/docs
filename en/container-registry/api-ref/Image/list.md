@@ -17,13 +17,13 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/images
  
 Parameter | Description
 --- | ---
-registryId | ID of the registry to list Docker images in.  [registryId](/docs/container-registry/api-ref/Image/list#query_params) is ignored if a [repositoryName](/docs/container-registry/api-ref/Image/list#query_params) is specified in the request.  To get the registry ID use a [list](/docs/container-registry/api-ref/Registry/list) request.  The maximum string length in characters is 50.
-repositoryName | Name of the repository to list Docker images in.  To get the repository name use a [list](/docs/container-registry/api-ref/Repository/list) request.  Value must match the regular expression `` |[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ``.
-folderId | ID of the folder to list Docker images in.  [folderId](/docs/container-registry/api-ref/Image/list#query_params) is ignored if a [repositoryName](/docs/container-registry/api-ref/Image/list#query_params) or a [registryId](/docs/container-registry/api-ref/Image/list#query_params) are specified in the request.  To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/container-registry/api-ref/Image/list#query_params), the service returns a [nextPageToken](/docs/container-registry/api-ref/Image/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/container-registry/api-ref/Image/list#query_params) to the [nextPageToken](/docs/container-registry/api-ref/Image/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on [Image.name](/docs/container-registry/api-ref/Image#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be a maximum of 256 characters long and match the regular expression `[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))`.  The maximum string length in characters is 1000.
-orderBy | The maximum string length in characters is 100.
+registryId | <p>ID of the registry to list Docker images in.</p> <p><a href="/docs/container-registry/api-ref/Image/list#query_params">registryId</a> is ignored if a <a href="/docs/container-registry/api-ref/Image/list#query_params">repositoryName</a> is specified in the request.</p> <p>To get the registry ID use a <a href="/docs/container-registry/api-ref/Registry/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+repositoryName | <p>Name of the repository to list Docker images in.</p> <p>To get the repository name use a <a href="/docs/container-registry/api-ref/Repository/list">list</a> request.</p> <p>Value must match the regular expression ``\|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))*``.</p> 
+folderId | <p>ID of the folder to list Docker images in.</p> <p><a href="/docs/container-registry/api-ref/Image/list#query_params">folderId</a> is ignored if a <a href="/docs/container-registry/api-ref/Image/list#query_params">repositoryName</a> or a <a href="/docs/container-registry/api-ref/Image/list#query_params">registryId</a> are specified in the request.</p> <p>To get the folder ID use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/container-registry/api-ref/Image/list#query_params">pageSize</a>, the service returns a <a href="/docs/container-registry/api-ref/Image/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/container-registry/api-ref/Image/list#query_params">pageToken</a> to the <a href="/docs/container-registry/api-ref/Image/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resources listed in the response. The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on <a href="/docs/container-registry/api-ref/Image#representation">Image.name</a> field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be a maximum of 256 characters long and match the regular expression ``[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))``.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
+orderBy | <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -67,7 +67,7 @@ orderBy | The maximum string length in characters is 100.
  
 Field | Description
 --- | ---
-images[] | **object**<br><p>An Image resource. For more information, see <a href="/docs/cloud/container-registry/docker-image">Docker image</a>.</p> 
+images[] | **object**<br><p>List of Image resources.</p> 
 images[].<br>id | **string**<br><p>Output only. ID of the Docker image.</p> 
 images[].<br>name | **string**<br><p>Name of the Docker image. The name is unique within the registry.</p> 
 images[].<br>digest | **string**<br><p>Content-addressable identifier of the Docker image.</p> 
@@ -77,7 +77,7 @@ images[].<br>config.<br>id | **string**<br><p>Output only. ID of the blob.</p>
 images[].<br>config.<br>digest | **string**<br><p>Content-addressable identifier of the blob.</p> 
 images[].<br>config.<br>size | **string** (int64)<br><p>Size of the blob, specified in bytes.</p> 
 images[].<br>config.<br>urls[] | **string**<br><p>List of blob urls.</p> 
-images[].<br>layers[] | **object**<br><p>A Blob resource.</p> 
+images[].<br>layers[] | **object**<br><p>Layers of the Docker image.</p> 
 images[].<br>layers[].<br>id | **string**<br><p>Output only. ID of the blob.</p> 
 images[].<br>layers[].<br>digest | **string**<br><p>Content-addressable identifier of the blob.</p> 
 images[].<br>layers[].<br>size | **string** (int64)<br><p>Size of the blob, specified in bytes.</p> 

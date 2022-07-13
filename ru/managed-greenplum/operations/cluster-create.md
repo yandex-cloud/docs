@@ -29,7 +29,7 @@
 
             {% note alert %}
 
-            Для корректной работы кластера {{ mgp-name }} необходимо наличие хотя бы в одной из его групп безопасности правил, разрешающих любой входящий и исходящий трафик с любых IP-адресов.
+            Для корректной работы кластера {{ mgp-name }} необходимо, чтобы хотя бы в одной из его групп безопасности были правила, разрешающие любой входящий и исходящий трафик с любых IP-адресов.
 
             {% endnote %}
 
@@ -49,27 +49,49 @@
 
     1. При необходимости задайте дополнительные настройки кластера:
 
-        {% include [extra-settings](../../_includes/mdb/mgp/extra-settings.md) %}
+        * {% include [Backup time](../../_includes/mdb/console/backup-time.md) %}
+        * {% include [Maintenance window](../../_includes/mdb/console/maintenance-window.md) %}
+        * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
+        * {% include [DataTransfer access](../../_includes/mdb/console/datatransfer-access.md) %}
+        * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
+
+            {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     1. Укажите параметры хостов-мастеров на вкладке **Master**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](calculate-specs.md#master).
-    
+
         * Класс хоста — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-мастеры кластера.
+<<<<<<< HEAD
+        * В блоке **Хранилище**:
+           * Выберите [тип хранилища](../concepts/storage.md).
+
+             {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+
+           * Выберите объем хранилища, который будет использоваться для данных.
+=======
+>>>>>>> develop
 
     1. Укажите параметры хостов-сегментов на вкладке **Segment**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](calculate-specs.md#segment).
 
         * Количество хостов-сегментов.
         * Количество сегментов на хост. Максимальное значение этого параметра зависит от класса хостов.
         * Класс хоста — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-сегменты кластера.
+<<<<<<< HEAD
+        * В блоке **Хранилище**:
+           * Выберите [тип хранилища](../concepts/storage.md).
+
+             {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+=======
 
     1. В блоке **Хранилище**:
 
         * Выберите [тип хранилища](../concepts/storage.md).
            
             {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+>>>>>>> develop
 
         * Выберите объем хранилища, который будет использоваться для данных.
 
-    1. Нажмите кнопку **Создать кластер**.
+    1. Нажмите кнопку **Создать**.
 
 - API
 

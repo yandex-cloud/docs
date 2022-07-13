@@ -27,7 +27,7 @@
 В стоимость поддержки инфраструктуры входит:
 
 * плата за вызовы функций (см. [тарифы {{ sf-full-name }}](../functions/pricing.md));
-* плата за выполнение запросов к базе данных  (см. [тарифы {{ ydb-full-name }}](../managed-ydb/pricing/serverless.md)); 
+* плата за выполнение запросов к базе данных  (см. [тарифы {{ ydb-full-name }}](../ydb/pricing/serverless.md)); 
 * плата за хранение данных в бакете (см. [тарифы {{ objstorage-full-name }}](../storage/pricing.md)).
 
 
@@ -53,12 +53,12 @@
    Сохраните **Идентификатор** секрета из блока **Информация о секрете**.
 
 1. [Создайте очередь сообщений](../message-queue/operations/message-queue-new-queue.md) с именем `converter-queue` в {{ message-queue-full-name }}. Сохраните **URL** очереди из блока **Общая информация**.
-1. [Создайте базу данных](../managed-ydb/quickstart.md#serverless) {{ ydb-short-name }} в режиме Serverless. Сохраните **Эндпойнт** из блока **Document API эндпоинт**.
-1.  [Создайте таблицу](../managed-ydb/operations/schema.md#create-table)  в базе данных:
+1. [Создайте базу данных](../ydb/quickstart.md#serverless) {{ ydb-short-name }} в режиме Serverless. Сохраните **Эндпойнт** из блока **Document API эндпоинт**.
+1.  [Создайте таблицу](../ydb/operations/schema.md#create-table)  в базе данных:
 
    * **Имя таблицы** — `tasks`.
-   * **Тип таблицы** —  [Документная таблица](../managed-ydb/operations/schema.md#create-table). 
-   * **Колонки** — одна колонка с именем `task_id` типа `String`.  Установите атрибут [Ключ партицирования](../managed-ydb/operations/schema.md#create-table). 
+   * **Тип таблицы** —  [Документная таблица](../ydb/operations/schema.md#create-table). 
+   * **Колонки** — одна колонка с именем `task_id` типа `String`.  Установите атрибут [Ключ партицирования](../ydb/operations/schema.md#create-table). 
 
 1. [Создайте бакет](../storage/operations/buckets/create) с именем `converter-bucket` в {{ objstorage-full-name }}.
 
@@ -66,7 +66,7 @@
 
 В функции реализуется API, с помощью которого можно выполнять следующие действия:
 
-* `convert`  — передать видео для конвертации. Функция записывает задачу в таблицу `tasks`  с помощью [Document API](../managed-ydb/docapi/tools/aws-http.md). 
+* `convert`  — передать видео для конвертации. Функция записывает задачу в таблицу `tasks`  с помощью [Document API](../ydb/docapi/tools/aws-http.md). 
 * `get_task_status` — узнать статус выполнения задачи. Функция проверяет, выполнена ли задача, и возвращает ссылку на GIF-файл.
 
 {% list tabs %}
@@ -267,7 +267,7 @@
 Чтобы остановить работу инфраструктуры и перестать платить за созданные ресурсы:
 
 1. [Удалите](../message-queue/operations/message-queue-delete-queue.md) очередь `converter-queue`.
-1. [Удалите](../ydb/db/cloud_console/create_manage_database.md#delete-db) базу данных.
+1. [Удалите](../ydb/operations/manage-database.md#delete-db) базу данных.
 1. [Удалите](../storage/operations/objects/delete.md) все объекты из бакета `converter-bucket`.
 1. [Удалите](../storage/operations/buckets/delete.md) бакет `converter-bucket`.
 1. [Удалите](../functions/operations/function/function-delete.md) функции `ffmpeg-api` и `ffmpeg-converter`.

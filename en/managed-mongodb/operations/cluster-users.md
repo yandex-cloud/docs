@@ -123,6 +123,8 @@ You can add and delete users as well as manage their individual settings and dat
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mongodb_cluster).
 
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 - API
 
    You can add users using the [create](../api-ref/User/create.md) method.
@@ -248,6 +250,8 @@ You can add and delete users as well as manage their individual settings and dat
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mongodb_cluster).
 
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 - API
 
    Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
@@ -303,6 +307,8 @@ You can add and delete users as well as manage their individual settings and dat
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mongodb_cluster).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 

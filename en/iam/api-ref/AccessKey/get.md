@@ -17,7 +17,7 @@ GET https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
  
 Parameter | Description
 --- | ---
-accessKeyId | Required. ID of the AccessKey resource to return. To get the access key ID, use a [list](/docs/iam/api-ref/AccessKey/list) request.  The maximum string length in characters is 50.
+accessKeyId | <p>Required. ID of the AccessKey resource to return. To get the access key ID, use a <a href="/docs/iam/api-ref/AccessKey/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

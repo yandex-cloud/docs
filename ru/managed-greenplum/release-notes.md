@@ -2,6 +2,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## 01.07.2022 {#01.07.2022}
+
+* Добавлена поддержка CLI: доступны команды `{{ yc-mdb-gp }} cluster` и `{{ yc-mdb-gp }} hosts`. {{ tag-cli }}
+
 ## 01.06.2022 {#01.06.2022}
 
 * Добавлена поддержка расширения [pgcrypto](https://gpdb.docs.pivotal.io/6-9/ref_guide/modules/pgcrypto.html).

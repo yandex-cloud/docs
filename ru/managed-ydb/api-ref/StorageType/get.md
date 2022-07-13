@@ -17,7 +17,7 @@ GET https://ydb.{{ api-host }}/ydb/v1/storageTypes/{storageTypeId}
  
 Parameter | Description
 --- | ---
-storageTypeId | Required. Required. ID of the storage type to return.
+storageTypeId | <p>Required. Required. ID of the storage type to return.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -33,6 +33,6 @@ storageTypeId | Required. Required. ID of the storage type to return.
  
 Field | Description
 --- | ---
-id | **string**<br>
-deviceType | **string**<br>
-redundancyType | **string**<br>
+id | **string**
+deviceType | **string**
+redundancyType | **string**

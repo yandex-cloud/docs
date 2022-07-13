@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/cluster/list-operations.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/cluster/list-operations.md
 ---
 # yc managed-sqlserver cluster list-operations
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/dns/zone/remove-labels.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/remove-labels.md
 ---
 # yc dns zone remove-labels
 

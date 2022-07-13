@@ -50,30 +50,30 @@ sourcePath: en/_api-ref/vpc/api-ref/SecurityGroup/index.md
  
 Field | Description
 --- | ---
-id | **string**<br>
-folderId | **string**<br>
+id | **string**
+folderId | **string**
 createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-name | **string**<br>
-description | **string**<br>
-labels | **object**<br>
-networkId | **string**<br>
+name | **string**
+description | **string**
+labels | **object**
+networkId | **string**
 status | **string**<br><ul> <li>UPDATING: updating is a long operation because we must update all instances in SG</li> </ul> 
-rules[] | **object**<br>
-rules[].<br>id | **string**<br>
-rules[].<br>description | **string**<br>
-rules[].<br>labels | **object**<br>
-rules[].<br>direction | **string**<br>Required.<br>
-rules[].<br>ports | **object**<br>
+rules[] | **object**
+rules[].<br>id | **string**
+rules[].<br>description | **string**
+rules[].<br>labels | **object**
+rules[].<br>direction | **string**<br>Required.
+rules[].<br>ports | **object**
 rules[].<br>ports.<br>fromPort | **string** (int64)<br><p>Acceptable values are 0 to 65535, inclusive.</p> 
 rules[].<br>ports.<br>toPort | **string** (int64)<br><p>Acceptable values are 0 to 65535, inclusive.</p> 
 rules[].<br>protocolName | **string**<br><p>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml</p> 
-rules[].<br>protocolNumber | **string** (int64)<br>
-rules[].<br>cidrBlocks | **object** <br>`rules[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br>
-rules[].<br>cidrBlocks.<br>v4CidrBlocks[] | **string**<br>
-rules[].<br>cidrBlocks.<br>v6CidrBlocks[] | **string**<br>
-rules[].<br>securityGroupId | **string** <br>`rules[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br>
-rules[].<br>predefinedTarget | **string** <br>`rules[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br>
-defaultForNetwork | **boolean** (boolean)<br>
+rules[].<br>protocolNumber | **string** (int64)
+rules[].<br>cidrBlocks | **object** <br>`rules[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
+rules[].<br>cidrBlocks.<br>v4CidrBlocks[] | **string**
+rules[].<br>cidrBlocks.<br>v6CidrBlocks[] | **string**
+rules[].<br>securityGroupId | **string** <br>`rules[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
+rules[].<br>predefinedTarget | **string** <br>`rules[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
+defaultForNetwork | **boolean** (boolean)
 
 ## Methods {#methods}
 Method | Description

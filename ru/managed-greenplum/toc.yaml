@@ -131,4 +131,8 @@ items:
                 href: api-ref/Operation/get.md
   - name: История изменений
     href: release-notes.md
+  - name: Вопросы и ответы
+    items:
+      - name: Общие вопросы
+        href: qa/general.md
 base: ru/managed-greenplum

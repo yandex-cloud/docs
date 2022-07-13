@@ -17,8 +17,8 @@ GET https://mdb.{{ api-host }}/managed-mysql/v1/resourcePresets
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return.  If the number of available results is larger than [pageSize](/docs/managed-mysql/api-ref/ResourcePreset/list#query_params), the API returns a [nextPageToken](/docs/managed-mysql/api-ref/ResourcePreset/list#responses) that can be used to get the next page of results in the subsequent [list](/docs/managed-mysql/api-ref/ResourcePreset/list) requests.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token that can be used to iterate through multiple pages of results.  To get the next page of results, set [pageToken](/docs/managed-mysql/api-ref/ResourcePreset/list#query_params) to the [nextPageToken](/docs/managed-mysql/api-ref/ResourcePreset/list#responses) returned by the previous [list](/docs/managed-mysql/api-ref/ResourcePreset/list) request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return.</p> <p>If the number of available results is larger than <a href="/docs/managed-mysql/api-ref/ResourcePreset/list#query_params">pageSize</a>, the API returns a <a href="/docs/managed-mysql/api-ref/ResourcePreset/list#responses">nextPageToken</a> that can be used to get the next page of results in the subsequent <a href="/docs/managed-mysql/api-ref/ResourcePreset/list">list</a> requests.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token that can be used to iterate through multiple pages of results.</p> <p>To get the next page of results, set <a href="/docs/managed-mysql/api-ref/ResourcePreset/list#query_params">pageToken</a> to the <a href="/docs/managed-mysql/api-ref/ResourcePreset/list#responses">nextPageToken</a> returned by the previous <a href="/docs/managed-mysql/api-ref/ResourcePreset/list">list</a> request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -42,7 +42,7 @@ pageToken | Page token that can be used to iterate through multiple pages of res
  
 Field | Description
 --- | ---
-resourcePresets[] | **object**<br><p>An object that represents MySQL resource preset. A resource preset defines hardware configuration for cluster hosts.</p> <p>See <a href="/docs/managed-mysql/concepts/instance-types">the documentation</a> for details.</p> 
+resourcePresets[] | **object**<br><p>List of resource presets.</p> 
 resourcePresets[].<br>id | **string**<br><p>ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host.</p> 
 resourcePresets[].<br>zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
 resourcePresets[].<br>cores | **string** (int64)<br><p>Number of CPU cores for a MySQL host created with the preset.</p> 

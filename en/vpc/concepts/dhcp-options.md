@@ -19,6 +19,9 @@ Changing DHCP settings may prevent VMs from accessing managed database services.
 * In DHCP settings, specify the second address from the dedicated subnet (`x.x.x.2`) as the default DNS server.
 * Specify the default DNS server address as the DNS forwarder for the `*.{{ dns-zone }}` zone on the DNS server in your network.
 
+
+
 ## NTP settings in Windows {#ntp-windows}
 
 By default, Windows doesn't use NTP settings pushed over DHCP and uses either its own time synchronization servers or those specified by the administrator if the VM is added to the domain. [You can manually change settings](https://docs.microsoft.com/en-us/windows-server/networking/windows-time-service/windows-time-service-tools-and-settings) using the W32Time service.
+

@@ -8,7 +8,7 @@
 
 {% note info "Minimum group size" %}
 
-A single [storage group](../../managed-ydb/concepts/resources.md#storage-groups) can store up to 100 GB of user data. The minimum granularity of space allocation for a DB is one storage group.
+A single [storage group](../../ydb/concepts/resources.md#storage-groups) can store up to 100 GB of user data. The minimum granularity of space allocation for a DB is one storage group.
 
 {% endnote %}
 

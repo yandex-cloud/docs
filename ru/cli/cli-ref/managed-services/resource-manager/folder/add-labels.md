@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/resource-manager/folder/add-labels.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/resource-manager/folder/add-labels.md
 ---
 # yc resource-manager folder add-labels
 

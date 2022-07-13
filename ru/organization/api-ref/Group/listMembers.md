@@ -17,14 +17,14 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/groups/{
  
 Parameter | Description
 --- | ---
-groupId | Required. ID of the Group resource to list members for.  The maximum string length in characters is 50.
+groupId | <p>Required. ID of the Group resource to list members for.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/organization/api-ref/Group/listMembers#query_params), the service returns a [nextPageToken](/docs/organization/api-ref/Group/listMembers#responses) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. Set [pageToken](/docs/organization/api-ref/Group/listMembers#query_params) to the [nextPageToken](/docs/organization/api-ref/Group/listMembers#responses) returned by a previous list request to get the next page of results.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/organization/api-ref/Group/listMembers#query_params">pageSize</a>, the service returns a <a href="/docs/organization/api-ref/Group/listMembers#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. Set <a href="/docs/organization/api-ref/Group/listMembers#query_params">pageToken</a> to the <a href="/docs/organization/api-ref/Group/listMembers#responses">nextPageToken</a> returned by a previous list request to get the next page of results.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

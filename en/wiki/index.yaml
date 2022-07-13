@@ -22,7 +22,7 @@ links:
     href: quick-guide
   - title: Create pages
     description: Use Wiki to create simple pages, notes, and tables.
-    href: create-and-edit
+    href: create-page
   - title: Configure access
     description: By default, all users who have access to a page can edit it.
     href: page-management/access-setup

@@ -11,7 +11,7 @@ After creating a cluster, you can:
 
 * [{#T}](#SQL-management)
 
-* [Configure {{ CH }} servers](#change-clickhouse-config) by following the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/operations/server_settings/settings/).
+* [Configure {{ CH }} servers](#change-clickhouse-config) by following the [{{ CH }} documentation]({{ ch.docs }}/operations/server_settings/settings/).
 
 * [Change additional cluster settings](#change-additional-settings).
 
@@ -135,6 +135,8 @@ The host class affects the amount of RAM that can be used by {{ CH }}. For more 
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
    Use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.clickhouse.resources.resourcePresetId` parameter (`configSpec.zookeeper.resources.resourcePresetId` for ZooKeeper).
@@ -225,6 +227,8 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
    To increase storage size, use the API [update](../api-ref/Cluster/update.md) method and pass the following in in the call:
@@ -309,6 +313,8 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
    For more information, see the [Terraform provider documentation]({{ tf-provider-mch }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
    Use the API [update](../api-ref/Cluster/update.md) method and pass all the requisite values in the `configSpec.clickhouse.config` parameter:
@@ -322,7 +328,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
 {% note info %}
 
-You can only change the [Max server memory usage](https://{{ ch-domain }}/docs/en/operations/server-configuration-parameters/settings/#max_server_memory_usage) setting value by [changing the class of {{ CH }} hosts](#change-resource-preset).
+You can only change the [Max server memory usage]({{ ch.docs }}/operations/server-configuration-parameters/settings/#max_server_memory_usage) setting value by [changing the class of {{ CH }} hosts](#change-resource-preset).
 
 For more information, see [{#T}](../concepts/memory-management.md).
 
@@ -436,6 +442,8 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
    For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
    Use the API [update](../api-ref/Cluster/update.md) method and pass all the requisite values in the `configSpec.clickhouse.config` parameter.
@@ -545,7 +553,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
 
 
-   1. {% include [maintenance-window](../../_includes/mdb/mch/terraform-maintenance-window.md) %}
+   1. {% include [maintenance-window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
@@ -567,6 +575,8 @@ For more information, see [{#T}](../concepts/memory-management.md).
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 
@@ -653,6 +663,8 @@ For more information, see [{#T}](../concepts/memory-management.md).
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

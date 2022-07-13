@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kafka/user/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/user/update.md
 ---
 # yc managed-kafka user update
 

@@ -40,7 +40,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 {% include [not-charged-database.md](../../_includes/pricing/price-formula/not-charged-database.md) %}
 
-After you spend the free amount of services, you will be charged at the applicable [rate](../../managed-ydb/pricing/serverless.md).
+After you spend the free amount of services, you will be charged at the applicable [rate](../../ydb/pricing/serverless.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 

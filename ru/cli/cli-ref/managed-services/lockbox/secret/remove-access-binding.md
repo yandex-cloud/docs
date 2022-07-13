@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/lockbox/secret/remove-access-binding.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/secret/remove-access-binding.md
 ---
 # yc lockbox secret remove-access-binding
 

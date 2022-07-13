@@ -28,7 +28,7 @@ As the data source or target you can use:
 | {{ PG }} database: your own or as part of the [{{ mpg-short-name }} service](../../managed-postgresql/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | {{ KF }} topic: your own topic or a topic in [{{ mkf-short-name }}](../../managed-kafka/). | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | Data stream [{{ yds-full-name }}](../../data-streams/) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
-| {{ ydb-name }} database: A database in [{{ ydb-name }}](../../managed-ydb/). | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
+| {{ ydb-name }} database: A database in [{{ ydb-name }}](../../ydb/). | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
 | Bucket [{{ objstorage-full-name }}](../../storage/) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
 
 
@@ -57,8 +57,8 @@ For more information about the differences between transfer types, see [{#T}](./
 
 If replication is enabled on a {{ CH }} target, the engines for recreating tables are selected depending on the source type:
 
-* Data transfer from row-oriented DBMS systems will use engines like [ReplicatedReplacingMergeTree](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/replication/) and [ReplacingMergeTree](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/replacingmergetree/).
-* Date transfers from {{ CH }} will use engines from the [ReplicatedMergeTree](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/replication/) family.
+* Data transfer from row-oriented DBMS systems will use engines like [ReplicatedReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) and [ReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replacingmergetree/).
+* Date transfers from {{ CH }} will use engines from the [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) family.
 
 ### {{ GP }} {#greenplum}
 

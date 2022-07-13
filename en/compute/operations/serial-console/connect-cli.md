@@ -37,7 +37,7 @@ To connect to the serial console, use the CLI.
         --ssh-key ~/.ssh/id_rsa
    ```
 
-   Or to Windows SAC:
+      Or to Windows SAC:
 
    ```
    $ yc compute connect-to-serial-port \
@@ -62,7 +62,7 @@ To connect to the serial console, use the CLI.
 * If the system requests user data to provide access to the VM, enter the login and password:
 
    * On a Linux VM, set a user password first. Run `sudo passwd <username>`. For more information, see [Getting started with the serial console](./index.md#linux-configuration).
-   * On a Windows VM, enter your username, domain (VM name), and password. For more information, see [Starting your terminal in the Windows serial console (SAC)](./windows-sac.md).
+      * On a Windows VM, enter your username, domain (VM name), and password. For more information, see [Starting your terminal in the Windows serial console (SAC)](./windows-sac.md).
 
 ## Disconnecting from the serial console {#turn-off-serial-console}
 

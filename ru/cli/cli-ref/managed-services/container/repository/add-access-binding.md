@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/container/repository/add-access-binding.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/repository/add-access-binding.md
 ---
 # yc container repository add-access-binding
 

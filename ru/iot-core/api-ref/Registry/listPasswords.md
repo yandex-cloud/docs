@@ -17,7 +17,7 @@ GET https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}/pa
  
 Parameter | Description
 --- | ---
-registryId | Required. ID of the registry to list passwords in.  To get a registry ID make a [list](/docs/iot-core/api-ref/Registry/list) request.  The maximum string length in characters is 50.
+registryId | <p>Required. ID of the registry to list passwords in.</p> <p>To get a registry ID make a <a href="/docs/iot-core/api-ref/Registry/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -37,7 +37,7 @@ registryId | Required. ID of the registry to list passwords in.  To get a regist
  
 Field | Description
 --- | ---
-passwords[] | **object**<br><p>A registry password.</p> 
+passwords[] | **object**<br><p>List of passwords for the specified registry.</p> 
 passwords[].<br>registryId | **string**<br><p>ID of the registry that the password belongs to.</p> 
 passwords[].<br>id | **string**<br><p>ID of the password.</p> 
 passwords[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

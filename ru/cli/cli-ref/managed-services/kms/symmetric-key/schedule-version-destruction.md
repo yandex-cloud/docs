@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/kms/symmetric-key/schedule-version-destruction.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-key/schedule-version-destruction.md
 ---
 # yc kms symmetric-key schedule-version-destruction
 

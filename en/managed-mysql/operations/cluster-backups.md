@@ -171,7 +171,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
    Terraform creates a copy of the existing cluster. The databases and users are deployed from the selected backup.
 
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
    **To restore a previously deleted cluster from a backup:**
 
@@ -216,7 +216,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -396,7 +396,7 @@ In single-host clusters, you create a backup by reading data from the master hos
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 

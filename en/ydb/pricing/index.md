@@ -1,7 +1,6 @@
-# Pricing for Yandex Managed Service for YDB
+# Pricing for {{ ydb-full-name }}
 
-{% note info %}
+Pricing for {{ ydb-full-name }} differs depending on the usage mode:
 
-This page has been moved to a [new address](../../managed-ydb/pricing/index.md).
-
-{% endnote %}
+* [{#T}](serverless.md).
+* [{#T}](dedicated.md).

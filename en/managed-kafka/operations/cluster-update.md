@@ -193,6 +193,8 @@ You can't decrease the number of {{ KF }} broker hosts.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
 
 - API
 
@@ -295,6 +297,8 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
 
 - API
 
@@ -360,7 +364,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. {% include [maintenance-window](../../_includes/mdb/mkf/terraform-maintenance-window.md) %}
+   1. {% include [maintenance-window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
@@ -477,6 +481,8 @@ You can't change the disk type for {{ KF }} clusters after creation.
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
 - API

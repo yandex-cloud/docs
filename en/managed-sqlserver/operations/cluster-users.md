@@ -124,6 +124,8 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mms }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
    Use the [create](../api-ref/User/create.md) API method and pass the following information in the request:
@@ -200,6 +202,8 @@ You can use SQL commands to assign privileges to users, but you can't use them t
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mms }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
 
 - API
 
@@ -294,6 +298,8 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mms }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
    Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
@@ -356,6 +362,8 @@ Step-by-step user role configuration instructions are provided under [Assigning 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mms }}).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
 
 - API
 

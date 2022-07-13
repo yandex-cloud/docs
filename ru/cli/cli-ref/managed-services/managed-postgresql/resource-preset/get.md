@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/resource-preset/get.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/resource-preset/get.md
 ---
 # yc managed-postgresql resource-preset get
 

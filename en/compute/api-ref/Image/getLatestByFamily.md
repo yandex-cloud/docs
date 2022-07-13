@@ -17,8 +17,8 @@ GET https://compute.{{ api-host }}/compute/v1/images:latestByFamily
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to get the image from. To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
-family | Name of the image family to search for.  Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+folderId | <p>Required. ID of the folder to get the image from. To get the folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+family | <p>Name of the image family to search for.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

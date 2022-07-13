@@ -60,11 +60,6 @@ This section describes how to assign a role to a user with a Yandex. The followi
         --subject userAccount:aje6o61dvog2h6g9a33s
       ```
 
-      ```bash
-      yc resource-manager cloud add-access-binding mycloud \
-        --role viewer \
-        --subject federatedUser:aje6o61dvog2h6g9a33s
-      ```
 
 - API
 
@@ -214,9 +209,8 @@ This section describes how to assign a role to a user with a Yandex. The followi
 
 {% include [grant-role-for-sa](../../../_includes/iam/grant-role-for-sa.md) %}
 
-### Resource access for a federated user {#access-to-federated-user}
 
-{% include [saml-assign-role-note](../../../_includes/saml-assign-role-note.md) %}
+### Resource access for a federated user {#access-to-federated-user}
 
 In the management console, you can assign a [federated user](../../../organization/add-federation.md) a role for an individual cloud or folder.
 
@@ -224,9 +218,7 @@ In the management console, you can assign a [federated user](../../../organizati
 
 - Management console
 
-
    The role assignment procedure is the same as for a user with a Yandex account. The user's federation name is shown next to the username.
-
 
    In the management console, you can only assign a role for a cloud or folder:
 
@@ -249,6 +241,7 @@ In the management console, you can assign a [federated user](../../../organizati
       1. Click **Save**.
 
 {% endlist %}
+
 
 ### Access to a resource for all users {#access-to-all}
 

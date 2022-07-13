@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/host-group/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/host-group/update.md
 ---
 # yc compute host-group update
 

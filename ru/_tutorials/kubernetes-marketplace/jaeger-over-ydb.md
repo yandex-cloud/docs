@@ -1,6 +1,6 @@
 Платформа для распределенной трассировки [Jaeger](https://github.com/jaegertracing/jaeger) позволяет выполнять мониторинг состояния запросов в распределенных системах микросервисных приложений.
 
-В этой статье вы узнаете, как установить платформу Jaeger в [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и настроить ее для работы с [{{ ydb-full-name }}](../../managed-ydb/):
+В этой статье вы узнаете, как установить платформу Jaeger в [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и настроить ее для работы с [{{ ydb-full-name }}](../../ydb/):
 1. [Установите и настройте Jaeger](#jaeger-install).
 1. [Установите тестовое приложение](#hotrod-install), которое создаст нагрузку на кластер {{ k8s }}.
 1. [Проверьте работу Jaeger](#jaeger-test), выполнив несколько тестовых запросов.
@@ -112,6 +112,6 @@
 ## Удалите созданные ресурсы {#clear-out}
 
 Если созданные ресурсы вам больше не нужны, удалите их:
-1. [Удалите базу данных {{ ydb-name }}](../../managed-ydb/operations/manage-database.md#delete-db).
+1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#delete-db).
 1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. Если вы зарезервировали для кластера публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).

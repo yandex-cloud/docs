@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/container/node-group/delete.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/node-group/delete.md
 ---
 # yc container node-group delete
 

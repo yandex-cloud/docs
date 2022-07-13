@@ -14,7 +14,7 @@
    - [{{ vpc-full-name }}](../vpc/qa/)
 
 - Платформа данных:
-   - [{{ ydb-full-name }}](../managed-ydb/faq.md)
+   - [{{ ydb-full-name }}](../ydb/faq.md)
    - [{{ datalens-full-name }}](../datalens/qa/)
    - [{{ dataproc-full-name }}](../data-proc/qa/)
    - [{{ mkf-full-name }}](../managed-kafka/qa/)
@@ -34,7 +34,7 @@
 
 - Бессерверные вычисления:
    - [{{ sf-full-name }}](../functions/qa/)
-   - [{{ ydb-full-name }}](../managed-ydb/faq.md)
+   - [{{ ydb-full-name }}](../ydb/faq.md)
    - [{{ objstorage-full-name }}](../storage/qa/)
 
 - Ресурсы и управление:

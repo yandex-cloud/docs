@@ -14,7 +14,7 @@ The application creates a {{ ydb-short-name }} database connection driver, a ses
 The infrastructure support cost for this scenario includes:
 
 * A fee for using the function (see [{{ sf-full-name }} pricing](../functions/pricing.md).
-* A fee for querying the database (see [{{ ydb-full-name }} pricing](../managed-ydb/pricing/serverless.md)).
+* A fee for querying the database (see [{{ ydb-full-name }} pricing](../ydb/pricing/serverless.md)).
 
 
 ## Prepare the environment {#prepare-environment}

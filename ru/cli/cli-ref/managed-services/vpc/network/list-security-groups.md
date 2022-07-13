@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/network/list-security-groups.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/network/list-security-groups.md
 ---
 # yc vpc network list-security-groups
 

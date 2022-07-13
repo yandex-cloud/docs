@@ -23,7 +23,7 @@ To get started with the service:
    {% endnote %}
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the virtual machine over SSH.
-1. Add the {{ CH }} [DEB repository](https://{{ ch-domain }}/docs/en/getting-started/install/#install-from-deb-packages):
+1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
 
    ```bash
    sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
@@ -79,7 +79,7 @@ To get started with the service:
 
 
 1. Use the ClickHouse CLI to connect:
-   1. Specify the path to the SSL certificate in the [configuration file](https://{{ ch-domain }}/docs/en/interfaces/cli/#interfaces_cli_configuration) in the `<caConfig>` element:
+   1. Specify the path to the SSL certificate in the [configuration file]({{ ch.docs }}/interfaces/cli/#interfaces_cli_configuration) in the `<caConfig>` element:
 
       ```xml
       <config>

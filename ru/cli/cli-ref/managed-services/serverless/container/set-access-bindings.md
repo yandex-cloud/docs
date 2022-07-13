@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/container/set-access-bindings.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/set-access-bindings.md
 ---
 # yc serverless container set-access-bindings
 

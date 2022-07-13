@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/virtual-host/update-grpc-route.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/virtual-host/update-grpc-route.md
 ---
 # yc application-load-balancer virtual-host update-grpc-route
 

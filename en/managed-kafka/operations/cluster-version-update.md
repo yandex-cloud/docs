@@ -81,6 +81,8 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mkf }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
 * API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:

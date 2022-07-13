@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mysql/user/get.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/user/get.md
 ---
 # yc managed-mysql user get
 

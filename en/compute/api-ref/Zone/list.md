@@ -17,8 +17,8 @@ GET https://compute.{{ api-host }}/compute/v1/zones
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/Zone/list#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/Zone/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/Zone/list#query_params) to the [nextPageToken](/docs/compute/api-ref/Zone/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/Zone/list#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/Zone/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/compute/api-ref/Zone/list#query_params">pageToken</a> to the <a href="/docs/compute/api-ref/Zone/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -39,7 +39,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/c
  
 Field | Description
 --- | ---
-zones[] | **object**<br><p>Availability zone. For more information, see <a href="/docs/overview/concepts/geo-scope">Availability zones</a>.</p> 
+zones[] | **object**<br><p>List of availability zones.</p> 
 zones[].<br>id | **string**<br><p>ID of the zone.</p> 
 zones[].<br>regionId | **string**<br><p>ID of the region.</p> 
 zones[].<br>status | **string**<br><p>Status of the zone.</p> <ul> <li>UP: Zone is available. You can access the resources allocated in this zone.</li> <li>DOWN: Zone is not available.</li> </ul> 

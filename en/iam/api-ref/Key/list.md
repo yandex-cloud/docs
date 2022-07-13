@@ -17,10 +17,10 @@ GET https://iam.{{ api-host }}/iam/v1/keys
  
 Parameter | Description
 --- | ---
-format | Output format of the key.<ul> <li>PEM_FILE: Privacy-Enhanced Mail (PEM) format. Default value.</li> </ul> 
-serviceAccountId | ID of the service account to list key pairs for. To get the service account ID, use a [list](/docs/iam/api-ref/ServiceAccount/list) request. If not specified, it defaults to the subject that made the request.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/iam/api-ref/Key/list#query_params), the service returns a [nextPageToken](/docs/iam/api-ref/Key/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/iam/api-ref/Key/list#query_params) to the [nextPageToken](/docs/iam/api-ref/Key/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+format | <p>Output format of the key.</p> <ul> <li>PEM_FILE: Privacy-Enhanced Mail (PEM) format. Default value.</li> </ul> 
+serviceAccountId | <p>ID of the service account to list key pairs for. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request. If not specified, it defaults to the subject that made the request.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/iam/api-ref/Key/list#query_params">pageSize</a>, the service returns a <a href="/docs/iam/api-ref/Key/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/iam/api-ref/Key/list#query_params">pageToken</a> to the <a href="/docs/iam/api-ref/Key/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -49,7 +49,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/i
  
 Field | Description
 --- | ---
-keys[] | **object**<br><p>A Key resource. For more information, see <a href="/docs/iam/concepts/authorization/key">Authorized keys</a>.</p> 
+keys[] | **object**<br><p>List of Key resources.</p> 
 keys[].<br>id | **string**<br><p>ID of the Key resource.</p> 
 keys[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 keys[].<br>description | **string**<br><p>Description of the Key resource. 0-256 characters long.</p> 

@@ -112,5 +112,5 @@ items:
   - name: Wiki
     href: wiki/index.yaml
   - name: Managed Service for YDB
-    href: managed-ydb/index.yaml
+    href: ydb/index.yaml
 base: ru

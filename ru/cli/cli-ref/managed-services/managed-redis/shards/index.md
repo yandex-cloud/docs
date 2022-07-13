@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-redis/shards/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/shards/index.md
 ---
 # yc managed-redis shards
 

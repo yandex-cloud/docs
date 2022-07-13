@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/container/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/update.md
 ---
 # yc serverless container update
 

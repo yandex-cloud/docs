@@ -18,7 +18,7 @@ GET https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{api
  
 Parameter | Description
 --- | ---
-apiGatewayId | Required. ID of the API gateway to return.  To get a API gateway ID make a [list](/docs/functions/api-gateway/api-ref/ApiGateway/list) request.
+apiGatewayId | <p>Required. ID of the API gateway to return.</p> <p>To get a API gateway ID make a <a href="/docs/functions/api-gateway/api-ref/ApiGateway/list">list</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

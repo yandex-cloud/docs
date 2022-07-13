@@ -17,15 +17,15 @@ GET https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}/instances
  
 Parameter | Description
 --- | ---
-hostGroupId | Required. ID of the host group to list instances for. To get the host group ID, use [list](/docs/compute/api-ref/HostGroup/list) request.  The maximum string length in characters is 50.
+hostGroupId | <p>Required. ID of the host group to list instances for. To get the host group ID, use <a href="/docs/compute/api-ref/HostGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/HostGroup/listInstances#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/HostGroup/listInstances#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/HostGroup/listInstances#query_params) to the [nextPageToken](/docs/compute/api-ref/HostGroup/listInstances#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response. Currently you can use filtering only on the `id` field. To get the host ID, use [listHosts](/docs/compute/api-ref/HostGroup/listHosts) request.  The maximum string length in characters is 1000.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/HostGroup/listInstances#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/HostGroup/listInstances#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/compute/api-ref/HostGroup/listInstances#query_params">pageToken</a> to the <a href="/docs/compute/api-ref/HostGroup/listInstances#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resources listed in the response. Currently you can use filtering only on the ``id`` field. To get the host ID, use <a href="/docs/compute/api-ref/HostGroup/listHosts">listHosts</a> request.</p> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -50,6 +50,12 @@ filter | A filter expression that filters resources listed in the response. Curr
       },
       "status": "string",
       "metadata": "object",
+      "metadataOptions": {
+        "gceHttpEndpoint": "string",
+        "awsV1HttpEndpoint": "string",
+        "gceHttpToken": "string",
+        "awsV1HttpToken": "string"
+      },
       "bootDisk": {
         "mode": "string",
         "deviceName": "string",
@@ -162,7 +168,7 @@ filter | A filter expression that filters resources listed in the response. Curr
  
 Field | Description
 --- | ---
-instances[] | **object**<br><p>An Instance resource. For more information, see <a href="/docs/compute/concepts/vm">Instances</a>.</p> 
+instances[] | **object**<br><p>Lists instances for the specified host group.</p> 
 instances[].<br>id | **string**<br><p>ID of the instance.</p> 
 instances[].<br>folderId | **string**<br><p>ID of the folder that the instance belongs to.</p> 
 instances[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
@@ -178,6 +184,11 @@ instances[].<br>resources.<br>coreFraction | **string** (int64)<br><p>Baseline l
 instances[].<br>resources.<br>gpus | **string** (int64)<br><p>The number of GPUs available to the instance.</p> 
 instances[].<br>status | **string**<br><p>Status of the instance.</p> <ul> <li>PROVISIONING: Instance is waiting for resources to be allocated.</li> <li>RUNNING: Instance is running normally.</li> <li>STOPPING: Instance is being stopped.</li> <li>STOPPED: Instance stopped.</li> <li>STARTING: Instance is being started.</li> <li>RESTARTING: Instance is being restarted.</li> <li>UPDATING: Instance is being updated.</li> <li>ERROR: Instance encountered a problem and cannot operate.</li> <li>CRASHED: Instance crashed and will be restarted automatically.</li> <li>DELETING: Instance is being deleted.</li> </ul> 
 instances[].<br>metadata | **object**<br><p>The metadata ``key:value`` pairs assigned to this instance. This includes custom metadata and predefined keys.</p> <p>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see <a href="/docs/compute/concepts/vm-metadata">Metadata</a>.</p> 
+instances[].<br>metadataOptions | **object**<br><p>Options allow user to configure access to instance's metadata</p> 
+instances[].<br>metadataOptions.<br>gceHttpEndpoint | **string**<br><p>Enabled access to GCE flavored metadata</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
+instances[].<br>metadataOptions.<br>awsV1HttpEndpoint | **string**<br><p>Enabled access to AWS flavored metadata (IMDSv1)</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
+instances[].<br>metadataOptions.<br>gceHttpToken | **string**<br><p>Enabled access to IAM credentials with GCE flavored metadata</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
+instances[].<br>metadataOptions.<br>awsV1HttpToken | **string**<br><p>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
 instances[].<br>bootDisk | **object**<br><p>Boot disk that is attached to the instance.</p> 
 instances[].<br>bootDisk.<br>mode | **string**<br><p>Access mode to the Disk resource.</p> <ul> <li>READ_ONLY: Read-only access.</li> <li>READ_WRITE: Read/Write access.</li> </ul> 
 instances[].<br>bootDisk.<br>deviceName | **string**<br><p>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance.</p> <p>This value can be used to reference the device for mounting, resizing, and so on, from within the instance.</p> 
@@ -238,7 +249,7 @@ instances[].<br>networkSettings | **object**<br><p>Network Settings</p>
 instances[].<br>networkSettings.<br>type | **string**<br><p>Network Type</p> <ul> <li>STANDARD: Standard network.</li> <li>SOFTWARE_ACCELERATED: Software accelerated network.</li> <li>HARDWARE_ACCELERATED: Hardware accelerated network (not available yet, reserved for future use).</li> </ul> 
 instances[].<br>placementPolicy | **object**<br><p>Placement policy configuration.</p> 
 instances[].<br>placementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
-instances[].<br>placementPolicy.<br>hostAffinityRules[] | **object**<br><p>Affinitity definition</p> 
+instances[].<br>placementPolicy.<br>hostAffinityRules[] | **object**<br><p>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules.</p> 
 instances[].<br>placementPolicy.<br>hostAffinityRules[].<br>key | **string**<br><p>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'</p> 
 instances[].<br>placementPolicy.<br>hostAffinityRules[].<br>op | **string**<br><p>Include or exclude action</p> 
 instances[].<br>placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity value or host ID or host group ID</p> 

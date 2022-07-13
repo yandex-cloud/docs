@@ -2,7 +2,7 @@
 
 {{ mch-name }} lets you use {{ objstorage-full-name }} to:
 * Enable [ML models](ml-models.md), [data format schemas](format-schemas.md), and your [own geobase](internal-dictionaries.md).
-* Process data that is stored in object storage if this data is represented in any of the [supported {{ CH }} formats](https://{{ ch-domain }}/docs/en/interfaces/formats/).
+* Process data that is stored in object storage if this data is represented in any of the [supported {{ CH }} formats]({{ ch.docs }}/interfaces/formats/).
 
 
 To access {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) data from a cluster, use one of the following methods:
@@ -72,7 +72,7 @@ To use {{ mch-name }} to work with data of an object in {{ objstorage-name }}, y
 
 [You can use object links](#get-link-to-object) like `https://{{ s3-storage-host }}/<bucket name>/<object name>` to work with geotags and schemas or to use the `s3` table function and the `S3` table engine.
 
-The `S3` table engine is similar to [File](https://{{ ch-domain }}/docs/en/engines/table-engines/special/file/) and [URL](https://{{ ch-domain }}/docs/en/engines/table-engines/special/url/) engines, except that data is stored in S3-compatible storage (such as {{ objstorage-full-name }}) rather than using a file system or a remote HTTP/HTTPS server. This engine allows reading or writing data from/to storage using standard SQL queries such as `SELECT` and `INSERT`.
+The `S3` table engine is similar to [File]({{ ch.docs }}/engines/table-engines/special/file/) and [URL]({{ ch.docs }}/engines/table-engines/special/url/) engines, except that data is stored in S3-compatible storage (such as {{ objstorage-full-name }}) rather than using a file system or a remote HTTP/HTTPS server. This engine allows reading or writing data from/to storage using standard SQL queries such as `SELECT` and `INSERT`.
 
 The `s3` table function provides the same functionality as the `S3` table engine, but you don't need to create a table before using it.
 

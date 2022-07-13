@@ -17,14 +17,14 @@ GET https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/hosts
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the ClickHouse cluster. To get the ClickHouse cluster ID use a [list](/docs/managed-clickhouse/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the ClickHouse cluster. To get the ClickHouse cluster ID use a <a href="/docs/managed-clickhouse/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listHosts#query_params), the service returns a [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listHosts#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token.  To get the next page of results, set [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listHosts#query_params) to the [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listHosts#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-clickhouse/api-ref/Cluster/listHosts#query_params">pageSize</a>, the service returns a <a href="/docs/managed-clickhouse/api-ref/Cluster/listHosts#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token.  To get the next page of results, set <a href="/docs/managed-clickhouse/api-ref/Cluster/listHosts#query_params">pageToken</a> to the <a href="/docs/managed-clickhouse/api-ref/Cluster/listHosts#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -76,5 +76,5 @@ hosts[].<br>services[].<br>type | **string**<br><p>Type of the service provided 
 hosts[].<br>services[].<br>health | **string**<br><p>Status code of server availability.</p> <ul> <li>UNKNOWN: Health of the server is unknown.</li> <li>ALIVE: The server is working normally.</li> <li>DEAD: The server is dead or unresponsive.</li> </ul> 
 hosts[].<br>subnetId | **string**<br><p>ID of the subnet that the host belongs to.</p> 
 hosts[].<br>assignPublicIp | **boolean** (boolean)<br><p>Flag showing public IP assignment status to this host.</p> 
-hosts[].<br>shardName | **string**<br>
+hosts[].<br>shardName | **string**
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-clickhouse/api-ref/Cluster/listHosts#query_params">pageSize</a>, use the <a href="/docs/managed-clickhouse/api-ref/Cluster/listHosts#responses">nextPageToken</a> as the value for the <a href="/docs/managed-clickhouse/api-ref/Cluster/listHosts#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-clickhouse/api-ref/Cluster/listHosts#responses">nextPageToken</a> to continue paging through the results.</p> 

@@ -17,15 +17,15 @@ GET https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}/i
  
 Parameter | Description
 --- | ---
-instanceGroupId | Required. ID of the InstanceGroup resource to list instances for. To get the instance group ID, use a [list](/docs/compute/api-ref/InstanceGroup/list) request.  The maximum string length in characters is 50.
+instanceGroupId | <p>Required. ID of the InstanceGroup resource to list instances for. To get the instance group ID, use a <a href="/docs/compute/api-ref/InstanceGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/InstanceGroup/listInstances#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/InstanceGroup/listInstances#query_params) to the [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response. Currently you can use filtering only on the `name` field.  The maximum string length in characters is 1000.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/compute/api-ref/InstanceGroup/listInstances#query_params">pageSize</a>, the service returns a <a href="/docs/compute/api-ref/InstanceGroup/listInstances#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/compute/api-ref/InstanceGroup/listInstances#query_params">pageToken</a> to the <a href="/docs/compute/api-ref/InstanceGroup/listInstances#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resources listed in the response. Currently you can use filtering only on the ``name`` field.</p> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -104,7 +104,7 @@ filter | A filter expression that filters resources listed in the response. Curr
  
 Field | Description
 --- | ---
-instances[] | **object**<br><p>A ManagedInstance resource. For more information, see <a href="/docs/compute/concepts/instance-groups/">Instance Groups Concepts</a>.</p> 
+instances[] | **object**<br><p>Lists instances for the specified instance group.</p> 
 instances[].<br>id | **string**<br><p>ID of the managed instance.</p> 
 instances[].<br>status | **string**<br><p>Status of the managed instance.</p> <ul> <li>CREATING_INSTANCE: Instance is being created.</li> <li>UPDATING_INSTANCE: Instance is being updated.</li> <li>DELETING_INSTANCE: Instance is being deleted.</li> <li>STARTING_INSTANCE: Instance is being started.</li> <li>STOPPING_INSTANCE: Instance is being stopped.</li> <li>AWAITING_STARTUP_DURATION: Instance has been created successfully, but startup duration has not elapsed yet.</li> <li>CHECKING_HEALTH: Instance has been created successfully and startup duration has elapsed, but health checks have not passed yet and the managed instance is not ready to receive traffic.</li> <li>OPENING_TRAFFIC: Instance Groups is initiating health checks and routing traffic to the instances.</li> <li>AWAITING_WARMUP_DURATION: Instance is now receiving traffic, but warmup duration has not elapsed yet.</li> <li>CLOSING_TRAFFIC: Instance Groups has initiated the process of stopping routing traffic to the instances.</li> <li>RUNNING_ACTUAL: Instance is running normally and its attributes match the current InstanceTemplate.</li> <li>RUNNING_OUTDATED: Instance is running normally, but its attributes do not match the current InstanceTemplate. It will be updated, recreated or deleted shortly.</li> <li>STOPPED: Instance was stopped.</li> <li>DELETED: Instance was deleted.</li> <li>PREPARING_RESOURCES: Instance Groups is preparing dependent resources.</li> </ul> 
 instances[].<br>instanceId | **string**<br><p>ID of the instance.</p> 

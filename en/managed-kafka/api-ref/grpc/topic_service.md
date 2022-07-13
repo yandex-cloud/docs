@@ -114,7 +114,7 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Apache Kafka® cluster to list topics in. <br>To get the cluster ID, make a [ClusterService.List](./cluster_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. <br>If the number of available results is larger than `page_size`, the service returns a [ListTopicsResponse.next_page_token](#ListTopicsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
-page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListTopicsResponse.next_page_token](#ListTopicsResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. <br>To get the next page of results, set `page_token` to the [ListTopicsResponse.next_page_token](#ListTopicsResponse) returned by the previous list request. The maximum string length in characters is 100.
 
 
 ### ListTopicsResponse {#ListTopicsResponse}

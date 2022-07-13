@@ -93,9 +93,9 @@ In this use case, you'll learn how to use serverless technologies to create a Sl
 
 The bot will use responses to chat commands and messages taken from {{ ydb-name }}. To enable this, prepare a table:
 
-1. [Create](../managed-ydb/quickstart.md#serverless) a database named `for-slack-bot` in Serverless mode.
+1. [Create](../ydb/quickstart.md#serverless) a database named `for-slack-bot` in Serverless mode.
 
-1. In the `for-slack-bot` database, [create](../managed-ydb/operations/schema.md#create-table) a YDB table named `coffee`:
+1. In the `for-slack-bot` database, [create](../ydb/operations/schema.md#create-table) a YDB table named `coffee`:
    1. Go to the **Navigation** tab.
    1. In the upper-right corner, click **SQL query**. The **Query** page opens.
    1. In the **Query** field, enter:
@@ -109,7 +109,7 @@ The bot will use responses to chat commands and messages taken from {{ ydb-name 
           ```
    1. Click **Run**.
 
-1. [Add](../managed-ydb/operations/crud.md#web-sql) an entry to the table. For example, specify the coffee variety name and id = 1.
+1. [Add](../ydb/operations/crud.md#web-sql) an entry to the table. For example, specify the coffee variety name and id = 1.
 
 ## Create functions {#create-functions}
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance-group/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance-group/index.md
 ---
 # yc compute instance-group
 

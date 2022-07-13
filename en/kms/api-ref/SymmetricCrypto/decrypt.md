@@ -17,7 +17,7 @@ POST https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:decrypt
  
 Parameter | Description
 --- | ---
-keyId | Required. ID of the symmetric KMS key to use for decryption.  The maximum string length in characters is 50.
+keyId | <p>Required. ID of the symmetric KMS key to use for decryption.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

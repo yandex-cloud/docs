@@ -12,7 +12,7 @@ For information about how to use static access keys, read the documentation on t
 * [{{ message-queue-name }}](/docs/message-queue/)
 
 
-* [{{ ydb-name }}](../../../managed-ydb/docapi/tools/aws-setup.md)
+* [{{ ydb-name }}](../../../ydb/docapi/tools/aws-setup.md)
 
 
 #### See also {#see-also}

@@ -12,7 +12,7 @@ A set of methods for managing Repository resources.
 | [Get](#Get) | Returns the specified Repository resource. |
 | [GetByName](#GetByName) | Returns the specified Repository resource. |
 | [List](#List) | Retrieves the list of Repository resources in the specified registry. |
-| [ListAccessBindings](#ListAccessBindings) | access Lists access bindings for the specified repository. |
+| [ListAccessBindings](#ListAccessBindings) | Lists access bindings for the specified repository. |
 | [Upsert](#Upsert) | Upserts a repository in the specified registry. |
 | [Delete](#Delete) | Deletes the specified repository. |
 | [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the specified repository. |
@@ -98,7 +98,7 @@ id | **string**<br>Output only. ID of the repository.
 
 ## ListAccessBindings {#ListAccessBindings}
 
-access Lists access bindings for the specified repository.
+Lists access bindings for the specified repository.
 
 **rpc ListAccessBindings ([ListAccessBindingsRequest](#ListAccessBindingsRequest)) returns ([ListAccessBindingsResponse](#ListAccessBindingsResponse))**
 

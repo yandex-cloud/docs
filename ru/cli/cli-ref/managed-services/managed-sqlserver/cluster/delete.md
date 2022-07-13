@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/cluster/delete.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/cluster/delete.md
 ---
 # yc managed-sqlserver cluster delete
 

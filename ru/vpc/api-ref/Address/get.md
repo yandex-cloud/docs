@@ -17,7 +17,7 @@ GET https://vpc.{{ api-host }}/vpc/v1/addresses/{addressId}
  
 Parameter | Description
 --- | ---
-addressId | Required. ID of the Address resource to return.  To get Address resource ID make a [list](/docs/vpc/api-ref/Address/list) request.  The maximum string length in characters is 50.
+addressId | <p>Required. ID of the Address resource to return.</p> <p>To get Address resource ID make a <a href="/docs/vpc/api-ref/Address/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -58,7 +58,7 @@ reserved | **boolean** (boolean)<br><p>Specifies if address is reserved or not.<
 used | **boolean** (boolean)<br><p>Specifies if address is used or not.</p> 
 type | **string**<br>Type of the IP address.<br><ul> <li>INTERNAL: Internal IP address.</li> <li>EXTERNAL: Public IP address.</li> </ul> 
 ipVersion | **string**<br>Vervion of the IP address.<br><ul> <li>IPV4: IPv4 address.</li> <li>IPV6: IPv6 address.</li> </ul> 
-externalIpv4Address | **object**<br>
+externalIpv4Address | **object**
 externalIpv4Address.<br>address | **string**<br><p>Value of address.</p> 
 externalIpv4Address.<br>zoneId | **string**<br><p>Availability zone from which the address will be allocated.</p> 
 externalIpv4Address.<br>requirements | **object**<br><p>Parameters of the allocated address, for example DDoS Protection.</p> 

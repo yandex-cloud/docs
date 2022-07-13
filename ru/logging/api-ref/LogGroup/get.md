@@ -17,7 +17,7 @@ GET https://logging.{{ api-host }}/logging/v1/logGroups/{logGroupId}
  
 Parameter | Description
 --- | ---
-logGroupId | Required. ID of the log group to return.  To get a log group ID make a [list](/docs/logging/api-ref/LogGroup/list) request.  The maximum string length in characters is 64.
+logGroupId | <p>Required. ID of the log group to return.</p> <p>To get a log group ID make a <a href="/docs/logging/api-ref/LogGroup/list">list</a> request.</p> <p>The maximum string length in characters is 64.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -47,6 +47,6 @@ createdAt | **string** (date-time)<br><p>Log group creation time.</p> <p>String 
 name | **string**<br><p>Log group name.</p> 
 description | **string**<br><p>Log group description.</p> 
 labels | **object**<br><p>Log group labels.</p> 
-status | **string**<br><p>Status of the log group.</p> <p>Possible log group statuses.</p> <ul> <li>STATUS_UNSPECIFIED: Unknown status.</li> </ul> <p>Should never occur.</p> <ul> <li>CREATING: Log group is creating.</li> <li>ACTIVE: Log group is ready to accept messages,</li> <li>DELETING: Log group is being deleted.</li> </ul> <p>No messages will be accepted.</p> <ul> <li>ERROR: Log group is in failed state.</li> </ul> 
+status | **string**<br><p>Status of the log group.</p> <p>Possible log group statuses.</p> <ul> <li>STATUS_UNSPECIFIED: Unknown status.</li> </ul> <p>Should never occur. - CREATING: Log group is creating.</p> <ul> <li> <p>ACTIVE: Log group is ready to accept messages,</p> </li> <li> <p>DELETING: Log group is being deleted.</p> <p>No messages will be accepted.</p> </li> <li> <p>ERROR: Log group is in failed state.</p> </li> </ul> 
 retentionPeriod | **string**<br><p>Log group entry retention period.</p> <p>Entries will be present in group during this period.</p> 
-dataStream | **string**<br>
+dataStream | **string**<br><p>Data stream name</p> 

@@ -54,7 +54,7 @@ You'll need the ID and secret key in the next steps.
 1. In the [management console]({{ link-console-main }}), select the folder to create a data stream in.
 1. Select **{{ yds-full-name }}**.
 1. Click **Create stream**.
-1. Specify an existing [serverless](../../managed-ydb/concepts/serverless-and-dedicated.md#serverless) {{ ydb-short-name }} database or [create](../../managed-ydb/quickstart.md#serverless) a new one. If you chose to create a new database, click ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Update** after creating it to update the list of databases.
+1. Specify an existing [serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless) {{ ydb-short-name }} database or [create](../../ydb/quickstart.md#serverless) a new one. If you chose to create a new database, click ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Update** after creating it to update the list of databases.
 1. Enter the name of the stream.
 1. Click **Create**.
 

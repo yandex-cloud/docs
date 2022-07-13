@@ -16,7 +16,7 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
    - [{{ vpc-full-name }}](../vpc/api-ref/)
 
 - Data platform:
-   - [{{ ydb-full-name }}](../managed-ydb/docapi/api-ref/)
+   - [{{ ydb-full-name }}](../ydb/docapi/api-ref/)
    - [{{ dataproc-full-name }}](../data-proc/api-ref/)
    - [{{ yds-full-name }}](../data-streams/kinesisapi/api-ref/)
    - [{{ data-transfer-full-name }}](../data-transfer/api-ref/)
@@ -40,7 +40,7 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 - Serverless computing:
    - [{{ api-gw-full-name }}](../api-gateway/apigateway/api-ref/)
    - [{{ sf-full-name }}](../functions/functions/api-ref/)
-   - [{{ ydb-full-name }}](../managed-ydb/docapi/api-ref/)
+   - [{{ ydb-full-name }}](../ydb/docapi/api-ref/)
    - [{{ yds-full-name }}](../data-streams/kinesisapi/api-ref/)
    - [{{ iot-full-name }}](../iot-core/api-ref/)
    - [{{ message-queue-full-name }}](../message-queue/api-ref/)

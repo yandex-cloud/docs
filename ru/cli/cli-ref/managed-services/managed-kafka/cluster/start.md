@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/start.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/start.md
 ---
 # yc managed-kafka cluster start
 

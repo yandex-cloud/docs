@@ -7,7 +7,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 ## {{ ydb-full-name }} cluster {#managed-service}
 
-Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ ydb-full-name }}](../../../../managed-ydb/).
+Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. Available only for clusters deployed in [{{ ydb-full-name }}](../../../../ydb/).
 
 {% list tabs %}
 

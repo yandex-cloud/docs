@@ -7,7 +7,7 @@
 * Check whether one region is part of another.
 * Get a chain of parent regions.
 
-Learn more about geobase functions in the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/functions/ym_dict_functions).
+Learn more about geobase functions in the [{{ CH }} documentation]({{ ch.docs }}/query_language/functions/ym_dict_functions).
 
 If you're not satisfied with the built-in geobase, you can add your own to {{ CH }} clusters:
 
@@ -18,7 +18,7 @@ If you're not satisfied with the built-in geobase, you can add your own to {{ CH
 
 ## Creating a geobase {#create-geobase}
 
-Geobases in {{ CH }} are text files containing the hierarchy and names of regions. You can add several alternative geobases to {{ CH }} to reflect alternative viewpoints on the regional structure of different countries. Learn more in the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/query_language/dicts/internal_dicts/).
+Geobases in {{ CH }} are text files containing the hierarchy and names of regions. You can add several alternative geobases to {{ CH }} to reflect alternative viewpoints on the regional structure of different countries. Learn more in the [{{ CH }} documentation]({{ ch.docs }}/query_language/dicts/internal_dicts/).
 
 To create a geobase:
 
@@ -92,5 +92,7 @@ To create a geobase:
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 {% endlist %}

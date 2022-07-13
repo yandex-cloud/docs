@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/image/add-labels.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/image/add-labels.md
 ---
 # yc compute image add-labels
 

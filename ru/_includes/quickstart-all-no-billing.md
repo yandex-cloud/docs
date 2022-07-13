@@ -40,7 +40,7 @@
   * [{{ ES }}](../managed-elasticsearch/quickstart.md).
   * [{{ KF }}](../managed-kafka/quickstart.md).
   * [{{ GP }}](../managed-greenplum/quickstart.md).
-    * [{{ ydb-name }}](../managed-ydb/quickstart.md#create-db).
+    * [{{ ydb-name }}](../ydb/quickstart.md#create-db).
   * [Копируйте и реплицируйте данные из одной базы в другую с помощью {{ data-transfer-name }}](../data-transfer/quickstart.md).
 * Машинное обучение:
   * [Преобразуйте текст в речь и наоборот с помощью {{ speechkit-name }}](../speechkit/quickstart.md).

@@ -19,6 +19,8 @@ items:
             href: operations/cloud/delete-cancel.md
           - name: Setting up access rights
             href: operations/cloud/set-access-bindings.md
+          - name: Retrieving a cloud ID
+            href: operations/cloud/get-id.md
           - name: Switch clouds
             href: operations/cloud/switch-cloud.md
           - name: Changing an organization for a cloud

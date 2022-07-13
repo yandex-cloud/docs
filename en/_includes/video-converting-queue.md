@@ -22,7 +22,7 @@ To create an application:
 The infrastructure support cost for this scenario includes:
 
 * A fee for function calls (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
-* A fee for querying the database  (see [{{ ydb-full-name }} pricing](../managed-ydb/pricing/serverless.md)). 
+* A fee for querying the database  (see [{{ ydb-full-name }} pricing](../ydb/pricing/serverless.md)). 
 * A fee for storing data in a bucket (see [{{ objstorage-full-name }} pricing](../storage/pricing.md)).
 
 
@@ -48,12 +48,12 @@ The infrastructure support cost for this scenario includes:
     Save the secret **ID** from the **Information about secret** section.
 
 1. [Create a message queue](../message-queue/operations/message-queue-new-queue.md) named `converter-queue` in {{ message-queue-full-name }}. Save the queue **URL** from the **General information** section.
-1. [Create a {{ ydb-short-name }} database](../managed-ydb/quickstart.md#serverless) in Serverless mode. Save the **Endpoint** from the **Document API endpoint** section.
-1.  [Create a table](../managed-ydb/operations/schema.md)  in the database:
+1. [Create a {{ ydb-short-name }} database](../ydb/quickstart.md#serverless) in Serverless mode. Save the **Endpoint** from the **Document API endpoint** section.
+1.  [Create a table](../ydb/operations/schema.md)  in the database:
 
     * **Table name**: `tasks`.
-    * **Table type**:  [Document table](../managed-ydb/operations/schema.md#create-table). 
-    * **Columns**: One column with the name `task_id` and the `String` type.  Set the [Partition key](../managed-ydb/operations/schema.md#create-table) attribute. 
+    * **Table type**:  [Document table](../ydb/operations/schema.md#create-table). 
+    * **Columns**: One column with the name `task_id` and the `String` type.  Set the [Partition key](../ydb/operations/schema.md#create-table) attribute. 
 
 1. [Create a bucket](../storage/operations/buckets/create) named `converter-bucket` in {{ objstorage-full-name }}.
 
@@ -61,7 +61,7 @@ The infrastructure support cost for this scenario includes:
 
 The function implements an API which you can use to perform the following actions:
 
-* `convert`: transfer a video to convert. The function writes the task to the `tasks` table  using the [Document API](../managed-ydb/docapi/tools/aws-http.md). 
+* `convert`: transfer a video to convert. The function writes the task to the `tasks` table  using the [Document API](../ydb/docapi/tools/aws-http.md). 
 * `get_task_status`: get the task status. The function checks whether the task is completed and returns a link to a GIF file.
 
 {% list tabs %}

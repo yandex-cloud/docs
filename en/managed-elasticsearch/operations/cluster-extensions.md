@@ -79,6 +79,8 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify the
 
     For more information, see [provider documentation {{ TF }}]({{ tf-provider-mes }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+
 * API
 
     Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:

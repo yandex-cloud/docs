@@ -1,5 +1,6 @@
 title: Yandex Managed Service for YDB
 href: index.yaml
+hidden: true
 items:
   - name: Getting started
     href: quickstart.md

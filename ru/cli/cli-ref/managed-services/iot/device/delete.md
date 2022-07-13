@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/device/delete.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/device/delete.md
 ---
 # yc iot device delete
 

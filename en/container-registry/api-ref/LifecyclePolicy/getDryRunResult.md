@@ -17,7 +17,7 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/dryRunLifecy
  
 Parameter | Description
 --- | ---
-dryRunLifecyclePolicyResultId | Required. ID of the dry run result of the lifecycle policy.  The maximum string length in characters is 50.
+dryRunLifecyclePolicyResultId | <p>Required. ID of the dry run result of the lifecycle policy.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-greenplum/resource-preset/list/segment.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/resource-preset/list/segment.md
 ---
 # yc managed-greenplum resource-preset list segment
 

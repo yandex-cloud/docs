@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-redis/resource-preset/get.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/resource-preset/get.md
 ---
 # yc managed-redis resource-preset get
 

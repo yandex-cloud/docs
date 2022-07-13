@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/update-network-interface.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/update-network-interface.md
 ---
 # yc compute instance update-network-interface
 

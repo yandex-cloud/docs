@@ -10,7 +10,7 @@
 - [{#T}](cluster-version-update.md)
 - [{#T}](hosts.md)
 - [{#T}](databases.md)
-- [{#T}](cluster-extensions.md)
+- [{#T}](./extensions/cluster-extensions.md)
 - [{#T}](cluster-users.md)
 - [{#T}](grant.md)
 - [{#T}](cluster-backups.md)

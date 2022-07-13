@@ -17,15 +17,15 @@ GET https://mks.{{ api-host }}/managed-kubernetes/v1/nodeGroups/{nodeGroupId}/op
  
 Parameter | Description
 --- | ---
-nodeGroupId | Required. ID of the node group to list operations for.
+nodeGroupId | <p>Required. ID of the node group to list operations for.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than [pageSize](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#query_params), the service returns a [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response. Currently you can use filtering only on [NodeGroup.name](/docs/managed-kubernetes/api-ref/NodeGroup#representation) field.  The maximum string length in characters is 1000.
+pageSize | <p>The maximum number of results per page that should be returned. If the number of available results is larger than <a href="/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#query_params">pageSize</a>, the service returns a <a href="/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/managed-kubernetes/api-ref/NodeGroup/listOperations#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters resources listed in the response. Currently you can use filtering only on <a href="/docs/managed-kubernetes/api-ref/NodeGroup#representation">NodeGroup.name</a> field.</p> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -62,7 +62,7 @@ filter | A filter expression that filters resources listed in the response. Curr
  
 Field | Description
 --- | ---
-operations[] | **object**<br><p>An Operation resource. For more information, see <a href="/docs/api-design-guide/concepts/operation">Operation</a>.</p> 
+operations[] | **object**<br><p>List of operations for the specified node group.</p> 
 operations[].<br>id | **string**<br><p>ID of the operation.</p> 
 operations[].<br>description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
 operations[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
@@ -70,7 +70,7 @@ operations[].<br>createdBy | **string**<br><p>ID of the user or service account 
 operations[].<br>modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 operations[].<br>done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
 operations[].<br>metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-operations[].<br>error | **object**<br>The error result of the operation in case of failure or cancellation. <br>`operations[]` includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+operations[].<br>error | **object**<br>The error result of the operation in case of failure or cancellation. <br>`operations[]` includes only one of the fields `error`, `response`<br>
 operations[].<br>error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
 operations[].<br>error.<br>message | **string**<br><p>An error message.</p> 
 operations[].<br>error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 

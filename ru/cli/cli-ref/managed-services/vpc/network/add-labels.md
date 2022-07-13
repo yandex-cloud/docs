@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/network/add-labels.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/network/add-labels.md
 ---
 # yc vpc network add-labels
 

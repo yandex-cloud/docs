@@ -121,6 +121,8 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
 
 - API
 
@@ -204,6 +206,8 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
 
 - API
 
@@ -255,6 +259,8 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
 - API
@@ -380,6 +386,8 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
 
 - API
 
@@ -446,6 +454,8 @@ If, in a cluster with **Manage topics via the API** enabled, you revoke the `ACC
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
 
 - API
 
@@ -503,6 +513,8 @@ If, in a cluster with **Manage topics via the API** enabled, you delete the [adm
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
 - API

@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mysql/resource-preset/list.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/resource-preset/list.md
 ---
 # yc managed-mysql resource-preset list
 

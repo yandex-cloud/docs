@@ -17,7 +17,7 @@
 ## Подключение к кластеру {#kubectl-connect}
 
 При подключении к кластеру {{ k8s }} пользователь [авторизуется в {{ iam-full-name }}](../../../iam/concepts/authorization/index.md) и получает доступ согласно [присвоенной ему роли](../../security/index.md#yc-api). Для авторизации требуется установка [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../../cli/quickstart.md).
-1. [Установите `kubectl`](https://kubernetes.io/ru/docs/tasks/tools/#kubectl).
+1. [Установите `kubectl`]({{ k8s-docs }}/tasks/tools/#kubectl).
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 

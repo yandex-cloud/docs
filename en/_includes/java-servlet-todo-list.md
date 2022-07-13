@@ -22,7 +22,7 @@ In this use case, you'll learn how to use serverless technologies and the Java S
 
 ## Create a database {#create-db}
 
-1. Create a database in [Serverless mode](../managed-ydb/concepts/serverless-and-dedicated.md#serverless):
+1. Create a database in [Serverless mode](../ydb/concepts/serverless-and-dedicated.md#serverless):
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database.
     1. Select **{{ ydb-name }}**.
     1. Click **Create database**.

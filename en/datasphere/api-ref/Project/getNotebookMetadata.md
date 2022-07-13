@@ -17,13 +17,13 @@ GET https://datasphere.{{ api-host }}/datasphere/v1/projects/{projectId}:noteboo
  
 Parameter | Description
 --- | ---
-projectId | Required. ID of the project, for which to return notebook metadata.  The maximum string length in characters is 200.
+projectId | <p>Required. ID of the project, for which to return notebook metadata.</p> <p>The maximum string length in characters is 200.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-notebookPath | Required. Path of the notebook to get metadata.
+notebookPath | <p>Required. Path of the notebook to get metadata.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

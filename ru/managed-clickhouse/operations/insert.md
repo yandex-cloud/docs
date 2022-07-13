@@ -2,9 +2,9 @@
 
 ## Обычная вставка данных {#general-insert}
 
-Для рутинного добавления данных в базу данных используйте запрос `INSERT`, описанный в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/statements/insert-into/). `INSERT`-запросы рекомендуется отправлять не чаще одного раза в секунду.
+Для рутинного добавления данных в базу данных используйте запрос `INSERT`, описанный в [документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/insert-into/). `INSERT`-запросы рекомендуется отправлять не чаще одного раза в секунду.
 
-Чтобы загружать большое количество информации, используйте сжатие данных при передаче: например, его можно включить для HTTP или `clickhouse-client`. Подробнее см. в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/interfaces/).
+Чтобы загружать большое количество информации, используйте сжатие данных при передаче: например, его можно включить для HTTP или `clickhouse-client`. Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/interfaces/).
 
 ## Вставка данных с указанием схемы формата данных {#insert-with-format-schema}
 
@@ -39,7 +39,7 @@
    - идентификатор пользователя `id` представлен в виде целого беззнакового 64-битного числа (`Uint64` в Cap'n Proto и {{ CH }}, `uint64` в Protobuf);
    - имя пользователя `name` представлено в виде строки (`Text` в Cap'n Proto, `string` в Protobuf, `String` в {{ CH }}).
    
-   Подробнее о поддерживаемых типах данных см. в документации [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3) и [{{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/data-types/).
+   Подробнее о поддерживаемых типах данных см. в документации [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3) и [{{ CH }}]({{ ch.docs }}/sql-reference/data-types/).
 
 1. [Подключитесь к кластеру](connect.md) и создайте таблицу `db1.users` нужного вида, если ее еще не существует:
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/ydb/database/restore.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/restore.md
 ---
 # yc ydb database restore
 

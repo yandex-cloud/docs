@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/cloud-desktop/desktop/reset-password.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/cloud-desktop/desktop/reset-password.md
 ---
 # yc cloud-desktop desktop reset-password
 

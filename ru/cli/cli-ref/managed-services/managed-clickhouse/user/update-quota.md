@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/user/update-quota.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/user/update-quota.md
 ---
 # yc managed-clickhouse user update-quota
 

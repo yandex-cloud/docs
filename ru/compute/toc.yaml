@@ -99,7 +99,7 @@ items:
             href: operations/vm-connect/rdp.md
           - name: Подключиться к ВМ через PowerShell
             href: operations/vm-connect/powershell.md
-          - name: Работа с Yandex Cloud изнутри ВМ
+          - name: Работа с {{ yandex-cloud }} изнутри ВМ
             href: operations/vm-connect/auth-inside-vm.md
           - name: Установить NVIDIA-драйверы
             href: operations/vm-operate/install-nvidia-drivers.md

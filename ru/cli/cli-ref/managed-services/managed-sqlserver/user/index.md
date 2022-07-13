@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/user/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/user/index.md
 ---
 # yc managed-sqlserver user
 

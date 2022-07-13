@@ -169,6 +169,8 @@ For more information, see [{#T}](../concepts/replication.md).
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
    Use the [addZookeeper](../api-ref/Cluster/addZookeeper.md) method. For the added hosts, specify the settings for the 3 {{ ZK }} hosts by listing them in the `hostSpecs` parameter.
@@ -259,6 +261,8 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
    Use the [addHosts](../api-ref/Cluster/addHosts.md) method and pass the following in the request:
@@ -310,6 +314,8 @@ The following characteristics are set for the {{ ZK }} hosts by default:
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

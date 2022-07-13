@@ -1,7 +1,4 @@
-# Конвертация видео в GIF на Python
-
-{% note info %}
-
-Страница перемещена по новому [адресу](../../managed-ydb/tutorials/video-converting-queue.md).
-
-{% endnote %}
+---
+sourcePath: overlay/tutorials/video-converting-queue.md
+---
+{% include [video-converting-queue](../../_includes/video-converting-queue.md) %}

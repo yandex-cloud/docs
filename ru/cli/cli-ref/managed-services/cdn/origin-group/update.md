@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/cdn/origin-group/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/origin-group/update.md
 ---
 # yc cdn origin-group update
 

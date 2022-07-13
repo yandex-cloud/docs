@@ -17,14 +17,14 @@ GET https://mdb.{{ api-host }}/managed-postgresql/v1/clusters/{clusterId}/hosts
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the PostgreSQL cluster. To get the PostgreSQL cluster ID use a [list](/docs/managed-postgresql/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the PostgreSQL cluster. To get the PostgreSQL cluster ID use a <a href="/docs/managed-postgresql/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/managed-postgresql/api-ref/Cluster/listHosts#query_params), the service returns a [nextPageToken](/docs/managed-postgresql/api-ref/Cluster/listHosts#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token.  To get the next page of results, set [pageToken](/docs/managed-postgresql/api-ref/Cluster/listHosts#query_params) to the [nextPageToken](/docs/managed-postgresql/api-ref/Cluster/listHosts#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts#query_params">pageSize</a>, the service returns a <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token.  To get the next page of results, set <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts#query_params">pageToken</a> to the <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -696,607 +696,607 @@ hosts[].<br>subnetId | **string**<br><p>ID of the subnet that the host belongs t
 hosts[].<br>replicationSource | **string**<br><p>Name of the host to be used as the replication source for cascading replication.</p> 
 hosts[].<br>priority | **integer** (int64)<br><p>Priority of the host as a replica. Higher value means higher priority.</p> <p>The host with the highest priority is the synchronous replica. All others are asynchronous. The synchronous replica replaces the master when needed.</p> <p>When a replica becomes the master, its priority is ignored.</p> 
 hosts[].<br>config | **object**<br><p>Configuration of a PostgreSQL server for the host.</p> 
-hosts[].<br>config.<br>postgresqlConfig_9_6 | **object**<br>Configuration for a host with PostgreSQL 9.6 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlHostConfig`` reflects parameters of a PostgreSQL configuration file. Detailed description is available in <a href="https://www.postgresql.org/docs/9.6/runtime-config.html">PostgreSQL documentation</a>.</p> 
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>recoveryMinApplyDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>sharedBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>tempBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>workMem | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>replacementSortTuples | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>tempFileLimit | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_9_6 | **object**<br>Configuration for a host with PostgreSQL 9.6 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br>
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>recoveryMinApplyDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>sharedBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>tempBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>workMem | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>replacementSortTuples | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>tempFileLimit | **integer** (int64)
 hosts[].<br>config.<br>postgresqlConfig_9_6.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_9_6.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>constraintExclusion | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>cursorTupleFraction | **number** (double)<br>
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>maxStandbyStreamingDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>constraintExclusion | **string**
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>cursorTupleFraction | **number** (double)
 hosts[].<br>config.<br>postgresqlConfig_9_6.<br>fromCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_9_6.<br>joinCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>forceParallelMode | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>clientMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logMinErrorStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logMinDurationStatement | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logCheckpoints | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logConnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logDisconnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logDuration | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logErrorVerbosity | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logLockWaits | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logTempFiles | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>searchPath | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>rowSecurity | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>defaultTransactionIsolation | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>statementTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>lockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>byteaOutput | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>xmlbinary | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>xmloption | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>ginPendingListLimit | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>deadlockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>maxLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>arrayNulls | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>backslashQuote | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>defaultWithOids | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>escapeStringWarning | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>loCompatPrivileges | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>standardConformingStrings | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>synchronizeSeqscans | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>transformNullEquals | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>exitOnError | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>seqPageCost | **number** (double)<br>
-hosts[].<br>config.<br>postgresqlConfig_9_6.<br>randomPageCost | **number** (double)<br>
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>forceParallelMode | **string**
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>clientMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logMinErrorStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logMinDurationStatement | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logCheckpoints | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logConnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logDisconnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logDuration | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logErrorVerbosity | **string**
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logLockWaits | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>logTempFiles | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>searchPath | **string**
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>rowSecurity | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>defaultTransactionIsolation | **string**
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>statementTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>lockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>byteaOutput | **string**
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>xmlbinary | **string**
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>xmloption | **string**
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>ginPendingListLimit | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>deadlockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>maxLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>maxPredLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>arrayNulls | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>backslashQuote | **string**
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>defaultWithOids | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>escapeStringWarning | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>loCompatPrivileges | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>operatorPrecedenceWarning | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>quoteAllIdentifiers | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>standardConformingStrings | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>synchronizeSeqscans | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>transformNullEquals | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>exitOnError | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>seqPageCost | **number** (double)
+hosts[].<br>config.<br>postgresqlConfig_9_6.<br>randomPageCost | **number** (double)
 hosts[].<br>config.<br>postgresqlConfig_9_6.<br>sqlInheritance | **boolean** (boolean)<br><p>This option has been removed in PostgreSQL 10.</p> 
 hosts[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_10_1C | **object**<br>Configuration for a host with PostgreSQL 10 1C server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlHostConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>recoveryMinApplyDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>sharedBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>tempBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>workMem | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>replacementSortTuples | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>tempFileLimit | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_10_1C | **object**<br>Configuration for a host with PostgreSQL 10 1C server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br>
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>recoveryMinApplyDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>sharedBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>tempBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>workMem | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>replacementSortTuples | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>tempFileLimit | **integer** (int64)
 hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>constraintExclusion | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>cursorTupleFraction | **number** (double)<br>
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>maxStandbyStreamingDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>constraintExclusion | **string**
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>cursorTupleFraction | **number** (double)
 hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>fromCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>joinCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>forceParallelMode | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>clientMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logMinErrorStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logMinDurationStatement | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logCheckpoints | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logConnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logDisconnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logDuration | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logErrorVerbosity | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logLockWaits | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logTempFiles | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>searchPath | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>rowSecurity | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultTransactionIsolation | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>statementTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>lockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>byteaOutput | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>xmlbinary | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>xmloption | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>ginPendingListLimit | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>deadlockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>maxLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>arrayNulls | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>backslashQuote | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultWithOids | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>escapeStringWarning | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>loCompatPrivileges | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>standardConformingStrings | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>synchronizeSeqscans | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>transformNullEquals | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>exitOnError | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>seqPageCost | **number** (double)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>randomPageCost | **number** (double)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableBitmapscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableHashagg | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableHashjoin | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableIndexscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableIndexonlyscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableMaterial | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableMergejoin | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableNestloop | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableSeqscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableSort | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableTidscan | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>forceParallelMode | **string**
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>clientMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logMinErrorStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logMinDurationStatement | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logCheckpoints | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logConnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logDisconnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logDuration | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logErrorVerbosity | **string**
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logLockWaits | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>logTempFiles | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>searchPath | **string**
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>rowSecurity | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultTransactionIsolation | **string**
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>statementTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>lockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>byteaOutput | **string**
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>xmlbinary | **string**
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>xmloption | **string**
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>ginPendingListLimit | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>deadlockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>maxLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>maxPredLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>arrayNulls | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>backslashQuote | **string**
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>defaultWithOids | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>escapeStringWarning | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>loCompatPrivileges | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>operatorPrecedenceWarning | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>quoteAllIdentifiers | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>standardConformingStrings | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>synchronizeSeqscans | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>transformNullEquals | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>exitOnError | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>seqPageCost | **number** (double)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>randomPageCost | **number** (double)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableBitmapscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableHashagg | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableHashjoin | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableIndexscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableIndexonlyscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableMaterial | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableMergejoin | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableNestloop | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableSeqscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableSort | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>enableTidscan | **boolean** (boolean)
 hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>timezone | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>timezone | **string**
 hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_10 | **object**<br>Configuration for a host with PostgreSQL 10 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlHostConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
-hosts[].<br>config.<br>postgresqlConfig_10.<br>recoveryMinApplyDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>sharedBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>tempBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>workMem | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>replacementSortTuples | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>tempFileLimit | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_10 | **object**<br>Configuration for a host with PostgreSQL 10 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br>
+hosts[].<br>config.<br>postgresqlConfig_10.<br>recoveryMinApplyDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>sharedBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>tempBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>workMem | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>replacementSortTuples | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>tempFileLimit | **integer** (int64)
 hosts[].<br>config.<br>postgresqlConfig_10.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_10.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_10.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>constraintExclusion | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>cursorTupleFraction | **number** (double)<br>
+hosts[].<br>config.<br>postgresqlConfig_10.<br>maxStandbyStreamingDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>constraintExclusion | **string**
+hosts[].<br>config.<br>postgresqlConfig_10.<br>cursorTupleFraction | **number** (double)
 hosts[].<br>config.<br>postgresqlConfig_10.<br>fromCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_10.<br>joinCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_10.<br>forceParallelMode | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>clientMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>logMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>logMinErrorStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>logMinDurationStatement | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>logCheckpoints | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>logConnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>logDisconnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>logDuration | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>logErrorVerbosity | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>logLockWaits | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>logStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>logTempFiles | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>searchPath | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>rowSecurity | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>defaultTransactionIsolation | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>statementTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>lockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>byteaOutput | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>xmlbinary | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>xmloption | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>ginPendingListLimit | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>deadlockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>maxLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>arrayNulls | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>backslashQuote | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>defaultWithOids | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>escapeStringWarning | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>loCompatPrivileges | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>standardConformingStrings | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>synchronizeSeqscans | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>transformNullEquals | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>exitOnError | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>seqPageCost | **number** (double)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>randomPageCost | **number** (double)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>enableBitmapscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>enableHashagg | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>enableHashjoin | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>enableIndexscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>enableIndexonlyscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>enableMaterial | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>enableMergejoin | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>enableNestloop | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>enableSeqscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>enableSort | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_10.<br>enableTidscan | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_10.<br>forceParallelMode | **string**
+hosts[].<br>config.<br>postgresqlConfig_10.<br>clientMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_10.<br>logMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_10.<br>logMinErrorStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_10.<br>logMinDurationStatement | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>logCheckpoints | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>logConnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>logDisconnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>logDuration | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>logErrorVerbosity | **string**
+hosts[].<br>config.<br>postgresqlConfig_10.<br>logLockWaits | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>logStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_10.<br>logTempFiles | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>searchPath | **string**
+hosts[].<br>config.<br>postgresqlConfig_10.<br>rowSecurity | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>defaultTransactionIsolation | **string**
+hosts[].<br>config.<br>postgresqlConfig_10.<br>statementTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>lockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>byteaOutput | **string**
+hosts[].<br>config.<br>postgresqlConfig_10.<br>xmlbinary | **string**
+hosts[].<br>config.<br>postgresqlConfig_10.<br>xmloption | **string**
+hosts[].<br>config.<br>postgresqlConfig_10.<br>ginPendingListLimit | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>deadlockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>maxLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>maxPredLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>arrayNulls | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>backslashQuote | **string**
+hosts[].<br>config.<br>postgresqlConfig_10.<br>defaultWithOids | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>escapeStringWarning | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>loCompatPrivileges | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>operatorPrecedenceWarning | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>quoteAllIdentifiers | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>standardConformingStrings | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>synchronizeSeqscans | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>transformNullEquals | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>exitOnError | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>seqPageCost | **number** (double)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>randomPageCost | **number** (double)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>enableBitmapscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>enableHashagg | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>enableHashjoin | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>enableIndexscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>enableIndexonlyscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>enableMaterial | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>enableMergejoin | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>enableNestloop | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>enableSeqscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>enableSort | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_10.<br>enableTidscan | **boolean** (boolean)
 hosts[].<br>config.<br>postgresqlConfig_10.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_10.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_10.<br>timezone | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_10.<br>timezone | **string**
 hosts[].<br>config.<br>postgresqlConfig_10.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_10.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_11 | **object**<br>Configuration for a host with PostgreSQL 11 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
-hosts[].<br>config.<br>postgresqlConfig_11.<br>recoveryMinApplyDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>sharedBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>tempBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>workMem | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>tempFileLimit | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_11 | **object**<br>Configuration for a host with PostgreSQL 11 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br>
+hosts[].<br>config.<br>postgresqlConfig_11.<br>recoveryMinApplyDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>sharedBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>tempBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>workMem | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>tempFileLimit | **integer** (int64)
 hosts[].<br>config.<br>postgresqlConfig_11.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_11.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_11.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>constraintExclusion | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>cursorTupleFraction | **number** (double)<br>
+hosts[].<br>config.<br>postgresqlConfig_11.<br>maxStandbyStreamingDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>constraintExclusion | **string**
+hosts[].<br>config.<br>postgresqlConfig_11.<br>cursorTupleFraction | **number** (double)
 hosts[].<br>config.<br>postgresqlConfig_11.<br>fromCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_11.<br>joinCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_11.<br>forceParallelMode | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>clientMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>logMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>logMinErrorStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>logMinDurationStatement | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>logCheckpoints | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>logConnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>logDisconnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>logDuration | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>logErrorVerbosity | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>logLockWaits | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>logStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>logTempFiles | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>searchPath | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>rowSecurity | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>defaultTransactionIsolation | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>statementTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>lockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>byteaOutput | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>xmlbinary | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>xmloption | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>ginPendingListLimit | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>deadlockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>maxLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>arrayNulls | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>backslashQuote | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>defaultWithOids | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>escapeStringWarning | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>loCompatPrivileges | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>standardConformingStrings | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>synchronizeSeqscans | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>transformNullEquals | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>exitOnError | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>seqPageCost | **number** (double)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>randomPageCost | **number** (double)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>enableBitmapscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>enableHashagg | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>enableHashjoin | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>enableIndexscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>enableIndexonlyscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>enableMaterial | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>enableMergejoin | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>enableNestloop | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>enableSeqscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>enableSort | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11.<br>enableTidscan | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_11.<br>forceParallelMode | **string**
+hosts[].<br>config.<br>postgresqlConfig_11.<br>clientMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_11.<br>logMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_11.<br>logMinErrorStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_11.<br>logMinDurationStatement | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>logCheckpoints | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>logConnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>logDisconnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>logDuration | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>logErrorVerbosity | **string**
+hosts[].<br>config.<br>postgresqlConfig_11.<br>logLockWaits | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>logStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_11.<br>logTempFiles | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>searchPath | **string**
+hosts[].<br>config.<br>postgresqlConfig_11.<br>rowSecurity | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>defaultTransactionIsolation | **string**
+hosts[].<br>config.<br>postgresqlConfig_11.<br>statementTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>lockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>byteaOutput | **string**
+hosts[].<br>config.<br>postgresqlConfig_11.<br>xmlbinary | **string**
+hosts[].<br>config.<br>postgresqlConfig_11.<br>xmloption | **string**
+hosts[].<br>config.<br>postgresqlConfig_11.<br>ginPendingListLimit | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>deadlockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>maxLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>maxPredLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>arrayNulls | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>backslashQuote | **string**
+hosts[].<br>config.<br>postgresqlConfig_11.<br>defaultWithOids | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>escapeStringWarning | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>loCompatPrivileges | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>operatorPrecedenceWarning | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>quoteAllIdentifiers | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>standardConformingStrings | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>synchronizeSeqscans | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>transformNullEquals | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>exitOnError | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>seqPageCost | **number** (double)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>randomPageCost | **number** (double)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>enableBitmapscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>enableHashagg | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>enableHashjoin | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>enableIndexscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>enableIndexonlyscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>enableMaterial | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>enableMergejoin | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>enableNestloop | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>enableSeqscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>enableSort | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11.<br>enableTidscan | **boolean** (boolean)
 hosts[].<br>config.<br>postgresqlConfig_11.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_11.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_11.<br>timezone | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_11.<br>timezone | **string**
 hosts[].<br>config.<br>postgresqlConfig_11.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_11.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_11_1C | **object**<br>Configuration for a host with PostgreSQL 11 1C server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>recoveryMinApplyDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>sharedBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>tempBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>workMem | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>tempFileLimit | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_11_1C | **object**<br>Configuration for a host with PostgreSQL 11 1C server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br>
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>recoveryMinApplyDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>sharedBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>tempBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>workMem | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>tempFileLimit | **integer** (int64)
 hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>constraintExclusion | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>cursorTupleFraction | **number** (double)<br>
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>maxStandbyStreamingDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>constraintExclusion | **string**
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>cursorTupleFraction | **number** (double)
 hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>fromCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>joinCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>forceParallelMode | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>clientMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logMinErrorStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logMinDurationStatement | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logCheckpoints | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logConnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logDisconnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logDuration | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logErrorVerbosity | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logLockWaits | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logTempFiles | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>searchPath | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>rowSecurity | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultTransactionIsolation | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>statementTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>lockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>byteaOutput | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>xmlbinary | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>xmloption | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>ginPendingListLimit | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>deadlockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>maxLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>arrayNulls | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>backslashQuote | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultWithOids | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>escapeStringWarning | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>loCompatPrivileges | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>standardConformingStrings | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>synchronizeSeqscans | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>transformNullEquals | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>exitOnError | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>seqPageCost | **number** (double)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>randomPageCost | **number** (double)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableBitmapscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableHashagg | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableHashjoin | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableIndexscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableIndexonlyscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableMaterial | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableMergejoin | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableNestloop | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableSeqscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableSort | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableTidscan | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>forceParallelMode | **string**
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>clientMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logMinErrorStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logMinDurationStatement | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logCheckpoints | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logConnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logDisconnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logDuration | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logErrorVerbosity | **string**
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logLockWaits | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>logTempFiles | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>searchPath | **string**
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>rowSecurity | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultTransactionIsolation | **string**
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>statementTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>lockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>byteaOutput | **string**
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>xmlbinary | **string**
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>xmloption | **string**
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>ginPendingListLimit | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>deadlockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>maxLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>maxPredLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>arrayNulls | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>backslashQuote | **string**
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>defaultWithOids | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>escapeStringWarning | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>loCompatPrivileges | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>operatorPrecedenceWarning | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>quoteAllIdentifiers | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>standardConformingStrings | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>synchronizeSeqscans | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>transformNullEquals | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>exitOnError | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>seqPageCost | **number** (double)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>randomPageCost | **number** (double)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableBitmapscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableHashagg | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableHashjoin | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableIndexscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableIndexonlyscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableMaterial | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableMergejoin | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableNestloop | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableSeqscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableSort | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>enableTidscan | **boolean** (boolean)
 hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>timezone | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>timezone | **string**
 hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_12 | **object**<br>Configuration for a host with PostgreSQL 12 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
-hosts[].<br>config.<br>postgresqlConfig_12.<br>recoveryMinApplyDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>sharedBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>tempBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>workMem | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>tempFileLimit | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_12 | **object**<br>Configuration for a host with PostgreSQL 12 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br>
+hosts[].<br>config.<br>postgresqlConfig_12.<br>recoveryMinApplyDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>sharedBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>tempBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>workMem | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>tempFileLimit | **integer** (int64)
 hosts[].<br>config.<br>postgresqlConfig_12.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_12.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_12.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>constraintExclusion | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>cursorTupleFraction | **number** (double)<br>
+hosts[].<br>config.<br>postgresqlConfig_12.<br>maxStandbyStreamingDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>constraintExclusion | **string**
+hosts[].<br>config.<br>postgresqlConfig_12.<br>cursorTupleFraction | **number** (double)
 hosts[].<br>config.<br>postgresqlConfig_12.<br>fromCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_12.<br>joinCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_12.<br>forceParallelMode | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>clientMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>logMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>logMinErrorStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>logMinDurationStatement | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>logCheckpoints | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>logConnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>logDisconnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>logDuration | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>logErrorVerbosity | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>logLockWaits | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>logStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>logTempFiles | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>searchPath | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>rowSecurity | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>defaultTransactionIsolation | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>statementTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>lockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>byteaOutput | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>xmlbinary | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>xmloption | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>ginPendingListLimit | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>deadlockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>maxLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>arrayNulls | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>backslashQuote | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>defaultWithOids | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>escapeStringWarning | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>loCompatPrivileges | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>standardConformingStrings | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>synchronizeSeqscans | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>transformNullEquals | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>exitOnError | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>seqPageCost | **number** (double)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>randomPageCost | **number** (double)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>enableBitmapscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>enableHashagg | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>enableHashjoin | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>enableIndexscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>enableIndexonlyscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>enableMaterial | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>enableMergejoin | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>enableNestloop | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>enableSeqscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>enableSort | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12.<br>enableTidscan | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_12.<br>forceParallelMode | **string**
+hosts[].<br>config.<br>postgresqlConfig_12.<br>clientMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_12.<br>logMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_12.<br>logMinErrorStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_12.<br>logMinDurationStatement | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>logCheckpoints | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>logConnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>logDisconnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>logDuration | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>logErrorVerbosity | **string**
+hosts[].<br>config.<br>postgresqlConfig_12.<br>logLockWaits | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>logStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_12.<br>logTempFiles | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>searchPath | **string**
+hosts[].<br>config.<br>postgresqlConfig_12.<br>rowSecurity | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>defaultTransactionIsolation | **string**
+hosts[].<br>config.<br>postgresqlConfig_12.<br>statementTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>lockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>byteaOutput | **string**
+hosts[].<br>config.<br>postgresqlConfig_12.<br>xmlbinary | **string**
+hosts[].<br>config.<br>postgresqlConfig_12.<br>xmloption | **string**
+hosts[].<br>config.<br>postgresqlConfig_12.<br>ginPendingListLimit | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>deadlockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>maxLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>maxPredLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>arrayNulls | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>backslashQuote | **string**
+hosts[].<br>config.<br>postgresqlConfig_12.<br>defaultWithOids | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>escapeStringWarning | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>loCompatPrivileges | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>operatorPrecedenceWarning | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>quoteAllIdentifiers | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>standardConformingStrings | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>synchronizeSeqscans | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>transformNullEquals | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>exitOnError | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>seqPageCost | **number** (double)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>randomPageCost | **number** (double)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>enableBitmapscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>enableHashagg | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>enableHashjoin | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>enableIndexscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>enableIndexonlyscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>enableMaterial | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>enableMergejoin | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>enableNestloop | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>enableSeqscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>enableSort | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12.<br>enableTidscan | **boolean** (boolean)
 hosts[].<br>config.<br>postgresqlConfig_12.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_12.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_12.<br>timezone | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_12.<br>timezone | **string**
 hosts[].<br>config.<br>postgresqlConfig_12.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_12.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_12_1C | **object**<br>Configuration for a host with PostgreSQL 12 1C server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>recoveryMinApplyDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>sharedBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>tempBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>workMem | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>tempFileLimit | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_12_1C | **object**<br>Configuration for a host with PostgreSQL 12 1C server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br>
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>recoveryMinApplyDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>sharedBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>tempBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>workMem | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>tempFileLimit | **integer** (int64)
 hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>constraintExclusion | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>cursorTupleFraction | **number** (double)<br>
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>maxStandbyStreamingDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>constraintExclusion | **string**
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>cursorTupleFraction | **number** (double)
 hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>fromCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>joinCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>forceParallelMode | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>clientMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logMinErrorStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logMinDurationStatement | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logCheckpoints | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logConnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logDisconnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logDuration | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logErrorVerbosity | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logLockWaits | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logTempFiles | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>searchPath | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>rowSecurity | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultTransactionIsolation | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>statementTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>lockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>byteaOutput | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>xmlbinary | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>xmloption | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>ginPendingListLimit | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>deadlockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>maxLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>arrayNulls | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>backslashQuote | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultWithOids | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>escapeStringWarning | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>loCompatPrivileges | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>standardConformingStrings | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>synchronizeSeqscans | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>transformNullEquals | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>exitOnError | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>seqPageCost | **number** (double)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>randomPageCost | **number** (double)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableBitmapscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableHashagg | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableHashjoin | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableIndexscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableIndexonlyscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableMaterial | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableMergejoin | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableNestloop | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableSeqscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableSort | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableTidscan | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>forceParallelMode | **string**
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>clientMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logMinErrorStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logMinDurationStatement | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logCheckpoints | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logConnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logDisconnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logDuration | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logErrorVerbosity | **string**
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logLockWaits | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>logTempFiles | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>searchPath | **string**
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>rowSecurity | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultTransactionIsolation | **string**
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>statementTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>lockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>byteaOutput | **string**
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>xmlbinary | **string**
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>xmloption | **string**
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>ginPendingListLimit | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>deadlockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>maxLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>maxPredLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>arrayNulls | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>backslashQuote | **string**
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>defaultWithOids | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>escapeStringWarning | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>loCompatPrivileges | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>operatorPrecedenceWarning | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>quoteAllIdentifiers | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>standardConformingStrings | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>synchronizeSeqscans | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>transformNullEquals | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>exitOnError | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>seqPageCost | **number** (double)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>randomPageCost | **number** (double)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableBitmapscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableHashagg | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableHashjoin | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableIndexscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableIndexonlyscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableMaterial | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableMergejoin | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableNestloop | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableSeqscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableSort | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>enableTidscan | **boolean** (boolean)
 hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>timezone | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>timezone | **string**
 hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_13 | **object**<br>Configuration for a host with PostgreSQL 13 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
-hosts[].<br>config.<br>postgresqlConfig_13.<br>recoveryMinApplyDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>sharedBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>tempBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>workMem | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>tempFileLimit | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_13 | **object**<br>Configuration for a host with PostgreSQL 13 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br>
+hosts[].<br>config.<br>postgresqlConfig_13.<br>recoveryMinApplyDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>sharedBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>tempBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>workMem | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>tempFileLimit | **integer** (int64)
 hosts[].<br>config.<br>postgresqlConfig_13.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_13.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_13.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>constraintExclusion | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>cursorTupleFraction | **number** (double)<br>
+hosts[].<br>config.<br>postgresqlConfig_13.<br>maxStandbyStreamingDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>constraintExclusion | **string**
+hosts[].<br>config.<br>postgresqlConfig_13.<br>cursorTupleFraction | **number** (double)
 hosts[].<br>config.<br>postgresqlConfig_13.<br>fromCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_13.<br>joinCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_13.<br>forceParallelMode | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>clientMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>logMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>logMinErrorStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>logMinDurationStatement | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>logCheckpoints | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>logConnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>logDisconnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>logDuration | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>logErrorVerbosity | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>logLockWaits | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>logStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>logTempFiles | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>searchPath | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>rowSecurity | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>defaultTransactionIsolation | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>statementTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>lockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>byteaOutput | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>xmlbinary | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>xmloption | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>ginPendingListLimit | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>deadlockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>maxLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>arrayNulls | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>backslashQuote | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>defaultWithOids | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>escapeStringWarning | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>loCompatPrivileges | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>operatorPrecedenceWarning | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>standardConformingStrings | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>synchronizeSeqscans | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>transformNullEquals | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>exitOnError | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>seqPageCost | **number** (double)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>randomPageCost | **number** (double)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>enableBitmapscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>enableHashagg | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>enableHashjoin | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>enableIndexscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>enableIndexonlyscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>enableMaterial | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>enableMergejoin | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>enableNestloop | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>enableSeqscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>enableSort | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_13.<br>enableTidscan | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_13.<br>forceParallelMode | **string**
+hosts[].<br>config.<br>postgresqlConfig_13.<br>clientMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_13.<br>logMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_13.<br>logMinErrorStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_13.<br>logMinDurationStatement | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>logCheckpoints | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>logConnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>logDisconnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>logDuration | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>logErrorVerbosity | **string**
+hosts[].<br>config.<br>postgresqlConfig_13.<br>logLockWaits | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>logStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_13.<br>logTempFiles | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>searchPath | **string**
+hosts[].<br>config.<br>postgresqlConfig_13.<br>rowSecurity | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>defaultTransactionIsolation | **string**
+hosts[].<br>config.<br>postgresqlConfig_13.<br>statementTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>lockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>byteaOutput | **string**
+hosts[].<br>config.<br>postgresqlConfig_13.<br>xmlbinary | **string**
+hosts[].<br>config.<br>postgresqlConfig_13.<br>xmloption | **string**
+hosts[].<br>config.<br>postgresqlConfig_13.<br>ginPendingListLimit | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>deadlockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>maxLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>maxPredLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>arrayNulls | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>backslashQuote | **string**
+hosts[].<br>config.<br>postgresqlConfig_13.<br>defaultWithOids | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>escapeStringWarning | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>loCompatPrivileges | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>operatorPrecedenceWarning | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>quoteAllIdentifiers | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>standardConformingStrings | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>synchronizeSeqscans | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>transformNullEquals | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>exitOnError | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>seqPageCost | **number** (double)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>randomPageCost | **number** (double)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>enableBitmapscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>enableHashagg | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>enableHashjoin | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>enableIndexscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>enableIndexonlyscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>enableMaterial | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>enableMergejoin | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>enableNestloop | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>enableSeqscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>enableSort | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_13.<br>enableTidscan | **boolean** (boolean)
 hosts[].<br>config.<br>postgresqlConfig_13.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_13.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_13.<br>timezone | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_13.<br>timezone | **string**
 hosts[].<br>config.<br>postgresqlConfig_13.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_13.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_14 | **object**<br>Configuration for a host with PostgreSQL 14 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
-hosts[].<br>config.<br>postgresqlConfig_14.<br>recoveryMinApplyDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>sharedBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>tempBuffers | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>workMem | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>tempFileLimit | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_14 | **object**<br>Configuration for a host with PostgreSQL 14 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>recoveryMinApplyDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>sharedBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>tempBuffers | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>workMem | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>tempFileLimit | **integer** (int64)
 hosts[].<br>config.<br>postgresqlConfig_14.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_14.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_14.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>constraintExclusion | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>cursorTupleFraction | **number** (double)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>maxStandbyStreamingDelay | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>constraintExclusion | **string**
+hosts[].<br>config.<br>postgresqlConfig_14.<br>cursorTupleFraction | **number** (double)
 hosts[].<br>config.<br>postgresqlConfig_14.<br>fromCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_14.<br>joinCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_14.<br>forceParallelMode | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>clientMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>logMinMessages | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>logMinErrorStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>logMinDurationStatement | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>logCheckpoints | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>logConnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>logDisconnections | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>logDuration | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>logErrorVerbosity | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>logLockWaits | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>logStatement | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>logTempFiles | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>searchPath | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>rowSecurity | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>defaultTransactionIsolation | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>statementTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>lockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>byteaOutput | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>xmlbinary | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>xmloption | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>ginPendingListLimit | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>deadlockTimeout | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>maxLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>arrayNulls | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>backslashQuote | **string**<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>defaultWithOids | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>escapeStringWarning | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>loCompatPrivileges | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>standardConformingStrings | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>synchronizeSeqscans | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>transformNullEquals | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>exitOnError | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>seqPageCost | **number** (double)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>randomPageCost | **number** (double)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>enableBitmapscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>enableHashagg | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>enableHashjoin | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>enableIndexscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>enableIndexonlyscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>enableMaterial | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>enableMergejoin | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>enableNestloop | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>enableSeqscan | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>enableSort | **boolean** (boolean)<br>
-hosts[].<br>config.<br>postgresqlConfig_14.<br>enableTidscan | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>forceParallelMode | **string**
+hosts[].<br>config.<br>postgresqlConfig_14.<br>clientMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logMinMessages | **string**
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logMinErrorStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logMinDurationStatement | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logCheckpoints | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logConnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logDisconnections | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logDuration | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logErrorVerbosity | **string**
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logLockWaits | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logStatement | **string**
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logTempFiles | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>searchPath | **string**
+hosts[].<br>config.<br>postgresqlConfig_14.<br>rowSecurity | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>defaultTransactionIsolation | **string**
+hosts[].<br>config.<br>postgresqlConfig_14.<br>statementTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>lockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>idleInTransactionSessionTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>byteaOutput | **string**
+hosts[].<br>config.<br>postgresqlConfig_14.<br>xmlbinary | **string**
+hosts[].<br>config.<br>postgresqlConfig_14.<br>xmloption | **string**
+hosts[].<br>config.<br>postgresqlConfig_14.<br>ginPendingListLimit | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>deadlockTimeout | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>maxLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>maxPredLocksPerTransaction | **integer** (int64)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>arrayNulls | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>backslashQuote | **string**
+hosts[].<br>config.<br>postgresqlConfig_14.<br>defaultWithOids | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>escapeStringWarning | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>loCompatPrivileges | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>quoteAllIdentifiers | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>standardConformingStrings | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>synchronizeSeqscans | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>transformNullEquals | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>exitOnError | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>seqPageCost | **number** (double)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>randomPageCost | **number** (double)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableBitmapscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableHashagg | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableHashjoin | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableIndexscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableIndexonlyscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableMaterial | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableMergejoin | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableNestloop | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableSeqscan | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableSort | **boolean** (boolean)
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableTidscan | **boolean** (boolean)
 hosts[].<br>config.<br>postgresqlConfig_14.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_14.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_14.<br>timezone | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>timezone | **string**
 hosts[].<br>config.<br>postgresqlConfig_14.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_14.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
 hosts[].<br>assignPublicIp | **boolean** (boolean)<br><p>Flag showing public IP assignment status to this host.</p> 
-hosts[].<br>replicaType | **string**<br>
+hosts[].<br>replicaType | **string**
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts#query_params">pageSize</a>, use the <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts#responses">nextPageToken</a> as the value for the <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts#responses">nextPageToken</a> to continue paging through the results.</p> 

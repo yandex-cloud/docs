@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/route-table/move.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/route-table/move.md
 ---
 # yc vpc route-table move
 

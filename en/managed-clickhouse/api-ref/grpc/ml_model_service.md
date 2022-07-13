@@ -53,7 +53,7 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the cluster that models belongs to. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListMlModelsResponse.next_page_token](#ListMlModelsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListMlModelsResponse.next_page_token](#ListMlModelsResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListMlModelsResponse.next_page_token](#ListMlModelsResponse) returned by the previous list request. The maximum string length in characters is 100.
 
 
 ### ListMlModelsResponse {#ListMlModelsResponse}
