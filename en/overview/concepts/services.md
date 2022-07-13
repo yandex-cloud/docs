@@ -22,7 +22,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
  * [{{ dataproc-full-name }}](../../data-proc/) (Managed Apache Hadoop® clusters).
 * [{{ yds-full-name }}](../../data-streams/) (Managed data streams in real time).
 * [{{ data-transfer-full-name }}](../../data-transfer/) (A service for database migration).
-* [{{ ydb-full-name }}](../../managed-ydb/) (Database management service {{ ydb-full-name }}).
+* [{{ ydb-full-name }}](../../ydb/) (Database management service {{ ydb-full-name }}).
 * [{{ datalens-full-name }}](../../datalens/) (Data visualization and analytics).
 * [{{ ml-platform-full-name }}](../../datasphere/) (ML development).
 * [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) (Protection from DDoS attacks).
@@ -252,7 +252,7 @@ List of services whose resources support labels:
 * [{{ dataproc-full-name }}](../../data-proc/)
 * [{{ sf-full-name }}](../../functions/)
 * [{{ iot-full-name }}](../../iot-core/)
-* [{{ ydb-full-name }}](../../managed-ydb/)
+* [{{ ydb-full-name }}](../../ydb/)
 
 
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}

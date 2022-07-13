@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-operation/operation/wait.md
+sourcePath: en/_cli-ref/cli-ref/managed-operation/operation/wait.md
 ---
 # yc operation wait
 

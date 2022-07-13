@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-yc/config/profile/create.md
+sourcePath: en/_cli-ref/cli-ref/managed-yc/config/profile/create.md
 ---
 # yc config profile create
 

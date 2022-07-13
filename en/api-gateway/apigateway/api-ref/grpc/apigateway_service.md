@@ -365,7 +365,9 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 api_gateway_id | **string**<br>Required. ID of the API gateway that the domain is attached to. 
-domain_id | **string**<br>Required. ID of the attaching domain. 
+domain_id | **string**<br>ID of the attaching domain. 
+domain_name | **string**<br>Name of the attaching domain. 
+certificate_id | **string**<br>ID of certificate for the attaching domain. 
 
 
 ### Operation {#Operation3}
@@ -390,6 +392,7 @@ Field | Description
 --- | ---
 api_gateway_id | **string**<br>ID of the API gateway that the domain is attached to. 
 domain_id | **string**<br>ID of the attaching domain. 
+domain_name | **string**<br>Name of the attaching domain. 
 
 
 ## RemoveDomain {#RemoveDomain}

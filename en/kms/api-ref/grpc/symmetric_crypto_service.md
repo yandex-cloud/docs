@@ -5,7 +5,6 @@ sourcePath: en/_api-ref-grpc/kms/api-ref/grpc/symmetric_crypto_service.md
 
 # SymmetricCryptoService
 
---- Data plane for KMS symmetric cryptography operations 
 Set of methods that perform symmetric encryption and decryption.
 
 | Call | Description |

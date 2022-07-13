@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kafka/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/index.md
 ---
 # yc managed-kafka
 

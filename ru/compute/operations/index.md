@@ -64,11 +64,15 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](vm-operate/install-nvidia-drivers.md)
 * [{#T}](vm-connect/recovery-access.md)
 
+
+
 ## Управление агентом для сброса паролей {#guest-agent}
 
 * [{#T}](vm-guest-agent/check.md)
 * [{#T}](vm-guest-agent/install.md)
 * [{#T}](vm-guest-agent/uninstall.md)
+
+
 
 ## Создание диска {#disk-create}
 

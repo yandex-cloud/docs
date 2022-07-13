@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/federation/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/iam/federation/update.md
 ---
 # yc iam federation update
 

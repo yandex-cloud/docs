@@ -17,10 +17,10 @@ sourcePath: en/_api-ref/mdb/clickhouse/api-ref/FormatSchema/index.md
  
 Field | Description
 --- | ---
-name | **string**<br>
-clusterId | **string**<br>
-type | **string**<br>
-uri | **string**<br>
+name | **string**
+clusterId | **string**
+type | **string**
+uri | **string**
 
 ## Methods {#methods}
 Method | Description

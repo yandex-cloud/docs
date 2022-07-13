@@ -17,8 +17,8 @@ PUT https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/aut
  
 Parameter | Description
 --- | ---
-clusterId | Required. Required. ID of the ElasticSearch cluster.  The maximum string length in characters is 50.
-name | Required. Required. Name of the provider to update.  The maximum string length in characters is 50. Value must match the regular expression `` [a-z][a-z0-9_-]* ``.
+clusterId | <p>Required. Required. ID of the ElasticSearch cluster.</p> <p>The maximum string length in characters is 50.</p> 
+name | <p>Required. Required. Name of the provider to update.</p> <p>The maximum string length in characters is 50. Value must match the regular expression ``[a-z][a-z0-9_-]*``.</p> 
  
 ## Body parameters {#body_params}
  
@@ -52,15 +52,15 @@ name | Required. Required. Name of the provider to update.  The maximum string l
 Field | Description
 --- | ---
 provider | **object**<br><p>Required. Required. New provider defenition.</p> 
-provider.<br>type | **string**<br>
+provider.<br>type | **string**
 provider.<br>name | **string**<br><p>The maximum string length in characters is 50. Value must match the regular expression ``[a-z][a-z0-9_-]*``.</p> 
-provider.<br>order | **string** (int64)<br>
-provider.<br>enabled | **boolean** (boolean)<br>
+provider.<br>order | **string** (int64)
+provider.<br>enabled | **boolean** (boolean)
 provider.<br>hidden | **boolean** (boolean)<br><p>selector ui settings</p> 
 provider.<br>description | **string**<br><p>The maximum string length in characters is 50.</p> 
 provider.<br>hint | **string**<br><p>The maximum string length in characters is 250.</p> 
 provider.<br>icon | **string**<br><p>The maximum string length in characters is 250.</p> 
-provider.<br>saml | **object**<br>
+provider.<br>saml | **object**
 provider.<br>saml.<br>idpEntityId | **string**<br><p>The maximum string length in characters is 250.</p> 
 provider.<br>saml.<br>idpMetadataFile | **string** (byte)<br><p>The maximum string length in characters is 10000.</p> 
 provider.<br>saml.<br>spEntityId | **string**<br><p>The maximum string length in characters is 250.</p> 
@@ -108,7 +108,7 @@ createdBy | **string**<br><p>ID of the user or service account who initiated the
 modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
 metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>
 error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
 error.<br>message | **string**<br><p>An error message.</p> 
 error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 

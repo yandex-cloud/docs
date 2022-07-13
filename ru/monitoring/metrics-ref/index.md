@@ -35,7 +35,7 @@ editable: false
 {% include [managed-redis.md](../../_includes/monitoring/metrics-ref/managed-redis.md) %}
 
 
-{% include [managed-ydb.md](../../_includes/monitoring/metrics-ref/managed-ydb.md) %}
+{% include [ydb.md](../../_includes/monitoring/metrics-ref/ydb.md) %}
 
 
 {% include [compute.md](../../_includes/monitoring/metrics-ref/monitoring.md) %}

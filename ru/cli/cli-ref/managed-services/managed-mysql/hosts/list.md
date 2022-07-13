@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mysql/hosts/list.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/hosts/list.md
 ---
 # yc managed-mysql hosts list
 

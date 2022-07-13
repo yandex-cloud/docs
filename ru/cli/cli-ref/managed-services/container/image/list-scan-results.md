@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/container/image/list-scan-results.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/image/list-scan-results.md
 ---
 # yc container image list-scan-results
 

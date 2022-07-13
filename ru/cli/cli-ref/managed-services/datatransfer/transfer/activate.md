@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/datatransfer/transfer/activate.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/datatransfer/transfer/activate.md
 ---
 # yc datatransfer transfer activate
 

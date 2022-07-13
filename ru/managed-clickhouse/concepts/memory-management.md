@@ -1,6 +1,6 @@
 # Управление памятью в {{ mch-name }}
 
-За объем оперативной памяти, доступной для использования {{ CH }}, отвечает настройка [Max server memory usage](https://{{ ch-domain }}/docs/ru/operations/server-configuration-parameters/settings/#max_server_memory_usage).
+За объем оперативной памяти, доступной для использования {{ CH }}, отвечает настройка [Max server memory usage]({{ ch.docs }}/operations/server-configuration-parameters/settings/#max_server_memory_usage).
 
 Также от нее зависит максимальное значение настройки [Max memory usage](./settings-list.md#setting-max-memory-usage).
 

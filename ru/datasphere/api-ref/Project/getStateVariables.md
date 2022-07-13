@@ -17,15 +17,15 @@ GET https://datasphere.{{ api-host }}/datasphere/v1/projects/{projectId}:stateVa
  
 Parameter | Description
 --- | ---
-projectId | Required. ID of the project, for which to return state variables.  The maximum string length in characters is 200.
+projectId | <p>Required. ID of the project, for which to return state variables.</p> <p>The maximum string length in characters is 200.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-notebookId | Required. ID of the notebook, for which to return state variables.  The maximum string length in characters is 200.
-variableNames | Names of variables to return.
-checkpointId | ID of the checkpoint, for which to return state variables.
+notebookId | <p>Required. ID of the notebook, for which to return state variables.</p> <p>The maximum string length in characters is 200.</p> 
+variableNames | <p>Names of variables to return.</p> 
+checkpointId | <p>ID of the checkpoint, for which to return state variables.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -15,9 +15,9 @@ A set of methods for managing groups.
 | [Update](#Update) | Updates the specified group. |
 | [Delete](#Delete) | Deletes the specified group. |
 | [ListOperations](#ListOperations) | Lists operations for the specified group. |
-| [ListMembers](#ListMembers) | members List group active members. |
+| [ListMembers](#ListMembers) | List group active members. |
 | [UpdateMembers](#UpdateMembers) | Update group members. |
-| [ListAccessBindings](#ListAccessBindings) | access Lists access bindings for the specified group. |
+| [ListAccessBindings](#ListAccessBindings) | Lists access bindings for the specified group. |
 | [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the specified group. |
 | [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for the specified group. |
 
@@ -270,7 +270,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 ## ListMembers {#ListMembers}
 
-members List group active members.
+List group active members.
 
 **rpc ListMembers ([ListGroupMembersRequest](#ListGroupMembersRequest)) returns ([ListGroupMembersResponse](#ListGroupMembersResponse))**
 
@@ -350,7 +350,7 @@ group_id | **string**<br>ID of the group that is being updated.
 
 ## ListAccessBindings {#ListAccessBindings}
 
-access Lists access bindings for the specified group.
+Lists access bindings for the specified group.
 
 **rpc ListAccessBindings ([ListAccessBindingsRequest](#ListAccessBindingsRequest)) returns ([ListAccessBindingsResponse](#ListAccessBindingsResponse))**
 

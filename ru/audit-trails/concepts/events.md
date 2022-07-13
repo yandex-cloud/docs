@@ -24,6 +24,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 * [{{ mrd-short-name }}](#managed-service-for-redis)
 * [{{ network-load-balancer-name }}](#network-load-balancer)
 * [{{ objstorage-name }}](#objstorage)
+* [{{ org-name }}](#organization)
 * [{{ resmgr-name }}](#resmgr)
 * [{{ vpc-name }}](#vpc)
 * [{{ ydb-short-name }}](#ydb)
@@ -364,6 +365,15 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 
 \* Указанные события по умолчанию не входят в аудитный лог. Чтобы добавить эти события в аудитный лог, обратитесь в [службу технической поддержки]({{ link-console-support }}). Шаблон обращения:
 «Просьба включить запись событий data plane object storage в audit trail `<id трейла>`».
+
+## {{ org-name }} {#organization}
+
+Имя сервиса — `organizationmanager`.
+
+Имя события | Описание
+--- | ---
+`CreateMembership` | Добавление пользователя в организацию
+`DeleteMembership` | Удаление пользователя из организации
 
 ## {{ resmgr-name }} {#resmgr}
 

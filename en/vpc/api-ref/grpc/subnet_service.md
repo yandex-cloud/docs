@@ -134,7 +134,7 @@ labels | **map<string,string>**<br>Resource labels, `` key:value `` pairs. No mo
 network_id | **string**<br>Required. ID of the network to create subnet in. The maximum string length in characters is 50.
 zone_id | **string**<br>Required. ID of the availability zone where the subnet resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 v4_cidr_blocks[] | **string**<br>Required. CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16. 
-route_table_id | **string**<br>IPv6 not available yet. repeated string v6_cidr_blocks = 8; ID of route table the subnet is linked to. The maximum string length in characters is 50.
+route_table_id | **string**<br>ID of route table the subnet is linked to. The maximum string length in characters is 50.
 dhcp_options | **[DhcpOptions](#DhcpOptions2)**<br> 
 
 

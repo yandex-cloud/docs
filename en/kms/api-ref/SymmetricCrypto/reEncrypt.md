@@ -17,7 +17,7 @@ POST https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:reEncrypt
  
 Parameter | Description
 --- | ---
-keyId | Required. ID of the new key to be used for encryption.  The maximum string length in characters is 50.
+keyId | <p>Required. ID of the new key to be used for encryption.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

@@ -16,9 +16,9 @@ sourcePath: en/_api-ref/ydb/api-ref/ResourcePreset/index.md
  
 Field | Description
 --- | ---
-id | **string**<br>
-cores | **string** (int64)<br>
-memory | **string** (int64)<br>
+id | **string**
+cores | **string** (int64)
+memory | **string** (int64)
 
 ## Methods {#methods}
 Method | Description

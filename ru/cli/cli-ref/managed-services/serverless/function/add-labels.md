@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/add-labels.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/add-labels.md
 ---
 # yc serverless function add-labels
 

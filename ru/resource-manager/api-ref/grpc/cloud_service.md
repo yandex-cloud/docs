@@ -15,7 +15,7 @@ A set of methods for managing Cloud resources.
 | [Update](#Update) | Updates the specified cloud. |
 | [Delete](#Delete) | Deletes the specified cloud. |
 | [ListOperations](#ListOperations) | Lists operations for the specified cloud. |
-| [ListAccessBindings](#ListAccessBindings) | access Lists access bindings for the specified cloud. |
+| [ListAccessBindings](#ListAccessBindings) | Lists access bindings for the specified cloud. |
 | [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the specified cloud. |
 | [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for the specified cloud. |
 
@@ -276,7 +276,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 ## ListAccessBindings {#ListAccessBindings}
 
-access Lists access bindings for the specified cloud.
+Lists access bindings for the specified cloud.
 
 **rpc ListAccessBindings ([ListAccessBindingsRequest](#ListAccessBindingsRequest)) returns ([ListAccessBindingsResponse](#ListAccessBindingsResponse))**
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/stop.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/stop.md
 ---
 # yc compute instance stop
 

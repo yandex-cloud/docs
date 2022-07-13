@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-greenplum/cluster/delete.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/cluster/delete.md
 ---
 # yc managed-greenplum cluster delete
 

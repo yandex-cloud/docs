@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mysql/user/delete.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/user/delete.md
 ---
 # yc managed-mysql user delete
 

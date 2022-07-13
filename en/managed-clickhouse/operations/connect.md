@@ -4,7 +4,7 @@ You can connect to {{ mch-short-name }} cluster hosts:
 
 {% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
 
-You can connect to a cluster both with encryption, via ports `9440` for [clickhouse-client](https://{{ ch-domain }}/docs/en/interfaces/cli/) and `8443` for the [HTTP interface](https://{{ ch-domain }}/docs/en/interfaces/http/), and without encryption, via ports `9000` and `8123`, respectively.
+You can connect to a cluster both with encryption, via ports `9440` for [clickhouse-client]({{ ch.docs }}/interfaces/cli/) and `8443` for the [HTTP interface]({{ ch.docs }}/interfaces/http/), and without encryption, via ports `9000` and `8123`, respectively.
 
 ## Configuring security groups {#configuring-security-groups}
 

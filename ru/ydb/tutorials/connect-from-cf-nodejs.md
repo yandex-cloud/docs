@@ -1,7 +1,8 @@
+---
+author: gayratv
+sourcePath: overlay/tutorials/connect-from-cf-nodejs.md
+---
+
 # Подключение к базе данных YDB из функции Yandex Cloud Functions на Node.js
 
-{% note info %}
-
-Страница перемещена по новому [адресу](../../managed-ydb/tutorials/connect-from-cf-nodejs.md).
-
-{% endnote %}
+{% include [connect-from-ydb-nodejs](../../_tutorials/connect-from-cf-nodejs.md) %}

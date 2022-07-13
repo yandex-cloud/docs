@@ -17,9 +17,9 @@ GET https://mdb.{{ api-host }}/managed-mysql/v1/backups
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list backups in.  To get this ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return.  If the number of available results is larger than [pageSize](/docs/managed-mysql/api-ref/Backup/list#query_params), the API returns a [nextPageToken](/docs/managed-mysql/api-ref/Backup/list#responses) that can be used to get the next page of results in the subsequent [list](/docs/managed-mysql/api-ref/Backup/list) requests.  The maximum value is 1000.
-pageToken | Page token that can be used to iterate through multiple pages of results.  To get the next page of results, set [pageToken](/docs/managed-mysql/api-ref/Backup/list#query_params) to the [nextPageToken](/docs/managed-mysql/api-ref/Backup/list#responses) returned by the previous [list](/docs/managed-mysql/api-ref/Backup/list) request.  The maximum string length in characters is 100.
+folderId | <p>Required. ID of the folder to list backups in.</p> <p>To get this ID, make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return.</p> <p>If the number of available results is larger than <a href="/docs/managed-mysql/api-ref/Backup/list#query_params">pageSize</a>, the API returns a <a href="/docs/managed-mysql/api-ref/Backup/list#responses">nextPageToken</a> that can be used to get the next page of results in the subsequent <a href="/docs/managed-mysql/api-ref/Backup/list">list</a> requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token that can be used to iterate through multiple pages of results.</p> <p>To get the next page of results, set <a href="/docs/managed-mysql/api-ref/Backup/list#query_params">pageToken</a> to the <a href="/docs/managed-mysql/api-ref/Backup/list#responses">nextPageToken</a> returned by the previous <a href="/docs/managed-mysql/api-ref/Backup/list">list</a> request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -42,7 +42,7 @@ pageToken | Page token that can be used to iterate through multiple pages of res
  
 Field | Description
 --- | ---
-backups[] | **object**<br><p>An object that represents MySQL backup.</p> <p>See <a href="/docs/managed-mysql/concepts/backup">the documentation</a> for details.</p> 
+backups[] | **object**<br><p>List of backups.</p> 
 backups[].<br>id | **string**<br><p>Required. ID of the backup.</p> 
 backups[].<br>folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
 backups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp (the time when the backup operation was completed).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

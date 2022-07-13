@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/container/cluster/get-credentials.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/cluster/get-credentials.md
 ---
 # yc container cluster get-credentials
 

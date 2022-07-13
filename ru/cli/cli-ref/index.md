@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/index.md
+sourcePath: en/_cli-ref/cli-ref/index.md
 ---
 # yc
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/list-operations.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/list-operations.md
 ---
 # yc managed-kafka cluster list-operations
 

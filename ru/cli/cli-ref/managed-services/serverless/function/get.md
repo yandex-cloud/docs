@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/get.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/get.md
 ---
 # yc serverless function get
 

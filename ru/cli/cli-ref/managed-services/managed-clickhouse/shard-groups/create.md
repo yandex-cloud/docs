@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/shard-groups/create.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/shard-groups/create.md
 ---
 # yc managed-clickhouse shard-groups create
 

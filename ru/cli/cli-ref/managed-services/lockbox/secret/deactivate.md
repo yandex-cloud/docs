@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/lockbox/secret/deactivate.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/secret/deactivate.md
 ---
 # yc lockbox secret deactivate
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/lockbox/secret/list-versions.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/secret/list-versions.md
 ---
 # yc lockbox secret list-versions
 

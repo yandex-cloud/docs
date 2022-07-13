@@ -8,7 +8,7 @@
 
     1. Click **Create stream**.
 
-    1. Specify a [serverless](../../managed-ydb/concepts/serverless-and-dedicated.md#serverless) {{ ydb-short-name }} database or [create](../../managed-ydb/quickstart.md#create-db) a new one. If you chose to create a new database, click **Update** after creating it to update the list of databases.
+    1. Specify a [serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless) {{ ydb-short-name }} database or [create](../../ydb/quickstart.md#create-db) a new one. If you chose to create a new database, click **Update** after creating it to update the list of databases.
 
     1. Enter the name of the stream. Naming requirements:
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/ydb/database/start.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/start.md
 ---
 # yc ydb database start
 

@@ -18,7 +18,7 @@ POST https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}:
  
 Parameter | Description
 --- | ---
-instanceGroupId | ID of the instance group to pause processes in.  The instance group must have an `ACTIVE` status ([InstanceGroup.status](/docs/compute/api-ref/InstanceGroup#representation)).  To get the instance group ID, make a [list](/docs/compute/api-ref/InstanceGroup/list) request.  The maximum string length in characters is 50.
+instanceGroupId | <p>ID of the instance group to pause processes in.</p> <p>The instance group must have an ``ACTIVE`` status (<a href="/docs/compute/api-ref/InstanceGroup#representation">InstanceGroup.status</a>).</p> <p>To get the instance group ID, make a <a href="/docs/compute/api-ref/InstanceGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  
@@ -67,7 +67,7 @@ createdBy | **string**<br><p>ID of the user or service account who initiated the
 modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
 metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>
 error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
 error.<br>message | **string**<br><p>An error message.</p> 
 error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 

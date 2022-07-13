@@ -1,6 +1,6 @@
 # Подключение внешних словарей
 
-Вы можете подключать к кластеру [внешние словари](../concepts/dictionaries.md#external-dicts) и отключать их. Подробнее о словарях читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/).
+Вы можете подключать к кластеру [внешние словари](../concepts/dictionaries.md#external-dicts) и отключать их. Подробнее о словарях читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/).
 
 {{ mch-name }} поддерживает несколько типов источников словарей:
 
@@ -19,7 +19,7 @@
 * SQL
 
     1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
-    1. Выполните [запрос](https://{{ ch-domain }}/docs/ru/sql-reference/statements/show/#show-dictionaries) `SHOW DICTIONARIES`.
+    1. Выполните [запрос]({{ ch.docs }}/sql-reference/statements/show/#show-dictionaries) `SHOW DICTIONARIES`.
 
 * Консоль управления
 
@@ -67,7 +67,7 @@
     {% endnote %}
 
     1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
-    1. Выполните [DDL-запрос](https://{{ ch-domain }}/docs/ru/sql-reference/statements/create/dictionary/) и укажите [настройки словаря](#settings-sql):
+    1. Выполните [DDL-запрос]({{ ch.docs }}/sql-reference/statements/create/dictionary/) и укажите [настройки словаря](#settings-sql):
 
         ```sql
         CREATE DICTIONARY <имя словаря>(
@@ -140,7 +140,7 @@
 * SQL
 
     1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
-    1. Выполните [запрос](https://{{ ch-domain }}/docs/ru/sql-reference/statements/drop/#drop-dictionary) `DROP DICTIONARY <имя БД>.<имя словаря>`.
+    1. Выполните [запрос]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary) `DROP DICTIONARY <имя БД>.<имя словаря>`.
 
 * Консоль управления
 
@@ -187,7 +187,7 @@
 * LIFETIME — периодичность обновления словаря.
 * LAYOUT — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`.
 
-Подробные описание настроек читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
+Подробные описание настроек читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
 ### Консоль управления {#settings-console}
 
@@ -207,12 +207,12 @@
     * **Таблица** — имя таблицы источника.
     * **Условие выбора** — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
     * (Опционально) **Проверка статуса словаря** — SQL-запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
-        Подробнее читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
+        Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
 * HTTP(s)
 
     * **URL** — URL HTTP(s)-источника.
-    * **Формат файла** — [формат](https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats) файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats).
+    * **Формат файла** — [формат]({{ ch.docs }}/interfaces/formats/#formats) файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
 
 * {{ MG }}
 
@@ -234,7 +234,7 @@
     * **Таблица** — имя таблицы источника.
     * **Условие выбора** — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
     * (Опционально) **Проверка статуса словаря** — SQL-запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
-        Подробнее читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
+        Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
 * {{ PG }}
 
@@ -245,29 +245,29 @@
     * **База данных** — имя базы данных источника.
     * **Таблица** — имя таблицы источника.
     * (Опционально) **Проверка статуса словаря** — SQL-запрос для проверки изменений словаря. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
-        Подробнее читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
+        Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
     * **SSL mode** — режим для установки защищенного SSL TCP/IP соединения с базой данных {{ PG }}.
         Подробнее читайте в [документации {{ PG }}](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS).
 
 {% endlist %}
 
-Подробнее об источниках словарей и параметрах их подключения читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+Подробнее об источниках словарей и параметрах их подключения читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
 
 #### Способ размещения в памяти {#console-method}
 
-* **Размещение в памяти** — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
-* **Размер кэша** — количество ячеек кэша для способов `cache`, `complex_key_cache`. Подробнее о кэше читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
-* **Числовой ключ** — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `cache`, `range_hashed`. Подробнее о ключах читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+* **Размещение в памяти** — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+* **Размер кэша** — количество ячеек кэша для способов `cache`, `complex_key_cache`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
+* **Числовой ключ** — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `cache`, `range_hashed`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
 * **Столбцы данных** — список столбцов с данными словаря:
 
     * **Имя** — имя столбца.
     * **Тип** — тип данных столбца.
     * (Опционально) **Значение по умолчанию** — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
-    * (Опционально) **Выражение** — [выражение](https://{{ ch-domain }}/docs/ru/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
+    * (Опционально) **Выражение** — [выражение]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
     * **Иерархический** — признак поддержки иерархии.
     * **Инъективность** — признак инъективности отображения `id` → `attribute`.
 
-Подробнее о параметрах столбцов читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict_structure-attributes).
+Подробнее о параметрах столбцов читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict_structure-attributes).
 
 #### Частота обновления {#console-rate}
 
@@ -282,7 +282,7 @@
         * **Минимум** — минимальное значение периода между обновлениями словаря в секундах.
         * **Максимум** — максимальное значение периода между обновлениями словаря в секундах.
 
-Подробнее об обновлении словарей читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
+Подробнее об обновлении словарей читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
 ### CLI {#settings-cli}
 
@@ -305,7 +305,7 @@
 * HTTP(s)
 
     * `--http-source-url` — URL HTTP(s)-источника.
-    * `--http-source-format` — [формат](https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats) файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/interfaces/formats/#formats).
+    * `--http-source-format` — [формат]({{ ch.docs }}/interfaces/formats/#formats) файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
 
 * {{ MG }}
 
@@ -356,13 +356,13 @@
 
 {% endlist %}
 
-* `--structure-id` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `cache`, `range_hashed`. Подробнее о ключах читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+* `--structure-id` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `cache`, `range_hashed`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
 * `--structure-key` — список столбцов с данными словаря:
 
     * `name` — имя столбца.
     * `type` — тип данных столбца.
     * `null-value` — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
-    * `expression` — [выражение](https://{{ ch-domain }}/docs/ru/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
+    * `expression` — [выражение]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
     * `hierarchical` — признак поддержки иерархии.
     * `injective` — признак инъективности отображения `id` → `attribute`.
 
@@ -371,7 +371,7 @@
     * `name` — имя столбца.
     * `type` — тип данных столбца.
     * `null-value` — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
-    * `expression` — [выражение](https://{{ ch-domain }}/docs/ru/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
+    * `expression` — [выражение]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
     * `hierarchical` — признак поддержки иерархии.
     * `injective` — признак инъективности отображения `id` → `attribute`.
 
@@ -381,8 +381,8 @@
     * `min` — минимальное значение периода между обновлениями словаря в секундах.
     * `max` — максимальное значение периода между обновлениями словаря в секундах.
 
-* `--layout-type` — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
-* `--layout-size-in-cells` — количество ячеек кэша для способов `cache`, `complex_key_cache`. Подробнее о кэше читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
+* `--layout-type` — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
+* `--layout-size-in-cells` — количество ячеек кэша для способов `cache`, `complex_key_cache`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
 
 ### API {#settings-api}
 

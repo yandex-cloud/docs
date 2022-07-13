@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/load-balancer/network-load-balancer/stop.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/network-load-balancer/stop.md
 ---
 # yc load-balancer network-load-balancer stop
 

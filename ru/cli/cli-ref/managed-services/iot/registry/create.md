@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/registry/create.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/create.md
 ---
 # yc iot registry create
 

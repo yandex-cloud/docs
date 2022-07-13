@@ -15,8 +15,8 @@ sourcePath: en/_api-ref/ydb/api-ref/Location/index.md
  
 Field | Description
 --- | ---
-id | **string**<br>
-description | **string**<br>
+id | **string**
+description | **string**
 
 ## Methods {#methods}
 Method | Description

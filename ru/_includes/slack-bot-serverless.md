@@ -92,9 +92,9 @@ description: "В этом сценарии вы узнаете, как с пом
 
 Ответы на команды и сообщения в чате бот будет брать из {{ ydb-name }}. Для этого подготовьте таблицу:
 
-1. [Создайте](../managed-ydb/quickstart.md#serverless) базу данных с именем `for-slack-bot` в режиме Serverless.
+1. [Создайте](../ydb/quickstart.md#serverless) базу данных с именем `for-slack-bot` в режиме Serverless.
 
-1. В базе `for-slack-bot` [создайте][](../managed-ydb/operations/schema.md#create-table) YDB-таблицу с именем `coffee`:
+1. В базе `for-slack-bot` [создайте][](../ydb/operations/schema.md#create-table) YDB-таблицу с именем `coffee`:
    1. Перейдите на вкладку **Навигация**.
    1. В правом верхнем углу нажмите кнопку **SQL-запрос**. Откроется страница **Запрос**.
    1. В поле **Запрос** введите:
@@ -108,7 +108,7 @@ description: "В этом сценарии вы узнаете, как с пом
           ```
    1. Нажмите кнопку **Выполнить**.
 
-1. [Добавьте](../managed-ydb/operations/crud.md#web-sql) в таблицу запись. Например, укажите название сорта кофе и id = 1.
+1. [Добавьте](../ydb/operations/crud.md#web-sql) в таблицу запись. Например, укажите название сорта кофе и id = 1.
 
 ## Создайте функции {#create-functions}
 

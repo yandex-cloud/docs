@@ -17,8 +17,8 @@ GET https://mdb.{{ api-host }}/managed-postgresql/v1/resourcePresets
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/managed-postgresql/api-ref/ResourcePreset/list#query_params), the service returns a [nextPageToken](/docs/managed-postgresql/api-ref/ResourcePreset/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/managed-postgresql/api-ref/ResourcePreset/list#query_params) to the [nextPageToken](/docs/managed-postgresql/api-ref/ResourcePreset/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-postgresql/api-ref/ResourcePreset/list#query_params">pageSize</a>, the service returns a <a href="/docs/managed-postgresql/api-ref/ResourcePreset/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/managed-postgresql/api-ref/ResourcePreset/list#query_params">pageToken</a> to the <a href="/docs/managed-postgresql/api-ref/ResourcePreset/list#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -42,7 +42,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/m
  
 Field | Description
 --- | ---
-resourcePresets[] | **object**<br><p>A ResourcePreset resource for describing hardware configuration presets.</p> 
+resourcePresets[] | **object**<br><p>List of ResourcePreset resources.</p> 
 resourcePresets[].<br>id | **string**<br><p>ID of the ResourcePreset resource.</p> 
 resourcePresets[].<br>zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
 resourcePresets[].<br>cores | **string** (int64)<br><p>Number of CPU cores for a PostgreSQL host created with the preset.</p> 

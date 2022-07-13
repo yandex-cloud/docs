@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/logging/group/create.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/logging/group/create.md
 ---
 # yc logging group create
 

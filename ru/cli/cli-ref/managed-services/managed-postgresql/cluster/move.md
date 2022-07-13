@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/move.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/move.md
 ---
 # yc managed-postgresql cluster move
 

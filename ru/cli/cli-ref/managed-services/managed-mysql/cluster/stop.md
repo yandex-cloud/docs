@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mysql/cluster/stop.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/cluster/stop.md
 ---
 # yc managed-mysql cluster stop
 

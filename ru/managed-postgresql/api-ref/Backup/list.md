@@ -17,9 +17,9 @@ GET https://mdb.{{ api-host }}/managed-postgresql/v1/backups
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list backups in. To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/managed-postgresql/api-ref/Backup/list#query_params), the service returns a [nextPageToken](/docs/managed-postgresql/api-ref/Backup/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token.  To get the next page of results, Set [pageToken](/docs/managed-postgresql/api-ref/Backup/list#query_params) to the [nextPageToken](/docs/managed-postgresql/api-ref/Backup/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+folderId | <p>Required. ID of the folder to list backups in. To get the folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-postgresql/api-ref/Backup/list#query_params">pageSize</a>, the service returns a <a href="/docs/managed-postgresql/api-ref/Backup/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token.  To get the next page of results, Set <a href="/docs/managed-postgresql/api-ref/Backup/list#query_params">pageToken</a> to the <a href="/docs/managed-postgresql/api-ref/Backup/list#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -45,7 +45,7 @@ pageToken | Page token.  To get the next page of results, Set [pageToken](/docs/
  
 Field | Description
 --- | ---
-backups[] | **object**<br><p>A PostgreSQL Backup resource. For more information, see the <a href="/docs/managed-postgresql/concepts/backup">Developer's Guide</a>.</p> 
+backups[] | **object**<br><p>List of PostgreSQL Backup resources.</p> 
 backups[].<br>id | **string**<br><p>Required. ID of the backup.</p> 
 backups[].<br>folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
 backups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format (i.e. when the backup operation was completed).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

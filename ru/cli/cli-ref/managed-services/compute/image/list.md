@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/image/list.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/image/list.md
 ---
 # yc compute image list
 

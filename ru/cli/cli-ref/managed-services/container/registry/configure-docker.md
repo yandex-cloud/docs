@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/container/registry/configure-docker.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/registry/configure-docker.md
 ---
 # yc container registry configure-docker
 

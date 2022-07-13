@@ -17,7 +17,7 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/scans/{scanR
  
 Parameter | Description
 --- | ---
-scanResultId | Required. ID of the ScanResult to return.  The maximum string length in characters is 50.
+scanResultId | <p>Required. ID of the ScanResult to return.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

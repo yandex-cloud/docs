@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/dns/zone/replace-records.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/replace-records.md
 ---
 # yc dns zone replace-records
 

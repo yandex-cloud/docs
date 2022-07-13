@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/disk-type/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/disk-type/index.md
 ---
 # yc compute disk-type
 

@@ -254,7 +254,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 ## Настройте роль RDGW {#role}
 
 1. [Подключитесь](../../compute/operations/vm-connect/rdp.md) к созданной ВМ по протоколу RDP.
-1. Установите необходимые роли и [оснастки управления](https://docs.microsoft.com/ru-ru/troubleshoot/windows-server/system-management-components/what-is-microsoft-management-console#more-information):
+1. Установите необходимые роли и [оснастки управления]({{ ms.docs }}/troubleshoot/windows-server/system-management-components/what-is-microsoft-management-console#more-information):
    
     ```powershell
     Install-WindowsFeature RDS-Gateway -IncludeManagementTools
@@ -275,7 +275,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
    ```
    
    
-1. Создайте политику клиентского доступа, чтобы все учетные записи локальной группы `Administrators` могли подключаться к шлюзу RDGW. Сделать это можно через [диск Windows PowerShell](https://docs.microsoft.com/ru-ru/powershell/scripting/samples/managing-windows-powershell-drives?view=powershell-7.1), который будет создан автоматически при импорте роли:
+1. Создайте политику клиентского доступа, чтобы все учетные записи локальной группы `Administrators` могли подключаться к шлюзу RDGW. Сделать это можно через [диск Windows PowerShell]({{ ms.docs }}/powershell/scripting/samples/managing-windows-powershell-drives?view=powershell-7.1), который будет создан автоматически при импорте роли:
 
    ```powershell
    New-Item -Path 'RDS:\GatewayServer\CAP' -Name 'Default-CAP' -UserGroups Administrators@Builtin -AuthMethod '1'
@@ -431,7 +431,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
     87.250.250.242 my-rds-gw
     ```
    
-1. Запустите [утилиту `mstsc`](https://docs.microsoft.com/ru-ru/windows-server/administration/windows-commands/mstsc), которая создает подключения к удаленному рабочему столу. В настройках на вкладке **Advanced** укажите в качестве шлюза имя ВМ `my-rds-gw`, в качестве узла назначения — имя тестовой ВМ `test-vm`, имя пользователя — `Administrator`. 
+1. Запустите [утилиту `mstsc`]({{ ms.docs }}/windows-server/administration/windows-commands/mstsc), которая создает подключения к удаленному рабочему столу. В настройках на вкладке **Advanced** укажите в качестве шлюза имя ВМ `my-rds-gw`, в качестве узла назначения — имя тестовой ВМ `test-vm`, имя пользователя — `Administrator`. 
 
 ## Удалите созданные ресурсы {#clear-out}
 

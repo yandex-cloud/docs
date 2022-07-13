@@ -28,7 +28,7 @@
 Коннектор необходимо создать на базе кластера CH, в котором будут храниться данные ваших пользователей.
 
 1. Создайте [кластер {{ CH }}](../../../managed-clickhouse/operations/cluster-create.md) в облаке. 
-   1. В кластере добавьте пользователя БД `datalens` с параметром [readonly = 2](https://{{ ch-domain }}/docs/ru/operations/settings/permissions-for-queries/#settings_readonly).
+   1. В кластере добавьте пользователя БД `datalens` с параметром [readonly = 2]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_readonly).
    1. В настройках включите **Доступ из {{ datalens-short-name }}** и **Управление базами данных через SQL**.
 1. Передайте пароль и список хостов кластера в {{ datalens-short-name }}.
 1. Сгенерируйте пару RSA-2048 ключей. Передайте открытый ключ и версию ключа в {{ datalens-short-name }}.

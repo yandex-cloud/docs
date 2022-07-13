@@ -17,7 +17,7 @@ POST https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}/publis
  
 Parameter | Description
 --- | ---
-deviceId | Required. ID of device publishing message  The maximum string length in characters is 50.
+deviceId | <p>Required. ID of device publishing message</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  

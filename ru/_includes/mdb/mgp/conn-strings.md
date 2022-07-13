@@ -412,12 +412,12 @@ go mod init example && go get github.com/jackc/pgx/v4
 
             Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             ResultSet q = conn.createStatement().executeQuery("SELECT version()");
-            if(q.next()) {
+            if (q.next()) {
               System.out.println(q.getString(1));
             }
 
             conn.close();
-          } catch(Exception ex) {
+          } catch (Exception ex) {
             ex.printStackTrace();
           }
         }

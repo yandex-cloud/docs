@@ -17,7 +17,7 @@ GET https://logging.{{ api-host }}/logging/v1/logGroups/{logGroupId}/stats
  
 Parameter | Description
 --- | ---
-logGroupId | Required. ID of the log group to return stats for.  To get a log group ID make a [list](/docs/logging/api-ref/LogGroup/list) request.  The maximum string length in characters is 64.
+logGroupId | <p>Required. ID of the log group to return stats for.</p> <p>To get a log group ID make a <a href="/docs/logging/api-ref/LogGroup/list">list</a> request.</p> <p>The maximum string length in characters is 64.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

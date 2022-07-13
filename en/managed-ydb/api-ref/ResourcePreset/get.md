@@ -17,7 +17,7 @@ GET https://ydb.{{ api-host }}/ydb/v1/resourcePresets/{resourcePresetId}
  
 Parameter | Description
 --- | ---
-resourcePresetId | Required. Required. ID of the resource preset to return.
+resourcePresetId | <p>Required. Required. ID of the resource preset to return.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -33,6 +33,6 @@ resourcePresetId | Required. Required. ID of the resource preset to return.
  
 Field | Description
 --- | ---
-id | **string**<br>
-cores | **string** (int64)<br>
-memory | **string** (int64)<br>
+id | **string**
+cores | **string** (int64)
+memory | **string** (int64)

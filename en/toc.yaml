@@ -106,5 +106,5 @@ items:
   - name: Virtual Private Cloud
     href: vpc/index.yaml
   - name: Managed Service for YDB
-    href: managed-ydb/index.yaml
+    href: ydb/index.yaml
 base: en

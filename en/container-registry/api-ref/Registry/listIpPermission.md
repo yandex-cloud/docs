@@ -17,7 +17,7 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/registries/{
  
 Parameter | Description
 --- | ---
-registryId | Required. ID of the Registry to return ip permission list.  The maximum string length in characters is 50.
+registryId | <p>Required. ID of the Registry to return ip permission list.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -37,5 +37,5 @@ registryId | Required. ID of the Registry to return ip permission list.  The max
 Field | Description
 --- | ---
 permissions[] | **object**<br><p>List of ip permissions for registry</p> 
-permissions[].<br>action | **string**<br>
-permissions[].<br>ip | **string**<br>
+permissions[].<br>action | **string**
+permissions[].<br>ip | **string**

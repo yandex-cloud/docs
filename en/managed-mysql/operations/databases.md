@@ -114,7 +114,7 @@ Created databases are not available to cluster users by default. To connect to a
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -171,7 +171,7 @@ Created databases are not available to cluster users by default. To connect to a
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 
@@ -250,7 +250,7 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mysql_cluster#mysql-config).
 
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform-timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
 - API
 

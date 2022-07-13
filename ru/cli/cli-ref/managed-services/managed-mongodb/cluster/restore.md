@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/restore.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/restore.md
 ---
 # yc managed-mongodb cluster restore
 

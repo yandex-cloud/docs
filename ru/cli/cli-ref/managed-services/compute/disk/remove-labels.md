@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/disk/remove-labels.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/disk/remove-labels.md
 ---
 # yc compute disk remove-labels
 

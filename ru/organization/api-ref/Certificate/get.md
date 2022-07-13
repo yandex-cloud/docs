@@ -17,7 +17,7 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/cer
  
 Parameter | Description
 --- | ---
-certificateId | ID of the certificate to return. To get the certificate ID, make a [list](/docs/organization/api-ref/Certificate/list) request.  The maximum string length in characters is 50.
+certificateId | <p>ID of the certificate to return. To get the certificate ID, make a <a href="/docs/organization/api-ref/Certificate/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

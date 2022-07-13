@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance-group/list-logs.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance-group/list-logs.md
 ---
 # yc compute instance-group list-logs
 

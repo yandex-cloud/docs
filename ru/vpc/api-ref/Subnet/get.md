@@ -17,7 +17,7 @@ GET https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}
  
 Parameter | Description
 --- | ---
-subnetId | Required. ID of the Subnet resource to return. To get the subnet ID use a [list](/docs/vpc/api-ref/Subnet/list) request.  The maximum string length in characters is 50.
+subnetId | <p>Required. ID of the Subnet resource to return. To get the subnet ID use a <a href="/docs/vpc/api-ref/Subnet/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -65,7 +65,7 @@ zoneId | **string**<br><p>ID of the availability zone where the subnet resides.<
 v4CidrBlocks[] | **string**<br><p>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16.</p> 
 v6CidrBlocks[] | **string**<br><p>IPv6 not available yet.</p> 
 routeTableId | **string**<br><p>ID of route table the subnet is linked to.</p> 
-dhcpOptions | **object**<br>
-dhcpOptions.<br>domainNameServers[] | **string**<br>
-dhcpOptions.<br>domainName | **string**<br>
-dhcpOptions.<br>ntpServers[] | **string**<br>
+dhcpOptions | **object**
+dhcpOptions.<br>domainNameServers[] | **string**
+dhcpOptions.<br>domainName | **string**
+dhcpOptions.<br>ntpServers[] | **string**

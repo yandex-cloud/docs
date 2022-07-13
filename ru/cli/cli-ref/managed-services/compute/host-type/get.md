@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/host-type/get.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/host-type/get.md
 ---
 # yc compute host-type get
 

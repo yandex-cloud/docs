@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/resource-manager/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/resource-manager/index.md
 ---
 # yc resource-manager
 

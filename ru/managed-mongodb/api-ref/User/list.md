@@ -17,14 +17,14 @@ GET https://mdb.{{ api-host }}/managed-mongodb/v1/clusters/{clusterId}/users
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster to list MongoDB users in. To get the cluster ID, use a [list](/docs/managed-mongodb/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | <p>Required. ID of the cluster to list MongoDB users in. To get the cluster ID, use a <a href="/docs/managed-mongodb/api-ref/Cluster/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/managed-mongodb/api-ref/User/list#query_params) to the  [nextPageToken](/docs/managed-mongodb/api-ref/User/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-mongodb/api-ref/User/list#query_params">pageSize</a>, the service returns a <a href="/docs/managed-mongodb/api-ref/User/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/managed-mongodb/api-ref/User/list#query_params">pageToken</a> to the <a href="/docs/managed-mongodb/api-ref/User/list#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -52,7 +52,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/m
  
 Field | Description
 --- | ---
-users[] | **object**<br><p>A MongoDB User resource. For more information, see the <a href="/docs/managed-mongodb/concepts">Developer's Guide</a>.</p> 
+users[] | **object**<br><p>List of MongoDB User resources.</p> 
 users[].<br>name | **string**<br><p>Name of the MongoDB user.</p> 
 users[].<br>clusterId | **string**<br><p>ID of the MongoDB cluster the user belongs to.</p> 
 users[].<br>permissions[] | **object**<br><p>Set of permissions granted to the user.</p> 

@@ -2,10 +2,10 @@ default:
   versions:
     tf:
       latest: '6.2'
-      str: 5.0, 6.0, or 6.2
+      str: '6.2'
     cli:
       latest: '6.2'
-      str: 5.0, 6.0, or 6.2
+      str: '6.2'
     console:
       latest: '6.2'
-      str: 5.0, 6.0, and 6.2
+      str: '6.2'

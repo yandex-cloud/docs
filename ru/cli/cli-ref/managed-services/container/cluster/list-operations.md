@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/container/cluster/list-operations.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/cluster/list-operations.md
 ---
 # yc container cluster list-operations
 

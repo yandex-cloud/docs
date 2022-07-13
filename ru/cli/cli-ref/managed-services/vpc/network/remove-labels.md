@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/network/remove-labels.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/network/remove-labels.md
 ---
 # yc vpc network remove-labels
 

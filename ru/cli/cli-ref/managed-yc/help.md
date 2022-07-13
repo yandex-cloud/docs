@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-yc/help.md
+sourcePath: en/_cli-ref/cli-ref/managed-yc/help.md
 ---
 # yc help
 

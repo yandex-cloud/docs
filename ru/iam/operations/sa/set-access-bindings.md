@@ -82,11 +82,12 @@
 
     1. Назначьте пользователю `test-user` роль `editor` на сервисный аккаунт `my-robot`. В субъекте укажите тип `userAccount` и ID пользователя:
 
-                ```bash
+        ```bash
         yc iam service-account add-access-binding my-robot \
           --role editor \
           --subject userAccount:gfei8n54hmfhuk5nogse
         ```
+
 - API
 
     Воспользуйтесь методом [updateAccessBindings](../../api-ref/ServiceAccount/updateAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md). Вам понадобится ID сервисного аккаунта и ID пользователя, которому назначается роль на сервисный аккаунт.

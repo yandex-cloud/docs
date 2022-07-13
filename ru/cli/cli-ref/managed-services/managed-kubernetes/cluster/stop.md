@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kubernetes/cluster/stop.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/cluster/stop.md
 ---
 # yc managed-kubernetes cluster stop
 

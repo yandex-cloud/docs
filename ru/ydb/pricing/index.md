@@ -1,7 +1,6 @@
-# Правила тарификации для Yandex Managed Service for YDB
+# Правила тарификации для {{ ydb-full-name }}
 
-{% note info %}
+Тарификация {{ ydb-full-name }} отличается в зависимости от режимов использования:
 
-Страница перемещена по новому [адресу](../../managed-ydb/pricing/index.md).
-
-{% endnote %}
+* [{#T}](serverless.md).
+* [{#T}](dedicated.md).

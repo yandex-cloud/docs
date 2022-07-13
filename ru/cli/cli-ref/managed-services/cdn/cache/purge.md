@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/cdn/cache/purge.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/cache/purge.md
 ---
 # yc cdn cache purge
 

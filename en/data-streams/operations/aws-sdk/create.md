@@ -7,7 +7,7 @@
   Use the `create_stream` method to create a stream. When calling this method, specify the following parameters:
   * The name of a stream to create, for example, `example-stream`.
   * [ID of the folder](../../../resource-manager/operations/folder/get-id.md) in which the stream is created, for example, `aoeu1kuj2dhtaupdb5es`.
-  * ID of an existing [serverless](../../../managed-ydb/pricing/serverless.md) {{ ydb-full-name }} database, for example, `cc8028jgtuabcqutgtbv`. For information about how to create a database, see [{{ ydb-short-name }} documentation](../../../managed-ydb/quickstart.md#create-db).
+  * ID of an existing [serverless](../../../ydb/pricing/serverless.md) {{ ydb-full-name }} database, for example, `cc8028jgtuabcqutgtbv`. For information about how to create a database, see [{{ ydb-short-name }} documentation](../../../ydb/quickstart.md#create-db).
   * The number of shards, for example, `1`.
 
   To create a stream with the parameters specified above:

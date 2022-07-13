@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/device/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/device/update.md
 ---
 # yc iot device update
 

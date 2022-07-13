@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/federation/get.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/iam/federation/get.md
 ---
 # yc iam federation get
 

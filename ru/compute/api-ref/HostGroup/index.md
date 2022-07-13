@@ -39,8 +39,8 @@ status | **string**<br><p>Status of the group.</p>
 typeId | **string**<br><p>ID of host type. Resources provided by each host of the group.</p> 
 maintenancePolicy | **string**<br><p>Behaviour on maintenance events.</p> <ul> <li>RESTART: Restart instances on the same host after maintenance event.</li> <li>MIGRATE: Migrate instances to another host before maintenance event.</li> </ul> 
 scalePolicy | **object**<br><p>Scale policy. Only fixed number of hosts are supported at this moment.</p> 
-scalePolicy.<br>fixedScale | **object**<br>
-scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br>
+scalePolicy.<br>fixedScale | **object**
+scalePolicy.<br>fixedScale.<br>size | **string** (int64)
 
 ## Methods {#methods}
 Method | Description

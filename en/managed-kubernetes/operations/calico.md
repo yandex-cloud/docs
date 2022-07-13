@@ -65,7 +65,7 @@ When creating a {{ k8s }} cluster, activate the Calico network policy controller
 
 ## Create a {{ k8s }} namespace {#configure-namespace}
 
-Create a namespace using the {{ k8s }} [Namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) API object:
+Create a namespace using the {{ k8s }} [Namespace]({{ k8s-docs }}/concepts/overview/working-with-objects/namespaces/) API object:
 
 ```
 kubectl create ns policy-test

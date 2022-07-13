@@ -40,7 +40,7 @@ To update the Windows Server edition, use the built-in [DISM](https://docs.micro
       ...
       ```
 
-   1. To update, use the [KMS Client Product Key](https://docs.microsoft.com/en-us/windows-server/get-started/kmsclientkeys) corresponding to the edition installed:
+   1. To update, use the [KMS Client Product Key]({{ ms.docs }}/windows-server/get-started/kmsclientkeys) corresponding to the edition installed:
       * Windows Server **2019** Datacenter:
          ```
          WMDGN-G9PQG-XVVXX-R3X43-63DFG

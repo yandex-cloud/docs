@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/update/postgresql.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/update/postgresql.md
 ---
 # yc serverless mdbproxy update postgresql
 

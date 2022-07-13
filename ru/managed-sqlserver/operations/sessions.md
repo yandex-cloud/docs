@@ -1,6 +1,6 @@
 # Управление пользовательскими сеансами
 
-Вы можете [запросить список](#get) активных [пользовательских сеансов](https://docs.microsoft.com/ru-ru/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) в кластере {{ MS }}, а также принудительно [завершить](#kill) любой из них.
+Вы можете [запросить список](#get) активных [пользовательских сеансов]({{ ms.docs }}/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) в кластере {{ MS }}, а также принудительно [завершить](#kill) любой из них.
 
 ## Получить список сеансов {#get}
 
@@ -52,9 +52,9 @@
          * `Suspended` — приостановлен;
       1. `request_command` — тип выполняемой в данный момент команды;
       1. `blocking_session_id` — идентификатор сеанса, блокирующего данный запрос;
-      1. `wait_type` — [тип ожидания](https://docs.microsoft.com/ru-ru/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits) при блокировке;
+      1. `wait_type` — [тип ожидания]({{ ms.docs }}/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits) при блокировке;
       1. `wait_time` — продолжительность ожидания при блокировке (в миллисекундах);
-      1. `last_wait_type` — [тип последнего ожидания](https://docs.microsoft.com/ru-ru/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits), если запрос был блокирован ранее;
+      1. `last_wait_type` — [тип последнего ожидания]({{ ms.docs }}/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits), если запрос был блокирован ранее;
       1. `wait_resource` — ресурс, освобождения которого ожидает запрос при блокировке;
    1. Сведения о текстах и планах запросов из представлений `sys.dm_exec_sql_text` и `sys.dm_exec_query_plan`:
       1. `object_id` — идентификатор объекта (например, хранимой процедуры или функции) для этого плана запроса;

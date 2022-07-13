@@ -17,7 +17,7 @@ GET https://mdb.{{ api-host }}/managed-clickhouse/v1/backups/{backupId}
  
 Parameter | Description
 --- | ---
-backupId | Required. ID of the backup to return information about. To get the backup ID, use a [listBackups](/docs/managed-clickhouse/api-ref/Cluster/listBackups) request.
+backupId | <p>Required. ID of the backup to return information about. To get the backup ID, use a <a href="/docs/managed-clickhouse/api-ref/Cluster/listBackups">listBackups</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

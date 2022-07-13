@@ -17,16 +17,16 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/dryRunLifecy
  
 Parameter | Description
 --- | ---
-dryRunLifecyclePolicyResultId | Required. ID of the dry run result of the lifecycle policy  The maximum string length in characters is 50.
+dryRunLifecyclePolicyResultId | <p>Required. ID of the dry run result of the lifecycle policy</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResultAffectedImages#responses) that can be used to get the next page of results in subsequent list requests.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResultAffectedImages#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters affected images listed in the response.  The expression must specify: 1. The field name. Currently you can use filtering only on [LifecyclePolicy.name](/docs/container-registry/api-ref/LifecyclePolicy#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.  The maximum string length in characters is 1000.
-orderBy | Sorting the list by [LifecyclePolicy.name](/docs/container-registry/api-ref/LifecyclePolicy#representation) and [LifecyclePolicy.createdAt](/docs/container-registry/api-ref/LifecyclePolicy#representation) fields. The default sorting order is ascending.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than ``page_size``, the service returns a <a href="/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResultAffectedImages#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResultAffectedImages#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+filter | <p>A filter expression that filters affected images listed in the response.</p> <p>The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on <a href="/docs/container-registry/api-ref/LifecyclePolicy#representation">LifecyclePolicy.name</a> field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be 3-63 characters long and match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
+orderBy | <p>Sorting the list by <a href="/docs/container-registry/api-ref/LifecyclePolicy#representation">LifecyclePolicy.name</a> and <a href="/docs/container-registry/api-ref/LifecyclePolicy#representation">LifecyclePolicy.createdAt</a> fields. The default sorting order is ascending.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -70,7 +70,7 @@ orderBy | Sorting the list by [LifecyclePolicy.name](/docs/container-registry/ap
  
 Field | Description
 --- | ---
-affectedImages[] | **object**<br><p>An Image resource. For more information, see <a href="/docs/cloud/container-registry/docker-image">Docker image</a>.</p> 
+affectedImages[] | **object**<br><p>List of affected images.</p> 
 affectedImages[].<br>id | **string**<br><p>Output only. ID of the Docker image.</p> 
 affectedImages[].<br>name | **string**<br><p>Name of the Docker image. The name is unique within the registry.</p> 
 affectedImages[].<br>digest | **string**<br><p>Content-addressable identifier of the Docker image.</p> 
@@ -80,7 +80,7 @@ affectedImages[].<br>config.<br>id | **string**<br><p>Output only. ID of the blo
 affectedImages[].<br>config.<br>digest | **string**<br><p>Content-addressable identifier of the blob.</p> 
 affectedImages[].<br>config.<br>size | **string** (int64)<br><p>Size of the blob, specified in bytes.</p> 
 affectedImages[].<br>config.<br>urls[] | **string**<br><p>List of blob urls.</p> 
-affectedImages[].<br>layers[] | **object**<br><p>A Blob resource.</p> 
+affectedImages[].<br>layers[] | **object**<br><p>Layers of the Docker image.</p> 
 affectedImages[].<br>layers[].<br>id | **string**<br><p>Output only. ID of the blob.</p> 
 affectedImages[].<br>layers[].<br>digest | **string**<br><p>Content-addressable identifier of the blob.</p> 
 affectedImages[].<br>layers[].<br>size | **string** (int64)<br><p>Size of the blob, specified in bytes.</p> 

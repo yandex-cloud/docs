@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/add-labels.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/add-labels.md
 ---
 # yc managed-clickhouse cluster add-labels
 

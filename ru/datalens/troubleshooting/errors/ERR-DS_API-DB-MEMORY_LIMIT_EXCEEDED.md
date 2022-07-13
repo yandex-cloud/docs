@@ -16,7 +16,7 @@
 
 {% note tip %}
 
-Если источник данных — {{ CH }}, найдите запросы от {{ datalens-short-name }} в [system.query_log](https://{{ ch-domain }}/docs/en/operations/system-tables/query_log/).
+Если источник данных — {{ CH }}, найдите запросы от {{ datalens-short-name }} в [system.query_log]({{ ch.docs }}/operations/system-tables/query_log/).
 
 Если  источник данных — MBD {{ PG }}, посмотрите [анализ производительности](../../../managed-postgresql/tutorials/profiling.md).
 

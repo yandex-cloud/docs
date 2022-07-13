@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/kms/symmetric-crypto/decrypt.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-crypto/decrypt.md
 ---
 # yc kms symmetric-crypto decrypt
 

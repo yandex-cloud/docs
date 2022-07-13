@@ -2,7 +2,7 @@
 
 * [Syncing MySQL data using {{ data-transfer-full-name }}](sync-mysql.md)
 * Using the registry of data format schemas with Managed Service for Apache Kafka®:
-   * [Overview](schema-registry-overview.md)
+   * [Managing data schemas](schema-registry-overview.md)
    * [Working with the managed registry of data format schemas](managed-schema-registry.md)
    * [Working with Confluent Schema Registry](confluent-schema-registry.md)
 * [Delivering data to {{ mkf-name }} using Debezium](kafka-cdc.md)

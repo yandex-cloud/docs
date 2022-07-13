@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/hosts/resetup.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/hosts/resetup.md
 ---
 # yc managed-mongodb hosts resetup
 

@@ -152,11 +152,11 @@
 
 {% note info %}
 
-Запрос изменит параметры сортировки только для новых объектов БД. О том, как изменить параметры сортировки для существующих баз данных, читайте в [документации {{ MS }}](https://docs.microsoft.com/ru-ru/sql/relational-databases/collations/set-or-change-the-database-collation).
+Запрос изменит параметры сортировки только для новых объектов БД. О том, как изменить параметры сортировки для существующих баз данных, читайте в [документации {{ MS }}]({{ ms.docs }}/sql/relational-databases/collations/set-or-change-the-database-collation).
 
 {% endnote %}
 
-Подробнее см. в [документации {{ MS }}](https://docs.microsoft.com/ru-ru/sql/relational-databases/collations/set-or-change-the-database-collation).
+Подробнее см. в [документации {{ MS }}]({{ ms.docs }}/sql/relational-databases/collations/set-or-change-the-database-collation).
 
 ## Удалить базу данных {#remove-db}
 

@@ -13,6 +13,12 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
 ## How to create a {{ RD }} cluster {#create-cluster}
 
+{% note info %}
+
+As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. For more information, see [{#T}](cluster-version-update.md#version-supported).
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console
@@ -24,7 +30,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
    1. Under **Basic parameters**:
 
       * Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
-      * (optional) Add a cluster description.
+      * (Optional) Add a cluster description.
       * Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
          * `PRODUCTION`: For stable versions of your apps.
          * `PRESTABLE`: For testing, including the {{ mrd-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
@@ -61,13 +67,20 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
          {% include [storages-step-settings-no-ice-lake](../../_includes/mdb/settings-storages-no-v3.md) %}
 
 
-      * Select the storage size. The available storage size is limited by [quotas and limits](../concepts/limits.md#limits).
+      * Select the storage size. The available storage size is limited by [quotas and limits](../concepts/limits.md#mrd-limits).
 
    1. In **Cluster settings** under **Password**, set the user password (from 8 to 128 characters).
-   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need additionally to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
-   1. Under **Hosts**, click **Add host** and select the availability zone and subnet to connect the host to. Create the necessary number of hosts. To change the availability zone and the added host, click the pencil icon in the host line.
+   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+   1. Under **Hosts**:
 
-      If you enabled sharding, enter names for the shards.
+      * To change host settings, click the ![pencil](../../_assets/pencil.svg) icon in the row next to its name.
+
+         * **Availability zone**: Select an [availability zone](../../overview/concepts/geo-scope.md).
+         * **Subnet**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
+         * **Public access**: Enable access to the host from the internet if the cluster is created with **TLS support** activated.
+         * **Shard name**: Enables you to change the shard name for the host. The field is only available if the cluster is created with **Cluster sharding** enabled.
+
+      * To add hosts to the cluster, click **Add host**.
 
    1. If necessary, configure additional cluster settings:
 
@@ -121,7 +134,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
         --disk-size <storage size in GB> \
         --password=<user password> \
         --backup-window-start <backup start time in HH:MM:SS format>
-        --deletion-protection=<protection against deleting a cluster: true or fasle>
+        --deletion-protection=<protection against deleting a cluster: true or false>
       ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
@@ -134,15 +147,17 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
    
    If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
+
    To create a cluster:
 
    1. In the configuration file, describe the parameters of resources that you want to create:
 
       * Database cluster: Description of the cluster and its hosts. You can also configure [DBMS settings](../concepts/settings-list.md) here if necessary.
 
-      * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+      
+      * Network: A description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be hosted. If you already have a suitable network, you don't need to describe it again.
+      * Subnets: The [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
-      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
       Sample configuration file structure for creating clusters with SSL support:
 
@@ -157,7 +172,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
       }
 
       provider "yandex" {
-        token     = "<an OAuth or static key of the service account>"
+        token     = "<service account OAuth or static key>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "<availability zone>"
@@ -174,7 +189,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
         config {
           password = "<password>"
-          version  = "<{{ RD }} version: {{ versions.tf.str }}>"
+          version  = "<version {{ RD }}:{{ versions.tf.str }}>"
         }
 
         resources {
@@ -203,9 +218,9 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      1. {% include [maintenance-window](../../_includes/mdb/mrd/terraform-maintenance-window.md) %}
+      1. {% include [Maintenance window](../../_includes/mdb/mrd/terraform/maintenance-window.md) %}
 
-      For more information about resources that you can create using {{ TF }}, see [the provider's documentation]({{ tf-provider-mrd }})
+      For more details about resources that you can create using {{ TF }}, see [the provider's documentation]({{ tf-provider-mrd }})
 
    1. Make sure the settings are correct.
 
@@ -215,7 +230,9 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources appear with the correct settings, using the [management console]({{ link-console-main }}).
+      After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there with the correct settings, using the [management console]({{ link-console-main }}).
+
+      {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 - API
 
@@ -223,13 +240,13 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
    * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
    * The cluster name in the `name` parameter.
    * Security group identifiers, in the `securityGroupIds` parameter.
-   * `TlsEnabled=true` flag to create a cluster with encrypted SSL connection support (for {{ RD }} version 6.0 or higher).
+   * The `tlsEnabled=true` flag for creating clusters with encrypted SSL support.
 
 {% endlist %}
 
 {% note warning %}
 
-If you specified security group IDs when creating a cluster, you may need to additionally [configure security groups](connect/index.md#configuring-security-groups) to connect to it.
+If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
@@ -249,7 +266,7 @@ If you specified security group IDs when creating a cluster, you may need to add
    * Version `{{ versions.cli.latest }}`.
    * Environment `production`.
    * Network `default`.
-   * With a single `hm1.nano` host in the `b0rcctk2rvtr8efcch64` subnet, the `{{ region-id }}-a` availability zone, and the `{{ security-group }}` security group.
+   * With a single `hm1.nano` host in the `b0rcctk2rvtr8efcch64` subnet, the `{{ zone-id }}` availability zone, and the `{{ security-group }}` security group.
    * With SSL support.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
    * With the `user1user1` password.
@@ -264,7 +281,7 @@ If you specified security group IDs when creating a cluster, you may need to add
      --environment production \
      --network-name default \
      --resource-preset hm1.nano \
-     --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch64 \
+     --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
      --security-group-ids {{ security-group }} \
      --enable-tls \
      --disk-type-id {{ disk-type-example }} \
@@ -283,7 +300,7 @@ If you specified security group IDs when creating a cluster, you may need to add
    * Cloud with the `{{ tf-cloud-id }}` ID.
    * Folder with the `{{ tf-folder-id }}` ID.
    * New network `mynet`.
-   * With a single `{{ host-class }}` host in the new subnet `mysubnet` and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * With a single `{{ host-class }}` host in the new subnet `mysubnet` and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
    * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
    * With SSL support.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
@@ -303,10 +320,10 @@ If you specified security group IDs when creating a cluster, you may need to add
    }
 
    provider "yandex" {
-     token     = "<an OAuth or static key of the service account>"
+     token     = "<service account OAuth or static key>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ region-id }}-a"
+     zone      = "{{ zone-id }}"
    }
 
    resource "yandex_mdb_redis_cluster" "myredis" {
@@ -329,7 +346,7 @@ If you specified security group IDs when creating a cluster, you may need to add
      }
 
      host {
-       zone      = "{{ region-id }}-a"
+       zone      = "{{ zone-id }}"
        subnet_id = yandex_vpc_subnet.mysubnet.id
      }
    }
@@ -357,7 +374,7 @@ If you specified security group IDs when creating a cluster, you may need to add
 
    resource  "yandex_vpc_subnet" "mysubnet" {
      name           = "mysubnet"
-     zone           = "{{ region-id }}-a"
+     zone           = "{{ zone-id }}"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.5.0.0/24"]
    }
@@ -373,7 +390,7 @@ If you specified security group IDs when creating a cluster, you may need to add
 
 - Terraform
 
-   Let's say we need to create a [sharded](../concepts/sharding.md) {{RD}} cluster with the following characteristics:
+   Let's say we need to create a [sharded](../concepts/sharding.md) {{ RD }} cluster with the following characteristics:
 
    * Named `myredis`.
    * Environment `PRODUCTION`.
@@ -403,10 +420,10 @@ If you specified security group IDs when creating a cluster, you may need to add
    }
 
    provider "yandex" {
-     token     = "<an Oauth or static key of the service account>"
+     token     = "<service account OAuth or static key>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ region-id }}-a"
+     zone      = "{{ zone-id }}"
    }
 
    resource "yandex_mdb_redis_cluster" "myredis" {

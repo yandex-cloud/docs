@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-elasticsearch/hosts/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/hosts/index.md
 ---
 # yc managed-elasticsearch hosts
 

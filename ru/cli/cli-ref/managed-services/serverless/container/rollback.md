@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/container/rollback.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/rollback.md
 ---
 # yc serverless container rollback
 

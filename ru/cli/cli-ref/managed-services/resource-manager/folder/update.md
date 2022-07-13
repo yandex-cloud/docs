@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/resource-manager/folder/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/resource-manager/folder/update.md
 ---
 # yc resource-manager folder update
 

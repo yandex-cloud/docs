@@ -17,13 +17,13 @@ GET https://compute.{{ api-host }}/compute/v1/instances/{instanceId}
  
 Parameter | Description
 --- | ---
-instanceId | Required. ID of the Instance resource to return. To get the instance ID, use a [list](/docs/compute/api-ref/Instance/list) request.  The maximum string length in characters is 50.
+instanceId | <p>Required. ID of the Instance resource to return. To get the instance ID, use a <a href="/docs/compute/api-ref/Instance/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-view | Defines which information about the Instance resource should be returned in the server response.<ul> <li>BASIC: Doesn't include the metadata of the instance in the server response.</li> <li>FULL: Returns the metadata of the instance in the server response.</li> </ul> 
+view | <p>Defines which information about the Instance resource should be returned in the server response.</p> <ul> <li>BASIC: Doesn't include the metadata of the instance in the server response.</li> <li>FULL: Returns the metadata of the instance in the server response.</li> </ul> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -46,6 +46,12 @@ view | Defines which information about the Instance resource should be returned 
   },
   "status": "string",
   "metadata": "object",
+  "metadataOptions": {
+    "gceHttpEndpoint": "string",
+    "awsV1HttpEndpoint": "string",
+    "gceHttpToken": "string",
+    "awsV1HttpToken": "string"
+  },
   "bootDisk": {
     "mode": "string",
     "deviceName": "string",
@@ -170,6 +176,11 @@ resources.<br>coreFraction | **string** (int64)<br><p>Baseline level of CPU perf
 resources.<br>gpus | **string** (int64)<br><p>The number of GPUs available to the instance.</p> 
 status | **string**<br><p>Status of the instance.</p> <ul> <li>PROVISIONING: Instance is waiting for resources to be allocated.</li> <li>RUNNING: Instance is running normally.</li> <li>STOPPING: Instance is being stopped.</li> <li>STOPPED: Instance stopped.</li> <li>STARTING: Instance is being started.</li> <li>RESTARTING: Instance is being restarted.</li> <li>UPDATING: Instance is being updated.</li> <li>ERROR: Instance encountered a problem and cannot operate.</li> <li>CRASHED: Instance crashed and will be restarted automatically.</li> <li>DELETING: Instance is being deleted.</li> </ul> 
 metadata | **object**<br><p>The metadata ``key:value`` pairs assigned to this instance. This includes custom metadata and predefined keys.</p> <p>For example, you may use the metadata in order to provide your public SSH key to the instance. For more information, see <a href="/docs/compute/concepts/vm-metadata">Metadata</a>.</p> 
+metadataOptions | **object**<br><p>Options allow user to configure access to instance's metadata</p> 
+metadataOptions.<br>gceHttpEndpoint | **string**<br><p>Enabled access to GCE flavored metadata</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
+metadataOptions.<br>awsV1HttpEndpoint | **string**<br><p>Enabled access to AWS flavored metadata (IMDSv1)</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
+metadataOptions.<br>gceHttpToken | **string**<br><p>Enabled access to IAM credentials with GCE flavored metadata</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
+metadataOptions.<br>awsV1HttpToken | **string**<br><p>Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)</p> <ul> <li>ENABLED: Option is enabled</li> <li>DISABLED: Option is disabled</li> </ul> 
 bootDisk | **object**<br><p>Boot disk that is attached to the instance.</p> 
 bootDisk.<br>mode | **string**<br><p>Access mode to the Disk resource.</p> <ul> <li>READ_ONLY: Read-only access.</li> <li>READ_WRITE: Read/Write access.</li> </ul> 
 bootDisk.<br>deviceName | **string**<br><p>Serial number that is reflected into the /dev/disk/by-id/ tree of a Linux operating system running within the instance.</p> <p>This value can be used to reference the device for mounting, resizing, and so on, from within the instance.</p> 
@@ -230,7 +241,7 @@ networkSettings | **object**<br><p>Network Settings</p>
 networkSettings.<br>type | **string**<br><p>Network Type</p> <ul> <li>STANDARD: Standard network.</li> <li>SOFTWARE_ACCELERATED: Software accelerated network.</li> <li>HARDWARE_ACCELERATED: Hardware accelerated network (not available yet, reserved for future use).</li> </ul> 
 placementPolicy | **object**<br><p>Placement policy configuration.</p> 
 placementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
-placementPolicy.<br>hostAffinityRules[] | **object**<br><p>Affinitity definition</p> 
+placementPolicy.<br>hostAffinityRules[] | **object**<br><p>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules.</p> 
 placementPolicy.<br>hostAffinityRules[].<br>key | **string**<br><p>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'</p> 
 placementPolicy.<br>hostAffinityRules[].<br>op | **string**<br><p>Include or exclude action</p> 
 placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity value or host ID or host group ID</p> 

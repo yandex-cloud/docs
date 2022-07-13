@@ -17,7 +17,7 @@ GET https://vpc.{{ api-host }}/vpc/v1/gateways/{gatewayId}
  
 Parameter | Description
 --- | ---
-gatewayId | Required. ID of the Gateway resource to return.  To get Gateway resource ID make a [list](/docs/vpc/api-ref/Gateway/list) request.  The maximum string length in characters is 50.
+gatewayId | <p>Required. ID of the Gateway resource to return.</p> <p>To get Gateway resource ID make a <a href="/docs/vpc/api-ref/Gateway/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

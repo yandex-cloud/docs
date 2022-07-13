@@ -17,14 +17,14 @@ GET https://mks.{{ api-host }}/managed-kubernetes/v1/clusters/{clusterId}/nodes
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Kubernetes cluster to list nodes in. To get the Kubernetes cluster ID use a [list](/docs/managed-kubernetes/api-ref/Cluster/list) request.
+clusterId | <p>Required. ID of the Kubernetes cluster to list nodes in. To get the Kubernetes cluster ID use a <a href="/docs/managed-kubernetes/api-ref/Cluster/list">list</a> request.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/managed-kubernetes/api-ref/Cluster/listNodes#query_params), the service returns a [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodes#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/managed-kubernetes/api-ref/Cluster/listNodes#query_params">pageSize</a>, the service returns a <a href="/docs/managed-kubernetes/api-ref/Cluster/listNodes#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/managed-kubernetes/api-ref/Cluster/listNodeGroups#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -112,7 +112,7 @@ nodes[].<br>kubernetesStatus.<br>taints[] | **object**<br><p>If specified, the n
 nodes[].<br>kubernetesStatus.<br>taints[].<br>key | **string**<br><p>The taint key to be applied to a node.</p> 
 nodes[].<br>kubernetesStatus.<br>taints[].<br>value | **string**<br><p>The taint value corresponding to the taint key.</p> 
 nodes[].<br>kubernetesStatus.<br>taints[].<br>effect | **string**<br><p>The effect of the taint on pods that do not tolerate the taint.</p> <ul> <li>NO_SCHEDULE: Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running.</li> <li>PREFER_NO_SCHEDULE: Like NO_SCHEDULE, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</li> <li>NO_EXECUTE: Evict any already-running pods that do not tolerate the taint.</li> </ul> 
-nodes[].<br>kubernetesStatus.<br>attachedVolumes[] | **object**<br><p>AttachedVolume describes a volume attached to a node</p> 
+nodes[].<br>kubernetesStatus.<br>attachedVolumes[] | **object**<br><p>List of volumes that are attached to the node.</p> 
 nodes[].<br>kubernetesStatus.<br>attachedVolumes[].<br>driverName | **string**<br><p>Name of the driver which has attached the volume</p> 
 nodes[].<br>kubernetesStatus.<br>attachedVolumes[].<br>volumeHandle | **string**<br><p>Volume handle (cloud disk id)</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-kubernetes/api-ref/Cluster/listNodes#query_params">pageSize</a>, use the ``next_page_token`` as the value for the <a href="/docs/managed-kubernetes/api-ref/Cluster/listNodes#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own ``next_page_token`` to continue paging through the results.</p> 

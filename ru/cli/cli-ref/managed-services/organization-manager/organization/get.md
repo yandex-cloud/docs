@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/organization-manager/organization/get.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/organization/get.md
 ---
 # yc organization-manager organization get
 

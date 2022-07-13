@@ -17,7 +17,7 @@ GET https://iam.{{ api-host }}/iam/v1/roles/{roleId}
  
 Parameter | Description
 --- | ---
-roleId | Required. ID of the Role resource to return. To get the role ID, use a [list](/docs/iam/api-ref/Role/list) request.  The maximum string length in characters is 50.
+roleId | <p>Required. ID of the Role resource to return. To get the role ID, use a <a href="/docs/iam/api-ref/Role/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

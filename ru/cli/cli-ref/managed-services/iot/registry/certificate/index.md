@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/registry/certificate/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/certificate/index.md
 ---
 # yc iot registry certificate
 

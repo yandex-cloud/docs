@@ -28,4 +28,4 @@ To set up alerts for DB status indicators:
 1. Add a status metric.
 1. Set the alert threshold values in the alert settings.
 
-For more information about the {{ ydb-name }} status metrics, see the [metric reference](../../monitoring/metrics-ref/index.md#managed-ydb).
+For more information about the {{ ydb-name }} status metrics, see the [metric reference](../../monitoring/metrics-ref/index.md#ydb).

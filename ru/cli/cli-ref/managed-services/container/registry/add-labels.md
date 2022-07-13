@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/container/registry/add-labels.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/registry/add-labels.md
 ---
 # yc container registry add-labels
 

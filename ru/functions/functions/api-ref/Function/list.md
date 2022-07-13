@@ -17,10 +17,10 @@ GET https://serverless-functions.{{ api-host }}/functions/v1/functions
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder to list functions in.  To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/functions/api-ref/Function/list#responses) that can be used to get the next page of results in subsequent list requests.  Default value: 100.
-pageToken | Page token. To get the next page of results, set `pageToken` to the [nextPageToken](/docs/functions/functions/api-ref/Function/list#responses) returned by a previous list request.
-filter | A filter expression that filters functions listed in the response.  The expression must specify: 1. The field name. Currently filtering can only be applied to the [Function.name](/docs/functions/functions/api-ref/Function#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter: `name="my-function"`.
+folderId | <p>Required. ID of the folder to list functions in.</p> <p>To get a folder ID make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than ``pageSize``, the service returns a <a href="/docs/functions/functions/api-ref/Function/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>Default value: 100.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``pageToken`` to the <a href="/docs/functions/functions/api-ref/Function/list#responses">nextPageToken</a> returned by a previous list request.</p> 
+filter | <p>A filter expression that filters functions listed in the response.</p> <p>The expression must specify:</p> <ol> <li>The field name. Currently filtering can only be applied to the <a href="/docs/functions/functions/api-ref/Function#representation">Function.name</a> field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be 3-63 characters long and match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``. Example of a filter: ``name="my-function"``.</li> </ol> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -47,7 +47,7 @@ filter | A filter expression that filters functions listed in the response.  The
  
 Field | Description
 --- | ---
-functions[] | **object**<br><p>A serverless function. For details about the concept, see <a href="/docs/functions/concepts/function">Functions</a>.</p> 
+functions[] | **object**<br><p>List of functions in the specified folder.</p> 
 functions[].<br>id | **string**<br><p>ID of the function. Generated at creation time.</p> 
 functions[].<br>folderId | **string**<br><p>ID of the folder that the function belongs to.</p> 
 functions[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for the function.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

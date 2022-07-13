@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/lockbox/secret/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/secret/update.md
 ---
 # yc lockbox secret update
 

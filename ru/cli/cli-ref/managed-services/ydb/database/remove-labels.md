@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/ydb/database/remove-labels.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/remove-labels.md
 ---
 # yc ydb database remove-labels
 

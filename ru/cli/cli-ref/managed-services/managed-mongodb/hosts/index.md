@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/hosts/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/hosts/index.md
 ---
 # yc managed-mongodb hosts
 

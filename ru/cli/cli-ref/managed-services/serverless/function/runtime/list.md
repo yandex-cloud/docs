@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/runtime/list.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/runtime/list.md
 ---
 # yc serverless function runtime list
 

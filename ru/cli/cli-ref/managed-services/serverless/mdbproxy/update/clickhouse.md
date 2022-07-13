@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/update/clickhouse.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/update/clickhouse.md
 ---
 # yc serverless mdbproxy update clickhouse
 

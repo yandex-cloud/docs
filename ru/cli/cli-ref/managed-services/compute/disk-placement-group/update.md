@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/disk-placement-group/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/disk-placement-group/update.md
 ---
 # yc compute disk-placement-group update
 

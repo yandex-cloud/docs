@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mysql/cluster/backup.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/cluster/backup.md
 ---
 # yc managed-mysql cluster backup
 

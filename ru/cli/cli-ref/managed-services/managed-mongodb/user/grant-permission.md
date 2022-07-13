@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/user/grant-permission.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/user/grant-permission.md
 ---
 # yc managed-mongodb user grant-permission
 

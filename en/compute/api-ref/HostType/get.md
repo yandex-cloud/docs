@@ -17,7 +17,7 @@ GET https://compute.{{ api-host }}/compute/v1/hostTypes/{hostTypeId}
  
 Parameter | Description
 --- | ---
-hostTypeId | Required. ID of the host type to return.  To get a host type ID make a [list](/docs/compute/api-ref/HostType/list) request.  The maximum string length in characters is 50.
+hostTypeId | <p>Required. ID of the host type to return.</p> <p>To get a host type ID make a <a href="/docs/compute/api-ref/HostType/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

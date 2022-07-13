@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/dns/bind-file/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/dns/bind-file/index.md
 ---
 # yc dns bind-file
 

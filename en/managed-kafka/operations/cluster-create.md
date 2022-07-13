@@ -261,7 +261,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-      {% include [maintenance-window](../../_includes/mdb/mkf/terraform-maintenance-window.md) %}
+      {% include [maintenance-window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
    1. Make sure the settings are correct.
 
@@ -274,6 +274,8 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there with the correct settings, using the [management console]({{ link-console-main }}).
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 - API
 

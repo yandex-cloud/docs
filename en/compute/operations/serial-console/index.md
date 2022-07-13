@@ -203,6 +203,8 @@ To create a local password, use the CLI.
 
 1. Terminate the SSH session with the `exit` command.
 
+
+
 ### Windows {#windows-configuration}
 
 An equivalent of the serial console in Windows is the Speicial Administration Console (SAC).
@@ -232,3 +234,4 @@ If you created the VM before February 22, 2019, you need to update the Windows r
 {% endlist %}
 
 Learn more about the [terminal in the Windows serial console (SAC)](windows-sac.md).
+

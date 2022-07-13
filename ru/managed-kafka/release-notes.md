@@ -2,9 +2,14 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## 01.07.2022 {#01.07.2022}
+
+* Доступен новый коннектор: [S3 Sink](concepts/connectors.md#s3-sink). {{ tag-con }}
+* Новая версия {{ KF }} 3.1 доступна в окружении `PRODUCTION`. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+
 ## 01.06.2022 {#01.06.2022}
 
-* Новая версия {{ KF }} 3.1 доступна в `PRESTABLE` окружении. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+* Новая версия {{ KF }} 3.1 доступна в окружении `PRESTABLE`. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 * Добавлена возможность загружать SSL-сертификат для соединения с кластером через коннектор MirrorMaker. {{ tag-con }}
 * Добавлена поддержка офлайн-обслуживания.
 

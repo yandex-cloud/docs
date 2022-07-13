@@ -15,7 +15,7 @@ A set of methods for managing Folder resources.
 | [Update](#Update) | Updates the specified folder. |
 | [Delete](#Delete) | Deletes the specified folder. |
 | [ListOperations](#ListOperations) | Lists operations for the specified folder. |
-| [ListAccessBindings](#ListAccessBindings) | access Lists access bindings for the specified folder. |
+| [ListAccessBindings](#ListAccessBindings) | Lists access bindings for the specified folder. |
 | [SetAccessBindings](#SetAccessBindings) | Sets access bindings for the specified folder. |
 | [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for the specified folder. |
 
@@ -280,7 +280,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 ## ListAccessBindings {#ListAccessBindings}
 
-access Lists access bindings for the specified folder.
+Lists access bindings for the specified folder.
 
 **rpc ListAccessBindings ([ListAccessBindingsRequest](#ListAccessBindingsRequest)) returns ([ListAccessBindingsResponse](#ListAccessBindingsResponse))**
 

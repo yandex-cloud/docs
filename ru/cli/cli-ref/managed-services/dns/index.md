@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/dns/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/dns/index.md
 ---
 # yc dns
 

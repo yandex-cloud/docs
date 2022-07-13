@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/update-stream-listener.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/update-stream-listener.md
 ---
 # yc application-load-balancer load-balancer update-stream-listener
 

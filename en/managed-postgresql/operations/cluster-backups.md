@@ -129,7 +129,7 @@ When restoring to the current state, the new cluster will reflect the state of:
    +--------------------------+----------------------+----------------------+----------------------+
    ```
 
-   {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
    **To restore an existing cluster from a backup:**
 
@@ -389,6 +389,6 @@ When restoring to the current state, the new cluster will reflect the state of:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform-timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 {% endlist %}

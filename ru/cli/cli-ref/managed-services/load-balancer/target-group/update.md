@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/load-balancer/target-group/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/target-group/update.md
 ---
 # yc load-balancer target-group update
 

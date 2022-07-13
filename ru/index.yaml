@@ -161,4 +161,4 @@ links:
     href: vpc/
   - title: Yandex Managed Service for YDB
     description: Распределенная отказоустойчивая NewSQL СУБД
-    href: managed-ydb/
+    href: ydb/

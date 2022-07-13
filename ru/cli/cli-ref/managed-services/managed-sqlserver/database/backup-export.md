@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/database/backup-export.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/database/backup-export.md
 ---
 # yc managed-sqlserver database backup-export
 

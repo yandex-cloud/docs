@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/datatransfer/transfer/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/datatransfer/transfer/update.md
 ---
 # yc datatransfer transfer update
 

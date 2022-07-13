@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-redis/cluster/add-labels.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/cluster/add-labels.md
 ---
 # yc managed-redis cluster add-labels
 

@@ -17,7 +17,7 @@ GET https://billing.{{ api-host }}/billing/v1/billingAccounts/{id}
  
 Parameter | Description
 --- | ---
-id | Required. ID of the billing account to return. To get the billing account ID, use [list](/docs/billing/api-ref/BillingAccount/list) request.  The maximum string length in characters is 50.
+id | <p>Required. ID of the billing account to return. To get the billing account ID, use <a href="/docs/billing/api-ref/BillingAccount/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

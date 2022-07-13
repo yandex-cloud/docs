@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/logging/group/stats.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/logging/group/stats.md
 ---
 # yc logging group stats
 

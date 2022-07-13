@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/lockbox/secret/create.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/secret/create.md
 ---
 # yc lockbox secret create
 

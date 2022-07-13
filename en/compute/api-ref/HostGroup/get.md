@@ -17,7 +17,7 @@ GET https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}
  
 Parameter | Description
 --- | ---
-hostGroupId | Required. ID of the host group to return. To get the host group ID, use [list](/docs/compute/api-ref/HostGroup/list) request.  The maximum string length in characters is 50.
+hostGroupId | <p>Required. ID of the host group to return. To get the host group ID, use <a href="/docs/compute/api-ref/HostGroup/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -56,5 +56,5 @@ status | **string**<br><p>Status of the group.</p>
 typeId | **string**<br><p>ID of host type. Resources provided by each host of the group.</p> 
 maintenancePolicy | **string**<br><p>Behaviour on maintenance events.</p> <ul> <li>RESTART: Restart instances on the same host after maintenance event.</li> <li>MIGRATE: Migrate instances to another host before maintenance event.</li> </ul> 
 scalePolicy | **object**<br><p>Scale policy. Only fixed number of hosts are supported at this moment.</p> 
-scalePolicy.<br>fixedScale | **object**<br>
-scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br>
+scalePolicy.<br>fixedScale | **object**
+scalePolicy.<br>fixedScale.<br>size | **string** (int64)

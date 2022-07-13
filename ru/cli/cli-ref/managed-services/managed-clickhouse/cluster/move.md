@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/move.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/move.md
 ---
 # yc managed-clickhouse cluster move
 

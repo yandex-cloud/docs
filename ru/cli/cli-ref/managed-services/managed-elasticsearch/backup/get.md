@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-elasticsearch/backup/get.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/backup/get.md
 ---
 # yc managed-elasticsearch backup get
 

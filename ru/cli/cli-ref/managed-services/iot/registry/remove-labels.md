@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/registry/remove-labels.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/remove-labels.md
 ---
 # yc iot registry remove-labels
 

@@ -6,26 +6,26 @@ You can [clear the procedure (plan) cache](#free-proc-cache) in a database and [
 
 To clear the procedure (plan) cache in a database:
 
-1. [Connect](connect.md) to the desired database using an account that has the `DB_OWNER` role.
-2. Run the query:
+1. [Connect](connect.md) to the desired database using an account with the `DB_OWNER` role.
+1. Run the query:
 
    ```sql
    EXECUTE msdb.dbo.mdb_freeproccache (<object ID>);
    ```
 
-   Leave the `<object ID>` value empty to have the procedure remove all items from the cache or assign it one of the values below to point to a specific object in the cache:
+   Leave the `<object ID>` value empty to have the procedure remove all items from the cache or assign it one of the values below to point to a specific cached object:
    * Plan handle (plan_handle) to clear a specific plan.
-   * SQL token (sql_handle) to clear a specific batch.
+   * SQL token (sql_handle) to clear a specific a batch.
    * Resource pool name (pool_name) to clear all the cache entries for a specific resource pool.
 
-   For more information on getting an object ID, see [{{ MS }} documentation](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-freeproccache-transact-sql#arguments).
+   For more information on getting an object ID, see [{{ MS }} documentation]({{ ms.docs }}/sql/t-sql/database-console-commands/dbcc-freeproccache-transact-sql#arguments).
 
 ## Index maintenance {#indexes}
 
 To rebuild indexes or update query optimization statistics:
 
-1. [Connect](connect.md) to the desired database using an account that has the `DB_OWNER` role.
-2. Run the query:
+1. [Connect](connect.md) to the desired database using an account with the `DB_OWNER` role.
+1. Run the query:
 
    ```sql
    EXECUTE msdb.dbo.IndexOptimize <parameters>;
@@ -47,3 +47,32 @@ To rebuild indexes or update query optimization statistics:
    @OnlyModifiedStatistics = 'Y';
    ```
 
+## Reading the error log {#read-errorlog}
+
+To retrieve ERRORLOG information:
+
+1. [Connect](connect.md) to the desired database using an account with the `DB_OWNER` role.
+1. Run the query:
+
+```sql
+EXECUTE msdb.dbo.mdb_readerrorlog <parameters>;
+```
+
+Run the query without parameters to view a complete list of errors in all logs.
+To find information on specific errors, use parameters in the following order:
+
+1. Log number. To view the current log, specify `0`.
+1. Log type. Use `1` to read the SQL Server error log.
+1. Search criteria. Specify a string to search for messages that contain the string.
+1. Additional search criteria. If both the terms are set, they have equal weights in the message search.
+1. Start message filter date as `yyyy-mm-dd hh-mm-ss.msmsms`.
+1. End message filter date as `yyyy-mm-dd hh-mm-ss.msmsms`.
+1. Sort order. Specify `asc` for ascending or `desc` for descending sort order.
+
+If you do not want to use a parameter, leave it blank.
+
+An example query to view messages in the current SQL Server error log containing the word `invalid` and sorted in descending order:
+
+```sql
+EXECUTE msdb.dbo.mdb_readerrorlog 0, 1, N'invalid', N'', NULL, NULL, N'desc'
+```

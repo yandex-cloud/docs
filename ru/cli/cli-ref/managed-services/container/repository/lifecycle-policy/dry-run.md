@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/container/repository/lifecycle-policy/dry-run.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/repository/lifecycle-policy/dry-run.md
 ---
 # yc container repository lifecycle-policy dry-run
 

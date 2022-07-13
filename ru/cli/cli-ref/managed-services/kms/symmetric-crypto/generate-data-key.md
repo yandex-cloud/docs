@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/kms/symmetric-crypto/generate-data-key.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-crypto/generate-data-key.md
 ---
 # yc kms symmetric-crypto generate-data-key
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/logging/group/list-operations.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/logging/group/list-operations.md
 ---
 # yc logging group list-operations
 

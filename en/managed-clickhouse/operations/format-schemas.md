@@ -83,6 +83,8 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 {% endlist %}
 
 ## Changing a format schema {#update-format-schema}
@@ -150,6 +152,8 @@ To update the contents of a schema that is already connected to the cluster:
 
       For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 {% endlist %}
 
 ## Disabling a format schema {#disable-format-schema}
@@ -203,6 +207,8 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 {% endlist %}
 
 ## Getting a list of format schemas in a cluster {#list-format-schemas}
@@ -227,6 +233,8 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 {% endlist %}
 

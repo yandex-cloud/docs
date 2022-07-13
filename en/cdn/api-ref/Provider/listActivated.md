@@ -17,7 +17,7 @@ GET https://cdn.{{ api-host }}/cdn/v1/providers
  
 Parameter | Description
 --- | ---
-folderId | Required. ID of the folder that the activate provider belongs to.  The maximum string length in characters is 50.
+folderId | <p>Required. ID of the folder that the activate provider belongs to.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

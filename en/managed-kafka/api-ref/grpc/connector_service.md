@@ -43,8 +43,9 @@ properties | **map<string,string>**<br>A set of properties passed to Managed Ser
 health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: Health of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector has failed to start.</li></ul>
 status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector has encountered a problem and cannot operate.</li><li>`PAUSED`: Connector is paused.</li></ul>
 cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
-connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for the connector.
+connector_config | **oneof:** `connector_config_mirrormaker` or `connector_config_s3_sink`<br>Additional settings for the connector.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker)**<br>Configuration of the MirrorMaker connector. 
+&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink)**<br>Additional settings for the connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker}
@@ -81,6 +82,34 @@ sasl_mechanism | **string**<br>SASL mechanism to use for connection to the clust
 security_protocol | **string**<br>Security protocol to use for connection to the cluster. 
 
 
+### ConnectorConfigS3Sink {#ConnectorConfigS3Sink}
+
+Field | Description
+--- | ---
+topics | **string**<br>List of Kafka topics, separated by ',' 
+file_compression_type | **string**<br>The compression type used for files put on GCS. The supported values are: `gzip`, `snappy`, `zstd`, `none`. Optional, the default is `none`. 
+file_max_records | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max records per file. 
+s3_connection | **[S3Connection](#S3Connection)**<br>Credentials for connecting to S3 storage 
+
+
+### S3Connection {#S3Connection}
+
+Field | Description
+--- | ---
+bucket_name | **string**<br> 
+storage | **oneof:** `external_s3`<br>
+&nbsp;&nbsp;external_s3 | **[ExternalS3Storage](#ExternalS3Storage)**<br> 
+
+
+### ExternalS3Storage {#ExternalS3Storage}
+
+Field | Description
+--- | ---
+access_key_id | **string**<br> 
+endpoint | **string**<br> 
+region | **string**<br>Default is 'us-east-1' 
+
+
 ## List {#List}
 
 Retrieves the list of Apache Kafka® connectors in a cluster.
@@ -114,8 +143,9 @@ properties | **map<string,string>**<br>A set of properties passed to Managed Ser
 health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: Health of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector has failed to start.</li></ul>
 status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector has encountered a problem and cannot operate.</li><li>`PAUSED`: Connector is paused.</li></ul>
 cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
-connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for the connector.
+connector_config | **oneof:** `connector_config_mirrormaker` or `connector_config_s3_sink`<br>Additional settings for the connector.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker1)**<br>Configuration of the MirrorMaker connector. 
+&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink1)**<br>Additional settings for the connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker1}
@@ -152,6 +182,34 @@ sasl_mechanism | **string**<br>SASL mechanism to use for connection to the clust
 security_protocol | **string**<br>Security protocol to use for connection to the cluster. 
 
 
+### ConnectorConfigS3Sink {#ConnectorConfigS3Sink1}
+
+Field | Description
+--- | ---
+topics | **string**<br>List of Kafka topics, separated by ',' 
+file_compression_type | **string**<br>The compression type used for files put on GCS. The supported values are: `gzip`, `snappy`, `zstd`, `none`. Optional, the default is `none`. 
+file_max_records | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max records per file. 
+s3_connection | **[S3Connection](#S3Connection1)**<br>Credentials for connecting to S3 storage 
+
+
+### S3Connection {#S3Connection1}
+
+Field | Description
+--- | ---
+bucket_name | **string**<br> 
+storage | **oneof:** `external_s3`<br>
+&nbsp;&nbsp;external_s3 | **[ExternalS3Storage](#ExternalS3Storage1)**<br> 
+
+
+### ExternalS3Storage {#ExternalS3Storage1}
+
+Field | Description
+--- | ---
+access_key_id | **string**<br> 
+endpoint | **string**<br> 
+region | **string**<br>Default is 'us-east-1' 
+
+
 ## Create {#Create}
 
 Creates a new Apache Kafka® connector in a cluster.
@@ -177,8 +235,9 @@ Field | Description
 name | **string**<br>Name of the connector. 
 tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of connector tasks. Default value is the number of brokers. 
 properties | **map<string,string>**<br>A set of properties passed to Managed Service for Apache Kafka® with the connector configuration. Example: `sync.topics.config.enabled: true`. 
-connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for the connector.
+connector_config | **oneof:** `connector_config_mirrormaker` or `connector_config_s3_sink`<br>Additional settings for the connector.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMakerSpec](#ConnectorConfigMirrorMakerSpec)**<br>Configuration of the MirrorMaker connector. 
+&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3SinkSpec](#ConnectorConfigS3SinkSpec)**<br>Configuration of S3-Sink connector 
 
 
 ### ConnectorConfigMirrorMakerSpec {#ConnectorConfigMirrorMakerSpec}
@@ -217,6 +276,35 @@ security_protocol | **string**<br>Security protocol to use for connection to the
 ssl_truststore_certificates | **string**<br>CA in PEM format to connect to external cluster. Lines of certificate separated by '\n' symbol. 
 
 
+### ConnectorConfigS3SinkSpec {#ConnectorConfigS3SinkSpec}
+
+Field | Description
+--- | ---
+topics | **string**<br>List of Kafka topics, separated by ','. 
+file_compression_type | **string**<br>The compression type used for files put on GCS. The supported values are: `gzip`, `snappy`, `zstd`, `none`. Optional, the default is `none`. 
+file_max_records | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max records per file. 
+s3_connection | **[S3ConnectionSpec](#S3ConnectionSpec)**<br>Credentials for connecting to S3 storage 
+
+
+### S3ConnectionSpec {#S3ConnectionSpec}
+
+Field | Description
+--- | ---
+bucket_name | **string**<br> 
+storage | **oneof:** `external_s3`<br>
+&nbsp;&nbsp;external_s3 | **[ExternalS3StorageSpec](#ExternalS3StorageSpec)**<br> 
+
+
+### ExternalS3StorageSpec {#ExternalS3StorageSpec}
+
+Field | Description
+--- | ---
+access_key_id | **string**<br> 
+secret_access_key | **string**<br> 
+endpoint | **string**<br> 
+region | **string**<br>Default is 'us-east-1' 
+
+
 ### Operation {#Operation}
 
 Field | Description
@@ -251,8 +339,9 @@ properties | **map<string,string>**<br>A set of properties passed to Managed Ser
 health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: Health of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector has failed to start.</li></ul>
 status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector has encountered a problem and cannot operate.</li><li>`PAUSED`: Connector is paused.</li></ul>
 cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
-connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for the connector.
+connector_config | **oneof:** `connector_config_mirrormaker` or `connector_config_s3_sink`<br>Additional settings for the connector.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker2)**<br>Configuration of the MirrorMaker connector. 
+&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink2)**<br>Additional settings for the connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker2}
@@ -289,6 +378,34 @@ sasl_mechanism | **string**<br>SASL mechanism to use for connection to the clust
 security_protocol | **string**<br>Security protocol to use for connection to the cluster. 
 
 
+### ConnectorConfigS3Sink {#ConnectorConfigS3Sink2}
+
+Field | Description
+--- | ---
+topics | **string**<br>List of Kafka topics, separated by ',' 
+file_compression_type | **string**<br>The compression type used for files put on GCS. The supported values are: `gzip`, `snappy`, `zstd`, `none`. Optional, the default is `none`. 
+file_max_records | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max records per file. 
+s3_connection | **[S3Connection](#S3Connection2)**<br>Credentials for connecting to S3 storage 
+
+
+### S3Connection {#S3Connection2}
+
+Field | Description
+--- | ---
+bucket_name | **string**<br> 
+storage | **oneof:** `external_s3`<br>
+&nbsp;&nbsp;external_s3 | **[ExternalS3Storage](#ExternalS3Storage2)**<br> 
+
+
+### ExternalS3Storage {#ExternalS3Storage2}
+
+Field | Description
+--- | ---
+access_key_id | **string**<br> 
+endpoint | **string**<br> 
+region | **string**<br>Default is 'us-east-1' 
+
+
 ## Update {#Update}
 
 Updates an Apache Kafka® connector.
@@ -315,8 +432,9 @@ Field | Description
 --- | ---
 tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of connector tasks to update. 
 properties | **map<string,string>**<br>A set of new or changed properties to update for the connector. They are passed with the connector configuration to Managed Service for Apache Kafka®. Example: `sync.topics.config.enabled: false`. 
-connector_config | **oneof:** `connector_config_mirrormaker`<br>Updated configuration for the connector.
+connector_config | **oneof:** `connector_config_mirrormaker` or `connector_config_s3_sink`<br>Updated configuration for the connector.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMakerSpec](#ConnectorConfigMirrorMakerSpec1)**<br>Configuration of the MirrorMaker connector. 
+&nbsp;&nbsp;connector_config_s3_sink | **[UpdateConnectorConfigS3SinkSpec](#UpdateConnectorConfigS3SinkSpec)**<br>Update specification for S3-Sink Connector. 
 
 
 ### ConnectorConfigMirrorMakerSpec {#ConnectorConfigMirrorMakerSpec1}
@@ -355,6 +473,34 @@ security_protocol | **string**<br>Security protocol to use for connection to the
 ssl_truststore_certificates | **string**<br>CA in PEM format to connect to external cluster. Lines of certificate separated by '\n' symbol. 
 
 
+### UpdateConnectorConfigS3SinkSpec {#UpdateConnectorConfigS3SinkSpec}
+
+Field | Description
+--- | ---
+topics | **string**<br>List of Kafka topics, separated by ','. 
+file_max_records | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max records per file. 
+s3_connection | **[S3ConnectionSpec](#S3ConnectionSpec1)**<br>Credentials for connecting to S3 storage 
+
+
+### S3ConnectionSpec {#S3ConnectionSpec1}
+
+Field | Description
+--- | ---
+bucket_name | **string**<br> 
+storage | **oneof:** `external_s3`<br>
+&nbsp;&nbsp;external_s3 | **[ExternalS3StorageSpec](#ExternalS3StorageSpec1)**<br> 
+
+
+### ExternalS3StorageSpec {#ExternalS3StorageSpec1}
+
+Field | Description
+--- | ---
+access_key_id | **string**<br> 
+secret_access_key | **string**<br> 
+endpoint | **string**<br> 
+region | **string**<br>Default is 'us-east-1' 
+
+
 ### Operation {#Operation1}
 
 Field | Description
@@ -389,8 +535,9 @@ properties | **map<string,string>**<br>A set of properties passed to Managed Ser
 health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: Health of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector has failed to start.</li></ul>
 status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector has encountered a problem and cannot operate.</li><li>`PAUSED`: Connector is paused.</li></ul>
 cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
-connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for the connector.
+connector_config | **oneof:** `connector_config_mirrormaker` or `connector_config_s3_sink`<br>Additional settings for the connector.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker3)**<br>Configuration of the MirrorMaker connector. 
+&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink3)**<br>Additional settings for the connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker3}
@@ -425,6 +572,34 @@ bootstrap_servers | **string**<br>List of bootstrap servers of the cluster, sepa
 sasl_username | **string**<br>SASL username to use for connection to the cluster. 
 sasl_mechanism | **string**<br>SASL mechanism to use for connection to the cluster. 
 security_protocol | **string**<br>Security protocol to use for connection to the cluster. 
+
+
+### ConnectorConfigS3Sink {#ConnectorConfigS3Sink3}
+
+Field | Description
+--- | ---
+topics | **string**<br>List of Kafka topics, separated by ',' 
+file_compression_type | **string**<br>The compression type used for files put on GCS. The supported values are: `gzip`, `snappy`, `zstd`, `none`. Optional, the default is `none`. 
+file_max_records | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max records per file. 
+s3_connection | **[S3Connection](#S3Connection3)**<br>Credentials for connecting to S3 storage 
+
+
+### S3Connection {#S3Connection3}
+
+Field | Description
+--- | ---
+bucket_name | **string**<br> 
+storage | **oneof:** `external_s3`<br>
+&nbsp;&nbsp;external_s3 | **[ExternalS3Storage](#ExternalS3Storage3)**<br> 
+
+
+### ExternalS3Storage {#ExternalS3Storage3}
+
+Field | Description
+--- | ---
+access_key_id | **string**<br> 
+endpoint | **string**<br> 
+region | **string**<br>Default is 'us-east-1' 
 
 
 ## Delete {#Delete}
@@ -521,8 +696,9 @@ properties | **map<string,string>**<br>A set of properties passed to Managed Ser
 health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: Health of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector has failed to start.</li></ul>
 status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector has encountered a problem and cannot operate.</li><li>`PAUSED`: Connector is paused.</li></ul>
 cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
-connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for the connector.
+connector_config | **oneof:** `connector_config_mirrormaker` or `connector_config_s3_sink`<br>Additional settings for the connector.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker4)**<br>Configuration of the MirrorMaker connector. 
+&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink4)**<br>Additional settings for the connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker4}
@@ -557,6 +733,34 @@ bootstrap_servers | **string**<br>List of bootstrap servers of the cluster, sepa
 sasl_username | **string**<br>SASL username to use for connection to the cluster. 
 sasl_mechanism | **string**<br>SASL mechanism to use for connection to the cluster. 
 security_protocol | **string**<br>Security protocol to use for connection to the cluster. 
+
+
+### ConnectorConfigS3Sink {#ConnectorConfigS3Sink4}
+
+Field | Description
+--- | ---
+topics | **string**<br>List of Kafka topics, separated by ',' 
+file_compression_type | **string**<br>The compression type used for files put on GCS. The supported values are: `gzip`, `snappy`, `zstd`, `none`. Optional, the default is `none`. 
+file_max_records | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max records per file. 
+s3_connection | **[S3Connection](#S3Connection4)**<br>Credentials for connecting to S3 storage 
+
+
+### S3Connection {#S3Connection4}
+
+Field | Description
+--- | ---
+bucket_name | **string**<br> 
+storage | **oneof:** `external_s3`<br>
+&nbsp;&nbsp;external_s3 | **[ExternalS3Storage](#ExternalS3Storage4)**<br> 
+
+
+### ExternalS3Storage {#ExternalS3Storage4}
+
+Field | Description
+--- | ---
+access_key_id | **string**<br> 
+endpoint | **string**<br> 
+region | **string**<br>Default is 'us-east-1' 
 
 
 ## Pause {#Pause}
@@ -611,8 +815,9 @@ properties | **map<string,string>**<br>A set of properties passed to Managed Ser
 health | enum **Health**<br>Connector health. <ul><li>`HEALTH_UNKNOWN`: Health of the connector is unknown.</li><li>`ALIVE`: Connector is running.</li><li>`DEAD`: Connector has failed to start.</li></ul>
 status | enum **Status**<br>Current status of the connector. <ul><li>`STATUS_UNKNOWN`: Connector state is unknown.</li><li>`RUNNING`: Connector is running normally.</li><li>`ERROR`: Connector has encountered a problem and cannot operate.</li><li>`PAUSED`: Connector is paused.</li></ul>
 cluster_id | **string**<br>ID of the Apache Kafka® cluster that the connector belongs to. 
-connector_config | **oneof:** `connector_config_mirrormaker`<br>Additional settings for the connector.
+connector_config | **oneof:** `connector_config_mirrormaker` or `connector_config_s3_sink`<br>Additional settings for the connector.
 &nbsp;&nbsp;connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#ConnectorConfigMirrorMaker5)**<br>Configuration of the MirrorMaker connector. 
+&nbsp;&nbsp;connector_config_s3_sink | **[ConnectorConfigS3Sink](#ConnectorConfigS3Sink5)**<br>Additional settings for the connector. 
 
 
 ### ConnectorConfigMirrorMaker {#ConnectorConfigMirrorMaker5}
@@ -647,5 +852,33 @@ bootstrap_servers | **string**<br>List of bootstrap servers of the cluster, sepa
 sasl_username | **string**<br>SASL username to use for connection to the cluster. 
 sasl_mechanism | **string**<br>SASL mechanism to use for connection to the cluster. 
 security_protocol | **string**<br>Security protocol to use for connection to the cluster. 
+
+
+### ConnectorConfigS3Sink {#ConnectorConfigS3Sink5}
+
+Field | Description
+--- | ---
+topics | **string**<br>List of Kafka topics, separated by ',' 
+file_compression_type | **string**<br>The compression type used for files put on GCS. The supported values are: `gzip`, `snappy`, `zstd`, `none`. Optional, the default is `none`. 
+file_max_records | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Max records per file. 
+s3_connection | **[S3Connection](#S3Connection5)**<br>Credentials for connecting to S3 storage 
+
+
+### S3Connection {#S3Connection5}
+
+Field | Description
+--- | ---
+bucket_name | **string**<br> 
+storage | **oneof:** `external_s3`<br>
+&nbsp;&nbsp;external_s3 | **[ExternalS3Storage](#ExternalS3Storage5)**<br> 
+
+
+### ExternalS3Storage {#ExternalS3Storage5}
+
+Field | Description
+--- | ---
+access_key_id | **string**<br> 
+endpoint | **string**<br> 
+region | **string**<br>Default is 'us-east-1' 
 
 

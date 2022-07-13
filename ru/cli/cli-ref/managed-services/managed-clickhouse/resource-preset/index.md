@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/resource-preset/index.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/resource-preset/index.md
 ---
 # yc managed-clickhouse resource-preset
 

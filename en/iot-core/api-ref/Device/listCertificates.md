@@ -17,7 +17,7 @@ GET https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}/certifi
  
 Parameter | Description
 --- | ---
-deviceId | Required. ID of the device to list certificates for.  The maximum string length in characters is 50.
+deviceId | <p>Required. ID of the device to list certificates for.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -38,7 +38,7 @@ deviceId | Required. ID of the device to list certificates for.  The maximum str
  
 Field | Description
 --- | ---
-certificates[] | **object**<br><p>A device certificate. For more information, see <a href="/docs/iot-core/operations/certificates/device-certificates">Managing device certificates</a>.</p> 
+certificates[] | **object**<br><p>List of certificates for the specified device.</p> 
 certificates[].<br>deviceId | **string**<br><p>ID of the device that the certificate belongs to.</p> 
 certificates[].<br>fingerprint | **string**<br><p>SHA256 hash of the certificate.</p> 
 certificates[].<br>certificateData | **string**<br><p>Public part of the certificate.</p> 

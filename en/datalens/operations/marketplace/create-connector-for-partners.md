@@ -29,7 +29,7 @@ Provide the {{ datalens-short-name }} manager with your product information:
 You need to create a connector in the same CH cluster that will host your user data.
 
 1. Create a [{{ CH }} cluster](../../../managed-clickhouse/operations/cluster-create.md) in the cloud.
-   1. In the cluster, add a DB user called `datalens` with [readonly = 2](https://{{ ch-domain }}/docs/en/operations/settings/permissions-for-queries/#settings_readonly).
+   1. In the cluster, add a DB user called `datalens` with [readonly = 2]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_readonly).
    1. In the settings, enable **{{ datalens-short-name }} access** and **Managing databases via SQL**.
 
 1. Pass the password and the cluster host list in to {{ datalens-short-name }}.

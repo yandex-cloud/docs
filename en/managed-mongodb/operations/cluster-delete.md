@@ -39,5 +39,7 @@ description: "After deleting a MongoDB database cluster, its backups are preserv
 
   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
+  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
 {% endlist %}
 

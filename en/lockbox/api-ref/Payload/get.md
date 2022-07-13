@@ -17,13 +17,13 @@ GET https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/{secretId}/payload
  
 Parameter | Description
 --- | ---
-secretId | Required. ID of the secret.  The maximum string length in characters is 50.
+secretId | <p>Required. ID of the secret.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-versionId | Optional ID of the version.  The maximum string length in characters is 50.
+versionId | <p>Optional ID of the version.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

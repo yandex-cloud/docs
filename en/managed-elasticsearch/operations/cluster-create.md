@@ -260,7 +260,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
 
 
-        1. {% include [maintenance-window](../../_includes/mdb/mes/terraform-maintenance-window.md) %}
+        1. {% include [maintenance-window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
 
         For more information about the resources you can create using Terraform, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 
@@ -271,6 +271,8 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
     1. Create a cluster.
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+       {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
 - API
 

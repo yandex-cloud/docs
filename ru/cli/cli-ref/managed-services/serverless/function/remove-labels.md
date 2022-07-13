@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/remove-labels.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/remove-labels.md
 ---
 # yc serverless function remove-labels
 

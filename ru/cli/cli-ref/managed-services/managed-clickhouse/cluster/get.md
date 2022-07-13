@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/get.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/get.md
 ---
 # yc managed-clickhouse cluster get
 

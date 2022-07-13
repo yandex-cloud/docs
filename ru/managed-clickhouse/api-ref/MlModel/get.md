@@ -17,8 +17,8 @@ GET https://mdb.{{ api-host }}/managed-clickhouse/v1/clusters/{clusterId}/mlMode
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster that the model belongs to.  The maximum string length in characters is 50.
-mlModelName | Required. Name of the model to return.  To get a model name make a [list](/docs/managed-clickhouse/api-ref/MlModel/list) request.  The maximum string length in characters is 63. Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+clusterId | <p>Required. ID of the cluster that the model belongs to.</p> <p>The maximum string length in characters is 50.</p> 
+mlModelName | <p>Required. Name of the model to return.</p> <p>To get a model name make a <a href="/docs/managed-clickhouse/api-ref/MlModel/list">list</a> request.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

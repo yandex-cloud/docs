@@ -40,7 +40,7 @@ Free tier распространяется на сервисы:
 
 {% include [not-charged-database.md](../../_includes/pricing/price-formula/not-charged-database.md) %}
 
-После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../managed-ydb/pricing/serverless.md).
+После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../ydb/pricing/serverless.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 

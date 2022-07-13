@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kubernetes/cluster/list-node-groups.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/cluster/list-node-groups.md
 ---
 # yc managed-kubernetes cluster list-node-groups
 

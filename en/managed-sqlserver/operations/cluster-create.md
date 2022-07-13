@@ -272,6 +272,8 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
       After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources appear with the correct settings, using the [management console]({{ link-console-main }}).
 
+      {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
+
 - API
 
    Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:

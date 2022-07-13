@@ -17,7 +17,7 @@ GET https://storage.{{ api-host }}/storage/v1/buckets/{name}:getStats
  
 Parameter | Description
 --- | ---
-name | Required. Name of the bucket to return the statistics for.
+name | <p>Required. Name of the bucket to return the statistics for.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -70,13 +70,13 @@ Field | Description
 name | **string**<br><p>Name of the bucket.</p> 
 maxSize | **integer** (int64)<br><p>Maximum size of the bucket, in bytes.</p> 
 usedSize | **string** (int64)<br><p>Size of used space in the bucket, in bytes.</p> 
-storageClassMaxSizes[] | **object**<br><p>A resource for size of available space in a bucket for a storage class.</p> 
+storageClassMaxSizes[] | **object**<br><p>Size of available space in the bucket by storage class, in bytes.</p> 
 storageClassMaxSizes[].<br>storageClass | **string**<br><p>Storage class. Supported classes are standard storage (``STANDARD``) and cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms). For details, see <a href="/docs/storage/concepts/storage-class">documentation</a>.</p> 
 storageClassMaxSizes[].<br>classSize | **integer** (int64)<br><p>Size of available space in the bucket for the storage class.</p> 
-storageClassUsedSizes[] | **object**<br><p>A resource for size of used space in a bucket for a storage class.</p> 
+storageClassUsedSizes[] | **object**<br><p>Size of used space in the bucket by storage class, in bytes.</p> 
 storageClassUsedSizes[].<br>storageClass | **string**<br><p>Storage class. Supported classes are standard storage (``STANDARD``) and cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms). For details, see <a href="/docs/storage/concepts/storage-class">documentation</a>.</p> 
 storageClassUsedSizes[].<br>classSize | **string** (int64)<br><p>Size of used space in the bucket for the storage class.</p> 
-storageClassCounters[] | **object**<br><p>A resource for object-related statistics for a storage class by type of upload (simple vs. multipart).</p> 
+storageClassCounters[] | **object**<br><p>Object-related statistics by storage class and type of upload (simple vs. multipart), in bytes.</p> 
 storageClassCounters[].<br>storageClass | **string**<br><p>Storage class. Supported classes are standard storage (``STANDARD``) and cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms). For details, see <a href="/docs/storage/concepts/storage-class">documentation</a>.</p> 
 storageClassCounters[].<br>counters | **object**<br><p>Object-related statistics for the storage class by type of upload.</p> 
 storageClassCounters[].<br>counters.<br>simpleObjectSize | **string** (int64)<br><p>Total size of objects uploaded in single operation, in bytes.</p> 

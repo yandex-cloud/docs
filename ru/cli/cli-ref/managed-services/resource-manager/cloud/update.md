@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/resource-manager/cloud/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/resource-manager/cloud/update.md
 ---
 # yc resource-manager cloud update
 

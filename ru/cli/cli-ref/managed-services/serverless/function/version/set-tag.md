@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/version/set-tag.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/version/set-tag.md
 ---
 # yc serverless function version set-tag
 

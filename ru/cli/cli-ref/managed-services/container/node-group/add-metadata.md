@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/container/node-group/add-metadata.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/node-group/add-metadata.md
 ---
 # yc container node-group add-metadata
 

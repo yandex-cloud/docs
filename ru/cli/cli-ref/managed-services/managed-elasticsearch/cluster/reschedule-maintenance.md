@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/reschedule-maintenance.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/reschedule-maintenance.md
 ---
 # yc managed-elasticsearch cluster reschedule-maintenance
 

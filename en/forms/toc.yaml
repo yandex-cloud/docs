@@ -41,8 +41,6 @@ items:
         href: notifications.md
       - name: Send message
         href: send-mail.md
-      - name: Publish the form on Yandex.Zen
-        href: forms-lite.md
       - name: Connect Yandex.Metrica
         href: metrica.md
       - name: Create a task in Yandex Tracker

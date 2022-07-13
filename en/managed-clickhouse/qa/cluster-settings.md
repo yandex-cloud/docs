@@ -9,7 +9,7 @@ Follow the [instructions](../operations/cluster-users.md#example-create-readonly
 
 #### How do I grant a user permissions to create and delete tables or databases? {#create-delete-role}
 
-Go to the cluster settings, enable the [{#T}](../operations/cluster-users.md#sql-user-management) option, and grant a user the appropriate permissions [using a statement](https://clickhouse.com/docs/en/sql-reference/statements/grant/) named `GRANT`.
+Go to the cluster settings, enable the [{#T}](../operations/cluster-users.md#sql-user-management) option, and grant a user the appropriate permissions [using a statement]({{ ch.docs }}/sql-reference/statements/grant/) named `GRANT`.
 
 #### How do I find out the internal_replication setting value? {#internal-replication}
 

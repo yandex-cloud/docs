@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/subnet/create.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/subnet/create.md
 ---
 # yc vpc subnet create
 

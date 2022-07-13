@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/update/postgres-target.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/update/postgres-target.md
 ---
 # yc datatransfer endpoint update postgres-target
 

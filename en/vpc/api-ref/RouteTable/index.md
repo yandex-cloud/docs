@@ -34,7 +34,7 @@ name | **string**<br><p>Name of the route table. The name is unique within the p
 description | **string**<br><p>Optional description of the route table. 0-256 characters long.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 networkId | **string**<br><p>ID of the network the route table belongs to.</p> 
-staticRoutes[] | **object**<br><p>A StaticRoute resource. For more information, see <a href="/docs/vpc/concepts/static-routes">Static Routes</a>.</p> 
+staticRoutes[] | **object**<br><p>List of static routes.</p> 
 staticRoutes[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 staticRoutes[].<br>destinationPrefix | **string**<br><p>Destination subnet in CIDR notation</p> 
 staticRoutes[].<br>nextHopAddress | **string**<br><p>Next hop IP address</p> 

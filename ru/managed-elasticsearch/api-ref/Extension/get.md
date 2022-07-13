@@ -17,8 +17,8 @@ GET https://mdb.{{ api-host }}/managed-elasticsearch/v1/clusters/{clusterId}/ext
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the cluster.  The maximum string length in characters is 50.
-extensionId | Required. ID of the extension to return.
+clusterId | <p>Required. ID of the cluster.</p> <p>The maximum string length in characters is 50.</p> 
+extensionId | <p>Required. ID of the extension to return.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

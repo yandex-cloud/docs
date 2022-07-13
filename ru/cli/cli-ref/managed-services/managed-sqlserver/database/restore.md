@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/database/restore.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/database/restore.md
 ---
 # yc managed-sqlserver database restore
 

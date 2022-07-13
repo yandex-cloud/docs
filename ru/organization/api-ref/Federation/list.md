@@ -17,10 +17,10 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/fed
  
 Parameter | Description
 --- | ---
-organizationId | Required. ID of the organization to list federations in. To get the organization ID, make a [list](/docs/organization/api-ref/Organization/list) request.  The maximum string length in characters is 50.
-pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/organization/api-ref/Federation/list#query_params), the service returns a [nextPageToken](/docs/organization/api-ref/Federation/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/organization/api-ref/Federation/list#query_params) to the [nextPageToken](/docs/organization/api-ref/Federation/list#responses) returned by a previous list request.  The maximum string length in characters is 50.
-filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on the [Federation.name](/docs/organization/api-ref/Federation#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.  The maximum string length in characters is 1000.
+organizationId | <p>Required. ID of the organization to list federations in. To get the organization ID, make a <a href="/docs/organization/api-ref/Organization/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/organization/api-ref/Federation/list#query_params">pageSize</a>, the service returns a <a href="/docs/organization/api-ref/Federation/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/organization/api-ref/Federation/list#query_params">pageToken</a> to the <a href="/docs/organization/api-ref/Federation/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 50.</p> 
+filter | <p>A filter expression that filters resources listed in the response. The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on the <a href="/docs/organization/api-ref/Federation#representation">Federation.name</a> field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be 3-63 characters long and match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``.</li> </ol> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -53,7 +53,7 @@ filter | A filter expression that filters resources listed in the response. The 
  
 Field | Description
 --- | ---
-federations[] | **object**<br><p>A federation. For more information, see <a href="/docs/iam/concepts/users/identity-federations">SAML-compatible identity federations</a>.</p> 
+federations[] | **object**<br><p>List of federations.</p> 
 federations[].<br>id | **string**<br><p>Required. ID of the federation.</p> <p>The maximum string length in characters is 50.</p> 
 federations[].<br>organizationId | **string**<br><p>ID of the organization that the federation belongs to.</p> 
 federations[].<br>name | **string**<br><p>Required. Name of the federation.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 

@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/subnet/list-operations.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/subnet/list-operations.md
 ---
 # yc vpc subnet list-operations
 

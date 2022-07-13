@@ -23,7 +23,7 @@
 
 ## Создайте базу данных {#create-db}
 
-1. Создайте базу данных в [режиме Serverless](../managed-ydb/concepts/serverless-and-dedicated#serverless):
+1. Создайте базу данных в [режиме Serverless](../ydb/concepts/serverless-and-dedicated#serverless):
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать базу данных.
     1. Выберите сервис **{{ ydb-name }}**.

@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/delete.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/delete.md
 ---
 # yc managed-elasticsearch cluster delete
 

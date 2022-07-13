@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance-group/add-access-binding.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance-group/add-access-binding.md
 ---
 # yc compute instance-group add-access-binding
 

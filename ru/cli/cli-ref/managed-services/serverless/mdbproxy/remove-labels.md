@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/remove-labels.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/remove-labels.md
 ---
 # yc serverless mdbproxy remove-labels
 

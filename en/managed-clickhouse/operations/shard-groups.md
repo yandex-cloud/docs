@@ -133,6 +133,8 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
    Use the [createShardGroup](../api-ref/Cluster/createShardGroup.md) API method and pass the following in the request:
@@ -211,6 +213,8 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 - API
 
    Use the [updateShardGroup](../api-ref/Cluster/updateShardGroup.md) API method and pass the following in the request:
@@ -271,6 +275,8 @@ Tables created on the deleted group are kept, but they are disabled and attempts
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - API
 

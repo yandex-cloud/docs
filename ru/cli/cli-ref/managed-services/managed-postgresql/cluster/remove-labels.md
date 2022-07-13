@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/remove-labels.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/remove-labels.md
 ---
 # yc managed-postgresql cluster remove-labels
 

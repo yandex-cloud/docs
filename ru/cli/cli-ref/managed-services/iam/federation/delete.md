@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/federation/delete.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/iam/federation/delete.md
 ---
 # yc iam federation delete
 

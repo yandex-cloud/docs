@@ -17,8 +17,8 @@ GET https://mdb.{{ api-host }}/mdb/sqlserver/v1/resourcePresets
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page to return.  If the number of available results is larger than [pageSize](/docs/managed-sqlserver/api-ref/ResourcePreset/list#query_params), the service returns a [nextPageToken](/docs/managed-sqlserver/api-ref/ResourcePreset/list#responses) that can be used to get the next page of results in subsequent list requests.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/managed-sqlserver/api-ref/ResourcePreset/list#query_params) to the [nextPageToken](/docs/managed-sqlserver/api-ref/ResourcePreset/list#responses) returned by the previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page to return.</p> <p>If the number of available results is larger than <a href="/docs/managed-sqlserver/api-ref/ResourcePreset/list#query_params">pageSize</a>, the service returns a <a href="/docs/managed-sqlserver/api-ref/ResourcePreset/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/managed-sqlserver/api-ref/ResourcePreset/list#query_params">pageToken</a> to the <a href="/docs/managed-sqlserver/api-ref/ResourcePreset/list#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -42,7 +42,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/m
  
 Field | Description
 --- | ---
-resourcePresets[] | **object**<br><p>A preset of resources for hardware configuration of SQL Server hosts.</p> 
+resourcePresets[] | **object**<br><p>List of resource presets.</p> 
 resourcePresets[].<br>id | **string**<br><p>ID of the resource preset.</p> 
 resourcePresets[].<br>zoneIds[] | **string**<br><p>IDs of availability zones where the resource preset is available.</p> 
 resourcePresets[].<br>cores | **string** (int64)<br><p>Number of CPU cores for an SQL Server host created with the preset.</p> 

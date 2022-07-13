@@ -1,5 +1,5 @@
 ---
-sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/update.md
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/update.md
 ---
 # yc managed-kafka cluster update
 

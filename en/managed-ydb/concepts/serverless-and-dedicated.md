@@ -11,7 +11,7 @@ Additional information about Yandex Cloud pricing:
 * For [_Serverless_ databases](../pricing/serverless.md)
 * For [_Dedicated_ databases](../pricing/dedicated.md)
 
-In Yandex Cloud, a serverless database supports data operations using both the YDB API and [Document API](https://cloud.yandex.com/en/docs/managed-ydb/docapi/api-ref/), an Amazon DynamoDB-compatible HTTP API. You can use this API to perform operations on document tables.
+In Yandex Cloud, a serverless database supports data operations using both the YDB API and [Document API](https://cloud.yandex.com/en/docs/ydb/docapi/api-ref/), an Amazon DynamoDB-compatible HTTP API. You can use this API to perform operations on document tables.
 
 ## Serverless database parameters {#serverless-options}
 

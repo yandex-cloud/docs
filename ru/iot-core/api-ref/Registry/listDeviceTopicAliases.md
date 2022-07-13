@@ -17,14 +17,14 @@ GET https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}:li
  
 Parameter | Description
 --- | ---
-registryId | Required. ID of the registry to list aliases for device topic.  To get a registry ID make a [list](/docs/iot-core/api-ref/Registry/list) request.  The maximum string length in characters is 50.
+registryId | <p>Required. ID of the registry to list aliases for device topic.</p> <p>To get a registry ID make a <a href="/docs/iot-core/api-ref/Registry/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
-pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | <p>The maximum number of results per page that should be returned. If the number of available results is larger than ``page_size``, the service returns a <a href="/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
+pageToken | <p>Page token. To get the next page of results, set ``page_token`` to the <a href="/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -45,7 +45,7 @@ pageToken | Page token. To get the next page of results, set `page_token` to the
  
 Field | Description
 --- | ---
-aliases[] | **object**<br><p>A device topic alias.</p> <p>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. ``my/custom/alias`` match to ``$device/abcdef/events``. For more information, see <a href="/docs/iot-core/concepts/topic#aliases">Using topic aliases</a>.</p> 
+aliases[] | **object**<br><p>List of device aliases for the specified registry.</p> 
 aliases[].<br>deviceId | **string**<br><p>ID of the device that the alias belongs to.</p> 
 aliases[].<br>topicPrefix | **string**<br><p>Prefix of a canonical topic name to be aliased, e.g. ``$devices/abcdef``.</p> 
 aliases[].<br>alias | **string**<br><p>Alias of a device topic.</p> 
