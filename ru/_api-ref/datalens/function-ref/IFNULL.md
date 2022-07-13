@@ -16,12 +16,6 @@ IFNULL( check_value, alt_value )
 #### Описание {#description}
 Возвращает `check_value`, если оно не `NULL`. В противном случае возвращает `alt_value`.
 
-{% note info %}
-
-Возвращает `NULL`, когда `check_value` или `alt_value` принимают значение `NaN` (если источник — {{ CH }} или другая БД).
-
-{% endnote %}
-
 **Типы аргументов:**
 - `check_value` — `Любой`
 - `alt_value` — `Любой`
