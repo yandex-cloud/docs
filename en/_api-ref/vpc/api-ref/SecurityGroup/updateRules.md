@@ -58,21 +58,21 @@ securityGroupId | <p>Required.</p>
  
 Field | Description
 --- | ---
-deletionRuleIds[] | **string**<br>
-additionRuleSpecs[] | **object**<br>
-additionRuleSpecs[].<br>description | **string**<br>
-additionRuleSpecs[].<br>labels | **object**<br>
-additionRuleSpecs[].<br>direction | **string**<br>Required.<br>
-additionRuleSpecs[].<br>ports | **object**<br>
+deletionRuleIds[] | **string**
+additionRuleSpecs[] | **object**
+additionRuleSpecs[].<br>description | **string**
+additionRuleSpecs[].<br>labels | **object**
+additionRuleSpecs[].<br>direction | **string**<br>Required.
+additionRuleSpecs[].<br>ports | **object**
 additionRuleSpecs[].<br>ports.<br>fromPort | **string** (int64)<br><p>Acceptable values are 0 to 65535, inclusive.</p> 
 additionRuleSpecs[].<br>ports.<br>toPort | **string** (int64)<br><p>Acceptable values are 0 to 65535, inclusive.</p> 
-additionRuleSpecs[].<br>protocolName | **string** <br>`additionRuleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br><br>
-additionRuleSpecs[].<br>protocolNumber | **string** (int64) <br>`additionRuleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br><br>
-additionRuleSpecs[].<br>cidrBlocks | **object** <br>`additionRuleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br>
-additionRuleSpecs[].<br>cidrBlocks.<br>v4CidrBlocks[] | **string**<br>
-additionRuleSpecs[].<br>cidrBlocks.<br>v6CidrBlocks[] | **string**<br>
-additionRuleSpecs[].<br>securityGroupId | **string** <br>`additionRuleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br>
-additionRuleSpecs[].<br>predefinedTarget | **string** <br>`additionRuleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br>
+additionRuleSpecs[].<br>protocolName | **string** <br>`additionRuleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br>
+additionRuleSpecs[].<br>protocolNumber | **string** (int64) <br>`additionRuleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br>
+additionRuleSpecs[].<br>cidrBlocks | **object** <br>`additionRuleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
+additionRuleSpecs[].<br>cidrBlocks.<br>v4CidrBlocks[] | **string**
+additionRuleSpecs[].<br>cidrBlocks.<br>v6CidrBlocks[] | **string**
+additionRuleSpecs[].<br>securityGroupId | **string** <br>`additionRuleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
+additionRuleSpecs[].<br>predefinedTarget | **string** <br>`additionRuleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -111,7 +111,7 @@ createdBy | **string**<br><p>ID of the user or service account who initiated the
 modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
 metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>
 error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
 error.<br>message | **string**<br><p>An error message.</p> 
 error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 

@@ -23,7 +23,7 @@ POST undefined/loadtesting/agent/v1/agents/register
  
 Field | Description
 --- | ---
-computeInstanceId | **string**<br>
+computeInstanceId | **string**
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -37,4 +37,4 @@ computeInstanceId | **string**<br>
  
 Field | Description
 --- | ---
-agentInstanceId | **string**<br>
+agentInstanceId | **string**

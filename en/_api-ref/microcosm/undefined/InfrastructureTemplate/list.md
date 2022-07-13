@@ -41,9 +41,9 @@ filter | <p>The maximum string length in characters is 1000.</p>
  
 Field | Description
 --- | ---
-infrastructureTemplates[] | **object**<br>
-infrastructureTemplates[].<br>id | **string**<br>
-infrastructureTemplates[].<br>name | **string**<br>
-infrastructureTemplates[].<br>folderId | **string**<br>
-infrastructureTemplates[].<br>labels | **object**<br>
-nextPageToken | **string**<br>
+infrastructureTemplates[] | **object**
+infrastructureTemplates[].<br>id | **string**
+infrastructureTemplates[].<br>name | **string**
+infrastructureTemplates[].<br>folderId | **string**
+infrastructureTemplates[].<br>labels | **object**
+nextPageToken | **string**

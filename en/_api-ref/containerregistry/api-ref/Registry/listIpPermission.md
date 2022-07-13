@@ -36,5 +36,5 @@ registryId | <p>Required. ID of the Registry to return ip permission list.</p> <
 Field | Description
 --- | ---
 permissions[] | **object**<br><p>List of ip permissions for registry</p> 
-permissions[].<br>action | **string**<br>
-permissions[].<br>ip | **string**<br>
+permissions[].<br>action | **string**
+permissions[].<br>ip | **string**

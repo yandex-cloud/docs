@@ -44,10 +44,10 @@ resources | **object**<br><p>Resources of the desktop.</p>
 resources.<br>memory | **string** (int64)<br><p>The minimum value is 1.</p> 
 resources.<br>cores | **string** (int64)<br><p>The minimum value is 1.</p> 
 resources.<br>coreFraction | **string** (int64)<br><p>Acceptable values are 0 to 100, inclusive.</p> 
-networkInterfaces[] | **object**<br>
+networkInterfaces[] | **object**
 networkInterfaces[].<br>networkId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
 networkInterfaces[].<br>subnetId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
-users[] | **object**<br>
+users[] | **object**
 users[].<br>subjectId | **string**<br><p>Required. Identity of the access binding.</p> 
 
 ## Methods {#methods}

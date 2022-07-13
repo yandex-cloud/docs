@@ -46,12 +46,12 @@ computeInstanceId |
  
 Field | Description
 --- | ---
-id | **string**<br>
-config | **string**<br>
-ammo | **object**<br>
-ammo.<br>name | **string**<br>
-ammo.<br>content | **string** (byte)<br>
-loggingLogGroupId | **string**<br>
-testData | **object**<br>
-testData.<br>objectStorageBucket | **string**<br>
-testData.<br>objectStorageFilename | **string**<br>
+id | **string**
+config | **string**
+ammo | **object**
+ammo.<br>name | **string**
+ammo.<br>content | **string** (byte)
+loggingLogGroupId | **string**
+testData | **object**
+testData.<br>objectStorageBucket | **string**
+testData.<br>objectStorageFilename | **string**

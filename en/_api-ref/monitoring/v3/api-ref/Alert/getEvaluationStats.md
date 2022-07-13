@@ -36,9 +36,9 @@ alertId | <p>Required. ID of the alert.</p> <p>The maximum string length in char
  
 Field | Description
 --- | ---
-evaluationStats | **object**<br>
-evaluationStats.<br>okCount | **string** (int64)<br>
-evaluationStats.<br>warnCount | **string** (int64)<br>
-evaluationStats.<br>alarmCount | **string** (int64)<br>
-evaluationStats.<br>errorCount | **string** (int64)<br>
-evaluationStats.<br>noDataCount | **string** (int64)<br>
+evaluationStats | **object**
+evaluationStats.<br>okCount | **string** (int64)
+evaluationStats.<br>warnCount | **string** (int64)
+evaluationStats.<br>alarmCount | **string** (int64)
+evaluationStats.<br>errorCount | **string** (int64)
+evaluationStats.<br>noDataCount | **string** (int64)

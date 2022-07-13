@@ -64,6 +64,6 @@ hostGroups[].<br>status | **string**<br><p>Status of the group.</p>
 hostGroups[].<br>typeId | **string**<br><p>ID of host type. Resources provided by each host of the group.</p> 
 hostGroups[].<br>maintenancePolicy | **string**<br><p>Behaviour on maintenance events.</p> <ul> <li>RESTART: Restart instances on the same host after maintenance event.</li> <li>MIGRATE: Migrate instances to another host before maintenance event.</li> </ul> 
 hostGroups[].<br>scalePolicy | **object**<br><p>Scale policy. Only fixed number of hosts are supported at this moment.</p> 
-hostGroups[].<br>scalePolicy.<br>fixedScale | **object**<br>
-hostGroups[].<br>scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br>
+hostGroups[].<br>scalePolicy.<br>fixedScale | **object**
+hostGroups[].<br>scalePolicy.<br>fixedScale.<br>size | **string** (int64)
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/HostGroup/list#query_params">pageSize</a>, use <a href="/docs/compute/api-ref/HostGroup/list#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/HostGroup/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/HostGroup/list#responses">nextPageToken</a> to continue paging through the results.</p> 

@@ -84,36 +84,36 @@ filter | <p>The maximum string length in characters is 1000.</p>
  
 Field | Description
 --- | ---
-revisions[] | **object**<br>
-revisions[].<br>id | **string**<br>
-revisions[].<br>containerId | **string**<br>
-revisions[].<br>description | **string**<br>
+revisions[] | **object**
+revisions[].<br>id | **string**
+revisions[].<br>containerId | **string**
+revisions[].<br>description | **string**
 revisions[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-revisions[].<br>image | **object**<br>
-revisions[].<br>image.<br>imageUrl | **string**<br>
-revisions[].<br>image.<br>imageDigest | **string**<br>
-revisions[].<br>image.<br>command | **object**<br>
-revisions[].<br>image.<br>command.<br>command[] | **string**<br>
-revisions[].<br>image.<br>args | **object**<br>
-revisions[].<br>image.<br>args.<br>args[] | **string**<br>
+revisions[].<br>image | **object**
+revisions[].<br>image.<br>imageUrl | **string**
+revisions[].<br>image.<br>imageDigest | **string**
+revisions[].<br>image.<br>command | **object**
+revisions[].<br>image.<br>command.<br>command[] | **string**
+revisions[].<br>image.<br>args | **object**
+revisions[].<br>image.<br>args.<br>args[] | **string**
 revisions[].<br>image.<br>environment | **object**<br><p>Each key must match the regular expression ``[a-zA-Z][a-zA-Z0-9_]*``. The maximum string length in characters for each value is 4096.</p> 
-revisions[].<br>image.<br>workingDir | **string**<br>
-revisions[].<br>resources | **object**<br>
+revisions[].<br>image.<br>workingDir | **string**
+revisions[].<br>resources | **object**
 revisions[].<br>resources.<br>memory | **string** (int64)<br><p>Acceptable values are 134217728 to 8589934592, inclusive.</p> 
 revisions[].<br>resources.<br>cores | **string** (int64)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 revisions[].<br>resources.<br>coreFraction | **string** (int64)<br><p>Acceptable values are 0 to 100, inclusive.</p> 
-revisions[].<br>executionTimeout | **string**<br>
-revisions[].<br>concurrency | **string** (int64)<br>
-revisions[].<br>serviceAccountId | **string**<br>
-revisions[].<br>status | **string**<br>
-revisions[].<br>secrets[] | **object**<br>
-revisions[].<br>secrets[].<br>id | **string**<br>
-revisions[].<br>secrets[].<br>versionId | **string**<br>
-revisions[].<br>secrets[].<br>key | **string**<br>
-revisions[].<br>secrets[].<br>environmentVariable | **string**<br>
-revisions[].<br>connectivity | **object**<br>
-revisions[].<br>connectivity.<br>networkId | **string**<br>
-revisions[].<br>connectivity.<br>subnetIds[] | **string**<br>
-revisions[].<br>provisionPolicy | **object**<br>
-revisions[].<br>provisionPolicy.<br>minInstances | **string** (int64)<br>
-nextPageToken | **string**<br>
+revisions[].<br>executionTimeout | **string**
+revisions[].<br>concurrency | **string** (int64)
+revisions[].<br>serviceAccountId | **string**
+revisions[].<br>status | **string**
+revisions[].<br>secrets[] | **object**
+revisions[].<br>secrets[].<br>id | **string**
+revisions[].<br>secrets[].<br>versionId | **string**
+revisions[].<br>secrets[].<br>key | **string**
+revisions[].<br>secrets[].<br>environmentVariable | **string**
+revisions[].<br>connectivity | **object**
+revisions[].<br>connectivity.<br>networkId | **string**
+revisions[].<br>connectivity.<br>subnetIds[] | **string**
+revisions[].<br>provisionPolicy | **object**
+revisions[].<br>provisionPolicy.<br>minInstances | **string** (int64)
+nextPageToken | **string**

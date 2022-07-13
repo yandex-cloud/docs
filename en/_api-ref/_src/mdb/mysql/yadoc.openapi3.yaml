@@ -2907,6 +2907,8 @@ components:
             Acceptable values are 0 to 9, inclusive.
           type: integer
           format: int64
+        binlogTransactionDependencyTracking:
+          $ref: '#/components/schemas/MysqlConfig5_7BinlogTransactionDependencyTracking_in_MysqlConfig5_7_binlogTransactionDependencyTracking'
     MysqlConfig5_7AuthPlugin:
       description: |2-
          - MYSQL_NATIVE_PASSWORD: Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/native-pluggable-authentication.html).
@@ -2922,6 +2924,12 @@ components:
       - FULL
       - MINIMAL
       - NOBLOB
+    MysqlConfig5_7BinlogTransactionDependencyTracking:
+      type: string
+      enum:
+      - COMMIT_ORDER
+      - WRITESET
+      - WRITESET_SESSION
     MysqlConfig5_7LogSlowFilterType:
       type: string
       enum:
@@ -3542,6 +3550,8 @@ components:
             Acceptable values are 0 to 9, inclusive.
           type: integer
           format: int64
+        binlogTransactionDependencyTracking:
+          $ref: '#/components/schemas/MysqlConfig8_0BinlogTransactionDependencyTracking_in_MysqlConfig8_0_binlogTransactionDependencyTracking'
     MysqlConfig8_0AuthPlugin:
       description: |2-
          - MYSQL_NATIVE_PASSWORD: Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
@@ -3558,6 +3568,12 @@ components:
       - FULL
       - MINIMAL
       - NOBLOB
+    MysqlConfig8_0BinlogTransactionDependencyTracking:
+      type: string
+      enum:
+      - COMMIT_ORDER
+      - WRITESET
+      - WRITESET_SESSION
     MysqlConfig8_0LogSlowFilterType:
       type: string
       enum:
@@ -4667,6 +4683,16 @@ components:
       enum:
       - SESSION
       - QUERY
+    MysqlConfig5_7BinlogTransactionDependencyTracking_in_MysqlConfig5_7_binlogTransactionDependencyTracking:
+      description: |-
+        Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel.
+
+        For details, see [MySQL documentation for the variabl](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
+      type: string
+      enum:
+      - COMMIT_ORDER
+      - WRITESET
+      - WRITESET_SESSION
     MysqlConfig8_0AuthPlugin_in_MysqlConfig8_0_defaultAuthenticationPlugin:
       description: |-
         Authentication plugin used in the managed MySQL cluster.
@@ -4719,6 +4745,16 @@ components:
       enum:
       - SESSION
       - QUERY
+    MysqlConfig8_0BinlogTransactionDependencyTracking_in_MysqlConfig8_0_binlogTransactionDependencyTracking:
+      description: |-
+        Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel.
+
+        For details, see [MySQL documentation for the variabl](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
+      type: string
+      enum:
+      - COMMIT_ORDER
+      - WRITESET
+      - WRITESET_SESSION
     MysqlConfig5_7_in_MysqlConfigSet5_7_effectiveConfig:
       description: |-
         Effective settings for a MySQL 5.7 cluster (a combination of settings defined
@@ -5283,6 +5319,8 @@ components:
             Acceptable values are 0 to 9, inclusive.
           type: integer
           format: int64
+        binlogTransactionDependencyTracking:
+          $ref: '#/components/schemas/MysqlConfig5_7BinlogTransactionDependencyTracking_in_MysqlConfig5_7_binlogTransactionDependencyTracking'
     MysqlConfig5_7_in_MysqlConfigSet5_7_userConfig:
       description: |-
         User-defined settings for a MySQL 5.7 cluster.
@@ -5846,6 +5884,8 @@ components:
             Acceptable values are 0 to 9, inclusive.
           type: integer
           format: int64
+        binlogTransactionDependencyTracking:
+          $ref: '#/components/schemas/MysqlConfig5_7BinlogTransactionDependencyTracking_in_MysqlConfig5_7_binlogTransactionDependencyTracking'
     MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig:
       description: |-
         Default configuration for a MySQL 5.7 cluster.
@@ -6409,6 +6449,8 @@ components:
             Acceptable values are 0 to 9, inclusive.
           type: integer
           format: int64
+        binlogTransactionDependencyTracking:
+          $ref: '#/components/schemas/MysqlConfig5_7BinlogTransactionDependencyTracking_in_MysqlConfig5_7_binlogTransactionDependencyTracking'
     MysqlConfig8_0_in_MysqlConfigSet8_0_effectiveConfig:
       description: |-
         Effective settings for a MySQL 8.0 cluster (a combination of settings defined
@@ -6973,6 +7015,8 @@ components:
             Acceptable values are 0 to 9, inclusive.
           type: integer
           format: int64
+        binlogTransactionDependencyTracking:
+          $ref: '#/components/schemas/MysqlConfig8_0BinlogTransactionDependencyTracking_in_MysqlConfig8_0_binlogTransactionDependencyTracking'
     MysqlConfig8_0_in_MysqlConfigSet8_0_userConfig:
       description: |-
         User-defined settings for a MySQL 8.0 cluster.
@@ -7536,6 +7580,8 @@ components:
             Acceptable values are 0 to 9, inclusive.
           type: integer
           format: int64
+        binlogTransactionDependencyTracking:
+          $ref: '#/components/schemas/MysqlConfig8_0BinlogTransactionDependencyTracking_in_MysqlConfig8_0_binlogTransactionDependencyTracking'
     MysqlConfig8_0_in_MysqlConfigSet8_0_defaultConfig:
       description: |-
         Default configuration for a MySQL 8.0 cluster.
@@ -8099,6 +8145,8 @@ components:
             Acceptable values are 0 to 9, inclusive.
           type: integer
           format: int64
+        binlogTransactionDependencyTracking:
+          $ref: '#/components/schemas/MysqlConfig8_0BinlogTransactionDependencyTracking_in_MysqlConfig8_0_binlogTransactionDependencyTracking'
     RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:
       description: |-
         Required.

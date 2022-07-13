@@ -48,5 +48,5 @@ testData | **string** (byte)<br><p>Required.</p>
  
 Field | Description
 --- | ---
-objectStorageBucket | **string**<br>
-objectStorageFilename | **string**<br>
+objectStorageBucket | **string**
+objectStorageFilename | **string**

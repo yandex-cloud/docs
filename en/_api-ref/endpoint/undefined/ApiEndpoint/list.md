@@ -37,7 +37,7 @@ pageToken |
  
 Field | Description
 --- | ---
-endpoints[] | **object**<br>
-endpoints[].<br>id | **string**<br>
-endpoints[].<br>address | **string**<br>
-nextPageToken | **string**<br>
+endpoints[] | **object**
+endpoints[].<br>id | **string**
+endpoints[].<br>address | **string**
+nextPageToken | **string**

@@ -43,12 +43,12 @@ createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a
 name | **string**<br><p>Name of the channel.</p> 
 description | **string**<br><p>Description of the channel.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
-cloudEmail | **object** <br> includes only one of the fields `cloudEmail`, `cloudSms`, `cloudMobilePush`<br><br>
-cloudEmail.<br>recipients[] | **string**<br>
-cloudSms | **object** <br> includes only one of the fields `cloudEmail`, `cloudSms`, `cloudMobilePush`<br><br>
-cloudSms.<br>recipients[] | **string**<br>
-cloudMobilePush | **object** <br> includes only one of the fields `cloudEmail`, `cloudSms`, `cloudMobilePush`<br><br>
-cloudMobilePush.<br>recipients[] | **string**<br>
+cloudEmail | **object** <br> includes only one of the fields `cloudEmail`, `cloudSms`, `cloudMobilePush`<br>
+cloudEmail.<br>recipients[] | **string**
+cloudSms | **object** <br> includes only one of the fields `cloudEmail`, `cloudSms`, `cloudMobilePush`<br>
+cloudSms.<br>recipients[] | **string**
+cloudMobilePush | **object** <br> includes only one of the fields `cloudEmail`, `cloudSms`, `cloudMobilePush`<br>
+cloudMobilePush.<br>recipients[] | **string**
 
 ## Methods {#methods}
 Method | Description

@@ -14,8 +14,8 @@ editable: false
  
 Field | Description
 --- | ---
-id | **string**<br>
-description | **string**<br>
+id | **string**
+description | **string**
 
 ## Methods {#methods}
 Method | Description

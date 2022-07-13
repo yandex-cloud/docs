@@ -57,7 +57,7 @@ channels[] | **object**<br><p>Channels.</p>
 channels[].<br>channelId | **string**<br><p>ID of the channel.</p> 
 channels[].<br>notifyAboutStatuses[] | **string**<br><ul> <li>EVALUATION_STATUS_OK: OK.</li> <li>EVALUATION_STATUS_WARN: Warning.</li> <li>EVALUATION_STATUS_ALARM: Alarm.</li> <li>EVALUATION_STATUS_NO_DATA: No data.</li> <li>EVALUATION_STATUS_ERROR: Error.</li> </ul> 
 channels[].<br>repeatPeriod | **string**<br><p>Repeat notification period in seconds. Zero means no repeating.</p> 
-threshold | **object**<br>
+threshold | **object**
 threshold.<br>selectors | **string**<br><p>Selectors that query data to be checked.</p> 
 threshold.<br>transformations | **string**<br><p>Transformations to be applied to the data before checking.</p> 
 threshold.<br>predicateRules[] | **object**<br><p>A list of predicate rules to test against the data.</p> 

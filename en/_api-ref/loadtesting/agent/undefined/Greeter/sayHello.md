@@ -30,4 +30,4 @@ tankId |
  
 Field | Description
 --- | ---
-code | **string** (int64)<br>
+code | **string** (int64)

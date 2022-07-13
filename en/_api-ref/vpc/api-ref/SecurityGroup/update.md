@@ -60,23 +60,23 @@ securityGroupId | <p>Required.</p>
 Field | Description
 --- | ---
 updateMask | **string**<br><p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-name | **string**<br>
-description | **string**<br>
-labels | **object**<br>
+name | **string**
+description | **string**
+labels | **object**
 ruleSpecs[] | **object**<br><p>all existing rules will be replaced with given list</p> 
-ruleSpecs[].<br>description | **string**<br>
-ruleSpecs[].<br>labels | **object**<br>
-ruleSpecs[].<br>direction | **string**<br>Required.<br>
-ruleSpecs[].<br>ports | **object**<br>
+ruleSpecs[].<br>description | **string**
+ruleSpecs[].<br>labels | **object**
+ruleSpecs[].<br>direction | **string**<br>Required.
+ruleSpecs[].<br>ports | **object**
 ruleSpecs[].<br>ports.<br>fromPort | **string** (int64)<br><p>Acceptable values are 0 to 65535, inclusive.</p> 
 ruleSpecs[].<br>ports.<br>toPort | **string** (int64)<br><p>Acceptable values are 0 to 65535, inclusive.</p> 
-ruleSpecs[].<br>protocolName | **string** <br>`ruleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br><br>
-ruleSpecs[].<br>protocolNumber | **string** (int64) <br>`ruleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br><br>
-ruleSpecs[].<br>cidrBlocks | **object** <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br>
-ruleSpecs[].<br>cidrBlocks.<br>v4CidrBlocks[] | **string**<br>
-ruleSpecs[].<br>cidrBlocks.<br>v6CidrBlocks[] | **string**<br>
-ruleSpecs[].<br>securityGroupId | **string** <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br>
-ruleSpecs[].<br>predefinedTarget | **string** <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br>
+ruleSpecs[].<br>protocolName | **string** <br>`ruleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br>
+ruleSpecs[].<br>protocolNumber | **string** (int64) <br>`ruleSpecs[]` includes only one of the fields `protocolName`, `protocolNumber`<br>
+ruleSpecs[].<br>cidrBlocks | **object** <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
+ruleSpecs[].<br>cidrBlocks.<br>v4CidrBlocks[] | **string**
+ruleSpecs[].<br>cidrBlocks.<br>v6CidrBlocks[] | **string**
+ruleSpecs[].<br>securityGroupId | **string** <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
+ruleSpecs[].<br>predefinedTarget | **string** <br>`ruleSpecs[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -115,7 +115,7 @@ createdBy | **string**<br><p>ID of the user or service account who initiated the
 modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
 metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>
 error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
 error.<br>message | **string**<br><p>An error message.</p> 
 error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 

@@ -45,9 +45,9 @@ pageToken | <p>The maximum string length in characters is 100.</p>
  
 Field | Description
 --- | ---
-formatSchemas[] | **object**<br>
-formatSchemas[].<br>name | **string**<br>
-formatSchemas[].<br>clusterId | **string**<br>
-formatSchemas[].<br>type | **string**<br>
-formatSchemas[].<br>uri | **string**<br>
-nextPageToken | **string**<br>
+formatSchemas[] | **object**
+formatSchemas[].<br>name | **string**
+formatSchemas[].<br>clusterId | **string**
+formatSchemas[].<br>type | **string**
+formatSchemas[].<br>uri | **string**
+nextPageToken | **string**

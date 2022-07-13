@@ -52,37 +52,37 @@ editable: false
  
 Field | Description
 --- | ---
-overall | **string** (int64)<br>
-caseId | **string**<br>
-time | **string**<br>
-reqps | **string** (int64)<br>
-resps | **string** (int64)<br>
-expect | **number** (double)<br>
-input | **string** (int64)<br>
-output | **string** (int64)<br>
-connectTime | **number** (double)<br>
-sendTime | **number** (double)<br>
-latency | **number** (double)<br>
-receiveTime | **number** (double)<br>
-threads | **string** (int64)<br>
-q50 | **number** (double)<br>
-q75 | **number** (double)<br>
-q80 | **number** (double)<br>
-q85 | **number** (double)<br>
-q90 | **number** (double)<br>
-q95 | **number** (double)<br>
-q98 | **number** (double)<br>
-q99 | **number** (double)<br>
-q100 | **number** (double)<br>
-httpCodes[] | **object**<br>
-httpCodes[].<br>code | **string** (int64)<br>
-httpCodes[].<br>count | **string** (int64)<br>
-netCodes[] | **object**<br>
-netCodes[].<br>code | **string** (int64)<br>
-netCodes[].<br>count | **string** (int64)<br>
-timeIntervals[] | **object**<br>
-timeIntervals[].<br>to | **number** (double)<br>
-timeIntervals[].<br>count | **string** (int64)<br>
+overall | **string** (int64)
+caseId | **string**
+time | **string**
+reqps | **string** (int64)
+resps | **string** (int64)
+expect | **number** (double)
+input | **string** (int64)
+output | **string** (int64)
+connectTime | **number** (double)
+sendTime | **number** (double)
+latency | **number** (double)
+receiveTime | **number** (double)
+threads | **string** (int64)
+q50 | **number** (double)
+q75 | **number** (double)
+q80 | **number** (double)
+q85 | **number** (double)
+q90 | **number** (double)
+q95 | **number** (double)
+q98 | **number** (double)
+q99 | **number** (double)
+q100 | **number** (double)
+httpCodes[] | **object**
+httpCodes[].<br>code | **string** (int64)
+httpCodes[].<br>count | **string** (int64)
+netCodes[] | **object**
+netCodes[].<br>code | **string** (int64)
+netCodes[].<br>count | **string** (int64)
+timeIntervals[] | **object**
+timeIntervals[].<br>to | **number** (double)
+timeIntervals[].<br>count | **string** (int64)
 
 ## Methods {#methods}
 Method | Description

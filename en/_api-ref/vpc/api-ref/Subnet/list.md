@@ -73,8 +73,8 @@ subnets[].<br>zoneId | **string**<br><p>ID of the availability zone where the su
 subnets[].<br>v4CidrBlocks[] | **string**<br><p>CIDR block. The range of internal addresses that are defined for this subnet. This field can be set only at Subnet resource creation time and cannot be changed. For example, 10.0.0.0/22 or 192.168.0.0/24. Minimum subnet size is /28, maximum subnet size is /16.</p> 
 subnets[].<br>v6CidrBlocks[] | **string**<br><p>IPv6 not available yet.</p> 
 subnets[].<br>routeTableId | **string**<br><p>ID of route table the subnet is linked to.</p> 
-subnets[].<br>dhcpOptions | **object**<br>
-subnets[].<br>dhcpOptions.<br>domainNameServers[] | **string**<br>
-subnets[].<br>dhcpOptions.<br>domainName | **string**<br>
-subnets[].<br>dhcpOptions.<br>ntpServers[] | **string**<br>
+subnets[].<br>dhcpOptions | **object**
+subnets[].<br>dhcpOptions.<br>domainNameServers[] | **string**
+subnets[].<br>dhcpOptions.<br>domainName | **string**
+subnets[].<br>dhcpOptions.<br>ntpServers[] | **string**
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/vpc/api-ref/Subnet/list#query_params">pageSize</a>, use the <a href="/docs/vpc/api-ref/Subnet/list#responses">nextPageToken</a> as the value for the <a href="/docs/vpc/api-ref/Subnet/list#query_params">pageToken</a> query parameter in the next list request. Subsequent list requests will have their own <a href="/docs/vpc/api-ref/Subnet/list#responses">nextPageToken</a> to continue paging through the results.</p> 

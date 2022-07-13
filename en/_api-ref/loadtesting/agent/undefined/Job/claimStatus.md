@@ -30,8 +30,8 @@ jobId |
  
 Field | Description
 --- | ---
-status | **string**<br>
-error | **string**<br>
+status | **string**
+error | **string**
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -45,4 +45,4 @@ error | **string**<br>
  
 Field | Description
 --- | ---
-code | **string** (int64)<br>
+code | **string** (int64)

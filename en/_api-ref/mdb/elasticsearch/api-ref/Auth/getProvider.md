@@ -49,15 +49,15 @@ name | <p>Required. Required. Name of the provider to delete.</p> <p>The maximum
  
 Field | Description
 --- | ---
-type | **string**<br>
+type | **string**
 name | **string**<br><p>The maximum string length in characters is 50. Value must match the regular expression ``[a-z][a-z0-9_-]*``.</p> 
-order | **string** (int64)<br>
-enabled | **boolean** (boolean)<br>
+order | **string** (int64)
+enabled | **boolean** (boolean)
 hidden | **boolean** (boolean)<br><p>selector ui settings</p> 
 description | **string**<br><p>The maximum string length in characters is 50.</p> 
 hint | **string**<br><p>The maximum string length in characters is 250.</p> 
 icon | **string**<br><p>The maximum string length in characters is 250.</p> 
-saml | **object**<br>
+saml | **object**
 saml.<br>idpEntityId | **string**<br><p>The maximum string length in characters is 250.</p> 
 saml.<br>idpMetadataFile | **string** (byte)<br><p>The maximum string length in characters is 10000.</p> 
 saml.<br>spEntityId | **string**<br><p>The maximum string length in characters is 250.</p> 

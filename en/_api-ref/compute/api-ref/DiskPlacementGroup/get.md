@@ -45,5 +45,5 @@ name | **string**<br><p>Name of the placement group. The name is unique within t
 description | **string**<br><p>Description of the placement group.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
 zoneId | **string**<br><p>ID of the availability zone where the placement group resides.</p> 
-status | **string**<br>Current status of the placement group<br>
-spreadPlacementStrategy | **object**<br>Distribute instances over distinct failure domains.<br>
+status | **string**<br>Current status of the placement group
+spreadPlacementStrategy | **object**<br>Distribute instances over distinct failure domains.

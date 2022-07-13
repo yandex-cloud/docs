@@ -56,9 +56,9 @@ origins[].<br>backup | **boolean** (boolean)<br><p>Specifies whether the origin 
 origins[].<br>meta | **object**<br><p>Set up origin of the content.</p> <p>Origin type. For details about the concept, see <a href="/docs/cdn/concepts/origins">documentation</a>.</p> 
 origins[].<br>meta.<br>common | **object** <br>`origins[].meta` includes only one of the fields `common`, `bucket`, `website`, `balancer`<br><br><p>Origin info. For details about the concept, see <a href="/docs/cdn/concepts/origins">documentation</a>.</p> 
 origins[].<br>meta.<br>common.<br>name | **string**<br><p>Name of the origin.</p> 
-origins[].<br>meta.<br>bucket | **object**<br>A server with a domain name linked to it <br>`origins[].meta` includes only one of the fields `common`, `bucket`, `website`, `balancer`<br><br><p>Origin info. For details about the concept, see <a href="/docs/cdn/concepts/origins">documentation</a>.</p> 
+origins[].<br>meta.<br>bucket | **object**<br>A server with a domain name linked to it <br>`origins[].meta` includes only one of the fields `common`, `bucket`, `website`, `balancer`<br>
 origins[].<br>meta.<br>bucket.<br>name | **string**<br><p>Name of the origin.</p> 
-origins[].<br>meta.<br>website | **object**<br>An Object Storage bucket not configured as a static site hosting. <br>`origins[].meta` includes only one of the fields `common`, `bucket`, `website`, `balancer`<br><br><p>Origin info. For details about the concept, see <a href="/docs/cdn/concepts/origins">documentation</a>.</p> 
+origins[].<br>meta.<br>website | **object**<br>An Object Storage bucket not configured as a static site hosting. <br>`origins[].meta` includes only one of the fields `common`, `bucket`, `website`, `balancer`<br>
 origins[].<br>meta.<br>website.<br>name | **string**<br><p>Name of the origin.</p> 
 origins[].<br>meta.<br>balancer | **object** <br>`origins[].meta` includes only one of the fields `common`, `bucket`, `website`, `balancer`<br><br><p>Application Load Balancer origin info. For details about the concept, see <a href="/docs/cdn/concepts/origins">documentation</a>.</p> 
 origins[].<br>meta.<br>balancer.<br>id | **string**<br><p>ID of the origin.</p> 

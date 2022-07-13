@@ -56,7 +56,7 @@ time | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/
 Field | Description
 --- | ---
 evaluationStatus | **string**<br><ul> <li>EVALUATION_STATUS_OK: OK.</li> <li>EVALUATION_STATUS_WARN: Warning.</li> <li>EVALUATION_STATUS_ALARM: Alarm.</li> <li>EVALUATION_STATUS_NO_DATA: No data.</li> <li>EVALUATION_STATUS_ERROR: Error.</li> </ul> 
-series[] | **object**<br>
+series[] | **object**
 series[].<br>alias | **string**<br><p>Alias of timeseries, or empty if not specified.</p> 
 series[].<br>labels | **object**<br><p>Labels of timeseries, or empty if absent by any reason.</p> 
 series[].<br>timestamps[] | **string** (int64)<br><p>Array with timestamps of timeseries.</p> 

@@ -38,6 +38,6 @@ pageToken | <p>Page token. Set ``page_token`` to the ``next_page_token`` returne
 Field | Description
 --- | ---
 locations[] | **object**<br><p>Requested list of locations.</p> 
-locations[].<br>id | **string**<br>
-locations[].<br>description | **string**<br>
+locations[].<br>id | **string**
+locations[].<br>description | **string**
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for ListLocations requests, if the number of results is larger than ``page_size`` specified in the request. To get the next page, specify the value of ``next_page_token`` as a value for the ``page_token`` parameter in the next ListLocations request. Subsequent ListLocations requests will have their own ``next_page_token`` to continue paging through the results.</p> 

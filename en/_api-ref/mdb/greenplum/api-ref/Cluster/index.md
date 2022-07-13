@@ -227,7 +227,7 @@ userName | **string**<br><p>Owner user name.</p>
 deletionProtection | **boolean** (boolean)<br><p>Determines whether the cluster is protected from being deleted.</p> 
 hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
 clusterConfig | **object**<br><p>Greenplum® and Odyssey® configuration.</p> 
-clusterConfig.<br>pool | **object**<br>
+clusterConfig.<br>pool | **object**
 clusterConfig.<br>pool.<br>effectiveConfig | **object**<br><p>Required. Effective settings for an Odyssey® pooler (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> 
 clusterConfig.<br>pool.<br>effectiveConfig.<br>mode | **string**<br><p>Route server pool mode.</p> <ul> <li>SESSION: Assign server connection to a client until it disconnects. Default value.</li> <li>TRANSACTION: Assign server connection to a client for a transaction processing.</li> </ul> 
 clusterConfig.<br>pool.<br>effectiveConfig.<br>size | **integer** (int64)<br><p>The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.</p> <p>Set to zero to disable the limit.</p> 

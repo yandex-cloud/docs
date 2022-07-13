@@ -69,10 +69,10 @@ channels[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> 
 channels[].<br>name | **string**<br><p>Name of the channel.</p> 
 channels[].<br>description | **string**<br><p>Description of the channel.</p> 
 channels[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
-channels[].<br>cloudEmail | **object**<br>E-Mail channel. <br>`channels[]` includes only one of the fields `cloudEmail`, `cloudSms`, `cloudMobilePush`<br><br>
-channels[].<br>cloudEmail.<br>recipients[] | **string**<br>
-channels[].<br>cloudSms | **object**<br>Sms channel. <br>`channels[]` includes only one of the fields `cloudEmail`, `cloudSms`, `cloudMobilePush`<br><br>
-channels[].<br>cloudSms.<br>recipients[] | **string**<br>
-channels[].<br>cloudMobilePush | **object**<br>Mobile application push channel. <br>`channels[]` includes only one of the fields `cloudEmail`, `cloudSms`, `cloudMobilePush`<br><br>
-channels[].<br>cloudMobilePush.<br>recipients[] | **string**<br>
+channels[].<br>cloudEmail | **object**<br>E-Mail channel. <br>`channels[]` includes only one of the fields `cloudEmail`, `cloudSms`, `cloudMobilePush`<br>
+channels[].<br>cloudEmail.<br>recipients[] | **string**
+channels[].<br>cloudSms | **object**<br>Sms channel. <br>`channels[]` includes only one of the fields `cloudEmail`, `cloudSms`, `cloudMobilePush`<br>
+channels[].<br>cloudSms.<br>recipients[] | **string**
+channels[].<br>cloudMobilePush | **object**<br>Mobile application push channel. <br>`channels[]` includes only one of the fields `cloudEmail`, `cloudSms`, `cloudMobilePush`<br>
+channels[].<br>cloudMobilePush.<br>recipients[] | **string**
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/monitoring/api-ref/Channel/list#query_params">pageSize</a>, use the <a href="/docs/monitoring/api-ref/Channel/list#responses">nextPageToken</a> as the value for the <a href="/docs/monitoring/api-ref/Channel/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/monitoring/api-ref/Channel/list#responses">nextPageToken</a> to continue paging through the results.</p> 

@@ -30,4 +30,4 @@ jobId |
  
 Field | Description
 --- | ---
-signal | **string**<br>
+signal | **string**

@@ -49,12 +49,12 @@ filter | <p>The maximum string length in characters is 1000.</p>
  
 Field | Description
 --- | ---
-resources[] | **object**<br>
-resources[].<br>infrastructureId | **string**<br>
-resources[].<br>deploymentId | **string**<br>
-resources[].<br>deploymentNumber | **string**<br>
-resources[].<br>resourceSpecName | **string**<br>
-resources[].<br>resourceId | **string**<br>
-resources[].<br>type | **string**<br>
-resources[].<br>status | **string**<br>
-nextPageToken | **string**<br>
+resources[] | **object**
+resources[].<br>infrastructureId | **string**
+resources[].<br>deploymentId | **string**
+resources[].<br>deploymentNumber | **string**
+resources[].<br>resourceSpecName | **string**
+resources[].<br>resourceId | **string**
+resources[].<br>type | **string**
+resources[].<br>status | **string**
+nextPageToken | **string**

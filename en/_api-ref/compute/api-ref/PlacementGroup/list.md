@@ -51,5 +51,5 @@ placementGroups[].<br>createdAt | **string** (date-time)<br><p>Creation timestam
 placementGroups[].<br>name | **string**<br><p>Name of the placement group. The name is unique within the folder.</p> 
 placementGroups[].<br>description | **string**<br><p>Description of the placement group. 0-256 characters long.</p> 
 placementGroups[].<br>labels | **object**<br><p>Placement group labels as ``key:value`` pairs.</p> 
-placementGroups[].<br>spreadPlacementStrategy | **object**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains.<br><p>This is an empty structure that must be passed to explicitly specify the required placement strategy.</p> 
+placementGroups[].<br>spreadPlacementStrategy | **object**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains.
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/compute/api-ref/PlacementGroup/list#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/compute/api-ref/PlacementGroup/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

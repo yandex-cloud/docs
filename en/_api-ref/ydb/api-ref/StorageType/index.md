@@ -15,9 +15,9 @@ editable: false
  
 Field | Description
 --- | ---
-id | **string**<br>
-deviceType | **string**<br>
-redundancyType | **string**<br>
+id | **string**
+deviceType | **string**
+redundancyType | **string**
 
 ## Methods {#methods}
 Method | Description

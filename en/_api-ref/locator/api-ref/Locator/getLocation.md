@@ -77,9 +77,9 @@ uuid | **string**<br><p>Unique user identifier that can be used for debugging. M
  
 Field | Description
 --- | ---
-location | **object**<br>The user's estimated location. <br> includes only one of the fields `location`, `locationNotFound`<br><br>
+location | **object**<br>The user's estimated location. <br> includes only one of the fields `location`, `locationNotFound`<br>
 location.<br>latitude | **number** (double)<br><p>Assumed location latitude in degrees, from -90 to 90.</p> 
 location.<br>longitude | **number** (double)<br><p>Assumed location longitude in degrees, from -180 to 180.</p> 
 location.<br>precision | **number** (double)<br><p>Assumed location precision in meters. This represents the radius of a circle around this location.</p> 
-locationNotFound | **object**<br>An error description if the user's location was not found. <br> includes only one of the fields `location`, `locationNotFound`<br><br>
+locationNotFound | **object**<br>An error description if the user's location was not found. <br> includes only one of the fields `location`, `locationNotFound`<br>
 locationNotFound.<br>message | **string**<br><p>Message with the reason.</p> 

@@ -66,7 +66,7 @@ addresses[].<br>reserved | **boolean** (boolean)<br><p>Specifies if address is r
 addresses[].<br>used | **boolean** (boolean)<br><p>Specifies if address is used or not.</p> 
 addresses[].<br>type | **string**<br>Type of the IP address.<br><ul> <li>INTERNAL: Internal IP address.</li> <li>EXTERNAL: Public IP address.</li> </ul> 
 addresses[].<br>ipVersion | **string**<br>Vervion of the IP address.<br><ul> <li>IPV4: IPv4 address.</li> <li>IPV6: IPv6 address.</li> </ul> 
-addresses[].<br>externalIpv4Address | **object**<br>
+addresses[].<br>externalIpv4Address | **object**
 addresses[].<br>externalIpv4Address.<br>address | **string**<br><p>Value of address.</p> 
 addresses[].<br>externalIpv4Address.<br>zoneId | **string**<br><p>Availability zone from which the address will be allocated.</p> 
 addresses[].<br>externalIpv4Address.<br>requirements | **object**<br><p>Parameters of the allocated address, for example DDoS Protection.</p> 

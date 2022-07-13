@@ -36,5 +36,5 @@ clusterId | <p>Required. ID of the Hadoop cluster.</p> <p>The maximum string len
 Field | Description
 --- | ---
 links[] | **object**<br><p>Requested list of ui links.</p> 
-links[].<br>name | **string**<br>
-links[].<br>url | **string**<br>
+links[].<br>name | **string**
+links[].<br>url | **string**

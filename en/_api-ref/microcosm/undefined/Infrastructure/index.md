@@ -20,14 +20,14 @@ editable: false
  
 Field | Description
 --- | ---
-id | **string**<br>
-name | **string**<br>
-folderId | **string**<br>
+id | **string**
+name | **string**
+folderId | **string**
 createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-status | **string**<br>
-labels | **object**<br>
-variables | **object**<br>
-infrastructureTemplateId | **string**<br>
+status | **string**
+labels | **object**
+variables | **object**
+infrastructureTemplateId | **string**
 
 ## Methods {#methods}
 Method | Description

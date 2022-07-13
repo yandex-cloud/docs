@@ -55,9 +55,9 @@ Field | Description
 analyzeSpecs[] | **object**<br><p>Required. A list of specifications. Each specification contains the file to analyze and features to use for analysis.</p> <p>Restrictions:</p> <ul> <li>Supported file formats: JPEG, PNG.</li> <li>Maximum file size: 1 MB.</li> <li>Image size should not exceed 20M pixels (length x width).</li> </ul> <p>The number of elements must be in the range 1-8.</p> 
 analyzeSpecs[].<br>features[] | **object**<br><p>Required. Requested features to use for analysis.</p> <p>Max count of requested features for one file is 8.</p> <p>The number of elements must be in the range 1-8.</p> 
 analyzeSpecs[].<br>features[].<br>type | **string**<br>Type of requested feature.<br><ul> <li>TEXT_DETECTION: Text detection (OCR) feature.</li> <li>CLASSIFICATION: Classification feature.</li> <li>FACE_DETECTION: Face detection feature.</li> <li>IMAGE_COPY_SEARCH: Image copy search.</li> </ul> 
-analyzeSpecs[].<br>features[].<br>classificationConfig | **object**<br>Required for the `CLASSIFICATION` type. Specifies configuration for the classification feature. <br>`analyzeSpecs[].features[]` includes only one of the fields `classificationConfig`, `textDetectionConfig`<br><br>
+analyzeSpecs[].<br>features[].<br>classificationConfig | **object**<br>Required for the `CLASSIFICATION` type. Specifies configuration for the classification feature. <br>`analyzeSpecs[].features[]` includes only one of the fields `classificationConfig`, `textDetectionConfig`<br>
 analyzeSpecs[].<br>features[].<br>classificationConfig.<br>model | **string**<br><p>Model to use for image classification.</p> <p>The maximum string length in characters is 256.</p> 
-analyzeSpecs[].<br>features[].<br>textDetectionConfig | **object**<br>Required for the `TEXT_DETECTION` type. Specifies configuration for the text detection (OCR) feature. <br>`analyzeSpecs[].features[]` includes only one of the fields `classificationConfig`, `textDetectionConfig`<br><br>
+analyzeSpecs[].<br>features[].<br>textDetectionConfig | **object**<br>Required for the `TEXT_DETECTION` type. Specifies configuration for the text detection (OCR) feature. <br>`analyzeSpecs[].features[]` includes only one of the fields `classificationConfig`, `textDetectionConfig`<br>
 analyzeSpecs[].<br>features[].<br>textDetectionConfig.<br>languageCodes[] | **string**<br><p>Required. List of the languages to recognize text. Specified in <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> format (for example, ``ru``).</p> <p>The number of elements must be in the range 1-8. The maximum string length in characters for each value is 3.</p> 
 analyzeSpecs[].<br>features[].<br>textDetectionConfig.<br>model | **string**<br><p>Model to use for text detection. Possible values:</p> <ul> <li>page (default) - this model is suitable for detecting multiple text entries in an image.</li> <li>line - this model is suitable for cropped images with one line of text.</li> </ul> <p>The maximum string length in characters is 50.</p> 
 analyzeSpecs[].<br>mimeType | **string**<br><p><a href="https://en.wikipedia.org/wiki/Media_type">MIME type</a> of content (for example, ``application/pdf``).</p> <p>The maximum string length in characters is 255.</p> 
@@ -197,11 +197,11 @@ Field | Description
 --- | ---
 results[] | **object**<br><p>Request results. Results have the same order as specifications in the request.</p> 
 results[].<br>results[] | **object**<br><p>Results for each requested feature. Feature results have the same order as in the request.</p> 
-results[].<br>results[].<br>error | **object**<br>Return error in case of error during the specified feature processing.<br><p>The error result of the operation in case of failure or cancellation.</p> 
+results[].<br>results[].<br>error | **object**<br>Return error in case of error during the specified feature processing.
 results[].<br>results[].<br>error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
 results[].<br>results[].<br>error.<br>message | **string**<br><p>An error message.</p> 
 results[].<br>results[].<br>error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
-results[].<br>results[].<br>textDetection | **object**<br>Text detection (OCR) result. <br>`results[].results[]` includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`<br><br>
+results[].<br>results[].<br>textDetection | **object**<br>Text detection (OCR) result. <br>`results[].results[]` includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`<br>
 results[].<br>results[].<br>textDetection.<br>pages[] | **object**<br><p>Pages of the recognized file.</p> <p>For JPEG and PNG files contains only 1 page.</p> 
 results[].<br>results[].<br>textDetection.<br>pages[].<br>width | **string** (int64)<br><p>Page width in pixels.</p> 
 results[].<br>results[].<br>textDetection.<br>pages[].<br>height | **string** (int64)<br><p>Page height in pixels.</p> 
@@ -230,17 +230,17 @@ results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<
 results[].<br>results[].<br>textDetection.<br>pages[].<br>entities[] | **object**<br><p>Recognized entities</p> 
 results[].<br>results[].<br>textDetection.<br>pages[].<br>entities[].<br>name | **string**<br><p>Entity name</p> 
 results[].<br>results[].<br>textDetection.<br>pages[].<br>entities[].<br>text | **string**<br><p>Recognized entity text</p> 
-results[].<br>results[].<br>classification | **object**<br>Classification result. <br>`results[].results[]` includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`<br><br>
+results[].<br>results[].<br>classification | **object**<br>Classification result. <br>`results[].results[]` includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`<br>
 results[].<br>results[].<br>classification.<br>properties[] | **object**<br><p>Properties extracted by a specified model.</p> <p>For example, if you ask to evaluate the image quality, the service could return such properties as ``good`` and ``bad``.</p> 
 results[].<br>results[].<br>classification.<br>properties[].<br>name | **string**<br><p>Property name.</p> 
 results[].<br>results[].<br>classification.<br>properties[].<br>probability | **number** (double)<br><p>Probability of the property, from 0 to 1.</p> 
-results[].<br>results[].<br>faceDetection | **object**<br>Face detection result. <br>`results[].results[]` includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`<br><br>
+results[].<br>results[].<br>faceDetection | **object**<br>Face detection result. <br>`results[].results[]` includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`<br>
 results[].<br>results[].<br>faceDetection.<br>faces[] | **object**<br><p>An array of detected faces for the specified image.</p> 
 results[].<br>results[].<br>faceDetection.<br>faces[].<br>boundingBox | **object**<br><p>Area on the image where the face is located.</p> 
 results[].<br>results[].<br>faceDetection.<br>faces[].<br>boundingBox.<br>vertices[] | **object**<br><p>The bounding polygon vertices.</p> 
 results[].<br>results[].<br>faceDetection.<br>faces[].<br>boundingBox.<br>vertices[].<br>x | **string** (int64)<br><p>X coordinate in pixels.</p> 
 results[].<br>results[].<br>faceDetection.<br>faces[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Y coordinate in pixels.</p> 
-results[].<br>results[].<br>imageCopySearch | **object**<br>Image Copy Search result. <br>`results[].results[]` includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`<br><br>
+results[].<br>results[].<br>imageCopySearch | **object**<br>Image Copy Search result. <br>`results[].results[]` includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`<br>
 results[].<br>results[].<br>imageCopySearch.<br>copyCount | **string** (int64)<br><p>Number of image copies</p> 
 results[].<br>results[].<br>imageCopySearch.<br>topResults[] | **object**<br><p>Top relevance result of image copy search</p> 
 results[].<br>results[].<br>imageCopySearch.<br>topResults[].<br>imageUrl | **string**<br><p>url of image</p> 

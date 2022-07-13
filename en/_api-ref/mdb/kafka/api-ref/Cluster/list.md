@@ -191,7 +191,7 @@ clusters[].<br>monitoring[].<br>link | **string**<br><p>Link to the monitoring s
 clusters[].<br>config | **object**<br><p>Configuration of the Apache Kafka® cluster.</p> 
 clusters[].<br>config.<br>version | **string**<br><p>Version of Apache Kafka® used in the cluster. Possible values: ``2.1``, ``2.6``.</p> 
 clusters[].<br>config.<br>kafka | **object**<br><p>Configuration and resource allocation for Kafka brokers.</p> 
-clusters[].<br>config.<br>kafka.<br>resources | **object**<br>Resources allocated to Kafka brokers.<br>
+clusters[].<br>config.<br>kafka.<br>resources | **object**<br>Resources allocated to Kafka brokers.
 clusters[].<br>config.<br>kafka.<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the <a href="/docs/managed-kafka/concepts/instance-types">documentation</a>.</p> 
 clusters[].<br>config.<br>kafka.<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted.</p> 
 clusters[].<br>config.<br>kafka.<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> 
@@ -274,9 +274,9 @@ clusters[].<br>securityGroupIds[] | **string**<br><p>User security groups</p>
 clusters[].<br>hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
 clusters[].<br>deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
 clusters[].<br>maintenanceWindow | **object**<br><p>Window of maintenance operations.</p> 
-clusters[].<br>maintenanceWindow.<br>anytime | **object** <br>`clusters[].maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br>
-clusters[].<br>maintenanceWindow.<br>weeklyMaintenanceWindow | **object** <br>`clusters[].maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br>
-clusters[].<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br>
+clusters[].<br>maintenanceWindow.<br>anytime | **object** <br>`clusters[].maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
+clusters[].<br>maintenanceWindow.<br>weeklyMaintenanceWindow | **object** <br>`clusters[].maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
+clusters[].<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**
 clusters[].<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in UTC.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
 clusters[].<br>plannedOperation | **object**<br><p>Scheduled maintenance operation.</p> 
 clusters[].<br>plannedOperation.<br>info | **string**<br><p>The maximum string length in characters is 256.</p> 

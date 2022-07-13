@@ -29,7 +29,7 @@ agentInstanceId |
  
 Field | Description
 --- | ---
-status | **string**<br>
+status | **string**
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -43,4 +43,4 @@ status | **string**<br>
  
 Field | Description
 --- | ---
-code | **string** (int64)<br>
+code | **string** (int64)

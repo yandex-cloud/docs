@@ -73,17 +73,17 @@ notAfter | **string** (date-time)<br><p>Time after which the certificate is not 
 notBefore | **string** (date-time)<br><p>Time before which the certificate is not valid.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 challenges[] | **object**<br><p>Domains validation challenges of the certificate. Used only for managed certificates.</p> 
 challenges[].<br>domain | **string**<br><p>Domain of the challenge.</p> 
-challenges[].<br>type | **string**<br>Type of the challenge.<br><p>Supported domain validation types.</p> <ul> <li>DNS: Domain validation type that using DNS-records.</li> <li>HTTP: Domain validation type that using HTTP-files.</li> </ul> 
+challenges[].<br>type | **string**<br>Type of the challenge.<br><ul> <li>DNS: Domain validation type that using DNS-records.</li> <li>HTTP: Domain validation type that using HTTP-files.</li> </ul> 
 challenges[].<br>createdAt | **string** (date-time)<br><p>Time when the challenge is created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 challenges[].<br>updatedAt | **string** (date-time)<br><p>Time when the challenge is updated.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 challenges[].<br>status | **string**<br>Status of the challenge.<br><ul> <li>PENDING: The challenge is waiting to be completed.</li> <li>PROCESSING: The challenge is awaiting approval from Let's Encrypt.</li> <li>VALID: The challenge is complete.</li> <li>INVALID: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li> </ul> 
 challenges[].<br>message | **string**<br><p>Description of the challenge.</p> 
 challenges[].<br>error | **string**<br><p>Error of the challenge.</p> 
-challenges[].<br>dnsChallenge | **object** <br>`challenges[]` includes only one of the fields `dnsChallenge`, `httpChallenge`<br><br>
+challenges[].<br>dnsChallenge | **object** <br>`challenges[]` includes only one of the fields `dnsChallenge`, `httpChallenge`<br>
 challenges[].<br>dnsChallenge.<br>name | **string**<br><p>Name of the DNS record.</p> 
 challenges[].<br>dnsChallenge.<br>type | **string**<br><p>Type of the DNS-record.</p> 
 challenges[].<br>dnsChallenge.<br>value | **string**<br><p>Value of the DNS-record.</p> 
-challenges[].<br>httpChallenge | **object** <br>`challenges[]` includes only one of the fields `dnsChallenge`, `httpChallenge`<br><br>
+challenges[].<br>httpChallenge | **object** <br>`challenges[]` includes only one of the fields `dnsChallenge`, `httpChallenge`<br>
 challenges[].<br>httpChallenge.<br>url | **string**<br><p>Location of the HTTP file.</p> 
 challenges[].<br>httpChallenge.<br>content | **string**<br><p>Content of the HTTP file.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Flag that protects deletion of the certificate</p> 

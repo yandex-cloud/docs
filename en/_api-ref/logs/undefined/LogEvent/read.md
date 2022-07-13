@@ -51,12 +51,12 @@ criteria.until | <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC
  
 Field | Description
 --- | ---
-logEvents[] | **object**<br>
-logEvents[].<br>logGroupId | **string**<br>
-logEvents[].<br>streamName | **string**<br>
+logEvents[] | **object**
+logEvents[].<br>logGroupId | **string**
+logEvents[].<br>streamName | **string**
 logEvents[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-logEvents[].<br>message | **string**<br>
+logEvents[].<br>message | **string**
 logEvents[].<br>ingestedAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 logEvents[].<br>savedAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-nextPageToken | **string**<br>
-previousPageToken | **string**<br>
+nextPageToken | **string**
+previousPageToken | **string**

@@ -45,13 +45,13 @@ filter |
  
 Field | Description
 --- | ---
-containers[] | **object**<br>
-containers[].<br>id | **string**<br>
-containers[].<br>folderId | **string**<br>
+containers[] | **object**
+containers[].<br>id | **string**
+containers[].<br>folderId | **string**
 containers[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-containers[].<br>name | **string**<br>
-containers[].<br>description | **string**<br>
-containers[].<br>labels | **object**<br>
-containers[].<br>url | **string**<br>
-containers[].<br>status | **string**<br>
-nextPageToken | **string**<br>
+containers[].<br>name | **string**
+containers[].<br>description | **string**
+containers[].<br>labels | **object**
+containers[].<br>url | **string**
+containers[].<br>status | **string**
+nextPageToken | **string**

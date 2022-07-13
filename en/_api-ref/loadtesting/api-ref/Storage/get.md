@@ -37,11 +37,11 @@ storageId | <p>Required. The maximum string length in characters is 50.</p>
  
 Field | Description
 --- | ---
-id | **string**<br>
-folderId | **string**<br>
-name | **string**<br>
-description | **string**<br>
-labels | **object**<br>
+id | **string**
+folderId | **string**
+name | **string**
+description | **string**
+labels | **object**
 createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-objectStorageBucket | **string**<br>
-usedSize | **string** (int64)<br>
+objectStorageBucket | **string**
+usedSize | **string** (int64)

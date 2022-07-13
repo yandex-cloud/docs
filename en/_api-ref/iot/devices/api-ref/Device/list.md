@@ -61,7 +61,7 @@ devices[].<br>description | **string**<br><p>Description of the device. 0-256 ch
 devices[].<br>topicAliases | **object**<br><p>Alias of a device topic.</p> <p>Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. ``my/custom/alias`` match to ``$device/abcdef/events``.</p> 
 devices[].<br>status | **string**<br><p>Status of the device.</p> <ul> <li>CREATING: Device is being created.</li> <li>ACTIVE: Device is ready to use.</li> <li>DELETING: Device is being deleted.</li> </ul> 
 devices[].<br>monitoringData | **object**<br><p>Device monitoring data, returns if FULL view specified.</p> 
-devices[].<br>monitoringData.<br>lastAuthIp | **string**<br>
+devices[].<br>monitoringData.<br>lastAuthIp | **string**
 devices[].<br>monitoringData.<br>lastAuthTime | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 devices[].<br>monitoringData.<br>lastPubActivityTime | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 devices[].<br>monitoringData.<br>lastSubActivityTime | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

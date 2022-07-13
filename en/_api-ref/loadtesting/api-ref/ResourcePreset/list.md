@@ -49,4 +49,4 @@ resourcePresets[].<br>description | **string**<br><p>Description of the Resource
 resourcePresets[].<br>cores | **string** (int64)<br><p>Number of CPU cores for a Tank created with the preset.</p> 
 resourcePresets[].<br>memory | **string** (int64)<br><p>RAM volume for a Tank created with the preset, in bytes.</p> 
 resourcePresets[].<br>diskSize | **string** (int64)<br><p>Disk size for a tank created with the preset, in bytes.</p> 
-nextPageToken | **string**<br>
+nextPageToken | **string**

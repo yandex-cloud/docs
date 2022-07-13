@@ -33,7 +33,7 @@ infrastructureTemplateId | <p>Required. The maximum string length in characters 
  
 Field | Description
 --- | ---
-id | **string**<br>
-name | **string**<br>
-folderId | **string**<br>
-labels | **object**<br>
+id | **string**
+name | **string**
+folderId | **string**
+labels | **object**

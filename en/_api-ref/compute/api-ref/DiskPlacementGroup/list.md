@@ -54,6 +54,6 @@ diskPlacementGroups[].<br>name | **string**<br><p>Name of the placement group. T
 diskPlacementGroups[].<br>description | **string**<br><p>Description of the placement group.</p> 
 diskPlacementGroups[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
 diskPlacementGroups[].<br>zoneId | **string**<br><p>ID of the availability zone where the placement group resides.</p> 
-diskPlacementGroups[].<br>status | **string**<br>Current status of the placement group<br>
-diskPlacementGroups[].<br>spreadPlacementStrategy | **object**<br>Distribute instances over distinct failure domains.<br>
+diskPlacementGroups[].<br>status | **string**<br>Current status of the placement group
+diskPlacementGroups[].<br>spreadPlacementStrategy | **object**<br>Distribute instances over distinct failure domains.
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/DiskPlacementGroup/list#query_params">pageSize</a>, use <a href="/docs/compute/api-ref/DiskPlacementGroup/list#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/DiskPlacementGroup/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/DiskPlacementGroup/list#responses">nextPageToken</a> to continue paging through the results.</p> 

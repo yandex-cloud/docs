@@ -79,28 +79,28 @@ pageToken | <p>Page token. Set <a href="/docs/vpc/api-ref/Network/listSecurityGr
 Field | Description
 --- | ---
 securityGroups[] | **object**<br><p>List of security groups that belong to the network which is specified in the request.</p> 
-securityGroups[].<br>id | **string**<br>
-securityGroups[].<br>folderId | **string**<br>
+securityGroups[].<br>id | **string**
+securityGroups[].<br>folderId | **string**
 securityGroups[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-securityGroups[].<br>name | **string**<br>
-securityGroups[].<br>description | **string**<br>
-securityGroups[].<br>labels | **object**<br>
-securityGroups[].<br>networkId | **string**<br>
+securityGroups[].<br>name | **string**
+securityGroups[].<br>description | **string**
+securityGroups[].<br>labels | **object**
+securityGroups[].<br>networkId | **string**
 securityGroups[].<br>status | **string**<br><ul> <li>UPDATING: updating is a long operation because we must update all instances in SG</li> </ul> 
-securityGroups[].<br>rules[] | **object**<br>
-securityGroups[].<br>rules[].<br>id | **string**<br>
-securityGroups[].<br>rules[].<br>description | **string**<br>
-securityGroups[].<br>rules[].<br>labels | **object**<br>
-securityGroups[].<br>rules[].<br>direction | **string**<br>Required.<br>
-securityGroups[].<br>rules[].<br>ports | **object**<br>
+securityGroups[].<br>rules[] | **object**
+securityGroups[].<br>rules[].<br>id | **string**
+securityGroups[].<br>rules[].<br>description | **string**
+securityGroups[].<br>rules[].<br>labels | **object**
+securityGroups[].<br>rules[].<br>direction | **string**<br>Required.
+securityGroups[].<br>rules[].<br>ports | **object**
 securityGroups[].<br>rules[].<br>ports.<br>fromPort | **string** (int64)<br><p>Acceptable values are 0 to 65535, inclusive.</p> 
 securityGroups[].<br>rules[].<br>ports.<br>toPort | **string** (int64)<br><p>Acceptable values are 0 to 65535, inclusive.</p> 
 securityGroups[].<br>rules[].<br>protocolName | **string**<br><p>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml</p> 
-securityGroups[].<br>rules[].<br>protocolNumber | **string** (int64)<br>
-securityGroups[].<br>rules[].<br>cidrBlocks | **object** <br>`securityGroups[].rules[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br>
-securityGroups[].<br>rules[].<br>cidrBlocks.<br>v4CidrBlocks[] | **string**<br>
-securityGroups[].<br>rules[].<br>cidrBlocks.<br>v6CidrBlocks[] | **string**<br>
-securityGroups[].<br>rules[].<br>securityGroupId | **string** <br>`securityGroups[].rules[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br>
-securityGroups[].<br>rules[].<br>predefinedTarget | **string** <br>`securityGroups[].rules[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br><br>
-securityGroups[].<br>defaultForNetwork | **boolean** (boolean)<br>
+securityGroups[].<br>rules[].<br>protocolNumber | **string** (int64)
+securityGroups[].<br>rules[].<br>cidrBlocks | **object** <br>`securityGroups[].rules[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
+securityGroups[].<br>rules[].<br>cidrBlocks.<br>v4CidrBlocks[] | **string**
+securityGroups[].<br>rules[].<br>cidrBlocks.<br>v6CidrBlocks[] | **string**
+securityGroups[].<br>rules[].<br>securityGroupId | **string** <br>`securityGroups[].rules[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
+securityGroups[].<br>rules[].<br>predefinedTarget | **string** <br>`securityGroups[].rules[]` includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`<br>
+securityGroups[].<br>defaultForNetwork | **boolean** (boolean)
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/vpc/api-ref/Network/listSecurityGroups#query_params">pageSize</a>, use the <a href="/docs/vpc/api-ref/Network/listSecurityGroups#responses">nextPageToken</a> as the value for the <a href="/docs/vpc/api-ref/Network/listSecurityGroups#query_params">pageToken</a> query parameter in the next list request. Subsequent list requests will have their own <a href="/docs/vpc/api-ref/Network/listSecurityGroups#responses">nextPageToken</a> to continue paging through the results.</p> 

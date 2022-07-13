@@ -484,13 +484,21 @@ components:
         domainId:
           description: ID of the attaching domain.
           type: string
+        domainName:
+          description: Name of the attaching domain.
+          type: string
     AddDomainRequest:
       type: object
       properties:
         domainId:
-          description: |-
-            Required.
-            ID of the attaching domain.
+          description: ID of the attaching domain.
+          deprecated: true
+          type: string
+        domainName:
+          description: Name of the attaching domain.
+          type: string
+        certificateId:
+          description: ID of certificate for the attaching domain.
           type: string
     ApiGateway:
       type: object

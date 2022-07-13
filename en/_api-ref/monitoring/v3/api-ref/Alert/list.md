@@ -83,7 +83,7 @@ alerts[].<br>channels[] | **object**<br><p>Channels.</p>
 alerts[].<br>channels[].<br>channelId | **string**<br><p>ID of the channel.</p> 
 alerts[].<br>channels[].<br>notifyAboutStatuses[] | **string**<br><ul> <li>EVALUATION_STATUS_OK: OK.</li> <li>EVALUATION_STATUS_WARN: Warning.</li> <li>EVALUATION_STATUS_ALARM: Alarm.</li> <li>EVALUATION_STATUS_NO_DATA: No data.</li> <li>EVALUATION_STATUS_ERROR: Error.</li> </ul> 
 alerts[].<br>channels[].<br>repeatPeriod | **string**<br><p>Repeat notification period in seconds. Zero means no repeating.</p> 
-alerts[].<br>threshold | **object**<br>Threshold alert.<br>
+alerts[].<br>threshold | **object**<br>Threshold alert.
 alerts[].<br>threshold.<br>selectors | **string**<br><p>Selectors that query data to be checked.</p> 
 alerts[].<br>threshold.<br>transformations | **string**<br><p>Transformations to be applied to the data before checking.</p> 
 alerts[].<br>threshold.<br>predicateRules[] | **object**<br><p>A list of predicate rules to test against the data.</p> 

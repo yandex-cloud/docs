@@ -18,10 +18,10 @@ editable: false
  
 Field | Description
 --- | ---
-logGroupId | **string**<br>
-streamName | **string**<br>
+logGroupId | **string**
+streamName | **string**
 createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-message | **string**<br>
+message | **string**
 ingestedAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 savedAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 

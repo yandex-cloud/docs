@@ -34,7 +34,7 @@ formatSchemaName | <p>Required. The maximum string length in characters is 63. V
  
 Field | Description
 --- | ---
-name | **string**<br>
-clusterId | **string**<br>
-type | **string**<br>
-uri | **string**<br>
+name | **string**
+clusterId | **string**
+type | **string**
+uri | **string**

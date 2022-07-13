@@ -40,5 +40,5 @@ pageToken | <p>Page token. Set ``page_token`` to the ``next_page_token`` returne
  
 Field | Description
 --- | ---
-paths[] | **string**<br>
-nextPageToken | **string**<br>
+paths[] | **string**
+nextPageToken | **string**

@@ -45,13 +45,13 @@ filter | <p>The maximum string length in characters is 1000.</p>
  
 Field | Description
 --- | ---
-storages[] | **object**<br>
-storages[].<br>id | **string**<br>
-storages[].<br>folderId | **string**<br>
-storages[].<br>name | **string**<br>
-storages[].<br>description | **string**<br>
-storages[].<br>labels | **object**<br>
+storages[] | **object**
+storages[].<br>id | **string**
+storages[].<br>folderId | **string**
+storages[].<br>name | **string**
+storages[].<br>description | **string**
+storages[].<br>labels | **object**
 storages[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-storages[].<br>objectStorageBucket | **string**<br>
-storages[].<br>usedSize | **string** (int64)<br>
-nextPageToken | **string**<br>
+storages[].<br>objectStorageBucket | **string**
+storages[].<br>usedSize | **string** (int64)
+nextPageToken | **string**

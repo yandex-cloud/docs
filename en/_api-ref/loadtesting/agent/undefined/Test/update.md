@@ -41,11 +41,11 @@ updateMask | **string**<br><p>A comma-separated names off ALL fields to be updat
 name | **string**<br><p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 description | **string**<br><p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
-favorite | **boolean** (boolean)<br>
+favorite | **boolean** (boolean)
 targetVersion | **string**<br><p>The maximum string length in characters is 50.</p> 
-imbalancePoint | **string** (int64)<br>
-imbalanceTs | **string** (int64)<br>
-imbalanceComment | **string**<br>
+imbalancePoint | **string** (int64)
+imbalanceTs | **string** (int64)
+imbalanceComment | **string**
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -84,7 +84,7 @@ createdBy | **string**<br><p>ID of the user or service account who initiated the
 modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
 metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
-error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br><br><p>The error result of the operation in case of failure or cancellation.</p> 
+error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>
 error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
 error.<br>message | **string**<br><p>An error message.</p> 
 error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 

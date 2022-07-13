@@ -16,10 +16,10 @@ editable: false
  
 Field | Description
 --- | ---
-name | **string**<br>
-clusterId | **string**<br>
-type | **string**<br>
-uri | **string**<br>
+name | **string**
+clusterId | **string**
+type | **string**
+uri | **string**
 
 ## Methods {#methods}
 Method | Description

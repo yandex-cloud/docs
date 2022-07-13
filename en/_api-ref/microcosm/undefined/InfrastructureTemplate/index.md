@@ -16,10 +16,10 @@ editable: false
  
 Field | Description
 --- | ---
-id | **string**<br>
-name | **string**<br>
-folderId | **string**<br>
-labels | **object**<br>
+id | **string**
+name | **string**
+folderId | **string**
+labels | **object**
 
 ## Methods {#methods}
 Method | Description

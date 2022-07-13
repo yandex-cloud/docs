@@ -32,6 +32,6 @@ storageTypeId | <p>Required. Required. ID of the storage type to return.</p>
  
 Field | Description
 --- | ---
-id | **string**<br>
-deviceType | **string**<br>
-redundancyType | **string**<br>
+id | **string**
+deviceType | **string**
+redundancyType | **string**

@@ -71,13 +71,13 @@ proxies[].<br>name | **string**<br><p>Required. Name of the proxy.</p> <p>Value 
 proxies[].<br>description | **string**<br><p>Description of the proxy.</p> 
 proxies[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
 proxies[].<br>target | **object**<br><p>MDB specific settings.</p> 
-proxies[].<br>target.<br>clickhouse | **object**<br>Clickhouse settings for proxy. <br>`proxies[].target` includes only one of the fields `clickhouse`, `postgresql`<br><br>
+proxies[].<br>target.<br>clickhouse | **object**<br>Clickhouse settings for proxy. <br>`proxies[].target` includes only one of the fields `clickhouse`, `postgresql`<br>
 proxies[].<br>target.<br>clickhouse.<br>clusterId | **string**<br><p>Required. Cluster identifier for clickhouse.</p> <p>The maximum string length in characters is 50.</p> 
 proxies[].<br>target.<br>clickhouse.<br>user | **string**<br><p>Required. Clickhouse user.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
 proxies[].<br>target.<br>clickhouse.<br>password | **string**<br><p>Clickhouse password, input only field.</p> 
 proxies[].<br>target.<br>clickhouse.<br>db | **string**<br><p>Required. Clickhouse database name.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 proxies[].<br>target.<br>clickhouse.<br>endpoint | **string**<br><p>Clickhouse proxy-host for connection, output only field.</p> 
-proxies[].<br>target.<br>postgresql | **object**<br>PostgreSQL settings for proxy. <br>`proxies[].target` includes only one of the fields `clickhouse`, `postgresql`<br><br>
+proxies[].<br>target.<br>postgresql | **object**<br>PostgreSQL settings for proxy. <br>`proxies[].target` includes only one of the fields `clickhouse`, `postgresql`<br>
 proxies[].<br>target.<br>postgresql.<br>clusterId | **string**<br><p>Required. Cluster identifier for postgresql.</p> <p>The maximum string length in characters is 50.</p> 
 proxies[].<br>target.<br>postgresql.<br>user | **string**<br><p>Required. PostgreSQL user.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 proxies[].<br>target.<br>postgresql.<br>password | **string**<br><p>PostgreSQL password, input only field.</p> 

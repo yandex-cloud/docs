@@ -76,9 +76,9 @@ desktops[].<br>resources | **object**<br><p>Resources of the desktop.</p>
 desktops[].<br>resources.<br>memory | **string** (int64)<br><p>The minimum value is 1.</p> 
 desktops[].<br>resources.<br>cores | **string** (int64)<br><p>The minimum value is 1.</p> 
 desktops[].<br>resources.<br>coreFraction | **string** (int64)<br><p>Acceptable values are 0 to 100, inclusive.</p> 
-desktops[].<br>networkInterfaces[] | **object**<br>
+desktops[].<br>networkInterfaces[] | **object**
 desktops[].<br>networkInterfaces[].<br>networkId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
 desktops[].<br>networkInterfaces[].<br>subnetId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
-desktops[].<br>users[] | **object**<br>
+desktops[].<br>users[] | **object**
 desktops[].<br>users[].<br>subjectId | **string**<br><p>Required. Identity of the access binding.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#query_params">pageSize</a>, use the <a href="/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#responses">nextPageToken</a> as the value for the [ListDesktopsDGS Request.page_token] query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#responses">nextPageToken</a> to continue paging through the results.</p> 

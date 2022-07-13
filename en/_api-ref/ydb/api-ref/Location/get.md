@@ -31,5 +31,5 @@ locationId | <p>Required. Required. ID of the location to return.</p>
  
 Field | Description
 --- | ---
-id | **string**<br>
-description | **string**<br>
+id | **string**
+description | **string**
