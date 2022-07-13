@@ -10,6 +10,7 @@ description: '{{ at-full-name }} позволяет собирать аудит�
 * [Загрузка аудитных логов в бакет](../operations/export-bucket.md).
 {% if product == "yandex-cloud" %}
 * [Загрузка аудитных логов в Cloud Logging](../operations/export-cloud-logging.md).
+* [Загрузка аудитных логов в поток данных](../operations/export-data-streams.md)
 {% endif %}
 
 Сбор аудитных логов позволяет применять инструменты анализа и оперативного реагирования на события уровня сервисов {{ yandex-cloud }}:
@@ -43,6 +44,7 @@ description: '{{ at-full-name }} позволяет собирать аудит�
 {% endif %}
 * {{ network-load-balancer-full-name }}
 * {{ objstorage-full-name }}
+* {{ org-full-name }}
 * {{ resmgr-full-name }}
 * {{ vpc-full-name }}
 {% if product == "yandex-cloud" %}
