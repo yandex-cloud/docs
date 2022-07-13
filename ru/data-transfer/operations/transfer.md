@@ -98,9 +98,20 @@
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    После применения изменений трансфер автоматически активируется.
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-transfer }}).    
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-transfer }}).
+    При создании трансферы типа `INCREMENT_ONLY` и `SNAPSHOT_AND_INCREMENT` активируются и запускаются автоматически.
+    Если вы хотите активировать трансфер типа `SNAPSHOT_ONLY` в момент его создания, то добавьте в конфигурационный файл секцию `provisioner "local-exec"` с командой активации трансфера:
+
+    ```hcl
+       provisioner "local-exec" {
+          command = "yc --profile <профиль> datatransfer transfer activate ${yandex_datatransfer_transfer.<имя Terraform-ресурса трансфера>.id
+       }
+    ``` 
+    
+    В этом случае копирование выполнится только один раз в момент создания трансфера.
+    
+    
 
 {% endlist %}
 

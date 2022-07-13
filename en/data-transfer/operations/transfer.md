@@ -87,9 +87,18 @@ For more information about transfer states, operations applicable to transfers, 
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   A transfer activates automatically after changes are applied.
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-transfer }}).   
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-transfer }}).
+   Transfers of the `INCREMENT_ONLY` and `SNAPSHOT_AND_INCREMENT` types activate and start automatically. 
+   If you want to activate the `SNAPSHOT_ONLY` transfer when creating it, add the `provisioner "local-exec"` section to the configuration file and include the `activate` command into it:
+
+    ```hcl
+       provisioner "local-exec" {
+          command = "yc --profile <profile> datatransfer transfer activate ${yandex_datatransfer_transfer.<Terraform resource transfer name>.id
+       }
+    ``` 
+
+  In this case, snapshot will be performed only once at the moment the transfer is created.
 
 {% endlist %}
 
