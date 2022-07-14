@@ -41,23 +41,37 @@ The connection ID and the entry point are available on the connection page in th
 
 - Node.js
 
-   ```js
-   const pg = require('pg');
+    **index.js**
 
-   module.exports.handler = async function (event, context) {
-       let proxyId = "akfiotqh2mhktdhf7o47"; // Connection ID
-       let proxyEndpoint = "akfiotqh2mhktdhf7o47.postgresql-proxy.serverless.yandexcloud.net:6432"; // Entry point
-       let user = "user1"; // DB user
-       console.log(context.token);
-       let conString = "postgres://" + user + ":" + context.token.access_token + "@" + proxyEndpoint + "/" + proxyId;
+    ```js
+    const pg = require('pg');
 
-       let client = new pg.Client(conString);
-       client.connect();
+    module.exports.handler = async function (event, context) {
+        let proxyId = "akfaf7nqdu**********"; // Connection ID
+        let proxyEndpoint = "akfaf7nqdu**********.postgresql-proxy.serverless.yandexcloud.net:6432"; // Entry point
+        let user = "user1"; // DB user
+        console.log(context.token);
+        let conString = "postgres://" + user + ":" + context.token.access_token + "@" + proxyEndpoint + "/" + proxyId + "?ssl=true";
 
-       let result = await client.query("SELECT 1");
-       return result;
-   };
-   ```
+        let client = new pg.Client(conString);
+        client.connect();
+
+        let result = await client.query("SELECT 1;");
+        return result;
+    };
+    ```
+
+    **package.json**
+
+    ```
+    {
+      "name": "my-app",
+      "version": "1",
+      "dependencies": {
+        "pg": "8.7.3"
+      }
+    }
+    ```
 
 - Python
 
@@ -67,10 +81,10 @@ The connection ID and the entry point are available on the connection page in th
 
    def handler(event, context):
        connection = psycopg2.connect(
-           database="akfiotqh2mhktdhf7o47", # Connection ID
+           database="akfiotqh2m**********", # Connection ID
            user="user1", # DB user
            password=context.token["access_token"],
-           host="akfiotqh2mhktdhf7o47.postgresql-proxy.serverless.yandexcloud.net", # Entry point
+           host="akfiotqh2m**********.postgresql-proxy.serverless.yandexcloud.net", # Entry point
            port=6432,
            sslmode="require")
        cursor = connection.cursor()
@@ -94,10 +108,10 @@ The connection ID and the entry point are available on the connection page in th
    )
 
    const (
-       host   = "akfv6p92v4gug2jncub5.postgresql-proxy.serverless.cloud-preprod.yandex.net" // Entry point
+       host   = "akfv6p92v4**********.postgresql-proxy.serverless.cloud-preprod.yandex.net" // Entry point
        port   = 6432
        user   = "user1" // DB user
-       dbname = "akfv6p92v4gug2jncub5" // Connection ID
+       dbname = "akfv6p92v4**********" // Connection ID
    )
 
    type Response struct {
@@ -155,8 +169,8 @@ The connection ID and the entry point are available on the connection page in th
        const querystring = require('querystring');
        const fs = require('fs');
 
-       const DB_HOST = "akfd3bhqk359oltp8ejc.clickhouse-proxy.serverless.yandexcloud.net"; // Entry point
-       const DB_NAME = "akfd3bhqk359oltp8ejc"; // Connection ID
+       const DB_HOST = "akfd3bhqk3**********.clickhouse-proxy.serverless.yandexcloud.net"; // Entry point
+       const DB_NAME = "akfd3bhqk3**********"; // Connection ID
        const DB_USER = "user1"; // DB user
        const DB_PASS = context.token.access_token;
 
@@ -202,8 +216,8 @@ The connection ID and the entry point are available on the connection page in th
 
    def handler(event, context):
        url = 'https://{host}:8443/?database={db}&query={query}'.format(
-           host='akfd3bhqk359oltp8ejc.clickhouse-proxy.serverless.yandexcloud.net', # Entry point
-           db='akfd3bhqk359oltp8ejc', # Connection ID
+           host='akfd3bhqk3**********.clickhouse-proxy.serverless.yandexcloud.net', # Entry point
+           db='akfd3bhqk3**********', # Connection ID
            query='SELECT version()')
 
        auth = {
@@ -254,8 +268,8 @@ The connection ID and the entry point are available on the connection page in th
 
    // Connecting to DB
    func Handler(ctx context.Context) (*Response, error) {
-     const DB_HOST =  "akfd3bhqk359oltp8ejc.clickhouse-proxy.serverless.yandexcloud.net" // Entry point
-     const DB_NAME = "akfd3bhqk359oltp8ejc" // Connection ID
+     const DB_HOST =  "akfd3bhqk3**********.clickhouse-proxy.serverless.yandexcloud.net" // Entry point
+     const DB_NAME = "akfd3bhqk3**********" // Connection ID
      const DB_USER = "user1" // DB user
      DB_PASS := getToken(ctx)
 

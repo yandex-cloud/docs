@@ -41,22 +41,36 @@
 
 - Node.js
 
+    **index.js**
+
     ```js
     const pg = require('pg');
 
     module.exports.handler = async function (event, context) {
-        let proxyId = "akfiotqh2mhktdhf7o47"; // Идентификатор подключения
-        let proxyEndpoint = "akfiotqh2mhktdhf7o47.postgresql-proxy.serverless.yandexcloud.net:6432"; // Точка входа
+        let proxyId = "akfaf7nqdu**********"; // Идентификатор подключения
+        let proxyEndpoint = "akfaf7nqdu**********.postgresql-proxy.serverless.yandexcloud.net:6432"; // Точка входа
         let user = "user1"; // Пользователь БД
         console.log(context.token);
-        let conString = "postgres://" + user + ":" + context.token.access_token + "@" + proxyEndpoint + "/" + proxyId;
+        let conString = "postgres://" + user + ":" + context.token.access_token + "@" + proxyEndpoint + "/" + proxyId + "?ssl=true";
 
         let client = new pg.Client(conString);
         client.connect();
 
-        let result = await client.query("SELECT 1");
+        let result = await client.query("SELECT 1;");
         return result;
     };
+    ```
+
+    **package.json**
+
+    ```
+    {
+      "name": "my-app",
+      "version": "1",
+      "dependencies": {
+        "pg": "8.7.3"
+      }
+    }
     ```
 
 - Python
@@ -67,10 +81,10 @@
 
     def handler(event, context):
         connection = psycopg2.connect(
-            database="akfiotqh2mhktdhf7o47", # Идентификатор подключения
+            database="akfiotqh2m**********", # Идентификатор подключения
             user="user1", # Пользователь БД
             password=context.token["access_token"],
-            host="akfiotqh2mhktdhf7o47.postgresql-proxy.serverless.yandexcloud.net", # Точка входа
+            host="akfiotqh2m**********.postgresql-proxy.serverless.yandexcloud.net", # Точка входа
             port=6432,
             sslmode="require")
         cursor = connection.cursor()
@@ -94,10 +108,10 @@
     )
 
     const (
-        host   = "akfv6p92v4gug2jncub5.postgresql-proxy.serverless.cloud-preprod.yandex.net" // Точка входа
+        host   = "akfv6p92v4**********.postgresql-proxy.serverless.cloud-preprod.yandex.net" // Точка входа
         port   = 6432
         user   = "user1" // Пользователь БД
-        dbname = "akfv6p92v4gug2jncub5" // Идентификатор подключения
+        dbname = "akfv6p92v4**********" // Идентификатор подключения
     )
 
     type Response struct {
@@ -155,8 +169,8 @@
         const querystring = require('querystring');
         const fs = require('fs');
 
-        const DB_HOST = "akfd3bhqk359oltp8ejc.clickhouse-proxy.serverless.yandexcloud.net"; // Точка входа
-        const DB_NAME = "akfd3bhqk359oltp8ejc"; // Идентификатор подключения
+        const DB_HOST = "akfd3bhqk3**********.clickhouse-proxy.serverless.yandexcloud.net"; // Точка входа
+        const DB_NAME = "akfd3bhqk3**********"; // Идентификатор подключения
         const DB_USER = "user1"; // Пользователь БД
         const DB_PASS = context.token.access_token;
 
@@ -202,8 +216,8 @@
 
     def handler(event, context):
         url = 'https://{host}:8443/?database={db}&query={query}'.format(
-            host='akfd3bhqk359oltp8ejc.clickhouse-proxy.serverless.yandexcloud.net', # Точка входа
-            db='akfd3bhqk359oltp8ejc', # Идентификатор подключения
+            host='akfd3bhqk3**********.clickhouse-proxy.serverless.yandexcloud.net', # Точка входа
+            db='akfd3bhqk3**********', # Идентификатор подключения
             query='SELECT version()')
 
         auth = {
@@ -254,8 +268,8 @@
 
     // Подключение к БД
     func Handler(ctx context.Context) (*Response, error) {
-      const DB_HOST =  "akfd3bhqk359oltp8ejc.clickhouse-proxy.serverless.yandexcloud.net" // Точка входа
-      const DB_NAME = "akfd3bhqk359oltp8ejc" // Идентификатор подключения
+      const DB_HOST =  "akfd3bhqk3**********.clickhouse-proxy.serverless.yandexcloud.net" // Точка входа
+      const DB_NAME = "akfd3bhqk3**********" // Идентификатор подключения
       const DB_USER = "user1" // Пользователь БД
       DB_PASS := getToken(ctx)
 
