@@ -10,9 +10,9 @@ When creating a {{ k8s }} cluster, specify one of three release channels. You ca
 
 Channel | {{ k8s }} versions | Automatic updates | Channel description
 --- | --- | --- | ---
-`rapid` | 1.17, 1.18, 1.19, 1.20, and 1.21 | Can't disable automatic updates. Can specify a time period for automatic updates. | Contains the latest versions of {{ k8s }}. Minor updates with new functions and improvements are often added.
-`regular` | 1.17, 1.18, 1.19, 1.20, and 1.21 | Can disable automatic updates. | Contains different versions of {{ k8s }}. New functions and improvements are added in chunks shortly after they appear on `rapid`.
-`stable` | 1.17, 1.18, 1.19, 1.20, and 1.21 | Can disable automatic updates. | Contains the stable version of {{ k8s }}. Only updates related to bug fixes or security improvements are added to the channel.
+`rapid` | 1.18, 1.19, 1.20, 1.21, and 1.22 | Can't disable automatic updates. Can specify a time period for automatic updates. | Contains the latest versions of {{ k8s }}. Minor updates with new functions and improvements are often added.
+`regular` | 1.18, 1.19, 1.20, and 1.21 | Can disable automatic updates. | Contains different versions of {{ k8s }}. New functions and improvements are added in chunks shortly after they appear on `rapid`.
+`stable` | 1.18, 1.19, 1.20, and 1.21 | Can disable automatic updates. | Contains the stable version of {{ k8s }}. Only updates related to bug fixes or security improvements are added to the channel.
 
 ## Updates {#updates}
 
