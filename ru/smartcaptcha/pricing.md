@@ -11,7 +11,7 @@ editable: false
 
 ## Из чего будет складываться стоимость использования {{ captcha-full-name }} {#rules}
 
-Тарифицируется количество запросов на валидацию к API {{ captcha-name }}.
+Тарифицируются [запросы к API {{ captcha-name }}](./quickstart.md#check-answer) по адресу `https://captcha-api.yandex.ru/validate`.
 
 
 ## Цены {#prices}
