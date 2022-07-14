@@ -17,6 +17,10 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% include [ms-additional-data-note](../includes/ms-additional-data-note.md) %}
 
+If you have an active billing account, you can create or select a folder to run your VM in on the [cloud page]{% if lang == "ru" %}(https://console.cloud.yandex.ru/cloud){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/cloud){% endif %}.
+
+[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+
 {% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
@@ -133,7 +137,7 @@ Prepare the network infrastructure to host the availability group:
       1. Open the **Virtual Private Cloud** section in the folder to create the subnets in.
       1. Select the `ya-network` network.
       1. Click ![image](../../_assets/plus.svg)**Create subnet**.
-      1. Fill out the form: enter the `ya-subnet-general` subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
+      1. Fill out the form: enter the `ya-subnet-general` subnet name and select the `ru-central1-a` availability zone from the drop-down list.
       1. Enter the subnet CIDR: IP address and subnet mask: `10.0.0.0/28`.
       1. Click **Create subnet**.
 
@@ -156,7 +160,7 @@ Prepare the network infrastructure to host the availability group:
       yc vpc subnet create \
          --name ya-subnet-general \
          --network-name ya-network \
-         --zone {{ region-id }}-a \
+         --zone ru-central1-a \
          --route-table-name mssql \
          --range 10.0.0.0/28
       ```
@@ -165,7 +169,7 @@ Prepare the network infrastructure to host the availability group:
       yc vpc subnet create \
          --name ya-subnet-alwayson1 \
          --network-name ya-network \
-         --zone {{ region-id }}-a \
+         --zone ru-central1-a \
          --route-table-name mssql \
          --range 10.0.0.16/28
       ```
@@ -174,7 +178,7 @@ Prepare the network infrastructure to host the availability group:
       yc vpc subnet create \
          --name ya-subnet-alwayson2 \
          --network-name ya-network \
-         --zone {{ region-id }}-a \
+         --zone ru-central1-a \
          --route-table-name mssql \
          --range 10.0.0.32/28
       ```
@@ -183,7 +187,7 @@ Prepare the network infrastructure to host the availability group:
       yc vpc subnet create \
          --name ya-subnet-alwayson3 \
          --network-name ya-network \
-         --zone {{ region-id }}-a \
+         --zone ru-central1-a \
          --route-table-name mssql \
          --range 10.0.0.48/28
       ```
@@ -194,7 +198,7 @@ Prepare the network infrastructure to host the availability group:
       yc vpc subnet create `
          --name ya-subnet-general `
          --network-name ya-network `
-         --zone {{ region-id }}-a `
+         --zone ru-central1-a `
          --route-table-name mssql `
          --range 10.0.0.0/28
       ```
@@ -203,7 +207,7 @@ Prepare the network infrastructure to host the availability group:
       yc vpc subnet create `
          --name ya-subnet-alwayson1 `
          --network-name ya-network `
-         --zone {{ region-id }}-a `
+         --zone ru-central1-a `
          --route-table-name mssql `
          --range 10.0.0.16/28
       ```
@@ -212,7 +216,7 @@ Prepare the network infrastructure to host the availability group:
       yc vpc subnet create `
          --name ya-subnet-alwayson2 `
          --network-name ya-network `
-         --zone {{ region-id }}-a `
+         --zone ru-central1-a `
          --route-table-name mssql `
          --range 10.0.0.32/28
       ```
@@ -221,7 +225,7 @@ Prepare the network infrastructure to host the availability group:
       yc vpc subnet create `
          --name ya-subnet-alwayson3 `
          --network-name ya-network `
-         --zone {{ region-id }}-a `
+         --zone ru-central1-a `
          --route-table-name mssql `
          --range 10.0.0.48/28
       ```
@@ -277,7 +281,7 @@ The `setpass` file must be in UTF-8 encoding.
 
 The set password is only used for testing. Use your own complex password when deploying a cluster to work in a product environment.
 
-The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочные-материалы).
+The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements).
 
 Read more about the best practices for securing Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
@@ -287,7 +291,7 @@ Read more about the best practices for securing Active Directory on the [officia
 
 #### Create a VM for a bastion host {#create-jump-server}
 
-Create a bastion host with [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) from {{ marketplace-name }} and a public IP address to access other VMs:
+Create a bastion host with a public IP address to access other VMs:
 
 {% list tabs %}
 
@@ -299,7 +303,7 @@ Create a bastion host with [Windows Server 2019 Datacenter](/marketplace/product
        --hostname jump-server-vm \
        --memory 4 \
        --cores 2 \
-       --zone {{ region-id }}-a \
+       --zone ru-central1-a \
        --network-interface subnet-name=ya-subnet-general,nat-ip-version=ipv4 \
        --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-gvlk \
        --metadata-from-file user-data=setpass
@@ -313,7 +317,7 @@ Create a bastion host with [Windows Server 2019 Datacenter](/marketplace/product
      --hostname jump-server-vm `
      --memory 4 `
      --cores 2 `
-     --zone {{ region-id }}-a `
+     --zone ru-central1-a `
      --network-interface subnet-name=ya-subnet-general,nat-ip-version=ipv4 `
      --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-gvlk `
      --metadata-from-file user-data=setpass
@@ -323,7 +327,7 @@ Create a bastion host with [Windows Server 2019 Datacenter](/marketplace/product
 
 #### Create a VM for Active Directory {#create-ad-controller}
 
-Create a VM with [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) from {{ marketplace-name }} to install Active Directory:
+Create a VM to install Active Directory:
 
 {% list tabs %}
 
@@ -333,7 +337,7 @@ Create a VM with [Windows Server 2019 Datacenter](/marketplace/products/yc/windo
    yc compute instance create \
       --name ya-ad \
       --hostname ya-ad \
-      --zone {{ region-id }}-a \
+      --zone ru-central1-a \
       --memory 6 \
       --cores 2 \
       --metadata-from-file user-data=setpass \
@@ -349,7 +353,7 @@ Create a VM with [Windows Server 2019 Datacenter](/marketplace/products/yc/windo
    yc compute instance create `
       --name ya-ad `
       --hostname ya-ad `
-      --zone {{ region-id }}-a `
+      --zone ru-central1-a `
       --memory 6 `
       --cores 2 `
       --metadata-from-file user-data=setpass `
@@ -363,7 +367,7 @@ Create a VM with [Windows Server 2019 Datacenter](/marketplace/products/yc/windo
 
 #### Create a VM for MSSQL servers {#create-ad-server}
 
-Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) from {{ marketplace-name }} for MSSQL servers:
+Create three VMs for MSSQL servers:
 
 {% list tabs %}
 
@@ -373,7 +377,7 @@ Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/
    yc compute instance create \
       --name ya-mssql1 \
       --hostname ya-mssql1 \
-      --zone {{ region-id }}-a \
+      --zone ru-central1-a \
       --memory 16 \
       --cores 4 \
       --metadata-from-file user-data=setpass \
@@ -389,7 +393,7 @@ Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/
    yc compute instance create \
       --name ya-mssql2 \
       --hostname ya-mssql2 \
-      --zone {{ region-id }}-a \
+      --zone ru-central1-a \
       --memory 16 \
       --cores 4 \
       --metadata-from-file user-data=setpass \
@@ -405,7 +409,7 @@ Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/
    yc compute instance create \
       --name ya-mssql3 \
       --hostname ya-mssql3 \
-      --zone {{ region-id }}-a \
+      --zone ru-central1-a \
       --memory 16 \
       --cores 4 \
       --metadata-from-file user-data=setpass \
@@ -423,7 +427,7 @@ Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/
    yc compute instance create `
     --name ya-mssql1 `
     --hostname ya-mssql1 `
-    --zone {{ region-id }}-a `
+    --zone ru-central1-a `
     --memory 16 `
     --cores 4 `
     --metadata-from-file user-data=setpass `
@@ -439,7 +443,7 @@ Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/
    yc compute instance create `
       --name ya-mssql2 `
       --hostname ya-mssql2 `
-      --zone {{ region-id }}-a `
+      --zone ru-central1-a `
       --memory 16 `
       --cores 4 `
       --metadata-from-file user-data=setpass `
@@ -455,7 +459,7 @@ Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/
    yc compute instance create `
     --name ya-mssql3 `
     --hostname ya-mssql3 `
-    --zone {{ region-id }}-a `
+    --zone ru-central1-a `
     --memory 16 `
     --cores 4 `
     --metadata-from-file user-data=setpass `
@@ -508,11 +512,11 @@ Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/
    - PowerShell
 
       ```powershell
-      Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName '{{ region-id }}-a'
-      New-ADReplicationSubnet -Name '10.0.0.0/28' -Site '{{ region-id }}-a'
-      New-ADReplicationSubnet -Name '10.0.0.16/28' -Site '{{ region-id }}-a'
-      New-ADReplicationSubnet -Name '10.0.0.32/28' -Site '{{ region-id }}-a'
-      New-ADReplicationSubnet -Name '10.0.0.48/28' -Site '{{ region-id }}-a'
+      Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName 'ru-central1-a'
+      New-ADReplicationSubnet -Name '10.0.0.0/28'  -Site 'ru-central1-a'
+      New-ADReplicationSubnet -Name '10.0.0.16/28' -Site 'ru-central1-a'
+      New-ADReplicationSubnet -Name '10.0.0.32/28' -Site 'ru-central1-a'
+      New-ADReplicationSubnet -Name '10.0.0.48/28' -Site 'ru-central1-a'
       ```
 
    {% endlist %}
@@ -600,10 +604,10 @@ Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/
       ```powershell
       setspn -A MSSQLSvc/ya-mssql1.yantoso.net:1433 yantoso\mssql-svc
       setspn -A MSSQLSvc/ya-mssql1.yantoso.net yantoso\mssql-svc
-
+      
       setspn -A MSSQLSvc/ya-mssql2.yantoso.net:1433 yantoso\mssql-svc
       setspn -A MSSQLSvc/ya-mssql2.yantoso.net yantoso\mssql-svc
-
+      
       setspn -A MSSQLSvc/ya-mssql3.yantoso.net:1433 yantoso\mssql-svc
       setspn -A MSSQLSvc/ya-mssql3.yantoso.net yantoso\mssql-svc
       ```
@@ -775,38 +779,38 @@ Install MSSQL on database servers:
 
       ```powershell
       & secedit /export /cfg sec_conf_export.ini /areas user_rights
-
+      
       $secConfig = Get-Content sec_conf_export.ini | Select-Object -SkipLast 3
       $versionSection = Get-Content sec_conf_export.ini | Select-Object -Last 3
-
+      
       $SID = Get-WmiObject `
         -Class Win32_UserAccount `
         -Filter "name='mssql-svc' and domain='yantoso'" | `
           Select-Object -ExpandProperty SID
-
+      
       $isSeManageVolumePrivilegeDefined = $secConfig | `
         Select-String SeManageVolumePrivilege
-
+      
       if ($isSeManageVolumePrivilegeDefined) {
         $secConfig = $secConfig -replace '^SeManageVolumePrivilege .+', "`$0,*$SID"
       } else {
         $secConfig = $secConfig + "SeManageVolumePrivilege = *$SID"
       }
-
+      
       $isSeLockMemoryPrivilegeDefined = $secConfig | `
         Select-String SeLockMemoryPrivilege
-
+      
       if ($isSeLockMemoryPrivilegeDefined) {
         $secConfig = $secConfig -replace '^SeLockMemoryPrivilege .+', "`$0,*$SID"
       } else {
         $secConfig = $secConfig + "SeLockMemoryPrivilege = *$SID"
       }
-
+      
       $secConfig = $secConfig + $versionSection
       $secConfig | Set-Content sec_conf_import.ini
-
+      
       secedit /configure /db secedit.sdb /cfg sec_conf_import.ini /areas user_rights
-
+      
       Remove-Item sec_conf_import.ini
       Remove-Item sec_conf_export.ini
       ```
@@ -827,14 +831,14 @@ Install MSSQL on database servers:
        -LocalPort 1433 `
        -Action "Allow" `
        -Protocol "TCP"
-
+      
       New-NetFirewallRule `
        -Group "MSSQL" `
        -DisplayName "MSSQL AAG Default" `
        -Name "MSSQLAAG-In-TCP" `
        -LocalPort 5022 `
        -Action "Allow" `
-       -Protocol "TCP"
+       -Protocol "TCP" 
       ```
 
    {% endlist %}
@@ -930,27 +934,27 @@ Install MSSQL on database servers:
         -LoginType "WindowsUser" `
         -Enable `
         -GrantConnectSql
-
+      
       Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default" `
         -LoginName "yantoso\mssql-svc" `
         -LoginType "WindowsUser" `
         -Enable `
         -GrantConnectSql
-
+      
       Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default" `
         -LoginName "yantoso\mssql-svc" `
         -LoginType "WindowsUser" `
         -Enable `
         -GrantConnectSql
-
+      
       $mssql1 = Get-Item "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default"
       $mssql1.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
       $mssql1.Roles['sysadmin'].Alter()
-
+      
       $mssql2 = Get-Item "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default"
       $mssql2.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
       $mssql2.Roles['sysadmin'].Alter()
-
+      
       $mssql3 = Get-Item "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default"
       $mssql3.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
       $mssql3.Roles['sysadmin'].Alter()
@@ -985,21 +989,21 @@ Install MSSQL on database servers:
        -Encryption Supported -EncryptionAlgorithm Aes `
        -Name AlwaysonEndpoint `
        -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default"
-
+      
       Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
-
+      
       New-SqlHADREndpoint -Port 5022 -Owner sa `
           -Encryption Supported -EncryptionAlgorithm Aes `
           -Name AlwaysonEndpoint `
           -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default"
-
+      
       Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
-
+      
       New-SqlHADREndpoint -Port 5022 -Owner sa `
           -Encryption Supported -EncryptionAlgorithm Aes `
           -Name AlwaysonEndpoint `
           -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default"
-
+      
       Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
       ```
 
@@ -1018,14 +1022,14 @@ Install MSSQL on database servers:
        -FailoverMode "Automatic" `
        -AvailabilityMode "SynchronousCommit" `
        -AsTemplate -Version 13
-
+      
       $SecondaryReplica = New-SqlAvailabilityReplica `
           -Name ya-mssql2 `
           -EndpointUrl "TCP://ya-mssql2.yantoso.net:5022" `
           -FailoverMode "Automatic" `
           -AvailabilityMode "SynchronousCommit" `
           -AsTemplate -Version 13
-
+      
       $ThirdReplica = New-SqlAvailabilityReplica `
           -Name ya-mssql3 `
           -EndpointUrl "TCP://ya-mssql3.yantoso.net:5022" `
@@ -1102,11 +1106,11 @@ Install MSSQL on database servers:
 
       ```powershell
       New-SMBShare -Name SQLBackup -Path "X:\BACKUP" -FullAccess "yantoso\mssql-backups-grp"
-
+      
       $Acl = Get-Acl "X:\BACKUP"
       $AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("yantoso\mssql-backups-grp","Read", "ContainerInherit, ObjectInherit", "None", "Allow")
       $Acl.AddAccessRule($AccessRule)
-
+      
       $Acl | Set-Acl "X:\BACKUP"
       ```
 
@@ -1123,9 +1127,9 @@ Install MSSQL on database servers:
           -Database "MyDatabase" -Initialize `
           -BackupFile "MyDatabase.bak" `
           -ServerInstance "ya-mssql1.yantoso.net"
-
+      
       Backup-SqlDatabase `
-          -Database "MyDatabase" -Initialize `
+          -Database "MyDatabase"  -Initialize `
           -BackupFile "MyDatabase.log" `
           -ServerInstance "ya-mssql1.yantoso.net" `
           -BackupAction Log
@@ -1145,7 +1149,7 @@ Install MSSQL on database servers:
           -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.bak" `
           -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default" `
           -NORECOVERY
-
+      
       Restore-SqlDatabase `
           -Database "MyDatabase" `
           -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.log" `
@@ -1168,7 +1172,7 @@ Install MSSQL on database servers:
           -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.bak" `
           -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default" `
           -NORECOVERY
-
+      
       Restore-SqlDatabase `
           -Database "MyDatabase" `
           -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.log" `
@@ -1189,11 +1193,11 @@ Install MSSQL on database servers:
       Add-SqlAvailabilityDatabase `
        -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default\AvailabilityGroups\MyAG" `
        -Database "MyDatabase"
-
+      
       Add-SqlAvailabilityDatabase `
           -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default\AvailabilityGroups\MyAG" `
           -Database "MyDatabase"
-
+      
       Add-SqlAvailabilityDatabase `
           -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default\AvailabilityGroups\MyAG" `
           -Database "MyDatabase"
@@ -1229,7 +1233,7 @@ Install MSSQL on database servers:
         New-Object System.Management.Automation.PSCredential (
           'yantoso\Administrator', `
           ('QWErty123' | ConvertTo-SecureString -AsPlainText -Force))
-
+      
       Add-Computer -DomainCredential $domain_credential -DomainName 'yantoso.net' -Restart -Force
       ```
 
@@ -1266,7 +1270,7 @@ Install MSSQL on database servers:
 
       ```powershell
       Invoke-Sqlcmd -ServerInstance 'mylistener.yantoso.net' -Query @"
-      INSERT INTO MyDatabase.dbo.test (test_name)
+      INSERT INTO MyDatabase.dbo.test (test_name) 
       VALUES ('one')
       "@
       ```
@@ -1283,7 +1287,7 @@ Install MSSQL on database servers:
       Invoke-Sqlcmd -ServerInstance 'mylistener.yantoso.net' -Query "SELECT * FROM MyDatabase.dbo.test"
       ```
 
-      Output:
+      Result:
       ```powershell
       test_id test_name
       ------- ---------
@@ -1302,7 +1306,7 @@ Install MSSQL on database servers:
       Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'mylistener.yantoso.net'
       ```
 
-      Output:
+      Result:
       ```powershell
       Column1
       -------
@@ -1334,7 +1338,7 @@ Install MSSQL on database servers:
       Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'mylistener.yantoso.net'
       ```
 
-      Output:
+      Result:
       ```powershell
       Column1
       -------
@@ -1351,7 +1355,7 @@ Install MSSQL on database servers:
 
       ```powershell
       Invoke-Sqlcmd -ServerInstance 'mylistener.yantoso.net' -Query @"
-      INSERT INTO MyDatabase.dbo.test (test_name)
+      INSERT INTO MyDatabase.dbo.test (test_name) 
       VALUES ('two')
       "@
       ```
@@ -1368,7 +1372,7 @@ Install MSSQL on database servers:
       Invoke-Sqlcmd -ServerInstance 'mylistener.yantoso.net' -Query "SELECT * FROM MyDatabase.dbo.test"
       ```
 
-      Output:
+      Result:
       ```powershell
       test_id test_name
       ------- ---------
