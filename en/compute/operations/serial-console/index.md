@@ -57,7 +57,6 @@ To enable access to the serial console when creating a VM, set the `serial-port-
         --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
         --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts \
         --metadata-from-file ssh-keys=sshkeys.txt \
-        --ssh-key ~/.ssh/<public key name>.pub \
         --metadata serial-port-enable=1
       ```
 
@@ -224,7 +223,7 @@ If you created the VM before February 22, 2019, you need to update the Windows r
 
 1. [Connect to the VM via RDP](../vm-connect/rdp.md).
 
-1. To do this, run `cmd` or PowerShell and execute the following commands:
+1. To do this, run a command prompt or PowerShell and execute:
 
    ```
    bcdedit /ems "{current}" on
@@ -235,8 +234,6 @@ If you created the VM before February 22, 2019, you need to update the Windows r
    ```
 
 1. Restart the VM.
-
-{% endlist %}
 
 Learn more about the [terminal in the Windows serial console (SAC)](windows-sac.md).
 
