@@ -18,7 +18,7 @@ Use the `"Transfer-Encoding: chunked"` header for data streaming.
 | rawResults | **boolean** <br>Flag that indicates how to write numbers. `true`: In words. `false` (by default): In numbers. |
 | format | **string**<br>The [format](../../formats.md) of the synthesized audio.<br/>Acceptable values:<ul><li>`lpcm`: [LPCM with no WAV header](../../formats.md#lpcm).</li><li>`oggopus` (default): [OggOpus](../../formats.md#oggopus).</li></ul> |
 | sampleRateHertz | **string**<br>The sampling frequency of the submitted audio.<br/>Used if `format` is set to `lpcm`. Acceptable values:<ul><li>`48000` (default): Sampling rate of 48 kHz.</li><li>`16000`: Sampling rate of 16 kHz.</li><li>`8000`: Sampling rate of 8 kHz.</li></ul> |
-| folderId | **string**<br><p>[ID of the folder](../../../resource-manager/operations/folder/get-id.md) that you have access to. Required for authorization with a user account (see the [{#T}](../../api-ref/authentication.md) resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
+| folderId | **string**<br><p>[ID of the folder](../../../resource-manager/operations/folder/get-id.md) that you have access to. Required for authorization with a user account (see the [{#T}](../../concepts/auth.md) resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
 
 ### Parameters in the request body {#body_params}
 

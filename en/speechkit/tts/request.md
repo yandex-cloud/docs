@@ -5,7 +5,7 @@ Generates (synthesizes) speech from received text.
 ## HTTP request {#http_request}
 
 ```
-POST https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
+POST https://tts.{{ api-host }}/speech/v1/tts:synthesize
 ```
 
 ## Parameters in the request body {#body_params}
@@ -23,7 +23,7 @@ All parameters must be URL-encoded. The maximum size of the POST request body is
 | speed | **string**<br>The rate (speed) of synthesized speech.<br/>The rate of speech is set as a decimal number in the range from `0.1` to `3.0`. Where:<ul><li>`3.0`: Fastest rate.</li><li>`1.0` (default): Average human speech rate.</li><li>`0.1`: Slowest speech rate.</li></ul> |
 | format | **string**<br>The format of the synthesized audio.<br/>Acceptable values:<ul><li>`lpcm`: The audio file is synthesized in [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format with no WAV header. Audio features:<ul><li>Sampling: 8, 16, or 48 kHz, depending on the `sampleRateHertz` value.</li><li>Bit depth: 16-bit.</li><li>Byte order: Reversed (little-endian).</li><li>Audio data is stored as signed integers.</li></ul></li><li>`oggopus` (default): Data in the audio file is encoded using the OPUS audio codec and compressed in an OGG container ([OggOpus](https://wiki.xiph.org/OggOpus)).</li> <li>`mp3`: Data in an audio file is encoded with the MPEG-1/2/2.5 Layer III audio codec and packaged in an [MP3]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/MP3){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/MP3){% endif %} container.</li></ul> |
 | sampleRateHertz | **string**<br>The sampling frequency of the synthesized audio.<br/>Used if `format` is set to `lpcm`. Acceptable values:<ul><li>`48000` (default): Sampling rate of 48 kHz.</li><li>`16000`: Sampling rate of 16 kHz.</li><li>`8000`: Sampling rate of 8 kHz.</li></ul> |
-| folderId | **string**<br><p>[ID of the folder](../../resource-manager/operations/folder/get-id.md) that you have access to. Required for authorization with a user account (see the [{#T}](../api-ref/authentication.md) resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
+| folderId | **string**<br><p>[ID of the folder](../../resource-manager/operations/folder/get-id.md) that you have access to. Required for authorization with a user account (see the [{#T}](../concepts/auth.md) resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
 
 ## Response {#response}
 
@@ -60,7 +60,7 @@ Run the request indicating the [folder ID](../../resource-manager/operations/fol
       -H "Authorization: Bearer ${IAM_TOKEN}" \
       --data-urlencode "text=${TEXT}" \
       -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}" \
-     "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
+     "https://tts.{{ api-host }}/speech/v1/tts:synthesize" > speech.ogg
    ```
 
 - C#
@@ -90,13 +90,13 @@ Run the request indicating the [folder ID](../../resource-manager/operations/fol
          client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
          var values = new Dictionary<string, string>
          {
-           { "text", "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!" },
+           { "text", "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too! },
            { "lang", "ru-RU" },
            { "voice", "filipp" },
            { "folderId", folderId }
          };
          var content = new FormUrlEncodedContent(values);
-         var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
+         var response = await client.PostAsync("https://tts.{{ api-host }}/speech/v1/tts:synthesize", content);
          var responseBytes = await response.Content.ReadAsByteArrayAsync();
          File.WriteAllBytes("speech.ogg", responseBytes);
        }
@@ -114,7 +114,7 @@ Run the request indicating the [folder ID](../../resource-manager/operations/fol
 
 
       def synthesize(folder_id, iam_token, text):
-          url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
+          url = 'https://tts.{{ api-host }}/speech/v1/tts:synthesize'
           headers = {
               'Authorization': 'Bearer ' + iam_token,
           }
@@ -152,7 +152,7 @@ Run the request indicating the [folder ID](../../resource-manager/operations/fol
       ```bash
       export FOLDER_ID=<folder ID>
       export IAM_TOKEN=<IAM token>
-      python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.ogg --text "I'm Yandex Sp+eechKit. I can turn any text into speech. Now y+ou can, too!"
+      python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.ogg --text "I'm Yandex Sp+eechKit. I can turn any text into speech. Now y+ou can, too!
       ```
 
 - PHP
@@ -163,7 +163,7 @@ Run the request indicating the [folder ID](../../resource-manager/operations/fol
    $token = '<IAM token>'; # Specify an IAM token.
    $folderId = "<folder ID>"; # Specify a folder ID.
 
-   $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
+   $url = "https://tts.{{ api-host }}/speech/v1/tts:synthesize";
    $headers = ['Authorization: Bearer ' . $token];
    $post = array(
        'text' => "I'm Yandex Sp+eech kit. I can turn any text into speech. Now y+ou can, too!",
@@ -226,7 +226,7 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
         -o speech.raw \
         --data-urlencode "text=${TEXT}" \
         -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000" \
-        https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
+        https://tts.{{ api-host }}/speech/v1/tts:synthesize
       ```
 
    - C#
@@ -264,7 +264,7 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
               { "sampleRateHertz", "48000" }
             };
             var content = new FormUrlEncodedContent(values);
-            var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
+            var response = await client.PostAsync("https://tts.{{ api-host }}/speech/v1/tts:synthesize", content);
             var responseBytes = await response.Content.ReadAsByteArrayAsync();
             File.WriteAllBytes("speech.raw", responseBytes);
           }
@@ -282,7 +282,7 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
 
 
          def synthesize(folder_id, iam_token, text):
-             url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
+             url = 'https://tts.{{ api-host }}/speech/v1/tts:synthesize'
              headers = {
                  'Authorization': 'Bearer ' + iam_token,
              }
@@ -322,7 +322,7 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
          ```bash
          export FOLDER_ID=<folder ID>
          export IAM_TOKEN=<IAM token>
-         python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.raw --text "I'm Yandex SpeechK+it. I can turn any text into speech. Now y+ou can, too!"
+         python test.py --token ${IAM_TOKEN} --folder_id ${FOLDER_ID} --output speech.raw --text "I'm Yandex SpeechK+it. I can turn any text into speech. Now y+ou can, too!
          ```
 
    - PHP
@@ -333,7 +333,7 @@ In this example, we synthesize the submitted text in LPCM format with a sampling
       $token = '<IAM token>'; # Specify an IAM token.
       $folderId = "<folder ID>"; # Specify a folder ID.
 
-      $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
+      $url = "https://tts.{{ api-host }}/speech/v1/tts:synthesize";
       $headers = ['Authorization: Bearer ' . $token];
       $post = array(
           'text' => "I'm Yandex Sp+eech kit. I can turn any text into speech. Now y+ou can, too!",
@@ -402,7 +402,7 @@ The text is synthesized and recorded as an audio file. By default, data in the a
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         --data-urlencode "ssml=`cat text.xml`" \
         -d "lang=ru-RU&folderId=${FOLDER_ID}" \
-        "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
+        "https://tts.{{ api-host }}/speech/v1/tts:synthesize" > speech.ogg
       ```
 
 {% endlist %}
