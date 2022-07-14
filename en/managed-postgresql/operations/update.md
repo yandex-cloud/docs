@@ -505,6 +505,8 @@ You can change the DBMS settings of the hosts in your cluster.
    {% endif %}
    {% endif %}
 
+   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+
 {% endlist %}
 
 ## Switching the master {#start-manual-failover}

@@ -119,6 +119,13 @@ items:
         href: dataplatform/index.md
       - name: Syncing MySQL data using {{ data-transfer-full-name }}
         href: dataplatform/sync-mysql.md
+      - name: Migrating databases from {{ mmy-full-name }} to {{ MY }}
+        href: dataplatform/mmy-to-mysql-migration.md
+      - name: Configuring a managed databased in a {{ CH }} cluster for Graphite
+        href: dataplatform/clickhouse-for-graphite.md
+      - name: Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name }}
+        href: dataplatform/dp-mch-data-exchange.md
+        when: product == "yandex-cloud"
       - name: Managing data schemas in {{ mkf-full-name }}
         href: dataplatform/schema-registry-overview.md
       - name: Using {{ mkf-msr }} with {{ mkf-full-name }}
@@ -137,9 +144,16 @@ items:
       - name: >-
           Configuring {{ dns-full-name }} for accessing managed database clusters from other cloud networks
         href: dataplatform/mdb-dns-peering.md
+      - name: Migrating to {{ mes-full-name }} using the Reindex API
+        href: dataplatform/migration-via-reindex-api.md
+        when: product == "yandex-cloud"
       - name: >-
           Configuring Kafka Connect for {{ mkf-full-name }} clusters
         href: dataplatform/kafka-connect.md
+      - name: >-
+          Using initialization actions to configure GeeseFS in {{ dataproc-full-name }}
+        href: dataplatform/data-proc-init-actions-geesefs.md
+        when: product == "yandex-cloud"
   - name: Windows in {{ yandex-cloud }}
     when: product == "yandex-cloud"
     items:

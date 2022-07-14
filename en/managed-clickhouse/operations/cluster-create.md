@@ -8,18 +8,26 @@
 
 {{ CH }} clusters are one or more database hosts that replication can be configured between.
 
-The number of hosts that can be created together with a {{ CH }} cluster depends on the selected [type of storage](../concepts/storage.md):
+{% note info %}
 
-* When using **local SSD storage** (`local-ssd`), you can create a cluster with two or more hosts (a minimum of two hosts is required for fault tolerance).
-* When using network storage:
-   * If you select **HDD network** (`network-hdd`) or **SSD network** (`network-ssd`) storage, you can add any number of hosts within the [current quota](../concepts/limits.md).
-   * If you select **non-replicated SSD storage** (`network-ssd-nonreplicated`), you can create a cluster with three or more hosts (to ensure fault tolerance, a minimum of three hosts is necessary).
+* The number of hosts you can create together with a {{ CH }} cluster depends on the selected {% if audience != "internal" %}[storage type](../concepts/storage.md#storage-type-selection){% else %}[storage type](../concepts/storage.md){% endif %} and [host class](../concepts/instance-types.md#available-flavors).
+* Available storage types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
+
+{% endnote %}
 
 The selected [replication mechanism](../concepts/replication.md) also affects the number of hosts in a multi-host cluster:
 
 * A cluster that uses {{ CK }} to manage replication and fault tolerance should consist of three or more hosts with individual hosts not required to run {{ CK }}. You can only create this kind of cluster using the CLI or API.
 
-   {% include [ClickHouse Keeper preview note](../../_includes/mdb/mch/note-ck-preview.md) %}
+   {% if audience != "internal" %}
+
+   This feature is in the [Preview stage](../../overview/concepts/launch-stages.md). Access to {{ CK }} is available on request. Contact [support]({{ link-console-support }}) or your account manager.
+
+   {% else %}
+
+   This feature is in the Preview stage. Access to {{ CK }} is available on request. Contact [support]({{ link-console-support }}) or your account manager.
+
+   {% endif %}
 
 * When using {{ ZK }}, a cluster can consist of two or more hosts. Another three {{ ZK }} hosts will be added to the cluster automatically.
 
@@ -228,7 +236,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       1. To enable [{{ CK }}](../concepts/replication.md#ck) in a cluster:
 
-         * Specify a {{ CH }} version ({{ mch-ck-version }} or higher) in the `--version` option.
+         * Specify a {{ CH }} version ({{ versions.keeper }} or higher) in the `--version` option.
          * Set `--embedded-keeper` to `true`.
 
          ```bash
@@ -579,8 +587,8 @@ If you specified security group IDs when creating a cluster, you may also need t
       These subnets will belong to the `cluster-net` network.
 
    * As part of a new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
-   * With 32 GB of SSD network storage (`network-ssd`) per {{ CH }} host of the cluster.
-   * With 10 GB of SSD network storage (`network-ssd`) per {{ ZK }} host of the cluster.
+   * 32 GB of {% if audience != "internal" %}network{% else %}local{% endif %} SSD storage (`{{ disk-type-example }}`) per {{ CH }} host of the cluster.
+   * 10 GB of {% if audience != "internal" %}network{% else %}local{% endif %} SSD storage (`{{ disk-type-example }}`) per {{ ZK }} host of the cluster.
    * Database name `db1`.
    * With a user named `user1` with the password `user1user1`.
 

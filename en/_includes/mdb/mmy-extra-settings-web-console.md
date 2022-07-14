@@ -16,6 +16,8 @@
 
    It allows you to [execute SQL queries](../../managed-mysql/operations/web-sql-query.md) against the databases in the cluster from the dashboard {{ yandex-cloud }}.
 
+- {% include [datatransfer access](console/datatransfer-access.md) %}
+
 - **Statistics sampling**: Enable this option to use the [{#T}](../../managed-mysql/operations/performance-diagnostics.md) tool in the cluster.
 
 - {% include [Deletion protection](console/deletion-protection.md) %}

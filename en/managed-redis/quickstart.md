@@ -2,11 +2,11 @@
 
 {% if audience == "internal" %}
 
-For the internal MDB service, the [web interface]({{ console-link }}) is deployed, where you can manually create a database cluster. For more about [quotas]({{ link-console-quotas }}) and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
+For the internal MDB service, the [web interface]({{ console-link }}) is deployed where you can manually create a database cluster. For more information about [quotas]({{ link-console-quotas }}) and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
 
 ## Access to DB clusters {#access}
 
-The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and [for developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
+The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and for [developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
 
 If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ RD }} clusters, you need access to ports 26379 (Sentinel) and 6379 ({{ RD }}).
 
@@ -26,16 +26,16 @@ To get started with the service:
 1. [Create a cluster](#cluster-create).
 1. [Connect to the cluster](#connect).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
+1. Go to the [management console ]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can only connect to the cluster from within {{ yandex-cloud }}. To connect to a cluster, create a VM in the same cloud network as the {{ RD }} cluster (with [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)).
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
-1. Install the [redis-cli](https://redis.io/topics/rediscli) utility on the VM. For example, like this (for Ubuntu 20.04 LTS):
+1. Install the [{redis}-cli](https://redis.io/topics/rediscli) utility on the VM. For example (for Ubuntu 20.04 LTS):
 
    ```bash
    sudo apt install redis-tools
@@ -53,7 +53,7 @@ To get started with the service:
 
 ## Connect to the cluster {#connect}
 
-1. If your cluster is deployed with version 6 or higher and supports TLS, configure an SSL certificate:
+1. If TLS support is enabled in your cluster, set up an SSL certificate:
 
    1. Create a folder:
 
@@ -78,7 +78,7 @@ To get started with the service:
 
    {% note info %}
 
-   To connect to a SSL-enabled cluster, [download](https://redis.io/download) an archive with the utility's source code and build a version of the utility with TLS support using the `make BUILD_TLS=yes` command.
+   To connect to an SSL-enabled cluster, [download](https://redis.io/download) an archive with the utility's source code and build a version of the utility with TLS support using the `make BUILD_TLS=yes` command.
 
    {% endnote %}
 
@@ -88,62 +88,63 @@ To get started with the service:
 
    - Non-sharded clusters
 
-     **To connect using [Sentinel](https://redis.io/topics/sentinel) (without SSL)**:
-     1. Get the address of the master host by using Sentinel and any {{ RD }} host:
+      **To connect using [Sentinel](https://redis.io/topics/sentinel) (without SSL)**:
 
-        ```bash
-        redis-cli -h <FQDN of any {{ RD }} host> \
-          -p {{ port-mrd-sentinel }} \
-          sentinel get-master-addr-by-name <{{ RD }} cluster name> | head -n 1
-        ```
+      1. Get the address of the master host by using Sentinel and any {{ RD }} host:
 
-     1. Connect to the host with this address:
+         ```bash
+         redis-cli -h <FQDN of any {{ RD }} host> \
+           -p {{ port-mrd-sentinel }} \
+           sentinel get-master-addr-by-name <{{ RD }} cluster name> | head -n 1
+         ```
 
-        ```bash
-        redis-cli -h c-<cluster ID>.rw.{{ dns-zone }} \
-          -p {{ port-mrd-tls }} \
-          -a <{{ RD }} password> \
-          --tls \
-          --cacert ~/.redis/{{ crt-local-file }}
-        ```
+      1. Connect to the host with this address:
 
-     **To connect directly to the master (without SSL):**
+         ```bash
+         redis-cli -h c-<cluster ID>.rw.{{ dns-zone }} \
+           -p {{ port-mrd-tls }} \
+           -a <{{ RD }} password> \
+           --tls \
+           --cacert ~/.redis/{{ crt-local-file }}
+         ```
 
-     ```bash
-     redis-cli -h c-<cluster ID>.rw.{{ dns-zone }} \
-       -p {{ port-mrd }} \
-       -a <{{ RD }} password>
-     ```
+      **To connect directly to the master (without SSL):**
 
-     **To connect directly to the master (with SSL):**
+      ```bash
+      redis-cli -h c-<cluster ID>.rw.{{ dns-zone }} \
+        -p {{ port-mrd }} \
+        -a <{{ RD }} password>
+      ```
 
-     ```bash
-     redis-cli -h c-<cluster ID>.rw.{{ dns-zone }} \
-       -p {{ port-mrd-tls }} \
-       -a <{{ RD }} password> \
-       --tls \
-       --cacert ~/.redis/{{ crt-local-file }}
-     ```
+      **To connect directly to the master (with SSL):**
+
+      ```bash
+      redis-cli -h c-<cluster ID>.rw.{{ dns-zone }} \
+        -p {{ port-mrd-tls }} \
+        -a <{{ RD }} password> \
+        --tls \
+        --cacert ~/.redis/{{ crt-local-file }}
+      ```
 
    - Sharded clusters
 
-     **To connect without SSL:**
+      **To connect without SSL:**
 
-     ```bash
-     redis-cli -h <FQDN of the master host in any shard> \
-       -p {{ port-mrd }} \
-       -a <{{ RD }} password>
-     ```
+      ```bash
+      redis-cli -h <FQDN of the master host in any shard> \
+        -p {{ port-mrd }} \
+        -a <{{ RD }} password>
+      ```
 
-     **To connect with SSL:**
+      **To connect with SSL:**
 
-     ```bash
-     redis-cli -h <FQDN of the master host in any shard> \
-       -p {{ port-mrd-tls }} \
-       -a <{{ RD }} password> \
-       --tls \
-       --cacert ~/.redis/{{ crt-local-file }}
-     ```
+      ```bash
+      redis-cli -h <FQDN of the master host in any shard> \
+        -p {{ port-mrd-tls }} \
+        -a <{{ RD }} password> \
+        --tls \
+        --cacert ~/.redis/{{ crt-local-file }}
+      ```
 
    {% endlist %}
 
@@ -151,7 +152,6 @@ To get started with the service:
 
 ## What's next {#whats-next}
 
-* Read about [service concepts](./concepts/index.md).
-* Learn more about [creating clusters](./operations/cluster-create.md) and [connecting to clusters](./operations/connect/index.md).
-* Read [questions and answers](./qa/general.md).
-
+* Read about [service concepts](concepts/index.md).
+* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a cluster](operations/connect/index.md).
+* Read [questions and answers](qa/general.md).

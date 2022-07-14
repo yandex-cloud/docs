@@ -37,7 +37,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel. 
+   1. Select the cluster and click **Edit cluster** in the top panel.
    1. To change the class of {{ MY }} hosts, under **Host class**, select the required class.
    1. Click **Save changes**.
 
@@ -144,7 +144,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel. 
+   1. Select the cluster and click **Edit cluster** in the top panel.
    1. Under **Storage size**, specify the required value.
    1. Click **Save changes**.
 

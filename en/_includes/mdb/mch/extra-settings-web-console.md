@@ -16,6 +16,8 @@
 
 * **Access from management console**: Enables you to run SQL queries against cluster databases from the {{ yandex-cloud }} management console.
 
+* {% include [datatransfer access](../console/datatransfer-access.md) %}
+
 * **Access from Yandex.Metrica and AppMetrica**: this option helps [import data from AppMetrica](https://appmetrica.yandex.ru/docs/cloud/index.html) into a cluster.
 {% if product == "yandex-cloud" %}
 {% if audience != "internal" %}

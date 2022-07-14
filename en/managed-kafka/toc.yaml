@@ -56,6 +56,8 @@ items:
           href: tutorials/managed-schema-registry.md
         - name: Working with Confluent Schema Registry
           href: tutorials/confluent-schema-registry.md
+      - name: Migrating data to {{ mkf-name }}
+        href: tutorials/kafka-connectors.md
       - name: Delivering data using Debezium
         href: tutorials/kafka-cdc.md
   - name: Concepts

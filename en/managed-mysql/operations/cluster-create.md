@@ -6,7 +6,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 {% note info %}
 
-* The number of hosts that can be created together with a {{ MY }} cluster depends on the selected [storage type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* The number of hosts you can create together with a {{ MY }} cluster depends on the selected {% if audience != "internal" %}[storage type](../concepts/storage.md#storage-type-selection){% else %}[storage type](../concepts/storage.md){% endif %} and [host class](../concepts/instance-types.md#available-flavors).
 * Available storage types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
@@ -50,7 +50,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
    1. Under **Hosts**, select the parameters for the DB hosts created with the cluster: If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
-      If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage size**, you need to add at least 3 hosts to the cluster. After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
+      If you selected `local-ssd`{% if audience != "internal" %} or `network-ssd-nonreplicated`{% endif %} under **Storage size**, you need to add at least 3 hosts to the cluster. After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
 
    1. If necessary, configure additional cluster settings:
 
@@ -92,6 +92,8 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       {{ yc-mdb-my }} cluster create --help
       ```
 
+      {% if audience != "internal" %}
+
    1. Specify the cluster parameters in the create command:
 
       ```bash
@@ -111,6 +113,26 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
+
+      {% else %}
+
+      ```bash
+      {{ yc-mdb-my }} cluster create \
+        --name=<cluster name> \
+        --environment <environment, prestable or production> \
+        --network-id ' ' \
+        --host zone-id=<availability zone> \
+        --mysql-version <MySQL version> \
+        --resource-preset <host class> \
+        --user name=<username>,password=<user password> \
+        --database name=<database name> \
+        --disk-size <storage size in gigabytes> \
+        --disk-type <local-ssd | local-hdd> \
+        --security-group-ids <list of IDs of security groups> \
+        --deletion-protection=<cluster deletion protection: true or fasle>
+      ```
+
+      {% endif %}
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -289,7 +311,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
    Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
 
-   * In the `folderId` parameter, the ID of the folder where  the cluster should be placed.
+   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
    * The cluster name in the `name` parameter. The cluster name must be unique within the folder.
    * The environment of the cluster, in the `environment` parameter.
    * Cluster configuration, in the `configSpec` parameter.

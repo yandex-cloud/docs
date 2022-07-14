@@ -4,20 +4,11 @@
 
 {% note info %}
 
-If database storage is 95% full, the cluster switches to read-only mode. Plan and increase the required storage size in advance.
+* The number of hosts you can create together with a {{ PG }} cluster depends on the selected {% if audience != "internal" %}[storage type](../concepts/storage.md#storage-type-selection){% else %}[storage type](../concepts/storage.md){% endif %} and [host class](../concepts/instance-types.md#available-flavors).
+* Available storage types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
+* If database storage is 95% full, the cluster switches to read-only mode. Plan and increase the required storage size in advance.
 
 {% endnote %}
-
-{% if audience != "internal" %}
-
-The number of hosts that can be created together with a {{ PG }} cluster depends on the selected [type of storage](../concepts/storage.md):
-
-* With **local SSD** or **non-replicated SSD storage**, you can create a cluster with three or more hosts (a minimum of three hosts is required for fault tolerance).
-* With **HDD network** or **SSD network storage**, you can add any number of hosts within the [current quota](../concepts/limits.md).
-
-After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
-
-{% endif %}
 
 By default, {{ mpg-short-name }} sets the maximum number of connections to each {{ PG }} cluster host. This maximum cannot be greater than the value of [Max connections](../concepts/settings-list.md#setting-max-connections).
 
@@ -76,7 +67,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
 1. If necessary, configure additional cluster settings:
 
-   {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
+   {% include [mpg-extra-settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
 
 1. If required, configure [DBMS cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings).
 

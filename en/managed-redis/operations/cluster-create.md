@@ -6,7 +6,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
 {% note info %}
 
-* The number of hosts that can be created together with a {{ RD }} cluster depends on the selected {% if audience != "internal" %}[storage type](../concepts/storage.md#storage-type-selection){% else %}[storage type](../concepts/storage.md){% endif %} and [host class](../concepts/instance-types.md#available-flavors), as well as on whether [sharding](../concepts/sharding.md) is enabled.
+* The number of hosts you can create together with a {{ RD }} cluster depends on the selected {% if audience != "internal" %}[storage type](../concepts/storage.md#storage-type-selection){% else %}[storage type](../concepts/storage.md){% endif %} and [host class](../concepts/instance-types.md#available-flavors), as well as on whether [sharding](../concepts/sharding.md) is enabled.
 * Available storage types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
@@ -43,7 +43,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
 
          {% endnote %}
 
-      * Enable support for encrypted SSL connections to a cluster (for {{ RD }} version 6.0 or higher) as required.
+      * Enable support for encrypted SSL connections to a cluster as required.
 
          {% note warning %}
 

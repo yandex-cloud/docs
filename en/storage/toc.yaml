@@ -89,6 +89,10 @@ items:
       - name: Analyzing logs in DataLens
         href: tutorials/storage-logs-analysis.md
         when: product == "yandex-cloud"
+      - name: >-
+          Using initialization actions to configure GeeseFS in {{ dataproc-full-name }}
+        href: tutorials/data-proc-init-actions-geesefs.md
+        when: product == "yandex-cloud"
   - name: Concepts
     items:
       - name: Overview

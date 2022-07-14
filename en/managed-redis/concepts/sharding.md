@@ -36,7 +36,7 @@ New shards are created without hash slots. To redistribute data, you must rebala
 
 The cluster doesn't have to stop to move slots between shards. If the client queries the master for data that was moved to another shard, the query is forwarded to the new shard that the data was moved to. Hosts don't proxy queries. Instead, they forward the client to the proper shard.
 
-{{ mrd-name }} lets you create from 3 to 10 shards, each containing a different number of hosts. The minimum number of hosts per shard depends on the [selected storage type](./storage.md#storage-type-selection).
+{{ mrd-name }} lets you create from 3 to 10 shards, each containing a different number of hosts. The minimum number of hosts per shard depends on the {% if audience != "internal" %}[selected storage type](./storage.md#storage-type-selection){% else %}[selected storage type](./storage.md){% endif %}.
 
 For more information about limits on the number of hosts in a shard, see [{#T}](./limits.md).
 

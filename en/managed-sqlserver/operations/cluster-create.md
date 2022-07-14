@@ -4,20 +4,12 @@
 
 {% note info %}
 
-If database storage is 95% full, the cluster switches to read-only mode. Plan and increase the required storage size in advance.
+* The number of hosts you can create together with a {{ MS }} cluster depends on the selected {% if audience != "internal" %}[storage type](../concepts/storage.md#storage-type-selection){% else %}[storage type](../concepts/storage.md){% endif %} and [host class](../concepts/instance-types.md#available-flavors).
+* Available storage types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
 
-{% if audience != "internal" %}
-
-The number of hosts that can be created together with a {{ MS }} cluster depends on the selected [type of storage](../concepts/storage.md):
-
-* With **local SSD** or **non-replicated SSD** storage, you can create a cluster with three or more hosts (a minimum of three hosts is required for fault tolerance).
-* With **network HDD** or **network SSD** storage, you can add any number of hosts within the [current quota](../concepts/limits.md).
-
-After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
-
-{% endif %}
+If database storage is 95% full, the cluster switches to read-only mode. Plan and increase the required storage size in advance.
 
 {% include [ms-licensing-personal-data](../../_includes/ms-licensing-personal-data.md) %}
 
@@ -33,7 +25,9 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
    1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mms-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-  1. Select the DBMS version. Currently, we support the following versions: {{ versions.console.str }}.
+   1. Select the DBMS version. The following editions are available for all supported versions:
+      * Standard Edition.
+      * Enterprise Edition.
 
       For more information, see [{#T}](../concepts/index.md).
 
@@ -59,14 +53,14 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
    1. Under **Hosts**:
 
-      1. Select the database host parameters for databases being created alongside the cluster. By default, each host is created in a separate subnet. To select a specific subnet for a host, click ![image](../../_assets/pencil.svg) in the host's row and select the desired availability zone and subnet.
+      1. Select database host parameters for the databases being created alongside the cluster. By default, each host is created in a separate subnet. To select a specific subnet for a host, click ![image](../../_assets/pencil.svg) in the host's row and select the required availability zone and subnet.
 
          {% note warning %}
 
          The number of hosts available to be added depends on the SQL Server [edition](../concepts/index.md):
 
          * In the **Standard Edition**, you can only create a single-host cluster. This cluster does not provide any fault tolerance.
-         * In the **Enterprise Edition**, you can create clusters of either one or three of more hosts. If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
+         * In the **Enterprise Edition**, you can create clusters of either one or three or more hosts. If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
 
          {% endnote %}
 
@@ -117,98 +111,98 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
       ```bash
       {{ yc-mdb-ms }} cluster create <cluster name> \
-         --sqlserver-version=<{{ MS }} version> \
+         --sqlserver-version=<{{ MS }} version:{{ versions.cli.str }}> \
          --environment=<environment: PRESTABLE or PRODUCTION> \
          --host zone-id=<availability zone>,`
                `subnet-id=<subnet ID>,`
                `assign-public-ip=<host access via public IP: true or false> \
          --network-name=<network name> \
-         --user name=<user name>,`
+         --user name=<username>,`
                `password=<user password> \
          --database name=<database name> \
          --resource-preset=<host class> \
          --disk-size=<storage capacity, GB> \
          --disk-type=<storage type> \
          --security-group-ids=<security group ID list> \
-         --deletion-protection=<protect cluster from deletion: true or false>
+         --deletion-protection=<cluster deletion protection: true or false>
       ```
 
       {% note info %}
 
-      The cluster name must be unique within a folder. May contain letters, numbers, hyphens, and underscores. The maximum name length is 63 characters.
+      The cluster name must be unique within a folder. It may contain Latin letters, numbers, hyphens, and underscores. The maximum name length is 63 characters.
 
       {% endnote %}
 
       Where:
 
       * `--sqlserver-version`: The {{ MS }} version.
-      * `--environment`: environment:
-         * `PRESTABLE`: For stable versions of your applications.
-         * `PRODUCTION`: For testing, including testing {{ MS }} itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-      * `--host`: Host parameter:
+      * `--environment`: Environment:
+         * `PRODUCTION`: For stable versions of your apps.
+         * `PRESTABLE`: For testing, including the {{ MS }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Must be specified, if the availability zone in question includes 2 or more subnets.
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It is required if the selected availability zone includes 2 or more subnets.
          * `assign-public-ip`: Flag to specify if a host requires a [public IP address](../../vpc/concepts/address.md#public-addresses).
       * `--network-name`: The [name of the network](../../vpc/concepts/network.md#network).
       * `--user`: User parameters:
-         * `name`: First name. May contain letters, numbers, hyphens, and underscores but must start with a letter, a number, or an underscore. It can be between 1 and 32 characters long.
+         * `name`: First name. It may contain Latin letters, numbers, hyphens, and underscores, but must start with a letter, a number, or an underscore. It can be between 1 and 32 characters long.
          * `password`: Password. From 8 to 128 characters.
-      * `--database name`: database name. May contain letters, numbers, hyphens, and underscores. The maximum name length is 63 characters.
+      * `--database name`: Database name. It may contain Latin letters, numbers, hyphens, and underscores. The maximum name length is 63 characters.
       * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
       * `--disk-size`: Storage size in GB.
       * `--disk-type`: [Storage type](../concepts/storage.md):
-         * `network-hdd`;
-         * `network-ssd`;
-         * `local-ssd`;
-         * `network-ssd-nonreplicated`.
+         * `network-hdd`
+         * `network-ssd`
+         * `local-ssd`
+         * `network-ssd-nonreplicated`
       * `--security-group-ids`: list of [security group](../../vpc/concepts/security-groups.md) IDs.
-      * `--deletion-protection`: Protect cluster from deletion.
+      * `--deletion-protection`: Cluster deletion protection.
 
       {% else %}
 
       ```bash
       {{ yc-mdb-ms }} cluster create <cluster name> \
-         --sqlserver-version=<{{ MS }} version> \
+         --sqlserver-version=<{{ MS }} version:{{ versions.cli.str }}> \
          --environment=<environment: PRESTABLE or PRODUCTION> \
          --host zone-id=<availability zone> \
          --network-name=<network name> \
-         --user name=<user name>,`
+         --user name=<username>,`
                `password=<user password> \
          --database name=<database name> \
          --resource-preset=<host class> \
          --disk-size=<storage capacity, GB> \
          --security-group-ids=<security group ID list> \
-         --deletion-protection=<protect cluster from deletion: true or false>
+         --deletion-protection=<cluster deletion protection: true or false>
       ```
 
       {% note info %}
 
-      The database name must be unique within a folder. May contain letters, numbers, hyphens, and underscores. The maximum name length is 63 characters.
+      The database name must be unique within a folder. It may contain Latin letters, numbers, hyphens, and underscores. The maximum name length is 63 characters.
 
       {% endnote %}
 
       Where:
 
       * `--sqlserver-version`: The {{ MS }} version.
-      * `--environment`: environment:
-         * `PRESTABLE`: For stable versions of your applications.
-         * `PRODUCTION`: For testing, including testing {{ MM }} itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      * `--environment`: Environment:
+         * `PRODUCTION`: For stable versions of your apps.
+         * `PRESTABLE`: For testing, including the {{ MS }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
       * `--host zone-id`: [availability zone](../../overview/concepts/geo-scope.md).
       * `--network-name`: The [name of the network](../../vpc/concepts/network.md#network).
       * `--user`: User parameters:
-         * `name`: First name. May contain letters, numbers, hyphens, and underscores but must start with a letter, a number, or an underscore. It can be between 1 and 32 characters long.
+         * `name`: First name. It may contain Latin letters, numbers, hyphens, and underscores, but must start with a letter, a number, or an underscore. It can be between 1 and 32 characters long.
          * `password`: Password. From 8 to 128 characters.
-      * `--database name`: database name. May contain letters, numbers, hyphens, and underscores. The maximum name length is 63 characters.
+      * `--database name`: Database name. It may contain Latin letters, numbers, hyphens, and underscores. The maximum name length is 63 characters.
       * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
       * `--disk-size`: Storage size in GB.
       * `--security-group-ids`: list of [security group](../../vpc/concepts/security-groups.md) IDs.
-      * `--deletion-protection`: Protect cluster from deletion.
+      * `--deletion-protection`: Cluster deletion protection.
 
       {% endif %}
 
            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   1. To set backup start time, pass the desired value in `HH:MM:SS` format in in `--backup-window-start`:
+   1. To set a backup start time, pass the desired value in `HH:MM:SS` format in `--backup-window-start`:
 
       ```bash
       {{ yc-mdb-ms }} cluster create <cluster name> \
@@ -218,21 +212,29 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
    {% if audience != "internal" %}
 
-   1. To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), specify the host IDs as a comma-separated list in the `--host-group-ids` parameter when creating the cluster:
+   1. To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), specify host IDs as a comma-separated list in the `--host-group-ids` parameter:
 
       ```bash
       {{ yc-mdb-ms }} cluster create <cluster name> \
          ...
-         --host-group-ids=<ID of groups of dedicated hosts>
+         --host-group-ids=<IDs of groups of dedicated hosts>
       ```
 
       {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
+
+   1. To link a [service account](../../iam/concepts/users/service-accounts.md) to a cluster to configure communication with other {{ yandex-cloud }} resources, pass its [ID](../../iam/operations/sa/get-id.md) in the `--service-account-id` parameter:
+
+      ```bash
+      {{ yc-mdb-ms }} cluster create <cluster name> \
+         ...
+         --service-account-id: The ID of your service account.
+      ```
 
    {% endif %}
 
 - Terraform
 
-    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -247,18 +249,18 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
       * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
       Example configuration file structure:
-   
-        ```hcl
-        resource "yandex_mdb_sqlserver_cluster" "<cluster name>" {
-          name                = "<cluster name>"
-          environment         = "<environment: PRESTABLE or PRODUCTION>"
-          network_id          = "<network ID>"
-          version             = "<{{ MS }} version: {{ versions.tf.str }}>"
-          security_groups_id  = ["<security group ID list>"]
-          deletion_protection = <protect cluster from deletion: true or false>
+
+      ```hcl
+      resource "yandex_mdb_sqlserver_cluster" "<cluster name>" {
+        name                = "<cluster name>"
+        environment         = "<environment: PRESTABLE or PRODUCTION>"
+        network_id          = "<network ID>"
+        version             = "<{{ MS }} version: {{ versions.tf.str }}>"
+        security_groups_id  = ["<security group ID list>"]
+        deletion_protection = <cluster deletion protection: true or false>
 
         resources {
-          resource_preset_id = "<class host>"
+          resource_preset_id = "<host class>"
           disk_type_id       = "<storage type>"
           disk_size          = <storage capacity, GB>
         }
@@ -273,7 +275,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
         }
 
         user {
-          name     = "<user name>"
+          name     = "<username>"
           password = "<password>"
 
           permission {
@@ -300,7 +302,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      1. To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), add the `host_group_ids` field to the cluster description and use it to specify the requisite group IDs as a comma-separated list:
+      1. To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), add the `host_group_ids` field to the cluster description and specify the required group IDs as a comma-separated list in it:
 
          ```hcl
          resource "yandex_mdb_sqlserver_cluster" "<cluster name>" {
@@ -312,7 +314,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
          {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
 
-      For more information on resource that you can create with {{ TF }}, please review the [provider documentation]({{ tf-provider-mms }}).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mms }}).
 
    1. Make sure the settings are correct.
 
@@ -322,7 +324,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources appear with the correct settings, using the [management console]({{ link-console-main }}).
+      After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there with the correct settings, using the [management console]({{ link-console-main }}).
 
       {% include [Terraform timeouts](../../_includes/mdb/mms/terraform/timeouts.md) %}
 
@@ -345,9 +347,11 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
    To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), pass a list of host IDs in the `hostGroupIds` parameter.
 
-   {% endif %}
-
    {% include [Dedicated hosts note](../../_includes/mdb/mms/note-dedicated-hosts.md) %}
+
+   To link a [service account](../../iam/concepts/users/service-accounts.md) to a cluster, pass its [ID](../../iam/operations/sa/get-id.md) in the `serviceAccountId` parameter.
+
+   {% endif %}
 
 {% endlist %}
 
@@ -371,21 +375,21 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    {% if audience != "internal" %}
 
-   * `mssql-1` as the name.
-   * Version `2016 SP2 Standard Edition`.
+   * Named `mssql-1`.
+   * Versions `{{ versions.cli.latest.long-std }}`.
    * In the `PRODUCTION` environment.
    * In the `default` network.
    * In the security group `{{ security-group }}`.
-   * With a single class `s2.small` host in a subnet called `b0cd5bv7pfpr7r900tkp` in the `{{ region-id }}-a` availability zone.
-   * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
+   * With a single class `s2.small` host in a subnet called `b0cd5bv7pfpr7r900tkp` in the `{{ zone-id }}` availability zone.
+   * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.
    * With one database, `db1`.
    * With protection against accidental cluster deletion.
 
    {% else %}
 
-   * `mssql-1` as the name.
-   * Version `2016 SP2 Standard Edition`
+   * Named `mssql-1`.
+   * Versions `{{ versions.cli.latest.long-std }}`
    * In the `PRODUCTION` environment.
    * In the security group `{{ security-group }}`.
    * With a single `db1.micro` class host in the `man` availability zone.
@@ -403,7 +407,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    ```bash
    {{ yc-mdb-ms }} cluster create \
       --name=mssql-1 \
-      --sqlserver-version=2016sp2std \
+      --sqlserver-version={{ versions.cli.latest.std }} \
       --environment=PRODUCTION \
       --network-name=default \
       --resource-preset=s2.small \
@@ -423,7 +427,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    ```bash
    {{ yc-mdb-ms }} cluster create \
       --name=mssql-1 \
-      --sqlserver-version=2016sp2std \
+      --sqlserver-version={{ versions.cli.latest.std }} \
       --environment=PRODUCTION \
       --network-id=' ' \
       --host zone-id=man \
@@ -442,18 +446,18 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    Let's say we need to create a {{ MS }} cluster and a network for it with the following characteristics:
 
-    * `mssql-1` as the name.
-    * In the `PRODUCTION` environment.
-    * Using the {{ MS }} `{{ versions.tf.latest.long-std }}`.
-    * In the cloud with the ID `{{ tf-cloud-id }}`.
-    * In the folder with the ID `{{ tf-folder-id }}`.
-    * In the new `mynet` network.
-    * In a new security group called `ms-sql-sg` allowing cluster connections from the Internet via port `{{ port-mms }}`.
-    * With a single host of the `s2.small` class on a new `mysubnet` subnet and the `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
-    * With 32 GB of network SSD storage.
-    * With a database called `db1`.
-    * With a user with `user1` as the login and `user1user1` as the password. This user will own the `db1` database ([predefined role `DB_OWNER`](./grant.md#predefined-db-roles)).
-    * With protection against accidental cluster deletion.
+   * Named `mssql-1`.
+   * In the `PRODUCTION` environment.
+   * With {{ MS }} version `{{ versions.tf.latest.long-std }}`.
+   * In the cloud with the ID `{{ tf-cloud-id }}`.
+   * In the folder with the ID `{{ tf-folder-id }}`.
+   * In the new `mynet` network.
+   * In a new security group called `ms-sql-sg` allowing cluster connections from the internet via port `{{ port-mms }}`.
+   * With a single `s2.small` class host on a new `mysubnet` subnet and in the `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * With 32 GB of network SSD storage.
+   * With a database called `db1`.
+   * With the user `user1` and `user1user1` as the password. This user will be the owner of the `db1` database ([predefined role `DB_OWNER`](./grant.md#predefined-db-roles)).
+   * With protection against accidental cluster deletion.
 
    The configuration file for the cluster looks like this:
 
@@ -469,7 +473,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     }
 
     provider "yandex" {
-      token     = "<OAuth or static key of service account>"
+      token     = "<OAuth or service account static key>"
       cloud_id  = "{{ tf-cloud-id }}"
       folder_id = "{{ tf-folder-id }}"
       zone      = "{{ region-id }}-a"
@@ -483,53 +487,53 @@ If you specified security group IDs when creating a cluster, you may also need t
       security_group_ids  = [yandex_vpc_security_group.ms-sql-sg.id]
       deletion_protection = true
 
-     resources {
-       resource_preset_id = "s2.small"
-       disk_type_id       = "network-ssd"
-       disk_size          = 32
-     }
+      resources {
+        resource_preset_id = "s2.small"
+        disk_type_id       = "network-ssd"
+        disk_size          = 32
+      }
 
-     host {
-       zone             = "{{ region-id }}-a"
-       subnet_id        = yandex_vpc_subnet.mysubnet.id
-       assign_public_ip = true
-     }
+      host {
+        zone             = "{{ zone-id }}"
+        subnet_id        = yandex_vpc_subnet.mysubnet.id
+        assign_public_ip = true
+      }
 
-     database {
-       name = "db1"
-     }
+      database {
+        name = "db1"
+      }
 
-     user {
-       name     = "user1"
-       password = "user1user1"
-       permission {
-         database_name = "db1"
-         roles         = ["OWNER"]
-       }
-     }
-   }
+      user {
+        name     = "user1"
+        password = "user1user1"
+        permission {
+          database_name = "db1"
+          roles         = ["OWNER"]
+        }
+      }
+    }
 
-   resource "yandex_vpc_network" "mynet" { name = "mynet" }
+    resource "yandex_vpc_network" "mynet" { name = "mynet" }
 
-   resource "yandex_vpc_subnet" "mysubnet" {
-     name           = "mysubnet"
-     zone           = "{{ region-id }}-a"
-     network_id     = yandex_vpc_network.mynet.id
-     v4_cidr_blocks = ["10.5.0.0/24"]
-   }
+    resource "yandex_vpc_subnet" "mysubnet" {
+      name           = "mysubnet"
+      zone           = "{{ zone-id }}"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.5.0.0/24"]
+    }
 
-   resource "yandex_vpc_security_group" "ms-sql-sg" {
-     name       = "ms-sql-sg"
-     network_id = yandex_vpc_network.mynet.id
+    resource "yandex_vpc_security_group" "ms-sql-sg" {
+      name       = "ms-sql-sg"
+      network_id = yandex_vpc_network.mynet.id
 
-     ingress {
-       description    = "Public access to SQL Server"
-       port           = {{ port-mms }}
-       protocol       = "TCP"
-       v4_cidr_blocks = ["0.0.0.0/0"]
-     }
-   }
-   ```
+      ingress {
+        description    = "Public access to SQL Server"
+        port           = {{ port-mms }}
+        protocol       = "TCP"
+        v4_cidr_blocks = ["0.0.0.0/0"]
+      }
+    }
+    ```
 
     {% endif %}
 

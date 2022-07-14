@@ -33,7 +33,7 @@ items:
         href: operations/dictionaries.md
       - name: Adding your own geobase
         href: operations/internal-dictionaries.md
-      - name: Enabling machine learning models
+      - name: Managing machine learning models
         href: operations/ml-models.md
       - name: Managing data format schemas
         href: operations/format-schemas.md

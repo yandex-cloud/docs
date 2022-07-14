@@ -8,7 +8,7 @@ To upload large data, use data compression during transmission: for example, you
 
 ## Inserting data and specifying the format schema {#insert-with-format-schema}
 
-{% include [mch-format-schemas-intro](../../_includes/mdb/mch-format-schemas-intro.md) %}
+{% include [Format schemas intro](../../_includes/mdb/mch/format-schemas-intro.md) %}
 
 ## Example of using a format schema when inserting data {#example}
 

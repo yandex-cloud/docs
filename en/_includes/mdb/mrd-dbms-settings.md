@@ -34,11 +34,6 @@
 
     The value is a string with modifiers that control the output of notifications. The default value is an empty string (notification output is disabled).
 
-    Note:
-    * The `t` modifier that is responsible for the output of thread commands is only available in Redis 5.0.
-    * The `m` modifier that is responsible for the events of accessing non-existent keys is available starting with Redis 6.0.
-    * All other notification modifiers are available in all Redis versions.
-
     For a complete list of modifiers, see the [{{ RD }} documentation](http://redis.io/topics/notifications).
 
 * **Slowlog log slower than**{#settings-slowlog-slower-than} {{ tag-all }}

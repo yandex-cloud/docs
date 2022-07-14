@@ -15,7 +15,11 @@
 
    Changing the retention period affects both new automatic backups and existing backups. For example, if the original retention period was 7 days and the remaining lifetime of a separate automatic backup is 1 day, then when the retention period increases to 9 days, the remaining lifetime of this backup becomes 3 days.
 
+   For an existing cluster, automatic backups are stored for a specified number of days whereas manually created ones are stored indefinitely. After a cluster is deleted, all backups persist for {{ mmg-backup-retention }} days.
+
 - {% include [Maintenance window](console/maintenance-window.md) %}
+
+- {% include [datatransfer access](console/datatransfer-access.md) %}
 
 - **Statistics sampling**: Enable this option to use the [{#T}](../../managed-mongodb/operations/performance-diagnostics.md) tool in the cluster. {% if audience != "internal" %}This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage. {% else %}This feature is in the Preview stage.{% endif %}
 

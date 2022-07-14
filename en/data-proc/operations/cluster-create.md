@@ -20,7 +20,7 @@ Security groups must be created and configured before creating a cluster. If the
       * Port range: `{{ port-any }}`.
       * Protocol: `Any`.
       * Source: `Security group`.
-      * Security group: `Current` (`Self`).
+      * Security group: `Self` (`Self`).
 
    * A separate rule for outgoing HTTPS traffic:
 
@@ -105,13 +105,13 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
       * [Storage](../concepts/storage.md) size and type.
       * The subnet of the network where the cluster is located.
 
-         NAT to the internet must be enabled in the subnet for the subcluster with the `Master` role. For more information, see [{#T}](#setup-network).
+      NAT to the internet must be enabled in the subnet for the subcluster with the `Master` role. For more information, see [{#T}](#setup-network).
 
-   1. To access a cluster from the internet, select the **Public access** option in the primary subcluster settings. This way, you can only connect to the cluster over an SSL connection. For more information, see [{#T}](connect.md).
+      1. To access subcluster hosts from the internet, select **Public access**. In this case, you can only connect to subcluster hosts over an SSL connection. For more information, see [{#T}](connect.md).
 
       {% note warning %}
 
-      You can't request public access after creating a cluster.
+      After you create your cluster, you can't request or disable public access to the subcluster. However, you can delete any subcluster (if its role is not `Master`) and then create it again with a relevant public access setting.
 
       {% endnote %}
 
@@ -210,7 +210,9 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
 - Terraform
 
   {% if audience != "internal" %}
+
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
   {% endif %}
 
    To create a cluster:

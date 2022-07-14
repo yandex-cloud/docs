@@ -1,24 +1,38 @@
 # Managing data format schemas
 
-{% include [mch-format-schemas-intro](../../_includes/mdb/mch-format-schemas-intro.md) %}
+{% include [Format schemas intro](../../_includes/mdb/mch/format-schemas-intro.md) %}
 
 Examples of working with the Cap'n Proto and Protobuf formats when inserting data into a cluster are given in [{#T}](insert.md).
 
 ## Before connecting the format schema {#prereq}
 
-{{ mch-name }} only works with format schemas loaded in {{ objstorage-name }}. Before connecting the schema to a cluster:
+{{ mch-name }} only works with readable data format schemas imported to {{ objstorage-full-name }}. Before connecting the schema to a cluster:
 
 1. Prepare a file with a format schema (see the documentation for [Cap'n Proto](https://capnproto.org/language.html) and [Protobuf](https://developers.google.com/protocol-buffers/docs/tutorials?hl=ru)).
 
 {% if audience != "internal" %}
 
-1. [Upload the file](../../storage/operations/objects/upload.md) with the format schema to {{ objstorage-name }}.
-1. [Get a link](../../storage/operations/objects/link-for-download.md) to this file.
+1. [Import](../../storage/operations/objects/upload.md) the file with the data format schema to {{ objstorage-full-name }}.
+
+1. Configure access to the schema file using one of the methods:
+
+   * Use a [service account](../../iam/concepts/users/service-accounts.md) (recommended). This method lets you access the file without entering account information.
+
+      1\. [Connect a service account to a cluster](s3-access.md#connect-service-account).
+      2\. [Assign the account the role](s3-access.md#configure-acl) of `storage.viewer`.
+      3\. In the bucket ACL, [grant the account](../../storage/operations/buckets/edit-acl.md) `READ` permission.
+
+   * [Enable public access](../../storage/operations/objects/edit-acl.md) to the bucket containing the file.
+
+1. [Get a link](s3-access.md#get-link-to-object) to the schema file.
 
 {% else %}
 
-1. Upload the file with the format schema to {{ objstorage-name }}.
-1. Get a link to this file.
+1. Upload the file with the format schema to {{ objstorage-full-name }}.
+
+1. Configure public read access to the data format schema file.
+
+1. Get a link to the schema file.
 
 {% endif %}
 
@@ -47,7 +61,7 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
       {{ yc-mdb-ch }} format-schema create "<format schema name>" \
         --cluster-name="<cluster name>" \
         --type="capnproto" \
-        --uri="<link to the file in {{ objstorage-name }}>"
+        --uri="<link to the file in {{ objstorage-full-name }}>"
       ```
 
    - For **Protobuf**:
@@ -56,7 +70,7 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
       {{ yc-mdb-ch }} format-schema create "<format schema name>" \
         --cluster-name="<cluster name>" \
         --type="protobuf" \
-        --uri="<link to the file in {{ objstorage-name }}>"
+        --uri="<link to the file in {{ objstorage-full-name }}>"
       ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -75,7 +89,7 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
         format_schema {
           name = "<schema name>"
           type = "<schema type: FORMAT_SCHEMA_TYPE_CAPNPROTO or FORMAT_SCHEMA_TYPE_PROTOBUF>"
-          uri  = "<public link to the schema file in {{ objstorage-name }}>"
+          uri  = "<link to data format schema file in {{ objstorage-full-name }}>"
         }
       }
       ```
@@ -96,19 +110,19 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 
 ## Changing a format schema {#update-format-schema}
 
-{{ mch-name }} doesn't track changes in the format schema file that is in the {{ objstorage-name }} bucket.
+{{ mch-name }} doesn't track changes in the format schema file that is in the {{ objstorage-full-name }} bucket.
 
 To update the contents of a schema that is already connected to the cluster:
 
 {% if audience != "internal" %}
 
-1. [Upload the file](../../storage/operations/objects/upload.md) with the current format schema to {{ objstorage-name }}.
-1. [Get a link](../../storage/operations/objects/link-for-download.md) to this file.
+1. [Upload the file](../../storage/operations/objects/upload.md) with the current format schema to {{ objstorage-full-name }}.
+1. [Get a link](s3-access.md#get-link-to-object) to this file.
 1. Change the parameters of the format schema that is connected to {{ mch-name }} by providing a new link to the format schema file.
 
 {% else %}
 
-1. Upload the file with the current format schema to {{ objstorage-name }}.
+1. Upload the file with the current format schema to {{ objstorage-full-name }}.
 1. Get a link to this file.
 1. Change the parameters of the format schema that is connected to {{ mch-name }} by providing a new link to the format schema file.
 
@@ -133,7 +147,7 @@ To update the contents of a schema that is already connected to the cluster:
    ```bash
    {{ yc-mdb-ch }} format-schema update "<data schema name>" \
      --cluster-name="<cluster name>" \
-     --uri="<new link to the file in {{ objstorage-name }}>"
+     --uri="<new link to the file in {{ objstorage-full-name }}>"
    ```
 
    You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -152,7 +166,7 @@ To update the contents of a schema that is already connected to the cluster:
         format_schema {
           name = "<schema name>"
           type = "<schema type>"
-          uri  = "<new public link to the schema file in {{ objstorage-name }}>"
+          uri  = "<new public link to the schema file in {{ objstorage-full-name }}>"
         }
       }
       ```
@@ -177,11 +191,11 @@ To update the contents of a schema that is already connected to the cluster:
 
 {% if audience != "internal" %}
 
-After disabling a format schema, the corresponding object is kept in the {{ objstorage-name }} bucket. If this object with the format schema is no longer needed, you can [delete](../../storage/operations/objects/delete.md).
+After disabling a format schema, the corresponding object is kept in the {{ objstorage-full-name }} bucket. If this object with the format schema is no longer needed, you can [delete](../../storage/operations/objects/delete.md).
 
 {% else %}
 
-After disabling a format schema, the corresponding object is kept in the {{ objstorage-name }} bucket. If this object with the format schema is no longer needed, you can delete.
+After disabling a format schema, the corresponding object is kept in the {{ objstorage-full-name }} bucket. If this object with the format schema is no longer needed, you can delete.
 
 {% endif %}
 

@@ -6,7 +6,7 @@
 
 {% note info %}
 
-* The number of hosts that can be created together with a {{ MG }} cluster depends on the selected [storage type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* The number of hosts you can create together with a {{ MG }} cluster depends on the selected {% if audience != "internal" %}[storage type](../concepts/storage.md#storage-type-selection){% else %}[storage type](../concepts/storage.md){% endif %} and [host class](../concepts/instance-types.md#available-flavors).
 * Available storage types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
@@ -76,14 +76,25 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
    1. Under **Hosts**, add the DB hosts created with the cluster:
 
+      {% if audience != "internal" %}
+
       * Click **Add host**.
       * Select an [availability zone](../../overview/concepts/geo-scope.md).
       * Select the [subnet](../../vpc/concepts/network.md#subnet) in the specified availability zone. If there is no subnet, create one.
       * If the host must be available outside {{ yandex-cloud }}, enable **Public access**.
 
-      To ensure fault tolerance, you need at least 3 hosts for `local-ssd` and `network-ssd-nonreplicated` storage. For more information, see [Storage](../concepts/storage.md).
+      {% else %}
 
-      By default, hosts are created in different availability zones. For details, see about [host management](hosts.md).
+      * Click **Add host**.
+      * Select an availability zone.
+      * Select the subnet in the specified availability zone. If there is no subnet, create one.
+      * If the host must be available outside {{ yandex-cloud }}, enable **Public access**.
+
+      {% endif %}
+
+      To ensure fault tolerance, you need at least 3 hosts for `local-ssd`{% if audience != "internal" %} and `network-ssd-nonreplicated`{% endif %} storage. For more information, see [Storage](../concepts/storage.md).
+
+      By default, hosts are created in different availability zones. See about [host management](hosts.md).
 
    1. If necessary, configure additional cluster settings:
 

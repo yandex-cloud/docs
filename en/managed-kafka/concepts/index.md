@@ -8,10 +8,11 @@ description: "{{ KF }} is a distributed messaging system between applications on
 {{ mkf-full-name }} helps you deploy and maintain clusters of {{ KF }} 2.8 and 3.0 servers in the {{ yandex-cloud }} infrastructure.
 
 {{ KF }} is a distributed inter-application communication system that uses the "publication-subscription" principle.
-
 {% if audience != "internal" %}
 
 Each {{ mkf-name }} cluster consists of one or more [broker hosts](brokers.md), where [topics](topics.md) and topic partitions are located. Cluster hosts may reside in different availability zones. [More about the geo scope of {{ yandex-cloud }}](../../overview/concepts/geo-scope.md).
+
+If all broker hosts are created in the same availability zone, you cannot change their number.
 
 {% endif %}
 
@@ -22,7 +23,8 @@ Depending on the number of broker hosts in the cluster, {{ ZK }} is automaticall
 * If the {{ KF }} cluster consists of one broker host, {{ ZK }} is hosted on the same host.
 * If the {{ KF }} cluster consists of two or more hosts, {{ ZK }} is hosted separately from brokers on three additional hosts. These hosts are added to the cluster automatically.
 
-You can't delete {{ ZK }} hosts. The number of {{ZK}} hosts is constant. {{ mkf-name }} uses {{ ZK }} to store cluster states and configurations.
+You can't delete {{ ZK }} hosts. The number of {{ ZK }} hosts is constant. {{ mkf-name }} uses {{ ZK }} to store cluster states and configurations.
+
 
 You can change the {{ ZK }} host parameters using the [CLI](../operations/cluster-update.md).
 
@@ -31,7 +33,7 @@ You can change the {{ ZK }} host parameters using the [CLI](../operations/cluste
 The following characteristics are set for the {{ ZK }} hosts by default:
 
 * The `b2.medium` [host class](instance-types.md).
-* disk size 10 GB
+* Disk size: 10 GB.
 * [Storage type](storage.md): Fast network storage.
 
 {% endnote %}

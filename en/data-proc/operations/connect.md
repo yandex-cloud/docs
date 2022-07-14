@@ -1,13 +1,13 @@
-# Connecting to clusters {{ dataproc-name }}
+# Connecting to {{ dataproc-name }} clusters
 
-After creating a {{ dataproc-name }} cluster, you can connect to the host of the main subcluster:
+After creating a {{ dataproc-name }} cluster, you can connect to hosts of subclusters:
 
-* Over the internet, if you have public cluster access configured for the main subcluster.
-* From a [virtual machine](../../compute/operations/vm-create/create-linux-vm.md) in {{ yandex-cloud }} located in the same cloud network.
+* Over the internet, if you have public access configured for your subcluster.
+* From a {{ yandex-cloud }} [virtual machine](../../compute/operations/vm-create/create-linux-vm.md) located on the same cloud network.
 
 ## Configuring security groups {#configuring-security-groups}
 
-[Security groups](../../vpc/concepts/security-groups.md) might prevent connections to the cluster. If this is the case, modify the group rules.
+[Security groups](../../vpc/concepts/security-groups.md) might block cluster connections. If this happens, edit the group rules.
 
 {% note alert %}
 
@@ -21,76 +21,76 @@ Settings of rules depend on the connection method you select:
 
 - SSH
 
-    * To connect to the cluster over the internet, [configure security groups](../../vpc/operations/security-group-update.md#add-rule) of the host in the main subcluster to allow incoming traffic from any IP addresses on port `{{ port-ssh }}`. To do this, create the following rule for incoming traffic:
+   * To connect to your subcluster hosts from cloud networks and the internet, [set up security groups](../../vpc/operations/security-group-update.md#add-rule) for your cluster to allow incoming traffic from any IP address on port `{{ port-ssh }}`. To do this, create the following rule for incoming traffic:
 
-      * Protocol: `TCP`.
       * Port range: `{{ port-ssh }}`.
-      * Source type: `CIDR`.
-      * Destination: `0.0.0.0/0`.
+      * Protocol: `TCP`.
+      * Source: `CIDR`.
+      * CIDR blocks: `0.0.0.0/0`.
 
-    * To connect to a cluster from an intermediate VM:
+   * To connect to a cluster from an intermediate VM:
 
-      1. [Set up the security group](../../vpc/operations/security-group-update.md#add-rule) assigned to the VM to allow connections to the VM and traffic between the VM and the host of the main subcluster. To do this, create the following rules:
+      1. [Configure the security group](../../vpc/operations/security-group-update.md#add-rule) where the VM is located to allow connections to the VM and traffic between the VM and subcluster hosts. To do this, create the following rules:
 
-          * For incoming traffic:
+         * For incoming traffic:
 
-              * Protocol: `TCP`.
-              * Port range: `{{ port-ssh }}`.
-              * Source type: `CIDR`.
-              * Destination: `0.0.0.0/0`.
+            * Port range: `{{ port-ssh }}`.
+            * Protocol: `TCP`.
+            * Source: `CIDR`.
+            * CIDR blocks: `0.0.0.0/0`.
 
-          * For outgoing traffic:
+         * For outgoing traffic:
 
-              * Protocol: `TCP`.
-              * Port range: `{{ port-ssh }}`.
-              * Source type: `CIDR`.
-              * Destination: The address range of the subnet where the host of the main subcluster is located.
+            * Port range: `{{ port-ssh }}`.
+            * Protocol: `TCP`.
+            * Source type: `CIDR`.
+            * CIDR blocks: Address range of the subnet where the hosts of the cluster are located. If subclusters are in different subnets, create this rule for each subnet.
 
-      1. [Configure security groups](../../vpc/operations/security-group-update.md#add-rule) of the main subcluster to allow incoming traffic on port `{{ port-ssh }}` from the security group assigned to the VM. To do this, create the following rule for incoming traffic:
+      1. [Configure security groups](../../vpc/operations/security-group-update.md#add-rule) in the cluster to allow incoming traffic from the security group where the VM is located on port `{{ port-ssh }}`. To do this, create the following rule for incoming traffic:
 
-          * Protocol: `TCP`.
-          * Port range: `{{ port-ssh }}`.
-          * Source type: `CIDR`.
-          * Destination: The address range of the subnet where the host of the main subcluster is located.
+         * Port range: `{{ port-ssh }}`.
+         * Protocol: `TCP`.
+         * Source: `CIDR`.
+         * CIDR blocks: Address range of the subnet where the hosts of the cluster are located.
 
 - UI Proxy
 
-    To use [**UI Proxy**](../concepts/ui-proxy.md), [add](../../vpc/operations/security-group-update.md#add-rule) rules to the security group of the host in the main subcluster that allow incoming traffic via port `{{ port-https }}`:
+   To use [**UI Proxy**](../concepts/interfaces.md), [add](../../vpc/operations/security-group-update.md#add-rule) rules to the subcluster host's security group to allow incoming traffic via port `{{ port-https }}`:
 
-    * Protocol: `TCP`.
-    * Port range: `{{ port-https }}`.
-    * Source type: `CIDR`.
-    * Destination: `0.0.0.0/0`.
+   * Port range: `{{ port-https }}`.
+   * Protocol: `TCP`.
+   * Source: `CIDR`.
+   * CIDR blocks: `0.0.0.0/0`.
 
-    If the connection is performed via an intermediate VM, [add](../../vpc/operations/security-group-update.md#add-rule) rules to the security group of the host in the main subcluster that allow connections via the VM:
+   If the connection is established via an intermediate VM, [add](../../vpc/operations/security-group-update.md#add-rule) rules to the subcluster host's security group to allow connections via this VM:
 
-    * For incoming traffic:
+   * For incoming traffic:
 
-        * Protocol: `TCP`.
-        * Port range: `{{ port-https }}`.
-        * Source type: `CIDR`.
-        * Destination: `0.0.0.0/0`.
+      * Port range: `{{ port-https }}`.
+      * Protocol: `TCP`.
+      * Source: `CIDR`.
+      * CIDR blocks: `0.0.0.0/0`.
 
-    * For outgoing traffic:
+   * For outgoing traffic:
 
-        * Protocol: `TCP`.
-        * Port range: `{{ port-https }}`.
-        * Source type: `CIDR`.
-        * Destination: The address range of the subnet where the host of the main subcluster is located.
+      * Port range: `{{ port-https }}`.
+      * Protocol: `TCP`.
+      * Source type: `CIDR`.
+      * CIDR blocks: Address range of the subnet where the host of the subcluster is located.
 
 - Connecting with port forwarding
 
-    When using [port forwarding](../concepts/interfaces.md#routing), [add](../../vpc/operations/security-group-update.md#add-rule) rules to the intermediate VM security group that allow incoming and outgoing traffic via the required components' ports:
+   When using [port forwarding](../operations/connect-interfaces.md#routing), [add](../../vpc/operations/security-group-update.md#add-rule) rules to the intermediate VM security group that allow incoming and outgoing traffic via the required components' ports:
 
-    * Protocol: `TCP`.
-    * Port range: `<component port>`.
+   * Port range: `<component port>`.
 
-        Port numbers for {{ dataproc-name }} components are shown in the table:
+      Port numbers for {{ dataproc-name }} components are shown in the table:
 
-        {% include [ports-table](../../_includes/data-proc/ports-table.md) %}
+      {% include [ports-table](../../_includes/data-proc/ports-table.md) %}
 
-    * Source type: `CIDR`.
-    * Destination: `0.0.0.0/0`.
+   * Protocol: `TCP`.
+   * Source: `CIDR`.
+   * CIDR blocks: `0.0.0.0/0`.
 
 {% endlist %}
 
@@ -108,13 +108,13 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 To connect to a {{ dataproc-name }} host, make sure the SSH key that you specified when creating the {{ dataproc-name }} cluster is accessible on the local machine or the VM. You can copy the key to the machine from which the connection is performed to the cluster, or connect to it with an SSH agent.
 
-1. (optional) [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
+1. (optional) [Connect](../../compute/operations/vm-connect/ssh.md) to the intermediate virtual machine via SSH.
 
 1. Launch the SSH agent:
 
-    ```bash
-    eval `ssh-agent -s`
-    ```
+   ```bash
+   eval `ssh-agent -s`
+   ```
 
 1. Add the required key to the list of those available to the agent:
 
@@ -126,22 +126,22 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key that you specifi
 
    ```bash
    ssh ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz.{{ dns-zone }}
-   
+
    ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz:~#
    ```
 
 1. Make sure that Hadoop commands are executed, for example:
 
-    ```bash
-    ~# hadoop version
-    
-    Hadoop 2.8.5
-    Subversion https://github.yandex-team.ru/mdb/bigtop.git -r 78508f2a4b4f3dc8b3d295ccb50a45a4d24e81b5
-    Compiled by robot-pgaas-ci on 2019-04-16T10:35Z
-    Compiled with protoc 2.5.0
-    From source with checksum 9942ca5c745417c14e318835f420733
-    This command was run using /usr/lib/hadoop/hadoop-common-2.8.5.jar
-    ```
+   ```bash
+   ~# hadoop version
+
+   Hadoop 2.8.5
+   Subversion https://github.yandex-team.ru/mdb/bigtop.git -r 78508f2a4b4f3dc8b3d295ccb50a45a4d24e81b5
+   Compiled by robot-pgaas-ci on 2019-04-16T10:35Z
+   Compiled with protoc 2.5.0
+   From source with checksum 9942ca5c745417c14e318835f420733
+   This command was run using /usr/lib/hadoop/hadoop-common-2.8.5.jar
+   ```
 
 ## Connecting to cluster hosts from graphical IDEs {#connection-ide}
 
@@ -153,62 +153,62 @@ To connect to a {{ dataproc-name }} host, make sure the SSH key that you specifi
 
 - DataGrip
 
-  1. Create a data source:
-     1. Select **File** → **New** → **Data Source** → **Apache Hive**.
+   1. Create a data source:
+      1. Select **File** → **New** → **Data Source** → **Apache Hive**.
 
-        {% note info %}
+         {% note info %}
 
-        Select the data source depending on the {{ dataproc-name }} component you're connecting to:
+         Select the data source depending on the {{ dataproc-name }} component you're connecting to:
 
          * Hive: Select **Apache Hive**.
          * HBase: Select **Apache Phoenix**.
          * Spark: Select **Apache Spark**.
 
-        The list of settings doesn't change.
+         The list of settings doesn't change.
 
-        {% endnote %}
+         {% endnote %}
 
-     1. Specify the connection parameters on the **General** tab:
-        * **Host**: FQDN of the cluster master host or its public IP address.
-        * Click **Download** to download the connection driver.
-     1. On the **SSH/SSL** tab:
-        1. Enable the **Use SSL** setting and specify the SSL connection parameters:
-           * **CA file**: Downloaded SSL certificate for the connection.
-           * **Client key file**, **Client key password**: File with the private key required to connect to the {{ dataproc-name }} cluster and its password.
-        1. (optional) To connect via an intermediate VM, configure the parameters of the SSH tunnel:
-           1. Select **Use SSH tunnel**, create an SSH configuration, and specify the parameters:
-              * **Host**: IP address of the VM.
-              * **User name**: VM user's name.
-              * **Private key file**, **Passphrase**: File with the private key required to connect to the VM and its password.
-           1. Click **Test Connection** to test the connection to the VM from DataGrip.
-           1. Click **OK** to save the configuration.
-  1. Click **Test Connection** to test the connection. If the connection is successful, you'll see the **OK** connection status and information about the DBMS and driver.
-  1. Click **OK** to save the data source.
+      1. Specify the connection parameters on the **General** tab:
+         * **Host**: FQDN of the cluster master host or its public IP address.
+         * Click **Download** to download the connection driver.
+      1. On the **SSH/SSL** tab:
+         1. Enable the **Use SSL** setting and specify the SSL connection parameters:
+            * **CA file**: Downloaded SSL certificate for the connection.
+            * **Client key file**, **Client key password**: File with the private key required to connect to the {{ dataproc-name }} cluster and its password.
+         1. (optional) To connect via an intermediate VM, configure an SSH tunnel:
+            1. Select **Use SSH tunnel**, create an SSH configuration, and specify the parameters:
+               * **Host**: IP address of the VM.
+               * **User name**: VM user's name.
+               * **Private key file**, **Passphrase**: File with the private key required to connect to the VM and its password.
+            1. Click **Test Connection** to test the connection to the VM from DataGrip.
+            1. Click **OK** to save the configuration.
+   1. Click **Test Connection** to test the connection. If the connection is successful, you'll see the **OK** connection status and information about the DBMS and driver.
+   1. Click **OK** to save the data source.
 
 - DBeaver
 
-  1. [Download the SSH key](#data-proc-ssh) to the local machine or VM to connect to the {{ dataproc-name }} cluster.
-  1. Create a new DB connection:
-     1. In the **Database** menu, select **New connection**.
-     1. Select the **Apache Hive** database from the list.
+   1. [Download the SSH key](#data-proc-ssh) to the local machine or VM to connect to a {{ dataproc-name }} cluster.
+   1. Create a new DB connection:
+      1. In the **Database** menu, select **New connection**.
+      1. Select the **Apache Hive** database from the list.
 
-        {% note info %}
+         {% note info %}
 
-        Depending on the {{ dataproc-name }} service you're connecting to, you may need to select **Apache Phoenix** (for HBase) or  **Apache Spark** instead of **Apache Hive**. The list of settings doesn't change.
+         Depending on the {{ dataproc-name }} service you're connecting to, you may need to select **Apache Phoenix** (for HBase) or **Apache Spark** instead of **Apache Hive**. The list of settings doesn't change.
 
-        {% endnote %}
+         {% endnote %}
 
-     1. Click **Next**.
-     1. Specify the connection parameters on the **Main** tab:
-        * **Host**: FQDN of the cluster master host or its public IP address.
-     1. On the **SSH** tab, specify:
-        * **Authentication method**: `Public key`.
-        * **Secret key**: Path to the private key file.
-        * **Passphrase**: Password of the private key.
-        * (optional) To connect via an intermediate VM, enable the **Use SSH tunnel** setting and specify the following parameters to configure it:
+      1. Click **Next**.
+      1. Specify the connection parameters on the **Main** tab:
+         * **Host**: FQDN of the cluster master host or its public IP address.
+      1. On the **SSH** tab, specify:
+         * **Authentication method**: `Public key`.
+         * **Secret key**: Path to the private key file.
+         * **Passphrase**: Password of the private key.
+         * (Optional) To connect via an intermediate VM, enable the **Use SSH tunnel** setting and specify the following parameters to configure it:
             * **Host/IP**: Public IP address of the VM to connect to.
             * **Username**: Username for connecting to the VM.
-  1. Click **Test Connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
-  1. Click **Ready** to save the database connection settings.
+   1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+   1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
