@@ -66,7 +66,7 @@
 
 {% endlist %}
 
-## Интеграция с {{ monitoring-full-name }} {#monitoring-integration}
+## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
 
 Чтобы настроить алерты показателей состояния [кластера](#monitoring-cluster) и [хостов](#monitoring-hosts):
 
@@ -77,9 +77,9 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
   1. В списке сервисов выберите ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
   1. В блоке **Сервисные дашборды** выберите **{{ mkf-name }} — Cluster Overview**.
-  1. На нужном графике с показателями нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Создать алерт**.
-  1. Если показателей на графике больше одного, выберите запрос данных для формирования метрики и нажмите **Продолжить**. {% if audience == "external" %}Подробнее о языке запросов см. в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).{% endif %}
-  1. Задайте значения порогов `Alarm` и `Warning` для оповещения.
+  1. На нужном графике нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Создать алерт**.
+  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. {% if audience == "external" %}Подробнее о языке запросов см. [документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md). {% endif %}
+  1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
   1. Нажмите кнопку **Создать алерт**.
 
 {% endlist %}

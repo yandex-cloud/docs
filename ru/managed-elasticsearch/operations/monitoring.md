@@ -92,9 +92,7 @@
 
 {% endlist %}
 
-## Интеграция с {{ monitoring-full-name }} {#monitoring-integration}
-
-Чтобы настроить алерты показателей состояния [кластера](#monitoring-cluster) и [хостов](#monitoring-hosts):
+## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs %}
 
@@ -107,9 +105,9 @@
       * **{{ mes-name }}** для настройки алертов кластера;
       * **{{ mes-name }} — Host Overview** для настройки алертов хостов.
 
-  1. На нужном графике с показателями нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Создать алерт**.
-  1. Если показателей на графике больше одного, выберите запрос данных для формирования метрики и нажмите кнопку **Продолжить**. {% if audience == "external" %}Подробнее о языке запросов см. в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).{% endif %}
-  1. Задайте значения порогов `Warning` и `Alarm` для оповещения.
+  1. На нужном графике нажмите на значок ![options](../../_assets/horizontal-ellipsis.svg) и выберите пункт **Создать алерт**.
+  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. {% if audience == "external" %}Подробнее о языке запросов [см. документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md). {% endif %}
+  1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
   1. Нажмите кнопку **Создать алерт**.
 
 {% endlist %}
