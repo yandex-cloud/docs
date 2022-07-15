@@ -28,7 +28,6 @@ ignore:
   - "en/managed-mongodb/*"
   - "en/managed-redis/*"
   - "en/managed-sqlserver/*"
-  - "en/managed-ydb/*"
   - "en/marketplace/*"
   - "en/mdb/*"
   - "en/microsoft/*"
