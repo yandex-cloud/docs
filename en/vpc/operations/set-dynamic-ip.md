@@ -1,17 +1,18 @@
 # Making a static public IP address dynamic
 
-You can make a static public IP address dynamic. If a dynamic IP address is used by a VM, then the address resets each time the VM stops. When the VM starts up, it may be allocated a different address.
+A static public IP address set for a cloud resource can be made dynamic. If a dynamic IP address is used by a VM, it disappears when it's stopped and changes the next time it's started.
 
 {% list tabs %}
 
 * Management console
 
    To change a public IP address from static to dynamic:
-   1. Go to the folder with the static IP and select **Virtual Private Cloud**.
-   1. Select **IP addresses**.
+   1. In the [management console]({{ link-console-main }}), select the folder containing the appropriate address.
+   1. In the list of services, select **{{ vpc-name }}**.
+   1. On the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **IP addresses**.
    1. Click ![image](../../_assets/options.svg) in the row of the address that you want to make dynamic.
    1. In the menu that opens, select **Make dynamic**.
-   1. In the window that opens, click **Edit**.
+   1. In the window that opens, click **Change**.
 
 * CLI
 
@@ -33,7 +34,7 @@ You can make a static public IP address dynamic. If a dynamic IP address is used
       yc vpc address list
       ```
 
-      Execution result:
+      Output:
 
       ```bash
       +----------------------+------+---------------+----------+------+
@@ -51,7 +52,7 @@ You can make a static public IP address dynamic. If a dynamic IP address is used
       yc vpc address update --reserved=false e2l46k8conff8n6ru1jl
       ```
 
-      Execution result:
+      Output:
 
       ```bash
       id: e2l46k8conff8n6ru1jl
@@ -67,4 +68,3 @@ You can make a static public IP address dynamic. If a dynamic IP address is used
       The IP address is now dynamic.
 
 {% endlist %}
-

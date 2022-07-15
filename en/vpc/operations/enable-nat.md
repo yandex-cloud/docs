@@ -2,7 +2,7 @@
 
 {% note info %}
 
-The feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
+The feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 
@@ -13,10 +13,11 @@ To enable NAT to the internet:
 {% list tabs %}
 
 - Management console
-  1. Go to the **Virtual Private Cloud** section in the folder with the subnet whose cloud resources need to access the internet.
-  1. Select the network with the appropriate subnet.
-  1. Under **Subnets**, click ![options](../../_assets/options.svg) in the line with the subnet you need.
-  1. In the menu that opens, select **Enable NAT to the internet**.
+
+   1. In the [management console]({{ link-console-main }}), go to the folder with the subnet whose cloud resources need to access the internet.
+   1. In the list of services, select **{{ vpc-name }}**.
+   1. Select the network with the appropriate subnet.
+   1. Under **Subnets**, click ![options](../../_assets/options.svg) in the line of the subnet.
+   1. In the menu that opens, select **Enable NAT to the internet**.
 
 {% endlist %}
-

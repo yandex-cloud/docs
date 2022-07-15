@@ -12,9 +12,10 @@ You cannot restore an address after it is deleted.
 * Management console
 
    To delete a [static address](../concepts/address.md):
-   1. Open the **Virtual Private Cloud** section in the folder where you want to reserve the address.
-   1. Go to the **IP addresses** tab.
-   1. Click ![image](../../_assets/options.svg) in the row of the address to delete.
+   1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete the static address.
+   1. In the list of services, select **{{ vpc-name }}**.
+   1. On the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **IP addresses**.
+   1. Click ![image](../../_assets/options.svg) in the line of the address to delete.
    1. In the menu that opens, click **Delete**.
    1. In the window that opens, click **Delete**.
 
@@ -38,7 +39,7 @@ You cannot restore an address after it is deleted.
       yc vpc address list
       ```
 
-      Execution result:
+      Output:
 
       ```bash
       +----------------------+------+----------------+----------+-------+
@@ -55,4 +56,3 @@ You cannot restore an address after it is deleted.
       ```
 
 {% endlist %}
-

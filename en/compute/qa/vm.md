@@ -24,69 +24,68 @@ For more information, see [{#T}](../operations/vm-control/vm-update-resources.md
 
 You can only add a network interface when [creating a VM](../operations/index.md#vm-create). Currently, multiple interfaces can only be created using network images from the [Marketplace]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace?categories=network){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace?categories=network){% endif %}.
 
-### VM parameters {#parameters-vm}
+### Virtual machine parameters {#parameters-vm}
 
-#### How do I increase quotas {#increase-quotas}
+#### How do I increase quotas? {#increase-quotas}
 
 To increase quotas, submit a request on [this page]({{ link-console-quotas }}). Select the service (or services) and specify which quota values you need.
 
-After creating the request, the message appears in the [support section]({{ link-console-support }}), where you can track its implementation. In some cases, it may be necessary to get approval from the service to ensure the availability of resources, and/or to increase the balance of your personal account.
+After creating the request, the message appears in the [support section]({{ link-console-support }}) where you can track its status. In some cases, it may be necessary to get approval from the service to ensure the availability of resources and/or to increase your account balance.
 
-#### Does nested virtualization work / Is it possible to host your own VMs inside a virtual machine {#nested-virtualization}
+#### Can I use nested virtualization? / Can I host my VMs inside other VMs? {#nested-virtualization}
 
-Nested virtualization isn't supported for security reasons. If you don't find a suitable public image for a VM, you can upload your own image and create a VM from it. See: [{#T}](../operations/vm-create/create-from-user-image.md).
+Nested virtualization isn't supported for security reasons. If you couldn't find a suitable public image for a VM, you can upload your own image and create a VM from it. Follow the instructions: [{#T}](../operations/vm-create/create-from-user-image.md).
 
-#### Is the data saved when I change a VM's parameters {#data-saved-after-change-parameters}
+#### Is data saved when I edit the parameters of my virtual machine? {#data-saved-after-change-parameters}
 
-Yes, the data should be saved. However, please note that it isn't recommended to restart the VM when writing to the system disk because this can lead to file system corruption.
+Yes, the data should be saved. However, please note that you shouldn't restart your VM when writing data to the system disk because this might result in file system corruption.
 
-To change a VM's parameters, we recommend taking the following steps:
+To edit the parameters of your VM, follow these steps:
 1. Take a snapshot of the disk: see [{#T}](../operations/disk-control/create-snapshot.md).
-1. Turn off the VM as normal: see [{#T}](../operations/vm-control/vm-stop-and-start.md).
-1. Change the VM's parameters: see [{#T}](../operations/vm-control/vm-update-resources.md).
+1. Shut down the VM normally: see [{#T}](../operations/vm-control/vm-stop-and-start.md).
+1. Edit the VM parameters: see [{#T}](../operations/vm-control/vm-update-resources.md).
 1. Wait until the operation is completed (the **Operations** section in the {{ compute-name }} service).
 1. Start the VM.
 1. Make sure that the new parameters were applied.
 
-#### Is it possible to reduce the vCPU/vRAM for a VM {#reduce-cpu-ram}
+#### Is it possible to reduce the vCPU/vRAM for a VM? {#reduce-cpu-ram}
 
-You can. However, if the load on the vCPU and/or vRAM was already significant before changing the parameters, after lowering the parameters, the VM may not start.
+Yes, you can. However, if the load on the vCPU and/or vRAM was high enough when you changed the parameters, the VM may fail to start if you decrease these parameters.
 
-If the load on the server is small and at the same time uniform, it's even recommended to reduce the parameters so as not to overpay.
+If the load on the server is small and uniform, we recommend decreasing the parameters to avoid paying extra.
 
-#### What's the difference between GPU and vGPU {#gpu-vs-vgpu}
+#### What's the difference between a GPU and vGPU? {#gpu-vs-vgpu}
 
-The main difference is that the GPU can be used for mathematical calculations and machine learning, and the vGPU can also be used for graphics tasks.
+The main difference is that a GPU can be used for mathematical calculations and machine learning, and a vGPU can also be used for graphics tasks.
 
-In addition, their cost, support of multiple processors, and licensing differ. For a detailed description and comparison of the GPU and vGPU, see [{#T}](../concepts/gpus.md).
+In addition, their cost, support of multiple processors, and licensing differ. For a detailed description and comparison of GPUs and vGPUs, see [{#T}](../concepts/gpus.md).
 
-#### Is it possible to change the FQDN {#change-fqdn}
+#### Is it possible to change the FQDN? {#change-fqdn}
 
 The FQDN is issued to the VM at the time of its creation, and you cannot change it.
 
-If you want to change the FQDN, you need to delete the VM and create a new one. To preserve the consistency of the data:
+If you want to change the FQDN, delete the VM and create a new one. To preserve the consistency of the data:
 1. Stop the VM: see [{#T}](../operations/vm-control/vm-stop-and-start.md#stop).
 1. Take a snapshot of the disk: see [{#T}](../operations/disk-control/create-snapshot.md).
-1. Create a new VM by selecting the snapshot as the source of the boot disk: see [{#T}](../operations/vm-create/create-from-snapshots.md). Specify the necessary FQDN during creation.
+1. Create a new VM by selecting the snapshot as the source of its boot disk: see [{#T}](../operations/vm-create/create-from-snapshots.md). Specify the necessary FQDN during creation.
 
-#### Can a VM's UUID change {#change-uuid}
+#### Can the UUID of a VM change? {#change-uuid}
 
-Standard procedures for changing a VM, such as changing the number of vCPUs, the amount of vRAM, and adding disks, don't affect the UUID. However, in some cases, the UUID may change. For example, with updating the BIOS or similar procedures that affect the "hardware" part of the service.
+Standard procedures for changing a VM, such as changing the number of vCPUs, the amount of vRAM, and adding disks, won't affect the UUID. However, in some cases, the UUID may change. For example, with updating the BIOS or similar procedures that affect the "hardware" part of the service.
 
-Keep this in mind when using third-party software licenses. It's best if you can purchase a license that isn't tied to the UUID.
+Keep this in mind when using third-party software licenses. It's best if you can purchase a license that isn't linked to the UUID.
 
-#### How do I change metadata after creating a VM {#change-metadata-after-creating}
+#### How do I change metadata after creating a VM? {#change-metadata-after-creating}
 
-Use the API method [updateMetadata](../api-ref/Instance/updateMetadata.md).
+Use the [updateMetadata](../api-ref/Instance/updateMetadata.md) API method.
 
-This method allows you to update the metadata in the service, but without growing it into the guest operating system inside the VM. If you need to update a parameter inside a VM after it's created, in most cases, the best way is to recreate the VM from the snapshot or make changes manually.
+This method enables you to update the metadata in the service without affecting the guest operating system run by the VM. If you need to update a parameter inside your VM after its creation, in most cases, the best way is to recreate the VM from a snapshot or make changes manually.
 
 ### Operations on VMs {#operations-on-vm}
 
 #### Can I copy or clone an existing VM? {#clone-vm}
 
 Yes, you can take snapshots of disks attached to a VM and use them when creating a new VM.
-
 
 {% if product == "yandex-cloud" %}
 
@@ -95,7 +94,6 @@ Yes, you can take snapshots of disks attached to a VM and use them when creating
 You cannot directly change the availability zone where the VM is hosted. However, you can create a copy of the VM in the availability zone you need.
 
 {% endif %}
-
 
 #### Can I move my VM to a different folder? {#move-to-project}
 

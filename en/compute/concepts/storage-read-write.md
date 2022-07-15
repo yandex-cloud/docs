@@ -23,7 +23,7 @@ Where:
 * _WriteIOPS_: The IOPS write value obtained using the formula for the actual IOPS value.
 * _ReadIOPS_: The IOPS read value obtained using the formula for the actual IOPS value.
 
-For more information about maximum possible IOPS and bandwidth values, see [Quotas and limits](../concepts/limits.md#limits-disks).
+For more information about maximum possible IOPS and bandwidth values, see [Quotas and limits](../concepts/limits.md#compute-limits-disks).
 
 ## Disk{% if product == "yandex-cloud" %} and file storage{% endif %} performance {#performance}
 

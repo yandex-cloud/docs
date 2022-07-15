@@ -10,7 +10,7 @@ description: "GPU is a graphics processor unit that handles certain types of dat
 The following GPUs are available in {{ compute-name }}:
 {% if product == "yandex-cloud" %}* [NVIDIA® Tesla® V100]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/tesla-v100/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/v100/){% endif %} with 32 GB HBM2 (High Bandwidth Memory). {% endif %}
 * [NVIDIA® Ampere® A100]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/a100/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/a100/){% endif %} with 80 GB HBM2.
-   {% if product == "yandex-cloud" %}* [NVIDIA® Tesla® T4]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/tesla-t4/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/tesla-t4/){% endif %} with 16 GB GDDR6. {% endif %}
+{% if product == "yandex-cloud" %}* [NVIDIA® Tesla® T4]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/tesla-t4/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/tesla-t4/){% endif %} with 16 GB GDDR6. {% endif %}
 
 {% if product == "yandex-cloud" %}
 
@@ -111,6 +111,8 @@ For more information about organizational and technical limits for VMs, see [Quo
 {% if product == "yandex-cloud" %}
 
 ## Virtual graphics accelerators (vGPUs) {#vgpu}
+
+{% include [vgpu-to-standard](../../_includes/compute/vgpu-to-standard.md) %}
 
 {{ compute-name }} lets you virtualize graphics accelerators (GPUs). Virtualization of machines with GPUs are created based on [NVIDIA® vGPU]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/virtualization/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/virtual-solutions/){% endif %} technology.
 
