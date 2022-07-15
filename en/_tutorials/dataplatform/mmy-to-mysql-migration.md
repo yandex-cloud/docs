@@ -1,4 +1,10 @@
-# Migrating databases from {{ mmy-name }} to {{ MY }}
+# Migrating databases from {{ mmy-name }} to a third-party {{ MY }} cluster
+
+{% note info %}
+
+Data migration from a third-party {{ MY }} cluster is described in [{#T}](../../managed-mysql/tutorials/data-migration.md).
+
+{% endnote %}
 
 To migrate a database deployed in a {{ mmy-name }} cluster to a third-party {{ MY }} cluster:
 
@@ -14,7 +20,7 @@ There are two ways to migrate data from a {{ mmy-name }} _source cluster_ to a t
 
    This method lets you migrate the entire database without interrupting user service.
 
-   For more information, see [What tasks is {{ data-transfer-full-name }} used for](../../data-transfer/concepts/use-cases.md).
+   For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
 * [Transferring data using external replication](#binlog-replication).
 
@@ -22,7 +28,7 @@ There are two ways to migrate data from a {{ mmy-name }} _source cluster_ to a t
 
    Use this method only if, for some reason, it's not possible to migrate data using {{ data-transfer-full-name }}.
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 Prepare the target cluster:
 
@@ -48,7 +54,7 @@ Additionally, to migrate data using external {{ MY }} replication:
 1. [Transfer a logical dump of the database](#migrate-schema).
 1. [Configure the user in the source cluster to manage replication](#configure-user).
 1. [Start replication in the target cluster](#start-replica).
-1. [Monitor the migration process](#replica-status) until it is complete.
+1. [Monitor the migration process](#monitor-migration) until it is complete.
 1. [Finish the migration](#finish-migration).
 
 ### Transfer a logical dump of the database {#migrate-schema}
@@ -144,6 +150,7 @@ The target cluster will connect to the source cluster on behalf of this user.
    server_id = 2
    relay-log = /var/lib/mysql/mysql-relay-bin
    relay-log-index = /var/lib/mysql/mysql-relay-bin.index
+
    gtid-mode = on
    enforce-gtid-consistency = on
    ```

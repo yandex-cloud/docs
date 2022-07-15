@@ -2,61 +2,61 @@
 
 Чтобы автоматически проходить проверки [прав на домен](../../certificate-manager/concepts/challenges.md) с использованием утилиты [cert-manager](https://cert-manager.io/docs/), добавьте веб-хук с резолвером DNS01 в конфигурацию утилиты.
 
-Ниже приведен пример создания объекта `ClusterIssuer` с веб-хуком резолвера DNS01 для домена, зарегистрированного в {{dns-full-name}}.
+Ниже приведен пример создания объекта `ClusterIssuer` с веб-хуком резолвера DNS01 для домена, зарегистрированного в {{ dns-full-name }}.
 
-Чтобы запустить веб-хук в кластере {{managed-k8s-name}}:
+Чтобы запустить веб-хук в кластере {{ managed-k8s-name }}:
 
 1. [Установите веб-хук](#install-yandex-webhook).
 1. [Подготовьте конфигурационные файлы](#prepare-files).
 1. [Запустите менеджер сертификатов с веб-хуком](#run-webhook).
 
-## Перед началом работы
+## Перед началом работы {#before-you-begin}
 
-1. [Подготовьте кластер {{managed-k8s-name}}](../../managed-kubernetes/quickstart.md) к работе.
-2. [Установите менеджер сертификатов](../../managed-kubernetes/tutorials/ingress-cert-manager.md#install-certs-manager) последней версии.
-3. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/).
-4. [Настройте CLI](../../cli/operations/authentication/service-account.md) для работы от имени сервисного аккаунта.
+1. [Подготовьте кластер {{ managed-k8s-name }}](../../managed-kubernetes/quickstart.md) к работе.
+1. [Установите менеджер сертификатов](../../managed-kubernetes/tutorials/ingress-cert-manager.md#install-certs-manager) последней версии.
+1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/).
+1. [Настройте CLI](../../cli/operations/authentication/service-account.md) для работы от имени сервисного аккаунта.
 
 ## Установите веб-хук {#install-yandex-webhook}
 
 1. Клонируйте репозиторий веб-хука:
 
-	```
+    ```
     git clone https://github.com/yandex-cloud/cert-manager-webhook-yandex.git
-	```
+    ```
 
-2. Установите веб-хук с помощью Helm:
+1. Установите веб-хук с помощью Helm:
 
-	```
+    ```
     helm install -n cert-manager yandex-webhook ./deploy/cert-manager-webhook-yandex
-	```
+    ```
 
 ## Подготовьте конфигурационные файлы {#prepare-files}
 
-1. Создайте [авторизованный ключ](https://cloud.yandex.ru/docs/iam/operations/sa/create-access-key) и сохраните его в файл `iamkey.json`:
+1. Создайте [авторизованный ключ](../../iam/operations/sa/create-access-key.md) и сохраните его в файл `iamkey.json`:
 
-	```
+    ```
     yc iam key create iamkey \
-        --service-account-id=<your service account ID>
+        --service-account-id=<your service account ID> \
         --format=json \
         --output=iamkey.json
-	```
+    ```
 
-	{% note warning %}
+    {% note warning %}
 
-	Сервисный аккаунт должен иметь роль [не ниже editor](../../resource-manager/security/#roles-list).
+    Сервисный аккаунт должен иметь роль [не ниже editor](../../resource-manager/security/#roles-list).
 
     {% endnote %}
 
-2. Создайте секрет с ключом сервисного аккаунта:
+1. Создайте секрет с ключом сервисного аккаунта:
 
-	```
-	kubectl create secret generic cert-manager-secret --from-file=iamkey.json -n cert-manager
-	```
+    ```
+    kubectl create secret generic cert-manager-secret --from-file=iamkey.json -n cert-manager
+    ```
 
-3. Создайте файл `cluster-issuer.yml` с манифестом объекта `ClusterIssuer`:
+1. Создайте файл `cluster-issuer.yml` с манифестом объекта `ClusterIssuer`:
 
-	```
+    ```
     apiVersion: cert-manager.io/v1
     kind: ClusterIssuer
     metadata:
@@ -84,11 +84,11 @@
                 key: iamkey.json
             groupName: acme.cloud.yandex.com
             solverName: yandex-cloud-dns
-	```
+    ```
 
-4. Создайте файл `cluster-certificate.yml` с манифестом объекта `Certificate`:
+1. Создайте файл `cluster-certificate.yml` с манифестом объекта `Certificate`:
 
-	```
+    ```
     apiVersion: cert-manager.io/v1
     kind: Certificate
     metadata:
@@ -101,32 +101,32 @@
       name: clusterissuer
       kind: ClusterIssuer
     dnsNames:
-     - your-site.com  
-	```
+     - your-site.com
+    ```
 
 ## Запустите менеджер сертификатов с веб-хуком {#run-webhook}
 
 1. Создайте объекты в кластере Kubernetes:
 
-	```
+    ```
     kubectl apply -f cluster-issuer.yml && \
     kubectl apply -f cluster-certificate.yaml
-	```
+    ```
 
 2. Убедитесь, что веб-хук запущен:
 
-	```
+    ```
     kubectl get pods -n cert-manager –watch
-	```
+    ```
 
-	Проверьте, что среди записей присутствует веб-хук ACME для {{dns-full-name}}:
+    Проверьте, что среди записей присутствует веб-хук ACME для {{ dns-full-name }}:
 
-	```
-    NAME                                                        		 	READY   STATUS    RESTARTS   AGE
+    ```
+    NAME                                                         READY   STATUS    RESTARTS   AGE
     ... 
-    yandex-webhook-cert-manager-webhook-yandex-5578cfb98-tw4mq   	        1/1     Running   1          43h
-	```
+    yandex-webhook-cert-manager-webhook-yandex-5578cfb98-tw4mq   1/1     Running   1          43h
+    ```
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, [удалите кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) {{managed-k8s-name}}.
+Если созданные ресурсы вам больше не нужны, [удалите кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) {{ managed-k8s-name }}.

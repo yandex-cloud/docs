@@ -57,7 +57,6 @@
         --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
         --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts \
         --metadata-from-file ssh-keys=sshkeys.txt \
-        --ssh-key ~/.ssh/<имя открытого ключа>.pub \
         --metadata serial-port-enable=1
       ```
 
@@ -219,7 +218,7 @@
 
 1. [Подключитесь к ВМ по RDP](../vm-connect/rdp.md).
 
-1. Запустите `cmd` или PowerShell и выполните следующие команды:
+1. Запустите командную строку или PowerShell и выполните:
 
    ```
    bcdedit /ems "{current}" on
@@ -231,7 +230,4 @@
 
 1. Перезагрузите ВМ.
 
-{% endlist %}
-
 Подробнее о работе [командной оболочки в Windows SAC](windows-sac.md).
-

@@ -9,8 +9,9 @@ description: "{{ KF }} is a distributed messaging system between applications on
 
 {{ KF }} is a distributed inter-application communication system that uses the "publication-subscription" principle.
 
-
 Each {{ mkf-name }} cluster consists of one or more [broker hosts](brokers.md), where [topics](topics.md) and topic partitions are located. Cluster hosts may reside in different availability zones. [More about the geo scope of {{ yandex-cloud }}](../../overview/concepts/geo-scope.md).
+
+If all broker hosts are created in the same availability zone, you cannot change their number.
 
 
 Cluster hosts accept [connections](../operations/connect.md) from clients, such as data [producer](producers-consumers.md) and [consumer](producers-consumers.md) applications. Producers send messages to certain cluster topics and consumers read messages from them. This ensures that you won't need to re-configure consumers if the producer changes.
@@ -20,7 +21,8 @@ Depending on the number of broker hosts in the cluster, {{ ZK }} is automaticall
 * If the {{ KF }} cluster consists of one broker host, {{ ZK }} is hosted on the same host.
 * If the {{ KF }} cluster consists of two or more hosts, {{ ZK }} is hosted separately from brokers on three additional hosts. These hosts are added to the cluster automatically.
 
-You can't delete {{ ZK }} hosts. The number of {{ZK}} hosts is constant. {{ mkf-name }} uses {{ ZK }} to store cluster states and configurations.
+You can't delete {{ ZK }} hosts. The number of {{ ZK }} hosts is constant. {{ mkf-name }} uses {{ ZK }} to store cluster states and configurations.
+
 
 You can change the {{ ZK }} host parameters using the [CLI](../operations/cluster-update.md).
 
@@ -29,7 +31,7 @@ You can change the {{ ZK }} host parameters using the [CLI](../operations/cluste
 The following characteristics are set for the {{ ZK }} hosts by default:
 
 * The `b2.medium` [host class](instance-types.md).
-* disk size 10 GB
+* Disk size: 10 GB.
 * [Storage type](storage.md): Fast network storage.
 
 {% endnote %}

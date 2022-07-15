@@ -1,36 +1,117 @@
 # Sharding tables {{ CH }}
 
-{{ mch-name }} automatically creates a cluster with a single shard. This shard includes all the hosts in the cluster.
+Sharding provides a [range of benefits](../concepts/sharding#advantages) for coping with a high query rate and big data amounts. It works by creating a distributed table that routes queries to underlying tables. You can access data in sharded tables both directly and through the distributed table.
 
-To start using sharding, [add](../operations/shards.md#add-shard) the desired number of shards and create a table on the [Distributed]({{ ch.docs }}/operations/table_engines/distributed/) engine. The article under the link describes sharding strategies and guidelines for creating tables in the applicable format, as well as distributed table limits.
+There are three approaches to sharding:
 
-Each sharded table in {{ CH }} consists of:
-- A distributed table on the Distributed engine that routes queries.
-- Underlying tables with data located on several shards in the cluster.
+* Classic approach, when the distributed table uses all shards in the cluster.
+* Regular group-based approach, when some shards are combined into a group.
+* Advanced group-based approach, when shards are split into two groups: one group is created for the distributed table and another group is created for underlying tables.
 
-With a sharded table, you can operate data:
-- By accessing them via a distributed table, which represents all sharded tables in the form of a single table.
-- By directly accessing the underlying tables to insert data in the required shards or read the data contained in the table on a specific shard.
+Below are examples of sharding setup for each of the three approaches.
 
-For more information about the sharding concept, see [{#T}](../concepts/sharding.md).
+For more information, see [{#T}](../concepts/sharding.md).
 
-## Examples of sharding {#example}
+To set up sharding:
 
-Let's assume that a {{ mch-name }} cluster named `chcluster` is [created](../operations/cluster-create.md), containing:
-- Five shards: `shard1, ..., shard5`.
-- The `tutorial` database.
+1. [Create tables with data](#create-tables).
+1. [Test the tables](#sharding-test).
 
-For example, you need to enable sharding for a [table]({{ ch.docs }}/getting-started/example-datasets/metrica/) named `hits_v1`. The table will be created for each example separately. You can find the structure of the table that you need to put in place of the `<table structure>` text in the [documentation for {{ CH }}]({{ ch.docs }}/getting-started/tutorial/#create-tables).
+If you no longer need these resources, [delete them](#clear-out).
 
-After enabling sharding using any of the methods below, you can send the `SELECT` and `INSERT` queries to the created distributed table, and they will be processed according to the specified configuration.
+## Before you begin {#before-you-begin}
+
+### Prepare the infrastructure {#deploy-infrastructure}
+
+{% list tabs %}
+
+- Manually
+
+   1. [Create a {{ mch-name }} cluster](../operations/cluster-create.md):
+
+      * **Cluster name**: `chcluster`.
+      * **Storage type**: Select the desired storage type.
+
+         The storage type selected determines the minimum number of hosts per shard:
+
+         * Two hosts, if you select local SSD storage (`local-ssd`).
+         * Three hosts, if you select storage on non-replicated network drives (`network-ssd-nonreplicated`).
+
+         Additional hosts for these storage types are required for fault tolerance.
+
+         For more information, see [{#T}](../concepts/storage.md).
+
+      * **DB name**: `tutorial`.
+
+      Cluster hosts must be available online.
+
+   1. [Create two additional shards](../operations/shards.md#add-shard) with the names `shard2` and `shard3`.
+   1. [Add three {{ ZK }} hosts to the cluster](../operations/zk-hosts.md#add-zk-host).
+   1. [Create shard groups](../operations/shard-groups.md#create-shard-group). Their number depends on the sharding type:
+
+      * [Regular group-based sharding](#shard-groups-example) requires one shard group named `sgroup`, which includes the `shard1` and `shard2` shards.
+      * [Advanced group-based sharding](#shard-groups-advanced-example) requires two groups:
+         * `sgroup` includes `shard1` and `shard2`.
+         * `sgroup_data` includes `shard3`.
+
+      No shard groups are needed for [classic sharding](#shard-example).
+
+   1. [Configure security groups](../operations/connect.md#configuring-security-groups) for your cluster so you can connect to it online.
+
+- Using Terraform
+
+   1. If you don't have {{ TF }} yet, set up and configure it according to the [instructions](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. In the same working directory, download the configuration file for one of the sharding examples described below:
+
+      * [simple-sharding.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/simple-sharding.tf): Classic sharding.
+      * [sharding-with-group.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/sharding-with-group.tf): Group-based sharding.
+      * [advanced-sharding-with-groups.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/advanced-sharding-with-groups.tf): Advanced group-based sharding.
+
+      Each file describes:
+
+      * Network.
+      * Subnet.
+      * Default security group and rules required to connect to the cluster from the internet.
+      * A {{ mch-name }} cluster with relevant hosts and shards.
+
+   1. In the configuration file, specify the username and password to access the {{ mch-name }} cluster.
+   1. Run the command `terraform init` in the directory with the configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
+   1. Make sure the {{ TF }} configuration files are correct using the command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If there are errors in the configuration files, {{ TF }} will point to them.
+   1. Create the required infrastructure:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
+
+### Set up clickhouse-client {#deploy-clickhouse-client}
+
+[Install and configure clickhouse-client](../operations/connect.md) to connect to your database.
+
+## Create tables with data {#create-tables}
+
+For example, you need to enable sharding for the [table](https://{{ ch-domain }}/docs/en/getting-started/example-datasets/metrica/) named `hits_v1`. The text of the table creation query depends on the sharding approach that you selected.
+
+To find the table structure to be used in `<table structure>`, see the [{{ CH }} documentation](https://{{ ch-domain }}/docs/en/getting-started/tutorial/#create-tables).
+
+When you enable sharding by any of the methods, you can send the `SELECT` and `INSERT` queries to the created distributed table, and they will be processed according to the specified configuration.
 
 The sharding key in the examples is a random number `rand()`.
 
-### Traditional sharding { #shard-example }
+### Classic sharding {#shard-example}
 
-In this example, a distributed table that will be created based on `hits_v1` uses all `shards shard1, ..., shard5` in the `chcluster` cluster.
+In this example, a distributed table that we create based on `hits_v1` uses all the shards (`shard1`, `shard2`, and `shard3`) in the `chcluster` cluster.
 
 Before operating a distributed table:
+
 1. [Connect](../operations/connect.md) to the `tutorial` database.
 1. Create a table named `hits_v1` on the [MergeTree engine]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/), which will be located on all cluster hosts:
 
@@ -40,10 +121,11 @@ Before operating a distributed table:
    PARTITION BY toYYYYMM(EventDate)
    ORDER BY (CounterID, EventDate, intHash32(UserID))
    SAMPLE BY intHash32(UserID)
-   SETTINGS index_granularity = 8192 
+   SETTINGS index_granularity = 8192
    ```
 
 To create the `hits_v1_distributed` distributed table in the cluster:
+
 1. [Connect](../operations/connect.md) to the `tutorial` database.
 1. Create a table on the [Distributed engine]({{ ch.docs }}/engines/table-engines/special/distributed/):
 
@@ -52,20 +134,25 @@ To create the `hits_v1_distributed` distributed table in the cluster:
    ENGINE = Distributed('{cluster}', tutorial, hits_v1, rand())
    ```
 
-   Here, instead of explicitly specifying the table structure, you can use the `AS tutorial.hits_v1` expression because the `hits_v1_distributed` and `hits_v1` tables are on the same hosts in the cluster.
+   In this case, instead of explicitly specifying the table structure, you can use the `AS tutorial.hits_v1` expression because the `hits_v1_distributed` and `hits_v1` tables run on the same hosts in the cluster.
 
-   When creating a distributed table, in `Distributed`, specify the cluster ID `chcluster` as the first parameter or use the `{cluster}` macro, which automatically substitutes the ID of the cluster where the `CREATE TABLE` operation is executed.
+   When creating a table on the [Distributed](https://{{ ch-domain }}/docs/en/engines/table-engines/special/distributed/) engine, use `chcluster` as the cluster ID. You can retrieve it with a [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
-   To find out the cluster ID, [get a list of clusters in the folder](../operations/cluster-list.md#list-clusters).
+   {% note tip %}
 
-### Sharding using shard groups { #shard-groups-example }
+   Instead of the cluster ID, you can use the `{cluster}` macro: when executing the query, the ID of the cluster where the `CREATE TABLE` operation is running will be picked up automatically.
+
+   {% endnote %}
+
+### Sharding using shard groups {#shard-groups-example }
 
 In this example:
+
 - One `sgroup` shard group is used.
 - A distributed table and the `hits_v1` underlying table are in the same `sgroup` shard group in the cluster.
 
 Before operating a distributed table:
-1. [Create](../operations/shard-groups.md#create-shard-group) the `sgroup` shard group consisting of the `shard1` and `shard2` shards in the cluster.
+
 1. [Connect](../operations/connect.md) to the `tutorial` database.
 1. Create a table named `hits_v1` on the [MergeTree engine]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/), which will use all hosts of the `sgroup` shard group in the cluster:
 
@@ -75,10 +162,11 @@ Before operating a distributed table:
    PARTITION BY toYYYYMM(EventDate)
    ORDER BY (CounterID, EventDate, intHash32(UserID))
    SAMPLE BY intHash32(UserID)
-   SETTINGS index_granularity = 8192 
+   SETTINGS index_granularity = 8192
    ```
 
 To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
+
 1. [Connect](../operations/connect.md) to the `tutorial` database.
 1. Create a table on the [Distributed engine]({{ ch.docs }}/engines/table-engines/special/distributed/):
 
@@ -87,19 +175,18 @@ To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
    ENGINE = Distributed(sgroup, tutorial, hits_v1, rand())
    ```
 
-   Here, instead of explicitly specifying the table structure, you can use the `AS tutorial.hits_v1` expression because the `hits_v1_distributed` and `hits_v1` tables share the shard and are on the same hosts in the cluster.
+   In this case, instead of explicitly specifying the table structure, you can use the `AS tutorial.hits_v1` expression because the `hits_v1_distributed` and `hits_v1` tables use the same shard and run on the same hosts in the cluster.
 
-### Advanced sharding using shard groups { #shard-groups-example }
+### Advanced sharding using shard groups {#shard-groups-example }
 
 In this example:
+
 1. Two shard groups are used: `sgroup` and `sgroup_data`.
 1. The distributed table is located in the `sgroup` shard group.
 1. The `hits_v1` underlying table is in the `sgroup_data` shard group.
 
 Before operating a distributed table:
-1. [Create](../operations/shard-groups.md#create-shard-group) shard groups:
-   - `sgroup`: Contains the `shard1` and `shard2` shards.
-   - `sgroup_data`: Contains the `shard3`, `shard4` and `shard5` shards.
+
 1. [Connect](../operations/connect.md) to the `tutorial` database.
 1. Create a table named `hits_v1` on the [ReplicatedMergeTree engine]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/), which will use all hosts of the `sgroup_data` shard group in the cluster:
 
@@ -109,12 +196,13 @@ Before operating a distributed table:
    PARTITION BY toYYYYMM(EventDate)
    ORDER BY (CounterID, EventDate, intHash32(UserID))
    SAMPLE BY intHash32(UserID)
-   SETTINGS index_granularity = 8192 
+   SETTINGS index_granularity = 8192
    ```
 
-   The `ReplicatedMergeTree` engine ensures fault tolerance.
+   The ReplicatedMergeTree engine ensures fault tolerance.
 
 To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
+
 1. [Connect](../operations/connect.md) to the `tutorial` database.
 1. Create a table on the [Distributed engine]({{ ch.docs }}/engines/table-engines/special/distributed/):
 
@@ -123,34 +211,73 @@ To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
    ENGINE = Distributed(sgroup_data, tutorial, hits_v1, rand())
    ```
 
-   Here you need to explicitly specify the structure of the distributed table, because the `hits_v1_distributed` and `hits_v1` tables use different shards and are on different hosts.
+   For example, you can find out the number of rows in the table because the `hits_v1_distributed` and `hits_v1` tables use different shards and run on different hosts.
 
-### Health check { #sharding-test }
+## Check that your tables are up and running {#sharding-test }
 
 To check the health of the created distributed table named `tutorial.hits_v1_distributed`:
+
 1. Load the `hits_v1` test dataset:
 
    ```bash
-   curl https://clickhouse-datasets.{{ s3-objstorage-host }}/hits/tsv/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
+   curl https://clickhouse-datasets.s3.yandex.net/hits/tsv/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```
+
 1. Complete the table with the test data:
 
    ```bash
-   clickhouse-client \ 
-       --host <any host with a distributed table> \
-       --secure \
-       --port 9440 \ 
-       --user <username> \
-       --password <user password> \
-       --database tutorial \                      
-       --query "INSERT INTO tutorial.hits_v1_distributed FORMAT TSV" --max_insert_block_size=100000 < hits_v1.tsv
+   clickhouse-client \
+      --host "<FQDN of any host with a distributed table>" \
+      --secure \
+      --port 9440 \
+      --user "<username>" \
+      --password "<user password>" \
+      --database "tutorial" \
+      --query "INSERT INTO tutorial.hits_v1_distributed FORMAT TSV" \
+      --max_insert_block_size=100000 < hits_v1.tsv
    ```
-1. Run one or more test queries to this table. For example, you can find out the number of rows in the table:
+
+   To find out the host names, request a [list of {{ CH }} hosts in the cluster](../operations/hosts.md#list-hosts).
+
+1. Run one or more test queries to this table. For example, you can find out the number of rows in it:
 
    ```sql
    SELECT count() FROM tutorial.hits_v1_distributed
    ```
 
-   You should receive the following response to the query:
+   Expected output:
 
-   `8873898`.
+   ```text
+   8873898
+   ```
+
+## Delete the resources you created {#clear-out}
+
+{% list tabs %}
+
+- Manually
+
+   1. [Delete the {{ mch-name }} cluster](../operations/cluster-delete.md).
+   1. If static public IP addresses were used for cluster access, release and [delete them](../../vpc/operations/address-delete.md).
+
+- Using Terraform
+
+   To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
+
+   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. Delete the configuration file (`simple-sharding.tf`, `sharding-with-group.tf`, or `advanced-sharding-with-groups.tf`).
+   1. Make sure the {{ TF }} configuration files are correct using the command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If there are errors in the configuration files, {{ TF }} will point to them.
+
+   1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      All resources described in the configuration file will be deleted.
+
+{% endlist %}

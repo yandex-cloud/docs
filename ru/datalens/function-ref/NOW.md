@@ -25,6 +25,7 @@ NOW()
 
 {% endnote %}
 
+
 #### Пример {#examples}
 
 ```

@@ -1,10 +1,16 @@
 # Изменить данные организации
 
+{% note info %}
+
+Изменить данные организации может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. Как назначить роль пользователю, читайте в разделе [Роли](roles.md#admin). 
+
+{% endnote %}
+
 Чтобы изменить данные вашей организации:
 
-1. Войдите в [{{org-full-name}}]({{link-org-main}}) под аккаунтом администратора организации.
+1. Войдите в [{{org-full-name}}]({{link-org-main}}) под аккаунтом администратора или владельца организации.
 
-1. На левой панели выберите раздел [Об организации]({{link-org-settings}}) ![icon-settings](../_assets/organization/icon-settings.png).
+1. На левой панели выберите раздел [Об организации]({{link-org-settings}}) ![icon-settings](../_assets/organization/icon-settings.svg).
 
 1. Чтобы изменить название и описание организации, в правом верхнем углу нажмите **Редактировать данные**.
 

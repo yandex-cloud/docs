@@ -12,7 +12,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), change to the folder where you need to change the security group.
+   1. In the [management console]({{ link-console-main }}), go to the folder where you need to change the security group.
    1. In the list of services, select **{{ vpc-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **Security groups**.
    1. Click ![image](../../_assets/options.svg) in the row next to the group to edit.
@@ -35,11 +35,11 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), change to the folder where you need to change the security group.
+   1. In the [management console]({{ link-console-main }}), go to the folder where you need to change the security group.
    1. In the list of services, select **{{ vpc-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **Security groups**.
    1. Select the group to update.
-   1. Click ![image](../../_assets/options.svg) in the group's row.
+   1. Click ![image](../../_assets/options.svg) in the row of the group.
    1. In the menu that opens, click **Edit**.
    1. Under **Rules**, create traffic management rules:
       1. Select the **Outgoing traffic** or **Incoming traffic** tab.
@@ -67,12 +67,12 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), change to the folder where you need to change the security group.
+   1. In the [management console]({{ link-console-main }}), go to the folder where you need to change the security group.
    1. In the list of services, select **{{ vpc-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **Security groups**.
    1. Select the group to update.
-   1. Under **Rules**, click ![image](../../_assets/options.svg) in the row next to rule to delete.
-   1. In the resulting menu, click **Delete**.
+   1. Under **Rules**, click ![image](../../_assets/options.svg) in the row of the rule to delete.
+   1. In the menu that opens, click **Delete**.
    1. In the window that opens, click **Delete**.
 
 - CLI

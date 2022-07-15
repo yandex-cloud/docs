@@ -1,25 +1,40 @@
 # Updating a subnet
 
-After creating a subnet, you can change its name, description, and tags.
+After creating a subnet, you can change its name, description, and DCHP settings.
 
 {% list tabs %}
 
+- Management console
+
+   To update a [subnet](../concepts/network.md#subnet):
+   1. In the [management console]({{ link-console-main }}), change to the folder where you need to update a subnet.
+   1. In the list of services, select **{{ vpc-name }}**.
+   1. Click on the name of the subnet's cloud network.
+   1. Click ![image](../../_assets/options.svg) in the line of the subnet to edit.
+   1. In the menu that opens, click **Edit**.
+   1. Configure as appropriate.
+   1. Click **Save changes**.
+
 - CLI
 
-  {% include [include](../../_includes/cli-install.md) %}
+   {% include [include](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for updating subnet parameters:
-
-      ```
-      $ yc vpc subnet update --help
-      ```
-
-  1. Get a list of all subnets in the default folder:
+   1. See the description of the CLI command for updating subnet parameters:
 
       ```
-      $ yc vpc subnet list
+      yc vpc subnet update --help
+      ```
+
+   1. Get a list of all subnets in the default folder:
+
+      ```
+      yc vpc subnet list
+      ```
+      Result:
+
+      ```
       +----------------------+-----------------------+----------------------+
       |          ID          |         NAME          |         ...          |
       +----------------------+-----------------------+----------------------+
@@ -29,12 +44,11 @@ After creating a subnet, you can change its name, description, and tags.
       +----------------------+-----------------------+----------------------+
       ```
 
-  1. Select the `ID` or `NAME` of the subnet you need.
-
-  1. Change the subnet parameters, for example:
+   1. Select the `ID` or `NAME` of the subnet.
+   1. Change the subnet parameters, for example:
 
       ```
-      $ yc vpc subnet update e2l2prrbkbimvjuuhht2 \
+      yc vpc subnet update e2l2prrbkbimvjuuhht2 \
           --new-name test-subnet-renamed \
           --labels new_label=test_label
       id: e2l2prrbkbimvjuuhht2
@@ -94,4 +108,3 @@ After creating a subnet, you can change its name, description, and tags.
   ```
 
 {% endlist %}
-

@@ -3,6 +3,8 @@ href: index.yaml
 items:
   - name: Practical guidelines
     items:
+      - name: All practical guidelines
+        href: tutorials/index.md
       - name: Working with jobs
         items:
           - name: Overview
@@ -25,6 +27,12 @@ items:
         href: tutorials/configure-network.md
       - name: Using {{ objstorage-full-name }} in {{ dataproc-name }}
         href: tutorials/copy-files-from-object-storage.md
+      - name: >-
+          Using initialization scripts to configure GeeseFS in {{ dataproc-name
+          }}
+        href: tutorials/geesefs-init-actions.md
+      - name: Exchanging data with {{ mch-name }}
+        href: tutorials/exchange-data-with-mch.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -43,6 +51,8 @@ items:
         href: operations/subclusters.md
       - name: Sqoop usage
         href: operations/sqoop-usage.md
+      - name: Connecting to component interfaces
+        href: operations/connect-interfaces.md
       - name: Managing jobs
         items:
           - name: All jobs
@@ -57,10 +67,10 @@ items:
             href: operations/jobs-mapreduce.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
-      - name: Monitoring the state of a cluster and hosts
-        href: operations/monitoring.md
       - name: Working with logs
         href: operations/logging.md
+      - name: Monitoring the state of clusters and hosts
+        href: operations/monitoring.md
   - name: Concepts
     items:
       - name: Data Proc overview

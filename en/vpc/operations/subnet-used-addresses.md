@@ -7,7 +7,9 @@ To view a list of internal addresses used in a subnet:
 {% list tabs %}
 
 - Management console
-   1. Open the **{{ vpc-name }}** section in the folder where the subnet is located.
+
+   1. In the [management console]({{ link-console-main }}), go to the folder with the subnet.
+   1. In the list of services, select **{{ vpc-name }}**.
    1. Go to the **Subnets** tab.
    1. Click on the subnet name.
    1. Go to the **IP addresses** tab.
@@ -30,7 +32,7 @@ To view a list of internal addresses used in a subnet:
       yc vpc subnet list-used-addresses --name <subnet_name>
       ```
 
-      Execution result:
+      Output:
 
       ```bash
       +-----------+------------+---------------------------------------+
@@ -45,4 +47,3 @@ To view a list of internal addresses used in a subnet:
       ```
 
 {% endlist %}
-

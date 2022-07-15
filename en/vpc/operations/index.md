@@ -4,11 +4,13 @@
 
 - [{#T}](network-create.md)
 - [{#T}](network-delete.md)
+- [{#T}](network-update.md)
 
 ## Subnet {#subnet}
 
 - [{#T}](subnet-create.md)
 - [{#T}](subnet-delete.md)
+- [{#T}](subnet-update.md)
 - [{#T}](subnet-used-addresses.md)
 
 ## Addresses {#addresses}
@@ -29,3 +31,7 @@
 - [{#T}](security-group-update.md)
 - [{#T}](security-group-delete.md)
 
+## Additional features {#add-features}
+
+- [{#T}](enable-ddos-protection.md)
+- [{#T}](enable-software-accelerated-network.md)

@@ -357,7 +357,7 @@ items:
         href: pricing.md
       - name: Настроить платежный аккаунт
         href: billing-account.md
-      - name: Пополнить счет
+      - name: Оплатить услуги
         href: pay-the-bill.md
       - name: Посмотреть детализацию услуг
         href: check-charges.md

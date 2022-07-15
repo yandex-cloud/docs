@@ -296,11 +296,11 @@ To run [test queries](https://kubernetes.io/docs/tasks/administer-cluster/dns-de
    kubectl exec -i -t dnsutils -- sh
 
    # dig +short @169.254.20.10 www.com
-   # dig +short @10.96.128.2 example.com
+   # dig +short @<ClusterIp of kube-dns> example.com
    # nslookup kubernetes.default
    ```
 
-   After `node-local-dns` is run, the iptables rules are set up so that the [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) responds at both addresses (10.96.128.2:53 and 169.254.20.10:53).
+   After `node-local-dns` is run, the iptables rules are set up so that the [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) responds at both addresses (`<ClusterIp of kube-dns>:53` and `169.254.20.10:53`).
 
    The `kube-dns` service can be accessed at the new address, that is, the `ClusterIp` of `kube-dns-upstream`. You may need this IP address to set up query forwarding.
 
@@ -309,7 +309,7 @@ To run [test queries](https://kubernetes.io/docs/tasks/administer-cluster/dns-de
    ```text
    # dig +short @169.254.20.10 www.com
    52.128.23.153
-   # dig +short @10.96.128.2 example.com
+   # dig +short @<ClusterIp of kube-dns> example.com
    93.184.216.34
    # nslookup kubernetes.default
    Server:  10.96.128.2
@@ -318,6 +318,8 @@ To run [test queries](https://kubernetes.io/docs/tasks/administer-cluster/dns-de
    Name:  kubernetes.default.svc.cluster.local
    Address: 10.96.128.1
    ```
+   
+   Here, `10.96.128.2` is the `ClusterIp` of `kube-dns`.
 
 ### Check logs {#check-logs}
 

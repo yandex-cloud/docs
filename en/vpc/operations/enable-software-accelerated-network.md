@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-This functionality is only available when agreed upon by your account manager.
+This functionality is only available when agreed by your account manager.
 
 {% endnote %}
 
@@ -14,7 +14,6 @@ You can enable a [software-accelerated network](../concepts/software-accelerated
 
 - Management console
 
-  When [creating](../../compute/operations/vm-create/create-linux-vm.md) or [updating](../../compute/operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) a VM, select the **Software-accelerated network** option under **Computing resources**.
+   When you [create](../../compute/operations/vm-create/create-linux-vm.md) or [update](../../compute/operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) a VM, enable **Software-accelerated network** under **Computing resources**.
 
 {% endlist %}
-

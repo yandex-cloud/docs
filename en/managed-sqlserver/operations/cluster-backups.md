@@ -30,7 +30,7 @@ You cannot use SQL commands to modify the [recovery model]({{ ms.docs }}/sql/rel
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of {{ MS }} cluster backups available in a folder, run the following command:
+   To get a list of {{ MS }} cluster backups available in a folder, run the command:
 
    ```bash
    {{ yc-mdb-ms }} backup list
@@ -38,11 +38,11 @@ You cannot use SQL commands to modify the [recovery model]({{ ms.docs }}/sql/rel
 
 - API
 
-  To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
-  To get a list of backups for all the **{{ mms-name }}** clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
+   To get a list of backups for all the **{{ mms-name }}** clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
 
-  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -53,8 +53,8 @@ You cannot use SQL commands to modify the [recovery model]({{ ms.docs }}/sql/rel
 - Management console
 
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
+   1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
 
 - CLI
@@ -73,7 +73,7 @@ You cannot use SQL commands to modify the [recovery model]({{ ms.docs }}/sql/rel
 
 - API
 
-  Use the [get](../api-ref/Backup/get.md) API method and pass the backup ID in the `backupId` request parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
+   Use the [get](../api-ref/Backup/get.md) API method and pass the backup ID in the `backupId` request parameter. To find out the ID, [retrieve a list of backups](#list-backups).
 
 {% endlist %}
 
@@ -123,7 +123,7 @@ You cannot use SQL commands to modify the [recovery model]({{ ms.docs }}/sql/rel
 
 Point-in-Time Recovery (PITR) technology lets you restore the state of a cluster or an individual database to any point in time between the oldest full backup and archiving the most recent transaction log. For more information, see [{#T}](../concepts/backup.md).
 
-For example, if a backup operation completed at 12:00:00 UTC on August 10, 2020, the current date is August 15, 2020 at 19:00:00 UTC, and the latest transaction log was saved at 18:50:00 UTC on August 15, 2020, you can restore the cluster to any of its states from 12:00:01 UTC on August 10, 2020 through 18:50:00 UTC on August 15, 2020.
+For example, if a backup operation completed at 12:00:00 UTC on August 10, 2020, the current date is August 15, 2020 at 19:00:00 UTC, and the latest transaction log was saved at 18:50:00 UTC on August 15, 2020, you can restore the cluster to any of its states from 12:00:01 UTC on August 10, 2020  through 18:50:00 UTC on August 15, 2020.
 
 When restoring to the current state, the new cluster or database will indicate:
 
@@ -134,7 +134,7 @@ When restoring to the current state, the new cluster or database will indicate:
 
 When you restore a cluster from a backup, you create a new cluster with data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
 
-For a new cluster, you need to set up all its [parameters required at creation](cluster-create.md#create-cluster).
+For a new cluster, you need to set up all [its parameters required at creation](cluster-create.md#create-cluster).
 
 {% list tabs %}
 
@@ -205,21 +205,21 @@ For a new cluster, you need to set up all its [parameters required at creation](
       * `--time`: Point in time to which you need to restore a {{ MS }} cluster's state, in `yyyy-mm-ddThh:mm:ssZ` format.
       * `--name`: The cluster name.
       * `--sqlserver-version`: The {{ MS }} version.
-      * `--environment`: environment:
-         * `PRESTABLE`: For stable versions of your applications.
-         * `PRODUCTION`: For testing, including testing {{ MS}} itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      * `--environment`: Environment:
+         * `PRODUCTION`: For stable versions of your apps.
+         * `PRESTABLE`: For testing, including the {{ MS}} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
       * `--network-name`: The [name of the network](../../vpc/concepts/network.md#network).
-      * `--host`: Host parameter:
+      * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
-         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Must be specified, if the availability zone in question includes 2 or more subnets.
+         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). It is required if the selected availability zone includes 2 or more subnets.
          * `assign-public-ip`: Flag to specify if a host requires a [public IP address](../../vpc/concepts/address.md#public-addresses).
       * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
       * `--disk-size`: Storage size in GB.
       * `--disk-type`: [Storage type](../concepts/storage.md):
-         * `network-hdd`;
-         * `network-ssd`;
-         * `local-ssd`;
-         * `network-ssd-nonreplicated`.
+         * `network-hdd`
+         * `network-ssd`
+         * `local-ssd`
+         * `network-ssd-nonreplicated`
 
 - API
 
@@ -382,3 +382,129 @@ When restoring a database from a backup, you create a new database in the curren
    {% endnote %}
 
 {% endlist %}
+
+
+## Exporting a database backup to {{ objstorage-full-name }} {#objstorage-export}
+
+{% note info %}
+
+The most recent backup is exported rather than the current database state. If you are looking to export up-to-date information, [create a new backup](#create-backup) first.
+
+{% endnote %}
+
+To export a database backup to a [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md):
+
+1. Prepare the infrastructure:
+
+   1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-name }}. By default, buckets are created with [restricted access](../../storage/concepts/bucket.md#bucket-access). We don't recommend editing access parameters because backups are exported in unencrypted form.
+   1. [Create a service account](../../iam/quickstart-sa#create-sa) and [link it to your cluster](./update.md#service-account). Any actions applicable to {{ objstorage-name }} will use this account.
+   1. Grant the service account read and write permissions to the bucket using one of the methods below:
+
+      * [Configure an ACL for the bucket](../../storage/operations/buckets/edit-acl.md) by adding a service account to the list and granting it `READ and WRITE` permissions (recommended).
+      * [Assign the service account](../../iam/operations/sa/assign-role-for-sa.md) the `storage.uploader` role.
+
+1. Perform the export:
+
+   {% list tabs %}
+
+   - CLI
+
+      {% include [cli-install](../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+      Run the command:
+
+      ```bash
+      {{ yc-mdb-ms }} database backup-export \
+         --cluster-name <cluster name> \
+         --bucket=<bucket name> \
+         --path=<folder path> \
+         --prefix=<filename prefix> \
+         <database name>
+      ```
+
+      Where:
+
+      * `--cluster-name` is the name of a {{ mms-name }} cluster.
+      * `--bucket`: The name of bucket in {{ objstorage-name }} to save database files.
+      * `--path`: The path to the file in the bucket. The path must be absolute and must begin with a `/`. The folder must be empty.
+      * `--prefix`: The filename prefix, freeform. For large databases, several files will be created in the folder with names like `<prefix>_000.bak`, `<prefix>_001.bak`, and so on.
+      * `<database name>`: The name of the database to export a backup of. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
+
+   - API
+
+      Use the API [exportBackup](../api-ref/Database/exportBackup.md) method and pass the following in the request:
+
+      * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+      * Name of the database being exported, in `databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
+      * Name of the bucket in {{ objstorage-name }} to use to export the backup to, in the `s3Bucket` parameter.
+      * Path to the file to save backup files in, in the `s3Path` parameter. The path must be absolute and must begin with a `/`. The folder must be empty.
+      * Prefix for backup filenames, in the `prefix` parameter. For large databases, several files will be created in the folder with names like `<prefix>_000.bak`, `<prefix>_001.bak`, and so on.
+
+   {% endlist %}
+
+The database backup will be saved in the specified {{ objstorage-name }} bucket folder.
+
+## Restoring a database from a backup stored in {{ objstorage-full-name }} {#objstorage-import}
+
+In a cluster, to restore a database from a backup stored in a [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md):
+
+1. Prepare the infrastructure:
+
+   1. [Create a service account](../../iam/quickstart-sa#create-sa) and [link it to your cluster](./update.md#service-account). Any actions applicable to {{ objstorage-name }} will use this account.
+   1. Grant the service account read permissions to the bucket using one of the methods below:
+
+      * [Configure an ACL for the bucket](../../storage/operations/buckets/edit-acl.md) by adding a service account to the list and granting it `READ` (recommended) permission.
+      * [Assign the service account](../../iam/operations/sa/assign-role-for-sa.md) the `storage.viewer` role.
+
+1. Perform a restore:
+
+   {% list tabs %}
+
+   - CLI
+
+      {% include [cli-install](../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+      Run the command:
+
+      ```bash
+      {{ yc-mdb-ms }} database backup-import \
+         --cluster-name <cluster name> \
+         --bucket=<bucket name> \
+         --path=<absolute bucket folder path> \
+         --files=<file1>.bak,<file2>.bak,... \
+         <database name>
+      ```
+
+      Where:
+
+      * `--cluster-name` is the name of a {{ mms-name }} cluster.
+      * `--bucket`: The name of the bucket in {{ objstorage-name }} storing database backup.
+      * `--path`: The path to the folder storing backup files. The path must be absolute and must begin with a `/`.
+      * `--files`: The list of backup files in the `--path` folder. All the files specified must exist.
+      * `<database name>`: The name of the cluster database to restore from a backup. At the time of the restore, the cluster should have no databases with the same name.
+
+         {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
+
+   - API
+
+      Use the API [importBackup](../api-ref/Database/importBackup.md) method and pass the following in the call:
+
+      * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+      * Name of the database to be restored in the `databaseName` parameter. At the time of the restore, the cluster should have no databases with the same name.
+
+         {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
+
+      * Name of the bucket in {{ objstorage-name }} storing the backup, in the `s3Bucket` parameter.
+      * Path to the folder storing backup files, in the `s3Path` parameter. The path must be absolute and must begin with a `/`.
+      * List of backup files in the `files[]` array.
+
+   {% endlist %}
+
+The database will be restored from the backup in the {{ mms-name }} cluster.
+
+To grant users access to the restored database, [follow the instructions](cluster-users.md#update-settings).
+

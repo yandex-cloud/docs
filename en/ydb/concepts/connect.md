@@ -159,3 +159,10 @@ To prepare data for authenticating in the Yandex Cloud YDB database for the sele
 For information about how to use the generated artifacts, see [Client side authentication configuration](#client-config) below in this article.
 
 When using modes in which the YDB client accesses the IAM system, the IAM URL that provides an API for issuing tokens can be set additionally. By default, the existing SDK and CLI make an attempt to access the Yandex Cloud IAM API hosted at `iam.api.cloud.yandex.net:443`.
+
+## Configuring connection parameters on the client {#client-config}
+
+For information about how to define connection parameters on the client, see the following articles:
+
+* [Connecting to and authenticating with a database in the YDB CLI](https://ydb.tech/en/docs/reference/ydb-cli/connect).
+* [Authentication in the YDB SDK](https://ydb.tech/en/docs/reference/ydb-cli/connect).

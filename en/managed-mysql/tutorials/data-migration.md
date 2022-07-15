@@ -1,4 +1,10 @@
-# Migrating databases to {{ mmy-name }}
+# Migrating databases from a third-party {{ MY }} cluster to {{ mmy-name }}
+
+{% note info %}
+
+Data migration to a third-party {{ MY }} cluster is described in [{#T}](../../managed-mysql/tutorials/mmy-to-mysql-migration.md).
+
+{% endnote %}
 
 There are two ways to migrate data from a third-party _source cluster_ to a {{ mmy-name }} _target cluster_:
 
@@ -159,25 +165,25 @@ Transfer your data to an intermediate VM in {{ compute-full-name }} if:
 
 The required amount of RAM, processor cores, and disk space depends on the amount of data to migrate and the required migration speed.
 
-To prepare the VM to restore the dump:
+To prepare the virtual machine to restore the dump:
 
 1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) on the [Ubuntu Linux 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image from the {{ marketplace-name }} with the following parameters:
 
 
     * **Disks and file storage** → **Size**: Sufficient to store both archived and unarchived dumps.
-    
+
         The recommended size is two or three times the total dump and dump archive size.
-    
+
     * **Network settings**:
-    
+
         * **Subnet**: Select a subnet on the cloud network hosting the target cluster.
         * **Public address**: `Auto` or select from a list of reserved IPs.
 
 1. [Set up security groups](../operations/connect.md#configure-security-groups) for the intermediate VM and the {{ mmy-name }} cluster.
 
-1. [Connect to an intermediate VM over SSH](../../compute/operations/vm-connect/ssh.md).
+1. [Connect to an intermediate virtual machine over SSH](../../compute/operations/vm-connect/ssh.md).
 
-1. Copy the archive containing the database dump to the intermediate VM using the `scp` utility, for instance:
+1. Copy the archive containing the database dump to the intermediate virtual machine using the `scp` utility, for instance:
 
    ```bash
    scp ~/db_dump.tar.gz <VM username>@<VM public IP>:~/db_dump.tar.gz
@@ -235,7 +241,7 @@ For {{ mmy-name }} clusters, [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/e
 
 * Using the myloader utility
 
-   This method is suitable if you created your dump using the `mydumper` utility and are using an intermediate VM for the restore.
+   This method is suitable if you created your dump using the `mydumper` utility and are using an intermediate virtual machine for the restore.
 
    1. Install the `myloader` utility to the host that you are using to restore the dump as follows (Ubuntu):
 
@@ -261,10 +267,10 @@ For {{ mmy-name }} clusters, [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/e
 You can get the cluster ID with a [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
 
-### Delete created resources {#clear-out}
+### Deletе created resources {#clear-out}
 
 If you no longer need these resources, delete them:
 
-1. If you created an intermediate VM, [delete it](../../compute/operations/vm-control/vm-delete.md).
-1. If you reserved a public static IP address for your intermediate VM, release and [delete it](../../vpc/operations/address-delete.md).
+1. If you created an intermediate virtual machine, [delete it](../../compute/operations/vm-control/vm-delete.md).
+1. If you reserved a public static IP address for your intermediate virtual machine, release and [delete it](../../vpc/operations/address-delete.md).
 

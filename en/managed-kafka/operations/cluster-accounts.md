@@ -18,6 +18,12 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
 
 ## Creating an account {#create-account}
 
+{% note info %}
+
+If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the command-line interface, API, or {{ TF }} to create the administrator account.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console

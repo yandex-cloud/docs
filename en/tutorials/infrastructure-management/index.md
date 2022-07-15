@@ -10,3 +10,4 @@
 * [Migrating to {{ yandex-cloud }} using Hystax Acura](hystax-migration.md)
 * [Emergency recovery to {{ yandex-cloud }} using Hystax Acura](hystax-disaster-recovery.md)
 * [Configuring a fault-tolerant architecture in {{ yandex-cloud }}](fault-tolerance.md)
+* [Creating an SAP program in {{ yandex-cloud }}](sap.md)

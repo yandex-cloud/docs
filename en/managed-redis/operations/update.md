@@ -105,7 +105,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster to restore.
+   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
    1. Select **{{ mrd-name }}**.
    1. Select the desired cluster.
    1. At the top of the page, click **Edit cluster**.
@@ -215,7 +215,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
    To increase a cluster's storage size:
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster to restore.
+   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
    1. Select **{{ mrd-name }}**.
    1. Select the desired cluster.
    1. At the top of the page, click **Edit cluster**.
@@ -293,7 +293,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    To modify the DBMS settings for a cluster:
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster to restore.
+   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
    1. Select **{{ mrd-name }}**.
    1. Select the desired cluster.
    1. At the top of the page, click **Edit cluster**.
@@ -347,7 +347,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster to restore.
+   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
    1. Select **{{ mrd-name }}**.
    1. Select the desired cluster.
    1. At the top of the page, click **Edit cluster**.
@@ -390,7 +390,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -403,7 +403,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 - Management console
 
    1. Go to the folder page and select **{{ mrd-name }}**.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you want to move.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you wish to move.
    1. Click **Move**.
    1. Select the folder you want to move the cluster to.
    1. Click **Move**.
@@ -436,7 +436,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
    Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The ID of the destination folder in the `destinationFolderId` parameter.
+   * The ID of the destination folder in the `destinationFolderId parameter`.
 
 {% endlist %}
 
@@ -446,7 +446,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster to restore.
+   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
    1. Select **{{ mrd-name }}**.
    1. Select the desired cluster.
    1. At the top of the page, click **Edit cluster**.

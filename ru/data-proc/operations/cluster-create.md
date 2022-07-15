@@ -13,7 +13,7 @@
 {% endnote %}
 
 1. [Создайте](../../vpc/operations/security-group-create.md) одну или несколько групп безопасности для служебного трафика кластера.
-1. [Добавьте правила](../../vpc/operations/security-group-update.md#add-rule):
+1. [Добавьте правила](../../vpc/operations/security-group-add-rule.md):
 
     * По одному правилу для входящего и исходящего служебного трафика:
 

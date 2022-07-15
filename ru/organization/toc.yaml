@@ -23,6 +23,8 @@ items:
         href: roles.md
       - name: Удалить аккаунт пользователя
         href: edit-account.md
+  - name: Управление группами пользователей
+    href: manage-groups.md
   - name: Управление федерациями удостоверений
     items:
       - name: Настроить федерацию удостоверений

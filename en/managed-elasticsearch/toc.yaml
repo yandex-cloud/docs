@@ -26,6 +26,8 @@ items:
       - name: Managing Elasticsearch hosts
         href: operations/cluster-hosts.md
       - name: Managing Elasticsearch plugins
+        href: operations/cluster-plugins.md
+      - name: Managing Elasticsearch extensions
         href: operations/cluster-extensions.md
       - name: Managing Elasticsearch users
         href: operations/cluster-users.md
@@ -37,8 +39,12 @@ items:
         href: operations/monitoring.md
   - name: Practical guidelines
     items:
-      - name: Migrating to Managed Service for Elasticsearch using snapshots
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Migrating to {{ mes-name }} using snapshots
         href: tutorials/migration-via-snapshots.md
+      - name: Migrating to {{ mes-name }} using the Reindex API
+        href: tutorials/migration-via-reindex-api.md
   - name: Concepts
     items:
       - name: Relationship between service resources
@@ -65,6 +71,8 @@ items:
         href: concepts/scalability-and-resilience.md
       - name: Elasticsearch version control policy
         href: concepts/update-policy.md
+      - name: Elasticsearch settings
+        href: concepts/settings-list.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

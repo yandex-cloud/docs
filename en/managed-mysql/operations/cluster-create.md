@@ -6,7 +6,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 {% note info %}
 
-* The number of hosts that can be created together with a {{ MY }} cluster depends on the selected [storage type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* The number of hosts you can create together with a {{ MY }} cluster depends on the selected [storage type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 * Available storage types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
@@ -86,6 +86,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       {{ yc-mdb-my }} cluster create --help
       ```
 
+      
    1. Specify the cluster parameters in the create command:
 
       ```bash
@@ -105,6 +106,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
+
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -212,7 +214,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
    Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
 
-   * In the `folderId` parameter, the ID of the folder where  the cluster should be placed.
+   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
    * The cluster name in the `name` parameter. The cluster name must be unique within the folder.
    * The environment of the cluster, in the `environment` parameter.
    * Cluster configuration, in the `configSpec` parameter.

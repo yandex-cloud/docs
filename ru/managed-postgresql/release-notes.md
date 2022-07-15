@@ -5,7 +5,7 @@
 ## 01.07.2022 {#01.07.2022}
 
 * Добавлена роль `mdb_monitor`, которая включает в себя привилегии системной роли [pg_monitor](https://www.postgresql.org/docs/10/default-roles.html). Подробнее см. в разделе [Назначение ролей {{ PG }}](concepts/roles.md#mdb-monitor).
-* В конфигурационных файлах {{ TF }} упразднены секции `database` и `user`, добавлены новые ресурсы `yandex_mdb_mysql_database` и `yandex_mdb_mysql_user`. {{ tag-tf }}
+* В конфигурационных файлах {{ TF }} упразднены секции `database` и `user`, добавлены новые ресурсы `yandex_mdb_postgresql_database` и `yandex_mdb_postgresql_user`. {{ tag-tf }}
 * Добавлена возможность обновления с версии 13 на 14.
 * Доступно создание кластера версии 13 и 14 для 1С. {{ tag-con }}
 * Доступна версия [Odyssey 1.3](https://www.postgresql.org/about/news/odyssey-13-released-2476/).

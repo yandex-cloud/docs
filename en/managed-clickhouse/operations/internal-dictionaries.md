@@ -28,26 +28,34 @@ To create a geobase:
    * Region type (UInt8): 1 - continent, 3 - country, 4 - federal district, 5 - area, 6 - city. There are no values for other types.
    * Population (UInt32): Optional.
 1. To add an alternative hierarchy of regions, create `regions_hierarchy_<suffix>.txt` files with the same structure. To use an alternative geobase, pass this suffix when calling the function. For example:
-   ```
-   regionToCountry(RegionID) uses the default dictionary: regions_hierarchy.txt;
-   regionToCountry(RegionID, 'ua') uses a dictionary with the ua suffix: regions_hierarchy_ua.txt;
-   ```
+
+   * `regionToCountry(RegionID)`: Uses the default dictionary: `regions_hierarchy.txt`.
+   * `regionToCountry(RegionID, 'ua')`: Uses the dictionary with the `ua` suffix: `regions_hierarchy_ua.txt`.
+
 1. Create the file `regions_names.txt` with the region names. The file must be in [TSV tabular format](https://ru.wikipedia.org/wiki/TSV) without headers and with the following columns:
-   * Region ID (UInt32).
-   * region name (String) — Can't contain tabs or newlines, even escaped ones.
+   * Region ID (UInt32)
+   * Region name (String): Can't contain tab or newline characters, even escaped ones.
 1. To add region names in other languages to your geobase, create `regions_names_<language code>.txt` files with the same structure. For example, you may create `regions_names_en.txt` for English and `regions_names_tr.txt` for Turkish.
 1. Package your geobase files as `TAR`, `TAR.GZ`, or `ZIP` archives.
 
 ## Uploading a geobase to {{ yandex-cloud }} {#upload-geobase}
 
-{{ mch-short-name }} only works with publicly readable geobases that are uploaded to {{ objstorage-name }}:
+{{ mch-short-name }} only works with publicly readable geobases that are uploaded to {{ objstorage-full-name }}:
 
 
-1. [Upload](../../storage/operations/objects/upload.md) the geobase archive to {{ objstorage-name }}.
+1. [Upload](../../storage/operations/objects/upload.md) the geobase archive to {{ objstorage-full-name }}.
 
-1. [Set up public read access](../../storage/operations/objects/edit-acl.md) to the geobase file.
+1. Configure access to the geobase archive using one of the following methods:
 
-1. [Get](../../storage/operations/objects/link-for-download.md) a public link to the geobase.
+   * Use a [service account](../../iam/concepts/users/service-accounts.md) (recommended). This method lets you access the file without entering account information.
+
+      1\. [Connect a service account to a cluster](s3-access.md#connect-service-account).
+      2\. [Assign the account the role](s3-access.md#configure-acl) of `storage.viewer`.
+      3\. In the bucket ACL, [grant the account](../../storage/operations/buckets/edit-acl.md) `READ` permission.
+
+   * [Enable public access](../../storage/operations/objects/edit-acl.md) to the bucket containing the file.
+
+1. [Get a link](s3-access.md#get-link-to-object) to the geobase archive.
 
 
 ## Adding a geobase {#add-geobase}
@@ -57,9 +65,9 @@ To create a geobase:
 - Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel. 
-   1. Under **DBMS settings**, click **Configure**.
-   1. In the **Geobase uri** field, provide a public link to the geobase archive in {{ objstorage-name }}.
+   1. Select the cluster and click **Edit cluster** in the top panel.
+   1. Under **DBMS settings**, click **Settings**.
+   1. In the **Geobase uri** field, provide a link to the geobase archive in {{ objstorage-full-name }}.
 
 - Terraform
 
@@ -67,14 +75,14 @@ To create a geobase:
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. Add the `geobase_uri` parameter with a link to the archive with the geobase to connect in {{ objstorage-name }} to the {{ mch-name }} cluster settings:
+   1. Add the `geobase_uri` parameter with a link to the archive with the geobase to connect in {{ objstorage-full-name }} to the {{ mch-name }} cluster settings:
 
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
         ...
         clickhouse {
           config {
-            geobase_uri = "<public link to the geobase archive in {{ objstorage-name }}>"
+            geobase_uri = "<link to geobase archive in {{ objstorage-full-name }}>"
             ...
           }
         ...

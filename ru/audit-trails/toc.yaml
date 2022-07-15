@@ -4,6 +4,44 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Загрузка аудитных логов в лог-группу
+        items:
+          - name: Организация
+            href: operations/export-organization-logging.md
+          - name: Облако
+            href: operations/export-cloud-logging.md
+          - name: Каталог
+            href: operations/export-folder-logging.md
+      - name: Загрузка аудитных логов в поток данных
+        items:
+          - name: Организация
+            href: operations/export-organization-data-streams.md
+          - name: Облако
+            href: operations/export-cloud-data-streams.md
+          - name: Каталог
+            href: operations/export-folder-data-streams.md
+      - name: Загрузка аудитных логов в бакет
+        items:
+          - name: Организация
+            href: operations/export-organization-bucket.md
+          - name: Облако
+            href: operations/export-cloud-bucket.md
+          - name: Каталог
+            href: operations/export-folder-bucket.md
+  - name: Практические руководства
+    items:
+      - name: Поиск в бакете
+        href: tutorials/search-bucket.md
+      - name: Поиск в лог-группе
+        href: tutorials/search-cloud-logging.md
+      - name: Настройка алертов в {{ monitoring-name }}
+        href: tutorials/alerts-monitoring.md
+      - name: Настройка реагирования в Cloud Functions
+        href: tutorials/logging-functions.md
   - name: Концепции
     expanded: true
     items:
@@ -21,24 +59,6 @@ items:
         href: concepts/limits.md
       - name: Метрики
         href: concepts/user-metrics.md
-  - name: Пошаговые инструкции
-    items:
-      - name: Загрузка аудитных логов в лог-группу
-        href: operations/export-cloud-logging.md
-      - name: Загрузка аудитных логов в поток данных
-        href: operations/export-data-streams.md
-      - name: Загрузка аудитных логов в бакет
-        href: operations/export-bucket.md
-  - name: Практические руководства
-    items:
-      - name: Поиск в бакете
-        href: tutorials/search-bucket.md
-      - name: Поиск в лог-группе
-        href: tutorials/search-cloud-logging.md
-      - name: Настройка алертов в {{ monitoring-name }}
-        href: tutorials/alerts-monitoring.md
-      - name: Настройка реагирования в Cloud Functions
-        href: tutorials/logging-functions.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

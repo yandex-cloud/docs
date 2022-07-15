@@ -18,6 +18,7 @@ The following conditions must also be met:
 * No echo.
 * No background noise.
 * Minimal post-processing.
+* The silence at the beginning and end of a recording is no longer than 1 second.
 
 ### Equipment and recording requirements {#hardware}
 
@@ -80,6 +81,7 @@ Transcripts must be encoded in UTF-8, and the table must not have a header.
    > _<q>Goods they im+port from China.</q>_: Stress falls on the second syllable.
 
 
+
 1. In questions, it's necessary to specify which word should be \*\*logically stressed\*\* to indicate the intonation of an interrogative sentence.
 
    {% note warning %}
@@ -95,7 +97,7 @@ Transcripts must be encoded in UTF-8, and the table must not have a header.
    >
    > In all sentences, the logical stress emphasizes the main meaning of the sentence.
 
-1. The length of the sentence, including the variable portion, must not exceed {{ tts-v3-count }}.
+1. The length of the sentence, including the variable portion, must not exceed {{ tts-v3-count }} characters.
 
 ### Example of a summary text table {#example}
 
@@ -106,8 +108,9 @@ The file encoding is UTF-8.
 | recording | text |
 |---|---|
 | 0.wav | Did \*\*the cat\*\* go {place=outside}? |
-| 1.wav | \*\*The cat\*\* went {place=to look for a sausage}? |
-| 2.wav | We are offering the wonderful book {book_name=Russian folk tales} for just \{price=one thousand one hundred rubles}. |
+| 1.wav | Did \*\*the cat\*\* go {place=to look for a sausage}? |
+| 2.wav | We are offering the wonderful book {book_name=Russian folk tales} for just \{price=
+one thousand one hundred rubles}. |
 | 3.wav | We are offering the wonderful book {book_name=Alice's Adventures in Wonderland} for just \{price=two dollars and ninety-nine cents}. |
 | 4.wav | We are offering the wonderful book {book_name=Eugene Onegin} for just \{price=five hundred rubles forty-eight kopecks}. |
 | 5.wav | You are scheduled for {date=tomorrow} at \{time=fifteen oh clock}. |
@@ -115,5 +118,5 @@ The file encoding is UTF-8.
 
 #### What's next {#what-is-next}
 
-* [{{ brand-voice-name }} API (Eng.)](../../api-ref/authentication.md).
+* [{{ brand-voice-name }} API (Eng.)](../../new-v3/api-ref/grpc/).
 * [{#T}](import-data.md).

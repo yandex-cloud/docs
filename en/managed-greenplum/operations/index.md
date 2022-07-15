@@ -1,5 +1,6 @@
 # Step-by-step instructions for {{ mgp-name }}
 
+* [{#T}](cluster-list.md)
 * [{#T}](calculate-specs.md)
 * [{#T}](cluster-create.md)
 * [Connecting to a database in a {{ GP }} cluster](connect.md)

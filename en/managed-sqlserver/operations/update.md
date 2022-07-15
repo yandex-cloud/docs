@@ -8,6 +8,7 @@ After creating a cluster, you can:
 * [{#T}](#change-additional-settings).
 * [Move a cluster](#move-cluster) to another folder.
 * [Change cluster security groups](#change-sg-set).
+* [{#T}](#service-account).
 
 {% note warning %}
 
@@ -120,10 +121,10 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 
 Check:
 
-* The cluster in question uses HDD network or SSD network storage. It's not possible to increase the size of local SSD storage or non-replicated SSD storage.
-* The cloud has sufficient quota to increase storage size. Open your cloud's [Quotas]({{ link-console-quotas }}) page and make sure that under **Managed Databases**, there is space available in the **HDD storage capacity** or the **SSD storage capacity** lines.
+* The desired cluster uses HDD network or SSD network storage. It's not possible to increase the size of local SSD storage or non-replicated SSD storage.
+* The cloud's quota is sufficient to increase storage size. Open your cloud's [Quotas]({{ link-console-quotas }}) page and make sure that under **Managed Databases**, there is space available in the **HDD storage capacity** or the **SSD storage capacity** lines.
 
-Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]({{link-console-quotas}}) page () for your cloud and check that the **Managed Databases** section still has space available in the **HDD storage capacity** or **SSD storage capacity** line.
+Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]({{link-console-quotas}}) page for your cloud and check that the **Managed Databases** section still has space available in the **HDD storage capacity** or **SSD storage capacity** line.
 
 {% list tabs %}
 
@@ -367,7 +368,7 @@ Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]
       }
       ```
 
-      {% include [note-api-updatemask](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    1. Make sure the settings are correct.
 
@@ -396,25 +397,6 @@ Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]
 
 {% endlist %}
 
-## Moving a cluster {#move-cluster}
-
-{% list tabs %}
-
-- Management console
-
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the row of the cluster that you want to move.
-   1. Click **Move**.
-   1. Select the folder you want to move the cluster to.
-   1. Click **Move**.
-
-- API
-
-   Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * The ID of the destination folder in the `destinationFolderId parameter`.
-
-{% endlist %}
 
 ## Changing security groups {#change-sg-set}
 
@@ -493,3 +475,44 @@ Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]
 You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
+
+
+## Linking a service account {#service-account}
+
+{% list tabs %}
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To link a [service account](../../iam/concepts/users/service-accounts.md) to a cluster:
+
+   1. View a description of the CLI's update cluster command:
+
+      ```bash
+      {{ yc-mdb-ms }} cluster update --help
+      ```
+
+   1. Pass the service account ID in the `--service-account-id` parameter of the cluster update command:
+
+      ```bash
+      {{ yc-mdb-ms }} cluster update <cluster name or ID> \
+         --service-account-id=<service account ID>
+      ```
+
+      You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters). To retrieve a service account ID, follow the [instructions](../../iam/operations/sa/get-id.md).
+
+- API
+
+   To link a [service account](../../iam/concepts/users/service-accounts.md) to a cluster, use the API [update](../api-ref/Cluster/update.md) method and pass the following in the call:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * Service account ID, in the `serviceAccountId` parameter. To retrieve the ID, follow the [instructions](../../iam/operations/sa/get-id.md).
+   * The list of settings to update in the `updateMask` parameter.
+
+   {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+
+{% endlist %}
+

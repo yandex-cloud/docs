@@ -1,5 +1,5 @@
 1. [Создайте](../../vpc/operations/security-group-create.md) группу безопасности агента `agent-sg`.
-1. [Добавьте правила](../../vpc/operations/security-group-update.md#add-rule):
+1. [Добавьте правила](../../vpc/operations/security-group-add-rule.md):
     1. Правило для исходящего HTTPS-трафика к публичному API {{ load-testing-full-name }}:
         * диапазон портов: `443`;
         * протокол: `TCP`;

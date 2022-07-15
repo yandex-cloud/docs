@@ -1,166 +1,124 @@
-# Managing {{ ES }} plugins
+# Managing extensions {{ ES }}
 
-When creating or updating a cluster in {{ mes-short-name }}, you can specify the desired list of plugins, and they will be automatically installed in the cluster. A full list of available plugins is [given below](#elasticsearch).
+User extensions are any text data (dictionaries of words, word breaks, and so on), keys for integration with other clusters, and other data for cluster performance. For more information, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/cloud/current/ec-plugins-guide.html).
 
-## Getting a list of installed plugins {#list}
+## Retrieving a list of installed user extensions {#list}
 
 {% list tabs %}
 
 * CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get a list of cluster plugins, run the command:
+   To get a list of cluster extensions, run the command:
 
-    ```bash
-    {{ yc-mdb-es }} cluster get <cluster ID or name>
-    ```
+   ```bash
+   {{ yc-mdb-es }} extensions list <cluster ID or name>
+   ```
 
-    The enabled plugins will be listed in the `plugins` list.
-
-    You can get the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 * API
 
-    Use the [list](../api-ref/Extension/list.md) API method and pass the cluster ID in the `clusterId` parameter in the request.
+   Use the [list](../api-ref/Extension/list) API method and pass the cluster ID in the `clusterId` request parameter.
 
-    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can get the cluster ID [with a list of clusters in a folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
-## Editing the list of installed plugins {#update}
+## Adding user extensions {#add}
 
 {% list tabs %}
 
 * CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To change the cluster plugins, pass their list in the `--plugins` parameter of the CLI command. In this case, plugins that are not included in the list will be disabled.
+   To add an extension to a cluster, run the command:
 
-    ```bash
-    {{ yc-mdb-es }} cluster update <cluster name or ID> \
-       --plugins=<name of plugin 1>,...,<name of plugin N>
-    ```
+   ```bash
+   {{ yc-mdb-es }} extensions create <cluster ID or name> \
+      --name <extension name> \
+      --uri <URI of zip archive with extension>
+   ```
 
-    You can get the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can retrieve the cluster ID and name in the [list of folder clusters](cluster-list.md#list-clusters), and the extension ID in the [list of cluster extensions](#list).
 
-* Terraform
-
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
-
-        For information about how to create this file, see [{#T}](cluster-create.md).
-
-    1. In the {{ mes-name }} cluster description, in the `config` section, add the `plugins` field listing the plugins:
-
-        ```hcl
-        resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
-          ...
-          config {
-            ...
-            plugins = [ "<list of plugin names>" ]
-            ...
-          }
-          ...
-        }
-        ```
-
-    1. Make sure the settings are correct.
-
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-    1. Confirm the update of resources.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mes }}).
+   To get a link to a zip archive with extension files in {{ objstorage-full-name }}, [follow the instructions](../../storage/operations/objects/link-for-download.md). You can [configure](./s3-access.md) access to {{ objstorage-full-name }} using your service account.
 
     {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
 * API
 
-    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
-    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-    * Plugin list in the `configSpec.elasticsearchSpec.plugins` parameter. The plugins omitted in the list will be disabled.
-    * The list of cluster configuration fields to be edited (`configSpec.elasticsearchSpec.plugins` in this case) in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+   Use the [create](../api-ref/Extension/create) API method and pass the following information in the request:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * The extension name in the `name` parameter.
+   * The [link](../../storage/operations/objects/link-for-download.md) to a zip archive to extension files in {{ objstorage-full-name }} in the `uri` parameter. You can [configure](./s3-access.md) access to {{ objstorage-full-name }} using your service account.
+   * The status of the user extension in the `disabled` parameter. Once added, it can be disabled with the `true` value and enabled with the `false` value.
 
 {% endlist %}
 
-## Supported {{ ES }} plugins {#elasticsearch}
+## Enabling or disabling user extensions {#update}
 
-All supported plugins are listed here:
+{% list tabs %}
 
-* [analysis-icu](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-icu.html)
+* CLI
 
-    It integrates the Lucene ICU module offering extended Unicode support using ICU libraries. The module enables better analysis of Asian languages, Unicode normalization, Unicode-aware case folding, collation support, and transliteration.
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-* [analysis-kuromoji](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-kuromoji.html)
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    It integrates the Lucene kuromoji analysis module for the Japanese language.
+   To enable or disable an extension, run the command:
 
-* [analysis-nori](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-nori.html)
+   ```bash
+   {{ yc-mdb-es }} extensions update <extension ID> \
+      <cluster ID or name> \
+      --active <extension status: true|false>
+   ```
 
-    It integrates the Lucene nori analysis module for the Korean language.
+   You can retrieve the cluster ID and name in the [list of folder clusters](cluster-list.md#list-clusters), and the extension ID in the [list of cluster extensions](#list).
 
-* [analysis-phonetic](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-phonetic.html)
+   To enable a user extension, pass `true` in the `--active` parameter, to disable one, pass `false`.
 
-    It provides lexeme filters that convert expressions into their phonetic representation using Soundex, Metaphone, and other algorithms.
+* API
 
-* [analysis-smartcn](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-smartcn.html)
+   Use the [update](../api-ref/Extension/update) API method and pass the following in the request:
 
-    It integrates the Lucene's Smart Chinese analysis module for the Chinese or mixed Chinese-English text.
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the user extension in the `extensionId` parameter. To get the ID, [retrieve a list of installed user extensions](#list).
+   * The status of the user extension in the `active` parameter: `true` — enabled, `false` — disabled.
 
-* [analysis-stempel](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-stempel.html)
+{% endlist %}
 
-    It integrates the Lucene's Stempel module for Polish language analysis.
+## Deleting user extensions {#delete}
 
-* [analysis-ukrainian](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-ukrainian.html)
+{% list tabs %}
 
-    It integrates the Lucene's UkrainianMorfologikAnalyzer module to enable morphological analysis for the Ukrainian language.
+* CLI
 
-* [ingest-attachment](https://www.elastic.co/guide/en/elasticsearch/plugins/current/ingest-attachment.html)
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    It extracts file attachments in common formats (such as PPT, XLS, or PDF) using the Apache Tika Text Extraction library.
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-* [mapper-annotated-text](https://www.elastic.co/guide/en/elasticsearch/plugins/current/mapper-annotated-text.html)
+   To delete an extension, run the command:
 
-    It indexes text that combines plain text and special markup. Such combinations are used to identify objects, for example, humans or organizations.
+   ```bash
+   {{ yc-mdb-es }} extensions delete <extension ID> \
+      <cluster ID or name>
+   ```
 
-* [mapper-murmur3](https://www.elastic.co/guide/en/elasticsearch/plugins/current/mapper-murmur3.html)
+   You can retrieve the cluster ID and name in the [list of folder clusters](cluster-list.md#list-clusters), and the extension ID in the [list of cluster extensions](#list).
 
-    It calculates hashes from field values using the index time and saves them to the index.
+* API
 
-* [mapper-size](https://www.elastic.co/guide/en/elasticsearch/plugins/current/mapper-size.html)
+   Use the [delete](../api-ref/Extension/delete) API method and pass the following in the request:
 
-    It provides the `_size` metadata field that indexes the size in bytes for the source field (`_source`).
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * ID of the user extension in the `extensionId` parameter. To get the ID, [retrieve a list of installed user extensions](#list).
 
-* [repository-azure](https://www.elastic.co/guide/en/elasticsearch/plugins/current/repository-azure.html)
-
-    Adds support for Azure Blob storage as a snapshot repository.
-
-* [repository-gcs](https://www.elastic.co/guide/en/elasticsearch/plugins/current/repository-gcs.html)
-
-    Adds support for Google Cloud Storage as a snapshot repository.
-
-* [repository-hdfs](https://www.elastic.co/guide/en/elasticsearch/plugins/current/repository-hdfs.html)
-
-    Adds support for the HDFS file system as a snapshot repository.
-
-* [repository-s3](https://www.elastic.co/guide/en/elasticsearch/plugins/current/repository-s3.html)
-
-    Adds support for AWS S3 as a snapshot repository.
-
-* [store-smb](https://www.elastic.co/guide/en/elasticsearch/plugins/current/store-smb.html)
-
-    Fixes errors in Windows SMB and Java on Windows.
-
-* transport-nio
-
-    A server-client non-blocking network library created with Netty.
-
-For more information, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/plugins/current/index.html).
-
+{% endlist %}

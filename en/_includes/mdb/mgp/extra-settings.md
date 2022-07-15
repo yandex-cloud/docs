@@ -4,6 +4,8 @@
 
 * **Access from {{ datalens-name }}** : Enable this option to be able to analyze data from the cluster in [{{ datalens-full-name }}](../../../datalens/concepts/index.md).
 
+* {% include [datatransfer access](../console/datatransfer-access.md) %}
+
 * **Deletion protection**: Enable this option to protect a cluster from accidental deletion by your cloud's users.
 
    {% include [deletion-protection-limits-db](../../mdb/deletion-protection-limits-db.md) %}

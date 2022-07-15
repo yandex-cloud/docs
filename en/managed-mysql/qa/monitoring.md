@@ -53,7 +53,7 @@ SHOW PROCESSLIST;
 
 Fore a detailed description of the output, please see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/5.7/en/show-processlist.html).
 
-#### What other troubleshooting information is available {#trouble-info}
+#### What other troubleshooting information is available? {#trouble-info}
 
 A user with a `PROCESS` cluster-level [privilege](../concepts/settings-list.md#setting-administrative-privileges) can run the queries below:
 * `SHOW FULL PROCESSLIST;`

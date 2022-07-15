@@ -21,32 +21,6 @@ items:
         href: stt/additional-training.md
       - name: Uploading model retraining data
         href: stt/import-training-data.md
-      - name: API reference
-        items:
-          - name: Authentication in the API
-            href: api-ref/authentication.md
-          - name: API v2
-            items:
-              - name: Streaming Recognition API
-                href: stt/api/streaming-api.md
-              - name: Example uses for Streaming Recognition API
-                href: stt/api/streaming-examples.md
-              - name: Synchronous Recognition API
-                href: stt/api/request-api.md
-              - name: Example uses for Synchronous Recognition API
-                href: stt/api/request-examples.md
-              - name: Asynchronous Recognition API
-                href: stt/api/transcribation-api.md
-              - name: Recognizing speech in LPCM format
-                href: stt/api/transcribation-lpcm.md
-              - name: Recognizing speech in OggOpus format
-                href: stt/api/transcribation-ogg.md
-          - name: gRPC v3 API
-            items:
-              - name: Overview
-                href: v3/api-ref/grpc/index.md
-              - name: Recognizer
-                href: v3/api-ref/grpc/stt_service.md
   - name: Speech synthesis
     items:
       - name: About the technology
@@ -55,6 +29,10 @@ items:
         href: tts/voices.md
       - name: Configuring speech generation
         href: tts/tts-markup.md
+      - name: Using SSML
+        href: tts/ssml.md
+      - name: List of supported SSML phonemes
+        href: tts/supported-phonemes.md
       - name: SpeechKit Brand Voice
         items:
           - name: About SpeechKit Brand Voice
@@ -63,32 +41,8 @@ items:
             href: tts/brand-voice/income-data-format.md
           - name: Uploading data for Brand Voice
             href: tts/brand-voice/import-data.md
-      - name: API reference
-        items:
-          - name: Authentication in the API
-            href: api-ref/authentication.md
-          - name: API v1
-            items:
-              - name: API method description
-                href: tts/request.md
-              - name: Using SSML
-                href: tts/ssml.md
-              - name: List of supported SSML phonemes
-                href: tts/supported-phonemes.md
-          - name: gRPC v3 API
-            items:
-              - name: Overview
-                href: new-v3/api-ref/grpc/index.md
-              - name: Synthesizer
-                href: new-v3/api-ref/grpc/tts_service.md
   - name: Audio formats
     href: formats.md
-  - name: SpeechKit Hybrid
-    items:
-      - name: About the technology
-        href: hybrid-speechkit/index.md
-      - name: System requirements
-        href: hybrid-speechkit/system-requirements.md
   - name: IVR integration
     href: concepts/ivr-integration.md
   - name: Using the API
@@ -99,6 +53,54 @@ items:
         href: concepts/response.md
       - name: Troubleshooting
         href: concepts/support-headers.md
+      - name: Recognition API reference guides
+        items:
+          - name: API v2
+            items:
+              - name: Streaming Recognition API
+                href: stt/api/streaming-api.md
+              - name: Synchronous Recognition API
+                href: stt/api/request-api.md
+              - name: Asynchronous Recognition API
+                href: stt/api/transcribation-api.md
+          - name: gRPC API v3 (eng)
+            items:
+              - name: Overview
+                href: v3/api-ref/grpc/index.md
+              - name: Recognizer
+                href: v3/api-ref/grpc/stt_service.md
+      - name: Example uses for the recognition API
+        items:
+          - name: Streaming recognition, API v3
+            href: stt/api/streaming-examples-v3.md
+          - name: Streaming recognition, API v2
+            href: stt/api/streaming-examples.md
+          - name: Synchronous recognition, API v2
+            href: stt/api/request-examples.md
+          - name: Asynchronous recognition of LPCM format, API v2
+            href: stt/api/transcribation-lpcm.md
+          - name: Asynchronous recognition of OggOpus format, API v2
+            href: stt/api/transcribation-ogg.md
+      - name: Synthesis API reference guides
+        items:
+          - name: API v1
+            href: tts/request.md
+          - name: gRPC API v3 (eng)
+            items:
+              - name: Overview
+                href: new-v3/api-ref/grpc/index.md
+              - name: Synthesizer
+                href: new-v3/api-ref/grpc/tts_service.md
+      - name: Example uses for the synthesis API
+        items:
+          - name: Synthesis API v3
+            href: tts/api/tts-examples-v3.md
+  - name: SpeechKit Hybrid
+    items:
+      - name: About the technology
+        href: hybrid-speechkit/index.md
+      - name: System requirements
+        href: hybrid-speechkit/system-requirements.md
   - name: Quotas and limits
     href: concepts/limits.md
   - name: Access management
