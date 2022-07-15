@@ -77,6 +77,7 @@ items:
             href: operations/vm-control/vm-stop-and-start.md
           - name: Resetting a VM user password
             href: operations/vm-control/vm-reset-password.md
+            when: product == "yandex-cloud"
           - name: Attaching a disk to a VM
             href: operations/vm-control/vm-attach-disk.md
           - name: Detaching a disk from a VM
@@ -114,6 +115,7 @@ items:
           - name: Restoring access to a VM
             href: operations/vm-connect/recovery-access.md
       - name: Managing the password reset agent
+        when: product == "yandex-cloud"
         items:
           - name: Verifying agent operation
             href: operations/vm-guest-agent/check.md
@@ -295,6 +297,7 @@ items:
             href: concepts/vm-metadata.md
           - name: Resetting a Windows VM password
             href: concepts/guest-agent.md
+            when: product == "yandex-cloud"
       - name: Graphics accelerators
         href: concepts/gpus.md
       - name: Disks and file storage

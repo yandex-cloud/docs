@@ -45,7 +45,9 @@ description: "Step-by-step instructions for working and managing virtual machine
 ## Managing VMs {#vm-control}
 
 * [{#T}](vm-control/vm-stop-and-start.md)
+{% if product == "yandex-cloud" %}
 * [{#T}](vm-control/vm-reset-password.md)
+{% endif %}
 * [{#T}](vm-control/vm-attach-disk.md)
 * [{#T}](vm-control/vm-detach-disk.md)
 * [{#T}](vm-control/vm-change-zone.md)
@@ -68,11 +70,16 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](vm-operate/install-nvidia-drivers.md)
 * [{#T}](vm-connect/recovery-access.md)
 
+
+{% if product == "yandex-cloud" %}
+
 ## Managing the password reset agent {#guest-agent}
 
 * [{#T}](vm-guest-agent/check.md)
 * [{#T}](vm-guest-agent/install.md)
 * [{#T}](vm-guest-agent/uninstall.md)
+
+{% endif %}
 
 ## Creating a disk {#disk-create}
 
