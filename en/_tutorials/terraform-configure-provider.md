@@ -25,6 +25,7 @@ The settings apply to Terraform `0.13` and higher.
 
    Add the following section to the file:
 
+
    ```
    provider_installation {
      network_mirror {
@@ -37,7 +38,7 @@ The settings apply to Terraform `0.13` and higher.
    }
    ```
 
-   For more information on setting up mirrors, see the [documentation](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
+   For more information about setting up mirrors, see the [documentation](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 
 1. Add the following sections at the top of the `.tf` configuration file:
 
@@ -52,7 +53,7 @@ The settings apply to Terraform `0.13` and higher.
      }
      required_version = ">= 0.13"
    }
-
+   
    provider "yandex" {
      token     = "<OAuth>"
      cloud_id  = "<cloud ID>"
@@ -87,7 +88,7 @@ The settings apply to Terraform `0.13` and higher.
    {% endif %}
 
    * `source`: Provider's global [source address](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses).
-   * `version`: The minimum provider version that the module is compatible with. You can find the version number on the [provider's page](https://registry.terraform.io/providers/yandex-cloud/yandex/latest) (click **USE PROVIDER** in the top right corner).
+   * `version`: The minimum provider version that the module is compatible with. You can find the version number on the [provider's page]({{ tf-provider-link }})(click **USE PROVIDER** in the top right corner).
    * `provider`: The provider name.
    {% if product == "cloud-il" %}* `endpoint` — domain name and port for {{ yandex-cloud }} API: `{{ api-host }}:443`.{% endif %}
    * `token`: {% if product == "yandex-cloud" %}[OAuth token](../iam/concepts/authorization/oauth-token.md){% endif %}{% if product == "cloud-il" %}static key (`secret`) of the service account{% endif %} for {{ yandex-cloud }} access.
@@ -103,13 +104,13 @@ The settings apply to Terraform `0.13` and higher.
 
 1. Execute the `terraform init` command in the folder containing the `.tf` configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
 
-If the provider installation failed, create a request to [support]({{ link-console-support }}?section=contact) mentioning the name and version of the provider.
+If the provider installation failed, create a [support]({{ link-console-support }}?section=contact) request indicating the provider name and version.
 
-If you used the `.terraform.lock.hcl` file, before the initialization, run the command `terraform providers lock`, specifying the URL of the mirror the provider will be uploaded from and the platforms that will use the configuration:
+If you used the `.terraform.lock.hcl` file, run the `terraform providers lock` command before initializing, specifying the URL of the mirror that the provider will be uploaded from and the platforms that the configuration will be used on:
 
 ```
 terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -platform=linux_amd64 -platform=darwin_arm64 yandex-cloud/yandex
 ```
 
-If you used modules, first run `terraform init`, then delete the lock file. After that, run the command `terraform providers lock`.
+If you used modules, first run `terraform init`, then delete the lock file. After that, run the `terraform providers lock` command.
 

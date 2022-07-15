@@ -16,3 +16,6 @@
 {% if product == "yandex-cloud" %}
 * [Configuring a fault-tolerant architecture in {{ yandex-cloud }}](fault-tolerance.md)
 {% endif %}
+{% if product == "yandex-cloud" %}
+* [Creating an SAP program in {{ yandex-cloud }}](sap.md)
+{% endif %}

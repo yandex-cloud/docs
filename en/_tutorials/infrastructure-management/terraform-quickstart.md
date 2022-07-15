@@ -32,14 +32,16 @@ The cost of Terraform-created resources includes:
 
 {% endif %}
 
+
 {% if product == "cloud-il" %}
 
 ## Create a service account {#create-sa}
 
 1. [Create a service account](../../iam/operations/sa/create.md) and [assign roles](../../iam/operations/sa/assign-role-for-sa.md), for a resource {{ yandex-cloud }}. List of roles for services see into [{#T}](../../iam/concepts/access-control/roles.md).
-1. [Create static access keys](../../iam/operations/sa/create-access-key.md) for a service account. Immediately save the ID `key_id` and the secret key `secret'. It will be impossible to get the key value again.
+1. [Create static access keys](../../iam/operations/sa/create-access-key.md) for a service account. Immediately save the ID `key_id` and the secret key `secret`. It will be impossible to get the key value again.
 
 {% endif %}
+
 
 ## Install Terraform {#install-terraform}
 
@@ -55,7 +57,7 @@ The cost of Terraform-created resources includes:
 
 ## Prepare an infrastructure plan {#prepare-plan}
 
-Using Terraform in {{ yandex-cloud }}, you can create all types of cloud resources, including virtual machines, disks, and images. For more information about resources you can create using Terraform, please see the [provider documentation]({{ tf-provider-link }}).
+Using Terraform in {{ yandex-cloud }}, you can create cloud resources of any type, such as virtual machines, disks, images, and so on. For detailed information on resources you can create with Terraform, see the [provider documentation]({{ tf-provider-link }}/).
 
 To create a resource, specify a set of required and optional parameters that define the resource properties. Such resource descriptions make up an infrastructure plan.
 
@@ -65,11 +67,11 @@ Resource names must meet the following requirements:
 
 {% include [names](../../_includes/name-format.md) %}
 
-The machines will have different vCPU and memory configurations: 2 vCPUs and 2 GB of RAM for `terraform1` and 4 vCPUs and 4 GB of RAM for `terraform2`. The VMs will automatically get public and private IP addresses from the `192.168.10.0/24` range in the `subnet-1` subnet located in the `{{ region-id }}-a` availability zone and belonging to the `network-1` cloud network. The Ubuntu OS will be installed on the VMs and the public part of the key used to access the VMs via SSH will be stored on them.
+The machines will have different vCPU and memory configurations: 2 vCPUs and 2 GB of RAM for `terraform1` and 4 vCPUs and 4 GB of RAM for `terraform2`. The VMs will automatically get public and private IP addresses from the `192.168.10.0/24` range in the `subnet-1` subnet located in the `ru-central1-a` availability zone and belonging to the `network-1` cloud network. The Ubuntu OS will be installed on the VMs and the public part of the key used to access the VMs via SSH will be stored on them.
 
 In the VM configuration, you'll need to specify the boot disk image ID. You can retrieve a list of available public images by using the [CLI](../../cli/quickstart.md) command `yc compute image list --folder-id standard-images`.
 
-To access the VMs over SSH, you will need to [generate an SSH key pair](../../compute/operations/vm-connect/ssh#creating-ssh-keys) and pass the public key to the virtual machine in the `ssh-keys` parameter in the `metadata` section.
+To access the VMs over SSH, generate an [SSH key pair](../../compute/operations/vm-connect/ssh#creating-ssh-keys) and pass the public key to the virtual machine in the `ssh-keys` parameter in the `metadata` section.
 
 Resource configurations are specified immediately after the provider's configuration:
 
@@ -129,11 +131,9 @@ resource "yandex_compute_instance" "vm-1" {
 
    {% include [terraform-prepare-plan-linux](../../_tutorials/terraform-prepare-plan-linux.md) %}
 
-{% if product == "yandex-cloud" %}
 - Creating a Windows VM
 
    {% include [terraform-prepare-plan-windows](../../_tutorials/terraform-prepare-plan-windows.md) %}
-{% endif %}
 
 {% endlist %}
 
@@ -145,11 +145,9 @@ resource "yandex_compute_instance" "vm-1" {
 
    {% include [terraform-vm-user-linux](../../_tutorials/terraform-vm-user-linux.md) %}
 
-{% if product == "yandex-cloud" %}
 - Windows
 
    {% include [terraform-vm-user-windows](../../_tutorials/terraform-vm-user-windows.md) %}
-{% endif %}
 
 {% endlist %}
 

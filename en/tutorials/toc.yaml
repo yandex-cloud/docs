@@ -113,6 +113,9 @@ items:
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
         href: infrastructure-management/fault-tolerance.md
         when: product == "yandex-cloud"
+      - name: Creating an SAP program in {{ yandex-cloud }}
+        href: infrastructure-management/sap.md
+        when: product == "yandex-cloud"
   - name: Building a data platform
     items:
       - name: All tutorials
