@@ -273,6 +273,9 @@ items:
         when: product == "yandex-cloud"
       - name: Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer
         href: tutorials/packer-custom-image.md
+      - name: Резервное копирование ВМ с помощью Hystax Acura Backup
+        href: tutorials/hystax-backup.md
+        when: product == "yandex-cloud"        
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов

@@ -113,6 +113,9 @@ items:
       - name: Защита от сбоев с помощью Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
         when: product == "yandex-cloud"
+      - name: Резервное копирование ВМ с помощью Hystax Acura Backup
+        href: infrastructure-management/hystax-backup.md
+        when: product == "yandex-cloud"
       - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
         href: infrastructure-management/fault-tolerance.md
         when: product == "yandex-cloud"

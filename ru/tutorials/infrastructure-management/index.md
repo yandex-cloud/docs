@@ -15,6 +15,9 @@
 * [Аварийное восстановление в {{ yandex-cloud }} с помощью Hystax Acura](hystax-disaster-recovery.md)
 {% endif %}
 {% if product == "yandex-cloud" %}
+* [Резервное копирование ВМ с помощью Hystax Acura Backup](hystax-backup.md)
+{% endif %}
+{% if product == "yandex-cloud" %}
 * [Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}](fault-tolerance.md)
 {% endif %}
 {% if product == "yandex-cloud" %}
