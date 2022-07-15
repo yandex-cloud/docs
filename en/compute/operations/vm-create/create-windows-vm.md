@@ -31,7 +31,6 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
    1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
       {% if product == "yandex-cloud" %}* [Instructions](../../../iam/operations/iam-token/create.md) for users with a Yandex account.{% endif %}
       * [Instructions](../../../iam/operations/iam-token/create-for-sa.md) for a service account.
-      * [Instructions](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
    1. [Get the ID](../../../resource-manager/operations/folder/get-id.md) of the folder.
    1. Get information about the image to create your virtual machine from (image ID and minimum disk size):
       * If you know the [image family](../../concepts/image.md#family), retrieve information on this family's latest image:
@@ -40,7 +39,7 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
          $ export FAMILY=windows-2016-gvlk
          $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
            "https://compute.{{ api-host }}/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
-         
+
          {
           "productIds": [
            "f2eu62v659or2tqv28l0"
@@ -185,35 +184,35 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
 
       ```
       resource "yandex_compute_instance" "vm-1" {
-      
+
         name        = "windows-vm"
         platform_id = "standard-v3"
-      
+
         resources {
           cores  = <number of vCPU cores>
           memory = <RAM amount, GB>
         }
-      
+
         boot_disk {
           initialize_params {
             image_id = "<image ID>"
           }
         }
-      
+
         network_interface {
           subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
           nat       = true
         }
-      
+
         metadata = {
           user-data = "#ps1\nnet user Administrator <admin password>"
         }
       }
-      
+
       resource "yandex_vpc_network" "network-1" {
         name = "network1"
       }
-      
+
       resource "yandex_vpc_subnet" "subnet-1" {
         name       = "subnet1"
         zone       = "<availability zone>"
@@ -249,6 +248,8 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
 {% endlist %}
 
 {% include [initialization-windows-vm](../../../_includes/initialization-windows-vm.md) %}
+
+The administrator password you entered when creating the VM is saved as clear-text metadata, which is why we recommend [resetting it](../vm-control/vm-reset-password.md).
 
 You can make a public IP address static. For more information, see [{#T}](../vm-control/vm-set-static-ip.md).
 

@@ -53,12 +53,12 @@ To create a VM:
       * **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
       * **No address**: Don't assign a public IP address.
    * In the **Internal address** field, select the method for assigning internal addresses: **Auto** or **Manual**.
-   * (optional) Create a record for the VM in the [DNS zone](../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section, click **Add record** and specify the zone, FQDN and TTL for the record. For more detail, please see [Cloud DNS integration with Compute Cloud](../../dns/concepts/compute-integration.md).
+   * (optional) Create a record for the VM in the [DNS zone](../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section, click **Add record** and specify the zone, FQDN and TTL for the record. For more information, see [Cloud DNS integration with Compute Cloud](../../dns/concepts/compute-integration.md).
    * Select [appropriate security groups](../../vpc/concepts/security-groups.md) (if there is no corresponding field, the virtual machine will be enabled for all incoming and outgoing traffic).
 
 1. Under **Access**, specify the data required to access the VM:
    * (optional) Select or create a [service account](../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
-   * When you create a VM, the `Administrator` user is automatically created in the operating system. In the **Password** field, set a password for this user to log in to the VM via RDP.
+   * When you create a VM, the `Administrator` user is automatically created in the operating system. In the **Password** field, enter this user's password.
 
       {% note info %}
 

@@ -25,6 +25,14 @@ Create a Windows [VM](../concepts/vm.md) using {{ compute-short-name }} from the
 
 {% include [create-instance-via-console-windows](../_includes_service/create-instance-via-console-windows.md) %}
 
+## Reset the administrator password {#reset-admin-password}
+
+The administrator password specified at the time of VM creation is saved as clear-text metadata, which is why we recommend replacing it with a newly generated password.
+
+To reset a password:
+
+{% include [vm-reset-password-windows-console](../../_includes/compute/vm-reset-password-windows-console.md) %}
+
 ## Connect to the VM {#connect-rdp}
 
 {% include [vm-connect-rdp](../../_includes/vm-connect-rdp.md) %}
