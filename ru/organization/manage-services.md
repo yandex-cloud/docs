@@ -12,7 +12,7 @@
 
 1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
 
-1. На левой панели выберите раздел [Облака и сервисы]({{link-org-services}}) ![icon-services](../_assets/organization/icon-services.png).
+1. На левой панели выберите раздел [Облака и сервисы]({{link-org-services}}) ![icon-services](../_assets/organization/icon-services.svg).
 
    На странице отображается список облаков, подключенных к организации, а также сервисы: {{ tracker-full-name }}, {{ wiki-full-name }}, {{ forms-full-name }} и {{ datalens-full-name }}.
 
@@ -42,7 +42,7 @@
 
 1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
 
-1. На левой панели выберите раздел [Облака и сервисы]({{link-org-services}}) ![icon-services](../_assets/organization/icon-services.png). На странице отображается список облаков, подключенных к организации.
+1. На левой панели выберите раздел [Облака и сервисы]({{link-org-services}}) ![icon-services](../_assets/organization/icon-services.svg). На странице отображается список облаков, подключенных к организации.
 
 1. Чтобы открыть облако в консоли {{ yandex-cloud }}, нажмите его название.
 

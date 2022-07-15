@@ -48,7 +48,7 @@
 
   1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
 
-  1. На левой панели выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.png).
+  1. На левой панели выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
   1. Нажмите кнопку **Создать федерацию**.
 
@@ -257,7 +257,7 @@
 
   1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
 
-  1. На левой панели выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.png).
+  1. На левой панели выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
   1. Нажмите имя федерации, для которой нужно добавить сертификат.
 
@@ -333,7 +333,7 @@
 
     1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
 
-    1. На левой панели выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.png).
+    1. На левой панели выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
     1. Скопируйте идентификатор федерации, для которой вы настраиваете доступ.
 
@@ -500,7 +500,7 @@ AD FS требует создавать _отношение доверия с п
 
   1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
 
-  1. На левой панели выберите раздел [Пользователи]({{link-org-users}}) ![icon-users](../../../_assets/organization/icon-users.png).
+  1. На левой панели выберите раздел [Пользователи]({{link-org-users}}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
   1. В правом верхнем углу нажмите на стрелку возле кнопки **Добавить пользователя**. Выберите пункт **Добавить федеративных пользователей**.
 

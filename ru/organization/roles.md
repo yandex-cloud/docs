@@ -43,11 +43,11 @@
 
   1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
   
-  1. На левой панели выберите раздел [Пользователи]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.png).
+  1. На левой панели выберите раздел [Пользователи]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
 
   1. Выберите пользователя из списка или воспользуйтесь строкой поиска вверху страницы.
   
-  1. В правом столбце нажмите значок ![icon-context-menu](../_assets/organization/icon-context-menu.png) и выберите **Настроить доступ**.
+  1. В правом столбце нажмите значок ![icon-context-menu](../_assets/horizontal-ellipsis.svg) и выберите **Настроить доступ**.
   
   1. В окне **Настройка прав доступа** нажмите кнопку **Добавить роль** и введите название роли или выберите роль в списке.
   
@@ -230,11 +230,11 @@
 
   1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
   
-  1. На левой панели выберите раздел [Пользователи]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.png).
+  1. На левой панели выберите раздел [Пользователи]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
 
   1. Выберите пользователя из списка или воспользуйтесь строкой поиска вверху страницы.
   
-  1. В правом столбце нажмите значок ![icon-context-menu](../_assets/organization/icon-context-menu.png) и выберите **Настроить доступ**.
+  1. В правом столбце нажмите значок ![icon-context-menu](../_assets/horizontal-ellipsis.svg) и выберите **Настроить доступ**.
   
   1. Нажмите значок ![cross](../_assets/cross.svg) рядом с ролью, чтобы удалить ее.
 

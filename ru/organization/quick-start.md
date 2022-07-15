@@ -26,7 +26,7 @@
 
 Чтобы подключить сотрудников с аккаунтами {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}:
 
-1. На левой панели выберите раздел [Пользователи]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.png).
+1. На левой панели выберите раздел [Пользователи]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
 
 1. В правом верхнем углу нажмите кнопку {% if product == "yandex-cloud" %}**Добавить пользователя**{% endif %}{% if product == "cloud-il" %}**Пригласить пользователей**{% endif %}.
 
@@ -46,7 +46,7 @@
 
 Чтобы настроить федерацию удостоверений:
 
-1. На левой панели выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.png).
+1. На левой панели выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.svg).
 
 1. Нажмите кнопку **Создать федерацию**.
 

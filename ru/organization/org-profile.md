@@ -4,7 +4,7 @@
 
 1. Войдите в [{{org-full-name}}]({{link-org-main}}) под аккаунтом администратора организации.
 
-1. На левой панели выберите раздел [Об организации]({{link-org-settings}}) ![icon-settings](../_assets/organization/icon-settings.png).
+1. На левой панели выберите раздел [Об организации]({{link-org-settings}}) ![icon-settings](../_assets/organization/icon-settings.svg).
 
 1. Чтобы изменить название и описание организации, в правом верхнем углу нажмите **Редактировать данные**.
 
