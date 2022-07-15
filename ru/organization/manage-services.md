@@ -5,13 +5,19 @@
 
 Сервисы для совместной работы и инструменты бизнес-аналитики доступны для всех организаций. Чтобы использовать [сервисы {{ yandex-cloud }}]({{ link-cloud-services }}), создайте облако.
 
+{% note info %}
+
+Управлять облаками и сервисами может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. Как назначить роль пользователю, читайте в разделе [Роли](roles.md#admin).
+
+{% endnote %}
+
 Чтобы перейти к управлению облаками и сервисами:
 
-1. [Войдите в аккаунт]({{link-passport}}) администратора организации.
+1. [Войдите в аккаунт]({{link-passport}}) администратора или владельца организации.
 
 1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
 
-1. На левой панели выберите раздел [Облака и сервисы]({{link-org-services}}) ![icon-services](../_assets/organization/icon-services.png).
+1. На левой панели выберите раздел [Облака и сервисы]({{link-org-services}}) ![icon-services](../_assets/organization/icon-services.svg).
 
    На странице отображается список облаков, подключенных к организации, а также сервисы: {{ tracker-full-name }}, {{ wiki-full-name }}, {{ forms-full-name }} и {{ datalens-full-name }}.
 

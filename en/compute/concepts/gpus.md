@@ -10,7 +10,7 @@ description: "GPU is a graphics processor unit that handles certain types of dat
 The following GPUs are available in {{ compute-name }}:
 * [NVIDIA® Tesla® V100](https://www.nvidia.com/en-us/data-center/v100/) with 32 GB HBM2 (High Bandwidth Memory). 
 * [NVIDIA® Ampere® A100](https://www.nvidia.com/en-us/data-center/a100/) with 80 GB HBM2.
-   * [NVIDIA® Tesla® T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) with 16 GB GDDR6. 
+* [NVIDIA® Tesla® T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) with 16 GB GDDR6. 
 
 
 {% note warning %}
@@ -98,6 +98,8 @@ For more information about organizational and technical limits for VMs, see [Quo
 
 
 ## Virtual graphics accelerators (vGPUs) {#vgpu}
+
+{% include [vgpu-to-standard](../../_includes/compute/vgpu-to-standard.md) %}
 
 {{ compute-name }} lets you virtualize graphics accelerators (GPUs). Virtualization of machines with GPUs are created based on [NVIDIA® vGPU](https://www.nvidia.com/en-us/data-center/virtual-solutions/) technology.
 

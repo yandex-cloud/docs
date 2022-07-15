@@ -49,6 +49,8 @@ items:
           Configuring {{ dns-name }} for access to managed database clusters
           from other cloud networks
         href: tutorials/mdb-dns-peering.md
+      - name: Creating an ACME resolver webhook for responses to DNS01 checks
+        href: tutorials/cert-manager-webhook.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -99,4 +101,6 @@ items:
                 href: api-ref/DnsZone/updateRecordSets.md
               - name: upsertRecordSets
                 href: api-ref/DnsZone/upsertRecordSets.md
+  - name: Questions and answers
+    href: qa/index.md
 base: en/dns

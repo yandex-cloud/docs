@@ -1,17 +1,25 @@
-# Enabling machine learning models
+# Managing machine learning models
 
 {{ mch-short-name }} lets you analyze data by applying [CatBoost](https://catboost.ai/) machine learning models without additional tools. To apply a model, add it to your cluster and call it in an SQL query using the built-in [`modelEvaluate()`]({{ ch.docs }}/query_language/functions/other_functions/#function-modelevaluate) function. After running this query, you get model predictions for each row of input data. For more information about machine learning in {{ CH }}, see the [documentation]({{ ch.docs }}/guides/apply_catboost_model/).
 
 ## Before adding a model {#prereq}
 
-{{ mch-short-name }} works only with publicly readable models that are uploaded to {{ objstorage-name }}:
+{{ mch-short-name }} only works with readable models uploaded to {{ objstorage-full-name }}:
 
 
-1. [Upload](../../storage/operations/objects/upload.md) the trained model file to {{ objstorage-name }}.
+1. [Upload](../../storage/operations/objects/upload.md) the trained model file to {{ objstorage-full-name }}.
 
-1. [Set up public read access](../../storage/operations/objects/edit-acl.md) to the model file.
+1. Configure access to the model file using one of the following methods:
 
-1. [Get](../../storage/operations/objects/link-for-download.md) a public link to the model.
+   * Use a [service account](../../iam/concepts/users/service-accounts.md) (recommended). This method lets you access the file without entering account information.
+
+      1\. [Connect a service account to a cluster](s3-access.md#connect-service-account).
+      2\. [Assign the account the role](s3-access.md#configure-acl) of `storage.viewer`.
+      3\. In the bucket ACL, [grant the account](../../storage/operations/buckets/edit-acl.md) `READ` permission.
+
+   * [Enable public access](../../storage/operations/objects/edit-acl.md) to the bucket containing the file.
+
+1. [Get a link](s3-access.md#get-link-to-object) to the model file.
 
 
 ## Getting a list of models in a cluster {#list}
@@ -102,7 +110,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
       * **Type**: `ML_MODEL_TYPE_CATBOOST`.
       * **Name**: Model name. The model name is one of the arguments of the `modelEvaluate()` function, which is used to call the model in {{ CH }}.
-      * **URL**: Model address in {{ objstorage-name }}.
+      * **URL**: Model address in {{ objstorage-full-name }}.
 
    1. Click **Add** and wait for the model to be added.
 
@@ -118,7 +126,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
    {{ yc-mdb-ch }} ml-model create <model name> \
      --cluster-name=<cluster name> \
      --type=ML_MODEL_TYPE_CATBOOST \
-     --uri=<public link to the model file in {{ objstorage-name }}>
+     --uri=<link to model file in {{ objstorage-full-name }}>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -137,7 +145,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
         ml_model {
           name = "<model name>"
           type = "ML_MODEL_TYPE_CATBOOST"
-          uri  = "<public link to the model file in {{ objstorage-name }}>"
+          uri  = "<link to model file in {{ objstorage-full-name }}>"
         }
       }
       ```
@@ -161,7 +169,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
    * The cluster ID in the `clusterId` parameter.
    * The model name in the `mlModelName` parameter.
    * The `ML_MODEL_TYPE_CATBOOST` model type in the `type` parameter.
-   * A public link to the model file in {{ objstorage-name }} in the `uri` parameter.
+   * Link to the model file in {{ objstorage-full-name }} in the `uri` parameter.
 
    The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -188,13 +196,13 @@ Specify the model name and the names of the columns with input data as the `mode
 
 ## Updating a model {#update}
 
-{{ mch-name }} doesn't track changes in the model file located in the {{ objstorage-name }} bucket.
+{{ mch-name }} doesn't track changes in the model file located in the {{ objstorage-full-name }} bucket.
 
 To update the contents of a model that is already connected to the cluster:
 
 
-1. [Upload the file](../../storage/operations/objects/upload.md) with the current model to {{ objstorage-name }}.
-1. [Get a public link](../../storage/operations/objects/link-for-download.md) to this file.
+1. [Upload the file](../../storage/operations/objects/upload.md) with the current model to {{ objstorage-full-name }}.
+1. [Get a link](s3-access.md#get-link-to-object) to this file.
 1. Change the parameters of the model connected to {{ mch-name }} by passing a new link to the model file.
 
 
@@ -212,12 +220,12 @@ To update the contents of a model that is already connected to the cluster:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To change the link to the model file in the {{ objstorage-name }} bucket, run the command:
+   To change the link to the model file in the {{ objstorage-full-name }} bucket, run the command:
 
    ```bash
    {{ yc-mdb-ch }} ml-model update <model name> \
      --cluster-name=<cluster name> \
-     --uri=<new public link to the file in {{ objstorage-name }}>
+     --uri=<new link to file in {{ objstorage-full-name }}>
    ```
 
    You can request the model name with a [list of cluster models](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -236,7 +244,7 @@ To update the contents of a model that is already connected to the cluster:
         ml_model {
           name = "<model name>"
           type = "ML_MODEL_TYPE_CATBOOST"
-          uri  = "<new public link to the model file in {{ objstorage-name }}>"
+          uri  = "<new link to model file in {{ objstorage-full-name }}>"
         }
       }
       ```
@@ -259,7 +267,7 @@ To update the contents of a model that is already connected to the cluster:
 
    * The cluster ID in the `clusterId` parameter.
    * The model name in the `mlModelName` parameter.
-   * The new public link to the model file in {{ objstorage-name }} in the `uri` parameter.
+   * The new link to the model file in {{ objstorage-full-name }} in the `uri` parameter.
    * List of cluster configuration fields to be changed in the `updateMask` parameter.
 
    You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the model name with a [list of models in the cluster](#list).
@@ -273,7 +281,7 @@ To update the contents of a model that is already connected to the cluster:
 {% note info %}
 
 
-After disabling a model, the corresponding object is kept in the {{ objstorage-name }} bucket. If you no longer need this model object, you can [delete](../../storage/operations/objects/delete.md) it.
+After disabling a model, the corresponding object is kept in the {{ objstorage-full-name }} bucket. If you no longer need this model object, you can [delete](../../storage/operations/objects/delete.md) it.
 
 
 {% endnote %}
@@ -347,9 +355,11 @@ To upload data to {{ CH }} and test the model:
 1. Install the [{{ CH }} CLI]({{ ch.docs }}/interfaces/cli/) and set up a cluster connection as described in the [documentation](../../managed-clickhouse/operations/connect.md#cli).
 1. Download a [data file](https://{{ s3-storage-host }}/managed-clickhouse/train.csv) for analysis:
    ```bash
-   wget https://{{ s3-storage-host }}/managed-clickhouse/train.csv
+   wget https://storage.yandexcloud.net/managed-clickhouse/train.csv
    ```
+
 1. Create a table for the data:
+
    ```bash
    clickhouse-client --host <host FQDN> \
                      --database <DB name>
@@ -359,7 +369,9 @@ To upload data to {{ CH }} and test the model:
                      --port 9440 \
                      -q 'CREATE TABLE ml_test_table (date Date MATERIALIZED today(), ACTION UInt8, RESOURCE UInt32, MGR_ID UInt32, ROLE_ROLLUP_1 UInt32, ROLE_ROLLUP_2 UInt32, ROLE_DEPTNAME UInt32, ROLE_TITLE UInt32, ROLE_FAMILY_DESC UInt32, ROLE_FAMILY UInt32, ROLE_CODE UInt32) ENGINE = MergeTree() PARTITION BY date ORDER BY date'
    ```
+
 1. Upload the data to the table:
+
    ```bash
    clickhouse-client --host <host FQDN> \
                      --database <DB name>
@@ -370,16 +382,18 @@ To upload data to {{ CH }} and test the model:
                      -q 'INSERT INTO ml_test_table FORMAT CSVWithNames' \
                      < train.csv
    ```
+
 1. In the [management console]({{ link-console-main }}), add the test model:
    * **Type**: `ML_MODEL_TYPE_CATBOOST`.
    * **Name**: `ml_test`.
-   * **URL**: `https://{{ s3-storage-host }}/managed-clickhouse/catboost_model.bin`.
+   * **URL**: `https://storage.yandexcloud.net/managed-clickhouse/catboost_model.bin`.
 
 1. Test the model:
    1. Connect to the cluster [using the {{ CH }} CLI](../../managed-clickhouse/operations/connect.md#cli) or go to the [SQL](../../managed-clickhouse/operations/web-sql-query.md) tab in the cluster management console.
    1. Test the model using queries:
       * Predicted values for first 10 rows of the `ACTION` column:
-         ```
+
+         ```sql
          SELECT
              modelEvaluate('ml_test',
                            RESOURCE,
@@ -395,8 +409,10 @@ To upload data to {{ CH }} and test the model:
          FROM ml_test_table
          LIMIT 10
          ```
+
       * Predicted probability for the first 10 rows of the table:
-         ```
+
+         ```sql
          SELECT
              modelEvaluate('ml_test',
                            RESOURCE,

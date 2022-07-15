@@ -11,7 +11,7 @@ If you enable the **Hybrid storage** setting when creating or updating a cluster
 
 Local SSD storage doesn't provide fault tolerance for stored data and affects the overall pricing for the cluster:
 
-* This storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mch-name }} cluster using local storage, a 3-host fault-tolerant configuration is automatically set up.
+* This storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mch-name }} cluster using local storage, a 2-host fault-tolerant configuration is automatically set up.
 * You are charged for a cluster with this storage type even if it's stopped. Read more in the [pricing policy](../pricing.md).
 
 ## Specifics of non-replicated SSD storage {#network-nrd-storage-features}
@@ -90,4 +90,14 @@ FROM system.storage_policies;
 ```
 
 For more information about storage policies and their settings, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes).
+
+## Choice of storage type during cluster creation {#storage-type-selection}
+
+The number of hosts that can be created with a {{ CH }} cluster depends on the storage type selected:
+
+* When using local SSD storage (`local-ssd`), you can create a cluster with two or more hosts (a minimum of two hosts is required for fault tolerance).
+* With `network-hdd` or `network-ssd` storage, you can add any number of hosts within the [current quota](./limits.md).
+* If you use non-replicated network SSD storage (`network-ssd-nonreplicated`), you can create a cluster with three or more hosts (to ensure fault tolerance, a minimum of three hosts is necessary).
+
+For more information about limits on the number of hosts per cluster, see [{#T}](./limits.md).
 

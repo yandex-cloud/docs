@@ -79,6 +79,10 @@ items:
         href: tutorials/blue-green-canary-deployment.md
       - name: Analyzing logs in DataLens
         href: tutorials/storage-logs-analysis.md
+      - name: >-
+          Using initialization actions to configure GeeseFS in {{
+          dataproc-full-name }}
+        href: tutorials/data-proc-init-actions-geesefs.md
   - name: Concepts
     items:
       - name: Overview

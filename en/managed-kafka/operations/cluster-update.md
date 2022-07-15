@@ -1,10 +1,10 @@
 # Changing cluster settings
 
-After creating an {{ KF }} cluster, you can:
+After creating an {{ mkf-name }} cluster, you can:
 
 * [{#T}](#enable-api).
 * [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
+* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
 * [{#T}](#change-additional-settings).
 * [{#T}](#change-kafka-settings).
 * [{#T}](#move-cluster) from the current folder to another one.
@@ -84,12 +84,14 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
 ## Change the class and number of hosts {#change-resource-preset}
 
 You can change:
-* The {{ KF }} broker host class and number.
+
+* The class of {{ KF }} broker hosts.
+* The number of {{ KF }} broker hosts if two or more availability zones are used for them.
 * The class of {{ ZK }} hosts.
 
 {% note warning %}
 
-You can't decrease the number of {{ KF }} broker hosts.
+You can't decrease the number of {{ KF }} broker hosts. You can only increase it if the cluster already contains at least two broker hosts in different availability zones.
 
 {% endnote %}
 
@@ -170,7 +172,7 @@ You can't decrease the number of {{ KF }} broker hosts.
         ...
         kafka {
           resources {
-            resource_preset_id = "<class of Apache Kafka hosts>"
+            resource_preset_id = "<broker host class>"
             ...
           }
         }
@@ -344,7 +346,8 @@ You can't change the disk type for {{ KF }} clusters after creation.
       {{ yc-mdb-kf }} cluster update <cluster name or ID> \
          --maintenance-window type=<maintenance type: anytime or weekly>,`
                              `day=<day of week for weekly>,`
-                             `hour=<hour for weekly>
+                             `hour=<hour for weekly> \
+         --datatransfer-access=<true or false> \
          --deletion-protection=<protect cluster from deletion: true or false>
       ```
 
@@ -352,9 +355,11 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window.md) %}
 
+   * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
+
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [[deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
    You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -364,7 +369,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. {% include [maintenance-window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
+   1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
@@ -387,6 +392,8 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mkf }}).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
@@ -395,19 +402,17 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
 
+   * Cluster access configuration settings for [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) in Serverless mode: in the `configSpec.access.dataTransfer` parameter.
+
+      This enables you to connect to {{ data-transfer-full-name }} running in {{ k8s }} via a special network. It will also cause other operations to run faster, such as transfer launch and deactivation.
+
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
    * List of cluster configuration fields to be changed in the `updateMask` parameter.
 
-   You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
-
-   {% note warning %}
-
-   This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, be sure to pass the names of the fields to be changed in the `updateMask` parameter.
-
-   {% endnote %}
+   You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
 
 {% endlist %}
 
@@ -521,7 +526,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
       ```bash
       {{ yc-mdb-kf }} cluster move <cluster ID> \
-        --destination-folder-name=<destination folder name>
+         --destination-folder-name=<destination folder name>
       ```
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -590,6 +595,8 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
+   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
 - API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
@@ -599,8 +606,4 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
 {% endlist %}
 
-{% note warning %}
-
 You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
-
-{% endnote %}

@@ -12,6 +12,8 @@ To create a node from a cell with Python code, [save a checkpoint](../../operati
 
 API requests can change the state of the node's interpreter. You can't revert to the original state without recreating the node.
 
+{% include [Node requests size](../../../_includes/datasphere/node-service-request-size.md) %}
+
 Read more about creating a node from a Python code cell in [{#T}](../../operations/node-cell.md).
 
 By default, instances use standard system Docker images and don't copy user-installed libraries. If your microservice requires packages that are not included in the [pre-installed software](../preinstalled-packages.md), configure the Docker image for [deployment of the node environment](../../operations/node-customization.md).

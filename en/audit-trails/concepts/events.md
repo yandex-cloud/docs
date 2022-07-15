@@ -75,7 +75,7 @@ Service name: `compute`.
 | `AddInstanceOneToOneNat` | Adding a public IP address for a VM instance |
 | `AttachInstanceDisk` | Attaching a disk to a VM instance |
 | `AttachInstanceFilesystem` | Connecting a file system to a VM |
-| `ChangeDiskStatus` | Changing a disk status |
+| `ChangeDiskStatus` | Changing a non-replicated disk status |
 | `CrashInstance` | Emergency VM shutdown |
 | `CreateDisk` | Creating a disk |
 | `CreateFilesystem` | Creating a file system |
@@ -347,7 +347,7 @@ Service name: `loadbalancer`.
 
 ## {{ objstorage-name }} {#objstorage}
 
-Service name — `storage`.
+Service name: `storage`.
 
 | Event name | Description |
 --- | ---

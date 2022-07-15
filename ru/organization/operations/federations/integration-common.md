@@ -34,7 +34,7 @@
 
   1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
 
-  1. На левой панели выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.png).
+  1. На левой панели выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
   1. Нажмите кнопку **Создать федерацию**.
 
@@ -220,7 +220,7 @@
 
   1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
 
-  1. На левой панели выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.png).
+  1. На левой панели выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
   1. Нажмите имя федерации, для которой нужно добавить сертификат.
 
@@ -296,7 +296,7 @@
 
     1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
 
-    1. На левой панели выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.png).
+    1. На левой панели выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
     1. Скопируйте идентификатор федерации, для которой вы настраиваете доступ.
 
@@ -466,17 +466,19 @@ UYGmIgo9HwAAAABJRU5ErkJggg==
 
 Для этого вам необходимо знать Name ID пользователей, которые возвращает сервер поставщика удостоверений (IdP) вместе с ответом об успешной аутентификации. Обычно это основной email пользователя. Если вы не знаете, что возвращает сервер в качестве Name ID, обратитесь к администратору, который настраивал аутентификацию в вашей федерации.
 
+Добавить пользователя может администратор (роль `organization-manager.admin`) или владелец (роль `organization-manager.organizations.owner`) организации. Как назначить роль пользователю, читайте в разделе [Роли](../../roles.md#admin).
+
 Чтобы добавить пользователей федерации в организацию:
 
 {% list tabs %}
 
 - Консоль управления
 
-  1. [Войдите в аккаунт]({{link-passport}}) администратора организации.
+  1. [Войдите в аккаунт]({{link-passport}}) администратора или владельца организации.
 
   1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
 
-  1. На левой панели выберите раздел [Пользователи]({{link-org-users}}) ![icon-users](../../../_assets/organization/icon-users.png).
+  1. На левой панели выберите раздел [Пользователи]({{link-org-users}}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
   1. В правом верхнем углу нажмите на стрелку возле кнопки **Добавить пользователя**. Выберите пункт **Добавить федеративных пользователей**.
 

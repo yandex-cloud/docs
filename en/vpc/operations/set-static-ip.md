@@ -1,6 +1,6 @@
 # Making a dynamic public IP address static
 
-You can make a dynamic public IP address static. Static public IP addresses are reserved and remain attached to respective resources when VMs and load balancers are stopped.
+You can make a dynamic public IP address static. Static public IP addresses are reserved and remain attached to respective resources when VMs and network load balancers are stopped.
 
 {% note info %}
 
@@ -13,11 +13,12 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
 * Management console
 
    To change a public IP address from dynamic to static:
-   1. Go to the page of the folder with cloud resources that have dynamic public IP addresses and select **Virtual Private Cloud**.
-   1. Select **IP addresses**.
+   1. In the [management console]({{ link-console-main }}), select the folder containing the appropriate address.
+   1. In the list of services, select **{{ vpc-name }}**.
+   1. On the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **IP addresses**.
    1. Click ![image](../../_assets/options.svg) in the row of the address that you want to make static.
    1. In the menu that opens, select **Make static**.
-   1. In the window that opens, click **Edit**.
+   1. In the window that opens, click **Change**.
 
 * CLI
 
@@ -39,7 +40,7 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
       yc vpc address list
       ```
 
-      Execution result:
+      Output:
 
       ```bash
       +----------------------+------+---------------+----------+------+
@@ -57,7 +58,7 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
       yc vpc address update --reserved=true e2l46k8conff8n6ru1jl
       ```
 
-      Execution result:
+      Output:
 
       ```bash
       id: e2l46k8conff8n6ru1jl
@@ -74,4 +75,3 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
       The `reserved` parameter value changed to `true` and the IP address is now static.
 
 {% endlist %}
-

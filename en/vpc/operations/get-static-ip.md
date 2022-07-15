@@ -1,6 +1,6 @@
 # Reserving a static public IP address
 
-You can reserve a static public IP address to use for accessing cloud resources later.
+You can reserve a static public IP address to use later for accessing cloud resources.
 
 {% note info %}
 
@@ -13,8 +13,9 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
 * Management console
 
    To reserve a static public IP address:
-   1. Go to the page of the folder where you want to reserve an IP and select **Virtual Private Cloud**.
-   1. Select **IP addresses**.
+   1. In the [management console]({{ link-console-main }}), go to the page of the folder where you want to reserve an IP address.
+   1. In the list of services, select **{{ vpc-name }}**.
+   1. On the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **IP addresses**.
    1. Click **Reserve address**.
    1. In the window that opens, select the availability zone where you want to reserve the address.
    1. Click **Reserve address**.
@@ -39,7 +40,7 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
       yc vpc address create --external-ipv4 zone={{ region-id }}-a
       ```
 
-      Execution result:
+      Output:
 
       ```bash
       id: e9b6un9gkso6stdh6b3p
@@ -55,4 +56,3 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
       The static public IP address is reserved.
 
 {% endlist %}
-

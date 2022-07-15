@@ -33,5 +33,6 @@
 
 ## Дополнительные возможности {#add-features}
 
+- [{#T}](connections-view.md)
 - [{#T}](enable-ddos-protection.md)
 - [{#T}](enable-software-accelerated-network.md)

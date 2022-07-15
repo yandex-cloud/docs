@@ -61,7 +61,7 @@
 
     1. [Создайте группу безопасности](../../vpc/operations/security-group-create.md) для NAT-инстанса.
 
-    1. В группе безопасности NAT-инстанса [создайте правила](../../vpc/operations/security-group-update.md#add-rule):
+    1. В группе безопасности NAT-инстанса [создайте правила](../../vpc/operations/security-group-add-rule.md):
 
         **Для входящего трафика:**
 

@@ -16,7 +16,7 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
 1. [{#T}](#check-data).
 
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 1. [Create a {{ mrd-name }} cluster](../operations/cluster-create.md) with any suitable configuration.
 1. [Set up security groups](../operations/connect/index.md#configuring-security-groups) for the cluster and the intermediate VM. {#configure-security-groups}
@@ -103,7 +103,7 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
 1. [Connect to the intermediate virtual machine via SSH](../../compute/operations/vm-connect/ssh.md).
 
 
-1. If your {{ mrd-name }} cluster was deployed with {{ RD }} version 6 or higher and TLS support enabled:
+1. If your {{ mrd-name }} cluster is deployed with TLS support enabled:
 
    1. [Get an SSL certificate](../operations/connect/index.md#get-ssl-cert).
 
@@ -203,7 +203,7 @@ To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
 
       ```bash
       host=$(redis-cli \
-             -h <FQDN of any host {{ RD }}> \
+             -h <FQDN of any {{ RD }} host> \
              -p {{ port-mrd-sentinel }} \
              sentinel \
              get-master-addr-by-name \

@@ -1,12 +1,22 @@
-# Building Data Platform on {{ yandex-cloud }}
+# Building a data platform on {{ yandex-cloud }}
 
-* [Syncing MySQL data using {{ data-transfer-full-name }}](sync-mysql.md)
+* [Syncing {{ MY }} data using {{ data-transfer-full-name }}](sync-mysql.md)
 * Using the registry of data format schemas with Managed Service for Apache Kafka®:
    * [Managing data schemas](schema-registry-overview.md)
    * [Working with the managed registry of data format schemas](managed-schema-registry.md)
    * [Working with Confluent Schema Registry](confluent-schema-registry.md)
 * [Delivering data to {{ mkf-name }} using Debezium](kafka-cdc.md)
 * [Migrating databases from {{ mmy-full-name }} to {{ MY }}](mmy-to-mysql-migration.md)
+* [Configuring a managed database in a {{ CH }} cluster for Graphite](clickhouse-for-graphite.md)
+* [Exchanging data between {{ mch-name }} and {{ dataproc-full-name }}](dp-mch-data-exchange.md)
+* [Using Confluent Schema Registry with {{ mkf-name }}](confluent-schema-registry.md)
+* [Configuring Kafka Connect for {{ mkf-name }} clusters](kafka-connect.md)
+* [Delivering data to {{ mkf-name }} using Debezium](kafka-cdc.md)
+* [Using Confluent Schema Registry with {{ mkf-name }}](confluent-schema-registry.md)
+* [Configuring Kafka Connect for {{ mkf-name }} clusters](kafka-connect.md)
+* [Delivering data to {{ mkf-name }} using Debezium](kafka-cdc.md)
 * [Migrating databases to {{ mms-name }}](mssql-data-migration.md)
 * [Migrating data from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}](rdbms-to-clickhouse.md)
 * [Configuring {{ dns-full-name }} for access to managed database clusters from other cloud networks](mdb-dns-peering.md)
+* [Configuring GeeseFS in {{ dataproc-full-name }} using initialization actions](./data-proc-init-actions-geesefs.md).
+* [{#T}](migration-via-reindex-api.md)

@@ -5,6 +5,13 @@ description: "To perform operations via the Yandex SpeechKit API, you need to au
 
 {% include [authentication-ml-services](../../_includes/authentication-ml-services.md) %}
 
-#### For details, see also {#see-also}
+If you are using API v3, also pass `x-folder-id` with the [folder ID](../../resource-manager/operations/folder/get-id.md) in the header of each request.
+
+```
+Authorization: Bearer <IAM token>
+x-folder-id <folder ID>
+```
+
+#### See also {#see-also}
 
 * [What roles are required for performing operations](../security/index.md)

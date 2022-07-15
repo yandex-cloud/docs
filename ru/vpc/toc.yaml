@@ -46,8 +46,12 @@ items:
         items:
           - name: Создать группу безопасности
             href: operations/security-group-create.md
-          - name: Изменить группу безопасности и правила
+          - name: Изменить имя и описание
             href: operations/security-group-update.md
+          - name: Добавить новое правило
+            href: operations/security-group-add-rule.md
+          - name: Удалить правило
+            href: operations/security-group-delete-rule.md
           - name: Удалить группу безопасности
             href: operations/security-group-delete.md
       - name: Включить программно-ускоренную сеть
@@ -56,6 +60,8 @@ items:
         items:
           - name: Включить защиту от DDoS-атак
             href: operations/enable-ddos-protection.md
+      - name: График сетевых соединений
+        href: operations/connections-view.md
   - name: Практические руководства
     items:
       - name: Архитектура и защита базового интернет-сервиса
@@ -76,6 +82,8 @@ items:
         href: concepts/static-routes.md
       - name: Группы безопасности
         href: concepts/security-groups.md
+      - name: Мониторинг сетевых соединений
+        href: concepts/monitoring-connections.md
       - name: Диапазоны публичных IP-адресов
         href: concepts/ips.md
       - name: MTU и MSS

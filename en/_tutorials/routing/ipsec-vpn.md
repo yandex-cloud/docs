@@ -1,6 +1,6 @@
 # Creating an IPSec VPN tunnel
 
-This scenario describes how to configure an IPSec instance to route traffic from {{ yandex-cloud }} VMs to an IPSec VPN tunnel using the [strongSwan](https://www.strongswan.org/) daemon.
+This scenario describes how to configure an IPSec instance for sending traffic from {{ yandex-cloud }} VMs to an IPSec VPN tunnel using the [strongSwan](https://www.strongswan.org/) daemon.
 
 In the example, we set up a tunnel between two VPN gateways. To test the tunnel, you need to configure gateways on both sides of it. You can do this using a different network in {{ yandex-cloud }} or your local network.
 
@@ -8,10 +8,10 @@ To set up a VPN tunnel:
 
 1. [Before you start](#before-you-begin).
 1. [Create and configure an IPSec instance](#create-ipsec-instance).
-1. [Configure IPsec](#create-ipsec-instance).
+1. [Configure IPSec](#create-ipsec-instance).
 1. [Set up static routing in the cloud network](#configure-static-route).
 1. [Configure IPSec on the second gateway](#configure-another-gateway).
-1. [Test the VPN tunnel](#test-vpn).
+1. [Test the IPSec tunnel](#test-vpn).
 
 If you no longer need the IPSec instance, [delete it](#clear-out).
 
@@ -37,20 +37,14 @@ To connect cloud resources to the internet, make sure you have [networks](../../
 Create a VM in {{ yandex-cloud }} to serve as a gateway for an IPSec tunnel.
 
 1. Open your folder and click **Create resource**. Select **Virtual machine**.
-
 1. Enter a name for the VM, for example, `ipsec-instance`.
-
 1. Select the subnet availability zone to connect the IPSec instance to and where the test VM is already located.
-
-1. In the **Image/boot disk selection** section, click the **{{ marketplace-name }}** tab, and select the [IPSec instance](/marketplace/products/yc/ipsec-instance-ubuntu) image.
-
+1. Under **Images from {{ marketplace-name }}**, click **Select** and select the [IPSec instance](https://cloud.yandex.com/en-ru/marketplace/products/f2e70ohdvsd0jgp2302j) image.
 1. In the **Network settings** section, choose the required network and subnet and assign a public IP to the VM either by selecting it from the list or automatically.
 
-   Only use static public IP addresses [from the list](https://cloud.yandex.com/docs/vpc/operations/get-static-ip) or [make](https://cloud.yandex.com/docs/vpc/operations/set-static-ip) the IP address static. Dynamic IP addresses may change after the VM reboots and the tunnel will no longer work.
-
+   Only use static public IP addresses [from the list](https://cloud.yandex.ru/docs/vpc/operations/get-static-ip) or [make](https://cloud.yandex.ru/docs/vpc/operations/set-static-ip) the IP address static. Dynamic IP addresses may change after the VM reboots and the tunnel will no longer work.
 1. In the **Access** field, enter the login and SSH key to access the VM.
-
-1. Click **Create VM**.
+1. Click **Create VM**.
 
 ## Configure IPSec {#configure-ipsec}
 
@@ -79,12 +73,13 @@ In the example below, the public IP address of the gateway is `130.193.32.25`. B
            strictcrlpolicy=no
    ```
 
-1. Enter the following parameters for the test connection:
-   * `leftid` — The public IP address of the IPSec instance.
-   * `leftsubnet` — The CIDR of the subnet that the IPSec instance is connected to.
-   * `right`  — Enter the public IP address of the gateway at the other end of the VPN tunnel.
-   * `rightsubnet`  — Enter the CIDR of the subnet that the VPN gateway is connected to at the other end of the tunnel.
-   * In the `ike` and `esp` parameters, enter the encryption algorithms that are supported on the remote gateway. For a list of supported encryption algorithms, see [IKEv1](https://wiki.strongswan.org/projects/strongswan/wiki/IKEv1CipherSuites) and [IKEv2](https://wiki.strongswan.org/projects/strongswan/wiki/IKEv2CipherSuites) on the strongSwan website.
+1. Fill out the following parameters for the test connection:
+
+   * `leftid`: The public IP address of the IPSec instance.
+   * `leftsubnet`: The CIDR of the subnet that the IPSec instance is connected to.
+   * `right`: Enter the public IP address of the gateway at the other end of the VPN tunnel.
+   * `rightsubnet`: Enter the CIDR of the subnet that the VPN gateway is connected to at the other end of the tunnel.
+   * In the `ike` and `esp` parameters, enter the encryption algorithms that are supported on the remote gateway. The supported encryption algorithms are listed on the strongSwan website: [IKEv1](https://wiki.strongswan.org/projects/strongswan/wiki/IKEv1CipherSuites) and [IKEv2](https://wiki.strongswan.org/projects/strongswan/wiki/IKEv2CipherSuites).
    * For the rest of the settings, refer to the [strongSwan documentation](https://wiki.strongswan.org/projects/strongswan/wiki), being sure to take the remote gateway settings into account.
 
    Save your changes and close the file.
@@ -110,6 +105,20 @@ In the example below, the public IP address of the gateway is `130.193.32.25`. B
          auto=start
    ```
 
+   {% note info %}
+
+   To speed up data transfer in the tunnel, use optimized encryption algorithms. To do this, add the following lines to the code above:
+
+   ```
+      keyexchange=ikev2
+      ike=aes128gcm16-prfsha256-ecp256,aes256gcm16-prfsha384-ecp384!
+      esp=aes128gcm16-ecp256,aes256gcm16-ecp384!
+   ```
+
+   The optimized algorithms can or cannot be used depending on whether the IPSEC stack is implemented on your platform.
+
+   {% endnote %}
+
 1. Open the file `/etc/ipsec.secrets` and enter your password:
 
    ```
@@ -122,28 +131,22 @@ In the example below, the public IP address of the gateway is `130.193.32.25`. B
    $ systemctl restart strongswan-starter
    ```
 
-## 3. Set up static routing {#configure-static-route}
+## Set up static routing {#configure-static-route}
 
 Set up routing between the IPSec instance and previously created VM with no public IP address:
 
 Create a route table and add [static routes](../../vpc/concepts/static-routes.md):
 
 1. Open the **Virtual Private Cloud** section in the folder where you want to create a static route.
-
 1. Select the network to create the route table in.
-
-1. Click ![image](../../_assets/plus.svg)**Create route table**.
-
+1. Click ![image](../../_assets/plus.svg)**Create a routing table**.
 1. Enter a name for the route table.
 
    {% include [name-format](../../_includes/name-format.md) %}
 
 1. Click **Add route**.
-
 1. In the window that opens, enter the prefix of the remote side destination subnet. In the example, this is `192.168.0.0/24`.
-
-1. In the **Next hop** field, enter the internal IP address of the IPSec gateway. Click **Add**.
-
+1. In the **Next hop**field, enter the internal IP address of the IPSec gateway. Click **Add**.
 1. Click **Create route table**.
 
 To use static routes, link the route table to a subnet. To do this:
@@ -155,7 +158,7 @@ To use static routes, link the route table to a subnet. To do this:
 
 You can also use the created route for other subnets in the same network.
 
-## 4. Configure IPSec on a different gateway {#configure-another-gateway}
+## Configure IPSec on a different gateway {#configure-another-gateway}
 
 For the VPN tunnel to work, you need to set up another IPSec gateway. You can create another cloud network with a subnet in your folder and create an IPSec instance from an image, or use a machine in your local network as a gateway.
 
@@ -180,7 +183,21 @@ For the VPN tunnel to work, you need to set up another IPSec gateway. You can cr
          auto=start
    ```
 
-1. In `/etc/ipsec.secrets`, enter the swapped gateway IP addresses followed by your password :
+   {% note info %}
+
+   To speed up data transfer in the tunnel, use optimized encryption algorithms. To do this, add the following lines to the code above:
+
+   ```
+      keyexchange=ikev2
+      ike=aes128gcm16-prfsha256-ecp256,aes256gcm16-prfsha384-ecp384!
+      esp=aes128gcm16-ecp256,aes256gcm16-ecp384!
+   ```
+
+   The optimized algorithms can or cannot be used depending on whether the IPSEC stack is implemented on your platform.
+
+   {% endnote %}
+
+1. Enter your password in `/etc/ipsec.secrets` after the swapped gateway IP addresses:
 
    ```
    1.1.1.1 130.193.32.25 : PSK "<password>"
@@ -192,9 +209,9 @@ For the VPN tunnel to work, you need to set up another IPSec gateway. You can cr
    $ systemctl restart strongswan-starter
    ```
 
-## 5. Test the IPSec tunnel {#test-vpn}
+## Test the IPSec tunnel {#test-vpn}
 
-To make sure the tunnel between gateways is established, run the following command on either gateway:
+To make sure the tunnel between gateways is set up, run on any of the gateways the following command:
 
 ```
 $ sudo ipsec status
@@ -206,23 +223,22 @@ Security Associations (1 up, 0 connecting):
 
 The `ESTABLISHED` status means that a tunnel between gateways was created.
 
-To check the status of the strongSwan daemon, use the command `systemctl status strongswan-starter`:
+To check the status of the strongSwan daemon, run the `systemctl status strongswan-starter` command:
 
 ```
 $ systemctl status strongswan-starter
 ● strongswan.service - strongSwan IPsec IKEv1/IKEv2 daemon using ipsec.conf
-   Loaded: loaded (/lib/systemd/system/strongswan.service; enabled; vendor preset: enabled)
+   Loaded: loaded (/lib/systemd/system/strongswan-starter.service; enabled; vendor preset: enabled)
    Active: active (running) since Thu 2019-06-20 14:54:07 UTC; 3 days ago
  Main PID: 481 (starter)
     Tasks: 18 (limit: 1117)
-   CGroup: /system.slice/strongswan.service
+   CGroup: /system.slice/strongswan-starter.service
            ├─481 /usr/lib/ipsec/starter --daemon charon --nofork
            └─527 /usr/lib/ipsec/charon
 ```
 
-To view strongSwan logs, use the command `journalctl -u strongswan-starter`. The logs contain information about connections.
+To view strongSwan logs, run the `journalctl -u strongswan-starter` command. The logs contain information about connections.
 
-## Delete the created resources {#clear-out}
+## Delete the resources you created {#clear-out}
 
 If you no longer need the IPSec instance, [delete](../../compute/operations/vm-control/vm-delete.md) the `ipsec-instance` VM.
-

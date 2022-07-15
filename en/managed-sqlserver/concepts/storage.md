@@ -16,3 +16,12 @@ Local SSD storage doesn't provide fault tolerance for stored data and affects th
 
 {% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
 
+## Choice of storage type during cluster creation {#storage-type-selection}
+
+The number of hosts that can be created together with a {{ MS }} cluster depends on the selected type of storage:
+
+* With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts (to ensure fault tolerance, a minimum of three hosts is necessary).
+* With `network-hdd` or `network-ssd` storage, you can add any number of hosts within the [current quota](./limits.md).
+
+For more information about limits on the number of hosts per cluster, see [{#T}](./limits.md).
+

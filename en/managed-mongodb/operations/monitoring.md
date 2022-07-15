@@ -4,7 +4,7 @@
 
 {% include [monitoring-period](../../_includes/mdb/monitoring-freq.md) %}
 
-{% include [monitoring-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
+{% include [note-monitoring-auto-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
@@ -47,7 +47,7 @@ The following charts open on the page:
 * **Oplog window**: Time interval, for which replication data is stored in each host's oplog collection.
 * **Page faults per host**: The number of [page faults](https://en.wikipedia.org/wiki/Page_fault) on each host.
 * **Queries on secondaries**: The average number of queries of each type on secondary replicas.
-* **Queries on primary**: The average number of queries of each type on primary replicas.
+* **Queries on primary**: The average number of each type of query on primary replicas.
 * **Read operations count, top 5 collections**: 5 collections with the longest time spent in reads.
 * **Readers/writers active queue per host, top 5**: The total size of the 5 largest queues for each host:
    * With read requests.
@@ -72,7 +72,7 @@ The following charts open on the page:
 
 ## Monitoring the state of hosts {#hosts}
 
-To view detailed information about the state of individual {{ mmg-name }} hosts:
+To view detailed information about the status of individual {{ mmg-name }} hosts:
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
 1. Click the name of the desired cluster and select **Hosts** → **Monitoring**.
@@ -115,11 +115,34 @@ Recommended threshold values:
 
 | Metric | Parameter                      | `Alarm`                   | `Warning`                 |
 |---------------------------------|:-------------------------------:|:------------------------:|:------------------------:|
-| DB write availability | `can_write`                      | `Equal to 0`                 | —                         |
+| DB write availability | `can_write`                      | `Equals 0`                 | —                         |
 | Replication delay              | `replset_status-replicationLag` | `180` | `30` |
 | Storage space used | `disk.used_bytes`                | 90% of storage size  | 70% of storage size  |
 
 You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
+
+### Monitoring the switch to read-only mode {#read-only-alert}
+
+To monitor storage usage on cluster hosts and get notifications when free space is about to run out:
+
+1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
+1. Add the `disk.free_bytes` status metric.
+
+   To do this, create a query in the query builder:
+
+   `service={{ mmg-name }}` → `name=disk.free_bytes` → `host=*` → `resource_id=*` → `resource_type=cluster`.
+
+1. Set the alert threshold values in the alert settings:
+   * **Trigger condition**: Set the `Less than or equal to` condition for the size of free disk space to trigger the alert.
+
+      Recommended threshold values depending on the storage size:
+
+      | Storage size, GB | `Alarm` | `Warning` |
+      |---------------------|-------------|------------------|
+      | ⩽ 600 | `1G` (1 GB) | `1500M` (1.5 GB) |
+      | > 600 | `6G` (6 GB) | `10G` (10 GB) |
+
+   * **Additional settings** → **Aggregation function**: Select the `Minimum` value (the minimum metric value for the period).
 
 ## Cluster state and status {#cluster-health-and-status}
 
@@ -137,4 +160,3 @@ To view a cluster's state and status:
 ### Cluster statuses {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
-

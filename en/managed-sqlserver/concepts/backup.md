@@ -56,7 +56,7 @@ Storing backups in {{ mms-name }}:
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-    For more information, see the [Pricing policy for {{ mms-name }}](../pricing/index.md#rules-storage).
+   For more information, see the [Pricing policy for {{ mms-name }}](../pricing/index.md#rules-storage).
 
 ## Checking backups {#verify}
 
@@ -67,3 +67,13 @@ Backup integrity is checked on synthetic data using integration tests available 
 ### Checking backup recovery {#capabilities}
 
 To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md#restore-cluster) and check the integrity of your data.
+
+
+## Exporting database backups to {{ objstorage-full-name }} and restoring from a backup {#send-to-objstorage}
+
+The service supports exporting database backups to and restoring databases from [{{ objstorage-name }}](../../storage/index.yaml) buckets. In both the cases, a cluster must have a [service account](../../iam/concepts/users/service-accounts) with bucket access linked to it.
+
+Backups are exported in unencrypted form, which is why we recommend restricting access to the bucket. A backup stored in {{ objstorage-name }} that will be used to restore a database must be unencrypted as well.
+
+For information about exporting a backup to a {{ objstorage-name }} bucket or restoring a database from a backup, see [{#T}](../../managed-sqlserver/operations/cluster-backups.md).
+

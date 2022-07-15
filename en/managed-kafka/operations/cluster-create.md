@@ -2,12 +2,12 @@
 
 A cluster in {{ mkf-name }} is one or more broker hosts where topics and their partitions are located. Producers and consumers can work with these topics by connecting to cluster hosts.
 
-The number of broker hosts that can be created together with a {{ KF }} cluster depends on the selected [type of storage](../concepts/storage.md):
+{% note info %}
 
-* With **local SSD** or **non-replicated SSD** storage, you can create a cluster with three or more broker hosts (a minimum of three broker hosts is required for fault tolerance).
-* With **HDD network** or **SSD network** storage, you can add any number of broker hosts within the [current quota](../concepts/limits.md).
+* The number of broker hosts that you can create together with a {{ KF }} cluster depends on the selected [storage type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* Available storage types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
 
-After creating a cluster, you can add extra broker hosts to it if there are enough available [folder resources](../concepts/limits.md).
+{% endnote %}
 
 {% include [mkf-zk-hosts](../../_includes/mdb/mkf-zk-hosts.md) %}
 
@@ -30,7 +30,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       1. Select the {{ KF }} version.
       1. To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
          1. Enable **Manage topics via the API**.
-         1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account). 
+         1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
 
          {% include [mkf-admin-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
       1. To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), enable the **Data Schema Registry** setting.
@@ -55,7 +55,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
    1. Under **Network settings**:
       
-      1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) to host {{ KF }} brokers.
+      1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) to host {{ KF }} brokers. If you create a cluster with one accessibility zone, you will not be able to increase the number of zones and brokers in the future.
       1. Select the [network](../../vpc/concepts/network.md).
       1. Select subnets in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **Create new** subnet next to the desired availability zone.
 
@@ -68,13 +68,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       1. Select security groups to control the cluster's network traffic.
 
-      1. To access broker hosts from the internet, select **Public access**. In this case, you can only connect to them over an SSL connection. For more information, see [{#T}](connect.md).
-
-         {% note warning %}
-
-         You can't request public access after creating a cluster.
-
-         {% endnote %}
+      1. To access broker hosts from the internet, select **Public access**. In this case, you can only connect to them over an SSL connection. You can't request public access after creating a cluster. For more information, see [{#T}](connect.md).
 
    1. Under **Hosts**:
 
@@ -119,11 +113,12 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
    1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
 
+      
       ```bash
       {{ yc-mdb-kf }} cluster create \
         --name <cluster name> \
         --environment <environment: prestable or production> \
-        --version <{{ KF }} version: {{ versions.cli.str }}> \
+        --version <version{{ KF }}: {{ versions.cli.str }}> \
         --network-name <network name> \
         --brokers-count <number of brokers in zone> \
         --resource-preset <host class> \
@@ -133,6 +128,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
         --security-group-ids <security group ID list> \
         --deletion-protection=<cluster deletion protection: true or false>
       ```
+
 
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -158,8 +154,6 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
    1. To manage topics via the {{ KF }} Admin API:
 
-      {% include [mkf-topic-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
-
       1.  When creating a cluster, set the `--unmanaged-topics` parameter to `true`:
 
          ```bash
@@ -168,9 +162,13 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
            --unmanaged-topics true
          ```
 
-      1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account). 
+         You cannot edit this setting after you create a cluster.
+
+      1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
 
    
+   1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
+
    1. To create a cluster hosted on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), specify the host IDs as a comma-separated list in the `--host-group-ids` parameter when creating the cluster:
 
       ```bash
@@ -213,7 +211,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       }
 
       provider "yandex" {
-        token     = "<service account OAuth or static key>"
+        token     = "<OAuth or static key of service account>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "<availability zone>"
@@ -229,12 +227,12 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
         config {
           assign_public_ip = "<cluster public access: true or false>"
           brokers_count    = <number of brokers>
-          version          = "<{{ KF }} version: {{ versions.tf.str }}>"
+          version          = "<version {{ mkf-name }}: {{ versions.tf.str }}>"
           schema_registry  = "<data schema management: true or false>"
           kafka {
             resources {
               disk_size          = <storage size, GB>
-              disk_type_id       = "<storage type: network-ssd, network-hdd, network-ssd-nonreplicated, or local-ssd>"
+              disk_type_id       = "<storage type>"
               resource_preset_id = "<host class>"
             }
           }
@@ -261,7 +259,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-      {% include [maintenance-window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
+      {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
    1. Make sure the settings are correct.
 
@@ -291,14 +289,12 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
    To manage topics via the {{ KF }} Admin API:
 
-   {% include [mkf-topic-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
+   1. Pass `true` for the `unmanagedTopics` parameter. You cannot edit this setting after you create a cluster.
+   1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
 
-   1. Pass `true` for the `unmanagedTopics` parameter.
-   1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account). 
+   To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), pass the `true` value for the `configSpec.schemaRegistry` parameter. You cannot edit this setting after you create a cluster.
 
-   To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), pass the `true` value for the `configSpec.schemaRegistry` parameter.
-
-   {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
+   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
    
    To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), pass a list of host IDs in the `hostGroupIds` parameter.
@@ -330,7 +326,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With {{ KF }} version `{{ versions.cli.latest }}`.
    * In the `{{ network-name }}` network.
    * In the security group `{{ security-group }}`.
-   * With a single `{{ host-class }}` class host in the `{{ region-id }}-a` availability zone.
+   * With a single `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
    * With one broker.
    * With a network SSD storage (`{{ disk-type-example }}`) of 10 GB.
    * With public access.
@@ -346,7 +342,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      --environment production \
      --version {{ versions.cli.latest }} \
      --network-name {{ network-name }} \
-     --zone-ids {{ region-id }}-a \
+     --zone-ids {{ zone-id }} \
      --brokers-count 1 \
      --resource-preset {{ host-class }} \
      --disk-size 10 \
@@ -368,7 +364,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With {{ KF }} version `{{ versions.tf.latest }}`.
    * In the new `mynet` network with the subnet `mysubnet`.
    * In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
-   * With a single `{{ host-class }}` class host in the `{{ region-id }}-a` availability zone.
+   * With a single `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
    * With one broker.
    * With a network SSD storage (`{{ disk-type-example }}`) of 10 GB.
    * With public access.
@@ -380,8 +376,8 @@ If you specified security group IDs when creating a cluster, you may also need t
    ```hcl
    terraform {
      required_providers {
-      yandex = {
-        source = "yandex-cloud/yandex"
+       yandex = {
+         source = "yandex-cloud/yandex"
        }
      }
    }
@@ -390,7 +386,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      token     = "<OAuth or static key of service account>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ region-id }}-a"
+     zone      = "{{ zone-id }}"
    }
 
    resource "yandex_mdb_kafka_cluster" "mykf" {
@@ -413,7 +409,7 @@ If you specified security group IDs when creating a cluster, you may also need t
        }
 
        zones = [
-         "{{ region-id }}-a"
+         "{{ zone-id }}"
        ]
      }
    }
@@ -424,7 +420,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    resource "yandex_vpc_subnet" "mysubnet" {
      name           = "mysubnet"
-     zone           = "{{ region-id }}-a"
+     zone           = "{{ zone-id }}"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.5.0.0/24"]
    }

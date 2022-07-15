@@ -25,23 +25,58 @@ To view information about the transfer status:
 
 The following charts open on the page:
 
-* **Data upload lag (histogram by seconds)**: Histogram showing the difference between the time records appear on the target and the time they appear on the source (in seconds). The histogram is broken down into `bins`.
+### Data upload lag (histogram by seconds) {sinker.pusher.time.row_lag_sec}
+`sinker.pusher.time.row_lag_sec`
 
-   Let us assume, the histogram is showing two `bins` for 45 and 60 at a given point in time, with each containing a value equal to 50%. This means that half the records being transferred at the time had a delay of between 30 and 45 seconds, and the other half of between 45 and 60 seconds.
+Histogram showing the difference between the time records appear on the target and the time they appear on the source (in seconds). The histogram is broken down into `bins`.
 
-* **Successfully pushed rows**:
+Let us assume, the histogram is showing two `bins` for 45 and 60 at a given point in time, with each containing a value equal to 50%. This means that half the records being transferred at the time had a delay of between 30 and 45 seconds, and the other half of between 45 and 60 seconds.
+
+### Successfully pushed rows {sinker.pusher.data.row_events_pushed}
+`sinker.pusher.data.row_events_pushed`
 
    * For table-based DBMS systems, table row insert performance.
    * For non-relational DBMS systems, transfer performance for objects stored in collections (objects per second).
 
-* **Maximum lag on delivery**: Maximum data lag (in seconds).
-* **Successfully pushed rows by tables (top-50 tables)**: Top 50 tables with the maximum number of rows written to the target.
-* **Read buffer size**: The size, in bytes, of the buffer or write ahead log (when supported) in the source.
-* **Read bytes from source**: The amount of data read from the source (in bytes).
-* **Sink response time (histogram by seconds)**: Time required on the target to process a source request in the most recent monitoring interval (in seconds).
-* **Read rows (parsed/unparsed)**: The number of rows read from the source.
-* **Snapshot task progress (top-50 tables)**: The number of rows awaiting transfer.
-* **Snapshot task status**: The operation in progress (increment if `0`, and snapshot if `1` ).
+### Maximum lag on delivery {sinker.pusher.time.row_max_lag_sec}
+`sinker.pusher.time.row_max_lag_sec`
+
+Maximum data lag (in seconds).
+
+### Successfully pushed rows by tables (top-50 tables) {sinker.table.rows}
+`sinker.table.rows`
+
+Top 50 tables with the maximum number of rows written to the target.
+
+### Read buffer size {publisher.consumer.log_usage_bytes}
+`publisher.consumer.log_usage_bytes`
+
+The size, in bytes, of the buffer or write ahead log (when supported) in the source.
+
+### Read bytes from source (top-50 workers) {`publisher.data.bytes`}
+`publisher.data.bytes`
+
+The amount of data read from the source (in bytes).
+
+### Sink response time (histogram by seconds) {sinker.pusher.time.batch_push_distribution_sec}
+`sinker.pusher.time.batch_push_distribution_sec`
+
+Time to complete a full data transfer including preprocessing (in seconds).
+
+### Read rows (parsed/unparsed) {publisher.data.*parsed_rows}
+`publisher.data.*parsed_rows`
+
+The number of rows read from the source.
+
+### Snapshot task progress (top-50 tables) {task.snapshot.remainder.table}
+`task.snapshot.remainder.table`
+
+The number of rows awaiting transfer.
+
+### Snapshot task status {task.status}
+`task.status`
+
+The operation in progress (increment if `0`, and snapshot if `1` ).
 
 ## Integration with {{ monitoring-full-name }} {#monitoring-integration}
 

@@ -26,7 +26,7 @@
 
 Чтобы подключить сотрудников с аккаунтами на Яндексе:
 
-1. На левой панели выберите раздел [Пользователи]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.png).
+1. На левой панели выберите раздел [Пользователи]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
 
 1. В правом верхнем углу нажмите кнопку **Добавить пользователя**.
 
@@ -43,7 +43,7 @@
 
 Чтобы настроить федерацию удостоверений:
 
-1. На левой панели выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.png).
+1. На левой панели выберите раздел [Федерации]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.svg).
 
 1. Нажмите кнопку **Создать федерацию**.
 

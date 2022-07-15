@@ -29,6 +29,7 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
     `mapper.py`
 
     ```python
+    #!/usr/bin/python
     import sys
     
     population = sum(int(line.split('\t')[14]) for line in sys.stdin)
@@ -38,6 +39,7 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
     `reducer.py`
 
     ```python
+    #!/usr/bin/python
     import sys
     
     population = sum(int(value) for value in sys.stdin)
@@ -55,7 +57,7 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
        * `-numReduceTasks`
        * `1`
        * `-input`
-       * `s3a://<input data bucket name>/cities500.txt.bz2`
+       * `s3a://<input data bucket name>/cities500.txt`
        * `-output`
        * `s3a://<output processing bucket name>/<output folder>`
     * **Files**:

@@ -13,6 +13,15 @@ Local SSD storage doesn't provide fault tolerance for a single-host cluster: if 
 
 {% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
 
+## Choice of storage type during cluster creation {#storage-type-selection}
+
+The number of broker hosts that can be created together with a {{ KF }} cluster depends on the selected type of storage:
+
+* With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more broker hosts (to ensure fault tolerance, a minimum of three brokers is necessary).
+* With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of broker hosts within the [current quota](./limits.md).
+
+For more information about limits on the number of broker hosts per cluster, see [{#T}](./limits.md).
+
 
 ## Minimum storage size {#minimal-storage-size}
 

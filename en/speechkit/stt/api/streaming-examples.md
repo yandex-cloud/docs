@@ -1,4 +1,4 @@
-# Example uses for Streaming Recognition API
+# Example uses for Streaming Recognition API v2
 
 To try the examples in this section:
 

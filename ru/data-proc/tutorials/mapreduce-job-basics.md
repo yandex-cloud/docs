@@ -29,6 +29,7 @@
     `mapper.py`
 
     ```python
+    #!/usr/bin/python
     import sys
     
     population = sum(int(line.split('\t')[14]) for line in sys.stdin)
@@ -38,6 +39,7 @@
     `reducer.py`
 
     ```python
+    #!/usr/bin/python
     import sys
     
     population = sum(int(value) for value in sys.stdin)
@@ -55,7 +57,7 @@
        * `-numReduceTasks`
        * `1`
        * `-input`
-       * `s3a://<имя бакета для исходных данных>/cities500.txt.bz2`
+       * `s3a://<имя бакета для исходных данных>/cities500.txt`
        * `-output`
        * `s3a://<имя бакета для результатов обработки>/<папка для результатов>`
     * **Файлы**:

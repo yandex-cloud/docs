@@ -52,7 +52,17 @@ To add a subcluster:
       * Type and size of storage.
       * Format to specify the network.
       * The subnet of the network where the cluster is located.
-      * (optional) Enable **Autoscaling**.
+      * (Optional) Enable **Public access** for online access to subcluster hosts.
+
+         This setting cannot be edited after the subcluster is created.
+
+         {% note tip %}
+
+         You can delete `Compute` subclusters and recreate them with the relevant setting value.
+
+         {% endnote %}
+
+      * (Optional) Enable **Autoscaling**.
 
    1. Click **Add subcluster**.
 
@@ -95,7 +105,7 @@ To add a subcluster:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+   For more information about the resources that you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
 
 {% endlist %}
 
@@ -117,7 +127,7 @@ You can't delete `DATANODE` subclusters
    1. Select **{{ dataproc-name }}** and the desired cluster.
    1. Go to **Subclusters**.
    1. Click the ![image](../../_assets/options.svg) icon for the desired subcluster and select **Delete**.
-   1. (optionally) Specify the [decommissioning](../concepts/decommission.md) timeout.
+   1. (Optional) Specify the [decommissioning](../concepts/decommission.md) timeout.
    1. Confirm the deletion.
 
    {{ dataproc-name }} runs the delete subcluster operation.
@@ -138,6 +148,6 @@ You can't delete `DATANODE` subclusters
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+   For more information about the resources that you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
 
 {% endlist %}
