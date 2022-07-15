@@ -13,7 +13,7 @@
 {% endnote %}
 
 1. {% if audience != "internal" %}[Создайте](../../vpc/operations/security-group-create.md){% else %}Создайте{% endif %} одну или несколько групп безопасности для служебного трафика кластера.
-1. {% if audience != "internal" %}[Добавьте правила](../../vpc/operations/security-group-update.md#add-rule){% else %}Добавьте правила{% endif %}:
+1. {% if audience != "internal" %}[Добавьте правила](../../vpc/operations/security-group-add-rule.md){% else %}Добавьте правила{% endif %}:
 
     * По одному правилу для входящего и исходящего служебного трафика:
 

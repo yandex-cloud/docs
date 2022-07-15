@@ -50,8 +50,12 @@ items:
         items:
           - name: Создать группу безопасности
             href: operations/security-group-create.md
-          - name: Изменить группу безопасности и правила
+          - name: Изменить имя и описание
             href: operations/security-group-update.md
+          - name: Добавить новое правило
+            href: operations/security-group-add-rule.md
+          - name: Удалить правило
+            href: operations/security-group-delete-rule.md
           - name: Удалить группу безопасности
             href: operations/security-group-delete.md
       - name: Включить программно-ускоренную сеть
