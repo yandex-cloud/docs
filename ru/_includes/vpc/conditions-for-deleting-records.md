@@ -1,0 +1,2 @@
+* записи удаляются через три минуты после последнего пакета в любом направлении;
+* записи для TCP-соединения дополнительно удаляются через несколько секунд после получения пакета [RST]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Атака_TCP_Reset){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/TCP_reset_attack){% endif %} или пакета с [флагом FIN]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Transmission_Control_Protocol){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Transmission_Control_Protocol){% endif %}.

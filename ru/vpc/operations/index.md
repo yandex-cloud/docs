@@ -33,6 +33,7 @@
 
 ## Дополнительные возможности {#add-features}
 
+- [{#T}](connections-view.md)
 {% if product == "yandex-cloud" %}
 - [{#T}](enable-ddos-protection.md)
 {% endif %}
