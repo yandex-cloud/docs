@@ -65,7 +65,7 @@ def handler(event, context):
 Пример вызова функции:
 
 ```
-curl --data '{"hello": "world"}' -H 'Content-Type: application/json' https://functions.yandexcloud.net/d4eo2faf62**********
+curl --data '{"hello": "world"}' -H 'Content-Type: application/json' https://functions.yandexcloud.net/d4eo2faf62**********?param=one
 ```
 
 Результат:
@@ -133,10 +133,16 @@ curl --data '{"hello": "world"}' -H 'Content-Type: application/json' https://fun
             ]
         },
         "multiValueParams": {},
-        "multiValueQueryStringParameters": {},
+        "multiValueQueryStringParameters": {
+            "param": [
+                "one"
+            ]
+        },
         "params": {},
         "pathParams": {},
-        "queryStringParameters": {},
+        "queryStringParameters": {
+            "param": "one"
+        },
         "requestContext": {
             "httpMethod": "POST",
             "identity": {
