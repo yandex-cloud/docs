@@ -8,10 +8,7 @@
 
 - Консоль управления
 
-  1. {% include [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md) %}
-  1. {% include [configure-roles-console](../../../_includes/iam/configure-roles-console.md) %}
-  1. Выберите каталог в блоке **Роли в каталогах** и нажмите ![image](../../../_assets/plus-sign.svg)**Назначить роль**.
-  1. Выберите необходимую роль из списка.
+  {% include [set-access-binding](../../../_includes/resource-manager/set-access-binding-user-acc-abstract-console.md) %}
 
 - CLI
 
@@ -311,9 +308,7 @@
 
 - Консоль управления
 
-  Воспользуйтесь инструкцией в [начале раздела](#access-to-user) и назначьте пользователю несколько ролей.
-
-  Чтобы назначить роль другому пользователю, выберите пользователя на вкладке [Пользователи и роли]({{ link-console-access-management }}), нажмите значок ![***](../../../_assets/options.svg) и выберите **Настроить роли**.
+  {% include [set-access-binding](../../../_includes/resource-manager/set-access-binding-multiple-users-console.md) %}
 
 - CLI
 
@@ -577,9 +572,7 @@
 
 ### Доступ к каталогу для сервисного аккаунта {#access-to-sa}
 
-Через консоль управления сервисному аккаунту можно назначить роль только на каталог, в котором он был создан. Чтобы назначить ему роль на другой ресурс, используйте CLI или API.
-
-Разрешите сервисному аккаунту управлять каталогом и ресурсами в нем:
+Через консоль управления сервисному аккаунту можно назначить роль только на каталог, который находится в одном облаке с каталогом сервисного аккаунта.
 
 {% list tabs %}
 
@@ -678,6 +671,50 @@
      ```
 
 {% endlist %}
+
+{% if product == "yandex-cloud" %}
+
+### Доступ к каталогу для федеративного пользователя {#access-to-federated-user}
+
+{% list tabs %}
+
+- Консоль управления
+  
+  Назначение роли происходит так же, как назначение роли пользователю с аккаунтом на Яндексе. Рядом с именем пользователя будет указано имя федерации, к которой он относится.
+
+  {% include [set-access-binding](../../../_includes/resource-manager/set-access-binding-user-acc-abstract-console.md) %}
+
+- CLI
+
+  1. Выберите роль из списка в разделе [Роли](../../../iam/concepts/access-control/roles.md).
+  1. [Получите идентификатор пользователя](../../../iam/operations/users/get.md).
+  1. Назначьте роль с помощью команды:
+
+      ```bash
+      yc resource-manager folder add-access-binding <folder-name>|<folder-id> \
+          --role <role-id> \
+          --subject federatedUser:<federated-user-id>
+      ```
+
+      Где:
+
+      * `<folder-name>` — имя каталога. Вы можете указать каталог по имени или идентификатору.
+      * `<folder-id>` — идентификатор каталога.
+      * `<role-id>` — идентификатор роли, например `editor`.
+      * `<federated-user-id>` — идентификатор аккаунта пользователя, которому назначается роль.
+
+      Например, назначьте федеративному пользователю с идентификатором `aje6o61dvog2h6g9a33s` роль `editor` на каталог `my-folder`:
+
+      ```bash
+      yc resource-manager folder add-access-binding my-folder \
+          --role editor \
+          --subject federatedUser:aje6o61dvog2h6g9a33s
+      ```
+
+{% endlist %}
+
+{% endif %}
+
 
 ### Доступ к ресурсу всем пользователям {#access-to-all}
 
