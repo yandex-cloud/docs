@@ -1,5 +1,11 @@
 # Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ network-load-balancer-full-name }}
 
+{% if product == "cloud-il" %}
+
+{% include [one-az-disclaimer](../../_includes/overview/one-az-disclaimer.md) %}
+
+{% endif %}
+
 Создайте и настройте веб-сайт на стеке [LAMP]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/LAMP){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/LAMP_(software_bundle)){% endif %} ([Linux](https://www.linux.org/), [Apache HTTP Server](https://httpd.apache.org/), [MySQL](https://www.mysql.com/), [PHP](https://www.php.net/)) или LEMP (веб-сервер Apache заменяется на [Nginx](https://www.nginx.com/)) с балансировкой нагрузки через [{{ network-load-balancer-short-name }}](../../network-load-balancer/concepts/index.md) между двумя зонами доступности, защищенный от сбоев в одной зоне.
 
 1. [Подготовьте облако к работе](#before-you-begin).

@@ -111,4 +111,3 @@ To make sure the website is running, open the following address in your browser:
 ## How to delete created resources {#clear-out}
 
 To stop paying for file storage, [delete](../../storage/operations/objects/delete.md) the uploaded files.
-
