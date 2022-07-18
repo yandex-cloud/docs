@@ -18,6 +18,7 @@ If you no longer need the website, [delete its files from storage](#clear-out).
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
+
 ### Required paid resources {#paid-resources}
 
 The cost of hosting a static website includes:
@@ -25,7 +26,7 @@ The cost of hosting a static website includes:
 * A fee for storing static website data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-storage)).
 * A fee for data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-operations)).
 * The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-traffic)).
-
+
 
 ## Create a public bucket {#create-public-bucket}
 
@@ -109,4 +110,3 @@ To make sure the website is running, open the following address in your browser:
 ## How to delete created resources {#clear-out}
 
 To stop paying for file storage, [delete](../../storage/operations/objects/delete.md) the uploaded files.
-

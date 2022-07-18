@@ -10,5 +10,6 @@
 * [Создание кластера Windows-серверов «1С:Предприятия» с базой данных MS SQL Server](1c-mssql-windows.md)
 * [Миграция в {{ yandex-cloud }} с помощью Hystax Acura](hystax-migration.md)
 * [Аварийное восстановление в {{ yandex-cloud }} с помощью Hystax Acura](hystax-disaster-recovery.md)
+* [Резервное копирование ВМ с помощью Hystax Acura Backup](hystax-backup.md)
 * [Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}](fault-tolerance.md)
 * [Создание SAP-программы в {{ yandex-cloud }}](sap.md)

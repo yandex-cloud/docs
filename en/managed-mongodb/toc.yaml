@@ -21,7 +21,7 @@ items:
         href: operations/stepdown.md
       - name: MongoDB version upgrade
         href: operations/cluster-version-update.md
-      - name: Database management
+      - name: Managing databases
         href: operations/databases.md
       - name: Managing hosts in a cluster
         href: operations/hosts.md
@@ -33,7 +33,7 @@ items:
         href: operations/shards.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
-      - name: Monitoring the state of a cluster and hosts
+      - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
       - name: Performance diagnostics
         href: operations/performance-diagnostics.md
@@ -41,6 +41,8 @@ items:
         href: operations/tools.md
   - name: Practical guidelines
     items:
+      - name: All use cases
+        href: tutorials/index.md
       - name: Sharding collections
         href: tutorials/sharding.md
       - name: Migrating data to {{ mmg-name }}
@@ -49,7 +51,7 @@ items:
         href: tutorials/profiling.md
   - name: Concepts
     items:
-      - name: Relationship between service resources
+      - name: Relationships between service resources
         href: concepts/index.md
       - name: Host classes
         items:
@@ -89,7 +91,7 @@ items:
         items:
           - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
-          - name: From January 1 to March 1, 2019
+          - name: From January, 1 to March 1, 2019
             href: pricing-archive/pricing-01032019.md
           - name: From March 1, 2019 to February 1, 2020
             href: pricing-archive/pricing-01022020.md
@@ -233,6 +235,6 @@ items:
         href: qa/general.md
       - name: Questions about MongoDB
         href: qa/mongodb.md
-      - name: All questions on the same page
+      - name: All questions on one page
         href: qa/all.md
 base: en/managed-mongodb

@@ -1,4 +1,5 @@
 title: Yandex Data Proc
+stage: new
 href: index.yaml
 items:
   - name: Practical guidelines
@@ -33,6 +34,8 @@ items:
         href: tutorials/geesefs-init-actions.md
       - name: Exchanging data with {{ mch-name }}
         href: tutorials/exchange-data-with-mch.md
+      - name: Importing databases using Sqoop
+        href: tutorials/sqoop.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -85,7 +88,7 @@ items:
         href: concepts/ui-proxy.md
       - name: Jobs in Data Proc
         href: concepts/jobs.md
-      - name: Autoscaling
+      - name: Automatic scaling
         href: concepts/autoscaling.md
       - name: Decommissioning subclusters and hosts
         href: concepts/decommission.md

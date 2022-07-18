@@ -15,6 +15,7 @@
 * [Миграция данных в {{ mkf-name }}](kafka-connector.md)
 * [Перенос коллекций из {{ MG }} в {{ mmg-name }}](mongodb-migration.md)
 * [Миграция базы данных в {{ mms-name }}](mssql-data-migration.md)
+* [{#T}](mssql-outbound-migration.md)
 * [Перенос данных из {{ PG }} в {{ CH }} с помощью {{ data-transfer-full-name }}](rdbms-to-clickhouse.md)
 * [Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз данных из других облачных сетей](mdb-dns-peering.md)
 * [{#T}](redis-data-migration.md)

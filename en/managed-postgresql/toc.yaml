@@ -43,23 +43,27 @@ items:
         href: operations/monitoring.md
   - name: Practical guidelines
     items:
-      - name: Creating PostgreSQL clusters for 1C
-        href: tutorials/1c-postgresql
+      - name: All use cases
+        href: tutorials/index.md
+      - name: Creating a {{ PG }} cluster for 1С
+        href: tutorials/1c-postgresql.md
+      - name: Exporting databases to {{ dataproc-full-name }}
+        href: tutorials/sqoop.md
       - name: Performance analysis and tuning
         href: tutorials/profiling.md
       - name: Replication and migration
         items:
-          - name: Logical PostgreSQL replication
+          - name: Logical {{ PG }} replication
             href: tutorials/replication-overview.md
-          - name: Migrating databases to Managed Service for PostgreSQL
+          - name: Migrating databases to {{ mpg-name }}
             href: tutorials/data-migration.md
-          - name: Migrating databases from Managed Service for PostgreSQL
+          - name: Migrating databases from {{ mpg-name }}
             href: tutorials/outbound-replication.md
           - name: >-
-              Creating a logical replica of Amazon RDS for PostgreSQL in Managed
-              Service for PostgreSQL
+              Creating an Amazon RDS logical replica for {{ PG }} in {{ mpg-name
+              }}
             href: operations/logical-replica-from-rds.md
-      - name: Delivering data using Debezium
+      - name: Delivering data to {{ mkf-full-name }} using Debezium
         href: tutorials/kafka-cdc.md
   - name: Concepts
     items:
@@ -75,7 +79,7 @@ items:
                 href: concepts/instance-types-archive/instance-types-01062020.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
-      - name: Network in {{ mpg-full-name }}
+      - name: Network in Yandex Managed Service for PostgreSQL
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md

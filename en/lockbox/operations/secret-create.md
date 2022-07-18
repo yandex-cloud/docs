@@ -42,7 +42,7 @@ To create a secret:
       ```bash
       yc lockbox secret create --name <secret name> \
         --description <secret description> \
-        --payload '[{"key": "<key>", "text_value": "<text value>"}[,{"key": "<key>", "text_value": "<text value>"}]]' \
+        --payload "[{'key': '<key>', 'text_value': '<text value>'},{'key': '<key>', 'text_value': '<text value>'}]" \
         --cloud-id <cloud ID> --folder-name <folder name>
       ```
 

@@ -5,7 +5,7 @@ description: "{{ data-transfer-full-name} } allows you to easily transfer data b
 
 # Relationships between resources in {{ data-transfer-name }}
 
-{{ data-transfer-full-name }} helps transfer data between DBMSs, object storages or message brokers. This way you can reduce the migration period and minimize downtime when switching to a new database.
+{{ data-transfer-full-name }} helps transfer data between DBMS, object storages or message brokers. This way you can reduce the migration period and minimize downtime when switching to a new database.
 
 {{ data-transfer-full-name }} is configurable via {{ yandex-cloud }} standard interfaces.
 
@@ -15,18 +15,21 @@ The service is suitable for creating a permanent replica of the database. The tr
 
 _Endpoint_ is a configuration used to connect to the _datasource_ service or _target service_. In addition to connection settings, the endpoint may contain information about which data will be involved in the transfer and how it should be processed during the transfer.
 
-As the data source or target you can use:
+The following can be the data source or target:
 
 
 | Service | Source | Target |
 |------------------------------------------------------------------------------------------------------------|:------------------------------------:|:------------------------------------:|
+| {{ KF }} topic: Your own topic or a topic in [{{ mkf-short-name }}](../../managed-kafka/). | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
+| AWS CloudTrail message stream | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
+| Your own BigQuery database | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | {{ CH }} database: your own or as part of the [{{ mch-short-name }} service](../../managed-clickhouse/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | {{ GP }} database: your own or as part of the [{{ mgp-short-name }} service](../../managed-greenplum/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | {{ MG }} database: your own or as part of the [{{ mmg-short-name }} service](../../managed-mongodb/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | {{ MY }} database: your own or as part of the [{{ mmy-short-name }} service](../../managed-mysql/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| Your own Oracle database                                                                              | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
+| Your own Oracle database | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | {{ PG }} database: your own or as part of the [{{ mpg-short-name }} service](../../managed-postgresql/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| {{ KF }} topic: your own topic or a topic in [{{ mkf-short-name }}](../../managed-kafka/). | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
+| S3 compatible bucket | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | Data stream [{{ yds-full-name }}](../../data-streams/) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | {{ ydb-name }} database: A database in [{{ ydb-name }}](../../ydb/). | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
 | Bucket [{{ objstorage-full-name }}](../../storage/) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
@@ -36,6 +39,8 @@ As the data source or target you can use:
 ## Transfer {#transfer}
 
 _Transfer_ is the process of transmitting data between the source and target service. It should be in the same folder as the endpoints used.
+
+If subnets are specified for endpoints, they must be hosted in the same [availability zone](../../overview/concepts/geo-scope.md). Otherwise, activating the transfer with such endpoints will result in an error.
 
 ### Transfer types {#transfer-type}
 
@@ -57,7 +62,7 @@ For more information about the differences between transfer types, see [{#T}](./
 
 If replication is enabled on a {{ CH }} target, the engines for recreating tables are selected depending on the source type:
 
-* Data transfer from row-oriented DBMS systems will use engines like [ReplicatedReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) and [ReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replacingmergetree/).
+* Data transfer from row-oriented DBMS systems will use engines like [ReplicatedReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) and [ReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replacingmergetree/) engines.
 * Date transfers from {{ CH }} will use engines from the [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) family.
 
 ### {{ GP }} {#greenplum}
@@ -78,8 +83,26 @@ For more information about the `createIndex()` function, see the [{{ MG }} docum
 
 ### {{ PG }} {#postgresql}
 
-* The service does not transfer `MATERIALIZED VIEWS`. When transferring data from one {{ PG }} cluster to another, create all the required materialized views in the target cluster after [deactivating the transfer](../operations/transfer.md#deactivate).
+* The service does not transfer `MATERIALIZED VIEWS`. When transfering data from one {{ PG }} cluster to another, create all the required materialized views in the target cluster after [deactivating the transfer](../operations/transfer.md#deactivate).
 
 * The service does not transfer custom data types if the endpoint specifies a list of included or excluded tables for the source. If this is the case, please transfer your custom data types manually.
 
+
+### {{ yds-full-name }} {#yds}
+
+By default, a separate table is created for every partition when data is transferred from {{ yds-name }} to {{ CH }}. For all data to be entered in a single table, specify conversion rules in the [advanced endpoint settings for the source](../operations/endpoint/source/data-streams.md#additional-settings).
+
+## Change data capture {#cdc}
+
+CDC ([change data capture](https://en.wikipedia.org/wiki/Change_data_capture)) is a process of tracking changes in a database and delivering them to consumers in near real-time. CDC can be used to:
+
+* Create applications that respond to data changes in real time.
+* Deliver data from a centralized storage to microservices.
+* Collect and deliver data from a production environment to internal data storages for processing and analysis.
+
+In {{ yandex-cloud }}, one way CDC can be implemented is with a transfer from the database to the message broker. All database updates are tracked by the transfer and sent to the message broker, and consumers are connected to the broker and read the incoming messages.
+
+{{ data-transfer-name }} supports CDC for transfers from {{ PG }} databases to {{ KF }} and {{ yds-full-name }}. Data is sent to the target in [Debezium](https://debezium.io/) format.
+
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+

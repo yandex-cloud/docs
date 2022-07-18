@@ -63,7 +63,7 @@ To reserve an address:
 
    1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
    1. Go to the **IP addresses** tab. Click **Reserve address**.
-   1. In the window that opens, select the `{{ region-id }}-c` availability zone. Click **Reserve address**.
+   1. In the window that opens, select the `{{ region-id }}-a` availability zone. Click **Reserve address**.
 
 {% endlist %}
 

@@ -111,6 +111,8 @@ items:
         href: infrastructure-management/hystax-migration.md
       - name: Защита от сбоев с помощью Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
+      - name: Резервное копирование ВМ с помощью Hystax Acura Backup
+        href: infrastructure-management/hystax-backup.md
       - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
         href: infrastructure-management/fault-tolerance.md
       - name: Создание SAP-программы в {{ yandex-cloud }}
@@ -151,6 +153,10 @@ items:
         href: dataplatform/mongodb-migration.md
       - name: Миграция базы данных в {{ mms-full-name }}
         href: dataplatform/mssql-data-migration.md
+      - name: >-
+          Миграция базы данных из {{ mms-full-name }} в сторонний кластер {{ MS
+          }}
+        href: dataplatform/mssql-outbound-migration.md
       - name: >-
           Перенос данных из {{ PG }} в {{ CH }} с помощью {{
           data-transfer-full-name }}

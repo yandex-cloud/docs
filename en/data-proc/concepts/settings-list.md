@@ -1,12 +1,12 @@
 # Component properties
 
-When [creating a {{ dataproc-name }} cluster](../operations/cluster-create.md), you can specify the properties of cluster components, jobs, and the environment in the following format:
+When [creating a {{ dataproc-name }} cluster](../operations/cluster-create.md), you can specify the properties of cluster components, jobs, and environment in the following format:
 
 ```text
 <key>:<value>
 ```
 
-The key can either be a simple string or contain a prefix indicating that it belongs to [a specific component](environment.md):
+The key can either be a simple string or contain a prefix indicating that it belongs to a [specific component](environment.md):
 
 ```text
 <key prefix>:<key body>:<value>
@@ -23,7 +23,7 @@ spark:spark.driver.cores : 1
 The available properties are listed in the official documentation for the components:
 
 | Prefix | Path to the configuration file | Documentation |
-| :--------------------- | :---------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------- |
+|:---------------------|:----------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|
 | `core` | `/etc/hadoop/conf/core-site.xml` | [Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml) |
 | `hdfs` | `/etc/hadoop/conf/hdfs-site.xml` | [HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml) |
 | `yarn` | `/etc/hadoop/conf/yarn-site.xml` | [YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-common/yarn-default.xml) |
@@ -47,7 +47,7 @@ Settings for running the jobs are specified in special properties:
 * `dataproc:min-free-memory-to-enqueue-new-job`: The minimum size of free memory to run the job (in bytes). Default value: `1073741824` (1 GB).
 * `dataproc:job-memory-footprint`: The memory size to run the job on the `MASTER` cluster node, used to estimate the maximum number of jobs in the cluster. Default value: `536870912` (512 MB).
 
-## Spark settings for working with Object Storage {#spark-settings}
+## Setting up Spark for Object Storage {#spark-settings}
 
 The following settings are available for Apache Spark:
 
@@ -66,7 +66,6 @@ For more information, see the [Apache Hadoop documentation](https://hadoop.apach
 To install additional Python packages, you can use the conda or pip package managers. Pass the package name in the cluster properties as follows:
 
 | Package manager | Key | Value | Example |
-| :------------------ | :--------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------------------- |
-| conda | `conda:<package name>` | Package version according to [conda specifications](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/pkg-specs.html#package-match-specifications) | `conda:koalas : 1.5.0` |
-| pip | `pip:<package name>` | Package version according to [pip specifications](https://www.python.org/dev/peps/pep-0440/#version-specifiers) | `pip:psycopg2 : 2.7.0` |
-
+|:------------------|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|
+| conda | `conda:<package name>` | Number of the package version according to the [conda specification](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/pkg-specs.html#package-match-specifications) | `conda:koalas : 1.5.0` |
+| pip | `pip:<package name>` | Number of the package version according to the [pip specification](https://www.python.org/dev/peps/pep-0440/#version-specifiers) | `pip:psycopg2 : 2.7.0` |
