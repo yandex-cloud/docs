@@ -21,6 +21,7 @@ To deploy and configure 1C-Bitrix:
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
+
 ### Required paid resources
 
 The cost for maintaining the 1C-Bitrix server includes:
@@ -29,7 +30,7 @@ The cost for maintaining the 1C-Bitrix server includes:
 * A fee for using a managed database (see [pricing for {{ mmy-name }}](../../managed-mysql/pricing.md)).
 
 The current scenario uses the trial version of 1C-Bitrix with a trial period of 30 days. You can check the cost the product software versions on the [1C-Bitrix official website](https://www.1c-bitrix.ru).
-
+
 
 ## Create a VM in the cloud {#create-vm}
 

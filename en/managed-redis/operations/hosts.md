@@ -30,7 +30,7 @@ You can add and remove cluster hosts and manage their settings.
    |              NAME               |  CLUSTER ID  | SHARD NAME |  ROLE   | HEALTH |    ZONE ID    |
    +---------------------------------+--------------+------------+---------+--------+---------------+
    | rc1a-...caf.{{ dns-zone }} | c9qb2...0gg  | shard1     | MASTER  | ALIVE  | ru-central1-a |
-   | rc1c-...bgc.{{ dns-zone }} | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | ru-central1-c |
+   | rc1b-...bgc.{{ dns-zone }} | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | ru-central1-b |
    +---------------------------------+--------------+------------+---------+--------+---------------+
    ```
 

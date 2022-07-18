@@ -13,6 +13,8 @@ items:
           Fault-tolerant website with load balancing by {{
           network-load-balancer-name }}
         href: web/load-balancer-website.md
+      - name: Fault-tolerant website with load balancing by {{ alb-name }}
+        href: web/application-load-balancer-website.md
       - name: Fault-tolerant website using DNS load balancing
         href: web/dns-load-balancer.md
       - name: Joomla website with {{ PG }}

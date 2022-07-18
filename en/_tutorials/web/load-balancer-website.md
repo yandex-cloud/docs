@@ -1,5 +1,7 @@
 # Fault-tolerant website with load balancing by {{ network-load-balancer-full-name }}
 
+
+
 This scenario describes how to set up a website on a LAMP (Linux, Apache, MySQL, PHP) or LEMP (Linux, nginx, MySQL, PHP) stack with load balancing from [{{ network-load-balancer-full-name }}](../../network-load-balancer/concepts/index.md) between two availability zones and fault tolerance in one zone.
 
 To set up a fault-tolerant load-balanced website:
@@ -18,14 +20,15 @@ If you no longer need the website, [delete all its resources](#clear-out).
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
+
 ### Required paid resources {#paid-resources}
 
 The cost of hosting a website includes:
 
-* A fee for the disks and continuously running VMs (see [{{ compute-full-name }}pricing](../../compute/pricing.md)).
-* A fee for using dynamic public IP addresses (see [{{ vpc-full-name }}pricing](../../vpc/pricing.md)).
-* A fee for network load balancers and traffic balancing (see [pricing{{ network-load-balancer-full-name}}](../../network-load-balancer/pricing.md)).
-
+* A fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* A fee for using dynamic public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* A fee for network load balancers and traffic balancing (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
+
 
 ## Create the virtual machines {#create-vm}
 
@@ -210,4 +213,3 @@ To create a network load balancer:
 ## How to delete created resources {#clear-out}
 
 To stop paying for deployed servers, [delete](../../compute/operations/vm-control/vm-delete.md) the virtual machines `dns-lb-tutorial-web-{{ region-id }}-a` and `dns-lb-tutorial-web-{{ region-id }}-b`, and the [load balancer](../../network-load-balancer/operations/load-balancer-delete) `lb-tutorial-web`.
-

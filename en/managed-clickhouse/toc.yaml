@@ -53,6 +53,8 @@ items:
         href: operations/monitoring.md
   - name: Practical guidelines
     items:
+      - name: All use cases
+        href: tutorials/index.md
       - name: Adding data to the database
         href: operations/insert.md
       - name: Sharding tables
@@ -63,12 +65,16 @@ items:
         href: tutorials/fetch-data-from-mkf.md
       - name: Getting data from RabbitMQ
         href: tutorials/fetch-data-from-rabbitmq.md
+      - name: Exchanging data with Data Proc
+        href: tutorials/exchange-data-with-dp.md
       - name: >-
           Configuring {{ dns-full-name }} for accessing clusters from other
           cloud networks
         href: tutorials/dns-peering.md
       - name: Analyzing Object Storage logs in DataLens
         href: tutorials/storage-logs-analysis.md
+      - name: Configuring a cluster for Graphite
+        href: tutorials/clickhouse-for-graphite.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -101,7 +107,7 @@ items:
         href: concepts/maintenance.md
       - name: Supported clients
         href: concepts/supported-clients.md
-      - name: Memory management in {{ mch-name }}
+      - name: Managing memory in {{ mch-name }}
         href: concepts/memory-management.md
       - name: ClickHouse versioning policy
         href: concepts/update-policy.md

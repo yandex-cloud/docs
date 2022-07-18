@@ -467,7 +467,7 @@ You need to define the configuration for CI.
          --format json
          --name $instance_name
          --folder-id $folder_id
-         --zone {{ region-id }}-c
+         --zone {{ region-id }}-a
          --network-interface subnet-name=$subnet_name,nat-ip-version=ipv4
          --create-boot-disk name=$instance_name-boot,type=network-ssd,size=15,snapshot-name=$snapshot_name,auto-delete=true
          --memory 1

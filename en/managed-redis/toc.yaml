@@ -23,7 +23,7 @@ items:
             href: operations/connect/sharded.md
       - name: Stopping and starting clusters
         href: operations/cluster-stop.md
-      - name: Redis version update
+      - name: Updating a Redis version
         href: operations/cluster-version-update.md
       - name: Managing hosts in a cluster
         href: operations/hosts.md
@@ -31,21 +31,23 @@ items:
         href: operations/shards.md
       - name: Managing backups
         href: operations/cluster-backups.md
-      - name: Changing the master
+      - name: Switching the master
         href: operations/failover.md
-      - name: Monitoring the state of a cluster and hosts
+      - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
+      - name: All use cases
+        href: tutorials/index.md
       - name: Storing PHP sessions in Managed Service for Redis
         href: tutorials/redis-as-php-sessions-storage.md
       - name: Migrating databases to Managed Service for Redis
         href: tutorials/data-migration.md
   - name: Concepts
     items:
-      - name: Relationship between service resources
+      - name: Relationships between service resources
         href: concepts/index.md
       - name: Host classes
         href: concepts/instance-types.md
@@ -59,9 +61,9 @@ items:
         href: concepts/replication.md
       - name: Supported clients
         href: concepts/supported-clients.md
-      - name: Memory management in Managed Service for Redis
+      - name: Managing memory in Yandex Managed Service for Redis
         href: concepts/memory-management.md
-      - name: Limitations of Managed Service for Redis
+      - name: Supported commands in Yandex Managed Service for Redis
         href: concepts/supported-features.md
       - name: Quotas and limits
         href: concepts/limits.md

@@ -241,6 +241,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
       Result:
 
       
+
       ```
       +----------------------+-------------------+---------------------+-------------+--------------+
       |          ID          |       NAME        |       CREATED       |  REGION ID  | TARGET COUNT |
@@ -248,6 +249,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
       | b7roi767je4c574iivrk | test-target-group | 2018-12-03 14:41:04 | {{ region-id }} |            1 |
       +----------------------+-------------------+---------------------+-------------+--------------+
       ```
+
 
 
 

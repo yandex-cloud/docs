@@ -16,12 +16,13 @@ If you no longer need the website, [delete the VM with it](#clear-out).
 Make sure the selected folder has a cloud network with a subnet in at least one availability zone. To do this, select **{{ vpc-full-name }}** on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
 
 
+
 ### Required paid resources {#paid-resources}
 
 The cost of hosting a website in WordPress includes:
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
+
 
 ## Creating a VM for WordPress {#create-vm}
 

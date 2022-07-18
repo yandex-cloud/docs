@@ -1,5 +1,6 @@
 # Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ network-load-balancer-full-name }}
 
+
 Создайте и настройте веб-сайт на стеке [LAMP](https://ru.wikipedia.org/wiki/LAMP) ([Linux](https://www.linux.org/), [Apache HTTP Server](https://httpd.apache.org/), [MySQL](https://www.mysql.com/), [PHP](https://www.php.net/)) или LEMP (веб-сервер Apache заменяется на [Nginx](https://www.nginx.com/)) с балансировкой нагрузки через [{{ network-load-balancer-short-name }}](../../network-load-balancer/concepts/index.md) между двумя зонами доступности, защищенный от сбоев в одной зоне.
 
 1. [Подготовьте облако к работе](#before-you-begin).

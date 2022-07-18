@@ -10,4 +10,3 @@
 * [{#T}](cluster-delete.md)
 * [{#T}](monitoring.md)
 * [{#T}](logging.md)
-* [{#T}](monitoring.md)

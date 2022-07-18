@@ -1,5 +1,6 @@
 # Compliance
 
+
 ## Federal law No. 152-FZ "On personal data" {#law}
 
 In {{ yandex-cloud }}, measures were implemented to protect personal data pursuant to Resolution No. 1119 and FSTEC Order No. 21 regarding requirements for 1st-level protection (UZ-1).
@@ -21,6 +22,7 @@ The General Data Protection Regulation (GDPR) regulates the collection and proce
 
 For more information on the subject, see the [Data Processing Addendum](https://yandex.com/legal/cloud_dpa/).
 
+
 ## ISO certification {#iso}
 
 The {{ yandex-cloud }} Information Security Management System (ISMS) satisfies the requirements of the International Organization for Standardization (ISO). The ISMS was audited by an international team from BSI. Based on their findings, {{ yandex-cloud }} was certified ISO 27001, ISO 27017, and ISO 27018 compliant.
@@ -37,7 +39,7 @@ You can read more at:
 * [ISO 27017 certificate](https://storage.yandexcloud.net/yc-compliance/certificates/ISO-27017-EN.pdf).
 * [ISO 27018 certificate](https://storage.yandexcloud.net/yc-compliance/certificates/ISO-27018-EN.pdf).
 
-ISO 27001 defines the requirements for information security (IS) management systems, including their implementation, operation, maintenance, and regular improvement. The ISO 27001 guidelines help organizations guarantee a high level of security for their core information assets.
+
 ## PCI DSS {#pci-dss}
 
 PCI DSS (Payment Card Industry Data Security Standard) contains a set of requirements for cardholder data protection. They are mandatory and apply to all companies that process data from payment systems like Visa, MasterCard, American Express, JCB, and MIR.
@@ -75,3 +77,4 @@ The {{ yandex-cloud }} platform is a corporate member of the Cloud Security Alli
 A high-level description of the platform’s security measures is available to the public in the [CSA STAR](https://cloudsecurityalliance.org/star/registry/yandex-cloud/services/yandex-cloud/) registry in one of the most popular formats: the Consensus Assessments Initiative Questionnaire (CAIQ) v. 4.
 
 We also participate in the Trusted Cloud Provider program, which reflects our commitment to a holistic approach to security, including the continuous professional development of our employees and active participation in the international professional community.
+

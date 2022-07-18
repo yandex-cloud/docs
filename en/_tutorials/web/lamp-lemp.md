@@ -19,13 +19,14 @@ If you no longer need the website, [delete all its resources](#clear-out).
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
+
 ### Required paid resources {#paid-resources}
 
 The cost for maintaining a LAMP server includes:
 
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
+
 
 ## Create a VM with a pre-installed web server {#create-vm}
 
@@ -103,4 +104,3 @@ If you reserved a static public IP address specifically for this VM:
 1. Open the **Virtual Private Cloud** in your folder.
 1. Go to the **IP addresses** tab.
 1. Find the address you need, click ![ellipsis](../../_assets/options.svg), and select **Delete**.
-

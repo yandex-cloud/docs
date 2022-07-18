@@ -20,6 +20,7 @@ If you no longer need the website, [delete all its resources](#clear-out).
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
+
 ### Required paid resources {#paid-resources}
 
 The cost for supporting your website in WordPress with a MySQL cluster includes:
@@ -27,7 +28,7 @@ The cost for supporting your website in WordPress with a MySQL cluster includes:
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for the MySQL database cluster (see [pricing {{ mmy-full-name }}](../../managed-mysql/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
+
 
 ## Create a virtual machine for WordPress {#create-vm}
 
@@ -88,7 +89,8 @@ When the VM is created, it is assigned a public IP address and hostname (FQDN). 
     - In the **Password** field, enter the password you will use to access the DB.
     - In the **Network** list, select the network your VM will connect to.
 
-1. Under **Hosts**, add two more hosts in the other availability zones. When creating hosts, do not enable **Public access** to them.
+
+1. Under **Hosts**, add two more hosts in the other availability zones. When creating hosts, do not enable **Public access** to them.
 
 1. Under **DBMS settings**, click **Settings**.
 
@@ -485,4 +487,3 @@ If you reserved a static public IP address specifically for this VM:
 1. Open the **Virtual Private Cloud** in your folder.
 1. Go to the **IP addresses** tab.
 1. Find the address you need, click ![ellipsis](../../_assets/options.svg), and select **Delete**.
-

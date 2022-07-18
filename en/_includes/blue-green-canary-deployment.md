@@ -50,6 +50,7 @@ Some steps don't support certain tools:
 This use case uses a folder named `example-folder` as an example.
 
 
+
 ### Required paid resources {#paid-resources}
 
 The cost of this infrastructure includes:
@@ -58,7 +59,7 @@ The cost of this infrastructure includes:
 * A fee for using computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../application-load-balancer/pricing.md)).
 * A fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../cdn/pricing.md)).
 * A fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see [{{ dns-name }} pricing](../dns/pricing.md)).
-
+
 
 ## Create a cloud network and subnets {#create-network}
 
