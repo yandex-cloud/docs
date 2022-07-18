@@ -667,6 +667,7 @@ default:
 
 internal:
   audience: internal
+  api-host: cloud.yandex-team.ru
   console-link: https://yc.yandex-team.ru
   s3-storage-host: s3.mds.yandex.net
   yc-install-path: /mcdev/yandex-cli/install.sh
