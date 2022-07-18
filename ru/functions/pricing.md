@@ -153,6 +153,8 @@ editable: false
 
 {% include [usd.md](../_pricing/functions/usd-invocations.md) %}
 
+You pay for the actual number of invocations. For instance, 1000 calls over the included number cost 0.000128 $ if 1000000 calls are 0.128000 $.
+
 {% endif %}
 
 ### Время выполнения функции {#execution}

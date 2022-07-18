@@ -137,11 +137,15 @@ Where:
 
 {% include [rub.md](../_pricing/functions/rub-invocations.md) %}
 
+You pay for the actual number of invocations. For instance, 1000 calls over the included number cost ₽0.016 if 1000000 calls are ₽16.
+
 {% endif %}
 
 {% if region == "kz" %}
 
 {% include [kzt.md](../_pricing/functions/kzt-invocations.md) %}
+
+You pay for the actual number of invocations. For instance, 1000 calls over the included number cost ₸0.08 if 1000000 calls are ₸80.
 
 {% endif %}
 
@@ -149,11 +153,7 @@ Where:
 
 {% include [usd.md](../_pricing/functions/usd-invocations.md) %}
 
-{% endif %}
-
-{% if region == "int" %}
-
-You pay for the actual number of invocations. The cost of a thousand calls, for instance, will be `$0.000128` at `$0.128000` for 1 million calls.
+You pay for the actual number of invocations. For instance, 1000 calls over the included number cost $0.000128 if 1000000 calls are $0.128000.
 
 {% endif %}
 
