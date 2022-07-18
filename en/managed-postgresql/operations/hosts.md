@@ -38,7 +38,7 @@ You can add and remove cluster hosts and manage their settings.
    |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
    +----------------------------+--------------+---------+--------+---------------+
    | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | {{ region-id }}-b |
-   | rc1c...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | {{ region-id }}-c |
+   | rc1a...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | {{ region-id }}-a |
    +----------------------------+--------------+---------+--------+---------------+
    ```
 
@@ -49,7 +49,7 @@ You can add and remove cluster hosts and manage their settings.
    |         NAME         |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
    +----------------------+--------------+---------+--------+---------------+
    | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | {{ region-id }}-b |
-   | rc1c...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | {{ region-id }}-c |
+   | rc1a...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | {{ region-id }}-a |
    +----------------------+--------------+---------+--------+---------------+
    ```
 

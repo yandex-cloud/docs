@@ -31,7 +31,7 @@
   |              NAME               |  CLUSTER ID  | SHARD NAME |  ROLE   | HEALTH |    ZONE ID    |
   +---------------------------------+--------------+------------+---------+--------+---------------+
   | rc1a-...caf.{{ dns-zone }} | c9qb2...0gg  | shard1     | MASTER  | ALIVE  | {{ region-id }}-a |
-  | rc1c-...bgc.{{ dns-zone }} | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | {{ region-id }}-c |
+  | rc1b-...bgc.{{ dns-zone }} | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | {{ region-id }}-b |
   +---------------------------------+--------------+------------+---------+--------+---------------+
   ```
 
@@ -42,7 +42,7 @@
   |           NAME            |  CLUSTER ID  | SHARD NAME |  ROLE   | HEALTH |    ZONE ID    |
   +---------------------------+--------------+------------+---------+--------+---------------+
   | rc1a-...caf.{{ dns-zone }} | c9qb2...0gg  | shard1     | MASTER  | ALIVE  | {{ region-id }}-a |
-  | rc1c-...bgc.{{ dns-zone }} | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | {{ region-id }}-c |
+  | rc1b-...bgc.{{ dns-zone }} | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | {{ region-id }}-b |
   +---------------------------+--------------+------------+---------+--------+---------------+
   ```
 

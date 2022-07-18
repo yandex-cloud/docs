@@ -108,7 +108,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
       +----------------------+------------------+----------------------+----------------+---------------+------------------+
       |          ID          |       NAME       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE       |
       +----------------------+------------------+----------------------+----------------+---------------+------------------+
-      | b0cf2b0u7nhl75gp1c9t | subnet-1         | enp846vf5fus0nt3lu83 |                | ru-central1-c | [192.168.0.0/24] |
+      | b0cf2b0u7nhl75gp1c9t | subnet-1         | enp846vf5fus0nt3lu83 |                | ru-central1-a | [192.168.0.0/24] |
       | e2llnffvbakqu18hr170 | subnet-2         | enp846vf5fus0nt3lu83 |                | ru-central1-b | [192.168.1.0/24] |
       +----------------------+------------------+----------------------+----------------+---------------+------------------+
       ```
@@ -128,7 +128,7 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
       created_at: "2019-03-12T13:27:22Z"
       name: subnet-1
       network_id: enp846vf5fus0nt3lu83
-      zone_id: ru-central1-c
+      zone_id: ru-central1-a
       v4_cidr_blocks:
       - 192.168.0.0/24
       route_table_id: enp1sdveovdpdhaao5dq

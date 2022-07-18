@@ -84,10 +84,10 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
          name: yc-auto-network
          ```
 
-      1. Create a subnet in the `{{ region-id }}-b` zone:
+      1. Create a subnet in the `{{ region-id }}-a` zone:
 
          ```bash
-         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-b
+         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-a
          ```
 
          Result:
@@ -97,15 +97,15 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
          folder_id: b0g12ga82bcv0cdeferg
          created_at: "2020-11-30T16:23:12Z"
          network_id: enpabce123hde4ft1r3t
-         zone_id: {{ region-id }}-b
+         zone_id: {{ region-id }}-a
          v4_cidr_blocks:
          - 192.168.1.0/24
          ```
 
-      1. Create a subnet in the `{{ region-id }}-c` zone:
+      1. Create a subnet in the `{{ region-id }}-b` zone:
 
          ```bash
-         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.2.0/24 --zone {{ region-id }}-c
+         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.2.0/24 --zone {{ region-id }}-b
          ```
 
          Result:
@@ -115,7 +115,7 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
          folder_id: b0g12ga82bcv0cdeferg
          created_at: "2020-11-30T16:25:02Z"
          network_id: enpabce123hde4ft1r3t
-         zone_id: {{ region-id }}-c
+         zone_id: {{ region-id }}-b
          v4_cidr_blocks:
          - 192.168.2.0/24
          ```
@@ -123,7 +123,7 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
    - API
 
       1. Create a network using the method [Create](../../vpc/api-ref/Network/create.md) for the `Network` resource.
-      1. Create subnets in the `{{ region-id }}-b` and `{{ region-id }}-c` availability zones using the method [Create](../../vpc/api-ref/Subnet/create.md) method for the `Subnets` resource.
+      1. Create subnets in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones using the method [Create](../../vpc/api-ref/Subnet/create.md) method for the `Subnets` resource.
 
    {% endlist %}
 
@@ -152,8 +152,8 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
      max_unavailable: 1
    allocation_policy:
      zones:
+       - zone_id: {{ region-id }}-a
        - zone_id: {{ region-id }}-b
-       - zone_id: {{ region-id }}-c
    load_balancer_spec:
      target_group_spec:
        name: auto-group-tg
@@ -534,7 +534,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
 
    - CLI
 
-      1. Delete the subnet in the `{{ region-id }}-b` zone:
+      1. Delete the subnet in the `{{ region-id }}-a` zone:
 
          ```bash
          yc vpc subnet delete e1lnabc23r1c9d0efoje
@@ -548,12 +548,12 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
          folder_id: b0g12ga82bcv0cdeferg
          created_at: "2020-11-30T16:23:12Z"
          network_id: enpabce123hde4ft1r3t
-         zone_id: {{ region-id }}-b
+         zone_id: {{ region-id }}-a
          v4_cidr_blocks:
          - 192.168.1.0/24         
          ```
 
-      1. Delete the subnet in the `{{ region-id }}-c` zone:
+      1. Delete the subnet in the `{{ region-id }}-b` zone:
 
          ```bash
          yc vpc subnet delete b1csa2b3clideftjb121
@@ -567,7 +567,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
          folder_id: b0g12ga82bcv0cdeferg
          created_at: "2020-11-30T16:25:02Z"
          network_id: enpabce123hde4ft1r3t
-         zone_id: {{ region-id }}-c
+         zone_id: {{ region-id }}-b
          v4_cidr_blocks:
          - 192.168.2.0/24
          ```

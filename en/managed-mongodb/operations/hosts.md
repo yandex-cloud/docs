@@ -32,7 +32,7 @@ You can add and remove cluster hosts, resync the hosts, and [manage settings {{ 
    |            NAME            |  CLUSTER ID  |  TYPE  | SHARD NAME |     ROLE     |  HEALTH  |    ZONE ID    | PUBLIC IP |
    +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
    | rc1b...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | PRIMARY      | ALIVE    | ru-central1-b | false     |
-   | rc1c...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | ru-central1-c | false     |
+   | rc1a...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | ru-central1-a | false     |
    +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
    ```
 
@@ -43,7 +43,7 @@ You can add and remove cluster hosts, resync the hosts, and [manage settings {{ 
    |         NAME         |  CLUSTER ID  |  TYPE  | SHARD NAME |     ROLE     |  HEALTH  |    ZONE ID    | PUBLIC IP |
    +----------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
    | rc1b...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | PRIMARY      | ALIVE    | ru-central1-b | false     |
-   | rc1c...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | ru-central1-c | false     |
+   | rc1a...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | ru-central1-a | false     |
    +----------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
    ```
 

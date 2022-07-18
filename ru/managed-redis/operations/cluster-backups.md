@@ -75,7 +75,7 @@ description: "Вы можете создавать резервные копии
          --cluster-name mynewrd \
          --environment=PRODUCTION \
          --network-name default \
-         --host zone-id={{ region-id }}-c,subnet-id=b0rcctk2rvtr8efcch63 \
+         --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch63 \
          --password P@ssWord \
          --disk-size 20
       ```
@@ -85,7 +85,7 @@ description: "Вы можете создавать резервные копии
       * С именем `mynewrd`.
       * В окружении `PRODUCTION`.
       * В сети `default`.
-      * С одним хостом класса `hm1.nano` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `{{ region-id }}-c`.
+      * С одним хостом класса `hm1.nano` в подсети `b0rcctk2rvtr8efcch63`, в зоне доступности `{{ region-id }}-a`.
       * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
 
 {% endlist %}

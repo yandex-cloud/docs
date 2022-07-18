@@ -105,10 +105,10 @@
          "id": "b0c6n43ftldh30l0vfg2",
          "folderId": "b1gvmob95yysaplct532",
          "createdAt": "2018-09-23T12:15:00Z",
-         "name": "default-{{ region-id }}-c",
-         "description": "Auto-created default subnet for zone {{ region-id }}-c",
+         "name": "default-{{ region-id }}-a",
+         "description": "Auto-created default subnet for zone {{ region-id }}-a",
          "networkId": "enpe3m3fagludao8aslg",
-         "zoneId": "{{ region-id }}-c"
+         "zoneId": "{{ region-id }}-a"
         },
         ...
        ]
@@ -141,7 +141,7 @@
       {
         "folderId": "b1gvmob95yysaplct532",
         "name": "instance-demo-no-pwauth",
-        "zoneId": "{{ region-id }}-c",
+        "zoneId": "{{ region-id }}-a",
         "platformId": "standard-v3",
         "resourcesSpec": {
           "memory": "2147483648",
