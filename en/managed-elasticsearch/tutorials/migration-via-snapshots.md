@@ -41,7 +41,7 @@ To migrate data from the *source cluster* in {{ ES }} to the {{ mes-name }} *tar
    1. Click **Add**.
    1. Click **Save**.
 
-1. [Install](https://www.elastic.co/guide/en/elasticsearch/plugins/7.16/repository-s3.html) the `s3-repository` plugin on the source cluster.
+1. [Install](https://www.elastic.co/guide/en/elasticsearch/plugins/7.16/repository-s3.html) the `repository-s3` plugin on the source cluster.
 
    It must be installed on **all hosts** of the source cluster. Once you have installed it, you'll need to restart the {{ ES }} services and Kibana on the hosts.
 
