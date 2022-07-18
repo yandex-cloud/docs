@@ -18,6 +18,7 @@ Migration stages:
 1. [Add a task](#zookeeper-task) for `clickhouse-copier` to Zookeeper.
 1. [Launch](#copier-run) `clickhouse-copier`.
 
+If you no longer need these resources, [delete them](#clear-out).
 
 ## Prepare for migration {#prepare}
 
@@ -289,3 +290,7 @@ $ clickhouse-copier
 
 Once the operation is complete, check the logs to make sure that everything was
 copied successfully.
+
+## Delete the resources you created {#clear-out}
+
+If you no longer need these resources, delete the [{{ mch-full-name }} cluster](../operations/cluster-delete.md).

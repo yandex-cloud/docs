@@ -13,7 +13,7 @@ items:
         href: operations/index.md
       - name: Information about existing clusters
         href: operations/cluster-list.md
-      - name: Quota management
+      - name: Managing quotas
         href: operations/quotas-control.md
         when: audience == "internal"
       - name: Creating clusters
@@ -62,6 +62,8 @@ items:
         href: operations/monitoring.md
   - name: Practical guidelines
     items:
+      - name: All use cases
+        href: tutorials/index.md
       - name: Adding data to the database
         href: operations/insert.md
       - name: Migrating ClickHouse data
@@ -76,7 +78,7 @@ items:
       - name: Getting data from RabbitMQ
         href: tutorials/fetch-data-from-rabbitmq.md
       - name: Exchanging data with Data Proc
-        when: audience != "internal" and audience == "draft" and product == "yandex-cloud"
+        when: audience != "internal" and product == "yandex-cloud"
         href: tutorials/exchange-data-with-dp.md
       - name: >-
           Configuring {{ dns-full-name }} for accessing clusters from other cloud networks
@@ -86,7 +88,6 @@ items:
         when: product == "yandex-cloud"
       - name: Configuring a cluster for Graphite
         href: tutorials/clickhouse-for-graphite.md
-        when: audience == "draft" and product == "yandex-cloud"
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -123,7 +124,7 @@ items:
         href: concepts/maintenance.md
       - name: Supported clients
         href: concepts/supported-clients.md
-      - name: Memory management in {{ mch-name }}
+      - name: Managing memory in {{ mch-name }}
         href: concepts/memory-management.md
       - name: ClickHouse versioning policy
         href: concepts/update-policy.md

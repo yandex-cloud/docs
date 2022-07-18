@@ -18,6 +18,8 @@ To migrate a database from the {{ mpg-name }} *source cluster* to the {{ PG }} *
 1. [Monitor the migration process](#monitor-migration) until it is complete.
 1. [Finish the migration](#finish-migration).
 
+If you no longer need these resources, [delete them](#clear-out).
+
 ## Before you begin {#before-you-begin}
 
 1. Make sure that all the source cluster's hosts are accessible by a public IP address so that the target cluster can connect to the source. For more information, see [{#T}](../operations/cluster-create.md).
@@ -135,3 +137,11 @@ After the replication is complete:
    ```
 
 1. [Remove the user](../operations/cluster-users.md#removeuser) managing replication on the source cluster.
+
+## Delete the resources you created {#clear-out}
+
+If you no longer need these resources, delete them:
+
+1. {% if audience != "internal" %}[Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md){% else %}Delete a virtual machine{% endif %}.
+1. If you reserved a public static IP for your virtual machine, {% if audience != "internal" %}[delete it](../../vpc/operations/address-delete.md){% else %}delete it{% endif %}.
+1. [Delete a {{ mpg-full-name }} cluster](../operations/cluster-delete.md).

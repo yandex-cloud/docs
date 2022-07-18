@@ -43,11 +43,13 @@ There are three ways to migrate data from a third-party _source cluster_ to a {{
 
 {% include notitle [PostgreSQL migration with Data Transfer](../../_tutorials/datatransfer/managed-postgresql.md) %}
 
+If you no longer need these resources, delete the [{{ mpg-full-name }} cluster](../operations/cluster-delete.md).
+
 ## Migrating data using logical replication {#logical-replication}
 
 Logical replication is supported as of {{ PG }} version 10. Besides migrating data between the same {{ PG }} versions, logical replication lets you migrate to newer {{ PG }} versions.
 
-In {{ mpg-name }} clusters, subscriptions can be used by the database owner (a user created simultaneously with the cluster) and users with the `mdb.admin` role for the cluster.
+In {{ mpg-name }} clusters, subscriptions can be used by the database owner (a user created together with the cluster) and users with the `mdb_admin` role for the cluster.
 
 Migration stages:
 
@@ -57,6 +59,8 @@ Migration stages:
 1. [Create a {{ PG }} publication and subscription](#create-publication-subscription).
 1. [Migrate the {{ PG }} sequence after replication](#transfer-sequences).
 1. [Disable replication and transfer the load](#transfer-load).
+
+If you no longer need these resources, [delete them](#clear-out-logical).
 
 ### Set up the source cluster {#source-setup}
 
@@ -223,6 +227,9 @@ To complete synchronization of the source cluster and the target cluster:
 
 1. Switch over the load to the target cluster.
 
+### Delete the resources you created {#clear-out-logical}
+
+If you no longer need these resources, delete the [{{ mpg-full-name }} cluster](../operations/cluster-delete.md).
 
 ## Transferring data by creating and restoring a logical dump {#backup}
 
@@ -240,6 +247,7 @@ Migration stages:
 1. [(optional) Create a virtual machine in {{ yandex-cloud }} and upload the dump to it](#create-vm).
 1. [Restore data from the dump to the target cluster](#restore).
 
+If you no longer need these resources, [delete them](#clear-out-backup).
 
 ### Create a database dump {#dump}
 
@@ -276,7 +284,7 @@ To prepare the virtual machine to restore the dump:
 
 {% else %}
 
-1. In the management console, create a new VM from an [Ubuntu 20.04](/marketplace/products/f2eanb2gaki4us67hn9q) image. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
+1. In the management console, create a new VM from an [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
 
 {% endif %}
 
@@ -288,19 +296,19 @@ To prepare the virtual machine to restore the dump:
 
    ```bash
    sudo apt install postgresql-client-common
-   
+
    # For PostgreSQL 10
    sudo apt install postgresql-client-10
-   
+
    # For PostgreSQL 11
    sudo apt install postgresql-client-11
-   
+
    # For PostgreSQL 12
    sudo apt install postgresql-client-12
-   
+
    # For PostgreSQL 13
    sudo apt install postgresql-client-13
-   
+
    # For PostgreSQL 14
    sudo apt install postgresql-client-14
    ```
@@ -337,3 +345,11 @@ pg_restore -h <IP address or FQDN of target cluster's master host> \
            --single-transaction \
            --no-privileges
 ```
+
+### Delete the resources you created {#clear-out-backup}
+
+If you no longer need these resources, delete them:
+
+1. {% if audience != "internal" %}[Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md){% else %}Delete a virtual machine{% endif %}.
+1. If you reserved a public static IP for your virtual machine, {% if audience != "internal" %}[delete it](../../vpc/operations/address-delete.md){% else %}delete it{% endif %}.
+1. [Delete a {{ mpg-full-name }} cluster](../operations/cluster-delete.md).
