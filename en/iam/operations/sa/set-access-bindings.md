@@ -210,7 +210,7 @@ You can't set service account access rights via the management console. You can 
 {% if product == "yandex-cloud" %}
       ```bash
       yc iam service-account set-access-bindings my-robot \
-        --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse
+        --access-binding role=editor,subject=userAccount:gfei8n54hmfhuk5nogse \
         --access-binding role=viewer,subject=userAccount:helj89sfj80aj24nugsz
       ```
 {% endif %}
@@ -218,7 +218,7 @@ You can't set service account access rights via the management console. You can 
 
         ```bash
         yc iam service-account set-access-bindings my-robot \
-          --access-binding role=editor,subject=federatedUser:gfei8n54hmfhuk5nogse
+          --access-binding role=editor,subject=federatedUser:gfei8n54hmfhuk5nogse \
           --access-binding role=viewer,subject=federatedUser:helj89sfj80aj24nugsz
         ```
 
