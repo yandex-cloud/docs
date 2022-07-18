@@ -65,7 +65,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% endlist %}
 
-### Configure clickouse-client {#deploy-clickhouse-client}
+### Configure clickhouse-client {#deploy-clickhouse-client}
 
 [Configure the clickhouse client](../operations/connect.md) to connect to the database.
 
