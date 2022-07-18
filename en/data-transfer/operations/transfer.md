@@ -7,7 +7,7 @@ You can:
 * [Update a transfer](#update).
 * [Activate a transfer](#activate).
 * [Deactivate a transfer](#deactivate).
-* [Reload a transfer](#reupload).
+* [Restart a transfer](#reupload).
 * [Delete a transfer](#delete).
 
 For more information about transfer states, operations applicable to transfers, and existing limitations, please see [{#T}](../concepts/transfer-lifecycle.md).
@@ -34,16 +34,27 @@ For more information about transfer states, operations applicable to transfers, 
    1. Click **Create transfer**.
    1. Select the source endpoint or [create](./endpoint/index.md#create) a new one.
    1. Select the target endpoint or [create](./endpoint/index.md#create) a new one.
-   1. Under **Transfer parameters**, specify:
+   1. Specify the transfer parameters:
 
       * Transfer name.
+      * (Optional) Description of the transfer.
       * Transfer type:
 
-         * `{{ dt-type-copy-repl }}`: To create a full snapshot of the source data and keep it up-to-date.
-         * `{{ dt-type-copy }}`: To create a full snapshot of the data without receiving further updates from the source.
-         * `{{ dt-type-repl }}`: To continuously receive data updates from the source and apply them to the target (without creating a full snapshot of the source data).
+         * `{{ dt-type-copy-repl }}`: To create a full copy of the source data and keep it up-to-date.
+         * `{{ dt-type-copy }}`: To create a full copy of the data without receiving further updates from the source.
+         * `{{ dt-type-repl }}`: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).
 
-      * (optional) Transfer description.
+      * (Optional) List of objects to transfer: only objects on this list will transfer. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer.
+
+         Enter the full name of the object. Depending on the source type, use the appropriate naming convention:
+
+         * {{ CH }}: `<database name>.<table name>`.
+         * {{ GP }}: `<database name>.<schema name>.<table name>`.
+         * {{ MG }}: `<database name>.<collection name>`.
+         * {{ MY }}: `<database name>.<table name>`.
+         * {{ PG }}: `<database name>.<schema name>.<table name>`.
+
+         If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will return an error. A running transfer with **{{ dt-type-repl }}** or **{{ dt-type-copy-repl }}** as its status will terminate immediately while an inactive transfer will exit once it is activated.
 
    1. Click **Create**.
 
@@ -87,18 +98,9 @@ For more information about transfer states, operations applicable to transfers, 
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-transfer }}).   
+   A transfer activates automatically after changes are applied.
 
-   Transfers of the `INCREMENT_ONLY` and `SNAPSHOT_AND_INCREMENT` types activate and start automatically. 
-   If you want to activate the `SNAPSHOT_ONLY` transfer when creating it, add the `provisioner "local-exec"` section to the configuration file and include the `activate` command into it:
-
-    ```hcl
-       provisioner "local-exec" {
-          command = "yc --profile <profile> datatransfer transfer activate ${yandex_datatransfer_transfer.<Terraform resource transfer name>.id
-       }
-    ``` 
-
-  In this case, snapshot will be performed only once at the moment the transfer is created.
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-transfer }}).
 
 {% endlist %}
 
@@ -111,7 +113,22 @@ For more information about transfer states, operations applicable to transfers, 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **Transfers**.
    1. Select a transfer and click ![pencil](../../_assets/pencil.svg) **Edit** on the top panel.
-   1. Change the name and description of the transfer.
+   1. Edit the transfer parameters:
+
+      * Transfer name.
+      * Transfer description.
+      * List of objects to transfer: only objects on this list will transfer. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer.
+
+         Enter the full name of the object. Depending on the source type, use the appropriate naming convention:
+
+         * {{ CH }}: `<database name>.<table name>`.
+         * {{ GP }}: `<database name>.<schema name>.<table name>`.
+         * {{ MG }}: `<database name>.<collection name>`.
+         * {{ MY }}: `<database name>.<table name>`.
+         * {{ PG }}: `<database name>.<schema name>.<table name>`.
+
+         If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will return an error. A running transfer with **{{ dt-type-repl }}** or **{{ dt-type-copy-repl }}** as its status will terminate immediately while an inactive transfer will exit once it is activated.
+
    1. Click **Save**.
 
 - Terraform
@@ -179,7 +196,7 @@ During transfer deactivation:
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **Transfers**.
    1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired transfer and select **Deactivate**.
-   1. Wait for the transfer status to switch to **Stopped**.
+   1. Wait for the transfer status to change to {{ dt-status-stopped }}.
 
 {% endlist %}
 

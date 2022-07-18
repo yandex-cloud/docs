@@ -24,6 +24,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [Oracle](source/oracle.md).
          * [{{ PG }}](source/postgresql.md).
          {% if product == "yandex-cloud" %}
+
          * [{{ yds-full-name }}](source/data-streams.md).
          {% endif %}
       * For targets:
@@ -34,6 +35,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ objstorage-name }}](target/object-storage.md).
          * [{{ PG }}](target/postgresql.md).
          {% if product == "yandex-cloud" %}
+
          * [{{ ydb-name }}](target/yandex-database.md).
          {% endif %}
 
