@@ -2,7 +2,11 @@
 
 There are [multiple integration schemes](https://external-secrets.io/latest/guides-multi-tenancy/) for {{ lockbox-name }} and {{ managed-k8s-name }}. The example below describes [ESO as a Service](https://external-secrets.io/latest/guides-multi-tenancy/#eso-as-a-service):
 
+{% if product == "yandex-cloud" %}
+
 ![image](../_assets/managed-kubernetes/mks-lockbox-eso.svg)
+
+{% endif %}
 
 To set up secret syncing:
 1. [Install the External Secrets Operator](#install-eso).
