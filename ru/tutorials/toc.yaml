@@ -158,6 +158,9 @@ items:
       - name: Миграция базы данных в {{ mms-full-name }}
         href: dataplatform/mssql-data-migration.md
         when: product == "yandex-cloud"
+      - name: Миграция базы данных из {{ mms-full-name }} в сторонний кластер {{ MS }}
+        href: dataplatform/mssql-outbound-migration.md
+        when: product == "yandex-cloud"
       - name: Перенос данных из {{ PG }} в {{ CH }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/rdbms-to-clickhouse.md
       - name: Настройка Kafka Connect для работы с кластером {{ mkf-full-name }}
