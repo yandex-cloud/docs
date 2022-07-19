@@ -26,7 +26,7 @@
      yc container registry list
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      +----+------+-----------+
@@ -43,7 +43,7 @@
      yc container registry create --name my-reg
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done
@@ -65,7 +65,7 @@
      yc container registry list
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      +----------------------+--------+----------------------+
@@ -79,9 +79,9 @@
 
   Чтобы создать реестр, воспользуйтесь методом [create](../../api-ref/Registry/create.md) для ресурса [Registry](../../api-ref/Registry/).
 
-- Terraform
+- {{ TF }}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. Добавьте в конфигурационный файл параметры реестра, который необходимо создать. Например, файл с названием `example.tf` в директории `~/cloud-terraform`:
 
@@ -96,11 +96,12 @@
      ```
 
      Где:
+
      * `name` — имя реестра.
      * `folder_id` — идентификатор каталога.
      * `labels` — набор [меток](../../../overview/concepts/services.md#labels).
 
-     Более подробную информацию о ресурсах, которые можно создать с помощью Terraform, смотрите в [документации провайдера]({{ tf-provider-link }}/).
+     Более подробную информацию о ресурсах, которые можно создать с помощью {{ TF }}, смотрите в [документации провайдера]({{ tf-provider-link }}/).
 
   1. Проверьте корректность конфигурационного файла.
      1. В командной строке перейдите в директорию, где вы сохранили конфигурационный файл:
@@ -115,7 +116,7 @@
         terraform plan
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```
         Refreshing Terraform state in-memory prior to plan...
@@ -134,7 +135,7 @@
         terraform apply
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         An execution plan has been generated and is shown below.
@@ -153,7 +154,7 @@
         Enter a value: yes
         ```
 
-        Результат выполнения команды:
+        Результат:
  
         ```bash
         yandex_container_registry.default: Creating...

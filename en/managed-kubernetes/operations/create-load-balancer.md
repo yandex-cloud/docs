@@ -77,7 +77,7 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
      kubectl apply -f hello.yaml
      ```
 
-     Command output:
+     Result:
 
      ```bash
      deployment.apps/hello created
@@ -95,7 +95,7 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
      kubectl describe deployment hello
      ```
 
-     Command output:
+     Result:
 
      ```text
      Name:                   hello
@@ -171,7 +171,7 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
      kubectl apply -f load-balancer.yaml
      ```
 
-     Command output:
+     Result:
 
      ```bash
      service/hello created
@@ -195,7 +195,7 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
      kubectl describe service hello
      ```
 
-     Command output:
+     Result:
 
      ```text
      Name:                     hello
@@ -230,10 +230,9 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
      curl http://130.193.50.111
      ```
 
-     Where:
-     * `130.193.50.111` is the public IP address from the `LoadBalancer Ingress` field.
+     Where `130.193.50.111` is the public IP address from the `LoadBalancer Ingress` field.
 
-     Command output:
+     Result:
 
      ```text
      Hello, world!
@@ -325,6 +324,7 @@ apiVersion: v1
 ```
 
 Where:
+
 * `yandex.cloud/load-balancer-healthcheck-healthy-threshold` is the number of consecutive successful checks required to consider the node available.
 
   The minimum value is `2` and the maximum is `10`.
@@ -370,6 +370,7 @@ spec:
 ```
 
 Where:
+
 * `metadata.name`: Policy name.
 * `metadata.namespace`: [Namespace](../concepts/index.md#namespace).
 * `spec.podSelector`: Filtering rules for [pods](../concepts/index.md#pod).

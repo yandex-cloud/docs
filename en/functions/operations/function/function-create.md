@@ -43,38 +43,38 @@
 
     You can create a function using the [create](../../functions/api-ref/Function/create.md) API method.
 
-- Terraform
+- {{ TF }}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-    If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    If you don't have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     To create a function:
 
     1. In the configuration file, describe the parameters of resources that you want to create:
 
-        * `yandex_function`: Description of the function being created and its source code.
-            * `name`: Function name.
-            * `folder_id`: ID of the folder.
-            * `description`: Text description of the function.
-            * `labels`: Function labels in `key:value` format.
-            * `user_hash`: An arbitrary string that identifies the function version. When the function changes, update this string, too. The function will update when this string is updated.
-            * `runtime`: Function runtime environment. For a full list of runtimes, see [Runtime environments](../../concepts/runtime/index.md).
-            * `entrypoint`: Function name in the source code that will serve as an entry point to the applications.
-            * `memory`: The amount of memory allocated for function execution, in MB.
-            * `execution_timeout`: Function execution timeout.
-            * `service_account_id`: ID of the service account that should be used to invoke the function.
-            * `environment`: Environment variables in `key:value` format.
-            * `tags`: Function tags.
-            * `version`: Function version.
-            * `image_size`: Size of the image for the function.
-            * `loggroup_id`: ID of the log group for the function.
-            * `package`: Package with the source code of the function version. You can only use either the `package` or `content` field.
-            * `package.0.sha_256`: SHA256 hash of the deployed package.
-            * `package.0.bucket_name`: Name of the bucket in {{ objstorage-name }} that stores the source code of the function version.
-            * `package.0.object_name`: Name of the object in {{ objstorage-name }} that contains the source code of the function version.
-            * `content`: Function source code. You can only use either the `content` or `package` field.
-            * `content.0.zip_filename`: Name of the ZIP archive that contains the function source code.
+       * `yandex_function`: Description of the function being created and its source code:
+         * `name`: Function name.
+         * `folder_id`: ID of the folder.
+         * `description`: Text description of the function.
+         * `labels`: Function labels in `key:value` format.
+         * `user_hash`: An arbitrary string that identifies the function version. When the function changes, update this string, too. The function will update when this string is updated.
+         * `runtime`: Function runtime environment. For a full list of runtimes, see [Runtime environments](../../concepts/runtime/index.md).
+         * `entrypoint`: Function name in the source code that will serve as an entry point to the applications.
+         * `memory`: The amount of memory allocated for function execution, in MB.
+         * `execution_timeout`: Function execution timeout.
+         * `service_account_id`: ID of the service account that should be used to invoke the function.
+         * `environment`: Environment variables in `key:value` format.
+         * `tags`: Function tags.
+         * `version`: Function version.
+         * `image_size`: Size of the image for the function.
+         * `loggroup_id`: ID of the log group for the function.
+         * `package`: Package with the source code of the function version. You can only use either the `package` or `content` field.
+         * `package.0.sha_256`: SHA256 hash of the deployed package.
+         * `package.0.bucket_name`: Name of the bucket in {{ objstorage-name }} that stores the source code of the function version.
+         * `package.0.object_name`: Name of the object in {{ objstorage-name }} that contains the source code of the function version.
+         * `content`: Function source code. You can only use either the `content` or `package` field.
+         * `content.0.zip_filename`: Name of the ZIP archive that contains the function source code.
 
         Example configuration file structure:
 
@@ -108,7 +108,7 @@
 
 
 
-        For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
+        For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
     2. Make sure that the configuration files are correct.
         1. In the command line, go to the directory where you created the configuration file.
@@ -118,7 +118,7 @@
             terraform plan
             ```
 
-        If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+        If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    3. Deploy the cloud resources.
         1. If the configuration doesn't contain any errors, run the command:

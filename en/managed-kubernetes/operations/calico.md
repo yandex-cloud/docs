@@ -36,6 +36,7 @@ When creating a {{ k8s }} cluster, activate the Calico network policy controller
   ```
 
   Where:
+
   * `--name`: The {{ k8s }} cluster name.
   * `--service-account-id`: The unique ID of the service account for the resources. The resources that the {{ k8s }} cluster needs will be created on behalf of this account.
   * `--node-service-account-id`: The unique ID of the service account for the nodes. Nodes will download the Docker images they require from the registry on behalf of this account.
@@ -43,7 +44,7 @@ When creating a {{ k8s }} cluster, activate the Calico network policy controller
   * `--network-name`: Name of the network.
   * `--enable-network-policy`: Option that enables network policies.
 
-  Command execution result:
+  Result:
 
   ```bash
   done (8m52s)
@@ -71,7 +72,7 @@ Create a namespace using the {{ k8s }} [Namespace]({{ k8s-docs }}/concepts/overv
 kubectl create ns policy-test
 ```
 
-Command execution result:
+Result:
 
 ```
 namespace/policy-test created
@@ -87,7 +88,7 @@ To create a pod, use the {{ k8s }} [Deployment](https://kubernetes.io/docs/conce
    kubectl create deployment --namespace=policy-test nginx --image=nginx
    ```
 
-   Command execution result:
+   Result:
 
    ```
    deployment.apps/nginx created
@@ -99,7 +100,7 @@ To create a pod, use the {{ k8s }} [Deployment](https://kubernetes.io/docs/conce
    kubectl expose --namespace=policy-test deployment nginx --port=80
    ```
 
-   Execution result:
+   Result:
 
    ```
    service/nginx exposed
@@ -359,7 +360,7 @@ The created `access-nginx` network policies allow connections for pods with the 
    kubectl delete ns policy-test
    ```
 
-   Command execution result:
+   Result:
 
    ```
    namespace "policy-test" deleted

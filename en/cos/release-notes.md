@@ -8,7 +8,7 @@
   cat /etc/ycloud/image-info
   ```
 
-  Command execution result:
+  Result:
 
   ```bash
   coi-version: 2.0.4
@@ -20,7 +20,7 @@
   yc compute image get <image ID or name> --profile preprod --format json | jq -r '.description'
   ```
 
-  Command execution result:
+  Result:
 
   ```bash
   Container Optimized Image 2.1.0

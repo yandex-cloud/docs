@@ -86,27 +86,19 @@
 
   **Command example for connecting via SSL:**
 
-  
-  ```bash
-   curl \
-     --user <username>:<password> \
-     --cacert ~/.elasticsearch/root.crt \
-     -X GET 'https://c-<{{ ES }} cluster ID>.rw.{{ dns-zone }}:9200/'
-  ```
+  {% include [default-connstring](./mes/default-connstring.md) %}
 
 
 - PowerShell
 
   **Command example for connecting via SSL:**
 
-  
   ```powershell
    curl `
      -Certificate <absolute path to the certificate file> `
      -Uri https://c-{{ ES }} cluster ID>.rw.{{ dns-zone }}:9200 `
-     |||UNTRANSLATED_CONTENT_START|||-Credential <username>|||UNTRANSLATED_CONTENT_END|||
+     -Credential <username>
   ```
-
 
    In the window that opens, enter the user's password.
 

@@ -30,7 +30,6 @@ If you no longer need these resources, [delete them](#clear-out).
 Make sure that you have a domain name and can access the DNS settings on the site of the company that provides DNS hosting to you. This is usually the company that registered your domain.
 
 
-
 ### Required paid resources {#paid-resources}
 
 The cost of supporting the CDN infrastructure includes:
@@ -38,7 +37,7 @@ The cost of supporting the CDN infrastructure includes:
 * A fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../pricing.md)).
 * A fee for data storage in {{ objstorage-name }}, operations with data, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * A fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-
+
 
 ## Create buckets in {{ objstorage-name }} {#create-buckets}
 
@@ -103,12 +102,7 @@ You must create two buckets: one, `ycprojektblue-storage`, will store files, and
 
    1. In the configuration file, describe the bucket parameters:
 
-      * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the secret access key.
-      * `bucket`: The name of the created bucket (`ycprojektblue-storage`).
-
      
-
       ```
       provider "yandex" {
         token     = "<OAuth>"
@@ -130,9 +124,14 @@ You must create two buckets: one, `ycprojektblue-storage`, will store files, and
         bucket     = "ycprojektblue-logs"
       }
       ```
-
 
 
+
+     Where:
+
+     * `access_key`: The ID of the static access key.
+     * `secret_key`: The value of the secret access key.
+     * `bucket`: The name of the created bucket (`ycprojektblue-storage`).
 
    1. Make sure that the configuration files are correct:
 
@@ -179,7 +178,7 @@ You need to check that, when user requests are made, files are downloaded from t
    </BucketLoggingStatus>
    ```
 
-   * `TargetBucket`: The name of the bucket to write logs to (`ycprojektblue-logs`).
+   Where `TargetBucket` is the name of the bucket to write logs to (`ycprojektblue-logs`).
 
 {% endlist %}
 
@@ -216,10 +215,6 @@ You need to check that, when user requests are made, files are downloaded from t
 
    1. Add the parameters of the object to upload to the configuration file you created in the [bucket creation step](#create-buckets):
 
-      * `bucket`: The name of the bucket to add the object to (`ycprojektblue-storage`).
-      * `key`: The name of the object in the bucket (`ycgame-update-v1.1.exe`). Required parameter.
-      * `source`: A relative or absolute path to the file that you upload as an object.
-
       ```
       ...
 
@@ -231,6 +226,12 @@ You need to check that, when user requests are made, files are downloaded from t
         source = "<file path>/ycgame-update-v1.1.exe"
       }
       ```
+
+      Where:
+
+      * `bucket`: The name of the bucket to add the object to (`ycprojektblue-storage`).
+      * `key`: The name of the object in the bucket (`ycgame-update-v1.1.exe`). Required parameter.
+      * `source`: A relative or absolute path to the file that you upload as an object.
 
    1. Make sure that the configuration files are correct.
 
@@ -455,6 +456,8 @@ You need to check that, when user requests are made, files are downloaded from t
          yc dns zone create --name cdn-dns-a --zone ycprojektblue.example. --public-visibility
          ```
 
+         Where:
+
          * `--name`: Zone name.
          * `--zone`: Domain zone (your domain with a dot at the end).
          * `--public-visibility`: Zone visibility (indicates if it's public).
@@ -475,6 +478,8 @@ You need to check that, when user requests are made, files are downloaded from t
          ```bash
          yc dns zone add-records --name cdn-dns-a --record "cdn CNAME cl-.....6bb.gcdn.co."
          ```
+
+         Where:
 
          * `--name`: Zone name.
          * `--record`: Resource record.

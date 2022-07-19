@@ -7,18 +7,18 @@
 Install Celery and the necessary dependencies:
 
 ```
-$ pip install celery
-$ pip install celery[sqs]
-$ pip install boto3
-$ pip install pycurl
+pip install celery
+pip install celery[sqs]
+pip install boto3
+pip install pycurl
 ```
 
 Set the environment variables:
 
 ```
-$ export AWS_ACCESS_KEY_ID="<access key ID>"
-$ export AWS_SECRET_ACCESS_KEY="<secret key>"
-$ export AWS_DEFAULT_REGION="{{ region-id }}"
+export AWS_ACCESS_KEY_ID="<access key ID>"
+export AWS_SECRET_ACCESS_KEY="<secret key>"
+export AWS_DEFAULT_REGION="{{ region-id }}"
 ```
 
 ## Before you start {#prepare}
@@ -65,13 +65,13 @@ To run the example:
 1. Run the task handler with the command:
 
    ```
-   $ celery worker -A mq_example
+   celery worker -A mq_example
    ```
 
 1. Enqueue a task with the command:
 
    ```
-   $ python mq_example.py
+   python mq_example.py
    ```
 
 By default, Celery creates a {{ message-queue-name }} queue named `celery` in the folder that the service account belongs to.

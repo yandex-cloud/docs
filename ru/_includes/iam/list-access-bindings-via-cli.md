@@ -5,6 +5,7 @@ yc <service-name> <resource> list-access-bindings <resource-name>|<resource-id>
 ```
 
 Где:
+
 * `<service-name>` — имя сервиса, которому принадлежит ресурс, например `resource-manager`.
 * `<resource>` — категория ресурса, например `folder`.
 * `<resource-name>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору.

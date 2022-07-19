@@ -81,9 +81,9 @@ To change the backend group parameters:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. Open the Terraform configuration file and edit the fragment with the backend group description:
+   1. Open the {{ TF }} configuration file and edit the fragment with the backend group description:
 
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {
@@ -96,11 +96,10 @@ To change the backend group parameters:
       }
       ```
 
-      Where:
-      * `yandex_alb_backend_group` specifies the backend group parameters:
-         * `name`: Backend group name.
-         * `description`: Backend group description. Optional.
-         * `labels`: List of labels in `key=value` format. Optional.
+      Where `yandex_alb_backend_group` specifies the backend group parameters:
+      * `name`: Backend group name.
+      * `description`: Backend group description. Optional.
+      * `labels`: List of labels in `key=value` format. Optional.
 
       For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
    1. Apply the changes:
@@ -278,9 +277,9 @@ To change the backend group parameters:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. Open the Terraform configuration file and add a section describing a backend (`http_backend`, `grpc_backend`, or `stream_backend`) to the fragment with the backend group description:
+   1. Open the {{ TF }} configuration file and add a section describing a backend (`http_backend`, `grpc_backend`, or `stream_backend`) to the fragment with the backend group description:
 
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {
@@ -307,10 +306,9 @@ To change the backend group parameters:
       }
       ```
 
-      Where:
-      * `yandex_alb_backend_group` specifies the backend group parameters:
-         * `name`: Backend group name.
-         * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: HTTP, gRPC, or Stream.
+      Where `yandex_alb_backend_group` specifies the backend group parameters:
+      * `name`: Backend group name.
+      * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: HTTP, gRPC, or Stream.
 
       Backend parameters:
       * `name`: Backend name.
@@ -508,9 +506,9 @@ To change the backend group parameters:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. Open the Terraform configuration file and update the section with the description of the backend (`http_backend`, `grpc_backend`, or `stream_backend`) in the fragment with the description of the backend group:
+   1. Open the {{ TF }} configuration file and update the section with the description of the backend (`http_backend`, `grpc_backend`, or `stream_backend`) in the fragment with the description of the backend group:
 
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {
@@ -537,10 +535,9 @@ To change the backend group parameters:
       }
       ```
 
-      Where:
-      * `yandex_alb_backend_group` specifies the backend group parameters:
-         * `name`: Backend group name.
-         * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: HTTP, gRPC, or Stream.
+      Where `yandex_alb_backend_group` specifies the backend group parameters:
+      * `name`: Backend group name.
+      * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: HTTP, gRPC, or Stream.
 
       Backend parameters:
       * `name`: Backend name.
@@ -627,11 +624,11 @@ To remove a backend from a group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. Open the Terraform configuration file and delete the section with the description of the backend (`http_backend`, `grpc_backend`, or `stream_backend`) from the fragment with the description of the backend group.
+   1. Open the {{ TF }} configuration file and delete the section with the description of the backend (`http_backend`, `grpc_backend`, or `stream_backend`) from the fragment with the description of the backend group.
 
-      Sample backend group description in the Terraform configuration:
+      Sample backend group description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {

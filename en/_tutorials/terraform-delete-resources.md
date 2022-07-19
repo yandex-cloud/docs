@@ -1,4 +1,4 @@
-To delete resources created using Terraform:
+To delete resources created using {{ TF }}:
 
 1. Run the command:
 

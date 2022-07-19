@@ -17,7 +17,7 @@ deploy_policy:
 ...
 ```
 
-Keys:
+Where:
 
 | Key | Value |
 | ----- | ----- |
@@ -51,7 +51,7 @@ deploy_policy:
 ...
 ```
 
-Keys:
+Where:
 
 | Key | Value |
 | ----- | ----- |

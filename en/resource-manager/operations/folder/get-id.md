@@ -11,8 +11,7 @@
       {{ link-console-main }}/folders/b1gd129pp9ha0vnvf5g7
       ```
 
-      Where:
-      `b1gd129pp9ha0vnvf5g7` is the folder ID.
+      Where `b1gd129pp9ha0vnvf5g7` is the folder ID.
 
 - CLI
 

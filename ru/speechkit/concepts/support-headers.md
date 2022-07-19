@@ -19,9 +19,6 @@
 
 Пример использования заголовков с помощью [cURL](https://curl.haxx.se):
 
-* `folderId` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `editor` или выше.
-* `IAM_TOKEN` — [IAM-токен](../../iam/operations/iam-token/create.md), необходимый для аутентификации.
-
 ```bash
 export FOLDER_ID=<идентификатор каталога>
 export IAM_TOKEN=<IAM-токен>
@@ -33,6 +30,11 @@ curl -X POST \
     --data-binary "@speech.ogg" \
     "https://stt.{{ api-host }}/speech/v1/stt:recognize?folderId=${FOLDER_ID}"
 ```
+
+Где:
+
+* `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `editor` или выше.
+* `IAM_TOKEN` — [IAM-токен](../../iam/operations/iam-token/create.md), необходимый для аутентификации.
 
 ## Заголовки ответов {#response-headers}
 

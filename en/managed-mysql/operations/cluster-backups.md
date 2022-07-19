@@ -57,7 +57,11 @@ For a new cluster, you should set all the parameters that are required at creati
 
       ```
       {{ yc-mdb-my }} backup list
+      ```
 
+      Result:
+
+      ```
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -101,9 +105,9 @@ For a new cluster, you should set all the parameters that are required at creati
       * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
 
 
-- Terraform
+- {{ TF }}
 
-   Use Terraform to restore:
+   Use {{ TF }} to restore:
 
    * An existing cluster from a backup.
    * A cluster created and deleted via the management console, CLI, or API.
@@ -112,7 +116,11 @@ For a new cluster, you should set all the parameters that are required at creati
 
    ```bash
    {{ yc-mdb-my }} backup list
+   ```
 
+   Result:
+
+   ```
    +--------------------------+----------------------+----------------------+----------------------+
    |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
    +--------------------------+----------------------+----------------------+----------------------+
@@ -123,7 +131,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
    **To restore an existing cluster from a backup:**
 
-   1. Create a [Terraform configuration file](cluster-create.md#create-cluster) for a new cluster.
+   1. Create a [{{ TF }} configuration file](cluster-create.md#create-cluster) for a new cluster.
 
       Leave the settings under `database `and `user` empty, they will be restored from the backup:
 
@@ -169,13 +177,13 @@ For a new cluster, you should set all the parameters that are required at creati
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   Terraform creates a copy of the existing cluster. The databases and users are deployed from the selected backup.
+   {{ TF }} creates a copy of the existing cluster. The databases and users are deployed from the selected backup.
 
    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
    **To restore a previously deleted cluster from a backup:**
 
-   1. Create a [Terraform configuration file](cluster-create.md#create-cluster) for a new cluster.
+   1. Create a [{{ TF }} configuration file](cluster-create.md#create-cluster) for a new cluster.
 
       Leave the settings under `database` and `user` empty, they will be restored from the backup:
 
@@ -212,7 +220,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   Terraform creates a new cluster. The databases and users are deployed from the backup.
+   {{ TF }} creates a new cluster. The databases and users are deployed from the backup.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
@@ -294,7 +302,11 @@ In single-host clusters, you create a backup by reading data from the master hos
 
    ```
    {{ yc-mdb-my }} backup list
+   ```
 
+   Result:
+
+   ```
    +----------+----------------------+----------------------+----------------------+
    |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
    +----------+----------------------+----------------------+----------------------+
@@ -368,7 +380,7 @@ In single-host clusters, you create a backup by reading data from the master hos
      --backup-window-start 11:25:00
    ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

@@ -122,11 +122,11 @@ To create an HTTP router and add a route to it:
         append: ru-RU
       ```
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, specify the parameters of the HTTP router and virtual host:
 
@@ -155,6 +155,7 @@ To create an HTTP router and add a route to it:
       ```
 
       Where:
+
       * `yandex_alb_virtual_host` is the HTTP router description:
          * `name` is the HTTP router name. Name format:
 
@@ -169,7 +170,7 @@ To create an HTTP router and add a route to it:
          * `http_router_id`: HTTP router ID.
          * `route`: Description of the HTTP router's route. Specify the route name, backend group ID, and request processing time (defaults to 60 seconds).
 
-      For more information about Terraform resource parameters, see the provider documentation ([yandex_alb_http_router](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router) and [yandex_alb_virtual_host](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host)).
+      For more information about {{ TF }} resource parameters, see the provider documentation ([yandex_alb_http_router](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router) and [yandex_alb_virtual_host](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host)).
 
    1. Make sure that the configuration files are correct.
 
@@ -180,7 +181,7 @@ To create an HTTP router and add a route to it:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

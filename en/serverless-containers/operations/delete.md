@@ -23,17 +23,17 @@
    ```
    done (2s)
    ```
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To delete a container created with Terraform:
+   To delete a container created with {{ TF }}:
 
-   1. Open the Terraform configuration file and delete the section with the container description.
+   1. Open the {{ TF }} configuration file and delete the section with the container description.
 
-      Example container description in the Terraform configuration:
+      Example container description in the {{ TF }} configuration:
 
       ```hcl
       ...
@@ -48,7 +48,7 @@
       ...
       ```
 
-      For more information about the `yandex_serverless_container` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
+      For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
 
    1. Check the configuration using the command:
       ```
@@ -66,7 +66,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
       ```

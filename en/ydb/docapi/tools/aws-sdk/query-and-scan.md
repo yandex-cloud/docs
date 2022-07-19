@@ -214,7 +214,7 @@ To extract data using `query` from the `Series` table:
       java -jar target/release/SeriesQuery01.jar
       ```
 
-      Output:
+      Result:
 
       ```text
       Series with id 3
@@ -270,7 +270,7 @@ To extract data using `query` from the `Series` table:
       python SeriesQuery01.py
       ```
 
-      Output:
+      Result:
 
       ```text
       Series with id = 3
@@ -362,7 +362,7 @@ To extract data using `query` from the `Series` table:
       php SeriesQuery01.php
       ```
 
-      Output:
+      Result:
 
       ```text
       Series with id 3
@@ -429,7 +429,7 @@ To extract data using `query` from the `Series` table:
       node SeriesQuery01.js
       ```
 
-      Output:
+      Result:
 
       ```text
       Searching for movies with partition key 3.
@@ -507,7 +507,7 @@ To extract data using `query` from the `Series` table:
       ruby SeriesQuery01.rb
       ```
 
-      Output:
+      Result:
 
       ```text
       Searching for movies with partition key '3' in table 'Series'...
@@ -712,7 +712,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       java -jar target/release/SeriesQuery02.jar
       ```
 
-      Output:
+      Result:
 
       ```text
       Series with id 3 and title starting with T:
@@ -769,7 +769,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       python SeriesQuery02.py
       ```
 
-      Output:
+      Result:
 
       ```text
       Series with id 3 and title starting with T
@@ -855,7 +855,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       php SeriesQuery02.php
       ```
 
-      Output:
+      Result:
 
       ```text
       Series with ID 3 and title starting with T:
@@ -924,7 +924,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       node SeriesQuery02.js
       ```
 
-      Output:
+      Result:
 
       ```text
       Series with id 3 and title starting with T:
@@ -1000,7 +1000,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       ruby SeriesQuery02.rb
       ```
 
-      Output:
+      Result:
 
       ```text
       Searching in table 'Series' for series with id '3' and title starting with T
@@ -1197,7 +1197,7 @@ To extract data using `scan` from the `Series` table:
       java -jar target/release/SeriesScan.jar
       ```
 
-      Output:
+      Result:
 
       ```text
       { Item: {title=House of Cards, series_id=3, info={release_date=2013-02-01T00:00:00Z}} }
@@ -1270,7 +1270,7 @@ To extract data using `scan` from the `Series` table:
       python SeriesScan.py
       ```
 
-      Output:
+      Result:
 
       ```text
       Searching for series with id from 1 to 3...
@@ -1376,7 +1376,7 @@ To extract data using `scan` from the `Series` table:
       php SeriesScan.php
       ```
 
-      Output:
+      Result:
 
       ```text
       Scanning the table Series.
@@ -1457,7 +1457,7 @@ To extract data using `scan` from the `Series` table:
       node SeriesScan.js
       ```
 
-      Command output:
+      Result:
 
       ```text
       Scanning the table Series
@@ -1554,7 +1554,7 @@ To extract data using `scan` from the `Series` table:
       ruby SeriesScan.rb
       ```
 
-      Output:
+      Result:
 
       ```text
       Searching for series in table 'Series' with id from 1 to 3...

@@ -18,7 +18,7 @@
      docker image list
      ```
      
-     Результат выполнения команды:
+     Результат:
 
      ```
      REPOSITORY                                  TAG     IMAGE ID      CREATED       SIZE

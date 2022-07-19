@@ -23,7 +23,7 @@ The maximum number of Docker images in a single [repository](../../concepts/repo
       yc container repository lifecycle-policy dry-run crp6lg1868p3i0emkv1b
       ```
 
-      Command output:
+      Result:
 
       ```bash
       dry_run_lifecycle_policy_result_id: crpn27glo1k8r81dveq2
@@ -38,7 +38,7 @@ The maximum number of Docker images in a single [repository](../../concepts/repo
       yc container repository lifecycle-policy list-dry-run-results crp6lg1868p3i0emkv1b
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +----------------------+----------------------+-----------------------+---------------------+
@@ -54,7 +54,7 @@ The maximum number of Docker images in a single [repository](../../concepts/repo
       yc container repository lifecycle-policy get-dry-run-result crpn27glo1k8r81dveq2
       ```
 
-      Command output:
+      Result:
 
       ```bash
       dry_run_lifecycle_policy_result_id: crpn27glo1k8r81dveq2
@@ -69,7 +69,7 @@ The maximum number of Docker images in a single [repository](../../concepts/repo
       yc container repository lifecycle-policy list-dry-run-affected-images crpn27glo1k8r81dveq2
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +----------------------+---------------------+-----------------------------+-------+-----------------+

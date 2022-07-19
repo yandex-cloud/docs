@@ -7,7 +7,7 @@ Use the profile name to access the profile. You can get the profile name from th
 To get a list of profiles, run the command:
 
 ```
-$ yc config profile list
+yc config profile list
 prod ACTIVE
 test
 ```
@@ -20,7 +20,7 @@ Get the details of the profile named `prod`:
 
 
 ```
-$ yc config profile get prod
+yc config profile get prod
 token: AQAAAAAV6O...
 cloud-id: b1gvl...
 folder-id: b1g88...

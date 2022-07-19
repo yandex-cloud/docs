@@ -22,7 +22,7 @@
    yc compute disk list
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```
    +----------------------+------+--------------+-------------------+--------+----------------------+-------------+
@@ -67,7 +67,7 @@
    kubectl create -f test-pv.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```
    persistentvolume/test-pv created
@@ -120,7 +120,7 @@
       kubectl create -f test-claim.yaml
       ```
 
-      Результат выполнения команды:
+      Результат:
 
       ```
       persistentvolumeclaim/test-claim created
@@ -132,7 +132,7 @@
       kubectl describe persistentvolumeclaim test-claim
       ```
 
-      Результат выполнения команды:
+      Результат:
 
       
       ```
@@ -178,7 +178,7 @@
    kubectl create -f test-pod.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```
    pod/test-pod created
@@ -190,7 +190,7 @@
    kubectl describe pod test-pod
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```
    Name:         test-pod

@@ -14,9 +14,9 @@
       1. Select the default [storage class](../../storage/concepts/storage-class.md).
       1. Click **Create bucket** to complete the operation.
 
-- Terraform
+- {{ TF }}
 
-  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Before you start, get [static access keys](../../iam/operations/sa/create-access-key.md): a private key and key ID used for authentication in {{ objstorage-short-name }}.
 
@@ -25,6 +25,8 @@
      * `access_key`: The ID of the static access key.
      * `secret_key`: The value of the private access key.
      * `bucket`: The name of the bucket being created. Optional parameter. If omitted, a random unique bucket name is generated.
+
+     Example configuration file structure:
 
      
      ```
@@ -44,7 +46,7 @@
 
 
 
-     For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
+     For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
   1. Make sure that the configuration files are correct.
 
@@ -54,7 +56,7 @@
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
   1. Deploy the cloud resources.
 

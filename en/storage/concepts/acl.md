@@ -139,7 +139,7 @@ A bucket inherits access rights from its folder. If you want to know exactly wha
     --id b1g7gvsi89m34qmcm4ke
   ```
 
-  Sample command output:
+  Result:
 
   ```bash
   +---------+--------------+-----------------------+

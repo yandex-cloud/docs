@@ -28,7 +28,7 @@ sourcePath: overlay/quickstart/document-api/aws-cli/update-item.md
         --endpoint $endpoint
     ```
 
-    Результат выполнения:
+    Результат:
 
     ```text
     {

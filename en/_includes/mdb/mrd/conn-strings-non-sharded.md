@@ -36,14 +36,7 @@
 
 * Connecting via SSL
 
-    ```bash
-    redis-cli \
-        -h c-<cluster ID>.rw.{{ dns-zone }} \
-        -a <password> \
-        -p {{ port-mrd-tls }} \
-        --tls \
-        --cacert ~/.redis/{{ crt-local-file }}
-    ```
+    {% include [default-connstring](default-connstring.md) %}
 
 {% endlist %}
 

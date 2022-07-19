@@ -52,9 +52,10 @@
      yc-alb-ingress-controller ./yc-alb-ingress-controller-chart-v{{ alb-ingress-version }}.tgz
    ```
    
+   Где:
+
    * `--namespace` — имя пространства имен, созданного перед установкой.
    * `--set` и `--set-file` устанавливают [значения для чарта](https://helm.sh/docs/topics/charts/#templates-and-values) напрямую или из файла соответственно:
-   
      * `folderId` — идентификатор каталога {{ yandex-cloud }}, в котором создан кластер {{ managed-k8s-name }}. Получить идентификатор можно по [инструкции](../../resource-manager/operations/folder/get-id.md) в документации {{ resmgr-full-name }}.
      * `clusterId` — идентификатор кластера. Получить идентификатор можно по [инструкции](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
      * `saKeySecretKey` — авторизованный ключ сервисного аккаунта, созданный перед установкой.

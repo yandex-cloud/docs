@@ -99,7 +99,7 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
    Shard names can be requested with a [list of shards in the cluster](shards.md#list-shards).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -179,7 +179,7 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
    Shard names can be requested with a [list of shards in the cluster](shards.md#list-shards).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -258,7 +258,7 @@ Tables created on the deleted group are kept, but they are disabled and attempts
 
    You can request the name of the shard group with a [list of shard groups in the cluster](#list-shard-groups).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

@@ -36,15 +36,15 @@ To delete an HTTP router:
       yc alb http-router list
       ```
 
-- Terraform
+- {{ TF }}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To delete an HTTP router or virtual host created with Terraform:
+   To delete an HTTP router or virtual host created with {{ TF }}:
 
-   1. Open the Terraform configuration file and delete the fragment with the HTTP router or virtual host description (the `yandex_alb_http_router` and `yandex_alb_virtual_host` resources, respectively).
+   1. Open the {{ TF }} configuration file and delete the fragment with the HTTP router or virtual host description (the `yandex_alb_http_router` and `yandex_alb_virtual_host` resources, respectively).
 
-      {% cut "Sample HTTP router and virtual host description in the Terraform configuration" %}
+      {% cut "Sample HTTP router and virtual host description in the {{ TF }} configuration" %}
 
       ```hcl
       ...
@@ -74,7 +74,7 @@ To delete an HTTP router:
 
       {% endcut %}
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
    1. Check the configuration using the command:
 
@@ -94,7 +94,7 @@ To delete an HTTP router:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
 

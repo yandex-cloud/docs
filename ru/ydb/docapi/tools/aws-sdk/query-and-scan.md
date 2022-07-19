@@ -214,7 +214,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       java -jar target/release/SeriesQuery01.jar
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Сериалы с id, равным 3
@@ -270,7 +270,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       python SeriesQuery01.py
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Сериалы с id = 3
@@ -362,7 +362,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       php SeriesQuery01.php
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Сериалы с id, равным 3
@@ -429,7 +429,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       node SeriesQuery01.js
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Поиск фильмов с ключом партицирования, равным 3.
@@ -507,7 +507,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       ruby SeriesQuery01.rb
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Поиск фильмов с ключом партицирования, равным '3' в таблице 'Series'...
@@ -712,7 +712,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       java -jar target/release/SeriesQuery02.jar
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Сериалы с id, равным 3 и названием на букву T:
@@ -769,7 +769,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       python SeriesQuery02.py
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Сериалы с id = 3 и названием на букву Т
@@ -855,7 +855,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       php SeriesQuery02.php
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Сериалы с id, равным 3 и названием на букву T:
@@ -924,7 +924,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       node SeriesQuery02.js
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Сериалы с id = 3 и названием на букву Т:
@@ -1000,7 +1000,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       ruby SeriesQuery02.rb
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Поиск в таблице 'Series' сериалов с id = '3' и названием на букву Т
@@ -1197,7 +1197,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       java -jar target/release/SeriesScan.jar
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       { Item: {title=House of Cards, series_id=3, info={release_date=2013-02-01T00:00:00Z}} }
@@ -1270,7 +1270,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       python SeriesScan.py
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Поиск сериалов с id, равным от 1 до 3...
@@ -1376,7 +1376,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       php SeriesScan.php
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Сканирование таблицы Series.
@@ -1457,7 +1457,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       node SeriesScan.js
       ```
 
-      Результат выполнения команды:
+      Результат:
 
       ```text
       Сканирование таблицы Series
@@ -1554,7 +1554,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       ruby SeriesScan.rb
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Поиск сериалов в таблице 'Series' с id в диапазон от 1 до 3...

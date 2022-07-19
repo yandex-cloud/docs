@@ -171,7 +171,7 @@ To delete the `Series` table:
       java -jar target/release/SeriesDeleteTable.jar
       ```
 
-      Output:
+      Result:
 
       ```text
       Attempting to delete table, wait...
@@ -214,7 +214,7 @@ To delete the `Series` table:
       python SeriesDeleteTable.py
       ```
 
-      Output:
+      Result:
 
       ```text
       Table Series deleted.
@@ -275,7 +275,7 @@ To delete the `Series` table:
       php SeriesDeleteTable.php
       ```
 
-      Output:
+      Result:
 
       ```txt
       Table deleted.
@@ -327,7 +327,7 @@ To delete the `Series` table:
       node SeriesDeleteTable.js
       ```
 
-      Output:
+      Result:
 
       ```text
       Table deleted. Description of JSON table: {
@@ -417,7 +417,7 @@ To delete the `Series` table:
       ruby SeriesDeleteTable.rb
       ```
 
-      Output:
+      Result:
 
       ```text
       Deleting table 'Series'...

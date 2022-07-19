@@ -216,7 +216,7 @@ To upload data to the `Series` table:
       java -jar target/release/SeriesLoadData.jar
       ```
 
-      Output:
+      Result:
 
       ```text
       Added series: 1 IT Crowd
@@ -273,7 +273,7 @@ To upload data to the `Series` table:
       python SeriesLoadData.py
       ```
 
-      Output:
+      Result:
 
       ```text
       Added series: 1 IT Crowd
@@ -365,7 +365,7 @@ To upload data to the `Series` table:
       php SeriesLoadData.php
       ```
 
-      Output:
+      Result:
 
       ```text
       Added series: 1 IT Crowd
@@ -435,7 +435,7 @@ To upload data to the `Series` table:
       node SeriesLoadData.js
       ```
 
-      Output:
+      Result:
 
       ```bash
       Uploading series to YDB. Please wait...
@@ -524,7 +524,7 @@ To upload data to the `Series` table:
       ruby SeriesLoadData.rb
       ```
 
-      Output:
+      Result:
 
       ```text
       7 series will be uploaded from file 'seriesdata.json' to the table 'Series'...

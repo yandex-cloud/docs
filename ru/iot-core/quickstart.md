@@ -84,11 +84,11 @@ description: "В этой инструкции вы научитесь созд�
 
         ```
         yc iot registry create --name my-registry
-	    ```
+	      ```
 		
-		Результат:
+		    Результат:
 		
-		```
+		    ```
         id: b91hafek85hpppnbpld2
         folder_id: aoek49ghmknnpj1ll45e
         created_at: "2019-05-27T13:40:06.923Z"
@@ -102,9 +102,9 @@ description: "В этой инструкции вы научитесь созд�
           --certificate-file ./certs/registry-cert.pem # Путь к публичной части сертификата.
         ```
 		
-		Результат:
+		    Результат:
 		
-		```
+		    ```
         registry_id: b91hafek85hpppnbpld2
         fingerprint: 589ce16050****
         certificate_data: |
@@ -163,9 +163,9 @@ description: "В этой инструкции вы научитесь созд�
           --name my-device # Имя устройства.
         ```
 		
-		Результат:
+		    Результат:
 		
-		```
+		    ```
         id: b912an77oqaeijolmlgm
         registry_id: b91hafek85hpppnbpld2
         created_at: "2019-05-27T13:44:35.164Z"
@@ -179,9 +179,9 @@ description: "В этой инструкции вы научитесь созд�
           --certificate-file ./certs/device-cert.pem # Путь к публичной части сертификата.
         ```
 		
-		Результат:
+		    Результат:
 		
-		```
+		    ```
         device_id: b912an77oqaeijolmlgm
         fingerprint: 65e5b05006...
         certificate_data: |

@@ -56,9 +56,9 @@
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
-  1. Откройте конфигурационный файл Terraform и добавьте блок `target` с параметрами целевого ресурса во фрагмент с описанием целевой группы:
+  1. Откройте конфигурационный файл {{ TF }} и добавьте блок `target` с параметрами целевого ресурса во фрагмент с описанием целевой группы:
         
       ```hcl
       resource "yandex_alb_target_group" "foo" {
@@ -86,12 +86,11 @@
       }
       ```
 
-      Где:
-      * `yandex_alb_target_group` — параметры целевой группы:
-        * `name` — имя целевой группы.
-        * `target` — параметры целевого ресурса:
-          * `subnet_id` — идентификатор подсети, в которой размещена ВМ. Получить список доступных подсетей можно с помощью команды [CLI](../../cli/quickstart.md): `yc vpc subnet list`.
-          * `ip_address` — внутренний IP-адрес ВМ. Получить список внутренних IP-адресов можно с помощью команды [CLI](../../cli/quickstart.md): `yc vpc subnet list-used-addresses --id <идентификатор подсети>`.
+      Где `yandex_alb_target_group` — параметры целевой группы:
+      * `name` — имя целевой группы.
+      * `target` — параметры целевого ресурса:
+        * `subnet_id` — идентификатор подсети, в которой размещена ВМ. Получить список доступных подсетей можно с помощью команды [CLI](../../cli/quickstart.md): `yc vpc subnet list`.
+        * `ip_address` — внутренний IP-адрес ВМ. Получить список внутренних IP-адресов можно с помощью команды [CLI](../../cli/quickstart.md): `yc vpc subnet list-used-addresses --id <идентификатор подсети>`.
 
       Подробную информацию о параметрах ресурса `yandex_alb_target_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-targetgroup }}).
   1. Примените изменения:
@@ -158,11 +157,11 @@
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
-  1. Откройте конфигурационный файл Terraform и удалите блок `target` с IP-адресом ВМ, которую нужно удалить, во фрагменте с описанием целевой группы:
+  1. Откройте конфигурационный файл {{ TF }} и удалите блок `target` с IP-адресом ВМ, которую нужно удалить, во фрагменте с описанием целевой группы:
        
-      Пример описания целевой группы в конфигурации Terraform:
+      Пример описания целевой группы в конфигурации {{ TF }}:
 
       ```hcl
       resource "yandex_alb_target_group" "foo" {

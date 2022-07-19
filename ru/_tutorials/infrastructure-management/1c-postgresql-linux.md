@@ -153,13 +153,13 @@
 1. Установите Samba, необходимые зависимости и текстовый редактор `nano`:
    
    ```
-   $ sudo yum install nano samba samba-client samba-common, net-utils
+   sudo yum install nano samba samba-client samba-common, net-utils
    ```
 
 1. Отключите работу протокола IPv6, чтобы избежать конфликтов в работе сервера. Для этого откройте файл `/etc/sysctl.conf`:
 
    ```
-   $ sudo nano /etc/sysctl.conf
+   sudo nano /etc/sysctl.conf
    ```
 1. Добавьте в файл следующие строки: 
 
@@ -178,7 +178,7 @@
 1. Настройте общий каталог. Откройте файл конфигурации Samba:
 
    ```
-   $ sudo nano /etc/samba/smb.conf
+   sudo nano /etc/samba/smb.conf
    ```
 
 1. Приведите файл к следующему виду:
@@ -210,15 +210,15 @@
 1. Создайте общий каталог и дайте на него права:
 
    ```
-   $ sudo mkdir /1c-files
-   $ sudo chmod -R 777 /1c-files
+   sudo mkdir /1c-files
+   sudo chmod -R 777 /1c-files
    ```
 
 1. Отключите фаерволл:
 
    ```
-   $ sudo systemctl stop firewalld
-   $ sudo systemctl disable firewalld
+   sudo systemctl stop firewalld
+   sudo systemctl disable firewalld
    ```
 
 1. Отключите SELinux. Откройте конфигурацию SELinux командой `sudo nano /etc/sysconfig/selinux` и измените параметр `SELINUX`:
@@ -230,9 +230,9 @@
 1. Добавьте службу Samba-сервера в список автозагрузки и перезапустите ее:
 
    ```
-   $ sudo systemctl enable smb.service
+   sudo systemctl enable smb.service
    Created symlink from /etc/systemd/system/multi-user.target.wants/smb.service to /usr/lib/systemd/system/smb.service.
-   $ sudo systemctl restart smb.service
+   sudo systemctl restart smb.service
    ```
 
 ## Установите сервер «1С:Предприятия» {#setup-1c-server} 
@@ -243,20 +243,20 @@
 1. Распакуйте дистрибутив и запустите установку:
 
 ```
-$ sudo tar –xvf  /1c-files/<имя архива>
-$ sudo yum localinstall /1c-files/*.rpm 
+sudo tar –xvf  /1c-files/<имя архива>
+sudo yum localinstall /1c-files/*.rpm 
 ```
 
 1. Запустите сервер 1С:
 
 ```
-$ sudo systemctl start srv1cv83
+sudo systemctl start srv1cv83
 ```
 
 1. Убедитесь, что служба сервера «1С:Предприятие» запущена:
 
 ```
-$ systemctl status srv1cv83
+systemctl status srv1cv83
 ● srv1cv83.service - SYSV: Starts and stops the 1C:Enterprise daemons
    Loaded: loaded (/etc/rc.d/init.d/srv1cv83; bad; vendor preset: disabled)
    Active: active (exited) since Tue 2020-02-04 14:40:43 UTC; 4 days ago
@@ -271,13 +271,13 @@ $ systemctl status srv1cv83
 1. Установите Samba, необходимые зависимости и текстовый редактор `nano`:
    
    ```
-   $ sudo yum install nano samba samba-client samba-common, net-utils
+   sudo yum install nano samba samba-client samba-common, net-utils
    ```
 
 1. Отключите работу протокола IPv6, чтобы избежать конфликтов в работе сервера. Для этого откройте файл `/etc/sysctl.conf`:
 
    ```
-   $ sudo nano /etc/sysctl.conf
+   sudo nano /etc/sysctl.conf
    ```
 1. Добавьте в файл следующие строки: 
 
@@ -296,7 +296,7 @@ $ systemctl status srv1cv83
 1. Настройте общий каталог. Для этого откройте файл конфигурации Samba:
 
    ```
-   $ sudo nano /etc/samba/smb.conf
+   sudo nano /etc/samba/smb.conf
    ```
 
 1. Приведите файл к следующему виду:
@@ -328,15 +328,15 @@ $ systemctl status srv1cv83
 1. Создайте общий каталог и дайте на него права:
 
    ```
-   $ sudo mkdir /1c-files
-   $ sudo chmod -R 777 /1c-files
+   sudo mkdir /1c-files
+   sudo chmod -R 777 /1c-files
    ```
 
 1. Отключите фаерволл:
 
    ```
-   $ sudo systemctl stop firewalld
-   $ sudo systemctl disable firewalld
+   sudo systemctl stop firewalld
+   sudo systemctl disable firewalld
    ```
 
 1. Отключите SELinux. Откройте конфигурацию SELinux командой `sudo nano /etc/sysconfig/selinux` и измените параметр `SELINUX`:
@@ -348,9 +348,9 @@ $ systemctl status srv1cv83
 1. Добавьте службу Samba-сервера в список автозагрузки и перезапустите ее:
 
    ```
-   $ sudo systemctl enable smb.service
+   sudo systemctl enable smb.service
    Created symlink from /etc/systemd/system/multi-user.target.wants/smb.service to /usr/lib/systemd/system/smb.service.
-   $ sudo systemctl restart smb.service
+   sudo systemctl restart smb.service
    ```
 
 ## Установите сервер «1С:Предприятия» для сервера лицензий {#setup-1c-license-server} 
@@ -361,20 +361,20 @@ $ systemctl status srv1cv83
 1. Распакуйте дистрибутив и запустите установку:
 
 ```
-$ sudo tar –xvf  /1c-files/<имя архива>
-$ sudo yum localinstall /1c-files/*.rpm 
+sudo tar –xvf  /1c-files/<имя архива>
+sudo yum localinstall /1c-files/*.rpm 
 ```
 
 1. Запустите сервер 1С:
 
 ```
-$ sudo systemctl start srv1cv83
+sudo systemctl start srv1cv83
 ```
 
 1. Убедитесь, что служба сервера «1С:Предприятие» запущена:
 
 ```
-$ systemctl status srv1cv83
+systemctl status srv1cv83
 ● srv1cv83.service - SYSV: Starts and stops the 1C:Enterprise daemons
    Loaded: loaded (/etc/rc.d/init.d/srv1cv83; bad; vendor preset: disabled)
    Active: active (exited) since Tue 2020-02-04 14:40:43 UTC; 4 days ago

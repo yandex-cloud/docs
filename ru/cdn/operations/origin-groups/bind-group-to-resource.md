@@ -82,7 +82,7 @@
      ```
 
      Где:
-     
+
      * `origin-group-id` — идентификатор группы источников.
      * `origin-protocol` — протокол для источников.
 
@@ -135,9 +135,9 @@
 
      Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
 
-- Terraform
+- {{ TF }}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. Опишите в конфигурационном файле параметры ресурса `yandex_cdn_resource`:
 
@@ -162,7 +162,7 @@
 
 
      
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/cdn_origin_group).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/cdn_origin_group).
 
   1. Проверьте корректность настроек.
 
@@ -301,7 +301,8 @@
   1. Измените настройки ресурса, указав идентификатор нужной группы источников:
 
      ```
-     yc cdn resource update --id <идентификатор ресурса> \
+     yc cdn resource update \
+       --id <идентификатор ресурса> \
        --origin-group-id <идентификатор группы источников>
      ```
 

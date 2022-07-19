@@ -2,46 +2,39 @@
 
 You can track data changes in {{ mpg-name }} and send them to {{ mkf-name }} using Change Data Capture (CDC).
 
-To set up CDC using [Debezium](https://debezium.io/documentation/reference/index.html):
+The following example demonstrates how to configure CDC using [Debezium](https://debezium.io/documentation/reference/index.html).
 
-1. [Prepare the source cluster](#prepare-source).
-1. [Configure Debezium](#setup-debezium).
-1. [Prepare the target cluster](#prepare-target).
-1. [Launch the process with the Debezium connector](#start-debezium).
-1. [Check the health of Debezium](#test-debezium).
 
-If you no longer need these resources, [delete them](#clear-out).
+## Before you begin {#before-you-begin}
 
-## Before you start {#before-you-begin}
-
-1. Create a *source cluster* [{{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md):
+1. Create a [{{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md) *source cluster*:
 
    * With publicly available hosts.
    * With the `db1` database.
    * With the `user1` user.
 
-1. Create a *target [{{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) cluster* in any applicable configuration with publicly available hosts.
+1. Create a [{{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) *target cluster* in any applicable configuration with publicly available hosts.
    
-1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) for Debezium with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }} and a public IP address.
+1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) for Debezium with Ubuntu 20.04 and a public IP address.
 
 
 1. Set up security groups so that you can connect to clusters from the created VM:
 
    * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups);
    * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
-      
-1. [Connect to the VM instance](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH and check access to the clusters:
 
-    1. Install the dependencies:
+1. [Connect to a virtual machine](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH and set the dependencies:
 
-       ```bash
-       sudo apt update && \
-       sudo apt install -y git docker.io kafkacat postgresql-client
-       ```
+```bash
+    sudo apt update && \
+    sudo apt install -y git docker.io kafkacat postgresql-client
+    ```
 
-    2. Check that the following clusters are available:
-       * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#connection-string) (use the `psql` utility);
-       * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#connection-string) (use the `kafkacat` utility).
+1. [Connect to the VM instance](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH and make sure the clusters are available:
+
+    * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#connection-string) (use `psql`).
+    * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#connection-string) (use `kafkacat`).
+
 
 ## Prepare the source cluster {#prepare-source}
 
@@ -90,61 +83,47 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% endlist %}
 
+
 ## Configure Debezium {#setup-debezium}
 
-{% list tabs %}
+1. [Connect to the virtual machine](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
 
-- {{ KFC }}
 
-   1. [Connect to the virtual machine](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
+1. Clone the repository:
 
-   1. Create a file named `/etc/kafka-connect-worker/worker.properties with worker settings`:
+   ```bash
+   cd ~/ && \
+   git clone https://github.com/yandex-cloud/examples.git
+   ```
 
-      ```ini
-      # AdminAPI connect properties
-      bootstrap.servers=<broker host FQDN>:9091
-      sasl.mechanism=SCRAM-SHA-512
-      security.protocol=SASL_SSL
-      ssl.truststore.location=/etc/kafka-connect-worker/client.truststore.jks
-      ssl.truststore.password=<password for the certificate store>
-      sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<password for the debezium account>";
+1. Download and unpack the current [Debezium connector](https://debezium.io/releases/) to the `~/examples/mdb/managed-kafka/debezium-cdc/plugins/` directory.
 
-      # Producer connect properties
-      producer.sasl.mechanism=SCRAM-SHA-512
-      producer.security.protocol=SASL_SSL
-      producer.ssl.truststore.location=/etc/kafka-connect-worker/client.truststore.jks
-      producer.ssl.truststore.password=<password for the certificate store>
-      producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<password for the debezium account>";
+   The example below uses version `1.6.0`. The required commands depend on the type of source cluster:
 
-      # Worker properties
-      plugin.path=/etc/kafka-connect-worker/plugins
-      key.converter=org.apache.kafka.connect.json.JsonConverter
-      value.converter=org.apache.kafka.connect.json.JsonConverter
-      key.converter.schemas.enable=true
-      value.converter.schemas.enable=true
-      offset.storage.file.filename=/etc/kafka-connect-worker/worker.offset
-      ```
+   {% list tabs %}
 
-      {{ KFC }} will connect to the {{ mkf-name }} cluster under the `debezium` account that will be created when [preparing a target cluster](#prepare-target).
-
-      You can request the FQDNs of broker hosts with a [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
-
-   1. Download and unpack a proper [Debezium connector](https://debezium.io/releases/) to the directory `/etc/kafka-connect-worker/plugins/`.
-
-      The example below uses version `1.6.0`. The required commands depend on the type of source cluster:
-
-      **{{ mpg-name }}**
+   - {{ mpg-name }}
 
       ```bash
-      sudo mkdir -p ~/examples/mdb/managed-kafka/debezium-cdc/plugins/ && \
-      wget https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.6.0.Finaldebezium-connector-postgres-1.6.0.Final-plugin.tar.gz && \
-      sudo mkdir -p /etc/kafka-connect-worker/plugins && \
-      sudo tar -xzvf debezium-connector-postgres-1.6.0.Final-plugin.tar.gz -C /etckafka-connect-worker/plugins/
+      mkdir ~/examples/mdb/managed-kafka/debezium-cdc/plugins/ && \
+      wget https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.6.0.Final/debezium-connector-postgres-1.6.0.Final-plugin.tar.gz && \
+      tar -xzvf debezium-connector-postgres-1.6.0.Final-plugin.tar.gz -C ~/examples/mdb/managed-kafka/debezium-cdc/plugins/
       ```
 
-   1. Create the `/etc/kafka-connect-worker/plugins/mdb-connector.properties` file with the Debezium settings for connecting to the source cluster. The file contents depend on the type of the source cluster:
+   {% endlist %}
 
-      **{{ mpg-name }}**
+1. Build a Docker image:
+
+   ```bash
+   cd ~/examples/mdb/managed-kafka/debezium-cdc && \
+   sudo docker build --tag debezium ./
+   ```
+
+1. Create a `~/examples/mdb/managed-kafka/debezium-cdc/mdb-connector.properties` file with Debezium settings for connecting to the source cluster:
+
+   {% list tabs %}
+
+   - {{ mpg-name }}
 
       ```ini
       name=debezium-mpg
@@ -163,12 +142,10 @@ If you no longer need these resources, [delete them](#clear-out).
       heartbeat.topics.prefix=__debezium-heartbeat
       ```
 
-      The cluster ID can be requested with a [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list).
-
-      Parameter descriptions:
+      Where:
 
       * `name`: The name of the Debezium connector.
-      * `database.hostname`: A [special FQDN](../../managed-postgresql/operations/connect.md#fqdn-master) to connect to the source cluster master host.
+      * `database.hostname`: A [special FQDN](../../managed-postgresql/operations/connect.md#fqdn-master) to connect to the source cluster master host. The cluster ID can be requested with a [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list).
       * `database.user`: The {{ PG }} username.
       * `database.dbname`: The {{ PG }} database name.
       * `database.server.name`: The custom name of the database server that [Debezium will use](#prepare-target) when choosing a topic for sending messages.
@@ -177,9 +154,10 @@ If you no longer need these resources, [delete them](#clear-out).
       * `slot.name`: The name of the replication slot that will be created by Debezium when working with the publication.
       * `heartbeat.interval.ms` and `heartbeat.topics.prefix`: The heartbeat settings [needed for](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-wal-disk-space) Debezium.
 
-{% endlist %}
+   {% endlist %}
 
-## Prepare the target cluster {{ mkf-name }} {#prepare-target}.
+
+## Prepare the target cluster{#prepare-target}
 
 The target cluster settings depend on the source cluster type:
 
@@ -209,35 +187,40 @@ The target cluster settings depend on the source cluster type:
 
       If you need data from multiple source clusters, create a separate service topic for each of them.
 
-   1. [Create a](../../managed-kafka/operations/cluster-accounts.md#create-account) `debezium` account with a password specified in the [worker settings file](#setup-debezium).
+   1. [Create an account](../../managed-kafka/operations/cluster-accounts.md#create-account) named `debezium`.
 
-      [Grant to it](../../managed-kafka/operations/cluster-accounts.md#grant-permission) the rights to the created topics:
+      [Grant it](../../managed-kafka/operations/cluster-accounts.md#grant-permission) the following rights to the created topics:
 
       * `ACCESS_ROLE_CONSUMER`
       * `ACCESS_ROLE_PRODUCER`
 
 {% endlist %}
 
-## Run the process with the Debezium connector {#start-debezium}
 
-1. [Connect to the virtual machine](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
+## Run Debezium {#start-debezium}
 
-1. To send test data to the cluster, run the worker:
+1. In the `~/examples/mdb/managed-kafka/debezium-cdc/.env` file, specify environment variables to access the target cluster:
 
-   {% list tabs %}
+   ```ini
+   BROKERS=<broker host FQDN>:9091
+   USER=debezium
+   PASSWORD=<debezium user password>
+   ```
 
-   - {{ KFC }}
+   You can request a list of FQDN broker hosts with a [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
 
-      ```bash
-      cd ~/kafka_2.12-2.6.2/bin/ && \
-      sudo ./connect-standalone.sh \
-          /etc/kafka-connect-worker/worker.properties \
-          /etc/kafka-connect-worker/plugins/mdb-connector.properties
-      ```
+1. Run a container with the built Docker image:
 
-   {% endlist %}
+   ```bash
+   cd ~/examples/mdb/managed-kafka/debezium-cdc/ && \
+   sudo docker run --name debezium --rm --env-file .env \
+     -v ~/examples/mdb/managed-kafka/debezium-cdc/plugins:/home/appuser/plugins \
+     -v ~/examples/mdb/managed-kafka/debezium-cdc/mdb-connector.properties:/home/appuser/config/connector.properties \
+     debezium:latest
+   ```
 
-The worker continuously transmits new data from the source cluster to the target cluster.
+   The container continuously transmits new data from the source cluster to the target cluster.
+
 
 ## Check the health of Debezium {#test-debezium}
 
@@ -304,7 +287,8 @@ The worker continuously transmits new data from the source cluster to the target
 
    {% endlist %}
 
-1. Make sure that the new data have arrived to the `mpg.public.measurements` topic.
+1. Connect to the target cluster and make sure that the `mpg.public.measurements` topic contains the new data.
+
 
 ## Delete the resources you created {#clear-out}
 

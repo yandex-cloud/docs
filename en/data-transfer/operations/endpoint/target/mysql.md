@@ -21,7 +21,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mysql-target.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `mysql_target`.
 
@@ -72,7 +72,7 @@ Connecting to the database with an explicitly specified network address and port
 
    {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mysql-target.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `mysql_target`.
 
@@ -144,7 +144,7 @@ You can configure **Cleanup policy** and **DB schema for service tables** only v
 
    * `--timezone`: Specify the [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
 
-- Terraform
+- {{ TF }}
 
    * `sql_mode`: Specify settings to override [standard {{ MY }} behavior](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html). The following list is used by default: `NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION`.
 

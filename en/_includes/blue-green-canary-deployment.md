@@ -32,11 +32,11 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 ## Supported tools {#supported-tools}
 
-Most of the steps in the tutorial can be completed in any standard tool: [management console]({{ link-console-main }}), command line interfaces (CLI) [{{ yandex-cloud }}](../cli/index.yaml), [AWS](../storage/tools/aws-cli.md), Terraform, and [APIs {{ yandex-cloud }}](../api-design-guide). Each step lists tools supported for it.
+Most of the steps in the tutorial can be completed in any standard tool: [management console]({{ link-console-main }}), command line interfaces (CLI) [{{ yandex-cloud }}](../cli/index.yaml), [AWS](../storage/tools/aws-cli.md), {{ TF }}, and [APIs {{ yandex-cloud }}](../api-design-guide). Each step lists tools supported for it.
 
 Some steps don't support certain tools:
 
-* At the moment, you can't use command-line interfaces and Terraform in order to:
+* At the moment, you can't use command-line interfaces and {{ TF }} in order to:
   * [Create a {{ alb-name }} backend group with buckets as backends](#create-l7backend).
   * [Create a CDN resource](#create-cdn-resource).
   * Get the domain name of a CDN load balancer when [configuring DNS for the service](#configure-dns).
@@ -50,7 +50,6 @@ Some steps don't support certain tools:
 This use case uses a folder named `example-folder` as an example.
 
 
-
 ### Required paid resources {#paid-resources}
 
 The cost of this infrastructure includes:
@@ -59,7 +58,7 @@ The cost of this infrastructure includes:
 * A fee for using computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../application-load-balancer/pricing.md)).
 * A fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../cdn/pricing.md)).
 * A fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see [{{ dns-name }} pricing](../dns/pricing.md)).
-
+
 
 ## Create a cloud network and subnets {#create-network}
 
@@ -90,7 +89,7 @@ To create a network and subnets:
      yc vpc network create canary-network
      ```
 
-     Command output:
+     Result:
 
      ```
      id: enptrcle5q3d3ktd33hj
@@ -113,7 +112,7 @@ To create a network and subnets:
          --range 10.1.0.0/16
        ```
 
-       Command output:
+       Result:
 
        ```
        id: e9bnnssj8sc8mjhat9qk
@@ -135,7 +134,7 @@ To create a network and subnets:
          --range 10.2.0.0/16
        ```
 
-       Command output:
+       Result:
 
        ```
        id: e2lghukd9iqo4haidjbt
@@ -157,7 +156,7 @@ To create a network and subnets:
          --range 10.3.0.0/16
        ```
 
-       Command output:
+       Result:
 
        ```
        id: b0c3pte4o2kn4v12o05p
@@ -172,9 +171,9 @@ To create a network and subnets:
 
      For more information about the `yc vpc subnet create` command, see the [CLI reference](../cli/cli-ref/managed-services/vpc/subnet/create.md).
 
-- Terraform
+- {{ TF }}
 
-  If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. In the configuration file, describe the parameters of `canary-network` and its subnets: `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-c`:
 
@@ -205,7 +204,7 @@ To create a network and subnets:
      }
      ```
 
-     For more information, see the [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) resource descriptions in the Terraform provider documentation.
+     For more information, see the [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) resource descriptions in the {{ TF }} provider documentation.
 
   1. Make sure that the configuration files are correct.
 
@@ -216,7 +215,7 @@ To create a network and subnets:
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
   1. Deploy the cloud resources.
 
@@ -263,7 +262,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
        s3 mb s3://canary-bucket-blue
      ```
 
-     Command output:
+     Result:
 
      ```
      make_bucket: s3://canary-bucket-blue
@@ -280,7 +279,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
 
   1. In a similar way, create a bucket named `canary-bucket-green` and enable public access to it.
 
-- Terraform
+- {{ TF }}
 
   1. Add the parameters of the `canary-bucket-blue` and `canary-bucket-green` buckets to the configuration file:
 
@@ -298,7 +297,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
      }
      ```
 
-     For more information about the `yandex_storage_bucket` resource, see the Terraform provider [documentation]({{ tf-provider-link }}/storage_bucket).
+     For more information about the `yandex_storage_bucket` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/storage_bucket).
 
   1. Make sure that the configuration files are correct.
 
@@ -309,7 +308,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
   1. Deploy the cloud resources.
 
@@ -384,7 +383,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
           s3 cp v1/index.html s3://canary-bucket-blue/index.html
         ```
 
-        Command output:
+        Result:
 
         ```
         upload: v1/index.html to s3://canary-bucket-blue/index.html
@@ -397,13 +396,13 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
           s3 cp v2/index.html s3://canary-bucket-green/index.html
         ```
 
-        Command output:
+        Result:
 
         ```
         upload: v2/index.html to s3://canary-bucket-green/index.html
         ```
 
-   - Terraform
+   - {{ TF }}
 
      1. To the configuration file, add the parameters of the `v1/index.html` and `v2/index.html` files uploaded to `canary-bucket-blue` and `canary-bucket-green`, respectively:
 
@@ -423,7 +422,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
         }
         ```
 
-        For more information about the `yandex_storage_object` resource, see the Terraform provider [documentation]({{ tf-provider-link }}/storage_object).
+        For more information about the `yandex_storage_object` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/storage_object).
 
      1. Make sure that the configuration files are correct.
 
@@ -434,7 +433,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
            terraform plan
            ```
 
-        If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+        If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
      1. Deploy the cloud resources.
 
@@ -504,7 +503,7 @@ To create security groups:
     --rule direction=ingress,port=30080,protocol=tcp,v4-cidrs=[198.18.235.0/24,198.18.248.0/24]
   ```
 
-  Command output:
+  Result:
 
   ```
   id: enpd133ngcnrgc8475cc
@@ -556,7 +555,7 @@ To create security groups:
 
   For more information about the `yc vpc security-group create` command, see the [CLI reference](../cli/cli-ref/managed-services/vpc/security-group/create.md).
 
-- Terraform
+- {{ TF }}
 
   1. Add the `canary-sg` security group parameters to the configuration file:
 
@@ -591,7 +590,7 @@ To create security groups:
      }
      ```
 
-     For more information about the `yandex_vpc_security_group` resource, see the Terraform provider [documentation]({{ tf-provider-link }}/vpc_security_group).
+     For more information about the `yandex_vpc_security_group` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/vpc_security_group).
 
   1. Make sure that the configuration files are correct.
 
@@ -602,7 +601,7 @@ To create security groups:
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
   1. Deploy the cloud resources.
 
@@ -641,7 +640,7 @@ To create security groups:
      1. Click **Create**.
 
   1. In a similar way, create a backend group named `canary-bg-staging`. For the `canary-backend-blue` backend, set the weight to `0`, for `canary-backend-green`, set the weight to `100`.
-  1. If you are going to complete the next steps in Terraform, copy the IDs of the backend groups `canary-bg-production` and `canary-bg-staging` from the **Backend groups** tab.
+  1. If you are going to complete the next steps in {{ TF }}, copy the IDs of the backend groups `canary-bg-production` and `canary-bg-staging` from the **Backend groups** tab.
 
 - API
 
@@ -690,7 +689,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
      yc alb http-router create canary-router
      ```
 
-     Command output:
+     Result:
 
      ```
      id: ds7qd0vj01djuu3c6f8q
@@ -709,7 +708,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
        --authority cdn.yandexcloud.example
      ```
 
-     Command output:
+     Result:
 
      ```
      done (1s)
@@ -730,7 +729,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
        --backend-group-name canary-bg-production
      ```
 
-     Command output:
+     Result:
 
      ```
      done (1s)
@@ -757,7 +756,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
        --authority cdn-staging.yandexcloud.example
      ```
 
-     Command output:
+     Result:
 
      ```
      done (1s)
@@ -776,7 +775,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
        --backend-group-name canary-bg-staging
      ```
 
-     Command output:
+     Result:
 
      ```
      done (1s)
@@ -793,7 +792,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
            backend_group_id: ds765atleotaiui5pqeu
      ```
 
-- Terraform
+- {{ TF }}
 
   1. To the configuration file, add parameters of the `canary-router` HTTP router, its virtual hosts and routes:
 
@@ -835,7 +834,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
      }
      ```
 
-     For more information, see the [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host) resource descriptions in the Terraform provider documentation.
+     For more information, see the [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host) resource descriptions in the {{ TF }} provider documentation.
 
   1. Make sure that the configuration files are correct.
 
@@ -846,7 +845,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
   1. Deploy the cloud resources.
 
@@ -899,7 +898,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
      yc vpc network list-subnets canary-network
      ```
 
-     Command output:
+     Result:
 
      ```
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
@@ -919,7 +918,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
      yc vpc security-group get canary-sg | grep "^id"
      ```
 
-     Command output:
+     Result:
 
      ```
      id: enpd133ngcnrgc8475cc
@@ -938,7 +937,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
        --location zone={{ region-id }}-c,subnet-id=<ID of the canary-subnet-{{ region-id }}-c subnet>
      ```
 
-     Command output:
+     Result:
 
      ```
      done (3m0s)
@@ -974,7 +973,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
        --http-router-name canary-router
      ```
 
-     Command output:
+     Result:
 
      ```
      done (43s)
@@ -1011,7 +1010,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
      For more information about the `yc alb load-balancer add-listener` command, see the [CLI reference](../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
 
-- Terraform
+- {{ TF }}
 
   1. Add the parameters of the `canary-balancer` L7 load balancer to the configuration file:
 
@@ -1058,7 +1057,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
      }
      ```
 
-     For more information about the `yandex_alb_load_balancer` resource, see the Terraform provider [documentation]({{ tf-provider-link }}/alb_load_balancer).
+     For more information about the `yandex_alb_load_balancer` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/alb_load_balancer).
 
   1. Make sure that the configuration files are correct.
 
@@ -1069,7 +1068,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
   1. Deploy the cloud resources.
 
@@ -1202,7 +1201,7 @@ To configure DNS:
           --public-visibility
         ```
 
-        Command output:
+        Result:
 
         ```
         id: dns4rq4tadddth4h20qm
@@ -1226,7 +1225,7 @@ To configure DNS:
 
         For more information about the `yc dns zone add-records` command, see the [CLI reference](../cli/cli-ref/managed-services/dns/zone/add-records.md).
 
-   - Terraform
+   - {{ TF }}
 
      1. Add the parameters of the `canary-dns-zone` DNS zone and its CNAME records to the configuration file:
 
@@ -1254,7 +1253,7 @@ To configure DNS:
         }
         ```
 
-        For more information, see the descriptions of the [yandex_dns_zone]({{ tf-provider-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset) resources in the Terraform provider documentation.
+        For more information, see the descriptions of the [yandex_dns_zone]({{ tf-provider-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset) resources in the {{ TF }} provider documentation.
 
      1. Make sure that the configuration files are correct.
 
@@ -1265,7 +1264,7 @@ To configure DNS:
            terraform plan
            ```
 
-        If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+        If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
      1. Deploy the cloud resources.
 
@@ -1318,7 +1317,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
         yc cdn resource list
         ```
 
-        Command output:
+        Result:
 
         ```
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
@@ -1405,7 +1404,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
         yc cdn resource list
         ```
 
-        Command output:
+        Result:
 
         ```
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
@@ -1473,7 +1472,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
           --weight 80
         ```
 
-        Command output:
+        Result:
 
         ```
         done (1s)
@@ -1500,7 +1499,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
           --weight 20
         ```
 
-        Command output:
+        Result:
 
         ```
         done (1s)
@@ -1596,7 +1595,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
         yc cdn resource list
         ```
 
-        Command output:
+        Result:
 
         ```
         +----------------------+--------------------------+--------------------------------+--------------------------------+--------+-------------------------------------------+
@@ -1664,7 +1663,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
           --weight 100
         ```
 
-        Command output:
+        Result:
 
         ```
         done (1s)
@@ -1689,7 +1688,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
           --weight 0
         ```
 
-        Command output:
+        Result:
 
         ```
         done (1s)

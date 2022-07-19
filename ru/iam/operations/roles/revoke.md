@@ -55,6 +55,7 @@
       ```
 
       Где:
+
       * `<role-id>` — идентификатор роли, которую надо отозвать, например `{{ roles-cloud-owner }}`.
       * `<subject-type>` — тип [субъекта](../../concepts/access-control/index.md#subject), у которого отзывается роль.
       * `<subject-id>` — идентификатор субъекта.
@@ -87,9 +88,9 @@
 
       {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
 
-- Terraform
+- {{ TF }}
 
-    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     1. Чтобы отозвать роль у субъекта на ресурс, найдите в конфигурационном файле описание ресурса:
 
@@ -117,7 +118,7 @@
           terraform plan
           ```
 
-       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Разверните облачные ресурсы.
 

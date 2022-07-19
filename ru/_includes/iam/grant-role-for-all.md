@@ -50,9 +50,9 @@
 
     1. {% include [grant-role-folder-via-curl-step](grant-role-folder-via-curl-step.md) %}
 
-- Terraform
+- {{ TF }}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% note alert %}
 
@@ -60,7 +60,7 @@
 
   {% endnote %}
 
-  Чтобы назначить роль на каталог, созданный с помощью Terraform:
+  Чтобы назначить роль на каталог, созданный с помощью {{ TF }}:
 
   1. Опишите в конфигурационном файле параметры роли каталога:
 
@@ -75,7 +75,7 @@
 
      * `members` — список пользователей, которым будет присвоена роль. Чтобы добавить всех пользователей, создайте запись в формате `system:<allUsers|allAuthenticatedUsers>`, где `<allUsers|allAuthenticatedUsers>` — одна из [системных групп](../../iam/concepts/access-control/system-group.md). Обязательный параметр.
 
-     {% cut "Пример назначения роли на каталог с помощью Terraform" %}
+     Пример структуры конфигурационного файла:
 
      ```hcl
      ...
@@ -94,10 +94,8 @@
      }
      ...
      ```
-    
-     {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
   
   1. Проверьте конфигурацию командой:
      ```
@@ -115,7 +113,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
      ```

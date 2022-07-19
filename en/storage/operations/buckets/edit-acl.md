@@ -16,23 +16,13 @@ In addition to [{{ iam-short-name }}](../../../iam/index.yaml), {{ objstorage-na
 
     1. In the **Edit ACL** window, grant or revoke the desired permissions.
 
-- Terraform
+- {{ TF }}
 
-  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Before you start, get [static access keys](../../../iam/operations/sa/create-access-key.md): a private key and key ID used for authentication in {{ objstorage-short-name }}.
 
   1. In the configuration file, describe the parameters of resources that you want to create:
-  
-     * `access_key`: The ID of the static access key.
-     * `secret_key`: The value of the private access key.
-     * `bucket`: Bucket name. Required parameter.
-     * `grant`: [ACL](../../concepts/acl.md) access policy settings. Optional. For access management, use a service account with administrator rights.
-
-       * `id`: User ID.
-       * `type`: System group type.
-       * `permissions`: Types of permissions according to the [ACL](../../concepts/acl.md#permissions-types).
-       * `uri`: System group ID.
 
      ```
      resource "yandex_storage_bucket" "test" {
@@ -53,7 +43,19 @@ In addition to [{{ iam-short-name }}](../../../iam/index.yaml), {{ objstorage-na
      }
      ```
 
-     For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
+     Where:
+
+     * `access_key`: The ID of the static access key.
+     * `secret_key`: The value of the private access key.
+     * `bucket`: Bucket name. Required parameter.
+     * `grant`: [ACL](../../concepts/acl.md) access policy settings. Optional. For access management, use a service account with administrator rights.
+
+       * `id`: User ID.
+       * `type`: System group type.
+       * `permissions`: Types of permissions according to the [ACL](../../concepts/acl.md#permissions-types).
+       * `uri`: System group ID.
+
+     For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
   1. Make sure that the configuration files are correct.
 
@@ -64,7 +66,7 @@ In addition to [{{ iam-short-name }}](../../../iam/index.yaml), {{ objstorage-na
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
   1. Deploy the cloud resources.
 

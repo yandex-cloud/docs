@@ -26,7 +26,7 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
            --max-items 1000)"
      ```
 
-     Command output:
+     Result:
 
      ```json
      {
@@ -60,7 +60,7 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
            --max-items 1000)"
      ```
 
-     Command output:
+     Result:
 
      ```json
      {

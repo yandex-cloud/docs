@@ -229,7 +229,7 @@ yc container registry configure-docker
    yc container image list
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    +----------------------+---------------------+-----------------------------+-------+-----------------+
@@ -256,7 +256,7 @@ yc container registry configure-docker
    kubectl get po
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```
    NAME                           READY  STATUS     RESTARTS  AGE
@@ -269,7 +269,7 @@ yc container registry configure-docker
    kubectl logs hello-ubuntu-5847fb96b4-54g48
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```
    Hi, I'm inside

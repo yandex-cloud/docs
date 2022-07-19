@@ -32,7 +32,7 @@ To delete a disk:
    1. See the description of the CLI's delete disk commands:
 
       ```
-      $ yc compute disk delete --help
+      yc compute disk delete --help
       ```
 
    1. Get a list of disks in the default folder:
@@ -43,7 +43,7 @@ To delete a disk:
    1. Delete the disk:
 
       ```
-      $ yc compute disk delete \
+      yc compute disk delete \
           --name first-disk
       ```
 
@@ -53,22 +53,22 @@ To delete a disk:
 
    To request the list of available disks, use the [list](../../api-ref/Disk/list.md).
 
-- Terraform
+- {{ TF }}
 
-   For more information about Terraform, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   You can delete disks created with Terraform:
+   You can delete disks created with {{ TF }}:
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
    2. Delete resources using the command:
 
       ```
-      $ terraform destroy
+      terraform destroy
       ```
 
       {% note alert %}
 
-      Terraform deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
 
       {% endnote %}
 

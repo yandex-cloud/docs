@@ -4,7 +4,7 @@ Remove a non-replicated disk from a [placement group](../../concepts/disk-placem
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a disk placement group.
    1. Select **{{ compute-name }}**.

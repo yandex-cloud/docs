@@ -51,6 +51,7 @@ You can subscribe a registry to topics of one, multiple, or all devices added to
         ```
 
         Where:
+
         * `--cert` and `--key`: Parameters for authorization using a certificate.
         * `--topic`: Device topic for sending data.
         * `--message`: Message text.
@@ -77,6 +78,7 @@ You can subscribe a registry to topics of one, multiple, or all devices added to
         ```
 
         Where:
+
         * `--username` and `--password`: Parameters for authorization using a username and password.
         * `--topic`: Device topic for sending data.
         * `--message`: Message text.
@@ -117,6 +119,7 @@ The registry will only receive data from devices that send messages to the `$reg
         ```
 
         Where:
+
         * `--cert` and `--key`: Parameters for authorization using a certificate.
         * `--topic`: Registry topic for getting data.
         * `--message`: Message text.
@@ -143,6 +146,7 @@ The registry will only receive data from devices that send messages to the `$reg
         ```
 
         Where:
+
         * `--username` and `--password`: Parameters for authorization using a username and password.
         * `--topic`: Registry topic for getting data.
         * `--message`: Message text.
@@ -187,6 +191,7 @@ Commands from a registry can be given to a specific device or all devices in the
         ```
 
         Where:
+
         * `--cert` and `--key`: Parameters for authorization using a certificate.
         * `--topic`: Device topic for getting commands.
         * `--message`: Message text.
@@ -213,6 +218,7 @@ Commands from a registry can be given to a specific device or all devices in the
         ```
 
         Where:
+
         * `--username` and `--password`: Parameters for authorization using a username and password.
         * `--topic`: Device topic for getting commands.
         * `--message`: Message text.
@@ -253,6 +259,7 @@ Only devices subscribed to the `$registries/<registry ID>/commands` or `$registr
         ```
 
         Where:
+
         * `--cert` and `--key`: Parameters for authorization using a certificate.
         * `--topic`: Registry topic for sending commands.
         * `--message`: Message text.
@@ -279,6 +286,7 @@ Only devices subscribed to the `$registries/<registry ID>/commands` or `$registr
         ```
 
         Where:
+
         * `--username` and `--password`: Parameters for authorization using a username and password.
         * `--topic`: Registry topic for sending commands.
         * `--message`: Message text.

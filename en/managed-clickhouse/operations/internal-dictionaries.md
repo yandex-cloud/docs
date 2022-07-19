@@ -69,7 +69,7 @@ To create a geobase:
    1. Under **DBMS settings**, click **Settings**.
    1. In the **Geobase uri** field, provide a link to the geobase archive in {{ objstorage-full-name }}.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

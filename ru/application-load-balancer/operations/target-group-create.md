@@ -59,10 +59,10 @@ description: 'Для создания целевой группы {{ alb-full-na
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
-  1. Опишите в конфигурационном файле Terraform параметры ресурса, который необходимо создать:
-  
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурса, который необходимо создать:
+
       ```hcl
       resource "yandex_alb_target_group" "foo" {
         name           = "<имя целевой группы>"
@@ -85,6 +85,7 @@ description: 'Для создания целевой группы {{ alb-full-na
       ```
 
       Где:
+
       * `yandex_alb_target_group` — параметры целевой группы:
         * `name` — имя целевой группы.
         * `target` — параметры целевого ресурса:
@@ -96,7 +97,7 @@ description: 'Для создания целевой группы {{ alb-full-na
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
       ```bash
       yc alb target-group list

@@ -27,7 +27,7 @@ _Сервис сканирования находится на стадии [Pre
      yc container registry create --name my-reg
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done
@@ -65,7 +65,7 @@ _Сервис сканирования находится на стадии [Pre
         yc iam service-account create --name service-acc
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         id: ajelabcde12f33nol1v5
@@ -133,7 +133,7 @@ _Сервис сканирования находится на стадии [Pre
      yc serverless function create --name=scan-on-push
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      id: d4ejb1799eko6re4omb1
@@ -169,6 +169,7 @@ _Сервис сканирования находится на стадии [Pre
      ```
 
      Где:
+
      * `function-name` — имя функции, версию которой вы хотите создать.
      * `runtime` — среда выполнения.
      * `entrypoint` — точка входа, указывается в формате `<имя файла с функцией>.<имя обработчика>`.
@@ -177,7 +178,7 @@ _Сервис сканирования находится на стадии [Pre
      * `source-path` — файл c кодом функции.
      * `service-account-id` — идентификатор сервисного аккаунта.
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done (1s)
@@ -247,7 +248,7 @@ _Сервис сканирования находится на стадии [Pre
   * `invoke-function-id` — идентификатор функции.
   * `invoke-function-service-account-id` — идентификатор сервисного аккаунта с правами на вызов функции.
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   id: a1spt834cjmk40si80sp
@@ -287,7 +288,7 @@ _Сервис сканирования находится на стадии [Pre
         yc container registry configure-docker
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         Credential helper is configured in '/home/<user>/.docker/config.json'
@@ -320,7 +321,7 @@ _Сервис сканирования находится на стадии [Pre
         echo <oauth-токен> | docker login --username oauth --password-stdin {{ registry }}
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         Login Succeeded
@@ -341,7 +342,7 @@ _Сервис сканирования находится на стадии [Pre
         yc iam create-token | docker login --username iam --password-stdin {{ registry }}
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         Login Succeeded
@@ -355,7 +356,7 @@ _Сервис сканирования находится на стадии [Pre
    docker pull ubuntu:20.04
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    20.04: Pulling from library/ubuntu
@@ -376,7 +377,7 @@ _Сервис сканирования находится на стадии [Pre
    docker push {{ registry }}/<идентификатор реестра>/ubuntu:20.04
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    The push refers to repository [{{ registry }}/crpu20rpdc2foid8p8b0/ubuntu]
@@ -408,7 +409,7 @@ _Сервис сканирования находится на стадии [Pre
      yc serverless function logs scan-on-push
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      2021-05-18 09:27:43  START RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad Version: b09i2s85a0c1fisjboft
@@ -442,7 +443,7 @@ _Сервис сканирования находится на стадии [Pre
      yc container image list-scan-results --repository-name=<идентификатор реестра>/<имя Docker-образа>
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      +----------------------+----------------------+---------------------+--------+--------------------------------+

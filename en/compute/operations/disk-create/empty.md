@@ -81,9 +81,9 @@ You can create an empty disk of the specified size.
           - fhm5b617fjnj44ovhcun
       ```
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create an empty disk:
 
@@ -101,7 +101,7 @@ You can create an empty disk of the specified size.
       }
       ```
 
-      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
 
    2. Make sure that the configuration files are correct.
 
@@ -112,7 +112,7 @@ You can create an empty disk of the specified size.
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    3. Deploy the cloud resources.
 

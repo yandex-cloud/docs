@@ -21,7 +21,7 @@
    1. Убедитесь, что экспортер запущен и предоставляет метрики. Для этого выполните команду `curl http://localhost:9101/metrics`. Пример работы команды:
 
       ```bash
-      $ curl http://localhost:9101/metrics
+      curl http://localhost:9101/metrics
       # HELP go_gc_duration_seconds A summary of the GC invocation durations.
       # TYPE go_gc_duration_seconds summary
       go_gc_duration_seconds{quantile="0"} 0
@@ -47,7 +47,7 @@
 
 1. Установите и настройте {{unified-agent-full-name}}.
 
-   1. Создайте в домашнем каталоге файл **config.yml**. В файле замените строку `$FOLDER_ID` на идентификатор каталога, в который будут записываться метрики.
+   1. Создайте в домашнем каталоге файл **config.yml**:
 
        **config.yml:**
        ```yaml
@@ -103,6 +103,8 @@
         import:
           - /etc/yandex/unified_agent/conf.d/*.yml
        ```
+
+       Где `$FOLDER_ID` – идентификатор каталога, в который будут записываться метрики.
 
    1. Установите {{unified-agent-short-name}} на свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
 

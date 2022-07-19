@@ -32,7 +32,7 @@ To view a list of internal addresses used in a subnet:
       yc vpc subnet list-used-addresses --name <subnet_name>
       ```
 
-      Output:
+      Result:
 
       ```bash
       +-----------+------------+---------------------------------------+

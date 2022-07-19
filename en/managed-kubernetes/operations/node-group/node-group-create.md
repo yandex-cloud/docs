@@ -47,6 +47,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
      ```
 
      Where:
+
      * `--allowed-unsafe-sysctls`: Permission for group nodes to use [unsafe kernel parameters](../../concepts/index.md#node-group), comma-separated.
      * `--cluster-name`: Name of the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) where the node group is created.
      * `--cores`: The number of vCPUs for the nodes.
@@ -73,7 +74,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
 
      {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
 
-     Command output:
+     Result:
 
      ```bash
      done (1m17s)
@@ -99,16 +100,6 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
 
   To create a [node group](../../concepts/index.md#node-group):
   1. In a configuration file, provide a description of the node group to create:
-     * Node group name.
-     * [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) ID as `cluster_id`.
-     * Node [platform](../../../compute/concepts/vm-platforms.md).
-     * Scaling settings under `scale_policy`.
-
-     {% note warning %}
-
-     The node group configuration file must be in the same folder as the [cluster description file](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create).
-
-     {% endnote %}
 
      Example configuration file structure:
 
@@ -126,6 +117,19 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
        }
      }
      ```
+
+     Where:
+
+     * `node group name`: Node group name.
+     * `cluster_id`: [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) ID as `cluster_id`.
+     * `platform_id`: Node [platform](../../../compute/concepts/vm-platforms.md).
+     * `scale_policy`: Scaling settings under `scale_policy`.
+
+     {% note warning %}
+
+     The node group configuration file must be in the same folder as the [cluster description file](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create).
+
+     {% endnote %}
 
      * To create a node group with a constant number of nodes, add a `fixed_scale` section:
 

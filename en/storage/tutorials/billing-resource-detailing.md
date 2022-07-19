@@ -67,7 +67,7 @@ Install and configure the [AWS CLI](../tools/aws-cli.md).
     < output.csv awk -F, '{n[$2]+=$6} END{for(i in n){print n[i] "\t" i}}' | sort -nrk1
     ```
 
-    Command execution result:
+    Result:
 
     ```bash
     591.206 c8rska9493s55k8bn00n

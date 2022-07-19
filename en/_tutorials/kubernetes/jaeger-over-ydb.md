@@ -29,7 +29,7 @@ In this article, you will learn how to install the Jaeger platform in a [{{ mana
    kubectl get svc | grep ydb-store-agent
    ```
 
-   Expected output:
+   Result:
 
    ```text
    <jaeger-ydb-store-agent application name> ClusterIP 10.2.238.190 ...
@@ -82,7 +82,7 @@ To test Jaeger, use the [HotROD](https://github.com/jaegertracing/jaeger/tree/9f
    kubectl get svc | grep jaeger-ydb-store-query
    ```
 
-   Expected output:
+   Result:
 
    ```text
    <jaeger-ydb-store-query application name>  LoadBalancer  10.2.222.155  130.133.51.247  16686:31189/TCP ...

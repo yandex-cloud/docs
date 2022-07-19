@@ -232,7 +232,7 @@ To set up a local DNS in a {{ k8s }} cluster:
    kubectl apply -f node-local-dns.yaml
    ```
 
-   Expected execution result:
+   Result:
 
    ```text
    serviceaccount/node-local-dns created
@@ -247,7 +247,7 @@ To set up a local DNS in a {{ k8s }} cluster:
    kubectl apply -f node-local-dns-lrp.yaml
    ```
 
-   Expected execution result:
+   Result:
 
    ```text
    ciliumlocalredirectpolicy.cilium.io/Node Local DNS created
@@ -287,7 +287,7 @@ To test the local DNS, a [pod](../concepts/index.md#pod) with `nettool` will be 
    kubectl get pod -o wide -n kube-system | grep 'node-local.*<node name>'
    ```
 
-   Expected execution result:
+   Result:
 
    ```text
    node-local-dns-gv68c  1/1  Running  0  26m  <pod IP address>  <node name>  <none>  <none>
@@ -303,7 +303,7 @@ To test the local DNS from the `nettool` pod, several DNS requests will be execu
    kubectl exec -ti nettool -- curl http://<pod IP address>:9253/metrics | grep coredns_dns_request_count_total
    ```
 
-   Expected execution result:
+   Result:
 
    ```text
    # HELP coredns_dns_request_count_total Counter of DNS requests made per zone, protocol and family.
@@ -322,7 +322,7 @@ To test the local DNS from the `nettool` pod, several DNS requests will be execu
    kubectl exec -ti nettool -- nslookup ya.ru
    ```
 
-   Expected execution result (IP addresses may differ):
+   Result (IP addresses may differ):
 
    ```text
    Name:    kubernetes.default.svc.cluster.local
@@ -349,7 +349,7 @@ To test the local DNS from the `nettool` pod, several DNS requests will be execu
    kubectl exec -ti nettool -- curl http://<pod IP address>:9253/metrics | grep coredns_dns_request_count_total
    ```
 
-   Expected execution result:
+   Result:
 
    ```text
    # HELP coredns_dns_request_count_total Counter of DNS requests made per zone, protocol and family.

@@ -26,7 +26,7 @@ This section provides recommendations on how to ensure [safe operations](../../i
 * [Differentiating access to resources](#resourses).
 
 
-To simplify and automate role-based access management, the {{ iam-short-name }} module (based on Terraform) was designed. It lets you create permission groups for cloud users and has a number of other convenient features. For more information about the {{ iam-short-name }} module and its use cases, see the [solution](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auth_and_access/iam#identity-and-access-management-iam-terraform-module-for-yandexcloud).
+To simplify and automate role-based access management, the {{ iam-short-name }} module (based on {{ TF }}) was designed. It lets you create permission groups for cloud users and has a number of other convenient features. For more information about the {{ iam-short-name }} module and its use cases, see the [solution](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auth_and_access/iam#identity-and-access-management-iam-terraform-module-for-yandexcloud).
 
 ## Centralized management and identity federations {#saml-federation}
 

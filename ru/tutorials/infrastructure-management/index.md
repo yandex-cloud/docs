@@ -1,7 +1,7 @@
 # Руководства по работе с системами управления инфраструктурой
 
-* [Начало работы с Terraform](terraform-quickstart.md)
-* [Загрузка состояний Terraform в Object Storage](terraform-state-storage.md)
+* [Начало работы с {{ TF }}](terraform-quickstart.md)
+* [Загрузка состояний {{ TF }} в {{ objstorage-name }}](terraform-state-storage.md)
 * [Начало работы с Packer](packer-quickstart.md)
 * [Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer](packer-custom-image.md)
 * [Автоматизация сборки образов с помощью Jenkins и Packer](jenkins.md)

@@ -25,6 +25,7 @@ For more information on the subject, see the [Data Processing Addendum](https://
 
 ## ISO certification {#iso}
 
+
 The {{ yandex-cloud }} Information Security Management System (ISMS) satisfies the requirements of the International Organization for Standardization (ISO). The ISMS was audited by an international team from BSI. Based on their findings, {{ yandex-cloud }} was certified ISO 27001, ISO 27017, and ISO 27018 compliant.
 
 ISO 27001 defines the requirements for information security (IS) management systems, including their implementation, operation, maintenance, and regular improvement. The ISO 27001 guidelines help organizations guarantee a high level of security for their core information assets.
@@ -38,6 +39,8 @@ You can read more at:
 * [ISO 27001 certificate](https://storage.yandexcloud.net/yc-compliance/certificates/ISO-27001-EN.pdf).
 * [ISO 27017 certificate](https://storage.yandexcloud.net/yc-compliance/certificates/ISO-27017-EN.pdf).
 * [ISO 27018 certificate](https://storage.yandexcloud.net/yc-compliance/certificates/ISO-27018-EN.pdf).
+
+
 
 
 ## PCI DSS {#pci-dss}
@@ -77,4 +80,5 @@ The {{ yandex-cloud }} platform is a corporate member of the Cloud Security Alli
 A high-level description of the platform’s security measures is available to the public in the [CSA STAR](https://cloudsecurityalliance.org/star/registry/yandex-cloud/services/yandex-cloud/) registry in one of the most popular formats: the Consensus Assessments Initiative Questionnaire (CAIQ) v. 4.
 
 We also participate in the Trusted Cloud Provider program, which reflects our commitment to a holistic approach to security, including the continuous professional development of our employees and active participation in the international professional community.
+
 

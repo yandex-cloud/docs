@@ -19,7 +19,7 @@ To get a list of instance groups:
    1. See the description of the CLI's use instance group command:
 
       ```
-      $ {{ yc-compute-ig }} --help
+      {{ yc-compute-ig }} --help
       ```
 
    1. Get a list of instance groups in the default folder:

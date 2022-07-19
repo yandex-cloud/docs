@@ -80,27 +80,11 @@ To connect to a cluster:
 1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
 1. Install an SSL certificate on the VM: 
 
-   
-   ```bash
-   sudo mkdir --parents {{ crt-local-dir }} && \
-   sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" \
-             --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
-   sudo chmod 655 {{ crt-local-dir }}{{ crt-local-file }}
-   ```
-
+   {% include [install-certificate](../_includes/mdb/mkf/install-certificate.md) %}
 
 1. To send a message to a topic, run the command:
 
-   ```bash
-   echo "test message" | kafkacat -P \
-     -b <broker FQDN>:9091 \
-     -t <topic name> \
-     -X security.protocol=SASL_SSL \
-     -X sasl.mechanisms=SCRAM-SHA-512 \
-     -X sasl.username="<producer username>" \
-     -X sasl.password="<producer password>" \
-     -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
-   ```
+   {% include [default-get-string](../_includes/mdb/mkf/default-send-string.md) %}
 
    In the command, specify the broker FQDN, the topic name, and the username and password of the {{ KF }} account that you created in the previous step.
 
@@ -108,16 +92,7 @@ To connect to a cluster:
 
 1. To get messages from a topic, run the command:
 
-   ```bash
-   kafkacat -C \
-            -b <broker FQDN>:9091 \
-            -t <topic name> \
-            -X security.protocol=SASL_SSL \
-            -X sasl.mechanisms=SCRAM-SHA-512 \
-            -X sasl.username="<consumer username>" \
-            -X sasl.password="<consumer password>" \
-            -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
-   ```
+   {% include [default-get-string](../_includes/mdb/mkf/default-get-string.md) %}
 
    In the command, specify the broker FQDN, the topic name, and the username and password of the {{ KF }} account that you created in the previous step.
 

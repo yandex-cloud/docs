@@ -135,9 +135,9 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
 
       For more information about the `yc cdn resource create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Describe the resource parameters in the `yandex_cdn_resource` configuration file.
 
@@ -162,7 +162,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
 
 
 
-      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
+      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
 
    1. Make sure the settings are correct.
 

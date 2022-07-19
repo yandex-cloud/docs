@@ -28,7 +28,7 @@
      yc container registry delete new-reg
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done
@@ -40,7 +40,7 @@
      yc container registry list
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
       +----+------+-----------+

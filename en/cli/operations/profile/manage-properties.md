@@ -10,20 +10,20 @@ You can manage your profile parameters in the following ways:
 To add or change a profile parameter, use the command:
 
 ```
-$ yc config set <parameter name> <parameter value>
+yc config set <parameter name> <parameter value>
 ```
 
 For example, change the default folder:
 1. [Get information about the current profile parameters](profile-list.md#profile-get).
 1. Change the default folder (`folder-id` parameter):
    ```
-   $ yc config set folder-id b1g68...
+   yc config set folder-id b1g68...
    ```
 1. Make sure that the parameter changed:
 
    
    ```
-   $ yc config list
+   yc config list
    token: AQAAAAAV6O...
    cloud-id: b1gvl...
    folder-id: b1g68...
@@ -38,20 +38,20 @@ View the full [list of profile parameters](../../concepts/core-properties.md). Y
 To delete a profile parameter, use the command:
 
 ```
-$ yc config unset <parameter name>
+yc config unset <parameter name>
 ```
 
 For example, delete the default folder:
 1. [Get information about the current profile parameters](profile-list.md#profile-get).
 1. Delete the default folder (`folder-id` parameter):
    ```
-   $ yc config unset folder-id
+    config unset folder-id
    ```
 1. Make sure that the parameter was deleted:
 
    
    ```
-   $ yc config list
+   yc config list
    token: AQAAAAAV6O...
    cloud-id: b1gvl...
    ```
@@ -66,7 +66,7 @@ For example, view the `test` profile parameters without activating it:
 
 
 ```
-$ yc config list --profile test
+yc config list --profile test
 token: AQAAAAAV6O...
 cloud-id: aoegt...
 folder-id: aoek4...

@@ -94,13 +94,7 @@ To avoid listing all the cluster hosts in a connection string, use a [special ma
 
 - Linux (Bash)
 
-   
-   ```bash
-   mkdir ~/.postgresql && \
-   wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt && \
-   chmod 0600 ~/.postgresql/root.crt
-   ```
-
+  {% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
 
 - Windows (PowerShell)
 

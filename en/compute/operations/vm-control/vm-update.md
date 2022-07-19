@@ -25,7 +25,7 @@ For more information about how to update a VM configuration, see [{#T}](vm-updat
    1. See the description of the CLI's update VM parameter command:
 
       ```
-      $ yc compute instance update --help
+      yc compute instance update --help
       ```
 
    1. Get a list of VMs in the default folder:
@@ -36,7 +36,7 @@ For more information about how to update a VM configuration, see [{#T}](vm-updat
    1. Change the VM parameters, for example, rename it:
 
       ```
-      $ yc compute instance update first-instance \
+      yc compute instance update first-instance \
           --new-name windows-vm
       ```
 
@@ -63,7 +63,7 @@ To view the list of configurable parameters, run the command:
 - CLI
 
    ```
-   $ yc compute instance update --help
+   yc compute instance update --help
    ```
 {% endlist %}
 
@@ -87,7 +87,7 @@ To change the name and description of a VM, follow these steps:
    1. Change the VM's name and description:
 
       ```
-      $ yc compute instance update first-instance \
+      yc compute instance update first-instance \
           --new-name first-vm \
           --description "changed description vm via CLI"
       ```
@@ -116,7 +116,7 @@ To change a VM's metadata, follow these steps:
    1. Get information about the VM with the metadata. All user-defined metadata is specified in the `user-data` key.
 
       ```
-      $ yc compute instance get --full first-instance
+      yc compute instance get --full first-instance
       ```
 
    1. Change the VM's metadata. You can change the metadata using the flags:
@@ -137,7 +137,7 @@ To change a VM's metadata, follow these steps:
       1. Run the command:
 
          ```
-         $ yc compute instance update first-instance \
+         yc compute instance update first-instance \
              --metadata-from-file user-data=metadata.yaml
          ```
 

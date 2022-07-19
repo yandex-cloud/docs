@@ -74,6 +74,7 @@ The `Untagged` rule deletes all images that meet the following conditions:
 ```
 
 Where:
+
 * `description`: Description of the policy rule.
 * `tag_regexp`: Docker image tag for filtering. A `test.*` regular expression for `tag_regexp` lets you get all images with tags starting with `test`.
 * `untagged`: Flag indicating that the rule applies to Docker images without tags.

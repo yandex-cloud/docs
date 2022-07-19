@@ -36,6 +36,7 @@ docker login \
 ```
 
 Где:
+
 * `<тип токена>` — допустимые значения: `oauth`, `iam` или `json_key`.
 * `<токен>` — сам токен.
 * `{{ registry }}` — адрес для аутентификации. Если его не указать, запрос пойдет в сервис по умолчанию — [Docker Hub](https://hub.docker.com).
@@ -98,7 +99,7 @@ docker login \
    yc iam key create --service-account-name default-sa -o key.json
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    id: aje8a87g4e...
@@ -116,15 +117,16 @@ docker login \
      {{ registry }}
    ```
 
-   Результат выполнения команды:
+   Где:
+
+   * `cat key.json` записывает содержимое файла с ключом в поток вывода.
+   * `--password-stdin` позволяет читать пароль из потока ввода.
+
+   Результат:
 
    ```
    Login Succeeded
    ```
-
-   Где:
-   * Команда `cat key.json` записывает содержимое файла с ключом в поток вывода.
-   * Флаг `--password-stdin` позволяет читать пароль из потока ввода.
 
 ### Аутентификация с помощью IAM-токена {#sa-iam}
 
@@ -161,7 +163,7 @@ Docker Engine может хранить учетные данные пользо
    yc container registry configure-docker
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    Credential helper is configured in '/home/<user>/.docker/config.json'

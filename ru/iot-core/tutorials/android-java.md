@@ -281,6 +281,7 @@ mqttAndroidClient.close();
 ```
 
 Где:
+
 * Метод `disconnect` закрывает соединение с сервером. 
 * Метод `close` освобождает ресурсы класса `MqttAndroidClient`.
 

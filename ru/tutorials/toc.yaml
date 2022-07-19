@@ -83,9 +83,9 @@ items:
     items:
       - name: Все руководства
         href: infrastructure-management/index.md
-      - name: Начало работы с {{ TF }}
+      - name: Начало работы с Terraform
         href: infrastructure-management/terraform-quickstart.md
-      - name: Загрузка состояний {{ TF }} в {{ objstorage-name }}
+      - name: Загрузка состояний Terraform в {{ objstorage-name }}
         href: infrastructure-management/terraform-state-storage.md
       - name: Начало работы с Packer
         href: infrastructure-management/packer-quickstart.md

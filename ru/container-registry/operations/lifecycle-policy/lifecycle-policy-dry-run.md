@@ -23,7 +23,7 @@
      yc container repository lifecycle-policy dry-run crp6lg1868p3i0emkv1b
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      dry_run_lifecycle_policy_result_id: crpn27glo1k8r81dveq2
@@ -38,7 +38,7 @@
      yc container repository lifecycle-policy list-dry-run-results crp6lg1868p3i0emkv1b
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      +----------------------+----------------------+-----------------------+---------------------+
@@ -54,7 +54,7 @@
      yc container repository lifecycle-policy get-dry-run-result crpn27glo1k8r81dveq2
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      dry_run_lifecycle_policy_result_id: crpn27glo1k8r81dveq2
@@ -69,7 +69,7 @@
      yc container repository lifecycle-policy list-dry-run-affected-images crpn27glo1k8r81dveq2
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      +----------------------+---------------------+-----------------------------+-------+-----------------+

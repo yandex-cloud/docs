@@ -32,7 +32,7 @@
   1. Посмотрите описание команды CLI для отключения дисков:
   
       ```
-      $ yc compute instance detach-disk --help
+      yc compute instance detach-disk --help
       ```
   
   1. Получите список виртуальных машин в каталоге по умолчанию:
@@ -44,21 +44,21 @@
   1. Получите список дисков, подключенных к виртуальной машине:
   
       ```
-      $ yc compute instance get --full first-instance
+      yc compute instance get --full first-instance
       ```
   
   1. Выберите `disk_id` нужного диска, например `fhm4aq4hvq5g3nepvt9b`.
   1. Отключите диск:
   
       ```
-      $ yc compute instance detach-disk first-instance \
-          --disk-id fhm4aq4hvq5g3nepvt9b
+      yc compute instance detach-disk first-instance \
+        --disk-id fhm4aq4hvq5g3nepvt9b
       ```
       
       Если возникла ошибка, остановите виртуальную машину:
       
       ```
-      $ yc compute instance stop first-instance
+      yc compute instance stop first-instance
       ```
       
       Затем отключите диск повторно.
@@ -66,7 +66,7 @@
   1. Если виртуальная машина была остановлена, запустите ее заново:
   
       ```
-      $ yc compute instance start first-instance
+      yc compute instance start first-instance
       ```
   
 - API

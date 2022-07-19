@@ -80,11 +80,11 @@ For more information, see [{#T}](../concepts/logs.md).
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    When [creating](cluster-create.md) or [updating the cluster](cluster-update.md), add the `dataproc:disable_cloud_logging` property set to `true`.
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 

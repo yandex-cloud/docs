@@ -132,7 +132,7 @@ To use the AWS tools, follow these steps:
    --endpoint https://docapi.serverless.yandexcloud.net/ru-central1/b1g4ej5ju4rf5kelpk4b/etn03ubijq52j860kvgj
    ```
 
-   Output:
+   Result:
 
    ```text
    {

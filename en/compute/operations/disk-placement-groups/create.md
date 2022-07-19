@@ -4,7 +4,7 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a disk placement group.
    1. Select **{{ compute-name }}**.
@@ -24,7 +24,7 @@ Create a [placement group](../../concepts/disk-placement-group.md) for non-repli
       
    1. Click **Create**.
 
-* CLI
+- CLI
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 

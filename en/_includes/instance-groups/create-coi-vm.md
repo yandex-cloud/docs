@@ -51,6 +51,7 @@ To create an instance group based on a {{ coi }}:
      ```
 
      Where:
+
      * `name`: An arbitrary name of the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters.
      * `service_account_id`: Service account ID.
      * `description`: A description of the instance group.
@@ -87,6 +88,7 @@ To create an instance group based on a {{ coi }}:
      {% include [default-unit-size](default-unit-size.md) %}
 
      Where:
+
      * `platform_id`: Platform ID.
      * `memory`: Amount of RAM.
      * `cores`: Number of processor cores (vCPUs).
@@ -116,6 +118,7 @@ To create an instance group based on a {{ coi }}:
      ```
 
      Where:
+
      * `deploy_policy`: Deployment policy for instances in the group.
      * `scale_policy`: Scaling policy for instances in the group.
      * `allocation_policy`: Allocation policy of the instances by zone and region.

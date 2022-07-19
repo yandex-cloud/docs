@@ -31,12 +31,12 @@ description: "После удаления кластера баз данных M
   Чтобы удалить кластер, выполните команду:
   
   ```
-  $ {{ yc-mdb-my }} cluster delete <имя или идентификатор кластера>
+  {{ yc-mdb-my }} cluster delete <имя или идентификатор кластера>
   ```
   
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 

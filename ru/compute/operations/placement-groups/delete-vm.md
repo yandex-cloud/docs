@@ -16,7 +16,7 @@
   
      ```bash
      yc compute placement-group list-instances --name my-group
-	 ```
+     ```
 
      Результат:
 
@@ -33,7 +33,7 @@
   
      ```bash
      yc compute instance stop instance-in-group-2
-	 ```
+     ```
 
      Результат:
 
@@ -53,7 +53,7 @@
   
      ```bash
      yc compute placement-group list-instances --name my-group
-	 ```
+     ```
 
      Результат:
 

@@ -57,6 +57,7 @@
      ```
 
      Где:
+
      * `--name` — имя ВМ.
      * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md).
      * `--create-boot-disk` — параметры [диска](../../compute/concepts/disk.md) ВМ.
@@ -76,7 +77,7 @@
         sudo docker ps -a
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```text
         CONTAINER ID  IMAGE         COMMAND                 CREATED        STATUS        PORTS      NAMES
@@ -95,7 +96,7 @@
         df -H
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```text
         Filesystem  Size  Used  Avail  Use%  Mounted on

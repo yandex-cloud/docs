@@ -13,7 +13,7 @@
    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    "ingress-nginx" has been added to your repositories
@@ -25,7 +25,7 @@
    helm repo update
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    Hang tight while we grab the latest from your chart repositories...
@@ -41,7 +41,7 @@
 helm install ingress-nginx ingress-nginx/ingress-nginx
 ```
 
-Результат выполнения команды:
+Результат:
 
 ```text
 NAME: ingress-nginx
@@ -69,7 +69,7 @@ You can watch the status by running 'kubectl --namespace default get services -o
    kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.6.1/cert-manager.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    customresourcedefinition.apiextensions.k8s.io/certificaterequests.cert-manager.io created
@@ -83,7 +83,7 @@ You can watch the status by running 'kubectl --namespace default get services -o
    kubectl get pods -n cert-manager --watch
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    NAME                                      READY  STATUS   RESTARTS  AGE
@@ -192,7 +192,7 @@ You can watch the status by running 'kubectl --namespace default get services -o
    kubectl get svc
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    NAME                      TYPE          CLUSTER-IP     EXTERNAL-IP     PORT(S)                     AGE

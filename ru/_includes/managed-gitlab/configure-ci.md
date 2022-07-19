@@ -62,7 +62,7 @@
    kubectl logs deployment/hello-world-deployment -n hello-world
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    Hello

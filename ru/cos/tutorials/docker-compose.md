@@ -53,6 +53,7 @@
      ```
 
      Где:
+
      * `--name` — имя ВМ.
      * `--zone` — зона доступности.
      * `--ssh-key` — содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
@@ -70,7 +71,7 @@
         sudo docker ps -a
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```
         CONTAINER ID  IMAGE  COMMAND                 CREATED         STATUS         PORTS               NAMES

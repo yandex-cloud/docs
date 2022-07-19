@@ -186,7 +186,7 @@
          {{ yc-mdb-ch }} version list
          ```
 
-- Terraform
+- {{ TF }}
 
     {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -289,7 +289,7 @@
 
        * {% include notitle [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-mch }}).
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mch }}).
 
     1. Проверьте корректность файлов конфигурации {{ TF }}:
 

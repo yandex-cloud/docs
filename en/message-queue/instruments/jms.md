@@ -13,8 +13,8 @@ Install the AWS SDK for Java by [following the instructions](https://docs.aws.am
 Set the environment variables:
 
 ```
-$ export AWS_ACCESS_KEY_ID="<access key ID>"
-$ export AWS_SECRET_ACCESS_KEY="<secret key>"
+export AWS_ACCESS_KEY_ID="<access key ID>"
+export AWS_SECRET_ACCESS_KEY="<secret key>"
 ```
 
 Create a queue in {{ message-queue-name }} and prepare its URL.

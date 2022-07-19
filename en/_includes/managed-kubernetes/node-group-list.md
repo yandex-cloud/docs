@@ -1,7 +1,7 @@
 To access a node group, use its name or unique ID obtained using the command:
 
 ```
-$ yc managed-kubernetes node-group list
+yc managed-kubernetes node-group list
 +----------------------+----------------------+-------------+----------------------+---------------------+---------+------+
 |          ID          |      CLUSTER ID      |    NAME     |  INSTANCE GROUP ID   |     CREATED AT      | STATUS  | SIZE |
 +----------------------+----------------------+-------------+----------------------+---------------------+---------+------+

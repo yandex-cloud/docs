@@ -20,7 +20,7 @@ You can:
    1. In the list of services, select **{{ mkf-name }}**.
    1. Select a cluster and open the **Connectors** tab.
 
-* API
+- API
 
    Use the [list](../api-ref/Connector/list.md) API method and pass the cluster ID in the `clusterId` request parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -59,7 +59,7 @@ You can:
 
    1. Click **Create**.
 
-* API
+- API
 
    Use the [create](../api-ref/Connector/create.md) API method and pass the following information in the request:
    * In the `clusterId` parameter, the ID of the cluster where you want to create a connector. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -85,7 +85,7 @@ To pause a connector:
    1. Select a cluster and open the **Connectors** tab.
    1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired connector and select **Pause**.
 
-* API
+- API
 
    Use the [pause](../api-ref/Connector/pause.md) API method and pass the following in the request:
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -104,7 +104,7 @@ To pause a connector:
    1. Select a cluster and open the **Connectors** tab.
    1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired connector and select **Resume**.
 
-* API
+- API
 
    Use the [resume](../api-ref/Connector/resume.md) API method and pass the following in the request:
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
@@ -124,7 +124,7 @@ To pause a connector:
    1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired connector and select **Delete**.
    1. Click **Delete**.
 
-* API
+- API
 
    Use the [delete](../api-ref/Connector/delete.md) API method and pass the following in the request:
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).

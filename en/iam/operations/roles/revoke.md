@@ -55,6 +55,7 @@ If you need to temporarily revoke all access rights from a user with a Yandex ac
       ```
 
       Where:
+
       * `<role-id>`: The ID of the role to revoke (such as `{{ roles-cloud-owner }}`).
       * `<subject-type>`: The [subject](../../concepts/access-control/index.md#subject) type to revoke a role from.
       * `<subject-id>`: The subject ID.

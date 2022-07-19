@@ -79,7 +79,7 @@ SFTP server functionality is included in the standard SSH program that comes wit
 1. Open the configuration file with the vi editor. The editor comes with the distribution and doesn't have to be installed. If you aren't familiar with this editor, you can learn more in the [official documentation](https://www.vim.org/docs.php).
 
     ```bash
-    $ sudo vi /etc/ssh/sshd_config
+    sudo vi /etc/ssh/sshd_config
     ```
 
 1. Add the following lines at the end of the file:
@@ -95,7 +95,8 @@ SFTP server functionality is included in the standard SSH program that comes wit
     X11Forwarding no
     ```
 
-    Setting parameters:
+    Where:
+
     * `Match User fuser`: Indicates that all subsequent rows will be applied only when connecting the user `fuser`.
     * `ForceCommand internal-sftp`: Connect the user only in SFTP mode and disable access to the shell.
     * `PasswordAuthentication no`: Disable login and password-based access.
@@ -107,7 +108,7 @@ SFTP server functionality is included in the standard SSH program that comes wit
 1. Output the configuration file without commented or empty lines:
 
     ```bash
-    $ cat /etc/ssh/sshd_config | grep -v -e '^#' -e '^$'
+    cat /etc/ssh/sshd_config | grep -v -e '^#' -e '^$'
     ```
 
 1. Make sure that the output of the previous command matches the following lines:
@@ -144,35 +145,38 @@ SFTP server functionality is included in the standard SSH program that comes wit
 1. Restart the SFTP service for the settings to take effect:
 
     ```bash
-    $ sudo systemctl restart sshd
+    sudo systemctl restart sshd
     ```
 
 1. Create a group for SFTP users:
 
     ```bash
-    $ sudo groupadd ftpusers
+    sudo groupadd ftpusers
     ```
 
 1. Create directories to save files to:
 
     ```bash
-    $ sudo mkdir -p /var/sftp/backups
+    sudo mkdir -p /var/sftp/backups
     ```
+
+    Where:
+
     * `sftp`: The root directory of the SFTP server.
     * `backups`: The directory to store backups on the SFTP server.
 
 1. Set folder permissions so that all users in the `ftpusers` group can write and read files on the SFTP server:
 
     ```bash
-    $ sudo chown root:ftpusers /var/sftp/backups
-    $ sudo chmod 770 /var/sftp/backups
+    sudo chown root:ftpusers /var/sftp/backups
+    sudo chmod 770 /var/sftp/backups
     ```
 
 1. Check whether the permissions are correct:
 
     ```bash
-    $ ls -la /var | grep sftp
-    $ ls -la /var/sftp
+    ls -la /var | grep sftp
+    ls -la /var/sftp
     ```
 
     The result should be as follows:
@@ -187,19 +191,19 @@ SFTP server functionality is included in the standard SSH program that comes wit
 1. Create an SFTP user, like `fuser`:
 
     ```bash
-    $ sudo useradd fuser
+    sudo useradd fuser
     ```
 
 1. Create a password for the SFTP user
 
     ```bash
-    $ sudo passwd fuser
+    sudo passwd fuser
     ```
 
 1. Create SSH keys for the `fuser` user. The command must be run on behalf of the `fuser` user:
 
     ```bash
-    $ sudo runuser -l  fuser -c 'ssh-keygen'
+    sudo runuser -l  fuser -c 'ssh-keygen'
     ```
 
     The key generation process is given below. Leave the `passphrase` field blank.
@@ -232,18 +236,18 @@ SFTP server functionality is included in the standard SSH program that comes wit
 1. Create a file to save the SFTP client's public SSH keys to. Set the necessary permissions.
 
     ```bash
-    $ sudo touch /home/fuser/.ssh/authorized_keys
-    $ sudo chmod 600 /home/fuser/.ssh/authorized_keys
-    $ sudo chown fuser:fuser /home/fuser/.ssh/authorized_keys
+    sudo touch /home/fuser/.ssh/authorized_keys
+    sudo chmod 600 /home/fuser/.ssh/authorized_keys
+    sudo chown fuser:fuser /home/fuser/.ssh/authorized_keys
     ```
 
 1. Make sure that the permissions are set correctly:
 
     ```bash
-    $ ls -la /home/fuser/.ssh/
+    ls -la /home/fuser/.ssh/
     ```
 
-    The output should be as follows:
+    Result:
 
     ```bash
     -rw-------. 1 fuser fuser  421 Aug  7 08:31 authorized_keys
@@ -254,7 +258,7 @@ SFTP server functionality is included in the standard SSH program that comes wit
 1. Add the SFTP user to the SFTP group:
 
     ```bash
-    $ sudo usermod -G ftpusers fuser
+    sudo usermod -G ftpusers fuser
     ```
 
 ## Create a VM for the SFTP client {#create-vm-sftp-client}
@@ -266,19 +270,19 @@ The process for creating a VM for the SFTP client is exactly the same as the one
 1. Create an SSH key pair on the SFTP client. The process is similar to the one described for the `fuser` user in the [previous section](#create-sftp-user):
 
     ```bash
-    $ ssh-keygen
+    ssh-keygen
     ```
 
 1. Output the public key on the SFTP client screen:
 
     ```bash
-    $ cat ~/.ssh/id_rsa.pub
+    cat ~/.ssh/id_rsa.pub
     ```
 
 1. Log in to the SFTP server and open the `/home/fuser/.ssh/authorized_keys` file:
 
     ```bash
-    $ sudo vi /home/fuser/.ssh/authorized_keys
+    sudo vi /home/fuser/.ssh/authorized_keys
     ```
 
 1. Copy the SSH key received on the SFTP client to the end of the file.
@@ -300,13 +304,13 @@ The process for creating a VM for the SFTP client is exactly the same as the one
    1. Enter the following command in the SFTP server terminal by substituting the appropriate value:
 
       ```bash
-      $ ping <SFTP client IP address>
+      ping <SFTP client IP address>
       ```
 
    1. Make sure that packages are sent and received successfully:
 
       ```bash
-      $ ping 84.201.170.171
+      ping 84.201.170.171
       PING 84.201.170.171 (84.201.170.171) 56(84) bytes of data.
       64 bytes from 84.201.170.171: icmp_seq=1 ttl=55 time=8.59 ms
       64 bytes from 84.201.170.171: icmp_seq=2 ttl=55 time=6.32 ms
@@ -336,26 +340,26 @@ To set up the backup process:
 1. Set environment variables for the script to work properly. To do this, open the `~/.bash_profile` file:
 
     ```bash
-    $ vi ~/.bash_profile
+    vi ~/.bash_profile
     ```
 
 1. Add the following lines at the end of the file by substituting the appropriate values:
 
    ```bash
-   $ export SFTP_SERVER=<SFTP client IP address>
-   $ export SFTP_USER='fuser'
+   export SFTP_SERVER=<SFTP client IP address>
+   export SFTP_USER='fuser'
    ```
 
 1. Apply the settings:
 
    ```bash
-   $ source ~/.bash_profile
+   source ~/.bash_profile
    ```
 
 1. Check that you have these variables:
 
    ```bash
-   $ env | grep SFTP
+   env | grep SFTP
    ```
 
     The screen should display:
@@ -368,39 +372,39 @@ To set up the backup process:
 1. Compress all configuration files into a single archive:
 
     ```bash
-    $ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -
+    sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -
     ```
+
+    Where:
+
     * `sudo find /etc -type f -name *.conf -print0`: Search for all `.conf` files from the `/etc` directory.
     * `sudo tar -czf backup.tar.gz --null -T -`: Move the configuration files to the `backup.tar.gz` archive.
 
 1. Send the resulting archive to the SFTP server:
 
    ```bash
-   $ url -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER:
+   url -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER:
    ```
+   
+   Where:
 
-    * `-T`: Upload the `backup.tar.gz` file to a remote server.
-
-    * `$SFTP_SERVER`: A variable that automatically takes the value of the SFTP server IP address.
-
-    * `backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz`: Add the name of the computer to the archive name and the date and time when the archive was created. This will help you navigate the list of backups on the server.
-
-      For example, the name of the archive on the server might look like this: `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz`.
-
-    * `--insecure`: Disable SSL certificate verification by the SFTP server. In this case, traffic within the SSH session is still encrypted.
-
-    * `$SFTP_USER`: A variable that automatically takes the SFTP user value.
+   * `-T`: Upload the `backup.tar.gz` file to a remote server.
+   * `$SFTP_SERVER`: A variable that automatically takes the value of the SFTP server IP address.
+   * `backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz`: Add the name of the computer to the archive name and the date and time when the archive was created. This will help you navigate the list of backups on the server.
+     For example, the name of the archive on the server might look like this: `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz`.
+   * `--insecure`: Disable SSL certificate verification by the SFTP server. In this case, traffic within the SSH session is still encrypted.
+   * `$SFTP_USER`: A variable that automatically takes the SFTP user value.
 
 1. Delete the archive on the SFTP client:
 
    ```bash
-   $ sudo rm -f backup.tar.gz
+   sudo rm -f backup.tar.gz
    ```
 
 All actions for creating a backup can be performed with a single command:
 
 ```bash
-$ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
+sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
 ```
 
 ## Set up a schedule for backups {#schedule}
@@ -410,7 +414,7 @@ To create regular backups of your settings, you can use a built-in program calle
 1. Open the `crontab` file to edit it:
 
    ```bash
-   $ crontab -e
+   crontab -e
    ```
 
 1. Add the following line to run backups daily at 23:00:
@@ -426,13 +430,13 @@ To make sure that a backup is created properly, run the backup and find the copy
 1. Run the backup command on the SFTP client:
 
    ```bash
-   $ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
+   sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
    ```
 
 1. Log in to the SFTP server and make sure that a file that looks like `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz` appeared in the SFTP user's home directory. To do this, run the following command on the SFTP server:
 
    ```bash
-   $ sudo ls /var/sftp/backups
+   sudo ls /var/sftp/backups
    ```
 
 ## Restore settings from a backup {#restore}
@@ -457,32 +461,32 @@ To restore the settings from the backup:
 1. Download the backup from the SFTP server to the SFTP client:
 
    ```bash
-   $ sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP .
+   sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP .
    ```
 
 1. Unpack the archive:
 
    ```bash
-   $ tar -xzf $SFTP_BACKUP
+   tar -xzf $SFTP_BACKUP
    ```
 
 1. Copy the configuration files from the archive to the system (`yes` — avoid entering confirmation when overwriting files):
 
    ```bash
-   $ yes | cp -rfp etc /
+   yes | cp -rfp etc /
    ```
 
 1. Delete the archive and unpacked content:
 
    ```bash
-   $ rm -f $SFTP_BACKUP
-   $ rm -rfd etc
+   rm -f $SFTP_BACKUP
+   rm -rfd etc
    ```
 
 All actions for restoring settings from a backup can be performed with a single command:
 
 ```bash
-$ sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP && yes | cp -rfp etc / && rm -rfd etc && rm -f $SFTP_BACKUP
+sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP && yes | cp -rfp etc / && rm -rfd etc && rm -f $SFTP_BACKUP
 ```
 
 ## Check whether the settings are restored correctly {#check-restore}
@@ -490,7 +494,7 @@ $ sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP 
 To make sure that the configuration files from the archive successfully get into the file system, add a verification block to the command above:
 
 ```bash
-$ sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP && echo "## this is from backup" >> etc/yum.conf && yes | cp -rfp etc / && rm -rfd etc && rm -f $SFTP_BACKUP
+sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP && echo "## this is from backup" >> etc/yum.conf && yes | cp -rfp etc / && rm -rfd etc && rm -f $SFTP_BACKUP
 ```
 
 The `echo "## this is from backup" >> etc/yum.conf` command writes the test phrase "## this is from backup" at the end of the`etc/yum.conf` file unpacked from the archive.
@@ -498,7 +502,7 @@ The `echo "## this is from backup" >> etc/yum.conf` command writes the test phra
 After restoring the backup, run the following command:
 
 ```bash
-$ cat /etc/yum.conf | grep backup
+cat /etc/yum.conf | grep backup
 ```
 
 Make sure that the test phrase is displayed on the screen:

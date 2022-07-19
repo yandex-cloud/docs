@@ -46,15 +46,15 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
    You can [delete](../api-ref/LogGroup/delete.md) a custom log group using the delete API method.
 
-- Terraform
+- {{ TF }}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To delete a log group created with Terraform:
+   To delete a log group created with {{ TF }}:
 
-   1. Open the Terraform configuration file and delete the section with the log group description.
+   1. Open the {{ TF }} configuration file and delete the section with the log group description.
 
-      {% cut "Example log group description in Terraform configuration" %}
+      {% cut "Example log group description in {{ TF }} configuration" %}
 
       ```hcl
       ...
@@ -67,7 +67,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
       {% endcut %}
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
    1. Check the configuration using the command:
 
@@ -87,7 +87,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
 

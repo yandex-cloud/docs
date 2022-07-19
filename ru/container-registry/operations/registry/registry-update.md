@@ -29,7 +29,7 @@
   yc container registry update my-reg --new-name new-reg
   ```
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   id: crp3qleutgksvd1prhvb
@@ -57,7 +57,7 @@
   yc container registry update new-reg --labels new_label=test_label
   ```
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   id: crp3qleutgksvd1prhvb

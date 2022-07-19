@@ -104,7 +104,7 @@ To authenticate from inside a VM on behalf of the linked service account:
    1. Get an IAM token from metadata in Google Compute Engine format:
 
       ```bash
-      $ curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
+      curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
       
       {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
       ```

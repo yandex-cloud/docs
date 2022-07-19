@@ -264,11 +264,12 @@ yc compute instance create \
    {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
    To view records in the log group, run the command:
+
    ```
    yc logging read --group-id=<log_group_ID>
    ```
 
-   * `--group-id`: ID of the `default` log group specified in `spec.yaml`.
+   Where `--group-id` is the ID of the `default` log group specified in `spec.yaml`.
 
 - API
 

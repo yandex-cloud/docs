@@ -16,7 +16,7 @@
    terraform fmt
    ```
 
-   Execution result:
+   Result:
 
    ```
    main.tf

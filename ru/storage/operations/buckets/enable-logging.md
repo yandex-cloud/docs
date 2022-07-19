@@ -22,9 +22,7 @@
 
    - API
 
-     Отправьте запрос методом [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md). В теле запроса укажите:
-     * имя целевого бакета в параметре `<TargetBucket>`, например, `bucket-logs`;
-     * (опционально) префикс, который будет использоваться со всеми [ключами](../../concepts/object.md#key) объектов с логами, в параметре `<TargetPrefix>`. Префикс должен заканчиваться знаком `/`, например, `logs/`.
+     Отправьте запрос методом [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md).
 
      Пример тела HTTP-запроса:
 
@@ -36,6 +34,11 @@
        </LoggingEnabled>
      </BucketLoggingStatus>
      ```
+
+     Где:
+
+     * `<TargetBucket>` – имя целевого бакета;
+     * `<TargetPrefix>` – префикс, который будет использоваться со всеми [ключами](../../concepts/object.md#key) объектов с логами. Должен заканчиваться знаком `/`, например, `logs/`. Необязательный параметр.
 
    {% endlist %}
 

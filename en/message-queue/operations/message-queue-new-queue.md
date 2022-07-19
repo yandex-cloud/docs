@@ -35,7 +35,7 @@ To create a new message queue:
      --endpoint https://message-queue.{{ api-host }}/
    ```
 
-   Output:
+   Result:
 
    ```
    {
@@ -43,7 +43,7 @@ To create a new message queue:
    }
    ```
 
-- Terraform
+- {{ TF }}
 
    {% include [ymq-terraform](../_includes_service/mq-terraform.md) %}
 

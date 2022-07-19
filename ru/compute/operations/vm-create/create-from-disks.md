@@ -88,7 +88,7 @@
   1. Посмотрите описание команды CLI для создания виртуальной машины:
   
       ```
-      $ yc compute instance create --help
+      yc compute instance create --help
       ```
   
   1. Получите список дисков в каталоге по умолчанию:
@@ -99,13 +99,13 @@
   1. Создайте виртуальную машину в каталоге по умолчанию:
   
       ```
-      $ yc compute instance create \
-          --name first-instance \
-          --zone {{ region-id }}-a \
-          --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
-          --use-boot-disk disk-name=first-disk \
-          --attach-disk disk-name=second-disk \
-          --ssh-key ~/.ssh/id_rsa.pub
+      yc compute instance create \
+        --name first-instance \
+        --zone {{ region-id }}-a \
+        --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
+        --use-boot-disk disk-name=first-disk \
+        --attach-disk disk-name=second-disk \
+        --ssh-key ~/.ssh/id_rsa.pub
       ```
   
       Данная команда создаст виртуальную машину:
@@ -125,44 +125,25 @@
   
       ```
       yc compute instance create \
-      --name first-instance \
-      --zone {{ region-id }}-a \
-      --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
-      --use-boot-disk disk-name=first-disk,auto-delete=yes \
-      --attach-disk disk-name=second-disk,auto-delete=yes \
-      --ssh-key ~/.ssh/id_rsa.pub
+        --name first-instance \
+        --zone {{ region-id }}-a \
+        --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
+        --use-boot-disk disk-name=first-disk,auto-delete=yes \
+        --attach-disk disk-name=second-disk,auto-delete=yes \
+        --ssh-key ~/.ssh/id_rsa.pub
       ```
   
 - API
   
   Воспользуйтесь методом [Create](../../api-ref/Instance/create.md) для ресурса `Instance`.
 
-- Terraform
+- {{ TF }}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
 
   Чтобы создать виртуальную машину из набора дисков:
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
-
-       {% note info %}
-
-       Если у вас уже есть подходящие ресурсы (облачная сеть и подсеть), описывать их повторно не нужно. Используйте их имена и идентификаторы в соответствующих параметрах.
-
-       {% endnote %}
-
-     * `yandex_compute_instance` — описание [виртуальной машины](../../concepts/vm.md):
-       * `name` — имя виртуальной машины.
-       * `platform_id` — [платформа](../../concepts/vm-platforms.md).
-       * `resources` — количество ядер vCPU и объем RAM, доступные виртуальной машине. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
-       * `boot_disk` — настройки загрузочного диска. Укажите идентификатор диска. Если у вас нет готового загрузочного диска, укажите [идентификатор публичного образа](../images-with-pre-installed-software/get-list.md) с помощью параметра `image_id`.
-       * `secondary_disk` — дополнительный диск для подключения к виртуальной машине. Укажите идентификатор дополнительного диска. Если диска нет, [создайте](../disk-create/empty.md) его.
-       * `network_interface` — настройка сети. Укажите идентификатор выбранной подсети. Чтобы автоматически назначить виртуальной машине публичный IP-адрес, укажите `nat = true`.
-       * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на виртуальную машину. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md). 
-     * `yandex_vpc_network` — описание [облачной сети](../../../vpc/concepts/network.md#network).
-     * `yandex_vpc_subnet` — описание [подсети](../../../vpc/concepts/network.md#network), к которой будет подключена виртуальная машина.
-
-     Пример структуры конфигурационного файла:
 
      ```
      resource "yandex_compute_instance" "vm-1" {
@@ -206,7 +187,26 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
+     Где:
+
+     * `yandex_compute_instance` — описание [виртуальной машины](../../concepts/vm.md):
+       * `name` — имя виртуальной машины.
+       * `platform_id` — [платформа](../../concepts/vm-platforms.md).
+       * `resources` — количество ядер vCPU и объем RAM, доступные виртуальной машине. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
+       * `boot_disk` — настройки загрузочного диска. Укажите идентификатор диска. Если у вас нет готового загрузочного диска, укажите [идентификатор публичного образа](../images-with-pre-installed-software/get-list.md) с помощью параметра `image_id`.
+       * `secondary_disk` — дополнительный диск для подключения к виртуальной машине. Укажите идентификатор дополнительного диска. Если диска нет, [создайте](../disk-create/empty.md) его.
+       * `network_interface` — настройка сети. Укажите идентификатор выбранной подсети. Чтобы автоматически назначить виртуальной машине публичный IP-адрес, укажите `nat = true`.
+       * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на виртуальную машину. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md). 
+     * `yandex_vpc_network` — описание [облачной сети](../../../vpc/concepts/network.md#network).
+     * `yandex_vpc_subnet` — описание [подсети](../../../vpc/concepts/network.md#network), к которой будет подключена виртуальная машина.
+            
+     {% note info %}
+
+     Если у вас уже есть подходящие ресурсы (облачная сеть и подсеть), описывать их повторно не нужно. Используйте их имена и идентификаторы в соответствующих параметрах.
+
+     {% endnote %}
+
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
 
   2. Проверьте корректность конфигурационных файлов.
 
@@ -214,17 +214,17 @@
      2. Выполните проверку с помощью команды:
 
         ```
-        $ terraform plan
+        terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   3. Разверните облачные ресурсы.
 
      1. Если в конфигурации нет ошибок, выполните команду:
 
         ```
-        $ terraform apply
+        terraform apply
         ```
 
      2. Подтвердите создание ресурсов.

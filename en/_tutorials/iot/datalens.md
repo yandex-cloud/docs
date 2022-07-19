@@ -180,7 +180,7 @@ To test the function:
         Run the command:
 
         ```
-        $ yc iot mqtt subscribe \
+        yc iot mqtt subscribe \
               --username <registry ID> \
               --password <registry password> \
               --topic '$devices/<device ID>/events' \
@@ -188,6 +188,7 @@ To test the function:
         ```
 
         Where:
+
         * `--username` and `--password`: Parameters for authorization using a username and password.
         * `--topic`: Device topic for sending data.
         * `--message`: Message text.

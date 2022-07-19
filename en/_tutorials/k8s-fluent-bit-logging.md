@@ -83,7 +83,7 @@ To set up transfer of logs:
    kubectl apply -f config.yaml
    ```
 
-   Expected execution result:
+   Result:
 
    ```text
    configmap/fluent-bit-config created

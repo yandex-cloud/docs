@@ -92,7 +92,7 @@
    kubectl exec pod -- tail /data/out.txt
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат:
 
    ```text
    Thu Feb 3 04:55:21 UTC 2022
@@ -232,7 +232,7 @@
    kubectl exec pod-restore -- tail /data/out.txt
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат:
 
    ```text
    Thu Feb 3 04:55:21 UTC 2022

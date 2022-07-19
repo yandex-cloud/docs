@@ -13,7 +13,12 @@ Delete the [placement group](../../concepts/placement-groups.md).
    1. View a list of VM instances in the placement group:
 
       ```
-      $ yc compute placement-group list-instances --name my-group
+      yc compute placement-group list-instances --name my-group
+      ```
+
+      Result:
+
+      ```
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
@@ -25,20 +30,25 @@ Delete the [placement group](../../concepts/placement-groups.md).
    1. Delete the instances in the group:
 
       ```
-      $ yc compute instance delete --name instance-in-group-1
-      $ yc compute instance delete --name instance-in-group-2
+      yc compute instance delete --name instance-in-group-1
+      yc compute instance delete --name instance-in-group-2
       ```
 
    1. Delete the placement group:
 
       ```
-      $ yc compute placement-group delete --name my-group
+      yc compute placement-group delete --name my-group
       ```
 
    1. Check that the placement group was deleted:
 
       ```
-      $ yc compute placement-group list
+      yc compute placement-group list
+      ```
+
+      Result:
+
+      ```
       +----+------+----------+
       | ID | NAME | STRATEGY |
       +----+------+----------+

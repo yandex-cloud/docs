@@ -63,11 +63,11 @@
       +----------------------+-------------+
       ```
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% note info %}
 
@@ -80,13 +80,13 @@
    1. In the configuration file, describe the parameters of the resource to create:
 
       * `yandex_iot_core_registry`: Registry parameters:
-         * `name`: Registry name.
-         * `description`: Registry description.
-         * `labels`: Registry labels in `key:value` format.
-         * `passwords`: List of registry passwords for authorization using a [username and password](../../concepts/authorization.md#log-pass).
-         * `certificates`: List of registry certificates for authorization using [certificates](../../concepts/authorization.md#certs).
+        * `name`: Registry name.
+        * `description`: Registry description.
+        * `labels`: Registry labels in `key:value` format.
+        * `passwords`: List of registry passwords for authorization using a [username and password](../../concepts/authorization.md#log-pass).
+        * `certificates`: List of registry certificates for authorization using [certificates](../../concepts/authorization.md#certs).
 
-      Sample resource structure in the configuration file:
+      Example configuration file structure:
 
       ```
       resource "yandex_iot_core_registry" "my_registry" {
@@ -112,7 +112,7 @@
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
+      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
    2. Make sure that the configuration files are correct.
 
@@ -121,7 +121,7 @@
          ```
          terraform plan
          ```
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    3. Deploy the cloud resources.
 

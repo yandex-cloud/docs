@@ -45,8 +45,9 @@
   1. Посмотрите описание команды CLI для изменения группы:
 
      ```
-     $ {{ yc-compute-ig }} update --help
+     {{ yc-compute-ig }} update --help
      ```
+  
   1. Получите список групп виртуальных машин в каталоге по умолчанию:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
@@ -91,7 +92,7 @@
   1. Обновите группу виртуальных машин в каталоге по умолчанию:
 
       ```
-      $ {{ yc-compute-ig }} update --name first-group --file group.yaml
+      {{ yc-compute-ig }} update --name first-group --file group.yaml
       ```
 
      {{ ig-name }} запустит операцию изменения группы виртуальных машин.

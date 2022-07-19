@@ -207,7 +207,7 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
       * (Optional) `timeout`: Script execution timeout (in seconds). The initialization script that runs longer than the specified time will be terminated.
       * (Optional) `args`: Arguments, enclosed in square brackets and separated by commas, with which an initialization script must be executed.
 
-- Terraform
+- {{ TF }}
 
   
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -378,7 +378,7 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
       }
       ```
 
-      For more information about the resources that you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
 
    1. Check the {{ TF }} configuration files for errors:
 

@@ -14,7 +14,7 @@
   
      ```bash
      yc compute placement-group list-instances --name my-group
-	 ```
+     ```
 
      Результат:
 
@@ -44,7 +44,7 @@
      
      ```bash
      yc compute placement-group list
-	 ```
+     ```
 
      Результат:
 

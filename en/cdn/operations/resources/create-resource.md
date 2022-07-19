@@ -120,7 +120,7 @@ To create a [resource](../../concepts/resource.md):
 
       For more information about the `yc cdn resource create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
 
-- Terraform
+- {{ TF }}
 
    Make sure the CDN provider is activated before you start using CDN resources. You can activate it in the [management console]({{ link-console-main }}) or using the [YC CLI](../../../cli/quickstart.md) command:
 
@@ -128,18 +128,10 @@ To create a [resource](../../concepts/resource.md):
    yc cdn provider activate --folder-id <folder ID> --type gcore
    ```
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the parameters of the CDN resource to create:
 
-      * `cname`: The primary domain name used for content distribution. Required parameter.
-      * `active`: A flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, defaults to `True`.
-      * `origin_protocol`: Origin protocol. Optional parameter, defaults to `http`.
-      * `secondary_hostnames`: Additional domain names. Optional.
-      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
-
-      Example configuration file structure:
-   
       
       ```hcl
       terraform {
@@ -168,10 +160,18 @@ To create a [resource](../../concepts/resource.md):
       ```
 
 
-   
-      For more information about `yandex_cdn_resource` parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+      Where:
+
+      * `cname`: The primary domain name used for content distribution. Required parameter.
+      * `active`: A flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, defaults to `True`.
+      * `origin_protocol`: Origin protocol. Optional parameter, defaults to `http`.
+      * `secondary_hostnames`: Additional domain names. Optional.
+      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
+   
+      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
+
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
    1. Check the configuration using the command:
       ```
@@ -189,7 +189,7 @@ To create a [resource](../../concepts/resource.md):
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
       ```

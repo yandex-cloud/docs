@@ -178,7 +178,7 @@ To read a record from the `Series` table:
       java -jar target/release/SeriesItemOps02.jar
       ```
 
-      Output:
+      Result:
 
       ```text
       Attempting to obtain record...
@@ -233,7 +233,7 @@ To read a record from the `Series` table:
       python SeriesItemOps02.py
       ```
 
-      Output:
+      Result:
 
       ```text
       Record obtained:
@@ -316,7 +316,7 @@ To read a record from the `Series` table:
       php SeriesItemOps02.php
       ```
 
-      Output:
+      Result:
 
       ```text
       {
@@ -396,7 +396,7 @@ To read a record from the `Series` table:
       node SeriesItemOps02.js
       ```
 
-      Output:
+      Result:
 
       ```text
       Record read successfully: {
@@ -477,7 +477,7 @@ To read a record from the `Series` table:
       ruby SeriesItemOps02.rb
       ```
 
-      Output:
+      Result:
 
       ```text
       Getting information about 'Supernatural (3)' from table 'Series'...

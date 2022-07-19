@@ -30,7 +30,7 @@ To create a table named `series` with `series_id` as the partition key and `titl
        --endpoint $endpoint
    ```
 
-   Output:
+   Result:
 
    ```text
    {

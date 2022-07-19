@@ -28,7 +28,7 @@ To get a list of disk images:
       yc compute image list
       ```
 
-      Output:
+      Result:
 
       ```bash
       +----------------------+-------------+--------+-------------+--------+

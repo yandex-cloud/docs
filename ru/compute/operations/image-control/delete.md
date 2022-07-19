@@ -29,7 +29,7 @@
   1. Посмотрите описание команд CLI для удаления образов:
   
       ```
-      $ yc compute image delete --help
+      yc compute image delete --help
       ```
   
   1. Получите список образов в каталоге по умолчанию:
@@ -40,26 +40,26 @@
   1. Удалите образ:
   
       ```
-      $ yc compute image delete \
-          --name first-image
+      yc compute image delete \
+        --name first-image
       ```
 
-- Terraform
+- {{ TF }}
 
-  Подробнее о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  Если вы создавали образ с помощью Terraform, вы можете удалить его:
+  Если вы создавали образ с помощью {{ TF }}, вы можете удалить его:
 
-  1. В командной строке перейдите в папку, где расположен конфигурационный файл Terraform.
+  1. В командной строке перейдите в папку, где расположен конфигурационный файл {{ TF }}.
   1. Удалите ресурсы с помощью команды:
 
       ```
-      $ terraform destroy
+      terraform destroy
       ```
 
       {% note alert %}
 
-      Terraform удалит все ресурсы, созданные в текущей конфигурации: кластеры, сети, подсети, виртуальные машины и т. д.
+      {{ TF }} удалит все ресурсы, созданные в текущей конфигурации: кластеры, сети, подсети, виртуальные машины и т. д.
 
       {% endnote %}
 

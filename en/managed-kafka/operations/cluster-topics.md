@@ -61,7 +61,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
       If necessary, specify the [topic settings](../concepts/settings-list.md#topic-settings) here.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -176,7 +176,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
         --replication-factor <replication factor>
       ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -259,7 +259,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
       {{ yc-mdb-kf }} topic delete <topic name> --cluster-name <cluster name>
       ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

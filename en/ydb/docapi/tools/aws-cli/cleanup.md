@@ -24,7 +24,7 @@ If you don't need the `series` table any more, delete it:
        --endpoint $endpoint
    ```
 
-   Output:
+   Result:
 
    ```text
    {

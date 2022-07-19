@@ -297,21 +297,21 @@ sudo netplan apply
 1. Проверьте, что на облачных хостах `forwarder1`, `forwarder2` и `test1` выполняется распознавание имен во внутренней зоне `corp.example.net`:
 
     ```bash
-    $ host ns1.corp.example.net
+    host ns1.corp.example.net
     ns1.corp.example.net has address 172.16.1.5
     ```
 
 1. Проверьте, что на облачных хостах `forwarder1`, `forwarder2` и `test1` выполняется распознавание имен в публичных зонах, например:
 
     ```bash
-    $ host cisco.com
+    host cisco.com
     cisco.com has address 72.163.4.185
     ...
     ```
 1. Проверьте, что на корпоративных DNS-серверах `ns1` и `ns2` выполняется распознавание внутренних имен {{ yandex-cloud }}, например:
 
     ```bash
-    $ host ns.internal
+    host ns.internal
     ns.internal has address 10.130.0.2
     ```
 

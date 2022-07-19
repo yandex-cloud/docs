@@ -46,11 +46,11 @@ To delete a target group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. Open the Terraform configuration file and delete the fragment with the target group description.
+   1. Open the {{ TF }} configuration file and delete the fragment with the target group description.
 
-      Sample target group description in the Terraform configuration:
+      Sample target group description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_alb_target_group" "foo" {

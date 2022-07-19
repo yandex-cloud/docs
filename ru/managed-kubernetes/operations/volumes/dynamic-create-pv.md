@@ -47,7 +47,7 @@
       kubectl create -f pvc-dynamic.yaml
       ```
 
-      Результат выполнения команды:
+      Результат:
 
       ```
       persistentvolumeclaim/pvc-dynamic created
@@ -59,7 +59,7 @@
       kubectl describe persistentvolumeclaim pvc-dynamic
       ```
 
-      Результат выполнения команды:
+      Результат:
 
       
       ```
@@ -108,7 +108,7 @@
    kubectl create -f pod.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```
    pod/pod created
@@ -120,7 +120,7 @@
    kubectl describe pod pod
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```
    Name:         pod
@@ -151,7 +151,7 @@
      kubectl describe persistentvolumeclaim pvc-dynamic
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      
      ```

@@ -81,7 +81,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
       {{ mpg-short-name }} will run the update host class command for the cluster.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -163,7 +163,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
            --disk-size <storage size in GB>
       ```
 
-- Terraform
+- {{ TF }}
 
    To increase a cluster's storage size:
 
@@ -261,7 +261,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {{ mpg-short-name }} runs the update cluster settings operation.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -364,7 +364,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -510,7 +510,7 @@ To switch the master:
 
    You can request the replica host name with a [list of cluster hosts](hosts.md#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -621,7 +621,7 @@ To switch the master:
           --security-group-ids <security group list>
       ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

@@ -8,7 +8,7 @@ The size of a non-replicated disk must be a multiple of 93 GB.
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a disk.
    1. Select **{{ compute-name }}**.
@@ -30,7 +30,7 @@ The size of a non-replicated disk must be a multiple of 93 GB.
    1. Specify the desired disk size.
    1. Click **Create disk**.
 
-* CLI
+- CLI
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
@@ -73,7 +73,7 @@ You can only create a disk in an existing disk placement group.
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a disk.
    1. Select **{{ compute-name }}**.
@@ -92,7 +92,7 @@ You can only create a disk in an existing disk placement group.
    1. Specify the desired disk size.
    1. Click **Create disk**.
 
-* CLI
+- CLI
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 

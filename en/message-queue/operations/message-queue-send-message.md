@@ -15,7 +15,7 @@ To send a message to a queue:
      --queue-url https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002l034r/sample-queue
    ```
 
-   Output:
+   Result:
 
    ```
    {

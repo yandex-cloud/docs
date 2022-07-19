@@ -117,7 +117,7 @@ cisco-router(config)#username test-user privilege 15
    You can compare the key hash on the router with the key hash on your computer:
 
    ```
-   $ ssh-keygen -E md5 -lf <path to the file with public key>.pub
+   ssh-keygen -E md5 -lf <path to the file with public key>.pub
    ```
 
 1. Set a password for privileged mode:
@@ -132,7 +132,7 @@ cisco-router(config)#username test-user privilege 15
 1. Run the following command on your computer:
 
    ```
-   $ ssh -i <path to the file with the private key> test-user@<public IP address of the router> 
+   ssh -i <path to the file with the private key> test-user@<public IP address of the router> 
    ```
 
    If everything is configured correctly, you will log in to the router under `test-user`. If the connection is not established, make sure that the router is configured correctly in the serial console: the `aaa new-model` command was run, the key hashes are the same on your computer and the router, and password authorization for the test user is disabled. If you can't find the problem, repeat the previous steps.

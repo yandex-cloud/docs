@@ -52,7 +52,7 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
       * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet).
 
 
-- Terraform
+- {{ TF }}
 
    {% note info %}
 
@@ -86,7 +86,7 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -216,7 +216,7 @@ When you delete a shard, all tables and data that are saved on that shard are de
 
    You can request the shard name with a [list of cluster shards](#list-shards) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -232,7 +232,7 @@ When you delete a shard, all tables and data that are saved on that shard are de
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 

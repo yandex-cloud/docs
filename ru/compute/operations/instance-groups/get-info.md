@@ -24,7 +24,7 @@
   1. Посмотрите описание команды CLI для получения информации о группе виртуальных машин:
 
       ```
-      $ {{ yc-compute-ig }} get --help
+      {{ yc-compute-ig }} get --help
       ```
 
   1. Получите список групп виртуальных машин в каталоге по умолчанию:
@@ -35,7 +35,7 @@
   1. Получите информацию о группе виртуальных машин:
 
       ```
-      $ {{ yc-compute-ig }} get --name first-instance-group
+      {{ yc-compute-ig }} get --name first-instance-group
       ```
 
 - API

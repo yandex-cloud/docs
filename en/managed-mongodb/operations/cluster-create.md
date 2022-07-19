@@ -139,11 +139,11 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
    
-   If you don't have Terraform, [install it and configure the  provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the  provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create a cluster:
 
@@ -226,7 +226,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
       1. {% include [maintenance-window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
-      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-mmg }}).
+      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-mmg }}).
 
    1. Make sure the settings are correct.
 
@@ -291,7 +291,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    ```
 
 
-- Terraform
+- {{ TF }}
 
    Let's say we need to create a {{ MG }} cluster and a network for it with the following characteristics:
 

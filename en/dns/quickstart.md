@@ -166,7 +166,7 @@ Make sure that the created record points to the VM's public IP address. Run the 
 host www.example.com ns1.yandexcloud.net.
 ```
 
-Command output:
+Result:
 
 ```
 Using domain server:

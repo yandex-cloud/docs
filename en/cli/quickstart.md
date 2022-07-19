@@ -90,7 +90,11 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 1. Get a list of all cloud networks in the directory specified in your CLI profile:
    ```
    yc vpc network list
+   ```
 
+   Result:
+
+   ```
    +----------------------+------------------+-------------------------+
    |          ID          |       NAME       |       DESCRIPTION       |
    +----------------------+------------------+-------------------------+
@@ -101,7 +105,11 @@ The following steps describe how to create a cloud network, subnet, and virtual 
    Get the same list with more details in YAML format:
    ```
    yc vpc network list --format yaml
+   ```
 
+   Result:
+
+   ```
    - id: skesdqhkc6449hbqqar1
      folder_id: ijkl9012
      created_at: "2018-09-05T09:51:16Z"
@@ -126,7 +134,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
           --zone {{ region-id }}-a \
           --ssh-key ~/.ssh/id_rsa.pub
       ```
-      Pass the path to the public key for SSH access in the `ssh-key` parameter. A user named `yc-user` will be automatically created in the VM's OS with the specified public key.
+      Where `ssh-key` is the path to the public key for SSH access. A user named `yc-user` will be automatically created in the VM's OS with the specified public key.
 1. Connect to the virtual machine over SSH:
    1. Find out the public IP address of the virtual machine. To do this, view detailed information about your virtual machine:
       ```

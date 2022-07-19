@@ -56,9 +56,9 @@ To add a VM to a target group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. Open the Terraform configuration file and add the `target` section with target parameters to the fragment describing the target group:
+   1. Open the {{ TF }} configuration file and add the `target` section with target parameters to the fragment describing the target group:
 
       ```hcl
       resource "yandex_alb_target_group" "foo" {
@@ -86,12 +86,11 @@ To add a VM to a target group:
       }
       ```
 
-      Where:
-      * `yandex_alb_target_group` specifies the target group parameters:
-         * `name`: Target group name.
-         * `target`: Target parameters:
-            * `subnet_id`: ID of the subnet hosting the VM. You can get a list of available subnets using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list`.
-            * `ip_address`: VM's internal IP. You can get a list of internal IP addresses using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list-used-addresses --id <subnet ID>`.
+      Where `yandex_alb_target_group` specifies the target group parameters:
+      * `name`: Target group name.
+      * `target`: Target parameters:
+        * `subnet_id`: ID of the subnet hosting the VM. You can get a list of available subnets using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list`.
+        * `ip_address`: VM's internal IP. You can get a list of internal IP addresses using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list-used-addresses --id <subnet ID>`.
 
       For more information about the `yandex_alb_target_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-targetgroup }}).
    1. Apply the changes:
@@ -158,11 +157,11 @@ To remove a VM from a target group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. Open the Terraform configuration file and delete the `target` section with the IP address of the VM to be removed in the fragment describing the target group:
+   1. Open the {{ TF }} configuration file and delete the `target` section with the IP address of the VM to be removed in the fragment describing the target group:
 
-      Sample target group description in the Terraform configuration:
+      Sample target group description in the {{ TF }} configuration:
 
       ```hcl
       resource "yandex_alb_target_group" "foo" {

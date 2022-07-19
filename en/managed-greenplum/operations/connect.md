@@ -61,13 +61,7 @@ To use an SSL connection, get a certificate:
 
 - Linux (Bash)
 
-   
-   ```bash
-   mkdir ~/.postgresql && \
-   wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt && \
-   chmod 0600 ~/.postgresql/root.crt
-   ```
-
+  {% include [install-certificate](../../_includes/mdb/mgp/install-certificate.md) %}
 
 - Windows (PowerShell)
 

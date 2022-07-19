@@ -92,6 +92,11 @@ Make sure the uploaded image is in the `READY` status.
 
       ```
       yc compute image list
+      ```
+
+      Result:
+
+      ```
       +----------------------+-------------------+--------+-------------+--------+
       |          ID          |       NAME        | FAMILY | PRODUCT IDS | STATUS |
       +----------------------+-------------------+--------+-------------+--------+
@@ -125,31 +130,13 @@ Make sure the uploaded image is in the `READY` status.
 
    Use the [Create](../../api-ref/Instance/create.md) method for the `Instance` resource.
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create a VM from a custom image:
 
    1. In the configuration file, describe the parameters of resources that you want to create:
-
-      {% note info %}
-
-      If you already have suitable resources, such as a cloud network and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
-
-      {% endnote %}
-
-      * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
-         * `name`: VM name.
-         * `platform_id`: The [platform](../../concepts/vm-platforms.md).
-         * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
-         * `boot_disk`: Boot disk settings. Specify the identifier of the [uploaded](../image-create/upload.md) image.
-         * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
-         * `metadata`: In the metadata, pass the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
-      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
-      * `yandex_vpc_subnet`: Description of [subnet](../../../vpc/concepts/network.md#network) your virtual machine will connect to.
-
-      Example configuration file structure:
 
       ```
       resource "yandex_compute_instance" "vm-1" {
@@ -189,7 +176,25 @@ Make sure the uploaded image is in the `READY` status.
       }
       ```
 
-      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-link }}/).
+      Where:
+
+      * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
+         * `name`: VM name.
+         * `platform_id`: The [platform](../../concepts/vm-platforms.md).
+         * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+         * `boot_disk`: Boot disk settings. Specify the identifier of the [uploaded](../image-create/upload.md) image.
+         * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
+         * `metadata`: In the metadata, pass the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
+      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
+      * `yandex_vpc_subnet`: Description of [subnet](../../../vpc/concepts/network.md#network) your virtual machine will connect to.
+
+      {% note info %}
+
+      If you already have suitable resources, such as a cloud network and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
+
+      {% endnote %}
+
+      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
 
@@ -200,7 +205,7 @@ Make sure the uploaded image is in the `READY` status.
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

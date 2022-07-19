@@ -54,12 +54,13 @@ To get a new version of a user certificate:
           --key myupdatedkey.pem
         ```
 
-        Command parameters:
+        Where:
+
           - `--id`: ID of the certificate to renew.
           - `--chain`: Path to the new certificate chain file.
           - `--key`: Path to the file of the new certificate private key.
 
-        Command results:
+        Result:
 
         ```bash
         id: fpqmg47avvimp7rvmp30

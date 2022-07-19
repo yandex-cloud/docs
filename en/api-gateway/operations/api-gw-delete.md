@@ -18,9 +18,7 @@
    yc serverless api-gateway delete --id <API gateway ID>
    ```
 
-   Where:
-
-   * `id`: ID of the API gateway.
+   Where `id` is the ID of the API gateway.
 
    Result:
 

@@ -21,7 +21,7 @@
 
     {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
 
-- Terraform
+- {{ TF }}
 
     * Тип эндпоинта — `postgres_source`.
 
@@ -72,7 +72,7 @@
 
     {% include [On premise PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-postgresql.md) %}
 
-- Terraform
+- {{ TF }}
 
     * Тип эндпоинта — `postgres_source`.
 
@@ -157,7 +157,7 @@
         * `--transfer-before-data` — на первичной стадии трансфера.
         * `--transfer-after-data` — на финальной стадии трансфера.
 
-- Terraform
+- {{ TF }}
 
     * `include_tables` — список включенных таблиц. Будут передаваться данные только таблиц из этого списка.
     * `exclude_tables` — список исключенных таблиц. Данные таблиц из этого списка передаваться не будут.

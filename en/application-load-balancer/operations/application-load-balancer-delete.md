@@ -35,15 +35,15 @@ To delete an L7 load balancer:
       done (1m10s)
       ```
 
-- Terraform
+- {{ TF }}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To delete an L7 load balancer created with Terraform:
+   To delete an L7 load balancer created with {{ TF }}:
 
-   1. Open the Terraform configuration file and delete the fragment with the L7 load balancer description.
+   1. Open the {{ TF }} configuration file and delete the fragment with the L7 load balancer description.
 
-      {% cut "Sample L7 load balancer description in the Terraform configuration" %}
+      {% cut "Sample L7 load balancer description in the {{ TF }} configuration" %}
 
       ```hcl
       ...
@@ -79,7 +79,7 @@ To delete an L7 load balancer:
 
       {% endcut %}
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
    1. Check the configuration using the command:
 
@@ -99,7 +99,7 @@ To delete an L7 load balancer:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
 

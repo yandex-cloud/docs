@@ -30,7 +30,7 @@ sourcePath: overlay/quickstart/document-api/aws-cli/create-table.md
         --endpoint $endpoint
     ```
 
-    Результат выполнения:
+    Результат:
 
     ```text
     {

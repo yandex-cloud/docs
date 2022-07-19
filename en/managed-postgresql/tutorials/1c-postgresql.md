@@ -14,7 +14,7 @@ Select your [host class](../concepts/instance-types.md) based on the number of u
 
 {% list tabs %}
 
-* Manually
+- Manually
 
    [Create](../operations/cluster-create.md#create-cluster) a {{ mpg-name }} cluster of any suitable configuration with the following settings:
 
@@ -31,7 +31,7 @@ Select your [host class](../concepts/instance-types.md) based on the number of u
 
    * **Hosts**: Add at least two more hosts in different availability zones. This provides the fault tolerance of the cluster. The database is automatically replicated. For more information, see [{#T}](../concepts/replication.md).
 
-* Using Terraform
+- Using {{ TF }}
 
    1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
@@ -94,11 +94,11 @@ List of extensions installed in PostgreSQL 10-1с, 11-1с, and 12-1c clusters:
 
 {% list tabs %}
 
-* Manually
+- Manually
 
    If you no longer need these resources, delete the [{{ mpg-name }} cluster](../operations/cluster-delete.md).
 
-* Using Terraform
+- Using {{ TF }}
 
    To delete the infrastructure [created with {{ TF }}](#create-cluster):
 

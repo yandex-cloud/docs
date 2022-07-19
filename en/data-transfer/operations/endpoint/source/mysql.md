@@ -21,7 +21,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mysql-source.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `mysql_source`.
 
@@ -72,7 +72,7 @@ Connecting to the database with an explicitly specified network address and port
 
    {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mysql-source.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `mysql_source`.
 
@@ -136,7 +136,7 @@ Connecting to the database with an explicitly specified network address and port
       * `--transfer-before-data`: When activating transfer.
       * `--transfer-after-data`: When deactivating transfer.
 
-- Terraform
+- {{ TF }}
 
    * `include_table_regex`: List of included tables. Data is only transferred from listed tables. It is set using regular expressions.
 

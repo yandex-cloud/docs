@@ -63,52 +63,52 @@ On the created VM, install the set of components required for the test applicati
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH. You can use the `ssh` tool on Linux and macOS and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
    ```
-   $ ssh <Login>@<Public_IP_of_the_VM>
+   ssh <Login>@<Public_IP_of_the_VM>
    ```
 
 1. Run the `apt update` command to update lists of available packages.
 1. Install the necessary packages (jq JSON processor, git client, PIP package manager, virtualenv virtual environment management system, the set of header files for Python C API, and the nginx web server):
 
    ```
-   $ sudo apt-get --yes install jq git python-pip virtualenv python-dev nginx-full
+   sudo apt-get --yes install jq git python-pip virtualenv python-dev nginx-full
    ```
 
 1. Create the folder where the application will be located and make the user you used for connecting to the VM the owner of the folder:
 
    ```
-   $ sudo mkdir /srv/test-app
-   $ sudo chown -R $USER /srv/test-app
+   sudo mkdir /srv/test-app
+   sudo chown -R $USER /srv/test-app
    ```
 
 1. Go to the folder and create a virtualenv virtual environment in it:
 
    ```
-   $ cd /srv/test-app
-   $ virtualenv test-venv
+   cd /srv/test-app
+   virtualenv test-venv
    ```
 
 1. Activate the virtual environment:
 
    ```
-   $ . test-venv/bin/activate
+   . test-venv/bin/activate
    ```
 
 1. Install the Flask framework and the uWSGI web server in the virtual environment:
 
    ```
-   $ pip install flask uwsgi
+   pip install flask uwsgi
    ```
 
 1. Deactivate the virtual environment:
 
    ```
-   $ deactivate
+   deactivate
    ```
 
 1. Create the `api.py` file in the `/srv/test-app` folder:
 
    ```
-   $ touch api.py
+   touch api.py
    ```
 
 1. Open the `api.py` file using any text editor, and insert the Python code that:
@@ -147,7 +147,7 @@ On the created VM, install the set of components required for the test applicati
 1. Create the `wsgi.py` file in the `/srv/test-app` folder:
 
    ```
-   $ touch wsgi.py
+   touch wsgi.py
    ```
 
 1. Open the `wsgi.py` file using any text editor and insert the code that runs the test application:
@@ -163,7 +163,7 @@ On the created VM, install the set of components required for the test applicati
 1. Create the `test-app.ini` file in the `/srv/test-app` folder:
 
    ```
-   $ touch test-app.ini
+   touch test-app.ini
    ```
 
 1. Open the `test-app.ini` file using any text editor and insert the configuration of the uWSGI server:
@@ -186,7 +186,7 @@ On the created VM, install the set of components required for the test applicati
 1. Assign the `www-data` user as the owner of the `/srv/test-app` folder and the files it contains:
 
    ```
-   $ sudo chown -R www-data:www-data /srv/test-app
+   sudo chown -R www-data:www-data /srv/test-app
    ```
 
 1. Prepare the service to start your uWSGI server. To do this, make the `/etc/systemd/system/test-app.service` file look like this:
@@ -229,19 +229,19 @@ On the created VM, install the set of components required for the test applicati
 1. Create a symbolic link that points to the nginx configuration file `test-app.conf`:
 
    ```
-   $ sudo ln -s /etc/nginx/sites-available/test-app.conf /etc/nginx/sites-enabled/
+   sudo ln -s /etc/nginx/sites-available/test-app.conf /etc/nginx/sites-enabled/
    ```
 
 1. Delete the symbolic link that points to the default nginx configuration:
 
    ```
-   $ sudo unlink /etc/nginx/sites-enabled/default
+   sudo unlink /etc/nginx/sites-enabled/default
    ```
 
 1. Add the service to the system autorun list:
 
    ```
-   $ sudo systemctl enable test-app.service
+   sudo systemctl enable test-app.service
    ```
 
 ## 3. Check that the test application is working {#test-app}
@@ -342,19 +342,19 @@ Runner is a tool for performing tasks that a user creates. You need to install R
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM with GitLab over SSH.
 
    ```
-   $ ssh <Login>@<Public_IP_of_the_GitLab_VM>
+   ssh <Login>@<Public_IP_of_the_GitLab_VM>
    ```
 
 1. Add the new repository to the package manager:
 
    ```
-   $ curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
+   curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
    ```
 
 1. Install the Runner that will run your CI scripts:
 
    ```
-   $ sudo apt-get -y install gitlab-runner
+   sudo apt-get -y install gitlab-runner
    ```
 
 1. Register the Runner:
@@ -366,7 +366,7 @@ Runner is a tool for performing tasks that a user creates. You need to install R
    * In the step `Please enter the executor`, specify `shell`.
 
    ```
-   $ sudo gitlab-runner register
+   sudo gitlab-runner register
    Runtime platform                                    arch=amd64 os=linux pid=8197 revision=3afdaba6 version=11.5.0
    Running in system-mode.
 
@@ -387,14 +387,14 @@ Runner is a tool for performing tasks that a user creates. You need to install R
 1. Install the {{ yandex-cloud }} CLI so that the CI script can create VMs:
 
    ```
-   $ curl https://{{ s3-storage-host }}{{ yc-install-path }} --output install.sh
-   $ sudo bash install.sh -n -i /opt/{{ product }}
+   curl https://{{ s3-storage-host }}{{ yc-install-path }} --output install.sh
+   sudo bash install.sh -n -i /opt/{{ product }}
    ```
 
 1. To perform functional testing, install the `pytest` package:
 
    ```
-   $ sudo apt-get install python-pytest
+   sudo apt-get install python-pytest
    ```
 
 1. Create the `test.py` file with the functional testing script:

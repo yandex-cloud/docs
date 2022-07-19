@@ -130,8 +130,8 @@
   Выполните команду:
 
   ```bash
-	 sudo apt install nano
-	 ```
+  sudo apt install nano
+  ```
 		
   Дождитесь установки редактора.	
 

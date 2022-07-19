@@ -32,7 +32,7 @@ description: "Удалить можно только не подключенны
   1. Посмотрите описание команд CLI для удаления дисков:
 
       ```
-      $ yc compute disk delete --help
+      yc compute disk delete --help
       ```
 
   1. Получите список дисков в каталоге по умолчанию:
@@ -43,8 +43,8 @@ description: "Удалить можно только не подключенны
   1. Удалите диск:
 
       ```
-      $ yc compute disk delete \
-          --name first-disk
+      yc compute disk delete \
+        --name first-disk
       ```
 
 - API
@@ -53,22 +53,22 @@ description: "Удалить можно только не подключенны
 
   Список доступных дисков запрашивайте методом [list](../../api-ref/Disk/list.md).
 
-- Terraform
+- {{ TF }}
 
-  Подробнее о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  Если вы создавали диск с помощью Terraform, вы можете удалить его:
+  Если вы создавали диск с помощью {{ TF }}, вы можете удалить его:
 
-  1. В командной строке перейдите в папку, где расположен конфигурационный файл Terraform.
+  1. В командной строке перейдите в папку, где расположен конфигурационный файл {{ TF }}.
   2. Удалите ресурсы с помощью команды:
 
       ```
-      $ terraform destroy
+      terraform destroy
       ```
 
       {% note alert %}
 
-      Terraform удалит все ресурсы, созданные в текущей конфигурации: кластеры, сети, подсети, виртуальные машины и т. д.
+      {{ TF }} удалит все ресурсы, созданные в текущей конфигурации: кластеры, сети, подсети, виртуальные машины и т. д.
 
       {% endnote %}
 

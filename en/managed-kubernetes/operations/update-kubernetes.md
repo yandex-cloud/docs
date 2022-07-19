@@ -80,6 +80,7 @@ Select automatic update mode for the cluster and set the update schedule:
   ```
 
   Where:
+
   * `--auto-upgrade`: Automatic update mode for the cluster. The default value is `true` (automatic updates are enabled).
   * `--anytime-maintenance-window`: Random update time for the cluster.
   * `--daily-maintenance-window`: **Daily** update mode.
@@ -335,6 +336,7 @@ Select automatic update mode for the node group and set the desired update sched
   ```
 
   Where:
+
   * `--max-expansion`: The maximum number of instances by which you can expand the size of the group when updating it.
   * `--max-unavailable`: The maximum number of instances by which you can reduce the size of the group when updating it.
 

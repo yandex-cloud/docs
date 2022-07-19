@@ -13,8 +13,8 @@ To install boto, follow the instructions in the developer's repository: [boto3](
 Set the environment variables:
 
 ```
-$ export AWS_ACCESS_KEY_ID="<access key ID>"
-$ export AWS_SECRET_ACCESS_KEY="<secret key>"
+export AWS_ACCESS_KEY_ID="<access key ID>"
+export AWS_SECRET_ACCESS_KEY="<secret key>"
 ```
 ## Example {#sample}
 

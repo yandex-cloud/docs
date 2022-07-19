@@ -128,9 +128,9 @@ For information about roles available in {{ yandex-cloud }} and their associated
    * [{#T}](../resource-manager/operations/cloud/set-access-bindings.md)
    * [{#T}](../resource-manager/operations/folder/set-access-bindings.md)
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Describe the properties of the roles to be assigned in the configuration file:
 
@@ -154,7 +154,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
+      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
    2. Make sure that the configuration files are correct.
 
@@ -165,7 +165,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       $ terraform plan
       ```
 
-      If the configuration is described correctly, the terminal displays a list of the roles assigned. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of the roles assigned. If there are errors in the configuration, {{ TF }} points them out.
 
    3. Assign roles.
 
@@ -221,7 +221,7 @@ If you wish to deny a user access to a resource, revoke the relevant roles for t
       yc organization-manager organization list-access-bindings bpf3crucp1v28b74p3rk
       ```
 
-      Output:
+      Result:
 
 
       ```bash
@@ -268,7 +268,7 @@ If you wish to deny a user access to a resource, revoke the relevant roles for t
       curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
       ```
 
-      Output:
+      Result:
 
 
       ```bash

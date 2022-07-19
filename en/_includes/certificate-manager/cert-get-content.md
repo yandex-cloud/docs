@@ -13,7 +13,7 @@ To get the contents of a certificate:
     * `--key`: (Optional) File to save the private key to in PEM format.
 
     ```
-    $ yc certificate-manager certificate content \
+    yc certificate-manager certificate content \
       --id fpqcsmn76v82fi446ri7 \
       --chain certificate_full_chain.pem \
       --key private_key.pem

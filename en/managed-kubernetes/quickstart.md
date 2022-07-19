@@ -57,7 +57,7 @@ To start working with {{ managed-k8s-name }}:
      kubectl config view
      ```
 
-     Execution output:
+     Result:
 
      ```
      apiVersion: v1

@@ -156,12 +156,12 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    
-   If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To create a cluster:
@@ -256,7 +256,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-       {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+      {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
 - API
 
@@ -324,7 +324,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      --deletion-protection=true
    ```
 
-- Terraform
+- {{ TF }}
 
    Let's say we need to create a {{ ES }} cluster with the following characteristics:
 

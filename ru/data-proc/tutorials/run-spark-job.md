@@ -24,7 +24,7 @@ keywords:
 Список файлов можно получить с помощью команды:
 
 ```bash
-$ s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
+s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
 
 2019-09-13 17:17  19327838   s3://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_1.parquet
 2019-09-13 17:17  21120204   s3://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_10.parquet
@@ -108,12 +108,12 @@ Spark Submit позволяет запускать заранее написан
   1. Запустите приложение:
   
      ```bash
-     $ /usr/bin/spark-submit month_stat.py
+     /usr/bin/spark-submit month_stat.py
      ```
   1. Результат работы приложения будет выгружен в HDFS. Список получившихся файлов можно вывести командой:
   
      ```bash
-     $ hdfs dfs -ls /tmp/month_stat
+     hdfs dfs -ls /tmp/month_stat
      ```
 
 - Spark Submit
@@ -170,8 +170,8 @@ Spark Submit позволяет запускать заранее написан
   1. Скомпилируйте и соберите jar-файл:
   
       ```bash
-      $ sbt compile
-      $ sbt package
+      sbt compile
+      sbt package
       ```
 
   1. Запустите получившееся приложение:

@@ -112,12 +112,12 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    
-   If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To create a cluster:
@@ -198,7 +198,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       1. {% include [maintenance-window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
-      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-mmy }}).
+      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-mmy }}).
 
    1. Make sure that the configuration files are correct.
 
@@ -286,7 +286,7 @@ If you specified security group IDs when creating a cluster, you may also need t
         --permissions ALL
       ```
 
-- Terraform
+- {{ TF }}
 
    Let's say we need to create a {{ MY }} cluster and a network for it with the following characteristics:
 

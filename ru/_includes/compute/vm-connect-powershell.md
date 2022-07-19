@@ -26,7 +26,7 @@
     $networkCredential | Select-Object UserName, Password
     ```
 
-    Результат выполнения:
+    Результат:
 
     ```text
     UserName      Password
@@ -61,7 +61,7 @@
     Enter-PSSession @psSession
     ```
 
-    Результат выполнения команды:
+    Результат:
 
     ```text
     [<ip-address>]: PS C:\Users\$myUserName\Documents>
@@ -85,7 +85,7 @@
     Get-PSSession
     ```
 
-    Результат выполнения:
+    Результат:
 
     ```text
     Id Name            ComputerName    ComputerType    State         ConfigurationName     Availability
@@ -104,7 +104,7 @@
     Invoke-Command @invokeCommand
     ```
 
-    Результат выполнения:
+    Результат:
 
     ```text
     Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName                    PSComputerName

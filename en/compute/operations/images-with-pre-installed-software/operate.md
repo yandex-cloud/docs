@@ -18,7 +18,7 @@ You can connect to a VM with your login and password when it is started.
 To get logins and passwords for VMs based on public images, use the following command:
 
 ```
-$ sudo cat /root/default_passwords.txt
+sudo cat /root/default_passwords.txt
 ```
 
 If password authentication is not supported, there won't be a file with passwords.

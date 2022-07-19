@@ -1,10 +1,10 @@
-# Creating a VM and an instance group from a {{ coi }} using Terraform
+# Creating a VM and an instance group from a {{ coi }} using {{ TF }}
 
-To use Terraform to create configurations and run a [VM](../../compute/concepts/vm.md) or an [instance group](../../compute/concepts/instance-groups/index.md) from a [{{ coi }}](../concepts/index.md), follow these steps.
+To use {{ TF }} to create configurations and run a [VM](../../compute/concepts/vm.md) or an [instance group](../../compute/concepts/instance-groups/index.md) from a [{{ coi }}](../concepts/index.md), follow these steps.
 
 ## Before you start {#before-begin}
 
-If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform). In this use case, a configuration file named `example.tf` and located in the `~/yandex-cloud-terraform` directory is used.
+If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform). In this use case, a configuration file named `example.tf` and located in the `~/yandex-cloud-terraform` directory is used.
 
 ## Creating and running a VM from a {{ coi }} {#creating-vm}
 
@@ -42,8 +42,7 @@ If you don't have Terraform, [install it and configure the {{ yandex-cloud }} pr
    }
    ```
 
-   Where:
-   * `subnet_id`: The [subnet](../../vpc/concepts/network.md#subnet) IDs.
+   Where `subnet_id` is the [subnet](../../vpc/concepts/network.md#subnet) IDs.
 
 1. Create a cloud specification file named `cloud_config.yaml` in the `~/yandex-cloud-terraform` directory. Describe the specification:
 
@@ -58,8 +57,7 @@ If you don't have Terraform, [install it and configure the {{ yandex-cloud }} pr
          - "<public SSH key>"
    ```
 
-   Where:
-   * `ssh_authorized_keys` is the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   Where `ssh_authorized_keys` is the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 1. Create a specification file {{ coi }} named `declaration.yaml` in the `~/yandex-cloud-terraform` directory. Describe the specification:
 
@@ -83,7 +81,7 @@ If you don't have Terraform, [install it and configure the {{ yandex-cloud }} pr
 
 ### Create a VM from a {{ coi }} {#create-vm-coi}
 
-Run the VM with a {{ coi }} using the Terraform configuration.
+Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
 {% list tabs %}
 
@@ -103,7 +101,7 @@ Run the VM with a {{ coi }} using the Terraform configuration.
         terraform plan
         ```
 
-        Command execution result:
+        Result:
 
         ```
         Refreshing Terraform state in-memory prior to plan...
@@ -123,7 +121,7 @@ Run the VM with a {{ coi }} using the Terraform configuration.
         terraform apply
         ```
 
-        Command execution result:
+        Result:
 
         ```bash
         data.yandex_compute_image.container-optimized-image: Refreshing state...
@@ -143,7 +141,7 @@ Run the VM with a {{ coi }} using the Terraform configuration.
         Enter a value: yes
         ```
 
-        Command execution result:
+        Result:
 
         ```bash
         yandex_compute_instance.instance-based-on-coi: Creating...
@@ -169,7 +167,7 @@ Run the VM with a {{ coi }} using the Terraform configuration.
         ssh yc-user@<public IP address>
         ```
 
-        Command execution result:
+        Result:
 
         ```
         The authenticity of host '<public IP address> (<public IP address>)' can't be established.
@@ -183,7 +181,7 @@ Run the VM with a {{ coi }} using the Terraform configuration.
         Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
         ```
 
-        Command execution result:
+        Result:
 
         ```bash
         Warning: Permanently added '<public IP address>' (ECDSA) to the list of known hosts.
@@ -201,7 +199,7 @@ Run the VM with a {{ coi }} using the Terraform configuration.
      curl <public IP address>
      ```
 
-     Command execution result:
+     Result:
 
      ```html
      <!DOCTYPE html>
@@ -282,6 +280,7 @@ Run the VM with a {{ coi }} using the Terraform configuration.
 
 
    Where:
+
    * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) to access {{ yandex-cloud }}.
    * `name`: Name of the instance group.
    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md).
@@ -302,7 +301,7 @@ Run the VM with a {{ coi }} using the Terraform configuration.
 
 ### Create an instance group from a {{ coi }} {#create-group-coi}
 
-Run the instance group with a {{ coi }} using the Terraform configuration.
+Run the instance group with a {{ coi }} using the {{ TF }} configuration.
 
 {% list tabs %}
 
@@ -322,7 +321,7 @@ Run the instance group with a {{ coi }} using the Terraform configuration.
         terraform plan
         ```
 
-        Command execution result:
+        Result:
 
         ```
         Refreshing Terraform state in-memory prior to plan...
@@ -342,7 +341,7 @@ Run the instance group with a {{ coi }} using the Terraform configuration.
         terraform apply
         ```
 
-        Command execution result:
+        Result:
 
         ```bash
         data.yandex_compute_image.container-optimized-image: Refreshing state...
@@ -362,7 +361,7 @@ Run the instance group with a {{ coi }} using the Terraform configuration.
         Enter a value: yes
         ```
 
-        Command execution result:
+        Result:
 
         ```bash
         yandex_compute_instance_group.ig-with-coi: Creating...
@@ -389,7 +388,7 @@ Run the instance group with a {{ coi }} using the Terraform configuration.
         ssh yc-user@<public IP address of VM1>
         ```
 
-        Command execution result:
+        Result:
 
         ```
         The authenticity of host '<public IP address of VM1> (<public IP address of VM1>)' can't be established.
@@ -403,7 +402,7 @@ Run the instance group with a {{ coi }} using the Terraform configuration.
         Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
         ```
 
-        Command execution result:
+        Result:
 
         ```bash
         Warning: Permanently added '<public IP address of VM1>' (ECDSA) to the list of known hosts.
@@ -421,7 +420,7 @@ Run the instance group with a {{ coi }} using the Terraform configuration.
      curl <public IP address of VM1>
      ```
 
-     Command execution result:
+     Result:
 
      ```html
      <!DOCTYPE html>

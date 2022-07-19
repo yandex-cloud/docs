@@ -157,20 +157,6 @@ Create a function to get a list of numbers. Read more about functions in the [{{
 
    1. Describe the `yandex_function` resource parameters in the configuration file:
 
-      * `name`: Function name.
-      * `description`: Text description of the function.
-      * `user_hash`: An arbitrary string that identifies the function version. When the function changes, update this string, too. The function will update when this string is updated.
-      * `runtime`: The function [runtime environment](../../functions/concepts/runtime/index.md).
-      * `entrypoint`: Function name in the source code that will serve as an entry point to the applications.
-      * `memory`: The amount of memory allocated for function execution, in MB.
-      * `execution_timeout`: Function execution timeout.
-      * `service_account_id`: ID of the service account that should be used to invoke the function.
-      * `tags`: Function tags.
-      * `content`: Function source code.
-      * `content.0.zip_filename`: Path to the ZIP archive containing the function source code.
-
-      Example configuration file structure:
-
       ```hcl
       resource "yandex_function" "test-function" {
         name               = "test-function"
@@ -187,6 +173,20 @@ Create a function to get a list of numbers. Read more about functions in the [{{
         }
       }
       ```
+
+      Where:
+
+      * `name`: Function name.
+      * `description`: Text description of the function.
+      * `user_hash`: An arbitrary string that identifies the function version. When the function changes, update this string, too. The function will update when this string is updated.
+      * `runtime`: The function [runtime environment](../../functions/concepts/runtime/index.md).
+      * `entrypoint`: Function name in the source code that will serve as an entry point to the applications.
+      * `memory`: The amount of memory allocated for function execution, in MB.
+      * `execution_timeout`: Function execution timeout.
+      * `service_account_id`: ID of the service account that should be used to invoke the function.
+      * `tags`: Function tags.
+      * `content`: Function source code.
+      * `content.0.zip_filename`: Path to the ZIP archive containing the function source code.
 
       For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-link }}/function).
 

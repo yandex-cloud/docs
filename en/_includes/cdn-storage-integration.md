@@ -24,11 +24,11 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Supported tools {#supported-tools}
 
-Most of the steps in the tutorial can be completed in any standard tool: the [management console]({{ link-console-main }}), command line interfaces (CLI) [{{ yandex-cloud }}](../cli/index.yaml) and [AWS](../storage/tools/aws-cli.md), Terraform, and [{{ yandex-cloud }} APIs](../api-design-guide). Each step lists tools supported for it.
+Most of the steps in the tutorial can be completed in any standard tool: the [management console]({{ link-console-main }}), command line interfaces (CLI) [{{ yandex-cloud }}](../cli/index.yaml) and [AWS](../storage/tools/aws-cli.md), {{ TF }}, and [{{ yandex-cloud }} APIs](../api-design-guide). Each step lists tools supported for it.
 
 Some steps don't support certain tools:
 
-* At the moment, you can't use command-line interfaces and Terraform in order to:
+* At the moment, you can't use command-line interfaces and {{ TF }} in order to:
    * [Create a {{ alb-name }} backend group with buckets as backends](#create-l7backend).
    * Get the domain name of a CDN load balancer when [configuring DNS for the service](#configure-dns).
 * Currently, you can't get the domain name of a CDN load balancer when [configuring DNS for the service](#configure-dns).
@@ -77,7 +77,7 @@ To create a network and subnets:
       yc vpc network create example-network
       ```
 
-      Output:
+      Result:
 
       ```
       id: enptrcle5q3d3ktd33hj
@@ -100,7 +100,7 @@ To create a network and subnets:
            --range 10.1.0.0/16
          ```
 
-         Output:
+         Result:
 
          ```
          id: e9bnnssj8sc8mjhat9qk
@@ -122,7 +122,7 @@ To create a network and subnets:
            --range 10.2.0.0/16
          ```
 
-         Output:
+         Result:
 
          ```
          id: e2lghukd9iqo4haidjbt
@@ -144,7 +144,7 @@ To create a network and subnets:
            --range 10.3.0.0/16
          ```
 
-         Output:
+         Result:
 
          ```
          id: b0c3pte4o2kn4v12o05p
@@ -159,9 +159,9 @@ To create a network and subnets:
 
       For more information about the `yc vpc subnet create` command, see the [CLI reference](../cli/cli-ref/managed-services/vpc/subnet/create.md).
 
-- Terraform
+- {{ TF }}
 
-   If you do not have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the parameters of `example-network` and its subnets: `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-c`:
 
@@ -192,7 +192,7 @@ To create a network and subnets:
       }
       ```
 
-      Learn more in the description of the [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) resources in the Terraform provider documentation.
+      Learn more in the description of the [yandex_vpc_network]({{ tf-provider-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
 
    1. Make sure that the configuration files are correct.
 
@@ -203,7 +203,7 @@ To create a network and subnets:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 
@@ -249,7 +249,7 @@ Create a bucket named `example-bucket`:
         s3 mb s3://example-bucket
       ```
 
-      Output:
+      Result:
 
       ```
       make_bucket: s3://example-bucket
@@ -264,7 +264,7 @@ Create a bucket named `example-bucket`:
         --acl public-read
       ```
 
-- Terraform
+- {{ TF }}
 
    1. Add the parameters of the `example-bucket` bucket to the configuration file:
 
@@ -277,7 +277,7 @@ Create a bucket named `example-bucket`:
       }
       ```
 
-      For more information about the `yandex_storage_bucket` resource, see the Terraform provider [documentation]({{ tf-provider-link }}/storage_bucket).
+      For more information about the `yandex_storage_bucket` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/storage_bucket).
 
    1. Make sure that the configuration files are correct.
 
@@ -288,7 +288,7 @@ Create a bucket named `example-bucket`:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 
@@ -346,13 +346,13 @@ Create a bucket named `example-bucket`:
            s3 cp v1/index.html s3://example-bucket/index.html
          ```
 
-         Output:
+         Result:
 
          ```
          upload: v1/index.html to s3://example-bucket/index.html
          ```
 
-   - Terraform
+   - {{ TF }}
 
       1. Add the parameters of the `v1/index.html` file uploaded to the `example-bucket`, to the configuration file:
 
@@ -366,7 +366,7 @@ Create a bucket named `example-bucket`:
          }
          ```
 
-         For more information about the `yandex_storage_object` resource, see the Terraform provider [documentation]({{ tf-provider-link }}/storage_object).
+         For more information about the `yandex_storage_object` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/storage_object).
 
       1. Make sure that the configuration files are correct.
 
@@ -377,7 +377,7 @@ Create a bucket named `example-bucket`:
             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
       1. Deploy the cloud resources.
 
@@ -447,7 +447,7 @@ To create security groups:
      --rule direction=ingress,port=30080,protocol=tcp,v4-cidrs=[198.18.235.0/24,198.18.248.0/24]
    ```
 
-   Output:
+   Result:
 
    ```
    id: enpd133ngcnrgc8475cc
@@ -499,7 +499,7 @@ To create security groups:
 
    For more information about the `yc vpc security-group create` command, see the [CLI reference](../cli/cli-ref/managed-services/vpc/security-group/create.md).
 
-- Terraform
+- {{ TF }}
 
    1. Add the `example-sg` security group parameters to the configuration file:
 
@@ -534,7 +534,7 @@ To create security groups:
       }
       ```
 
-      For more information about the `yandex_vpc_security_group` resource, see the Terraform provider [documentation]({{ tf-provider-link }}/vpc_security_group).
+      For more information about the `yandex_vpc_security_group` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/vpc_security_group).
 
    1. Make sure that the configuration files are correct.
 
@@ -545,7 +545,7 @@ To create security groups:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 
@@ -582,7 +582,7 @@ To create security groups:
          1. In the **Bucket** field, enter the bucket name: `example-bucket`.
       1. Click **Create**.
 
-   1. If you are going to complete the next steps in Terraform, copy the ID of the `example-bg` backend group from the **Backend groups** tab.
+   1. If you are going to complete the next steps in {{ TF }}, copy the ID of the `example-bg` backend group from the **Backend groups** tab.
 
 - API
 
@@ -624,7 +624,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       yc alb http-router create example-router
       ```
 
-      Output:
+      Result:
 
       ```
       id: ds7qd0vj01djuu3c6f8q
@@ -643,7 +643,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
         --authority cdn.yandexcloud.example
       ```
 
-      Output:
+      Result:
 
       ```
       done (1s)
@@ -664,7 +664,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
         --backend-group-name example-bg
       ```
 
-      Output:
+      Result:
 
       ```
       done (1s)
@@ -683,7 +683,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       For more information about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
 
-- Terraform
+- {{ TF }}
 
    1. Add parameters of the `example-router` HTTP router, its virtual hosts and routes, to the configuration file:
 
@@ -710,7 +710,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       }
       ```
 
-      Learn more in the description of the [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host) resources in the Terraform provider documentation.
+      Learn more in the description of the [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host) resources in the {{ TF }} provider documentation.
 
    1. Make sure that the configuration files are correct.
 
@@ -721,7 +721,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 
@@ -774,7 +774,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       yc vpc network list-subnets example-network
       ```
 
-      Output:
+      Result:
 
       ```
       +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
@@ -794,7 +794,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       yc vpc security-group get example-sg | grep "^id"
       ```
 
-      Output:
+      Result:
 
       ```
       id: enpd133ngcnrgc8475cc
@@ -813,7 +813,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
         --location zone={{ region-id }}-c,subnet-id=<ID of example-subnet-{{ region-id }}-c subnet>
       ```
 
-      Output:
+      Result:
 
       ```
       done (3m0s)
@@ -849,7 +849,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
         --http-router-name example-router
       ```
 
-      Output:
+      Result:
 
       ```
       done (43s)
@@ -886,7 +886,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       For more information about the `yc alb load-balancer add-listener` command, see the [CLI reference](../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
 
-- Terraform
+- {{ TF }}
 
    1. Add the parameters of the `example-balancer` L7 load balancer to the configuration file:
 
@@ -933,7 +933,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       }
       ```
 
-      For more information about the `yandex_alb_load_balancer` resource, see the Terraform provider [documentation]({{ tf-provider-link }}/alb_load_balancer).
+      For more information about the `yandex_alb_load_balancer` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/alb_load_balancer).
 
    1. Make sure that the configuration files are correct.
 
@@ -944,7 +944,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 
@@ -1011,7 +1011,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
         --origin source=<load_balancer_IP-address>:80,enabled=true
       ```
 
-      Output:
+      Result:
       ```
       id: "90748"
       folder_id: b1geoelk7fldts6chmjq
@@ -1038,7 +1038,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
         --forward-host-header
       ```
 
-      Output:
+      Result:
       ```
       id: bc843k2yinvq5fhgvuvc
       folder_id: b1ge1elk72ldts6chmjq
@@ -1052,7 +1052,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
 
       For more information about the `yc cdn resource create` command, see the [CLI reference](../cli/cli-ref/managed-services/cdn/resource/create.md).
 
-- Terraform
+- {{ TF }}
 
    1. Add parameters of CDN resources to the configuration file:
       ```hcl
@@ -1083,7 +1083,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       }
       ```
 
-      Learn more in the description of the [yandex_cdn_origin_group]({{ tf-provider-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-link }}/cdn_resource) resources in the Terraform provider documentation.
+      Learn more in the description of the [yandex_cdn_origin_group]({{ tf-provider-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
 
    1. Make sure that the configuration files are correct.
 
@@ -1094,7 +1094,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 
@@ -1177,7 +1177,7 @@ To configure DNS:
            --public-visibility
          ```
 
-         Output:
+         Result:
 
          ```
          id: dns4rq4tadddth4h20qm
@@ -1200,7 +1200,7 @@ To configure DNS:
 
          For more information about the `yc dns zone add-records` command, see the [CLI reference](../cli/cli-ref/managed-services/dns/zone/add-records.md).
 
-   - Terraform
+   - {{ TF }}
 
       1. Add the parameters of the `example-dns-zone` DNS zone and its CNAME records to the configuration file:
 
@@ -1221,7 +1221,7 @@ To configure DNS:
          }
          ```
 
-         Learn more in the description of the [yandex_dns_zone]({{ tf-provider-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset) resources in the Terraform provider documentation.
+         Learn more in the description of the [yandex_dns_zone]({{ tf-provider-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-link }}/dns_recordset) resources in the {{ TF }} provider documentation.
 
       1. Make sure that the configuration files are correct.
 
@@ -1232,7 +1232,7 @@ To configure DNS:
             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
       1. Deploy the cloud resources.
 

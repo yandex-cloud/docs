@@ -68,7 +68,7 @@ To add a subcluster:
 
    {{ dataproc-name }} runs the create subcluster operation.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -132,7 +132,7 @@ You can't delete `DATANODE` subclusters
 
    {{ dataproc-name }} runs the delete subcluster operation.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

@@ -80,11 +80,11 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     При [создании](cluster-create.md) или [изменении кластера](cluster-update.md) добавьте свойство `dataproc:disable_cloud_logging` со значением `true`.
     
-* CLI
+- CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 

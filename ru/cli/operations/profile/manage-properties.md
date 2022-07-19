@@ -10,20 +10,20 @@
 Чтобы добавить или изменить параметр профиля, воспользуйтесь командой: 
 
 ```
-$ yc config set <имя параметра> <значение параметра>
+yc config set <имя параметра> <значение параметра>
 ```
 
 Например, измените каталог по умолчанию:
 1. [Получите информацию о текущих параметрах профиля](profile-list.md#profile-get).
 1. Измените каталог по умолчанию (параметр `folder-id`): 
     ```
-    $ yc config set folder-id b1g68...
+    yc config set folder-id b1g68...
     ```
 1. Проверьте, что параметр действительно изменен:
    
       
    ```
-   $ yc config list
+   yc config list
    token: AQAAAAAV6O...
    cloud-id: b1gvl...
    folder-id: b1g68...
@@ -38,20 +38,20 @@ $ yc config set <имя параметра> <значение параметра
 Чтобы удалить параметр профиля, воспользуйтесь командой: 
 
 ```
-$ yc config unset <имя параметра>
+yc config unset <имя параметра>
 ```
 
 Например, удалите каталог по умолчанию:
 1. [Получите информацию о текущих параметрах профиля](profile-list.md#profile-get).
 1. Удалите каталог по умолчанию (параметр `folder-id`): 
     ```
-    $ yc config unset folder-id
+    yc config unset folder-id
     ```
 1.  Проверьте, что параметр действительно удален:
     
     
     ```
-    $ yc config list
+    yc config list
     token: AQAAAAAV6O...
     cloud-id: b1gvl...
     ```
@@ -66,7 +66,7 @@ $ yc config unset <имя параметра>
 
 
 ```
-$ yc config list --profile test
+yc config list --profile test
 token: AQAAAAAV6O...
 cloud-id: aoegt...
 folder-id: aoek4...

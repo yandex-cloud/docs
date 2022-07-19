@@ -25,8 +25,8 @@ To read metric data, use the [read](../../api-ref/MetricsData/read.md) method.
 1. Send the request and save the response to a file, for example, `output.json`:
 
    ```bash
-   $ export IAM_TOKEN=CggaATEVAgA...
-   $ curl -X POST \
+   export IAM_TOKEN=CggaATEVAgA...
+   curl -X POST \
        -H "Content-Type: application/json" \
        -H "Authorization: Bearer ${IAM_TOKEN}" \
        -d '@body.json' \

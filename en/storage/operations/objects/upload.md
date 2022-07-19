@@ -35,15 +35,16 @@ You cannot upload objects greater than 5 GB in size via the management console (
    ```
 
    Where:
+
    * `<path to local directory>`: Path to the folder on your device that contains the files to copy.
    * `<bucket name>`: Name of your bucket.
    * `<prefix>`: ID of a folder in storage, described in [{#T}](../../concepts/object.md#folder).
 
-- Terraform
+- {{ TF }}
 
    Example of creating an object in an existing bucket.
 
-   If you do not have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    Before you start, retrieve the [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
 
@@ -69,7 +70,7 @@ You cannot upload objects greater than 5 GB in size via the management console (
 
 
 
-      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
+      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
    1. Make sure that the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
@@ -79,7 +80,7 @@ You cannot upload objects greater than 5 GB in size via the management console (
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
       1. If the configuration doesn't contain any errors, run the command:

@@ -110,7 +110,8 @@ Create and execute a [function](../../concepts/function.md) in PHP that welcomes
       --source-path ./hello-php.zip
     ```
 
-    where:
+    Where:
+
     * `--function-name`: The name of the function you want to create a version of.
     * `--runtime`: The runtime environment.
     * `--entrypoint`: The entry point specified in `<function file name>.<handler name>` format.

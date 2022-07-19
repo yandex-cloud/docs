@@ -23,7 +23,7 @@ To get a list of instances:
    1. See the description of the CLI's get instance list command:
 
       ```
-      $ {{ yc-compute-ig }} list-instances --help
+      {{ yc-compute-ig }} list-instances --help
       ```
 
    1. Get a list of instance groups in the default folder:
@@ -34,7 +34,7 @@ To get a list of instances:
    1. Get information about the instance group:
 
       ```
-      $ {{ yc-compute-ig }} list-instances --name first-instance-group
+      {{ yc-compute-ig }} list-instances --name first-instance-group
       ```
 
 - API

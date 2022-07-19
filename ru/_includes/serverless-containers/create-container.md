@@ -35,11 +35,11 @@
 	status: ACTIVE
 	```
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Чтобы создать контейнер и его [ревизию](../../serverless-containers/operations/manage-revision.md):
 
@@ -58,6 +58,8 @@
      * `memory` — объем памяти в МБ, выделенный контейнеру. По умолчанию — 128 МБ.
      * `service_account_id` — идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
      * `url` — URL [Docker-образа](../../container-registry/concepts/docker-image.md) в {{ container-registry-name }}.
+
+     Пример структуры конфигурационного файла:
 
      
      ```hcl
@@ -80,7 +82,7 @@
 
 
 
-     Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
+     Более подробную информацию о параметрах ресурса `yandex_serverless_container` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -91,7 +93,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
 

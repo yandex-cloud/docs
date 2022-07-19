@@ -6,7 +6,7 @@
 
 Установите AWS SDK для PHP [по инструкции](https://aws.amazon.com/ru/sdk-for-php/) на официальном сайте.
 ```
-$ composer require aws/aws-sdk-php-resources
+composer require aws/aws-sdk-php-resources
 ```
 ## Подготовка к работе {#prepare}
 
@@ -15,8 +15,8 @@ $ composer require aws/aws-sdk-php-resources
 Задайте переменные окружения:
 
 ```
-$ export AWS_ACCESS_KEY_ID="<идентификатор ключа доступа>"
-$ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
+export AWS_ACCESS_KEY_ID="<идентификатор ключа доступа>"
+export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 ```
 
 ## Пример {#sample}

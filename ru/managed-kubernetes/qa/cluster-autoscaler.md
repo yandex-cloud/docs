@@ -36,7 +36,7 @@ kubectl annotate pod <имя пода> cluster-autoscaler.kubernetes.io/safe-to-
   kubectl describe node <имя узла> | grep scale-down-disabled
   ```
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   Annotations:        cluster-autoscaler.kubernetes.io/scale-down-disabled: true

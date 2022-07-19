@@ -6,7 +6,7 @@ Using the [AWS SDK for PHP](https://aws.amazon.com/sdk-for-php/), you can manage
 
 Install the AWS SDK for PHP [by following the instructions](https://aws.amazon.com/sdk-for-php/) on the official site.
 ```
-$ composer require aws/aws-sdk-php-resources
+composer require aws/aws-sdk-php-resources
 ```
 ## Before you start {#prepare}
 
@@ -15,8 +15,8 @@ $ composer require aws/aws-sdk-php-resources
 Set the environment variables:
 
 ```
-$ export AWS_ACCESS_KEY_ID="<access key ID>"
-$ export AWS_SECRET_ACCESS_KEY="<secret key>"
+export AWS_ACCESS_KEY_ID="<access key ID>"
+export AWS_SECRET_ACCESS_KEY="<secret key>"
 ```
 
 ## Example {#sample}

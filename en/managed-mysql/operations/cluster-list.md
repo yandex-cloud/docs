@@ -26,7 +26,11 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
    ```
    {{ yc-mdb-my }} cluster list
-   
+   ```
+
+   Result:
+
+   ```
    +----------------------+--------------+---------------------+--------+---------+
    |          ID          |     NAME     |     CREATED AT      | HEALTH | STATUS  |
    +----------------------+--------------+---------------------+--------+---------+

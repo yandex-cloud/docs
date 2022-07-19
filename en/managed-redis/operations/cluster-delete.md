@@ -37,7 +37,7 @@ description: "After deleting a Redis database cluster, its backups are preserved
 
    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md).
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 

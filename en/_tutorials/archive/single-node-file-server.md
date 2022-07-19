@@ -124,7 +124,7 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
    /data <IP address>(rw,no_subtree_check,fsid=100)
    /data 127.0.0.1(rw,no_subtree_check,fsid=100)
    ```
-   Instead of`<IP address>`, specify the IP address of the computer to which you are going to connect the network data disk via NFS.
+   Where `<IP address>` is the IP address of the computer to which you are going to connect the network data disk via NFS.
 
 1. Set the Samba configuration in the `/etc/samba/smb.conf` file. You can edit the file using the `nano` utility:
 
@@ -176,7 +176,7 @@ After the `fileserver-tutorial` VM's status changes to `RUNNING`, do the followi
       hosts deny = 0.0.0.0/0
    ```
 
-   In the `[data]` section, instead of `<IP address>`, specify the IP address of the computer to which you are going to connect the network data disk via NFS.
+   Where `<IP address>` of the `[data]` section is the IP address of the computer to which you are going to connect the network data disk via NFS.
 
 1. Restart Samba and NFS:
 

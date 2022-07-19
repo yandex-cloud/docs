@@ -85,13 +85,13 @@
 
       Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/update.md).    
 
-- Terraform
+- {{ TF }}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  1. Откройте файл конфигурации Terraform и добавьте или измените блок ресурса `yandex_cdn_resource` на `active = false`.
+  1. Откройте файл конфигурации {{ TF }} и добавьте или измените блок ресурса `yandex_cdn_resource` на `active = false`.
 
-     {% cut "Пример описания CDN-ресурса в конфигурации Terraform" %}
+     {% cut "Пример описания CDN-ресурса в конфигурации {{ TF }}" %}
 
       ```hcl
      resource "yandex_cdn_resource" "my_resource" {
@@ -111,9 +111,9 @@
 
      {% endcut %}
 
-      Более подробную информацию о параметрах `yandex_cdn_resource` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/cdn_resource).
+      Более подробную информацию о параметрах `yandex_cdn_resource` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/cdn_resource).
 
-  1. В командной строке перейдите в папку, где расположен конфигурационный файл Terraform.
+  1. В командной строке перейдите в папку, где расположен конфигурационный файл {{ TF }}.
 
   1. Проверьте конфигурацию командой:
      ```
@@ -131,7 +131,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
      ```

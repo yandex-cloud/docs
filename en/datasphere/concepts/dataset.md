@@ -39,9 +39,7 @@ You can create a dataset:
       rm -rf cifar-10-python.tar.gz
       ```
 
-      Where:
-
-      * `<dataset_name>` is the name of the dataset being created.
+      Where `<dataset_name>` is the name of the dataset being created.
 
    - Python 3
 
@@ -73,9 +71,7 @@ You can create a dataset:
       del i, o, tar
       ```
 
-      Where:
-
-      * `<dataset_name>` is the name of the dataset being created.
+      Where `<dataset_name>` is the name of the dataset being created.
 
    {% endlist %}
 
@@ -202,6 +198,4 @@ To delete a dataset named `<dataset_name>`, execute a cell containing the follow
 #pragma dataset delete <dataset_name>
 ```
 
-Where:
-
-* `<dataset_name>` is the name of the dataset to be deleted.
+Where `<dataset_name>` is the name of the dataset to be deleted.

@@ -55,12 +55,12 @@ You can find the most detailed information about {{ MG }} performance in the log
 
 {% list tabs %}
 
-* Management console
+- Management console
 
     1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
     1. Click on the name of the cluster and select the **Logs** tab.
 
-* CLI
+- CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -82,7 +82,7 @@ You can find the most detailed information about {{ MG }} performance in the log
 
         You can get the cluster ID with a [list of clusters in a folder](./cluster-list.md#list-clusters).
 
-* API
+- API
 
     Use the [listLogs](../api-ref/Cluster/listLogs.md) API method and pass the cluster ID in the `clusterId` request parameter.
 

@@ -29,7 +29,7 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
    {{ yc-mdb-kf }} cluster list
    ```
 
-   Output:
+   Result:
 
    ```
    +----------------------+----------+---------------------+--------+---------+

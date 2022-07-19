@@ -52,6 +52,7 @@ To provide access to a [resource](../../../iam/concepts/access-control/resources
 
     
       Where:
+
       * `<service name>`: Name of a `container` service.
       * `<resource>`: Category of the resource (`registry` or `repository`).
       * `<resource name>`: Name of the resource that the role is assigned for. You can specify a resource by its name or ID.

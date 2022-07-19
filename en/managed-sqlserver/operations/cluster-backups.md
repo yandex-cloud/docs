@@ -170,6 +170,8 @@ For a new cluster, you need to set up all [its parameters required at creation](
       {{ yc-mdb-ms }} backup list
       ```
 
+      Result:
+
       ```text
       +-------------------+---------------------+----------------------+---------------------+-----------+
       |        ID         |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | DATABASES |
@@ -273,6 +275,8 @@ When restoring a database from a backup, you create a new database in the curren
       {{ yc-mdb-ms }} backup list
       ```
 
+      Result:
+
       ```text
       +-------------------+---------------------+----------------------+---------------------+-----------+
       |        ID         |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | DATABASES |
@@ -335,7 +339,7 @@ When restoring a database from a backup, you create a new database in the curren
 
    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

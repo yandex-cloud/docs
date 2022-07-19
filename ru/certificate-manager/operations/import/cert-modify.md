@@ -45,13 +45,13 @@
           --description "description of myupdatedcert"
         ```
 
-        Параметры команды:
+        Где:
 
           - `--id` — идентификатор сертификата.
           - `--new-name` — новое имя сертификата.
           - `--description` — описание сертификата.
 
-        Результат команды:
+        Результат:
 
         ```bash
         id: fpqmg47avvimp7rvmp30

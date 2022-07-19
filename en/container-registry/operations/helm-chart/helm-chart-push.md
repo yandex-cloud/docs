@@ -41,7 +41,7 @@ To push a Helm chart:
           Password: <IAM token>
           ```
 
-     The output of any command:
+     Result:
 
      ```bash
      Login succeeded
@@ -55,7 +55,7 @@ To push a Helm chart:
      helm package . --version <Helm chart version>
      ```
 
-     Command output:
+     Result:
 
      ```bash
      Successfully packaged chart and saved it to: /<path>/<Helm chart name>-<version>.tgz
@@ -67,7 +67,7 @@ To push a Helm chart:
      helm push <Helm chart name>-<version>.tgz oci://{{ registry }}/<registry ID>
      ```
 
-     Command output:
+     Result:
 
      ```bash
      Pushed: {{ registry }}/<registry ID>/<Helm chart name>:<version>

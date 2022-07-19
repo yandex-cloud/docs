@@ -185,7 +185,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       java -jar target/release/SeriesCreateTable.jar
       ```
 
-      Output:
+      Result:
 
       ```text
       Attempting to create table, wait...
@@ -253,7 +253,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       python SeriesCreateTable.py
       ```
 
-      Output:
+      Result:
 
       ```text
       Table status: ACTIVE
@@ -335,7 +335,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       php SeriesCreateTable.php
       ```
 
-      Output:
+      Result:
 
       ```txt
       Table status: ACTIVE
@@ -394,7 +394,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       node SeriesCreateTable.js
       ```
 
-      Output:
+      Result:
 
       ```text
       Table created. JSON table schema: {
@@ -508,7 +508,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       ruby SeriesCreateTable.rb
       ```
 
-      Output:
+      Result:
 
       ```text
       Creating table 'Series'...

@@ -54,7 +54,7 @@ unified_agent --config /etc/yandex/unified_agent/config.yml check-config
 
 Если валидация неуспешна, агент выведет ошибки конфигурации в `stderr` и вернет ненулевой код возврата:
 ```bash
-$ unified_agent --config console_to_lb.yml check-config
+unified_agent --config console_to_lb.yml check-config
 yaml-cpp: error at line 10, column 3: unrecognized field [statos_port]
 ```
 

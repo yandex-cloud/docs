@@ -109,7 +109,7 @@
    kubectl get pods | grep nginx
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    vpa-admission-controller-58cf99779c-qmxtv  1/1  Running  0  44h
@@ -172,7 +172,7 @@
    kubectl get pod <имя одного из подов nginx> --output yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```yaml
    apiVersion: v1

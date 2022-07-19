@@ -183,7 +183,7 @@ To conditionally delete a record from the `Series` table:
       java -jar target/release/SeriesItemOps06.jar
       ```
 
-      Output:
+      Result:
 
       ```text
       Attempting to delete record...
@@ -277,7 +277,7 @@ To conditionally delete a record from the `Series` table:
       python SeriesItemOps06.py
       ```
 
-      Output:
+      Result:
 
       ```text
       Attempting to delete record...
@@ -299,7 +299,7 @@ To conditionally delete a record from the `Series` table:
 
    1. Run the program again. The delete operation should now be successful.
 
-      Output:
+      Result:
 
       ```text
       Attempting to delete record...
@@ -395,7 +395,7 @@ To conditionally delete a record from the `Series` table:
       php SeriesItemOps06.php
       ```
 
-      Output:
+      Result:
 
       ```text
       Couldn't delete record:
@@ -483,7 +483,7 @@ To conditionally delete a record from the `Series` table:
       node SeriesItemOps06.js
       ```
 
-      Output:
+      Result:
 
       ```text
       Performing conditional deletion...
@@ -590,7 +590,7 @@ To conditionally delete a record from the `Series` table:
       ruby SeriesItemOps06.rb
       ```
 
-      Output:
+      Result:
 
       ```text
       Deleting series 'Supernatural (3)' from 'Series' table if the specified condition is satisfied.

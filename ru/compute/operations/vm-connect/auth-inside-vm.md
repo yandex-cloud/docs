@@ -32,6 +32,7 @@
   ```
   yc compute instance update my-instance --service-account-name test
   ```
+
 - API
 
   Воспользуйтесь методом [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/). В свойстве `serviceAccountId` укажите идентификатор сервисного аккаунта.
@@ -65,6 +66,7 @@
     --ssh-key ~/.ssh/id_rsa.pub \
     --service-account-name my-robot
   ```
+
 - API
 
   Воспользуйтесь методом [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/). В свойстве `serviceAccountId` укажите идентификатор сервисного аккаунта.
@@ -106,7 +108,7 @@
   1. Получите IAM-токен из метаданных в формате Google Compute Engine:
 
       ```bash
-      $ curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
+      curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token
 
       {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
       ```

@@ -65,7 +65,7 @@
 
      Подробнее об обратной совместимости читайте в [документации MongoDB](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
-- Terraform
+- {{ TF }}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   

@@ -261,10 +261,10 @@
 
      ```bash
      yc compute instance-group create \
-        --file specification.yaml
+       --file specification.yaml
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done (25s)
@@ -381,7 +381,7 @@
      yc alb backend-group create ddos-backend-group
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      id: a5dg2cv4ngne8575fb1p
@@ -404,7 +404,7 @@
        --http-healthcheck timeout=1s,interval=1s,port=80,path=/
      ```
 
-     Параметры команды:
+     Где:
 
      * `--backend-group-name` — имя группы бэкендов.
      * `--name` — имя бэкенда.
@@ -418,7 +418,7 @@
        * `host` — адрес хоста.
        * `path` — путь.
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done (21s)
@@ -481,7 +481,7 @@
      yc alb http-router create ddos-router
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      id: a5dcsselagj4o2v4a6e7
@@ -513,7 +513,7 @@
        --request-timeout 60s
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done (1s)
@@ -592,7 +592,7 @@
 curl -H "Host: alb-with-ddos.com" http://<IP-адрес L7-балансировщика>
 ```
 
-Результат выполнения команды:
+Результат:
 
 ```html
 <!DOCTYPE html>

@@ -1,10 +1,10 @@
-# Создание ВМ и группы ВМ с {{ coi }} с помощью Terraform
+# Создание ВМ и группы ВМ с {{ coi }} с помощью {{ TF }}
 
-Чтобы с помощью Terraform создать конфигурации и запустить [виртуальную машину](../../compute/concepts/vm.md) или [группу виртуальных машин](../../compute/concepts/instance-groups/index.md) на базе образа [{{ coi }}](../concepts/index.md), выполните следующие действия.
+Чтобы с помощью {{ TF }} создать конфигурации и запустить [виртуальную машину](../../compute/concepts/vm.md) или [группу виртуальных машин](../../compute/concepts/instance-groups/index.md) на базе образа [{{ coi }}](../concepts/index.md), выполните следующие действия.
 
 ## Перед началом работы {#before-begin}
 
-Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform). В сценарии используется конфигурационный файл с названием `example.tf` в директории `~/cloud-terraform`.
+Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform). В сценарии используется конфигурационный файл с названием `example.tf` в директории `~/cloud-terraform`.
 
 ## Создание и запуск виртуальной машины с образом {{ coi }} {#creating-vm}
 
@@ -42,8 +42,7 @@
    }
    ```
 
-   Где:
-   * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
+   Где `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
 
 1. Создайте файл спецификации облака `cloud_config.yaml` в директории `~/cloud-terraform`. Опишите спецификацию:
 
@@ -58,9 +57,7 @@
          - "<публичный SSH-ключ>"
    ```
 
-   Где:
-
-   * `ssh_authorized_keys` — значение [публичного SSH-ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   Где `ssh_authorized_keys` — значение [публичного SSH-ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 1. Создайте файл спецификации {{ coi }} с именем `declaration.yaml` в директории `~/cloud-terraform`. Опишите спецификацию:
 
@@ -84,7 +81,7 @@
 
 ### Создайте ВМ с {{ coi }} {#create-vm-coi}
 
-Запустите ВМ с {{ coi }}, используя конфигурацию Terraform.
+Запустите ВМ с {{ coi }}, используя конфигурацию {{ TF }}.
 
 {% list tabs %}
 
@@ -104,7 +101,7 @@
         terraform plan
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```
         Refreshing Terraform state in-memory prior to plan...
@@ -124,7 +121,7 @@
         terraform apply
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         data.yandex_compute_image.container-optimized-image: Refreshing state...
@@ -144,7 +141,7 @@
         Enter a value: yes
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         yandex_compute_instance.instance-based-on-coi: Creating...
@@ -170,7 +167,7 @@
         ssh yc-user@<публичный IP-адрес>
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```
         The authenticity of host '<публичный IP-адрес> (<публичный IP-адрес>)' can't be established.
@@ -184,7 +181,7 @@
         Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         Warning: Permanently added '<публичный IP-адрес>' (ECDSA) to the list of known hosts.
@@ -202,7 +199,7 @@
      curl <публичный IP-адрес>
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```html
      <!DOCTYPE html>
@@ -283,6 +280,7 @@
 
 
    Где:
+
    * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) для доступа к {{ yandex-cloud }}.
    * `name` — имя группы ВМ.
    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
@@ -303,7 +301,7 @@
 
 ### Создайте группу ВМ с {{ coi }} {#create-group-coi}
 
-Запустите группу ВМ с {{ coi }}, используя конфигурацию Terraform.
+Запустите группу ВМ с {{ coi }}, используя конфигурацию {{ TF }}.
 
 {% list tabs %}
 
@@ -323,7 +321,7 @@
         terraform plan
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```
         Refreshing Terraform state in-memory prior to plan...
@@ -343,7 +341,7 @@
         terraform apply
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         data.yandex_compute_image.container-optimized-image: Refreshing state...
@@ -363,7 +361,7 @@
         Enter a value: yes
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         yandex_compute_instance_group.ig-with-coi: Creating...
@@ -390,7 +388,7 @@
         ssh yc-user@<публичный IP-адрес ВМ1>
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```
         The authenticity of host '<публичный IP-адрес ВМ1> (<публичный IP-адрес ВМ1>)' can't be established.
@@ -404,7 +402,7 @@
         Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         Warning: Permanently added '<публичный IP-адрес ВМ1>' (ECDSA) to the list of known hosts.
@@ -422,7 +420,7 @@
      curl <публичный IP-адрес ВМ1>
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```html
      <!DOCTYPE html>

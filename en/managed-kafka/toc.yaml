@@ -37,13 +37,9 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Data delivery in Managed Service for ClickHouse
-        href: tutorials/send-data-to-mch.md
-      - name: Configuring Kafka Connect for Managed Service for Apache Kafka®
+      - name: Configuring {{ KFC }} for {{ mkf-name }}
         href: tutorials/kafka-connect.md
-      - name: Data delivery in ksqlDB
-        href: tutorials/use-ksqldb-with-mkf.md
-      - name: Using schema registries with Managed Service for Apache Kafka®
+      - name: Using data format schemas with {{ mkf-name }}
         items:
           - name: Overview
             href: tutorials/schema-registry-overview.md
@@ -53,8 +49,16 @@ items:
             href: tutorials/confluent-schema-registry.md
       - name: Migrating data to {{ mkf-name }}
         href: tutorials/kafka-connectors.md
-      - name: Delivering data using Debezium
+      - name: Delivering data from {{ mkf-name }} using Debezium
         href: tutorials/kafka-cdc.md
+      - name: >-
+          Delivering data from {{ mkf-name }} using {{ data-transfer-full-name
+          }}
+        href: tutorials/kafka-cdc-data-transfer.md
+      - name: Delivering data to {{ mch-name }}
+        href: tutorials/send-data-to-mch.md
+      - name: Data delivery in ksqlDB
+        href: tutorials/use-ksqldb-with-mkf.md
   - name: Concepts
     items:
       - name: Relationships between service resources

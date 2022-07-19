@@ -25,7 +25,7 @@ To deploy a project:
     * [AWS CLI](../storage/tools/aws-cli).
     * [jq](https://stedolan.github.io/jq/download/).
     * [Node.js](https://nodejs.org/en/download/package-manager/).
-    * [Terraform](../tutorials/infrastructure-management/terraform-quickstart).
+    * [{{ TF }}](../tutorials/infrastructure-management/terraform-quickstart).
 
 1. To finalize the project, you'll additionally need:
     * [The Go programming language](https://go.dev/).
@@ -114,7 +114,7 @@ To create tables in the database, run the command:
 
 ### Upload the backend code to {{ sf-name }} {#deploy-backend}
 
-Use Terraform to automate your operations. Before you start, [initialize it](../tutorials/infrastructure-management/terraform-quickstart#configure-provider).
+Use {{ TF }} to automate your operations. Before you start, [initialize it](../tutorials/infrastructure-management/terraform-quickstart#configure-provider).
 
 To do this, go to the folder with the app.tf config file and run the command:
 
@@ -122,13 +122,13 @@ To do this, go to the folder with the app.tf config file and run the command:
 terraform init
 ```
 
-Once Terraform is initialized, run the command passing the [OAuth token](../iam/concepts/authorization/oauth-token) value to be used for authorization in {{ yandex-cloud }}:
+Once {{ TF }} is initialized, run the command passing the [OAuth token](../iam/concepts/authorization/oauth-token) value to be used for authorization in {{ yandex-cloud }}:
 
 ```
 terraform apply -var-file ./variables.json -var yc-token=<OAuth token>
 ```
 
-As a result, Terraform automatically creates or updates the required resources.
+As a result, {{ TF }} automatically creates or updates the required resources.
 
 ### Upload the frontend code to {{ objstorage-name }} {#deploy-frontend}
 
@@ -142,10 +142,10 @@ To deploy the frontend web app, compile static files and upload them to {{ objst
     npm run build
     ```
 
-    Execution result:
+    Result:
 
     ```
-    $ npm run build
+    npm run build
 
     > todolist@0.1.0 build
     > react-scripts build
@@ -177,10 +177,10 @@ To deploy the frontend web app, compile static files and upload them to {{ objst
     ./upload_static.sh
     ```
 
-    Execution result:
+    Result:
 
     ```
-    $ ./upload_static.sh
+    ./upload_static.sh
     upload: frontend/build/robots.txt to s3://frontent-statics/robots.txt
     upload: frontend/build/manifest.json to s3://frontent-statics/manifest.json
     upload: frontend/build/static/css/main.e5cbab88.chunk.css.map to s3://frontent-statics/static/css/main.e5cbab88.chunk.css.map
@@ -206,7 +206,7 @@ To upload the current specification to {{ api-gw-name }}, run the command:
 ./update_gateway.sh
 ```
 
-Execution result:
+Result:
 
 ```
 done (2s)

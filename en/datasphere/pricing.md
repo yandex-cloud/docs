@@ -12,7 +12,7 @@ When using {{ ml-platform-name }}, you pay for the use of computing resources: t
 
 1. When performing computations and training models, you pay for the compute time. If you don't perform any computational operations in a project, the {{ ml-platform-name }} usage time is not charged. However, if you run calculations using {{ dataproc-name }} clusters, they are charged separately. For more information, see [Using {{ dataproc-name }} clusters](#data-proc). You're separately charged for [data storage in datasets](#storage).
 
-1. When deploying models, you pay for the uptime of each node instance: from its start to its deletion.
+1. {% include [pricing nodes](../_includes/datasphere/nodes-pricing-warn.md) %}
 
 ### Pricing unit {#unit}
 

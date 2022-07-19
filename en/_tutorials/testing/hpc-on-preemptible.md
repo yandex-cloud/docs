@@ -72,28 +72,28 @@ To create a VM:
 1. [Log in via SSH](../../compute/operations/vm-connect/ssh.md) to the VM and switch to admin mode in the console:
 
    ```bash
-   $ sudo -i
+   sudo -i
    ```
 
 1. Update the repository and install the required utilities:
 
    ```bash
-   $ apt update
-   $ apt install -y net-tools htop libopenmpi-dev nfs-common
+   apt update
+   apt install -y net-tools htop libopenmpi-dev nfs-common
    ```
 
 1. Exit admin mode and generate RSA keys for access between the VMs:
 
    ```bash
-   $ exit
-   $ ssh-keygen
+   exit
+   ssh-keygen
    ```
 
 1. Add the generated key to the list of allowed ones:
 
    ```bash
-   $ cd ~/.ssh
-   $ cat id_rsa.pub >> authorized_keys
+   cd ~/.ssh
+   cat id_rsa.pub >> authorized_keys
    ```
 
 ## Prepare a VM cluster {#prepare-cluster}
@@ -134,8 +134,8 @@ To create a VM:
 [Log in via SSH](../../compute/operations/vm-connect/ssh.md) to each VM in `compute-group` and make sure you can access `master-node` from them via SSH.
 
 ```bash
-$ ping master-node
-$ ssh master-node
+ping master-node
+ssh master-node
 ```
 
 ### Configure the NFS {#configure-nfs}
@@ -145,20 +145,20 @@ To allow the VMs to use the same source files, create a shared network directory
 1. Log in to the `master-node` VM via SSH and install the NFS server:
 
    ```bash
-   $ ssh <master-node VM public IP address>
-   $ sudo apt install nfs-kernel-server
+   ssh <master-node VM public IP address>
+   sudo apt install nfs-kernel-server
    ```
 
 1. Create a `shared` directory for the VMs:
 
    ```bash
-   $ mkdir ~/shared
+   mkdir ~/shared
    ```
 
 1. Open the `/etc/exports` file with a text editor, like `nano`:
 
    ```bash
-   $ sudo nano /etc/exports
+   sudo nano /etc/exports
    ```
 
 1. Add an entry to the file to enable access to the `shared` directory:
@@ -172,8 +172,8 @@ To allow the VMs to use the same source files, create a shared network directory
 1. Apply the settings and restart the service:
 
    ```bash
-   $ sudo exportfs -a
-   $ sudo service nfs-kernel-server restart
+   sudo exportfs -a
+   sudo service nfs-kernel-server restart
    ```
 
 #### Mount directories on group VMs {#mount}
@@ -183,14 +183,14 @@ On each VM in the `compute-group`, mount the directory you created:
 1. Create a `shared` directory and mount the directory with the `master-node` VM on it:
 
    ```bash
-   $ mkdir ~/shared
-   $ sudo mount -t nfs master-node:/home/<username>/shared ~/shared
+   mkdir ~/shared
+   sudo mount -t nfs master-node:/home/<username>/shared ~/shared
    ```
 
 1. Make sure that the directory is successfully mounted:
 
    ```bash
-   $ df -h
+   df -h
    Filesystem                            Size  Used Avail Use% Mounted on
    ...
    master-node:/home/<username>/shared   13G  1.8G   11G  15% /home/<username>/shared
@@ -201,8 +201,8 @@ On each VM in the `compute-group`, mount the directory you created:
 1. Log in to the `master-node` VM via SSH, go to the `shared` directory, and download the `task.c` source file with a computational task:
 
    ```bash
-   $ cd ~/shared
-   $ wget https://raw.githubusercontent.com/cloud-docs-writer/examples/master/hpc-on-preemptible/task.c
+   cd ~/shared
+   wget https://raw.githubusercontent.com/cloud-docs-writer/examples/master/hpc-on-preemptible/task.c
    ```
 
    This code solves a system of linear equations using the [Jacobi method](https://en.wikipedia.org/wiki/Jacobi_method). The task has one distributed implementation using MPI.
@@ -210,7 +210,7 @@ On each VM in the `compute-group`, mount the directory you created:
 1. Compile the source file into an executable file:
 
    ```bash
-   $ mpicc task.c -o task
+   mpicc task.c -o task
    ```
 
    As a result, the `task` executable file should appear in the `shared` directory.
@@ -226,7 +226,7 @@ You can check the load on VM cores by running the `htop` command in a separate S
 1. Run the task on two cores using only `master-node` resources:
 
    ```bash
-   $ mpirun -np 2 task
+   mpirun -np 2 task
    ```
 
    When the task is completed, the program displays the time spent performing it:
@@ -240,7 +240,7 @@ You can check the load on VM cores by running the `htop` command in a separate S
 1. Run the task on four cores using only `master-node` resources and get the appropriate results:
 
    ```bash
-   $ mpirun -np 4 task
+   mpirun -np 4 task
    JAC1 STARTED
    1: Time of task=36.562328
    2: Time of task=36.562291
@@ -251,7 +251,7 @@ You can check the load on VM cores by running the `htop` command in a separate S
 1. Run the task on four cores using the resources of two VMs with two cores per VM. To do this, run the task with the `-host` key that accepts parameters like `<VM IP address>:<number of cores>[,<ip>:<cores>[,...]]`. After computing the task, the program displays the results:
 
    ```bash
-   $ mpirun -np 4 -host localhost:2,<VM IP address>:2 task
+   mpirun -np 4 -host localhost:2,<VM IP address>:2 task
    JAC1 STARTED
    0: Time of task=24.539981
    1: Time of task=24.540288

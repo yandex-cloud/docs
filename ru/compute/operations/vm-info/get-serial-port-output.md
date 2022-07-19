@@ -19,7 +19,7 @@
   1. Посмотрите описание команды для получения вывода последовательного порта:
 
       ```
-      $ yc compute instance get-serial-port-output --help
+      yc compute instance get-serial-port-output --help
       ```
 
   1. Выберите виртуальную машину, например `first-instance`:
@@ -29,7 +29,7 @@
   1. Получите вывод последовательного порта. Вывод последовательного порта обычно длинный, поэтому его стоит писать в файл:
 
       ```
-      $ yc compute instance get-serial-port-output first-instance > output.txt
+      yc compute instance get-serial-port-output first-instance > output.txt
       ```
 
 - API

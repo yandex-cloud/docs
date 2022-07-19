@@ -13,7 +13,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    {% include [Managed Greenplum](../../../../_includes/data-transfer/necessary-settings/ui/managed-greenplum.md) %}
 
@@ -27,7 +27,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    {% include [On premise Greenplum UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-greenplum.md) %}
 
@@ -37,7 +37,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
 

@@ -56,7 +56,7 @@ For more information, see [{#T}](../concepts/replication.md).
 
       The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -231,7 +231,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
          --host zone-id=<availability zone>,subnet-id=<subnet ID>,type=zookeeper
       ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -297,7 +297,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
    The host name can be requested with a [list of cluster hosts](hosts.md#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

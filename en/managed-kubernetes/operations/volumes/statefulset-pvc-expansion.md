@@ -69,7 +69,7 @@ While the instruction is running, the number of the controller's [pods](../../co
    kubectl get pods,pvc
    ```
 
-   Example command output:
+   Result:
 
    
    ```text
@@ -92,7 +92,7 @@ While the instruction is running, the number of the controller's [pods](../../co
    yc compute disk list
    ```
 
-   Example command output:
+   Result:
 
    ```text
    +----------------------+--------------------------------------------------+-------------+-------------------+--------+----------------------+-------------+
@@ -150,7 +150,7 @@ While the instruction is running, the number of the controller's [pods](../../co
    yc compute disk list
    ```
 
-   Example command output:
+   Result:
 
    ```text
     +----------------------+--------------------------------------------------+-------------+--------------------+--------+----------------------+-------------+
@@ -196,7 +196,7 @@ While the instruction is running, the number of the controller's [pods](../../co
    kubectl get sts,pods
    ```
 
-   Example command output:
+   Result:
 
    ```text
    NAME                           READY   AGE
@@ -214,7 +214,7 @@ While the instruction is running, the number of the controller's [pods](../../co
    kubectl get pv
    ```
 
-   Example command output:
+   Result:
 
    
    ```text

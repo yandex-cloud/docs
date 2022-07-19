@@ -1,6 +1,6 @@
 # Управление ключами {{ kms-short-name }} с {{ TF-full }}
 
-[Terraform-провайдер]({{ tf-provider-link }}/) для {{ yandex-cloud }} поддерживает работу с ключами {{ kms-short-name }}.
+[{{ TF }}-провайдер]({{ tf-provider-link }}/) для {{ yandex-cloud }} поддерживает работу с ключами {{ kms-short-name }}.
 
 ## Добавление ключа {#add}
 

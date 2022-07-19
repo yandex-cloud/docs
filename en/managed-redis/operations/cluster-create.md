@@ -141,7 +141,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
    
@@ -290,7 +290,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      --deletion-protection=true
    ```
 
-- Terraform
+- {{ TF }}
 
    Let's say we need to create a {{ RD }} cluster and a network for it with the following characteristics:
 
@@ -388,7 +388,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 {% list tabs %}
 
-- Terraform
+- {{ TF }}
 
    Let's say we need to create a [sharded](../concepts/sharding.md) {{ RD }} cluster with the following characteristics:
 

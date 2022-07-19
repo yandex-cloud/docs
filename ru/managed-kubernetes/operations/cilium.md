@@ -258,7 +258,7 @@
    kubectl apply -f hubble-ui.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    serviceaccount/hubble-ui created
@@ -276,7 +276,7 @@
      | grep hubble | grep -v certs
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    hubble-relay-6b9c774ffc-2jm7t  Running
@@ -380,7 +380,7 @@
    kubectl create -f http-sw-app.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    service/deathstar created
@@ -395,7 +395,7 @@
    kubectl get pods,svc
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    NAME                            READY   STATUS    RESTARTS   AGE
@@ -415,7 +415,7 @@
    kubectl -n kube-system get pods -l k8s-app=cilium
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    NAME           READY   STATUS    RESTARTS   AGE
@@ -436,7 +436,7 @@
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    Ship landed
@@ -498,7 +498,7 @@
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    Ship landed
@@ -534,7 +534,7 @@
    kubectl exec tiefighter -- curl -s -XPUT deathstar.default.svc.cluster.local/v1/exhaust-port
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    Panic: deathstar exploded
@@ -592,7 +592,7 @@
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    Ship landed
@@ -604,7 +604,7 @@
    kubectl exec tiefighter -- curl -s -XPUT deathstar.default.svc.cluster.local/v1/exhaust-port
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    Access denied

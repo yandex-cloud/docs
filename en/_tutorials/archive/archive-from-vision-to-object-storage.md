@@ -110,7 +110,7 @@ Creating the VM may take several minutes.
     yc iam service-account --folder-id <FOLDER-ID>  get vision
     ```
 
-    You get one of the following strings as an output:
+    You get one of the following strings as a result:
 
     ```
     id: <SERVICE-ACCOUNT-ID>
@@ -165,6 +165,7 @@ Creating the VM may take several minutes.
     ```bash
     aws configure
     ```
+    
     * `AWS Access Key ID`: The `key_id` value from the previous section, "Create a static access key for your service account".
     * `AWS Secret Access Key`: The `secret` value from the same section.
     * `Default region name`: Enter `{{ region-id }}`.
@@ -201,7 +202,7 @@ Creating the VM may take several minutes.
     aws --endpoint-url=https://{{ s3-storage-host }} s3 ls s3://<BUCKET-NAME>/
     ```
 
-    `<BUCKET-NAME>`: The name of your bucket.
+    Where `<BUCKET-NAME>` is the name of your bucket.
 1. Download images to your virtual machine, such as to the `my_pictures` directory:
 
      ```bash
@@ -234,6 +235,9 @@ Creating the VM may take several minutes.
     export FOLDERID="<FOLDER-ID>"
     export IAMTOKEN="<IAM-TOKEN>"
     ```
+
+    Where:
+
     * `BUCKETNAME`: The name of your bucket.
     * `FOLDERID`: The name of your folder.
     * `IAMTOKEN`: The IAM token you obtained in [this section](#iam-token).
