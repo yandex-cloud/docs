@@ -149,6 +149,8 @@ description: "Как получить логи моей работы в серв
 
 {% include [configure-link-between-selectors](../../_includes/datalens/qa/configure-link-between-selectors.md) %}
 
+{% include [unavailable-selector-values](../../_includes/datalens/qa/unavailable-selector-values.md) %}
+
 {% include [apply-filter-to-two-datasets](../../_includes/datalens/qa/apply-filter-to-two-datasets.md) %}
 
 {% include [configure-selectors](../../_includes/datalens/qa/configure-selectors.md) %}

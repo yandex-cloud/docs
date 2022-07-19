@@ -178,6 +178,8 @@
 
 {% include [configure-link-between-selectors](../_includes/datalens/qa/configure-link-between-selectors.md) %}
 
+{% include [unavailable-selector-values](../_includes/datalens/qa/unavailable-selector-values.md) %}
+
 ### Приходит рассылка с «Нет прав на просмотр дашборда» {#no-permissions-to-view-dashboard}
 
 По умолчанию рассылка выполняется роботом `robot-charts-postman`. Для доступа робота права на чтение/исполнение должны быть выданы для группы **Все** или для робота. Чтобы рассылка была с доступами пользователя, добавьте его OAuth-токен при настройке рассылок.
