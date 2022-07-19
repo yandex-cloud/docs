@@ -2,6 +2,18 @@
 
 Для развертывания ячейки в виде микросервиса необходима [контрольная точка](projects/checkpoints.md). 
 
+{% note info %}
+
+Если в проекте вы используете пакеты и библиотеки, не входящие в [список предустановленного ПО](../concepts/preinstalled-packages.md), [настройте окружение](node-customization.md) ноды с помощью Docker-образа.
+
+{% endnote %}
+
+{% note warning %}
+
+{% include [pricing nodes](../../_includes/datasphere/nodes-pricing-warn.md) %}
+
+{% endnote %}
+
 1. Откройте вкладку ![Checkpoints](../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** и сохраните контрольную точку, подготовленную для развертывания. 
 
 1. Откройте ноутбук и выберите ячейку для развертывания.
