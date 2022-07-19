@@ -46,6 +46,8 @@ items:
                 when: product == "yandex-cloud"
           - name: Настройка эндпоинтов-приемников
             items:
+              - name: Apache Kafka®
+                href: operations/endpoint/target/kafka.md
               - name: ClickHouse
                 href: operations/endpoint/target/clickhouse.md
               - name: Greenplum®
