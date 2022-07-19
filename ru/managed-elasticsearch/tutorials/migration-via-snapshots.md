@@ -46,7 +46,7 @@
     1. Нажмите кнопку **Добавить**.
     1. Нажмите кнопку **Сохранить**.
 
-1. [Установите расширение](https://www.elastic.co/guide/en/elasticsearch/plugins/7.16/repository-s3.html) `s3-repository` на кластере-источнике.
+1. [Установите расширение](https://www.elastic.co/guide/en/elasticsearch/plugins/7.16/repository-s3.html) `repository-s3` на кластере-источнике.
 
     Расширение должно быть установлено на **всех хостах** кластера-источника. После установки потребуется перезапуск сервисов {{ ES }} и Kibana на хостах.
 
