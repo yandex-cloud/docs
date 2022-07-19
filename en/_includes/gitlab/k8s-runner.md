@@ -21,7 +21,7 @@ To run your build tasks on a {{ k8s }} cluster, connect the cluster in the GitLa
     - Bash
 
       ```
-      $ yc managed-kubernetes cluster get <cluster-id> --format=json \
+      yc managed-kubernetes cluster get <cluster-id> --format=json \
       | jq -r .master.endpoints.external_v4_endpoint
       ```
 
@@ -34,7 +34,7 @@ To run your build tasks on a {{ k8s }} cluster, connect the cluster in the GitLa
     - Bash
 
       ```
-      $ yc managed-kubernetes cluster get <cluster-id> --format=json \
+      yc managed-kubernetes cluster get <cluster-id> --format=json \
       | jq -r .master.master_auth.cluster_ca_certificate
       ```
 

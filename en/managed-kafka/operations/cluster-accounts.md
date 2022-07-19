@@ -95,7 +95,7 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the c
 
    {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -183,7 +183,7 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the c
 
    {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -253,7 +253,7 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the c
 
    Using the CLI, you can [grant](#grant-permission) and [revoke](#revoke-permission) topic permissions.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -364,7 +364,7 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the c
         --permission topic=topic2,role=producer
       ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -451,7 +451,7 @@ If, in a cluster with **Manage topics via the API** enabled, you revoke the `ACC
 
    The `--permission` flag must contain at least one topic/role pair. To revoke all the account's existing permissions, use the console or delete the account.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -513,7 +513,7 @@ If, in a cluster with **Manage topics via the API** enabled, you delete the [adm
    {{ yc-mdb-kf }} user delete <username> --cluster-name <cluster name>
    ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

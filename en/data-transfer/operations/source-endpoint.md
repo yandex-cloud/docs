@@ -6,7 +6,7 @@
 
 {% list tabs %}
 
-* Management console
+- Management console
 
     1. Go to the folder page and select **{{ data-transfer-name }}**.
 
@@ -37,7 +37,7 @@
 
 {% list tabs %}
 
-* Management console
+- Management console
 
     1. Go to the folder page and select **{{ data-transfer-name }}**.
 

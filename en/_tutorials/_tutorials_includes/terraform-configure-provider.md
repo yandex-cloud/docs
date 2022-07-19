@@ -2,7 +2,7 @@
 
    {% note info %}
 
-   The provider settings were tested on Terraform `0.14`.
+   The provider settings were tested on {{ TF }} `0.14`.
 
    {% endnote %}
 
@@ -22,10 +22,12 @@
      zone      = "ru-central1-a"
    }
    ```
+   
+   Where:
 
    * `provider`: The provider name.
    * `token`: [OAuth token](../iam/concepts/authorization/oauth-token.md) to access {{ yandex-cloud }}.
-   * `cloud_id`: ID of the cloud where Terraform will create resources.
+   * `cloud_id`: ID of the cloud where {{ TF }} will create resources.
    * `folder_id`: [ID of the folder](../resource-manager/operations/folder/get-id.md) where resources will be created by default.
    * `zone`: The availability zone where all cloud resources will be created by default.
 

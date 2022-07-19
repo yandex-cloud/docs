@@ -210,9 +210,9 @@
 
     1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
-- Terraform
+- {{ TF }}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. В конфигурационном файле опишите параметры федерации:
 
@@ -274,7 +274,7 @@
         $ terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразятся параметры федерации. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразятся параметры федерации. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Создайте федерацию.
 

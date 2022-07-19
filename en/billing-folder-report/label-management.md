@@ -71,7 +71,7 @@ Add a label to a VM:
 yc compute instance add-labels cl123g4dridnn5cna6df-yduv --labels project=test
 ```
 
-Command execution result:
+Result:
 
 ```
 done (5s)
@@ -93,7 +93,7 @@ Change the {{ k8s }} cluster label:
 yc managed-kubernetes cluster update k8s-gpu --labels new_lable=test_label
 ```
 
-Command execution result:
+Result:
 
 ```
 done (1m36s)
@@ -115,7 +115,7 @@ Remove a label from a {{ mmy-short-name }} cluster:
 yc managed-mysql cluster remove-labels mysql123 --labels my_lable
 ```
 
-Command execution result:
+Result:
 
 ```
 id: c1qmjaatlurm2bcoi34i

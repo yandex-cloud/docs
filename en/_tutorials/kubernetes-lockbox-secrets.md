@@ -63,7 +63,7 @@ To set up secret syncing:
 
    {% endnote %}
 
-   Command output:
+   Result:
 
    ```text
    NAME: external-secrets
@@ -93,7 +93,7 @@ To set up secret syncing:
    yc lockbox secret list
    ```
 
-   Command output:
+   Result:
 
    ```text
    +---------------------+----------------+------------+---------------------+----------------------+--------+

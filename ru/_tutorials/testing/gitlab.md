@@ -137,7 +137,7 @@ Runner - это специальная программа, которая осу
 
 1. [Зайдите по SSH](../../compute/operations/vm-connect/ssh.md) на виртуальную машину и перейдите в режим администратора в консоли:
    ```bash
-   $ sudo -i
+   sudo -i
    ```
 
 1. Загрузите runner:
@@ -205,8 +205,8 @@ Runner - это специальная программа, которая осу
 
 1. Подключитесь к ВМ по SSH и установите необходимые приложения:
    ```bash
-   $ sudo apt update
-   $ sudo apt install -y git g++
+   sudo apt update
+   sudo apt install -y git g++
    ```
 
 1. Добавьте сценарий тестирования:

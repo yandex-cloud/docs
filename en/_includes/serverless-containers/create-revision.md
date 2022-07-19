@@ -59,13 +59,13 @@
    status: ACTIVE
    ```
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   In Terraform, a new revision is created every time the resource's runtime parameters are updated.
+   In {{ TF }}, a new revision is created every time the resource's runtime parameters are updated.
 
    To create a revision:
 
@@ -116,7 +116,7 @@
 
       {% endif %}
 
-      For more information about the `yandex_serverless_container` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
+      For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
 
    1. Make sure that the configuration files are correct.
 
@@ -127,7 +127,7 @@
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of resources being created or updated and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of resources being created or updated and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
 
    1. If the configuration doesn't contain any errors, run the command:

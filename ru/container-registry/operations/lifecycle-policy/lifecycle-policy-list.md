@@ -18,7 +18,7 @@
     yc container repository lifecycle-policy list --repository-name crp2hlbs67tj4ggrfodb/ubuntu
     ```
 
-    Результат выполнения команды:
+    Результат:
 
     ```bash
     +----------------------+-------------+----------------------+----------+---------------------+--------------------------------+
@@ -35,7 +35,7 @@
     yc container repository lifecycle-policy list --registry-id crp2hlbs67tj4ggrfodb
     ```
 
-    Результат выполнения команды:
+    Результат:
 
     ```bash
     +----------------------+-------------+----------------------+----------+---------------------+--------------------------------+
@@ -67,7 +67,7 @@
   yc container repository lifecycle-policy get crp6lg1868p3i0emkv1b
   ```
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   id: crp6lg1868p3i0emkv1b

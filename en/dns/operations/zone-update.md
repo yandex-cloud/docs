@@ -36,7 +36,7 @@ To update a DNS zone:
       --private-visibility network-ids=c645mh47vscba1d64tbs,
       ```
 
-      Command output:
+      Result:
 
       ```
       id: aet29qhara5jeg45tbjg
@@ -49,15 +49,15 @@ To update a DNS zone:
         - c645mh47vscba1d64tbs
       ```
 
-- Terraform
+- {{ TF }}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To update a DNS zone created using Terraform:
+   To update a DNS zone created using {{ TF }}:
 
-   1. Open the Terraform configuration file and edit the fragment with the DNS zone description.
+   1. Open the {{ TF }} configuration file and edit the fragment with the DNS zone description.
 
-      {% cut "Example DNS zone description in the Terraform configuration" %}
+      {% cut "Example DNS zone description in the {{ TF }} configuration" %}
 
       ```hcl
       resource "yandex_vpc_network" "foo" {}
@@ -92,7 +92,7 @@ To update a DNS zone:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.

@@ -90,7 +90,7 @@ To create a VM from a set of disks:
    1. View the description of the CLI command for creating a VM:
 
       ```
-      $ yc compute instance create --help
+      yc compute instance create --help
       ```
 
    1. Get a list of disks in the default folder:
@@ -101,7 +101,7 @@ To create a VM from a set of disks:
    1. Create a VM in the default folder:
 
       ```
-      $ yc compute instance create \
+      yc compute instance create \
           --name first-instance \
           --zone {{ region-id }}-a \
           --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
@@ -139,32 +139,13 @@ To create a VM from a set of disks:
 
    Use the [Create](../../api-ref/Instance/create.md) method for the `Instance` resource.
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create a VM from a set of disks:
 
    1. In the configuration file, describe the parameters of resources that you want to create:
-
-      {% note info %}
-
-      If you already have suitable resources, such as a cloud network and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
-
-      {% endnote %}
-
-      * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
-         * `name`: VM name.
-         * `platform_id`: The [platform](../../concepts/vm-platforms.md).
-         * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
-         * `boot_disk`: Boot disk settings. Specify the disk ID. If you have no boot disk available, specify the [ID of a public image](../images-with-pre-installed-software/get-list.md) using the `image_id` parameter.
-         * `secondary_disk`: Secondary disk to attach to the VM. Specify the ID of the secondary disk. If you don't have a disk, [create](../disk-create/empty.md) one.
-         * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
-         * `metadata`: In the metadata, pass the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
-      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
-      * `yandex_vpc_subnet`: Description of [subnet](../../../vpc/concepts/network.md#network) your virtual machine will connect to.
-
-      Example configuration file structure:
 
       ```
       resource "yandex_compute_instance" "vm-1" {
@@ -208,7 +189,26 @@ To create a VM from a set of disks:
       }
       ```
 
-      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-link }}/).
+      Where:
+
+      * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
+         * `name`: VM name.
+         * `platform_id`: The [platform](../../concepts/vm-platforms.md).
+         * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+         * `boot_disk`: Boot disk settings. Specify the disk ID. If you have no boot disk available, specify the [ID of a public image](../images-with-pre-installed-software/get-list.md) using the `image_id` parameter.
+         * `secondary_disk`: Secondary disk to attach to the VM. Specify the ID of the secondary disk. If you don't have a disk, [create](../disk-create/empty.md) one.
+         * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
+         * `metadata`: In the metadata, pass the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
+      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
+      * `yandex_vpc_subnet`: Description of [subnet](../../../vpc/concepts/network.md#network) your virtual machine will connect to.
+
+      {% note info %}
+
+      If you already have suitable resources, such as a cloud network and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
+
+      {% endnote %}
+
+      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
 
    2. Make sure that the configuration files are correct.
 
@@ -216,17 +216,17 @@ To create a VM from a set of disks:
       2. Run the check using the command:
 
          ```
-         $ terraform plan
+         terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    3. Deploy the cloud resources.
 
       1. If the configuration doesn't contain any errors, run the command:
 
          ```
-         $ terraform apply
+         terraform apply
          ```
 
       2. Confirm that you want to create the resources.

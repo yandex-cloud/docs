@@ -44,7 +44,7 @@
      --network-name <имя облачной сети>
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    done (7m21s)
@@ -62,7 +62,7 @@
      --fixed-size 1
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    done (2m43s)
@@ -87,7 +87,7 @@
    yc managed-kubernetes cluster get-credentials --external --name custom-dns-cluster
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    Context 'yc-custom-dns-cluster' was added as default to kubeconfig '/home/<ваш домашний каталог>/.kube/config'.
@@ -124,7 +124,7 @@
    kubectl replace -f custom-zone.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    configmap/coredns-user replaced
@@ -139,7 +139,7 @@
      --command sleep infinity
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    pod/jessie-dnsutils created
@@ -151,7 +151,7 @@
    kubectl describe pod jessie-dnsutils
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    ...
@@ -167,7 +167,7 @@
    kubectl exec jessie-dnsutils -- nslookup ns.example.com
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    Server:		10.96.128.2

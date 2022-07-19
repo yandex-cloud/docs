@@ -68,7 +68,7 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
       kubectl create -f pvc-dynamic.yaml
       ```
 
-      Command output:
+      Result:
 
       ```
       persistentvolumeclaim/pvc-dynamic created
@@ -80,7 +80,7 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
       kubectl describe persistentvolumeclaim pvc-dynamic
       ```
 
-      Command output:
+      Result:
 
       {% if product == "yandex-cloud" %}
 
@@ -146,7 +146,7 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
    kubectl create -f pod.yaml
    ```
 
-   Command output:
+   Result:
 
    ```
    pod/pod created
@@ -158,7 +158,7 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
    kubectl describe pod pod
    ```
 
-   Command output:
+   Result:
 
    ```
    Name:         pod
@@ -189,7 +189,7 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
      kubectl describe persistentvolumeclaim pvc-dynamic
      ```
 
-     Command output:
+     Result:
 
      {% if product == "yandex-cloud" %}
 

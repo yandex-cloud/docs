@@ -21,7 +21,7 @@
 
     {% include [Managed MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mysql-source.md) %}
 
-- Terraform
+- {{ TF }}
 
     * Тип эндпоинта — `mysql_source`.
 
@@ -72,7 +72,7 @@
 
     {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mysql-source.md) %}
 
-- Terraform
+- {{ TF }}
 
     *  Тип эндпоинта — `mysql_source`.
 
@@ -136,7 +136,7 @@
         * `--transfer-before-data` — при активации трансфера.
         * `--transfer-after-data` — при деактивации трансфера.
 
-- Terraform
+- {{ TF }}
 
     * `include_table_regex` — список включенных таблиц. Будут передаваться данные только таблиц из этого списка. Задается с помощью регулярных выражений.
 

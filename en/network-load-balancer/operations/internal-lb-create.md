@@ -44,11 +44,11 @@ The internal load balancer's listener is assigned a random IP address from the r
 
    You can create an internal load balancer using the [create](../api-ref/NetworkLoadBalancer/create.md) API method.
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create an internal network load balancer with a listener:
 
@@ -115,7 +115,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
   {% endif %}
 
-      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
+      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
    1. Make sure that the configuration files are correct.
 
@@ -124,7 +124,7 @@ The internal load balancer's listener is assigned a random IP address from the r
          ```
          terraform plan
          ```
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 
@@ -155,11 +155,11 @@ The internal load balancer's listener is assigned a random IP address from the r
      --region-id {{ region-id }}
    ```
 
-- Terraform
+- {{ TF }}
 
    1. In the configuration file, describe the resource parameters without the `listener` section:
 
-      {% cut "Example of creating an internal network load balancer without a listener using Terraform" %}
+      {% cut "Example of creating an internal network load balancer without a listener using {{ TF }}" %}
 
       ```
       resource "yandex_lb_network_load_balancer" "internal-lb-test" {
@@ -169,7 +169,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
       {% endcut %}
 
-      For more information about resources that you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For more information about resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
    1. Make sure that the configuration files are correct.
 
@@ -180,7 +180,7 @@ The internal load balancer's listener is assigned a random IP address from the r
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 
@@ -238,7 +238,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
       {% endif %}
 
-   1. Run the command using the target group ID in the `target-group-id` parameter:
+   1. Run the command:
 
       ```
       yc load-balancer network-load-balancer create \
@@ -249,13 +249,15 @@ The internal load balancer's listener is assigned a random IP address from the r
         --target-group target-group-id=b7rv80bfibkph3ekqqle,healthcheck-name=http,healthcheck-interval=2s,healthcheck-timeout=1s,healthcheck-unhealthythreshold=2,healthcheck-healthythreshold=2,healthcheck-http-port=80
       ```
 
+      Where `target-group-id` is the target group ID.
+
       Note the format of the `healthcheck-interval` and `healthcheck-timeout` parameters: specify their values as `Ns`, where `N` is the value in seconds.
 
-- Terraform
+- {{ TF }}
 
-   1. To create an internal network load balancer with a [listener](../concepts/listener.md), open the Terraform configuration file and add the `listener` section to the internal network load balancer's description. To attach a target group, add the `attached_target_group` section and specify the target group in the `target_group_id` field.
+   1. To create an internal network load balancer with a [listener](../concepts/listener.md), open the {{ TF }} configuration file and add the `listener` section to the internal network load balancer's description. To attach a target group, add the `attached_target_group` section and specify the target group in the `target_group_id` field.
 
-      {% cut "Example of creating an internal network load balancer with a listener and attached target group using Terraform" %}
+      {% cut "Example of creating an internal network load balancer with a listener and attached target group using {{ TF }}" %}
 
       ```
       resource "yandex_lb_network_load_balancer" "internal-lb-test" {
@@ -284,7 +286,7 @@ The internal load balancer's listener is assigned a random IP address from the r
 
       {% endcut %}
 
-      For more information about resources that you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For more information about resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
    1. Make sure that the configuration files are correct.
 
@@ -295,7 +297,7 @@ The internal load balancer's listener is assigned a random IP address from the r
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

@@ -25,7 +25,7 @@
 1. Инициализируйте профиль CLI (понадобится OAuth-токен из предыдущего шага):
 
    ```bash
-   $ yc init --endpoint gw.db.yandex-team.ru:443
+   yc init --endpoint gw.db.yandex-team.ru:443
    Welcome! This command will take you through the configuration process.
    Please go to https://oauth.yandex...
 

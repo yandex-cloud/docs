@@ -39,6 +39,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
    ```
 
    Where:
+
    * `--name`: Name of the log group.
    * `--retention-period`: Log group record retention period. Optional. The maximum record retention period is 3 days, the minimum is 1 hour. By default, the retention period is 3 days.
 
@@ -59,11 +60,11 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
    You can create a custom log group using the [create](../api-ref/LogGroup/create.md) API method.
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the parameters of resources that you want to create:
 
@@ -74,6 +75,8 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
       * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). Optional. By default, the value specified in the provider settings is used.
 
       * `retention_period`: Record retention period in the log group. Optional. The maximum record retention period is 3 days, the minimum is 1 hour. By default, the retention period is 3 days.
+
+      Example configuration file structure:
 
       {% if product == "yandex-cloud" %}
 
@@ -112,9 +115,9 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
       }
       ```
 
-   {% endif %}
+      {% endif %}
 
-      For more detailed information about the parameters of the `yandex_logging_group` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/logging_group).
+      For more detailed information about the parameters of the `yandex_logging_group` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/logging_group).
 
    1. Make sure that the configuration files are correct.
 
@@ -125,7 +128,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

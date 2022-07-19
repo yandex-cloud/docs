@@ -25,7 +25,7 @@ To delete a snapshot:
    1. See the description of the CLI's delete snapshot commands:
 
       ```
-      $ yc compute snapshot delete --help
+      yc compute snapshot delete --help
       ```
 
    1. Get a list of snapshots in the default folder:
@@ -36,26 +36,26 @@ To delete a snapshot:
    1. Delete the snapshot:
 
       ```
-      $ yc compute snapshot delete \
+      yc compute snapshot delete \
           --name first-snapshot
       ```
 
-- Terraform
+- {{ TF }}
 
-   For more information about Terraform, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   If you created a snapshot with Terraform, you can delete it:
+   If you created a snapshot with {{ TF }}, you can delete it:
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
    2. Delete resources using the command:
 
       ```
-      $ terraform destroy
+      terraform destroy
       ```
 
       {% note alert %}
 
-      Terraform deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
 
       {% endnote %}
 

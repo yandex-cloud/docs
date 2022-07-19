@@ -5,7 +5,7 @@ If an error occurs during the operation, the CLI displays the corresponding mess
 ### Sample error message {#sample}
 
 ```
-$ yc compute instance create --name my-inst3 --metadata user-data="#ps1\nnet user Administrator Passw0rd" --zone {{ region-id }}-a --public-ip --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk-153
+yc compute instance create --name my-inst3 --metadata user-data="#ps1\nnet user Administrator Passw0rd" --zone {{ region-id }}-a --public-ip --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk-153
 7967224
 ERROR: rpc error: code = ResourceExhausted desc = The limit on maximum number of instances has exceeded.
 

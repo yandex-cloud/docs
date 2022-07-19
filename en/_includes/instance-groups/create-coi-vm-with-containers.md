@@ -35,7 +35,7 @@ Docker containers are created based on the [Docker Compose specification](../../
         yc iam service-account create --name group-coi
         ```
 
-        Command execution result:
+        Result:
 
         ```bash
         id: ajeabccde01d23efl1v5
@@ -79,7 +79,7 @@ Docker containers are created based on the [Docker Compose specification](../../
         yc vpc network create --name yc-auto-network
         ```
 
-        Command execution result:
+        Result:
 
         ```bash
         id: enpabce123hde4ft1r3t
@@ -94,7 +94,7 @@ Docker containers are created based on the [Docker Compose specification](../../
         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-a
         ```
 
-        Command execution result:
+        Result:
 
         ```bash
         id: e1lnabc23r1c9d0efoje
@@ -188,7 +188,7 @@ Docker containers are created based on the [Docker Compose specification](../../
      yc compute instance-group create --file=specification.yaml
      ```
 
-     Command execution result:
+     Result:
 
      ```bash
      done (48s)
@@ -223,7 +223,7 @@ Docker containers are created based on the [Docker Compose specification](../../
      yc compute instance-group list-instances group-coi-containers
      ```
 
-     Command execution result:
+     Result:
 
      ```bash
      +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
@@ -252,7 +252,7 @@ Docker containers are created based on the [Docker Compose specification](../../
      ssh yc-user@84.201.128.110
      ```
 
-     Command execution result:
+     Result:
 
      ```bash
      Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-54-generic x86_64)
@@ -275,7 +275,7 @@ Docker containers are created based on the [Docker Compose specification](../../
      sudo docker ps -a
      ```
 
-     Command execution result:
+     Result:
 
      ```bash
      CONTAINER ID   IMAGE   COMMAND                  CREATED              STATUS              PORTS                NAMES

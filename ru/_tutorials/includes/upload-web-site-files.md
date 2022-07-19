@@ -7,13 +7,13 @@
    - Ubuntu
 
      ```bash
-     $ sudo chown -R "$USER":www-data /var/www/html
+     sudo chown -R "$USER":www-data /var/www/html
      ```
 
    - CentOS
 
      ```bash
-     $ sudo chown -R "$USER":apache /var/www/html
+     sudo chown -R "$USER":apache /var/www/html
      ```
 
    {% endlist %}
@@ -26,7 +26,7 @@
 
      Используйте утилиту командной строки `scp`:
      ```bash
-     $ scp -r <путь до директории с файлами> <имя пользователя ВМ>@<IP-адрес виртуальной машины>:/var/www/html
+     scp -r <путь до директории с файлами> <имя пользователя ВМ>@<IP-адрес виртуальной машины>:/var/www/html
      ```
 
    - Windows

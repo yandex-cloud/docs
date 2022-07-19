@@ -23,7 +23,7 @@
   1. Посмотрите описание команды CLI для получения списка виртуальных машин:
 
       ```
-      $ {{ yc-compute-ig }} list-instances --help
+      {{ yc-compute-ig }} list-instances --help
       ```
 
   1. Получите список групп виртуальных машин в каталоге по умолчанию:
@@ -34,7 +34,7 @@
   1. Получите информацию о группе виртуальных машин:
 
       ```
-      $ {{ yc-compute-ig }} list-instances --name first-instance-group
+      {{ yc-compute-ig }} list-instances --name first-instance-group
       ```
 
 - API

@@ -25,7 +25,7 @@ To read data from the `series` table:
        --endpoint $endpoint
    ```
 
-   Output:
+   Result:
 
    ```text
    {

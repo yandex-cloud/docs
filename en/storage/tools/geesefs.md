@@ -87,4 +87,3 @@ To mount a bucket automatically at system startup, add a line  to the `/etc/fsta
 ```
 
 When mounting a bucket, you can specify the GeeseFS settings, including those related to system [performance](#performance) and object access rights, using command line options. To view the list of options and their descriptions, run `geesefs --help`.
-

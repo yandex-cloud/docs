@@ -51,27 +51,28 @@ LIMIT 2;
 
 ### Создание лог-группы { #create_log_group }
 
-Для создания [лог-группы](../../logging/concepts/log-group.md) с опцией отправки данных в поток {{yds-full-name}} выполните следующую команду:
+Для создания [лог-группы](../../logging/concepts/log-group.md) с опцией отправки данных в поток {{ yds-full-name }} выполните следующую команду:
 
 ```shell
 yc logging group create \
---name <log_group_name> \
---folder-id <folder_id> \
---data-stream <full_yds_stream_name>
+  --name <log_group_name> \
+  --folder-id <folder_id> \
+  --data-stream <full_yds_stream_name>
 ```
 
 Где:
-- `<log_group_name>` — название создаваемой лог-группы.
-- `<folder_id>` — каталог, где будет создана лог-группа.
-- `<full_yds_stream_name>` — полное имя потока данных {{yds-full-name}}. Полное имя потока можно получить в UI {{yds-full-name}} в разделе **Подключиться**. Полное имя потока имеет формат `/{{ region-id }}/b1kmrhakmf8ar1i5l6f8/etnku2bpm9r7sgbpq7s7/cloud-logging`.
+
+* `name` — название создаваемой лог-группы.
+* `folder-id` — каталог, где будет создана лог-группа.
+* `data-stream` — полное имя потока данных {{ yds-full-name }}. Полное имя потока можно получить в UI {{yds-full-name}} в разделе **Подключиться**. Полное имя потока имеет формат `/{{ region-id }}/b1kmrhakmf8ar1i5l6f8/etnku2bpm9r7sgbpq7s7/cloud-logging`.
 
 Пример команды создания лог-группы `yds`, отправляющей данные в поток `cloud-logging`:
 
 ```shell
-yc  logging group create \
---name yds \
---folder-id b1kmrhakmf8ar1i5l6f8 \
---data-stream /{{ region-id }}/b1kmrhakmf8ar1i5l6f8/etnku2bpm9r7sgbpq7s7/cloud-logging
+yc logging group create \
+  --name yds \
+  --folder-id b1kmrhakmf8ar1i5l6f8 \
+  --data-stream /{{ region-id }}/b1kmrhakmf8ar1i5l6f8/etnku2bpm9r7sgbpq7s7/cloud-logging
 ```
 
 ### Отправка данных в лог-группу { #send_to_loggroup }
@@ -89,10 +90,11 @@ do yc logging write \
 ```  
 
 Где:
-- `<log_group_name>` — название лог-группы.
-- `<message>` — текст сообщения.
-- `<json_payload>` — дополнительные данные сообщения в формате JSON.
-- `<folder_id>` — каталог, где создана лог-группа.
+
+* `group-name` — название лог-группы.
+* `message` — текст сообщения.
+* `json_payload` — дополнительные данные сообщения в формате JSON.
+* `folder-id` — каталог, где создана лог-группа.
 
 Пример команды для отправки данных в лог-группу `yds`, находящуюся в фолдере `b1kmrhakmf8ar1i5l6f8`, сообщения `Message` с дополнительным JSON-содержимым `{"request_id": "1234", "host":"test_host"}`:
 

@@ -30,7 +30,7 @@
 
     1. [Настройте права доступа](../operations/cluster-users.md#update-settings) так, чтобы вы могли выполнять в этой базе запросы на чтение и запись.
 
-- С помощью Terraform
+- С помощью {{ TF }}
 
     1. Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart).
 
@@ -221,7 +221,7 @@ ORDER BY AvgSendTiming DESC
 LIMIT 10
 ```
 
-Результат запроса:
+Результат:
 
 ```text
 ┌─Domain──────────────────────────────┬──────AvgSendTiming─┐
@@ -248,7 +248,7 @@ LIMIT 10
 
     Если созданные ресурсы вам больше не нужны, [удалите кластер {{ mch-name }}](../operations/cluster-delete.md).
 
-- С помощью Terraform
+- С помощью {{ TF }}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
 

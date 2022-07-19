@@ -30,7 +30,14 @@
        --network-name k8s-gpu
      ```
 
-     Результат выполнения команды:
+     Где:
+     * `--name` — имя кластера {{ k8s }}.
+     * `--service-account-id` — уникальный идентификатор сервисного аккаунта для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
+     * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для узлов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
+     * `--zone` — зона доступности.
+     * `--network-name` — имя сети.
+
+     Результат:
 
      ```bash
      done (6m9s)
@@ -41,13 +48,6 @@
      node_service_account_id: ajeo8f063dmnicot7t7j
      release_channel: REGULAR
      ```
-
-     Где:
-     * `--name` — имя кластера {{ k8s }}.
-     * `--service-account-id` — уникальный идентификатор сервисного аккаунта для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
-     * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для узлов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
-     * `--zone` — зона доступности.
-     * `--network-name` — имя сети.
 
    - API
 
@@ -128,7 +128,19 @@
        --fixed-size 1
       ```
 
-     Результат выполнения команды:
+     Где:
+
+     * `--name` — имя группы узлов.
+     * `--cluster-name` — имя кластера {{ k8s }}, в котором будет создана группа узлов.
+     * `--gpus` — количество GPU для узлов.
+     * `--network-interface` — настройки сети:
+
+       {% include [network-interface](../../_includes/managed-kubernetes/cli-network-interface.md) %}
+
+     * `--location` — зона доступности, в которой будут расположены узлы.{% if product == "yandex-cloud" %} Можно указать несколько вариантов.{% endif %}
+     * `--fixed-size` — количество узлов в группе.
+
+     Результат:
 
      ```bash
      done (3m53s)
@@ -139,17 +151,6 @@
        maintenance_window:
          anytime: {}
      ```
-
-     Где:
-     * `--name` — имя группы узлов.
-     * `--cluster-name` — имя кластера {{ k8s }}, в котором будет создана группа узлов.
-     * `--gpus` — количество GPU для узлов.
-     * `--network-interface` — настройки сети:
-
-       {% include [network-interface](../../_includes/managed-kubernetes/cli-network-interface.md) %}
-
-     * `--location` — зона доступности, в которой будут расположены узлы.{% if product == "yandex-cloud" %} Можно указать несколько вариантов.{% endif %}
-     * `--fixed-size` — количество узлов в группе.
 
    - API
 
@@ -187,7 +188,7 @@
    kubectl create -f cuda-vector-add.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```
    pod/cuda-vector-add created
@@ -199,7 +200,7 @@
    kubectl describe pod cuda-vector-add
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```
    Name:         cuda-vector-add
@@ -217,7 +218,7 @@
    kubectl logs -f cuda-vector-add
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```
    [Vector addition of 50000 elements]

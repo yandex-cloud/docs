@@ -70,7 +70,7 @@
 ```
 yc compute instance add-labels cl123g4dridnn5cna6df-yduv --labels project=test
 ```
-Результат выполнения команды:
+Результат:
 
 ```
 done (5s)
@@ -92,7 +92,7 @@ zone_id: {{ region-id }}-a
 yc managed-kubernetes cluster update k8s-gpu --labels new_lable=test_label
 ```
 
-Результат выполнения команды:
+Результат:
 
 ```
 done (1m36s)
@@ -114,7 +114,7 @@ status: RUNNING
 yc managed-mysql cluster remove-labels mysql123 --labels my_lable
 ```
 
-Результат выполнения команды:
+Результат:
 
 ```
 id: c1qmjaatlurm2bcoi34i

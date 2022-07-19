@@ -90,9 +90,9 @@ items:
     items:
       - name: All tutorials
         href: infrastructure-management/index.md
-      - name: Getting started with {{ TF }}
+      - name: Getting started with Terraform
         href: infrastructure-management/terraform-quickstart.md
-      - name: Uploading {{ TF }} states to {{ objstorage-name }}
+      - name: Uploading Terraform states to {{ objstorage-name }}
         href: infrastructure-management/terraform-state-storage.md
       - name: Getting started with Packer
         href: infrastructure-management/packer-quickstart.md

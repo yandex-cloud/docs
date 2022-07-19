@@ -56,7 +56,7 @@ To create an automatically scaled instance group
          description: "This instance group was created from YAML config."
          ```
 
-         Keys:
+         Where:
 
          | Key | Value |
          ----- | -----
@@ -87,7 +87,7 @@ To create an automatically scaled instance group
 
          {% include [default-unit-size](../../../_includes/instance-groups/default-unit-size.md) %}
 
-         Keys (the table contains the keys that directly define the instance parameters):
+         Where (the table contains the keys that directly define the instance parameters):
 
          | Key | Value |
          ----- | -----
@@ -122,7 +122,7 @@ To create an automatically scaled instance group
                  - zone_id: {{ region-id }}-a
          ```
 
-         Keys:
+         Where:
 
          | Key | Value |
          ----- | -----
@@ -187,52 +187,11 @@ To create an automatically scaled instance group
 
    Use the API [Create](../../api-ref/InstanceGroup/create.md) method.
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the parameters of resources that you want to create:
-
-      {% note info %}
-
-      If you already have suitable resources, such as a service account, cloud network, and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
-
-      {% endnote %}
-
-      * `yandex_iam_service_account`: Description of a [service account](../../../iam/concepts/users/service-accounts.md). All operations in {{ ig-name }} are performed on behalf of the service account.
-      * `yandex_resourcemanager_folder_iam_binding`: Description of access rights to the folder that the service account belongs to. To be able to create, update, and delete group instances, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
-      * `yandex_compute_instance_group`: Description of an [instance group](../../concepts/index.md):
-
-         * General information about the group:
-
-            | Field | Description |
-            ----- | -----
-            | `name` | Name of the instance group. |
-            | `folder_id` | Folder ID. |
-            | `service_account_id` | ID of the service account. |
-
-         * [The instance template](../../concepts/instance-groups/instance-template.md):
-
-            | Field | Description |
-            ----- | -----
-            | `platform_id` | [Platform](../../concepts/vm-platforms.md). |
-            | `resources` | The number of vCPU cores and the amount of RAM available to the instance. The values must match the selected [platform](../../concepts/vm-platforms.md). |
-            | `boot_disk` | Boot disk settings. Enter: </br> - The selected image ID. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md). </br> Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write). |
-            | `network_interface` | Network configuration. Specify the network ID and subnet ID. |
-            | `metadata` | In the metadata, pass the public key for accessing the instance via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md). |
-
-         * [Policies](../../concepts/instance-groups/policies/index.md):
-
-            | Field | Description |
-            ----- | -----
-            | `deploy_policy` | [Deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for instances in the group. |
-            | `scale_policy` | [Scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for instances in the group. |
-            | `allocation_policy` | [Policy for allocating](../../concepts/instance-groups/policies/allocation-policy.md) instances across zones and regions. |
-
-      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
-      * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#subnet) the instance group will connect to.
-
-      Example configuration file structure:
 
       ```
       resource "yandex_iam_service_account" "ig-sa" {
@@ -310,7 +269,48 @@ To create an automatically scaled instance group
       }
       ```
 
-      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-link }}/).
+      Where:
+
+      * `yandex_iam_service_account`: Description of a [service account](../../../iam/concepts/users/service-accounts.md). All operations in {{ ig-name }} are performed on behalf of the service account.
+      * `yandex_resourcemanager_folder_iam_binding`: Description of access rights to the folder that the service account belongs to. To be able to create, update, and delete group instances, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
+      * `yandex_compute_instance_group`: Description of an [instance group](../../concepts/index.md):
+
+         * General information about the group:
+
+            | Field | Description |
+            ----- | -----
+            | `name` | Name of the instance group. |
+            | `folder_id` | Folder ID. |
+            | `service_account_id` | ID of the service account. |
+
+         * [The instance template](../../concepts/instance-groups/instance-template.md):
+
+            | Field | Description |
+            ----- | -----
+            | `platform_id` | [Platform](../../concepts/vm-platforms.md). |
+            | `resources` | The number of vCPU cores and the amount of RAM available to the instance. The values must match the selected [platform](../../concepts/vm-platforms.md). |
+            | `boot_disk` | Boot disk settings. Enter: </br> - The selected image ID. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md). </br> Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write). |
+            | `network_interface` | Network configuration. Specify the network ID and subnet ID. |
+            | `metadata` | In the metadata, pass the public key for accessing the instance via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md). |
+
+         * [Policies](../../concepts/instance-groups/policies/index.md):
+
+            | Field | Description |
+            ----- | -----
+            | `deploy_policy` | [Deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for instances in the group. |
+            | `scale_policy` | [Scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for instances in the group. |
+            | `allocation_policy` | [Policy for allocating](../../concepts/instance-groups/policies/allocation-policy.md) instances across zones and regions. |
+
+      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
+      * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#subnet) the instance group will connect to.
+
+      {% note info %}
+
+      If you already have suitable resources, such as a service account, cloud network, and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
+
+      {% endnote %}
+
+      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
 
@@ -321,7 +321,7 @@ To create an automatically scaled instance group
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

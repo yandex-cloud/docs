@@ -185,7 +185,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       java -jar target/release/SeriesCreateTable.jar
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Попытка создания таблицы, подождите...
@@ -253,7 +253,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       python SeriesCreateTable.py
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Статус таблицы: ACTIVE
@@ -335,7 +335,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       php SeriesCreateTable.php
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```txt
       Статус таблицы: ACTIVE
@@ -394,7 +394,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       node SeriesCreateTable.js
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Таблица создана. Схема таблицы JSON: {
@@ -508,7 +508,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       ruby SeriesCreateTable.rb
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Создание таблицы 'Series'...

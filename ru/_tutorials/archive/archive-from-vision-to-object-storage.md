@@ -104,7 +104,8 @@
     ```bash
     yc iam service-account --folder-id <FOLDER-ID>  get vision
     ```
-    На выводе вы получите одну из строк вида:
+
+    В результате вы получите одну из строк вида:
     ```
     id: <SERVICE-ACCOUNT-ID>
     ```
@@ -149,8 +150,10 @@
     ```bash
     aws configure
     ```
-    * `AWS Access Key ID` - это значение `key_id` из предыдущего раздела пункта "Создайте статический ключ доступа для сервисного аккаунта".
-    * `AWS Secret Access Key` - это значение `secret` там же.
+
+    При запросе значений параметров:
+    * `AWS Access Key ID` - укажите значение `key_id` из предыдущего раздела пункта "Создайте статический ключ доступа для сервисного аккаунта".
+    * `AWS Secret Access Key` - укажите значение `secret` там же.
     * `Default region name` - введите `{{ region-id }}`.
     * `Default output format` - введите `json`.
 1. Проверьте, что файл `~/.aws/credentials` содержит правильные значения:
@@ -179,7 +182,7 @@
     ```bash
     aws --endpoint-url=https://{{ s3-storage-host }} s3 ls s3://<BUCKET-NAME>/
     ```
-    `<BUCKET-NAME>` - название вашего бакета
+    Где `<BUCKET-NAME>` - название вашего бакета.
 1. Скачайте изображения на виртуальную машину, например, в папку `my_pictures`:
      ```bash
     aws --endpoint-url=https://{{ s3-storage-host }} s3 cp s3://<BUCKET-NAME>/ my_pictures --recursive
@@ -206,6 +209,9 @@
     export FOLDERID="<FOLDER-ID>"
     export IAMTOKEN="<IAM-TOKEN>"
     ```
+
+    Где:
+
     * `BUCKETNAME` - название вашего бакета.
     * `FOLDERID` - название каталога.
     * `IAMTOKEN`- IAM-токен полученный в [этом разделе](#iam-token).

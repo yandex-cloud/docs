@@ -29,6 +29,8 @@ POST https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze
 }
 ```
 
+Where:
+
 | Field | Description |
 | ---- | -------- |
 | analyzeSpecs[] | **object**<br><p>List of specifications. Each specification contains the image to analyze and type of analysis.</p> |
@@ -67,6 +69,8 @@ POST https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze
  ]
 }
 ```
+
+Where:
 
 | Field | Description |
 | ---- | -------- |

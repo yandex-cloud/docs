@@ -22,9 +22,7 @@ To log requests to the bucket:
 
    - API
 
-     Send the request using the method [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md). In the request body, specify:
-     * The name of the target bucket in the parameter `<TargetBucket>`, for example, `bucket-logs`.
-     * (optional) Prefix to be used with all the [keys](../../concepts/object.md#key) of the log objects, in the parameter `<TargetPrefix>`. The prefix must end with `/`, for example, `logs/`.
+     Send the request using the method [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md).
 
      Example of the HTTP request body:
 
@@ -36,6 +34,11 @@ To log requests to the bucket:
        </LoggingEnabled>
      </BucketLoggingStatus>
      ```
+
+     Where:
+
+     * `<TargetBucket>`: The name of the target bucket.
+     * `<TargetPrefix>`: Prefix to be used with all the [keys](../../concepts/object.md#key) of the log objects. The prefix must end with `/`, for example, `logs/`. Optional.
 
    {% endlist %}
 

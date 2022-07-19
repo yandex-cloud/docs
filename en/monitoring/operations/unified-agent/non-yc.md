@@ -10,11 +10,13 @@ To configure {{unified-agent-full-name}} to deliver metrics using an authorized 
 
    1. [Create a service account](../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-monitoring-editor }}` role.
 
-   1. [Create an authorized key](../../../iam/operations/authorized-key/create.md) for your new service account using [YC CLI](../../../cli/quickstart.md), replacing `<SA_ID>` with your service account ID:
+   1. [Create an authorized key](../../../iam/operations/authorized-key/create.md) for your new service account using [YC CLI](../../../cli/quickstart.md):
 
       ```bash
       yc iam key create --service-account-id <SA_ID> --output jwt_params.json
       ```
+
+      Where `<SA_ID>` is the service account ID.
 
       You can find more ways to create authorized keys in [{#T}](../../../iam/operations/authorized-key/create.md).
 
@@ -34,7 +36,7 @@ To configure {{unified-agent-full-name}} to deliver metrics using an authorized 
 
 1. Install and configure {{unified-agent-full-name}}.
 
-   1. Create a file named **config.yml** in your home folder. Replace `$FOLDER_ID` in the file with the ID of the folder you want to write metrics to. Enter the file name with the JWT parameters in the `iam.jwt.file` section.
+   1. Create a file named **config.yml** in your home folder.
 
       **config.yml:**
       ```yaml
@@ -88,6 +90,11 @@ To configure {{unified-agent-full-name}} to deliver metrics using an authorized 
        import:
          - /etc/yandex/unified_agent/conf.d/*.yml
       ```
+
+      Where:
+
+      * `$FOLDER_ID`: ID of the folder you want to write metrics.
+      * `iam.jwt.file`: File name with the JWT parameters.
 
    1. Install {{unified-agent-short-name}} on your VM by running the following command in the home folder:
 

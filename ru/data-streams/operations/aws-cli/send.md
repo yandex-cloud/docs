@@ -17,6 +17,8 @@
     --partition-key <ключ_сегмента>
   ```
 
+  Где:
+
   * `--endpoint` — для отправки данных в поток по протоколу AWS Kinesis Data Streams укажите эндпоинт `https://yds.serverless.yandexcloud.net`.
   * `--stream-name` — состоит из зоны доступности, идентификатора каталога, идентификатора базы данных {{ ydb-full-name }} и имени потока.
 

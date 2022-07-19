@@ -15,7 +15,7 @@
 
 {% list tabs %}
 
-* Вручную
+- Вручную
 
     1. {% if audience != "internal" %}[Настройте группу безопасности {{ vpc-name }}](../../vpc/operations/security-group-add-rule.md){% else %}Настройте группу безопасности {{ vpc-name }}{% endif %}. Добавьте разрешения для протокола TCP в группу безопасности:
 
@@ -35,7 +35,7 @@
 
     1. [Создайте кластер {{ mrd-name }}](../operations/cluster-create.md) любой подходящей конфигурации. При создании кластера {{ mrd-name }} укажите те же сеть и группы безопасности, что и для ВМ с веб-сервером.
 
-* С помощью Terraform
+- С помощью {{ TF }}
 
     1. Если у вас еще нет {{ TF }}, {% if audience != "internal" %}[установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его{% endif %}.
     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и {% if audience != "internal" %}[укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider){% else %}укажите значения параметров{% endif %}.
@@ -145,7 +145,7 @@
         session.save_path = "seed[]=<FQDN1>:6379&seed[]=<FQDN2>:6379&seed[]=<FQDN3>:6379&auth=<пароль>"
         ```
 
-        Здесь `<FQDN1>`, `<FQDN2>` и `<FQDN3>` — полные доменные имена [хостов-мастеров кластера](../operations/hosts.md#list). Например, для кластера из 3-х шардов с паролем `password` значение параметра `session.save_path` будет выглядеть так:
+        Где `<FQDN1>`, `<FQDN2>` и `<FQDN3>` — полные доменные имена [хостов-мастеров кластера](../operations/hosts.md#list). Например, для кластера из 3-х шардов с паролем `password` значение параметра `session.save_path` будет выглядеть так:
 
         ```ini
         session.save_path = "seed[]=rc1a-t9h8gxqor5v6lcc3.{{ dns-zone }}:6379&seed[]=rc1b-7qxk0h3b8pupxsj9.{{ dns-zone }}:6379&seed[]=rc1c-spy1c1i4vwvj0n8z.{{ dns-zone }}:6379&auth=password"
@@ -221,7 +221,7 @@
 
 {% list tabs %}
 
-* Вручную
+- Вручную
 
     Если созданные ресурсы вам больше не нужны, удалите их:
 
@@ -229,7 +229,7 @@
     * {% if audience != "internal" %}[Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md){% else %}Удалите виртуальную машину{% endif %}.
     * Если вы зарезервировали публичные статические IP-адреса, освободите и {% if audience != "internal" %}[удалите их](../../vpc/operations/address-delete.md){% else %}удалите их{% endif %}.
 
-* С помощью Terraform
+- С помощью {{ TF }}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
 

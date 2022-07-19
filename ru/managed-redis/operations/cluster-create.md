@@ -144,7 +144,7 @@
 
       {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   {% if audience != "internal" %}
@@ -364,7 +364,7 @@
     --deletion-protection=true
   ```
 
-- Terraform
+- {{ TF }}
 
   Допустим, нужно создать {{ RD }}-кластер и сеть для него со следующими характеристиками:
 
@@ -538,7 +538,7 @@
 
 {% list tabs %}
 
-- Terraform
+- {{ TF }}
 
     Допустим, нужно создать [шардированный](../concepts/sharding.md) {{RD}}-кластер со следующими характеристиками:
 

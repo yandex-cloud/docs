@@ -87,7 +87,7 @@ You can create a VM with disks restored from the snapshots that exist in the fol
    1. View the description of the CLI command for creating a VM:
 
       ```
-      $ yc compute instance create --help
+      yc compute instance create --help
       ```
 
    1. Prepare snapshots of the required disks, see [{#T}](../disk-control/create-snapshot.md).
@@ -99,7 +99,7 @@ You can create a VM with disks restored from the snapshots that exist in the fol
    1. Create a VM in the default folder:
 
       ```
-      $ yc compute instance create \
+      yc compute instance create \
           --name first-instance \
           --zone {{ region-id }}-a \
           --public-ip \

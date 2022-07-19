@@ -72,7 +72,7 @@ To create a bucket:
        --acl public-read
      ```
 
-- Terraform
+- {{ TF }}
 
   1. Add the parameters of the `bucket-logs` bucket to the configuration file:
 
@@ -83,7 +83,7 @@ To create a bucket:
      }
      ```
 
-     For more information about the `yandex_storage_bucket` resource, see the Terraform provider [documentation]({{ tf-provider-link }}/storage_bucket).
+     For more information about the `yandex_storage_bucket` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/storage_bucket).
 
   1. Make sure the settings are correct.
 
@@ -196,7 +196,7 @@ To enable the export of logs to the `bucket-logs` bucket:
         --version 21.3
      ```
 
-- Terraform
+- {{ TF }}
 
   1. Add a description of the cluster and cluster hosts to the configuration file:
 
@@ -240,7 +240,7 @@ To enable the export of logs to the `bucket-logs` bucket:
      }
      ```
 
-     For more information about resources that you can create using Terraform, see the [provider's documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+     For more information about resources that you can create using {{ TF }}, see the [provider's documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
   1. Make sure the settings are correct.
 

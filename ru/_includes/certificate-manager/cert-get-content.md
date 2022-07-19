@@ -16,7 +16,7 @@
 
 
     ```
-    $ yc certificate-manager certificate content \
+    yc certificate-manager certificate content \
       --id fpqcsmn76v82fi446ri7 \
       --chain certificate_full_chain.pem \
       --key private_key.pem

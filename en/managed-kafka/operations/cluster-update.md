@@ -45,7 +45,7 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
 
    1. [Create an administrator account](./cluster-accounts.md#create-account).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -149,7 +149,7 @@ You can't decrease the number of {{ KF }} broker hosts. You can only increase it
         --zookeeper-resource-preset <host class>
       ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -265,7 +265,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
       If no size units are specified, gigabytes are used.
 
-- Terraform
+- {{ TF }}
 
    To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size
 
@@ -369,7 +369,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -459,7 +459,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
          --log-flush-interval-ms <maximum time to retain messages in memory before flushing to disk>
       ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -491,7 +491,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -589,7 +589,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
          --security-group-ids <security group list>
       ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -612,7 +612,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 

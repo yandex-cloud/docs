@@ -10,7 +10,7 @@ To set up automatic deployment, specify the master address and {{ k8s }} service
       - Bash
 
           ```
-          $ yc managed-kubernetes cluster get <cluster-id> --format=json \
+          yc managed-kubernetes cluster get <cluster-id> --format=json \
           | jq -r .master.endpoints.external_v4_endpoint
           ```
 

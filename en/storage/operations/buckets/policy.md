@@ -73,17 +73,13 @@ To apply or edit a bucket access policy:
 
    If a previous access policy already exists for a bucket, it will be completely overwritten once you apply the new policy.
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    Retrieve {% if audience != "internal" %}[static access keys](../../../iam/operations/sa/create-access-key.md){% else %}static access keys{% endif %}: a static key and a key ID used to authenticate in {{ objstorage-short-name }}.
 
    1. In the configuration file, describe the parameters of resources that you want to create:
-      * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the secret access key.
-      * `bucket`: Bucket name. Required parameter.
-      * `policy`: Policy name. Required parameter.
 
       ```hcl
       resource "yandex_storage_bucket" "b" {
@@ -116,7 +112,14 @@ To apply or edit a bucket access policy:
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
+      Where:
+
+      * `access_key`: The ID of the static access key.
+      * `secret_key`: The value of the secret access key.
+      * `bucket`: Bucket name. Required parameter.
+      * `policy`: Policy name. Required parameter.
+
+      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
    1. Make sure that the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
@@ -126,7 +129,7 @@ To apply or edit a bucket access policy:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
       1. If the configuration doesn't contain any errors, run the command:
@@ -208,11 +211,11 @@ To delete a bucket policy:
      --bucket <bucket name>
    ```
 
-- Terraform
+- {{ TF }}
 
-   {% if audience != "internal" %}For more information about Terraform, see the [documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).{% endif %}
+   {% if audience != "internal" %}For more information about {{ TF }}, see the [documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).{% endif %}
 
-   If you modified a bucket policy using Terraform, you can delete it:
+   If you modified a bucket policy using {{ TF }}, you can delete it:
 
    1. Find the parameters of the previously created bucket policy to delete in the configuration file:
 
@@ -256,7 +259,7 @@ To delete a bucket policy:
          terraform plan
          ```
 
-      If the configuration is described properly, the terminal will display a list of the resources being created and their parameters without the bucket policy being deleted. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described properly, the terminal will display a list of the resources being created and their parameters without the bucket policy being deleted. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Delete the bucket policy.
       1. If the configuration doesn't contain any errors, run the command:

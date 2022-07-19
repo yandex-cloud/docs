@@ -55,6 +55,11 @@
 
       ```
       yc vpc network list --folder-id b1g6ci08ma55klukmdjs
+      ```
+
+      Result:
+
+      ```
       +----------------------+----------------+
       |          ID          |      NAME      |
       +----------------------+----------------+
@@ -63,22 +68,27 @@
       +----------------------+----------------+
       ```
 
-   1. Select the `NAME` or `ID` of the cloud network you need. Create a subnet in the default folder by specifying the cloud network ID via the `--network-id` flag:
+  1. Select the `NAME` or `ID` of the cloud network you need. Create a subnet in the default folder:
 
       ```
-      yc vpc subnet create --name test-subnet-1 \
+      yc vpc subnet create \
+        --name test-subnet-1 \
         --description "My test subnet" \
         --network-id enplom7a98s1t0lhass8 \
         --zone {{ region-id }}-a \
         --range 192.168.0.0/24
       ```
 
-      You can also select a cloud network by specifying its name via the `--network-name` flag. Specify the name of the cloud network to create the subnet in and the CIDR. The `--zone` flag indicates the availability zone where the subnet will be created. If this flag is omitted, the subnet is created in the default availability zone.
+      Where:
+
+      * `--network-id`: The cloud network ID. You can also select a cloud network by specifying its name via the `--network-name` flag. Specify the name of the cloud network to create the subnet in and the CIDR.
+      * `--zone`: The availability zone where the subnet will be created. If this flag is omitted, the subnet is created in the default availability zone.
 
       {% include [name-format](../../_includes/name-format.md) %}
 
       ```
-      yc vpc subnet create --name test-subnet-1 \
+      yc vpc subnet create \
+        --name test-subnet-1 \
         --description "My test subnet" \
         --network-name test-network-1 \
         --zone {{ region-id }}-a \
@@ -91,6 +101,11 @@
 
       ```
       yc vpc subnet list
+      ```
+
+      Result:
+
+      ```
       +----------------------+-----------------------+------------------------+
       |          ID          |         NAME          | ... |       RANGE      |
       +----------------------+-----------------------+------------------------+
@@ -104,9 +119,11 @@
 
       ```
       yc vpc subnet list --format yaml
+      ```
 
-      ...
+      Result:
 
+      ```
       - id: e2l0psbfoloefpjb1rau
         folder_id: b1g6ci08ma55klukmdjs
         created_at: "2018-10-24T12:25:58Z"
@@ -224,7 +241,7 @@
         name           = "subnet-1"
         description    = "My first subnet"
         v4_cidr_blocks = ["10.2.0.0/16"]
-        zone           = "ru-central1-a"
+        zone           = "{{ region-id }}-a"
         network_id     = "${yandex_vpc_network.lab-net.id}"
       }
       ```

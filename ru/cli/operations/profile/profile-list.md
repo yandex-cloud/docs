@@ -7,7 +7,7 @@
 Для получения списка профилей выполните команду:
 
 ```
-$ yc config profile list
+yc config profile list
 prod ACTIVE
 test
 ```
@@ -21,7 +21,7 @@ test
 {% if product == "yandex-cloud" %}
 
 ```
-$ yc config profile get prod
+yc config profile get prod
 token: AQAAAAAV6O...
 cloud-id: b1gvl...
 folder-id: b1g88...
@@ -32,7 +32,7 @@ folder-id: b1g88...
 {% if product == "cloud-il" %}
 
 ```
-$ yc config profile get prod
+yc config profile get prod
 cloud-id: b1gvl...
 folder-id: b1g88...
 ```

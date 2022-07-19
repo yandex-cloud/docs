@@ -68,7 +68,8 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
        --container-privileged
      ```
 
-     Command parameters:
+     Where:
+
      * `--name`: VM name.
      * `--zone`: Availability zone.
      * `--ssh-key`: Contents of the [public key file](../../compute/quickstart/quick-create-linux.md#create-ssh).
@@ -81,7 +82,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      * `--container-env`: The environment variables available in the Docker container.
      * `--container-privileged`: Launch the Docker container in privileged mode.
 
-     Command results:
+     Result:
 
      ```bash
      done (17s)
@@ -136,7 +137,8 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
        --public-ip
      ```
 
-     Command parameters:
+     Where:
+
      * `--coi-spec-file`: Path to the Docker container [specification file](../concepts/coi-specifications.md#coi-spec).
      * `--name`: VM name.
      * `--zone`: Availability zone.
@@ -144,7 +146,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      * `--service-account-name`: Service account name.
      * `--public-ip`: Public IP address allocated to the VM.
 
-     Command results:
+     Result:
 
      ```
      done (1m40s)

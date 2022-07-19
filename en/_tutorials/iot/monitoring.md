@@ -164,6 +164,7 @@ To test the function:
      ```
 
      Where:
+
      * `--username` and `--password`: Parameters for authorization using a username and password.
      * `--topic`: Device topic for sending data.
      * `--message`: Message text.

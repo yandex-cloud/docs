@@ -29,7 +29,7 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
    yc container registry update my-reg --new-name new-reg
    ```
 
-   Command output:
+   Result:
 
    ```bash
    id: crp3qleutgksvd1prhvb
@@ -57,7 +57,7 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
    yc container registry update new-reg --labels new_label=test_label
    ```
 
-   Command output:
+   Result:
 
    ```bash
    id: crp3qleutgksvd1prhvb

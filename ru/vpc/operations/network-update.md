@@ -21,7 +21,8 @@
       ```
       yc vpc network list
       ```
-	  Результат:
+
+      Результат:
       ```
       +----------------------+----------------+
       |          ID          |      NAME      |
@@ -32,13 +33,14 @@
       ```
 
   1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной сети.
-  1. Измените параметры облачной сети указав ее имя:
+  1. Измените параметры облачной сети, указав ее имя:
 
       ```
       yc vpc network update enpavfmgapumnl7cqin8 --new-name test-network-renamed
       ```
+
       Результат:
-	  ```
+      ```
       id: enpavfmgapumnl7cqin8
       folder_id: b1g6ci08ma55klukmdjs
       created_at: "2018-10-23T14:05:32Z"
@@ -47,20 +49,30 @@
       labels:
         new_label: test_label
       ```
-  Идентификатор и имя можно передавать не только как позиционный аргумент, но и с помощью флагов `--id` и `--name`:
+     
+      Идентификатор и имя можно передавать не только как позиционный аргумент, но и с помощью флагов `--id` и `--name`:
 
-  ```
-  yc vpc network update --name test-network-1 --new-name test-network-renamed --labels new_label=test_label
-  yc vpc network update --id enpavfmgapumnl7cqin8 --new-name test-network-renamed --labels new_label=test_label
-  ```
+      ```
+      yc vpc network update \
+        --id enpavfmgapumnl7cqin8 \
+        --new-name test-network-renamed \
+        --labels new_label=test_label
+      ```
 
-- Terraform
+      ```
+      yc vpc network update \
+        --name test-network-1 \
+        --new-name test-network-renamed \
+        --labels new_label=test_label
+      ```
 
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+- {{ TF }}
+
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием облачной сети:
+  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием облачной сети:
 
      ```hcl
      ...
@@ -75,7 +87,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_network` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/vpc_network).
+     Более подробную информацию о параметрах ресурса `yandex_vpc_network` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_network).
 
   1. Проверьте конфигурацию командой:
 
@@ -95,7 +107,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
 
@@ -124,8 +136,11 @@
 - CLI
 
   ```
-  yc vpc network update test-network-1 --new-name test-network-renamed --labels new_label=test_label
+  yc vpc network update test-network-1 \
+    --new-name test-network-renamed \
+    --labels new_label=test_label
   ```
+
   Результат:
   ```
   id: enpavfmgapumnl7cqin8

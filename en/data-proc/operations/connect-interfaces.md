@@ -14,14 +14,14 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
    1. Select a cluster and click ![pencil](../../_assets/pencil.svg) **Edit cluster** on the top panel.
    1. Under **Settings**, enable **UI Proxy**.
    1. Click **Save changes**.
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -36,7 +36,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list).
 
-* API
+- API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
@@ -52,13 +52,13 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
    1. Click on the name of the desired cluster.
    1. Connection links for the component web interfaces can be found under **UI Proxy**.
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -72,7 +72,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list).
 
-* API
+- API
 
    Use the API [listUILinks](../api-ref/Cluster/listUILinks.md) method and pass the cluster ID in in the call's `clusterId` parameter.
 

@@ -15,7 +15,7 @@
   Встроенный механизм групп безопасности позволяет управлять доступом виртуальных машин к ресурсам и группам безопасности {{ yandex-cloud }} или ресурсам в интернете. Группа безопасности — это набор правил для входящего и исходящего трафика, который можно назначить на сетевой интерфейс виртуальной машины. Группы безопасности работают как stateful firewall, то есть отслеживают состояние сессий: если правило разрешает создать сессию, ответный трафик будет автоматически разрешен. Инструкцию по настройке групп безопасности см. в разделе [{#T}](../../vpc/operations/security-group-create.md). Указать группу безопасности можно в настройках ВМ.
 
 {% if product == "yandex-cloud" %}
-  ![](../../_assets/overview/solution-library-icon.svg)[Решение: настройка групп безопасности (dev/stage/prod) с помощью Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
+  ![](../../_assets/overview/solution-library-icon.svg)[Решение: настройка групп безопасности (dev/stage/prod) с помощью {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
 
 - Отдельная виртуальная машина — межсетевой экран на основе образа [NGFW](/marketplace/products/usergate/ngfw) из {{ marketplace-name }}.
 
@@ -47,7 +47,7 @@
 
   - [Создание туннеля IPSec VPN с использованием демона strongSwan](../../tutorials/routing/ipsec-vpn.md).
 {% if product == "yandex-cloud" %}
-  - ![](../../_assets/overview/solution-library-icon.svg)[Решение: создание site-to-site VPN-соединения с {{ yandex-cloud }} с помощью Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn).
+  - ![](../../_assets/overview/solution-library-icon.svg)[Решение: создание site-to-site VPN-соединения с {{ yandex-cloud }} с помощью {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn).
 {% endif %}
 
 - Client VPN между удаленными устройствами и {{ yandex-cloud }}. В качестве шлюза для удаленного доступа используйте ВМ с функцией client VPN на основе [образа](/marketplace?categories=network) из {{ marketplace-name }}. См. инструкцию в разделе [Создание VPN-соединения с помощью OpenVPN](../../tutorials/routing/openvpn.md).

@@ -99,7 +99,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
       SELECT * FROM pxf_ch;
       ```
 
-      Command output:
+      Result:
 
       ```text
       test_pxf=> SELECT * FROM pxf_ch;
@@ -145,7 +145,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
       SELECT * FROM pxf_mysql;
       ```
 
-      Command output:
+      Result:
 
       ```text
       test_pxf=> SELECT * FROM pxf_mysql;
@@ -192,7 +192,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
       SELECT * FROM pxf_pg;
       ```
 
-      Command output:
+      Result:
 
       ```text
       test_pxf=> SELECT * FROM pxf_pg;
@@ -236,7 +236,7 @@ This SQL query does not contain an exhaustive list of available parameters. For 
          SELECT * FROM pxf_s3_read;
          ```
 
-         Command output:
+         Result:
 
          ```text
          test_pxf=> SELECT * FROM pxf_s3_read;
@@ -302,6 +302,7 @@ Downloading and using software from the VMware website is not part of the [{{ mg
    ```
 
    Where:
+
    * `data file directory` is the local path to the directory with files to read or write data from/to using the external table.
    * `connection port` is the port to run the utility on. The default port is `8080`.
    * `log file path` (optional) is the path to the file that GPFDIST will write its operation logs to.

@@ -25,13 +25,86 @@ Data in {{ objstorage-short-name }} is encrypted using {% if audience != "intern
 
    1. Click **Save**.
 
-- Terraform
+- {{ TF }}
 
-   If you do not have Terraform yet, {% if audience != "internal" %}[install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}install it and configure the {{ yandex-cloud }} provider{% endif %}.
+   If you do not have {{ TF }} yet, {% if audience != "internal" %}[install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}install it and configure the {{ yandex-cloud }} provider{% endif %}.
 
    Before you start, {% if audience != "internal" %}[get an IAM token](../../../iam/operations/iam-token/create-for-sa.md#via-cli){% else %}get an IAM token{% endif %} for your service account and save it to a file.
 
    1. In the configuration file, describe the parameters of resources that you want to create:
+
+      {% if product == "yandex-cloud" %}
+
+      ```
+      provider "yandex" {
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "{{ region-id }}-a"
+        service_account_key_file = "key.json"
+        }
+     
+     
+      resource "yandex_kms_symmetric_key" "key-a" {
+        name              = "<key name>"
+        description       = "<key description>"
+        default_algorithm = "AES_128"
+        rotation_period   = "8760h" // 1 year
+      }
+     
+      resource "yandex_storage_bucket" "test" {
+        bucket = "<bucket name>"
+        access_key = "<static key ID>"
+        secret_key = "<secret key>"
+        server_side_encryption_configuration {
+          rule {
+            apply_server_side_encryption_by_default {
+              kms_master_key_id = yandex_kms_symmetric_key.key-a.id
+              sse_algorithm     = "aws:kms"
+            }
+          }
+        }
+      }
+      ```
+
+      {% endif %}
+ 
+      {% if product == "cloud-il" %}
+
+      ```hcl
+      provider "yandex" {
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "{{ region-id }}-a"
+        service_account_key_file = "key.json"
+        endpoint  = "{{ api-host }}:443"
+        }
+
+
+      resource "yandex_kms_symmetric_key" "key-a" {
+        name              = "<key name>"
+        description       = "<key description>"
+        default_algorithm = "AES_128"
+        rotation_period   = "8760h" // 1 year
+      }
+
+      resource "yandex_storage_bucket" "test" {
+        bucket = "<bucket name>"
+        access_key = "<static key ID>"
+        secret_key = "<secret key>"
+        server_side_encryption_configuration {
+          rule {
+            apply_server_side_encryption_by_default {
+              kms_master_key_id = yandex_kms_symmetric_key.key-a.id
+              sse_algorithm     = "aws:kms"
+            }
+          }
+        }
+      }
+      ```
+
+      {% endif %}
+
+      Where:
 
       * `service_account_key_file`: Path to file with your service account's IAM token (or the file contents).
       * `default_algorithm`: Encryption algorithm to use with the new {% if audience != "internal" %}[key version](../../../kms/concepts/version.md){% else %}key version{% endif %} generated during the next key rotation. Default value: `AES_128`.
@@ -41,77 +114,6 @@ Data in {{ objstorage-short-name }} is encrypted using {% if audience != "intern
          * `kms_master_key_id`: ID of the KMS master key used for encryption.
          * `sse_algorithm`: Encryption algorithm used on the server side. The only supported value is `aws:kms`.
 
-     {% if product == "yandex-cloud" %}
-
-     ```
-     provider "yandex" {
-       cloud_id  = "<cloud ID>"
-       folder_id = "<folder ID>"
-       zone      = "{{ region-id }}-a"
-       service_account_key_file = "key.json"
-       }
-     
-     
-     resource "yandex_kms_symmetric_key" "key-a" {
-       name              = "<key name>"
-       description       = "<key description>"
-       default_algorithm = "AES_128"
-       rotation_period   = "8760h" // 1 year
-     }
-     
-     resource "yandex_storage_bucket" "test" {
-       bucket = "<bucket name>"
-       access_key = "<static key ID>"
-       secret_key = "<secret key>"
-       server_side_encryption_configuration {
-         rule {
-           apply_server_side_encryption_by_default {
-             kms_master_key_id = yandex_kms_symmetric_key.key-a.id
-             sse_algorithm     = "aws:kms"
-           }
-         }
-       }
-     }
-     ```
-
-     {% endif %}
-
-     {% if product == "cloud-il" %}
-
-     ```hcl
-     provider "yandex" {
-       cloud_id  = "<cloud ID>"
-       folder_id = "<folder ID>"
-       zone      = "{{ region-id }}-a"
-       service_account_key_file = "key.json"
-       endpoint  = "{{ api-host }}:443"
-       }
-
-
-     resource "yandex_kms_symmetric_key" "key-a" {
-       name              = "<key name>"
-       description       = "<key description>"
-       default_algorithm = "AES_128"
-       rotation_period   = "8760h" // 1 year
-     }
-
-     resource "yandex_storage_bucket" "test" {
-       bucket = "<bucket name>"
-       access_key = "<static key ID>"
-       secret_key = "<secret key>"
-       server_side_encryption_configuration {
-         rule {
-           apply_server_side_encryption_by_default {
-             kms_master_key_id = yandex_kms_symmetric_key.key-a.id
-             sse_algorithm     = "aws:kms"
-           }
-         }
-       }
-     }
-     ```
-
-     {% endif %}
-
    1. Make sure that the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
@@ -120,7 +122,7 @@ Data in {{ objstorage-short-name }} is encrypted using {% if audience != "intern
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

@@ -122,25 +122,25 @@ After `bacula-vm` switches to `RUNNING`:
 1. Install the yum repository:
 
     ```bash
-    $ sudo yum install epel-release -y
+    sudo yum install epel-release -y
     ```
 
 1. Install `pip`:
 
     ```bash
-    $ sudo yum install python-pip -y
+    sudo yum install python-pip -y
     ```
 
 1. Install the AWS CLI:
 
     ```bash
-    $ sudo pip install awscli --upgrade
+    sudo pip install awscli --upgrade
     ```
 
 1. Set up the AWS CLI:
 
     ```bash
-    $ sudo aws configure
+    sudo aws configure
     ```
 
     The command will request values for parameters:
@@ -152,13 +152,13 @@ After `bacula-vm` switches to `RUNNING`:
 1. Check that the `/root/.aws/credentials` file contains the correct `key_id` and `secret` values:
 
     ```bash
-    $ sudo cat /root/.aws/credentials
+    sudo cat /root/.aws/credentials
     ```
 
 1. Check that the `/root/.aws/config` file contains the correct `Default region name` and `Default output format` values:
 
     ```bash
-    $ sudo cat /root/.aws/config
+    sudo cat /root/.aws/config
     ```
 
 ## Install Bacula and additional components {#install-bacula}
@@ -166,25 +166,25 @@ After `bacula-vm` switches to `RUNNING`:
 1. Install the Bacula components:
 
     ```bash
-    $ sudo yum install -y bacula-director bacula-storage bacula-console bacula-client
+    sudo yum install -y bacula-director bacula-storage bacula-console bacula-client
     ```
 
 1. Install MariaDB:
 
     ```bash
-    $ sudo yum install -y mariadb-server
+    sudo yum install -y mariadb-server
     ```
 
 1. Install `s3fs` to mount the {{ objstorage-name }} bucket on the server:
 
     ```bash
-    $ sudo yum install -y s3fs-fuse
+    sudo yum install -y s3fs-fuse
     ```
 
 1. Install the text editor `nano`:
 
     ```bash
-    $ sudo yum install -y nano
+    sudo yum install -y nano
     ```
 
 ## Configure MariaDB {#configure-db}
@@ -192,33 +192,33 @@ After `bacula-vm` switches to `RUNNING`:
 1. Run MariaDB:
 
     ```bash
-    $ sudo systemctl start mariadb
+    sudo systemctl start mariadb
     ```
 
 1. Check that MariaDB is running:
 
     ```bash
-    $ sudo systemctl status mariadb | grep Active
+    sudo systemctl status mariadb | grep Active
     ```
 
 1. Enable MariaDB to run at system startup:
 
     ```bash
-    $ sudo systemctl enable mariadb
+    sudo systemctl enable mariadb
     ```
 
 1. Create database tables and configure access rights:
 
     ```bash
-    $ /usr/libexec/bacula/grant_mysql_privileges
-    $ /usr/libexec/bacula/create_mysql_database -u root
-    $ /usr/libexec/bacula/make_mysql_tables -u bacula    
+    /usr/libexec/bacula/grant_mysql_privileges
+    /usr/libexec/bacula/create_mysql_database -u root
+    /usr/libexec/bacula/make_mysql_tables -u bacula    
     ```
 
 1. Configure the database security parameters:
 
     ```bash
-    $ sudo mysql_secure_installation
+    sudo mysql_secure_installation
     ```
     * `Enter current password for root (enter for none)`: Press **Enter** to skip the field.
     * `Set root password? [Y/n]`: Enter `Y`, set the root password, and confirm it. You will need the password in the next step.
@@ -230,7 +230,7 @@ After `bacula-vm` switches to `RUNNING`:
 1. Log in to the DB command line and enter the `root` password created in the previous step:
 
     ```bash
-    $ mysql -u root -p
+    mysql -u root -p
     ```
 
 1. Create the password `bacula_db_password` for the `bacula` user:
@@ -244,7 +244,7 @@ After `bacula-vm` switches to `RUNNING`:
 1. Enable the MySQL library for Bacula:
 
     ```bash
-    $ sudo alternatives --config libbaccats.so
+    sudo alternatives --config libbaccats.so
     ```
 
     Enter `1` to select MySQL:
@@ -266,15 +266,15 @@ After `bacula-vm` switches to `RUNNING`:
 1. Create the `/tmp/bacula` backup folder:
 
     ```bash
-    $ sudo mkdir /tmp/bacula
+    sudo mkdir /tmp/bacula
     ```
 
 1. Configure access rights to `/tmp/bacula`:
 
     ```bash
-    $ sudo chown -R bacula:bacula /tmp/bacula
-    $ sudo chmod -R 700 /tmp/bacula  
-    $ sudo semanage permissive -a bacula_t 
+    sudo chown -R bacula:bacula /tmp/bacula
+    sudo chmod -R 700 /tmp/bacula  
+    sudo semanage permissive -a bacula_t 
     ```
 
 ### Mount the bucket to the file system {#mount-bucket}
@@ -284,8 +284,11 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
 1. Mount the bucket using `s3fs`:
 
     ```bash
-    $ sudo s3fs bacula-bucket /tmp/bacula -o url=https://{{ s3-storage-host }} -o use_path_request_style -o allow_other -o nonempty -o uid=133,gid=133,mp_umask=077
+    sudo s3fs bacula-bucket /tmp/bacula -o url=https://{{ s3-storage-host }} -o use_path_request_style -o allow_other -o nonempty -o uid=133,gid=133,mp_umask=077
     ```
+
+    Where:
+
     * `bacula-bucket`: The name of the bucket in {{ objstorage-name }}.
     * `uid=133`: The ID of the `bacula` user from the `/etc/passwd` file.
     * `gid=133`: The ID of the `bacula` group from the `/etc/passwd` file.
@@ -293,10 +296,10 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
 1. Check the access rights for the `/tmp/bacula` folder:
 
     ```bash
-    $ sudo ls -la /tmp/bacula/
+    sudo ls -la /tmp/bacula/
     ```
 
-    The command output should look as follows:
+    Result:
 
     ```
     drwx------.  2 bacula bacula        31 Sep 18 09:16 .
@@ -308,19 +311,19 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
     1. Temporarily enable the `bash` shell for the `bacula` user:
 
         ```bash
-        $ sudo sed -i "/^bacula/ s@/sbin/nologin@/bin/bash@" /etc/passwd 
+        sudo sed -i "/^bacula/ s@/sbin/nologin@/bin/bash@" /etc/passwd 
         ```
 
     1. Create an arbitrary file in the `/tmp/bacula` folder:
 
         ```bash
-        $ sudo runuser -l  bacula -c 'touch /tmp/bacula/test.test' 
+        sudo runuser -l  bacula -c 'touch /tmp/bacula/test.test' 
         ```
 
     1. Make sure that the file `test.test` was created in the `/tmp/bacula` folder:
 
         ```bash
-        $ sudo ls -la /tmp/bacula | grep test.test 
+        sudo ls -la /tmp/bacula | grep test.test 
         ```
 
     1. On the catalog page in the [management console]({{ link-console-main }}), open **Object Storage**. Make sure the file `test.test` is visible in the `bacula-bucket` bucket.
@@ -328,13 +331,13 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
     1. Delete the test file:
 
         ```bash
-        $ sudo runuser -l  bacula -c 'rm -f /tmp/bacula/test.test' 
+        sudo runuser -l  bacula -c 'rm -f /tmp/bacula/test.test' 
         ```
 
     1. Disable the `bash` shell for the `bacula` user:
 
         ```bash
-        $ sudo sed -i "/^bacula/ s@/bin/bash@/sbin/nologin@" /etc/passwd 
+        sudo sed -i "/^bacula/ s@/bin/bash@/sbin/nologin@" /etc/passwd 
         ```
 
 ## Configure Bacula components {#configure-bacula}
@@ -344,7 +347,7 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
 1. Open the Bacula Director configuration file:
 
     ```bash
-    $ sudo nano /etc/bacula/bacula-dir.conf
+    sudo nano /etc/bacula/bacula-dir.conf
     ```
 
 1. In the `Director` configuration block, add the line `DirAddress = 127.0.0.1` to set up a connection with Bacula Director:
@@ -445,7 +448,7 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
 1. Check that the `bacula-dir.conf` file doesn't contain any syntax errors:
 
     ```bash
-    $ sudo bacula-dir -tc /etc/bacula/bacula-dir.conf
+    sudo bacula-dir -tc /etc/bacula/bacula-dir.conf
     ```
 
     If there aren't any error messages, the configuration is correct.
@@ -455,7 +458,7 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
 1. Open the Storage Daemon configuration file:
 
     ```bash
-    $ sudo nano /etc/bacula/bacula-sd.conf
+    sudo nano /etc/bacula/bacula-sd.conf
     ```
 
 1. You can find the internal IP address of the VM under **Network** on the VM page in the [management console]({{ link-console-main }}).
@@ -493,7 +496,7 @@ Mount the bucket to the file system to upload copied files to {{ objstorage-name
 1. Check that the `bacula-sd.conf` file doesn't contain any syntax errors:
 
     ```bash
-    $ sudo bacula-sd -tc /etc/bacula/bacula-sd.conf
+    sudo bacula-sd -tc /etc/bacula/bacula-sd.conf
     ```
 
     If there aren't any error messages, the configuration is correct.
@@ -507,20 +510,20 @@ To set passwords for Bacula components:
 1. Generate passwords for Bacula Director, Storage Daemon, and File Daemon:
 
     ```bash
-    $ DIR_PASSWORD=`date +%s | sha256sum | base64 | head -c 33`
-    $ SD_PASSWORD=`date +%s | sha256sum | base64 | head -c 33`
-    $ FD_PASSWORD=`date +%s | sha256sum | base64 | head -c 33`
+    DIR_PASSWORD=`date +%s | sha256sum | base64 | head -c 33`
+    SD_PASSWORD=`date +%s | sha256sum | base64 | head -c 33`
+    FD_PASSWORD=`date +%s | sha256sum | base64 | head -c 33`
     ```
 
 1. Put the passwords in the configuration files:
 
     ```bash
-    $ sudo sed -i "s/@@DIR_PASSWORD@@/${DIR_PASSWORD}/" /etc/bacula/bacula-dir.conf
-    $ sudo sed -i "s/@@DIR_PASSWORD@@/${DIR_PASSWORD}/" /etc/bacula/bconsole.conf
-    $ sudo sed -i "s/@@SD_PASSWORD@@/${SD_PASSWORD}/" /etc/bacula/bacula-sd.conf
-    $ sudo sed -i "s/@@SD_PASSWORD@@/${SD_PASSWORD}/" /etc/bacula/bacula-dir.conf
-    $ sudo sed -i "s/@@FD_PASSWORD@@/${FD_PASSWORD}/" /etc/bacula/bacula-dir.conf
-    $ sudo sed -i "s/@@FD_PASSWORD@@/${FD_PASSWORD}/" /etc/bacula/bacula-fd.conf
+    sudo sed -i "s/@@DIR_PASSWORD@@/${DIR_PASSWORD}/" /etc/bacula/bacula-dir.conf
+    sudo sed -i "s/@@DIR_PASSWORD@@/${DIR_PASSWORD}/" /etc/bacula/bconsole.conf
+    sudo sed -i "s/@@SD_PASSWORD@@/${SD_PASSWORD}/" /etc/bacula/bacula-sd.conf
+    sudo sed -i "s/@@SD_PASSWORD@@/${SD_PASSWORD}/" /etc/bacula/bacula-dir.conf
+    sudo sed -i "s/@@FD_PASSWORD@@/${FD_PASSWORD}/" /etc/bacula/bacula-dir.conf
+    sudo sed -i "s/@@FD_PASSWORD@@/${FD_PASSWORD}/" /etc/bacula/bacula-fd.conf
     ```
 
 ### Run the Bacula components {#run-bacula-components}
@@ -528,25 +531,25 @@ To set passwords for Bacula components:
 1. Run the Bacula components:
 
     ```bash
-    $ sudo systemctl start bacula-dir
-    $ sudo systemctl start bacula-sd
-    $ sudo systemctl start bacula-fd
+    sudo systemctl start bacula-dir
+    sudo systemctl start bacula-sd
+    sudo systemctl start bacula-fd
     ```
 
 1. Check that the Bacula components are running:
 
     ```bash
-    $ sudo systemctl status bacula-dir
-    $ sudo systemctl status bacula-sd
-    $ sudo systemctl status bacula-fd
+    sudo systemctl status bacula-dir
+    sudo systemctl status bacula-sd
+    sudo systemctl status bacula-fd
     ```
 
 1. Set up the Bacula components to launch at system startup:
 
     ```bash
-    $ sudo systemctl enable bacula-dir
-    $ sudo systemctl enable bacula-sd
-    $ sudo systemctl enable bacula-fd
+    sudo systemctl enable bacula-dir
+    sudo systemctl enable bacula-sd
+    sudo systemctl enable bacula-fd
     ```
 
 ## Create a backup {#run-backup}
@@ -554,7 +557,7 @@ To set passwords for Bacula components:
 1. Open Bacula Console:
 
     ```bash
-    $ sudo bconsole
+    sudo bconsole
     ```
 
 1. Create a label to set up a backup profile:
@@ -608,7 +611,7 @@ To set passwords for Bacula components:
     status director
     ```
 
-    Command output if the backup is running:
+    Result if the backup is running:
 
     ```
     Running Jobs:
@@ -618,7 +621,7 @@ To set passwords for Bacula components:
          2 Full    BackupFiles.2019-09-12_07.22.56_03 is running
     ```
 
-    Command output if the backup is complete:
+    Result if the backup is complete:
 
     ```
     Running Jobs:
@@ -651,13 +654,13 @@ To make sure that the backup is complete:
 1. Delete an arbitrary file, like the `ping` utility, to check the recovery:
 
     ```bash
-    $ sudo rm -f /bin/ping
+    sudo rm -f /bin/ping
     ```
 
 1. Make sure that the `ping` utility is deleted:
 
     ```bash
-    $ ping
+    ping
     ```
 
     The command output should look as follows:
@@ -669,7 +672,7 @@ To make sure that the backup is complete:
 1. Log in to Bacula Console:
 
     ```bash
-    $ sudo bconsole
+    sudo bconsole
     ```
 
 1. Run a full recovery:
@@ -707,7 +710,7 @@ To make sure that the backup is complete:
     Enter "done" to leave this mode.
     
     cwd is: /
-    $ done
+    done
     ```
 
     Enter `yes` to confirm the recovery process launch:
@@ -722,7 +725,7 @@ To make sure that the backup is complete:
     status director
     ```
 
-    Command output if the recovery is running:
+    Result if the recovery is running:
 
     ```
     Running Jobs:
@@ -732,7 +735,7 @@ To make sure that the backup is complete:
          3         RestoreFiles.2019-09-12_07.27.42_05 is running
     ```
 
-    Command output if the recovery is complete:
+    Result if the recovery is complete:
 
     ```
     Terminated Jobs:
@@ -753,10 +756,10 @@ To make sure that the backup is complete:
 1. Make sure that the `/tmp/bacula-restores` folder now contains the recovered data:
 
     ```bash
-    $ sudo ls -la /tmp/bacula-restores
+    sudo ls -la /tmp/bacula-restores
     ```
 
-    The command output should look as follows:
+    Result:
 
     ```bash
     total 16
@@ -784,10 +787,10 @@ To make sure that the backup is complete:
 1. Make sure that the `ping` utility is in the `/tmp/bacula-restores` folder:
 
     ```bash
-    $ sudo ls -la /tmp/bacula-restores/bin/ping
+    sudo ls -la /tmp/bacula-restores/bin/ping
     ```
 
-    The command output should look as follows:
+    Result:
 
     ```bash
     -rwxr-xr-x 1 root root 66176 Aug  4  2017 /tmp/bacula-restores/bin/ping
@@ -796,16 +799,16 @@ To make sure that the backup is complete:
 1. Copy the `ping` utility to the main file system:
 
     ```bash
-    $ sudo cp /tmp/bacula-restores/bin/ping /bin/ping
+    sudo cp /tmp/bacula-restores/bin/ping /bin/ping
     ```
 
 1. Make sure that `ping` works:
 
     ```bash
-    $ sudo ping 127.0.0.1 -c 1
+    sudo ping 127.0.0.1 -c 1
     ```
 
-    The command output should look as follows:
+    Result:
 
     ```bash
     PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
@@ -819,7 +822,7 @@ To make sure that the backup is complete:
 1. Delete a copy of recovered files to free up disk space:
 
     ```bash
-    $ sudo rm -rfd /tmp/bacula-restores/*
+    sudo rm -rfd /tmp/bacula-restores/*
     ```
 
 ## How to delete created resources {#clear-out}

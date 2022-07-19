@@ -17,6 +17,8 @@
     --partition-key <shard_key>
   ```
 
+  Where:
+
   * `--endpoint`: Specify the endpoint `https://yds.serverless.yandexcloud.net` to send data to a stream over the AWS Kinesis Data Streams protocol.
   * `--stream-name`: Consists of the availability zone, the folder ID, the {{ ydb-full-name }} database ID, and the stream name.
 

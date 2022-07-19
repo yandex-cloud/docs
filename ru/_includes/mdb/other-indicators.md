@@ -2,7 +2,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     1. {% if audience == "external" %}[Создайте алерт](../../monitoring/operations/alert/create-alert.md){% else %}Создайте алерт{% endif %}.
     1. Добавьте метрику состояния.

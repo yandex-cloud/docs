@@ -18,7 +18,7 @@ Find out how to get:
       yc container repository lifecycle-policy list --repository-name crp2hlbs67tj4ggrfodb/ubuntu
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +----------------------+-------------+----------------------+----------+---------------------+--------------------------------+
@@ -35,7 +35,7 @@ Find out how to get:
       yc container repository lifecycle-policy list --registry-id crp2hlbs67tj4ggrfodb
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +----------------------+-------------+----------------------+----------+---------------------+--------------------------------+
@@ -67,7 +67,7 @@ Find out how to get:
    yc container repository lifecycle-policy get crp6lg1868p3i0emkv1b
    ```
 
-   Command output:
+   Result:
 
    ```bash
    id: crp6lg1868p3i0emkv1b

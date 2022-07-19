@@ -1,6 +1,6 @@
 {% note info %}
 
-The settings apply to Terraform `0.13` and higher.
+The settings apply to {{ TF }} `0.13` and higher.
 
 {% endnote %}
 
@@ -11,7 +11,7 @@ The settings apply to Terraform `0.13` and higher.
 
    - Linux and MacOS
 
-      Open the Terraform CLI configuration file:
+      Open the {{ TF }} CLI configuration file:
 
       ```
       nano ~/.terraformrc
@@ -19,12 +19,11 @@ The settings apply to Terraform `0.13` and higher.
 
    - Windows
 
-      Open the Terraform CLI `terraform.rc` configuration file located in your user's `%APPDATA%` folder.
+      Open the {{ TF }} CLI `terraform.rc` configuration file located in your user's `%APPDATA%` folder.
 
    {% endlist %}
 
    Add the following section to the file:
-
 
    ```
    provider_installation {
@@ -53,7 +52,7 @@ The settings apply to Terraform `0.13` and higher.
      }
      required_version = ">= 0.13"
    }
-   
+
    provider "yandex" {
      token     = "<OAuth>"
      cloud_id  = "<cloud ID>"
@@ -87,12 +86,14 @@ The settings apply to Terraform `0.13` and higher.
 
    {% endif %}
 
+   Where:
+
    * `source`: Provider's global [source address](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses).
-   * `version`: The minimum provider version that the module is compatible with. You can find the version number on the [provider's page]({{ tf-provider-link }})(click **USE PROVIDER** in the top right corner).
+   * `version`: The minimum provider version that the module is compatible with. You can find the version number on the [provider's page]({{ tf-provider-link }}) (click **USE PROVIDER** in the top right corner).
    * `provider`: The provider name.
-   {% if product == "cloud-il" %}* `endpoint` — domain name and port for {{ yandex-cloud }} API: `{{ api-host }}:443`.{% endif %}
+   {% if product == "cloud-il" %}* `endpoint`: Вomain name and port for {{ yandex-cloud }} API: `{{ api-host }}:443`.{% endif %}
    * `token`: {% if product == "yandex-cloud" %}[OAuth token](../iam/concepts/authorization/oauth-token.md){% endif %}{% if product == "cloud-il" %}static key (`secret`) of the service account{% endif %} for {{ yandex-cloud }} access.
-   * `cloud_id`: ID of the cloud where Terraform will create resources.
+   * `cloud_id`: ID of the cloud where {{ TF }} will create resources.
    * `folder_id`: [ID of the folder](../resource-manager/operations/folder/get-id.md) where resources will be created by default.
    * `zone`: [The availability zone](../overview/concepts/geo-scope.md) where all cloud resources will be created by default.
 
@@ -113,4 +114,3 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 ```
 
 If you used modules, first run `terraform init`, then delete the lock file. After that, run the `terraform providers lock` command.
-

@@ -388,7 +388,7 @@ Create three VMs for MSSQL servers:
         subnet-name=ya-subnet-alwayson1,ipv4-address=10.0.0.19
    ```
 
-   ```
+   ```bash
    yc compute instance create \
       --name ya-mssql2 \
       --hostname ya-mssql2 \
@@ -404,7 +404,7 @@ Create three VMs for MSSQL servers:
         subnet-name=ya-subnet-alwayson2,ipv4-address=10.0.0.35
    ```
 
-   ```
+   ```bash
    yc compute instance create \
       --name ya-mssql3 \
       --hostname ya-mssql3 \
@@ -1287,6 +1287,7 @@ Install MSSQL on database servers:
       ```
 
       Result:
+
       ```powershell
       test_id test_name
       ------- ---------
@@ -1306,6 +1307,7 @@ Install MSSQL on database servers:
       ```
 
       Result:
+
       ```powershell
       Column1
       -------
@@ -1338,6 +1340,7 @@ Install MSSQL on database servers:
       ```
 
       Result:
+
       ```powershell
       Column1
       -------
@@ -1372,6 +1375,7 @@ Install MSSQL on database servers:
       ```
 
       Result:
+
       ```powershell
       test_id test_name
       ------- ---------

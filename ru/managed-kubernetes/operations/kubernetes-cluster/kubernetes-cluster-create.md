@@ -62,6 +62,7 @@
      ```
 
      Где:
+
      * `--name` — имя кластера {{ k8s }}.
      * `--network-name` — имя сети.
      * `--zone` — зона доступности.
@@ -79,7 +80,7 @@
      * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для узлов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
      * `--daily-maintenance-window` — настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates).
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done (5m47s)
@@ -114,7 +115,7 @@
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Чтобы создать кластер:
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:

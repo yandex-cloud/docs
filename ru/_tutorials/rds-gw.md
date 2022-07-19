@@ -64,7 +64,8 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
      ```
      yc vpc network create --name rdgw-network
      ```
-     где `rdgw-network` — имя сети.
+
+     Где `rdgw-network` — имя сети.
 
      Результат:
       
@@ -109,7 +110,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
         --network-name rdgw-network `
         --range 10.1.0.0/16
       ```
-      где `rdgw-subnet` — имя подсети.
+      Где `rdgw-subnet` — имя подсети.
       
       Результат:
       

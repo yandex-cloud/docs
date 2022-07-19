@@ -23,7 +23,7 @@ You may need folder and cloud IDs for CLI and API calls.
 
    To retrieve a cloud ID for a configured CLI profile, run the command below:
    ```bash
-   $ yc config list
+   yc config list
    token: AQAD...
    endpoint: gw.db.yandex-team.ru:443
    cloud-id: fooubdgo8ls21u7u4enm
@@ -35,7 +35,7 @@ You may need folder and cloud IDs for CLI and API calls.
    1. Copy the ABC service slug, such as `https://abc.yandex-team.ru/services/**chemodan**/`.
    1. Run the command:
       ```bash
-      $ yc resource-manager folder get chemodan
+      yc resource-manager folder get chemodan
       id: foodqkuj4ge5j9sg34uq # folder ID
       cloud_id: fooubdgo8ls21u7u4enm
       created_at: "2018-10-21T23:55:16Z"

@@ -17,19 +17,19 @@ When you add credentials, please note:
     1. View a description of the CLI command:
 
         ```
-        $ yc managed-kubernetes cluster get-credentials --help
+        yc managed-kubernetes cluster get-credentials --help
         ```
 
     1. Add the credentials to the kubectl configuration file:
 
         ```
-        $ yc managed-kubernetes cluster get-credentials test-k8s-cluster --external
+        yc managed-kubernetes cluster get-credentials test-k8s-cluster --external
         ```
 
     1. Check the kubectl configuration after adding the credentials:
 
         ```
-        $ kubectl config view
+        kubectl config view
         apiVersion: v1
         clusters:
         - cluster:

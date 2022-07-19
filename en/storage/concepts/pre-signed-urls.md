@@ -61,10 +61,12 @@ String to sign:
 Hex(Hash-SHA256(<CanonicalRequest>))
 ```
 
-- `AWS4-HMAC-SHA256` — The hashing algorithm.
-- `timestamp` — The current time in ISO 8601 format, for example: `20190801T000000Z`. The date specified must match the date in `scope` (by the value rather than format).
-- `scope` — `<YYYYMMDD>/{{ region-id }}/s3/aws4_request`.
-- `CanonicalRequest` — [A canonical request](#canonical-request). To include your request in the string, hash it using the SHA256 algorithm and convert it to hexadecimal format.
+Where:
+
+* `AWS4-HMAC-SHA256` — The hashing algorithm.
+* `timestamp` — The current time in ISO 8601 format, for example: `20190801T000000Z`. The date specified must match the date in `scope` (by the value rather than format).
+* `scope` — `<YYYYMMDD>/{{ region-id }}/s3/aws4_request`.
+* `CanonicalRequest` — [A canonical request](#canonical-request). To include your request in the string, hash it using the SHA256 algorithm and convert it to hexadecimal format.
 
 ### Canonical request {#canonical-request}
 

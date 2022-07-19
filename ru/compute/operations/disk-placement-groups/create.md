@@ -4,7 +4,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать группу размещения дисков.
   1. Выберите сервис **{{ compute-name }}**.
@@ -26,7 +26,7 @@
      
   1. Нажмите кнопку **Создать**.
 
-* CLI
+- CLI
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
   
@@ -40,8 +40,8 @@
   
       ```bash
       yc compute disk-placement-group create \
-      --name first-group \
-      --description "first disk placement group"
+        --name first-group \
+        --description "first disk placement group"
       ```
   
       Будет создана группа размещения дисков с именем `first-group` и описанием `first disk placement group`.
@@ -52,7 +52,7 @@
       yc compute disk-placement-group list
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       +----------------------+-------------+---------------+--------+
@@ -66,10 +66,10 @@
 
       ```bash
       yc compute disk-placement-group get \
-      --name first-group
+        --name first-group
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       id: epd4sug6keskb72ub9m7

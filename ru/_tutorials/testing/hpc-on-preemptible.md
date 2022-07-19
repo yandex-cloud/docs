@@ -70,25 +70,25 @@
 
 1. [Зайдите по SSH](../../compute/operations/vm-connect/ssh.md) на виртуальную машину и перейдите в режим администратора в консоли:
    ```bash
-   $ sudo -i
+   sudo -i
    ```
 
 1. Выполните обновление репозитория и поставьте требуемые утилиты:
    ```bash
-   $ apt update
-   $ apt install -y net-tools htop libopenmpi-dev nfs-common
+   apt update
+   apt install -y net-tools htop libopenmpi-dev nfs-common
    ```
 
 1. Выйдите из режима администратора и сгенерируйте RSA-ключи для доступа между виртуальными машинами:
    ```bash
-   $ exit
-   $ ssh-keygen
+   exit
+   ssh-keygen
    ```
 
 1. Добавьте сгенерированный ключ в список разрешенных:
    ```bash
-   $ cd ~/.ssh
-   $ cat id_rsa.pub >> authorized_keys
+   cd ~/.ssh
+   cat id_rsa.pub >> authorized_keys
    ```
 
 ## Подготовьте кластер виртуальных машин {#prepare-cluster}
@@ -129,8 +129,8 @@
 [Зайдите по SSH](../../compute/operations/vm-connect/ssh.md) на каждую из виртуальных машин в группе `compute-group` и убедитесь, что с них есть доступ к ВМ `master-node` по SSH.
 
 ```bash
-$ ping master-node
-$ ssh master-node
+ping master-node
+ssh master-node
 ```
 
 ### Настройте NFS {#configure-nfs}
@@ -140,20 +140,20 @@ $ ssh master-node
 1. Зайдите на ВМ `master-node` по SSH и установите NFS-сервер:
 
    ```bash
-   $ ssh <Публичный IP-адрес ВМ master-node>
-   $ sudo apt install nfs-kernel-server
+   ssh <Публичный IP-адрес ВМ master-node>
+   sudo apt install nfs-kernel-server
    ```
 
 1. Создайте директорию `shared`, которая будет общей для всех виртуальных машин:
 
    ```bash
-   $ mkdir ~/shared
+   mkdir ~/shared
    ```
 
 1. Откройте файл `/etc/exports` любым текстовым редактором, например, `nano`:
    
    ```bash
-   $ sudo nano /etc/exports
+   sudo nano /etc/exports
    ```
 
 1. Добавьте запись для доступа к директории `shared` в файл:
@@ -167,8 +167,8 @@ $ ssh master-node
 1. Примените настройки и перезагрузите сервис:
 
    ```bash
-   $ sudo exportfs -a
-   $ sudo service nfs-kernel-server restart
+   sudo exportfs -a
+   sudo service nfs-kernel-server restart
    ```
 
 #### Смонтируйте директории на ВМ из группы {#mount}
@@ -177,13 +177,13 @@ $ ssh master-node
 
 1. Создайте директорию `shared` и смонтируйте туда директорию с ВМ `master-node`:
    ```bash
-   $ mkdir ~/shared
-   $ sudo mount -t nfs master-node:/home/<имя пользователя>/shared ~/shared
+   mkdir ~/shared
+   sudo mount -t nfs master-node:/home/<имя пользователя>/shared ~/shared
    ```
 
 1. Убедитесь, что директория была успешно смонтирована:
    ```bash
-   $ df -h
+   df -h
    Filesystem                            Size  Used Avail Use% Mounted on
    ...
    master-node:/home/<имя пользователя>/shared   13G  1.8G   11G  15% /home/<имя пользователя>/shared
@@ -193,15 +193,15 @@ $ ssh master-node
 
 1. Зайдите по SSH на ВМ `master-node`, перейдите в директорию `shared` и скачайте исходный файл `task.c` с вычислительной задачей:
    ```bash
-   $ cd ~/shared
-   $ wget https://raw.githubusercontent.com/cloud-docs-writer/examples/master/hpc-on-preemptible/task.c
+   cd ~/shared
+   wget https://raw.githubusercontent.com/cloud-docs-writer/examples/master/hpc-on-preemptible/task.c
    ```
 
    Этот код решает систему линейных алгебраических уравнений с помощью [метода Якоби](https://ru.wikipedia.org/wiki/Метод_Якоби). Задача имеет одну из распределенных реализаций с помощью MPI.
 
 1. Скомпилируйте исходный файл в исполняемый:
    ```bash
-   $ mpicc task.c -o task
+   mpicc task.c -o task
    ```
    В директории `shared` должен был появиться исполняемый файл `task`.
 
@@ -215,7 +215,7 @@ $ ssh master-node
 
 1. Запустите выполнение задачи на 2 ядрах, используя ресурсы только ВМ `master-node`:
    ```bash
-   $ mpirun -np 2 task
+   mpirun -np 2 task
    ```
 
    После выполнения задачи программа выведет затраченное на решение время:
@@ -227,7 +227,7 @@ $ ssh master-node
 
 1. Запустите выполнение задачи на 4 ядрах, используя ресурсы только ВМ `master-node` и получите соответствующие результаты:
    ```bash
-   $ mpirun -np 4 task
+   mpirun -np 4 task
    JAC1 STARTED
    1: Time of task=36.562328
    2: Time of task=36.562291
@@ -237,7 +237,7 @@ $ ssh master-node
 
 1. Запустите выполнение задачи на 4 ядрах, используя ресурсы двух виртуальных машин, по 2 ядра на каждой машине. Для этого запустите выполнение задачи с ключом `-host`, который принимает параметры вида `<IP-адрес ВМ>:<количество ядер>[,<ip>:<cores>[,...]]`. После вычисления задачи программа выведет результат:
    ```bash
-   $ mpirun -np 4 -host localhost:2,<IP-адрес ВМ>:2 task
+   mpirun -np 4 -host localhost:2,<IP-адрес ВМ>:2 task
    JAC1 STARTED
    0: Time of task=24.539981
    1: Time of task=24.540288

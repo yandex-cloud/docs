@@ -65,7 +65,7 @@ You can manage user permissions at the level of an individual database by updati
 
       To grant or revoke the `ALL_PRIVILEGES` privilege, pass the synonym `ALL` as the privilege name.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

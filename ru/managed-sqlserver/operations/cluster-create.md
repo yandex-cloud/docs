@@ -232,7 +232,7 @@
        
     {% endif %}
 
-- Terraform
+- {{ TF }}
 
     {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -446,7 +446,7 @@
 
     {% endif %}
 
-- Terraform
+- {{ TF }}
 
     Допустим, нужно создать кластер {{ MS }} и сеть для него со следующими характеристиками:
 

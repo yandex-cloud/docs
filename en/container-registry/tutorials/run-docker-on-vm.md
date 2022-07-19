@@ -36,7 +36,7 @@ This example describes the steps required to run a Docker image on a VM using a 
          yc iam service-account create --name service-acc
          ```
 
-         Command output:
+         Result:
 
          ```bash
          id: ajelabcde12f33nol1v5
@@ -54,6 +54,7 @@ This example describes the steps required to run a Docker image on a VM using a 
          ```
 
          Where:
+
          * `<service name>`: Name of a `container` service.
          * `<resource>`: Category of the `registry` resource.
          * `<resource name>`: Name of the resource that the role is assigned for. You can specify a resource by its name or ID.
@@ -136,7 +137,7 @@ This example describes the steps required to run a Docker image on a VM using a 
          yc vpc subnet list
          ```
 
-         Command output:
+         Result:
 
          ```bash
          +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
@@ -161,6 +162,7 @@ This example describes the steps required to run a Docker image on a VM using a 
          ```
 
          Where:
+
          * `name`: VM name.
 
             {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
@@ -254,6 +256,7 @@ This example describes the steps required to run a Docker image on a VM using a 
          ```
 
          Where:
+
          * `folderId`: ID of the folder.
          * `name`: Name to assign the VM on creation.
          * `zoneId`: Availability zone that corresponds to the selected subnet.
@@ -315,7 +318,7 @@ This example describes the steps required to run a Docker image on a VM using a 
       echo <oauth token> | docker login --username oauth --password-stdin {{ registry }}
       ```
 
-      Command output:
+      Result:
 
       ```bash
       Login Succeeded
@@ -337,7 +340,7 @@ This example describes the steps required to run a Docker image on a VM using a 
          yc iam create-token | docker login --username iam --password-stdin {{ registry }}
          ```
 
-         Command output:
+         Result:
 
          ```bash
          Login succeeded
@@ -352,7 +355,7 @@ This example describes the steps required to run a Docker image on a VM using a 
          yc container registry configure-docker
          ```
 
-         Command output:
+         Result:
 
          ```bash
          Credential helper is configured in '/home/<user>/.docker/config.json'
@@ -397,7 +400,7 @@ This example describes the steps required to run a Docker image on a VM using a 
    docker push {{ registry }}/${REGISTRY_ID}/ubuntu:hello
    ```
 
-   Command output:
+   Result:
 
    ```bash
    The push refers to repository [{{ registry }}/crpc9qeoft236r8tfalm/ubuntu]
@@ -414,7 +417,7 @@ This example describes the steps required to run a Docker image on a VM using a 
    curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | cut -f1 -d',' | cut -f2 -d':' | tr -d '"' | sudo docker login --username iam --password-stdin {{ registry }}
    ```
 
-   Command output:
+   Result:
 
    ```bash
    Login succeeded
@@ -426,7 +429,7 @@ This example describes the steps required to run a Docker image on a VM using a 
    ssh ${PUBLIC_IP} docker pull {{ registry }}/${REGISTRY_ID}/ubuntu:hello
    ```
 
-   Command output:
+   Result:
 
    ```bash
    hello: Pulling from crpc9qeoft236r8tfalm/ubuntu
@@ -444,7 +447,7 @@ This example describes the steps required to run a Docker image on a VM using a 
    ssh ${PUBLIC_IP} docker run {{ registry }}/${REGISTRY_ID}/ubuntu:hello
    ```
 
-   Command output:
+   Result:
 
    ```bash
    Hi, I'm inside

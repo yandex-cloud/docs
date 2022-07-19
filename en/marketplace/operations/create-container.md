@@ -13,6 +13,8 @@ You can also create products for {{ compute-full-name }} to run on [Linux](creat
    ```
    cr.yandex/<registry-id>/<vendor-name>/<product-name>/<chart>
    ```
+   
+   Where:
 
    * `<registry-id>`: Publisher's registry ID.
    * `<vendor-name>`: Name of the product vendor.
@@ -24,6 +26,8 @@ You can also create products for {{ compute-full-name }} to run on [Linux](creat
    ```
    cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
    ```
+
+   Where:
 
    * `<registry-id>`: Publisher's registry ID.
    * `<vendor-name>`: Name of the product vendor.

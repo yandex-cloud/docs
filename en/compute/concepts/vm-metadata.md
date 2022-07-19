@@ -34,7 +34,7 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
    You can combine these parameters, for example:
 
    ```
-   $ yc compute instance create \
+   yc compute instance create \
    --name my-instance \
    --metadata-from-file user-data=metadata.yaml \
    --metadata serial-port-enable=1

@@ -211,17 +211,17 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
    {% endif %}
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    {% if audience != "internal" %}
 
-   If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% else %}
 
-   If you don't have Terraform, install it and configure the provider.
+   If you don't have {{ TF }}, install it and configure the provider.
 
    {% endif %}
 
@@ -487,7 +487,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    {% endif %}
 
-- Terraform
+- {{ TF }}
 
    Let's say we need to create a {{ mkf-name }} cluster with the following characteristics:
 

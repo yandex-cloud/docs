@@ -91,7 +91,7 @@
 1. To get all the recognized words from the image, find all the lines with the `text` property (one way to do this is using the [grep](https://www.gnu.org/software/grep/) utility):
 
     ```bash
-    $ grep -o "\"text\":\s\".*\"" output.json
+    grep -o "\"text\":\s\".*\"" output.json
     "text": "PENGUINS"
     "text": "CROSSING"
     "text": "SLOW"

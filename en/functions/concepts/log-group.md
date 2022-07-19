@@ -5,7 +5,7 @@ _A log group_ is a way of grouping messages from the same source. This source ca
 You can use the CLI to find out the ID of a log group by its source. To find out a function's log group, run the command:
 
 ```
-$ yc serverless function get <function_id> | grep log_group_id
+yc serverless function get <function_id> | grep log_group_id
 ```
 
 Result:

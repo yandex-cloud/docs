@@ -49,7 +49,7 @@
         }
         ```
         
-        Результат выполнения команды:
+        Результат:
         
         ```
         Agent updater checksum verified
@@ -67,7 +67,7 @@
         Get-Service "yc-guest-agent"
         ```
         
-        Результат выполнения команды:
+        Результат:
         
         ```
         Status   Name               DisplayName

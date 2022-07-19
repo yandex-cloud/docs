@@ -21,6 +21,7 @@
            }
        }
        ```
+
    1. Отправьте запрос на распознавание, в параметре `IAM_TOKEN` укажите [IAM-токен](../../../iam/concepts/authorization/iam-token/):
 
        ```bash

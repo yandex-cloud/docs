@@ -21,7 +21,9 @@ After creating a cloud network, you can change its name, description, and tags.
       ```
       yc vpc network list
       ```
+
       Result:
+
       ```
       +----------------------+----------------+
       |          ID          |      NAME      |
@@ -37,7 +39,9 @@ After creating a cloud network, you can change its name, description, and tags.
       ```
       yc vpc network update enpavfmgapumnl7cqin8 --new-name test-network-renamed
       ```
+
       Result:
+
       ```
       id: enpavfmgapumnl7cqin8
       folder_id: b1g6ci08ma55klukmdjs
@@ -126,7 +130,9 @@ You can change a cloud network using its name instead of its ID:
    ```
    yc vpc network update test-network-1 --new-name test-network-renamed --labels new_label=test_label
    ```
+
    Result:
+
    ```
    id: enpavfmgapumnl7cqin8
    folder_id: b1g6ci08ma55klukmdjs

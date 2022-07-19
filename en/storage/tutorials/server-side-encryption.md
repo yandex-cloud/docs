@@ -47,9 +47,9 @@ You can create a new bucket or use an existing one. To create a bucket, run:
   1. Choose **Limited** access to the bucket.
   1. Click **Create bucket**.
 
-- Terraform
+- {{ TF }}
 
-  If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. Describe the resources in the configuration file. In this scenario, the parameters are specified under `locals`:
 
@@ -171,7 +171,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
       {% endif %}
 
-      For more information about the resources you can create using [Terraform]({{ tf-provider-link }}), see the [provider documentation]({{ tf-provider-link }}).
+      For more information about the resources you can create using [{{ TF }}]({{ tf-provider-link }}), see the [provider documentation]({{ tf-provider-link }}).
 
   1. Make sure that the configuration files are correct.
 
@@ -183,7 +183,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
           terraform plan
           ```
 
-          If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+          If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
   1. Deploy the cloud resources.
 
@@ -195,7 +195,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
       1. Confirm that you want to create the resources.
 
-          After the command is executed, Terraform updates or creates the following resources in the specified folder:
+          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
           * The `new-buckets-account` service account.
           * The `editor` role for `new-buckets-account`.
@@ -214,7 +214,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
       aws s3 mb s3://example-bucket --endpoint-url=https://{{ s3-storage-host }}
       ```
 
-      Execution output:
+      Result:
 
       ```bash
       make_bucket: example-bucket
@@ -260,7 +260,7 @@ Create a new key or use an existing one. To create a key:
 
   The key is created along with its first version. It's specified in the `primary_version` field.
 
-- Terraform
+- {{ TF }}
 
   1. Describe the resources in the configuration file. In this scenario, the parameters are specified under `locals`:
 
@@ -412,7 +412,7 @@ Create a new key or use an existing one. To create a key:
           terraform plan
           ```
 
-          If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+          If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
   1. Deploy the cloud resources.
 
@@ -424,7 +424,7 @@ Create a new key or use an existing one. To create a key:
 
       1. Confirm that you want to create the resources.
 
-          After the command is executed, Terraform updates or creates the following resources in the specified folder:
+          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
           * The `new-buckets-account` service account.
           * The `editor` role for `new-buckets-account`.
@@ -453,7 +453,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
   1. In the **{{ kms-short-name }} key** field, select `key-1`.
   1. Click **Save**.
 
-- Terraform
+- {{ TF }}
 
   1. Describe the resources in the configuration file. In this scenario, the parameters are specified under `locals`:
 
@@ -622,7 +622,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
           terraform plan
           ```
 
-          If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+          If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
   1. Deploy the cloud resources.
 
@@ -634,7 +634,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
       1. Confirm that you want to create the resources.
 
-          After the command is executed, Terraform updates or creates the following resources in the specified folder:
+          After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
           * The `new-buckets-account` service account.
           * The `editor` role for `new-buckets-account`.
@@ -690,7 +690,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
   1. In the **{{ kms-short-name }} key** field, set **Not selected**.
   1. Click **Save**.
 
-- Terraform
+- {{ TF }}
 
   1. Describe the resources in the configuration file. To disable encryption, delete or comment out the `server_side_encryption_configuration` section for the `yandex_storage_bucket` resource:
 
@@ -861,7 +861,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
           terraform plan
           ```
 
-          If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+          If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
   1. Deploy the cloud resources.
 
@@ -873,7 +873,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
 
       1. Confirm that you want to update the resources.
 
-          After the command is executed, Terraform updates the following resources in the specified folder:
+          After the command is executed, {{ TF }} updates the following resources in the specified folder:
 
           * The `new-buckets-account` service account.
           * The `editor` role for `new-buckets-account`.

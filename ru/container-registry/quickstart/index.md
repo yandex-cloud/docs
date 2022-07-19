@@ -18,7 +18,7 @@
    yc container registry create --name my-first-registry
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    ..done
@@ -37,7 +37,7 @@
       yc container registry configure-docker
       ```
 
-      Результат выполнения команды:
+      Результат:
 
       ```bash
       Credential helper is configured in '/home/<user>/.docker/config.json'

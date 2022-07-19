@@ -484,7 +484,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
       https://iam.{{ api-host }}/iam/v1/tokens
   ```
 
-  where `<SIGNED-JWT>` is the JWT received in the previous step.
+  Where `<SIGNED-JWT>` is the JWT received in the previous step.
 
 - Go
 

@@ -79,6 +79,8 @@ If you no longer need these resources, [delete them](#clear-out).
    SELECT * FROM db1.x_tab WHERE id = 41;
    ```
 
+   Result:
+
    ```text
    ┌─id─┬──name──┬─── __data-transfer_commit_time─┬───__data-transfer-delete_time─┐
    │ 41 │  User2 │   1633417594957267000          │ 0                             │
@@ -104,6 +106,8 @@ If you no longer need these resources, [delete them](#clear-out).
       ```sql
       SELECT * FROM db1.x_tab WHERE (id >= 41) AND (id <= 42);
       ```
+
+      Result:
 
       ```text
       ┌─id─┬──name──┬─── __data-transfer_commit_time─┬───__data-transfer-delete_time─┐

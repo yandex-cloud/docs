@@ -169,16 +169,16 @@
       {% endif %}
       {% endif %}
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   {% if audience != "internal" %}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% else %}
 
-  Если у вас еще нет Terraform, установите его и настройте провайдер.
+  Если у вас еще нет {{ TF }}, установите его и настройте провайдер.
 
   {% endif %}
 
@@ -461,7 +461,7 @@
 
   {% endif %}
 
-- Terraform
+- {{ TF }}
 
   Допустим, нужно создать {{ PG }}-кластер и сеть для него со следующими характеристиками:
 

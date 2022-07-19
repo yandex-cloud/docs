@@ -5,6 +5,7 @@ yc <service-name> <resource> list-access-bindings <resource-name>|<resource-id>
 ```
 
 Where:
+
 * `<service-name>`: The name of the service that the resource belongs to (for example, `resource-manager`).
 * `<resource>`: The resource category, such as `folder`.
 * `<resource-name>`: The name of the resource. You can specify a resource by its name or ID.

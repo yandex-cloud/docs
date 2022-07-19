@@ -189,12 +189,12 @@ To store secrets, such as passwords, OAuth tokens, and SSH keys, use one of the 
 - [HashiCorp Vault with {{ kms-short-name }} support](/marketplace/products/yc/vault-yckms) from {{ marketplace-full-name }}.
    {% endif %}
 
-### Transferring secrets to a VM using Terraform and {{ kms-short-name }}
+### Transferring secrets to a VM using {{ TF }} and {{ kms-short-name }}
 
-{{ kms-short-name }} supports the encryption of secrets used in a Terraform configuration, such as to transfer secrets to a VM in encrypted form. See the instructions in the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/terraform-secret.md). It's not safe to explicitly pass secrets through environment variables, because they are displayed in the VM properties.
+{{ kms-short-name }} supports the encryption of secrets used in a {{ TF }} configuration, such as to transfer secrets to a VM in encrypted form. See the instructions in the {{ kms-short-name }} documentation, [{#T}](../../kms/tutorials/terraform-secret.md). It's not safe to explicitly pass secrets through environment variables, because they are displayed in the VM properties.
 
 {% if product == "yandex-cloud" %}
-![](../../_assets/overview/solution-library-icon.svg)[Solution: Encrypting secrets in Terraform to transfer them to a VM from a Container Optimized Image](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/terraform%2BKMS%2BCOI)
+![](../../_assets/overview/solution-library-icon.svg)[Solution: Encrypting secrets in {{ TF }} to transfer them to a VM from a Container Optimized Image](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/terraform%2BKMS%2BCOI)
 
 {% endif %}
-For other recommendations on how to use Terraform safely, see [Secure configuration: Terraform](secure-config.md#terraform).
+For other recommendations on how to use {{ TF }} safely, see [Secure configuration: {{ TF }}](secure-config.md#terraform).

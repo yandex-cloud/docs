@@ -31,7 +31,7 @@ If previously created disks are attached to the VM, they will be detached when t
    1. See the description of the CLI's delete VM command:
 
       ```
-      $ yc compute instance delete --help
+      yc compute instance delete --help
       ```
 
    1. Get a list of VMs in the default folder:
@@ -42,25 +42,25 @@ If previously created disks are attached to the VM, they will be detached when t
    1. Delete the VM:
 
       ```
-      $ yc compute instance delete first-instance
+      yc compute instance delete first-instance
       ```
 
-- Terraform
+- {{ TF }}
 
-   For more information about Terraform, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   If you created a VM using Terraform, you can delete it:
+   If you created a VM using {{ TF }}, you can delete it:
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
    2. Delete resources using the command:
 
       ```
-      $ terraform destroy
+      terraform destroy
       ```
 
       {% note alert %}
 
-      Terraform deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
 
       {% endnote %}
 

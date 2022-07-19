@@ -109,7 +109,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
    1. Request a list of cluster subnets to select one for the new host:
 
       ```
-      $ yc vpc subnet list
+      yc vpc subnet list
       
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
@@ -128,7 +128,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
    1. View a description of the CLI command for adding a host:
 
       ```
-      $ {{ yc-mdb-pg }} host add --help
+      {{ yc-mdb-pg }} host add --help
       ```
 
    1. Run the add host command:
@@ -136,7 +136,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
       {% if audience != "internal" %}
 
       ```
-      $ {{ yc-mdb-pg }} host add
+      {{ yc-mdb-pg }} host add
            --cluster-name <cluster name>
            --host zone-id=<availability zone>,subnet-id=<subnet ID>
       ```
@@ -144,7 +144,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
       {% else %}
 
       ```
-      $ {{ yc-mdb-pg }} host add
+      {{ yc-mdb-pg }} host add
            --cluster-name <cluster name>
            --host zone-id=<availability zone>
       ```
@@ -169,7 +169,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
    {{ mpg-short-name }} will run the add host operation.
 
-- Terraform
+- {{ TF }}
 
    To add a host to the cluster:
 
@@ -248,7 +248,7 @@ For each host in a {{ mpg-short-name }} cluster, you can change the priority, sp
    To change the parameters of a host in a cluster, run the command below:
 
    ```
-   $ {{ yc-mdb-pg }} host update <hostname>
+   {{ yc-mdb-pg }} host update <hostname>
         --cluster-name <cluster name>
         --replication-source <source hostname>
         --priority <replica priority>
@@ -265,7 +265,7 @@ For each host in a {{ mpg-short-name }} cluster, you can change the priority, sp
       - The lowest priority is `0` (default), the highest is `100`.
    - External host visibility {{ yandex-cloud }} in the `assign-public-ip` option:
 
-- Terraform
+- {{ TF }}
 
    To change the parameters of the cluster host:
 
@@ -341,13 +341,13 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
    To remove a host from the cluster, run:
 
    ```
-   $ {{ yc-mdb-pg }} host delete <hostname>
+   {{ yc-mdb-pg }} host delete <hostname>
         --cluster-name <cluster name>
    ```
 
    The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    To remove a host from a cluster:
 

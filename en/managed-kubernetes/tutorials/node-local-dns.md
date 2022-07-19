@@ -54,7 +54,7 @@ To set up DNS query caching, follow these steps:
      --network-name <cloud network name>
    ```
 
-   Execution output:
+   Result:
 
    ```text
    done (7m21s)
@@ -72,7 +72,7 @@ To set up DNS query caching, follow these steps:
      --fixed-size 3
    ```
 
-   Execution output:
+   Result:
 
    ```text
    done (2m43s)
@@ -95,7 +95,7 @@ To set up DNS query caching, follow these steps:
    yc managed-kubernetes cluster get-credentials --external --name node-local-dns
    ```
 
-   Execution output:
+   Result:
 
    ```text
    Context 'node-local-dns' was added as default to kubeconfig '/home/<your home folder>/.kube/config'.
@@ -201,7 +201,7 @@ To run NodeLocal DNS Cache, use the command:
 kubectl create -f nodelocaldns.yaml
 ```
 
-Execution output:
+Result:
 
 ```text
 serviceaccount/node-local-dns created
@@ -217,7 +217,7 @@ To make sure that the [DaemonSet](https://kubernetes.io/docs/concepts/workloads/
 kubectl get ds -l k8s-app=node-local-dns -n kube-system
 ```
 
-Execution output:
+Result:
 
 ```text
 NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE SELECTOR  AGE
@@ -253,7 +253,7 @@ To change the configuration, edit the appropriate `configmap`. For example, to e
 
 1. Save the changes.
 
-   Execution output:
+   Result:
 
    ```text
    configmap/node-local-dns edited
@@ -271,7 +271,7 @@ To run [test queries](https://kubernetes.io/docs/tasks/administer-cluster/dns-de
    kubectl apply -f https://k8s.io/examples/admin/dns/dnsutils.yaml
    ```
 
-   Execution output:
+   Result:
 
    ```text
    pod/dnsutils created
@@ -283,7 +283,7 @@ To run [test queries](https://kubernetes.io/docs/tasks/administer-cluster/dns-de
    kubectl get pods dnsutils
    ```
 
-   Execution output:
+   Result:
 
    ```text
    NAME      READY  STATUS   RESTARTS  AGE
@@ -304,7 +304,7 @@ To run [test queries](https://kubernetes.io/docs/tasks/administer-cluster/dns-de
 
    The `kube-dns` service can be accessed at the new address, that is, the `ClusterIp` of `kube-dns-upstream`. You may need this IP address to set up query forwarding.
 
-   Execution output:
+   Result:
 
    ```text
    # dig +short @169.254.20.10 www.com
@@ -331,7 +331,7 @@ kubectl logs --namespace=kube-system -l k8s-app=node-local-dns -f
 
 To stop displaying a log, press **Ctrl** + **C**.
 
-Execution output:
+Result:
 
 ```text
 ...
@@ -348,7 +348,7 @@ To disable the DaemonSet of NodeLocal DNS Cache, run:
 kubectl delete -f nodelocaldns.yaml
 ```
 
-Execution output:
+Result:
 
 ```text
 serviceaccount "node-local-dns" deleted

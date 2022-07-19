@@ -49,6 +49,7 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
       {{ yc-mdb-ms }} resource-preset list
       ```
 
+      Result:
       {% if audience != "internal" %}
 
       ```text
@@ -91,7 +92,7 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 
       {{ mms-short-name }} will run the update host class command for the cluster.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -183,7 +184,7 @@ Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]
 
       If all these conditions are met, {{ mms-short-name }} launches the operation to increase storage space.
 
-- Terraform
+- {{ TF }}
 
    To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size:
 
@@ -271,7 +272,7 @@ Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]
 
       All the supported parameters are listed in the [description of settings for{{ MS }}](../concepts/settings-list.md).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -361,7 +362,7 @@ Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]
 
       You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -475,7 +476,7 @@ Make sure the cloud's quota is sufficient to increase storage: open the [Quotas]
 
       You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

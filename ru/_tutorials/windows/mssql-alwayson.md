@@ -45,7 +45,7 @@
        1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать облачную сеть.
        1. Нажмите кнопку **Создать сеть.**
        1. Задайте имя сети: `ya-network`.
-	   1. Выключите опцию **Создать подсети**.
+       1. Выключите опцию **Создать подсети**.
        1. Нажмите кнопку **Создать сеть**.
 
     - Bash 
@@ -53,7 +53,7 @@
       {% include [cli-install](../../_includes/cli-install.md) %}
   
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-	  
+
       ```bash
       yc vpc network create --name ya-network
       ```
@@ -76,7 +76,7 @@
 
        1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать статический маршрут.
        1. Выберите сеть `ya-network`.
-	   1. Перейдите в раздел **Таблицы маршрутизации**.
+       1. Перейдите в раздел **Таблицы маршрутизации**.
        1. Нажмите кнопку **Создать таблицу маршрутизации**.
        1. Задайте имя таблицы маршрутизации: `mssql`.
        1. Нажмите кнопку **Добавить маршрут**.
@@ -118,7 +118,7 @@
           --route destination=10.0.0.53/32,next-hop=10.0.0.51 `
           --network-name ya-network
        ```
-	   
+
     {% endlist %}
 
 1. Создайте подсети, в которых будут размещаться виртуальные машины: 
@@ -270,7 +270,7 @@
   ```powershell
   echo 'Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "YaQWErty123" -AsPlainText -Force)' >> ~/setpass
   ```
-	
+
 {% endlist %}
 
 {% note warning %}
@@ -686,7 +686,7 @@
        mkdir X:\BACKUP
        mkdir X:\DB
        mkdir X:\DBLOG
-	   mkdir X:\TEMPDB
+       mkdir X:\TEMPDB
        mkdir X:\TEMPDBLOG
        ```
 
@@ -714,11 +714,11 @@
 
     - PowerShell
 
-       ```powershell
-	   Import-Module SQLServer
-	   ```
-	   
-	{% endlist %} 
+      ```powershell
+      Import-Module SQLServer
+      ```
+
+    {% endlist %} 
 
 1. Укажите адрес DNS-сервера:
 
@@ -835,7 +835,7 @@
         -LocalPort 5022 `
         -Action "Allow" `
         -Protocol "TCP" 
-        ```
+       ```
 
     {% endlist %}
 
@@ -848,8 +848,8 @@
        ```powershell
        Mount-DiskImage -ImagePath C:\dist\<имя образа MSSQL Server>.iso
        ```
-	   
-	   ```powershell
+
+       ```powershell
        & D:\setup.exe /QUIET /INDICATEPROGRESS /IACCEPTSQLSERVERLICENSETERMS `
          /ACTION=INSTALL /FEATURES=SQLENGINE /INSTANCENAME=MSSQLSERVER `
          /SQLSVCACCOUNT="yantoso\mssql-svc" /SQLSVCPASSWORD="QWErty123" `
@@ -857,8 +857,8 @@
          /SQLBACKUPDIR="X:\BACKUP" /SQLTEMPDBDIR="X:\TEMPDB" /SQLTEMPDBLOGDIR="X:\TEMPDBLOG" `
          /SQLUSERDBDIR="X:\DB" /SQLUSERDBLOGDIR="X:\DBLOG"
        ```
-	   
-	   ```powershell
+
+       ```powershell
        Dismount-DiskImage -ImagePath C:\dist\<имя образа MSSQL Server>.iso
        ```
 
@@ -877,7 +877,7 @@
        yc compute instance remove-one-to-one-nat ya-mssql2 --network-interface-index 0
        yc compute instance remove-one-to-one-nat ya-mssql3 --network-interface-index 0
        ```
-	   
+
     - PowerShell
 
        ```powershell
@@ -971,8 +971,8 @@
        ```
 
     {% endlist %}
-	
-	При включении Always On сервис СУБД будет перезапускаться.
+
+   При включении Always On сервис СУБД будет перезапускаться.
 
 1. Создайте и запустите [эндпоинты HADR](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlhadrendpoint?view=sqlserver-ps#description):
 
@@ -1215,7 +1215,7 @@
        ```powershell
        Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses "10.0.0.3"
        ```
-	   
+
     {% endlist %}
 
 1. Добавьте ВМ в домен: 
@@ -1282,8 +1282,8 @@
        ```powershell
        Invoke-Sqlcmd -ServerInstance 'mylistener.yantoso.net' -Query "SELECT * FROM MyDatabase.dbo.test"
        ```
-	   
-	   Результат:
+
+       Результат:
        ```powershell
        test_id test_name
        ------- ---------
@@ -1302,8 +1302,8 @@
        Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'mylistener.yantoso.net'
        ```
        
-	   Результат:
-	   ```powershell
+      Результат:
+      ```powershell
        Column1
        -------
        YA-MSSQL1
@@ -1333,8 +1333,8 @@
        ```powershell
        Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'mylistener.yantoso.net'
        ```
-	   	   
-	   Результат:
+
+       Результат:
        ```powershell
        Column1
        -------
@@ -1367,8 +1367,8 @@
        ```powershell
        Invoke-Sqlcmd -ServerInstance 'mylistener.yantoso.net' -Query "SELECT * FROM MyDatabase.dbo.test"
        ```
-	   
-	   Результат:
+
+       Результат:
        ```powershell
        test_id test_name
        ------- ---------

@@ -32,6 +32,7 @@ After creating a subnet, you can change its name, description, and DCHP settings
       ```
       yc vpc subnet list
       ```
+
       Result:
 
       ```
@@ -51,6 +52,11 @@ After creating a subnet, you can change its name, description, and DCHP settings
       yc vpc subnet update e2l2prrbkbimvjuuhht2 \
           --new-name test-subnet-renamed \
           --labels new_label=test_label
+      ```
+
+      Result:
+
+      ```
       id: e2l2prrbkbimvjuuhht2
       folder_id: b1g6ci08ma55klukmdjs
       created_at: "2018-10-24T13:54:10Z"
@@ -130,6 +136,11 @@ You can change a subnet by using its name instead of its ID:
 yc vpc subnet update test-subnet-1 \
     --new-name test-subnet-renamed \
     --labels new_label=test_label
+```
+
+Result:
+
+```
 id: e2l2prrbkbimvjuuhht2
 folder_id: b1g6ci08ma55klukmdjs
 created_at: "2018-10-24T13:54:10Z"

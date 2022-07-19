@@ -41,6 +41,7 @@ docker login \
 ```
 
 Where:
+
 * Legal values for `<token type>`: {% if product == "yandex-cloud" %}`oauth`, {% endif %}`iam`, or `json_key`.
 * `<token>`: Token.
 * `{{ registry }}`: Authentication address. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
@@ -104,7 +105,7 @@ Using a [service account](../../iam/concepts/users/service-accounts.md), your pr
    yc iam key create --service-account-name default-sa -o key.json
    ```
 
-   Command output:
+   Result:
 
    ```bash
    id: aje8a87g4e...
@@ -122,15 +123,16 @@ Using a [service account](../../iam/concepts/users/service-accounts.md), your pr
      {{ registry }}
    ```
 
-   Command output:
+   Where:
+
+   * The `cat key.json` command writes the contents of the key file to the output stream.
+   * The `--password-stdin` flag allows the password to be read from the input stream.
+
+   Result:
 
    ```
    Login succeeded
    ```
-
-   Where:
-   * The `cat key.json` command writes the contents of the key file to the output stream.
-   * The `--password-stdin` flag allows the password to be read from the input stream.
 
 ### Authentication using an IAM token {#sa-iam}
 
@@ -167,7 +169,7 @@ You don't need to install the `docker-credential-yc` separately: just install th
    yc container registry configure-docker
    ```
 
-   Command output:
+   Result:
 
    ```bash
    Credential helper is configured in '/home/<user>/.docker/config.json'

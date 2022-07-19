@@ -6,7 +6,7 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
 {% list tabs %}
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -20,7 +20,7 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
    You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-* API
+- API
 
    Use the [list](../api-ref/Extension/list) API method and pass the cluster ID in the `clusterId` request parameter.
 
@@ -32,7 +32,7 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
 {% list tabs %}
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -50,9 +50,9 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
    To get a link to a zip archive with extension files in {{ objstorage-full-name }}, [follow the instructions](../../storage/operations/objects/link-for-download.md). You can [configure](./s3-access.md) access to {{ objstorage-full-name }} using your service account.
 
-    {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
 
-* API
+- API
 
    Use the [create](../api-ref/Extension/create) API method and pass the following information in the request:
 
@@ -67,7 +67,7 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
 {% list tabs %}
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -85,7 +85,7 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
    To enable a user extension, pass `true` in the `--active` parameter, to disable one, pass `false`.
 
-* API
+- API
 
    Use the [update](../api-ref/Extension/update) API method and pass the following in the request:
 
@@ -99,7 +99,7 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
 {% list tabs %}
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -114,7 +114,7 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
    You can retrieve the cluster ID and name in the [list of folder clusters](cluster-list.md#list-clusters), and the extension ID in the [list of cluster extensions](#list).
 
-* API
+- API
 
    Use the [delete](../api-ref/Extension/delete) API method and pass the following in the request:
 

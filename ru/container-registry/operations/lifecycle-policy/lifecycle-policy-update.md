@@ -57,7 +57,7 @@
      yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-rules ./new-rules.json
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      WARN: All current lifecycle rules will be overwritten. Are you sure?[y/N] y
@@ -85,7 +85,7 @@
   yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --activate
   ```
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   id: crp6lg1868p3i0emkv1b
@@ -111,7 +111,7 @@
   yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --disable
   ```
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   id: crp6lg1868p3i0emkv1b
@@ -131,16 +131,17 @@
 
 - CLI
 
-  Измените имя политики, выполнив команду со следующим параметром:
-  * `new-name` — новое имя политики.
-
-    {% include [name-format](../../../_includes/name-format.md) %}
+  Измените имя политики, выполнив команду:
 
   ```bash
   yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-name new-policy
   ```
 
-  Результат выполнения команды:
+  Где `new-name` — новое имя политики:
+
+  {% include [name-format](../../../_includes/name-format.md) %}
+
+  Результат:
 
   ```bash
   id: crp6lg1868p3i0emkv1b
@@ -160,14 +161,15 @@
 
 - CLI
 
-  Измените описание политики, выполнив команду со следующим параметром:
-  * `new-description` — новое описание политики.
+  Измените описание политики, выполнив команду:
 
   ```bash
   yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-description "new description"
   ```
 
-  Результат выполнения команды:
+  Где `new-description` — новое описание политики.
+
+  Результат:
 
   ```bash
   id: crp6lg1868p3i0emkv1b

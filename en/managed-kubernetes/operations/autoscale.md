@@ -56,9 +56,9 @@ To create an autoscalable node group:
 
   1. {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-     If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  1. Open the current Terraform configuration file with the node group description.
+  1. Open the current {{ TF }} configuration file with the node group description.
 
      For more information about creating this file, see [{#T}](../operations/node-group/node-group-create.md).
 
@@ -102,6 +102,7 @@ Learn more about {{ k8s-ca }} in [{#T}](../concepts/autoscale.md#ca).
      ```
 
      Where:
+
      * `--cpu-percent`: The desired pod load on the vCPU.
      * `--min`: The minimum number of pods.
      * `--max`: The maximum number of pods.

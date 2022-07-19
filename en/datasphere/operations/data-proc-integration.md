@@ -158,8 +158,7 @@ To run computations on a cluster created from the notebook interface:
    print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))
    ```
 
-   Where:
-   * `#!spark --cluster <cluster name>` is a mandatory system command to run computations on a cluster. You can view the cluster name in the **Data Proc Clusters** window in the **File** menu.
+   Where `#!spark --cluster <cluster name>` is a mandatory system command to run computations on a cluster. You can view the cluster name in the **Data Proc Clusters** window in the **File** menu.
 1. Click ![image](../../_assets/datasphere/jupyterlab/run.svg) to start the calculation.
 
 Wait for the computation to start. While it is in progress, you'll see logs under the cell.

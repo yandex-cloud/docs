@@ -22,7 +22,7 @@
 
   Чтобы получить идентификатор облака для настроенного профиля CLI, выполните команду:
   ```bash
-  $ yc config list
+  yc config list
   token: AQAD...
   endpoint: gw.db.yandex-team.ru:443
   cloud-id: fooubdgo8ls21u7u4enm
@@ -34,7 +34,7 @@
   1. Скопируйте слаг ABC-сервиса, например, `https://abc.yandex-team.ru/services/**chemodan**/`.
   1. Выполните команду:
       ```bash
-      $ yc resource-manager folder get chemodan
+      yc resource-manager folder get chemodan
       id: foodqkuj4ge5j9sg34uq # идентификатор каталога
       cloud_id: fooubdgo8ls21u7u4enm
       created_at: "2018-10-21T23:55:16Z"

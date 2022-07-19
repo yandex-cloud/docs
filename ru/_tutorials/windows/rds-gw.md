@@ -42,7 +42,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       ```
       yc vpc network create --name rdgw-network
       ```
-      Результат выполнения команды:
+      Результат:
       
       ```
       id: qqppl6fduhct76qkjh6s
@@ -77,7 +77,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
         --range 10.1.0.0/16
       ```
       
-      Результат выполнения команды:
+      Результат:
       
       ``` 
       id: e9b95m6al33r62n5vkab
@@ -136,9 +136,9 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
      --rule direction=ingress,port=3389,protocol=tcp,v4-cidrs=[0.0.0.0/0],description=rdp `
      --rule direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0],description=rdgw `
      --rule direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0],description=default 
-  ```
+   ```
   
-   Результат выполнения команды:
+   Результат:
 
    ``` 
    id: enp136p8s2ael7ob6klg
@@ -202,18 +202,18 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 
        ```
        yc compute instance create `
-            --name my-rds-gw `
-            --hostname my-rds-gw `
-            --memory 4 `
-            --cores 2 `
-            --platform-id=standard-v3 `
-            --zone {{ region-id }}-a `
-            --network-interface subnet-name=rdgw-subnet,ipv4-address=10.1.0.3,nat-ip-version=ipv4,security-group-ids=<id_my-rdgw-group> `
-            --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk `
-            --metadata-from-file user-data=setpass
+         --name my-rds-gw `
+         --hostname my-rds-gw `
+         --memory 4 `
+         --cores 2 `
+         --platform-id=standard-v3 `
+         --zone {{ region-id }}-a `
+         --network-interface subnet-name=rdgw-subnet,ipv4-address=10.1.0.3,nat-ip-version=ipv4,security-group-ids=<id_my-rdgw-group> `
+         --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk `
+         --metadata-from-file user-data=setpass
        ```
    
-      Результат выполнения команды:
+      Результат:
    
       ``` 
       done (25s)
@@ -260,9 +260,9 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
    
     ```powershell
     Install-WindowsFeature RDS-Gateway -IncludeManagementTools
-   ```
+    ```
    
-   Результат выполнения команды:
+   Результат:
    
    ``` 
    Success Restart Needed Exit Code      Feature Result
@@ -272,7 +272,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
    
 1. Импортируйте модуль RDS:
    
-    ```powershell
+   ```powershell
    Import-Module -Name RemoteDesktopServices
    ```
    
@@ -283,7 +283,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
    New-Item -Path 'RDS:\GatewayServer\CAP' -Name 'Default-CAP' -UserGroups Administrators@Builtin -AuthMethod '1'
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ``` 
        Directory: RDS:\GatewayServer\CAP
@@ -295,11 +295,11 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 
 1. Создайте политику доступа к ресурсам, которая разрешит всем учетным записям локальной группы `Administrators` подключаться к любому внутреннему ресурсу через созданный шлюз RDGW. 
 
-    ```powershell
+   ```powershell
    New-Item -Path 'RDS:\GatewayServer\RAP' -Name 'Default-RAP' -UserGroups Administrators@Builtin -ComputerGroupType '2'
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ``` 
        Directory: RDS:\GatewayServer\RAP
@@ -311,17 +311,17 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
    
 1. Создайте сертификат с именем сервера, который будет использоваться для подключения и шифрования трафика:
 
-    ```powershell
+   ```powershell
    $Certificate = New-SelfSignedCertificate -CertStoreLocation 'Cert:\LocalMachine\My' -DnsName $ENV:COMPUTERNAME
    ```
    
 1. Экспортируйте созданный сертификат, чтобы в дальнейшем загрузить его в хранилище сертификатов `Trusted Roots Certificate Authorities` на компьютере, подключающемся к ВМ. Это необходимо, чтобы клиент доверял самоподписанному сертификату шлюза RDG:
 
-    ```powershell
+   ```powershell
    $Certificate | Export-Certificate -FilePath "C:\REGW.cer"
    ```
    
-   Результат выполнения команды:
+   Результат:
 
    ``` 
        Directory: RDS:\GatewayServer\RAP
@@ -333,12 +333,12 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 
 1. Укажите, какой сертификат нужно использовать шлюзу RDGW. Перезагрузите службу RDG, чтобы применить настройки:
 
-    ```powershell
+   ```powershell
    Set-Item -Path 'RDS:\GatewayServer\SSLCertificate\Thumbprint' -Value $Certificate.Thumbprint
    Get-Service TSGateway | Restart-Service
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ``` 
        Directory: C:\
@@ -390,7 +390,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
         --metadata-from-file user-data=setpass
       ```
 
-      Результат выполнения команды:
+      Результат:
    
       ``` 
       done (19s)

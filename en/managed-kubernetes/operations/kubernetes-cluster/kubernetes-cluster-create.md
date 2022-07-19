@@ -60,6 +60,7 @@ To create a {{ k8s }} cluster:
      ```
 
      Where:
+
      * `--name`: The {{ k8s }} cluster name.
      * `--network-name`: The name of the network.
      * `--zone`: availability zone.
@@ -77,7 +78,7 @@ To create a {{ k8s }} cluster:
      * `--node-service-account-id`: The unique ID of the service account for the nodes. Nodes will download the Docker images they require from the registry on behalf of this account.
      * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
 
-     Command output:
+     Result:
 
      ```bash
      done (5m47s)
@@ -113,7 +114,7 @@ To create a {{ k8s }} cluster:
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-  If you don't have Terraform, [install it and configure the provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have {{ TF }}, [install it and configure the provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   To create a cluster:
   1. In the configuration file, describe the parameters of resources that you want to create:

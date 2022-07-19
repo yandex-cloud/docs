@@ -172,7 +172,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
       {% endif %}
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -257,7 +257,7 @@ You can modify public access settings for every host in a {{ mch-short-name }} c
 
 {% if audience == "draft" %}
 
-- Terraform
+- {{ TF }}
 
    To change the parameters of the cluster host:
 
@@ -340,7 +340,7 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 
    The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

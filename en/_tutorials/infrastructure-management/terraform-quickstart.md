@@ -1,15 +1,15 @@
-# Getting started with Terraform
+# Getting started with {{ TF }}
 
 {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-To create your first infrastructure in {{ yandex-cloud }} using Terraform:
+To create your first infrastructure in {{ yandex-cloud }} using {{ TF }}:
 
 1. [Before you start](#before-you-begin).
 {% if product == "cloud-il" %}
 1. [Create a service account](#create-sa).
 {% endif %}
-1. [Install Terraform](#install-terraform).
-1. [Create a Terraform configuration file](#configure-terraform).
+1. [Install {{ TF }}](#install-terraform).
+1. [Create a {{ TF }} configuration file](#configure-terraform).
 1. [Configure a provider](#configure-provider).
 1. [Prepare an infrastructure plan](#prepare-plan).
 1. [Check and format your configuration files](#check-resources).
@@ -25,29 +25,27 @@ If you no longer need the resources, [delete them](#delete-resources).
 
 ### Required paid resources {#paid-resources}
 
-The cost of Terraform-created resources includes:
+The cost of {{ TF }}-created resources includes:
 
 * A fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 {% endif %}
 
-
 {% if product == "cloud-il" %}
 
 ## Create a service account {#create-sa}
 
 1. [Create a service account](../../iam/operations/sa/create.md) and [assign roles](../../iam/operations/sa/assign-role-for-sa.md), for a resource {{ yandex-cloud }}. List of roles for services see into [{#T}](../../iam/concepts/access-control/roles.md).
-1. [Create static access keys](../../iam/operations/sa/create-access-key.md) for a service account. Immediately save the ID `key_id` and the secret key `secret`. It will be impossible to get the key value again.
+1. [Create static access keys](../../iam/operations/sa/create-access-key.md) for a service account. Immediately save the ID `key_id` and the secret key `secret'. It will be impossible to get the key value again.
 
 {% endif %}
 
-
-## Install Terraform {#install-terraform}
+## Install {{ TF }} {#install-terraform}
 
 {% include [terraform_install](../../_tutorials/terraform-install.md) %}
 
-## Create a Terraform configuration file {#configure-terraform}
+## Create a {{ TF }} configuration file {#configure-terraform}
 
 {% include [terraform-configure](../../_tutorials/terraform-configure.md) %}
 
@@ -57,7 +55,7 @@ The cost of Terraform-created resources includes:
 
 ## Prepare an infrastructure plan {#prepare-plan}
 
-Using Terraform in {{ yandex-cloud }}, you can create cloud resources of any type, such as virtual machines, disks, images, and so on. For detailed information on resources you can create with Terraform, see the [provider documentation]({{ tf-provider-link }}/).
+Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type, such as virtual machines, disks, images, and so on. For detailed information on resources you can create with Terraform, see the [provider documentation]({{ tf-provider-link }}/).
 
 To create a resource, specify a set of required and optional parameters that define the resource properties. Such resource descriptions make up an infrastructure plan.
 

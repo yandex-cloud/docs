@@ -50,9 +50,9 @@ For example, allow any authenticated user to view information about a folder and
 
    1. {% include [grant-role-folder-via-curl-step](grant-role-folder-via-curl-step.md) %}
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% note alert %}
 
@@ -60,7 +60,7 @@ For example, allow any authenticated user to view information about a folder and
 
    {% endnote %}
 
-   To assign a role for a folder created using Terraform:
+   To assign a role for a folder created using {{ TF }}:
 
    1. Describe the parameters of the folder role in a configuration file:
 
@@ -75,7 +75,7 @@ For example, allow any authenticated user to view information about a folder and
 
       * `members`: List of users to assign the role to. To add all users, create an entry in the format `system:<allUsers|allAuthenticatedUsers>`, where `<allUsers|allAuthenticatedUsers>` is one of [system groups](../../iam/concepts/access-control/system-group.md). Required parameter.
 
-      {% cut "Example of assigning roles for the folder using Terraform" %}
+      Example configuration file structure:
 
       ```hcl
       ...
@@ -95,9 +95,7 @@ For example, allow any authenticated user to view information about a folder and
       ...
       ```
 
-      {% endcut %}
-
-      For more detailed information about the `yandex_resourcemanager_folder_iam_binding` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
+      For more detailed information about the `yandex_resourcemanager_folder_iam_binding` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
 
    1. Check the configuration using the command:
 
@@ -117,7 +115,7 @@ For example, allow any authenticated user to view information about a folder and
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
 

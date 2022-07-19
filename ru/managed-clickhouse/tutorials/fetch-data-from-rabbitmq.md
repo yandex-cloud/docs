@@ -17,7 +17,7 @@
 
 {% list tabs %}
 
-* Вручную
+- Вручную
 
     1. [Создайте кластер {{ mch-name }}](../operations/cluster-create.md) любой подходящей вам конфигурации с базой данных `db1`. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к хостам кластера при его создании.
 
@@ -29,7 +29,7 @@
 
     1. {% if audience != "internal" %}[Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md){% else %}Создайте виртуальную машину{% endif %} для {{ RMQ }}. Для подключения к виртуальной машине с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ при ее создании.
 
-* С помощью Terraform
+- С помощью {{ TF }}
 
     1. Если у вас еще нет {{ TF }}, {% if audience != "internal" %}[установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его{% endif %}.
     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и {% if audience != "internal" %}[укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider){% else %}укажите значения параметров{% endif %}.
@@ -135,11 +135,11 @@
 
 {% list tabs %}
 
-* Вручную
+- Вручную
 
     Укажите в [настройках кластера {{ mch-name }}](../operations/update.md#change-clickhouse-config) имя пользователя и пароль для аутентификации {{ RMQ }} в секции **Настройки СУБД** → **Rabbitmq**.
 
-* С помощью Terraform
+- С помощью {{ TF }}
 
     Добавьте к описанию кластера блок `clickhouse.config.rabbitmq` c именем пользователя и паролем для аутентификации {{ RMQ }}:
 
@@ -317,7 +317,7 @@
 
 {% list tabs %}
 
-* Вручную
+- Вручную
 
     Если созданные ресурсы вам больше не нужны, удалите их:
 
@@ -325,7 +325,7 @@
     * {% if audience != "internal" %}[Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md){% else %}Удалите виртуальную машину{% endif %}.
     * Если вы зарезервировали публичные статические IP-адреса, освободите и {% if audience != "internal" %}[удалите их](../../vpc/operations/address-delete.md){% else %}удалите их{% endif %}.
 
-* С помощью Terraform
+- С помощью {{ TF }}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
 

@@ -143,7 +143,7 @@ export PATH=$PATH:/path/to/packer
 Запустите сборку образа с указанными в конфигурации параметрами:
 
 ```
-$ packer build image.json
+packer build image.json
 ```
 
 ## Проверьте созданный образ {#check-image}

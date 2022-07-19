@@ -37,7 +37,7 @@ You can use {{ kms-short-name }} keys:
 * In {{ yandex-cloud }} services:
    * [Managed Service for Kubernetes](../../managed-kubernetes/).
    * [Certificate Manager](../../certificate-manager/).
-* When working with [Terraform](../tutorials/terraform-key.md).
+* When working with [{{ TF }}](../tutorials/terraform-key.md).
    {% if product == "yandex-cloud" %}
 * In cryptographic libraries:
    * [AWS Encryption SDK](../tutorials/encrypt/aws-encryption-sdk.md).

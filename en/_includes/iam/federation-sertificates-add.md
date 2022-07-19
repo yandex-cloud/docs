@@ -20,13 +20,13 @@
   1. View a description of the add certificate command:
 
       ```
-      $ yc iam certificate create --help
+      yc iam certificate create --help
       ```
 
   1. Add a federation certificate by specifying the certificate file path:
 
       ```
-      $ yc iam certificate create --federation-name my-federation \
+      yc iam certificate create --federation-name my-federation \
         --name "my-certificate" \
         --certificate-file test.pem
       ```
@@ -48,8 +48,8 @@
   2. Send the add certificate request:
 
       ```bash
-      $ export IAM_TOKEN=CggaATEVAgA...
-      $ curl -X POST \
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -X POST \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d '@body.json' \

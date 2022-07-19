@@ -145,11 +145,11 @@
        append: ru-RU
      ```
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. Опишите в конфигурационном файле параметры HTTP-роутера и виртуального хоста:
 
@@ -178,13 +178,14 @@
      ```
 
      Где:
-    * `yandex_alb_virtual_host` — описание HTTP-роутера:
+
+     * `yandex_alb_virtual_host` — описание HTTP-роутера:
        * `name` — имя HTTP-роутера. Формат имени:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
        * `labels` — [метки](https://cloud.yandex.ru/docs/overview/concepts/services#labels) для HTTP-роутера. Укажите пару ключ-значение.
-    * `yandex_alb_virtual_host` — описание виртуального хоста:
+     * `yandex_alb_virtual_host` — описание виртуального хоста:
        * `name` — имя виртуального хоста. Формат имени:
 
           {% include [name-format](../../_includes/name-format.md) %}
@@ -192,7 +193,7 @@
        * `http_router_id` — идентификатор HTTP-роутера.
        * `route` — описание маршрута HTTP-роутера. Укажите имя маршрута, идентификатор группы бэкендов и время для обработки запроса (по умолчанию 60 секунд).
 
-     Более подробную информацию о параметрах ресурсов в Terraform см. в документации провайдера ([yandex_alb_http_router](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router) и [yandex_alb_virtual_host](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host)).
+     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в документации провайдера ([yandex_alb_http_router](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router) и [yandex_alb_virtual_host](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host)).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -203,7 +204,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
 

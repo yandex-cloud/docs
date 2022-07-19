@@ -32,11 +32,12 @@ To check rights for domains:
           --full
         ```
 
-        Command parameters:
+        Where:
+
           - `--id`: Certificate ID.
           - `--full`: Show a list of active checks for domain rights.
 
-        Command results:
+        Result:
 
         ```bash
         id: fpq6gvvm6piuegbb2nol

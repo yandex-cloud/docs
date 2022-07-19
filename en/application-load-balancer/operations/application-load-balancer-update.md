@@ -179,11 +179,11 @@ To update the parameters of an L7 load balancer:
       created_at: "2022-04-04T02:12:40.160629110Z"
       ```
 
-- Terraform
+- {{ TF }}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. Open the Terraform configuration file and edit the fragment with the L7 load balancer description:
+   1. Open the {{ TF }} configuration file and edit the fragment with the L7 load balancer description:
 
       ```hcl
       ...
@@ -217,7 +217,7 @@ To update the parameters of an L7 load balancer:
       ...
       ```
 
-      For more information about the `yandex_alb_load_balancer` resource in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_load_balancer).
+      For more information about the `yandex_alb_load_balancer` resource in {{ TF }}, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_load_balancer).
 
    1. Check the configuration using the command:
 
@@ -237,7 +237,7 @@ To update the parameters of an L7 load balancer:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
 
@@ -291,11 +291,11 @@ To delete a listener for your L7 load balancer:
       done (50s)
       ```
 
-- Terraform
+- {{ TF }}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. Open the Terraform configuration file and delete the `listener` section from the L7 load balancer description.
+   1. Open the {{ TF }} configuration file and delete the `listener` section from the L7 load balancer description.
 
       ```hcl
       ...
@@ -329,7 +329,7 @@ To delete a listener for your L7 load balancer:
       ...
       ```
 
-      For more information about the `yandex_alb_load_balancer` resource in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_load_balancer).
+      For more information about the `yandex_alb_load_balancer` resource in {{ TF }}, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_load_balancer).
 
    1. Check the configuration using the command:
 
@@ -349,7 +349,7 @@ To delete a listener for your L7 load balancer:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
 

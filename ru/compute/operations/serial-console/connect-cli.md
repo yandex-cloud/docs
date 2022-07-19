@@ -21,7 +21,7 @@
 1. Посмотрите описание команды CLI для подключения к серийной консоли:
 
     ```
-    $ yc compute connect-to-serial-port --help
+    yc compute connect-to-serial-port --help
     ```
 
 1. Получите список виртуальных машин в каталоге по умолчанию:
@@ -32,20 +32,22 @@
 1. Подключитесь к серийной консоли Linux:
 
     ```
-    $ yc compute connect-to-serial-port \
-         --instance-name first-instance \
-         --ssh-key ~/.ssh/id_rsa
+    yc compute connect-to-serial-port \
+      --instance-name first-instance \
+      --ssh-key ~/.ssh/id_rsa
     ```
 
     {% if product == "yandex-cloud" %}
     Или к SAC Windows:
 
     ```
-    $ yc compute connect-to-serial-port \
-         --instance-name first-instance \
-         --port 2
+    yc compute connect-to-serial-port \
+      --instance-name first-instance \
+      --port 2
     ```
     {% endif %}
+
+    Где:
 
     Параметр | Значение
     ----- | -----

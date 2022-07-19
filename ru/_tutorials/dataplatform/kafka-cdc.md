@@ -166,12 +166,10 @@
         heartbeat.topics.prefix=__debezium-heartbeat
         ```
 
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](../../managed-postgresql/operations/cluster-list.md#list).
-
-        Здесь:
+        Где:
 
         * `name` — имя коннектора Debezium.
-        * `database.hostname` — [особый FQDN](../../managed-postgresql/operations/connect.md#fqdn-master) для подключения к хосту-мастеру кластера-источника.
+        * `database.hostname` — [особый FQDN](../../managed-postgresql/operations/connect.md#fqdn-master) для подключения к хосту-мастеру кластера-источника. Идентификатор кластера можно запросить со [списком кластеров в каталоге](../../managed-postgresql/operations/cluster-list.md#list).
         * `database.user` — имя пользователя {{ PG }}.
         * `database.dbname` — имя базы данных {{ PG }}.
         * `database.server.name` — произвольное имя сервера баз данных, которое [Debezium будет использовать](#prepare-target) при выборе топика для отправки сообщений.

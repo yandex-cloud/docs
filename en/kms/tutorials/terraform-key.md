@@ -1,6 +1,6 @@
-# Managing {{ kms-short-name }} keys with Hashicorp Terraform
+# Managing {{ kms-short-name }} keys with Hashicorp {{ TF-full }}
 
-[The Terraform provider for {{ yandex-cloud }}]({{ tf-provider-link }}) supports the use of {{ kms-short-name }} keys.
+[The {{ TF }} provider for {{ yandex-cloud }}]({{ tf-provider-link }}) supports the use of {{ kms-short-name }} keys.
 
 ## Adding keys {#add}
 
@@ -27,7 +27,7 @@ Deleting a {{ kms-short-name }} key destroys all data encrypted with that key: t
 
 ## Managing key access {#security}
 
-To manage access to keys in Terraform, assign the necessary roles for the folder that contains the key.
+To manage access to keys in {{ TF }}, assign the necessary roles for the folder that contains the key.
 
 For example, assign a role for the service account, which grants the permission to encrypt and decrypt data with keys from a specific folder:
 
@@ -42,7 +42,7 @@ resource "yandex_resourcemanager_folder_iam_member" "admin" {
 
 ## See also {#see-also}
 
-* [Getting started with Terraform in {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
+* [Getting started with {{ TF }} in {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [{#T}](../security/index.md).
 * [{{ yandex-cloud }} provider documentation]({{ tf-provider-link }}).
 

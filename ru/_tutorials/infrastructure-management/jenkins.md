@@ -2,9 +2,9 @@
 
 На основе заданной конфигурации Packer создает [образы дисков ВМ](../../compute/concepts/image.md) в сервисе {{ compute-name }}. Jenkins позволяет построить процесс непрерывной доставки изменений.
 
-Образы можно использовать при создании облачной инфраструктуры, например, с помощью [Terraform](https://www.terraform.io/language#about-the-terraform-language).
+Образы можно использовать при создании облачной инфраструктуры, например, с помощью [{{ TF }}](https://www.terraform.io/language#about-the-terraform-language).
 
-Чтобы установить и настроить Jenkins, Packer, GitHub и Terraform для совместной работы:
+Чтобы установить и настроить Jenkins, Packer, GitHub и {{ TF }} для совместной работы:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Настройте окружение](#prepare).
@@ -15,7 +15,7 @@
 1. [Настройте задачу для Jenkins](#jenkins-job).
 1. [Настройте GitHub-репозиторий](#configure-github-repo).
 1. [Создайте образ с помощью Jenkins](#create-image).
-1. [Разверните образы с помощью Terraform](#deploy-image).
+1. [Разверните образы с помощью {{ TF }}](#deploy-image).
 
 Если созданные ВМ и образы больше не нужны, [удалите их](#clear-out).
 
@@ -40,7 +40,7 @@
 Подготовьте программы для работы:
 
 * [Установите](../../cli/operations/install-cli.md) интерфейс командной строки {{ yandex-cloud }}.
-* [Установите](https://www.terraform.io/downloads) Terraform. См. также раздел [{#T}](terraform-quickstart.md).
+* [Установите](https://www.terraform.io/downloads) {{ TF }}. См. также раздел [{#T}](terraform-quickstart.md).
 * [Загрузите](https://stedolan.github.io/jq/download/) утилиту jq.
 * [Настройте](https://gitforwindows.org) Git. Если вы работаете под Windows, используйте Git Bash.
 * [Создайте](https://github.com/yandex-cloud/examples) ответвление репозитория с примерами в своем аккаунте на GitHub.
@@ -253,9 +253,9 @@ Packer позволяет создавать [образы дисков вирт
 
 ## Разверните образы {#deploy-image}
 
-После того, как образы будут созданы, их можно использовать для создания виртуальных машин. Создайте тестовую инфраструктуру с помощью Terraform:
+После того, как образы будут созданы, их можно использовать для создания виртуальных машин. Создайте тестовую инфраструктуру с помощью {{ TF }}:
 
-1. В директории с ответвлением перейдите в директорию с файлами Terraform:
+1. В директории с ответвлением перейдите в директорию с файлами {{ TF }}:
 
    ```
    cd examples/jenkins-packer/terraform
@@ -267,10 +267,10 @@ Packer позволяет создавать [образы дисков вирт
    mv terraform.tfvars_example terraform.tfvars
    ```
 
-2. Заполните поля файла требуемыми значениями. См. также документацию [Terraform](https://www.terraform.io/language#about-the-terraform-language) и [провайдера {{ yandex-cloud }}]({{ tf-provider-link }}).
-3. Инициализируйте провайдера Terraform командой `terraform init`.
-4. Выполните команду `terraform plan -var-file="terraform.tfvars"`. Проверьте созданную конфигурацию.
-5. Выполните команду `terraform apply` и подтвердите создание инфраструктуры, введя `yes` в терминале.
+1. Заполните поля файла требуемыми значениями. См. также документацию [{{ TF }}](https://www.terraform.io/language#about-the-terraform-language) и [провайдера {{ yandex-cloud }}]({{ tf-provider-link }}).
+1. Инициализируйте провайдера {{ TF }} командой `terraform init`.
+1. Выполните команду `terraform plan -var-file="terraform.tfvars"`. Проверьте созданную конфигурацию.
+1. Выполните команду `terraform apply` и подтвердите создание инфраструктуры, введя `yes` в терминале.
 
 После этого будут созданы: 
 
@@ -287,4 +287,4 @@ Packer позволяет создавать [образы дисков вирт
 * [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md) и файл `<имя пользователя.json>`.
 * [Удалите сеть и подсеть](../../vpc/operations/network-delete.md).
 
-Для удаления созданных с помощью Terraform используйте команду `terraform destroy`.
+Для удаления созданных с помощью {{ TF }} используйте команду `terraform destroy`.

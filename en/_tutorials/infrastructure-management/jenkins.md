@@ -2,9 +2,9 @@
 
 Based on the specified configuration, Packer creates [VM disk images](../../compute/concepts/image.md) in {{ compute-name }}. Jenkins helps build a continuous update delivery process.
 
-You may use images to create cloud infrastructure with [Terraform](https://www.terraform.io/language#about-the-terraform-language), for example.
+You may use images to create cloud infrastructure with [{{ TF }}](https://www.terraform.io/language#about-the-terraform-language), for example.
 
-To install and configure Jenkins, Packer, GitHub, and Terraform to work together:
+To install and configure Jenkins, Packer, GitHub, and {{ TF }} to work together:
 
 1. [Before you start](#before-you-begin).
 1. [Configure the environment](#prepare).
@@ -15,7 +15,7 @@ To install and configure Jenkins, Packer, GitHub, and Terraform to work together
 1. [Set up a Jenkins task](#jenkins-job).
 1. [Configure the GitHub repository](#configure-github-repo).
 1. [Create an image using Jenkins](#create-image).
-1. [Deploy the images using Terraform](#deploy-image).
+1. [Deploy the images using {{ TF }}](#deploy-image).
 
 If you no longer need the VM or the cluster you created, [delete them](#clear-out).
 
@@ -40,7 +40,7 @@ The cost of this infrastructure includes:
 Set the software up to run:
 
 * [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} command-line interface.
-* [Install](https://www.terraform.io/downloads) Terraform. See also [{#T}](terraform-quickstart.md).
+* [Install](https://www.terraform.io/downloads) {{ TF }}. See also [{#T}](terraform-quickstart.md).
 * [Download](https://stedolan.github.io/jq/download/) the jq utility.
 * [Configure](https://gitforwindows.org) Git. If you are running Windows, use Git Bash.
 * [Create](https://github.com/yandex-cloud/examples) a repository branch with examples in your GitHub account.
@@ -223,7 +223,7 @@ The image is built in Jenkins automatically after you `push` to the `master` bra
 1. Clone the [examples](https://github.com/yandex-cloud/examples) repository fork you created while [getting started](#before-you-begin), to your computer:
 
    ```
-   $ git clone git@github.com:<GitHub login>/examples.git
+   git clone git@github.com:<GitHub login>/examples.git
    ```
 
 1. Make changes to the Packer templates hosted in the `jenkins-packer/packer/` folder. You can find Packer template documentation on the developer's [website](http://packer.io/docs/templates/index.html). In the `image_family` and `source_image_family` parameters, specify the families of images to be built by Jenkins. For more detail on families, please see [Image families](../../compute/concepts/image#family).
@@ -253,9 +253,9 @@ Then there are three new images in **Compute Cloud** under **Images**:
 
 ## Deploy the images {#deploy-image}
 
-Once the images are created, you can use them to create your virtual machines. Create a test infrastructure using Terraform:
+Once the images are created, you can use them to create your virtual machines. Create a test infrastructure using {{ TF }}:
 
-1. In the folder with the fork, go to the directory with the Terraform files:
+1. In the folder with the fork, go to the directory with the {{ TF }} files:
 
    ```
    cd examples/jenkins-packer/terraform
@@ -267,8 +267,8 @@ Once the images are created, you can use them to create your virtual machines. C
    mv terraform.tfvars_example terraform.tfvars
    ```
 
-2. Fill in the file fields with the applicable values. See also the [Terraform](https://www.terraform.io/language#about-the-terraform-language) and [{{ yandex-cloud }} provider]({{ tf-provider-link }}) documentation.
-3. Initialize the Terraform provider by running `terraform init`.
+2. Fill in the file fields with the applicable values. See also the [{{ TF }}](https://www.terraform.io/language#about-the-terraform-language) and [{{ yandex-cloud }} provider]({{ tf-provider-link }}) documentation.
+3. Initialize the {{ TF }} provider by running `terraform init`.
 4. Execute `terraform plan -var-file="terraform.tfvars"`. Check the configuration created.
 5. Execute `terraform apply` and confirm that you want to create the infrastructure by entering `yes` to the terminal prompt.
 
@@ -287,4 +287,4 @@ To release folder resources:
 * [Delete the service account](../../iam/operations/sa/delete.md) and `<uername.json>`.
 * [Delete the network and the subnets](../../vpc/operations/network-delete.md).
 
-To delete the resources created with Terraform, run `terraform destroy`.
+To delete the resources created with {{ TF }}, run `terraform destroy`.

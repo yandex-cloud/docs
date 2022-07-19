@@ -23,7 +23,7 @@ To work with {{ objstorage-name }}, we recommend [setting up S3cmd](../../storag
 You can get a list of files using the command:
 
 ```bash
-$ s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
+s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
 
 2019-09-13 17:17  19327838   s3://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_1.parquet
 2019-09-13 17:17  21120204   s3://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_10.parquet
@@ -111,13 +111,13 @@ Spark Submit lets you run pre-written applications using the `spark-submit` scri
   1. Run the application:
 
      ```bash
-     $ /usr/bin/spark-submit month_stat.py
+     /usr/bin/spark-submit month_stat.py
      ```
 
   1. The result of running the application is exported to HDFS. You can list the resulting files using the command:
 
      ```bash
-     $ hdfs dfs -ls /tmp/month_stat
+     hdfs dfs -ls /tmp/month_stat
      ```
 
 - Spark Submit
@@ -178,8 +178,8 @@ Spark Submit lets you run pre-written applications using the `spark-submit` scri
   1. Compile and build your jar file:
 
       ```bash
-      $ sbt compile
-      $ sbt package
+      sbt compile
+      sbt package
       ```
 
   1. Launch the resulting application:

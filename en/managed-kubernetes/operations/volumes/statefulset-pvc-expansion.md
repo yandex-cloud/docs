@@ -56,7 +56,7 @@ While the instruction is running, the number of the controller's [pods](../../co
 
    {% if product == "cloud-il" %}
 
-    ```yaml
+   ```yaml
    apiVersion: apps/v1
    kind: StatefulSet
    metadata:
@@ -107,7 +107,7 @@ While the instruction is running, the number of the controller's [pods](../../co
    kubectl get pods,pvc
    ```
 
-   Example command output:
+   Result:
 
    {% if product == "yandex-cloud" %}
 
@@ -147,7 +147,7 @@ While the instruction is running, the number of the controller's [pods](../../co
    yc compute disk list
    ```
 
-   Example command output:
+   Result:
 
    ```text
    +----------------------+--------------------------------------------------+-------------+-------------------+--------+----------------------+-------------+
@@ -205,7 +205,7 @@ While the instruction is running, the number of the controller's [pods](../../co
    yc compute disk list
    ```
 
-   Example command output:
+   Result:
 
    ```text
     +----------------------+--------------------------------------------------+-------------+--------------------+--------+----------------------+-------------+
@@ -251,7 +251,7 @@ While the instruction is running, the number of the controller's [pods](../../co
    kubectl get sts,pods
    ```
 
-   Example command output:
+   Result:
 
    ```text
    NAME                           READY   AGE
@@ -269,7 +269,7 @@ While the instruction is running, the number of the controller's [pods](../../co
    kubectl get pv
    ```
 
-   Example command output:
+   Result:
 
    {% if product == "yandex-cloud" %}
 

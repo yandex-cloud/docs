@@ -38,12 +38,10 @@
        --origin source=<IP-адрес или доменное имя источника>,enabled=true,backup=true
      ```
 
-     Где:
-
-     * `origin` — спецификация источника:
-       * `source` — IP-адрес или доменное имя источника.
-       * `enabled` — флаг, указывающий, включен ли источник.
-       * `backup` — флаг, указывающий, является ли источник резервным. Подробнее о приоритетах см. в разделе [{#T}](../../concepts/origins.md#groups).
+     Где `origin` — спецификация источника:
+     * `source` — IP-адрес или доменное имя источника.
+     * `enabled` — флаг, указывающий, включен ли источник.
+     * `backup` — флаг, указывающий, является ли источник резервным. Подробнее о приоритетах см. в разделе [{#T}](../../concepts/origins.md#groups).
 
      Результат:
 
@@ -66,9 +64,9 @@
 
      Подробнее о команде `yc cdn origin-group create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/origin-group/create.md).
 
-- Terraform
+- {{ TF }}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. Опишите в конфигурационном файле параметры ресурса `yandex_cdn_origin_group`:
 
@@ -131,7 +129,7 @@
 
      {% endif %}
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/cdn_origin_group).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/cdn_origin_group).
 
   1. Проверьте корректность настроек.
 

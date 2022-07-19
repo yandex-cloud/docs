@@ -39,7 +39,7 @@ For the provider to work, you need to create a [service account](../../../iam/co
      -o key.json
    ```
 
-   Expected execution result:
+   Result:
 
    ```text
    {

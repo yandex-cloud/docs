@@ -27,7 +27,7 @@ If an instance group is stopped by {{ yandex-cloud }} because it was blocked for
    1. View a description of the start instance group command in the CLI:
 
       ```
-      $ {{ yc-compute-ig }} start --help
+      {{ yc-compute-ig }} start --help
       ```
 
    1. Get a list of instance groups in the default folder:
@@ -38,7 +38,7 @@ If an instance group is stopped by {{ yandex-cloud }} because it was blocked for
    1. Start an instance group in the default folder:
 
       ```
-      $ {{ yc-compute-ig }} start first-instance-group
+      {{ yc-compute-ig }} start first-instance-group
       ```
 
       {{ ig-name }} will begin starting the group's virtual machines. When all instances are started, the group status switches to `ACTIVE`.

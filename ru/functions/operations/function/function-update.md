@@ -40,23 +40,23 @@
     log_group_id: eolv6578frac08uh5h6s
     http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
     status: ACTIVE
-  ```
+    ```
 
 - API
 
     Изменить имя функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
 
-- Terraform
+- {{ TF }}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     Чтобы изменить имя функции:
 
-    1. Откройте файл конфигурации Terraform и измените поле `name` во фрагменте с описанием функции.
+    1. Откройте файл конфигурации {{ TF }} и измените поле `name` во фрагменте с описанием функции.
 
-        Пример описания функции в конфигурации Terraform:
+        Пример описания функции в конфигурации {{ TF }}:
       
         ```
         resource "yandex_function" "test-function" {
@@ -95,7 +95,7 @@
        terraform plan
        ```
         
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
          
     1. Примените изменения конфигурации:
 
@@ -155,23 +155,23 @@
     log_group_id: eolv6578frac08uh5h6s
     http_invoke_url: https://functions.yandexcloud.net/b097d9ous3gep99khe83
     status: ACTIVE
-   ```
+    ```
 
 - API
 
     Изменить описание функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
 
-- Terraform
+- {{ TF }}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     Чтобы изменить описание функции:
 
-    1. Откройте файл конфигурации Terraform и измените поле `description` во фрагменте с описанием функции.
+    1. Откройте файл конфигурации {{ TF }} и измените поле `description` во фрагменте с описанием функции.
 
-        Пример описания функции в конфигурации Terraform:
+        Пример описания функции в конфигурации {{ TF }}:
       
         ```
         resource "yandex_function" "test-function" {
@@ -210,7 +210,7 @@
        terraform plan
        ```
         
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
          
     1. Примените изменения конфигурации:
 
@@ -275,17 +275,17 @@
 
     Добавить метку функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
 
-- Terraform
+- {{ TF }}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     Чтобы добавить метку функции:
 
-    1. В конфигурационном файле Terraform добавьте блок `labels` и перечислите в нем список меток в формате `<ключ>:"<значение>"`.
+    1. В конфигурационном файле {{ TF }} добавьте блок `labels` и перечислите в нем список меток в формате `<ключ>:"<значение>"`.
 
-        Пример описания функции в конфигурации Terraform:
+        Пример описания функции в конфигурации {{ TF }}:
       
         ```
         resource "yandex_function" "test-function" {
@@ -328,7 +328,7 @@
        terraform plan
        ```
         
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
          
     1. Примените изменения конфигурации:
 
@@ -385,17 +385,17 @@
 
     Изменить метки функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
 
-- Terraform
+- {{ TF }}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     Чтобы изменить метку функции:
 
-    1. Откройте файл конфигурации Terraform и отредактируйте блок `labels`.
+    1. Откройте файл конфигурации {{ TF }} и отредактируйте блок `labels`.
 
-        Пример описания функции в конфигурации Terraform:
+        Пример описания функции в конфигурации {{ TF }}:
       
         ```
         resource "yandex_function" "test-function" {
@@ -438,7 +438,7 @@
        terraform plan
        ```
         
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
          
     1. Примените изменения конфигурации:
 
@@ -489,17 +489,17 @@
 
     Удалить метку функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
 
-- Terraform
+- {{ TF }}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     Чтобы удалить метку функции:
 
-    1. Откройте файл конфигурации Terraform и в блоке `labels` удалите ненужную метку.
+    1. Откройте файл конфигурации {{ TF }} и в блоке `labels` удалите ненужную метку.
 
-        Пример описания функции в конфигурации Terraform:
+        Пример описания функции в конфигурации {{ TF }}:
       
         ```
         resource "yandex_function" "test-function" {
@@ -542,7 +542,7 @@
        terraform plan
        ```
         
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
          
     1. Примените изменения конфигурации:
 

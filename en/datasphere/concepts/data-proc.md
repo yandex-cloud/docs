@@ -62,6 +62,7 @@ Code is run in cells with the header:
 ```
 
 Where:
+
 * `<cluster>` is the Data Proc cluster to perform calculations on. This can be:
    * An HTTP link to Livy, such as `http://10.0.0.8:8998/`.
    * The name of the cluster created through the notebook interface.

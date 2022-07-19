@@ -21,7 +21,7 @@
     Выполните команду: 
     
     ```
-    $ curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash -s -- -h
+    curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash -s -- -h
     Usage: install [options...]
     Options:
      -i [INSTALL_DIR]    Installs to specified dir.

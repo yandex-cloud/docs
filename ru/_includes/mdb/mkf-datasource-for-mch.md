@@ -15,7 +15,7 @@
 
 {% list tabs %}
 
-* Вручную
+- Вручную
 
     1. [Создайте необходимое количество кластеров {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей вам [конфигурации](../../managed-kafka/concepts/instance-types.md). Для подключения к кластерам с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластерам при их создании.
 
@@ -36,7 +36,7 @@
 
         Имена пользователей в разных кластерах могут быть одинаковыми.
 
-* С помощью Terraform
+- С помощью {{ TF }}
 
     1. Если у вас еще нет {{ TF }}, {% if audience != "internal" %}[установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его{% endif %}.
     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и {% if audience != "internal" %}[укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider){% else %}укажите значения параметров{% endif %}.
@@ -121,7 +121,7 @@
 
 {% list tabs %}
 
-* Вручную
+- Вручную
 
     В зависимости от количества кластеров {{ mkf-name }}:
 
@@ -136,7 +136,7 @@
     - **Sasl username** — [имя пользователя для потребителя](#before-you-begin).
     - **Security protocol** — `SASL_SSL`.
 
-* С помощью Terraform
+- С помощью {{ TF }}
 
     1. В зависимости от количества кластеров {{ mkf-name }}:
 
@@ -355,7 +355,7 @@
 
 {% list tabs %}
 
-* Вручную
+- Вручную
 
     Если созданные ресурсы вам больше не нужны, удалите их:
 
@@ -370,7 +370,7 @@
 
     {% endif %}
 
-* С помощью Terraform
+- С помощью {{ TF }}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
 

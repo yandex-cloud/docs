@@ -186,4 +186,3 @@ Subscribe a device to a registry using the following parameters:
         Only devices subscribed to the `$registries/<registry ID>/commands` or '$registries/<registry ID>/config' topic will receive commands.
 
 {% endlist %}
-

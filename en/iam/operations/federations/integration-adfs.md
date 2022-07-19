@@ -70,13 +70,13 @@ To use the instructions in this section, you need:​
     1. See the description of the create federation command:
 
         ```
-        $ yc iam federation create --help
+        yc iam federation create --help
         ```
 
     1. Create a federation:
 
         ```
-        $ yc iam federation create --name my-federation \
+        yc iam federation create --name my-federation \
           --auto-create-account-on-login \
           --cookie-max-age 12h \
           --issuer "http://example.com/adfs/services/trust" \

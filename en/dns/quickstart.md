@@ -169,7 +169,7 @@ Make sure that the created record points to the VM's public IP address. Run the 
 host www.example.com ns1.yandexcloud.net.
 ```
 
-Command output:
+Result:
 
 ```
 Using domain server:
@@ -188,7 +188,7 @@ www.example.com has address <public IP address of test-vm-1>
 host www.example.com ns1.cloudil.com.
 ```
 
-Command output:
+Result:
 
 ```
 Using domain server:

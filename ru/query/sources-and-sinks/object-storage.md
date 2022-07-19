@@ -14,7 +14,7 @@ WITH SCHEMA
     Uint32 AS `timestamp`,
     String AS action
 );
- ```
+```
 
  {% note info %}
 
@@ -46,6 +46,7 @@ WHERE
 ```
 
 Где:
+
 - `object_storage_connection_name` — название подключения к хранилищу, созданного в предыдущем пункте.
 - `file_path` — путь к файлу или файлам внутри бакета. Поддерживаются wildcards `*`.
 - `file_format` — [формат данных](#formats) в файлах.
@@ -143,9 +144,9 @@ WITH SCHEMA (
     String as Model,
     Double as Price
 );
- ```
+```
 
-В запросе выше:
+Где:
 
 |Поле|Описание|
 |--|---|

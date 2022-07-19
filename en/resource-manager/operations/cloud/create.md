@@ -27,16 +27,18 @@ To create a cloud:
    1. Enter the organization you are going to link the cloud to. If you don't have an organization yet, one will be created automatically.
    1. Click **Create**. The `default` folder page in the new cloud opens.
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the parameters of the cloud to create:
       * `name`: Cloud name. Naming requirements:
 
          {% include [name-format.md](../../../_includes/name-format.md) %}
 
-      * `organization_id`: Organization ID. Terraform allows you to create a cloud only for an existing organization. You can get a list of organization IDs using the [CLI](../../../cli/quickstart.md) command: `yc organization-manager organization list`.
+      * `organization_id`: Organization ID. {{ TF }} allows you to create a cloud only for an existing organization. You can get a list of organization IDs using the [CLI](../../../cli/quickstart.md) command: `yc organization-manager organization list`.
+
+      Example configuration file structure:
 
       {% if product == "yandex-cloud" %}
 
@@ -75,7 +77,7 @@ To create a cloud:
 
       {% endif %}
 
-      For more detailed information about the `yandex_resourcemanager_cloud` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud).
+      For more detailed information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud).
    1. In the command line, go to the directory where you created the configuration file.
    1. Make sure the configuration file is correct using the command:
 
@@ -95,7 +97,7 @@ To create a cloud:
       terraform plan
       ```
 
-      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
    1. Apply the configuration changes:
 
       ```bash

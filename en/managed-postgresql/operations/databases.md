@@ -106,7 +106,7 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -175,7 +175,7 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

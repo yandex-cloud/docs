@@ -56,7 +56,7 @@ BEMCLI> New-BECloudInstance
 * `SslMode:` — `disabled`.
 * `Name:` — `{{ product }}`.
 
-Результат выполнения команды:
+Результат:
 
 ```text
 cmdlet New-BECloudInstance at command pipeline position 1

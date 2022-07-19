@@ -78,6 +78,8 @@ GET http://169.254.169.254/computeMetadata/v1/instance/
 Metadata-Flavor: Google
 ```
 
+Where:
+
 | Parameter | Description |
 ----- | -----
 | `alt` | Response format (by default, `text`). |
@@ -136,6 +138,8 @@ This format has no support for user-defined metadata fields.
 ```
 GET http://169.254.169.254/latest/meta-data/<element>
 ```
+
+Where:
 
 | Parameter | Description |
 ----- | -----

@@ -54,44 +54,13 @@
         --lifecycle-configuration file://lifecycles.json
       ```
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
    Retrieve {% if audience != "internal" %}[static access keys](../../../iam/operations/sa/create-access-key.md){% else %}static access keys{% endif %}: a static key and a key ID used to authenticate in {{ objstorage-short-name }}.
 
    1. In the configuration file, describe the parameters of resources that you want to create:
-      * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the secret access key.
-      * `bucket`: Bucket name. Required parameter.
-
-      `lifecycle_rule` parameters:
-      * `id`: Unique rule ID. Must be no more than 255 characters. Optional.
-      * `prefix`: Object key prefix that identifies one or more objects that the rule applies to. Optional.
-      * `enabled`: Rule status. Required parameter.
-      * `abort_incomplete_multipart_upload_days`: The number of days after the start of a multipart upload when it should be completed. Optional.
-      * `expiration`: Object expiration date for deleting non-current object versions. Optional.
-      * `transition`: Object expiration date for changing the storage class. Optional.
-      * `noncurrent_version_expiration`: Rule for deleting non-current object versions. Optional.
-      * `noncurrent_version_transition`: Rule for changing the storage class of non-current object versions. Optional.
-
-      Make sure to specify at least one of the following parameters: `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, or `noncurrent_version_transition`.
-
-      `expiration` parameters:
-      * `date`: Date after which you want the rule to take effect. Optional.
-      * `days`: The number of days after creating an object when the rule takes effect. Optional.
-
-      `transition` parameters:
-      * `date`: Date after which you want the rule to take effect. Optional.
-      * `days`: The number of days after creating an object when the rule takes effect. Optional.
-      * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
-
-      `noncurrent_version_expiration` parameters:
-      * `days`: The number of days before expiration. Required parameter.
-
-      `noncurrent_version_transition` parameters:
-      * `days`: The number of days before the transition. Required parameter.
-      * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
 
       {% if product == "yandex-cloud" %}
 
@@ -234,7 +203,41 @@
 
       {% endif %}
 
-      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
+      Where:
+
+      * `access_key`: The ID of the static access key.
+      * `secret_key`: The value of the secret access key.
+      * `bucket`: Bucket name. Required parameter.
+
+      `lifecycle_rule` parameters:
+      * `id`: Unique rule ID. Must be no more than 255 characters. Optional.
+      * `prefix`: Object key prefix that identifies one or more objects that the rule applies to. Optional.
+      * `enabled`: Rule status. Required parameter.
+      * `abort_incomplete_multipart_upload_days`: The number of days after the start of a multipart upload when it should be completed. Optional.
+      * `expiration`: Object expiration date for deleting non-current object versions. Optional.
+      * `transition`: Object expiration date for changing the storage class. Optional.
+      * `noncurrent_version_expiration`: Rule for deleting non-current object versions. Optional.
+      * `noncurrent_version_transition`: Rule for changing the storage class of non-current object versions. Optional.
+
+      Make sure to specify at least one of the following parameters: `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, or `noncurrent_version_transition`.
+
+      `expiration` parameters:
+      * `date`: Date after which you want the rule to take effect. Optional.
+      * `days`: The number of days after creating an object when the rule takes effect. Optional.
+
+      `transition` parameters:
+      * `date`: Date after which you want the rule to take effect. Optional.
+      * `days`: The number of days after creating an object when the rule takes effect. Optional.
+      * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
+
+      `noncurrent_version_expiration` parameters:
+      * `days`: The number of days before expiration. Required parameter.
+
+      `noncurrent_version_transition` parameters:
+      * `days`: The number of days before the transition. Required parameter.
+      * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
+
+      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
    1. Make sure that the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
@@ -244,7 +247,7 @@
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
       1. If the configuration doesn't contain any errors, run the command:

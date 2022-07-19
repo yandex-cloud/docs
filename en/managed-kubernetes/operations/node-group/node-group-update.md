@@ -152,7 +152,7 @@ You can perform the following actions with node group [labels](../../../overview
   yc managed-kubernetes node-group add-labels my-node-group --labels new_label=test_label
   ```
 
-  Command output:
+  Result:
 
   ```bash
   done (28s)
@@ -209,7 +209,7 @@ You can perform the following actions with node group [labels](../../../overview
   yc managed-kubernetes node-group update my-node-group --labels test_label=my_ng_label
   ```
 
-  Command output:
+  Result:
 
   ```bash
   done (3s)
@@ -261,7 +261,7 @@ You can perform the following actions with node group [labels](../../../overview
   yc managed-kubernetes node-group remove-labels my-node-group --labels test_label
   ```
 
-  Command output:
+  Result:
 
   ```bash
   done (2s)

@@ -84,19 +84,19 @@ You can also use the created route for other subnets in the same network, except
 1. Connect to the NAT instance via `SSH`:
 
    ```
-   $ ssh <NAT instance public IP>
+   ssh <NAT instance public IP>
    ```
 
 1. Use the NAT instance to connect to the test VM in the same subnet via SSH:
 
    ```
-   $ ssh <VM internal IP>
+   ssh <VM internal IP>
    ```
 
 1. Make sure the VM is connected to the internet via the public IP address of the NAT instance. Enter the following command in the terminal:
 
    ```
-   $ curl ifconfig.co
+   curl ifconfig.co
    ```
 
    If it returns the public IP address of the NAT instance, everything is correct.

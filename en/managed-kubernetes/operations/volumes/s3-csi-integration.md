@@ -156,7 +156,7 @@ To use {{ CSI }} with a dynamic `PersistentVolumeClaim`:
       kubectl get pvc csi-s3-pvc-dynamic
       ```
 
-      Expected execution result:
+      Result:
 
       ```text
       NAME                STATUS  VOLUME                    CAPACITY  ACCESS MODES  STORAGECLASS  AGE
@@ -296,7 +296,7 @@ To use {{ CSI }} with a static `PersistentVolumeClaim`:
       kubectl get pvc csi-s3-pvc-static
       ```
 
-      Expected execution result:
+      Result:
 
       ```text
       NAME               STATUS  VOLUME                   CAPACITY   ACCESS MODES  STORAGECLASS  AGE

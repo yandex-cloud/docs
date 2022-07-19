@@ -16,17 +16,17 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
 {% list tabs %}
 
-* SQL
+- SQL
 
    1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
    1. Run the `SHOW DICTIONARIES` [query]({{ ch.docs }}/sql-reference/statements/show/#show-dictionaries).
 
-* Management console
+- Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and open the **Dictionaries** tab.
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -48,7 +48,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
    The added dictionaries are displayed in the `dictionaries:` section of command execution results.
 
-* API
+- API
 
    You can view a list of dictionaries and other cluster parameters using the [get](../api-ref/Cluster/get.md) method.
 
@@ -58,7 +58,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
 {% list tabs %}
 
-* SQL
+- SQL
 
    {% note warning %}
 
@@ -79,7 +79,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
       LAYOUT(<method for storing dictionaries in memory>());
       ```
 
-* Management console
+- Management console
 
    {% note warning %}
 
@@ -92,7 +92,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
    1. In the upper-right corner, click **Add dictionary**.
    1. Specify [dictionary settings](#settings-console) and click **Save**.
 
-* CLI
+- CLI
 
    {% note warning %}
 
@@ -121,7 +121,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
          ...
       ```
 
-* API
+- API
 
    {% note warning %}
 
@@ -137,18 +137,18 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
 
 {% list tabs %}
 
-* SQL
+- SQL
 
    1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
    1. Run the `DROP DICTIONARY <DB name>.<dictionary name>` [query]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary).
 
-* Management console
+- Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster and open the **Dictionaries** tab.
    1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired host and select **Delete**.
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -170,7 +170,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
         --dict-name <dictionary name> \
       ```
 
-* API
+- API
 
    You can remove dictionaries using the [deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) method.
 
@@ -197,7 +197,7 @@ For more information about the settings, see the [{{ CH }} documentation]({{ ch.
 
 {% list tabs %}
 
-* {{ CH }}
+- {{ CH }}
 
    * **Host**: Source host name. The host must be in the same network as the {{ CH }} cluster.
    * **Port**: Port for connecting to the source.
@@ -209,12 +209,12 @@ For more information about the settings, see the [{{ CH }} documentation]({{ ch.
    * (Optional) **Dictionary status check**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
       For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
-* HTTP(s)
+- HTTP(s)
 
    * **URL**: HTTP(s) source URL.
    * **File format**: File [format]({{ ch.docs }}/interfaces/formats/#formats) for an HTTP(s) source. For more information about the formats, see the [{{ CH }} documentation]({{ ch.docs }}/interfaces/formats/#formats).
 
-* {{ MG }}
+- {{ MG }}
 
    * **Host**: Source host name. The host must be in the same network as the {{ CH }} cluster.
    * **Port**: Port for connecting to the source.
@@ -223,7 +223,7 @@ For more information about the settings, see the [{{ CH }} documentation]({{ ch.
    * **Database**: Name of source database.
    * **Collection**: Name of the collection for the source.
 
-* {{ MY }}
+- {{ MY }}
 
    * **Replicas**: List of {{ MY }} replicas to use as the dictionary source.
       For replicas, you can set general connection settings or set up a port, username and password.
@@ -236,7 +236,7 @@ For more information about the settings, see the [{{ CH }} documentation]({{ ch.
    * (Optional) **Dictionary status check**: SQL query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
       For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
 
-* {{ PG }}
+- {{ PG }}
 
    * **Hosts**: Names of a {{ PG }} host and its [replicas](../../managed-postgresql/concepts/replication.md) that will be used as dictionary sources. The hosts must be in the same network as the {{ CH }} cluster.
    * **Port**: Port for connecting to the source.
@@ -290,7 +290,7 @@ For more information about dictionary updates, see the [{{ CH }} documentation](
 
 {% list tabs %}
 
-* {{ CH }}
+- {{ CH }}
 
    * `--clickhouse-source`: Settings of a {{ CH }} source:
 
@@ -302,12 +302,12 @@ For more information about dictionary updates, see the [{{ CH }} documentation](
       * `password`: Password to access the source database.
       * `where`: Condition for selecting rows to generate a dictionary from. For example, the selection condition `id=10` is the same as the SQL command `WHERE id=10`.
 
-* HTTP(s)
+- HTTP(s)
 
    * `--http-source-url`: HTTP(s) source URL.
    * `--http-source-format`: File [format]({{ ch.docs }}/interfaces/formats/#formats) for an HTTP(s) source. For more information about the formats, see the [{{ CH }} documentation]({{ ch.docs }}/interfaces/formats/#formats).
 
-* {{ MG }}
+- {{ MG }}
 
    * `--mongodb-source`: Settings of a {{ MG }} source:
 
@@ -318,7 +318,7 @@ For more information about dictionary updates, see the [{{ CH }} documentation](
       * `user`: Name of source database user.
       * `password`: Password to access the source database.
 
-* {{ MY }}
+- {{ MY }}
 
    * `--mysql-source`: Settings of a {{ MY }} source:
 
@@ -339,7 +339,7 @@ For more information about dictionary updates, see the [{{ CH }} documentation](
 
    * `--mysql-invalidate-query`: Query to check for dictionary changes. {{ CH }} updates the dictionary only if there are changes in the query results.
 
-* {{ PG }}
+- {{ PG }}
 
    * `--postgresql-source`: Settings of a {{ PG }} source:
 
@@ -392,7 +392,7 @@ For more information about the settings, see the description of the [createExter
 
 {% list tabs %}
 
-* CLI
+- CLI
 
    Let's say we want to add a dictionary with the following parameters:
 

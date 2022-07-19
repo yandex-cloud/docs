@@ -87,7 +87,7 @@ To add federation users to an organization:
   1. Send the request by specifying the Federation ID in the parameters:
 
       ```bash
-      $ curl -X POST \
+      curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM token>" \
         -d '@body.json' \

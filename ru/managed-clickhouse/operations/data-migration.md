@@ -49,20 +49,20 @@
 1. Установите Java Runtime Environment:
 
     ```bash
-    $ sudo apt-get install default-jre
+    sudo apt-get install default-jre
     ```
 
 1. Добавьте пользователя, от имени которого будет запускаться Zookeeper:
 
     ```
-    $ sudo adduser hadoop
+    sudo adduser hadoop
     ```
 
 1. Создайте каталоги для данных ZooKeeper:
 
     ```bash
-    $ sudo mkdir -p /var/data/zookeeper
-    $ sudo chown -R hadoop:hadoop /var/data
+    sudo mkdir -p /var/data/zookeeper
+    sudo chown -R hadoop:hadoop /var/data
     ```
 
 1. Установите ZooKeeper в режиме одного узла:
@@ -70,16 +70,16 @@
     1. Скачайте последнюю стабильную версию (latest stable) дистрибутива. Подробную информацию можно узнать на [странице с релизами](https://zookeeper.apache.org/releases.html).
 
         ```bash
-        $ cd /opt
-        $ sudo wget https://downloads.apache.org/zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2-bin.tar.gz
-        $ sudo mkdir zookeeper
-        $ sudo tar -C /opt/zookeeper -xvf apache-zookeeper-3.6.2-bin.tar.gz --strip-components 1
-        $ sudo chown hadoop:hadoop -R zookeeper
+        cd /opt
+        sudo wget https://downloads.apache.org/zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2-bin.tar.gz
+        sudo mkdir zookeeper
+        sudo tar -C /opt/zookeeper -xvf apache-zookeeper-3.6.2-bin.tar.gz --strip-components 1
+        sudo chown hadoop:hadoop -R zookeeper
         ```
     1. Переключитесь на созданного ранее пользователя для запуска ZooKeeper:
 
         ```
-        $ su hadoop
+        su hadoop
         ```
 
     1. Создайте файл `zoo.cfg`:
@@ -107,13 +107,13 @@
 1. Запустить ZooKeeper для отладки можно так:
 
     ```bash
-    $ bash /opt/zookeeper/bin/zkServer.sh start-foreground
+    bash /opt/zookeeper/bin/zkServer.sh start-foreground
     ```
 
 1. Чтобы запустить ZooKeeper в обычном режиме:
 
     ```bash
-    $ bash /opt/zookeeper/bin/zkServer.sh start
+    bash /opt/zookeeper/bin/zkServer.sh start
     ```
 
 
@@ -281,7 +281,7 @@ fc=$(cat ./cp-task.xml)
 добавьте флаг `--daemon`):
 
 ```bash
-$ clickhouse-copier
+clickhouse-copier
   --config ./config.xml \
   --task-path ./cp-task.xml \
   --base-dir ./clickhouse \

@@ -26,7 +26,7 @@ To clear a bucket{% if product == "yandex-cloud" %} and not [pay](../../pricing.
            --max-items 1000)"
      ```
 
-     Command output:
+     Result:
 
      ```json
      {
@@ -60,7 +60,7 @@ To clear a bucket{% if product == "yandex-cloud" %} and not [pay](../../pricing.
            --max-items 1000)"
      ```
 
-     Command output:
+     Result:
 
      ```json
      {

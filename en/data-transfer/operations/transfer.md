@@ -58,7 +58,7 @@ For more information about transfer states, operations applicable to transfers, 
 
    1. Click **Create**.
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -131,7 +131,7 @@ For more information about transfer states, operations applicable to transfers, 
 
    1. Click **Save**.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with the transfer description.
 
@@ -220,7 +220,7 @@ For more information, see [{#T}](../concepts/transfer-lifecycle.md).
    1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the desired transfer and select **Delete**.
    1. Click **Delete**.
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-delete](../../_includes/data-transfer/terraform-delete-transfer.md) %}
 

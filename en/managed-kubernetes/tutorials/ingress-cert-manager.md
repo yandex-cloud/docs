@@ -13,7 +13,7 @@ To use [{{ k8s }}]{% if lang == "ru" %}(https://kubernetes.io/ru/){% endif %}{% 
    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
    ```
 
-   Command output:
+   Result:
 
    ```bash
    "ingress-nginx" has been added to your repositories
@@ -25,7 +25,7 @@ To use [{{ k8s }}]{% if lang == "ru" %}(https://kubernetes.io/ru/){% endif %}{% 
    helm repo update
    ```
 
-   Command output:
+   Result:
 
    ```bash
    Hang tight while we grab the latest from your chart repositories...
@@ -41,7 +41,7 @@ Install the controller in the standard configuration:
 helm install ingress-nginx ingress-nginx/ingress-nginx
 ```
 
-Command output:
+Result:
 
 ```text
 NAME: ingress-nginx
@@ -69,7 +69,7 @@ To set up the controller configuration yourself, follow the instructions provide
    kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.0.4/cert-manager.yaml
    ```
 
-   Command output:
+   Result:
 
    ```bash
    customresourcedefinition.apiextensions.k8s.io/certificaterequests.cert-manager.io created
@@ -83,7 +83,7 @@ To set up the controller configuration yourself, follow the instructions provide
    kubectl get pods -n cert-manager --watch
    ```
 
-   Command output:
+   Result:
 
    ```bash
    NAME                                       READY   STATUS    RESTARTS   AGE
@@ -192,7 +192,7 @@ To test the certificate manager, you must create ClusterIssuer, Ingress, Service
    kubectl get svc
    ```
 
-   Command output:
+   Result:
 
    ```bash
    NAME                          TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)                      AGE

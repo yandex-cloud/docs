@@ -135,12 +135,10 @@ The following example demonstrates how to configure CDC using [Debezium](https:/
         heartbeat.topics.prefix=__debezium-heartbeat
         ```
 
-        You can request the cluster ID with a [list of clusters in the folder](../managed-postgresql/operations/cluster-list.md#list).
-
         Where:
 
         * `name`: The name of the Debezium connector.
-        * `database.hostname`: The [special FQDN](../managed-postgresql/operations/connect.md#fqdn-master) to connect to the source cluster master host.
+        * `database.hostname`: The [special FQDN](../managed-postgresql/operations/connect.md#fqdn-master) to connect to the source cluster master host. You can request the cluster ID with a [list of clusters in the folder](../managed-postgresql/operations/cluster-list.md#list).
         * `database.user`: The {{ PG }} username.
         * `database.dbname`: The {{ PG }} database name.
         * `database.server.name`: The custom name of the database server that [Debezium uses](#prepare-target) when choosing a topic for sending messages.

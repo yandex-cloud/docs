@@ -58,7 +58,7 @@
 
     1. [Настройте группы безопасности](../operations/connect.md#configuring-security-groups) кластера, чтобы к нему можно было подключаться из интернета.
 
-- С помощью Terraform
+- С помощью {{ TF }}
 
     {% if audience != "internal" %}
 
@@ -250,7 +250,7 @@
    SELECT count() FROM tutorial.hits_v1_distributed
    ```
 
-    Ожидаемый результат выполнения команды:
+    Результат:
 
     ```text
     8873898
@@ -265,7 +265,7 @@
     1. [Удалите кластер {{ mch-name }}](../operations/cluster-delete.md).
     1. Если для доступа к кластеру использовались статические публичные IP-адреса, освободите и {% if audience != "internal" %}[удалите их](../../vpc/operations/address-delete.md){% else %}удалите их{% endif %}.
 
-- С помощью Terraform
+- С помощью {{ TF }}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
 

@@ -121,25 +121,25 @@ Bacula состоит из нескольких компонентов:
 1. Установите yum-репозиторий:
 
     ```bash
-    $ sudo yum install epel-release -y
+    sudo yum install epel-release -y
     ```
 
 1. Установите `pip`:
 
     ```bash
-    $ sudo yum install python-pip -y
+    sudo yum install python-pip -y
     ```
 
 1. Установите AWS CLI:
 
     ```bash
-    $ sudo pip install awscli --upgrade
+    sudo pip install awscli --upgrade
     ```
 
 1. Настройте AWS CLI:
 
     ```bash
-    $ sudo aws configure
+    sudo aws configure
     ```
 
     Команда запросит значения параметров:
@@ -152,13 +152,13 @@ Bacula состоит из нескольких компонентов:
 1. Проверьте, что файл `/root/.aws/credentials` содержит правильные значения `key_id` и `secret`:
 
     ```bash
-    $ sudo cat /root/.aws/credentials
+    sudo cat /root/.aws/credentials
     ```
 
 1. Проверьте, что файл `/root/.aws/config` содержит правильные значения `Default region name` и `Default output format`:
 
     ```bash
-    $ sudo cat /root/.aws/config
+    sudo cat /root/.aws/config
     ```
 
 ## Установите Bacula и дополнительные компоненты {#install-bacula}
@@ -166,25 +166,25 @@ Bacula состоит из нескольких компонентов:
 1. Установите компоненты Bacula:
 
     ```bash
-    $ sudo yum install -y bacula-director bacula-storage bacula-console bacula-client
+    sudo yum install -y bacula-director bacula-storage bacula-console bacula-client
     ```
 
 1. Установите базу данных MariaDB:
 
     ```bash
-    $ sudo yum install -y mariadb-server
+    sudo yum install -y mariadb-server
     ```
 
 1. Установите утилиту `s3fs` для монтирования бакета {{ objstorage-name }} на сервер:
 
     ```bash
-    $ sudo yum install -y s3fs-fuse
+    sudo yum install -y s3fs-fuse
     ```
 
 1. Установите текстовый редактор `nano`:
 
     ```bash
-    $ sudo yum install -y nano
+    sudo yum install -y nano
     ```
 
 ## Настройте базу данных MariaDB {#configure-db}
@@ -192,35 +192,36 @@ Bacula состоит из нескольких компонентов:
 1. Запустите MariaDB:
 
     ```bash
-    $ sudo systemctl start mariadb
+    sudo systemctl start mariadb
     ```
 
 1. Проверьте, что MariaDB запущена:
 
     ```bash
-    $ sudo systemctl status mariadb | grep Active
+    sudo systemctl status mariadb | grep Active
     ```
 
 1. Включите запуск MariaDB при старте системы:
 
     ```bash
-    $ sudo systemctl enable mariadb
+    sudo systemctl enable mariadb
     ```
 
 1. Создайте таблицы БД и настройте права:
 
     ```bash
-    $ /usr/libexec/bacula/grant_mysql_privileges
-    $ /usr/libexec/bacula/create_mysql_database -u root
-    $ /usr/libexec/bacula/make_mysql_tables -u bacula    
+    /usr/libexec/bacula/grant_mysql_privileges
+    /usr/libexec/bacula/create_mysql_database -u root
+    /usr/libexec/bacula/make_mysql_tables -u bacula    
     ```
 
 1. Настройте безопасность базы данных:
 
     ```bash
-    $ sudo mysql_secure_installation
+    sudo mysql_secure_installation
     ```
 
+    При следующих запросах:
     * `Enter current password for root (enter for none)` — нажмите **Enter**, чтобы пропустить поле.
     * `Set root password? [Y/n]` — введите `Y`, установите и подтвердите пароль для суперпользователя. Пароль понадобится на следующем шаге.
     * `Remove anonymous users? [Y/n]` — нажмите **Enter**, чтобы принять значение по умолчанию.
@@ -231,7 +232,7 @@ Bacula состоит из нескольких компонентов:
 1. Войдите в командную строку БД и введите пароль суперпользователя `root`, созданный на предыдущем шаге:
 
     ```bash
-    $ mysql -u root -p
+    mysql -u root -p
     ```
 
 1. Создайте пароль `bacula_db_password` для пользователя `bacula`:
@@ -245,7 +246,7 @@ Bacula состоит из нескольких компонентов:
 1. Настройте использование MySQL-библиотеки для Bacula:
 
     ```bash
-    $ sudo alternatives --config libbaccats.so
+    sudo alternatives --config libbaccats.so
     ``` 
 
     Введите `1`, чтобы выбрать MySQL:
@@ -267,15 +268,15 @@ Bacula состоит из нескольких компонентов:
 1. Создайте папку для резервного копирования `/tmp/bacula`:
 
     ```bash
-    $ sudo mkdir /tmp/bacula
+    sudo mkdir /tmp/bacula
     ``` 
 
 1. Настройте права доступа к `/tmp/bacula`:
 
     ```bash
-    $ sudo chown -R bacula:bacula /tmp/bacula
-    $ sudo chmod -R 700 /tmp/bacula  
-    $ sudo semanage permissive -a bacula_t 
+    sudo chown -R bacula:bacula /tmp/bacula
+    sudo chmod -R 700 /tmp/bacula  
+    sudo semanage permissive -a bacula_t 
     ``` 
 
 ### Смонтируйте бакет в файловую систему {#mount-bucket}
@@ -285,8 +286,10 @@ Bacula состоит из нескольких компонентов:
 1. Смонтируйте бакет с помощью утилиты `s3fs`:
 
     ```bash
-    $ sudo s3fs bacula-bucket /tmp/bacula -o url=https://{{ s3-storage-host }} -o use_path_request_style -o allow_other -o nonempty -o uid=133,gid=133,mp_umask=077
+    sudo s3fs bacula-bucket /tmp/bacula -o url=https://{{ s3-storage-host }} -o use_path_request_style -o allow_other -o nonempty -o uid=133,gid=133,mp_umask=077
     ```
+
+    Где:
 
     * `bacula-bucket` — название бакета в {{ objstorage-name }}.
     * `uid=133` — идентификатор пользователя `bacula` из файла `/etc/passwd`.
@@ -295,10 +298,10 @@ Bacula состоит из нескольких компонентов:
 1. Проверьте права доступа к папке `/tmp/bacula`:
 
     ```bash
-    $ sudo ls -la /tmp/bacula/
+    sudo ls -la /tmp/bacula/
     ```
 
-    Вывод команды должен быть следующим:
+    Результат:
 
     ```
     drwx------.  2 bacula bacula        31 Sep 18 09:16 .
@@ -310,19 +313,19 @@ Bacula состоит из нескольких компонентов:
     1. Временно включите оболочку `bash` для пользователя `bacula`:
 
         ```bash
-        $ sudo sed -i "/^bacula/ s@/sbin/nologin@/bin/bash@" /etc/passwd 
+        sudo sed -i "/^bacula/ s@/sbin/nologin@/bin/bash@" /etc/passwd 
         ```
 
     1. Создайте произвольный файл в папке `/tmp/bacula`:
 
         ```bash
-        $ sudo runuser -l  bacula -c 'touch /tmp/bacula/test.test' 
+        sudo runuser -l  bacula -c 'touch /tmp/bacula/test.test' 
         ```
 
     1. Убедитесь, что файл `test.test` создан в папке `/tmp/bacula`:
 
         ```bash
-        $ sudo ls -la /tmp/bacula | grep test.test 
+        sudo ls -la /tmp/bacula | grep test.test 
         ```
 
     1. На странице каталога в [консоли управления]({{ link-console-main }}) откройте сервис **Object Storage**. Убедитесь, что файл `test.test` появился в бакете `bacula-bucket`.
@@ -330,13 +333,13 @@ Bacula состоит из нескольких компонентов:
     1. Удалите тестовый файл:
 
         ```bash
-        $ sudo runuser -l  bacula -c 'rm -f /tmp/bacula/test.test' 
+        sudo runuser -l  bacula -c 'rm -f /tmp/bacula/test.test' 
         ```
 
     1. Отключите оболочку `bash` для пользователя `bacula`:
 
         ```bash
-        $ sudo sed -i "/^bacula/ s@/bin/bash@/sbin/nologin@" /etc/passwd 
+        sudo sed -i "/^bacula/ s@/bin/bash@/sbin/nologin@" /etc/passwd 
         ```
    
 ## Настройте компоненты Bacula {#configure-bacula}
@@ -346,7 +349,7 @@ Bacula состоит из нескольких компонентов:
 1. Откройте конфигурационный файл Bacula Director:
 
     ```bash
-    $ sudo nano /etc/bacula/bacula-dir.conf
+    sudo nano /etc/bacula/bacula-dir.conf
     ```
 
 1. В блоке конфигурации `Director` добавьте строку `DirAddress = 127.0.0.1`, чтобы настроить соединение с Bacula Director:
@@ -448,7 +451,7 @@ Bacula состоит из нескольких компонентов:
 1.  Проверьте, что в файле `bacula-dir.conf` нет синтаксических ошибок:
 
     ```bash
-    $ sudo bacula-dir -tc /etc/bacula/bacula-dir.conf
+    sudo bacula-dir -tc /etc/bacula/bacula-dir.conf
     ```
 
     Если сообщений об ошибках нет, конфигурация корректна.
@@ -458,7 +461,7 @@ Bacula состоит из нескольких компонентов:
 1. Откройте конфигурационный файл Storage Daemon:
 
     ```bash
-    $ sudo nano /etc/bacula/bacula-sd.conf
+    sudo nano /etc/bacula/bacula-sd.conf
     ``` 
 
 1. В блоке **Сеть** на странице виртуальной машины в [консоли управления]({{ link-console-main }}) найдите внутренний IP-адрес виртуальной машины.
@@ -496,7 +499,7 @@ Bacula состоит из нескольких компонентов:
 1. Проверьте, что в файле `bacula-sd.conf` нет синтаксических ошибок:
 
     ```bash
-    $ sudo bacula-sd -tc /etc/bacula/bacula-sd.conf
+    sudo bacula-sd -tc /etc/bacula/bacula-sd.conf
     ``` 
 
     Если сообщений об ошибках нет, конфигурация корректна.
@@ -510,20 +513,20 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 1. Сгенерируйте пароли для Bacula Director, Storage Daemon и File Daemon:
 
     ```bash
-    $ DIR_PASSWORD=`date +%s | sha256sum | base64 | head -c 33`
-    $ SD_PASSWORD=`date +%s | sha256sum | base64 | head -c 33`
-    $ FD_PASSWORD=`date +%s | sha256sum | base64 | head -c 33`
+    DIR_PASSWORD=`date +%s | sha256sum | base64 | head -c 33`
+    SD_PASSWORD=`date +%s | sha256sum | base64 | head -c 33`
+    FD_PASSWORD=`date +%s | sha256sum | base64 | head -c 33`
     ```
 
 1. Поместите пароли в конфигурационные файлы:
 
     ```bash
-    $ sudo sed -i "s/@@DIR_PASSWORD@@/${DIR_PASSWORD}/" /etc/bacula/bacula-dir.conf
-    $ sudo sed -i "s/@@DIR_PASSWORD@@/${DIR_PASSWORD}/" /etc/bacula/bconsole.conf
-    $ sudo sed -i "s/@@SD_PASSWORD@@/${SD_PASSWORD}/" /etc/bacula/bacula-sd.conf
-    $ sudo sed -i "s/@@SD_PASSWORD@@/${SD_PASSWORD}/" /etc/bacula/bacula-dir.conf
-    $ sudo sed -i "s/@@FD_PASSWORD@@/${FD_PASSWORD}/" /etc/bacula/bacula-dir.conf
-    $ sudo sed -i "s/@@FD_PASSWORD@@/${FD_PASSWORD}/" /etc/bacula/bacula-fd.conf
+    sudo sed -i "s/@@DIR_PASSWORD@@/${DIR_PASSWORD}/" /etc/bacula/bacula-dir.conf
+    sudo sed -i "s/@@DIR_PASSWORD@@/${DIR_PASSWORD}/" /etc/bacula/bconsole.conf
+    sudo sed -i "s/@@SD_PASSWORD@@/${SD_PASSWORD}/" /etc/bacula/bacula-sd.conf
+    sudo sed -i "s/@@SD_PASSWORD@@/${SD_PASSWORD}/" /etc/bacula/bacula-dir.conf
+    sudo sed -i "s/@@FD_PASSWORD@@/${FD_PASSWORD}/" /etc/bacula/bacula-dir.conf
+    sudo sed -i "s/@@FD_PASSWORD@@/${FD_PASSWORD}/" /etc/bacula/bacula-fd.conf
     ```
 
 ### Запустите компоненты Bacula {#run-bacula-components}
@@ -531,25 +534,25 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 1. Запустите компоненты Bacula:
 
     ```bash
-    $ sudo systemctl start bacula-dir
-    $ sudo systemctl start bacula-sd
-    $ sudo systemctl start bacula-fd
+    sudo systemctl start bacula-dir
+    sudo systemctl start bacula-sd
+    sudo systemctl start bacula-fd
     ```
 
 1. Проверьте, что компоненты Bacula запущены:
 
     ```bash
-    $ sudo systemctl status bacula-dir
-    $ sudo systemctl status bacula-sd
-    $ sudo systemctl status bacula-fd
+    sudo systemctl status bacula-dir
+    sudo systemctl status bacula-sd
+    sudo systemctl status bacula-fd
     ```
 
 1. Настройте запуск компонентов Bacula при старте системы:
 
     ```bash
-    $ sudo systemctl enable bacula-dir
-    $ sudo systemctl enable bacula-sd
-    $ sudo systemctl enable bacula-fd
+    sudo systemctl enable bacula-dir
+    sudo systemctl enable bacula-sd
+    sudo systemctl enable bacula-fd
     ```
 
 ## Запустите резервное копирование {#run-backup}
@@ -557,7 +560,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 1. Откройте Bacula Console:
 
     ```bash
-    $ sudo bconsole
+    sudo bconsole
     ```  
 
 1. Создайте метку, чтобы настроить профиль резервного копирования:
@@ -611,7 +614,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
     status director
     ```
 
-    Вывод команды, если резервное копирование выполняется:
+    Результат, если резервное копирование выполняется:
 
     ```
     Running Jobs:
@@ -621,7 +624,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
          2 Full    BackupFiles.2019-09-12_07.22.56_03 is running
     ```
     
-    Вывод команды, если резервное копирование завершено:
+    Результат, если резервное копирование завершено:
 
     ```
     Running Jobs:
@@ -654,16 +657,16 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 1. Предварительно удалите произвольный файл, например утилиту `ping`, чтобы проверить восстановление:
 
     ```bash
-    $ sudo rm -f /bin/ping
+    sudo rm -f /bin/ping
     ```
 
 1. Убедитесь, что утилита `ping` удалена:
 
     ```bash
-    $ ping
+    ping
     ```
 
-    Вывод команды должен быть следующим:
+    Результат:
 
     ```bash
     bash: ping: command not found
@@ -672,7 +675,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 1. Войдите в Bacula Console:
 
     ```bash
-    $ sudo bconsole
+    sudo bconsole
     ```
 
 1. Запустите полное восстановление:
@@ -710,7 +713,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
     Enter "done" to leave this mode.
     
     cwd is: /
-    $ done
+    done
     ```
 
     Введите `yes`, чтобы подтвердить запуск восстановления:
@@ -756,10 +759,10 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 1. Убедитесь, что в папке `/tmp/bacula-restores` появились восстановленные файлы:
 
     ```bash
-    $ sudo ls -la /tmp/bacula-restores
+    sudo ls -la /tmp/bacula-restores
     ```
 
-    Вывод команды должен быть следующим:
+    Результат:
 
     ```bash
     total 16
@@ -787,10 +790,10 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 1. Убедитесь, что утилита `ping` находится в папке `/tmp/bacula-restores`:
 
     ```bash
-    $ sudo ls -la /tmp/bacula-restores/bin/ping
+    sudo ls -la /tmp/bacula-restores/bin/ping
     ```
 
-    Вывод команды должен быть следующим:
+    Результат:
 
     ```bash
     -rwxr-xr-x 1 root root 66176 Aug  4  2017 /tmp/bacula-restores/bin/ping
@@ -799,16 +802,16 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 1. Скопируйте утилиту `ping` на основную файловую систему:
 
     ```bash
-    $ sudo cp /tmp/bacula-restores/bin/ping /bin/ping
+    sudo cp /tmp/bacula-restores/bin/ping /bin/ping
     ```
 
 1. Убедитесь, что `ping` работает: 
 
     ```bash
-    $ sudo ping 127.0.0.1 -c 1
+    sudo ping 127.0.0.1 -c 1
     ```
 
-    Вывод команды должен быть следующим:
+    Результат:
 
     ```bash
     PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
@@ -823,7 +826,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
 1. Удалите копию восстановленных файлов, чтобы освободить место на диске:
 
     ```bash
-    $ sudo rm -rfd /tmp/bacula-restores/*
+    sudo rm -rfd /tmp/bacula-restores/*
     ```
 
 ## Как удалить созданные ресурсы {#clear-out}

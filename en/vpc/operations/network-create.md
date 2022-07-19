@@ -46,6 +46,11 @@ In addition to the cloud network in the default folder, you can create cloud net
 
       ```
       yc vpc network list
+      ```
+
+      Result:
+
+      ```
       +----------------------+----------------+
       |          ID          |      NAME      |
       +----------------------+----------------+
@@ -136,11 +141,11 @@ Create a cloud network with a name and description in the selected folder:
 
 - CLI
 
-   ```
-   yc vpc network create --name test-network-1 \
-     --description "My test network" \
-     --folder-id b1gnbfd11bq5g5vnjgr4
-   ```
+  ```
+  yc vpc network create --name test-network-1 \
+    --description "My test network" \
+    --folder-id b1gnbfd11bq5g5vnjgr4
+  ```
 
 - {{ TF }}
 

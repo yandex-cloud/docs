@@ -36,7 +36,9 @@ You cannot restore a network after it is deleted.
       ```
       yc vpc network list
       ```
+
       Result:
+
       ```
       +----------------------+----------------+
       |          ID          |      NAME      |

@@ -31,7 +31,7 @@ You can use SQL commands to assign privileges to users, but you can't use them t
    To get a list of cluster users, run the command:
 
    ```
-   $ {{ yc-mdb-pg }} user list
+   {{ yc-mdb-pg }} user list
         --cluster-name <cluster name>
    ```
 
@@ -69,7 +69,7 @@ You can use SQL commands to assign privileges to users, but you can't use them t
    To create a user in a cluster, run the command:
 
    ```
-   $ {{ yc-mdb-pg }} user create <username>
+   {{ yc-mdb-pg }} user create <username>
         --cluster-name <cluster name>
         --password=<user password>
         --permissions=<list of DBs user can access>
@@ -84,7 +84,7 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -151,14 +151,14 @@ When created, the user only gets the `CONNECT` privilege for the selected databa
    To change the user's password, run the command:
 
    ```
-   $ {{ yc-mdb-pg }} user update <username>
+   {{ yc-mdb-pg }} user update <username>
         --cluster-name=<cluster name>
         --password=<new password>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -231,7 +231,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
    1. To set up the user's permissions to access certain databases, run the command, listing the database names in the `--permissions` parameter:
 
       ```
-      $ {{ yc-mdb-pg }} user update <username>
+      {{ yc-mdb-pg }} user update <username>
            --cluster-name=<cluster name>
            --permissions=<list of databases to grant a user access to>
       ```
@@ -245,7 +245,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
    1. To change the [{{ PG }} settings](../concepts/settings-list.md#dbms-user-settings) for the user, pass their parameters in the command:
 
       ```
-      $ {{ yc-mdb-pg }} user update <username>
+      {{ yc-mdb-pg }} user update <username>
            --cluster-name=<cluster name>
            --<setting 1>=<value 1>
            --<setting 2>=<value 2>
@@ -255,7 +255,7 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
 
       The cluster name can be requested with a [list of clusters in the folder](#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -329,13 +329,13 @@ For information about setting up user privileges and roles, see [{#T}](grant.md)
    To remove a user, run:
 
    ```
-   $ {{ yc-mdb-pg }} user delete <username>
+   {{ yc-mdb-pg }} user delete <username>
         --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

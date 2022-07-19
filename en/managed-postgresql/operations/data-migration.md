@@ -318,19 +318,19 @@ To prepare the virtual machine to restore the dump: {% if audience != "internal"
 1. Install the {{ PG }} client and additional utilities for working with the DBMS:
 
    ```bash
-   $ sudo apt install postgresql-client-common
+   sudo apt install postgresql-client-common
    
    # For PostgreSQL 10
-   $ sudo apt install postgresql-client-10
+   sudo apt install postgresql-client-10
    
    # For PostgreSQL 11
-   $ sudo apt install postgresql-client-11
+   sudo apt install postgresql-client-11
    
    # For PostgreSQL 12
-   $ sudo apt install postgresql-client-12
+   sudo apt install postgresql-client-12
    
    # For PostgreSQL 13
-   $ sudo apt install postgresql-client-13
+   sudo apt install postgresql-client-13
    ```
 
 1. Move the DB dump to the VM. For example, you can use `scp`:

@@ -114,11 +114,11 @@
 
   Создать API-шлюз можно с помощью метода API [create](../apigateway/api-ref/ApiGateway/create.md).
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% include [terraform-create](../../_includes/api-gateway/terraform-create.md) %}
 

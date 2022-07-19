@@ -9,7 +9,7 @@ You cannot restore an address after it is deleted.
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    To delete a [static address](../concepts/address.md):
    1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete the static address.
@@ -19,7 +19,7 @@ You cannot restore an address after it is deleted.
    1. In the menu that opens, click **Delete**.
    1. In the window that opens, click **Delete**.
 
-* CLI
+- CLI
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -39,7 +39,7 @@ You cannot restore an address after it is deleted.
       yc vpc address list
       ```
 
-      Output:
+      Result:
 
       ```bash
       +----------------------+------+----------------+----------+-------+

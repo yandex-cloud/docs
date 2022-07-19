@@ -20,7 +20,7 @@ Find out how to get:
    yc container registry list
    ```
 
-   Command output:
+   Result:
 
    ```bash
    +----------------------+--------+----------------------+
@@ -54,7 +54,7 @@ To access a registry, use the `id` or `name` parameters from the [previous](#reg
    yc container registry get my-reg
    ```
 
-   Command output:
+   Result:
 
    ```bash
    id: crpd50616s9a2t7gr8mi

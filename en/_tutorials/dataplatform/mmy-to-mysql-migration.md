@@ -67,6 +67,8 @@ A _logical dump_ is a file with a set of commands running which one by one you c
    SHOW MASTER STATUS;
    ```
 
+   Result:
+
    ```text
    +-------------------------+----------+--------------+------------------+-----------------------------+
    | File                    | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set           |
@@ -217,6 +219,8 @@ Use the command that returns the *replication status*:
 ```sql
 SHOW SLAVE STATUS\G
 ```
+
+Result:
 
 ```text
 *************************** 1. row ***************************

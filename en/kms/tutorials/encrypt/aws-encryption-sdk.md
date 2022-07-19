@@ -50,6 +50,7 @@ Create a {% if product == "yandex-cloud" %}{{ yandex-cloud }} {% endif %}provide
    ```
 
    Where:
+
    * `endpoint` – `{{ api-host }}:443`.
    * `credentials`: Determines the authentication method (for more information, see [Authentication in the {% if product == "yandex-cloud" %}{{ yandex-cloud }} {% endif %}SDK](sdk.md#auth)).
    * `keyId`: ID of the [key in {{ kms-short-name }}](../../concepts/key.md).

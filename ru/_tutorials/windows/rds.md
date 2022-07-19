@@ -146,14 +146,14 @@
 
   ```
    yc compute instance create \
-      --name my-rds-vm \
-      --hostname my-rds-vm \
-      --memory 8 \
-      --cores 4 \
-      --zone {{ region-id }}-a \
-      --network-interface subnet-name=my-subnet-a,ipv4-address=10.1.0.3,nat-ip-version=ipv4 \
-      --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk-rds-5 \
-      --metadata-from-file user-data=setpass
+     --name my-rds-vm \
+     --hostname my-rds-vm \
+     --memory 8 \
+     --cores 4 \
+     --zone {{ region-id }}-a \
+     --network-interface subnet-name=my-subnet-a,ipv4-address=10.1.0.3,nat-ip-version=ipv4 \
+     --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk-rds-5 \
+     --metadata-from-file user-data=setpass
   ```
 
 {% endlist %}

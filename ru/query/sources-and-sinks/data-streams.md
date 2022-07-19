@@ -10,7 +10,7 @@ SELECT
 FROM yds.object(`input_stream`, raw)
     WITH SCHEMA (String as Data)
 LIMIT 10;
- ```
+```
 
  {% note info %}
 
@@ -38,6 +38,7 @@ WHERE <filter>;
 ```
 
 Где:
+
 - `yds_connection_name` — название подключения к потоку данных {{yds-short-name}}, созданного в предыдущем пункте.
 - `stream_name` — название потока данных в {{yds-short-name}}.
 
@@ -72,9 +73,9 @@ SELECT
 FROM 
     $data
 LIMIT 10;    
- ```
+```
 
-В запросе выше:
+Где:
 
 |Поле|Тип|Описание|
 |--|---|---|

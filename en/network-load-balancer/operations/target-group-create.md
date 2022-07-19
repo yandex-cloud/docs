@@ -81,9 +81,9 @@
 
    Once the target group has been created, add targets that the load will be distributed across. You can use the [addTargets](../api-ref/TargetGroup/addTargets) method to add targets to a group.
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the parameters of resources that you want to create:
 
@@ -91,6 +91,8 @@
       * `target` section: Target resource description:
          * `subnet_id`: ID of the subnet to which target objects are connected. All targets in the target group must be connected to the same subnet within the same availability zone. Required parameter.
          * `address`: Resource internal IP address. Required parameter.
+
+      Example configuration file structure:
 
       {% if product == "yandex-cloud" %}
 
@@ -145,7 +147,7 @@
       }
       ```
 
-      For more information about the `yandex_lb_target_group` parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/lb_target_group).
+      For more information about the `yandex_lb_target_group` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_target_group).
 
    1. Make sure that the configuration files are correct.
 
@@ -159,7 +161,7 @@
       {% endif %}
 
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

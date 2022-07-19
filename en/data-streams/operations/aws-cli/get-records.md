@@ -18,6 +18,8 @@
     --shard-iterator $SHARD_ITERATOR
   ```
 
+  Where:
+
   * `--endpoint`: To get stream data over the AWS Kinesis Data Streams protocol, specify `https://yds.serverless.yandexcloud.net`.
 
   * `--stream-name`: Consists of the availability zone, the folder ID, the {{ ydb-full-name }} database ID, and the stream name.

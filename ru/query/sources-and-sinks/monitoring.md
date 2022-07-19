@@ -14,8 +14,8 @@ SELECT
         app_version,
         exception_count,
         "exception_monitor" as service_type
- FROM $query;
- ```
+FROM $query;
+```
 
 При [потоковой обработке данных](../concepts/stream-processing.md) 
 {{ yq-full-name }} может отправлять в {{ monitoring-name }} результаты исполнения запроса в виде метрик и их меток. 
@@ -42,13 +42,14 @@ FROM
 ```
 
 Где:
+
 - `monitoring_connection_name` — название подключения к {{ monitoring-name }}, созданного в предыдущем пункте.
 - `fields` — список полей, содержащих временную отметку, метрики и их метки.
 - `query` — запрос-источник данных {{ yq-full-name }}.
 
 {% note info %}
 
-При записи метрик необходимо использовать конструкцию ```INSERT INTO  <monitoring_connection_name>.custom```, где [`custom`](../../monitoring/api-ref/MetricsData/write.md#query_params) — зарезервированное имя в {{ monitoring-name }} для записи пользовательских метрик.
+При записи метрик необходимо использовать конструкцию `INSERT INTO  <monitoring_connection_name>.custom`, где [`custom`](../../monitoring/api-ref/MetricsData/write.md#query_params) — зарезервированное имя в {{ monitoring-name }} для записи пользовательских метрик.
 
 {% endnote %}
 
@@ -82,10 +83,10 @@ SELECT
         app_version,
         exception_count,
         "exception_monitor" as service_type
- FROM $query;
- ```
+FROM $query;
+```
 
-В запросе выше:
+Где:
 
 |Поле|Тип|Описание|
 |--|---|---|

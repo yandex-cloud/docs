@@ -112,7 +112,7 @@
           description: "This instance group was created from YAML config."
           ```
 
-          Ключи:
+          Где:
 
           Ключ | Значение
           ----- | -----
@@ -143,7 +143,7 @@
 
           {% include [default-unit-size](../../../_includes/instance-groups/default-unit-size.md) %}
 
-          Ключи (в таблице приведены ключи, которые непосредственно определяют параметры ВМ):
+          Где (в таблице приведены ключи, которые непосредственно определяют параметры ВМ):
 
           Ключ | Значение
           ----- | -----
@@ -172,7 +172,7 @@
                   - zone_id: {{ region-id }}-a
           ```
 
-          Ключи:
+          Где:
 
           Ключ | Значение
           ----- | -----
@@ -188,7 +188,7 @@
                   name: first-target-group
           ```
 
-          Ключи:
+          Где:
 
           Ключ | Значение
           ----- | -----
@@ -251,59 +251,11 @@
 
   Воспользуйтесь методом API [create](../../api-ref/InstanceGroup/create.md).
 
-- Terraform
+- {{ TF }}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
-
-       {% note info %}
-
-       Если у вас уже есть подходящие ресурсы (сервисный аккаунт, облачная сеть и подсеть), описывать их повторно не нужно. Используйте их имена и идентификаторы в соответствующих параметрах.
-
-       {% endnote %}
-
-     * `yandex_iam_service_account` — описание [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
-     * `yandex_resourcemanager_folder_iam_binding` — описание прав доступа к каталогу, которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять виртуальные машины в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
-     * `yandex_compute_instance_group` — описание [группы виртуальных машин](../../concepts/index.md):
-
-       * Общая информация о группе:
-
-          Поле | Описание
-          ----- | -----
-          `name` | Имя группы виртуальных машин.
-          `folder_id` | Идентификатор каталога.
-          `service_account_id` | Идентификатор сервисного аккаунта.
-
-       * [Шаблон виртуальной машины](../../concepts/instance-groups/instance-template.md):
-
-          Поле | Описание
-          ----- | -----
-          `platform_id` | [Платформа](../../concepts/vm-platforms.md).
-          `resources` | Количество ядер vCPU и объем RAM, доступные виртуальной машине. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
-          `boot_disk` | Настройки загрузочного диска. Укажите:</br> - Идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).</br> - Режим доступа к диску: `READ_ONLY` (чтение) или `READ_WRITE` (чтение и запись).
-          `network_interface` | Настройка сети. Укажите идентификаторы сети и подсети.
-          `metadata` | В метаданных необходимо передать открытый ключ для SSH-доступа на виртуальную машину. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
-
-       * [Политики](../../concepts/instance-groups/policies/index.md):
-
-          Поле | Описание
-          ----- | -----
-          `deploy_policy` | [Политика развертывания](../../concepts/instance-groups/policies/deploy-policy.md) виртуальных машин в группе.
-          `scale_policy` | [Политика масштабирования](../../concepts/instance-groups/policies/scale-policy.md) виртуальных машин в группе.
-          `allocation_policy` | [Политика распределения](../../concepts/instance-groups/policies/allocation-policy.md) виртуальных машин по зонам и регионам.
-          
-       * Целевая группа {{ network-load-balancer-name }}:
-
-          Поле | Описание
-          ----- | -----
-          `target_group_name` | Имя целевой группы {{ network-load-balancer-name }}.
-          `target_group_description` | Описание целевой группы {{ network-load-balancer-name }}.
-
-     * `yandex_vpc_network` — описание [облачной сети](../../../vpc/concepts/network.md#network).
-     * `yandex_vpc_subnet` — описание [подсети](../../../vpc/concepts/network.md#subnet), к которой будет подключена группа виртуальных машин.
-
-     Пример структуры конфигурационного файла:
 
      ```
      resource "yandex_iam_service_account" "ig-sa" {
@@ -380,7 +332,55 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
+     Где:
+
+     * `yandex_iam_service_account` — описание [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
+     * `yandex_resourcemanager_folder_iam_binding` — описание прав доступа к каталогу, которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять виртуальные машины в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
+     * `yandex_compute_instance_group` — описание [группы виртуальных машин](../../concepts/index.md):
+
+       * Общая информация о группе:
+
+          Поле | Описание
+          ----- | -----
+          `name` | Имя группы виртуальных машин.
+          `folder_id` | Идентификатор каталога.
+          `service_account_id` | Идентификатор сервисного аккаунта.
+
+       * [Шаблон виртуальной машины](../../concepts/instance-groups/instance-template.md):
+
+          Поле | Описание
+          ----- | -----
+          `platform_id` | [Платформа](../../concepts/vm-platforms.md).
+          `resources` | Количество ядер vCPU и объем RAM, доступные виртуальной машине. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
+          `boot_disk` | Настройки загрузочного диска. Укажите:</br> - Идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).</br> - Режим доступа к диску: `READ_ONLY` (чтение) или `READ_WRITE` (чтение и запись).
+          `network_interface` | Настройка сети. Укажите идентификаторы сети и подсети.
+          `metadata` | В метаданных необходимо передать открытый ключ для SSH-доступа на виртуальную машину. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
+
+       * [Политики](../../concepts/instance-groups/policies/index.md):
+
+          Поле | Описание
+          ----- | -----
+          `deploy_policy` | [Политика развертывания](../../concepts/instance-groups/policies/deploy-policy.md) виртуальных машин в группе.
+          `scale_policy` | [Политика масштабирования](../../concepts/instance-groups/policies/scale-policy.md) виртуальных машин в группе.
+          `allocation_policy` | [Политика распределения](../../concepts/instance-groups/policies/allocation-policy.md) виртуальных машин по зонам и регионам.
+          
+       * Целевая группа {{ network-load-balancer-name }}:
+
+          Поле | Описание
+          ----- | -----
+          `target_group_name` | Имя целевой группы {{ network-load-balancer-name }}.
+          `target_group_description` | Описание целевой группы {{ network-load-balancer-name }}.
+
+     * `yandex_vpc_network` — описание [облачной сети](../../../vpc/concepts/network.md#network).
+     * `yandex_vpc_subnet` — описание [подсети](../../../vpc/concepts/network.md#subnet), к которой будет подключена группа виртуальных машин.
+
+       {% note info %}
+
+       Если у вас уже есть подходящие ресурсы (сервисный аккаунт, облачная сеть и подсеть), описывать их повторно не нужно. Используйте их имена и идентификаторы в соответствующих параметрах.
+
+       {% endnote %}
+
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -391,7 +391,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
 

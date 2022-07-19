@@ -101,8 +101,8 @@ Prepare the network infrastructure to host the availability group.
 
       ```
       yc vpc subnet create \
-      	 --name ya-sqlserver-rc1b \
-         --zone ru-central1-b \
+         --name ya-sqlserver-rc1b \
+         --zone {{ region-id }}-b \
          --range 192.168.1.16/28 \
          --network-name ya-network
       ```
@@ -125,8 +125,8 @@ Prepare the network infrastructure to host the availability group.
 
       ```
       yc vpc subnet create \
-      	 --name ya-ad-rc1a \
-         --zone ru-central1-a \
+         --name ya-ad-rc1a \
+         --zone {{ region-id }}-a \
          --range 10.0.0.0/28 \
          --network-name ya-network
       ```

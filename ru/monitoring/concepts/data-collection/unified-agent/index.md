@@ -8,7 +8,7 @@
 - поставку метрик в {{monitoring-full-name}};
 - файловое хранилище для надежной доставки данных.
 
-Чтобы установить настроенный для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md) агент, выполните Docker-команду, указав в параметре `FOLDER_ID` идентификатор каталога, куда будут записываться метрики:
+Чтобы установить настроенный для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md) агент, выполните Docker-команду:
 
 ```bash
 docker run \
@@ -19,6 +19,8 @@ docker run \
     -e FOLDER_ID=a1bs... \
     cr.yandex/yc/unified-agent
 ```
+
+Где `FOLDER_ID` – идентификатор каталога, куда будут записываться метрики.
 
 Другие примеры использования агента приведены в разделе [{#T}](../../../operations/index.md#working-with-metrics). Подробнее про способы установки {{unified-agent-short-name}} читайте в разделе [{#T}](./installation.md). Синтаксис файла конфигурации агента описан в разделе [{#T}](./configuration.md).
 

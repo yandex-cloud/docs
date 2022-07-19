@@ -27,7 +27,7 @@
 #!:docker-run golang go version
 ```
 
-Результат выполнения:
+Результат:
 
 ```text
 go version go1.16.6 linux/amd64

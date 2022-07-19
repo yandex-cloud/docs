@@ -78,7 +78,7 @@ Created databases are not available to cluster users by default. To allow a user
 
    Make sure you [granted permission](cluster-users.md#updateuser) to access the created database to the appropriate cluster user.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -141,7 +141,7 @@ Created databases are not available to cluster users by default. To allow a user
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

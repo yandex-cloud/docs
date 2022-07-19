@@ -222,7 +222,7 @@
         * `zone-id` — {% if audience != "internal" %}[зона доступности](../../overview/concepts/geo-scope.md){% else %}зона доступности{% endif %}.
         * `subnet-name` — {% if audience != "internal" %}[имя подсети](../../vpc/concepts/network.md#subnet){% else %}имя подсети{% endif %}.
 
-- Terraform
+- {{ TF }}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 

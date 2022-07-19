@@ -48,15 +48,15 @@ In the [management console]({{ link-console-main }}), you can select the interfa
 
    1. Click **Save**.
 
-- Terraform
+- {{ TF }}
 
-   For more information about Terraform, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To rename a cloud created using Terraform:
+   To rename a cloud created using {{ TF }}:
 
-   1. Open the Terraform configuration file and edit the value of the `name` parameter in the fragment with the cloud description.
+   1. Open the {{ TF }} configuration file and edit the value of the `name` parameter in the fragment with the cloud description.
 
-      {% cut "Example cloud description in Terraform configuration" %}
+      {% cut "Example cloud description in {{ TF }} configuration" %}
 
       ```hcl
       ...
@@ -69,7 +69,7 @@ In the [management console]({{ link-console-main }}), you can select the interfa
 
       {% endcut %}
 
-      For more detailed information about the `yandex_resourcemanager_cloud` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud).
+      For more detailed information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud).
    1. In the command line, change to the folder where you edited the configuration file.
    1. Make sure the configuration file is correct using the command:
 
@@ -89,7 +89,7 @@ In the [management console]({{ link-console-main }}), you can select the interfa
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
    1. Apply the configuration changes:
 
       ```bash

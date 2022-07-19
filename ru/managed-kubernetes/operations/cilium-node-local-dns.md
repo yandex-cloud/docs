@@ -235,7 +235,7 @@
    kubectl apply -f node-local-dns.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    serviceaccount/node-local-dns created
@@ -250,7 +250,7 @@
    kubectl apply -f node-local-dns-lrp.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    ciliumlocalredirectpolicy.cilium.io/Node Local DNS created
@@ -290,7 +290,7 @@
    kubectl get pod -o wide -n kube-system | grep 'node-local.*<имя узла>'
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    node-local-dns-gv68c  1/1  Running  0  26m  <IP-адрес пода>  <имя узла>  <none>  <none>
@@ -305,7 +305,7 @@
    kubectl exec -ti nettool -- curl http://<IP-адрес пода>:9253/metrics | grep coredns_dns_requests_total
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    # HELP coredns_dns_requests_total Counter of DNS requests made per zone, protocol and family.
@@ -324,7 +324,7 @@
    kubectl exec -ti nettool -- nslookup ya.ru
    ```
 
-   Результат выполнения команды (IP-адреса могут отличаться):
+   Результат (IP-адреса могут отличаться):
 
    ```text
    Name:   kubernetes.default.svc.cluster.local
@@ -352,7 +352,7 @@
    kubectl exec -ti nettool -- curl http://<IP-адрес пода>:9253/metrics | grep coredns_dns_requests_total
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    # HELP coredns_dns_requests_total Counter of DNS requests made per zone, protocol and family.

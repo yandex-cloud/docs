@@ -27,7 +27,7 @@ This scenario describes how to configure automatic vulnerability [scanning](../c
       yc container registry create --name my-reg
       ```
 
-      Command output:
+      Result:
 
       ```bash
       done
@@ -65,7 +65,7 @@ This scenario describes how to configure automatic vulnerability [scanning](../c
          yc iam service-account create --name service-acc
          ```
 
-         Command output:
+         Result:
 
          ```bash
          id: ajelabcde12f33nol1v5
@@ -133,7 +133,7 @@ Create a [function](../../functions/concepts/function.md) in {{ sf-full-name }} 
       yc serverless function create --name=scan-on-push
       ```
 
-      Command output:
+      Result:
 
       ```bash
       id: d4ejb1799eko6re4omb1
@@ -169,6 +169,7 @@ Create a [function](../../functions/concepts/function.md) in {{ sf-full-name }} 
       ```
 
       Where:
+
       * `function-name`: The name of the function you want to create a version of.
       * `runtime`: The runtime environment.
       * `entrypoint`: The entry point specified in the `<function file name>.<handler name>` format.
@@ -177,7 +178,7 @@ Create a [function](../../functions/concepts/function.md) in {{ sf-full-name }} 
       * `source-path`: A file with the function code.
       * `service-account-id`: The ID of your service account.
 
-      Command output:
+      Result:
 
       ```bash
       done (1s)
@@ -241,13 +242,14 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
    ```
 
    Where:
+
    * `name`: Trigger name.
    * `registry-id`: The [ID of the registry](../operations/registry/registry-list.md) where you want to push the image.
    * `events`: [Events](../../functions/concepts/trigger/cr-trigger.md#event) after which the trigger activates.
    * `invoke-function-id`: Function ID.
    * `invoke-function-service-account-id`: The ID of the service account with rights to invoke the function.
 
-   Command output:
+   Result:
 
    ```bash
    id: a1spt834cjmk40si80sp
@@ -287,7 +289,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
          yc container registry configure-docker
          ```
 
-         Command output:
+         Result:
 
          ```bash
          Credential helper is configured in '/home/<user>/.docker/config.json'
@@ -320,7 +322,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
       echo <oauth token> | docker login --username oauth --password-stdin {{ registry }}
       ```
 
-      Command output:
+      Result:
 
       ```bash
       Login Succeeded
@@ -342,7 +344,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
          yc iam create-token | docker login --username iam --password-stdin {{ registry }}
          ```
 
-         Command output:
+         Result:
 
          ```bash
          Login succeeded
@@ -356,7 +358,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
    docker pull ubuntu:20.04
    ```
 
-   Command output:
+   Result:
 
    ```bash
    20.04: Pulling from library/ubuntu
@@ -377,7 +379,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
    docker push {{ registry }}/<registry ID>/ubuntu:20.04
    ```
 
-   Command output:
+   Result:
 
    ```bash
    The push refers to repository [{{ registry }}/crpu20rpdc2foid8p8b0/ubuntu]
@@ -409,7 +411,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
       yc serverless function logs scan-on-push
       ```
 
-      Command output:
+      Result:
 
       ```bash
       2021-05-18 09:27:43  START RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad Version: b09i2s85a0c1fisjboft
@@ -443,7 +445,7 @@ Create a [trigger](../../functions/concepts/trigger/cr-trigger.md) that will inv
       yc container image list-scan-results --repository-name=<registry ID>/<Docker image name>
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +----------------------+----------------------+---------------------+--------+--------------------------------+

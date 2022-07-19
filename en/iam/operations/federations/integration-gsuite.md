@@ -73,13 +73,13 @@ Before you can create an identity federation in the cloud, you need to get infor
     1. See the description of the create federation command:
 
         ```
-        $ yc iam federation create --help
+        yc iam federation create --help
         ```
 
     1. Create a federation:
 
         ```
-        $ yc iam federation create --name my-federation \
+        yc iam federation create --name my-federation \
             --auto-create-account-on-login \
             --cookie-max-age 12h \
             --issuer "https://accounts.google.com/o/saml2?idpid=C03xolm0y" \

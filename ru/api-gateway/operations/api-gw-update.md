@@ -44,15 +44,15 @@
 
   Изменить имя, описание или спецификацию API-шлюза можно с помощью метода API [update](../apigateway/api-ref/ApiGateway/update.md).
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Чтобы изменить имя, описание или спецификацию API-шлюза:
 
-  1. Откройте файл конфигурации Terraform и измените параметры `name`, `description` или `spec` соответственно.
+  1. Откройте файл конфигурации {{ TF }} и измените параметры `name`, `description` или `spec` соответственно.
 
      Пример структуры конфигурационного файла:
 
@@ -102,7 +102,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_api_gateway` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/api_gateway).
+     Более подробную информацию о параметрах ресурса `yandex_api_gateway` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/api_gateway).
 
   1. Проверьте конфигурацию командой:
 
@@ -122,7 +122,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
 

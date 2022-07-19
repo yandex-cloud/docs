@@ -157,13 +157,13 @@ Creating the DB cluster may take several minutes.
 1. Install Samba, the necessary dependencies, and the `nano` text editor:
 
    ```
-   $ sudo yum install nano samba samba-client samba-common, net-utils
+   sudo yum install nano samba samba-client samba-common, net-utils
    ```
 
 1. Disable IPv6 to avoid server conflicts. To do this, open the file `/etc/sysctl.conf `:
 
    ```
-   $ sudo nano /etc/sysctl.conf
+   sudo nano /etc/sysctl.conf
    ```
 
 1. Add the following lines to the file:
@@ -183,7 +183,7 @@ Creating the DB cluster may take several minutes.
 1. Configure a shared directory. Open the Samba configuration file:
 
    ```
-   $ sudo nano /etc/samba/smb.conf
+   sudo nano /etc/samba/smb.conf
    ```
 
 1. Make the file look like:
@@ -214,15 +214,15 @@ Creating the DB cluster may take several minutes.
 1. Create a shared directory and grant access rights to it:
 
    ```
-   $ sudo mkdir /1c-files
-   $ sudo chmod -R 777 /1c-files
+   sudo mkdir /1c-files
+   sudo chmod -R 777 /1c-files
    ```
 
 1. Disable the firewall:
 
    ```
-   $ sudo systemctl stop firewalld
-   $ sudo systemctl disable firewalld
+   sudo systemctl stop firewalld
+   sudo systemctl disable firewalld
    ```
 
 1. Disable SELinux. Run `sudo nano /etc/sysconfig/selinux` to open the SELinux configuration file and edit the `SELINUX` parameter:
@@ -234,9 +234,9 @@ Creating the DB cluster may take several minutes.
 1. Add the Samba server service to the startup script and restart it:
 
    ```
-   $ sudo systemctl enable smb.service
+   sudo systemctl enable smb.service
    Created symlink from /etc/systemd/system/multi-user.target.wants/smb.service to /usr/lib/systemd/system/smb.service.
-   $ sudo systemctl restart smb.service
+   sudo systemctl restart smb.service
    ```
 
 ## Install the 1C:Enterprise server {#setup-1c-server}
@@ -247,20 +247,20 @@ Install the 1C:Enterprise server on the VM:
 1. Unpack the distribution and run the installation:
 
    ```
-   $ sudo tar –xvf  /1c-files/<archive name>
-   $ sudo yum localinstall /1c-files/*.rpm 
+   sudo tar –xvf  /1c-files/<archive name>
+   sudo yum localinstall /1c-files/*.rpm 
    ```
 
 1. Start the 1C server:
 
    ```
-   $ sudo systemctl start srv1cv83
+   sudo systemctl start srv1cv83
    ```
 
 1. Make sure the 1C:Enterprise server service is running:
 
    ```
-   $ systemctl status srv1cv83
+   systemctl status srv1cv83
    ● srv1cv83.service - SYSV: Starts and stops the 1C:Enterprise daemons
       Loaded: loaded (/etc/rc.d/init.d/srv1cv83; bad; vendor preset: disabled)
       Active: active (exited) since Tue 2020-02-04 14:40:43 UTC; 4 days ago
@@ -275,13 +275,13 @@ Install the 1C:Enterprise server on the VM:
 1. Install Samba, the necessary dependencies, and the `nano` text editor:
 
    ```
-   $ sudo yum install nano samba samba-client samba-common, net-utils
+   sudo yum install nano samba samba-client samba-common, net-utils
    ```
 
 1. Disable IPv6 to avoid server conflicts. To do this, open the file `/etc/sysctl.conf `:
 
    ```
-   $ sudo nano /etc/sysctl.conf
+   sudo nano /etc/sysctl.conf
    ```
 
 1. Add the following lines to the file:
@@ -301,7 +301,7 @@ Install the 1C:Enterprise server on the VM:
 1. Configure a shared directory. To do this, open the Samba configuration file:
 
    ```
-   $ sudo nano /etc/samba/smb.conf
+   sudo nano /etc/samba/smb.conf
    ```
 
 1. Make the file look like:
@@ -332,15 +332,15 @@ Install the 1C:Enterprise server on the VM:
 1. Create a shared directory and grant access rights to it:
 
    ```
-   $ sudo mkdir /1c-files
-   $ sudo chmod -R 777 /1c-files
+   sudo mkdir /1c-files
+   sudo chmod -R 777 /1c-files
    ```
 
 1. Disable the firewall:
 
    ```
-   $ sudo systemctl stop firewalld
-   $ sudo systemctl disable firewalld
+   sudo systemctl stop firewalld
+   sudo systemctl disable firewalld
    ```
 
 1. Disable SELinux. Run `sudo nano /etc/sysconfig/selinux` to open the SELinux configuration file and edit the `SELINUX` parameter:
@@ -352,9 +352,9 @@ Install the 1C:Enterprise server on the VM:
 1. Add the Samba server service to the startup script and restart it:
 
    ```
-   $ sudo systemctl enable smb.service
+   sudo systemctl enable smb.service
    Created symlink from /etc/systemd/system/multi-user.target.wants/smb.service to /usr/lib/systemd/system/smb.service.
-   $ sudo systemctl restart smb.service
+   sudo systemctl restart smb.service
    ```
 
 ## Install the 1C:Enterprise server for the license server {#setup-1c-license-server}
@@ -365,20 +365,20 @@ Install the 1C:Enterprise server on the VM:
 1. Unpack the distribution and run the installation:
 
    ```
-   $ sudo tar –xvf  /1c-files/<archive name>
-   $ sudo yum localinstall /1c-files/*.rpm 
+   sudo tar –xvf  /1c-files/<archive name>
+   sudo yum localinstall /1c-files/*.rpm 
    ```
 
 1. Start the 1C server:
 
    ```
-   $ sudo systemctl start srv1cv83
+   sudo systemctl start srv1cv83
    ```
 
 1. Make sure the 1C:Enterprise server service is running:
 
    ```
-   $ systemctl status srv1cv83
+   systemctl status srv1cv83
    ● srv1cv83.service - SYSV: Starts and stops the 1C:Enterprise daemons
       Loaded: loaded (/etc/rc.d/init.d/srv1cv83; bad; vendor preset: disabled)
       Active: active (exited) since Tue 2020-02-04 14:40:43 UTC; 4 days ago

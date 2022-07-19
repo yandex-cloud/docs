@@ -296,14 +296,14 @@ Configure the corporate servers so that DNS queries to the [{{ yandex-cloud }} p
 1. Check that on the `forwarder1`, `forwarder2`, and `test1` cloud hosts, domain names are resolved in the private zone `corp.example.net`:
 
     ```bash
-    $ host ns1.corp.example.net
+    host ns1.corp.example.net
     ns1.corp.example.net has address 172.16.1.5
     ```
 
 1. Check that on the `forwarder1`, `forwarder2`, and `test1` cloud hosts, domain names are resolved in public zones, for example:
 
     ```bash
-    $ host cisco.com
+    host cisco.com
     cisco.com has address 72.163.4.185
     ...
     ```
@@ -311,7 +311,7 @@ Configure the corporate servers so that DNS queries to the [{{ yandex-cloud }} p
 1. Check that on the corporate DNS servers `ns1` and `ns2`, internal {{ yandex-cloud }} names are resolved, for example:
 
     ```bash
-    $ host ns.internal
+    host ns.internal
     ns.internal has address 10.130.0.2
     ```
 

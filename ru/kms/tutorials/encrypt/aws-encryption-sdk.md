@@ -50,6 +50,7 @@
     ```
 
     Где:
+
     * `endpoint` – `{{ api-host }}:443`.
     * `credentials` – определяет способ аутентификации, подробнее читайте в разделе [Аутентификация в SDK {% if product == "yandex-cloud" %}{{ yandex-cloud }}{% endif %}](sdk.md#auth).
     * `keyId` – идентификатор [ключа {{ kms-short-name }}](../../concepts/key.md).

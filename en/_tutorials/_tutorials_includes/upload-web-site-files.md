@@ -9,13 +9,13 @@
    - Ubuntu
 
      ```bash
-     $ sudo chown -R "$USER":www-data /var/www/html
+     sudo chown -R "$USER":www-data /var/www/html
      ```
 
    - CentOS
 
      ```bash
-     $ sudo chown -R "$USER":apache /var/www/html
+     sudo chown -R "$USER":apache /var/www/html
      ```
 
    {% endlist %}
@@ -29,7 +29,7 @@
      Use the `scp` command-line utility:
 
      ```bash
-     $ scp -r <path to the file directory> <VM username>@<VM IP address>:/var/www/html
+     scp -r <path to the file directory> <VM username>@<VM IP address>:/var/www/html
      ```
 
    - Windows

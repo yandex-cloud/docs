@@ -56,7 +56,7 @@ Enter the cloud instance parameters one-by-one:
 * `SslMode:` `disabled`.
 * `Name:` `{{ product }}`.
 
-Command execution result:
+Result:
 
 ```text
 cmdlet New-BECloudInstance at command pipeline position 1

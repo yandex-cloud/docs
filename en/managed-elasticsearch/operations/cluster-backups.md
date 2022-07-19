@@ -46,14 +46,18 @@ When creating a new cluster, set all required parameters.
    1. View a description of the CLI restore {{ ES }} cluster command:
 
       ```
-      $ {{ yc-mdb-es }} cluster restore --help
+      {{ yc-mdb-es }} cluster restore --help
       ```
 
    1. Getting a list of available {{ ES }} cluster backups:
 
       ```
-      $ {{ yc-mdb-es }} backup list
+      {{ yc-mdb-es }} backup list
+      ```
 
+      Result:
+
+      ```
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -66,7 +70,7 @@ When creating a new cluster, set all required parameters.
    1. Request creation of a cluster from a backup:
 
       ```bash
-      $ {{ yc-mdb-es }} cluster restore \
+      {{ yc-mdb-es }} cluster restore \
              --backup-id c9qlk4v13uq79r9cgcku:base_000000010000000000000002 \
              --name mynewes \
              --environment=PRODUCTION \
@@ -98,9 +102,9 @@ When creating a new cluster, set all required parameters.
 
       {% endif %}
 
-- Terraform
+- {{ TF }}
 
-   Use Terraform to restore:
+   Use {{ TF }} to restore:
 
    * An existing cluster from a backup.
    * A cluster created and deleted via the management console, CLI, or API.
@@ -109,7 +113,11 @@ When creating a new cluster, set all required parameters.
 
    ```bash
    {{ yc-mdb-es }} backup list
+   ```
 
+   Result:
+
+   ```
    +--------------------------+----------------------+----------------------+----------------------+
    |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
    +--------------------------+----------------------+----------------------+----------------------+
@@ -120,7 +128,7 @@ When creating a new cluster, set all required parameters.
 
    **To restore an existing cluster from a backup:**
 
-   1. Create a [Terraform configuration file](cluster-create.md#create-cluster) for a new cluster.
+   1. Create a [{{ TF }} configuration file](cluster-create.md#create-cluster) for a new cluster.
 
       {% note info %}
 
@@ -147,11 +155,11 @@ When creating a new cluster, set all required parameters.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   Terraform creates a copy of the existing cluster. The databases and users are deployed from the selected backup.
+   {{ TF }} creates a copy of the existing cluster. The databases and users are deployed from the selected backup.
 
    **To restore a previously deleted cluster from a backup:**
 
-   1. Create a [Terraform configuration file](cluster-create.md#create-cluster) for a new cluster.
+   1. Create a [{{ TF }} configuration file](cluster-create.md#create-cluster) for a new cluster.
 
       {% note info %}
 
@@ -170,7 +178,7 @@ When creating a new cluster, set all required parameters.
       }
       ```
 
-   Terraform creates a new cluster. The databases and users are deployed from the backup.
+   {{ TF }} creates a new cluster. The databases and users are deployed from the backup.
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 
@@ -203,12 +211,12 @@ When creating a new cluster, set all required parameters.
    1. View a description of the CLI create {{ ES }} backup command:
 
       ```
-      $ {{ yc-mdb-es }} cluster backup --help
+      {{ yc-mdb-es }} cluster backup --help
       ```
    1. Request creation of a backup specifying the cluster name or ID:
 
       ```
-      $ {{ yc-mdb-es }} cluster backup my-es-cluster
+      {{ yc-mdb-es }} cluster backup my-es-cluster
       ```
 
       The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
@@ -242,8 +250,12 @@ When creating a new cluster, set all required parameters.
    To get a list of {{ ES }} cluster backups available in the default folder, run the command:
 
    ```
-   $ {{ yc-mdb-es }} backup list
+   {{ yc-mdb-es }} backup list
+   ```
 
+   Result:
+
+   ```
    +----------+----------------------+----------------------+----------------------+
    |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
    +----------+----------------------+----------------------+----------------------+
@@ -281,7 +293,7 @@ When creating a new cluster, set all required parameters.
    To get information about a {{ ES }} cluster backup, run the command:
 
    ```
-   $ {{ yc-mdb-es }} backup get <backup ID>
+   {{ yc-mdb-es }} backup get <backup ID>
    ```
 
    You can retrieve the backup ID with the [backup list](#list-backups).
@@ -305,7 +317,7 @@ When creating a new cluster, set all required parameters.
    To set the backup start time, use the `-- backup-window-`start flag. Time is given in `HH:MM:SS` format.
 
    ```bash
-   $ {{ yc-mdb-es }} cluster create \
+   {{ yc-mdb-es }} cluster create \
       --cluster-name <cluster name> \
       --environment <environment, prestable or production> \
       --network-name <network name> \
@@ -325,7 +337,7 @@ When creating a new cluster, set all required parameters.
       --backup-window-start 11:25:00
    ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

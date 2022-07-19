@@ -43,9 +43,7 @@
     yc serverless function list-scaling-policies --id=d4eokpuol55h********
     ```
 
-    Где:
-
-    * `--id` — идентификатор функции. Чтобы узнать его, [получите](./version-manage.md#function-list) список функций.
+    Где `--id` — идентификатор функции. Чтобы узнать его, [получите](./version-manage.md#function-list) список функций.
 
     Результат:
 
@@ -111,24 +109,24 @@
     zone_requests_limit: "2"
     ```
 
-- Terraform
+- {{ TF }}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
+    Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
 
     Чтобы добавить настройки масштабирования: 
 
     1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-        * `yandex_function_scaling_policy` — описание настроек масштабирования функции.
-            * `function_id` — идентификатор функции.
-            * `policy` — настройки масштабирования:
-                * `policy.0.tag` — [тег](../../concepts/function.md#tag) версии функции.
-                * `policy.0.zone_instances_limit` — количество экземпляров функции.
-                * `policy.0.zone_requests_limit` — количество выполняемых вызовов.
+       * `yandex_function_scaling_policy` — описание настроек масштабирования функции.
+         * `function_id` — идентификатор функции.
+         * `policy` — настройки масштабирования:
+           * `policy.0.tag` — [тег](../../concepts/function.md#tag) версии функции.
+           * `policy.0.zone_instances_limit` — количество экземпляров функции.
+           * `policy.0.zone_requests_limit` — количество выполняемых вызовов.
 
-        Пример описания функции в конфигурации Terraform:
+        Пример структуры конфигурационного файла:
 
         {% if product == "yandex-cloud" %}
 
@@ -193,7 +191,7 @@
        terraform plan
        ```
 
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
     1. Примените изменения конфигурации:
 
@@ -251,24 +249,24 @@
 
     Удалить настройки масштабирования для функции можно с помощью метода API [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md).
 
-- Terraform
+- {{ TF }}
 
     {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-    Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
+    Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
 
     Чтобы удалить настройки масштабирования:
 
     1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-        * `yandex_function_scaling_policy` — описание настроек масштабирования функции.
-            * `function_id` — идентификатор функции.
-            * `policy` — настройки масштабирования:
-                * `policy.0.tag` — [тег](../../concepts/function.md#tag) версии функции.
-                * `policy.0.zone_instances_limit` — количество экземпляров функции. Установите значение `0`.
-                * `policy.0.zone_requests_limit` — количество выполняемых вызовов. Установите значение `0`.
+       * `yandex_function_scaling_policy` — описание настроек масштабирования функции.
+         * `function_id` — идентификатор функции.
+         * `policy` — настройки масштабирования:
+           * `policy.0.tag` — [тег](../../concepts/function.md#tag) версии функции.
+           * `policy.0.zone_instances_limit` — количество экземпляров функции. Установите значение `0`.
+           * `policy.0.zone_requests_limit` — количество выполняемых вызовов. Установите значение `0`.
 
-        Пример описания функции в конфигурации Terraform:
+        Пример структуры конфигурационного файла:
 
         ```
         resource "yandex_function_scaling_policy" "my_scaling_policy" {
@@ -301,7 +299,7 @@
        terraform plan
        ```
         
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет. 
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
          
     1. Примените изменения конфигурации:
 

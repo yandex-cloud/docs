@@ -142,7 +142,7 @@ You can add different types of hosts to a cluster. Their number depends on the [
 
       The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mmg-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    To add a host to the cluster:
 
@@ -225,7 +225,7 @@ From a [sharded cluster](../operations/shards.md#enable), you may remove the `MO
 
    The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    To remove a host from a cluster:
 

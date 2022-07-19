@@ -81,7 +81,7 @@ You can install the following libraries in {{ mpg-short-name }}:
 
    {% endnote %}
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

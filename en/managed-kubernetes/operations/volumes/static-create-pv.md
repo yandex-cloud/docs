@@ -21,7 +21,7 @@ Retrieve a unique identifier for the [disk](../../../compute/concepts/disk.md) t
    yc compute disk list
    ```
 
-   Command output:
+   Result:
 
    ```
    +----------------------+------+--------------+-------------------+--------+----------------------+-------------+
@@ -65,7 +65,7 @@ Retrieve a unique identifier for the [disk](../../../compute/concepts/disk.md) t
    kubectl create -f test-pv.yaml
    ```
 
-   Command output:
+   Result:
 
    ```
    persistentvolume/test-pv created
@@ -77,7 +77,7 @@ Retrieve a unique identifier for the [disk](../../../compute/concepts/disk.md) t
    kubectl describe persistentvolume test-pv
    ```
 
-   Command output:
+   Result:
 
    {% if product == "yandex-cloud" %}
 
@@ -133,7 +133,7 @@ Retrieve a unique identifier for the [disk](../../../compute/concepts/disk.md) t
       kubectl create -f test-claim.yaml
       ```
 
-      Command output:
+      Result:
 
       ```
       persistentvolumeclaim/test-claim created
@@ -145,7 +145,7 @@ Retrieve a unique identifier for the [disk](../../../compute/concepts/disk.md) t
       kubectl describe persistentvolumeclaim test-claim
       ```
 
-      Command output:
+      Result:
 
       {% if product == "yandex-cloud" %}
 
@@ -205,7 +205,7 @@ Retrieve a unique identifier for the [disk](../../../compute/concepts/disk.md) t
    kubectl create -f test-pod.yaml
    ```
 
-   Command output:
+   Result:
 
    ```
    pod/test-pod created
@@ -217,7 +217,7 @@ Retrieve a unique identifier for the [disk](../../../compute/concepts/disk.md) t
    kubectl describe pod test-pod
    ```
 
-   Command output:
+   Result:
 
    ```
    Name:         test-pod

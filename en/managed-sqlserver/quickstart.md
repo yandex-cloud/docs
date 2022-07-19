@@ -48,7 +48,7 @@ To get started with the service:
 
 1. To connect to the DB server, get an SSL certificate:
 
-      {% include [install-certificate](../_includes/mdb/mms/install-certificate.md) %}
+   {% include [install-certificate](../_includes/mdb/mms/install-certificate.md) %}
 
 1. Use the `mssql-cli` command to connect:
 

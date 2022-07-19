@@ -42,7 +42,7 @@ allocation_policy:
 ...
 ```
 
-Keys:
+Where:
 
 | Key | Value |
 | ----- | ----- |

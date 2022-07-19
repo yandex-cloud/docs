@@ -21,7 +21,7 @@ To connect to the serial console, use the CLI.
 1. View the description of the CLI command for connecting to the serial console:
 
    ```
-   $ yc compute connect-to-serial-port --help
+   yc compute connect-to-serial-port --help
    ```
 
 1. Get a list of VMs in the default folder:
@@ -32,7 +32,7 @@ To connect to the serial console, use the CLI.
 1. Connect to the Linux serial console:
 
    ```
-   $ yc compute connect-to-serial-port \
+   yc compute connect-to-serial-port \
         --instance-name first-instance \
         --ssh-key ~/.ssh/id_rsa
    ```
@@ -41,12 +41,14 @@ To connect to the serial console, use the CLI.
    Or to Windows SAC:
 
    ```
-   $ yc compute connect-to-serial-port \
+   yc compute connect-to-serial-port \
         --instance-name first-instance \
         --port 2
    ```
    {% endif %}
 
+   Where:
+   
    | Parameter | Value |
    ----- | -----
    | `instance-name` | Required parameter. Name of the instance. |

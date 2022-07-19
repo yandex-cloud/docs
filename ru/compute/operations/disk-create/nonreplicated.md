@@ -8,7 +8,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
   1. Выберите сервис **{{ compute-name }}**.
@@ -32,7 +32,7 @@
   1. Задайте нужный размер диска.
   1. Нажмите кнопку **Создать диск**.
 
-* CLI
+- CLI
   
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
   
@@ -46,12 +46,12 @@
 
       ```bash
       yc compute disk create \
-      --name nr-disk \
-      --type network-ssd-nonreplicated \
-      --size 93 
+        --name nr-disk \
+        --type network-ssd-nonreplicated \
+        --size 93 
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       done (1s)
@@ -75,7 +75,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
   1. Выберите сервис **{{ compute-name }}**.
@@ -94,7 +94,7 @@
   1. Задайте нужный размер диска.
   1. Нажмите кнопку **Создать диск**.
 
-* CLI
+- CLI
   
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
   
@@ -108,13 +108,13 @@
 
       ```bash
       yc compute disk create \
-      --name nr-disk \
-      --type network-ssd-nonreplicated \
-      --size 93 \
-      --disk-placement-group-name my-group
+        --name nr-disk \
+        --type network-ssd-nonreplicated \
+        --size 93 \
+        --disk-placement-group-name my-group
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       done (1s)

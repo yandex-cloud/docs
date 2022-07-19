@@ -187,6 +187,7 @@ The target cluster will connect to the source cluster on behalf of this user.
    ```
 
    Where:
+
    * `log_bin` is the name of the binary log in the target cluster.
    * `server_id` is the target cluster ID. The default value is `1`. However, to run replication, make sure that the values of the source and target cluster IDs differ.
    * `relay-log` is the path to the relay log.

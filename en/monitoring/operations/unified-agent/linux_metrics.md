@@ -18,7 +18,7 @@ To configure {{unified-agent-full-name}} to collect system metrics from a {{ yan
 
 1. Install and configure {{unified-agent-full-name}}.
 
-   1. Create a file named **config.yml** in your home folder. Replace `$FOLDER_ID` in the file with the ID of the folder you want to write metrics to.
+   1. Create a file named **config.yml** in your home folder.
 
       **config.yml:**
       ```yaml
@@ -71,6 +71,8 @@ To configure {{unified-agent-full-name}} to collect system metrics from a {{ yan
        import:
          - /etc/yandex/unified_agent/conf.d/*.yml
       ```
+
+      Where `$FOLDER_ID` is the ID of the folder you want to write metrics.
 
    1. Install {{unified-agent-short-name}} on your VM by running the following command in the home folder:
 

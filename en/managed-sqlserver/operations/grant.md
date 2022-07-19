@@ -60,7 +60,7 @@ To assign a **role** to a user, use the management console or API{{ yandex-cloud
       Ste-by-step instructions for granting database access can be found under [User management](./cluster-users#update-settings).
    * `--roles`: List of roles to be granted to a user.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

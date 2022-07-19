@@ -91,6 +91,7 @@
      ```sh
      lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "virtio(_blk|_net|fs)"
      ```
+
      * Если на экране появились строки с файлами `virtio_net.ko`, `virtio_blk.ko` и `virtiofs.ko`, драйверы установлены в качестве модулей ядра.
      * Если на экране не появились такие строки, установите драйверы:
 

@@ -40,21 +40,19 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    To view a function's scaling settings, run the command:
 
    ```
-   	yc serverless function list-scaling-policies --id=d4eokpuol55h********
+   yc serverless function list-scaling-policies --id=d4eokpuol55h********
    ```
 
-   Where:
-
-   * `--id`: Function ID. To find out the ID, [request](./version-manage.md#function-list) a list of functions.
+   Where `--id` is the function ID. To find out the ID, [request](./version-manage.md#function-list) a list of functions.
 
    Result:
 
    ```
-   	+----------------------+---------+----------------------+---------------------+
-   	|     FUNCTION ID      |   TAG   | ZONE INSTANCES LIMIT | ZONE REQUESTS LIMIT |
-   	+----------------------+---------+----------------------+---------------------+
-   	| d4eokpuol55hmj15k7g1 | $latest |                    1 |                   2 |
-   	+----------------------+---------+----------------------+---------------------+
+   +----------------------+---------+----------------------+---------------------+
+   |     FUNCTION ID      |   TAG   | ZONE INSTANCES LIMIT | ZONE REQUESTS LIMIT |
+   +----------------------+---------+----------------------+---------------------+
+   | d4eokpuol55hmj15k7g1 | $latest |                    1 |                   2 |
+   +----------------------+---------+----------------------+---------------------+
    ```
 
 - API
@@ -111,22 +109,22 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
    	zone_requests_limit: "2"
    ```
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To add scaling settings:
 
    1. In the configuration file, describe the parameters of resources that you want to create:
 
-      * `yandex_function_scaling_policy`: Description of function scaling settings.
-         * `function_id`: Function ID.
-         * `policy`: Scaling settings.
-         * `policy.0.tag`: Function version [tag](../../concepts/function.md#tag).
-         * `policy.0.zone_instances_limit`: Number of function instances.
-         * `policy.0.zone_requests_limit`: Number of calls in progress.
+      * `yandex_function_scaling_policy`: Description of function scaling settings:
+        * `function_id`: Function ID.
+        * `policy`: Scaling settings:
+          * `policy.0.tag`: Function version [tag](../../concepts/function.md#tag).
+          * `policy.0.zone_instances_limit`: Number of function instances.
+          * `policy.0.zone_requests_limit`: Number of calls in progress.
 
       Example configuration file structure:
 
@@ -161,19 +159,19 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
           zone      = "{{ region-id }}-a"
       }
 
-	  resource "yandex_function_scaling_policy" "my_scaling_policy" {
-      function_id = "are1samplefu********"
-		  policy {
-			  tag = "$latest"
+	   resource "yandex_function_scaling_policy" "my_scaling_policy" {
+       function_id = "are1samplefu********"
+		   policy {
+		  	  tag = "$latest"
 			  zone_instances_limit = 2
 			  zone_requests_limit  = 1
-		  }
-	  }
+		   }
+	   }
       ```
 
       {% endif %}
 
-      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
+      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
    1. Make sure that the configuration files are correct.
 
@@ -182,7 +180,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
          ```
          terraform plan
          ```
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

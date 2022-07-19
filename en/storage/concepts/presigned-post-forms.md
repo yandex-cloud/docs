@@ -50,13 +50,13 @@ The HTML form is defined by the `<form>`  tag and consists of a declaration and 
 
 The form declaration contains the following attributes:
 
-- `action`: The URL of the bucket where the object is to be uploaded.
-- `method`: The HTTP method. Value: `POST`.
-- `enctype`: The content type of the request. Value: `multipart/form-data`.
+* `action`: The URL of the bucket where the object is to be uploaded.
+* `method`: The HTTP method. Value: `POST`.
+* `enctype`: The content type of the request. Value: `multipart/form-data`.
 
 [The form fields](#form-fields) contain a detailed description of the request to {{ objstorage-name }} and the [restrictions](#policy) that apply to it.
 
-The form and its fields must be UTF-8 encoded. Set the `charset` attribute for the `<meta>` tag of your page to UTF-8.
+The form and its fields must be UTF-8 encoded. Set the `charset` attribute for the `<meta>` tag of your page to `UTF-8`.
 
 ```
 <html>

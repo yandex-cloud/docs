@@ -101,7 +101,7 @@ You can [create your own storage class](#sc-create).
 
    {% endif %}
 
-   Command output:
+   Result:
 
    {% if product == "yandex-cloud" %}
 
@@ -125,7 +125,7 @@ You can [create your own storage class](#sc-create).
    kubectl get storageclass
    ```
 
-   Command output:
+   Result:
 
    {% if product == "yandex-cloud" %}
 
@@ -182,7 +182,7 @@ reclaimPolicy: <reclaim policy>
 1. Look up which storage class is assigned by default. `default` is shown next to its name in parentheses.
 
     ```
-    $ kubectl get storageclass
+    kubectl get storageclass
     NAME                       PROVISIONER                     AGE
     my-sc-hdd                  disk-csi-driver.mks.ycloud.io   76s
     yc-network-hdd (default)   disk-csi-driver.mks.ycloud.io   16m
@@ -192,14 +192,14 @@ reclaimPolicy: <reclaim policy>
 1. Change the `storageclass.kubernetes.io/is-default-class` parameter of the default storage class to `false`, to remove its status as the default class:
 
     ```
-    $ kubectl patch storageclass yc-network-hdd \
+    kubectl patch storageclass yc-network-hdd \
               -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
     ```
 
 1. Check that `yc-network-hdd` is no longer the default storage class:
 
     ```
-    $ kubectl get storageclass
+    kubectl get storageclass
     NAME              PROVISIONER                     AGE
     my-sc-hdd         disk-csi-driver.mks.ycloud.io   2m36s
     yc-network-hdd    disk-csi-driver.mks.ycloud.io   17m
@@ -209,14 +209,14 @@ reclaimPolicy: <reclaim policy>
 1. Specify a new default storage class, such as `my-sc-hdd`:
 
     ```
-    $ kubectl patch storageclass my-sc-hdd \
+    kubectl patch storageclass my-sc-hdd \
               -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
     ```
 
 1. Check that `my-sc-hdd` is the default storage class:
 
     ```
-    $ kubectl get storageclass
+    kubectl get storageclass
     NAME                  PROVISIONER                     AGE
     my-sc-hdd (default)   disk-csi-driver.mks.ycloud.io   4m21s
     yc-network-hdd        disk-csi-driver.mks.ycloud.io   19m

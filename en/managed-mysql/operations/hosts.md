@@ -30,6 +30,8 @@ You can add and remove cluster hosts and manage their settings.
       --cluster-name <cluster name>
    ```
 
+   Result:
+
    {% if audience == "external" %}
 
    ```text
@@ -100,7 +102,11 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
 
       ```
       yc vpc subnet list
+      ```
 
+      Result:
+
+      ```
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
@@ -243,7 +249,7 @@ For each host in a {{ mmy-short-name }} cluster, you can:
 
    The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    To change the parameters of the cluster host:
 
@@ -322,7 +328,7 @@ If the host is the master when deleted, {{ mmy-short-name }} automatically assig
 
    The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

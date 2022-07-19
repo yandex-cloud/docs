@@ -133,7 +133,8 @@ mqttClient.UseConnectedHandler(ConnectedHandler);
 mqttClient.UseDisconnectedHandler(DisconnectedHandler);
 ```
 
-Где: 
+Где:
+
 * `MqttClientOptionsBuilderTlsParameters` — класс, в котором указываются параметры использования TLS при подключении к {{ iot-full-name }}.
 * `MqttClientOptionsBuilder` — класс-конструктор для установки параметров соединения. Вы можете оставить настройки по умолчанию, но рекомендуется задать параметры `WithKeepAlivePeriod` и `WithKeepAliveSendInterval`. От значения этих параметров зависит:
     * Частота отправки команд `PINGREQ`.

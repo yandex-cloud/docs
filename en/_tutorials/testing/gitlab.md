@@ -143,7 +143,7 @@ A Runner is a special program that tests and builds projects in the GitLab envir
 1. [Log in via SSH](../../compute/operations/vm-connect/ssh.md) to the VM and switch to admin mode in the console:
 
    ```bash
-   $ sudo -i
+   sudo -i
    ```
 
 1. Download the Runner:
@@ -225,8 +225,8 @@ To create a test script:
 1. Connect to the VM via SSH and install the necessary apps:
 
    ```bash
-   $ sudo apt update
-   $ sudo apt install -y git g++
+   sudo apt update
+   sudo apt install -y git g++
    ```
 
 1. Add a test script:

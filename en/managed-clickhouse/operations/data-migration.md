@@ -49,20 +49,20 @@ To migrate data, start a ZooKeeper node.
 1. Install Java Runtime Environment:
 
    ```bash
-   $ sudo apt-get install default-jre
+   sudo apt-get install default-jre
    ```
 
 1. Add the user that you want to run ZooKeeper under:
 
    ```
-   $ sudo adduser hadoop
+   sudo adduser hadoop
    ```
 
 1. Create a directory for ZooKeeper data:
 
    ```bash
-   $ sudo mkdir -p /var/data/zookeeper
-   $ sudo chown -R hadoop:hadoop /var/data
+   sudo mkdir -p /var/data/zookeeper
+   sudo chown -R hadoop:hadoop /var/data
    ```
 
 1. Install ZooKeeper (single-node setup):
@@ -70,16 +70,16 @@ To migrate data, start a ZooKeeper node.
    1. Download the latest stable version of the distribution. To learn more, see the [page with releases](https://zookeeper.apache.org/releases.html).
 
       ```bash
-      $ cd /opt
-      $ sudo wget https://downloads.apache.org/zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2-bin.tar.gz
-      $ sudo mkdir zookeeper
-      $ sudo tar -C /opt/zookeeper -xvf apache-zookeeper-3.6.2-bin.tar.gz --strip-components 1
-      $ sudo chown hadoop:hadoop -R zookeeper
+      cd /opt
+      sudo wget https://downloads.apache.org/zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2-bin.tar.gz
+      sudo mkdir zookeeper
+      sudo tar -C /opt/zookeeper -xvf apache-zookeeper-3.6.2-bin.tar.gz --strip-components 1
+      sudo chown hadoop:hadoop -R zookeeper
       ```
    1. Switch to the user you created earlier to launch ZooKeeper:
 
       ```
-      $ su hadoop
+      su hadoop
       ```
 
    1. Create a file named `zoo.cfg`:
@@ -107,13 +107,13 @@ To migrate data, start a ZooKeeper node.
 1. To launch ZooKeeper for debugging:
 
    ```bash
-   $ bash /opt/zookeeper/bin/zkServer.sh start-foreground
+   bash /opt/zookeeper/bin/zkServer.sh start-foreground
    ```
 
 1. To launch ZooKeeper as normal:
 
    ```bash
-   $ bash /opt/zookeeper/bin/zkServer.sh start
+   bash /opt/zookeeper/bin/zkServer.sh start
    ```
 
 
@@ -281,7 +281,7 @@ You can start the copier using the following command (to run in daemon mode
 , add the `--daemon` flag):
 
 ```bash
-$ clickhouse-copier
+clickhouse-copier
   --config ./config.xml \
   --task-path ./cp-task.xml \
   --base-dir ./clickhouse \

@@ -23,7 +23,8 @@ The source and target buckets must be in the same [cloud](../../resource-manager
 ```
 
 Where:
-* `prefix/`: [The prefix of the key](#key-prefix) for the log object. You can specify your own prefix when enabling logging.
+
+* `prefix`: [The prefix of the key](#key-prefix) for the log object. You can specify your own prefix when enabling logging.
 * `YYYY-MM-DD-HH-MM-SS`: Date and time of saving the log object in the target bucket (UTC format).
 * `ID`: A unique record ID that prevents the object from being overwritten.
 

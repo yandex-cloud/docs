@@ -84,7 +84,8 @@
 	    --domain-name yantoso.net \
 	    --domain-name-server 10.1.0.3,10.2.0.3
 	```
-	`<id каталога>` — идентификатор каталога, в котором создаются ресурсы. Если каталог указан в профиле CLI, параметр можно не использовать.
+
+	Где `<id каталога>` — идентификатор каталога, в котором создаются ресурсы. Если каталог указан в профиле CLI, параметр можно не использовать.
 
 	Результат:
 	```
@@ -142,6 +143,7 @@
 		#ps1
 		net user administrator '<пароль>'
 		```
+
 		Выполните команду, чтобы создать виртуальную машину:
 		```
 		yc compute instance create \
@@ -153,7 +155,9 @@
 		    --network-interface subnet-name=test-subnet-1,nat-ip-version=ipv4 \
 		    --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk
 		```
+
 		Если команда выполнена успешно, сохраните IP-адрес из поля `one_to_one_nat`. Адрес будет использован на следующем шаге, чтобы создать подключение по RDP:
+
 		```
 		...
 		status: RUNNING
@@ -166,6 +170,7 @@
 		  ip_version: IPV4
 		...
 		```
+
 	{% endlist %}
 
 1. Подождите несколько минут и [подключитесь к виртуальной машине](../../compute/operations/vm-connect/rdp.md) по RDP.
@@ -177,6 +182,7 @@
 	```
 	ipconfig /all
 	```
+
 	Результат:
 	```
 	Windows IP Configuration
@@ -224,7 +230,8 @@
 	```
 	ping ad-vm-a
 	```
-	Вывод команды в случае успешного соединения: 
+	
+	Результат в случае успешного соединения: 
 	```
 	PS C:\Users\Administrator> ping ad-vm-a
 	

@@ -20,7 +20,7 @@ Get a list of [{{ k8s }} clusters](../../concepts/index.md#kubernetes-cluster) i
   yc managed-kubernetes cluster list
   ```
 
-  Command output:
+  Result:
 
   ```text
   +----------------------+------------------+---------------------+---------+---------+-------------------------+-------------------+
@@ -55,7 +55,7 @@ To access a {{ k8s }} cluster, use the `ID` or `NAME` parameters from the [previ
   yc managed-kubernetes cluster get test-k8s-cluster
   ```
 
-  Command output:
+  Result:
 
   ```text
   id: cata9ertn6tcr09bh9rm

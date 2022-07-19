@@ -24,7 +24,7 @@ To get information about an instance group:
    1. See the description of the CLI's get instance group info command:
 
       ```
-      $ {{ yc-compute-ig }} get --help
+      {{ yc-compute-ig }} get --help
       ```
 
    1. Get a list of instance groups in the default folder:
@@ -35,7 +35,7 @@ To get information about an instance group:
    1. Get information about the instance group:
 
       ```
-      $ {{ yc-compute-ig }} get --name first-instance-group
+      {{ yc-compute-ig }} get --name first-instance-group
       ```
 
 - API

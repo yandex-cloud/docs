@@ -26,7 +26,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    1. [Configure permissions](../operations/cluster-users.md#update-settings) so that you can execute read and write requests in this database.
 
-- Using Terraform
+- Using {{ TF }}
 
    1. If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md).
 
@@ -244,7 +244,7 @@ As you can see from the SQL request result, from the user's point of view, the t
 
    If you no longer need these resources, delete the [{{ mch-name }} cluster](../operations/cluster-delete.md).
 
-- Using Terraform
+- Using {{ TF }}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 

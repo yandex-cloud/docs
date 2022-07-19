@@ -23,7 +23,7 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../../
     1. Get the unique ID of the virtual machine. To do this, click on the line with its name under **{{ compute-name }}** in the [management console]({{ link-console-main }}) or use the CLI command:
 
         ```
-        $ yc compute instance list
+        yc compute instance list
         +----------------------+-------+---------------+---------+----------------+-------------+
         |          ID          | NAME  |    ZONE ID    | STATUS  |  EXTERNAL IP   | INTERNAL IP |
         +----------------------+-------+---------------+---------+----------------+-------------+
@@ -32,17 +32,9 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../../
         ```
 
     1. Update the virtual machine:
-        - `--container-name`: The name of the Docker container.
-        - `--container-image`: The name of the Docker image used to launch the Docker container.
-        - `--container-env`: The environment variables available in the Docker container.
-        - `--remove-container-env`: Exclude the environment variables whose keys are specified in the parameter.
-        - `--container-command`: The command to run upon Docker container launch.
-        - `--container-stdin`: Allocate the buffer for the input stream while running the Docker container.
-        - `--container-restart-policy`: Parameters for the command specified in `--container-command`.
-        - `--container-privileged`: Launch the Docker container in privileged mode.
 
         ```
-        $ yc compute instance update-container epdbf646ge5qgutfvh43 \
+        yc compute instance update-container epdbf646ge5qgutfvh43 \
         --container-name=my_vm_new_version \
         --container-image=cr.yandex/mirror/ubuntu:18.04 \
         --container-env=KEY1=VAL1,KEY2=VAL2 \
@@ -58,6 +50,17 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../../
         platform_id: standard-v2
         ...
         ```
+
+        Where:
+
+        * `--container-name`: The name of the Docker container.
+        * `--container-image`: The name of the Docker image used to launch the Docker container.
+        * `--container-env`: The environment variables available in the Docker container.
+        * `--remove-container-env`: Exclude the environment variables whose keys are specified in the parameter.
+        * `--container-command`: The command to run upon Docker container launch.
+        * `--container-stdin`: Allocate the buffer for the input stream while running the Docker container.
+        * `--container-restart-policy`: Parameters for the command specified in `--container-command`.
+        * `--container-privileged`: Launch the Docker container in privileged mode.
 
 {% endlist %}
 

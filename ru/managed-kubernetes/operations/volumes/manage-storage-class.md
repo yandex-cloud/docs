@@ -99,7 +99,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
    {% endif %}
 
-   Результат выполнения команды:
+   Результат:
 
    {% if product == "yandex-cloud" %}
 
@@ -123,7 +123,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
    kubectl get storageclass
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    {% if product == "yandex-cloud" %}
 
@@ -183,7 +183,7 @@ reclaimPolicy: <политика переиспользования>
    kubectl get storageclass
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    NAME                      PROVISIONER                    AGE
@@ -205,7 +205,7 @@ reclaimPolicy: <политика переиспользования>
    kubectl get storageclass
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    NAME            PROVISIONER                    AGE
@@ -227,7 +227,7 @@ reclaimPolicy: <политика переиспользования>
    kubectl get storageclass
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    NAME                 PROVISIONER                    AGE

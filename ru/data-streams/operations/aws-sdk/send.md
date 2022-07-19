@@ -47,7 +47,7 @@
      python3 stream_put_record.py
      ```
 
-     Результат выполнения:
+     Результат:
 
      ```text
      The record has been sent successfully

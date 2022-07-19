@@ -3,7 +3,7 @@
 For devices to interact, you need X.509 certificates. If don't have one, you can create a certificate, for example, with [OpenSSL](https://www.openssl.org):
 
 ```
-$ openssl req -x509 \
+openssl req -x509 \
   -newkey rsa:4096 \
   -keyout key.pem \
   -out cert.pem \

@@ -18,6 +18,8 @@
     --shard-iterator $SHARD_ITERATOR  
   ```
 
+  Где:
+
   * `--endpoint` — для чтения данных из потока по протоколу AWS Kinesis Data Streams укажите эндпоинт `https://yds.serverless.yandexcloud.net`.
   * `--stream-name` — состоит из зоны доступности, идентификатора каталога, идентификатора базы данных {{ ydb-full-name }} и имени потока.
 

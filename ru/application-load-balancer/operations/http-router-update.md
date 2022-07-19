@@ -88,11 +88,11 @@
      {% endif %}
  
 
-- Terraform
+- {{ TF }}
 
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием HTTP-роутера:
+  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием HTTP-роутера:
 
      ```hcl
      ...
@@ -106,7 +106,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_http_router` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router).
+     Более подробную информацию о параметрах ресурса `yandex_alb_http_router` в {{ TF }} см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router).
 
   1. Чтобы добавить, изменить или удалить виртуальные хосты HTTP-роутера, используйте ресурс `yandex_alb_virtual_host` с указанием на роутер в поле `http_router_id`:
 
@@ -126,7 +126,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
+     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в {{ TF }} см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
 
   1. Проверьте конфигурацию командой:
 
@@ -146,7 +146,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
 
@@ -515,11 +515,11 @@
           ```
 
 
-- Terraform
+- {{ TF }}
 
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием виртуального хоста, добавив блок `route`:
+  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием виртуального хоста, добавив блок `route`:
 
      ```hcl
      resource "yandex_alb_virtual_host" "my-virtual-host" {
@@ -537,7 +537,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в Terraform см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
+     Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в {{ TF }} см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
 
      Порядок маршрутов важен в описании виртуального хоста. Более подробную информацию см. в [концепции](../../application-load-balancer/concepts/http-router.md#virtual-host).
 
@@ -559,7 +559,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
 
@@ -607,8 +607,8 @@
       1. Удалите маршрут:   
           ```
           yc alb virtual-host remove-http-route <имя маршрута> \
-          --virtual-host-name <имя виртуального хоста> \
-          --http-router-name <имя роутера>
+            --virtual-host-name <имя виртуального хоста> \
+            --http-router-name <имя роутера>
           ```
       
       1. Добавьте маршрут в нужном месте одним из способов, описанных выше.   
@@ -623,8 +623,8 @@
       1. Удалите маршрут:   
           ```
           yc alb virtual-host remove-grpc-route <имя маршрута> \
-          --virtual-host-name <имя виртуального хоста> \
-          --http-router-name  <имя роутера>
+            --virtual-host-name <имя виртуального хоста> \
+            --http-router-name  <имя роутера>
           ```
       
       1. Добавьте маршрут в нужном месте одним из способов, описанных выше.   

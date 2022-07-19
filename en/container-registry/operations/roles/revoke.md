@@ -38,6 +38,7 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
       ```
 
       Where:
+
       * `<service name>`: Name of a `container` service.
       * `<resource>`: Category of the resource (`registry` or `repository`).
       * `<resource name>`: Name of the resource that the role is assigned for. You can specify a resource by its name or ID.
@@ -49,7 +50,7 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
       > yc container registry list-access-bindings crp0pmf1n68dh715tf02
       > ```
       >
-      > Command output:
+      > Result:
       >
       > ```bash
       > +--------------------------+------------------+----------------------+
@@ -82,6 +83,7 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
       {% endif %}
 
       Where:
+
       * `<service name>`: Name of a `container` service.
       * `<resource>`: Category of the resource (`registry` or `repository`).
       * `<resource name>`: Name of the resource the role is revoked for. You can specify a resource by its name or ID.

@@ -57,6 +57,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      ```
 
      Where:
+
      * `--name`: VM name.
      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md).
      * `--create-boot-disk`: VM [disk](../../compute/concepts/disk.md) parameters.
@@ -76,7 +77,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
         sudo docker ps -a
         ```
 
-        Command output:
+        Result:
 
         ```text
         CONTAINER ID  IMAGE         COMMAND                 CREATED        STATUS        PORTS      NAMES
@@ -95,7 +96,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
         df -H
         ```
 
-        Command output:
+        Result:
 
         ```text
         Filesystem  Size  Used  Avail  Use%  Mounted on

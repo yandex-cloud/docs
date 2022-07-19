@@ -97,7 +97,8 @@
     └─vda2 254:2    0  40G  0 part /
     vdb    254:16   0  90G  0 disk
     ```  
-    Где: 
+    Где:
+
     * `vda` — загрузочный диск.
     * `vdb` — диск для данных.
 
@@ -436,8 +437,8 @@
         EXCEPTIONS
         program_error = 1
         OTHERS        = 2
-
     ```
+    
     Результат:
     ```    
     | MANDT| USER        |

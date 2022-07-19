@@ -24,6 +24,8 @@ spec:
     - ...
 ```
 
+Где:
+
 * `apiVersion`: `v1`
 * `kind`: `Service`
 * `metadata` (`ObjectMeta`, обязательное)

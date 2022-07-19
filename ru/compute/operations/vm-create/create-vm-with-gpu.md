@@ -35,24 +35,7 @@
 
      {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
-  1. Создайте ВМ в каталоге по умолчанию. Укажите следующие параметры:
-     * Имя ВМ.
-
-       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
-
-      * [Зону доступности](../../../overview/concepts/geo-scope.md).
-      * Идентификатор [платформы](../../concepts/vm-platforms.md):
-        {% if product == "yandex-cloud" %}*  `gpu-standard-v1` для платформы {{ v100-broadwell }}. {% endif %}
-        {% if product == "yandex-cloud" %}*  `gpu-standard-v2` для платформы {{ v100-cascade-lake }}. {% endif %}
-        * `gpu-standard-v3` для платформы {{ a100-epyc }}.
-      * [Количество vCPU](../../concepts/gpus.md).
-      * [Размер RAM](../../concepts/gpus.md).
-      * [Количество GPU](../../concepts/gpus.md).
-      * При необходимости сделайте ВМ [прерываемой](../../concepts/preemptible-vm.md) с помощью опции `--preemptible`.
-      * [Образ](../images-with-pre-installed-software/get-list.md) операционной системы. `ubuntu-1604-lts-gpu` — образ Ubuntu 16.04.6 LTS c CUDA драйверами.
-      * Публичный IP. Чтобы создать ВМ без публичного IP, исключите опцию `nat-ip-version=ipv4`.
-
-     Например:
+  1. Создайте ВМ в каталоге по умолчанию:
 
      ```bash
      yc compute instance create \
@@ -67,13 +50,31 @@
        --ssh-key ~/.ssh/id_rsa.pub
      ```
 
-     Будет создана ВМ `gpu-instance` с одним GPU, 8 vCPU и 96 ГБ RAM:
+     Где:
+
+     * `name` – имя ВМ.
+
+       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+
+     * `zone` – [зона доступности](../../../overview/concepts/geo-scope.md).
+     * `platform` – идентификатор [платформы](../../concepts/vm-platforms.md):
+       {% if product == "yandex-cloud" %}* `gpu-standard-v1` для платформы {{ v100-broadwell }}.{% endif %}
+       {% if product == "yandex-cloud" %}* `gpu-standard-v2` для платформы {{ v100-cascade-lake }}.{% endif %}
+       * `gpu-standard-v3` для платформы {{ a100-epyc }}.
+     * `cores` – [количество vCPU](../../concepts/gpus.md).
+     * `memory` – [размер RAM](../../concepts/gpus.md).
+     * `gpus` – [количество GPU](../../concepts/gpus.md).
+     * `preemptible` – если нужно сделать ВМ [прерываемой](../../concepts/preemptible-vm.md).
+     * `create-boot-disk` – [образ](../images-with-pre-installed-software/get-list.md) операционной системы. `ubuntu-1604-lts-gpu` — образ [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) c CUDA драйверами.
+     * `nat-ip-version=ipv4` – публичный IP. Чтобы создать ВМ без публичного IP, исключите параметр.
+
+     Получите описание созданной ВМ:
 
      ```bash
      yc compute instance get --full gpu-instance
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      name: gpu-instance
@@ -92,34 +93,10 @@
 
   Чтобы создать ВМ, воспользуйтесь методом [Create](../../api-ref/Instance/create.md) для ресурса `Instance`.
 
-- Terraform
+- {{ TF }}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
-
-     {% note info %}
-
-     Если у вас уже есть подходящие ресурсы (облачная сеть и подсеть), описывать их повторно не нужно. Используйте их имена и идентификаторы в соответствующих параметрах.
-
-     {% endnote %}
-
-     * `yandex_compute_instance` — описание [ВМ](../../concepts/vm.md):
-       * `name` — имя ВМ.
-       * `platform_id` — идентификатор [платформы](../../concepts/vm-platforms.md):
-         {% if product == "yandex-cloud" %}* `gpu-standard-v1` для платформы Intel Broadwell with NVIDIA® Tesla® V100.{% endif %}
-         {% if product == "yandex-cloud" %}* `gpu-standard-v2` для платформы Intel Cascade Lake with NVIDIA® Tesla® V100.{% endif %}
-         * `gpu-standard-v3` для платформы AMD Epyc 7662 with NVIDIA® Ampere® A100.
-       * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
-       * `boot_disk` — настройки загрузочного диска. Укажите идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
-
-         {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
-
-       * `network_interface` — настройка сети. Укажите идентификатор выбранной подсети. Чтобы автоматически назначить ВМ публичный IP-адрес, укажите `nat = true`.
-       * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
-     * `yandex_vpc_network` — описание [облачной сети](../../../vpc/concepts/network.md#network).
-     * `yandex_vpc_subnet` — описание [подсети](../../../vpc/concepts/network.md#network), к которой будет подключена ВМ.
-
-     Пример структуры конфигурационного файла:
 
      ```
      resource "yandex_compute_instance" "vm-1" {
@@ -160,7 +137,31 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
+     Где:
+
+     * `yandex_compute_instance` — описание [ВМ](../../concepts/vm.md):
+       * `name` — имя ВМ.
+       * `platform_id` — идентификатор [платформы](../../concepts/vm-platforms.md):
+         {% if product == "yandex-cloud" %}* `gpu-standard-v1` для платформы Intel Broadwell with NVIDIA® Tesla® V100.{% endif %}
+         {% if product == "yandex-cloud" %}* `gpu-standard-v2` для платформы Intel Cascade Lake with NVIDIA® Tesla® V100.{% endif %}
+         * `gpu-standard-v3` для платформы AMD Epyc 7662 with NVIDIA® Ampere® A100.
+       * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
+       * `boot_disk` — настройки загрузочного диска. Укажите идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
+
+         {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
+
+       * `network_interface` — настройка сети. Укажите идентификатор выбранной подсети. Чтобы автоматически назначить ВМ публичный IP-адрес, укажите `nat = true`.
+       * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
+     * `yandex_vpc_network` — описание [облачной сети](../../../vpc/concepts/network.md#network).
+     * `yandex_vpc_subnet` — описание [подсети](../../../vpc/concepts/network.md#network), к которой будет подключена ВМ.
+
+     {% note info %}
+
+     Если у вас уже есть подходящие ресурсы (облачная сеть и подсеть), описывать их повторно не нужно. Используйте их имена и идентификаторы в соответствующих параметрах.
+
+     {% endnote %}
+
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
 
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
@@ -170,7 +171,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Разверните облачные ресурсы.
      1. Если в конфигурации нет ошибок, выполните команду:
 

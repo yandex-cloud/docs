@@ -88,7 +88,7 @@
 1. Чтобы получить все распознанные слова с изображения, найдите все строки с свойством `text`, например с помощью [grep](https://www.gnu.org/software/grep/):
 
     ```bash
-    $ grep -o "\"text\":\s\".*\"" output.json
+    grep -o "\"text\":\s\".*\"" output.json
     "text": "PENGUINS"
     "text": "CROSSING"
     "text": "SLOW"

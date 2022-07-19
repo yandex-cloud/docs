@@ -20,13 +20,13 @@
   1. Посмотрите описание команды добавления пользователей:
 
       ```
-      $ yc iam federation add-user-accounts --help
+      yc iam federation add-user-accounts --help
       ```
 
   1. Добавьте пользователей, перечислив их Name ID через запятую:
 
       ```
-      $ yc iam federation add-user-accounts --name my-federation \
+      yc iam federation add-user-accounts --name my-federation \
         --name-ids=alice@example.com,bob@example.com,charlie@example.com
       ```
 
@@ -49,7 +49,7 @@
   1.  Отправьте запрос, указав в параметрах идентификатор федерации:
 
       ```bash
-      $ curl -X POST \
+      curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM-токен>" \
         -d '@body.json' \

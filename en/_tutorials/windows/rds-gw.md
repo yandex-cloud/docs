@@ -46,7 +46,8 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
       ```
       yc vpc network create --name rdgw-network
       ```
-      Command output:
+
+      Result:
 
       ```
       id: qqppl6fduhct76qkjh6s
@@ -81,7 +82,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
         --range 10.1.0.0/16
       ```
 
-      Command output:
+      Result:
 
       ```
       id: e9b95m6al33r62n5vkab
@@ -142,7 +143,7 @@ Create and set up a [security group](../../vpc/concepts/security-groups.md).
      --rule direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0],description=default 
    ```
 
-   Command output:
+   Result:
 
    ```
    id: enp136p8s2ael7ob6klg
@@ -216,7 +217,7 @@ Create a VM with a static address:
            --metadata-from-file user-data=setpass
       ```
 
-   Command output:
+   Result:
 
    ```
    done (25s)
@@ -265,7 +266,7 @@ Create a VM with a static address:
    Install-WindowsFeature RDS-Gateway -IncludeManagementTools
    ```
 
-   Command output:
+   Result:
 
    ```
    Success Restart Needed Exit Code      Feature Result
@@ -285,7 +286,7 @@ Create a VM with a static address:
    New-Item -Path 'RDS:\GatewayServer\CAP' -Name 'Default-CAP' -UserGroups Administrators@Builtin -AuthMethod '1'
    ```
 
-   Command output:
+   Result:
 
    ```
        Directory: RDS:\GatewayServer\CAP
@@ -301,7 +302,7 @@ Create a VM with a static address:
    New-Item -Path 'RDS:\GatewayServer\RAP' -Name 'Default-RAP' -UserGroups Administrators@Builtin -ComputerGroupType '2'
    ```
 
-   Command output:
+   Result:
 
    ```
        Directory: RDS:\GatewayServer\RAP
@@ -323,7 +324,7 @@ Create a VM with a static address:
    $Certificate | Export-Certificate -FilePath "C:\REGW.cer"
    ```
 
-   Command output:
+   Result:
 
    ```
        Directory: RDS:\GatewayServer\RAP
@@ -340,7 +341,7 @@ Create a VM with a static address:
    Get-Service TSGateway | Restart-Service
    ```
 
-   Command output:
+   Result:
 
    ```
        Directory: C:\
@@ -391,7 +392,7 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
         --metadata-from-file user-data=setpass
       ```
 
-      Command output:
+      Result:
 
       ```
       done (19s)

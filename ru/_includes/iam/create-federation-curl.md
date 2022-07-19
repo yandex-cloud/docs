@@ -1,7 +1,7 @@
 Создайте федерацию с помощью метода [create](../../organization/api-ref/Federation/create.md):
 
 ```bash
-$ curl -X POST \
+curl -X POST \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <IAM-токен>" \
   -d '@body.json' \

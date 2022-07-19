@@ -4,7 +4,7 @@
 
 {% include [base64-encode-command](../../_includes/vision/base64-encode-command.md) %}
 
-Передайте содержимое созданного файла `output.txt` в теле запроса в свойстве `content`:
+Передайте содержимое созданного файла `output.txt` в теле запроса:
 
 ```json
 {
@@ -16,3 +16,5 @@
 }
 
 ```
+
+Где `analyze_specs: content` – содержимое созданного файла `output.txt`.

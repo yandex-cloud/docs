@@ -196,4 +196,3 @@ Send a message with a command using the following parameters:
         ```
 
 {% endlist %}
-

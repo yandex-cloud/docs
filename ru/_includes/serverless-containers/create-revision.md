@@ -59,13 +59,13 @@
 	status: ACTIVE
 	```
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  В Terraform ревизия создается при каждом обновлении параметров работы ресурса. 
+  В {{ TF }} ревизия создается при каждом обновлении параметров работы ресурса. 
 
   Чтобы создать ревизию:
 
@@ -116,7 +116,7 @@
 
      {% endif %}
 
-     Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
+     Более подробную информацию о параметрах ресурса `yandex_serverless_container` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -127,7 +127,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых или обновляемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых или обновляемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
 
   1. Если в конфигурации нет ошибок, выполните команду:

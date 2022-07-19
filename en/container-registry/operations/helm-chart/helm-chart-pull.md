@@ -12,7 +12,7 @@ You can pull [Helm charts](https://helm.sh/docs/topics/charts/) in a {{ containe
   helm pull oci://{{ registry }}/<registry ID>/<Helm chart name> --version <version>
   ```
 
-  Command output:
+  Result:
 
   ```bash
   Pulled: {{ registry }}/<registry ID>/<Helm chart name>:<version>

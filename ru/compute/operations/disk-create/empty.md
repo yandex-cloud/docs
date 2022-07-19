@@ -35,9 +35,9 @@
   
       ```
       yc compute disk create \
-         --name first-disk \
-         --size 10 \
-         --description "my first disk via yc"
+        --name first-disk \
+        --size 10 \
+        --description "my first disk via yc"
       ```
   
       Данная команда создаст диск размером 10 ГБ с именем `first-disk` и описанием `my first disk via yc`.
@@ -54,7 +54,7 @@
       yc compute disk list --format yaml
       ```
 
-      Результат выполнения:
+      Результат:
       ```yaml
       - id: fhm4aq4hvq5g3nepvt9b
           folder_id: b1gm3og7ei7aegv8i73m
@@ -81,9 +81,9 @@
           - fhm5b617fjnj44ovhcun
       ```
 
-- Terraform
+- {{ TF }}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
 
   Чтобы создать пустой диск:
 
@@ -101,7 +101,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
 
   2. Проверьте корректность конфигурационных файлов.
 
@@ -112,7 +112,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   3. Разверните облачные ресурсы.
 

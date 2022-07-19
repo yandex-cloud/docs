@@ -25,7 +25,7 @@
   1. Посмотрите описание команды CLI для обновления параметров виртуальных машин:
 
       ```
-      $ yc compute instance update --help
+      yc compute instance update --help
       ```
 
   1. Получите список виртуальных машин в каталоге по умолчанию:
@@ -36,8 +36,8 @@
   1. Измените параметры виртуальной машины, например, переименуйте машину:
 
       ```
-      $ yc compute instance update first-instance \
-          --new-name windows-vm
+      yc compute instance update first-instance \
+        --new-name windows-vm
       ```
 
 - API
@@ -63,7 +63,7 @@
 - CLI
 
   ```
-  $ yc compute instance update --help
+  yc compute instance update --help
   ```
 {% endlist %}
 
@@ -87,9 +87,9 @@
   1. Измените имя и описание виртуальной машины:
 
       ```
-      $ yc compute instance update first-instance \
-          --new-name first-vm \
-          --description "changed description vm via CLI"
+      yc compute instance update first-instance \
+        --new-name first-vm \
+        --description "changed description vm via CLI"
       ```
 
 {% endlist %}
@@ -116,7 +116,7 @@
   1. Получите информацию о виртуальной машине вместе с метаданными. Все пользовательские метаданные определены в ключе `user-data`.
 
       ```
-      $ yc compute instance get --full first-instance
+      yc compute instance get --full first-instance
       ```
 
   1. Измените метаданные виртуальной машины. Изменить метаданные можно с помощью флагов:
@@ -138,8 +138,8 @@
       1. Выполните команду:
 
           ```
-          $ yc compute instance update first-instance \
-              --metadata-from-file user-data=metadata.yaml
+          yc compute instance update first-instance \
+            --metadata-from-file user-data=metadata.yaml
           ```
 
           Имеющийся набор метаданных будет полностью перезаписан.

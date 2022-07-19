@@ -15,7 +15,7 @@ To get the {{ k8s }} service account token:
     - Bash
 
         ```
-        $ yc managed-kubernetes cluster get-credentials <cluster-id> --external
+        yc managed-kubernetes cluster get-credentials <cluster-id> --external
         ```
 
     {% endlist %}
@@ -50,7 +50,7 @@ To get the {{ k8s }} service account token:
     - Bash
 
         ```
-        $ kubectl apply -f gitlab-admin-service-account.yaml
+        kubectl apply -f gitlab-admin-service-account.yaml
         ```
 
     {% endlist %}
@@ -62,7 +62,7 @@ To get the {{ k8s }} service account token:
     - Bash
 
         ```
-        $ kubectl -n kube-system get secrets -o json | \
+        kubectl -n kube-system get secrets -o json | \
         jq -r '.items[] | select(.metadata.name | startswith("gitlab-admin")) | .data.token' | \
         base64 --decode
         ```

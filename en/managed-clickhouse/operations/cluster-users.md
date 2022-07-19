@@ -115,7 +115,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
    See the [example of creating a user with read-only access](#example-create-readonly-user).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -194,7 +194,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -270,7 +270,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
    {% endnote %}
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -404,7 +404,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
       You cannot use this command to delete an existing setting. You can only explicitly set it to its default value (specified for [each setting](#clickhouse-settings)).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -526,7 +526,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -606,7 +606,7 @@ Let's say you need to add to the existing `mych` cluster a new user named `ro-us
       DB::Exception: Cannot modify 'readonly' setting in readonly mode.
       ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

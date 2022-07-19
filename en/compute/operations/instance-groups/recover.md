@@ -23,7 +23,7 @@ To recover an instance group:
   1. See the description of the CLI's recover group command:
 
      ```
-     $ {{ yc-compute-ig }} recover --help
+     {{ yc-compute-ig }} recover --help
      ```
 
   1. Get a list of instance groups in the default folder:
@@ -35,7 +35,7 @@ To recover an instance group:
   1. Recover the instance group in the default folder:
 
       ```
-      $ {{ yc-compute-ig }} recover --name first-instance-group
+      {{ yc-compute-ig }} recover --name first-instance-group
       ```
 
      {{ ig-name }} starts the operation to recover the instance group.

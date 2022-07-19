@@ -13,10 +13,10 @@ In this example, we will detect the language that the phrase <q>Hello, world</q>
 To detect the language of the text, pass it in the [detectLanguage](../api-ref/Translation/detectLanguage) request body:
 
 ```bash
-$ export FOLDER_ID=b1gvmob95yysaplct532
-$ export IAM_TOKEN=CggaATEVAgA...
-$ export TEXT="Hello, world"
-$ curl -X POST \
+export FOLDER_ID=b1gvmob95yysaplct532
+export IAM_TOKEN=CggaATEVAgA...
+export TEXT="Hello, world"
+curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
     -d "{\"folderId\": \"${FOLDER_ID}\", \"text\": \"${TEXT}\"}" \
@@ -48,8 +48,8 @@ To avoid mistakes, you can use the `languageCodeHints` field to specify which la
 Save the request body in a file (for example, `body.json`) and pass it using the [detectLanguage](../api-ref/Translation/detectLanguage) method:
 
 ```bash
-$ export IAM_TOKEN=CggaATEVAgA...
-$ curl -X POST \
+export IAM_TOKEN=CggaATEVAgA...
+curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
     -d '@body.json' \

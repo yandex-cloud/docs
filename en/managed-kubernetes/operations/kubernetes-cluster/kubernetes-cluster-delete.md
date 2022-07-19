@@ -27,7 +27,7 @@
      yc managed-kubernetes cluster delete test-k8s-cluster
      ```
 
-     Command output:
+     Result:
 
      ```bash
      done
@@ -39,7 +39,7 @@
      yc managed-kubernetes cluster list
      ```
 
-     Command output:
+     Result:
 
      ```bash
      +----+------+------------+--------+--------+-------------------+-------------------+

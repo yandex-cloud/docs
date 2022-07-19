@@ -84,7 +84,7 @@ To create a new subnet with DHCP settings, follow these steps:
 		--domain-name-server 10.1.0.3,10.2.0.3
 	```
 
-	`<folder ID>`: ID of the folder where you create your resources. If the folder is specified in the CLI profile, this parameter can be omitted.
+	Where `<folder ID>` is the ID of the folder where you create your resources. If the folder is specified in the CLI profile, this parameter can be omitted.
 
 	Result:
 
@@ -234,7 +234,7 @@ To check the configuration, create a VM and connect to it via RDP:
 	ping ad-vm-a
 	```
 
- 	If connected, the command output should look as follows:
+ 	If connected, result:
 
 	```
 	PS C:\Users\Administrator> ping ad-vm-a

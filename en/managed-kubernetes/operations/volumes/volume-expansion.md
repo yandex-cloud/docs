@@ -90,7 +90,7 @@ reclaimPolicy: Delete
    kubectl create -f pvc-expansion.yaml
    ```
 
-   Command output:
+   Result:
 
    ```bash
    persistentvolumeclaim/pvc-expansion created
@@ -128,7 +128,7 @@ reclaimPolicy: Delete
    kubectl create -f pod.yaml
    ```
 
-   Command output:
+   Result:
 
    ```bash
    pod/pod created
@@ -144,7 +144,7 @@ To request volume expansion, you need to delete the pod.
    kubectl delete pod pod
    ```
 
-   Command output:
+   Result:
 
    ```bash
    pod "pod" deleted
@@ -222,7 +222,7 @@ Make changes to the `spec.resources.requests.storage` field of the `PersistentVo
    kubectl create -f pod.yaml
    ```
 
-   Command output:
+   Result:
 
    ```bash
    pod/pod created

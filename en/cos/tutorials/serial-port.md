@@ -67,7 +67,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
         - Bash
 
           ```
-          $ IMAGE_ID=$(yc compute image get-latest-from-family container-optimized-image --folder-id standard-images --format=json | jq -r .id)
+          IMAGE_ID=$(yc compute image get-latest-from-family container-optimized-image --folder-id standard-images --format=json | jq -r .id)
           ```
 
         - PowerShell
@@ -90,6 +90,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
         ```
 
         Where:
+
         * `--name`: VM name.
         * `--zone`: Availability zone.
         * `--network-interface`: VM network settings.

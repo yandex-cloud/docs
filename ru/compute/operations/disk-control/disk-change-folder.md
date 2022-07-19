@@ -66,15 +66,17 @@
       ```
 
   1. Перенесите диск в другой каталог со следующими параметрами:
-  
-      * в параметре `id` укажите идентификатор диска, например `a7lqgbt0bb9s40tifuhc`;
-      * в параметре `destination-folder-id` укажите идентификатор целевого каталога, например `b1gd129pp9ha0vnvf5g7`.
 
       ```bash
       yc compute disk move \
         --id a7lqgbt0bb9s40tifuhc \
         --destination-folder-id b1gd129pp9ha0vnvf5g7
       ```
+
+      Где:
+
+      * `id` – идентификатор диска, например `a7lqgbt0bb9s40tifuhc`.
+      * `destination-folder-id` – идентификатор целевого каталога, например `b1gd129pp9ha0vnvf5g7`.
 
       Подробнее о команде `yc compute disk move` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/disk/move.md).
 

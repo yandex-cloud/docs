@@ -1,7 +1,7 @@
 Create a federation using the [create](../../organization/api-ref/Federation/create.md) method:
 
 ```bash
-$ curl -X POST \
+curl -X POST \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <IAM token>" \
   -d '@body.json' \

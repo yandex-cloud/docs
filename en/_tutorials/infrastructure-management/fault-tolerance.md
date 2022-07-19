@@ -89,9 +89,9 @@ To prepare the application to run in {{ yandex-cloud }}:
 
 To prepare the environment for running the application in {{ yandex-cloud }}:
 
-1. Install [Terraform](https://www.terraform.io).
+1. Install [{{ TF }}](https://www.terraform.io).
 
-1. Download a [repository](https://github.com/glebmish/yandex-cloud-fault-tolerance-demo/archive/master.zip) with the demo app source code, Terraform specs, and a script to simulate app failure.
+1. Download a [repository](https://github.com/glebmish/yandex-cloud-fault-tolerance-demo/archive/master.zip) with the demo app source code, {{ TF }} specs, and a script to simulate app failure.
 
 1. Go to the directory with the environment specification:
 
@@ -99,7 +99,7 @@ To prepare the environment for running the application in {{ yandex-cloud }}:
     cd app
     ```
 
-1. Initialize Terraform in the spec directory:
+1. Initialize {{ TF }} in the spec directory:
 
     ```bash
     terraform init
@@ -114,8 +114,9 @@ To prepare the environment for running the application in {{ yandex-cloud }}:
     ```
 
     Where:
-    - `folder_id`: The folder where the application will be deployed.
-    - `yc_token`: The OAuth-token of the user that you want to deploy the application under.
+
+    * `folder_id`: The folder where the application will be deployed.
+    * `yc_token`: The OAuth-token of the user that you want to deploy the application under.
 
 The following resources are created:
 
@@ -143,7 +144,7 @@ Before creating your Yandex.Tank app, [create TodoList app containers](#create-a
     cd tank
     ```
 
-1. Initialize Terraform in the Yandex.Tank spec directory:
+1. Initialize {{ TF }} in the Yandex.Tank spec directory:
 
     ```bash
     terraform init
@@ -158,9 +159,10 @@ Before creating your Yandex.Tank app, [create TodoList app containers](#create-a
     ```
 
     Where:
-    - `folder_id`: The folder where the Yandex.Tank app will be deployed.
-    - `yc_token`: The OAuth-token of the user that you want to deploy the Yandex.Tank app under.
-    - `overload_token`: The token that is used to connect to `<overload.yandex.net>`. To get the token, log in, click on your profile at the top right, and select **My api token** from the drop-down menu.
+
+    * `folder_id`: The folder where the Yandex.Tank app will be deployed.
+    * `yc_token`: The OAuth-token of the user that you want to deploy the Yandex.Tank app under.
+    * `overload_token`: The token that is used to connect to `<overload.yandex.net>`. To get the token, log in, click on your profile at the top right, and select **My api token** from the drop-down menu.
 
 1. Connect to the VM over SSH. The connection address is specified in the `terraform apply` command output.
 

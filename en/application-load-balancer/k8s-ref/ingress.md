@@ -16,6 +16,8 @@ metadata:
 spec: <IngressSpec>
 ```
 
+Where:
+
 * `apiVersion`: `networking.k8s.io/v1`
 * `kind`: `Ingress`
 * `metadata` (`ObjectMeta`, required)
@@ -54,6 +56,8 @@ metadata:
     ingress.alb.yc.io/request-timeout: <string>
     ingress.alb.yc.io/idle-timeout: <string>
 ```
+
+Where:
 
 * `ingress.alb.yc.io/group-name` (`string`, required)
 
@@ -201,6 +205,8 @@ spec:
     - ...
 ```
 
+Where:
+
 * `tls` (`[]IngressTLS`)
 
    Incoming HTTPS traffic settings: domain name collections and the relevant TLS certificates.
@@ -293,6 +299,8 @@ spec:
                 name: <string>
                 apiGroup: alb.yc.io
 ```
+
+Where:
 
 * `service` (`IngressServiceBackend`)
 

@@ -2,12 +2,12 @@
 
 For {{ mch-name }} clusters, you can configure settings that relate to {{ CH }}. Some settings are configured [at the cluster level](#dbms-cluster-settings) and some [at the user level](#user-level-settings).
 
-The label next to the setting name lets you determine which interface is used to set the value of this setting: the management console, CLI, API, SQL, or Terraform. The {{ tag-all }} label indicates that all of the above interfaces are supported.
+The label next to the setting name lets you determine which interface is used to set the value of this setting: the management console, CLI, API, SQL, or {{ TF }}. The {{ tag-all }} label indicates that all of the above interfaces are supported.
 
 Depending on the selected interface, the same setting is represented in a different way, for example:
 
 - **Geobase uri** in the management console matches:
-   - `geobase_uri` in the gRPC API and Terraform.
+   - `geobase_uri` in the gRPC API and {{ TF }}.
    - `geobaseUri` in the REST API.
 - **Allow DDL** in the management console matches:
    - `allow_ddl` in the CLI, gRPC API, and SQL.

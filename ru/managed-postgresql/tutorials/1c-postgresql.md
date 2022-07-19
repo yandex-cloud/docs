@@ -14,7 +14,7 @@
 
 {% list tabs %}
 
-* Вручную
+- Вручную
 
     [Создайте](../operations/cluster-create.md#create-cluster) кластер {{ mpg-name }} любой подходящей конфигурации со следующими настройками:
 
@@ -31,7 +31,7 @@
 
     * **Хосты** — добавьте не меньше двух дополнительных хостов, разместив их в разных зонах доступности. Это обеспечит отказоустойчивость кластера. Репликация между хостами будет настроена автоматически. Подробнее см. в разделе [{#T}](../concepts/replication.md).
 
-* С помощью Terraform
+- С помощью {{ TF }}
 
     1. Если у вас еще нет {{ TF }}, {% if audience != "internal" %}[установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его{% endif %}.
     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и {% if audience != "internal" %}[укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider){% else %}укажите значения параметров{% endif %}.
@@ -94,11 +94,11 @@
 
 {% list tabs %}
 
-* Вручную
+- Вручную
 
     Если созданные ресурсы вам больше не нужны, [удалите кластер {{ mpg-name }}](../operations/cluster-delete.md).
 
-* С помощью Terraform
+- С помощью {{ TF }}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#create-cluster):
 

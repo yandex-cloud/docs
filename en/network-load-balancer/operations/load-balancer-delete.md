@@ -53,17 +53,17 @@
 
    You can delete load balancers using the [delete](../api-ref/NetworkLoadBalancer/delete.md) API method.
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To delete a network load balancer created with Terraform:
+   To delete a network load balancer created with {{ TF }}:
 
-   1. Open the Terraform configuration file and delete the fragment with the network load balancer description.
+   1. Open the {{ TF }} configuration file and delete the fragment with the network load balancer description.
 
-      {% cut "Sample network load balancer description in the Terraform configuration" %}
+      {% cut "Sample network load balancer description in the {{ TF }} configuration" %}
 
       ```hcl
       ...
@@ -92,7 +92,7 @@
 
       {% endcut %}
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
    1. Check the configuration using the command:
 
@@ -112,7 +112,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
 

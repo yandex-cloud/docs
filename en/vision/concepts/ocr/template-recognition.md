@@ -29,6 +29,7 @@ Example of a request to recognize the main double page spread of a passport in `
 ```
 
 Where:
+
 * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
 * `content`: Image [encoded in Base64](../../operations/base64-encode.md).
 * `language_codes`: [Text language](supported-languages.md). To detect the text language automatically, specify `*`.

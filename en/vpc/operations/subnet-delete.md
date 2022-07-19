@@ -34,6 +34,11 @@ You cannot restore a subnet after it is deleted.
 
       ```
       yc vpc subnet list
+      ```
+
+      Result:
+
+      ```
       +----------------------+-----------------------+------------------------+
       |          ID          |         NAME          | ... |       RANGE      |
       +----------------------+-----------------------+------------------------+
@@ -120,21 +125,28 @@ You cannot restore a subnet after it is deleted.
 {% list tabs %}
 - CLI
 
-   To delete a subnet from a different folder, use the `--folder-id` or `--folder-name` flag.
+  Delete a subnet from a different folder:
 
-   ```
-   yc vpc subnet delete test-subnet-2 --folder-id b1gnbfd11bq5g5vnjgr4
-   ```
-   ```
-   yc vpc subnet delete test-subnet-2 --folder-name test-folder
-   ```
+  ```
+  yc vpc subnet delete test-subnet-2 --folder-id b1gnbfd11bq5g5vnjgr4
+  ```
 
-   You can pass the ID and name as positional arguments, or you can use the `--id` and -`-name` flags:
+  Where `--folder-id` is the folder ID.
 
-   ```
-   yc vpc subnet delete --id enpavfmgapumnl7cqin8
-   ```
-   ```
-   yc vpc subnet delete --name test-network-1
-   ```
+  ```
+  yc vpc subnet delete test-subnet-2 --folder-name test-folder
+  ```
+
+  Where `--folder-name` is the folder name.
+
+  You can pass the ID and name as positional arguments, or you can use the `--id` and `--name` flags:
+
+  ```
+  yc vpc subnet delete --id enpavfmgapumnl7cqin8
+  ```
+
+  ```
+  yc vpc subnet delete --name test-network-1
+  ```
+
 {% endlist %}

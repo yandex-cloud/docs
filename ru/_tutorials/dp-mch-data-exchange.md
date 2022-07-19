@@ -225,7 +225,7 @@ Maria,28
 
     {% list tabs %}
 
-    * Подключение без SSL
+    - Подключение без SSL
 
         ```python
         %spark.pyspark
@@ -243,7 +243,7 @@ Maria,28
         .save()
         ```
 
-    * Подключение с SSL
+    - Подключение с SSL
 
         ```python
         %spark.pyspark

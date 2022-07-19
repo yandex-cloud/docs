@@ -11,6 +11,7 @@
    ```
 
    Где:
+
    * `key_id` — идентификатор ключа {{ kms-short-name }}.
    * `aad_context` — ([AAD-контекст](../../kms/concepts/encryption.md#add-context)).
    * `plaintext` — строка, которую нужно зашифровать.

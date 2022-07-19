@@ -186,7 +186,7 @@ To add a new record to the `Series` table:
       java -jar target/release/SeriesItemOps01.jar
       ```
 
-      Output:
+      Result:
 
       ```text
       Adding new record...
@@ -245,7 +245,7 @@ To add a new record to the `Series` table:
       python SeriesItemOps01.py
       ```
 
-      Output:
+      Result:
 
       ```text
       Series added:
@@ -335,7 +335,7 @@ To add a new record to the `Series` table:
       php SeriesItemOps01.php
       ```
 
-      Output:
+      Result:
 
       ```text
       Series added: 3 - Supernatural
@@ -403,7 +403,7 @@ To add a new record to the `Series` table:
       node SeriesItemOps01.js
       ```
 
-      Output:
+      Result:
 
       ```bash
       Adding new record...
@@ -479,7 +479,7 @@ To add a new record to the `Series` table:
       ruby SeriesItemOps01.rb
       ```
 
-      Output:
+      Result:
 
       ```text
       Uploading series 'Supernatural (3)' to the table 'Series'...

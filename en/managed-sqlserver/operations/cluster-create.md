@@ -232,7 +232,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
    {% endif %}
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -442,7 +442,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    {% endif %}
 
-- Terraform
+- {{ TF }}
 
    Let's say we need to create a {{ MS }} cluster and a network for it with the following characteristics:
 

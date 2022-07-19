@@ -116,7 +116,7 @@ For the `lb-tutorial-web-{{ region-id }}-a` and `lb-tutorial-web-{{ region-id }}
 1. Grant your user write access to the directory `/var/www/html`:
 
    ```bash
-   $ sudo chown -R "$USER":www-data /var/www/html
+   sudo chown -R "$USER":www-data /var/www/html
    ```
 
 1. Upload the website files to the VM over SCP.
@@ -126,7 +126,7 @@ For the `lb-tutorial-web-{{ region-id }}-a` and `lb-tutorial-web-{{ region-id }}
    - Linux/macOS
 
      ```bash
-     $ scp -r <path to the file directory> <VM username>@<VM IP address>:/var/www/html
+     scp -r <path to the file directory> <VM username>@<VM IP address>:/var/www/html
      ```
 
    - Windows
@@ -182,13 +182,13 @@ To create a network load balancer:
    - LAMP
 
      ```bash
-     $ sudo service apache2 stop
+     sudo service apache2 stop
      ```
 
    - LEMP
 
      ```bash
-     $ sudo service nginx stop
+     sudo service nginx stop
      ```
 
    {% endlist %}
@@ -204,13 +204,13 @@ To create a network load balancer:
    - LAMP
 
      ```bash
-     $ sudo service apache2 start
+     sudo service apache2 start
      ```
 
    - LEMP
 
      ```bash
-     $ sudo service nginx start
+     sudo service nginx start
      ```
 
    {% endlist %}

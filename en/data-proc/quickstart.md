@@ -23,15 +23,15 @@ Follow the instructions below to quickly create a cluster and test your connecti
 1. To connect to the DB server, you need an SSL certificate. You can prepare all the necessary authentication data as follows:
 
     ```bash
-    $ mkdir ~/.mysql
-    $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt
-    $ chmod 0600 ~/.mysql/root.crt
+    mkdir ~/.mysql
+    wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt
+    chmod 0600 ~/.mysql/root.crt
     ```
 
 1. You can connect to the database using the command `mysql` (for more information, see [{#T}](operations/connect.md)):
 
     ```
-    $ mysql --host=<host address>
+    mysql --host=<host address>
             --port=3306
             --ssl-ca=~/.mysql/root.crt
             --ssl-mode=REQUIRED

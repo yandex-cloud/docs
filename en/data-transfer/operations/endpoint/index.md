@@ -82,11 +82,11 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ MY }}](target/mysql.md).
          * [{{ PG }}](target/postgresql.md).
 
-- Terraform
+- {{ TF }}
 
    {% note info %}
 
-   You can create endpoints with Terraform for {{ MY }} and {{ PG }} sources and targets only.
+   You can create endpoints with {{ TF }} for {{ MY }} and {{ PG }} sources and targets only.
 
    {% endnote %}
 
@@ -197,7 +197,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
    1. Click **Apply**.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with the endpoint description.
 
@@ -281,7 +281,7 @@ To delete an endpoint:
    1. Go to the [folder page]({{ link-console-main }}) in the management console and select **{{ data-transfer-full-name }}**.
    1. Click the desired endpoint.
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-delete](../../../_includes/data-transfer/terraform-delete-endpoint.md) %}
 

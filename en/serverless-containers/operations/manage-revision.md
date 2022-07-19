@@ -65,15 +65,15 @@ When you add environment variables, a new container revision is created. You can
    * `--memory`: Required memory. The default is 128 MB.
    * `--environment`: Environment variables in `key=value` format. You can specify multiple pairs separated by commas.
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To add environment variables:
 
-   1. Open the Terraform configuration file and, under the `yandex_serverless_container` resource, add an `environment` list with the environment variables to the `image` section:
+   1. Open the {{ TF }} configuration file and, under the `yandex_serverless_container` resource, add an `environment` list with the environment variables to the `image` section:
 
       ```hcl
       ...
@@ -91,11 +91,9 @@ When you add environment variables, a new container revision is created. You can
       ...
       ```
 
-      Where:
+      Where `--environment` is an environment variables in `key="value"` format. You can specify more than one pair.
 
-      * `--environment`: Environment variables in `key="value"` format. You can specify more than one pair.
-
-      For more information about the `yandex_serverless_container` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
+      For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
 
    1. Check the configuration using the command:
       ```
@@ -113,7 +111,7 @@ When you add environment variables, a new container revision is created. You can
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
       ```

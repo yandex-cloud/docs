@@ -58,7 +58,7 @@ You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more 
 
    You can find out the cluster ID and name in a [list of clusters in the folder](./cluster-list.md#list).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

@@ -15,7 +15,7 @@ To download a [Docker image](../../concepts/docker-image.md), you need to know t
          docker pull {{ registry }}/crpd50616s9a2t7gr8mi/ubuntu:hello
          ```
 
-         Command output:
+         Result:
 
          ```
          hello: Pulling from crpd50616s9a2t7gr8mi/ubuntu
@@ -33,7 +33,7 @@ To download a [Docker image](../../concepts/docker-image.md), you need to know t
          docker pull {{ registry }}/crpd50616s9a2t7gr8mi/ubuntu@sha256:035ac8e1bd9c49871a2fd76
          ```
 
-         Command output:
+         Result:
 
          ```
          ccb3c4b0f84e7eee775919ccd345337ec7b49f80d
@@ -53,7 +53,7 @@ To download a [Docker image](../../concepts/docker-image.md), you need to know t
       docker image list
       ```
 
-      Command output:
+      Result:
 
       ```
       REPOSITORY                                  TAG     IMAGE ID      CREATED       SIZE

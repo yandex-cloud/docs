@@ -90,7 +90,7 @@ reclaimPolicy: Delete
    kubectl create -f pvc-expansion.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    persistentvolumeclaim/pvc-expansion created
@@ -128,7 +128,7 @@ reclaimPolicy: Delete
    kubectl create -f pod.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    pod/pod created
@@ -144,7 +144,7 @@ reclaimPolicy: Delete
    kubectl delete pod pod
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    pod "pod" deleted
@@ -222,7 +222,7 @@ reclaimPolicy: Delete
    kubectl create -f pod.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    pod/pod created

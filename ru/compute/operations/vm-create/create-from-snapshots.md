@@ -87,7 +87,7 @@
   1. Посмотрите описание команды CLI для создания виртуальной машины:
 
       ```
-      $ yc compute instance create --help
+      yc compute instance create --help
       ```
 
   1. Подготовьте снимки нужных дисков, см. раздел [{#T}](../disk-control/create-snapshot.md).
@@ -99,13 +99,13 @@
   1. Создайте виртуальную машину в каталоге по умолчанию:
 
       ```
-      $ yc compute instance create \
-          --name first-instance \
-          --zone {{ region-id }}-a \
-          --public-ip \
-          --create-boot-disk snapshot-name=first-snapshot \
-          --create-disk snapshot-name=second-snapshot \
-          --ssh-key ~/.ssh/id_rsa.pub
+      yc compute instance create \
+        --name first-instance \
+        --zone {{ region-id }}-a \
+        --public-ip \
+        --create-boot-disk snapshot-name=first-snapshot \
+        --create-disk snapshot-name=second-snapshot \
+        --ssh-key ~/.ssh/id_rsa.pub
       ```
 
       Данная команда создаст виртуальную машину именем `first-instance` в зоне `{{ region-id }}-a`, с публичным IP и дисками из снимков. Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.

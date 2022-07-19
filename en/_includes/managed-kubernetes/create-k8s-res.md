@@ -11,7 +11,7 @@ Create a {{ k8s }} cluster and specify the previously created service accounts i
     Run the command:
 
     ```
-    $ yc managed-kubernetes cluster create \
+    yc managed-kubernetes cluster create \
      --name k8s-demo --network-name yc-auto-network \
      --zone {{ region-id }}-a --subnet-name yc-auto-subnet-0 \
      --public-ip \
@@ -50,7 +50,7 @@ Create a {{ k8s }} cluster and specify the previously created service accounts i
     - Bash
 
         ```
-        $ yc managed-kubernetes node-group create \
+        yc managed-kubernetes node-group create \
          --name k8s-demo-ng \
          --cluster-name k8s-demo \
          --platform-id standard-v3 \

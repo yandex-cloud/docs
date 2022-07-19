@@ -153,9 +153,9 @@ To use the instructions in this section, you will need:​
 
    1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Specify the federation parameters in the configuration file:
 
@@ -208,7 +208,7 @@ To use the instructions in this section, you will need:​
          $ terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays the federation parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays the federation parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Create a federation.
 

@@ -92,15 +92,15 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To update the parameters of a CDN resource created using Terraform:
+   To update the parameters of a CDN resource created using {{ TF }}:
 
-   1. Open the Terraform configuration file and edit the fragment with the resource description.
+   1. Open the {{ TF }} configuration file and edit the fragment with the resource description.
 
-      {% cut "An example of describing a CDN resource in the Terraform configuration" %}
+      {% cut "An example of describing a CDN resource in the {{ TF }} configuration" %}
 
       ```hcl
       resource "yandex_cdn_resource" "my_resource" {
@@ -120,9 +120,9 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       {% endcut %}
 
-      For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
+      For more detailed information on the `yandex_cdn_target_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
    1. Check the configuration using the command:
       ```
@@ -140,7 +140,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
       ```

@@ -57,13 +57,13 @@ In the example below, the public IP address of the gateway is `130.193.32.25`. B
 1. Connect to the virtual machine over SSH:
 
    ```
-   $ ssh 130.193.32.25
+   ssh 130.193.32.25
    ```
 
 1. Open the IPSec configuration:
 
    ```
-   $ sudo nano /etc/ipsec.conf
+   sudo nano /etc/ipsec.conf
    ```
 
 1. Edit `config setup` to look like the following:
@@ -130,7 +130,7 @@ In the example below, the public IP address of the gateway is `130.193.32.25`. B
 1. Restart strongSwan:
 
    ```
-   $ systemctl restart strongswan-starter
+   systemctl restart strongswan-starter
    ```
 
 ## Set up static routing {#configure-static-route}
@@ -208,7 +208,7 @@ For the VPN tunnel to work, you need to set up another IPSec gateway. You can cr
 1. Restart strongSwan:
 
    ```
-   $ systemctl restart strongswan-starter
+   systemctl restart strongswan-starter
    ```
 
 ## Test the IPSec tunnel {#test-vpn}
@@ -216,7 +216,7 @@ For the VPN tunnel to work, you need to set up another IPSec gateway. You can cr
 To make sure the tunnel between gateways is set up, run on any of the gateways the following command:
 
 ```
-$ sudo ipsec status
+sudo ipsec status
 Security Associations (1 up, 0 connecting):
  hq-to-cloud[3]: ESTABLISHED 29 minutes ago, 10.128.0.26[130.193.33.12]...192.168.0.23[1.1.1.1]
  hq-to-cloud{3}:  INSTALLED, TUNNEL, reqid 3, ESP in UDP SPIs: c7fa371d_i ce8b91ad_o
@@ -228,7 +228,7 @@ The `ESTABLISHED` status means that a tunnel between gateways was created.
 To check the status of the strongSwan daemon, run the `systemctl status strongswan-starter` command:
 
 ```
-$ systemctl status strongswan-starter
+systemctl status strongswan-starter
 ● strongswan.service - strongSwan IPsec IKEv1/IKEv2 daemon using ipsec.conf
    Loaded: loaded (/lib/systemd/system/strongswan-starter.service; enabled; vendor preset: enabled)
    Active: active (running) since Thu 2019-06-20 14:54:07 UTC; 3 days ago

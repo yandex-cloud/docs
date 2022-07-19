@@ -67,7 +67,7 @@
     < output.csv awk -F, '{n[$2]+=$6} END{for(i in n){print n[i] "\t" i}}' | sort -nrk1
     ```
 
-    Результат выполнения команды:
+    Результат:
 
     ```bash
     591.206 c8rska9493s55k8bn00n

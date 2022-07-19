@@ -14,14 +14,7 @@ For information about {{ speechkit-name }} usage costs, see [{#T}](pricing.md).
 
 With [speech synthesis](tts/index.md), you can convert text to speech and save it to an audio file.
 
-Send the [request](tts/request.md) to convert speech to text, specifying the following in its parameters:
-* `text`: Text to be recognized with the applied URL encoding.
-* `lang`: [Language](tts/index.md#langs) of the text.
-* `voice`: [Voice](tts/voices.md) for speech synthesis.
-* `folderId`: Folder ID received [before starting](#before-begin).
-* `IAM_TOKEN`: IAM token received [before starting](#before-begin).
-
-Write the response to the `speech.ogg` file:
+Send the [request](tts/request.md) to convert speech to text:
 
 ```bash
 read -r -d '' TEXT << EOM
@@ -37,6 +30,15 @@ curl -X POST \
    -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}" \
    "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
 ```
+
+Where:
+
+* `TEXT`: Text to be recognized with the applied URL encoding.
+* `FOLDER_ID`: Folder ID received [before starting](#before-begin).
+* `IAM_TOKEN`: IAM token received [before starting](#before-begin).
+* `lang`: [Language](tts/index.md#langs) of the text.
+* `voice`: [Voice](tts/voices.md) for speech synthesis.
+* `speech.ogg`: The file to which the response will be written.
 
 {% note info %}
 
@@ -55,17 +57,20 @@ By default, audio is created in the [OggOpus](https://wiki.xiph.org/OggOpus) for
 The service can recognize speech [in different ways](stt/index.md#stt-ways). In this section, [synchronous recognition](stt/request.md) is used.
 
 Pass the binary content of your audio file in the [request](stt/request.md) body, specifying the following in its parameters:
+
 * `lang`: Desired recognition [language](stt/models.md#tags).
 * `folderId`: Folder ID received [before starting](#before-begin).
-
-The service responds with the recognized text:
 
 ```bash
 curl -X POST \
    -H "Authorization: Bearer ${IAM_TOKEN}" \
    --data-binary "@speech.ogg" \
    "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?folderId=${FOLDER_ID}&lang=ru-RU"
+```
 
+The service responds with the recognized text:
+
+```
 {"result":"I'm Yandex SpeechKit. I can turn any text into speech. Now you can, too!"}
 ```
 

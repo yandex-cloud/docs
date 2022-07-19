@@ -71,6 +71,11 @@
       yc managed-clickhouse cluster add-graphite-rollup <CLUSTER_ID> --rollup-file-name <путь к yaml-файлу>
       ```
 
+      Где:
+
+      * `<CLUSTER_ID>` – идентификатор кластера.
+      * `<путь к yaml-файлу>` — путь к `graphite-rollup.yaml`.
+
       Подробнее о команде `managed-clickhouse cluster add-graphite-rollup` см. в [справочнике CLI](../cli/cli-ref/managed-services/managed-clickhouse/cluster/add-graphite-rollup.md). 
 
       {% note info %}

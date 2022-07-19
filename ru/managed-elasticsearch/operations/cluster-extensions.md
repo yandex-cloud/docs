@@ -6,7 +6,7 @@
 
 {% list tabs %}
 
-* CLI
+- CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -20,7 +20,7 @@
 
     Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-* API
+- API
 
     Воспользуйтесь методом API [list](../api-ref/Extension/list) и передайте в запросе идентификатор кластера в параметре `clusterId`.
 
@@ -32,7 +32,7 @@
 
 {% list tabs %}
 
-* CLI
+- CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -50,7 +50,7 @@
 
     Чтобы получить ссылку на zip-архив с файлами расширения в {{ objstorage-full-name }}, [воспользуйтесь инструкцией](../../storage/operations/objects/link-for-download.md). Доступ к {{ objstorage-full-name }} [можно настроить](./s3-access.md) с помощью сервисного аккаунта.
 
-* API
+- API
 
     Воспользуйтесь методом API [create](../api-ref/Extension/create) и передайте в запросе:
 
@@ -65,7 +65,7 @@
 
 {% list tabs %}
 
-* CLI
+- CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -83,7 +83,7 @@
 
     Чтобы включить пользовательское расширение, передайте в параметре `--active` значение `true`, чтобы выключить — `false`.
 
-* API
+- API
 
     Воспользуйтесь методом API [update](../api-ref/Extension/update) и передайте в запросе:
 
@@ -97,7 +97,7 @@
 
 {% list tabs %}
 
-* CLI
+- CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -112,7 +112,7 @@
 
     Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters), идентификатор расширения — [со списком расширений в кластере](#list).
 
-* API
+- API
 
     Воспользуйтесь методом API [delete](../api-ref/Extension/delete) и передайте в запросе:
 

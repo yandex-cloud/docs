@@ -40,11 +40,12 @@ To create a VM that is linked to a group of dedicated hosts, follow these steps:
       ```
 
       Where:
+
       * `fixed-size`: The number of dedicated hosts in the group.
       * `type`: The type of dedicated hosts.
       * `zone`: [availability zone](../../../overview/concepts/geo-scope.md).
 
-      Command output:
+      Result:
 
       ```bash
       done (6s)
@@ -66,7 +67,7 @@ To create a VM that is linked to a group of dedicated hosts, follow these steps:
       yc compute host-group list
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +----------------------+------+---------------+--------+---------------------+------+
@@ -88,11 +89,12 @@ To create a VM that is linked to a group of dedicated hosts, follow these steps:
       ```
 
       Where:
+
       * `host-group-id`: ID of the dedicated host group.
       * `subnet-name`: Name of the selected subnet.
       * `zone`: Availability zone that corresponds to the selected subnet.
 
-      Command output:
+      Result:
 
       ```bash
       done (20s)

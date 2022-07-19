@@ -21,13 +21,13 @@
   1. Посмотрите описание команды добавления сертификата:
 
       ```
-      $ yc iam certificate create --help
+      yc iam certificate create --help
       ```
 
   1. Добавьте сертификат для федерации, указав путь к файлу сертификата:
 
       ```
-      $ yc iam certificate create --federation-name my-federation \
+      yc iam certificate create --federation-name my-federation \
         --name "my-certificate" \
         --certificate-file test.pem
       ```
@@ -49,8 +49,8 @@
   2. Отправьте запрос на добавление сертификата:
 
       ```bash
-      $ export IAM_TOKEN=CggaATEVAgA...
-      $ curl -X POST \
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -X POST \
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
           -d '@body.json' \

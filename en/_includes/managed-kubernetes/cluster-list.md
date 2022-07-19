@@ -1,7 +1,7 @@
 To access a {{ k8s }} cluster, use its name or unique ID. You can get them by using the following command:
 
 ```
-$ yc managed-kubernetes cluster list
+yc managed-kubernetes cluster list
 +----------------------+----------+---------------------+---------+---------+-------------------------+-----------------------+
 |          ID          |   NAME   |     CREATED AT      | HEALTH  | STATUS  |    EXTERNAL ENDPOINT    |   INTERNAL ENDPOINT   |
 +----------------------+----------+---------------------+---------+---------+-------------------------+-----------------------+

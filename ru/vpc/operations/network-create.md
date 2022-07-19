@@ -34,8 +34,9 @@
   1. Создайте облачную сеть в каталоге по умолчанию:
 
       ```
-      yc vpc network create --name test-network-1 \
-          --description "My test network"
+      yc vpc network create \
+        --name test-network-1 \
+        --description "My test network"
       ```
 
       {% include [name-format](../../_includes/name-format.md) %}
@@ -46,6 +47,10 @@
 
       ```
       yc vpc network list
+      ```
+
+      Результат:
+      ```
       +----------------------+----------------+
       |          ID          |      NAME      |
       +----------------------+----------------+
@@ -58,6 +63,10 @@
 
       ```
       yc vpc network list --format yaml
+      ```
+
+      Результат:
+      ```
       - id: enpiuvhhd4t80k4n80i8
         folder_id: b1g6ci08ma55klukmdjs
         created_at: "2018-10-23T11:12:51Z"
@@ -70,13 +79,22 @@
         description: Auto-created default network
       ```
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. Опишите в конфигурационном файле параметры облачной сети:
+
+     * `name` — имя облачной сети. Формат имени:
+
+        {% include [name-format](../../_includes/name-format.md) %}
+
+     * `description` — описание облачной сети.
+     * `labels` — [метки](https://cloud.yandex.ru/docs/overview/concepts/services#labels) для облачной сети. Укажите пару ключ-значение.
+
+     Пример структуры конфигурационного файла:
 
      ```hcl
      resource "yandex_vpc_network" "default" {
@@ -89,15 +107,7 @@
      }
      ```
 
-     Где:
-     * `name` — имя облачной сети. Формат имени:
-
-        {% include [name-format](../../_includes/name-format.md) %}
-
-     * `description` — описание облачной сети.
-	 * `labels` — [метки](https://cloud.yandex.ru/docs/overview/concepts/services#labels) для облачной сети. Укажите пару ключ-значение.
-
-     Более подробную информацию о параметрах ресурса `vpc_network` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/vpc_network).
+     Более подробную информацию о параметрах ресурса `vpc_network` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_network).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -108,7 +118,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
 
@@ -142,7 +152,7 @@
     --folder-id b1gnbfd11bq5g5vnjgr4
   ```
 
-- Terraform
+- {{ TF }}
 
   1. Опишите в конфигурационном файле параметры создаваемой облачной сети:
 
@@ -153,7 +163,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера]({{ tf-provider-link }}/vpc_network).
+     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_network).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -164,7 +174,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
 

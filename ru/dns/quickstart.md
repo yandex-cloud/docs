@@ -169,7 +169,7 @@ test-vm-2.testing has address 10.0.0.9
 host www.example.com ns1.yandexcloud.net.
 ```
 
-Результат выполнения команды:
+Результат:
 
 ```
 Using domain server:
@@ -188,7 +188,7 @@ www.example.com has address <публичный IP-адрес ВМ test-vm-1>
 host www.example.com ns1.cloudil.com.
 ```
 
-Результат выполнения команды:
+Результат:
 
 ```
 Using domain server:

@@ -1,17 +1,17 @@
-# Uploading Terraform states to Object Storage
+# Uploading {{ TF }} states to Object Storage
 
-The instructions describe the steps to load a Terraform state to [{{ objstorage-full-name }}](../../storage/).
+The instructions describe the steps to load a {{ TF }} state to [{{ objstorage-full-name }}](../../storage/).
 
-A Terraform state describes the current deployed infrastructure and is stored in files with the `.tfstate` extension. The state file is created after the infrastructure is deployed and can be immediately uploaded to {{ objstorage-name }}. The uploaded state file is updated as the infrastructure you created changes.
+A {{ TF }} state describes the current deployed infrastructure and is stored in files with the `.tfstate` extension. The state file is created after the infrastructure is deployed and can be immediately uploaded to {{ objstorage-name }}. The uploaded state file is updated as the infrastructure you created changes.
 
 In this example, the saved state lets other users get the ID of one of the created subnets to connect a new VM to it.
 
-To configure Terraform state storage in {{ objstorage-name }} and use it to create new resources:
+To configure {{ TF }} state storage in {{ objstorage-name }} and use it to create new resources:
 
 1. [Before you start](#before-you-begin).
 {% if product == "yandex-cloud" %}1. [Required paid resources](#paid-resources).{% endif %}
-1. [Install Terraform](#install-terraform).
-1. [Create a Terraform configuration file](#configure-terraform).
+1. [Install {{ TF }}](#install-terraform).
+1. [Create a {{ TF }} configuration file](#configure-terraform).
 1. [Configure a provider](#configure-provider).
 1. [Create a service account and static access key](#create-service-account).
 1. [Create a bucket](#create-service-account).
@@ -22,7 +22,7 @@ To configure Terraform state storage in {{ objstorage-name }} and use it to crea
 
 If you no longer need these resources, [delete them](#clear-out).
 
-Terraform and its providers are distributed under the [Mozilla Public License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
+{{ TF }} and its providers are distributed under the [Mozilla Public License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
 
 ## Before you start {#before-you-begin}
 
@@ -34,7 +34,7 @@ Terraform and its providers are distributed under the [Mozilla Public License](h
 
 {% note alert %}
 
-All resources created using Terraform are chargeable. Please, make sure to check the configurations you are creating now.
+All resources created using {{ TF }} are chargeable. Please, make sure to check the configurations you are creating now.
 
 {% endnote %}
 
@@ -48,13 +48,13 @@ The cost of supporting this infrastructure includes:
 
 {% endif %}
 
-## Install Terraform {#install-terraform}
+## Install {{ TF }} {#install-terraform}
 
 {% include [terraform-install](../../_tutorials/terraform-install.md) %}
 
-## Create a Terraform configuration file {#configure-terraform}
+## Create a {{ TF }} configuration file {#configure-terraform}
 
-1. Create a directory with any name, for example, `cloud-terraform`. It will store the Terraform configuration files.
+1. Create a directory with any name, for example, `cloud-terraform`. It will store the {{ TF }} configuration files.
 1. Create a configuration file with the `.tf` extension in this directory, for example, `example.tf`.
 
 ## Configure a provider {#configure-provider}
@@ -68,11 +68,11 @@ The cost of supporting this infrastructure includes:
 
 ## Create a bucket {#create-service-account}
 
-[Create a bucket](../../storage/operations/buckets/create.md) with any name, for example, `terraform-object-storage-tutorial`. It stores the Terraform state file.
+[Create a bucket](../../storage/operations/buckets/create.md) with any name, for example, `terraform-object-storage-tutorial`. It stores the {{ TF }} state file.
 
 ## Configure the backend {#set-up-backend}
 
-To save the Terraform state in {{ objstorage-name }}, specify settings for the provider and backend:
+To save the {{ TF }} state in {{ objstorage-name }}, specify settings for the provider and backend:
 
 {% if product == "yandex-cloud" %}
 
@@ -141,7 +141,7 @@ provider "yandex" {
 
 {% endif %}
 
-To read more about the state storage backend, see the [Terraform site](https://www.terraform.io/docs/backends/types/s3.html).
+To read more about the state storage backend, see the [{{ TF }} site](https://www.terraform.io/docs/backends/types/s3.html).
 
 ## Deploy the configuration {#deploy}
 
@@ -385,12 +385,12 @@ Make sure that the state file is uploaded to {{ objstorage-name }}:
 
 1. Open the [management console]({{ link-console-main }}) and select the folder with the bucket created.
 1. Select **{{ objstorage-name }}**.
-1. From the bucket list, select the bucket you saved the Terraform state to.
+1. From the bucket list, select the bucket you saved the {{ TF }} state to.
 1. Make sure that the state file is in the bucket.
 
 ## Retrieve the state from the backend {#retrieve-state}
 
-You can request the Terraform state saved in {{ objstorage-name }} from another configuration to expand the infrastructure you created.
+You can request the {{ TF }} state saved in {{ objstorage-name }} from another configuration to expand the infrastructure you created.
 
 Create another configuration and use the saved state to create another VM in one of the existing subnets:
 

@@ -14,20 +14,21 @@ C помощью {{ kms-short-name }} вы можете шифровать и р
 
     Команда зашифрует открытый текст, переданный в файле `--plaintext-file`, и запишет полученный шифртекст в файл `--ciphertext-file`.
 
+    ```
+    yc kms symmetric-crypto encrypt \
+      --id abj76v82ficsmn446ri7 \
+      --plaintext-file plaintext.txt \
+      --ciphertext-file ciphertext
+    ```
+
+    Где:
+
     * `--id` –  идентификатор [ключа KMS](../../kms/concepts/key.md), должен быть указан один из флагов: `--id` или `--name`.
     * `--name` – название ключа KMS, должен быть указан один из флагов: `--id` или `--name`.
     * `--version-id` – (опционально) [версия](../../kms/concepts/version.md) ключа KMS, которая будет использоваться для шифрования. По умолчанию используется основная.
     * `--plaintext-file` – входной файл с открытым текстом.
     * `--aad-context-file` – (опционально) входной файл с [AAD-контекстом](../../kms/concepts/encryption.md#add-context).
     * `--ciphertext-file` – выходной файл с шифртекстом.
-
-
-    ```
-    $ yc kms symmetric-crypto encrypt \
-      --id abj76v82ficsmn446ri7 \
-      --plaintext-file plaintext.txt \
-      --ciphertext-file ciphertext
-    ```
     
 - API 
 
@@ -43,18 +44,20 @@ C помощью {{ kms-short-name }} вы можете шифровать и р
 
     Команда расшифрует шифртекст, переданный в файле `--ciphertext-file`, и запишет полученный открытый текст в файл `--plaintext-file`:
     
+    ```
+    yc kms symmetric-crypto decrypt \
+      --id abj76v82ficsmn446ri7 \
+      --ciphertext-file ciphertext \
+      --plaintext-file decrypted.txt
+    ```
+
+    Где:
+
     * `--id` – идентификатор [ключа KMS](../../kms/concepts/key.md), должен быть указан один из флагов: `--id` или `--name`.
     * `--name` – название ключа KMS, должен быть указан один из флагов: `--id` или `--name`.
     * `--ciphertext-file` – входной файл с открытым текстом.
     * `--aad-context-file` – (опционально) входной файл с [AAD-контекстом](../../kms/concepts/encryption.md#add-context).
     * `--plaintext-file` – выходной файл с шифртекстом.
-    
-    ```
-    $ yc kms symmetric-crypto decrypt \
-      --id abj76v82ficsmn446ri7 \
-      --ciphertext-file ciphertext \
-      --plaintext-file decrypted.txt
-    ```
     
 - API 
 
@@ -70,6 +73,16 @@ C помощью {{ kms-short-name }} вы можете шифровать и р
 
     Команда заново зашифрует шифртекст, переданный в файле `--source-ciphertext-file`, другим ключом или другой версией ключа, и запишет полученный шифртекст в файл `--ciphertext-file`:
     
+    ```
+    yc kms symmetric-crypto re-encrypt \
+      --id abj76v82ficsmn446ri7 \
+      --source-key-id abj76v82ficsmn446ri7 \ 
+      --source-ciphertext-file old-ciphertext \
+      --ciphertext-file new-ciphertext 
+    ```
+
+    Где:
+
     * `--id` –  идентификатор [ключа KMS](../../kms/concepts/key.md), должен быть указан один из флагов: `--id` или `--name`.
     * `--name` – название ключа KMS, должен быть указан один из флагов: `--id` или `--name`.
     * `--version-id` – (опционально) [версия](../../kms/concepts/version.md) ключа KMS, которая будет использоваться для шифрования. По умолчанию используется основная.
@@ -78,14 +91,7 @@ C помощью {{ kms-short-name }} вы можете шифровать и р
     * `--source-ciphertext-file` – входной файл с шифртекстом.
     * `--source-aad-context-file` –  (опционально) входной файл с AAD-контекстом, с которым шифртекст зашифрован на момент запуска команды.
     * `--ciphertext-file` – выходной файл с заново зашифрованным шифртекстом.
-    
-    ```
-    yc kms symmetric-crypto re-encrypt \
-      --id abj76v82ficsmn446ri7 \
-      --source-key-id abj76v82ficsmn446ri7 \ 
-      --source-ciphertext-file old-ciphertext \
-      --ciphertext-file new-ciphertext 
-    ```
+
 - API 
 
     Воспользуйтесь методом [reEncrypt](../../api-ref/SymmetricCrypto/reEncrypt) для ресурса `SymmetricCrypto`.

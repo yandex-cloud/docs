@@ -13,13 +13,13 @@ Create a [placement group](../../concepts/placement-groups.md).
    1. View a description of the CLI command to create a placement group:
 
       ```
-      $ yc compute placement-group create --help
+      yc compute placement-group create --help
       ```
 
    1. Create a placement group:
 
       ```
-      $ yc compute placement-group create --spread-strategy --name my-group
+      yc compute placement-group create --spread-strategy --name my-group
       id: fd83bv4rnsna2sjkiq4s
       folder_id: b1g5kkhshgs9s0l4609d
       created_at: "2019-12-30T10:07:34Z"
@@ -35,7 +35,12 @@ Create a [placement group](../../concepts/placement-groups.md).
    1. Check that the placement group was added:
 
       ```
-      $ yc compute placement-group list
+      yc compute placement-group list
+      ```
+
+      Result:
+
+      ```
       +----------------------+----------+----------+
       |          ID          |   NAME   | STRATEGY |
       +----------------------+----------+----------+

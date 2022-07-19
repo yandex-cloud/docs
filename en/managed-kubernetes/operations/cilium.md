@@ -257,7 +257,7 @@ To use the Cilium network policy controller in a cluster:
    kubectl apply -f hubble-ui.yaml
    ```
 
-   Execution result:
+   Result:
 
    ```text
    serviceaccount/hubble-ui created
@@ -275,7 +275,7 @@ To use the Cilium network policy controller in a cluster:
      | grep hubble | grep -v certs
    ```
 
-   Expected result:
+   Result:
 
    ```text
    hubble-relay-6b9c774ffc-2jm7t            Running
@@ -379,7 +379,7 @@ To use the Cilium network policy controller in a cluster:
    kubectl create -f http-sw-app.yaml
    ```
 
-   Execution result:
+   Result:
 
    ```text
    service/deathstar created
@@ -394,7 +394,7 @@ To use the Cilium network policy controller in a cluster:
    kubectl get pods,svc
    ```
 
-   Execution result:
+   Result:
 
    ```text
    NAME                            READY   STATUS    RESTARTS   AGE
@@ -414,7 +414,7 @@ To use the Cilium network policy controller in a cluster:
    kubectl -n kube-system get pods -l k8s-app=cilium
    ```
 
-   Execution result:
+   Result:
 
    ```text
    NAME           READY   STATUS    RESTARTS   AGE
@@ -436,7 +436,7 @@ To use the Cilium network policy controller in a cluster:
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Execution result:
+   Result:
 
    ```text
    Ship landed
@@ -499,7 +499,7 @@ The L3/L4 network policy only allows `org: empire` labeled pods to access `death
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Execution result:
+   Result:
 
    ```text
    Ship landed
@@ -537,7 +537,7 @@ Access for the `xwing` pod remains unchanged. This pod can't access `deathstar`.
    kubectl exec tiefighter -- curl -s -XPUT deathstar.default.svc.cluster.local/v1/exhaust-port
    ```
 
-   Expected execution result:
+   Result:
 
    ```text
    Panic: deathstar exploded
@@ -595,7 +595,7 @@ Access for the `xwing` pod remains unchanged. This pod can't access `deathstar`.
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Execution result:
+   Result:
 
    ```text
    Ship landed
@@ -607,7 +607,7 @@ Access for the `xwing` pod remains unchanged. This pod can't access `deathstar`.
    kubectl exec tiefighter -- curl -s -XPUT deathstar.default.svc.cluster.local/v1/exhaust-port
    ```
 
-   Execution result:
+   Result:
 
    ```text
    Access denied

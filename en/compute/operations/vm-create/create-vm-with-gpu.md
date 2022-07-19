@@ -35,24 +35,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
       {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
-   1. Create a VM in the default folder. Specify the following parameters:
-      * VM name.
-
-         {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
-
-      * [Availability zone](../../../overview/concepts/geo-scope.md).
-      * [Platform](../../concepts/vm-platforms.md) ID:
-         {% if product == "yandex-cloud" %}* `gpu-standard-v1` for {{ v100-broadwell }}.{% endif %}
-         {% if product == "yandex-cloud" %}* `gpu-standard-v2` for {{ v100-cascade-lake }}.{% endif %}s
-         * `gpu-standard-v3` for {{ a100-epyc }}.
-      * [Number of vCPUs](../../concepts/gpus.md).
-      * [RAM](../../concepts/gpus.md).
-      * [Number of GPUs](../../concepts/gpus.md).
-      * If required, make your VM [preemptible](../../concepts/preemptible-vm.md) with the `--preemptible` option.
-      * [Image](../images-with-pre-installed-software/get-list.md) of the OS. `ubuntu-1604-lts-gpu`: Ubuntu 16.04.6 LTS with CUDA drivers.
-      * Public IP. To create a VM without a public IP address, disable the `nat-ip-version=ipv4` option.
-
-      For example:
+   1. Create a VM in the default folder:
 
       ```bash
       yc compute instance create \
@@ -67,13 +50,31 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
         --ssh-key ~/.ssh/id_rsa.pub
       ```
 
+      Where:
+
+      * `name`: VM name.
+
+         {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+
+      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
+      * `platform`: [Platform](../../concepts/vm-platforms.md) ID:
+         {% if product == "yandex-cloud" %}* `gpu-standard-v1` for {{ v100-broadwell }}.{% endif %}
+         {% if product == "yandex-cloud" %}* `gpu-standard-v2` for {{ v100-cascade-lake }}.{% endif %}s
+         * `gpu-standard-v3` for {{ a100-epyc }}.
+      * `cores`: [Number of vCPUs](../../concepts/gpus.md).
+      * `memory`: [RAM](../../concepts/gpus.md).
+      * `gpus`: [Number of GPUs](../../concepts/gpus.md).
+      * `preemptible`: If required, make your VM [preemptible](../../concepts/preemptible-vm.md).
+      * `create-boot-disk`: [Image](../images-with-pre-installed-software/get-list.md) of the OS. `ubuntu-1604-lts-gpu`: [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) with CUDA drivers.
+      * `nat-ip-version`: Public IP. To create a VM without a public IP address, disable the `nat-ip-version=ipv4` option.
+
       This creates a VM named `gpu-instance` with a single GPU, 8 vCPUs, and 96 GB RAM:
 
       ```bash
       yc compute instance get --full gpu-instance
       ```
 
-      Command output:
+      Result:
 
       ```bash
       name: gpu-instance
@@ -92,34 +93,10 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
    To create a VM, use the [Create](../../api-ref/Instance/create.md) method for the `Instance` resource.
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. In the configuration file, describe the parameters of resources that you want to create:
-
-      {% note info %}
-
-      If you already have suitable resources, such as a cloud network and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
-
-      {% endnote %}
-
-      * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
-         * `name`: VM name.
-         * `platform_id`: ID of the [platform](../../concepts/vm-platforms.md):
-            {% if product == "yandex-cloud" %}* `gpu-standard-v1` for Intel Broadwell with NVIDIA® Tesla® V100.{% endif %}
-            {% if product == "yandex-cloud" %}* `gpu-standard-v2` for Intel Cascade Lake with NVIDIA® Tesla® V100.{% endif %}
-            * `gpu-standard-v3` for AMD EPYC 7662 with NVIDIA® Ampere® A100.
-         * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
-         * `boot_disk`: Boot disk settings. Specify the ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
-
-            {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
-
-         * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
-         * `metadata`: In the metadata, pass the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
-      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
-      * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#network) your VM will connect to.
-
-      Example configuration file structure:
 
       ```
       resource "yandex_compute_instance" "vm-1" {
@@ -160,7 +137,31 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
       }
       ```
 
-      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-link }}/).
+      Where:
+
+      * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
+         * `name`: VM name.
+         * `platform_id`: ID of the [platform](../../concepts/vm-platforms.md):
+            {% if product == "yandex-cloud" %}* `gpu-standard-v1` for Intel Broadwell with NVIDIA® Tesla® V100.{% endif %}
+            {% if product == "yandex-cloud" %}* `gpu-standard-v2` for Intel Cascade Lake with NVIDIA® Tesla® V100.{% endif %}
+            * `gpu-standard-v3` for AMD EPYC 7662 with NVIDIA® Ampere® A100.
+         * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+         * `boot_disk`: Boot disk settings. Specify the ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
+
+            {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
+
+         * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
+         * `metadata`: In the metadata, pass the public key for VM access via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
+      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
+      * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#network) your VM will connect to.
+
+      {% note info %}
+
+      If you already have suitable resources, such as a cloud network and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
+
+      {% endnote %}
+
+      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
@@ -170,7 +171,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
    1. Deploy the cloud resources.
       1. If the configuration doesn't contain any errors, run the command:
 

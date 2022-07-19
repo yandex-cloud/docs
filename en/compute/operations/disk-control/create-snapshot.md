@@ -46,7 +46,7 @@ To create a disk snapshot:
    1. View a description of the CLI create snapshot commands:
 
       ```
-      $ yc compute snapshot create --help
+      yc compute snapshot create --help
       ```
 
    1. Select the disk to take a snapshot of. To get a list of disks in the default folder, run the command:
@@ -56,7 +56,7 @@ To create a disk snapshot:
    1. Create a snapshot in the default folder:
 
       ```
-      $ yc compute snapshot create \
+      yc compute snapshot create \
           --name first-snapshot \
           --description "my first snapshot via CLI" \
           --disk-id fhm4aq4hvq5g3nepvt9b
@@ -66,9 +66,9 @@ To create a disk snapshot:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Describe the resource parameters in the `yandex_compute_snapshot` configuration file.
 
@@ -82,7 +82,7 @@ To create a disk snapshot:
       }
       ```
 
-      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
 
    2. Make sure that the configuration files are correct.
 
@@ -90,17 +90,17 @@ To create a disk snapshot:
       2. Run the check using the command:
 
          ```
-         $ terraform plan
+         terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    3. Deploy the cloud resources.
 
       1. If the configuration doesn't contain any errors, run the command:
 
          ```
-         $ terraform apply
+         terraform apply
          ```
 
       2. Confirm that you want to create the resources.

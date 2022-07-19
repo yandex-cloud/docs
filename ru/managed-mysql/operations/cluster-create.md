@@ -73,7 +73,7 @@
   1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
      ```
-     $ yc vpc subnet list
+     yc vpc subnet list
      ```
      {% if audience != "internal" %}
 
@@ -89,7 +89,7 @@
   1. Посмотрите описание команды CLI для создания кластера:
 
       ```
-      $ {{ yc-mdb-my }} cluster create --help
+      {{ yc-mdb-my }} cluster create --help
       ```
 
   1. Укажите параметры кластера в команде создания:
@@ -138,17 +138,17 @@
 
       При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   
   {% if audience != "internal" %}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% else %}
 
-  Если у вас еще нет Terraform, установите его и настройте провайдер.
+  Если у вас еще нет {{ TF }}, установите его и настройте провайдер.
 
   {% endif %}
 
@@ -295,7 +295,7 @@
 
      1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-mmy }}).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mmy }}).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -417,7 +417,7 @@
         --permissions ALL
       ```
 
-- Terraform
+- {{ TF }}
 
   Допустим, нужно создать {{ MY }}-кластер и сеть для него со следующими характеристиками:
 

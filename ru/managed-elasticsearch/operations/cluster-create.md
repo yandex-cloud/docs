@@ -166,13 +166,13 @@ keywords:
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-- Terraform
+- {{ TF }}
 
     {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
     {% if audience != "internal" %}
     
-    Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     {% endif %}
 
@@ -335,7 +335,7 @@ keywords:
 
         1. {% include [Maintenance window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
 
-        Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
+        Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
 
     1. Проверьте корректность настроек.
 
@@ -413,7 +413,7 @@ keywords:
       --deletion-protection=true
     ```
 
-- Terraform
+- {{ TF }}
 
     Допустим, нужно создать {{ ES }}-кластер со следующими характеристиками:
 

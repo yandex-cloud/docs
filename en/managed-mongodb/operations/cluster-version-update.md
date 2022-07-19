@@ -65,7 +65,7 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
       Learn more about backward compatibility in the [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

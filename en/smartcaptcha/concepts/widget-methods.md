@@ -35,7 +35,7 @@ Example of a container with parameters for rendering a widget:
 ></div>
 ```
 
-Parameter descriptions:
+Where:
 
 | Data attribute | Value | Default value |
 | --------------- | ---------------------------------------------------------------------------- | --------------------------- |

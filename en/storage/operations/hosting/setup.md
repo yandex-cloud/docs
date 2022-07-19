@@ -20,21 +20,13 @@
       * The page to be displayed to the user in the event of 4xx errors. Optional.
    1. Click **Save**.
 
-- Terraform
+- {{ TF }}
 
-   If you do not have Terraform yet, {% if audience != "internal" %}[install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}install it and configure the {{ yandex-cloud }} provider{% endif %}.
+   If you do not have {{ TF }} yet, {% if audience != "internal" %}[install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}install it and configure the {{ yandex-cloud }} provider{% endif %}.
 
    Before you start, retrieve the {% if audience != "internal" %}[static access keys](../../../iam/operations/sa/create-access-key.md){% else %}static access keys{% endif %}: a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
 
    1. In the configuration file, describe the parameters of resources that you want to create:
-      * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the secret access key.
-      * `bucket`: Bucket name.
-      * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
-      * `website`: Website parameters:
-
-         * `index_document`: Absolute path to the file of the website's homepage. Required parameter.
-         * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. Optional.
 
       {% if product == "yandex-cloud" %}
 
@@ -90,6 +82,17 @@
 
       {% endif %}
 
+      Where:
+
+      * `access_key`: The ID of the static access key.
+      * `secret_key`: The value of the secret access key.
+      * `bucket`: Bucket name.
+      * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
+      * `website`: Website parameters:
+
+         * `index_document`: Absolute path to the file of the website's homepage. Required parameter.
+         * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. Optional.
+
    1. Make sure that the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
@@ -99,7 +102,7 @@
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

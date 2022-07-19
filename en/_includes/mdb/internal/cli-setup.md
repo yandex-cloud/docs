@@ -25,7 +25,7 @@ To access an internal MDB using an external CLI:
 1. Initialize the CLI profile using the OAuth token from the previous step:
 
    ```bash
-   $ yc init --endpoint gw.db.yandex-team.ru:443
+   yc init --endpoint gw.db.yandex-team.ru:443
    Welcome! This command will take you through the configuration process.
    Please go to https://oauth.yandex...
    

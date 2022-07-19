@@ -53,7 +53,7 @@ You can also use this method to deliver metrics from any custom applications tha
    1. Check that the application provides metrics by running the `curl http://localhost:8000` command. Sample command output:
 
       ```bash
-      $ curl http://localhost:8000
+      curl http://localhost:8000
       # HELP python_gc_objects_collected_total Objects collected during gc
       # TYPE python_gc_objects_collected_total counter
       python_gc_objects_collected_total{generation="0"} 362.0
@@ -72,7 +72,7 @@ You can also use this method to deliver metrics from any custom applications tha
 
 1. Install and configure {{unified-agent-full-name}}.
 
-   1. Create a file named **config.yml** in your home folder. Replace `$FOLDER_ID` in the file with the ID of the folder you want to write metrics to.
+   1. Create a file named **config.yml** in your home folder.
 
       **config.yml:**
       ```yaml
@@ -128,6 +128,8 @@ You can also use this method to deliver metrics from any custom applications tha
        import:
          - /etc/yandex/unified_agent/conf.d/*.yml
       ```
+
+      Where `$FOLDER_ID` is the ID of the folder you want to write metrics.
 
    1. Install {{unified-agent-short-name}} on your VM by running the following command in the home folder:
 

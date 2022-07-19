@@ -14,7 +14,7 @@ After messages are received and processed, they should be deleted from a queue:
      --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
    ```
 
-   Output:
+   Result:
 
    ```json
    {

@@ -17,7 +17,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% list tabs %}
 
-* Manually
+- Manually
 
    1. [Create a {{ mch-name }} cluster](../operations/cluster-create.md) in any suitable configuration with the `db1` database. To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to the cluster hosts when creating it.
 
@@ -29,7 +29,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) for {{ RMQ }}. To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access when creating it.
 
-* Using Terraform
+- Using {{ TF }}
 
    1. If you don't have {{ TF }}, {% if audience != "internal" %}[install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}install it{% endif %}.
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
@@ -135,11 +135,11 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% list tabs %}
 
-* Manually
+- Manually
 
    In the [{{ mch-name }} cluster settings](../operations/update.md#change-clickhouse-config), specify the username and password for authentication {{ RMQ }} in **DBMS settings** → **Rabbitmq**.
 
-* Using Terraform
+- Using {{ TF }}
 
    Add to the cluster description the `clickhouse.config.rabbitmq` block with the username and password for {{ RMQ }} authentication:
 
@@ -317,7 +317,7 @@ The query will return a table with data sent to {{ RMQ }}.
 
 {% list tabs %}
 
-* Manually
+- Manually
 
    If you no longer need these resources, delete them:
 
@@ -325,7 +325,7 @@ The query will return a table with data sent to {{ RMQ }}.
    * {% if audience != "internal" %}[Delete a virtual machine](../../compute/operations/vm-control/vm-delete.md){% else %}Delete a virtual machine{% endif %}.
    * If you reserved public static IP addresses, release and {% if audience != "internal" %}[delete them](../../vpc/operations/address-delete.md){% else %}delete them{% endif %}.
 
-* Using Terraform
+- Using {{ TF }}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
