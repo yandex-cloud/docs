@@ -67,76 +67,11 @@ The next step assumes that you connect to the cluster from a [Linux](../compute/
 1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
 1. Get an SSL certificate:
 
-   {% if audience != "internal" %}
-
-   1. Create a folder:
-
-      ```bash
-      mkdir ~/.mongodb
-      ```
-
-   1. Get a certificate:
-
-      ```bash
-      wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/root.crt
-      ```
-
-   1. Configure permissions to the certificate:
-
-      ```bash
-      chmod 0600 ~/.mongodb/root.crt
-      ```
-
-   {% else %}
-
-   1. Create a folder:
-
-      ```bash
-      mkdir ~/.mongodb
-      ```
-
-   1. Get a certificate:
-
-      ```bash
-      wget "{{ pem-path }}" -O ~/.mongodb/root.crt
-      ```
-
-   1. Configure permissions to the certificate:
-
-      ```bash
-      chmod 0600 ~/.mongodb/root.crt
-      ```
-
-   {% endif %}
+    {% include [install-certificate](../_includes/mdb/mmg/install-certificate.md) %}
 
 1. Connect to the cluster using the {{ MG }} CLI:
 
-   {% if audience != "internal" %}
-
-   ```bash
-   mongo --norc \
-     --ssl \
-     --sslCAFile ~/.mongodb/root.crt \
-     --host 'rs01/<address of host 1>:27018,<address of host 2>:27018,<address of host N>:27018' \
-     -u <username> \
-     -p <user password> \
-     <DB name>
-   ```
-
-   {% else %}
-
-   ```bash
-   mongo --norc \
-     --ssl \
-     --sslCAFile ~/.mongodb/root.crt \
-     --ipv6 \
-     --host 'rs01/<address of host 1>:27018,<address of host 2>:27018,<address of host N>:27018' \
-     -u <username> \
-     -p <user password> \
-     <DB name>
-   ```
-
-   {% endif %}
+    {% include [default-connstring-old](../_includes/mdb/mmg/default-connstring-old.md) %}
 
 ## What's next {#whats-next}
 

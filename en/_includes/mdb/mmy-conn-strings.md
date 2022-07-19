@@ -10,15 +10,7 @@
 
   **Connecting via SSL:**
 
-  ```bash
-  mysql --host=<FQDN of the {{ MY }} host> \
-        --port=3306 \
-        --ssl-ca=~/.mysql/root.crt \
-        --ssl-mode=VERIFY_IDENTITY \
-        --user=<username> \
-        --password \
-        <DB name>
-  ```
+  {% include [default-connstring](./mmy/default-connstring.md) %}
 
   **Connecting without SSL:**
 

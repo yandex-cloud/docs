@@ -76,34 +76,14 @@ These instructions assume that you're connecting to the cluster from the interne
 It is assumed that all the steps below are performed on Linux.
 
 To connect to a cluster:
+
 1. Install an SSL certificate:
 
-   {% if audience != "internal" %}
-
-   ```bash
-   mkdir -p ~/.elasticsearch && \
-   wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
-   chmod 0600 ~/.elasticsearch/root.crt
-   ```
-
-   {% else %}
-
-   ```bash
-   mkdir -p ~/.elasticsearch && \
-   wget "https://{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
-   chmod 0600 ~/.elasticsearch/root.crt
-   ```
-
-   {% endif %}
+   {% include [install-certificate](../_includes/mdb/mes/install-certificate.md) %}
 
 1. Connect to the cluster using [cURL](https://curl.haxx.se/):
 
-   ```bash
-   curl \
-     --user <username>:<password> \
-     --cacert ~/.elasticsearch/root.crt \
-     -X GET 'https://<FQDN of the publicly available {{ ES }} host with the Data node role>:9200'
-   ```
+   {% include [default-connstring](../_includes/mdb/mes/default-connstring.md) %}
 
    To connect, enter the username and password used when [creating a cluster](#cluster-create).
 

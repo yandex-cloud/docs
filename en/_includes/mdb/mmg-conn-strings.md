@@ -18,15 +18,7 @@
 
   **Connecting via SSL for older `mongo` versions:**
 
-  ```bash
-  mongosh --norc \
-          --ssl \
-          --sslCAFile /home/<home directory>/.mongodb/root.crt \
-          --host '<{{ MG }} host 1 FQDN>:{{ port-mmg }},...,<{{ MG }} host N FQDN>:{{ port-mmg }}' \
-          --username <DB username> \
-          --password <DB user password> \
-          <DB name>
-  ```
+  {% include [default-connstring-old](./mmg/default-connstring-old.md) %}
 
   **Connecting without SSL:**
 

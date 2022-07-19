@@ -80,47 +80,8 @@ If you did everything correctly, the list clusters query should now work:
 1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
 1. To connect to the DB server, get an SSL certificate:
 
-   {% if audience != "internal" %}
+    {% include [install-certificate](../_includes/mdb/mch/install-certificate.md) %}
 
-   1. Create a folder:
-
-      ```bash
-      mkdir ~/.clickhouse
-      ```
-
-   1. Get a certificate:
-
-      ```bash
-      wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.clickhouse/root.crt
-      ```
-
-   1. Configure permissions to the certificate:
-
-      ```bash
-      chmod 0600 ~/.clickhouse/root.crt
-      ```
-
-   {% else %}
-
-   1. Create a folder:
-
-      ```bash
-      mkdir ~/.clickhouse
-      ```
-
-   1. Get a certificate:
-
-      ```bash
-      wget "{{ pem-path }}" -O ~/.clickhouse/root.crt
-      ```
-
-   1. Configure permissions to the certificate:
-
-      ```bash
-      chmod 0600 ~/.clickhouse/root.crt
-      ```
-
-   {% endif %}
 
 1. Use the ClickHouse CLI to connect:
    1. Specify the path to the SSL certificate in the [configuration file]({{ ch.docs }}/interfaces/cli/#interfaces_cli_configuration) in the `<caConfig>` element:
@@ -130,7 +91,7 @@ If you did everything correctly, the list clusters query should now work:
         <openSSL>
           <client>
             <loadDefaultCAFile>true</loadDefaultCAFile>
-            <caConfig>~/.clickhouse/root.crt</caConfig>
+            <caConfig>/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt</caConfig>
             <cacheSessions>true</cacheSessions>
             <disableProtocols>sslv2,sslv3</disableProtocols>
             <preferServerCiphers>true</preferServerCiphers>
@@ -144,14 +105,7 @@ If you did everything correctly, the list clusters query should now work:
 
    1. Run the {{ CH }} CLI with the following parameters:
 
-      ```bash
-      clickhouse-client --host <host's FQDN> \
-        -s \
-        --user <DB user name> \
-        --password <DB user password> \
-        -q "<DB query>" \
-        --port 9440
-      ```
+      {% include [default-connstring](../_includes/mdb/mch/default-connstring.md) %}
 
 ## What's next {#whats-next}
 

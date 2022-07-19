@@ -65,58 +65,11 @@ If you did everything correctly, the list clusters query should now work:
 1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
 1. To connect to the DB server, get an SSL certificate:
 
-   {% if audience != "internal" %}
-
-   1. Create a folder:
-
-      ```bash
-      mkdir ~/.mysql
-      ```
-
-   1. Get a certificate:
-
-      ```bash
-      wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt
-      ```
-
-   1. Configure permissions to the certificate:
-
-      ```bash
-      chmod 0600 ~/.mysql/root.crt
-      ```
-
-   {% else %}
-
-   1. Create a folder:
-
-      ```bash
-      mkdir ~/.mysql
-      ```
-
-   1. Get a certificate:
-
-      ```bash
-      wget "{{ pem-path }}" -O ~/.mysql/root.crt
-      ```
-
-   1. Configure permissions to the certificate:
-
-      ```bash
-      chmod 0600 ~/.mysql/root.crt
-      ```
-
-   {% endif %}
+    {% include [install-certificate](../_includes/mdb/mmy/install-certificate.md) %}
 
 1. Use the `mysql` command to connect:
 
-   ```bash
-   mysql --host=<host address> \
-     --port=3306 \
-     --ssl-ca=~/.mysql/root.crt \
-     --ssl-mode=REQUIRED \
-     --user=<DB user name> \
-     --password <DB user password>
-   ```
+   {% include [default-connstring](../_includes/mdb/mmy/default-connstring.md) %}
 
 ## What's next {#whats-next}
 

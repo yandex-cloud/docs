@@ -93,49 +93,19 @@
 
   **Command example for connecting via SSL:**
 
-  {% if audience == "internal" %}
+  {% include [default-connstring](./mes/default-connstring.md) %}
 
-  ```bash
-   curl \
-     --user <username>:<password> \
-     --cacert ~/.elasticsearch/root.crt \
-     -X GET 'https://c-<{{ ES }} cluster ID>.rw.{{ dns-zone }}:9200/'
-  ```
-
-   {% else %}
-
-  ```bash
-   curl \
-     --user <username>:<password> \
-     --cacert ~/.elasticsearch/root.crt \
-     -X GET 'https://c-<{{ ES }} cluster ID>.rw.{{ dns-zone }}:9200/'
-  ```
-
-  {% endif %}
 
 - PowerShell
 
   **Command example for connecting via SSL:**
 
-  {% if audience == "internal" %}
-
-  ```powershell
-   curl `
-     -Certificate <absolute path to the certificate file> `
-     -Uri https://c-<{{ ES }} cluster ID>.rw.{{ dns-zone }}:9200 `
-     -Credential <username>
-  ```
-
-   {% else %}
-
   ```powershell
    curl `
      -Certificate <absolute path to the certificate file> `
      -Uri https://c-{{ ES }} cluster ID>.rw.{{ dns-zone }}:9200 `
-     |||UNTRANSLATED_CONTENT_START|||-Credential <username>|||UNTRANSLATED_CONTENT_END|||
+     -Credential <username>
   ```
-
-  {% endif %}
 
    In the window that opens, enter the user's password.
 

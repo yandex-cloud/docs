@@ -55,23 +55,7 @@ To get started with the service:
 
 1. If TLS support is enabled in your cluster, set up an SSL certificate:
 
-   1. Create a folder:
-
-        ```bash
-        mkdir ~/.redis
-        ```
-
-   1. Get a certificate:
-
-        ```bash
-        wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.redis/{{ crt-local-file }}
-        ```
-
-   1. Configure permissions to the certificate:
-
-        ```bash
-        chmod 0600 ~/.redis/{{ crt-local-file }}
-        ```
+    {% include [install-certificate](../_includes/mdb/mrd/install-certificate.md) %}
 
 1. [Configure security groups](operations/connect/index.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
 1. Connect to the cluster using `redis-cli`.
@@ -100,13 +84,7 @@ To get started with the service:
 
       1. Connect to the host with this address:
 
-         ```bash
-         redis-cli -h c-<cluster ID>.rw.{{ dns-zone }} \
-           -p {{ port-mrd-tls }} \
-           -a <{{ RD }} password> \
-           --tls \
-           --cacert ~/.redis/{{ crt-local-file }}
-         ```
+        {% include [default-connstring](../_includes/mdb/mrd/default-connstring.md) %}
 
       **To connect directly to the master (without SSL):**
 

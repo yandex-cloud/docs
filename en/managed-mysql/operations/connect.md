@@ -102,23 +102,7 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 - Linux (Bash)
 
-   {% if audience != "internal" %}
-
-   ```bash
-   mkdir ~/.mysql && \
-   wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt && \
-   chmod 0600 ~/.mysql/root.crt
-   ```
-
-   {% else %}
-
-   ```bash
-   mkdir ~/.mysql && \
-   wget "{{ pem-path }}" -O ~/.mysql/root.crt && \
-   chmod 0600 ~/.mysql/root.crt
-   ```
-
-   {% endif %}
+  {% include [install-certificate](../../_includes/mdb/mmy/install-certificate.md) %}
 
    The certificate will be saved in the `$HOME/.mysql/root.crt` directory.
 
