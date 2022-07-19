@@ -1,14 +1,65 @@
 # Релизы YC CLI
 
-## Версия 0.92.0 (05.07.22) {#latest-release}
+## Версия 0.93.0 (19.07.22) {#latest-release}
 
-### Изменения в CLI {#cli}
-
-* Исправлена ошибка запуска `yc` при передаче большого количества аргументов.
- 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ certificate-manager-name }} {#certificate-manager}
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mch-name }}**
+
+* В команде `yc managed-clickhouse cluster restore` следующие аргументы сделаны опциональными:
+
+  * `--name`
+  * `--description`
+  * `--host`
+  * `--user`
+
+  Если эти параметры не были указаны, они будут взяты из исходного кластера.
+  Хосты **{{ CH }}** и **{{ ZK }}** будут восстановлены с той же конфигурацией, что и в исходном кластере.
+  Хосты **{{ CH }}** будут восстановлены только для тех шардов, чьи бекапы указаны для восстановления.
+
+**{{ mpg-name }}**
+
+* Команды `yc managed-postgresql database crete`, `yc managed-postgresql database list` и `yc managed-postgresql database get`
+
+  Добавлена поддержка шаблонов при создании базы с помощью `--template-db string`.
+
+{% if product == "yandex-cloud" %}
+
+**{{ mmg-name }}**
+
+* При создании нового кластера по умолчанию выбирается версия MongoDB 5.0.
+
+{% endif %}
+
+#### {{ managed-k8s-name }} {#k8s}
+
+* Команды `yc managed-kubernetes node-group create` и `yc managed-kubernetes node-group update`:
+
+  * Добавлен флаг `--node-name`, позволяющий указать шаблон именования узлов в группе.
+
+  * Добавлены флаги `--template-labels` и `--template-labels-from-files`, позволяющие указать [ресурсные метки {{ yandex-cloud }}](../overview/concepts/services.md#labels) для ВМ — узлов группы (не путать с [метками узлов {{ k8s }}](../managed-kubernetes/concepts/index.md#node-labels)).
+
+{% if product == "yandex-cloud" %}
+
+#### {{ serverless-containers-name }} {#serverless-containers}
+
+* В команду `yc serverless container revision deploy` добавлены флаги `--network-id` и `--network-name`, чтобы указывать сеть, которую будет использовать ревизия контейнера. Также в команду добавлен флаг `--subnets`, позволяющий получить детальный список подсетей.
+
+{% endif %}
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.92.0 (05.07.22) {#version0.92.0}
+
+#### Изменения в CLI {#cli}
+
+* Исправлена ошибка запуска `yc` при передаче большого количества аргументов.
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ certificate-manager-name }} {#certificate-manager}
 
 * В команду `yc certificate-manager certificate create` добавлен флаг `--deletion-protection`, который включает защиту сертификата от удаления.
 
@@ -19,7 +70,7 @@
 
 {% if product == "yandex-cloud" %}
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mrd-name }}**
 
@@ -36,9 +87,6 @@
 * Добавлена команда `yc managed-sqlserver hosts update <HOST> --assign-public-ip=true|false`, которая привязывает или удаляет публичный IP-адрес хоста.
 
 {% endif %}
-
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.91.0 (12.05.22){#version0.91.0}
 
