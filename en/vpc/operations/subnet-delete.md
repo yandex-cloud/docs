@@ -48,6 +48,69 @@ You cannot restore a subnet after it is deleted.
       ```
       yc vpc subnet delete test-subnet-1
       ```
+
+- {{ TF }}
+
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   To delete a subnet created using {{ TF }}:
+
+   1. Open the {{ TF }} configuration file and delete the fragment with the subnet description.
+
+      {% cut "Example subnet description in a {{ TF }} configuration" %}
+
+      ```hcl
+      ...
+      resource "yandex_vpc_subnet" "lab-subnet-a" {
+        name           = "subnet-1"
+        description    = "My first subnet"
+        v4_cidr_blocks = ["10.2.0.0/16"]
+        zone           = "ru-central1-a"
+        network_id     = "${yandex_vpc_network.lab-net.id}"
+      }
+      ...
+      ```
+
+      {% endcut %}
+
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
+
+   1. Check the configuration using the command:
+
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+
+      ```
+      yc vpc subnet list
+      ```
+
 {% endlist %}
 
 ## Examples {#examples}

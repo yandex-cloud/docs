@@ -54,6 +54,63 @@ After creating a cloud network, you can change its name, description, and tags.
    yc vpc network update --id enpavfmgapumnl7cqin8 --new-name test-network-renamed --labels new_label=test_label
    ```
 
+- {{ TF }}
+
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   1. Open the {{ TF }} configuration file and edit the fragment with the cloud network description:
+
+      ```hcl
+      ...
+      resource "yandex_vpc_network" "default" {
+        name        = "network-1"
+        description = "My first network"
+        labels = {
+          tf-label    = "tf-label-value"
+          empty-label = ""
+        }
+      }
+      ...
+      ```
+
+      For more information about the parameters of the `yandex_vpc_network` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_network).
+
+   1. Check the configuration using the command:
+
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify the change to the cloud network using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
+
+      ```
+      yc vpc network get <cloud network name>
+      ```
+
 {% endlist %}
 
 ## Examples {#examples}

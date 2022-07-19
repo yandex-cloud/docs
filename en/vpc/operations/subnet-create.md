@@ -120,37 +120,142 @@
       ...
       ```
 
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. In the configuration file, describe the subnet parameters:
+
+      ```hcl
+      resource "yandex_vpc_subnet" "lab-subnet-a" {
+        name           = "<subnet name>"
+        description    = "<subnet description>"
+        v4_cidr_blocks = ["<IPv4 address>"]
+        zone           = "<availability zone>"
+        network_id     = "<network ID>"
+      }
+      ```
+
+      Where:
+      * `name`: Name of the subnet. Name format:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `description`: Description of the subnet.
+      * `v4_cidr_blocks`: List of IPv4 addresses to send traffic from or to. For example, `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. Minimum subnet size is /28, maximum subnet size is /16. Only IPv4 is supported.
+      * `zone`: [availability zone](../../overview/concepts/geo-scope.md).
+      * `network_id`: ID of the network where the subnet is created.
+
+      To add, update, or delete a subnet, use the `yandex_vpc_subnet` resource with the network specified in the `netword id` field (see an [example](#examples)).
+
+      For more information about the parameters of the `yandex_vpc_subnet` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_subnet).
+
+   1. Make sure that the configuration files are correct.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
+
+         ```
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+
+   1. Deploy the cloud resources.
+
+      1. If the configuration doesn't contain any errors, run the command:
+
+         ```
+         terraform apply
+         ```
+
+      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+
+         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+
+         ```
+         yc vpc subnet list
+         ```
+
 {% endlist %}
 
 ## Examples {#examples}
 
 {% list tabs %}
-
 - CLI
 
    Create a subnet with a name and description in the selected folder:
 
-    ```
-    $ yc vpc subnet create --name test-subnet-1 \
-      --description "My test subnet" \
-      --folder-id b1g6ci08ma55klukmdjs \
-      --network-id enplom7a98s1t0lhass8 \
-      --zone ru-central1-b \
-      --range 192.168.0.0/24
-    ```
+   ```
+   yc vpc subnet create --name test-subnet-1 \
+     --description "My test subnet" \
+     --folder-id b1g6ci08ma55klukmdjs \
+     --network-id enplom7a98s1t0lhass8 \
+     --zone {{ region-id }}-a \
+     --range 192.168.0.0/24
+   ```
 
-    Create a subnet with DHCP settings:
+   Create a subnet with DHCP settings:
+   ```
+   yc vpc subnet create --name test-subnet-1 \
+     --description "My test subnet" \
+     --folder-id b1g6ci08ma55klukmdjs \
+     --network-id enplom7a98s1t0lhass8 \
+     --zone {{ region-id }}-a \
+     --range 192.168.0.0/24 \
+     --domain-name test.domain \
+     --domain-name-server 192.168.0.100 \
+     --ntp-server 192.168.0.101
+   ```
 
-    ```
-    $ yc vpc subnet create --name test-subnet-1 \
-      --description "My test subnet" \
-      --folder-id b1g6ci08ma55klukmdjs \
-      --network-id enplom7a98s1t0lhass8 \
-      --zone {{ region-id }}-a \
-      --range 192.168.0.0/24 \
-      --domain-name test.domain \
-      --domain-name-server 192.168.0.100 \
-      --ntp-server 192.168.0.101
-    ```
+- {{ TF }}
+
+   1. Describe the properties of the `yandex_vpc_subnet` resource in a configuration file:
+
+      ```hcl
+      resource "yandex_vpc_network" "lab-net" {
+        name        = "network-1"
+        description = "My first network"
+      }
+
+      resource "yandex_vpc_subnet" "lab-subnet-a" {
+        name           = "subnet-1"
+        description    = "My first subnet"
+        v4_cidr_blocks = ["10.2.0.0/16"]
+        zone           = "ru-central1-a"
+        network_id     = "${yandex_vpc_network.lab-net.id}"
+      }
+      ```
+
+      For more information about the resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_subnet).
+
+   1. Make sure that the configuration files are correct.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
+
+         ```
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+
+   1. Deploy the cloud resources.
+
+      1. If the configuration doesn't contain any errors, run the command:
+
+         ```
+         terraform apply
+         ```
+
+      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+
+         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+
+         ```
+         yc vpc subnet list
+         ```
 
 {% endlist %}
