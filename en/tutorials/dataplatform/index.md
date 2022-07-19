@@ -5,7 +5,6 @@
    * [Managing data schemas](schema-registry-overview.md)
    * [Working with the managed registry of data format schemas](managed-schema-registry.md)
    * [Working with Confluent Schema Registry](confluent-schema-registry.md)
-* [Delivering data to {{ mkf-name }} using Debezium](kafka-cdc.md)
 * [Migrating databases from {{ mmy-full-name }} to {{ MY }}](mmy-to-mysql-migration.md)
 * [Configuring a managed database in a {{ CH }} cluster for Graphite](clickhouse-for-graphite.md)
 {% if product == "yandex-cloud" %}
@@ -13,11 +12,13 @@
 {% endif %}
 * [Using Confluent Schema Registry with {{ mkf-name }}](confluent-schema-registry.md)
 * [Configuring Kafka Connect for {{ mkf-name }} clusters](kafka-connect.md)
-* [Delivering data to {{ mkf-name }} using Debezium](kafka-cdc.md)
+* [{#T}](kafka-cdc.md)
+* [{#T}](./kafka-cdc-data-transfer.md)
 {% if product == "yandex-cloud" %}
 * [Using Confluent Schema Registry with {{ mkf-name }}](confluent-schema-registry.md)
 * [Configuring Kafka Connect for {{ mkf-name }} clusters](kafka-connect.md)
-* [Delivering data to {{ mkf-name }} using Debezium](kafka-cdc.md)
+* [{#T}](kafka-cdc.md)
+* [{#T}](./kafka-cdc-data-transfer.md)
 * [Migrating databases to {{ mms-name }}](mssql-data-migration.md)
 {% endif %}
 * [Migrating data from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}](rdbms-to-clickhouse.md)

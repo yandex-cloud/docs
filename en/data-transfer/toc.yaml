@@ -14,11 +14,11 @@ items:
         href: operations/index.md
       - name: Preparing for the transfer
         href: operations/prepare.md
-      - name: Configuring endpoints
+      - name: Endpoints
         items:
           - name: Endpoint management
             href: operations/endpoint/index.md
-          - name: Configuring source endpoints
+          - name: Source endpoint parameters
             items:
               - name: Apache Kafka®
                 href: operations/endpoint/source/kafka.md
@@ -73,6 +73,8 @@ items:
         href: tutorials/managed-mysql-to-mysql.md
       - name: Migrating databases to {{ mpg-full-name }}
         href: tutorials/managed-postgresql.md
+      - name: Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }}
+        href: tutorials/kafka-cdc.md
       - name: Migrating data from {{ PG }} to {{ CH }}
         href: tutorials/rdbms-to-clickhouse.md
   - name: Concepts
@@ -106,6 +108,7 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
+    when: audience != "internal"
     href: pricing.md
   - name: API reference
     items:
