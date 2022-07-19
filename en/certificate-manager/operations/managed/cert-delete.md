@@ -42,10 +42,9 @@ To delete a certificate:
           --id fpq6gvvm6piuegbb2nol
         ```
 
-        Command parameters:
-          - `--id`: Certificate ID.
+        Where `--id` is the certificate ID.
 
-        Command results:
+        Result:
 
         ```bash
         id: fpq6gvvm6piuegbb2nol

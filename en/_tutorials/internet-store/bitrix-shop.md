@@ -98,7 +98,7 @@ To configure the VM to work with 1C-Bitrix:
 1. Log in to the VM via SSH (using `ubuntu` as the username that you set when [creating the VM](#create-vm)):
 
    ```bash
-   $ ssh ubuntu@<VM-public-IP>
+   ssh ubuntu@<VM-public-IP>
    ```
 
    To find out the public IP address of your VM:

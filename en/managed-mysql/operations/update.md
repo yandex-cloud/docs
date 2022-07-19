@@ -55,7 +55,11 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       
       ```
       {{ yc-mdb-my }} resource-preset list
-      
+      ```
+
+      Result:
+
+      ```
       +-----------+--------------------------------+-------+----------+
       |    ID     |            ZONE IDS            | CORES |  MEMORY  |
       +-----------+--------------------------------+-------+----------+
@@ -75,7 +79,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
       {{ mmy-short-name }} will run the update host class command for the cluster.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -150,7 +154,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
         --disk-size <storage size in GB>
       ```
 
-- Terraform
+- {{ TF }}
 
    To increase a cluster's storage size:
 
@@ -233,7 +237,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
       {{ mmy-short-name }} runs the update cluster settings operation.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -329,7 +333,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -486,7 +490,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
         --security-group-ids <security group list>
       ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

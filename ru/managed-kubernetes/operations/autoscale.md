@@ -58,8 +58,8 @@
 
   1. {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-     Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-  1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов.
+     Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов.
 
      О том, как создать такой файл, см. в разделе [{#T}](../operations/node-group/node-group-create.md).
   1. Добавьте описание новой группы узлов, указав настройки автомасштабирования в блоке `scale_policy.auto_scale`:
@@ -102,6 +102,7 @@
      ```
 
      Где:
+
      * `--cpu-percent` — желаемая нагрузка пода на vCPU.
      * `--min` — минимальное количество подов.
      * `--max` — максимальное количество подов.

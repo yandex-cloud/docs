@@ -245,17 +245,19 @@ Create a VM with a public address:
 
    1. Create a VM and specify the created script as the metadata source. As the `security-group-ids` parameter, enter the ID of the `my-rdgw-group` security group:
 
-      ```
-      yc compute instance create `
-        --name my-rds-gw `
-        --hostname my-rds-gw `
-        --memory 4 `
-        --cores 2 `
-        --zone ru-central1-a `
-        --network-interface subnet-name=rdgw-subnet,ipv4-address=10.1.0.3,nat-ip-version=ipv4,security-group-ids=<id_my-rdgw-group> `
-        --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk `
-        --metadata-from-file user-data=setpass
-      ```
+       ```
+       yc compute instance create `
+            --name my-rds-gw `
+            --hostname my-rds-gw `
+            --memory 4 `
+            --cores 2 `
+            --platform-id=standard-v3 `
+            --zone {{ region-id }}-a `
+            --network-interface subnet-name=rdgw-subnet,ipv4-address=10.1.0.3,nat-ip-version=ipv4,security-group-ids=<id_my-rdgw-group> `
+            --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk `
+            --metadata-from-file user-data=setpass
+       ```
+
       Result:
 
       ```

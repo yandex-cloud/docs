@@ -85,7 +85,7 @@ yc-alb-ingress-controller ./yc-alb-ingress-controller-chart/
 yc certificate-manager certificate list
 ```
 
-Результат выполнения команды:
+Результат:
 
 ```text
 +-----------------+-------+----------------+---------------------+----------+--------+
@@ -144,6 +144,7 @@ yc certificate-manager certificate list
      ```
 
      Где:
+
      * `ingress.alb.yc.io/subnets` — одна или несколько [подсетей](../../vpc/concepts/network.md#subnet), с которыми будет работать {{ alb-name }}.
      * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию. Хотя бы одна из групп безопасности должна разрешать исходящие TCP-соединения к портам 10501 и 10502 в подсети группы узлов или в ее группу безопасности.
      * `ingress.alb.yc.io/external-ipv4-address` — предоставление публичного доступа к {{ alb-name }} из интернета. Укажите [заранее полученный IP-адрес](../../vpc/operations/get-static-ip.md), либо установите значение `auto`, чтобы получить новый.
@@ -402,7 +403,7 @@ yc certificate-manager certificate list
      kubectl get ingress alb-demo-tls
      ```
 
-     Ожидаемый результат — непустое значение в поле `ADDRESS` для созданного Ingress-контроллера:
+     Результат — непустое значение в поле `ADDRESS` для созданного Ingress-контроллера:
 
      ```bash
      NAME          CLASS   HOSTS           ADDRESS     PORTS    AGE
@@ -623,7 +624,7 @@ yc certificate-manager certificate list
      kubectl get ingress alb-demo-tls
      ```
 
-     Ожидаемый результат — непустое значение в поле `ADDRESS` для созданного Ingress-контроллера:
+     Результат — непустое значение в поле `ADDRESS` для созданного Ingress-контроллера:
 
      ```bash
      NAME          CLASS   HOSTS           ADDRESS     PORTS    AGE

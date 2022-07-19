@@ -60,11 +60,11 @@ To change the HTTP router parameters:
 
 
 
-- Terraform
+- {{ TF }}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. Open the Terraform configuration file and edit the fragment with the HTTP router description.
+   1. Open the {{ TF }} configuration file and edit the fragment with the HTTP router description.
 
       ```hcl
       ...
@@ -78,7 +78,7 @@ To change the HTTP router parameters:
       ...
       ```
 
-      For more information about the `yandex_alb_http_router` resource in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router).
+      For more information about the `yandex_alb_http_router` resource in {{ TF }}, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_http_router).
 
    1. To add, update, or delete an HTTP router's virtual hosts, use the `yandex_alb_virtual_host` resource indicating the router in the `http_router_id` field:
 
@@ -98,7 +98,7 @@ To change the HTTP router parameters:
       }
       ```
 
-      For more information about the `yandex_alb_virtual_host` resource in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
+      For more information about the `yandex_alb_virtual_host` resource in {{ TF }}, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
 
    1. Check the configuration using the command:
 
@@ -118,7 +118,7 @@ To change the HTTP router parameters:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
 
@@ -327,11 +327,11 @@ To add a new route to an HTTP router's virtual host:
       ...
       ```
 
-- Terraform
+- {{ TF }}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. Open the Terraform configuration file and edit the fragment with the virtual host description by adding the `route` section:
+   1. Open the {{ TF }} configuration file and edit the fragment with the virtual host description by adding the `route` section:
 
       ```hcl
       resource "yandex_alb_virtual_host" "my-virtual-host" {
@@ -349,7 +349,7 @@ To add a new route to an HTTP router's virtual host:
       }
       ```
 
-      For more information about the `yandex_alb_virtual_host` resource in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
+      For more information about the `yandex_alb_virtual_host` resource in {{ TF }}, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_virtual_host).
 
       The sequence of routes inside a virtual host description matters. For more information, see the [concept](../../application-load-balancer/concepts/http-router.md#virtual-host).
 
@@ -371,7 +371,7 @@ To add a new route to an HTTP router's virtual host:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
 

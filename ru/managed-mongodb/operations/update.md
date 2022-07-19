@@ -41,14 +41,14 @@
   1. Посмотрите описание команды CLI для изменения кластера:
 
       ```
-      $ {{ yc-mdb-mg }} cluster update --help
+      {{ yc-mdb-mg }} cluster update --help
       ```
 
   1. Запросите список доступных классов хостов (в колонке `ZONES` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
      
      ```bash
-     $ {{ yc-mdb-mg }} resource-preset list
+     {{ yc-mdb-mg }} resource-preset list
 
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
@@ -64,13 +64,13 @@
   1. Укажите нужный класс в команде изменения кластера:
 
       ```
-      $ {{ yc-mdb-mg }} cluster update <имя кластера>
+      {{ yc-mdb-mg }} cluster update <имя кластера>
            --mongod-resource-preset <ID класса>
       ```
 
       {{ mmg-short-name }} запустит операцию изменения класса хостов для кластера.
 
-- Terraform
+- {{ TF }}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   
@@ -146,7 +146,7 @@
 
       Если все условия выполнены, {{ mmg-short-name }} запустит операцию по увеличению объема хранилища.
   
-- Terraform
+- {{ TF }}
 
   Чтобы увеличить размер хранилища для кластера:
 
@@ -208,7 +208,7 @@
   Чтобы изменить [настройки {{ MG }}](../concepts/settings-list.md#dbms-cluster-settings) для кластера, используйте команду:
 
   ```
-  $ {{ yc-mdb-mg }} cluster update-config
+  {{ yc-mdb-mg }} cluster update-config
   ```
 
   Например, для установки значения параметра [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-net.maxIncomingConnections) в `4096`, выполните следующую команду:
@@ -288,7 +288,7 @@
 
     Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
       
@@ -449,7 +449,7 @@
           --security-group-ids <список групп безопасности>
         ```
 
-- Terraform
+- {{ TF }}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
       

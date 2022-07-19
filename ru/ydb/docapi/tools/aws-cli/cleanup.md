@@ -24,7 +24,7 @@ sourcePath: overlay/quickstart/document-api/aws-cli/cleanup.md
         --endpoint $endpoint
     ```
 
-   Результат выполнения:
+   Результат:
 
    ```text
    {

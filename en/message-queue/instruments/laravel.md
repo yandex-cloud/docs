@@ -13,8 +13,8 @@ Install the Laravel software using the [instructions](https://laravel.com/docs/6
 Set the environment variables:
 
 ```
-$ export AWS_ACCESS_KEY_ID="<access key ID>"
-$ export AWS_SECRET_ACCESS_KEY="<secret key>"
+export AWS_ACCESS_KEY_ID="<access key ID>"
+export AWS_SECRET_ACCESS_KEY="<secret key>"
 ```
 
 Create a queue in {{ message-queue-name }} and copy the URL.
@@ -28,13 +28,13 @@ To use {{ message-queue-name }} with Laravel, follow these instructions.
 1. Create a test project named `mq_example`:
 
    ```
-   $ composer create-project --prefer-dist laravel/laravel mq_example
+   composer create-project --prefer-dist laravel/laravel mq_example
    ```
 
 1. Create an `Add` task:
 
    ```
-   $ php artisan make:job Add
+   php artisan make:job Add
    ```
 
 1. Open the file `/app/Jobs/Add.php` and reformat it as follows:
@@ -82,7 +82,7 @@ To use {{ message-queue-name }} with Laravel, follow these instructions.
 1. Create a new `ScheduleAdd` command:
 
    ```
-   $ php artisan make:command ScheduleAdd
+   php artisan make:command ScheduleAdd
    ```
 
 1. Open the file `app/Console/Commands/ScheduleAdd.php` and reformat it as follows:
@@ -154,23 +154,23 @@ To use {{ message-queue-name }} with Laravel, follow these instructions.
 1. Add the `aws/aws-sdk-php` package to the project dependencies:
 
    ```
-   $ composer require aws/aws-sdk-php
+   composer require aws/aws-sdk-php
    ```
 
 1. Update the Composer configuration:
 
    ```
-   $ composer update
+   composer update
    ```
 
 1. Run the command:
 
    ```
-   $ php artisan sample:schedule-add
+   php artisan sample:schedule-add
    ```
 
 1. Run the command:
 
    ```
-   $ php artisan queue:work
+   php artisan queue:work
    ```

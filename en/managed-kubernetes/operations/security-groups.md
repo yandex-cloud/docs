@@ -88,7 +88,7 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
 
 {% list tabs %}
 
-- Terraform
+- {{ TF }}
 
   For example, you need to create rules for an existing {{ k8s }} cluster:
   * With the zonal master located in the `{{ region-id }}-a` availability zone.

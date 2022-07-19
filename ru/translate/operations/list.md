@@ -9,9 +9,9 @@
 Получите список поддерживаемых языков с помощью метода [listLanguages](../api-ref/Translation/listLanguages):
 
 ```bash
-$ export FOLDER_ID=b1gvmob95yysaplct532
-$ export IAM_TOKEN=CggaATEVAgA...
-$ curl -X POST \
+export FOLDER_ID=b1gvmob95yysaplct532
+export IAM_TOKEN=CggaATEVAgA...
+curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
     -d "{\"folderId\": \"${FOLDER_ID}\"}" \

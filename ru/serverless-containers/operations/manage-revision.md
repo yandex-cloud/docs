@@ -51,12 +51,12 @@
 
     ```
     yc serverless container revision deploy \
-       --container-name <имя_контейнера> \
-       --image <URL_Docker-образа> \
-       --cores 1 \
-       --memory 1GB \
-       --service-account-id <идентификатор_сервисного_аккаунта> \
-       --environment <переменные_окружения>
+      --container-name <имя_контейнера> \
+      --image <URL_Docker-образа> \
+      --cores 1 \
+      --memory 1GB \
+      --service-account-id <идентификатор_сервисного_аккаунта> \
+      --environment <переменные_окружения>
     ```
 
     Где:
@@ -65,15 +65,15 @@
     * `--memory` — требуемая память. По умолчанию — 128 МБ.
     * `--environment` — переменные окружения в формате `key=value`. Можно указать несколько пар через запятую.
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Чтобы добавить переменные окружения:
 
-  1. Откройте файл конфигурации Terraform и для ресурса `yandex_serverless_container` в блок `image` добавьте список `environment` с переменными окружения:
+  1. Откройте файл конфигурации {{ TF }} и для ресурса `yandex_serverless_container` в блок `image` добавьте список `environment` с переменными окружения:
 
      ```hcl
      ...
@@ -91,11 +91,9 @@
      ...
      ```
 
-     Где:
+     Где `--environment` — переменные окружения в формате `key="value"`. Можно указать несколько пар.
 
-     * `--environment` — переменные окружения в формате `key="value"`. Можно указать несколько пар.
-
-	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
+	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
 
   1. Проверьте конфигурацию командой:
      ```
@@ -113,7 +111,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
      ```

@@ -52,6 +52,8 @@ The [{{ alb-name }} Ingress controller for {{ managed-k8s-full-name }}](../tools
      yc-alb-ingress-controller ./yc-alb-ingress-controller-chart-v{{ alb-ingress-version }}.tgz
    ```
 
+   Where:
+
    * `--namespace`: name of namespace created prior to installation.
    * `--set` and `--set-file` set [values for the chart](https://helm.sh/docs/topics/charts/#templates-and-values) either directly or from a file:
 

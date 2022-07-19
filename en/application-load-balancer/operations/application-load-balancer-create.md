@@ -165,11 +165,11 @@ To create an L7 load balancer:
       created_at: "2022-04-04T02:12:40.160629110Z"
       ```
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the parameters of resources that you want to create:
 
@@ -204,6 +204,7 @@ To create an L7 load balancer:
       ```
 
       Where:
+
       * `name`: Name of the L7 load balancer. Name format:
 
          {% include [name-format](../../_includes/name-format.md) %}
@@ -218,7 +219,7 @@ To create an L7 load balancer:
          * `endpoint`: Description of the listener's addresses and ports. Set the external IPv4 address and port for receiving traffic. If the `external_ipv4_address` parameter is not set, a public IP address is assigned automatically.
          * `http`: Description of the listener's HTTP endpoint. Specify the HTTP router ID.
 
-      For more information about the `yandex_alb_load_balancer` resource in Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_load_balancer).
+      For more information about the `yandex_alb_load_balancer` resource in {{ TF }}, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_load_balancer).
 
    1. Make sure that the configuration files are correct.
 
@@ -229,7 +230,7 @@ To create an L7 load balancer:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

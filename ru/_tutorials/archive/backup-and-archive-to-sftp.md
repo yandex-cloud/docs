@@ -79,7 +79,7 @@
 1. Откройте конфигурационный файл в редакторе vi. Этот редактор поставляется с дистрибутивом и не требует установки. Если вы не знакомы с этим редактором, то подробности вы можете узнать в [официальной документации](https://www.vim.org/docs.php).
 
     ```bash
-    $ sudo vi /etc/ssh/sshd_config
+    sudo vi /etc/ssh/sshd_config
     ```
 
 1. Добавьте следующие строчки в конец файла:
@@ -107,7 +107,7 @@
 1.  Выведите конфигурационный файл без закомментированных и пустых строк:
 
     ```bash
-    $ cat /etc/ssh/sshd_config | grep -v -e '^#' -e '^$'
+    cat /etc/ssh/sshd_config | grep -v -e '^#' -e '^$'
     ```
 
 1. Убедитесь, что вывод предыдущей команды совпадает с данными строками:
@@ -140,17 +140,17 @@
 1. Сохраните файл.
 1. Перезагрузите SFTP-сервис, чтобы настройки вступили в силу:
     ```bash
-    $ sudo systemctl restart sshd
+    sudo systemctl restart sshd
     ```
 
 1. Создайте группу для SFTP-пользователей:
     ```bash
-    $ sudo groupadd ftpusers
+    sudo groupadd ftpusers
     ```  
 
 1. Создайте папки для сохранения файлов:
     ```bash
-    $ sudo mkdir -p /var/sftp/backups
+    sudo mkdir -p /var/sftp/backups
     ```
 
     * `sftp` — корневая папка SFTP-сервера.
@@ -158,17 +158,17 @@
 
 1.  Установите разрешения на папки таким образом, чтобы все пользователи, входящие в состав группы `ftpusers` могли записывать и читать файлы на SFTP-сервере:
     ```bash
-    $ sudo chown root:ftpusers /var/sftp/backups
-    $ sudo chmod 770 /var/sftp/backups
+    sudo chown root:ftpusers /var/sftp/backups
+    sudo chmod 770 /var/sftp/backups
     ```
 
 1. Проверьте корректность выставленных разрешений:
 
     ```bash
-    $ ls -la /var | grep sftp
-    $ ls -la /var/sftp
+    ls -la /var | grep sftp
+    ls -la /var/sftp
     ```
-    Результат должен быть следующим:
+    Результат:
     
     ```bash
     drwxr-xr-x.  4 root root   37 Aug  7 11:35 sftp
@@ -180,17 +180,17 @@
 
 1. Создайте SFTP-пользователя, например `fuser`:
     ```bash
-    $ sudo useradd fuser
+    sudo useradd fuser
     ```
 
 1. Создайте пароль для SFTP-пользователя
     ```bash
-    $ sudo passwd fuser
+    sudo passwd fuser
     ```
 
 1. Создайте SSH-ключи для пользователя `fuser`. Команда должна выполняться от имени пользователя `fuser`:
     ```bash
-    $ sudo runuser -l  fuser -c 'ssh-keygen'
+    sudo runuser -l  fuser -c 'ssh-keygen'
     ```
 
     Процесс генерации ключа приведен ниже. Поле `passphrase` оставьте пустым.  
@@ -223,15 +223,15 @@
 1. Создайте файл для сохранения публичных SSH-ключей SFTP-клиента. Поставьте нужные разрешения. 
 
     ```bash
-    $ sudo touch /home/fuser/.ssh/authorized_keys
-    $ sudo chmod 600 /home/fuser/.ssh/authorized_keys
-    $ sudo chown fuser:fuser /home/fuser/.ssh/authorized_keys
+    sudo touch /home/fuser/.ssh/authorized_keys
+    sudo chmod 600 /home/fuser/.ssh/authorized_keys
+    sudo chown fuser:fuser /home/fuser/.ssh/authorized_keys
     ```
 
 1. Убедитесь, что разрешения выставлены верно:
 
     ```bash
-    $ ls -la /home/fuser/.ssh/
+    ls -la /home/fuser/.ssh/
     ```
 
     Вывод должен быть таким:
@@ -243,7 +243,7 @@
 
 1. Добавьте SFTP-пользователя в SFTP-группу:
     ```bash
-    $ sudo usermod -G ftpusers fuser
+    sudo usermod -G ftpusers fuser
     ```
 
 ## Создайте виртуальную машину для SFTP-клиента {#create-vm-sftp-client}
@@ -255,18 +255,18 @@
 1. Создайте пару SSH-ключей на SFTP-клиенте. Процесс аналогичен описанному для пользователя `fuser` в [предыдущем разделе](#create-sftp-user):
 
     ```bash
-    $ ssh-keygen
+    ssh-keygen
     ```
 
 1. Выведите публичный ключ на экране SFTP-клиента:
     ```bash
-    $ cat ~/.ssh/id_rsa.pub
+    cat ~/.ssh/id_rsa.pub
     ```
 
 1. Зайдите на SFTP-сервер и откройте файл `/home/fuser/.ssh/authorized_keys`: 
         
     ```bash
-    $ sudo vi /home/fuser/.ssh/authorized_keys
+    sudo vi /home/fuser/.ssh/authorized_keys
     ```
 1. Скопируйте SSH-ключ, полученный на SFTP-клиенте, в конец файла.
 1. Сохраните файл.
@@ -283,12 +283,12 @@
 
    1. Введите команду в терминале SFTP-сервера, подставив соответствующее значение:
       ```bash
-      $ ping <IP адрес SFTP-клиента>
+      ping <IP адрес SFTP-клиента>
       ```
    1. Убедитесь, что пакеты отправляются и получаются успешно: 
     
       ```bash
-      $ ping 84.201.170.171
+      ping 84.201.170.171
       PING 84.201.170.171 (84.201.170.171) 56(84) bytes of data.
       64 bytes from 84.201.170.171: icmp_seq=1 ttl=55 time=8.59 ms
       64 bytes from 84.201.170.171: icmp_seq=2 ttl=55 time=6.32 ms
@@ -317,22 +317,22 @@
 1. Установите переменные окружения для корректной работы скрипта. Для этого откройте файл `~/.bash_profile`
 
     ```bash
-    $ vi ~/.bash_profile
+    vi ~/.bash_profile
     ```
 1. Добавьте следующие строчки в конец файла, подставив нужные значения:
    ```bash
-   $ export SFTP_SERVER=<IP адрес SFTP-клиента>
-   $ export SFTP_USER='fuser'
+   export SFTP_SERVER=<IP адрес SFTP-клиента>
+   export SFTP_USER='fuser'
    ```
 
 1. Примените настройки:
    ```bash
-   $ source ~/.bash_profile
+   source ~/.bash_profile
    ```
 
 1. Проверьте, что у вас появились данные переменные:
    ```bash
-   $ env | grep SFTP
+   env | grep SFTP
    ```
 
     На экране должно появиться:
@@ -343,34 +343,36 @@
 
 1. Запакуйте все конфигурационные файлы в один архив:
     ```bash
-    $ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -
+    sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -
     ```
     * `sudo find /etc -type f -name *.conf -print0` — поиск всех файлов `.conf` из папки `/etc`.
     * `sudo tar -czf backup.tar.gz --null -T -` — перемещение конфигурационных файлов в архив `backup.tar.gz`.
 
 1. Перешлите полученный архив на SFTP-сервер:
    ```bash
-   $ url -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER:
+   url -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER:
    ```
+
+   Где:
+
+   * `-T` — загрузить файл `backup.tar.gz` на удаленный сервер.
+   * `$SFTP_SERVER` – переменная, которая автоматически примет значение IP адреса SFTP-сервера.
+   * `backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz` — добавить к названию архива название компьютера, а также дату и время, когда был создан архив. Это позволит не потеряться в навигации по списку резервных копий на сервере.
     
-    * `-T` — загрузить файл `backup.tar.gz` на удаленный сервер.
-    * `$SFTP_SERVER` – переменная, которая автоматически примет значение IP адреса SFTP-сервера.
-    * `backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz` — добавить к названию архива название компьютера, а также дату и время, когда был создан архив. Это позволит не потеряться в навигации по списку резервных копий на сервере.
+     Например, имя архива на сервере может выглядеть так: `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz`. 
     
-      Например, имя архива на сервере может выглядеть так: `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz`. 
-    
-    * `--insecure` — отключить проверку SSL сертификатов со стороны SFTP-сервера. При этом трафик в рамках SSH-сессии все равно шифруется.
-    * `$SFTP_USER` – переменная, которая автоматически примет значение SFTP-пользователя.
+   * `--insecure` — отключить проверку SSL сертификатов со стороны SFTP-сервера. При этом трафик в рамках SSH-сессии все равно шифруется.
+   * `$SFTP_USER` – переменная, которая автоматически примет значение SFTP-пользователя.
     
 1. Удалите архив на SFTP-клиенте:
     
    ```bash
-   $ sudo rm -f backup.tar.gz
+   sudo rm -f backup.tar.gz
    ```
 
 Все действия для создания резервной копии можно выполнить одной командой:
 ```bash
-$ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
+sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
 ```
 
 ## Настройте расписание для резервного копирования {#schedule}
@@ -380,7 +382,7 @@ $ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --nu
 1. Откройте файл `crontab` для редактирования:
 
    ```bash
-   $ crontab -e
+   crontab -e
    ```
 
 1. Добавьте следующую строку, чтобы запускать резервное копирование каждый день в 11 часов вечера:
@@ -397,13 +399,13 @@ $ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --nu
 1. Запустите на SFTP-клиенте команду для резервного копирования:
 
    ```bash
-   $ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
+   sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --null -T -&& curl -T backup.tar.gz sftp://$SFTP_SERVER/backups/backup_$(hostname)_$(date "+%Y%m%d_%H%M%S").tar.gz --insecure --user $SFTP_USER: && sudo rm -f backup.tar.gz
     ```
 
 1. Зайдите на SFTP-сервер и убедитесь, что файл вида `backup_ftp-server.{{ region-id }}.internal_20190803_180228.tar.gz` появился в домашнем каталоге SFTP-пользователя. Для этого на SFTP-сервере запустите команду:
 
    ```bash
-   $ sudo ls /var/sftp/backups
+   sudo ls /var/sftp/backups
    ```
 
 
@@ -429,31 +431,31 @@ $ sudo find /etc -type f -name *.conf -print0 | sudo tar -czf backup.tar.gz --nu
 1. Скачайте резервную копию с SFTP-сервера на SFTP-клиент:
 
    ```bash
-   $ sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP .
+   sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP .
    ```
 
 1. Распакуйте архив:
 
    ```bash
-   $ tar -xzf $SFTP_BACKUP
+   tar -xzf $SFTP_BACKUP
    ```
 1. Скопируйте конфигурационные файлы из архива в систему (`yes` — избегать ввода подтверждения при перезаписи файлов):
 
    ```bash
-   $ yes | cp -rfp etc / 
+   yes | cp -rfp etc / 
    ```
 
 1. Удалите архив и распакованное содержимое:
 
    ```bash
-   $ rm -f $SFTP_BACKUP
-   $ rm -rfd etc
+   rm -f $SFTP_BACKUP
+   rm -rfd etc
     ```
 
 Все действия для восстановления из резервной копии можно выполнить одной командой:
 
 ```bash
-$ sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP && yes | cp -rfp etc / && rm -rfd etc && rm -f $SFTP_BACKUP
+sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP && yes | cp -rfp etc / && rm -rfd etc && rm -f $SFTP_BACKUP
 ```
 
 ## Проверьте корректность восстановления {#check-restore}
@@ -461,14 +463,14 @@ $ sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP 
 Чтобы проверить, что конфигурационные файлы из архива успешно попадают в файловую систему, добавьте проверочный блок в команду полученную выше:
 
 ```bash
-$ sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP && echo "## this is from backup" >> etc/yum.conf && yes | cp -rfp etc / && rm -rfd etc && rm -f $SFTP_BACKUP
+sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP && echo "## this is from backup" >> etc/yum.conf && yes | cp -rfp etc / && rm -rfd etc && rm -f $SFTP_BACKUP
 ```
     
 Команда `echo "## this is from backup" >> etc/yum.conf` записывает тестовую фразу "## this is from backup" в конец файла `etc/yum.conf`, распакованного из архива.
 
 После восстановления из резервной копии выполните следующую команду: 
 ```bash
-$ cat /etc/yum.conf | grep backup
+cat /etc/yum.conf | grep backup
 ```
 
 Убедитесь, что на экране отображается тестовая фраза:

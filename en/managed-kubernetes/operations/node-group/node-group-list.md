@@ -22,7 +22,7 @@ Get a list of [node groups](../../concepts/index.md#node-group) in a {{ k8s }} c
   yc managed-kubernetes node-group list
   ```
 
-  Command output:
+  Result:
 
   ```text
   +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
@@ -59,7 +59,7 @@ To access a node group, use the `ID` or `NAME` parameters from the [previous](no
   yc managed-kubernetes node-group get test-nodegroup
   ```
 
-  Command output:
+  Result:
 
   ```text
   id: catvhf4iv6dt8hguut9i

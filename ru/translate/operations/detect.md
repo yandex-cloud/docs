@@ -12,10 +12,10 @@
 
 Чтобы определить, на каком языке написан текст, передайте его в теле запроса [detectLanguage](../api-ref/Translation/detectLanguage):
 ```bash
-$ export FOLDER_ID=b1gvmob95yysaplct532
-$ export IAM_TOKEN=CggaATEVAgA...
-$ export TEXT="Hello, world"
-$ curl -X POST \
+export FOLDER_ID=b1gvmob95yysaplct532
+export IAM_TOKEN=CggaATEVAgA...
+export TEXT="Hello, world"
+curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
     -d "{\"folderId\": \"${FOLDER_ID}\", \"text\": \"${TEXT}\"}" \
@@ -47,8 +47,8 @@ $ curl -X POST \
 Сохраните тело запроса в файле, например `body.json`, и передайте его с помощью метода [detectLanguage](../api-ref/Translation/detectLanguage):
 
 ```bash
-$ export IAM_TOKEN=CggaATEVAgA...
-$ curl -X POST \
+export IAM_TOKEN=CggaATEVAgA...
+curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
     -d '@body.json' \

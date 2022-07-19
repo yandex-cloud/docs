@@ -57,7 +57,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
       yc ydb database create <name> --serverless
       ```
 
-      `name`: The name of your database.
+      Where `name` is the name of your database.
 
       Result:
 
@@ -92,7 +92,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
       yc ydb database get <name>
       ```
 
-      `name`: The name of the created database.
+      Where `name` is the name of the created database.
 
       When a database is being created, it has the `PROVISIONING` status. When it is ready for use, the status changes to `RUNNING`.
 
@@ -152,6 +152,8 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
         --network-name default\
         --async
       ```
+
+      Where:
 
       * `--resource-preset STR`: The configuration of node computing resources. Possible values are listed in the "Configuration name" column of the [Computing resources](concepts/index.md#resource-presets) table on the page with information about databases.
       * `--storage STR`: The media type and number of storage groups in `type=<type>,groups=<groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
@@ -221,7 +223,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
       yc ydb database get <name>
       ```
 
-      `name`: The name of the created database.
+      Where `name` is the name of the created database.
 
       When a database is being created, it has the `PROVISIONING` status. When it is ready for use, the status changes to `RUNNING`.
 

@@ -68,7 +68,7 @@
         - Bash
 
           ```
-          $ IMAGE_ID=$(yc compute image get-latest-from-family container-optimized-image --folder-id standard-images --format=json | jq -r .id)
+          IMAGE_ID=$(yc compute image get-latest-from-family container-optimized-image --folder-id standard-images --format=json | jq -r .id)
           ```
 
         - PowerShell
@@ -91,6 +91,7 @@
         ```
 
         Где:
+
         * `--name` — имя ВМ.
         * `--zone` — зона доступности.
         * `--network-interface` — сетевые настройки ВМ.

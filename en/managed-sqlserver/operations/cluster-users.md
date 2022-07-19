@@ -94,7 +94,7 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
       {% include [user-name-limits](../../_includes/mdb/mms/note-info-user-name-limits.md) %}
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -171,7 +171,7 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
    {% include [password-limits](../../_includes/mdb/mms/note-info-password-limits.md) %}
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -249,7 +249,7 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To configure a user's permissions to access certain databases, run the command below listing the database names in the `--databases` parameter:
+   To configure a user's permissions to access certain databases, run the command:
 
    ```bash
    {{ yc-mdb-ms }} user update <username> \
@@ -257,13 +257,15 @@ You can use SQL commands to assign privileges to users, but you can't use them t
       --databases=<list of databases to grant user access to>
    ```
 
+   Where `--databases` is a list of the database names.
+
    You can get the cluster name with a [list of clusters in your folder](cluster-list.md#list-clusters), and the database names [with the database list in your cluster](databases.md#list-db).
 
    This command grants the user access rights to the databases listed.
 
    To revoke access to a database, pass a list without the database in the `--databases` argument.
 
-- Terraform
+- {{ TF }}
 
    To configure user access to specific databases:
 
@@ -345,7 +347,7 @@ Step-by-step user role configuration instructions are provided under [Assigning 
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

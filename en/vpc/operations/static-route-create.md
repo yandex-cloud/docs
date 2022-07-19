@@ -55,7 +55,9 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
       ```
       yc vpc network list
       ```
+
       Result:
+
       ```
       +----------------------+-----------------+
       |          ID          |      NAME       |
@@ -65,29 +67,36 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
       +----------------------+-----------------+
       ```
 
-   1. Create a routing table in one of the networks. Use the following flags:
+  1. Create a routing table in one of the networks. Use the following flags:
 
-      * `name` — The name of the route table.
-      * `network-id` — The ID of the network where the tables will be created.
-      * `route` — The route settings with two parameters:
-         * `destination` — The destination subnet prefix in CIDR notation.
-         * `next-hop` — The internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) that traffic is sent through.
+     ```
+     yc vpc route-table create \
+       --name=test-route-table \
+       --network-id=enp846vf5fus0nt3lu83 \
+       --route destination=0.0.0.0/0,next-hop=192.168.1.5
+     ```
 
-      ```
-      yc vpc route-table create --name=test-route-table --network-id=enp846vf5fus0nt3lu83 --route destination=0.0.0.0/0,next-hop=192.168.1.5
-      ```
-      Result:
-      ```
-      ...done
-      id: enpsi6b08q2vfdmppsnb
-      folder_id: b1gqs1teo2q2a4vnmi2t
-      created_at: "2019-06-24T09:57:54Z"
-      name: test-route-table
-      network_id: enp846vf5fus0nt3lu83
-      static_routes:
-      - destination_prefix: 0.0.0.0/0
-        next_hop_address: 192.168.1.5
-      ```
+     Where:
+
+     * `name` — The name of the route table.
+     * `network-id` — The ID of the network where the tables will be created.
+     * `route` — The route settings with two parameters:
+        * `destination` — The destination subnet prefix in CIDR notation.
+        * `next-hop` — The internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) that traffic is sent through.
+
+     Result:
+
+     ```
+     ...done
+     id: enpsi6b08q2vfdmppsnb
+     folder_id: b1gqs1teo2q2a4vnmi2t
+     created_at: "2019-06-24T09:57:54Z"
+     name: test-route-table
+     network_id: enp846vf5fus0nt3lu83
+     static_routes:
+     - destination_prefix: 0.0.0.0/0
+       next_hop_address: 192.168.1.5
+     ```
 
    To use static routes, link the route table to a subnet:
 

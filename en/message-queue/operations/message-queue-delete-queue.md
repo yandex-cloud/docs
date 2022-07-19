@@ -22,11 +22,11 @@ To delete a message queue:
      --endpoint https://message-queue.{{ api-host }}/      
    ```
 
-- Terraform
+- {{ TF }}
 
-   If you created a message queue using Terraform, you can delete it:
+   If you created a message queue using {{ TF }}, you can delete it:
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
    1. Delete resources using the command:
       ```
       terraform destroy
@@ -34,7 +34,7 @@ To delete a message queue:
 
       {% note alert %}
 
-      Terraform deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
 
       {% endnote %}
 

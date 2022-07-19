@@ -1,6 +1,6 @@
 ---
-title: Dead Letter Queue in {{ message-queue-full-name }}
-description: "Dead Letter Queue (DLQ) is a queue where messages that could not be processed by recipients in regular queues can be forwarded. Messages may not be processed for a number of reasons, for example, due to changed states of the sender or recipient. Messages forwarded to DLQ will be stored there for further diagnostics and will no longer interfere with applications."
+title: "What is Dead Letter Queue (DLQ)?"
+description: "The Dead Letter Queue (DLQ) is a queue for messages that consumers couldn't process in standard queues. There are many reasons for problems with message processing, such as unexpected state changes in producers or consumers. Messages that are moved to the DLQ are stored there for analysis and no longer affect the activity of applications."
 ---
 
 # Dead Letter Queue

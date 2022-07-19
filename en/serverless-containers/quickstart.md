@@ -154,7 +154,7 @@ After creating the container, you'll get the invocation link. [Retrieving the li
 curl -H "Authorization: Bearer $(yc iam create-token)" https://bba3fva6ka5g********.containers.yandexcloud.net/hello
 ```
 
-Output:
+Result:
 
 ```
 Hello!

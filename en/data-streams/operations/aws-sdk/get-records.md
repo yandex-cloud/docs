@@ -60,7 +60,7 @@
      python3 stream_get_records.py
      ```
 
-     Execution output:
+     Result:
 
      ```text
      The record has been read successfully

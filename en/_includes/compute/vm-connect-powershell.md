@@ -26,7 +26,7 @@ To connect to the VM:
     $networkCredential | Select-Object UserName, Password
     ```
 
-    Execution result:
+    Result:
 
     ```text
     UserName      Password
@@ -61,7 +61,7 @@ To connect to the VM:
     Enter-PSSession @psSession
     ```
 
-    Command execution result:
+    Result:
 
     ```text
     [<ip-address>]: PS C:\Users\$myUserName\Documents>
@@ -85,7 +85,7 @@ To connect to the VM:
     Get-PSSession
     ```
 
-    Execution result:
+    Result:
 
     ```text
     Id Name            ComputerName    ComputerType    State         ConfigurationName     Availability
@@ -104,7 +104,7 @@ To connect to the VM:
     Invoke-Command @invokeCommand
     ```
 
-    Execution result:
+    Result:
 
     ```text
     Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName                    PSComputerName

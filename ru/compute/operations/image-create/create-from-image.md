@@ -41,9 +41,9 @@
   
       ```
       yc compute image create \
-          --name new-image \
-          --source-image-name first-image \
-          --description "new image via yc"
+        --name new-image \
+        --source-image-name first-image \
+        --description "new image via yc"
       ```
   
       Данная команда создаст образ с именем `new-image` и описанием `new image via yc` из образа `first-image`.
@@ -52,15 +52,15 @@
 
       ```
       yc compute image create \
-          --name new-image \
-          --source-image-name first-image \
-          --description "new image via yc" \
-          --pooled
+        --name new-image \
+        --source-image-name first-image \
+        --description "new image via yc" \
+        --pooled
       ```
 
-- Terraform
+- {{ TF }}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. Опишите в конфигурационном файле параметры ресурса `yandex_compute_image`.
 
@@ -73,7 +73,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -84,7 +84,7 @@
         terraform plan
         ```
 
-       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 

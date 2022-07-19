@@ -103,11 +103,6 @@ System and user-defined variables are specified as values for template fields in
 
 1. During the first stage, {{ ig-name }} replaces the [system variables](#first-stage) with the calculated values.
 
-   * In the `instance_template.name` field:
-      * The `{short_zone_var_{instance.zone_id}}` variable is converted to the `{short_zone_var_{{ region-id }}-a}` variable.
-      * The `{instance.index}` system variable is converted to index `1`.
-   * In the `instance_template.hostname` field, the `{instance.index}` system variable is converted to index `1`.
-
    ```yaml
    ...
    variables:
@@ -124,9 +119,14 @@ System and user-defined variables are specified as values for template fields in
    ...
    ```
 
-1. At the second stage, {{ ig-name }} converts the resulting variables to the values from the list in the `variables` section:
+   Where:
+   
+   * In the `instance_template.name` field:
+      * The `{short_zone_var_{instance.zone_id}}` variable is converted to the `{short_zone_var_{{ region-id }}-a}` variable.
+      * The `{instance.index}` system variable is converted to index `1`.
+   * In the `instance_template.hostname` field, the `{instance.index}` system variable is converted to index `1`.
 
-   * In the `instance_template.name` field: the `{short_zone_var_{{ region-id }}-a}` variable is converted to the value `rc1a`.
+1. At the second stage, {{ ig-name }} converts the resulting variables to the values from the list in the `variables` section:
 
    ```yaml
    ...
@@ -143,3 +143,5 @@ System and user-defined variables are specified as values for template fields in
      platform_id: standard-v3
    ...
    ```
+
+    In the `instance_template.name` field: the `{short_zone_var_{{ region-id }}-a}` variable is converted to the value `rc1a`.

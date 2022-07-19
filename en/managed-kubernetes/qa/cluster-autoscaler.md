@@ -36,7 +36,7 @@ Other possible causes:
   kubectl describe node <node name> | grep scale-down-disabled
   ```
 
-  Command output:
+  Result:
 
   ```bash
   Annotations:        cluster-autoscaler.kubernetes.io/scale-down-disabled: true

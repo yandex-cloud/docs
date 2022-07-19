@@ -30,6 +30,7 @@ To view assigned roles:
    ```
 
    Where:
+
    * `<service name>`: Name of a `container` service.
    * `<resource>`: Category of the resource (`registry` or `repository`).
    * `<resource name>`: Name of the resource that the role is assigned for. You can specify a resource by its name or ID.
@@ -41,7 +42,7 @@ To view assigned roles:
    > yc container registry list-access-bindings crp0pmf1n68dh715tf02
    > ```
    >
-   > Command output:
+   > Result:
    >
    > ```bash
    > +--------------------------+------------------+----------------------+

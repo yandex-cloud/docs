@@ -87,13 +87,8 @@ To use an encrypted connection, get an SSL certificate:
 {% list tabs %}
 
 - Ubuntu 20.04
-  
-  ```bash
-  sudo mkdir -p {{ crt-local-dir }} && \
-  sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O {{ crt-local-dir }}{{ crt-local-file }} && \
-  sudo update-ca-certificates
-  ```
 
+  {% include [install-certificate](../../_includes/mdb/mms/install-certificate.md) %}
 
 {% endlist %}
 

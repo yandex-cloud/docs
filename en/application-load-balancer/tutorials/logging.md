@@ -530,6 +530,8 @@ To create a trigger:
      --batch-cutoff 15s
    ```
 
+   Where:
+
    * `--log-groups`: ID of the log group for the load balancer, which you [received earlier](#get-log-group-id).
    * `--invoke-function-name`: Name of the function that you [created earlier](#set-up-sf-create-function).
    * `--invoke-function-service-account-name`: The name of the service account you created along with the function.

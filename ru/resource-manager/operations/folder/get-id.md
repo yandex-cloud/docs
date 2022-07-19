@@ -11,8 +11,7 @@
       {{ link-console-main }}/folders/b1gd129pp9ha0vnvf5g7
       ```
 
-      Где:
-      `b1gd129pp9ha0vnvf5g7` — это идентификатор каталога.
+      Где `b1gd129pp9ha0vnvf5g7` — это идентификатор каталога.
 
 - CLI
 

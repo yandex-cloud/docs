@@ -21,7 +21,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `postgres_source`.
 
@@ -72,7 +72,7 @@ Connecting to the database with an explicitly specified network address and port
 
    {% include [On premise PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-postgresql.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `postgres_source`.
 
@@ -158,7 +158,7 @@ Connecting to the database with an explicitly specified network address and port
       * `--transfer-before-data`: At the initial stage of the transfer.
       * `--transfer-after-data`: At the final stage of the transfer.
 
-- Terraform
+- {{ TF }}
 
    * `include_tables`: List of included tables. Data is only transferred from listed tables.
    * `exclude_tables`: List of excluded tables. Data from tables on this list will not be transferred.

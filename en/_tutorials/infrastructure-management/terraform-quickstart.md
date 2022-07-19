@@ -1,13 +1,12 @@
-# Getting started with Terraform
+# Getting started with {{ TF }}
 
 {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-To create your first infrastructure in {{ yandex-cloud }} using Terraform:
+To create your first infrastructure in {{ yandex-cloud }} using {{ TF }}:
 
 1. [Before you start](#before-you-begin).
-
-1. [Install Terraform](#install-terraform).
-1. [Create a Terraform configuration file](#configure-terraform).
+1. [Install {{ TF }}](#install-terraform).
+1. [Create a {{ TF }} configuration file](#configure-terraform).
 1. [Configure a provider](#configure-provider).
 1. [Prepare an infrastructure plan](#prepare-plan).
 1. [Check and format your configuration files](#check-resources).
@@ -20,24 +19,20 @@ If you no longer need the resources, [delete them](#delete-resources).
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
-
 ### Required paid resources {#paid-resources}
 
-The cost of Terraform-created resources includes:
+The cost of {{ TF }}-created resources includes:
 
 * A fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
 
 
 
-
-
-## Install Terraform {#install-terraform}
+## Install {{ TF }} {#install-terraform}
 
 {% include [terraform_install](../../_tutorials/terraform-install.md) %}
 
-## Create a Terraform configuration file {#configure-terraform}
+## Create a {{ TF }} configuration file {#configure-terraform}
 
 {% include [terraform-configure](../../_tutorials/terraform-configure.md) %}
 
@@ -47,7 +42,7 @@ The cost of Terraform-created resources includes:
 
 ## Prepare an infrastructure plan {#prepare-plan}
 
-Using Terraform in {{ yandex-cloud }}, you can create cloud resources of any type, such as virtual machines, disks, images, and so on. For detailed information on resources you can create with Terraform, see the [provider documentation]({{ tf-provider-link }}/).
+Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type, such as virtual machines, disks, images, and so on. For detailed information on resources you can create with Terraform, see the [provider documentation]({{ tf-provider-link }}/).
 
 To create a resource, specify a set of required and optional parameters that define the resource properties. Such resource descriptions make up an infrastructure plan.
 
@@ -64,7 +59,6 @@ In the VM configuration, you'll need to specify the boot disk image ID. You can 
 To access the VMs over SSH, generate an [SSH key pair](../../compute/operations/vm-connect/ssh#creating-ssh-keys) and pass the public key to the virtual machine in the `ssh-keys` parameter in the `metadata` section.
 
 Resource configurations are specified immediately after the provider's configuration:
-
 
 
 ```hcl
@@ -87,7 +81,6 @@ resource "yandex_compute_instance" "vm-1" {
   name = "terraform1"
 }
 ```
-
 
 
 

@@ -186,7 +186,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
       java -jar target/release/SeriesItemOps01.jar
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Добавление новой записи...
@@ -245,7 +245,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
       python SeriesItemOps01.py
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Сериал успешно добавлен:
@@ -335,7 +335,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
       php SeriesItemOps01.php
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Сериал успешно добавлен: 3 - Supernatural
@@ -403,7 +403,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
       node SeriesItemOps01.js
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```bash
       Добавление новой записи...
@@ -479,7 +479,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
       ruby SeriesItemOps01.rb
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Загрузка сериала 'Supernatural (3)' в таблицу 'Series'...

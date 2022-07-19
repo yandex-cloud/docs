@@ -93,7 +93,7 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
    kubectl exec pod -- tail /data/out.txt
    ```
 
-   Expected execution result:
+   Result:
 
    ```text
    Thu Feb 3 04:55:21 UTC 2022
@@ -233,7 +233,7 @@ To restore the snapshot:
    kubectl exec pod-restore -- tail /data/out.txt
    ```
 
-   Expected execution result:
+   Result:
 
    ```text
    Thu Feb 3 04:55:21 UTC 2022

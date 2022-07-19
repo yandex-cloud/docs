@@ -26,7 +26,7 @@ To delete a [node group](../../concepts/index.md#node-group), use its name or ID
      yc k8s node-group delete <node group name>
      ```
 
-     Command output:
+     Result:
 
      ```bash
      done
@@ -38,7 +38,7 @@ To delete a [node group](../../concepts/index.md#node-group), use its name or ID
      yc managed-kubernetes node-group list
      ```
 
-     Command output:
+     Result:
 
      ```bash
      +----+------------+------+-------------------+------------+--------+------+

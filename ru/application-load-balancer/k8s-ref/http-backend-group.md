@@ -33,6 +33,8 @@ spec:
     - ...
 ```
 
+Где:
+
 * `apiVersion`: `alb.yc.io/v1alpha1`
 * `kind`: `HttpBackendGroup`
 * `metadata` (`ObjectMeta`, обязательное)

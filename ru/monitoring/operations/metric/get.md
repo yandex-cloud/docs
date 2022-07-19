@@ -6,7 +6,7 @@
 
 ### Пример запроса {#sample-request}
 
-1. Создайте файл с телом запроса, например `body.json`. В свойстве `query` укажите текст запроса.
+1. Создайте файл с телом запроса, например `body.json`:
     
     Например, запрос ниже получает данные метрики с загрузкой CPU виртуальной машины с идентификатором `epdpfhoh1r83vdmdnjuf` в период с 00:00 UTC 24 июля до 00:00 UTC 31 июля.
 
@@ -22,11 +22,20 @@
     }
     ```
 
+    Где:
+
+    * `query` – текст запроса:
+      * `cpu_usage` – загрузка CPU.
+      * `resource_id` – идентификатор виртуальной машины.
+    * `fromTime` – начало периода.
+    * `toTime` – конец периода.
+
+
 1. Отправьте запрос и сохраните ответ в файл, например `output.json`:
 
     ```bash
-    $ export IAM_TOKEN=CggaATEVAgA...
-    $ curl -X POST \
+    export IAM_TOKEN=CggaATEVAgA...
+    curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d '@body.json' \

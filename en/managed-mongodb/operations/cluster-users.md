@@ -89,7 +89,7 @@ You can add and delete users as well as manage their individual settings and dat
 
       The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -215,7 +215,7 @@ You can add and delete users as well as manage their individual settings and dat
 
    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters), the DB name with a [list of databases in the cluster](databases.md#list-db), and the user's name with a [list of users in the cluster](cluster-users.md#list-users).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -290,7 +290,7 @@ You can add and delete users as well as manage their individual settings and dat
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

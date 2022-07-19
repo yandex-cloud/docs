@@ -15,7 +15,12 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
    1. View a list of VM instances in the placement group:
 
       ```
-      $ yc compute placement-group list-instances --name my-group
+      yc compute placement-group list-instances --name my-group
+      ```
+
+      Result:
+
+      ```
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
@@ -27,7 +32,7 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
    1. Stop the VM instance that you want to remove:
 
       ```
-      $ yc compute instance stop instance-in-group-2
+      yc compute instance stop instance-in-group-2
       id: epdlv1pp54019j09fhue
       ...
       status: STOPPED
@@ -36,13 +41,18 @@ If you remove a VM instance, you can [delete it forever](../vm-control/vm-delete
    1. Remove the VM instance from the placement group. To do this, update the VM instance, leaving the placement group name (`placement-group-name`) blank:
 
       ```
-      $ yc compute instance update --name instance-in-group-2 --placement-group-name=""
+      yc compute instance update --name instance-in-group-2 --placement-group-name=""
       ```
 
    1. Check that the VM instance was removed from the group:
 
       ```
-      $ yc compute placement-group list-instances --name my-group
+      yc compute placement-group list-instances --name my-group
+      ```
+
+      Result:
+
+      ```
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
       +----------------------+---------------------+---------------+---------+-------------+-------------+

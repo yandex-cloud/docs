@@ -159,7 +159,7 @@
   yc managed-kubernetes node-group add-labels my-node-group --labels new_label=test_label
   ```
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   done (28s)
@@ -217,7 +217,7 @@
   yc managed-kubernetes node-group update my-node-group --labels test_label=my_ng_label
   ```
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   done (3s)
@@ -269,7 +269,7 @@
   yc managed-kubernetes node-group remove-labels my-node-group --labels test_label
   ```
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   done (2s)

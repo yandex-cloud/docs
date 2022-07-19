@@ -14,7 +14,7 @@
 
      ```bash
      yc compute instance create --zone {{ region-id }}-b --name instance-in-group-2
-	 ```
+     ```
 
      Результат:
 
@@ -32,7 +32,7 @@
 
      ```bash
      yc compute placement-group list-instances --name my-group
-	 ```
+     ```
 
      Результат:
 
@@ -48,7 +48,7 @@
 
      ```bash
      yc compute instance stop instance-in-group-2
-	 ```
+     ```
 
      Результат:
 
@@ -62,7 +62,7 @@
 
      ```bash
      yc compute instance update --name instance-in-group-2 --placement-group-name my-group
-	 ```
+     ```
 
      Результат:
 
@@ -79,7 +79,7 @@
 
      ```bash
      yc compute placement-group list-instances --name my-group
-	 ```
+     ```
 
      Результат:
 
@@ -96,7 +96,7 @@
 
      ```bash
      yc compute instance start instance-in-group-2
-	 ```
+     ```
 
      Результат:
 
@@ -120,7 +120,7 @@
 
   1. Добавьте в конфигурационный файл существующей [виртуальной машины](../../operations/vm-create/create-linux-vm.md) поле `placement_group_id` с указанием на ресурс группы размещения `yandex_compute_placement_group`.
 
-     Пример структуры конфигурационного файла виртуальной машины:
+     Пример структуры конфигурационного файла:
 
      ```hcl
      ...
@@ -138,8 +138,7 @@
      ...
      ```
 
-     Где:
-     * `placement_group_id` — идентификатор группы размещения.
+     Где `placement_group_id` — идентификатор группы размещения.
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/compute_instance).
 

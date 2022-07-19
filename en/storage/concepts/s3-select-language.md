@@ -102,7 +102,7 @@ Query:
 SELECT "timestamp", object_key, request_time FROM S3Object WHERE status >= 400
 ```
 
-Query result:
+Result:
 
 ```json
 {"timestamp":"2021-02-26T01:27:19Z","object_key":"name1","request_time":16}
@@ -114,7 +114,7 @@ Query:
 SELECT * FROM S3Object WHERE request_time >= 10
 ```
 
-Query result:
+Result:
 
 ```json
 {"timestamp":"2021-02-26T01:27:19Z","object_key":"name1","status":404,"request_time":16}
@@ -268,7 +268,7 @@ Examples:
   WHERE status = 200
   ```
 
-  Query result:
+  Result:
 
   ```json
   {"count": 2, "min": 6, "max": 12, "sum": 18, "avg": 9.0}
@@ -300,7 +300,7 @@ Examples:
 
   Since all the values in the input CSV files are considered strings, they should be converted to the appropriate types using the `CAST` function.
 
-  Query result:
+  Result:
 
   ```
   count,min,max,sum,avg

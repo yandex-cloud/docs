@@ -47,15 +47,17 @@
 
   {% include [grant-role-for-sa-to-folder-via-api](grant-role-for-sa-to-folder-via-api.md) %}
 
-- Terraform
+- {{ TF }}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
      * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Обязательный параметр.
      * `role` — назначаемая роль. Обязательный параметр.
      * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор пользователя>` или `serviceAccount:<идентификатор сервисного аккаунта>`. Обязательный параметр.
+
+     Пример структуры конфигурационного файла:
 
      ```
      resource "yandex_resourcemanager_folder_iam_binding" "admin-account-iam" {
@@ -78,7 +80,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 

@@ -215,9 +215,9 @@ To create a backend group with a target group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the Terraform configuration file, describe the parameters of the resource to create:
+   1. In the {{ TF }} configuration file, describe the parameters of the resource to create:
 
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {
@@ -245,9 +245,10 @@ To create a backend group with a target group:
       ```
 
       Where:
-      * `yandex_alb_backend_group` specifies the backend group parameters:
-         * `name`: Backend group name.
-         * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: HTTP, gRPC, or Stream.
+
+       * `yandex_alb_backend_group` specifies the backend group parameters:
+       * `name`: Backend group name.
+       * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: HTTP, gRPC, or Stream.
 
       Backend parameters:
       * `name`: Backend name.
@@ -269,7 +270,7 @@ To create a backend group with a target group:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      Terraform creates all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      {{ TF }} creates all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 
       ```bash
       yc alb backend-group list

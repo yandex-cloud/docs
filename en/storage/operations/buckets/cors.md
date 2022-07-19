@@ -41,25 +41,13 @@
        --endpoint-url=https://{{ s3-storage-host }}
      ```
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Get [static access keys](../../../iam/operations/sa/create-access-key.md): a private key and key ID used for authentication in {{ objstorage-short-name }}.
 
   1. In the configuration file, describe the parameters of resources that you want to create:
-     * `access_key`: The ID of the static access key.
-     * `secret_key`: The value of the private access key.
-     * `bucket`: Bucket name. Required parameter.
-     * `acl`: The ACL policy applied. Optional.
-
-     `CORS` parameters:
-     * `allowed_headers`: Headers allowed. Optional.
-     * `allowed_methods`: Methods allowed. Possible values: `GET`, `PUT`, `POST`, `DELETE`, or `HEAD`. Required parameter.
-     * `allowed_origins`: Website that allows sending cross-domain requests to a bucket. Required parameter.
-     * `expose_headers`: Header that can be displayed in a JavaScript app in the browser. Optional.
-     * `max_age_seconds`: Time in seconds during which the results of requests to an object are cached by the browser. Optional.
-     * `server_side_encryption_configuration`: Bucket encryption settings on the server side. Optional.
 
      
      ```hcl
@@ -89,7 +77,22 @@
 
 
 
-     For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
+     Where:
+
+     * `access_key`: The ID of the static access key.
+     * `secret_key`: The value of the private access key.
+     * `bucket`: Bucket name. Required parameter.
+     * `acl`: The ACL policy applied. Optional.
+
+     `CORS` parameters:
+     * `allowed_headers`: Headers allowed. Optional.
+     * `allowed_methods`: Methods allowed. Possible values: `GET`, `PUT`, `POST`, `DELETE`, or `HEAD`. Required parameter.
+     * `allowed_origins`: Website that allows sending cross-domain requests to a bucket. Required parameter.
+     * `expose_headers`: Header that can be displayed in a JavaScript app in the browser. Optional.
+     * `max_age_seconds`: Time in seconds during which the results of requests to an object are cached by the browser. Optional.
+     * `server_side_encryption_configuration`: Bucket encryption settings on the server side. Optional.
+
+     For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
   1. Make sure that the configuration files are correct.
 
@@ -101,7 +104,7 @@
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
   1. Deploy the cloud resources.
 

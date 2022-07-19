@@ -52,15 +52,15 @@
 	status: ACTIVE
 	```
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  Чтобы изменить имя или описание контейнера, созданного с помощью Terraform:
+  Чтобы изменить имя или описание контейнера, созданного с помощью {{ TF }}:
 
-  1. Откройте файл конфигурации Terraform и измените значения полей `name` и `description` в описании ресурса `yandex_serverless_container`:
+  1. Откройте файл конфигурации {{ TF }} и измените значения полей `name` и `description` в описании ресурса `yandex_serverless_container`:
 
      ```hcl
      ...
@@ -76,7 +76,7 @@
      ...
      ```
 
-	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
+	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
 
   1. Проверьте конфигурацию командой:
      ```
@@ -94,7 +94,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
      ```
@@ -139,24 +139,25 @@
 
     ```     
     id: flh7r96juaqq********
-	folder_id: aoek6qrs8tjh********
-	created_at: "2021-08-17T07:53:10.219Z"
-	name: my-beta-container
-	description: my beta container description
-	labels:
-	  label: test
-	url: https://flh7r96juaqq********.containers.cloud-preprod.yandex.net/
-	status: ACTIVE
+    folder_id: aoek6qrs8tjh********
+    created_at: "2021-08-17T07:53:10.219Z"
+    name: my-beta-container
+    description: my beta container description
+    labels:
+      label: test
+    url: https://flh7r96juaqq********.containers.cloud-preprod.yandex.net/
+    status: ACTIVE
     ```
-- Terraform
+
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  Чтобы добавить метки в контейнер, созданный с помощью Terraform:
+  Чтобы добавить метки в контейнер, созданный с помощью {{ TF }}:
 
-  1. Откройте файл конфигурации Terraform и в ресурс `yandex_serverless_container` добавьте блок `labels`:
+  1. Откройте файл конфигурации {{ TF }} и в ресурс `yandex_serverless_container` добавьте блок `labels`:
 
      ```hcl
      ...
@@ -173,7 +174,7 @@
      ...
      ```
 
-	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
+	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
 
   1. Проверьте конфигурацию командой:
      ```
@@ -191,7 +192,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
      ```
@@ -240,15 +241,15 @@
 	status: ACTIVE
     ```
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  Чтобы изменить метку контейнера, созданного с помощью Terraform:
+  Чтобы изменить метку контейнера, созданного с помощью {{ TF }}:
 
-  1. Откройте файл конфигурации Terraform и в ресурсе `yandex_serverless_container` измените блок `labels`:
+  1. Откройте файл конфигурации {{ TF }} и в ресурсе `yandex_serverless_container` измените блок `labels`:
 
      ```hcl
      ...
@@ -265,7 +266,7 @@
      ...
      ```
 
-	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
+	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
 
   1. Проверьте конфигурацию командой:
      ```
@@ -283,7 +284,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
      ```
@@ -316,22 +317,23 @@
 
     ```
     id: flh7r96juaqq********
-	folder_id: aoek6qrs8tjh********
-	created_at: "2021-08-17T07:53:10.219Z"
-	name: my-beta-container
-	description: my beta container description
-	url: https://flh7r96juaqq********.containers.cloud-preprod.yandex.net/
-	status: ACTIVE
+    folder_id: aoek6qrs8tjh********
+    created_at: "2021-08-17T07:53:10.219Z"
+    name: my-beta-container
+    description: my beta container description
+    url: https://flh7r96juaqq********.containers.cloud-preprod.yandex.net/
+    status: ACTIVE
     ```
-- Terraform
+    
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  Чтобы удалить метку контейнера, созданнго с помощью Terraform:
+  Чтобы удалить метку контейнера, созданнго с помощью {{ TF }}:
 
-  1. Откройте файл конфигурации Terraform и в ресурсе `yandex_serverless_container` удалите метку в блоке `labels`:
+  1. Откройте файл конфигурации {{ TF }} и в ресурсе `yandex_serverless_container` удалите метку в блоке `labels`:
      ```hcl
      ...
      resource "yandex_serverless_container" "test-container" {
@@ -347,7 +349,7 @@
      ...
      ```
 
-	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
+	 Более подробную информацию о параметрах ресурса `yandex_serverless_container` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/serverless_container).
 
   1. Проверьте конфигурацию командой:
      ```
@@ -365,7 +367,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
      ```

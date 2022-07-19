@@ -126,7 +126,7 @@ To connect, specify the [public IP address](../../vpc/concepts/address.md#public
   kubectl get nodes -o wide
   ```
 
-  Command execution result:
+  Result:
 
   ```bash
   NAME                       STATUS  ROLES   AGE  VERSION  INTERNAL-IP  EXTERNAL-IP     OS-IMAGE            KERNEL-VERSION     CONTAINER-RUNTIME
@@ -152,7 +152,7 @@ To connect, specify the [public IP address](../../vpc/concepts/address.md#public
      yc managed-kubernetes node-group list
      ```
 
-     Command execution result:
+     Result:
 
      ```bash
      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
@@ -170,7 +170,7 @@ To connect, specify the [public IP address](../../vpc/concepts/address.md#public
      yc compute instance-group list-instances cl17i6943n92sb98jifg
      ```
 
-     Command execution result:
+     Result:
 
      ```bash
      +----------------------+---------------------------+--------------------------+---------------+----------------+

@@ -20,7 +20,7 @@ To access the [policy](../../concepts/lifecycle-policy.md), use its ID. For info
       yc container repository lifecycle-policy list --repository-name crp2hlbs67tj4ggrfodb/ubuntu
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +----+------+---------------+--------+---------+-------------+

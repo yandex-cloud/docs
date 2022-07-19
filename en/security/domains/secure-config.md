@@ -38,16 +38,16 @@ When deploying virtual machines, we recommend:
 - Use this image to create a virtual machine or [instance group](../../compute/concepts/instance-groups/index.md).
 - Look up the virtual machine's information to check that it was created using this image.
 
-### Terraform {#terraform}
+### {{ TF }} {#terraform}
 
-With Terraform, you can manage a cloud infrastructure using configuration files. If you change the files, Terraform automatically determines which part of your configuration is already deployed and what should be added or removed. For more information, see [Getting started with Terraform](../../tutorials/infrastructure-management/terraform-quickstart.md).
+With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} automatically determines which part of your configuration is already deployed and what should be added or removed. For more information, see [Getting started with {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 
-We don't recommend using private information in Terraform configuration files, such as: passwords, secrets, personal data, or payment system data. Instead, you should use services to store and use secrets in the configuration file, such as: [HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} or [{{ lockbox-name }}](../../lockbox/index.yaml) (to transfer secrets to the target object without using Terraform).
+We don't recommend using private information in {{ TF }} configuration files, such as: passwords, secrets, personal data, or payment system data. Instead, you should use services to store and use secrets in the configuration file, such as: [HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} or [{{ lockbox-name }}](../../lockbox/index.yaml) (to transfer secrets to the target object without using {{ TF }}).
 
 If you still need to enter private information in the configuration, you should take the following security measures:
 - Specify the [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) parameter for private information to disable outputting it to the console when running `terraform plan`and `terraform apply`.
-- Use [terraform remote state](https://www.terraform.io/docs/language/state/remote.html). We recommend uploading a Terraform state to {{ objstorage-full-name }} (see [Uploading Terraform states to {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md)) and setting up configuration locking using {{ ydb-full-name }} to prevent simultaneous editing by administrators (see a [setup example](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state)). 
-- Use the mechanism for [transferring secrets to Terraform via env](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) instead of plain text or use built-in {{ kms-name }} features for [encrypting data in Terraform](../../kms/tutorials/terraform-secret.md) (using a separate file with private data) ([learn more about this technique](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073)).
+- Use [terraform remote state](https://www.terraform.io/docs/language/state/remote.html). We recommend uploading a {{ TF }} state to {{ objstorage-full-name }} (see [Uploading {{ TF }} states to {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md)) and setting up configuration locking using {{ ydb-full-name }} to prevent simultaneous editing by administrators (see a [setup example](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state)). 
+- Use the mechanism for [transferring secrets to {{ TF }} via env](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) instead of plain text or use built-in {{ kms-name }} features for [encrypting data in {{ TF }}](../../kms/tutorials/terraform-secret.md) (using a separate file with private data) ([learn more about this technique](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073)).
 
    For more information about {{ objstorage-name }} security, see [{{ objstorage-full-name }}](#object-storage) below.
 
@@ -112,7 +112,7 @@ Bucket policies are used for additional data protection, for example, to restric
 With ACLs, you can grant access to an object bypassing {{ iam-short-name }} verification and bucket policies. We recommend setting strict ACLs for buckets.
 
 
-![](../../_assets/overview/solution-library-icon.svg) [Example of a secure {{ objstorage-name }} configuration: Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/configuration/hardering_bucket)
+![](../../_assets/overview/solution-library-icon.svg) [Example of a secure {{ objstorage-name }} configuration: {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/configuration/hardering_bucket)
 
 ### Deletion protection and version backups {#versioning}
 

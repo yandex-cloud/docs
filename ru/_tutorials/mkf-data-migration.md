@@ -60,7 +60,7 @@
 
 {% list tabs %}
 
-* Вручную
+- Вручную
 
     1. [Создайте кластер-приемник {{ mkf-name }}](../managed-kafka/operations/cluster-create.md):
 
@@ -70,7 +70,7 @@
 
     1. [Создайте новую ВМ Linux](../compute/operations/vm-create/create-linux-vm.md) для MirrorMaker в той же сети, к которой подключен кластер-приемник. Для подключения к виртуальной машине с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ при ее создании.
 
-* С помощью Terraform
+- С помощью {{ TF }}
 
     1. Если у вас еще нет {{ TF }}, [установите его](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
@@ -254,7 +254,7 @@
 
 {% list tabs %}
 
-* Вручную
+- Вручную
 
     Если созданные ресурсы вам больше не нужны, удалите их:
 
@@ -262,7 +262,7 @@
     * [Удалите виртуальную машину](../compute/operations/vm-control/vm-delete.md).
     * Если вы зарезервировали публичные статические IP-адреса, освободите и [удалите их](../vpc/operations/address-delete.md)
 
-* С помощью Terraform
+- С помощью {{ TF }}
 
     Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
 

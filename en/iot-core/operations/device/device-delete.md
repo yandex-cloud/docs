@@ -39,15 +39,15 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       +----+------+
       ```
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about Terraform, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   Devices created using Terraform can be deleted:
+   Devices created using {{ TF }} can be deleted:
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
    2. Delete resources using the command:
       ```
       terraform destroy
@@ -55,7 +55,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
       {% note alert %}
 
-      Terraform deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
 
       {% endnote %}
 

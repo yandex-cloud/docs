@@ -62,13 +62,13 @@
 
    You can add a listener using the [addListener](../api-ref/NetworkLoadBalancer/addListener.md) API method.
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. Open the Terraform configuration file and add the `listener` section to the network load balancer description.
+   1. Open the {{ TF }} configuration file and add the `listener` section to the network load balancer description.
 
       ```hcl
       ...
@@ -96,6 +96,7 @@
       ```
 
       Where:
+
       * `name`: The name of the network load balancer. Name format:
 
          {% include [name-format](../../_includes/name-format.md) %}
@@ -111,7 +112,7 @@
          * `target_group_id`: Target group ID.
          * `healthcheck`: Health check parameters. Enter a name, a port number ranging from 1 to 32767, and a path for health checks.
 
-      For more information about the `yandex_lb_network_load_balancer` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For more information about the `yandex_lb_network_load_balancer` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
    1. Check the configuration using the command:
 
@@ -131,7 +132,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
 
@@ -164,11 +165,11 @@
      --listener name=test-listener,port=80,internal-subnet-id=e9b81t3kjmi0auoi0vpj,internal-address=10.10.0.14
    ```
 
-- Terraform
+- {{ TF }}
 
-   1. Open the Terraform configuration file and add the `listener` section to the internal network load balancer's description.
+   1. Open the {{ TF }} configuration file and add the `listener` section to the internal network load balancer's description.
 
-      {% cut "Example of adding a listener to an internal network load balancer using Terraform" %}
+      {% cut "Example of adding a listener to an internal network load balancer using {{ TF }}" %}
 
       ```
       resource "yandex_lb_network_load_balancer" "internal-lb-test" {
@@ -187,7 +188,7 @@
 
       {% endcut %}
 
-      For more information about resources that you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For more information about resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
    1. Make sure that the configuration files are correct.
 
@@ -198,7 +199,7 @@
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

@@ -48,7 +48,8 @@ You can change the following parameters of a [{{ k8s }} cluster](../../concepts/
        --security-group-ids <security group ID list>
      ```
 
-     You can change the following settings:
+     Where:
+
      * `--new-name`: Cluster name.
      * `--description`: Cluster description.
      * `--service-account-id`, `--service-account-name`: Service account for managing the cluster.
@@ -107,7 +108,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   yc managed-kubernetes cluster add-labels k8s-demo --labels new_label=test_label
   ```
 
-  Command output:
+  Result:
 
   ```bash
   done (1s)
@@ -141,7 +142,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   yc managed-kubernetes cluster update k8s-demo --labels test_label=my_k8s_label
   ```
 
-  Query results:
+  Result:
 
   ```bash
   done (1s)
@@ -169,7 +170,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   yc managed-kubernetes cluster remove-labels k8s-demo --labels test_label
   ```
 
-  Command output:
+  Result:
 
   ```bash
   done (1s)

@@ -113,7 +113,7 @@
   yc managed-kubernetes cluster add-labels k8s-demo --labels new_label=test_label
   ```
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   done (1s)
@@ -147,7 +147,7 @@
   yc managed-kubernetes cluster update k8s-demo --labels test_label=my_k8s_label
   ```
 
-  Результат выполнения запроса:
+  Результат:
 
   ```bash
   done (1s)
@@ -175,7 +175,7 @@
   yc managed-kubernetes cluster remove-labels k8s-demo --labels test_label
   ```
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   done (1s)

@@ -31,13 +31,13 @@
 	1. Выберите опцию **Защита от DDoS**.
 	1. Нажмите кнопку **Зарезервировать**.
 
-- Terraform
+- {{ TF }}
 
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием статического публичного IP-адреса, добавив поле `ddos_protection_provider`:
+  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием статического публичного IP-адреса, добавив поле `ddos_protection_provider`:
 
      ```hcl
      resource "yandex_vpc_address" "addr" {
@@ -49,10 +49,9 @@
      }
      ```
 
-     Где:
-     * `ddos_protection_provider` — параметр, включающий защиту от DDoS-атак. Возможные значения: `qrator`.
+     Где `ddos_protection_provider` — параметр, включающий защиту от DDoS-атак. Возможные значения: `qrator`.
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_address` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/vpc_address).
+     Более подробную информацию о параметрах ресурса `yandex_vpc_address` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_address).
 
   1. Проверьте конфигурацию командой:
 
@@ -72,7 +71,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
 

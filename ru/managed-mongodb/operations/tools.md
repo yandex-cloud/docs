@@ -55,12 +55,12 @@ db.currentOp({ "$ownOps": true })
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/logs.svg) **Логи**.
 
-* CLI
+- CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -82,7 +82,7 @@ db.currentOp({ "$ownOps": true })
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
-* API
+- API
 
     Воспользуйтесь методом API [listLogs](../api-ref/Cluster/listLogs.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
 

@@ -29,7 +29,7 @@ To back up your Docker images:
       yc container registry list
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +----------------------+-------------+----------------------+
@@ -63,10 +63,9 @@ To back up your Docker images:
       yc container image list --registry-name my-registry
       ```
 
-      Where:
-      * `registry-name`: Registry name.
+      Where `registry-name` is the registry name.
 
-      Output:
+      Result:
 
       ```bash
       +----------------------+---------------------+-----------------------------+-------+-----------------+
@@ -92,7 +91,7 @@ To back up your Docker images:
       docker pull {{ registry }}/crp1abc2tl3def1h2gu6/ubuntu:hello
       ```
 
-      Command output:
+      Result:
 
       ```bash
       hello: Pulling from crp1abc2tl3def1h2gu6/ubuntu
@@ -113,7 +112,7 @@ To back up your Docker images:
       docker image list
       ```
 
-      Command output:
+      Result:
 
       ```bash
       REPOSITORY                                   TAG     IMAGE ID      CREATED     SIZE

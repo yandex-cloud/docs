@@ -180,12 +180,12 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    
-   If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To create a cluster:
@@ -353,7 +353,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    ```
 
 
-- Terraform
+- {{ TF }}
 
    Let's say we need to create a {{ mkf-name }} cluster with the following characteristics:
 

@@ -4,7 +4,7 @@
 - UNIX
 
   ```
-  $ base64 -i input.jpg > output.txt
+  base64 -i input.jpg > output.txt
   ```
 
 - Windows

@@ -67,7 +67,7 @@ To view the access policy applied to a bucket:
     --output text | jq .
   ```
 
-  Command output:
+  Result:
 
   ```json
   {

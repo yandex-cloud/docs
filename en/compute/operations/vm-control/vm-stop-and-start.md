@@ -34,7 +34,7 @@ To stop a VM:
    1. See the description of the CLI's stop VM command:
 
       ```
-      $ yc compute instance stop --help
+      yc compute instance stop --help
       ```
 
    1. Get a list of all VMs in the default folder:
@@ -45,7 +45,7 @@ To stop a VM:
    1. Stop the VM:
 
       ```
-      $ yc compute instance stop first-instance
+      yc compute instance stop first-instance
       ```
 
 {% endlist %}
@@ -75,7 +75,7 @@ To start a VM:
    1. See the description of the CLI's start VM command:
 
       ```
-      $ yc compute instance start --help
+      yc compute instance start --help
       ```
 
    1. Get a list of all VMs in the default folder:
@@ -86,7 +86,7 @@ To start a VM:
    1. Start the VM:
 
       ```
-      $ yc compute instance start first-instance
+      yc compute instance start first-instance
       ```
 
 {% endlist %}
@@ -116,7 +116,7 @@ To restart a VM:
    1. See the description of the CLI's restart VM command:
 
       ```
-      $ yc compute instance restart --help
+      yc compute instance restart --help
       ```
 
    1. Get a list of all VMs in the default folder:
@@ -127,7 +127,7 @@ To restart a VM:
    1. Restart the VM:
 
       ```
-      $ yc compute instance restart first-instance
+      yc compute instance restart first-instance
       ```
 
 {% endlist %}

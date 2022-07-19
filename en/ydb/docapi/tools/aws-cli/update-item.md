@@ -28,7 +28,7 @@ To update the data in the `series` table:
        --endpoint $endpoint
    ```
 
-   Output:
+   Result:
 
    ```text
    {

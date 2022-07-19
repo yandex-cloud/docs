@@ -50,6 +50,7 @@ Create a {{ yandex-cloud }} provider for the AWS Encryption SDK and use the meth
    ```
 
    Where:
+
    * `endpoint` – `{{ api-host }}:443`.
    * `credentials`: Determines the authentication method (for more information, see [Authentication in the {{ yandex-cloud }} SDK](sdk.md#auth)).
    * `keyId`: ID of the [key in {{ kms-short-name }}](../../concepts/key.md).

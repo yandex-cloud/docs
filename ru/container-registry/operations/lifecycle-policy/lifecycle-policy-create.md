@@ -12,7 +12,18 @@
 
      {% include [lifecycle-rules](../../../_includes/container-registry/lifecycle-rules.md) %}
 
-  1. Создайте политику удаления, выполнив команду со следующими параметрами:
+  1. Создайте политику удаления, выполнив команду:
+
+     ```bash
+     yc container repository lifecycle-policy create \
+       --repository-name crp3cpm16edqql0t30s2/ubuntu \
+       --name test-policy \
+       --description "disabled lifecycle-policy for tests" \
+       --rules ./rules.json
+     ```
+
+     Где:
+
      * `repository-name` — имя репозитория.
      * `rules` — путь к файлу с описанием политик.
      * `description` — (опционально) описание политики удаления.
@@ -26,15 +37,7 @@
 
      {% endnote %}
 
-     ```bash
-     yc container repository lifecycle-policy create \
-       --repository-name crp3cpm16edqql0t30s2/ubuntu \
-       --name test-policy \
-       --description "disabled lifecycle-policy for tests" \
-       --rules ./rules.json
-     ```
-
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      id: crp6lg1868p3i0emkv1b
@@ -48,14 +51,15 @@
 
      Значение параметра `expired_period` в ответе отображается в секундах. Это техническое ограничение, формат будет изменен.
 
-  1. Проверьте, что политика создалась, выполнив команду со следующим параметром:
-     * `repository-name` — имя репозитория.
+  1. Проверьте, что политика создалась, выполнив команду:
 
      ```bash
      yc container repository lifecycle-policy list --repository-name crp3cpm16edqql0t30s2/ubuntu
      ```
 
-     Результат выполнения команды:
+     Где `repository-name` — имя репозитория.
+
+     Результат:
 
      ```bash
      +----------------------+-------------+----------------------+----------+---------------------+--------------------------------+

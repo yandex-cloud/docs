@@ -115,7 +115,7 @@ You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the clu
          --edition <{{ ES }} edition: basic, gold, or platinum>
       ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

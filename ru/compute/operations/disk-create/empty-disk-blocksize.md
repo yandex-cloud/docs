@@ -18,10 +18,10 @@
 
         ```bash
         yc compute disk create \
-            --name big-disk \
-            --block-size 8K \
-            --size 40G \
-            --description "my 8k blocksize disk via yc"
+          --name big-disk \
+          --block-size 8K \
+          --size 40G \
+          --description "my 8k blocksize disk via yc"
         ```
 
        Данная команда создаст диск размером 40 ГБ и размером блока 8 КБ, с именем `big-disk` и описанием `my 8k blocksize disk via yc`.
@@ -38,7 +38,7 @@
         yc compute disk list --format yaml
         ```
 
-        Результат выполнения:
+        Результат:
         ```yaml
         - id: fhmm0br99mig46rc0em0
            folder_id: b1gb9jeqoiordtmv1lbo

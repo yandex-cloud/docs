@@ -175,10 +175,10 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 - [HashiCorp Vault c поддержкой {{ kms-short-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-full-name }}.
 
-### Передача секретов в ВМ с помощью Terraform и {{ kms-short-name }}
+### Передача секретов в ВМ с помощью {{ TF }} и {{ kms-short-name }}
 
-{{ kms-short-name }} предоставляет возможность шифрования секретов, используемых в конфигурации Terraform, в частности, для передачи секретов на виртуальную машину в зашифрованном виде. См. инструкцию в разделе [{#T}](../../kms/tutorials/terraform-secret.md) документации {{ kms-short-name }}. Передача секретов через переменные окружения в открытом виде небезопасна, поскольку они отображаются в свойствах ВМ.
+{{ kms-short-name }} предоставляет возможность шифрования секретов, используемых в конфигурации {{ TF }}, в частности, для передачи секретов на виртуальную машину в зашифрованном виде. См. инструкцию в разделе [{#T}](../../kms/tutorials/terraform-secret.md) документации {{ kms-short-name }}. Передача секретов через переменные окружения в открытом виде небезопасна, поскольку они отображаются в свойствах ВМ.
 
-![](../../_assets/overview/solution-library-icon.svg)[Решение: Шифрование секретов в Terraform для передачи в ВМ с Container Optimized Image](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/terraform%2BKMS%2BCOI)
+![](../../_assets/overview/solution-library-icon.svg)[Решение: Шифрование секретов в {{ TF }} для передачи в ВМ с Container Optimized Image](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/terraform%2BKMS%2BCOI)
 
-Другие рекомендации по безопасному использованию Terraform см. в разделе [Безопасная конфигурация: Terraform](secure-config.md#terraform).
+Другие рекомендации по безопасному использованию {{ TF }} см. в разделе [Безопасная конфигурация: {{ TF }}](secure-config.md#terraform).

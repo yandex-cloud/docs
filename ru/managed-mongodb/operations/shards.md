@@ -222,7 +222,7 @@
         * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
         * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet).
 
-- Terraform
+- {{ TF }}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 

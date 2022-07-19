@@ -20,7 +20,7 @@
      yc container repository lifecycle-policy list --repository-name crp2hlbs67tj4ggrfodb/ubuntu
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      +----+------+---------------+--------+---------+-------------+

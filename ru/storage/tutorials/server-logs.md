@@ -80,7 +80,7 @@
     jq .object_key output.json | uniq -c | sort -nr
     ```
 
-    Результат выполнения команды:
+    Результат:
 
     ```bash
     9 "path/logs/2021-02-10-22-02-25-199f57b5-5601-3210-5d9a-1apl1e5z6b4f"

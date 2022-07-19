@@ -96,7 +96,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
         SELECT * FROM pxf_ch;
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```text
         test_pxf=> SELECT * FROM pxf_ch;
@@ -142,7 +142,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
         SELECT * FROM pxf_mysql;
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```text
         test_pxf=> SELECT * FROM pxf_mysql;
@@ -189,7 +189,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
         SELECT * FROM pxf_pg;
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```text
         test_pxf=> SELECT * FROM pxf_pg;
@@ -233,7 +233,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
             SELECT * FROM pxf_s3_read;
             ```
 
-            Результат выполнения команды:
+            Результат:
 
             ```text
             test_pxf=> SELECT * FROM pxf_s3_read;

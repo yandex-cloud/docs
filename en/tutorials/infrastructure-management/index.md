@@ -1,7 +1,7 @@
 # Tutorials for working with infrastructure management systems
 
-* [Getting started with Terraform](terraform-quickstart.md)
-* [Uploading Terraform states to Object Storage](terraform-state-storage.md)
+* [Getting started with {{ TF }}](terraform-quickstart.md)
+* [Uploading {{ TF }} states to Object Storage](terraform-state-storage.md)
 * [Getting started with Packer](packer-quickstart.md)
 * [Automating image builds using Jenkins and Packer](jenkins.md)
 * [Continuous deployment of containerized applications using GitLab](gitlab-containers.md)

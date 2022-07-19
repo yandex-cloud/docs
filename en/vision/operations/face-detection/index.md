@@ -28,7 +28,7 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
 
-1. Create a file with the request body (for example, `body.json`). In the `content` property, specify a [Base64-encoded](../base64-encode.md) image:
+1. Create a file with the request body (for example, `body.json`):
 
     **body.json:**
 
@@ -43,6 +43,8 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
         }]
     }
     ```
+
+    Where `analyze_specs: content` is a [Base64-encoded](../base64-encode.md) image.
 
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
 

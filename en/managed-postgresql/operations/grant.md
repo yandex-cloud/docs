@@ -30,14 +30,14 @@ To assign a [role](../concepts/roles.md) to a user, use the {{ yandex-cloud }} C
    To assign roles, run the command:
 
    ```
-   $ {{ yc-mdb-pg }} user update <username> \
+   {{ yc-mdb-pg }} user update <username> \
           --grants=<role1,role2> \
           --cluster-id <cluster ID>
    ```
 
    You can query the cluster name with the [list of clusters](cluster-list.md) in the folder and the username with the [list of users](cluster-users.md#list-users).
 
-- Terraform
+- {{ TF }}
 
    To assign roles to a cluster user:
 

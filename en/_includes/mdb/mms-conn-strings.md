@@ -43,12 +43,7 @@ Before connecting:
 
   1. Connect to a database:
 
-      ```bash
-      mssql-cli -U <username> \
-                -d <database name> \
-                -S <FQDN of the host>,1433 \
-                -N
-      ```
+      {% include [default-connstring](./mms/default-connstring.md) %}
 
       After running the command, enter the user password to complete the connection procedure.
 

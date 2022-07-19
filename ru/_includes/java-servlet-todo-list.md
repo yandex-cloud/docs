@@ -112,7 +112,7 @@
       yc serverless function create --name=add-task
       ```
 
-      Результат выполнения команды:
+      Результат:
 
       ```bash
       id: d4ejb1799eko6re4omb1
@@ -147,7 +147,7 @@
       * `source-path` — ZIP-архив c кодом функции и необходимыми зависимостями;
       * `environment` — переменные окружения в формате key=value.
 
-      Результат выполнения команды:
+      Результат:
 
       ```bash
       done (1s)
@@ -294,7 +294,7 @@
           --description "simple todo list"
           ```
 
-          Результат выполнения команды:
+          Результат:
 
           ```bash
           done (41s)

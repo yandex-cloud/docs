@@ -46,7 +46,7 @@ _Снимок диска_ — это копия файловой системы 
   1. Посмотрите описание команд CLI для создания снимков:
 
       ```
-      $ yc compute snapshot create --help
+      yc compute snapshot create --help
       ```
 
   1. Выберите диск, снимок которого необходимо создать. Получить список дисков в каталоге по умолчанию можно с помощью команды:
@@ -56,19 +56,19 @@ _Снимок диска_ — это копия файловой системы 
   1. Создайте снимок в каталоге по умолчанию:
 
       ```
-      $ yc compute snapshot create \
-          --name first-snapshot \
-          --description "my first snapshot via CLI" \
-          --disk-id fhm4aq4hvq5g3nepvt9b
+      yc compute snapshot create \
+        --name first-snapshot \
+        --description "my first snapshot via CLI" \
+        --disk-id fhm4aq4hvq5g3nepvt9b
       ```
 
       Данная команда создаст снимок диска с именем `first-snapshot` и описанием `my first snapshot via CLI`.
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-- Terraform
+- {{ TF }}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  
 
   1. Опишите в конфигурационном файле параметры ресурса `yandex_compute_snapshot`.
 
@@ -76,13 +76,12 @@ _Снимок диска_ — это копия файловой системы 
      
      ```
      resource "yandex_compute_snapshot" "snapshot-1" {
-
        name           = "disk-snapshot"
        source_disk_id = "<идентификатор диска>"
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
 
   2. Проверьте корректность конфигурационных файлов.
 
@@ -90,17 +89,17 @@ _Снимок диска_ — это копия файловой системы 
      2. Выполните проверку с помощью команды:
 
         ```
-        $ terraform plan
+        terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   3. Разверните облачные ресурсы.
 
      1. Если в конфигурации нет ошибок, выполните команду:
 
         ```
-        $ terraform apply
+        terraform apply
         ```
 
      2. Подтвердите создание ресурсов.

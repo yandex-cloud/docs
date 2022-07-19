@@ -38,7 +38,7 @@ To mount a volume in `volumeMode: Block` [mode](../../concepts/volume.md#block),
    kubectl create -f pvc-block.yaml
    ```
 
-   Command execution result:
+   Result:
 
    ```bash
    persistentvolumeclaim/pvc-block created
@@ -78,7 +78,7 @@ To mount a volume in `volumeMode: Block` [mode](../../concepts/volume.md#block),
    kubectl create -f pod.yaml
    ```
 
-   Command execution result:
+   Result:
 
    ```bash
    pod/pod created

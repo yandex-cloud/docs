@@ -52,9 +52,9 @@ To get access from the `dataproc-net` subnet to the external resources:
 1. To enable execution of `/etc/rc.local` on boot, use the commands:
 
    ```bash
-   $ sudo systemctl enable rc-local
-   $ sudo touch /etc/rc.local
-   $ sudo chmod 755 /etc/rc.local
+   sudo systemctl enable rc-local
+   sudo touch /etc/rc.local
+   sudo chmod 755 /etc/rc.local
    ```
 
 1. Add the following code to the end of `/etc/rc.local`:
@@ -68,13 +68,13 @@ To get access from the `dataproc-net` subnet to the external resources:
 1. Restart the VM:
 
    ```bash
-   $ sudo reboot -f
+   sudo reboot -f
    ```
 
 To check whether you configured NAT correctly, run the following command on the NAT instance:
 
 ```bash
-$ curl ifconfig.co
+curl ifconfig.co
 ```
 
 If the configuration is correct, the command outputs the public IP address of the NAT instance.

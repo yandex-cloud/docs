@@ -46,7 +46,7 @@ To create a secret:
         --cloud-id <cloud ID> --folder-name <folder name>
       ```
 
-      Output:
+      Result:
 
       ```
       id: e6q2ad0j9b55tk3d781j

@@ -95,7 +95,7 @@ export PATH=$PATH:/path/to/packer
 Build the image using the template:
 
 ```
-$ packer build image.json
+packer build image.json
 ```
 
 ## Check the image {#check-image}

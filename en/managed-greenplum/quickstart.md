@@ -3,25 +3,32 @@
 To get started with the service:
 
 1. [Create a cluster](#cluster-create).
-1. [Connect to the cluster](#connect).
+1. [Connect to the DB](#connect) .
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
-
+1. Go to the [management console ]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 1. If you don't have a folder yet, create one:
 
-    {% include [create-folder](../_includes/create-folder.md) %}
+   {% include [create-folder](../_includes/create-folder.md) %}
 
-1. You can only connect to the cluster from within {{ yandex-cloud }}. To do this, [create](../compute/operations/vm-create/create-linux-vm.md) an intermediate VM running Linux on the same cloud network as the {{ GP }} cluster.
+1. You can connect to a cluster from both inside and outside {{ yandex-cloud }}:
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md) or [Windows](../compute/quickstart/quick-create-windows.md)).
+   * To be able to connect to the cluster from the internet, request public access when creating the cluster.
 
+   {% note info %}
+
+   The next step assumes that you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
+
+   {% endnote %}
+
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the virtual machine over SSH.
 1. Install the necessary dependencies and the PostgreSQL client:
 
-    ```bash
-    sudo apt update && sudo apt install postgresql-client --yes
-    ```
+   ```bash
+   sudo apt update && sudo apt install postgresql-client --yes
+   ```
 
 ## Create a cluster {#cluster-create}
 
@@ -33,31 +40,25 @@ To get started with the service:
 
 ## Connect to the cluster {#connect}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the intermediate VM via SSH.
+1. To connect to the DB cluster, get an SSL certificate:
 
-1. Connect to the {{ GP }} cluster master host using `psql`:
+   {% include [install-certificate](../_includes/mdb/mgp/install-certificate.md) %}
 
-    ```bash
-    psql --host <master host FQDN> \
-         --username <username> \
-         --dbname postgres
-    ```
+1. Connect to the primary master host using [via a special FQDN](operations/connect.md#fqdn-master) using `psql`:
 
-    To get the master host FQDN:
-    1. Go to the folder page and select **{{ mgp-name }}**.
-    1. Click on the name of the cluster you need and select the **Hosts** tab.
+   {% include [default-connstring](../_includes/mdb/mgp/default-connstring.md) %}
 
 1. After connecting, run the following query:
 
-    ```sql
-    SELECT version();
-    ```
+   ```sql
+   SELECT version();
+   ```
 
-    The cluster will return the {{ PG }} and {{ GP }} versions used.
+   The cluster will return the {{ PG }} and {{ GP }} versions used.
 
 ## What's next {#whats-next}
 
 * Read about [service concepts](./concepts/index.md).
-* Learn more about [creating clusters](./operations/cluster-create.md) and [connecting to clusters](./operations/connect.md).
+* Learn more about [creating a cluster](./operations/cluster-create.md) and [connecting to a cluster](./operations/connect.md).
 
 {% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

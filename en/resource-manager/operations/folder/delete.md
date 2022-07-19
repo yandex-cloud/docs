@@ -16,15 +16,15 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
 
    The resources will be stopped, and the folder status will change to `PENDING_DELETION`. You can cancel the deletion of a folder that is `PENDING_DELETION`. To cancel, click ![***](../../../_assets/options.svg) to the right of the folder and select **Cancel deletion**.
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To delete a folder created using Terraform:
+   To delete a folder created using {{ TF }}:
 
-   1. Open the Terraform configuration file and delete the section with the folder description.
+   1. Open the {{ TF }} configuration file and delete the section with the folder description.
 
-      {% cut "Example folder description in a Terraform configuration" %}
+      {% cut "Example folder description in a {{ TF }} configuration" %}
 
       ```hcl
       ...
@@ -38,9 +38,9 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
 
       {% endcut %}
 
-      For more information about the parameters of the `yandex_resourcemanager_folder` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder).
+      For more information about the parameters of the `yandex_resourcemanager_folder` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder).
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
    1. Check the configuration using the command:
       ```
@@ -58,7 +58,7 @@ To delete a folder, you must have the [`editor`](../../../iam/concepts/access-co
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
       ```

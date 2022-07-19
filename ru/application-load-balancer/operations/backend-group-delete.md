@@ -40,11 +40,11 @@
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
-  1. Откройте конфигурационный файл Terraform и удалите фрагмент с описанием группы бэкендов.
+  1. Откройте конфигурационный файл {{ TF }} и удалите фрагмент с описанием группы бэкендов.
   
-      Пример описания группы бэкендов в конфигурации Terraform:
+      Пример описания группы бэкендов в конфигурации {{ TF }}:
 
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {

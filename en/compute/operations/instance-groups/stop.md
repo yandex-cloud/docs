@@ -29,7 +29,7 @@ Only disks are charged for stopped instances. If you don't want to pay for disk 
    1. View a description of the stop instance group command in the CLI:
 
       ```
-      $ {{ yc-compute-ig }} stop --help
+      {{ yc-compute-ig }} stop --help
       ```
 
    1. Get a list of instance groups in the default folder:
@@ -40,7 +40,7 @@ Only disks are charged for stopped instances. If you don't want to pay for disk 
    1. Stop an instance group in the default folder:
 
       ```
-      $ {{ yc-compute-ig }} stop first-instance-group
+      {{ yc-compute-ig }} stop first-instance-group
       ```
 
       {{ ig-name }} will begin stopping the group's virtual machines. When all instances are stopped, the group switches to `STOPPED` status.

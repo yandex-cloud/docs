@@ -49,7 +49,7 @@
         --network-name <имя облачной сети>
         ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       done (7m21s)
@@ -69,7 +69,7 @@
         --core-fraction 5
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       done (2m43s)
@@ -91,7 +91,7 @@
       yc managed-kubernetes cluster get-credentials --external --name dns-autoscaler
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Context 'dns-autoscaler' was added as default to kubeconfig '/home/<ваш домашний каталог>/.kube/config'.
@@ -112,7 +112,7 @@
 kubectl get deployment --namespace=kube-system
 ```
 
-Результат выполнения:
+Результат:
 
 ```text
 NAME                 READY  UP-TO-DATE  AVAILABLE  AGE
@@ -136,6 +136,7 @@ replicas = max( ceil( cores * 1/coresPerReplica ) , ceil( nodes * 1/nodesPerRepl
 ```
 
 Где:
+
 * `coresPerReplica` — параметр конфигурации, количество реплик CoreDNS на каждое ядро (vCPU) кластера.
 * `nodesPerReplica` — параметр конфигурации, количество реплик CoreDNS на каждый узел (Node) кластера.
 * `cores` — фактическое количество ядер (vCPU) в кластере.
@@ -178,7 +179,7 @@ replicas = max(replicas, min)
    kubectl get pods -n kube-system
    ```
 
-   Результат выполнения:
+   Результат:
 
    ```bash
    NAME                      READY  STATUS   RESTARTS  AGE
@@ -236,7 +237,7 @@ yc managed-kubernetes node-group create \
   --core-fraction 5
 ```
 
-Результат выполнения:
+Результат:
 
 ```text
 done (2m43s)
@@ -257,7 +258,7 @@ replicas = max( ceil( 20 * 1/4 ), ceil( 5 * 1/2 ) ) = 5
 kubectl get pods -n kube-system
 ```
 
-Результат выполнения:
+Результат:
 
 ```text
 NAME                      READY  STATUS   RESTARTS  AGE
@@ -278,7 +279,7 @@ coredns-7c646474c9-s5jgz  1/1    Running  0         57m
 kubectl scale deployment --replicas=0 kube-dns-autoscaler --namespace=kube-system
 ```
 
-Результат выполнения:
+Результат:
 
 ```text
 deployment.apps/kube-dns-autoscaler scaled
@@ -290,7 +291,7 @@ deployment.apps/kube-dns-autoscaler scaled
 kubectl get rs --namespace=kube-system
 ```
 
-Результат выполнения:
+Результат:
 
 ```text
 NAME                 READY  UP-TO-DATE  AVAILABLE  AGE

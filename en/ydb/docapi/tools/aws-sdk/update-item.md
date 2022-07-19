@@ -195,7 +195,7 @@ To update a movie record in the `Series` table:
       java -jar target/release/SeriesItemOps03.jar
       ```
 
-      Output:
+      Result:
 
       ```text
       Updating record...
@@ -268,7 +268,7 @@ To update a movie record in the `Series` table:
       python SeriesItemOps03.py
       ```
 
-      Output:
+      Result:
 
       ```text
       Series data updated:
@@ -373,7 +373,7 @@ To update a movie record in the `Series` table:
       php SeriesItemOps03.php
       ```
 
-      Output:
+      Result:
 
       ```text
       Record updated.
@@ -460,7 +460,7 @@ To update a movie record in the `Series` table:
       node SeriesItemOps03.js
       ```
 
-      Output:
+      Result:
 
       ```text
       Updating record...
@@ -560,7 +560,7 @@ To update a movie record in the `Series` table:
       ruby SeriesItemOps03.rb
       ```
 
-      Output:
+      Result:
 
       ```text
       Updating table 'Series' with information about 'Supernatural (3)'...
@@ -757,7 +757,7 @@ To increase the `rating` atomic counter for a series:
       java -jar target/release/SeriesItemOps04.jar
       ```
 
-      Output:
+      Result:
 
       ```text
       Increasing atomic counter...
@@ -826,7 +826,7 @@ To increase the `rating` atomic counter for a series:
       python SeriesItemOps04.py
       ```
 
-      Output:
+      Result:
 
       ```bash
       Series data updated:
@@ -926,7 +926,7 @@ To increase the `rating` atomic counter for a series:
       php SeriesItemOps04.php
       ```
 
-      Output:
+      Result:
 
       ```text
       Record updated:
@@ -1010,7 +1010,7 @@ To increase the `rating` atomic counter for a series:
       node SeriesItemOps04.js
       ```
 
-      Output:
+      Result:
 
       ```bash
       Updating record...
@@ -1107,7 +1107,7 @@ To increase the `rating` atomic counter for a series:
       ruby SeriesItemOps04.rb
       ```
 
-      Output:
+      Result:
 
       ```text
       Updating 'Series' with information about 'Supernatural (3)'...
@@ -1306,7 +1306,7 @@ To update a record in the `Series` table when the condition is satisfied:
       java -jar target/release/SeriesItemOps05.jar
       ```
 
-      Output:
+      Result:
 
       ```text
       Attempting to perform conditional update...
@@ -1410,7 +1410,7 @@ To update a record in the `Series` table when the condition is satisfied:
       python SeriesItemOps05.py
       ```
 
-      Output:
+      Result:
 
       ```bash
       Attempting to perform conditional update...
@@ -1427,7 +1427,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
    1. Run the program again. The update operation should now be successful.
 
-      Output:
+      Result:
 
       ```bash
       Attempting to perform conditional update...
@@ -1533,7 +1533,7 @@ To update a record in the `Series` table when the condition is satisfied:
       php SeriesItemOps05.php
       ```
 
-      Output:
+      Result:
 
       ```text
       Couldn't update record:
@@ -1641,7 +1641,7 @@ To update a record in the `Series` table when the condition is satisfied:
       node SeriesItemOps05.js
       ```
 
-      Output:
+      Result:
 
       ```text
       Updating records with specified condition...
@@ -1765,7 +1765,7 @@ To update a record in the `Series` table when the condition is satisfied:
       ruby SeriesItemOps05.rb
       ```
 
-      Output:
+      Result:
 
       ```text
       Updating table 'Series' with information about 'Supernatural (3)'...

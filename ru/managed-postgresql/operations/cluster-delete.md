@@ -36,7 +36,7 @@ description: "После удаления кластера баз данных P
   
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 

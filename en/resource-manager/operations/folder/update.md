@@ -80,15 +80,15 @@ The management console only allows you to change the name of a folder. To change
 
    To edit the folder, use the [update](../../api-ref/Folder/update.md) method for the [Folder](../../api-ref/Folder/index.md) resource.
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To edit the settings of a folder created with Terraform:
+   To edit the settings of a folder created with {{ TF }}:
 
-   1. Open the Terraform configuration file and edit the section containing the folder description.
+   1. Open the {{ TF }} configuration file and edit the section containing the folder description.
 
-      {% cut "Example folder description in a Terraform configuration" %}
+      {% cut "Example folder description in a {{ TF }} configuration" %}
 
       ```hcl
       ...
@@ -102,7 +102,7 @@ The management console only allows you to change the name of a folder. To change
 
       {% endcut %}
 
-      For more information about the parameters of the `yandex_resourcemanager_folder` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder).
+      For more information about the parameters of the `yandex_resourcemanager_folder` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder).
 
    1. Check the configuration using the command:
       ```
@@ -120,7 +120,7 @@ The management console only allows you to change the name of a folder. To change
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
       ```

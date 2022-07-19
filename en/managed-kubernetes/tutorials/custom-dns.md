@@ -41,7 +41,7 @@ To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, foll
      --network-name <cloud_network_name>
    ```
 
-   Execution result:
+   Result:
 
    ```bash
    done (7m21s)
@@ -59,7 +59,7 @@ To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, foll
      --fixed-size 1
    ```
 
-   Execution result:
+   Result:
 
    ```bash
    done (2m43s)
@@ -82,7 +82,7 @@ To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, foll
    yc managed-kubernetes cluster get-credentials --external --name custom-dns-cluster
    ```
 
-   Execution result:
+   Result:
 
    ```text
    Context 'yc-custom-dns-cluster' was added as default to kubeconfig '/home/<your home folder>/.kube/config'.
@@ -119,7 +119,7 @@ To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, foll
    kubectl replace -f custom-zone.yaml
    ```
 
-   Execution result:
+   Result:
 
    ```text
    configmap/coredns-user replaced
@@ -134,7 +134,7 @@ To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, foll
      --command sleep infinity
    ```
 
-   Execution result:
+   Result:
 
    ```text
    pod/jessie-dnsutils created
@@ -146,7 +146,7 @@ To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, foll
    kubectl describe pod jessie-dnsutils
    ```
 
-   Execution result:
+   Result:
 
    ```text
    ...
@@ -162,7 +162,7 @@ To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, foll
    kubectl exec jessie-dnsutils -- nslookup ns.example.com
    ```
 
-   Execution result:
+   Result:
 
    ```bash
    Server:		10.96.128.2

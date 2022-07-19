@@ -31,7 +31,7 @@
   1. Посмотрите описание команды CLI для изменения группы:
 
      ```
-     $ {{ yc-compute-ig }} update --help
+     {{ yc-compute-ig }} update --help
      ```
 
   1. Получите список групп виртуальных машин в каталоге по умолчанию:
@@ -43,7 +43,7 @@
   1. Обновите группу виртуальных машин в каталоге по умолчанию:
 
       ```
-      $ {{ yc-compute-ig }} update --name first-instance-group --file specification.yaml
+      {{ yc-compute-ig }} update --name first-instance-group --file specification.yaml
       ```
 
      {{ ig-name }} запустит операцию изменения группы виртуальных машин.
@@ -89,7 +89,7 @@
   1. Посмотрите описание команды CLI для изменения группы:
 
      ```
-     $ {{ yc-compute-ig }} update --help
+     {{ yc-compute-ig }} update --help
      ```
 
   1. Получите список групп виртуальных машин в каталоге по умолчанию:
@@ -101,7 +101,7 @@
   1. Обновите группу виртуальных машин в каталоге по умолчанию:
 
       ```
-      $ {{ yc-compute-ig }} update --name first-instance-group --file specification.yaml
+      {{ yc-compute-ig }} update --name first-instance-group --file specification.yaml
       ```
 
      {{ ig-name }} запустит операцию изменения группы виртуальных машин.
@@ -143,7 +143,7 @@
   1. Посмотрите описание команды CLI для изменения группы:
 
      ```
-     $ {{ yc-compute-ig }} update --help
+     {{ yc-compute-ig }} update --help
      ```
 
   1. Получите список групп виртуальных машин в каталоге по умолчанию:
@@ -155,7 +155,7 @@
   1. Обновите группу виртуальных машин в каталоге по умолчанию:
 
       ```
-      $ {{ yc-compute-ig }} update --name first-instance-group --file specification.yaml
+      {{ yc-compute-ig }} update --name first-instance-group --file specification.yaml
       ```
 
      {{ ig-name }} запустит операцию изменения группы виртуальных машин.

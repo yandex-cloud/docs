@@ -151,13 +151,15 @@
         Выполните команду: 
     
         ```
-        $ yc iot mqtt subscribe \
+        yc iot mqtt subscribe \
               --username <ID реестра> \
               --password <пароль реестра> \
               --topic '$devices/<ID устройства>/events' \
               --qos 1
         ```
+
         Где:
+
         * `--username` и `--password` — параметры авторизации с помощью логина и пароля.
         * `--topic` — топик устройства для отправки данных.
         * `--message` — текст сообщения.

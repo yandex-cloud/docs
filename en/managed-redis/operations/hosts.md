@@ -245,7 +245,7 @@ If the host is the master when deleted, {{ mrd-short-name }} automatically assig
 
    The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    To remove a host from a cluster:
 

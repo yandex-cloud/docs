@@ -74,18 +74,14 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 To use an encrypted connection, get an SSL certificate.
 
-
 {% list tabs %}
 
 - Linux (Bash)
 
    Run the following commands:
 
-  ```bash
-  sudo mkdir -p {{ crt-local-dir }} && \
-  sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O {{ crt-local-dir }}{{ crt-local-file }} && \
-  sudo chmod 655 {{ crt-local-dir }}{{ crt-local-file }}
-  ```
+  {% include [install-certificate](../../_includes/mdb/mch/install-certificate.md) %}
+
 
 - Windows (PowerShell)
 
@@ -101,8 +97,8 @@ To use an encrypted connection, get an SSL certificate.
 
    1. Confirm that that you agree to install the certificate in the "Trusted Root Certification Authorities" store.
 
-{% endlist %}
 
+{% endlist %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 

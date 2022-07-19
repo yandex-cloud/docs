@@ -131,7 +131,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -230,7 +230,7 @@ To update the contents of a model that is already connected to the cluster:
 
    You can request the model name with a [list of cluster models](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -309,7 +309,7 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 
    You can request the model name with a [list of cluster models](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

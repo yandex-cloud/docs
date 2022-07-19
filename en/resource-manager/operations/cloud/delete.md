@@ -12,15 +12,15 @@ To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role t
    1. Select a cloud deletion delay, following which the cloud will be deleted. Select one of the available delays or **Delete now**. The default cloud deletion delay is 7 days.
    1. Click **Delete**.
 
-- Terraform
+- {{ TF }}
 
-   For more information about Terraform, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To delete a cloud created using Terraform:
+   To delete a cloud created using {{ TF }}:
 
-   1. Open the Terraform configuration file and delete the section with the cloud description.
+   1. Open the {{ TF }} configuration file and delete the section with the cloud description.
 
-      {% cut "Example cloud description in Terraform configuration" %}
+      {% cut "Example cloud description in {{ TF }} configuration" %}
 
       ```hcl
       ...
@@ -33,7 +33,7 @@ To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role t
 
       {% endcut %}
 
-      For more detailed information about the `yandex_resourcemanager_cloud` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud).
+      For more detailed information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud).
    1. In the command line, change to the folder where you edited the configuration file.
    1. Make sure the configuration file is correct using the command:
 
@@ -53,7 +53,7 @@ To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role t
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
    1. Apply the configuration changes:
 
       ```bash

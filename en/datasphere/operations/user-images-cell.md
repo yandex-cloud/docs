@@ -27,7 +27,7 @@ For example, the <https://hub.docker.com/_/golang> public image provides access 
 #!:docker-run golang go version
 ```
 
-Output:
+Result:
 
 ```text
 go version go1.16.6 linux/amd64

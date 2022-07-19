@@ -7,7 +7,7 @@
 Для получения списка профилей выполните команду:
 
 ```
-$ yc config profile list
+yc config profile list
 prod ACTIVE
 test
 ```
@@ -20,7 +20,7 @@ test
 
 
 ```
-$ yc config profile get prod
+yc config profile get prod
 token: AQAAAAAV6O...
 cloud-id: b1gvl...
 folder-id: b1g88...

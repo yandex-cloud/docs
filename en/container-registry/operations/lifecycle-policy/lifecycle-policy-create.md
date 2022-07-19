@@ -12,7 +12,18 @@ To create a lifecycle policy, specify the [repository name](../repository/reposi
 
       {% include [lifecycle-rules](../../../_includes/container-registry/lifecycle-rules.md) %}
 
-   1. Create a lifecycle policy by running the command with the following parameters:
+   1. Create a lifecycle policy by running the command:
+
+      ```bash
+      yc container repository lifecycle-policy create \
+        --repository-name crp3cpm16edqql0t30s2/ubuntu \
+        --name test-policy \
+        --description "disabled lifecycle-policy for tests" \
+        --rules ./rules.json
+      ```
+
+      Where:
+
       * `repository-name`: Repository name.
       * `rules`: Path to the file with the policy description.
       * `description`: Description of the lifecycle policy (optional).
@@ -26,15 +37,7 @@ To create a lifecycle policy, specify the [repository name](../repository/reposi
 
       {% endnote %}
 
-      ```bash
-      yc container repository lifecycle-policy create \
-        --repository-name crp3cpm16edqql0t30s2/ubuntu \
-        --name test-policy \
-        --description "disabled lifecycle-policy for tests" \
-        --rules ./rules.json
-      ```
-
-      Command output:
+      Result:
 
       ```bash
       id: crp6lg1868p3i0emkv1b
@@ -48,14 +51,15 @@ To create a lifecycle policy, specify the [repository name](../repository/reposi
 
       The `expired_period` parameter value in the response is displayed in seconds. This is a technical constraint, the format will be changed.
 
-   1. Make sure that the policy is created by running the command with the following parameter:
-      * `repository-name`: Repository name.
+   1. Make sure that the policy is created by running the command:
 
       ```bash
       yc container repository lifecycle-policy list --repository-name crp3cpm16edqql0t30s2/ubuntu
       ```
 
-      Command output:
+      Where `repository-name` is the repository name.
+
+      Result:
 
       ```bash
       +----------------------+-------------+----------------------+----------+---------------------+--------------------------------+

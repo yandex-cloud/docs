@@ -92,7 +92,7 @@ You can query the cluster ID and name with a [list of clusters in the folder](cl
      --host zone-id=<availability zone>,subnet-name=<subnet name>
    ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

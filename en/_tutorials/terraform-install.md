@@ -1,6 +1,6 @@
 ### From a mirror {#from-yc-mirror}
 
-You can download a Terraform distribution for your platform from a [mirror]({{ terraform-mirror }}). When the download is complete, add the path to the folder with the executable to the `PATH` variable:
+You can download a {{ TF }} distribution for your platform from a [mirror]({{ terraform-mirror }}). When the download is complete, add the path to the folder with the executable to the `PATH` variable:
 
 ```
 export PATH=$PATH:/path/to/terraform
@@ -14,8 +14,8 @@ export PATH=$PATH:/path/to/terraform
 
    Use one of the following methods:
 
-   * [Download a Terraform distribution](https://www.terraform.io/downloads.html) and install it by following the [instructions](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
-   * Install Terraform using the [Chocolatey](https://chocolatey.org/install) package manager. To do this, run the command:
+   * [Download a {{ TF }} distribution](https://www.terraform.io/downloads.html) and install it by following the [instructions](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+   * Install {{ TF }} using the [Chocolatey](https://chocolatey.org/install) package manager. To do this, run the command:
 
       ```
       choco install terraform
@@ -23,14 +23,14 @@ export PATH=$PATH:/path/to/terraform
 
 - Linux
 
-   [Download a Terraform distribution](https://www.terraform.io/downloads.html) and install it by following the [instructions](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+   [Download a {{ TF }} distribution](https://www.terraform.io/downloads.html) and install it by following the [instructions](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
 
 - macOS
 
    Use one of the following methods:
 
-   * [Download a Terraform distribution](https://www.terraform.io/downloads.html) and install it by following the [instructions](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
-   * Install Terraform using the [Homebrew](https://brew.sh) package manager and the command below:
+   * [Download a {{ TF }} distribution](https://www.terraform.io/downloads.html) and install it by following the [instructions](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+   * Install {{ TF }} using the [Homebrew](https://brew.sh) package manager and the command below:
 
       ```
       brew install terraform

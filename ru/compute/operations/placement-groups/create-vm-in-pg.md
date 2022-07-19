@@ -20,7 +20,7 @@
 
      ```bash
      yc compute placement-group create --spread-strategy --name my-group
-	 ```
+     ```
 
      Результат:
 
@@ -47,7 +47,7 @@
 
      ```bash
      yc compute instance create --zone {{ region-id }}-b --name instance-in-group-1 --placement-group-name my-group
-	 ```
+     ```
 
      Результат:
 
@@ -68,7 +68,7 @@
 
      ```bash
      yc compute placement-group list-instances --name my-group
-	 ```
+     ```
 
      Результат:
 
@@ -112,8 +112,7 @@
      ...
      ```
 
-     Где:
-     * `placement_group_id` — идентификатор группы размещения.
+     Где `placement_group_id` — идентификатор группы размещения.
 
      Более подробную информацию о параметрах ресурсов `yandex_compute_instance` и `yandex_compute_placement_group` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/compute_instance).
 

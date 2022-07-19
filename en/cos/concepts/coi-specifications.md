@@ -51,7 +51,7 @@ spec:
         path: /data
 ```
 
-Specification keys are described in the following table:
+Where:
 
 Key | Value
 --- | ---
@@ -110,7 +110,7 @@ x-yc-disks:
     partition: 2
 ```
 
-Specification keys are described in the following table:
+Where:
 
 Key | Value
 --- | ---

@@ -13,13 +13,13 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
    1. View a description of the CLI command to create a placement group:
 
       ```
-      $ yc compute placement-group create --help
+      yc compute placement-group create --help
       ```
 
    1. Create a placement group:
 
       ```
-      $ yc compute placement-group create --spread-strategy --name my-group
+      yc compute placement-group create --spread-strategy --name my-group
       id: fdvte50kv3nclagfknoc
       folder_id: aoeieef3k7ppari05ajo
       created_at: "2019-12-20T08:59:44Z"
@@ -35,13 +35,13 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
    1. View the description of the CLI command for creating a VM:
 
       ```
-      $ yc compute instance create --help
+      yc compute instance create --help
       ```
 
    1. Create a virtual machine:
 
       ```
-      $ yc compute instance create --zone {{ region-id }}-b --name instance-in-group-1 --placement-group-name my-group
+      yc compute instance create --zone {{ region-id }}-b --name instance-in-group-1 --placement-group-name my-group
       id: epdep2kq6dt5uekuhcrd
       ...
       placement_policy:
@@ -57,7 +57,12 @@ Create an instance in a [placement group](../../concepts/placement-groups.md).
    1. Check that the instance was created and added to the placement group:
 
       ```
-      $ yc compute placement-group list-instances --name my-group
+      yc compute placement-group list-instances --name my-group
+      ```
+
+      Result:
+
+      ```
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
       +----------------------+---------------------+---------------+---------+-------------+-------------+

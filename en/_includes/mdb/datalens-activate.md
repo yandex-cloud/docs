@@ -6,7 +6,7 @@ You can only create one {{ datalens-name }} instance in the cloud.
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page.
    1. Select **{{ datalens-name }}**.

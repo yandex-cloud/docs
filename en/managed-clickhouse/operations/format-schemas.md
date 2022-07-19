@@ -65,7 +65,7 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -134,7 +134,7 @@ To update the contents of a schema that is already connected to the cluster:
 
    You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -200,7 +200,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
    You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

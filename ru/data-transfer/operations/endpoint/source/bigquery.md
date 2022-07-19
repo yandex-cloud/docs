@@ -6,7 +6,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     * **Project ID** — укажите идентификатор [проекта Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
     * (Опционально) **Default Dataset ID** — если задано значение в этом поле, будут перенесены данные только из указанной [схемы](https://cloud.google.com/bigquery/docs/datasets-intro).

@@ -21,7 +21,7 @@
 
     {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
     
-- Terraform
+- {{ TF }}
 
     * Тип эндпоинта — `postgres_target`.
 
@@ -71,7 +71,7 @@
 
     {% include [On premise PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-postgresql.md) %}
 
-- Terraform
+- {{ TF }}
 
     * Тип эндпоинта — `postgres_target`.
 

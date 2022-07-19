@@ -18,13 +18,13 @@
   1. View a description of the add user command:
 
       ```
-      $ yc iam federation add-user-accounts --help
+      yc iam federation add-user-accounts --help
       ```
 
   1. Add users by listing their Name IDs separated by a comma:
 
       ```
-      $ yc iam federation add-user-accounts --name my-federation \
+      yc iam federation add-user-accounts --name my-federation \
         --name-ids=alice@example.com,bob@example.com,charlie@example.com
       ```
 
@@ -47,7 +47,7 @@
   1. Send the request by specifying the Federation ID in the parameters:
 
       ```bash
-      $ curl -X POST \
+      curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer <IAM token>" \
         -d '@body.json' \

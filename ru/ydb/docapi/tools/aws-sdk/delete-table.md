@@ -171,7 +171,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
       java -jar target/release/SeriesDeleteTable.jar
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Попытка удаления таблицы, подождите...
@@ -214,7 +214,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
       python SeriesDeleteTable.py
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Таблица Series удалена
@@ -275,7 +275,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
       php SeriesDeleteTable.php
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```txt
       Таблица удалена.
@@ -327,7 +327,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
       node SeriesDeleteTable.js
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Таблица удалена. Описание таблицы JSON: {
@@ -417,7 +417,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
      ruby SeriesDeleteTable.rb
      ```
 
-     Результат выполнения:
+     Результат:
 
      ```text
      Удаление таблицы 'Series'...

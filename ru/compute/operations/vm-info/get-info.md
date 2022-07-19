@@ -78,6 +78,8 @@ GET http://169.254.169.254/computeMetadata/v1/instance/
 Metadata-Flavor: Google
 ```
 
+Где:
+
 Параметр | Описание
 ----- | -----
 `alt` | Формат ответа (по умолчанию `text`).
@@ -135,6 +137,8 @@ curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/?recu
 ```
 GET http://169.254.169.254/latest/meta-data/<элемент>
 ```
+
+Где:
 
 Параметр | Описание
 ----- | -----

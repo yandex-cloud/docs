@@ -58,7 +58,7 @@
 
     1. Нажмите кнопку **Создать**.
 
-- Terraform
+- {{ TF }}
 
     {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -140,7 +140,7 @@
 
     1. Нажмите кнопку **Сохранить**.
 
-- Terraform
+- {{ TF }}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с описанием трансфера.
 
@@ -229,7 +229,7 @@
     1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **Удалить**.
     1. Нажмите кнопку **Удалить**.
 
-- Terraform
+- {{ TF }}
 
     {% include [terraform-delete](../../_includes/data-transfer/terraform-delete-transfer.md) %}
 

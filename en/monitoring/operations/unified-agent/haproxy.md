@@ -21,7 +21,7 @@ This procedure can also be used to send metrics from any third-party application
    1. Make sure the exporter is running and exposes metrics. To do so, run `curl http://localhost:9101/metrics`. Sample command output:
 
       ```bash
-      $ curl http://localhost:9101/metrics
+      curl http://localhost:9101/metrics
       # HELP go_gc_duration_seconds A summary of the GC invocation durations.
       # TYPE go_gc_duration_seconds summary
       go_gc_duration_seconds{quantile="0"} 0
@@ -47,7 +47,7 @@ This procedure can also be used to send metrics from any third-party application
 
 1. Install and configure {{unified-agent-full-name}}.
 
-   1. Create a file named **config.yml** in your home folder. Replace `$FOLDER_ID` in the file with the ID of the folder you want to write metrics to.
+   1. Create a file named **config.yml** in your home folder.
 
       **config.yml:**
       ```yaml
@@ -103,6 +103,8 @@ This procedure can also be used to send metrics from any third-party application
        import:
          - /etc/yandex/unified_agent/conf.d/*.yml
       ```
+
+      Where `$FOLDER_ID` is the ID of the folder you want to write metrics.
 
    1. Install {{unified-agent-short-name}} on your VM by running the following command in the home folder:
 

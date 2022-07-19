@@ -19,7 +19,7 @@ You will also need the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) and [Do
    yc container registry create --name my-first-registry
    ```
 
-   Command output:
+   Result:
 
    ```bash
    ..done
@@ -38,7 +38,7 @@ You will also need the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) and [Do
       yc container registry configure-docker
       ```
 
-      Command output:
+      Result:
 
       ```bash
       Credential helper is configured in '/home/<user>/.docker/config.json'

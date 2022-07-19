@@ -43,32 +43,13 @@ sudo apt update && sudo apt install -y kafkacat
 
     1. Run the command for receiving messages from a topic:
 
-        ```bash
-        kafkacat -C \
-                 -b <broker FQDN>:9091 \
-                 -t <topic name> \
-                 -X security.protocol=SASL_SSL \
-                 -X sasl.mechanisms=SCRAM-SHA-512 \
-                 -X sasl.username="<consumer username>" \
-                 -X sasl.password="<consumer password>" \
-                 -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
-        ```
+        {% include [default-get-string](./mkf/default-get-string.md) %}
 
        The command will continuously read new messages from the topic.
 
     1. In a separate terminal, run the command for sending a message to a topic:
 
-        ```bash
-          echo "test message" | kafkacat -P \
-              -b <broker FQDN>:9091 \
-              -t <topic name> \
-              -k key \
-              -X security.protocol=SASL_SSL \
-              -X sasl.mechanisms=SCRAM-SHA-512 \
-              -X sasl.username="<producer username>" \
-              -X sasl.password="<producer password>" \
-              -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
-        ```
+        {% include [default-get-string](./mkf/default-send-string.md) %}
 
 {% endlist %}
 

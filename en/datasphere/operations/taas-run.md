@@ -223,6 +223,7 @@ Besides distributed training across multiple GPUs, {{ taas }} provides an option
    ```
 
    Where:
+
    * `#!g2.8` is a [configuration](../concepts/configurations.md) prefix for the computing resources that will be used for the training.
 
       {% note warning %}

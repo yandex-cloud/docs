@@ -58,9 +58,9 @@ To create an image from a disk snapshot:
           --pooled
       ```
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Describe the resource parameters in the `yandex_compute_image` configuration file.
 
@@ -73,7 +73,7 @@ To create an image from a disk snapshot:
       }
       ```
 
-      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
 
@@ -84,7 +84,7 @@ To create an image from a disk snapshot:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

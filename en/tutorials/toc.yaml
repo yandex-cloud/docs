@@ -85,9 +85,9 @@ items:
     items:
       - name: All tutorials
         href: infrastructure-management/index.md
-      - name: Getting started with {{ TF }}
+      - name: Getting started with Terraform
         href: infrastructure-management/terraform-quickstart.md
-      - name: Uploading {{ TF }} states to {{ objstorage-name }}
+      - name: Uploading Terraform states to {{ objstorage-name }}
         href: infrastructure-management/terraform-state-storage.md
       - name: Getting started with Packer
         href: infrastructure-management/packer-quickstart.md
@@ -103,7 +103,7 @@ items:
         href: infrastructure-management/1c-mssql-windows.md
       - name: Migrating to {{ yandex-cloud }} using Hystax Acura
         href: infrastructure-management/hystax-migration.md
-      - name: Emergency recovery in {{ yandex-cloud }} using Hystax Acura
+      - name: Fault protection with Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
         href: infrastructure-management/fault-tolerance.md
@@ -113,7 +113,7 @@ items:
     items:
       - name: All tutorials
         href: dataplatform/index.md
-      - name: Syncing MySQL data using {{ data-transfer-full-name }}
+      - name: Syncing {{ MY }} data using {{ data-transfer-full-name }}
         href: dataplatform/sync-mysql.md
       - name: Migrating databases from {{ mmy-full-name }} to {{ MY }}
         href: dataplatform/mmy-to-mysql-migration.md
@@ -129,10 +129,16 @@ items:
         href: dataplatform/managed-schema-registry.md
       - name: Using Confluent Schema Registry with {{ mkf-full-name }}
         href: dataplatform/confluent-schema-registry.md
-      - name: Delivering data using Debezium
-        href: dataplatform/kafka-cdc.md
       - name: Migrating databases from {{ mmy-full-name }} to MySQL
         href: dataplatform/mmy-to-mysql-migration.md
+      - name: >-
+          Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using
+          Debezium
+        href: dataplatform/kafka-cdc.md
+      - name: >-
+          Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using
+          {{ data-transfer-full-name }}
+        href: dataplatform/kafka-cdc-data-transfer.md
       - name: Migrating databases to {{ mms-full-name }}
         href: dataplatform/mssql-data-migration.md
       - name: >-
@@ -181,7 +187,7 @@ items:
         href: routing/cisco.md
       - name: Installing a Mikrotik CHR virtual router
         href: routing/mikrotik.md
-      - name: Creating a VPN connection using OpenVPN
+      - name: Connecting to a cloud network using OpenVPN
         href: routing/openvpn.md
   - name: Data visualization and analytics
     items:
@@ -217,7 +223,7 @@ items:
         href: datalens/storage-logs-analysis.md
   - name: Internet of things
     items:
-      - name: Tutorials for the internet of things
+      - name: Operating manuals for the Internet of Things
         href: iot/index.md
       - name: Status monitoring of geographically distributed devices
         href: iot/datalens.md

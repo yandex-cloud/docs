@@ -38,7 +38,7 @@
    kubectl create -f pvc-block.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    persistentvolumeclaim/pvc-block created
@@ -78,7 +78,7 @@
    kubectl create -f pod.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
    
    ```bash
    pod/pod created

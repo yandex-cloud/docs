@@ -38,7 +38,9 @@ To delete a security group:
       ```
       yc vpc security-group list
       ```
+
       Result:
+
       ```
       +----------------------+-------------+-------------+----------------------+
       |          ID          |    NAME     | DESCRIPTION |      NETWORK-ID      |
@@ -54,15 +56,15 @@ To delete a security group:
       yc vpc security-group delete test-sg-cli
       ```
 
-- Terraform
+- {{ TF }}
 
-  {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more on Terraform, [review the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more on {{ TF }}, [review the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   If you created a security group using Terraform, you can delete it:
+   If you created a security group using {{ TF }}, you can delete it:
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
    2. Delete resources using the command:
       ```
       terraform destroy
@@ -70,7 +72,7 @@ To delete a security group:
 
       {% note alert %}
 
-      Terraform deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
 
       {% endnote %}
 

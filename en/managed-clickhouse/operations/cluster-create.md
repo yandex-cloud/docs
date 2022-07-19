@@ -189,7 +189,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
          {{ yc-mdb-ch }} version list
          ```
 
-- Terraform
+- {{ TF }}
 
       {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -292,7 +292,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       * {% include notitle [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
 
-      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-mch }}).
+      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-mch }}).
 
    1. Check the {{ TF }} configuration files for errors:
 

@@ -35,15 +35,15 @@ To delete a [DNS zone](../concepts/dns-zone.md):
       yc dns zone delete <zone name or ID>
       ```
 
-- Terraform
+- {{ TF }}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To delete a DNS zone created using Terraform:
+   To delete a DNS zone created using {{ TF }}:
 
-   1. Open the Terraform configuration file and delete the fragment with the DNS zone description.
+   1. Open the {{ TF }} configuration file and delete the fragment with the DNS zone description.
 
-      {% cut "Example DNS zone description in the Terraform configuration" %}
+      {% cut "Example DNS zone description in the {{ TF }} configuration" %}
 
       ```hcl
       resource "yandex_vpc_network" "foo" {}
@@ -62,7 +62,7 @@ To delete a [DNS zone](../concepts/dns-zone.md):
 
       {% endcut %}
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
    1. Check the configuration using the command:
       ```
@@ -80,7 +80,7 @@ To delete a [DNS zone](../concepts/dns-zone.md):
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
       ```

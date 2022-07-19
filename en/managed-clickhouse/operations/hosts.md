@@ -131,7 +131,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
       The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -267,7 +267,7 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 
    The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

@@ -8,7 +8,7 @@ The agent supports:
 - Delivering metrics to {{monitoring-full-name}}.
 - File storage for reliable data delivery.
 
-To install the agent pre-configured for [Linux system metric delivery](../../../operations/unified-agent/linux_metrics.md), execute the Docker command by specifying the ID of the folder the metrics are going to be written to in the `FOLDER_ID` parameter:
+To install the agent pre-configured for [Linux system metric delivery](../../../operations/unified-agent/linux_metrics.md), execute the Docker command:
 
 ```bash
 docker run \
@@ -19,6 +19,8 @@ docker run \
     -e FOLDER_ID=a1bs... \
     cr.yandex/yc/unified-agent
 ```
+
+Where `FOLDER_ID` is the ID of the folder the metrics are going to be written.
 
 For other examples of how to use the agent, see [{#T}](../../../operations/index.md#working-with-metrics). Learn more about {{unified-agent-short-name}} installation methods in [{#T}](./installation.md). The syntax of the agent's configuration file is described in [{#T}](./configuration.md).
 

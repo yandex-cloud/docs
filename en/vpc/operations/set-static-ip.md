@@ -10,7 +10,7 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    To change a public IP address from dynamic to static:
    1. In the [management console]({{ link-console-main }}), select the folder containing the appropriate address.
@@ -20,7 +20,7 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
    1. In the menu that opens, select **Make static**.
    1. In the window that opens, click **Change**.
 
-* CLI
+- CLI
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -40,7 +40,7 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
       yc vpc address list
       ```
 
-      Output:
+      Result:
 
       ```bash
       +----------------------+------+---------------+----------+------+
@@ -58,7 +58,7 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
       yc vpc address update --reserved=true e2l46k8conff8n6ru1jl
       ```
 
-      Output:
+      Result:
 
       ```bash
       id: e2l46k8conff8n6ru1jl

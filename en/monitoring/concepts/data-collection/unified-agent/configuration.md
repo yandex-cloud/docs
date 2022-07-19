@@ -54,7 +54,7 @@ If the validation is successful, the agent outputs to `stdout` the final variant
 
 If the validation fails, the agent outputs configuration errors to `stderr` and returns a non-zero return code:
 ```bash
-$ unified_agent --config console_to_lb.yml check-config
+unified_agent --config console_to_lb.yml check-config
 yaml-cpp: error at line 10, column 3: unrecognized field [statos_port]
 ```
 

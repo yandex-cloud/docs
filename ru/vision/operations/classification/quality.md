@@ -36,7 +36,7 @@ _Классификация изображений сейчас находитс
 
    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
 
-1. Создайте файл с телом запроса, например `body.json`. В свойстве `content` укажите изображение, [кодированное в Base64](../base64-encode.md):
+1. Создайте файл с телом запроса, например `body.json`:
 
    **body.json:**
 
@@ -54,6 +54,8 @@ _Классификация изображений сейчас находитс
      }]
    }
    ```
+
+   Где `analyze_specs: content` – изображение, [кодированное в Base64](../base64-encode.md).
 
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
 

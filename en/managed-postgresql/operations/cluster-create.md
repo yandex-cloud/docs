@@ -139,11 +139,11 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
        To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the `--serverless-access` parameter. For more information about access setup, see the documentation for [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
    
-   If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
    To create a cluster:
@@ -311,7 +311,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    ```
 
 
-- Terraform
+- {{ TF }}
 
    Let's say we need to create a {{ PG }} cluster and a network for it with the following characteristics:
    * Named `mypg`.

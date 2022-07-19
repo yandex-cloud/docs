@@ -183,7 +183,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
       java -jar target/release/SeriesItemOps06.jar
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Попытка удаления записи...
@@ -277,7 +277,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
       python SeriesItemOps06.py
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Попытка удаления записи...
@@ -299,7 +299,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
 
   1. Запустите программу еще раз. Теперь операция удаления должна завершиться успешно.
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Попытка удаления записи...
@@ -395,7 +395,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
       php SeriesItemOps06.php
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Невозможно удалить запись:
@@ -483,7 +483,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
       node SeriesItemOps06.js
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Выполнение удаления с условием...
@@ -590,7 +590,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
       ruby SeriesItemOps06.rb
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Удаление сериала 'Supernatural (3)' из таблицы 'Series', при выполнении заданного условия.

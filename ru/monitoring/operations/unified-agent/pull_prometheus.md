@@ -53,7 +53,7 @@
     1. Убедитесь, что приложение предоставляет метрики, выполнив команду `curl http://localhost:8000`. Пример работы команды:
 
         ```bash
-        $ curl http://localhost:8000
+        curl http://localhost:8000
         # HELP python_gc_objects_collected_total Objects collected during gc
         # TYPE python_gc_objects_collected_total counter
         python_gc_objects_collected_total{generation="0"} 362.0
@@ -72,7 +72,7 @@
 
 1. Установите и настройте {{unified-agent-full-name}}.
 
-   1. Создайте в домашнем каталоге файл **config.yml**. В файле замените строку `$FOLDER_ID` на идентификатор каталога, в который будут записываться метрики.
+   1. Создайте в домашнем каталоге файл **config.yml**:
 
        **config.yml:**
        ```yaml
@@ -128,6 +128,8 @@
         import:
           - /etc/yandex/unified_agent/conf.d/*.yml
        ```
+
+       Где `$FOLDER_ID` – идентификатор каталога, в который будут записываться метрики.
 
    1. Установите {{unified-agent-short-name}} на свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
 

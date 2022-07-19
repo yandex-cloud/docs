@@ -140,9 +140,9 @@
         https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:updateAccessBindings
       ```
 
-- Terraform
+- {{ TF }}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% note alert %}
 
@@ -150,7 +150,7 @@
 
   {% endnote %}
 
-  Чтобы назначить роль на каталог, созданный с помощью Terraform:
+  Чтобы назначить роль на каталог, созданный с помощью {{ TF }}:
 
   1. Опишите в конфигурационном файле параметры роли каталога:
 
@@ -168,7 +168,7 @@
        * `serviceAccount:<ID сервисного аккаунта>` — [ID сервисного аккаунта](../../../iam/operations/sa/get-id.md).
        * `federatedUser:<ID пользовательского аккаунта>` — [ID пользовательского аккаунта](../../../organization/users-get.md). 
 
-     {% cut "Пример назначения роли на каталог с помощью Terraform" %}
+     {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
      ```hcl
      ...
@@ -190,7 +190,7 @@
 
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
   
   1. Проверьте конфигурацию командой:
      ```
@@ -208,7 +208,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
      ```
@@ -314,9 +314,9 @@
     https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha0vnvf5g7:setAccessBindings
   ```
 
-- Terraform
+- {{ TF }}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% note alert %}
 
@@ -324,7 +324,7 @@
 
   {% endnote %}
 
-  Чтобы назначить несколько ролей на каталог, созданный с помощью Terraform:
+  Чтобы назначить несколько ролей на каталог, созданный с помощью {{ TF }}:
 
   1. Опишите в конфигурационном файле параметры роли каталога:
 
@@ -339,7 +339,7 @@
 
      * `members` — список пользователей, которым будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате `userAccount:<ID пользователя>`, где `<ID пользователя>` — email-адрес аккаунта Яндекс (например, `ivan@yandex.ru`). Обязательный параметр.
 
-     {% cut "Пример назначения роли на каталог с помощью Terraform" %}
+     {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
      ```hcl
      ...
@@ -371,7 +371,7 @@
     
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
   
   1. Проверьте конфигурацию командой:
      ```
@@ -389,7 +389,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
      ```
@@ -427,9 +427,9 @@
 
   {% include [grant-role-for-sa-to-folder-via-api](../../../_includes/iam/grant-role-for-sa-to-folder-via-api.md) %}
 
-- Terraform
+- {{ TF }}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% note alert %}
 
@@ -437,7 +437,7 @@
 
   {% endnote %}
   
-  Чтобы назначить роль для сервисного аккаунта на каталог, созданный с помощью Terraform:
+  Чтобы назначить роль для сервисного аккаунта на каталог, созданный с помощью {{ TF }}:
 
   1. Опишите в конфигурационном файле параметры роли каталога:
 
@@ -452,7 +452,7 @@
 
      * `members` — список пользователей, которым будет присвоена роль. Чтобы добавить пользователя в список, создайте запись в формате `serviceAccount:<ID сервисного аккаунта>`, где `<ID сервисного аккаунта>` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md). Вы можете перечислить несколько сервисных аккаунтов. Обязательный параметр.
 
-     {% cut "Пример назначения роли на каталог с помощью Terraform" %}
+     {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
      ```hcl
      ...
@@ -474,7 +474,7 @@
     
      {% endcut %}
 
-     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
+     Более подробную информацию о параметрах ресурса `yandex_resourcemanager_folder_iam_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/resourcemanager_folder_iam_binding).
   
   1. Проверьте конфигурацию командой:
      ```
@@ -492,7 +492,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
      ```

@@ -182,10 +182,10 @@
 
   Допустимые значения:
 
-  - `backslash_quote` (`BACKSLASH_QUOTE` для Terraform, API и CLI) — кавычка может быть представлена как `\'` (эквивалентно значению `on`);
-  - `on` (`BACKSLASH_QUOTE_ON` для Terraform, API и CLI) — кавычка может быть представлена как `\'`;
-  - `off` (`BACKSLASH_QUOTE_OFF` для Terraform, API и CLI) — кавычка задается только обычным для SQL способом `''`;
-  - `safe_encoding` (`BACKSLASH_QUOTE_SAFE_ENCODING` для Terraform, API и CLI) — представление кавычки как `\'` допускается только для клиентских кодировок, не использующих `\` в многобайтных символах.
+  - `backslash_quote` (`BACKSLASH_QUOTE` для {{ TF }}, API и CLI) — кавычка может быть представлена как `\'` (эквивалентно значению `on`);
+  - `on` (`BACKSLASH_QUOTE_ON` для {{ TF }}, API и CLI) — кавычка может быть представлена как `\'`;
+  - `off` (`BACKSLASH_QUOTE_OFF` для {{ TF }}, API и CLI) — кавычка задается только обычным для SQL способом `''`;
+  - `safe_encoding` (`BACKSLASH_QUOTE_SAFE_ENCODING` для {{ TF }}, API и CLI) — представление кавычки как `\'` допускается только для клиентских кодировок, не использующих `\` в многобайтных символах.
 
   Значение по умолчанию — `safe_encoding`.
 
@@ -227,8 +227,8 @@
 
   Задает формат вывода [бинарных строковых значений](https://www.postgresql.org/docs/current/datatype-binary.html) (тип `bytea`):
 
-  - `hex` (`BYTEA_OUTPUT_HEX` для Terraform, API и CLI) — каждый байт задается двумя шестнадцатеричными символами, например '`SELECT '\xDEADBEEF';`';
-  - `escape` (`BYTEA_OUTPUT_ESCAPE` для Terraform, API и CLI) — стандартный формат {{ PG }}, только символы ASCII.
+  - `hex` (`BYTEA_OUTPUT_HEX` для {{ TF }}, API и CLI) — каждый байт задается двумя шестнадцатеричными символами, например '`SELECT '\xDEADBEEF';`';
+  - `escape` (`BYTEA_OUTPUT_ESCAPE` для {{ TF }}, API и CLI) — стандартный формат {{ PG }}, только символы ASCII.
 
   Значение по умолчанию — `hex`.
 
@@ -268,7 +268,7 @@
 
 - **Client min messages**{#setting-client-min-messages} {{ tag-all }}
 
-  Уровень сообщений логирования, отправляемых клиентским приложениям. Возможные значения (по возрастанию важности): `debug5`, `debug4`, `debug3`, `debug2`, `debug1`, `info`, `notice`, `warning`, `error`, `log`, `fatal` и `panic` (для Terraform, API, CLI `LOG_LEVEL_DEBUG5`, `LOG_LEVEL_DEBUG4`, `LOG_LEVEL_DEBUG3`, `LOG_LEVEL_DEBUG2`, `LOG_LEVEL_DEBUG1`, `LOG_LEVEL_INFO`, `LOG_LEVEL_NOTICE`, `LOG_LEVEL_WARNING`, `LOG_LEVEL_ERROR`, `LOG_LEVEL_LOG`, `LOG_LEVEL_FATAL` и `LOG_LEVEL_PANIC`).
+  Уровень сообщений логирования, отправляемых клиентским приложениям. Возможные значения (по возрастанию важности): `debug5`, `debug4`, `debug3`, `debug2`, `debug1`, `info`, `notice`, `warning`, `error`, `log`, `fatal` и `panic` (для {{ TF }}, API, CLI `LOG_LEVEL_DEBUG5`, `LOG_LEVEL_DEBUG4`, `LOG_LEVEL_DEBUG3`, `LOG_LEVEL_DEBUG2`, `LOG_LEVEL_DEBUG1`, `LOG_LEVEL_INFO`, `LOG_LEVEL_NOTICE`, `LOG_LEVEL_WARNING`, `LOG_LEVEL_ERROR`, `LOG_LEVEL_LOG`, `LOG_LEVEL_FATAL` и `LOG_LEVEL_PANIC`).
 
   Значение по умолчанию — `NOTICE`.
 
@@ -280,9 +280,9 @@
 
   Допустимые значения:
 
-  - `on` (`CONSTRAINT_EXCLUSION_ON` для Terraform, API и CLI) — задействовать ограничения для всех таблиц;
-  - `off` (`CONSTRAINT_EXCLUSION_OFF` для Terraform, API и CLI) — не задействовать ограничения;
-  - `partition` (`CONSTRAINT_EXCLUSION_PARTITION` для Terraform, API и CLI) — задействовать ограничения только для дочерних таблиц и подзапросов `UNION ALL`.
+  - `on` (`CONSTRAINT_EXCLUSION_ON` для {{ TF }}, API и CLI) — задействовать ограничения для всех таблиц;
+  - `off` (`CONSTRAINT_EXCLUSION_OFF` для {{ TF }}, API и CLI) — не задействовать ограничения;
+  - `partition` (`CONSTRAINT_EXCLUSION_PARTITION` для {{ TF }}, API и CLI) — задействовать ограничения только для дочерних таблиц и подзапросов `UNION ALL`.
 
   Значение по умолчанию — `partition`.
 
@@ -320,10 +320,10 @@
 
   Допустимые значения:
 
-  - `read committed` (`TRANSACTION_ISOLATION_READ_COMMITTED` для Terraform, API и CLI) — запрос видит только те строки, которые были зафиксированы до начала его выполнения.
-  - `read uncommitted` (`TRANSACTION_ISOLATION_READ_UNCOMMITTED` для Terraform, API и CLI) — поведение этого уровня изоляции в {{ PG }} идентично `read committed`.
-  - `repeatable read` (`TRANSACTION_ISOLATION_REPEATABLE_READ` для Terraform, API и CLI) — все запросы в текущей транзакции видят только те строки, которые были зафиксированы перед первым выполненным в этой транзакции запросом на выборку или изменение данных.
-  - `serializable` (`TRANSACTION_ISOLATION_SERIALIZABLE` для Terraform, API и CLI) — обеспечивает самый строгий уровень изоляции из всех приведенных выше. Поведение этого уровня изоляции в {{ PG }} аналогично `repeatable read`. Однако, если наложение операций чтения и записи параллельных сериализуемых транзакций несовместимо с их последовательным выполнением, произойдет откат одной из транзакций с ошибкой <q>сбой сериализации</q>.
+  - `read committed` (`TRANSACTION_ISOLATION_READ_COMMITTED` для {{ TF }}, API и CLI) — запрос видит только те строки, которые были зафиксированы до начала его выполнения.
+  - `read uncommitted` (`TRANSACTION_ISOLATION_READ_UNCOMMITTED` для {{ TF }}, API и CLI) — поведение этого уровня изоляции в {{ PG }} идентично `read committed`.
+  - `repeatable read` (`TRANSACTION_ISOLATION_REPEATABLE_READ` для {{ TF }}, API и CLI) — все запросы в текущей транзакции видят только те строки, которые были зафиксированы перед первым выполненным в этой транзакции запросом на выборку или изменение данных.
+  - `serializable` (`TRANSACTION_ISOLATION_SERIALIZABLE` для {{ TF }}, API и CLI) — обеспечивает самый строгий уровень изоляции из всех приведенных выше. Поведение этого уровня изоляции в {{ PG }} аналогично `repeatable read`. Однако, если наложение операций чтения и записи параллельных сериализуемых транзакций несовместимо с их последовательным выполнением, произойдет откат одной из транзакций с ошибкой <q>сбой сериализации</q>.
 
   Значение по умолчанию — `read committed`.
 
@@ -548,9 +548,9 @@
 
   Позволяет распараллеливать запрос для тестирования:
 
-  - `off` (`FORCE_PARALLEL_MODE_OFF` для Terraform, API и CLI) — использовать параллельный режим, только когда ожидается увеличение производительности.
-  - `on` (`FORCE_PARALLEL_MODE_ON` для Terraform, API и CLI) — принудительно распараллеливать все запросы, для которых это безопасно.
-  - `regress` (`FORCE_PARALLEL_MODE_REGRESS` для Terraform, API и CLI) — эквивалентен `on`, но стандартный вывод такой же, как при выполнении в режиме `off`.
+  - `off` (`FORCE_PARALLEL_MODE_OFF` для {{ TF }}, API и CLI) — использовать параллельный режим, только когда ожидается увеличение производительности.
+  - `on` (`FORCE_PARALLEL_MODE_ON` для {{ TF }}, API и CLI) — принудительно распараллеливать все запросы, для которых это безопасно.
+  - `regress` (`FORCE_PARALLEL_MODE_REGRESS` для {{ TF }}, API и CLI) — эквивалентен `on`, но стандартный вывод такой же, как при выполнении в режиме `off`.
 
   Значение по умолчанию — `off`.
 
@@ -658,9 +658,9 @@
 
   Задает уровень детализации информации в логе {{ PG }} для каждого сообщения. Уровни детализации лога в порядке увеличения информативности:
 
-  - `terse` (`LOG_ERROR_VERBOSITY_TERSE` для Terraform, CLI и API). Из сообщения об ошибке исключаются поля `DETAIL`, `HINT`, `QUERY` и `CONTEXT`.
-  - `default` (`LOG_ERROR_VERBOSITY_DEFAULT` для Terraform, CLI и API). По умолчанию.
-  - `verbose` (`LOG_ERROR_VERBOSITY_VERBOSE` для Terraform, CLI и API). В сообщение об ошибке включается код ошибки `SQLSTATE`, а также имя файла с исходным кодом, имя функции и номер строки, сгенерировавшей ошибку.
+  - `terse` (`LOG_ERROR_VERBOSITY_TERSE` для {{ TF }}, CLI и API). Из сообщения об ошибке исключаются поля `DETAIL`, `HINT`, `QUERY` и `CONTEXT`.
+  - `default` (`LOG_ERROR_VERBOSITY_DEFAULT` для {{ TF }}, CLI и API). По умолчанию.
+  - `verbose` (`LOG_ERROR_VERBOSITY_VERBOSE` для {{ TF }}, CLI и API). В сообщение об ошибке включается код ошибки `SQLSTATE`, а также имя файла с исходным кодом, имя функции и номер строки, сгенерировавшей ошибку.
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ERROR-VERBOSITY).
 
@@ -746,10 +746,10 @@
 
   Фильтр команд SQL, которые должны записываться в лог {{ PG }}:
 
-  - `none` (`LOG_STATEMENT_NONE` для Terraform, CLI и API) — фильтр отключен, команды SQL не записываются в лог.
-  - `ddl` (`LOG_STATEMENT_DDL` для Terraform, CLI и API) — в лог записываются команды SQL, которые позволяют изменять определения структур данных (`CREATE`, `ALTER`, `DROP` и т. п.).
-  - `mod` (`LOG_STATEMENT_MOD` для Terraform, CLI и API) — в лог записываются команды SQL, попадающие под фильтр `ddl`, и команды, позволяющие изменять данные (`INSERT`, `UPDATE` и т. п.).
-  - `all` (`LOG_STATEMENT_ALL` для Terraform, CLI и API) — в лог записываются все команды SQL.
+  - `none` (`LOG_STATEMENT_NONE` для {{ TF }}, CLI и API) — фильтр отключен, команды SQL не записываются в лог.
+  - `ddl` (`LOG_STATEMENT_DDL` для {{ TF }}, CLI и API) — в лог записываются команды SQL, которые позволяют изменять определения структур данных (`CREATE`, `ALTER`, `DROP` и т. п.).
+  - `mod` (`LOG_STATEMENT_MOD` для {{ TF }}, CLI и API) — в лог записываются команды SQL, попадающие под фильтр `ddl`, и команды, позволяющие изменять данные (`INSERT`, `UPDATE` и т. п.).
+  - `all` (`LOG_STATEMENT_ALL` для {{ TF }}, CLI и API) — в лог записываются все команды SQL.
 
   Значение по умолчанию — `none`.
 
@@ -968,10 +968,10 @@
 
   Настройка вывода и детализации отладочной информации модулем `pg_hint_plan`. Действует при включенной настройке [Pg hint plan enable hint](#setting-pg-hint-plan-enable). Возможные значения (по возрастанию детализации):
 
-  - `off` (`PG_HINT_PLAN_DEBUG_PRINT_OFF` для Terraform и API) — вывод отключен;
-  - `on` (`PG_HINT_PLAN_DEBUG_PRINT_ON` для Terraform и API) — по умолчанию;
-  - `detailed` (`PG_HINT_PLAN_DEBUG_PRINT_DETAILED` для Terraform и API);
-  - `verbose` (`PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` для Terraform и API).
+  - `off` (`PG_HINT_PLAN_DEBUG_PRINT_OFF` для {{ TF }} и API) — вывод отключен;
+  - `on` (`PG_HINT_PLAN_DEBUG_PRINT_ON` для {{ TF }} и API) — по умолчанию;
+  - `detailed` (`PG_HINT_PLAN_DEBUG_PRINT_DETAILED` для {{ TF }} и API);
+  - `verbose` (`PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` для {{ TF }} и API).
 
 - **Pg hint plan enable hint**{#setting-pg-hint-plan-enable} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
@@ -1033,9 +1033,9 @@
 
   Определяет, какой тип плана запроса (общий или специализированный) будет использован при выполнении [подготовленных команд](https://www.postgresql.org/docs/current/sql-prepare.html). Возможные значения:
 
-  - `auto` (`PLAN_CACHE_MODE_AUTO` для Terraform и API) — автоматический выбор;
-  - `force_custom_plan` (`PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN` для Terraform и API) — принудительно использовать специализированные планы;
-  - `force_generic_plan` (`PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` для Terraform и API) — принудительно использовать общие планы.
+  - `auto` (`PLAN_CACHE_MODE_AUTO` для {{ TF }} и API) — автоматический выбор;
+  - `force_custom_plan` (`PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN` для {{ TF }} и API) — принудительно использовать специализированные планы;
+  - `force_generic_plan` (`PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` для {{ TF }} и API) — принудительно использовать общие планы.
 
   Значение по умолчанию — `auto`.
 
@@ -1131,11 +1131,11 @@
 
   Допустимые значения:
 
-  - `off` (`SYNCHRONOUS_COMMIT_OFF` для Terraform, CLI и API) — транзакция подтверждается, даже если данные еще не попали в WAL. Запись несинхронна, данные о транзакции могут быть потеряны в результате сбоя дисковой подсистемы.
-  - `on` (`SYNCHRONOUS_COMMIT_ON` для Terraform, CLI и API) — транзакция подтверждается, если WAL записан на диск мастера и на диск кворумной реплики.
-  - `local` (`SYNCHRONOUS_COMMIT_LOCAL` для Terraform, CLI и API) — транзакция подтверждается, если WAL записан на диск мастера.
-  - `remote_apply` (`SYNCHRONOUS_COMMIT_REMOTE_APPLY` для Terraform, CLI и API) — транзакция подтверждается, если WAL записан на диск мастера, кворумная реплика приняла WAL и применила изменения из него.
-  - `remote_write` (`SYNCHRONOUS_COMMIT_REMOTE_WRITE` для Terraform, CLI и API) — транзакция подтверждается, если WAL записан на диск мастера, кворумная реплика приняла WAL и передала его операционной системе для записи на диск. В случае потери дисковой системы мастера и сбоя операционной системы на кворумной реплике данные транзакции с таким уровнем синхронизации могут быть утеряны.
+  - `off` (`SYNCHRONOUS_COMMIT_OFF` для {{ TF }}, CLI и API) — транзакция подтверждается, даже если данные еще не попали в WAL. Запись несинхронна, данные о транзакции могут быть потеряны в результате сбоя дисковой подсистемы.
+  - `on` (`SYNCHRONOUS_COMMIT_ON` для {{ TF }}, CLI и API) — транзакция подтверждается, если WAL записан на диск мастера и на диск кворумной реплики.
+  - `local` (`SYNCHRONOUS_COMMIT_LOCAL` для {{ TF }}, CLI и API) — транзакция подтверждается, если WAL записан на диск мастера.
+  - `remote_apply` (`SYNCHRONOUS_COMMIT_REMOTE_APPLY` для {{ TF }}, CLI и API) — транзакция подтверждается, если WAL записан на диск мастера, кворумная реплика приняла WAL и применила изменения из него.
+  - `remote_write` (`SYNCHRONOUS_COMMIT_REMOTE_WRITE` для {{ TF }}, CLI и API) — транзакция подтверждается, если WAL записан на диск мастера, кворумная реплика приняла WAL и передала его операционной системе для записи на диск. В случае потери дисковой системы мастера и сбоя операционной системы на кворумной реплике данные транзакции с таким уровнем синхронизации могут быть утеряны.
 
   Значение по умолчанию — `on`.
 
@@ -1282,8 +1282,8 @@
 
   Способ кодирования двоичных данных в XML. Возможные значения:
 
-  - `base64` (`XML_BINARY_BASE64` для Terraform, API и CLI) — BASE64-кодирование;
-  - `hex` (`XML_BINARY_HEX` для Terraform, API и CLI) — шестнадцатеричное кодирование.
+  - `base64` (`XML_BINARY_BASE64` для {{ TF }}, API и CLI) — BASE64-кодирование;
+  - `hex` (`XML_BINARY_HEX` для {{ TF }}, API и CLI) — шестнадцатеричное кодирование.
 
   Значение по умолчанию — `base64`.
 
@@ -1293,8 +1293,8 @@
 
   Тип преобразования XML-данных в символьные по умолчанию. Возможные значения:
 
-  - `document` (`XML_OPTION_DOCUMENT` для Terraform, API и CLI) — XML-документ;
-  - `content` (`XML_OPTION_CONTENT` для Terraform, API и CLI) — фрагмент XML-документа.
+  - `document` (`XML_OPTION_DOCUMENT` для {{ TF }}, API и CLI) — XML-документ;
+  - `content` (`XML_OPTION_CONTENT` для {{ TF }}, API и CLI) — фрагмент XML-документа.
 
   Значение по умолчанию — `content`.
 

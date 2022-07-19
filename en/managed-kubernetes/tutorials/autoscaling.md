@@ -241,7 +241,7 @@ In this section, you will learn to configure cluster autoscaling based on the nu
      grep ingresses.networking.k8s.io/nginx_ingress_controller_requests_per_second
    ```
 
-   Expected execution result:
+   Result:
 
    ```text
    "name": "ingresses.networking.k8s.io/nginx_ingress_controller_requests_per_second",

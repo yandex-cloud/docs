@@ -23,12 +23,25 @@ To run workloads with GPUs on {{ k8s }} cluster pods:
        Create a {{ k8s }} cluster:
 
        ```
-       $ yc managed-kubernetes cluster create 
+       yc managed-kubernetes cluster create 
            --name k8s-gpu-cluster \
            --service-account-name k8s \
            --node-service-account-name docker \
            --zone {{ region-id }}-a \     
            --network-name k8s-gpu
+       ```
+
+       Where:
+
+       - `--name`: The {{ k8s }} cluster name.
+       - `--service-account-id`: The unique ID of the service account for the resources. The resources that the {{ k8s }} cluster needs will be created on behalf of this account.
+       - `--node-service-account-id`: The unique ID of the service account for the nodes. Nodes will download the Docker images they require from the registry on behalf of this account.
+       - `--zone`: Availability zone.
+       - `--network-name`: Name of the network.
+
+       Result:
+
+       ```
        done (6m9s)
        id: catsk2s5f0fmb5h0pd94
        folder_id: b1g12ga82mev0cljderg
@@ -37,13 +50,6 @@ To run workloads with GPUs on {{ k8s }} cluster pods:
        node_service_account_id: ajeo8f063dmnicot7t7j
        release_channel: REGULAR
        ```
-
-       Where:
-       - `--name`: The {{ k8s }} cluster name.
-       - `--service-account-id`: The unique ID of the service account for the resources. The resources that the {{ k8s }} cluster needs will be created on behalf of this account.
-       - `--node-service-account-id`: The unique ID of the service account for the nodes. Nodes will download the Docker images they require from the registry on behalf of this account.
-       - `--zone`: Availability zone.
-       - `--network-name`: Name of the network.
 
    - API
 
@@ -112,13 +118,27 @@ To run workloads with GPUs on {{ k8s }} cluster pods:
      Create a node group:
 
      ```
-     $ yc managed-kubernetes node-group create \
+     yc managed-kubernetes node-group create \
       --name k8s-gpu-cluster \
       --cluster-name k8s-gpu-cluster \
       --gpus 1 \  
       --public-ip \
       --location zone={{ region-id }}-a \  
       --fixed-size 1
+     ```
+
+     Where:
+
+     - `--name`: Name of the node group.
+     - `--cluster-name`: Name of the {{ k8s }} cluster where the node group is created.
+     - `--gpus`: Number of GPUs for the nodes.
+     - `--public-ip`: The flag that is specified if the node group needs a public IP address.
+     - `--location`: Availability zone to host the nodes in. You can specify several options.
+     - `--fixed-size`: Number of nodes in the group.
+
+     Result:
+
+     ```
      done (3m53s)
      id: cat3rmrrna8p93kafdce
      cluster_id: cattv5gvhqdbhi5f234m
@@ -160,14 +180,6 @@ To run workloads with GPUs on {{ k8s }} cluster pods:
          anytime: {}
      ```
 
-     Where:
-     - `--name`: Name of the node group.
-     - `--cluster-name`: Name of the {{ k8s }} cluster where the node group is created.
-     - `--gpus`: Number of GPUs for the nodes.
-     - `--public-ip`: The flag that is specified if the node group needs a public IP address.
-     - `--location`: Availability zone to host the nodes in. You can specify several options.
-     - `--fixed-size`: Number of nodes in the group.
-
    - API
 
      To create a node group, use the [create](../api-ref/NodeGroup/create.md) method for the [NodeGroup](../api-ref/NodeGroup) resource.
@@ -201,14 +213,14 @@ To run workloads with GPUs on {{ k8s }} cluster pods:
 1. Run the command:
 
     ```
-    $ kubectl create -f cuda-vector-add.yaml
+    kubectl create -f cuda-vector-add.yaml
     pod/cuda-vector-add created
     ```
 
 1. View information about the pod created:
 
     ```
-    $ kubectl describe pod cuda-vector-add
+    kubectl describe pod cuda-vector-add
     Name:         cuda-vector-add
     Namespace:    default
     Priority:     0
@@ -231,7 +243,7 @@ To run workloads with GPUs on {{ k8s }} cluster pods:
 1. View the pod logs:
 
     ```
-    $ kubectl logs -f cuda-vector-add
+    kubectl logs -f cuda-vector-add
     [Vector addition of 50000 elements]
     Copy input data from the host memory to the CUDA device
     CUDA kernel launch with 196 blocks of 256 threads

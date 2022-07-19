@@ -51,7 +51,7 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
      -o key.json
    ```
 
-   Expected output:
+   Result:
 
    ```text
    {

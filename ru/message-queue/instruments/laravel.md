@@ -13,8 +13,8 @@
 Задайте переменные окружения:
 
 ```
-$ export AWS_ACCESS_KEY_ID="<идентификатор ключа доступа>"
-$ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
+export AWS_ACCESS_KEY_ID="<идентификатор ключа доступа>"
+export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 ```
 
 Создайте очередь в сервисе {{ message-queue-name }} и скопируйте ее URL.
@@ -28,13 +28,13 @@ $ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 1. Создайте тестовый проект `mq_example`:
 
    ```
-   $ composer create-project --prefer-dist laravel/laravel mq_example
+   composer create-project --prefer-dist laravel/laravel mq_example
    ```
 
 1. Создайте задачу `Add`:
 
    ```
-   $ php artisan make:job Add
+   php artisan make:job Add
    ```
 
 1. Откройте файл `/app/Jobs/Add.php` и приведите его к виду:
@@ -82,7 +82,7 @@ $ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 1. Создайте новую команду `ScheduleAdd`:
 
    ```
-   $ php artisan make:command ScheduleAdd
+   php artisan make:command ScheduleAdd
    ```
 
 1. Откройте файл `app/Console/Commands/ScheduleAdd.php` и приведите его к следующему виду:
@@ -138,7 +138,7 @@ $ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 
 1. Заполните параметры в блоке `sqs`.
    
-   Чтобы получить значения для параметров `prefix` и `queue` разделить URL вашей очереди на две части: префиксом будет служить `https://message-queue.{{ api-host }}/`, а параметром очереди `b1gvlrnlei4l5idm9cbj/dj6000000000g53305qi` без `/` в начале.
+   Чтобы получить значения для параметров `prefix` и `queue`, разделите URL вашей очереди на две части: префиксом будет служить `https://message-queue.{{ api-host }}/`, а параметром очереди `b1gvlrnlei4l5idm9cbj/dj6000000000g53305qi` без `/` в начале.
 
    ```
    'sqs' => [
@@ -154,23 +154,23 @@ $ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
 1. Добавьте в зависимости проекта пакет `aws/aws-sdk-php`:
    
    ```
-   $ composer require aws/aws-sdk-php
+   composer require aws/aws-sdk-php
    ```
 
 1. Обновите конфигурацию Composer:
 
    ```
-   $ composer update
+   composer update
    ```
 
 1. Выполните команду:
 
    ```
-   $ php artisan sample:schedule-add
+   php artisan sample:schedule-add
    ```
 
 1. Выполните команду:
 
    ```
-   $ php artisan queue:work
+   php artisan queue:work
    ```

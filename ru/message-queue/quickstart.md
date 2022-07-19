@@ -61,9 +61,10 @@ description: "В этой инструкции вы научитесь выпо�
    - AWS CLI
   
      ```
-     aws sqs send-message --message-body "Hello World" \
-                 --endpoint https://message-queue.{{ api-host }}/ \
-                 --queue-url https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002l034r/sample-queue
+     aws sqs send-message \
+       --message-body "Hello World" \
+       --endpoint https://message-queue.{{ api-host }}/ \
+       --queue-url https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002l034r/sample-queue
      {
          "MD5OfMessageBody": "67e63db14341b5a696596634bbf19796",
          "MessageId": "765ff4d2-fa4bc83-6cfcc68e-21a49"
@@ -80,8 +81,8 @@ description: "В этой инструкции вы научитесь выпо�
   
      ```
      aws sqs receive-message \
-                 --endpoint https://message-queue.{{ api-host }}/ \
-                 --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
+       --endpoint https://message-queue.{{ api-host }}/ \
+       --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
      {
          "Messages": [
              {
@@ -113,9 +114,9 @@ description: "В этой инструкции вы научитесь выпо�
   
      ```
      aws sqs delete-message \
-                 --endpoint https://message-queue.{{ api-host }}/ \
-                 --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
-                 --receipt-handle EAEggbjIg_8sKAM
+       --endpoint https://message-queue.{{ api-host }}/ \
+       --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
+       --receipt-handle EAEggbjIg_8sKAM
      ```
   
    {% endlist %}
@@ -128,8 +129,8 @@ description: "В этой инструкции вы научитесь выпо�
   
      ```
      aws sqs delete-queue \
-                 --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
-                 --endpoint https://message-queue.{{ api-host }}/
+       --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
+       --endpoint https://message-queue.{{ api-host }}/
      ```
   
    - Консоль управления

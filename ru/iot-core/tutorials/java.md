@@ -112,7 +112,8 @@ connOpts.setKeepAliveInterval(keepAliveInterval);
 
 ```
 
-Где: 
+Где:
+
 * `MqttClient` — класс, в котором указываются параметры подключения к {{ iot-full-name }}:
     * Адрес и порт.
     * Идентификатор клиента.
@@ -343,5 +344,6 @@ client.close();
 ```
 
 Где:
+
 * Метод `disconnect` закрывает соединение с сервером. 
 * Метод `close` освобождает ресурсы класса `MqttClient`.

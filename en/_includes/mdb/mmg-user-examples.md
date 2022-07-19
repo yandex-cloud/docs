@@ -55,7 +55,7 @@ To grant read-only access to the `db2` database to user `user1` of cluster `clus
      --role read
    ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

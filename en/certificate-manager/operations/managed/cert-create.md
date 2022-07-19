@@ -35,11 +35,12 @@ To create a new Let's Encrypt certificate:
           --domains example.com
         ```
 
-        Command parameters:
+        Where:
+
           - `--name`: Certificate name.
           - `--domains`: Certificate domains.
 
-        Command results:
+        Result:
 
         ```bash
         id: fpq6gvvm6piuegbb2nol

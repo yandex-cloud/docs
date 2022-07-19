@@ -508,7 +508,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
 Stop `wrk` by pressing **Ctrl** + **C**.
 
-Output:
+Result:
 
 ```bash
   Thread Stats   Avg      Stdev     Max   +/- Stdev

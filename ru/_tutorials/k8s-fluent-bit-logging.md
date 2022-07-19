@@ -84,7 +84,7 @@
    kubectl apply -f config.yaml
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат:
 
    ```text
    configmap/fluent-bit-config created

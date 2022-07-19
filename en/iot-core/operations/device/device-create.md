@@ -67,11 +67,11 @@
       +----------------------+-----------+
       ```
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% note info %}
 
@@ -86,14 +86,14 @@
    1. In the configuration file, describe the parameters of the resource to create:
 
       * `yandex_iot_core_device`: Device parameters:
-         * `registry_id`: ID of the registry to create a device in.
-         * `name`: Device name.
-         * `description`: Device description.
-         * `aliases`: Topic aliases. For more detail, please see [Creating an alias](../device/alias/alias-create.md)
-         * `passwords`: List of passwords for authorization using a [username and password](../../concepts/authorization.md#log-pass).
-         * `certificates`: List of certificates for authorization using [certificates](../../concepts/authorization.md#certs).
+        * `registry_id`: ID of the registry to create a device in.
+        * `name`: Device name.
+        * `description`: Device description.
+        * `aliases`: Topic aliases. For more detail, please see [Creating an alias](../device/alias/alias-create.md)
+        * `passwords`: List of passwords for authorization using a [username and password](../../concepts/authorization.md#log-pass).
+        * `certificates`: List of certificates for authorization using [certificates](../../concepts/authorization.md#certs).
 
-      Sample resource structure in the configuration file:
+      Example configuration file structure:
 
       ```
       resource "yandex_iot_core_device" "my_device" {
@@ -116,7 +116,7 @@
       }
       ```
 
-      For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
+      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
    1. Make sure that the configuration files are correct.
 
@@ -125,7 +125,7 @@
          ```
          terraform plan
          ```
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

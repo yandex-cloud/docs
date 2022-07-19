@@ -3,14 +3,14 @@
 - Статический ключ в файле `.aws/credentials`:
    ```
    [default]
-               aws_access_key_id = <id>
-               aws_secret_access_key = <secretKey>
+     aws_access_key_id = <id>
+     aws_secret_access_key = <secretKey>
    ```
 
 - Регион по умолчанию в файле `.aws/config`:
    ```
    [default]
-               region={{ region-id }}
+     region={{ region-id }}
    ```
    {% note info %}
 

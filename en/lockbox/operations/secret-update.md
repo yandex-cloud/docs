@@ -33,7 +33,7 @@ To update a secret:
         --description <new secret description>
       ```
 
-      Output:
+      Result:
       ```
       id: e6q2ig0u9b97tk2d251j
       folder_id: b1gyggt2th593evcld2a

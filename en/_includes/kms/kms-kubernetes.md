@@ -44,7 +44,7 @@ Make sure you specify the encryption key when creating a cluster, as you can't a
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  If you don't have Terraform, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Specify a key when [creating a cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) in {{ k8s }}:
 

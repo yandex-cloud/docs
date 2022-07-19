@@ -54,22 +54,22 @@
       --topic-aliases <имя_алиаса>='$devices/{id}/<events,_state,_commands_или_config>'
     ```
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о Terraform [читайте в документации](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  Чтобы добавить алиас устройству, созданному с помощью Terraform:
+  Чтобы добавить алиас устройству, созданному с помощью {{ TF }}:
   
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-      * `yandex_iot_core_device` — параметры устройства:
-        * `registry_id` — [идентификатор реестра](../../registry/registry-list.md#registry-list), в котором создано устройство.
-        * `name` — [имя устройства](../device-list.md#device-list).
-        * `description` — описание устройства.
-        * `aliases` — алиасы топиков.
-      
+     * `yandex_iot_core_device` — параметры устройства:
+       * `registry_id` — [идентификатор реестра](../../registry/registry-list.md#registry-list), в котором создано устройство.
+       * `name` — [имя устройства](../device-list.md#device-list).
+       * `description` — описание устройства.
+       * `aliases` — алиасы топиков.
+
       Пример структуры ресурса в конфигурационном файле:
 
       ```hcl
@@ -86,7 +86,7 @@
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_iot_core_device` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iot_core_device).
+      Более подробную информацию о параметрах ресурса `yandex_iot_core_device` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/iot_core_device).
   1. В командной строке перейдите в папку, где вы отредактировали конфигурационный файл.
   1. Проверьте корректность конфигурационного файла с помощью команды:
 
@@ -106,7 +106,7 @@
       terraform plan
       ```
   
-      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Примените изменения конфигурации:
 
       ```bash

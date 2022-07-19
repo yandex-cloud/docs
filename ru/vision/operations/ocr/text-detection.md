@@ -22,8 +22,6 @@
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
 1. Создайте файл с телом запроса, например `body.json`.
 
-    В теле запроса укажите [MIME-тип](https://en.wikipedia.org/wiki/Media_type) `application/pdf`, а в свойстве `content` укажите PDF-файл, кодированный в Base64.
-
     **body.json:**
     ```json
     {
@@ -40,6 +38,12 @@
         }]
     }
     ```
+
+    Где:
+
+    * `analyze_specs: content` – PDF-файл, кодированный в Base64.
+    * `analyze_specs: mime_type` – [MIME-тип](https://en.wikipedia.org/wiki/Media_type) `application/pdf`.
+
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
 
 ### Распознайте строку текста {#string}
@@ -57,9 +61,7 @@
 1. Кодируйте файл изображения в формат Base64.
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
-1. Создайте файл с телом запроса, например `body.json`.
-
-    В свойстве `model` укажите модель `line`. В свойстве `content` укажите изображение, кодированное в Base64.
+1. Создайте файл с телом запроса, например `body.json`:
 
     **body.json:**
     ```json
@@ -77,6 +79,12 @@
         }]
     }
     ```
+
+    Где:
+
+    * `analyze_specs: content` – изображение, кодированное в Base64.
+    * `analyze_specs: features: text_detection_config: model` – модель `line`.
+
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
 
 ### Указать язык текста в запросе {#multiple-languages}
@@ -86,7 +94,7 @@
 1. Кодируйте файл в формат Base64:
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
-1. Создайте файл с телом запроса, например `body.json`. В свойстве `content` укажите изображение, кодированное в Base64.
+1. Создайте файл с телом запроса, например `body.json`:
 
     **body.json:**
     ```json
@@ -96,6 +104,9 @@
             "content": "iVBORw0KGgo...",
             ...
     ```
+
+    Где `analyze_specs: content` – изображение, кодированное в Base64.
+
 1. [Выберите языки](../../concepts/ocr/supported-languages.md) для распознавания текста и соответствующие им модели распознавания:
 
    * Если все языки входят в одну модель, то укажите их в конфигурации запроса. Можно указать до 8 языков. Например, французский и немецкий:
@@ -361,9 +372,9 @@
     {% include [text-detection-run-example](../../../_includes/vision/text-detection-run-example.md) %}
 
     ```bash
-    $ export TOKEN=AgAAAAAMTH...
-    $ export FOLDER_ID=b1gvmob95yysaplct532
-    $ go run text_detection.go -folder-id $FOLDER_ID -oauth-token $TOKEN -image-path input.jpg
+    export TOKEN=AgAAAAAMTH...
+    export FOLDER_ID=b1gvmob95yysaplct532
+    go run text_detection.go -folder-id $FOLDER_ID -oauth-token $TOKEN -image-path input.jpg
     ```
 
 - Python
@@ -428,8 +439,9 @@
     {% include [text-detection-run-example](../../../_includes/vision/text-detection-run-example.md) %}
 
     ```bash
-    $ export TOKEN=AgAAAAAMTH...
-    $ export FOLDER_ID=b1gvmob95yysaplct532
-    $ python text_detection.py --folder-id=$FOLDER_ID --oauth-token=$TOKEN --image-path=input.jpg
+    export TOKEN=AgAAAAAMTH...
+    export FOLDER_ID=b1gvmob95yysaplct532
+    python text_detection.py --folder-id=$FOLDER_ID --oauth-token=$TOKEN --image-path=input.jpg
     ```
+
 {% endlist %}

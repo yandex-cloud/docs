@@ -264,7 +264,7 @@ To create an instance group:
          --file specification.yaml
       ```
 
-      Command output:
+      Result:
 
       ```bash
       done (25s)
@@ -381,7 +381,7 @@ To create a backend group:
       yc alb backend-group create ddos-backend-group
       ```
 
-      Command output:
+      Result:
 
       ```bash
       id: a5dg2cv4ngne8575fb1p
@@ -404,7 +404,7 @@ To create a backend group:
         --http-healthcheck timeout=1s,interval=1s,port=80,path=/
       ```
 
-      Command parameters:
+      Where:
 
       * `--backend-group-name`: Name of the backend group.
       * `--name`: Backend name.
@@ -418,7 +418,7 @@ To create a backend group:
          * `host`: The host address.
          * `path`: The path.
 
-      Command output:
+      Result:
 
       ```bash
       done (21s)
@@ -481,7 +481,7 @@ To create an HTTP router and add a route to it:
       yc alb http-router create ddos-router
       ```
 
-      Command output:
+      Result:
 
       ```bash
       id: a5dcsselagj4o2v4a6e7
@@ -513,7 +513,7 @@ To create an HTTP router and add a route to it:
         --request-timeout 60s
       ```
 
-      Command output:
+      Result:
 
       ```bash
       done (1s)
@@ -592,7 +592,7 @@ Check that the service is available on the `alb-with-ddos.com` host. To do this,
 curl -H "Host: alb-with-ddos.com" http://<L7 load balancer IP address>
 ```
 
-Command output:
+Result:
 
 ```html
 <!DOCTYPE html>

@@ -134,7 +134,7 @@ yc managed-kubernetes node-group add-metadata \
   kubectl get nodes -o wide
   ```
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   NAME                       STATUS  ROLES   AGE  VERSION  INTERNAL-IP  EXTERNAL-IP     OS-IMAGE            KERNEL-VERSION     CONTAINER-RUNTIME
@@ -161,7 +161,7 @@ yc managed-kubernetes node-group add-metadata \
      yc managed-kubernetes node-group list
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
@@ -179,7 +179,7 @@ yc managed-kubernetes node-group add-metadata \
      yc compute instance-group list-instances cl17i6943n92sb98jifg
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      +----------------------+---------------------------+--------------------------+---------------+----------------+

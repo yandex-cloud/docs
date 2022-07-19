@@ -34,7 +34,7 @@ description: "Вы можете удалить кластер Apache Kafka®, е
   {{ yc-mdb-kf }} cluster delete <имя или идентификатор кластера>
   ```
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 

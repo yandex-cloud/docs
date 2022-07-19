@@ -1,6 +1,6 @@
 ### Из зеркала {#from-yc-mirror}
 
-Вы можете скачать дистрибутив Terraform для вашей платформы из [зеркала]({{ terraform-mirror }}). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`: 
+Вы можете скачать дистрибутив {{ TF }} для вашей платформы из [зеркала]({{ terraform-mirror }}). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`:
 
 ```
 export PATH=$PATH:/path/to/terraform
@@ -14,8 +14,8 @@ export PATH=$PATH:/path/to/terraform
 
   Используйте один из способов:
 
-  * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
-  * Установите Terraform с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду:
+  * [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  * Установите {{ TF }} с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду:
 
      ```
      choco install terraform
@@ -23,14 +23,14 @@ export PATH=$PATH:/path/to/terraform
 
 - Linux
 
-  [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
 
 - macOS
 
   Используйте один из способов:
 
-    * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
-    * Установите Terraform с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду:
+    * [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+    * Установите {{ TF }} с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду:
 
       ```
       brew install terraform

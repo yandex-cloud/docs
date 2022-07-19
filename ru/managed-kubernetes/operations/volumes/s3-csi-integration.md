@@ -159,7 +159,7 @@
       kubectl get pvc csi-s3-pvc-dynamic
       ```
 
-      Ожидаемый результат выполнения команды:
+      Результат:
 
       ```text
       NAME                STATUS  VOLUME                    CAPACITY  ACCESS MODES  STORAGECLASS  AGE
@@ -301,7 +301,7 @@
       kubectl get pvc csi-s3-pvc-static
       ```
 
-      Ожидаемый результат выполнения команды:
+      Результат:
 
       ```text
       NAME               STATUS  VOLUME                   CAPACITY   ACCESS MODES  STORAGECLASS  AGE

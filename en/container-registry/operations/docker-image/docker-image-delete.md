@@ -37,7 +37,7 @@ Deleting a Docker image is a deferred action operation: when you delete a Docker
       yc container image list
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +----+---------+------+------+-----------------+

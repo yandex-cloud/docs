@@ -38,7 +38,7 @@ If you no longer need these resources, [delete them](#clear-out).
    yc iam access-key create --service-account-name velero-sa
    ```
 
-   Expected execution result:
+   Result:
 
    ```bash
    access_key:
@@ -85,6 +85,7 @@ To back up cluster group data:
    ```
 
    Where:
+
    * `--backup-location-config`: Backup storage parameters. URL of {{ objstorage-name }} storage and [availability zones](../../overview/concepts/geo-scope.md).
    * `--bucket`: Name of the backup storage bucket.
    * `--plugins`: Plugin images for AWS API compatibility.
@@ -93,7 +94,7 @@ To back up cluster group data:
    * `--features`: List of active functionalities.
    * `--snapshot-location-config`: Availability zone where disk snapshots will be located.
 
-   Expected execution result:
+   Result:
 
    ```text
    CustomResourceDefinition/backups.velero.io: attempting to create resource
@@ -115,7 +116,7 @@ To back up cluster group data:
    velero backup create my-backup
    ```
 
-   Expected execution result:
+   Result:
 
    ```text
    Backup request "my-backup" submitted successfully.
@@ -128,7 +129,7 @@ To back up cluster group data:
    velero backup get
    ```
 
-   Expected execution result:
+   Result:
 
    ```text
    NAME       STATUS     ERRORS  WARNINGS  CREATED                        EXPIRES  STORAGE LOCATION  SELECTOR
@@ -157,6 +158,7 @@ To restore data from the {{ managed-k8s-name }} cluster node group:
    ```
 
    Where:
+
    * `--backup-location-config`: Backup storage parameters. URL of {{ objstorage-name }} storage and [availability zones](../../overview/concepts/geo-scope.md).
    * `--bucket`: Name of the backup storage bucket.
    * `--plugins`: Plugin images for AWS API compatibility.
@@ -165,7 +167,7 @@ To restore data from the {{ managed-k8s-name }} cluster node group:
    * `--features`: List of active functionalities.
    * `--snapshot-location-config`: Select the availability zone to host disk snapshots.
 
-   Expected execution result:
+   Result:
 
    ```text
    CustomResourceDefinition/backups.velero.io: attempting to create resource
@@ -187,7 +189,7 @@ To restore data from the {{ managed-k8s-name }} cluster node group:
    velero backup get
    ```
 
-   Expected execution result:
+   Result:
 
    ```text
    NAME       STATUS     ERRORS  WARNINGS  CREATED                        EXPIRES  STORAGE LOCATION  SELECTOR
@@ -201,10 +203,11 @@ To restore data from the {{ managed-k8s-name }} cluster node group:
    ```
 
    Where:
+
    * `--exclude-namespaces`: Parameter that allows users not to restore objects from the `velero` namespace.
    * `--from-backup`: Name of the bucket where the backup is stored.
 
-   Expected execution result:
+   Result:
 
    ```text
    Restore request "my-restore" submitted successfully.
@@ -217,7 +220,7 @@ To restore data from the {{ managed-k8s-name }} cluster node group:
    velero get restore
    ```
 
-   Expected execution result:
+   Result:
 
    ```text
    NAME        BACKUP     STATUS     STARTED                        COMPLETED                      ERRORS  WARNINGS  CREATED                        SELECTOR

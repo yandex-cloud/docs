@@ -29,7 +29,7 @@ To delete an image:
    1. See a description of the CLI's delete image commands:
 
       ```
-      $ yc compute image delete --help
+      yc compute image delete --help
       ```
 
    1. Get a list of images in the default folder:
@@ -40,26 +40,26 @@ To delete an image:
    1. Delete the image:
 
       ```
-      $ yc compute image delete \
+      yc compute image delete \
           --name first-image
       ```
 
-- Terraform
+- {{ TF }}
 
-   For more information about Terraform, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   Images created using Terraform can be deleted:
+   Images created using {{ TF }} can be deleted:
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
    1. Delete resources using the command:
 
       ```
-      $ terraform destroy
+      terraform destroy
       ```
 
       {% note alert %}
 
-      Terraform deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
 
       {% endnote %}
 

@@ -41,7 +41,7 @@
           Password: <IAM-токен>
           ```
 
-     Результат выполнения любой команды:
+     Результат:
 
      ```bash
      Login succeeded
@@ -55,7 +55,7 @@
      helm package . --version <версия Helm-чарта>
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      Successfully packaged chart and saved it to: /<путь>/<имя Helm-чарта>-<версия>.tgz
@@ -67,7 +67,7 @@
      helm push <имя Helm-чарта>-<версия>.tgz oci://{{ registry }}/<ID реестра>
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      Pushed: {{ registry }}/<ID реестра>/<имя Helm-чарта>:<версия>

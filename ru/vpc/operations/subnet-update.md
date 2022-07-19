@@ -32,9 +32,10 @@
       ```
       yc vpc subnet list
       ```
-	  Результат:
+	    
+      Результат:
 
-	  ```
+      ```
       +----------------------+-----------------------+----------------------+
       |          ID          |         NAME          |         ...          |
       +----------------------+-----------------------+----------------------+
@@ -49,8 +50,13 @@
 
       ```
       yc vpc subnet update e2l2prrbkbimvjuuhht2 \
-          --new-name test-subnet-renamed \
-          --labels new_label=test_label
+        --new-name test-subnet-renamed \
+        --labels new_label=test_label
+      ```
+
+      Результат:
+
+      ```
       id: e2l2prrbkbimvjuuhht2
       folder_id: b1g6ci08ma55klukmdjs
       created_at: "2018-10-24T13:54:10Z"
@@ -64,13 +70,13 @@
       - 192.168.0.0/24
       ```
 
-- Terraform
+- {{ TF }}
 
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием подсети:
+  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием подсети:
 
      ```hcl
      ...
@@ -84,7 +90,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_subnet` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/vpc_subnet).
+     Более подробную информацию о параметрах ресурса `yandex_vpc_subnet` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_subnet).
 
   1. Проверьте конфигурацию командой:
 
@@ -104,7 +110,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
 
@@ -120,16 +126,27 @@
      yc vpc subnet get <имя подсети>
      ```
 
+{% endlist %}
+
 ## Примеры {#examples}
 
 ### Изменение подсети с использованием флага имени {#using-name-flag}
+
+{% list tabs %}
+
+- CLI
 
   Можно изменять подсеть, используя ее имя вместо идентификатора:
 
   ```
   yc vpc subnet update test-subnet-1 \
-      --new-name test-subnet-renamed \
-      --labels new_label=test_label
+    --new-name test-subnet-renamed \
+    --labels new_label=test_label
+  ```
+
+  Результат:
+
+  ```
   id: e2l2prrbkbimvjuuhht2
   folder_id: b1g6ci08ma55klukmdjs
   created_at: "2018-10-24T13:54:10Z"
@@ -146,13 +163,17 @@
   Идентификатор и имя подсети можно передавать не только как позиционный аргумент, но и с помощью флагов `--id` и `--name`:
 
   ```
-  yc vpc network update --id enpavfmgapumnl7cqin8 \
-  --new-name test-network-renamed \
-  --labels new_label=test_label
+  yc vpc network update \
+    --id enpavfmgapumnl7cqin8 \
+    --new-name test-network-renamed \
+    --labels new_label=test_label
   ```
+
   ```
-  yc vpc network update --name test-network-1 \
-  --new-name test-network-renamed \
-  --labels new_label=test_label
+  yc vpc network update \
+    --name test-network-1 \
+    --new-name test-network-renamed \
+    --labels new_label=test_label
   ```
+
 {% endlist %}

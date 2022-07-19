@@ -29,7 +29,7 @@ description: "Данные в {{ container-registry-name }} надежно хр�
      yc container registry list
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      +----------------------+-------------+----------------------+
@@ -63,10 +63,9 @@ description: "Данные в {{ container-registry-name }} надежно хр�
      yc container image list --registry-name my-registry
      ```
 
-     Где:
-     * `registry-name`— имя реестра.
+     Где `registry-name`— имя реестра.
 
-     Результат выполнения:
+     Результат:
 
      ```bash
      +----------------------+---------------------+-----------------------------+-------+-----------------+
@@ -92,7 +91,7 @@ description: "Данные в {{ container-registry-name }} надежно хр�
      docker pull {{ registry }}/crp1abc2tl3def1h2gu6/ubuntu:hello
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      hello: Pulling from crp1abc2tl3def1h2gu6/ubuntu
@@ -113,7 +112,7 @@ description: "Данные в {{ container-registry-name }} надежно хр�
      docker image list
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      REPOSITORY                                   TAG     IMAGE ID      CREATED     SIZE

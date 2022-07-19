@@ -26,7 +26,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
       yc container registry list
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +----+------+-----------+
@@ -43,7 +43,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
       yc container registry create --name my-reg
       ```
 
-      Command output:
+      Result:
 
       ```bash
       done
@@ -65,7 +65,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
       yc container registry list
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +----------------------+--------+----------------------+
@@ -79,9 +79,9 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
 
    To create a registry, use the [create](../../api-ref/Registry/create.md) method for the [Registry](../../api-ref/Registry/) resource.
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. To a configuration file, add the parameters of the registry that you want to create. Use `example.tf` in `~/cloud-terraform`:
 
@@ -96,11 +96,12 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
       ```
 
       Where:
+
       * `name`: Registry name.
       * `folder_id`: ID of the folder.
       * `labels`: Set of [labels](../../../overview/concepts/services.md#labels).
 
-      For more information about resources you can create with Terraform, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Check that the configuration file is correct.
       1. Use the command line to go to the directory where you saved the configuration file:
@@ -115,7 +116,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
          terraform plan
          ```
 
-         Command output:
+         Result:
 
          ```
          Refreshing Terraform state in-memory prior to plan...
@@ -134,7 +135,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
          terraform apply
          ```
 
-         Command output:
+         Result:
 
          ```bash
          An execution plan has been generated and is shown below.
@@ -153,7 +154,7 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
          Enter a value: yes
          ```
 
-         Command output:
+         Result:
 
          ```bash
          yandex_container_registry.default: Creating...

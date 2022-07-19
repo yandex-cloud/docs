@@ -89,7 +89,7 @@ To configure a {{ mrd-name }} cluster as PHP session storage:
         session.save_path = "seed[]=<FQDN1>:6379&seed[]=<FQDN2>:6379&seed[]=<FQDN3>:6379&auth=<password>"
         ```
 
-        Here, `<FQDN1>`, `<FQDN2>`, and `<FQDN3>` are fully qualified domain names of [cluster master hosts](../operations/hosts.md#list). For example, for a cluster with 3 shards and the `password` password, the `session.save_path` parameter value looks like this:
+        Where `<FQDN1>`, `<FQDN2>`, and `<FQDN3>` are fully qualified domain names of [cluster master hosts](../operations/hosts.md#list). For example, for a cluster with 3 shards and the `password` password, the `session.save_path` parameter value looks like this:
 
         ```ini
         session.save_path = "seed[]=rc1a-t9h8gxqor5v6lcc3.{{ dns-zone }}:6379&seed[]=rc1b-7qxk0h3b8pupxsj9.{{ dns-zone }}:6379&seed[]=rc1c-spy1c1i4vwvj0n8z.{{ dns-zone }}:6379&auth=password"

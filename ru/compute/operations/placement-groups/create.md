@@ -20,7 +20,7 @@
 
      ```bash
      yc compute placement-group create --spread-strategy --name my-group
-	 ```
+     ```
 
      Результат:
 
@@ -41,7 +41,7 @@
 
       ```bash
       yc compute placement-group list
-	  ```
+      ```
 
       Результат:
 
@@ -65,6 +65,15 @@
 
   1. Опишите в конфигурационном файле параметры группы размещения:
 
+     * `name` — имя группы размещения. Формат имени:
+
+        {% include [name-format](../../../_includes/name-format.md) %}
+
+     * `folder_id` — идентификатор каталога, в котором создается группа размещения.
+     * `description` — описание группы размещения.
+
+     Пример структуры конфигурационного файла:
+
      ```hcl
      resource "yandex_compute_placement_group" "group1" {
        name        = "<имя группы размещения>"
@@ -72,14 +81,6 @@
        description = "<описание группы размещения>"
      }
      ```
-
-     Где:
-     * `name` — имя группы размещения. Формат имени:
-
-        {% include [name-format](../../../_includes/name-format.md) %}
-
-     * `folder_id` — идентификатор каталога, в котором создается группа размещения.
-     * `description` — описание группы размещения.
 
      Более подробную информацию о параметрах ресурса `yandex_compute_placement_group` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/compute_placement_group).
 

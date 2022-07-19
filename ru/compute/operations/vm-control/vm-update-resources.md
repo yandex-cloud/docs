@@ -33,7 +33,7 @@
   1. Посмотрите описание команды CLI для обновления параметров виртуальных машин:
 
       ```
-      $ yc compute instance update --help
+      yc compute instance update --help
       ```
 
   1. Получите список виртуальных машин в каталоге по умолчанию:
@@ -44,21 +44,22 @@
   1. Остановите виртуальную машину:
 
       ```
-      $ yc compute instance stop first-instance
+      yc compute instance stop first-instance
       ```
+
   1. Получите текущую [конфигурацию](../../concepts/performance-levels.md) виртуальной машины вместе с [метаданными](../../concepts/vm-metadata.md):
 
       ```
-      $ yc compute instance get --full first-instance
+      yc compute instance get --full first-instance
       ```
 
   1. Измените конфигурацию виртуальной машины:
 
       ```
-      $ yc compute instance update first-instance \
-          --memory 32 \
-          --cores 4 \
-          --core-fraction 100
+      yc compute instance update first-instance \
+        --memory 32 \
+        --cores 4 \
+        --core-fraction 100
       ```
 
       Данная команда изменит конфигурацию виртуальной машины:
@@ -70,8 +71,9 @@
   1. Запустите виртуальную машину:
 
       ```
-      $ yc compute instance start first-instance
+      yc compute instance start first-instance
       ```
+
 - API
 
   Чтобы изменить vCPU и RAM виртуальной машины, воспользуйтесь методом [Update](../../api-ref/Instance/update.md) для ресурса `Instance`.
@@ -114,7 +116,7 @@
   1. Посмотрите описание команды CLI для обновления параметров виртуальных машин:
 
       ```
-      $ yc compute instance update --help
+      yc compute instance update --help
       ```
 
   1. Получите список виртуальных машин в каталоге по умолчанию:
@@ -126,23 +128,23 @@
   1. Остановите виртуальную машину:
 
       ```
-      $ yc compute instance stop first-instance
+      yc compute instance stop first-instance
       ```
 
   1. Получите текущую [конфигурацию](../../concepts/performance-levels.md) виртуальной машины вместе с [метаданными](../../concepts/vm-metadata.md):
 
       ```
-      $ yc compute instance get --full first-instance
+      yc compute instance get --full first-instance
       ```
 
   1. Измените конфигурацию виртуальной машины:
 
       ```
-      $ yc compute instance update first-instance \
-          --platform=gpu-standard-v3 \
-          --cores=8 \
-          --memory=96 \
-          --gpus=1
+      yc compute instance update first-instance \
+        --platform=gpu-standard-v3 \
+        --cores=8 \
+        --memory=96 \
+        --gpus=1
       ```
 
       После выполнения данной команды изменятся следующие характеристики виртуальной машины:
@@ -155,8 +157,9 @@
   1. Запустите виртуальную машину:
 
       ```
-      $ yc compute instance start first-instance
+      yc compute instance start first-instance
       ```
+
 - API
 
   Чтобы изменить платформу и конфигурацию виртуальной машины, воспользуйтесь методом [Update](../../api-ref/Instance/update.md) для ресурса `Instance`.
@@ -189,7 +192,7 @@
   1. Посмотрите описание команды CLI для обновления параметров виртуальных машин:
 
       ```
-      $ yc compute instance update --help
+      yc compute instance update --help
       ```
 
   1. Получите список виртуальных машин в каталоге по умолчанию:
@@ -201,22 +204,22 @@
   1. Остановите виртуальную машину:
 
       ```
-      $ yc compute instance stop first-instance
+      yc compute instance stop first-instance
       ```
 
   1. Получите текущую [конфигурацию](../../concepts/performance-levels.md) виртуальной машины вместе с [метаданными](../../concepts/vm-metadata.md):
 
       ```
-      $ yc compute instance get --full first-instancegit
+      yc compute instance get --full first-instancegit
       ```
 
   1. Измените конфигурацию виртуальной машины:
 
       ```
-      $ yc compute instance update first-instance \
-          --gpus=2 \
-          --cores=16 \
-          --memory=192
+      yc compute instance update first-instance \
+        --gpus=2 \
+        --cores=16 \
+        --memory=192
       ```
 
       Данная команда изменит количество GPU на 2.
@@ -224,8 +227,9 @@
   1. Запустите виртуальную машину:
 
       ```
-      $ yc compute instance start first-instance
+      yc compute instance start first-instance
       ```
+
 - API
 
   Чтобы изменить количество GPU, воспользуйтесь методом [Update](../../api-ref/Instance/update.md) для ресурса `Instance`.

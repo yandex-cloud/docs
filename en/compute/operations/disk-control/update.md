@@ -151,7 +151,7 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
       lsblk
       ```
 
-      Command output:
+      Result:
 
       ```bash
       NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
@@ -170,7 +170,7 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
       sudo e2fsck -f /dev/vdb1
       ```
 
-      Command output:
+      Result:
 
       ```bash
       e2fsck 1.44.1 (24-Mar-2018)
@@ -189,10 +189,11 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
       ```
 
       Where:
+
       * `/dev/vdb` is the name of the device.
       * `1` is the partition number, so it's separated by a space.
 
-      Command output:
+      Result:
 
       ```bash
       CHANGED: partition=1 start=2048 old: size=67106816 end=67108864 new: size=134215647,end=134217695
@@ -204,10 +205,9 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
       sudo resize2fs /dev/vdb1
       ```
 
-      Where:
-      * `dev/vdb1` is the name of the partition.
+      Where `dev/vdb1` is the name of the partition.
 
-      Command output:
+      Result:
 
       ```bash
       Resizing the filesystem on /dev/vdb1 to 16776955 (4k) blocks.
@@ -220,7 +220,7 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
       lsblk
       ```
 
-      Command output:
+      Result:
 
       ```bash
       NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT

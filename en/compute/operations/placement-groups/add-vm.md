@@ -13,7 +13,7 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
    1. Create a virtual machine:
 
       ```
-      $ yc compute instance create --zone {{ region-id }}-b --name instance-in-group-2
+      yc compute instance create --zone {{ region-id }}-b --name instance-in-group-2
       id: epdlv1pp54019j09fhue
       ...
       ```
@@ -26,7 +26,12 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
    1. View a list of VM instances in the placement group:
 
       ```
-      $ yc compute placement-group list-instances --name my-group
+      yc compute placement-group list-instances --name my-group
+      ```
+
+      Result:
+
+      ```
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
@@ -37,7 +42,7 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
    1. Stop the VM:
 
       ```
-      $ yc compute instance stop instance-in-group-2
+      yc compute instance stop instance-in-group-2
       id: epdlv1pp54019j09fhue
       ...
       status: STOPPED
@@ -46,7 +51,7 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
    1. Add a VM instance to the placement group:
 
       ```
-      $ yc compute instance update --name instance-in-group-2 --placement-group-name my-group
+      yc compute instance update --name instance-in-group-2 --placement-group-name my-group
       id: epdlv1pp54019j09fhue
       ...
       placement_policy:
@@ -58,7 +63,12 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
    1. Check that the instance was added to the placement group:
 
       ```
-      $ yc compute placement-group list-instances --name my-group
+      yc compute placement-group list-instances --name my-group
+      ```
+
+      Result:
+
+      ```
       +----------------------+---------------------+---------------+---------+-------------+-------------+
       |          ID          |        NAME         |    ZONE ID    | STATUS  | EXTERNAL IP | INTERNAL IP |
       +----------------------+---------------------+---------------+---------+-------------+-------------+
@@ -70,7 +80,7 @@ Add an existing instance to a [placement group](../../concepts/placement-groups.
    1. Start the VM:
 
       ```
-      $ yc compute instance start instance-in-group-2
+      yc compute instance start instance-in-group-2
       id: epdlv1pp54019j09fhue
       ...
       status: RUNNING

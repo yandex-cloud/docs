@@ -68,7 +68,7 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
    Once the upgrade is launched, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

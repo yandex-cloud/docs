@@ -22,8 +22,7 @@
   Чтобы получить список баз данных в кластере, выполните команду:
 
   ```
-    {{ yc-mdb-my }} database list \
-       --cluster-name=<имя кластера>
+  {{ yc-mdb-my }} database list --cluster-name=<имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
@@ -70,13 +69,13 @@
   1. Посмотрите описание команды CLI для создания БД:
 
      ```
-      {{ yc-mdb-my }} database create --help
+     {{ yc-mdb-my }} database create --help
      ```
 
   1. Выполните команду создания БД:
 
      ```
-      {{ yc-mdb-my }} database create <имя базы данных> --cluster-name=<имя кластера>
+     {{ yc-mdb-my }} database create <имя базы данных> --cluster-name=<имя кластера>
      ```
 
      {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
@@ -85,7 +84,7 @@
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
-- Terraform
+- {{ TF }}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -146,12 +145,12 @@
   Чтобы удалить базу данных, выполните команду:
 
   ```
-   {{ yc-mdb-my }} database delete <имя базы данных> --cluster-name=<имя кластера>
+  {{ yc-mdb-my }} database delete <имя базы данных> --cluster-name=<имя кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
-- Terraform
+- {{ TF }}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -213,16 +212,16 @@
   Задайте нужные режимы SQL в значении параметра `--set`, например:
 
   ```bash
-    {{ yc-mdb-my }} cluster update-config \
-       --name <имя кластера> \
-       --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
+  {{ yc-mdb-my }} cluster update-config \
+    --name <имя кластера> \
+    --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
   ```
 
   Обратите внимание на кавычки: значением параметра должна стать вся строка, включая часть `sql_mode=`.
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
-- Terraform
+- {{ TF }}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 

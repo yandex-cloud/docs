@@ -39,7 +39,7 @@ JSON query structure:
 }
 ```
 
-Detailed description of a request:
+Where:
 
 * `httpMethod`: The HTTP method name, such as DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT.
 
@@ -171,6 +171,8 @@ Optionally, the function can accept the second argument with the following struc
 }
 ```
 
+Where:
+
 * `requestId`: The ID of the function call, generated when the function is accessed and displayed in the function call log.
 * `functionName`: The function ID.
 * `functionVersion`: The ID of the function version.
@@ -203,7 +205,7 @@ module.exports.handler = async (event, context) => {
 }
 ```
 
-Detailed response description:
+Where:
 
 * `statusCode`: The HTTP status code, which the client uses to interpret the request results.
 * `headers`: A dictionary of strings with HTTP response headers and their values.
@@ -223,7 +225,7 @@ If an unhandled error occurs in user code, {{ sf-name }} returns a 502 error and
 }
 ```
 
-Error details:
+Where:
 
 * `errorMessage`: A string with an error description.
 * `errorType`: A programming language-dependent type of error or exception.

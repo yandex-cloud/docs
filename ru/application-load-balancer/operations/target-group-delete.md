@@ -46,11 +46,11 @@ description: "Чтобы удалить целевую группу, в конс
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
-  1. Откройте конфигурационный файл Terraform и удалите фрагмент с описанием целевой группы.
+  1. Откройте конфигурационный файл {{ TF }} и удалите фрагмент с описанием целевой группы.
   
-      Пример описания целевой группы в конфигурации Terraform:
+      Пример описания целевой группы в конфигурации {{ TF }}:
 
       ```hcl
       resource "yandex_alb_target_group" "foo" {

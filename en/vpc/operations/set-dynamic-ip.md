@@ -4,7 +4,7 @@ A static public IP address set for a cloud resource can be made dynamic. If a dy
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    To change a public IP address from static to dynamic:
    1. In the [management console]({{ link-console-main }}), select the folder containing the appropriate address.
@@ -14,7 +14,7 @@ A static public IP address set for a cloud resource can be made dynamic. If a dy
    1. In the menu that opens, select **Make dynamic**.
    1. In the window that opens, click **Change**.
 
-* CLI
+- CLI
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -34,7 +34,7 @@ A static public IP address set for a cloud resource can be made dynamic. If a dy
       yc vpc address list
       ```
 
-      Output:
+      Result:
 
       ```bash
       +----------------------+------+---------------+----------+------+
@@ -52,7 +52,7 @@ A static public IP address set for a cloud resource can be made dynamic. If a dy
       yc vpc address update --reserved=false e2l46k8conff8n6ru1jl
       ```
 
-      Output:
+      Result:
 
       ```bash
       id: e2l46k8conff8n6ru1jl

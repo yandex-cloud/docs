@@ -15,6 +15,7 @@
    ```
 
    Где:
+
    * `name` — имя ключа. Формат имени:
 
       {% include [name-format](../../_includes/name-format.md) %}

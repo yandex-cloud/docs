@@ -22,7 +22,7 @@ You can add and remove users, as well as manage their settings.
    To get a list of cluster users, run the command:
 
    ```
-   {{ yc-mdb-my }} user list
+   {{ yc-mdb-my }} user list \
         --cluster-name=<cluster name>
    ```
 
@@ -68,15 +68,15 @@ You can add and remove users, as well as manage their settings.
    To create a user in a cluster, run the command:
 
    ```
-   {{ yc-mdb-my }} user create <username>
-        --cluster-name=<cluster name>
-        --password=<user password>
+   {{ yc-mdb-my }} user create <username> \
+        --cluster-name=<cluster name> \
+        --password=<user password> \
         --permissions=<list of databases to grant a user access to>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -151,8 +151,8 @@ You can add and remove users, as well as manage their settings.
    To change the user's password, run the command:
 
    ```
-   {{ yc-mdb-my }} user update <username>
-        --cluster-name=<cluster name>
+   {{ yc-mdb-my }} user update <username> \
+        --cluster-name=<cluster name> \
         --password=<new password>
    ```
 
@@ -160,7 +160,7 @@ You can add and remove users, as well as manage their settings.
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -238,19 +238,19 @@ To change the user's permissions to access certain databases, follow the [instru
    To configure the [{{ MY }} settings](../concepts/settings-list.md#dbms-user-settings) for the user, run the command:
 
    ```
-   {{ yc-mdb-my }} user update <username>
-        --cluster-name=<cluster name>
-        --global-permissions=<comma-separated list of administrative privileges>
-        --authentication-plugin=<authentication plugin>
-        --max-questions-per-hour=<maximum number of requests per hour>
-        --max-updates-per-hour=<maximum number of UPDATE requests per hour>
-        --max-connections-per-hour=<maximum number of connections per hour>
+   {{ yc-mdb-my }} user update <username> \
+        --cluster-name=<cluster name> \
+        --global-permissions=<comma-separated list of administrative privileges> \
+        --authentication-plugin=<authentication plugin> \
+        --max-questions-per-hour=<maximum number of requests per hour> \
+        --max-updates-per-hour=<maximum number of UPDATE requests per hour> \
+        --max-connections-per-hour=<maximum number of connections per hour> \
         --max-user-connections=<maximum number of simultaneous connections>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -332,13 +332,13 @@ To change the user's permissions to access certain databases, follow the [instru
    To remove a user, run:
 
    ```
-   {{ yc-mdb-my }} user delete <username>
+   {{ yc-mdb-my }} user delete <username> \
         --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

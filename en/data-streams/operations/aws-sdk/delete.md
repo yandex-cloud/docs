@@ -42,7 +42,7 @@
      python3 stream_delete.py
      ```
 
-     Execution output:
+     Result:
 
      ```text
      The stream has been deleted successfully

@@ -130,7 +130,8 @@
      --ssh-key ~/.ssh/id_rsa.pub
    ```
 
-   Параметры:
+   Где:
+
    * `name` — имя ВМ, например, `hystax-acura-vm`.
    * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), например, `{{ region-id }}-a`.
    * `cores` — [количество vCPU](../../compute/concepts/vm.md) ВМ.

@@ -35,7 +35,7 @@ description: "After deleting a MongoDB database cluster, its backups are preserv
 
   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 

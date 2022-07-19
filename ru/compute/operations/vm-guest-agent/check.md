@@ -48,7 +48,7 @@
         Get-ScheduledTask "yc-guest-agent-updater" -OutVariable Task
         ```
    
-        Результат выполнения команды:
+        Результат:
    
         ```
         TaskPath           TaskName                          State
@@ -64,7 +64,7 @@
         $Task | Get-ScheduledTaskInfo
         ```
    
-        Результат выполнения команды:
+        Результат:
    
         ```
         LastRunTime        : 11/8/2021 1:26:26 PM

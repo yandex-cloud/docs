@@ -7,18 +7,18 @@
 Установите Celery и необходимые зависимости:
 
 ```
-$ pip install celery
-$ pip install celery[sqs]
-$ pip install boto3
-$ pip install pycurl
+pip install celery
+pip install celery[sqs]
+pip install boto3
+pip install pycurl
 ```
 
 Задайте переменные окружения:
 
 ```
-$ export AWS_ACCESS_KEY_ID="<идентификатор ключа доступа>"
-$ export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
-$ export AWS_DEFAULT_REGION="{{ region-id }}"
+export AWS_ACCESS_KEY_ID="<идентификатор ключа доступа>"
+export AWS_SECRET_ACCESS_KEY="<секретный ключ>"
+export AWS_DEFAULT_REGION="{{ region-id }}"
 ```
 
 ## Подготовка к работе {#prepare}
@@ -65,13 +65,13 @@ $ export AWS_DEFAULT_REGION="{{ region-id }}"
 1. Запустите обработчик задач следующей командой: 
    
    ```
-   $ celery worker -A mq_example
+   celery worker -A mq_example
    ```
 
 1. Поставьте задачу в очередь задач следующей командой:
    
    ```
-   $ python mq_example.py
+   python mq_example.py
    ```
 
 По умолчанию Celery создаёт очередь {{ message-queue-name }} с названием `celery` в каталоге, которому принадлежит сервисный аккаунт.

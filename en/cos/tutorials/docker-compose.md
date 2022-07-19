@@ -54,6 +54,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      ```
 
      Where:
+
      * `--name`: VM name.
      * `--zone`: Availability zone.
      * `--ssh-key`: Contents of the [public key file](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
@@ -71,7 +72,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
         sudo docker ps -a
         ```
 
-        Command output:
+        Result:
 
         ```
         CONTAINER ID  IMAGE  COMMAND                 CREATED         STATUS         PORTS               NAMES

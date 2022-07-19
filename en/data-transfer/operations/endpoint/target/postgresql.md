@@ -21,7 +21,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `postgres_target`.
 
@@ -71,7 +71,7 @@ Connecting to the database with an explicitly specified network address and port
 
    {% include [On premise PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-postgresql.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `postgres_target`.
 

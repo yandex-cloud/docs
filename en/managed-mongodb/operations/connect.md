@@ -80,15 +80,7 @@ Amount of RAM available to the host is determined by the host class. All availab
 
 {% list tabs %}
 
-- Linux (Bash)
-
-    
-    ```bash
-    mkdir ~/.mongodb && \
-    wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/root.crt && \
-    chmod 0644 ~/.mongodb/root.crt
-    ```
-
+    {% include [install-certificate](../../_includes/mdb/mmg/install-certificate.md) %}
 
 - Windows (PowerShell)
 

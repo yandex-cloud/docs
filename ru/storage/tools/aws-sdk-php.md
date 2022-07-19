@@ -16,8 +16,8 @@
 
    ```
    [default]
-               aws_access_key_id = <id>
-               aws_secret_access_key = <secretKey>
+     aws_access_key_id = <id>
+     aws_secret_access_key = <secretKey>
    ```
 
 1. Если вы используете образ LAMP из {{ marketplace-name }}, добавьте в конфигурационный файл Apache `httpd.conf` (для Debian и Ubuntu — `apache2.conf`) переменную окружения `HOME` с указанием на домашний каталог:

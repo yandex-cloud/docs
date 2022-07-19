@@ -11,7 +11,7 @@
 - Узнать текущий статус выполнения операции:
 
     ```
-    $ yc operation get <идентификатор операции>
+    yc operation get <идентификатор операции>
     ```
 
     - Если операция еще не завершилась, будет повторно выведена информация об операции.
@@ -20,7 +20,7 @@
 - Вернуться к синхронному режиму выполнения операции:
 
     ```
-    $ yc operation wait <идентификатор операции>
+    yc operation wait <идентификатор операции>
     ```
 
 ## Примеры {#example}
@@ -32,7 +32,7 @@
 Сначала на экран выводятся точки, обозначающие, что операция выполняется, затем выводится результат операции.
 
 ```
-$ yc compute instance create --name my-inst3 --metadata user-data="#ps1\nnet user Administrator Passw0rd" --zone {{ region-id }}-a --public-ip --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk-1537967224
+yc compute instance create --name my-inst3 --metadata user-data="#ps1\nnet user Administrator Passw0rd" --zone {{ region-id }}-a --public-ip --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk-1537967224
 ....................................................................................................................................................................done
 id: epdplofgadqohn5ppkt3
 folder_id: b1g88tflru0ek1omtsu0
@@ -67,7 +67,7 @@ fqdn: epdplofgadqohn5ppkt3.auto.internal
 После запуска команды на экран выводится информация об операции, а выполнение продолжается в фоновом режиме.
 
 ```
-$ yc compute instance create --name my-test-inst --metadata user-data="#ps1\nnet user Administrator Passw0rd" --zone {{ region-id }}-a --public-ip --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk
+yc compute instance create --name my-test-inst --metadata user-data="#ps1\nnet user Administrator Passw0rd" --zone {{ region-id }}-a --public-ip --create-boot-disk image-folder-id=standard-images,image-name=windows-2016-gvlk
 -1537967224 --async
 id: epdjte17at0fguj52ili
 description: Create instance

@@ -29,7 +29,7 @@ To delete a secret:
       yc lockbox secret list --cloud-id <cloud ID> --folder-name <folder name>
       ```
 
-      Output:
+      Result:
       ```
       +----------------------+------------------+------------+---------------------+----------------------+--------+
       |          ID          |       NAME       | KMS KEY ID |     CREATED AT      |  CURRENT VERSION ID  | STATUS |
@@ -44,7 +44,7 @@ To delete a secret:
       yc lockbox secret delete --id e4qkyo469mu2det6pvku
       ```
 
-      Output:
+      Result:
       ```
       id: e4qkyo469mu2det6pvku
       folder_id: b1ulgko2th573evfdh3a
@@ -65,7 +65,7 @@ To delete a secret:
       yc lockbox secret list --cloud-id <cloud ID> --folder-name <folder name>
       ```
 
-      Output:
+      Result:
 
       ```
       +----------------------+-----------------+------------+---------------------+----------------------+--------+

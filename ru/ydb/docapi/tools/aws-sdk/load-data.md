@@ -216,7 +216,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
       java -jar target/release/SeriesLoadData.jar
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Добавлен сериал: 1 IT Crowd
@@ -273,7 +273,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
       python SeriesLoadData.py
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Добавлен сериал: 1 IT Crowd
@@ -365,7 +365,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
       php SeriesLoadData.php
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Добавлен сериал: 1 IT Crowd
@@ -435,7 +435,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
       node SeriesLoadData.js
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```bash
       Загрузка сериалов в YDB. Пожалуйста, подождите...
@@ -524,7 +524,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
       ruby SeriesLoadData.rb
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Будет загружено 7 сериалов из файла 'seriesdata.json' в таблицу 'Series'...

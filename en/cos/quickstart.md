@@ -59,6 +59,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
      ```
 
      Where:
+
      * `--name`: VM name.
      * `--zone`: Availability zone.
      * `--ssh-key`: The contents of a [public key file](../compute/quickstart/quick-create-linux.md#create-ssh).
@@ -70,6 +71,8 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
      * `--container-arg`: Parameters for the command specified in `--container-command`.
      * `--container-env`: The environment variables available in the Docker container.
      * `--container-privileged`: Launch the Docker container in privileged mode.
+
+     Result:
 
      ```bash
      done (17s)

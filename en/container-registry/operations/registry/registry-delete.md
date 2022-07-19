@@ -28,7 +28,7 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
       yc container registry delete new-reg
       ```
 
-      Command output:
+      Result:
 
       ```bash
       done
@@ -40,7 +40,7 @@ To access a [registry](../../concepts/registry.md), use its ID or name. For info
       yc container registry list
       ```
 
-      Command output:
+      Result:
 
       ```bash
        +----+------+-----------+

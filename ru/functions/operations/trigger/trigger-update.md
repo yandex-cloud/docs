@@ -47,21 +47,21 @@
           function_tag: $latest
           service_account_id: bfbqqeo6jkpls2tse5o6
     status: ACTIVE
-  ```
+    ```
 
 - API
 
     Изменить имя триггера можно с помощью метода API [update](../../triggers/api-ref/Trigger/update.md).
 
-- Terraform
+- {{ TF }}
 
-  Информацию о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Информацию о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
   Чтобы изменить имя триггера:
 
-  1. Откройте файл конфигурации Terraform и измените поле `name` в описании триггера:
+  1. Откройте файл конфигурации {{ TF }} и измените поле `name` в описании триггера:
 
      ```hcl
      ...
@@ -78,7 +78,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_function_trigger` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
+     Более подробную информацию о параметрах ресурса `yandex_function_trigger` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
 
   1. Проверьте конфигурацию командой:
 
@@ -98,7 +98,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
 
@@ -166,15 +166,15 @@
 
     Изменить описание триггера можно с помощью метода API [update](../../triggers/api-ref/Trigger/update.md).
 
-- Terraform
+- {{ TF }}
 
-  Информацию о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Информацию о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
   Чтобы изменить описание триггера:
 
-  1. Откройте файл конфигурации Terraform и измените поле `description` в описании триггера:
+  1. Откройте файл конфигурации {{ TF }} и измените поле `description` в описании триггера:
 
      ```hcl
      ...
@@ -191,7 +191,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_function_trigger` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
+     Более подробную информацию о параметрах ресурса `yandex_function_trigger` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
 
   1. Проверьте конфигурацию командой:
 
@@ -211,7 +211,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
 
@@ -282,15 +282,15 @@
 
     Добавить метку триггера можно с помощью метода API [update](../../triggers/api-ref/Trigger/update.md).
 
-- Terraform
+- {{ TF }}
 
-  Информацию о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Информацию о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
   Чтобы добавить метку триггера:
 
-  1. Откройте файл конфигурации Terraform и добавьте блок `labels` в описании триггера:
+  1. Откройте файл конфигурации {{ TF }} и добавьте блок `labels` в описании триггера:
 
      ```hcl
      ...
@@ -311,7 +311,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_function_trigger` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
+     Более подробную информацию о параметрах ресурса `yandex_function_trigger` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
 
   1. Проверьте конфигурацию командой:
 
@@ -331,7 +331,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
 
@@ -399,15 +399,15 @@
 
     Изменить метку триггера можно с помощью метода API [update](../../triggers/api-ref/Trigger/update.md).
 
-- Terraform
+- {{ TF }}
 
-  Информацию о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Информацию о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
   Чтобы изменить метку триггера:
 
-  1. Откройте файл конфигурации Terraform и измените блок `labels` в описании триггера:
+  1. Откройте файл конфигурации {{ TF }} и измените блок `labels` в описании триггера:
 
      ```hcl
      ...
@@ -428,7 +428,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_function_trigger` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
+     Более подробную информацию о параметрах ресурса `yandex_function_trigger` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
 
   1. Проверьте конфигурацию командой:
 
@@ -448,7 +448,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
 
@@ -508,15 +508,15 @@
 
     Удалить метку триггера можно с помощью метода API [update](../../triggers/api-ref/Trigger/update.md).
 
-- Terraform
+- {{ TF }}
 
-  Информацию о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Информацию о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
   Чтобы удалить метку триггера:
 
-  1. Откройте файл конфигурации Terraform и в блоке `labels` удалите ненужную метку:
+  1. Откройте файл конфигурации {{ TF }} и в блоке `labels` удалите ненужную метку:
 
      ```hcl
      ...
@@ -537,7 +537,7 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_function_trigger` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
+     Более подробную информацию о параметрах ресурса `yandex_function_trigger` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
 
   1. Проверьте конфигурацию командой:
 
@@ -557,7 +557,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
 

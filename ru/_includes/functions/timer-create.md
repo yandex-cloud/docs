@@ -123,11 +123,11 @@
 
     Создать таймер можно с помощью метода API [create](../../functions/triggers/api-ref/Trigger/create.md).
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Чтобы создать триггер, который запускает функцию:
 
@@ -158,7 +158,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
+     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -169,7 +169,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
 

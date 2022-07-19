@@ -61,6 +61,9 @@
 
   ```bash
   aws s3 --endpoint-url=https://{{ s3-storage-host }} ls
+  ```
+
+  ```bash
   ycs3 ls
   ```
   

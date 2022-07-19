@@ -88,7 +88,7 @@ You can create an unlimited number of databases in each {{ mms-name }} cluster.
 
    To grant users access to the created database, [follow the instructions](cluster-users.md#update-settings).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -183,7 +183,7 @@ For more information, see the [{{ MS }} documentation]({{ ms.docs }}/sql/relatio
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

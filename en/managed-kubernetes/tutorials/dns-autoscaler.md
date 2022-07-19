@@ -49,7 +49,7 @@ If you don't need the number of CoreDNS replicas to change depending on the clus
         --network-name <cloud network name>
       ```
 
-      Output:
+      Result:
 
       ```text
       done (7m21s)
@@ -69,7 +69,7 @@ If you don't need the number of CoreDNS replicas to change depending on the clus
         --core-fraction 5
       ```
 
-      Output:
+      Result:
 
       ```text
       done (2m43s)
@@ -92,7 +92,7 @@ If you don't need the number of CoreDNS replicas to change depending on the clus
       yc managed-kubernetes cluster get-credentials --external --name dns-autoscaler
       ```
 
-      Output:
+      Result:
 
       ```text
       Context 'dns-autoscaler' was added as default to kubeconfig '/home/<your home folder>/.kube/config'.
@@ -113,7 +113,7 @@ To do this, run the command:
 kubectl get deployment --namespace=kube-system
 ```
 
-Output:
+Result:
 
 ```text
 NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
@@ -137,6 +137,7 @@ replicas = max( ceil( cores * 1/coresPerReplica ) , ceil( nodes * 1/nodesPerRepl
 ```
 
 Where:
+
 * `coresPerReplica` is a configuration parameter indicating the number of CoreDNS replicas per vCPU of the cluster.
 * `nodesPerReplica` is a configuration parameter indicating the number of CoreDNS replicas per cluster node.
 * `cores` is the actual number of vCPUs in the cluster.
@@ -179,7 +180,7 @@ To configure scaling, follow these steps:
    kubectl get pods -n kube-system
    ```
 
-   Output:
+   Result:
 
    ```text
    NAME                                    READY   STATUS    RESTARTS   AGE
@@ -237,7 +238,7 @@ yc managed-kubernetes node-group create \
   --core-fraction 5
 ```
 
-Output:
+Result:
 
 ```text
 done (2m43s)
@@ -258,7 +259,7 @@ To check the number of CoreDNS replicas, run the command:
 kubectl get pods -n kube-system
 ```
 
-Output:
+Result:
 
 ```text
 NAME                                    READY   STATUS    RESTARTS   AGE
@@ -279,7 +280,7 @@ To disable scaling, set the number of replicas in the `kube-dns-autoscaler` appl
 kubectl scale deployment --replicas=0 kube-dns-autoscaler --namespace=kube-system
 ```
 
-Output:
+Result:
 
 ```text
 deployment.apps/kube-dns-autoscaler scaled
@@ -291,7 +292,7 @@ Check the results with the command:
 kubectl get rs --namespace=kube-system
 ```
 
-Output:
+Result:
 
 ```text
 NAME                    READY   UP-TO-DATE   AVAILABLE   AGE

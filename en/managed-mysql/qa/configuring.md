@@ -22,4 +22,4 @@ Follow the instructions in [Managing databases](../operations/databases.md#chars
 
 #### How do I configure other parameters? {#params}
 
-Editable {{ MY }} settings are listed in the [documentation](../concepts/settings-list.md). You can use one of the available interfaces (management console, CLI, API, or Terraform) to modify these. Follow the instructions in [Updating a cluster](../operations/update.md#change-mysql-config).
+Editable {{ MY }} settings are listed in the [documentation](../concepts/settings-list.md). You can use one of the available interfaces (management console, CLI, API, or {{ TF }}) to modify these. Follow the instructions in [Updating a cluster](../operations/update.md#change-mysql-config).

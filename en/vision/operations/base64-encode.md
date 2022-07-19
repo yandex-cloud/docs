@@ -4,7 +4,7 @@ To pass an image file to the {{ vision-short-name }} API, convert the file conte
 
 {% include [base64-encode-command](../../_includes/vision/base64-encode-command.md) %}
 
-Pass the content of the resulting `output.txt` file in the request body's `content` property:
+Pass the content of the resulting `output.txt` file in the request body:
 
 ```json
 {
@@ -16,3 +16,4 @@ Pass the content of the resulting `output.txt` file in the request body's `conte
 }
 ```
 
+Where `content` is the content of the resulting `output.txt` file.

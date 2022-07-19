@@ -19,7 +19,7 @@ scale_policy:
 ...
 ```
 
-Keys:
+Where:
 
 | Key | Value |
 | --- | --- |
@@ -57,7 +57,7 @@ scale_policy:
       target: 5
 ```
 
-Keys:
+Where:
 
 | Key | Value |
 | --- | --- |

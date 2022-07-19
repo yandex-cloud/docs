@@ -92,9 +92,9 @@ The cost of the infrastructure includes:
       yc iam service-account create --name queue-autoscale-sa
       ```
 
-      * `--name`: Service account name (`queue-autoscale-sa`).
+      Where `--name` is the service account name (`queue-autoscale-sa`).
 
-      Command output:
+      Result:
 
       ```
       id: aje6brh817ro8o6vo6tv
@@ -111,10 +111,12 @@ The cost of the infrastructure includes:
         --role editor
       ```
 
+      Where:
+
       * `--service-account-name`: The name of the service account created in step 1 (`queue-autoscale-sa`).
       * `--role`: The role assigned (`editor`).
 
-      Command output:
+      Result:
 
       ```
       done (1s)
@@ -129,10 +131,12 @@ The cost of the infrastructure includes:
       | tee access_key
       ```
 
+      Where:
+
       * `--service-account-name`: The name of the service account created in step 1 (`queue-autoscale-sa`).
       * `--description`: Key description.
 
-      Command output:
+      Result:
 
       ```
       access_key:
@@ -150,7 +154,7 @@ The cost of the infrastructure includes:
       yc vpc network create queue-autoscale-network
       ```
 
-      Command output:
+      Result:
 
       ```bash
       id: enpabce123hde4ft1r3t
@@ -168,11 +172,13 @@ The cost of the infrastructure includes:
         --zone {{ region-id }}-b
       ```
 
+      Where:
+
       * `--network-name`: The name of the network where the subnet is created (`queue-autoscale-network`).
       * `--range`: The subnet CIDR.
       * `--zone`: The availability zone where the subnet is created `{{ region-id }}-b`.
 
-      Command output:
+      Result:
 
       ```bash
       id: e1lnabc23r1c9d0efoje
@@ -267,10 +273,12 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
       | tee queue
       ```
 
+      Where:
+
       * `--endpoint`: The root URL of the {{ message-queue-name }} API: `https://message-queue.{{ api-host }}`.
       * `--queue-name`: The name of the queue (`queue-autoscale-queue`).
 
-      Command output:
+      Result:
 
       ```yaml
       QueueUrl: https://message-queue.{{ api-host }}/b1gvlrnlei4l5idm9cbj/dj6000000003n58805qi/queue-autoscale-queue
@@ -327,7 +335,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
          yc iam service-account get queue-autoscale-sa
          ```
 
-         Command output:
+         Result:
 
          ```
          id: aje6brh817ro8o6vo6tv
@@ -362,7 +370,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
          yc resource-manager folder get example-folder
          ```
 
-         Command output:
+         Result:
 
          ```
          id: b1g9hv2loamqfnbul7d9
@@ -401,7 +409,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
          yc vpc subnet get queue-autoscale-subnet-b
          ```
 
-         Command output:
+         Result:
 
          ```
          id: e1lnabc23r1c9d0efoje
@@ -435,11 +443,13 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
         --output key.json
       ```
 
+      Where:
+
       * `--service-account-name`: The name of the service account created earlier (`queue-autoscale-sa`).
       * `--description`: Key description.
       * `--output`: The path to the file to save the key to (`key.json`).
 
-      Command output:
+      Result:
 
       ```
       id: ajevh3a0hrqf65scefug
@@ -457,7 +467,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
    packer build server-packer.json
    ```
 
-   Command output:
+   Result:
 
    ```
    ...
@@ -541,7 +551,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
       yc compute image get-latest-from-family queue-autoscale-image
       ```
 
-      Command output:
+      Result:
 
       ```
       id: fd8hlbuhjc4mssrvknkv
@@ -577,7 +587,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
             yc vpc network get queue-autoscale-network
             ```
 
-            Command output:
+            Result:
 
             ```
             id: enpabce123hde4ft1r3t
@@ -610,7 +620,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
       yc compute instance-group create --file spec.yaml
       ```
 
-      * `--file`: Path to the instance group specification file (`spec.yaml`).
+      Where `--file` is the path to the instance group specification file (`spec.yaml`).
 
 - API
 
@@ -643,7 +653,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
             yc vpc network get queue-autoscale-network
             ```
 
-            Command output:
+            Result:
 
             ```
             id: enpabce123hde4ft1r3t

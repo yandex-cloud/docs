@@ -10,7 +10,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
   
    Чтобы зарезервировать статический публичный IP-адрес:
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором нужно зарезервировать адрес.
@@ -20,7 +20,7 @@
    1. В открывшемся окне выберите зону доступности, в которой нужно зарезервировать адрес.
    1. Нажмите кнопку **Зарезервировать**.
   
-* CLI
+- CLI
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -40,7 +40,7 @@
       yc vpc address create --external-ipv4 zone={{ region-id }}-a
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```bash
       id: e9b6un9gkso6stdh6b3p
@@ -55,13 +55,22 @@
 
       Статический публичный IP-адрес зарезервирован.
 
-* Terraform
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+     * `name` — имя статического публичного IP-адреса. Формат имени:
+
+          {% include [name-format](../../_includes/name-format.md) %}
+
+     * `external_ipv4_address` — описание ipv4-адреса:
+        * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
+
+     Пример структуры конфигурационного файла:
 
      ```hcl
      resource "yandex_vpc_address" "addr" {
@@ -72,15 +81,7 @@
      }
      ```
 
-     Где:
-     * `name` — имя статического публичного IP-адреса. Формат имени:
-
-          {% include [name-format](../../_includes/name-format.md) %}
-
-     * `external_ipv4_address` — описание ipv4-адреса.
-        * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
-
-     Более подробную информацию о параметрах ресурса `yandex_vpc_address` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/vpc_address).
+     Более подробную информацию о параметрах ресурса `yandex_vpc_address` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_address).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -91,7 +92,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
 

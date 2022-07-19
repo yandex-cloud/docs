@@ -12,7 +12,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [Managed Greenplum](../../../../_includes/data-transfer/necessary-settings/ui/managed-greenplum.md) %}
 
@@ -25,7 +25,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [On premise Greenplum UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-greenplum.md) %}
 
@@ -35,7 +35,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
 

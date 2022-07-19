@@ -9,7 +9,7 @@
 1. [Создайте профиль](../profile/profile-create.md#create).
 1. Укажите в параметре `token` ваш OAuth-токен:
     ```
-    $ yc config set token <OAuth-токен>
+    yc config set token <OAuth-токен>
     ```
 
 OAuth-токен будет сохранен в конфигурации профиля и аутентификация будет происходить автоматически.

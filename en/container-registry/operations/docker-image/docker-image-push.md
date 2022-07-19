@@ -18,7 +18,7 @@ To push an image, you need to [authenticate](../authentication.md) in the regist
       docker image list
       ```
 
-      Command output:
+      Result:
 
       ```
       REPOSITORY                                  TAG     IMAGE ID      CREATED       SIZE

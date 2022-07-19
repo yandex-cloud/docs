@@ -133,19 +133,19 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
    - Ubuntu 16/18
 
      ```bash
-     $ sudo apt-get update
-     $ sudo apt-get install pdns-server pdns-backend-remote memcached python3-yaml python3-memcache python3-pip
+     sudo apt-get update
+     sudo apt-get install pdns-server pdns-backend-remote memcached python3-yaml python3-memcache python3-pip
      ```
 
    - CentOS 6/7
 
      ```bash
-     $ sudo yum check-update
-     $ sudo yum -y install epel-release
-     $ sudo yum -y install pdns pdns-backend-remote memcached python34-yaml python34-setuptools git nano
-     $ sudo service memcached start
-     $ sudo chkconfig pdns on
-     $ sudo chkconfig memcached on
+     sudo yum check-update
+     sudo yum -y install epel-release
+     sudo yum -y install pdns pdns-backend-remote memcached python34-yaml python34-setuptools git nano
+     sudo service memcached start
+     sudo chkconfig pdns on
+     sudo chkconfig memcached on
      ```
 
    {% endlist %}
@@ -153,9 +153,9 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
 1. Install `polaris-gslb`:
 
    ```bash
-   $ git clone https://github.com/polaris-gslb/polaris-gslb.git
-   $ cd polaris-gslb
-   $ sudo python3 setup.py install
+   git clone https://github.com/polaris-gslb/polaris-gslb.git
+   cd polaris-gslb
+   sudo python3 setup.py install
    ```
 
 1. Copy the configuration files for polaris-gslb
@@ -165,36 +165,36 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
    - Ubuntu 16/18
 
      ```bash
-     $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/powerdns/pdns.conf
-     $ cd /opt/polaris/etc
-     $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
-     $ sudo cp polaris-health.yaml.dist polaris-health.yaml
-     $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
-     $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
+     sudo cp /opt/polaris/etc/pdns.conf.dist /etc/powerdns/pdns.conf
+     cd /opt/polaris/etc
+     sudo cp polaris-lb.yaml.dist polaris-lb.yaml
+     sudo cp polaris-health.yaml.dist polaris-health.yaml
+     sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
+     sudo cp polaris-topology.yaml.dist polaris-topology.yaml
      ```
 
    - CentOS 6
 
      ```bash
-     $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
-     $ cd /opt/polaris/etc
-     $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
-     $ sudo cp polaris-health.yaml.dist polaris-health.yaml
-     $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
-     $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
-     $ sudo cp -a /opt/polaris/bin/polaris-health /etc/init.d/polaris-health
-     $ sudo chkconfig polaris-health on
+     sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
+     cd /opt/polaris/etc
+     sudo cp polaris-lb.yaml.dist polaris-lb.yaml
+     sudo cp polaris-health.yaml.dist polaris-health.yaml
+     sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
+     sudo cp polaris-topology.yaml.dist polaris-topology.yaml
+     sudo cp -a /opt/polaris/bin/polaris-health /etc/init.d/polaris-health
+     sudo chkconfig polaris-health on
      ```
 
    - CentOS 7
 
      ```bash
-     $ sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
-     $ cd /opt/polaris/etc
-     $ sudo cp polaris-lb.yaml.dist polaris-lb.yaml
-     $ sudo cp polaris-health.yaml.dist polaris-health.yaml
-     $ sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
-     $ sudo cp polaris-topology.yaml.dist polaris-topology.yaml
+     sudo cp /opt/polaris/etc/pdns.conf.dist /etc/pdns/pdns.conf
+     cd /opt/polaris/etc
+     sudo cp polaris-lb.yaml.dist polaris-lb.yaml
+     sudo cp polaris-health.yaml.dist polaris-health.yaml
+     sudo cp polaris-pdns.yaml.dist polaris-pdns.yaml
+     sudo cp polaris-topology.yaml.dist polaris-topology.yaml
      ```
 
    {% endlist %}
@@ -202,7 +202,7 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
 1. Find out the internal address of the VM:
 
    ```bash
-   $ hostname -i
+   hostname -i
    ```
 
 1. In the `pdns.conf` configuration file, specify the VM's internal IP address. You can edit the configuration file using the `nano` utility:
@@ -212,13 +212,13 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
      - Ubuntu 16/18
 
        ```bash
-       $ sudo nano /etc/powerdns/pdns.conf
+       sudo nano /etc/powerdns/pdns.conf
        ```
 
      - CentOS 6/7
 
        ```bash
-       $ sudo nano /etc/pdns/pdns.conf
+       sudo nano /etc/pdns/pdns.conf
        ```
 
      {% endlist %}
@@ -272,7 +272,7 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
 
 1. Configure `polaris-gslb`. You can edit the configuration files using the `nano` utility:
 
-   1. `$ sudo nano /opt/polaris/etc/polaris-lb.yaml`
+   1. `sudo nano /opt/polaris/etc/polaris-lb.yaml`
 
       The `polaris-lb.yaml` file has the format:
 
@@ -306,7 +306,7 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
 
        You can find out the VM's public address in the **Network** section on the VM page in the [management console]({{ link-console-main }}).
 
-   1. `$ sudo nano /opt/polaris/etc/polaris-pdns.yaml`
+   1. `sudo nano /opt/polaris/etc/polaris-pdns.yaml`
 
       The `polaris-pdns.yaml` file has the format:
 
@@ -381,8 +381,8 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
    1. Add the `systemd Unit` file to check the status of `polaris-gslb`. You can edit the file using the `nano` utility:
 
        ```
-       $ sudo mkdir -p /etc/systemd/system
-       $ sudo nano /etc/systemd/system/polaris-health.service
+       sudo mkdir -p /etc/systemd/system
+       sudo nano /etc/systemd/system/polaris-health.service
        ```
 
       Make the `polaris-health.service` file look like:
@@ -405,19 +405,19 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
    1. Add `polaris-health` to OS autoload:
 
        ```bash
-       $ sudo systemctl enable polaris-health
+       sudo systemctl enable polaris-health
        ```
 
 1. Restart PowerDNS:
 
    ```bash
-   $ sudo service pdns restart
+   sudo service pdns restart
    ```
 
 1. Run a status check for `polaris-health`:
 
    ```bash
-   $ sudo service polaris-health start
+   sudo service polaris-health start
    ```
 
 1. This step should only be performed on a VM running CentOS 6.
@@ -425,9 +425,9 @@ For the `dns-lb-tutorial-slb-ru-central1-a` and `dns-lb-tutorial-slb-ru-central1
    Open network port 53 using the `iptables` utility:
 
    ```bash
-   $ sudo iptables -I INPUT -p tcp -m tcp --dport 53 -j ACCEPT
-   $ sudo iptables -I INPUT -p udp -m udp --dport 53 -j ACCEPT
-   $ sudo iptables-save | sudo tee /etc/sysconfig/iptables
+   sudo iptables -I INPUT -p tcp -m tcp --dport 53 -j ACCEPT
+   sudo iptables -I INPUT -p udp -m udp --dport 53 -j ACCEPT
+   sudo iptables-save | sudo tee /etc/sysconfig/iptables
    ```
 
 ## 5. Configure DNS {#configure-dns}
@@ -465,13 +465,13 @@ To configure an external DNS server, do the following:
 1. Stop the DNS service to simulate a failure of the DNS load balancer:
 
    ```bash
-   $ sudo service pdns stop
+   sudo service pdns stop
    ```
 1. Connect to your website through a browser. The connection should be successful, even though one of the DNS load balancers has failed.
 1. After the check is complete, restart the DNS service:
 
    ```bash
-   $ sudo service pdns start
+   sudo service pdns start
    ```
 
 ### 6.2. Web servers {#test-web-servers}
@@ -487,13 +487,13 @@ To configure an external DNS server, do the following:
    - LAMP
 
      ```bash
-     $ sudo service apache2 stop
+     sudo service apache2 stop
      ```
 
    - LEMP
 
      ```bash
-     $ sudo service nginx stop
+     sudo service nginx stop
      ```
 
    {% endlist %}
@@ -507,13 +507,13 @@ To configure an external DNS server, do the following:
    - LAMP
 
      ```bash
-     $ sudo service apache2 start
+     sudo service apache2 start
      ```
 
    - LEMP
 
      ```bash
-     $ sudo service nginx start
+     sudo service nginx start
      ```
 
    {% endlist %}

@@ -69,7 +69,7 @@ You can create a database dump using `mongodump`. For more information about thi
    If you can use multiple processor cores to create a dump, use the `-j` flag with the number of cores available:
 
    ```bash
-   $ mongodump --host <DBMS server address> \
+   mongodump --host <DBMS server address> \
              --port <port> \
              --username <username> \
              --password "<password>" \

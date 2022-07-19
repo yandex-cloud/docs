@@ -240,7 +240,7 @@
      grep ingresses.networking.k8s.io/nginx_ingress_controller_requests_per_second
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    "name": "ingresses.networking.k8s.io/nginx_ingress_controller_requests_per_second",

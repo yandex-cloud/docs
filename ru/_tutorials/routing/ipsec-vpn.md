@@ -55,13 +55,13 @@
 1. Подключитесь к виртуальной машине по SSH:
 
    ```
-   $ ssh 130.193.32.25
+   ssh 130.193.32.25
    ```
 
 1. Откройте конфигурацию IPSec:
 
    ```
-   $ sudo nano /etc/ipsec.conf
+   sudo nano /etc/ipsec.conf
    ```
 
 1. Приведите раздел `config setup` к следующему виду:
@@ -128,7 +128,7 @@
 1. Перезапустите strongSwan:
 
    ```
-   $ systemctl restart strongswan-starter
+   systemctl restart strongswan-starter
    ```
 
 ## Настройте статическую маршрутизацию {#configure-static-route}
@@ -206,7 +206,7 @@
 1. Перезапустите strongSwan:
 
    ```
-   $ systemctl restart strongswan-starter
+   systemctl restart strongswan-starter
    ```
 
 ## Проверьте работу IPSec-туннеля {#test-vpn}
@@ -214,7 +214,7 @@
 Чтобы убедиться, что туннель между шлюзами установлен, выполните на любом из шлюзов команду:
 
 ```
-$ sudo ipsec status
+sudo ipsec status
 Security Associations (1 up, 0 connecting):
  hq-to-cloud[3]: ESTABLISHED 29 minutes ago, 10.128.0.26[130.193.33.12]...192.168.0.23[1.1.1.1]
  hq-to-cloud{3}:  INSTALLED, TUNNEL, reqid 3, ESP in UDP SPIs: c7fa371d_i ce8b91ad_o
@@ -226,7 +226,7 @@ Security Associations (1 up, 0 connecting):
 Проверить статус демона strongSwan можно командой `systemctl status strongswan-starter`:
 
 ```
-$ systemctl status strongswan-starter
+systemctl status strongswan-starter
 ● strongswan.service - strongSwan IPsec IKEv1/IKEv2 daemon using ipsec.conf
    Loaded: loaded (/lib/systemd/system/strongswan-starter.service; enabled; vendor preset: enabled)
    Active: active (running) since Thu 2019-06-20 14:54:07 UTC; 3 days ago

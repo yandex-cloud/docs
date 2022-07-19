@@ -1,7 +1,7 @@
 1. View the description of the CLI command for creating a VM:
 
    ```
-   $ yc compute instance create --help
+   yc compute instance create --help
    ```
 
 1. Select one of the public [images](../operations/images-with-pre-installed-software/get-list.md) on Windows.
@@ -18,7 +18,7 @@
 1. Create a VM in the default folder:
 
    ```
-   $ yc compute instance create \
+   yc compute instance create \
        --name second-instance \
        --metadata-from-file user-data=metadata.yaml \
        --zone {{ region-id }}-a \

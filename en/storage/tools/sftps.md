@@ -26,13 +26,18 @@ A container implements links between the {{ objstorage-name }} [GeeseFS](geesefs
 
 1. In the `secrets` folder:
 
-   * Create a file named `credentials` with the ID and contents of the static access key obtained [before you started](#before-you-begin):
+   * Create a file named `credentials`:
 
       ```
       [default]
           aws_access_key_id = <key ID>
           aws_secret_access_key = <key contents>
       ```
+
+      Where:
+
+      * `aws_access_key_id`: ID of the static access key obtained [before you started](#before-you-begin).
+      * `aws_secret_access_key`: Contents of the static access key.
 
    * If you're going to use SFTP, create a file named `authorized_keys` with a public SSH key:
 

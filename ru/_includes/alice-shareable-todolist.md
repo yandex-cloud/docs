@@ -27,7 +27,7 @@
     * [AWS CLI](../storage/tools/aws-cli);
     * [jq](https://stedolan.github.io/jq/download/);
     * [Node.js](https://nodejs.org/en/download/package-manager/);
-    * [Terraform](../tutorials/infrastructure-management/terraform-quickstart).
+    * [{{ TF }}](../tutorials/infrastructure-management/terraform-quickstart).
 
 1. Для доработки проекта дополнительно потребуются:
     * [Язык программирования Go](https://go.dev/).
@@ -106,7 +106,7 @@ cp secure-config-template.json secure-config.json
 
 ### Загрузите код бэкенда в {{ sf-name }} {#deploy-backend}
 
-Используйте Terraform для автоматизации действий. Перед использованием [проинициализируйте его](../tutorials/infrastructure-management/terraform-quickstart#configure-provider).
+Используйте {{ TF }} для автоматизации действий. Перед использованием [проинициализируйте его](../tutorials/infrastructure-management/terraform-quickstart#configure-provider).
 
 Для этого в папке с конфигурационным файлом app.tf выполните команду:
 ```
@@ -118,7 +118,7 @@ terraform init
 terraform apply -var-file ./variables.json -var yc-token=<OAuth token>
 ```
 
-Terraform автоматически создаст или обновит требуемые ресурсы.
+{{ TF }} автоматически создаст или обновит требуемые ресурсы.
 
 ### Загрузите код фронтенда в {{ objstorage-name }} {#deploy-frontend}
 
@@ -130,10 +130,10 @@ Terraform автоматически создаст или обновит тре
     ```
     npm run build
     ```
-    Результат выполнения:
+    Результат:
 
     ```
-    $ npm run build
+    npm run build
 
     > todolist@0.1.0 build
     > react-scripts build
@@ -163,10 +163,10 @@ Terraform автоматически создаст или обновит тре
     ```
     ./upload_static.sh
     ```
-    Результат выполнения:
+    Результат:
     
     ```
-    $ ./upload_static.sh
+    ./upload_static.sh
     upload: frontend/build/robots.txt to s3://frontent-statics/robots.txt
     upload: frontend/build/manifest.json to s3://frontent-statics/manifest.json
     upload: frontend/build/static/css/main.e5cbab88.chunk.css.map to s3://frontent-statics/static/css/main.e5cbab88.chunk.css.map
@@ -191,7 +191,7 @@ Terraform автоматически создаст или обновит тре
 ```
 ./update_gateway.sh
 ```
-Результат выполнения:
+Результат:
 
 ```
 done (2s)

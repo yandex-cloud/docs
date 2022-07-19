@@ -66,6 +66,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
    ```
 
    Where:
+
    * `<image-name>` is the name to assign to the image.
    * `<image-URL>` is the link to the image obtained in {{ objstorage-name }}.
 
@@ -90,9 +91,9 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
    {% include [min-disk-size](../../_includes_service/min-disk-size.md) %}
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create an image:
 
@@ -109,7 +110,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
       }
       ```
 
-      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
 
@@ -120,7 +121,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

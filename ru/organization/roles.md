@@ -125,9 +125,9 @@
   * [{#T}](../resource-manager/operations/cloud/set-access-bindings.md)
   * [{#T}](../resource-manager/operations/folder/set-access-bindings.md)
 
-- Terraform
+- {{ TF }}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform). 
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform). 
 
   1. Опишите в конфигурационном файле параметры назначаемых ролей:
 
@@ -150,7 +150,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-link }}/).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
 
   2. Проверьте корректность конфигурационных файлов.
     
@@ -161,7 +161,7 @@
        $ terraform plan
        ```
 
-      Если конфигурация описана верно, в терминале отобразится список назначенных ролей. Если в конфигурации есть ошибки, Terraform на них укажет. 
+      Если конфигурация описана верно, в терминале отобразится список назначенных ролей. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
  
   3. Назначьте роли.
   

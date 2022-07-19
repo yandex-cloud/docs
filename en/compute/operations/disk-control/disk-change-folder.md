@@ -67,14 +67,16 @@ To change a disk's folder:
 
    1. Move the disk to another folder with the following parameters:
 
-      * In `id`, enter the ID of the disk, for example, `a7lqgbt0bb9s40tifuhc`.
-      * In `destination-folder-id`, enter the ID of the destination folder, for example, `b1gd129pp9ha0vnvf5g7`.
-
       ```bash
       yc compute disk move \
         --id a7lqgbt0bb9s40tifuhc \
         --destination-folder-id b1gd129pp9ha0vnvf5g7
       ```
+
+      Where:
+
+      * `id`: ID of the disk, for example, `a7lqgbt0bb9s40tifuhc`.
+      * `destination-folder-id` – ID of the destination folder, for example, `b1gd129pp9ha0vnvf5g7`.
 
       For more information about the `yc compute disk move` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/disk/move.md).
 

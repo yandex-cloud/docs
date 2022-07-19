@@ -24,6 +24,8 @@ spec:
     - ...
 ```
 
+Where:
+
 * `apiVersion`: `v1`
 * `kind`: `Service`
 * `metadata` (`ObjectMeta`, required)

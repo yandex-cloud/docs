@@ -219,7 +219,7 @@ if __name__ == '__main__':
     В секции `SERVICE` указаны настройки приложения Fluent Bit. [Подробнее о настройках](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit).
 
     В секции `INPUT` указано, откуда и как забирать логи. Для работы с логами в формате Fluentd и Fluent Bit используется протокол `forward`. Fluent Bit слушает логи на порту 24224.
-
+    
     В секции `PARSER` описан парсер `regex`. В нем задано регулярное выражения, с помощью которого обрабатываются записи:
     * `req_id` — уникальный идентификатор запроса;
     * `severity` — уровень логирования;
@@ -264,11 +264,12 @@ yc compute instance create \
     {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
     Чтобы посмотреть записи в лог-группе, выполните команду:
+
     ```
     yc logging read --group-id=<идентификатор_лог-группы>
     ```
 
-    * `--group-id` — идентификатор лог-группы `default`, который указан в файле `spec.yaml`.
+    Где `--group-id` — идентификатор лог-группы `default`, который указан в файле `spec.yaml`.
 
 - API
 

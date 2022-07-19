@@ -54,7 +54,7 @@
      --network-name <имя облачной сети>
    ```
 
-   Результат выполнения:
+   Результат:
 
    ```text
    done (7m21s)
@@ -72,7 +72,7 @@
      --fixed-size 3
    ```
 
-   Результат выполнения:
+   Результат:
 
    ```text
    done (2m43s)
@@ -308,7 +308,7 @@
    kubectl apply -f node-local-dns.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    serviceaccount/node-local-dns created
@@ -324,7 +324,7 @@
    kubectl get ds -l k8s-app=node-local-dns -n kube-system
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE SELECTOR  AGE
@@ -359,7 +359,7 @@
 
 1. Сохраните изменения.
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    configmap/node-local-dns edited
@@ -376,7 +376,7 @@
    kubectl apply -f https://k8s.io/examples/admin/dns/dnsutils.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    pod/dnsutils created
@@ -388,7 +388,7 @@
    kubectl get pods dnsutils
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    NAME      READY  STATUS   RESTARTS  AGE
@@ -440,7 +440,7 @@ kubectl logs --namespace=kube-system -l k8s-app=node-local-dns -f
 
 Чтобы остановить вывод лога на экран, нажмите **Ctrl** + **C**.
 
-Результат выполнения команды:
+Результат:
 
 ```text
 ...
@@ -457,7 +457,7 @@ kubectl logs --namespace=kube-system -l k8s-app=node-local-dns -f
 kubectl delete -f node-local-dns.yaml
 ```
 
-Результат выполнения команды:
+Результат:
 
 ```text
 serviceaccount "node-local-dns" deleted

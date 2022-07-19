@@ -25,7 +25,7 @@
   1. Посмотрите описание команд CLI для удаления снимков:
   
       ```
-      $ yc compute snapshot delete --help
+      yc compute snapshot delete --help
       ```
   
   1. Получите список снимков в каталоге по умолчанию:
@@ -36,26 +36,26 @@
   1. Удалите снимок:
   
       ```
-      $ yc compute snapshot delete \
-          --name first-snapshot
+      yc compute snapshot delete \
+        --name first-snapshot
       ```
 
-- Terraform
+- {{ TF }}
 
-  Подробнее о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  Если вы создавали снимок диска с помощью Terraform, вы можете удалить его:
+  Если вы создавали снимок диска с помощью {{ TF }}, вы можете удалить его:
 
-  1. В командной строке перейдите в папку, где расположен конфигурационный файл Terraform.
+  1. В командной строке перейдите в папку, где расположен конфигурационный файл {{ TF }}.
   2. Удалите ресурсы с помощью команды:
 
       ```
-      $ terraform destroy
+      terraform destroy
       ```
 
       {% note alert %}
 
-      Terraform удалит все ресурсы, созданные в текущей конфигурации: кластеры, сети, подсети, виртуальные машины и т. д.
+      {{ TF }} удалит все ресурсы, созданные в текущей конфигурации: кластеры, сети, подсети, виртуальные машины и т. д.
 
       {% endnote %}
 

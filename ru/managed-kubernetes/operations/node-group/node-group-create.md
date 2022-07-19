@@ -47,6 +47,7 @@
      ```
 
      Где:
+
      * `--allowed-unsafe-sysctls` — разрешение на использование узлами группы [небезопасных параметров ядра](../../concepts/index.md#node-group), через запятую.
      * `--cluster-name` — имя [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster), в котором будет создана группа узлов.
      * `--cores` — количество vCPU для узлов.
@@ -73,7 +74,7 @@
 
      {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done (1m17s)
@@ -99,18 +100,6 @@
 
     Чтобы создать [группу узлов](../../concepts/index.md#node-group):
     1. Опишите в конфигурационном файле параметры группы узлов, которые необходимо создать:
-       * Имя группы узлов.
-       * Идентификатор [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) в параметре `cluster_id`.
-       * [Платформу](../../../compute/concepts/vm-platforms.md) для узлов.
-       * Настройки масштабирования в блоке `scale_policy`.
-
-       {% note warning %}
-
-       Файл с описанием группы узлов должен находиться в одном каталоге с [файлом описания кластера](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create).
-
-       {% endnote %}
-
-       Пример структуры конфигурационного файла:
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<имя группы узлов>" {
@@ -126,6 +115,19 @@
          }
        }
        ```
+
+       Где:
+
+       * `имя группы узлов` – имя группы узлов.
+       * `cluster_id` – идентификатор [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster).
+       * `platform_id` – [платформа](../../../compute/concepts/vm-platforms.md) для узлов.
+       * `scale_policy` – настройки масштабирования.
+
+       {% note warning %}
+
+       Файл с описанием группы узлов должен находиться в одном каталоге с [файлом описания кластера](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create).
+
+       {% endnote %}
 
        * Чтобы создать группу с фиксированным количеством узлов, добавьте блок `fixed_scale`:
 

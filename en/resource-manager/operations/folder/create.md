@@ -40,11 +40,20 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and grouped
 
    To create a folder, use the [create](../../api-ref/Folder/create.md) method for the [Folder](../../api-ref/Folder/index.md) resource.
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the parameters of resources that you want to create:
+
+      * `cloud_id`: ID of the cloud where the folder will be created. Optional. By default, the value specified in the provider settings is used.
+      * `name`: Name of the folder to be created. Required parameter. Naming requirements:
+
+         {% include [name-format](../../../_includes/name-format.md) %}
+
+      * `description`: Folder description. Optional.
+
+      Example configuration file structure:
 
       ```hcl
       resource "yandex_resourcemanager_folder" "folder1" {
@@ -54,15 +63,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and grouped
       }
       ```
 
-      Where:
-      * `cloud_id`: ID of the cloud where the folder will be created. Optional. By default, the value specified in the provider settings is used.
-      * `name`: Name of the folder to be created. Required parameter. Naming requirements:
-
-         {% include [name-format](../../../_includes/name-format.md) %}
-
-      * `description`: Folder description. Optional.
-
-      For more information about the parameters of the `yandex_resourcemanager_folder` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder).
+      For more information about the parameters of the `yandex_resourcemanager_folder` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder).
 
    1. Make sure that the configuration files are correct.
 
@@ -86,7 +87,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and grouped
          terraform plan
          ```
 
-         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

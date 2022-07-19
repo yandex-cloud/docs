@@ -1,9 +1,6 @@
 ---
-title: Elasticsearch indexes
+title: "Elasticsearch indexes"
 description: "When a document is saved to Elasticsearch, it is indexed and placed in a specific Elasticsearch index of the user's choice, making it available for search and analysis. An index can be viewed as an analogue of a table with data in classical DBMS."
-keywords:
-- Elasticsearch index
-- Elasticsearch
 ---
 
 # Indexes

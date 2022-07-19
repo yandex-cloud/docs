@@ -33,14 +33,7 @@ sudo apt update && sudo apt install -y postgresql-client
 
   1. Connect to a database:
 
-      ```bash
-      psql "host=c-<cluster ID>.rw.{{ dns-zone }} \
-          port=6432 \
-          sslmode=verify-full \
-          dbname=<DB name> \
-          user=<username> \
-          target_session_attrs=read-write"
-      ```
+      {% include [default-connstring](./mpg/default-connstring.md) %}
 
       After running the command, enter the user password to complete the connection procedure.
 

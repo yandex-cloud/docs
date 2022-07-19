@@ -36,15 +36,15 @@ To delete a [resource record](../concepts/resource-record.md):
       --record "<domain name> <TTL> <record type> <value>"
       ```
 
-- Terraform
+- {{ TF }}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To delete a record created using Terraform from the DNS zone:
+   To delete a record created using {{ TF }} from the DNS zone:
 
-   1. Open the Terraform configuration file and delete the fragment with the DNS record description.
+   1. Open the {{ TF }} configuration file and delete the fragment with the DNS record description.
 
-      {% cut "Example DNS record description in the Terraform configuration" %}
+      {% cut "Example DNS record description in the {{ TF }} configuration" %}
 
       ```hcl
       ...
@@ -61,7 +61,7 @@ To delete a [resource record](../concepts/resource-record.md):
       {% endcut %}
 
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
    1. Check the configuration using the command:
       ```
@@ -79,7 +79,7 @@ To delete a [resource record](../concepts/resource-record.md):
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
       ```

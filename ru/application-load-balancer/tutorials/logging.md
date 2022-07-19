@@ -529,6 +529,8 @@
     --batch-cutoff 15s
   ```
   
+  Где:
+
   * `--log-groups` — идентификатор лог-группы для балансировщика, [полученный ранее](#get-log-group-id).
   * `--invoke-function-name` — имя функции, [созданной ранее](#set-up-sf-create-function).
   * `--invoke-function-service-account-name` — имя сервисного аккаунта, созданного вместе с функцией.

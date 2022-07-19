@@ -180,12 +180,12 @@
       {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
 
-- Terraform
+- {{ TF }}
 
     {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
     
-    Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
     Чтобы создать кластер:
@@ -353,7 +353,7 @@
   ```
 
 
-- Terraform
+- {{ TF }}
 
   Допустим, нужно создать кластер {{ mkf-name }} со следующими характеристиками:
 

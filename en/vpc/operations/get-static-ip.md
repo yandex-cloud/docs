@@ -10,7 +10,7 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    To reserve a static public IP address:
    1. In the [management console]({{ link-console-main }}), go to the page of the folder where you want to reserve an IP address.
@@ -20,7 +20,7 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
    1. In the window that opens, select the availability zone where you want to reserve the address.
    1. Click **Reserve address**.
 
-* CLI
+- CLI
 
    {% include [include](../../_includes/cli-install.md) %}
 
@@ -40,7 +40,7 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
       yc vpc address create --external-ipv4 zone={{ region-id }}-a
       ```
 
-      Output:
+      Result:
 
       ```bash
       id: e9b6un9gkso6stdh6b3p

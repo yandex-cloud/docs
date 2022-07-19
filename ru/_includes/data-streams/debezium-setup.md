@@ -22,11 +22,12 @@
     ```
 
     Где:
-    - `<YDS_STREAM_ENDPOINT>` - полный endpoint к потоку данных {{yds-short-name}}, например, `https://yds.serverless.yandexcloud.net/{{ region-id }}/b1п89ae43m6he2ooql88r/etn01eg4rn184nemdbb`. Полный endpoint доступен в UI {{yds-full-name}}. Для просмотра полного endpoint'a нажмите кнопку **Подключиться**.
-    - `<YDS_STREAM_NAME>` - название потока данных {{yds-short-name}}.
-    - `<DATABASE_NAME>` - название базы данных PostgreSQL. 
-    - `<DATABASE_USER>` - имя пользователя для подключения к базе данных PostgreSQL. 
-    - `<DATABASE_PASSWORD>` - пароль пользователя для подключения к базе данных PostgreSQL.    
+
+    * `<YDS_STREAM_ENDPOINT>` - полный endpoint к потоку данных {{yds-short-name}}, например, `https://yds.serverless.yandexcloud.net/{{ region-id }}/b1п89ae43m6he2ooql88r/etn01eg4rn184nemdbb`. Полный endpoint доступен в UI {{yds-full-name}}. Для просмотра полного endpoint'a нажмите кнопку **Подключиться**.
+    * `<YDS_STREAM_NAME>` - название потока данных {{yds-short-name}}.
+    * `<DATABASE_NAME>` - название базы данных PostgreSQL. 
+    * `<DATABASE_USER>` - имя пользователя для подключения к базе данных PostgreSQL. 
+    * `<DATABASE_PASSWORD>` - пароль пользователя для подключения к базе данных PostgreSQL.    
 1. Запустите Debezium следующей командой: 
     ```shell
     JAVA_OPTS=-Daws.cborEnabled=false ./run.sh

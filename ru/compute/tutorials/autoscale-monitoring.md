@@ -92,9 +92,9 @@
      yc iam service-account create --name queue-autoscale-sa
      ```
      
-     * `--name` — имя сервисного аккаунта: `queue-autoscale-sa`.
+     Где `--name` — имя сервисного аккаунта: `queue-autoscale-sa`.
      
-     Результат выполнения команды:
+     Результат:
      
      ```
      id: aje6brh817ro8o6vo6tv
@@ -111,10 +111,12 @@
        --role editor
      ```
      
+     Где:
+
      * `--service-account-name` — имя сервисного аккаунта, созданного на шаге 1: `queue-autoscale-sa`.
      * `--role` — назначаемая роль: `editor`.
      
-     Результат выполнения команды:
+     Результат:
      
      ```
      done (1s)
@@ -128,11 +130,13 @@
        --description "{{ message-queue-name }}" \
      | tee access_key
      ```
-       
+    
+     Где:
+
      * `--service-account-name` — имя сервисного аккаунта, созданного на шаге 1: `queue-autoscale-sa`.
      * `--description` — описание ключа.
      
-     Результат выполнения команды:
+     Результат:
      
      ```
      access_key:
@@ -150,7 +154,7 @@
      yc vpc network create queue-autoscale-network
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      id: enpabce123hde4ft1r3t
@@ -168,11 +172,13 @@
        --zone {{ region-id }}-b
      ```
      
+     Где:
+
      * `--network-name` — имя сети, в которой создается подсеть: `queue-autoscale-network`.
      * `--range` — CIDR подсети.
      * `--zone` — зона доступности, в которой создается подсеть: `{{ region-id }}-b`.
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      id: e1lnabc23r1c9d0efoje
@@ -267,10 +273,12 @@
      | tee queue
      ```
      
+     Где:
+
      * `--endpoint` — корневой URL API {{ message-queue-name }}: `https://message-queue.{{ api-host }}`.
      * `--queue-name` — имя очереди: `queue-autoscale-queue`.
      
-     Результат выполнения команды:
+     Результат:
      
      ```yaml
      QueueUrl: https://message-queue.{{ api-host }}/b1gvlrnlei4l5idm9cbj/dj6000000003n58805qi/queue-autoscale-queue
@@ -327,7 +335,7 @@
        yc iam service-account get queue-autoscale-sa
        ```
        
-       Результат выполнения команды:
+       Результат:
        
        ```
        id: aje6brh817ro8o6vo6tv
@@ -362,7 +370,7 @@
        yc resource-manager folder get example-folder
        ```
        
-       Результат выполнения команды:
+       Результат:
        
        ```
        id: b1g9hv2loamqfnbul7d9
@@ -401,7 +409,7 @@
        yc vpc subnet get queue-autoscale-subnet-b
        ```
        
-       Результат выполнения команды:
+       Результат:
        
        ```
        id: e1lnabc23r1c9d0efoje
@@ -434,12 +442,14 @@
        --description "{{ compute-name }}" \
        --output key.json
      ```
-       
+    
+     Где:
+
      * `--service-account-name` — имя сервисного аккаунта, созданного ранее: `queue-autoscale-sa`.
      * `--description` — описание ключа.
      * `--output` — путь к файлу, в который нужно сохранить ключ: `key.json`.
   
-     Результат выполнения команды:
+     Результат:
        
      ```
      id: ajevh3a0hrqf65scefug
@@ -457,7 +467,7 @@
    packer build server-packer.json
    ```
    
-   Результат выполнения команды:
+   Результат:
    
    ```
    ...
@@ -541,7 +551,7 @@
      yc compute image get-latest-from-family queue-autoscale-image 
      ```
      
-     Результат выполнения команды:
+     Результат:
      
      ```
      id: fd8hlbuhjc4mssrvknkv
@@ -571,13 +581,13 @@
                
        - CLI
         
-         Выполните следующую команду:
+         Выполните команду:
           
          ```bash
          yc vpc network get queue-autoscale-network
          ```
           
-         Результат выполнения команды:
+         Результат:
           
          ```
          id: enpabce123hde4ft1r3t
@@ -610,7 +620,7 @@
      yc compute instance-group create --file spec.yaml
      ```
      
-     * `--file` — путь к файлу со спецификацией группы ВМ: `spec.yaml`.
+     Где `--file` — путь к файлу со спецификацией группы ВМ: `spec.yaml`.
      
 - API
 
@@ -643,7 +653,7 @@
          yc vpc network get queue-autoscale-network
          ```
           
-         Результат выполнения команды:
+         Результат:
           
          ```
          id: enpabce123hde4ft1r3t

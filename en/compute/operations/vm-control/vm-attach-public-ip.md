@@ -32,6 +32,7 @@ If you created a virtual machine without a public IP, you can bind it to an IP [
    ```
 
    Where:
+
    * `id`: VM instance ID. You can get a list of IDs of instances in a folder using the [CLI command](../../../cli/cli-ref/managed-services/compute/instance/list.md) `yc compute instance list`.
    * `network-interface-index`: VM instance's network interface index. By default: `0`.
    * `nat-address`: Public IP address to assign to the VM instance. You can get a list of public IPs reserved for instances in a folder using the [CLI command](../../../cli/cli-ref/managed-services/vpc/address/list.md) `yc vpc address list`. By default, a public IP address is assigned automatically.

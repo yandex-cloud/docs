@@ -85,7 +85,7 @@ Before getting started, get the ID of the [previously added](#before-you-begin) 
 yc certificate-manager certificate list
 ```
 
-Command output:
+Result:
 
 ```text
 +------+--------+---------------+---------------------+----------+--------+
@@ -144,6 +144,7 @@ Command output:
      ```
 
      Where:
+
      * `ingress.alb.yc.io/subnets`: One or more [subnets](../../vpc/concepts/network.md#subnet) that {{ alb-name }} is going to work with.
      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If the parameter is omitted, the default security group is used. At least one of the security groups must allow outgoing TCP connections to ports 10501 and 10502 in the node group subnet or security group.
      * `ingress.alb.yc.io/external-ipv4-address`: Provide public online access to {{ alb-name }}. Enter [the IP address you obtained](../../vpc/operations/get-static-ip.md) or use the `auto` value to obtain a new IP address.

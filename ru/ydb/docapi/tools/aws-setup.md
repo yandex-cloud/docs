@@ -132,7 +132,7 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
     --endpoint https://docapi.serverless.yandexcloud.net/ru-central1/b1g4ej5ju4rf5kelpk4b/etn03ubijq52j860kvgj
     ```
 
-    Результат выполнения:
+    Результат:
 
     ```text
     {

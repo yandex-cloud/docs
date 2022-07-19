@@ -49,7 +49,7 @@
      python3 stream_put_record.py
      ```
 
-     Execution output:
+     Result:
 
      ```text
      The record has been sent successfully

@@ -57,7 +57,7 @@ To access the policy, use its ID. For information about getting a policy ID, see
       yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-rules ./new-rules.json
       ```
 
-      Command output:
+      Result:
 
       ```bash
       WARN: All current lifecycle rules will be overwritten. Are you sure?[y/N] y
@@ -85,7 +85,7 @@ To access the policy, use its ID. For information about getting a policy ID, see
    yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --activate
    ```
 
-   Command output:
+   Result:
 
    ```bash
    id: crp6lg1868p3i0emkv1b
@@ -111,7 +111,7 @@ To access the policy, use its ID. For information about getting a policy ID, see
    yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --disable
    ```
 
-   Command output:
+   Result:
 
    ```bash
    id: crp6lg1868p3i0emkv1b
@@ -131,16 +131,17 @@ To access the policy, use its ID. For information about getting a policy ID, see
 
 - CLI
 
-   Change the policy name by running the command with the following parameter:
-   * `new-name`: New policy name.
-
-      {% include [name-format](../../../_includes/name-format.md) %}
+   Change the policy name by running the command:
 
    ```bash
    yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-name new-policy
    ```
 
-   Command output:
+   Where `new-name` is the new policy name.
+
+      {% include [name-format](../../../_includes/name-format.md) %}
+
+   Result:
 
    ```bash
    id: crp6lg1868p3i0emkv1b
@@ -160,14 +161,15 @@ To access the policy, use its ID. For information about getting a policy ID, see
 
 - CLI
 
-   Change the policy description by running the command with the following parameter:
-   * `new-description`: New policy description.
+   Change the policy description by running the command:
 
    ```bash
    yc container repository lifecycle-policy update crp6lg1868p3i0emkv1b --new-description "new description"
    ```
 
-   Command output:
+   Where `new-description` is the new policy description.
+
+   Result:
 
    ```bash
    id: crp6lg1868p3i0emkv1b

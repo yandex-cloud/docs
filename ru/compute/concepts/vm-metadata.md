@@ -20,7 +20,7 @@
 
 - CLI
 
-  В CLI метаданные можно указать в любом из трех параметров :
+  В CLI метаданные можно указать в любом из трех параметров:
   * `--metadata-from-file` в виде файла, например `--metadata-from-file key=path/to/file`. Таким образом удобно передать значение из нескольких строк.
   * `--metadata` — список пар `ключ=значение`, разделенных запятой, например `--metadata foo1=bar,foo2=baz`.
 
@@ -32,10 +32,10 @@
   Вы можете комбинировать эти параметры, например:
 
   ```
-  $ yc compute instance create \
-  --name my-instance \
-  --metadata-from-file user-data=metadata.yaml \
-  --metadata serial-port-enable=1
+  yc compute instance create \
+    --name my-instance \
+    --metadata-from-file user-data=metadata.yaml \
+    --metadata serial-port-enable=1
   ...
   ```
 

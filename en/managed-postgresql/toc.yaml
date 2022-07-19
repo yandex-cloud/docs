@@ -63,6 +63,10 @@ items:
               Creating an Amazon RDS logical replica for {{ PG }} in {{ mpg-name
               }}
             href: operations/logical-replica-from-rds.md
+      - name: >-
+          Delivering data to {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/kafka-cdc-data-transfer.md
       - name: Delivering data to {{ mkf-full-name }} using Debezium
         href: tutorials/kafka-cdc.md
   - name: Concepts

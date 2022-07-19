@@ -31,7 +31,7 @@
         yc iam service-account create --name service-acc
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         id: ajelabcde12f33nol1v5
@@ -49,6 +49,7 @@
         ```
 
         Где:
+
         * `<имя сервиса>` — имя сервиса `container`.
         * `<ресурс>` — категория ресурса `registry`.
         * `<имя ресурса>` — имя ресурса, на который назначается роль. Вы можете указать ресурс по имени или идентификатору.
@@ -131,7 +132,7 @@
         yc vpc subnet list
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
@@ -156,6 +157,7 @@
          ```
 
          Где:
+
          * `name` — имя ВМ.
 
            {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
@@ -249,6 +251,7 @@
         ```
 
         Где:
+
         * `folderId` — идентификатор каталога.
         * `name` — имя, которое будет присвоено ВМ при создании.
         * `zoneId` — зона доступности, которая соответствует выбранной подсети.
@@ -310,7 +313,7 @@
         echo <oauth-токен> | docker login --username oauth --password-stdin {{ registry }}
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         Login Succeeded
@@ -331,7 +334,7 @@
         yc iam create-token | docker login --username iam --password-stdin {{ registry }}
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         Login Succeeded
@@ -346,7 +349,7 @@
         yc container registry configure-docker
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         Credential helper is configured in '/home/<user>/.docker/config.json'
@@ -391,7 +394,7 @@
    docker push {{ registry }}/${REGISTRY_ID}/ubuntu:hello
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    The push refers to repository [{{ registry }}/crpc9qeoft236r8tfalm/ubuntu]
@@ -408,7 +411,7 @@
    curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | cut -f1 -d',' | cut -f2 -d':' | tr -d '"' | sudo docker login --username iam --password-stdin {{ registry }}
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    Login Succeeded
@@ -420,7 +423,7 @@
    ssh ${PUBLIC_IP} docker pull {{ registry }}/${REGISTRY_ID}/ubuntu:hello
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    hello: Pulling from crpc9qeoft236r8tfalm/ubuntu
@@ -438,7 +441,7 @@
    ssh ${PUBLIC_IP} docker run {{ registry }}/${REGISTRY_ID}/ubuntu:hello
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    Hi, I'm inside

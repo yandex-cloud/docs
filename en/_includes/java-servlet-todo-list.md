@@ -115,7 +115,7 @@ Create a [function](../functions/concepts/function.md) for each servlet:
       yc serverless function create --name=add-task
       ```
 
-      Command output:
+      Result:
 
       ```bash
       id: d4ejb1799eko6re4omb1
@@ -149,7 +149,7 @@ Create a [function](../functions/concepts/function.md) for each servlet:
       * `source-path`: A ZIP archive with the function code and required dependencies.
       * `environment`: Environment variables in key=value format.
 
-      Command output:
+      Result:
 
       ```bash
       done (1s)
@@ -299,7 +299,7 @@ Create a [function](../functions/concepts/function.md) for each servlet:
           --description "simple todo list"
           ```
 
-          Command output:
+          Result:
 
           ```bash
           done (41s)

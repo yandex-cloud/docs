@@ -21,19 +21,13 @@ Enable bucket versioning:
     --versioning-configuration 'Status=Enabled'
   ```
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
     Get [static access keys](../../../iam/operations/sa/create-access-key.md): a private key and key ID used for authentication in {{ objstorage-short-name }}.
 
   In the configuration file, describe the parameters of resources that you want to create:
-  * `bucket`: Bucket name. Required parameter.
-  * `access_key`: The ID of the static access key.
-  * `secret_key`: The value of the private access key.
-  * `acl`: The ACL policy applied. Defaults to `private`. Optional.
-  * `versioning`: Bucket versioning management:
-    * `enabled`: Enables bucket versioning. Optional.
 
   ```hcl
   resource "yandex_storage_bucket" "b" {
@@ -47,5 +41,14 @@ Enable bucket versioning:
     }
   }
   ```
+
+  Where:
+
+  * `bucket`: Bucket name. Required parameter.
+  * `access_key`: The ID of the static access key.
+  * `secret_key`: The value of the private access key.
+  * `acl`: The ACL policy applied. Defaults to `private`. Optional.
+  * `versioning`: Bucket versioning management:
+    * `enabled`: Enables bucket versioning. Optional.
 
 {% endlist %}

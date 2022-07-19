@@ -22,7 +22,7 @@ You can add and remove databases, view information about them, and manage some d
    To get a list of databases in a cluster, run the command:
 
    ```
-   {{ yc-mdb-my }} database list
+   {{ yc-mdb-my }} database list \
         --cluster-name=<cluster name>
    ```
 
@@ -85,7 +85,7 @@ Created databases are not available to cluster users by default. To connect to a
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -151,7 +151,7 @@ Created databases are not available to cluster users by default. To connect to a
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -213,8 +213,8 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
    Set the SQL modes in the `--set` parameter, for example:
 
    ```bash
-   {{ yc-mdb-my }} cluster update-config
-        --name <cluster name>
+   {{ yc-mdb-my }} cluster update-config \
+        --name <cluster name> \
         --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
    ```
 
@@ -222,7 +222,7 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

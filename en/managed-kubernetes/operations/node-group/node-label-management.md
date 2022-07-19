@@ -68,13 +68,14 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all nodes
      ```
 
      Where:
+
      * `--name`: The name of the node group.
      * `--cluster-name`: Name of the {{ k8s }} cluster where the node group is created.
      * `--disk-type`: [Type of the disk](../../../compute/concepts/disk.md) on the node.
      * `--fixed-size`: Number of nodes in the group.
      * `--node-labels`: Node labels. You can specify multiple labels separated by commas.
 
-     Command output:
+     Result:
 
      ```bash
      done (2m19s)
@@ -147,7 +148,7 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all nodes
      kubectl get nodes
      ```
 
-     Command output:
+     Result:
 
      ```bash
      NAME                        STATUS   ROLES    AGE  VERSION
@@ -161,7 +162,7 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all nodes
      kubectl describe node catkuапро07enihqmk51-hgjd
      ```
 
-     Command output:
+     Result:
 
      ```bash
      Name:               catkuапро07enihqmk51-hgjd

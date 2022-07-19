@@ -30,7 +30,7 @@
    kubectl get svc | grep ydb-store-agent
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат:
 
    ```text
    <имя приложения jaeger-ydb-store-agent> ClusterIP 10.2.238.190 ...
@@ -84,7 +84,7 @@
    kubectl get svc | grep jaeger-ydb-store-query
    ```
 
-   Ожидаемый результат выполнения команды:
+   Результат:
 
    ```text
    <имя приложения jaeger-ydb-store-query>  LoadBalancer  10.2.222.155  130.133.51.247  16686:31189/TCP ...

@@ -20,7 +20,6 @@ If you no longer need the website, [delete all its resources](#clear-out).
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
-
 ### Required paid resources {#paid-resources}
 
 The cost for supporting your website in WordPress with a MySQL cluster includes:
@@ -28,7 +27,7 @@ The cost for supporting your website in WordPress with a MySQL cluster includes:
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for the MySQL database cluster (see [pricing {{ mmy-full-name }}](../../managed-mysql/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
+
 
 ## Create a virtual machine for WordPress {#create-vm}
 
@@ -89,8 +88,7 @@ When the VM is created, it is assigned a public IP address and hostname (FQDN). 
     - In the **Password** field, enter the password you will use to access the DB.
     - In the **Network** list, select the network your VM will connect to.
 
-
-1. Under **Hosts**, add two more hosts in the other availability zones. When creating hosts, do not enable **Public access** to them.
+1. Under **Hosts**, add two more hosts in the other availability zones. When creating hosts, do not enable **Public access** to them.
 
 1. Under **DBMS settings**, click **Settings**.
 
@@ -117,21 +115,21 @@ After the `wp-mysql-tutorial-web` VM changes its status to `RUNNING`:
    - Debian/Ubuntu
 
      ```bash
-     $ sudo apt-get update -qq
-     $ sudo apt-get install -y nginx-full php-fpm php-mysql
-     $ sudo systemctl enable nginx
+     sudo apt-get update -qq
+     sudo apt-get install -y nginx-full php-fpm php-mysql
+     sudo systemctl enable nginx
      ```
 
    - CentOS
 
      ```bash
-     $ sudo yum -y install epel-release
-     $ sudo yum -y install nginx
-     $ sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-     $ sudo yum -y --enablerepo=remi-php72 install php php-mysql php-xml php-soap php-xmlrpc php-mbstring php-json php-gd php-mcrypt
-     $ sudo yum -y --enablerepo=remi-php72 install php-fpm
-     $ sudo systemctl enable nginx
-     $ sudo systemctl enable php-fpm
+     sudo yum -y install epel-release
+     sudo yum -y install nginx
+     sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+     sudo yum -y --enablerepo=remi-php72 install php php-mysql php-xml php-soap php-xmlrpc php-mbstring php-json php-gd php-mcrypt
+     sudo yum -y --enablerepo=remi-php72 install php-fpm
+     sudo systemctl enable nginx
+     sudo systemctl enable php-fpm
      ```
 
    {% endlist %}
@@ -145,7 +143,7 @@ After the `wp-mysql-tutorial-web` VM changes its status to `RUNNING`:
      1. You can edit the file in the `nano` editor:
 
          ```bash
-         $ sudo nano /etc/nginx/sites-available/wordpress
+         sudo nano /etc/nginx/sites-available/wordpress
          ```
 
      1. Make the file look like:
@@ -183,8 +181,8 @@ After the `wp-mysql-tutorial-web` VM changes its status to `RUNNING`:
      1. Enable launch for your site:
 
          ```bash
-         $ sudo rm /etc/nginx/sites-enabled/default
-         $ sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
+         sudo rm /etc/nginx/sites-enabled/default
+         sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
          ```
 
    - Ubuntu
@@ -192,7 +190,7 @@ After the `wp-mysql-tutorial-web` VM changes its status to `RUNNING`:
      1. You can edit the file in the `nano` editor:
 
          ```bash
-         $ sudo nano /etc/nginx/sites-available/wordpress
+         sudo nano /etc/nginx/sites-available/wordpress
          ```
 
      1. Make the file look like:
@@ -230,8 +228,8 @@ After the `wp-mysql-tutorial-web` VM changes its status to `RUNNING`:
      1. Enable launch for your site:
 
          ```bash
-         $ sudo rm /etc/nginx/sites-enabled/default
-         $ sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
+         sudo rm /etc/nginx/sites-enabled/default
+         sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
          ```
 
    - CentOS
@@ -241,7 +239,7 @@ After the `wp-mysql-tutorial-web` VM changes its status to `RUNNING`:
      1. Open `nginx.conf`:
 
          ```bash
-         $ sudo nano /etc/nginx/nginx.conf
+         sudo nano /etc/nginx/nginx.conf
          ```
 
      1. Make the file look like:
@@ -280,7 +278,7 @@ After the `wp-mysql-tutorial-web` VM changes its status to `RUNNING`:
      1. Open `wordpress.conf`:
 
          ```bash
-         $ sudo nano /etc/nginx/wordpress.conf
+         sudo nano /etc/nginx/wordpress.conf
          ```
 
      1. Make the file look like:
@@ -326,30 +324,30 @@ After the `wp-mysql-tutorial-web` VM changes its status to `RUNNING`:
    - Debian/Ubuntu
 
      ```bash
-     $ wget https://wordpress.org/latest.tar.gz
-     $ tar -xzf latest.tar.gz
-     $ mv wordpress/wp-config-sample.php wordpress/wp-config.php
-     $ sudo mv wordpress /var/www/wordpress
-     $ sudo chown -R www-data:www-data /var/www/wordpress
+     wget https://wordpress.org/latest.tar.gz
+     tar -xzf latest.tar.gz
+     mv wordpress/wp-config-sample.php wordpress/wp-config.php
+     sudo mv wordpress /var/www/wordpress
+     sudo chown -R www-data:www-data /var/www/wordpress
      ```
 
    - CentOS
 
      ```bash
-     $ curl https://wordpress.org/latest.tar.gz --output latest.tar.gz
-     $ tar -xzf latest.tar.gz
-     $ mv wordpress/wp-config-sample.php wordpress/wp-config.php
-     $ sudo mv wordpress /usr/share/nginx/wordpress
-     $ sudo chown -R nginx:nginx /usr/share/nginx/wordpress/
+     curl https://wordpress.org/latest.tar.gz --output latest.tar.gz
+     tar -xzf latest.tar.gz
+     mv wordpress/wp-config-sample.php wordpress/wp-config.php
+     sudo mv wordpress /usr/share/nginx/wordpress
+     sudo chown -R nginx:nginx /usr/share/nginx/wordpress/
      ```
 
      Change the SELinux settings:
 
      ```bash
-     $ sudo semanage fcontext -a -t httpd_sys_content_t "/usr/share/nginx/wordpress(/.*)?"
-     $ sudo semanage fcontext -a -t httpd_sys_rw_content_t "/usr/share/nginx/wordpress(/.*)?"
-     $ sudo restorecon -R /usr/share/nginx/wordpress
-     $ sudo setsebool -P httpd_can_network_connect 1
+     sudo semanage fcontext -a -t httpd_sys_content_t "/usr/share/nginx/wordpress(/.*)?"
+     sudo semanage fcontext -a -t httpd_sys_rw_content_t "/usr/share/nginx/wordpress(/.*)?"
+     sudo restorecon -R /usr/share/nginx/wordpress
+     sudo setsebool -P httpd_can_network_connect 1
      ```
 
    {% endlist %}
@@ -357,7 +355,7 @@ After the `wp-mysql-tutorial-web` VM changes its status to `RUNNING`:
 1. Get WordPress security keys:
 
    ```bash
-   $ curl -s https://api.wordpress.org/secret-key/1.1/salt/
+   curl -s https://api.wordpress.org/secret-key/1.1/salt/
    ```
 
    Save the command output. You will need the keys in the next step.
@@ -369,13 +367,13 @@ After the `wp-mysql-tutorial-web` VM changes its status to `RUNNING`:
    - Debian/Ubuntu
 
      ```bash
-     $ sudo nano /var/www/wordpress/wp-config.php
+     sudo nano /var/www/wordpress/wp-config.php
      ```
 
    - CentOS
 
      ```bash
-     $ sudo nano /usr/share/nginx/wordpress/wp-config.php
+     sudo nano /usr/share/nginx/wordpress/wp-config.php
      ```
 
    {% endlist %}
@@ -423,22 +421,22 @@ After the `wp-mysql-tutorial-web` VM changes its status to `RUNNING`:
    - Debian
 
      ```bash
-     $ sudo systemctl restart nginx.service 
-     $ sudo systemctl restart php7.3-fpm.service
+     sudo systemctl restart nginx.service 
+     sudo systemctl restart php7.3-fpm.service
      ```
 
    - Ubuntu
 
      ```bash
-     $ sudo systemctl restart nginx.service 
-     $ sudo systemctl restart php7.2-fpm.service
+     sudo systemctl restart nginx.service 
+     sudo systemctl restart php7.2-fpm.service
      ```
 
    - CentOS
 
      ```bash
-     $ sudo systemctl restart nginx.service 
-     $ sudo systemctl restart php-fpm.service
+     sudo systemctl restart nginx.service 
+     sudo systemctl restart php-fpm.service
      ```
 
    {% endlist %}

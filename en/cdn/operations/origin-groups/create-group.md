@@ -38,12 +38,10 @@ To create an [origin group](../../concepts/origins.md):
         --origin source=<origin IP address or domain name>,enabled=true,backup=true
       ```
 
-      Where:
-
-      * `origin`: The origin specification:
-         * `source`: The origin IP address or domain name.
-         * `enabled`: Flag indicating whether an origin is enabled.
-         * `backup`: Flag indicating whether an origin is a backup. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
+      Where `origin` is the origin specification:
+      * `source`: The origin IP address or domain name.
+      * `enabled`: Flag indicating whether an origin is enabled.
+      * `backup`: Flag indicating whether an origin is a backup. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
 
       Result:
 
@@ -66,9 +64,9 @@ To create an [origin group](../../concepts/origins.md):
 
       For more information about the `yc cdn origin-group create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/origin-group/create.md).
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Describe the properties of the `yandex_cdn_origin_group` resource in the configuration file:
 
@@ -101,7 +99,7 @@ To create an [origin group](../../concepts/origins.md):
 
 
 
-      For more information about resources that you can create with Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
+      For more information about resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
 
    1. Make sure the settings are correct.
 

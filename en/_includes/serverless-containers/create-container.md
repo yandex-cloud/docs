@@ -35,11 +35,11 @@
    status: ACTIVE
    ```
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create a container and a container [revision](../../serverless-containers/operations/manage-revision.md):
 
@@ -58,6 +58,8 @@
       * `memory`: Amount of memory allocated to a container, MB. The default is 128 MB.
       * `service_account_id` = [service account](../../iam/concepts/users/service-accounts.md) ID.
       * `url`: [Docker image](../../container-registry/concepts/docker-image.md) URL in {{ container-registry-name }}.
+
+      Example configuration file structure:
 
       
       ```hcl
@@ -80,7 +82,7 @@
 
 
 
-      For more information about the `yandex_serverless_container` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
+      For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
 
    1. Make sure that the configuration files are correct.
 
@@ -91,7 +93,7 @@
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

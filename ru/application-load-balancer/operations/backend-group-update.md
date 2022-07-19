@@ -81,9 +81,9 @@
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
-  1. Откройте конфигурационный файл Terraform и измените фрагмент с описанием группы бэкендов:
+  1. Откройте конфигурационный файл {{ TF }} и измените фрагмент с описанием группы бэкендов:
   
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {
@@ -96,11 +96,10 @@
       }
       ```
 
-      Где:
-      * `yandex_alb_backend_group` — параметры группы бэкендов:
-        * `name` — имя группы бэкендов.
-        * `description` — описание группы бэкендов. Необязательный параметр.
-        * `labels` — список меток в формате `ключ=значение`. Необязательный параметр.
+      Где `yandex_alb_backend_group` — параметры группы бэкендов:
+      * `name` — имя группы бэкендов.
+      * `description` — описание группы бэкендов. Необязательный параметр.
+      * `labels` — список меток в формате `ключ=значение`. Необязательный параметр.
 
       Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:
@@ -278,9 +277,9 @@
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
-  1. Откройте конфигурационный файл Terraform и добавьте блок с описанием бэкенда (`http_backend`, `grpc_backend` или `stream_backend`) во фрагмент с описанием группы бэкендов:
+  1. Откройте конфигурационный файл {{ TF }} и добавьте блок с описанием бэкенда (`http_backend`, `grpc_backend` или `stream_backend`) во фрагмент с описанием группы бэкендов:
   
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {
@@ -307,10 +306,9 @@
       }
       ```
 
-      Где:
-      * `yandex_alb_backend_group` — параметры группы бэкендов:
-        * `name` — имя группы бэкендов.
-        * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — HTTP, gRPC или Stream.
+      Где `yandex_alb_backend_group` — параметры группы бэкендов:
+      * `name` — имя группы бэкендов.
+      * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — HTTP, gRPC или Stream.
         
       Параметры бэкенда:
       * `name` — имя бэкенда.
@@ -508,9 +506,9 @@
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
-  1. Откройте конфигурационный файл Terraform и измените параметры блока с описанием бэкенда (`http_backend`, `grpc_backend` или `stream_backend`) во фрагменте с описанием группы бэкендов:
+  1. Откройте конфигурационный файл {{ TF }} и измените параметры блока с описанием бэкенда (`http_backend`, `grpc_backend` или `stream_backend`) во фрагменте с описанием группы бэкендов:
   
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {
@@ -537,10 +535,9 @@
       }
       ```
 
-      Где:
-      * `yandex_alb_backend_group` — параметры группы бэкендов:
-        * `name` — имя группы бэкендов.
-        * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — HTTP, gRPC или Stream.
+      Где `yandex_alb_backend_group` — параметры группы бэкендов:
+      * `name` — имя группы бэкендов.
+      * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — HTTP, gRPC или Stream.
         
       Параметры бэкенда:
       * `name` — имя бэкенда.
@@ -627,11 +624,11 @@
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
-  1. Откройте конфигурационный файл Terraform и удалите блок с описанием бэкенда (`http_backend`, `grpc_backend` или `stream_backend`) во фрагменте с описанием группы бэкендов.
+  1. Откройте конфигурационный файл {{ TF }} и удалите блок с описанием бэкенда (`http_backend`, `grpc_backend` или `stream_backend`) во фрагменте с описанием группы бэкендов.
 
-      Пример описания группы бэкендов в конфигурации Terraform:
+      Пример описания группы бэкендов в конфигурации {{ TF }}:
 
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {

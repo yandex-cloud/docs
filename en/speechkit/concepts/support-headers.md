@@ -19,9 +19,6 @@ For example, you can use these headers to let us know afterwards that your audio
 
 An example of headers used in [cURL](https://curl.haxx.se):
 
-* `folderId`: The [ID of a folder](../../resource-manager/operations/folder/get-id.md) that your account has the `editor` role for or higher.
-* `IAM_TOKEN`: The [IAM token](../../iam/operations/iam-token/create.md) required for authentication.
-
 ```bash
 export FOLDER_ID=<folder ID>
 export IAM_TOKEN=<IAM token>
@@ -33,6 +30,11 @@ curl -X POST \
     --data-binary "@speech.ogg" \
     "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?folderId=${FOLDER_ID}"
 ```
+
+Where:
+
+* `folderId`: The [ID of a folder](../../resource-manager/operations/folder/get-id.md) that your account has the `editor` role for or higher.
+* `IAM_TOKEN`: The [IAM token](../../iam/operations/iam-token/create.md) required for authentication.
 
 ## Response headers {#response-headers}
 

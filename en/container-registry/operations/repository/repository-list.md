@@ -23,7 +23,7 @@
          yc container repository list
          ```
 
-         Command output:
+         Result:
 
          ```bash
          +----------------------+-----------------------------+
@@ -40,7 +40,7 @@
          yc container repository list --registry-id <registry ID>
          ```
 
-         Command output:
+         Result:
 
          ```bash
          +----------------------+-----------------------------+
@@ -75,7 +75,7 @@
          yc container repository get --id <repository ID>
          ```
 
-         Command output:
+         Result:
 
          ```bash
          name: crp0pmf1n68tt345tf02/ubuntu
@@ -88,7 +88,7 @@
          yc container repository get --name <repository name>
          ```
 
-         Command output:
+         Result:
 
          ```bash
          name: crp0pmf1n68tt345tf02/ubuntu

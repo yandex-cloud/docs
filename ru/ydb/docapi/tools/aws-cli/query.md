@@ -26,7 +26,7 @@ sourcePath: overlay/quickstart/document-api/aws-cli/query.md
         --endpoint $endpoint
     ```
 
-   Результат выполнения:
+   Результат:
 
     ```text
     {

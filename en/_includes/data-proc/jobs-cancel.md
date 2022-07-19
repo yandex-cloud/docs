@@ -6,14 +6,14 @@ You cannot cancel jobs with the status `ERROR`, `DONE`, or `CANCELLED`. To find 
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. Go to the folder page and select **{{ dataproc-name }}**.
    1. Click on the name of the cluster and open the **Jobs** tab.
    1. Click on the name of the job.
    1. In the upper right-hand corner of the page, click **Cancel** and confirm the action.
 
-* CLI
+- CLI
 
    {% include [cli-install](../cli-install.md) %}
 
@@ -28,7 +28,7 @@ You cannot cancel jobs with the status `ERROR`, `DONE`, or `CANCELLED`. To find 
 
    You can retrieve a job name or ID in the [list of cluster jobs](#list), and a cluster name in the [list of folder clusters](../../data-proc/operations/cluster-list.md#list).
 
-* API
+- API
 
    Use the API [cancel](../../data-proc/api-ref/Job/cancel) method and pass in in the call:
 

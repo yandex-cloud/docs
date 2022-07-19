@@ -308,7 +308,7 @@ To set up transfer of logs:
     yc logging read --folder-id=<folder_ID>
     ```
 
-    * `--folder-id`: The folder ID that is specified in the `td-agent-bit` service settings.
+    Where `--folder-id` is the folder ID that is specified in the `td-agent-bit` service settings.
 
 - API
 

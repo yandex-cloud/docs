@@ -38,7 +38,7 @@ These instructions describe how to [scan](../concepts/vulnerability-scanner.md) 
       yc container image list --repository-name=<registry ID>/<Docker image name>
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +----------------------+---------------------+-----------------------------+---------+-----------------+
@@ -54,7 +54,7 @@ These instructions describe how to [scan](../concepts/vulnerability-scanner.md) 
       yc container image scan <image ID>
       ```
 
-      Command output:
+      Result:
 
       ```bash
       done (24s)
@@ -74,7 +74,7 @@ These instructions describe how to [scan](../concepts/vulnerability-scanner.md) 
       yc container image list-vulnerabilities --scan-result-id=<scan result ID>
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +------------+----------------+----------+------------------------+----------------------------+---------------------------------------------------------------+
@@ -111,7 +111,7 @@ These instructions describe how to [scan](../concepts/vulnerability-scanner.md) 
       yc container image list-scan-results --repository-name=<Registry ID>/<Docker image name>
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +----------------------+----------------------+---------------------+--------+--------------------------------+

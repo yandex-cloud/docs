@@ -42,10 +42,9 @@ To delete a certificate:
           --id fpqmg47avvimp7rvmp30
         ```
 
-        Command parameters:
-          - `--id`: Certificate ID.
+        Where `--id` is the certificate ID.
 
-        Command results:
+        Result:
 
         ```bash
         id: fpqmg47avvimp7rvmp30

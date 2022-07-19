@@ -21,7 +21,7 @@
 
     {% include [Managed MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mysql-target.md) %}
 
-- Terraform
+- {{ TF }}
 
     * Тип эндпоинта — `mysql_target`.
 
@@ -72,7 +72,7 @@
 
     {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mysql-target.md) %}
 
-- Terraform
+- {{ TF }}
 
     * Тип эндпоинта — `mysql_target`.
 
@@ -144,7 +144,7 @@
 
     * `--timezone` — укажите идентификатор [IANA Time Zone Database](https://www.iana.org/time-zones). По умолчанию используется UTC+0.
 
-- Terraform
+- {{ TF }}
 
     * `sql_mode` — укажите настройки, переопределяющие [стандартное поведение {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html). По умолчанию используется список `NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION`.
 

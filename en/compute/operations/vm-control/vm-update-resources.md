@@ -33,7 +33,7 @@ This section provides guidelines for changing the number and performance of vCPU
    1. See the description of the CLI's update VM parameter command:
 
       ```
-      $ yc compute instance update --help
+      yc compute instance update --help
       ```
 
    1. Get a list of VMs in the default folder:
@@ -44,18 +44,18 @@ This section provides guidelines for changing the number and performance of vCPU
    1. Stop the VM:
 
       ```
-      $ yc compute instance stop first-instance
+      yc compute instance stop first-instance
       ```
    1. Get the current VM [configuration](../../concepts/performance-levels.md) with [metadata](../../concepts/vm-metadata.md):
 
       ```
-      $ yc compute instance get --full first-instance
+      yc compute instance get --full first-instance
       ```
 
    1. Change the VM's configuration:
 
       ```
-      $ yc compute instance update first-instance \
+      yc compute instance update first-instance \
           --memory 32 \
           --cores 4 \
           --core-fraction 100
@@ -70,7 +70,7 @@ This section provides guidelines for changing the number and performance of vCPU
    1. Start the VM:
 
       ```
-      $ yc compute instance start first-instance
+      yc compute instance start first-instance
       ```
 - API
 
@@ -114,7 +114,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
    1. See the description of the CLI's update VM parameter command:
 
       ```
-      $ yc compute instance update --help
+      yc compute instance update --help
       ```
 
    1. Get a list of VMs in the default folder:
@@ -126,19 +126,19 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
    1. Stop the VM:
 
       ```
-      $ yc compute instance stop first-instance
+      yc compute instance stop first-instance
       ```
 
    1. Get the current VM [configuration](../../concepts/performance-levels.md) with [metadata](../../concepts/vm-metadata.md):
 
       ```
-      $ yc compute instance get --full first-instance
+      yc compute instance get --full first-instance
       ```
 
    1. Change the VM's configuration:
 
       ```
-      $ yc compute instance update first-instance \
+      yc compute instance update first-instance \
           --platform=gpu-standard-v3 \
           --cores=8 \
           --memory=96 \
@@ -155,7 +155,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
    1. Start the VM:
 
       ```
-      $ yc compute instance start first-instance
+      yc compute instance start first-instance
       ```
 - API
 
@@ -189,7 +189,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
    1. See the description of the CLI's update VM parameter command:
 
       ```
-      $ yc compute instance update --help
+      yc compute instance update --help
       ```
 
    1. Get a list of VMs in the default folder:
@@ -201,19 +201,19 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
    1. Stop the VM:
 
       ```
-      $ yc compute instance stop first-instance
+      yc compute instance stop first-instance
       ```
 
    1. Get the current VM [configuration](../../concepts/performance-levels.md) with [metadata](../../concepts/vm-metadata.md):
 
       ```
-      $ yc compute instance get --full first-instancegit
+      yc compute instance get --full first-instancegit
       ```
 
    1. Change the VM's configuration:
 
       ```
-      $ yc compute instance update first-instance \
+      yc compute instance update first-instance \
           --gpus=2 \
           --cores=16 \
           --memory=192
@@ -224,7 +224,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
    1. Start the VM:
 
       ```
-      $ yc compute instance start first-instance
+      yc compute instance start first-instance
       ```
 - API
 

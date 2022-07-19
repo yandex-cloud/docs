@@ -96,7 +96,7 @@
   1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
      ```
-     $ yc vpc subnet list
+     yc vpc subnet list
      ```
 
      Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
@@ -105,7 +105,7 @@
   1. Посмотрите описание команды CLI для создания кластера:
 
       ```
-      $ {{ yc-mdb-mg }} cluster create --help
+      {{ yc-mdb-mg }} cluster create --help
       ```
 
   1. Укажите параметры кластера в команде создания (в примере приведены не все параметры):
@@ -130,11 +130,11 @@
 
       {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   
-  Если у вас еще нет Terraform, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Чтобы создать кластер:
 
@@ -217,7 +217,7 @@
 
      1. {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-mmg }}).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mmg }}).
 
   1. Проверьте корректность настроек.
 
@@ -299,7 +299,7 @@
   ```
 
 
-- Terraform
+- {{ TF }}
 
   Допустим, нужно создать {{ MG }}-кластер и сеть для него со следующими характеристиками:
 

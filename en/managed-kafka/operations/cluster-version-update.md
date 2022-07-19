@@ -22,14 +22,14 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. Go to the folder page and select **{{ mkf-name }}**.
    1. Select the desired cluster from the list and click **Edit**.
    1. In the **Version** field, select a new version number.
    1. Click **Save**.
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -54,7 +54,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
          --version=<new version number>
       ```
 
-* Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -83,7 +83,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-* API
+- API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
@@ -101,7 +101,7 @@ Let's assume you need to upgrade your cluster from version 2.8 to version 3.0.
 
 {% list tabs %}
 
-* CLI
+- CLI
 
    1. To get a list of clusters and find out their IDs and names, run the command:
 

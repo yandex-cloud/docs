@@ -1,7 +1,7 @@
 1. Посмотрите описание команды CLI для создания виртуальной машины:
 
     ```
-    $ yc compute instance create --help
+    yc compute instance create --help
     ```
 
 1. Выберите один из публичных [образов](../operations/images-with-pre-installed-software/get-list.md) на базе операционной системы Windows.
@@ -18,12 +18,12 @@
 1. Создайте виртуальную машину в каталоге по умолчанию:
 
     ```
-    $ yc compute instance create \
-        --name second-instance \
-        --metadata-from-file user-data=metadata.yaml \
-        --zone {{ region-id }}-a \
-        --public-ip \
-        --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk
+    yc compute instance create \
+      --name second-instance \
+      --metadata-from-file user-data=metadata.yaml \
+      --zone {{ region-id }}-a \
+      --public-ip \
+      --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk
     ```
 
     Данная команда создаст виртуальную машину со следующими характеристиками:

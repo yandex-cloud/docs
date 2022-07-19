@@ -8,6 +8,12 @@ If your project uses packages and libraries that are not included in the [list o
 
 {% endnote %}
 
+{% note warning %}
+
+{% include [pricing nodes](../../_includes/datasphere/nodes-pricing-warn.md) %}
+
+{% endnote %}
+
 1. Open the ![Checkpoints](../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints** tab and save the checkpoint prepared for deployment.
 
 1. Open the notebook and select the cell to be deployed.

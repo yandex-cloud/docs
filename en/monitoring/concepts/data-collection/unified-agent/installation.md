@@ -44,7 +44,7 @@ Install {{unified-agent-short-name}} using one of the following methods:
 
    The agent's configuration file is located at `/etc/yandex/unified_agent/config.yml` and parameterized by environment variables. For more information about starting a Docker container, see [below](#configure-docker).
 
-   To start a container with the agent, run the following command, indicating `FOLDER_ID` as the ID of the folder the metrics are going to be written to:
+   To start a container with the agent, run the following command:
 
    ```bash
      docker run \
@@ -55,6 +55,8 @@ Install {{unified-agent-short-name}} using one of the following methods:
        -e FOLDER_ID=a1bs... \
        cr.yandex/yc/unified-agent
    ```
+
+   Where `FOLDER_ID` is the ID of the folder the metrics are going to be written.
 
    To launch a container with its own configuration file, add `-v` to the container start command and specify the _full path_ to the configuration file. For example:
 
@@ -132,11 +134,13 @@ Install {{unified-agent-short-name}} using one of the following methods:
 
    Download the agent's executable file and then create a configuration file, for example, with the settings for [delivering Linux system metrics](../../../operations/unified-agent/linux_metrics.md). For more information about agent configuration, see [{#T}](./configuration.md).
 
-   To start the agent, run the command specifying the path to the configuration file in the parameter `--config`:
+   To start the agent, run the command:
 
    ```bash
    ./unified_agent --config unified_agent.yml
    ```
+
+   Where `--config` is the path to the configuration file.
 
 {% endlist %}
 

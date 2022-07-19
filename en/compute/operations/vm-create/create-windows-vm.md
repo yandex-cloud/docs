@@ -1,3 +1,8 @@
+---
+title: "How to create a Windows virtual machine (VM) based on a public image"
+description: "Following this guide, you will be able to create a virtual machine with Linux operating system."
+---
+
 # Creating a VM from a Windows public image
 
 
@@ -30,9 +35,9 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
    1. Get information about the image to create your virtual machine from (image ID and minimum disk size):
       * If you know the [image family](../../concepts/image.md#family), retrieve information on this family's latest image:
          ```bash
-         $ export IAM_TOKEN=CggaATEVAgA...
-         $ export FAMILY=windows-2016-gvlk
-         $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+         export IAM_TOKEN=CggaATEVAgA...
+         export FAMILY=windows-2016-gvlk
+         curl -H "Authorization: Bearer ${IAM_TOKEN}" \
            "https://compute.{{ api-host }}/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
 
          {
@@ -57,9 +62,9 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
    1. Get the subnet ID and availability zone ID. Specify the ID of the folder where the subnet was created in your request:
 
       ```bash
-      $ export IAM_TOKEN=CggaATEVAgA...
-      $ export FOLDER_ID=b1gvmob95yysaplct532
-      $ curl -H "Authorization: Bearer ${IAM_TOKEN}" \
+      export IAM_TOKEN=CggaATEVAgA...
+      export FOLDER_ID=b1gvmob95yysaplct532
+      curl -H "Authorization: Bearer ${IAM_TOKEN}" \
         "https://vpc.{{ api-host }}/vpc/v1/subnets?folderId=${FOLDER_ID}"
       {
        "subnets": [
@@ -79,38 +84,8 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
        ]
       }
       ```
-   1. Create a file where the body contains your request for VM creation (for example, `body.json`). Specify the following parameters:
+   1. Create a file where the body contains your request for VM creation (for example, `body.json`):
 
-      * `folderId`: ID of the folder.
-      * `name`: Name to be assigned to the VM when it's created.
-      * `zoneId`: Availability zone that corresponds to the selected subnet.
-      * `platformId`: The [platform](../../concepts/vm-platforms.md).
-      * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
-      * `metadata`: In the [metadata's](../../concepts/vm-metadata.md) `user-data` property, you need to pass the script with the administrator password, for example:
-
-         ```json
-         "metadata": {
-           "user-data": "#ps1\nnet user Administrator Passw0rd"
-         },
-         ```
-
-         {% include [include](../../../_includes/compute/password-requirements.md) %}
-
-      * `bootDiskSpec`: Boot disk settings. Specify the ID of the selected image and disk size. The disk size must not be below the minimum value specified in the image details.
-      * `networkInterfaceSpecs`: Network settings.
-         * `subnetId`: ID of the selected subnet.
-         * `primaryV4AddressSpec`: IP address to be assigned to the VM. To add a [public IP](../../../vpc/concepts/address.md#public-addresses) to your VM, please specify:
-            ```
-            "primaryV4AddressSpec": {
-                "oneToOneNatSpec": {
-                  "ipVersion": "IPV4"
-                }
-              }
-            ```
-
-      Read more about the request body format in the [API reference](../../api-ref/Instance/create.md).
-
-      Example `body.json` file:
       ```json
       {
         "folderId": "b1gvmob95yysaplct532",
@@ -142,40 +117,54 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
         ]
       }
       ```
+
+      Where:
+
+      * `folderId`: ID of the folder.
+      * `name`: Name to be assigned to the VM when it's created.
+      * `zoneId`: Availability zone that corresponds to the selected subnet.
+      * `platformId`: The [platform](../../concepts/vm-platforms.md).
+      * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
+      * `metadata`: In the [metadata's](../../concepts/vm-metadata.md) `user-data` property, you need to pass the script with the administrator password, for example:
+
+         ```json
+         "metadata": {
+           "user-data": "#ps1\nnet user Administrator Passw0rd"
+         },
+         ```
+
+         {% include [include](../../../_includes/compute/password-requirements.md) %}
+
+      * `bootDiskSpec`: Boot disk settings. Specify the ID of the selected image and disk size. The disk size must not be below the minimum value specified in the image details.
+      * `networkInterfaceSpecs`: Network settings.
+         * `subnetId`: ID of the selected subnet.
+         * `primaryV4AddressSpec`: IP address to be assigned to the VM. To add a [public IP](../../../vpc/concepts/address.md#public-addresses) to your VM, please specify:
+            ```
+            "primaryV4AddressSpec": {
+                "oneToOneNatSpec": {
+                  "ipVersion": "IPV4"
+                }
+              }
+            ```
+
+      Read more about the request body format in the [API reference](../../api-ref/Instance/create.md).
+
    1. Create a virtual machine:
 
       ```bash
-      $ export IAM_TOKEN=CggaATEVAgA...
-      $ curl -X POST \
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -X POST \
         -H "Content-Type: application/json" \
         -H "Authorization: Bearer ${IAM_TOKEN}" \
         -d '@body.json' \
         https://compute.{{ api-host }}/compute/v1/instances
       ```
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the parameters of resources that you want to create:
-
-      {% note info %}
-
-      If you already have suitable resources, such as a cloud network and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
-
-      {% endnote %}
-
-      * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
-         * `name`: VM name.
-         * `platform_id`: The [platform](../../concepts/vm-platforms.md).
-         * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
-         * `boot_disk`: Boot disk settings. Specify the ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
-         * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
-         * `metadata`: In the [metadata's](../../concepts/vm-metadata.md) in the `user-data` parameter, pass the script with the administrator password.
-      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
-      * `yandex_vpc_subnet`: Description of [subnet](../../../vpc/concepts/network.md#subnet) your virtual machine will connect to.
-
-      Example configuration file structure:
 
       ```
       resource "yandex_compute_instance" "vm-1" {
@@ -215,7 +204,25 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
       }
       ```
 
-      For more information about resources that you can create with Terraform, please see the [provider documentation]({{ tf-provider-link }}/).
+      Where:
+
+      * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
+         * `name`: VM name.
+         * `platform_id`: The [platform](../../concepts/vm-platforms.md).
+         * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+         * `boot_disk`: Boot disk settings. Specify the ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
+         * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
+         * `metadata`: In the [metadata's](../../concepts/vm-metadata.md) in the `user-data` parameter, pass the script with the administrator password.
+      * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
+      * `yandex_vpc_subnet`: Description of [subnet](../../../vpc/concepts/network.md#subnet) your virtual machine will connect to.
+
+      {% note info %}
+
+      If you already have suitable resources, such as a cloud network and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
+
+      {% endnote %}
+
+      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
 
    2. Make sure that the configuration files are correct.
 
@@ -223,17 +230,17 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
       2. Run the check using the command:
 
          ```
-         $ terraform plan
+         terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    3. Deploy the cloud resources.
 
       1. If the configuration doesn't contain any errors, run the command:
 
          ```
-         $ terraform apply
+         terraform apply
          ```
 
       2. Confirm that you want to create the resources.

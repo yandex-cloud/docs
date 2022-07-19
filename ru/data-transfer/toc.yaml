@@ -39,6 +39,8 @@ items:
                 href: operations/endpoint/source/data-streams.md
           - name: Настройка эндпоинтов-приемников
             items:
+              - name: Apache Kafka®
+                href: operations/endpoint/target/kafka.md
               - name: ClickHouse
                 href: operations/endpoint/target/clickhouse.md
               - name: Greenplum®

@@ -101,7 +101,7 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
    When the change starts, the cluster status switches to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

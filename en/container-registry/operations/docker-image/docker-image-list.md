@@ -18,7 +18,7 @@ Find out how to get:
    yc container image list
    ```
 
-   Command output:
+   Result:
 
    ```bash
    +----------------------+---------------------+----------------------------+------+-----------------+
@@ -46,7 +46,7 @@ Find out how to get:
    yc container image get crphc7nnrvhlg73oeiv5
    ```
 
-   Command output:
+   Result:
 
    ```bash
    id:crphc7nnrvhlg73oeiv5

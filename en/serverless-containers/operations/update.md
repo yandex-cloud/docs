@@ -52,15 +52,15 @@ You can edit a [container name or description](#update-name) and [manage contain
    status: ACTIVE
    ```
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To modify the name or description of a container created with Terraform:
+   To modify the name or description of a container created with {{ TF }}:
 
-   1. Open the Terraform configuration file and edit the values in the `name` and `description` fields in the `yandex_serverless_container` resource description:
+   1. Open the {{ TF }} configuration file and edit the values in the `name` and `description` fields in the `yandex_serverless_container` resource description:
 
       ```hcl
       ...
@@ -76,7 +76,7 @@ You can edit a [container name or description](#update-name) and [manage contain
       ...
       ```
 
-      For more information about the `yandex_serverless_container` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
+      For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
 
    1. Check the configuration using the command:
       ```
@@ -94,7 +94,7 @@ You can edit a [container name or description](#update-name) and [manage contain
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
       ```
@@ -148,15 +148,15 @@ You can perform the following actions with container labels:
    url: https://flh7r96juaqq********.containers.cloud-preprod.yandex.net/
    status: ACTIVE
    ```
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To add labels to a container created with Terraform:
+   To add labels to a container created with {{ TF }}:
 
-   1. Open the Terraform configuration file and, under the `yandex_serverless_container` resource, add a `labels` section:
+   1. Open the {{ TF }} configuration file and, under the `yandex_serverless_container` resource, add a `labels` section:
 
       ```hcl
       ...
@@ -173,7 +173,7 @@ You can perform the following actions with container labels:
       ...
       ```
 
-      For more information about the `yandex_serverless_container` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
+      For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
 
    1. Check the configuration using the command:
       ```
@@ -191,7 +191,7 @@ You can perform the following actions with container labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
       ```
@@ -240,15 +240,15 @@ You can perform the following actions with container labels:
    status: ACTIVE
    ```
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To modify the label of a container created with Terraform:
+   To modify the label of a container created with {{ TF }}:
 
-   1. Open the Terraform configuration file, and under the `yandex_serverless_container` resource, edit the `labels` section:
+   1. Open the {{ TF }} configuration file, and under the `yandex_serverless_container` resource, edit the `labels` section:
 
       ```hcl
       ...
@@ -265,7 +265,7 @@ You can perform the following actions with container labels:
       ...
       ```
 
-      For more information about the `yandex_serverless_container` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
+      For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
 
    1. Check the configuration using the command:
       ```
@@ -283,7 +283,7 @@ You can perform the following actions with container labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
       ```
@@ -323,15 +323,15 @@ You can perform the following actions with container labels:
    url: https://flh7r96juaqq********.containers.cloud-preprod.yandex.net/
    status: ACTIVE
    ```
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about Terraform, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To delete the label of a container created with Terraform:
+   To delete the label of a container created with {{ TF }}:
 
-   1. Open the Terraform configuration file and, under the `yandex_serverless_container` resource, delete the label in the `labels` section:
+   1. Open the {{ TF }} configuration file and, under the `yandex_serverless_container` resource, delete the label in the `labels` section:
       ```hcl
       ...
       resource "yandex_serverless_container" "test-container" {
@@ -347,7 +347,7 @@ You can perform the following actions with container labels:
       ...
       ```
 
-      For more information about the `yandex_serverless_container` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
+      For more information about the `yandex_serverless_container` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/serverless_container).
 
    1. Check the configuration using the command:
       ```
@@ -365,7 +365,7 @@ You can perform the following actions with container labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
       ```

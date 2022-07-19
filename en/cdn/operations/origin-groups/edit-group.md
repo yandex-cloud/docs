@@ -76,12 +76,10 @@ To edit an [origin group](../../concepts/origins.md):
         --origin source=<new origin IP address or domain name>,enabled=true,backup=true
       ```
 
-      Where:
-
-      * `origin`: The origin specification:
-         * `source`: The new origin IP address or domain name.
-         * `enabled`: Flag indicating whether an origin is enabled.
-         * `backup`: Flag indicating whether an origin is a backup.
+      Where `origin` is the origin specification:
+      * `source`: The new origin IP address or domain name.
+      * `enabled`: Flag indicating whether an origin is enabled.
+      * `backup`: Flag indicating whether an origin is a backup.
 
       Result:
 

@@ -30,41 +30,41 @@ To create a new [security group](../concepts/security-groups.md):
 
 - CLI
 
-   When creating a security group, you can use the following parameters:
+  To create a group with an IPv4 CIDR rule, run the command:
 
-   * `--name`: Security group name.
-   * `--rule`: Rule description:
-      * `direction`: Traffic direction. `ingress`: incoming traffic, `egress`: outgoing traffic.
-      * `port`: Port for receiving or transmitting traffic. You can also specify a range of ports using the `from-port` and `to-port` parameters.
-      * `protocol`: Data transfer protocol. Possible values: `tcp`, `udp`, `icmp`, or `any`.
-      * `v4-cidrs`: List of IPv4 CIDRs and masks of subnets that traffic will come from or to.
+  ```
+  yc vpc security-group create --name test-sg-cli \
+  "--rule" "direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24]" \
+  --network-id c645mh47vscba1d64tbs
+  ```
 
-   To create a group with an IPv4 CIDR rule, run the command:
+  Where:
 
-   ```
-   yc vpc security-group create --name test-sg-cli \
-   --rule direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24] \
-   --network-id c645mh47vscba1d64tbs
-   ```
+  * `--name`: Security group name.
+  * `--rule`: Rule description:
+    * `direction`: Traffic direction (`ingress` is incoming traffic and `egress` is outgoing traffic).
+    * `port`: Port for receiving or transmitting traffic. You can also specify a range of ports using the `from-port` and `to-port` parameters.
+    * `protocol`: Data transfer protocol. Possible values: `tcp`, `udp`, `icmp`, or `any`.
+    * `v4-cidrs`: List of IPv4 CIDRs and masks of subnets that traffic will come from or to.
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To create a security group with multiple rules:
+  To create a security group with multiple rules:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+  1. In the configuration file, describe the parameters of resources that you want to create:
 
-      * `name`: Security group name.
-      * `description`: Optional description of the security group.
-      * `network_id`: ID of the network that the security group will be assigned to.
-      * `ingress` and `egress`: Rule parameters for incoming and outgoing traffic:
-         * `protocol`: Traffic transfer protocol.
-         * `description`: Optional description of the rule. Possible values: `tcp`, `udp`, `icmp`, or `any`.
-         * `v4_cidr_blocks`: List of CIDRs and masks of subnets that traffic will come from or to.
-         * `port`: Port for traffic.
-         * `from-port`: The first port in the range of ports for traffic.
-         * `to-port`: The last port in the range of ports for traffic.
+     * `name`: Security group name.
+     * `description`: Optional description of the security group.
+     * `network_id`: ID of the network that the security group will be assigned to.
+     * `ingress` and `egress`: Rule parameters for incoming and outgoing traffic:
+       * `protocol`: Traffic transfer protocol.
+       * `description`: Optional description of the rule. Possible values: `tcp`, `udp`, `icmp`, or `any`.
+       * `v4_cidr_blocks`: List of CIDRs and masks of subnets that traffic will come from or to.
+       * `port`: Port for traffic.
+       * `from-port`: The first port in the range of ports for traffic.
+       * `to-port`: The last port in the range of ports for traffic.
 
      
      ```hcl
@@ -98,7 +98,7 @@ To create a new [security group](../concepts/security-groups.md):
 
 
 
-     For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-link }}).
+     For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
    2. Make sure that the configuration files are correct.
 

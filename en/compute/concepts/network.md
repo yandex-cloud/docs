@@ -49,7 +49,7 @@ The assigned FQDN depends on the set hostname `(CreateInstanceSpec.hostname)`. T
    * If you leave the **Name** field empty when creating a VM, it will be assigned an internal FQDN like `<VM ID>.auto.internal`.
    * If you enter a name for the VM in the **Name** field, it will be assigned an internal FQDN like `<VM name>.<region>.internal`.
 
-1. When using the CLI, API, and Terraform, FQDNs are created as follows:
+1. When using the CLI, API, and {{ TF }}, FQDNs are created as follows:
 
    * If you don't specify any `hostname`, the VM will be assigned a unique FQDN like `<VM ID>.auto.internal`.
    * If the `hostname` is specified and contains no "`.`", it's treated as an FQDN prefix. The VM will be assigned an internal FQDN like `<hostname>.<region>.internal`.

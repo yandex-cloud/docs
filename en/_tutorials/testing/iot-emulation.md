@@ -25,7 +25,7 @@ Each sensor sends its result in JSON format. For example:
 To emulate the operation of multiple devices:
 
 1. [Before you start](#before-begin).
-1. [Install Terraform](#install-terraform).
+1. [Install {{ TF }}](#install-terraform).
 1. [Describe the infrastructure](#set-configuration).
 1. [Deploy cloud resources](#deploy).
 
@@ -35,20 +35,20 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-## Install Terraform {#install-terraform}
+## Install {{ TF }} {#install-terraform}
 
-By using Terraform in {{ yandex-cloud }}, you can create all kinds of cloud resources, such as VMs, disks, and images. For more information about resources that can be created with Terraform, see the [provider's documentation]({{ tf-provider-link }}).
+By using {{ TF }} in {{ yandex-cloud }}, you can create all kinds of cloud resources, such as VMs, disks, and images. For more information about resources that can be created with {{ TF }}, see the [provider's documentation]({{ tf-provider-link }}).
 
 {% include [terraform_install](../terraform-install.md) %}
 
 ## Describe the infrastructure {#set-configuration}
 
-1. Create the `iot-terraform` directory. It will store the Terraform configuration files.
+1. Create the `iot-terraform` directory. It will store the {{ TF }} configuration files.
 
 1. [Download](https://storage.yandexcloud.net/doc-files/emulator_publish.zip) an archive containing the files that you will needed to execute the script, and unpack it to `iot-terraform`.
 
    The archive contains:
-    * `common.tf`: Terraform provider settings.
+    * `common.tf`: {{ TF }} provider settings.
     * `files.tf`: Code file parameters to publish from the local folder.
     * `function.tf`: Parameters of a [function](../../functions/concepts/function.md) to write emulated messages to [devices](../../iot-core/concepts/index.md#device).
     * `iot_core.tf`: Parameters of the [registry](../../iot-core/concepts/index.md#registry) where the devices are located.
@@ -111,11 +111,11 @@ By using Terraform in {{ yandex-cloud }}, you can create all kinds of cloud reso
    terraform plan
    ```
 
-   The terminal will display a list of resources with parameters. This is a test step. No resources are created. If there are errors in the configuration, Terraform points them out.
+   The terminal will display a list of resources with parameters. This is a test step. No resources are created. If there are errors in the configuration, {{ TF }} points them out.
 
      {% note alert %}
 
-     You're charged for all resources created using Terraform. Check the plan carefully.
+     You're charged for all resources created using {{ TF }}. Check the plan carefully.
 
      {% endnote %}
 
@@ -138,7 +138,7 @@ By using Terraform in {{ yandex-cloud }}, you can create all kinds of cloud reso
    trigger = "a1sva8sse.......7kf6"
    ```
 
-   Terraform will create all the required resources, and the terminal will display the IDs of the resources created. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
+   {{ TF }} will create all the required resources, and the terminal will display the IDs of the resources created. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
 
 ## Delete the resources created {#clear-out}
 

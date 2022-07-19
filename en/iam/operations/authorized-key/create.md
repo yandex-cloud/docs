@@ -55,6 +55,7 @@ To create [authorized keys](../../concepts/authorization/key.md):
    ```
 
    Where:
+
    * `<iam-token>`: The IAM token of the user who has rights to view service accounts in the folder.
    * `<service-account-id>`: The `ID` of the service account that the keys are created for.
 

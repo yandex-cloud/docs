@@ -14,7 +14,7 @@
    terraform fmt
    ```
 
-   Результат выполнения:
+   Результат:
    ```
    main.tf
    variables.tf

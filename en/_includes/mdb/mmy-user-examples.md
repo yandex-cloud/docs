@@ -32,7 +32,7 @@ To create a new user named `user2` with the password `SecretPassword` and read-o
         --permissions "SELECT"
       ```
 
-- Terraform
+- {{ TF }}
 
   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

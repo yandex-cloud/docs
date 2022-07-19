@@ -149,9 +149,9 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
       ```
 
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Describe the properties of the cloud access rights in a configuration file:
       * `cloud_id`: cloud ID. You can get a list of available clouds using the [CLI](../../../cli/quickstart.md) command: `yc resource-manager cloud list`.
@@ -160,6 +160,8 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
          * `userAccount:<user ID>`: [User ID](../../../iam/operations/users/get.md).
          * `serviceAccount:<ID of service account>`: [ID of the service account](../../../iam/operations/sa/get-id.md).
          * `federatedUser:<federated user ID>`: [ID of the federated user](../../../organization/users-get.md).
+
+      Example configuration file structure:
 
 
       ```hcl
@@ -177,7 +179,7 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
       ```
 
 
-      For more detailed information on the parameters of the `yandex_resourcemanager_cloud_iam_binding` resource in Terraform, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud_iam_binding).
+      For more detailed information on the parameters of the `yandex_resourcemanager_cloud_iam_binding` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud_iam_binding).
    1. In the command line, go to the directory where you created the configuration file.
    1. Make sure the configuration file is correct using the command:
 
@@ -197,7 +199,7 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
       terraform plan
       ```
 
-      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -303,7 +305,7 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
 
 
 
-- Terraform
+- {{ TF }}
 
    1. Describe the properties of the cloud access rights in a configuration file. Assign the `editor` role to one user and the `viewer` role to another user:
 
@@ -351,7 +353,7 @@ To grant a user access to all the cloud resources, assign the user a [role](../.
       terraform plan
       ```
 
-      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -441,7 +443,7 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
        https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
    ```
 
-- Terraform
+- {{ TF }}
 
    1. Assign the `editor` role to a service account.
 
@@ -478,7 +480,7 @@ Allow the `test-sa` service account to manage the `my-cloud` cloud and its resou
       terraform plan
       ```
 
-      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -529,7 +531,7 @@ For instance, allow any authenticated user to view information about the `my-clo
        https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
    ```
 
-- Terraform
+- {{ TF }}
 
    1. Assign the `viewer` role to the `allAuthenticatedUsers` system group.
 
@@ -566,7 +568,7 @@ For instance, allow any authenticated user to view information about the `my-clo
       terraform plan
       ```
 
-      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
    1. Apply the configuration changes:
 
       ```bash

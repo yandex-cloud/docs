@@ -36,6 +36,7 @@
   ```
 
   Где:
+
   * `--name` — имя кластера {{ k8s }}.
   * `--service-account-id` — уникальный идентификатор сервисного аккаунта для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
   * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для узлов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
@@ -43,7 +44,7 @@
   * `--network-name` — имя сети.
   * `--enable-network-policy` — опция включения сетевых политик.
 
-   Результат выполнения команды:
+   Результат:
 
    ```
    done (8m52s)
@@ -71,7 +72,7 @@
 kubectl create ns policy-test
 ```
 
-Результат выполнения команды:
+Результат:
 
 ```
 namespace/policy-test created
@@ -86,7 +87,7 @@ namespace/policy-test created
    kubectl create deployment --namespace=policy-test nginx --image=nginx
    ```
 
-   Результат выполнения команды:
+   Результат:
    
    ```
    deployment.apps/nginx created
@@ -98,7 +99,7 @@ namespace/policy-test created
    kubectl expose --namespace=policy-test deployment nginx --port=80
    ```
 
-   Результат выполнения:
+   Результат:
 
    ```
    service/nginx exposed
@@ -339,7 +340,7 @@ networkpolicy.networking.k8s.io/default-deny created
    kubectl delete ns policy-test
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```
    namespace "policy-test" deleted

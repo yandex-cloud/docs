@@ -215,10 +215,10 @@
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
-  1. Опишите в конфигурационном файле Terraform параметры ресурса, который необходимо создать:
-  
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурса, который необходимо создать:
+
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {
         name                     = "<имя группы бэкендов>"
@@ -245,9 +245,10 @@
       ```
 
       Где:
+
       * `yandex_alb_backend_group` — параметры группы бэкендов:
-        * `name` — имя группы бэкендов.
-        * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — HTTP, gRPC или Stream.
+       * `name` — имя группы бэкендов.
+       * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — HTTP, gRPC или Stream.
         
       Параметры бэкенда:
       * `name` — имя бэкенда.
@@ -269,7 +270,7 @@
   
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
       ```bash
       yc alb backend-group list

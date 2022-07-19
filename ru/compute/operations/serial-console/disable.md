@@ -17,9 +17,9 @@
 1. Установите в метаданных виртуальной машины параметр `serial-port-enable=0`:
 
     ```bash
-    $ yc compute instance add-metadata \
-        --name first-instance \
-        --metadata serial-port-enable=0
+    yc compute instance add-metadata \
+      --name first-instance \
+      --metadata serial-port-enable=0
     ```
 
     Данная команда запустит операцию деактивации серийной консоли на машины с именем `first-instance`.

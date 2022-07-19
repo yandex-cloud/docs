@@ -20,7 +20,7 @@ These services and utilities can request an IAM token automatically, so you can 
 
 * [CLI](../../../cli/quickstart.md#initialize)
 * [Container Registry](../../../container-registry/operations/authentication.md#oauth)
-* [Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md)
+* [{{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md)
 * [Packer](../../../tutorials/infrastructure-management/packer-quickstart.md)
 * [GitLab CI](../../../tutorials/testing/ci-for-snapshots.md)
 

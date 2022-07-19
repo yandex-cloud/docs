@@ -55,7 +55,7 @@
 
 Задать приоритет хоста можно:
 
-* при [создании кластера](../operations/cluster-create.md) с помощью YC CLI, API или Terraform;
+* при [создании кластера](../operations/cluster-create.md) с помощью YC CLI, API или {{ TF }};
 * при [изменении настроек хоста](../operations/hosts.md#update).
 
 Наименьший приоритет — `0` (по умолчанию), наивысший — `100`.

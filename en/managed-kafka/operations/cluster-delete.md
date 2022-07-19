@@ -34,7 +34,7 @@ You can delete an {{ KF }} cluster if you no longer need it. All data in the clu
    {{ yc-mdb-kf }} cluster delete <cluster name or ID>
    ```
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 

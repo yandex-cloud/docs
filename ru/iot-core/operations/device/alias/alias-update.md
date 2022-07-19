@@ -34,9 +34,9 @@
     yc iot device update first  --topic-aliases 'events=$devices/areqjd6un3afc3cefcvm/events,commands=$devices/areqjd6un3afc3cefcvm/commands'
     ```
 	
-	Результат:
-	```
-	id: areqjd6un3afc3cefcvm
+	  Результат:
+	  ```
+	  id: areqjd6un3afc3cefcvm
     registry_id: arenou2oj4ct42eq8g3n
     created_at: "2019-09-16T10:41:06.489Z"
     name: first
@@ -45,17 +45,17 @@
       events: $devices/areqjd6un3afc3cefcvm/events
     ```
 
-- Terraform
+- {{ TF }}
 
   {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
   
-  Подробнее о Terraform [читайте в документации](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  Чтобы изменить алиас, созданный с помощью Terraform:
+  Чтобы изменить алиас, созданный с помощью {{ TF }}:
   
-  1. Откройте файл конфигурации Terraform и измените значение алиаса в блоке `aliases`, во фрагменте с описанием устройства.
+  1. Откройте файл конфигурации {{ TF }} и измените значение алиаса в блоке `aliases`, во фрагменте с описанием устройства.
 
-      Пример описания устройства в конфигурации Terraform:
+      Пример описания устройства в конфигурации {{ TF }}:
 
       ```hcl
       resource "yandex_iot_core_device" "my_device" {
@@ -71,7 +71,7 @@
       }
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_iot_core_device` в Terraform, см. в [документации провайдера]({{ tf-provider-link }}/iot_core_device).
+      Более подробную информацию о параметрах ресурса `yandex_iot_core_device` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/iot_core_device).
   1. В командной строке перейдите в папку, где вы отредактировали конфигурационный файл.
   1. Проверьте корректность конфигурационного файла с помощью команды:
 
@@ -91,7 +91,7 @@
       terraform plan
       ```
   
-      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   1. Примените изменения конфигурации:
 
       ```bash

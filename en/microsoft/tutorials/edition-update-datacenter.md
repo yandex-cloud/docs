@@ -15,7 +15,7 @@ To update the Windows Server edition, use the built-in [DISM](https://docs.micro
       dism /Online /Get-CurrentEdition
       ```
 
-      Output:
+      Result:
 
       ```
       ...
@@ -31,7 +31,7 @@ To update the Windows Server edition, use the built-in [DISM](https://docs.micro
       dism /Online /Get-TargetEditions
       ```
 
-      Output:
+      Result:
       ```
       ...
       Editions that can be upgraded to:

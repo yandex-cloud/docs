@@ -32,7 +32,7 @@ To detach a disk from a VM:
    1. See the description of the CLI's detach disk command:
 
       ```
-      $ yc compute instance detach-disk --help
+      yc compute instance detach-disk --help
       ```
 
    1. Get a list of VMs in the default folder:
@@ -44,21 +44,21 @@ To detach a disk from a VM:
    1. Get a list of disks attached to the VM:
 
       ```
-      $ yc compute instance get --full first-instance
+      yc compute instance get --full first-instance
       ```
 
    1. Choose the `disk_id` of the disk you need (for example, `fhm4aq4hvq5g3nepvt9b`).
    1. Detach the disk:
 
       ```
-      $ yc compute instance detach-disk first-instance \
+      yc compute instance detach-disk first-instance \
           --disk-id fhm4aq4hvq5g3nepvt9b
       ```
 
       If an error occurs, stop the virtual machine:
 
       ```
-      $ yc compute instance stop first-instance
+      yc compute instance stop first-instance
       ```
 
       Then try to detach the disk again.
@@ -66,7 +66,7 @@ To detach a disk from a VM:
    1. If the virtual machine was stopped, restart it:
 
       ```
-      $ yc compute instance start first-instance
+      yc compute instance start first-instance
       ```
 
 - API

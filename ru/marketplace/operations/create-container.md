@@ -14,6 +14,8 @@
    cr.yandex/<registry-id>/<vendor-name>/<product-name>/<chart>
    ``` 
 
+   Где:
+
    * `<registry-id>` — идентификатор реестра издателя;
    * `<vendor-name>` — наименования компании-издателя продукта;
    * `<product-name>` — наименования продукта;
@@ -25,6 +27,8 @@
    cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
    ``` 
    
+   Где:
+
    * `<registry-id>` — идентификатор реестра издателя;
    * `<vendor-name>` — наименования компании-издателя продукта;
    * `<product-name>` — наименования продукта;

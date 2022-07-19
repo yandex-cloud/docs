@@ -28,6 +28,7 @@
       ```
 
       Where:
+
       * `--group-name`: Name of the log group to add records to. Optional. If this parameter is omitted, records are added to the [default log group](../../logging/concepts/log-group.md) in the current folder.
       * `--message`: Message.
       * `--timestamp`: Time when the record is sent.

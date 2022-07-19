@@ -70,7 +70,7 @@ After creating a cluster, you can:
 
       {{ mmg-short-name }} will run the update host class command for the cluster.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -146,7 +146,7 @@ After creating a cluster, you can:
 
       If all these conditions are met, {{ mmg-short-name }} launches the operation to increase storage space.
 
-- Terraform
+- {{ TF }}
 
    To increase a cluster's storage size:
 
@@ -290,7 +290,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -451,7 +451,7 @@ You can change the DBMS settings of the hosts in your cluster.
         --security-group-ids <security group list>
       ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

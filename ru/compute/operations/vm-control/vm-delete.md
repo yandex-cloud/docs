@@ -31,7 +31,7 @@
   1. Посмотрите описание команды CLI для удаления виртуальных машин:
   
       ```
-      $ yc compute instance delete --help
+      yc compute instance delete --help
       ```
   
   1. Получите список виртуальных машин в каталоге по умолчанию:
@@ -42,25 +42,25 @@
   1. Удалите виртуальную машину:
   
       ```
-      $ yc compute instance delete first-instance
+      yc compute instance delete first-instance
       ```
   
-- Terraform
+- {{ TF }}
 
-  Подробнее о Terraform [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  Если вы создавали виртуальную машину с помощью Terraform, вы можете удалить ее:
+  Если вы создавали виртуальную машину с помощью {{ TF }}, вы можете удалить ее:
 
-  1. В командной строке перейдите в папку, где расположен конфигурационный файл Terraform.
+  1. В командной строке перейдите в папку, где расположен конфигурационный файл {{ TF }}.
   2. Удалите ресурсы с помощью команды:
 
       ```
-      $ terraform destroy
+      terraform destroy
       ```
 
       {% note alert %}
 
-      Terraform удалит все ресурсы, созданные в текущей конфигурации: кластеры, сети, подсети, виртуальные машины и т. д.
+      {{ TF }} удалит все ресурсы, созданные в текущей конфигурации: кластеры, сети, подсети, виртуальные машины и т. д.
 
       {% endnote %}
 

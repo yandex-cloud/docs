@@ -24,7 +24,7 @@ You can get the status of the `systemd-resolved` caching DNS resolver in Ubuntu 
 systemd-resolve --status
 ```
 
-Command output:
+Result:
 
 ```
 <...>
@@ -86,7 +86,7 @@ If you need to replace `systemd-resolved` with a different local caching DNS res
    dig example.com
    ```
 
-   Output:
+   Result:
 
    ```
    <...>
@@ -153,12 +153,12 @@ Configuration parameters are given as an example. For information about how to s
    5. Use `dig` to check that external DNS names are resolved successfully:
 
       ```
-      $ dig example.com @127.0.0.1 | grep -B3 Query
+      dig example.com @127.0.0.1 | grep -B3 Query
       ;; ANSWER SECTION:
       example.com.		65420	IN	A	93.184.216.34
       ;; Query time: 3 msec
       
-      $ dig example.com @127.0.0.1 | grep -B3 Query
+      dig example.com @127.0.0.1 | grep -B3 Query
       ;; ANSWER SECTION:
       example.com.		65420	IN	A	93.184.216.34
       ;; Query time: 0 msec

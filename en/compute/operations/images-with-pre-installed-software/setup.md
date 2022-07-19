@@ -20,6 +20,6 @@ To run the web setup wizard:
 During software configuration, you may need the DB connection parameters. To find out these parameters, [connect to the VM](operate.md) over SSH and run the command:
 
 ```
-$ sudo cat /root/default_passwords.txt
+sudo cat /root/default_passwords.txt
 ```
 

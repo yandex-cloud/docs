@@ -6,7 +6,7 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
 {% list tabs %}
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -22,7 +22,7 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
    You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-* API
+- API
 
    Use the [get](../api-ref/Cluster/get.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
@@ -36,7 +36,7 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
 {% list tabs %}
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -51,7 +51,7 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
    You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-* Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -81,7 +81,7 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 
-* API
+- API
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 

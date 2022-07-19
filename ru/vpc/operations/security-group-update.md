@@ -25,13 +25,13 @@
   yc vpc security-group update <идентификатор группы> --new-name test-sg-renamed
   ```
 
-- Terraform
+- {{ TF }}
 
-  Подробнее о Terraform [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
  
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-  1. Откройте файл конфигурации Terraform и измените параметры `name` и `description` в описании группы безопасности:
+  1. Откройте файл конфигурации {{ TF }} и измените параметры `name` и `description` в описании группы безопасности:
 
      ```hcl
      ...
@@ -43,11 +43,11 @@
      ...
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_security_group` в Terraform см. в [документации провайдера]({{ tf-provider-link }}/vpc_security_group).
+     Более подробную информацию о параметрах ресурса `yandex_vpc_security_group` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_security_group).
 
      {% note info %}
 
-	 Для управления [группой безопасности по умолчанию](../../vpc/concepts/security-groups#default-security-group) используйте ресурс [vpc_default_security_group]({{ tf-provider-link }}/vpc_default_security_group).
+     Для управления [группой безопасности по умолчанию](../../vpc/concepts/security-groups#default-security-group) используйте ресурс [vpc_default_security_group]({{ tf-provider-link }}/vpc_default_security_group).
 
      {% endnote %}
 
@@ -69,7 +69,7 @@
      terraform plan
      ```
   
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Примените изменения конфигурации:
 
@@ -86,4 +86,3 @@
      ```
 
 {% endlist %}
-

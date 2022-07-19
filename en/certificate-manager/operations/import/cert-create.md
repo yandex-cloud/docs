@@ -43,12 +43,13 @@ To create a user certificate:
           --key mykey.pem
         ```
 
-        Command parameters:
+        Where:
+
           - `--name`: Certificate name.
           - `--chain`: Path to the certificate chain file.
           - `--key`: Path to the file of the certificate private key.
 
-        Command results:
+        Result:
 
         ```bash
         id: fpqmg47avvimp7rvmp30

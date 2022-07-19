@@ -178,7 +178,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
       java -jar target/release/SeriesItemOps02.jar
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Попытка получить запись...
@@ -233,7 +233,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
       python SeriesItemOps02.py
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Получена запись:
@@ -316,7 +316,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
       php SeriesItemOps02.php
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       {
@@ -396,7 +396,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
       node SeriesItemOps02.js
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Чтение записи успешно: {
@@ -477,7 +477,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
       ruby SeriesItemOps02.rb
       ```
 
-      Результат выполнения:
+      Результат:
 
       ```text
       Получение информации о 'Supernatural (3)' из таблицы 'Series'...

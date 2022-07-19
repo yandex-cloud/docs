@@ -38,7 +38,7 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
       --private-visibility network-ids=<network IDs for the zone>
       ```
 
-      Command output:
+      Result:
 
       ```
       id: aet29qhara5jeg45tbjg
@@ -52,31 +52,31 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
       ```
 
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the parameters of resources that you want to create:
 
-      DNS zone parameters:
+      * DNS zone parameters:
 
-      * `zone`: Domain zone. The zone name must end with a dot. You can't create public top-level domain (TLD) zones. Required parameter.
-      * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. Optional.
-      * `name`: Zone name. It must be unique within the folder. Optional.
-      * `description`: Zone description. Optional.
-      * `labels`: A set of DNS zone labels. Optional.
-      * `public`: Zone visibility (public or internal). Optional.
-      * `private_networks`: For an internal zone, specify the {{ vpc-name }} resources that have access to domain names within this zone. Optional.
+        * `zone`: Domain zone. The zone name must end with a dot. You can't create public top-level domain (TLD) zones. Required parameter.
+        * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. Optional.
+        * `name`: Zone name. It must be unique within the folder. Optional.
+        * `description`: Zone description. Optional.
+        * `labels`: A set of DNS zone labels. Optional.
+        * `public`: Zone visibility (public or internal). Optional.
+        * `private_networks`: For an internal zone, specify the {{ vpc-name }} resources that have access to domain names within this zone. Optional.
 
+      * DNS record parameters:
 
-      DNS record parameters:
+        * `zone_id`: ID of the zone where the record set will be located. Required parameter.
+        * `name`: Domain name. Required parameter.
+        * `type`: DNS record type. Required parameter.
+        * `ttl`: Record time to live (TTL) in seconds before updating the record value. Optional.
+        * `data`: Record value. Optional.
 
-      * `zone_id`: ID of the zone where the record set will be located. Required parameter.
-      * `name`: Domain name. Required parameter.
-      * `type`: DNS record type. Required parameter.
-      * `ttl`: Record time to live (TTL) in seconds before updating the record value. Optional.
-      * `data`: Record value. Optional.
-
+      Example configuration file structure:
 
       ```hcl
       resource "yandex_vpc_network" "foo" {}
@@ -102,21 +102,18 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
       }
       ```
 
-
-
-      For more information about resources you can create with Terraform, see the [provider documentation]({{ tf-provider-link }}/).
-
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Run the check using the command:
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. This is a test step. No resources are created. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. This is a test step. No resources are created. If there are errors in the configuration, {{ TF }} points them out.
 
       {% note alert %}
 
-      You're charged for all resources created using Terraform. Check the plan carefully.
+      You're charged for all resources created using {{ TF }}. Check the plan carefully.
 
       {% endnote %}
 
@@ -127,7 +124,7 @@ To create an internal [DNS zone](../concepts/dns-zone.md):
 
    1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      Terraform creates all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      {{ TF }} creates all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 
       ```
       yc dns zone get <DNS zone name>

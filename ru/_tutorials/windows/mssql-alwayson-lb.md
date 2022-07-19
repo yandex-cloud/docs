@@ -48,7 +48,7 @@
 
     - Bash 
       
-	  {% include [cli-install](../../_includes/cli-install.md) %}
+      {% include [cli-install](../../_includes/cli-install.md) %}
   
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
@@ -61,7 +61,7 @@
       [Установите](../../cli/operations/install-cli.md) интерфейс командной строки {{ yandex-cloud }}, чтобы использовать команды CLI в PowerShell. 
 
       ```
-	  yc vpc network create --name ya-network
+      yc vpc network create --name ya-network
       ```
 
     {% endlist %}
@@ -103,10 +103,10 @@
 
       ```
       yc vpc subnet create \
-		 --name ya-sqlserver-rc1b \
-         --zone {{ region-id }}-b \
-         --range 192.168.1.16/28 \
-         --network-name ya-network
+        --name ya-sqlserver-rc1b \
+        --zone {{ region-id }}-b \
+        --range 192.168.1.16/28 \
+        --network-name ya-network
       ```
 
       ```
@@ -127,10 +127,10 @@
 
       ```
       yc vpc subnet create \
-		 --name ya-ad-rc1a \
-         --zone {{ region-id }}-a \
-         --range 10.0.0.0/28 \
-         --network-name ya-network
+        --name ya-ad-rc1a \
+        --zone {{ region-id }}-a \
+        --range 10.0.0.0/28 \
+        --network-name ya-network
       ```
 
     - PowerShell
@@ -169,7 +169,7 @@
 
       ```
       yc vpc subnet create `
-		 --name ya-ad-rc1a `
+         --name ya-ad-rc1a `
          --zone {{ region-id }}-a `
          --range 10.0.0.0/28 `
          --network-name ya-network
@@ -194,7 +194,7 @@
   ```
   yc load-balancer network-load-balancer create `
      --name ya-loadbalancer `
-	 --type internal
+     --type internal
   ```
 
 {% endlist %}
@@ -224,13 +224,13 @@
   ```
   $inlbSubnet = yc vpc subnet get `
      --name ya-ilb-rc1a `
-	 --format json | ConvertFrom-Json
+     --format json | ConvertFrom-Json
   ```
 
   ```
   yc load-balancer network-load-balancer add-listener `
-	 --name ya-loadbalancer `
-	 --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-subnet-id=$($inlbSubnet.id)
+     --name ya-loadbalancer `
+     --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-subnet-id=$($inlbSubnet.id)
   ```
 
 {% endlist %}
@@ -253,8 +253,8 @@
 
   ```
   yc load-balancer network-load-balancer attach-target-group \
-	 --name ya-loadbalancer \
-	 --target-group target-group-id=<идентификатор_целевой_группы>,healthcheck-name=listener,healthcheck-tcp-port=59999
+     --name ya-loadbalancer \
+     --target-group target-group-id=<идентификатор_целевой_группы>,healthcheck-name=listener,healthcheck-tcp-port=59999
   ```
 
 - PowerShell
@@ -705,7 +705,7 @@
        ```
 
     {% endlist %}
-	
+
 1. Запустите RDP и подключитесь к ВМ `ya-mssql1` с учетной записью `Administrator` и вашим паролем. Для подключения используйте публичный IP-адрес ВМ.
 
 1. Запустите PowerShell и установите роль: 
@@ -742,7 +742,7 @@
                  -ShortFileNameSupport $false `
                  -Confirm:$false
       ```
-	   
+
     {% endlist %}
 
     Появится запрос подтверждения форматирования диска. Нажмите кнопку **Format disk**. Нажмите кнопку **Start**. После завершения форматирования нажмите кнопку **OK**. 
@@ -777,7 +777,7 @@
        ```
        
     {% endlist %}
-	
+
 1. При запросе подтверждения установки введите `Y`.
 
 1. Импортируйте команды модуля SqlServer для PowerShell:
@@ -788,9 +788,9 @@
 
        ```
        Import-Module SQLServer
-	   ```
-	   
-	{% endlist %} 
+       ```
+
+    {% endlist %} 
 
 1. Укажите адрес DNS-сервера:
 
@@ -900,7 +900,7 @@
          -Group "MSSQL" `
          -DisplayName "MSSQL Server AAG Custom" `
          -Name "MSSQLAAG-In-TCP" `
-		 -LocalPort 14333 `
+         -LocalPort 14333 `
          -Action "Allow" `
          -Protocol "TCP"
 
@@ -931,18 +931,18 @@
 
       ```
       Mount-DiskImage -ImagePath C:\dist\<имя_образа_MSSQL_Server>.iso
-	  ```
-	  
-	  ```
+      ```
+
+      ```
       & D:\setup.exe /QUIET /INDICATEPROGRESS /IACCEPTSQLSERVERLICENSETERMS `
         /ACTION=INSTALL /FEATURES=SQLENGINE /INSTANCENAME=MSSQLSERVER `
         /SQLSVCACCOUNT="yantoso\mssql-svc" /SQLSVCPASSWORD="YaQWErty123" `
         /SQLSYSADMINACCOUNTS="yantoso\mssql-admins-grp" /UpdateEnabled=FALSE `
         /SQLBACKUPDIR="X:\BACKUP" /SQLTEMPDBDIR="X:\TEMPDB" /SQLTEMPDBLOGDIR="X:\TEMPDBLOG" `
         /SQLUSERDBDIR="X:\DB" /SQLUSERDBLOGDIR="X:\DBLOG"
-	  ```
-	  
-	  ```
+      ```
+
+      ```
       Dismount-DiskImage -ImagePath C:\dist\<имя_образа_MSSQL_Server>.iso
       ```
 
@@ -1136,7 +1136,7 @@
        ```
 
     {% endlist %}
-	
+
     При включении Always On сервис СУБД будет перезапускаться.
 
 
@@ -1314,7 +1314,7 @@
           $tcp.IsEnabled = $true
           $tcp.Alter()
           $altered = $true
-		  
+
         }
         if (-not $np.IsEnabled) {
           $np.IsEnabled = $true
@@ -1499,8 +1499,8 @@
        FROM MyDatabase.dbo.test;
        "@
        ```
-	   
-	   Результат:
+
+       Результат:
        ```
        test_id test_name
        ------- ---------
@@ -1518,8 +1518,8 @@
        ```
        Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'MyAGlistener.yantoso.net'
        ```
-	   
-	   Результат:
+
+       Результат:
        ```
        Column1
        -------
@@ -1550,8 +1550,8 @@
        ```
        Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'MyAGlistener.yantoso.net'
        ```
-	   
-	   Результат:
+
+       Результат:
        ```
        Column1
        -------
@@ -1584,8 +1584,8 @@
        ```
        Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query "SELECT * FROM MyDatabase.dbo.test"
        ```
-	   
-	   Результат:
+
+       Результат:
        ```
        test_id test_name
        ------- ---------

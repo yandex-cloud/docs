@@ -40,11 +40,12 @@ To create a VM on a dedicated host, follow these steps:
       ```
 
       Where:
+
       * `fixed-size`: The number of dedicated hosts in the group.
       * `type`: The type of dedicated hosts.
       * `zone`: [availability zone](../../../overview/concepts/geo-scope.md).
 
-      Command output:
+      Result:
 
       ```bash
       done (5s)
@@ -66,7 +67,7 @@ To create a VM on a dedicated host, follow these steps:
       yc compute host-group list-hosts fhm123hj4l56abcg10qf
       ```
 
-      Command output:
+      Result:
 
       ```bash
       +----------------------+----------------------+
@@ -89,11 +90,12 @@ To create a VM on a dedicated host, follow these steps:
       ```
 
       Where:
+
       * `host-id`: ID of the dedicated host.
       * `subnet-name`: Name of the selected subnet.
       * `zone`: Availability zone that corresponds to the selected subnet.
 
-      Command output:
+      Result:
 
       ```bash
       done (41s)

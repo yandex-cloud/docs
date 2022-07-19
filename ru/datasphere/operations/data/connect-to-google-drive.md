@@ -31,6 +31,7 @@
     ```
 
     Где:
+
     * `<имя_секрета>` — имя секрета, в котором хранится содержимое файла `client_secret.json`.
     * `<идентификатор_файла_Google_Drive>` — [идентификатор файла Google Drive](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics), содержимое которого нужно загрузить в {{ ml-platform-name }}.
     * `<путь_к_файлу_в_проекте_{{ ml-platform-name }}>` — путь к файлу в проекте {{ ml-platform-name }}, в который загружаются данные.
@@ -50,6 +51,7 @@
     ```
 
     Где:
+
     * `<имя_секрета>` — имя секрета, в котором хранится содержимое файла `client_secret.json`.
     * `<идентификатор_каталога_Google_Drive>` — [идентификатор каталога Google Drive](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics), содержимое которого нужно загрузить в {{ ml-platform-name }}.
     * `<путь_к_каталогу_в_проекте_{{ ml-platform-name }}>` — путь к каталогу в проекте {{ ml-platform-name }}, в который загружаются данные.
@@ -69,6 +71,7 @@
     ```
 
     Где:
+
     * `<имя_секрета>` — имя секрета, в котором хранится содержимое файла `client_secret.json`.
     * `<путь_к_файлу_в_проекте_{{ ml-platform-name }}>` — путь к файлу в проекте {{ ml-platform-name }}, содержимое которого нужно загрузить в Google Drive.
     * `<идентификатор_файла_Google_Drive>` — [идентификатор файла Google Drive](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics), в который загружаются данные.
@@ -88,6 +91,7 @@
     ```
 
     Где:
+
     * `<имя_секрета>` — имя секрета, в котором хранится содержимое файла `client_secret.json`.
     * `<путь_к_каталогу_в_проекте_{{ ml-platform-name }}>` — путь к каталогу в проекте {{ ml-platform-name }}, содержимое которого нужно загрузить в Google Drive.
     * `<идентификатор_каталога_Google_Drive>` — [идентификатор каталога Google Drive](https://developers.google.com/drive/api/guides/about-files?hl=en#file_characteristics), в который загружаются данные.

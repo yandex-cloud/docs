@@ -99,7 +99,7 @@ The host class affects the amount of RAM that can be used by {{ CH }}. For more 
 
    1. To change the class of a {{ ZK }} host, pass the desired value in the `--zookeeper-resource-preset` parameter.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -189,7 +189,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
 
    1. To increase the storage capacity of {{ ZK }} hosts, pass the desired value in the `--zookeeper-disk-size` parameter.
 
-- Terraform
+- {{ TF }}
 
    To increase storage size:
 
@@ -293,7 +293,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
          --admin-password "<admin account password>"
       ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -311,7 +311,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [Terraform provider documentation]({{ tf-provider-mch }}).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -374,7 +374,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
       All the supported parameters are listed in the [description of settings for{{ CH }}](../concepts/settings-list.md).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -440,7 +440,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -516,7 +516,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
    You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -574,7 +574,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -639,7 +639,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
          --security-group-ids <security group ID list>
       ```
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -662,7 +662,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 

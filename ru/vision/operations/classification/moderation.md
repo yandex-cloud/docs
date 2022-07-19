@@ -26,7 +26,7 @@ _Классификация изображений сейчас находитс
 1. Кодируйте файл в формат Base64:
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
-1. Создайте файл с телом запроса, например `body.json`. В свойстве `content` укажите изображение, [кодированное в Base64](../base64-encode.md):
+1. Создайте файл с телом запроса, например `body.json`:
 
     **body.json:**
     ```json
@@ -43,6 +43,8 @@ _Классификация изображений сейчас находитс
         }]
     }
     ```
+
+    Где `analyze_specs: content` – изображение, [кодированное в Base64](../base64-encode.md).
 
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
 
@@ -115,6 +117,7 @@ _Классификация изображений сейчас находитс
     ```bash
     vision_moderation path/to/image.jpg
     ```
+
 {% note tip %}
 
 Если вызов функции завершился с ошибкой `408 Request Timeout`, попробуйте решить проблему одним из способов:

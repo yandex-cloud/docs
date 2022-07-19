@@ -26,7 +26,7 @@ You can change the number of hosts in the `DATANODE` and the `COMPUTENODE` subcl
 
    {{ dataproc-name }} runs the add host operation.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -69,7 +69,7 @@ You can change the computing power of hosts in a separate subcluster:
 
    {{ dataproc-name }} runs the update subcluster operation. Note that all the hosts in the updated subcluster will be restarted.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -123,7 +123,7 @@ You can set up the [autoscaling](../concepts/autoscaling.md) rule for hosts with
    1. The default metric used for autoscaling is `yarn.cluster.containersPending`. To enable scaling based on CPU usage, disable the **Default scaling** option and set the target CPU utilization level.
    1. Click **Save changes**.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -191,7 +191,7 @@ Currently, you cannot reduce storage size. If necessary, re-create the {{ datapr
 
    {{ dataproc-name }} runs the update subcluster operation.
 
-- Terraform
+- {{ TF }}
 
    To increase the subcluster storage size:
 
@@ -243,7 +243,7 @@ Currently, you cannot reduce storage size. If necessary, re-create the {{ datapr
    1. Select the appropriate security groups.
    1. Click **Save**.
 
-- Terraform
+- {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -266,7 +266,7 @@ Currently, you cannot reduce storage size. If necessary, re-create the {{ datapr
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [Terraform provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/dataproc_cluster).
 
 {% endlist %}
 

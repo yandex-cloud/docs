@@ -48,33 +48,11 @@ To get started with the service:
 
 1. To connect to the DB server, get an SSL certificate:
 
-      
-      1. Create a folder:
-
-         ```bash
-         $ mkdir ~/.mysql
-         ```
-
-      1. Get a certificate:
-
-         ```bash
-         $ wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt
-         ```
-
-      1. Configure permissions to the certificate:
-
-         ```
-         $ chmod 0600 ~/.mysql/root.crt
-         ```
-
+   {% include [install-certificate](../_includes/mdb/mms/install-certificate.md) %}
 
 1. Use the `mssql-cli` command to connect:
 
-   ```bash
-   $ mssql-cli -U <username> \
-             -d <database name> \
-             -S <FQDN of the host>,1433
-   ```
+   {% include [default-connstring](../_includes/mdb/mms/default-connstring.md) %}
 
 1. After running the command, enter the user password to complete the connection procedure.
 

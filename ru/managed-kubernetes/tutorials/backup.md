@@ -39,7 +39,7 @@
    yc iam access-key create --service-account-name velero-sa
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    access_key:
@@ -88,6 +88,7 @@
    ```
 
    Где:
+
    * `--backup-location-config` — параметры хранилища резервных копий. URL-адрес хранилища {{ objstorage-name }} и регион.
    * `--bucket` — имя бакета для хранения резервных копий.
    * `--plugins` — образы плагина для совместимости с AWS API.
@@ -96,7 +97,7 @@
    * `--features` — список активных функциональных возможностей.
    * `--snapshot-location-config` — регион, в котором будут размещены снимки дисков.
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    CustomResourceDefinition/backups.velero.io: attempting to create resource
@@ -118,7 +119,7 @@
    velero backup create my-backup
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    Backup request "my-backup" submitted successfully.
@@ -131,7 +132,7 @@
    velero backup get
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    NAME       STATUS     ERRORS  WARNINGS  CREATED                        EXPIRES  STORAGE LOCATION  SELECTOR
@@ -160,6 +161,7 @@
    ```
 
    Где:
+
    * `--backup-location-config` — параметры хранилища резервных копий. URL-адрес хранилища {{ objstorage-name }} и регион.
    * `--bucket` — имя бакета для хранения резервных копий.
    * `--plugins` — образы плагина для совместимости с AWS API.
@@ -168,7 +170,7 @@
    * `--features` — список активных функциональных возможностей.
    * `--snapshot-location-config` — выбор региона для расположения снимков дисков.
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    CustomResourceDefinition/backups.velero.io: attempting to create resource
@@ -190,7 +192,7 @@
    velero backup get
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    NAME       STATUS     ERRORS  WARNINGS  CREATED                        EXPIRES  STORAGE LOCATION  SELECTOR
@@ -204,10 +206,11 @@
    ```
 
    Где:
+
    * `--exclude-namespaces` — флаг, позволяющий не восстанавливать объекты из пространства имен `velero`.
    * `--from-backup` — имя бакета, в котором хранится резервная копия.
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    Restore request "my-restore" submitted successfully.
@@ -220,7 +223,7 @@
    velero get restore
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    NAME        BACKUP     STATUS     STARTED                        COMPLETED                      ERRORS  WARNINGS  CREATED                        SELECTOR

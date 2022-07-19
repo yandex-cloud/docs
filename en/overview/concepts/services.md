@@ -156,7 +156,7 @@ You can add, delete, or update resource labels.
    ```
    yc compute instance add-labels cl123g4dridnn5cna6df-yduv --labels project=test
    ```
-   Command output:
+   Result:
 
    ```
    done (5s)
@@ -186,7 +186,7 @@ You can add, delete, or update resource labels.
    yc managed-kubernetes cluster update k8s-gpu --labels new_lable=test_label
    ```
 
-   Command output:
+   Result:
 
    ```
    done (1m36s)
@@ -216,7 +216,7 @@ You can add, delete, or update resource labels.
    yc managed-mysql cluster remove-labels mysql123 --labels my_lable
    ```
 
-   Command output:
+   Result:
 
    ```
    id: c1qmjaatlurm2bcoi34i

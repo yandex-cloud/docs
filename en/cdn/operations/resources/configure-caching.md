@@ -114,24 +114,11 @@ To configure the parameters of [resource](../../concepts/resource.md) [caching](
 
       For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
 
-- Terraform
+- {{ TF }}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the parameters of the CDN `yandex_cdn_resource` resource to create:
-
-      * `cname`: The primary domain name used for content distribution. Required parameter.
-      * `active`: A flag that indicates if content is available to end users. `True`: CDN content is available to end users. Optional parameter, defaults to `True`.
-      * `origin_protocol`: Origin protocol. Optional parameter, defaults to `http`.
-      * `secondary_hostnames`: Additional domain names. Optional.
-      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
-      * The `options` section contains additional parameters of CDN resources:
-         * `browser_cache_settings`: Browser cache lifetime in seconds. Optional parameter, defaults to `0`.
-         * `edge_cache_settings`: Cache lifetime for response codes in seconds. Optional parameter, defaults to `345600`.
-         * `ignore_query_params`: Ignore query parameters. Optional parameter, defaults to `false`.
-         * `ignore_cookie`: Ignore cookies. Optional parameter, defaults to `false`.
-
-      Example configuration file structure:
 
       
       ```hcl
@@ -169,10 +156,22 @@ To configure the parameters of [resource](../../concepts/resource.md) [caching](
 
 
 
+      Where:
 
-      For more detailed information on the `yandex_cdn_target_group` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
+      * `cname`: The primary domain name used for content distribution. Required parameter.
+      * `active`: A flag that indicates if content is available to end users. `True`: CDN content is available to end users. Optional parameter, defaults to `True`.
+      * `origin_protocol`: Origin protocol. Optional parameter, defaults to `http`.
+      * `secondary_hostnames`: Additional domain names. Optional.
+      * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
+      * The `options` section contains additional parameters of CDN resources:
+         * `browser_cache_settings`: Browser cache lifetime in seconds. Optional parameter, defaults to `0`.
+         * `edge_cache_settings`: Cache lifetime for response codes in seconds. Optional parameter, defaults to `345600`.
+         * `ignore_query_params`: Ignore query parameters. Optional parameter, defaults to `false`.
+         * `ignore_cookie`: Ignore cookies. Optional parameter, defaults to `false`.
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+      For more detailed information on the `yandex_cdn_target_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
+
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
    1. Check the configuration using the command:
       ```
@@ -190,7 +189,7 @@ To configure the parameters of [resource](../../concepts/resource.md) [caching](
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Apply the configuration changes:
       ```

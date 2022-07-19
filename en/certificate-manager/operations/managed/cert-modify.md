@@ -44,12 +44,13 @@ After creating a certificate, you can change its name or description. To edit a 
           --description "description of myupdatedmanagedcert"
         ```
 
-        Command parameters:
+        Where:
+
           - `--id`: Certificate ID.
           - `--new-name`: New name for the certificate.
           - `--description`: Certificate description.
 
-        Command results:
+        Result:
 
         ```bash
         id: fpq6gvvm6piuegbb2nol

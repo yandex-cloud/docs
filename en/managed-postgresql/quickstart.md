@@ -43,35 +43,11 @@ To get started with the service:
 1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
 1. To connect to the DB server, get an SSL certificate:
 
-   
-   1. Create a folder:
-
-      ```bash
-      mkdir ~/.postgresql
-      ```
-
-   1. Get a certificate:
-
-      ```bash
-      wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt
-      ```
-
-   1. Configure permissions to the certificate:
-
-      ```bash
-      chmod 0600 ~/.postgresql/root.crt
-      ```
-
+    {% include [install-certificate](../_includes/mdb/mpg/install-certificate.md) %}
 
 1. Use the `psql` command to connect:
 
-   ```bash
-   psql "host=<host address> \
-     port=6432 \
-     sslmode=verify-full \
-     dbname=<database name> \
-     user=<DB user name>"
-   ```
+    {% include [default-connstring](../_includes/mdb/mpg/default-connstring.md) %}
 
 ## What's next {#whats-next}
 

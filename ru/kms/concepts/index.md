@@ -35,7 +35,7 @@ description: '{{ kms-name }} — сервис для создания ключе
 * В сервисах {{ yandex-cloud }}:
   * [Managed Service for Kubernetes](../../managed-kubernetes/).
   * [Certificate Manager](../../certificate-manager/).
-* При работе с [Terraform](../tutorials/terraform-key.md).
+* При работе с [{{ TF }}](../tutorials/terraform-key.md).
 * В библиотеках шифрования:
   * [AWS Encryption SDK](../tutorials/encrypt/aws-encryption-sdk.md).
   * [Google Tink](../tutorials/encrypt/google-tink.md).

@@ -55,7 +55,7 @@
     sort -nr output.csv | uniq -c
     ```
 
-    Результат выполнения команды:
+    Результат:
 
     ```bash
     418 docker/19.03.9 go/go1.13.10 git-commit/1d238398e7 kernel/4.4.0-142-generic os/linux arch/amd64 UpstreamClient(Go-http-client/1.1)

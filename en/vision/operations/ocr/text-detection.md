@@ -22,8 +22,6 @@ To do this in the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, s
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
 1. Create a file with the request body (for example, `body.json`).
 
-    In the request body, specify [MIME-type](https://en.wikipedia.org/wiki/Media_type) `application/pdf`, and in the property `content` specify a Base64-encoded PDF file.
-
     **body.json:**
     ```json
     {
@@ -40,6 +38,12 @@ To do this in the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, s
         }]
     }
     ```
+
+    Where:
+
+    * `analyze_specs: content`: A Base64-encoded PDF file.
+    * `analyze_specs: mime_type`: [MIME-type](https://en.wikipedia.org/wiki/Media_type) `application/pdf`.
+
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
 
 ### Recognize a line of text {#string}
@@ -57,9 +61,7 @@ To recognize a line of text:
 1. Encode the file as Base64:
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
-1. Create a file with the request body (for example, `body.json`).
-
-    In a property `model` specify the model `line`. In a property `content`, specify the image encoded in Base64.
+1. Create a file with the request body (for example, `body.json`):
 
     **body.json:**
     ```json
@@ -77,6 +79,12 @@ To recognize a line of text:
         }]
     }
     ```
+
+    Where:
+
+    * `analyze_specs: content`: The image encoded in Base64.
+    * `analyze_specs: features: text_detection_config: model`: The model `line`.
+
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
 
 ### Specify the language of the text in the request {#multiple-languages}
@@ -86,7 +94,7 @@ If you know the language of the text, specify it in the request to improve the q
 1. Encode the file as Base64:
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
-1. Create a file with the request body (for example, `body.json`). In a property `content`, specify the image encoded in Base64.
+1. Create a file with the request body (for example, `body.json`):
 
     **body.json:**
     ```json
@@ -96,6 +104,9 @@ If you know the language of the text, specify it in the request to improve the q
             "content": "iVBORw0KGgo...",
             ...
     ```
+
+    Where `analyze_specs: content` is the image encoded in Base64.
+
 1. [Select the languages](../../concepts/ocr/supported-languages.md) for text recognition and the appropriate recognition models:
 
    * If all languages are in the same model, specify them in the request configuration. You can specify up to 8 languages: For example, French and German:
@@ -361,9 +372,9 @@ The examples below show the script code for text recognition. Authentication is 
     {% include [text-detection-run-example](../../../_includes/vision/text-detection-run-example.md) %}
 
     ```bash
-    $ export TOKEN=AgAAAAAMTH...
-    $ export FOLDER_ID=b1gvmob95yysaplct532
-    $ go run text_detection.go -folder-id $FOLDER_ID -oauth-token $TOKEN -image-path input.jpg
+    export TOKEN=AgAAAAAMTH...
+    export FOLDER_ID=b1gvmob95yysaplct532
+    go run text_detection.go -folder-id $FOLDER_ID -oauth-token $TOKEN -image-path input.jpg
     ```
 
 - Python
@@ -428,8 +439,8 @@ The examples below show the script code for text recognition. Authentication is 
     {% include [text-detection-run-example](../../../_includes/vision/text-detection-run-example.md) %}
 
     ```bash
-    $ export TOKEN=AgAAAAAMTH...
-    $ export FOLDER_ID=b1gvmob95yysaplct532
-    $ python text_detection.py --folder-id=$FOLDER_ID --oauth-token=$TOKEN --image-path=input.jpg
+    export TOKEN=AgAAAAAMTH...
+    export FOLDER_ID=b1gvmob95yysaplct532
+    python text_detection.py --folder-id=$FOLDER_ID --oauth-token=$TOKEN --image-path=input.jpg
     ```
 {% endlist %}

@@ -32,6 +32,7 @@
     ```
 
     Где:
+
     * `id` — идентификатор (ID) ВМ. Получите список идентификаторов ВМ, доступных в каталоге, с помощью [команды CLI](../../../cli/cli-ref/managed-services/compute/instance/list.md) `yc compute instance list`.
     * `network-interface-index` — индекс сетевого интерфейса ВМ. По умолчанию — `0`.
     * `nat-address` — публичный IP-адрес, который нужно присвоить ВМ. Получите список зарезервированных публичных IP-адресов, доступных в каталоге, с помощью [команды CLI](../../../cli/cli-ref/managed-services/vpc/address/list.md) `yc vpc address list`. По умолчанию публичный IP-адрес присваивается автоматически.
