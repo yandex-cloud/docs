@@ -7,15 +7,19 @@ href: index.yaml
 noIndex: True
 items:
   - name: System requirements
-    href: system-requirements.md    
+    href: system-requirements.md
   - name: Speech synthesis
     items:
     - name: About the technology
       href: tts/index.md
+    - name: Performance testing
+      href: tts/testing.md
   - name: Speech recognition
     items:
     - name: About the technology
       href: stt/index.md
+    - name: Performance testing
+      href: stt/testing.md
   - name: Monitoring
     href: monitoring.md
   - name: gRPC API references

@@ -45,33 +45,3 @@ For the recommended hardware configuration, see [{#T}](../system-requirements.md
 
 The speech recognition service will be available on TCP port **8080**.
 
-## Performance testing {#testing}
-
-1. Download the container with tests:
-
-   ```bash
-   docker pull cr.yandex/${REGISTRY_ID}/stt-tools
-   ```
-
-1. Run the `stt-tools` container:
-
-   ```bash
-   docker run -it --network=host \
-      --env ENVOY_HOST="0.0.0.0" \
-      --env ENVOY_PORT=8080 \
-      --env CONNECTIONS=10 \
-      stt-tools
-   ```
-
-   Where:
-
-   * `ENVOY_HOST`: The IP address of the speech recognition service. If you run tests and the speech recognition service on the same server, enter `0.0.0.0`.
-   * `ENVOY_TTS_PORT`: The port of the speech recognition service (`8080` by default).
-   * `CONNECTIONS`: The number of simultaneously active channels.
-
-1. The test results will be available in the container logs:
-
-   ```bash
-   docker logs stt-tools
-   ```
-
