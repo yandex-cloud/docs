@@ -92,7 +92,7 @@ Add users to the IdP server:
       https://sts.windows.net/<SAML application ID>/
       ```
 
-   1. In the **Link to the IdP login page** field, copy the link from the **Login URL** field on the Azure AD  **SAML-based sign-on** page. Link format:
+   1. In the **Link to the IdP login page** field, copy the link from the **Login URL** field on the Azure AD **SAML-based sign-on** page. Link format:
 
       ```
       https://login.microsoftonline.com/<SAML application ID>/saml2

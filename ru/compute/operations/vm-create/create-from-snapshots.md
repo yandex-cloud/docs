@@ -106,12 +106,13 @@
         --ssh-key ~/.ssh/id_rsa.pub
       ```
 
-      Данная команда создаст виртуальную машину именем `first-instance` в зоне `{{ region-id }}-a`, с публичным IP и дисками из снимков. Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
-
-      {% include [name-format](../../../_includes/name-format.md) %}
+      Данная команда создаст виртуальную машину именем `first-instance` в зоне `{{ region-id }}-a`, с публичным IP и дисками из снимков.
 
       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+     
+      Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
 
+ 
 - API
 
   Воспользуйтесь методом [Create](../../api-ref/Instance/create.md) для ресурса `Instance`.

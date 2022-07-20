@@ -116,7 +116,7 @@
   1. Откройте сервис **{{ api-gw-name }}**.
   1. Нажмите кнопку **Создать API-шлюз**.
   1. Введите имя шлюза — `for-serverless-hello-telegram-bot`.
-  1. Очистите содержимое поля **Спецификация** и вставьте в него следующий код. В поле `bucket` укажите имя бакета. В поле `service_account` укажите [идентификатор сервисного аккаунта](../iam/operations/sa/get-id.md).
+  1. Очистите содержимое поля **Спецификация** и вставьте в него следующий код. В поле `bucket` укажите имя бакета. В поле `service_account_id` укажите [идентификатор сервисного аккаунта](../iam/operations/sa/get-id.md).
 
       ```yml
       openapi: 3.0.0
@@ -131,7 +131,7 @@
               bucket: <имя бакета>
               object: sayhello.png
               presigned_redirect: false
-              service_account: <идентификатор сервисного аккаунта>
+              service_account_id: <идентификатор сервисного аккаунта>
             operationId: static
       ```
 

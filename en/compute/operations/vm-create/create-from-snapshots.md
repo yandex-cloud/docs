@@ -106,11 +106,12 @@ You can create a VM with disks restored from the snapshots that exist in the fol
           --ssh-key ~/.ssh/id_rsa.pub
       ```
 
-      This command creates a VM named `first-instance` in the `{{ region-id }}-a` availability zone, with a public IP and the disks from the snapshots. To create a VM without a public IP, remove the `--public-ip` flag.
-
-      {% include [name-format](../../../_includes/name-format.md) %}
+      This command creates a VM named `first-instance` in the `{{ region-id }}-a` availability zone, with a public IP and the disks from the snapshots.
 
       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+
+      To create a VM without a public IP, remove the `--public-ip` flag.
+
 
 - API
 

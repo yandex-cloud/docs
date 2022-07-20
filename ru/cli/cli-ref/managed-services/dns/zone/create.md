@@ -15,14 +15,14 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--name`|<b>`string`</b><br/> A name of the dns zone.|
-|`--description`|<b>`string`</b><br/> Specifies a textual description of the dns zone.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
-|`--zone`|<b>`string`</b><br/> The zone domain of the dns zone to create.|
-|`--public-visibility`| Specifies whether or not dns zone records will be publicly visible.|
-|`--private-visibility`| Specifies whether or not dns zone records will be visible from private virtual networks.|
-|`--network-ids`|<b>`value[,value]`</b><br/> Specifies network identifiers from which dns zone records will be visible.|
-|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+|`--name`|<b>`string`</b><br/>A name of the dns zone.|
+|`--description`|<b>`string`</b><br/>Specifies a textual description of the dns zone.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
+|`--zone`|<b>`string`</b><br/>The zone domain of the dns zone to create.|
+|`--public-visibility`|Specifies whether or not dns zone records will be publicly visible.|
+|`--private-visibility`|Specifies whether or not dns zone records will be visible from private virtual networks.|
+|`--network-ids`|<b>`value[,value]`</b><br/>Specifies network identifiers from which dns zone records will be visible.|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
 
@@ -32,10 +32,11 @@ Syntax:
 |`--debug`|Debug logging.|
 |`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
 |`--no-user-output`|Disable printing user intended output to stderr.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts. Pass 0 to disable retries. Pass any negative value for infinite retries. Even infinite retries are capped with 2 minutes timeout.|
+|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
 |`--cloud-id`|<b>`string`</b><br/>Set the ID of the cloud to use.|
 |`--folder-id`|<b>`string`</b><br/>Set the ID of the folder to use.|
 |`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
+|`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|

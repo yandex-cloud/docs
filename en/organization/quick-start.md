@@ -20,7 +20,6 @@ After registering, you become the organization owner. You'll be able to manage e
 
 To provide your employees with access to the organization's services, connect them using their Yandex accounts. If your company already uses a different account management system (such as Active Directory or Google Workspace), configure an identity federation so that your employees can use their work accounts to access {{yandex-cloud}} services.
 
-
 ### Connect employees with Yandex accounts {#add-ya-users}
 
 If your employees have Yandex accounts (for example, `{{login-example}}`), they can use them to access {{yandex-cloud}} services enabled in your organization.
@@ -33,10 +32,11 @@ To connect employees with Yandex accounts:
 
 1. Enter the email addresses of the Yandex users you want to invite to the organization (for example, `{{login-example}}`).
 
+
 1. Click **Add**.
 
-This will give the users access to the organization.
-
+Users will be connected to the organization.
+
 ### Configure an identity federation {#add-federation}
 
 Identity federation is a technology with which you can implement a single sign-on system (SSO) and use corporate accounts for authorization in {{org-full-name}}. In this case, your corporate account management system acts as an identity provider (IdP).

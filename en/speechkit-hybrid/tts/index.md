@@ -44,34 +44,3 @@ For the recommended hardware configuration, see [{#T}](../system-requirements.md
    ```
 
 The speech synthesis service will be available on TCP port **9080**.
-
-## Performance testing {#testing}
-
-1. Download the container with tests:
-
-   ```bash
-   docker pull cr.yandex/${REGISTRY_ID}/tts-tools
-   ```
-
-1. Run the `tts-tools` container:
-
-   ```bash
-   docker run --network=host \
-      --env ENVOY_HOST=0.0.0.0 \
-      --env ENVOY_TTS_PORT=9080 \
-      --env RPS=1 \
-      tts-tools
-   ```
-
-   Where:
-
-   * `ENVOY_HOST`: The IP address of the synthesis service. If you run tests on the same server as the synthesis service, enter `0.0.0.0`.
-   * `ENVOY_TTS_PORT`: The port of the speech synthesis service (`9080` by default).
-   * `RPS`: The number of speech synthesis requests per second.
-
-1. The test results will be available in the container logs:
-
-   ```bash
-   docker logs tts-tools
-   ```
-

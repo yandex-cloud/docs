@@ -57,7 +57,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
       * `platform`: [Platform](../../concepts/vm-platforms.md) ID:
          * `gpu-standard-v1` for {{ v100-broadwell }}.
-         * `gpu-standard-v2` for {{ v100-cascade-lake }}.s
+         * `gpu-standard-v2` for {{ v100-cascade-lake }}.
          * `gpu-standard-v3` for {{ a100-epyc }}.
       * `cores`: [Number of vCPUs](../../concepts/gpus.md).
       * `memory`: [RAM](../../concepts/gpus.md).

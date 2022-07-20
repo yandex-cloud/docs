@@ -72,14 +72,14 @@ The cost of the infrastructure includes:
       1. Disable the **Create subnets** option.
       1. Click **Create network**.
 
-   1. Create a subnet named `queue-autoscale-subnet-b` in the `{{ region-id }}-b` zone:
+   1. Create a subnet named `queue-autoscale-subnet-a` in the `{{ region-id }}-a` zone:
 
       1. In the list of networks, select `queue-autoscale-network`.
       1. Click **Add subnet**.
       1. Specify the subnet parameters:
 
-         * **Name**: `queue-autoscale-subnet-b`.
-         * **Zone**: `{{ region-id }}-b`.
+         * **Name**: `queue-autoscale-subnet-a`.
+         * **Zone**: `{{ region-id }}-a`.
          * **CIDR**: `192.168.1.0/24`.
 
       1. Click **Create subnet**.
@@ -163,20 +163,20 @@ The cost of the infrastructure includes:
       name: queue-autoscale-network
       ```
 
-   1. Create a subnet named `queue-autoscale-subnet-b` in the `{{ region-id }}-b` zone:
+   1. Create a subnet named `queue-autoscale-subnet-a` in the `{{ region-id }}-a` zone:
 
       ```bash
-      yc vpc subnet create queue-autoscale-subnet-b \
+      yc vpc subnet create queue-autoscale-subnet-a \
         --network-name queue-autoscale-network
         --range 192.168.1.0/24
-        --zone {{ region-id }}-b
+        --zone {{ region-id }}-a
       ```
 
       Where:
 
       * `--network-name`: The name of the network where the subnet is created (`queue-autoscale-network`).
       * `--range`: The subnet CIDR.
-      * `--zone`: The availability zone where the subnet is created `{{ region-id }}-b`.
+      * `--zone`: The availability zone where the subnet is created `{{ region-id }}-a`.
 
       Result:
 
@@ -184,9 +184,9 @@ The cost of the infrastructure includes:
       id: e1lnabc23r1c9d0efoje
       folder_id: b0g12ga82bcv0cdeferg
       created_at: "2021-10-04T16:29:12.450858436Z"
-      name: queue-autoscale-subnet-b
+      name: queue-autoscale-subnet-a
       network_id: enpabce123hde4ft1r3t
-      zone_id: {{ region-id }}-b
+      zone_id: {{ region-id }}-a
       v4_cidr_blocks:
       - 192.168.1.0/24
       ```
@@ -207,7 +207,7 @@ The cost of the infrastructure includes:
          ```
 
    1. Create a cloud network named `queue-autoscale-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) gRPC API call or the [Create](../../vpc/api-ref/Network/create.md) REST API method. The response will contain the network ID.
-   1. Create a subnet named `queue-autoscale-subnet-b` in `{{ region-id }}-b` with the `192.168.1.0/24` CIDR using the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call or the [Create](../../vpc/api-ref/Subnet/create.md) REST API method. In the request body, specify the network ID.
+   1. Create a subnet named `queue-autoscale-subnet-a` in `{{ region-id }}-a` with the `192.168.1.0/24` CIDR using the [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) gRPC API call or the [Create](../../vpc/api-ref/Subnet/create.md) REST API method. In the request body, specify the network ID.
 
 {% endlist %}
 
@@ -305,10 +305,10 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
    {% endnote %}
 
-1. Download the [archive with files for the image](https://storage.yandexcloud.net/doc-files/queue-autoscale-server.zip) (ZIP, 3 KB) and unpack it:
+1. Download the [archive with files for the image](https://{{ s3-storage-host }}/doc-files/queue-autoscale-server.zip) (ZIP, 3 KB) and unpack it:
 
    ```bash
-   wget https://storage.yandexcloud.net/doc-files/queue-autoscale-server.zip
+   wget https://{{ s3-storage-host }}/doc-files/queue-autoscale-server.zip
    unzip queue-autoscale-server.zip
    ```
 
@@ -388,7 +388,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
       {% endcut %}
 
-   * In the `subnet_id` field, specify the ID of the `queue-autoscale-subnet-b subnet`.
+   * In the `subnet_id` field, specify the ID of the `queue-autoscale-subnet-a subnet`.
 
       {% cut "How do I find out the subnet ID" %}
 
@@ -399,14 +399,14 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
          1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
          1. In the list of services, select **{{ vpc-name }}**.
          1. Go to the **Subnets** tab.
-         1. In the list of subnets, find `queue-autoscale-subnet-b` and copy its **ID**.
+         1. In the list of subnets, find `queue-autoscale-subnet-a` and copy its **ID**.
 
       - CLI
 
          Run the following command:
 
          ```bash
-         yc vpc subnet get queue-autoscale-subnet-b
+         yc vpc subnet get queue-autoscale-subnet-a
          ```
 
          Result:
@@ -415,9 +415,9 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
          id: e1lnabc23r1c9d0efoje
          folder_id: b0g12ga82bcv0cdeferg
          created_at: "2021-10-04T16:29:12.450858436Z"
-         name: queue-autoscale-subnet-b
+         name: queue-autoscale-subnet-a
          network_id: enpabce123hde4ft1r3t
-         zone_id: {{ region-id }}-b
+         zone_id: {{ region-id }}-a
          v4_cidr_blocks:
          - 192.168.1.0/24
          ```
@@ -493,7 +493,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
       * **Name**: `queue-autoscale-ig`.
       * **Service account**: `queue-autoscale-sa`.
 
-   1. Under **Allocation**, select the `{{ region-id }}-b` availability zone.
+   1. Under **Allocation**, select the `{{ region-id }}-a` availability zone.
    1. Under **Instance template**, click **Define** and set up the template:
 
       1. Under **Image/boot disk selection**, go to the **Custom **tab and click **Select**.
@@ -505,7 +505,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
       1. Under **Network settings**:
 
-         * Select the `queue-autoscale-network` **network**. The `queue-autoscale-subnet-b` subnet will be selected automatically.
+         * Select the `queue-autoscale-network` **network**. The `queue-autoscale-subnet-a` subnet will be selected automatically.
          * In the **Public address** field, select **Auto** so that your VMs have internet access and can receive messages from the queue.
 
       1. Under **Access**:
@@ -573,7 +573,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
       * In the `folder_id` field, specify the ID of the folder in {{ yandex-cloud }}.
       * In the `image_id` field, specify the ID of the created image.
-      * In the `network_id` field, specify the `queue-autoscale-network` ID, and in the `subnet_ids` field, the `queue-autoscale-subnet-b` ID.
+      * In the `network_id` field, specify the `queue-autoscale-network` ID, and in the `subnet_ids` field, the `queue-autoscale-subnet-a` ID.
 
          {% cut "How do I find out the network ID" %}
 
@@ -629,7 +629,7 @@ You will use the AWS CLI to perform the final step of the script: [checking inst
 
       * In the `folder_id` field, specify the ID of the folder in {{ yandex-cloud }}.
       * In the `image_id` field, specify the ID of the created image.
-      * In the `network_id` field, specify the `queue-autoscale-network` ID, and in the `subnet_ids` field, the `queue-autoscale-subnet-b` ID.
+      * In the `network_id` field, specify the `queue-autoscale-network` ID, and in the `subnet_ids` field, the `queue-autoscale-subnet-a` ID.
 
          {% cut "How do I find out the network ID" %}
 
@@ -709,6 +709,6 @@ To shut down the infrastructure and stop paying for the created resources:
 1. [Delete](../operations/instance-groups/delete.md) `queue-autoscale-ig`.
 1. [Delete](../operations/image-control/delete.md) `queue-autoscale-image`.
 1. [Delete](../../message-queue/operations/message-queue-delete-queue.md) the `queue-autoscale-queue` queue.
-1. [Delete](../../vpc/operations/subnet-delete.md) the `queue-autoscale-subnet-b` subnet.
+1. [Delete](../../vpc/operations/subnet-delete.md) the `queue-autoscale-subnet-a` subnet.
 1. [Delete](../../vpc/operations/network-delete.md) the `queue-autoscale-network`.
 1. [Delete](../../iam/operations/sa/delete.md) the `queue-autoscale-sa` service account.

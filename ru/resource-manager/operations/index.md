@@ -14,6 +14,7 @@ description: "Пошаговые инструкции по управлению 
 * [{#T}](cloud/set-access-bindings.md)
 * [{#T}](cloud/change-organization.md)
 * [{#T}](cloud/switch-cloud.md)
+* [{#T}](cloud/get-id.md)
 * [{#T}](cloud/notify.md)
 
 ## Каталог {#folder}
