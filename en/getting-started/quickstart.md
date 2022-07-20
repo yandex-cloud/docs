@@ -28,7 +28,7 @@ To submit a request:
 
 1. Fill out the form.
 
-   Specify your full name, corporate email address and telephone number that we can contact you, and your organization information. Please also describe how you plan to use {{ yandex-cloud }} services. This information will help us make a decision on whether to reject or accept your request.
+   Enter your full name, your corporate email address, and a contact phone number as well as your organization information. Also describe how you intend to use {{ yandex-cloud }} services. This information will help us make a decision on whether to reject or accept your request.
 
 1. Click **Send request**.
 
@@ -62,17 +62,15 @@ Find out from your system administrator what account management system is set up
 
 - Google account
 
-   1. In the window that opens, click **Log in using Google**.
+   A system administrator will send an invitation to join the organization to your Google account email.
 
-      You'll see the Google authentication window.
-
-   1. Log in.
-
-      Select or specify the desired account.
+   1. To open the invitation, click the link in the email message. Accept the invitation.
 
    1. Read the [Privacy Policy](../legal/privacy.md) and [Terms of Use](../legal/terms.md) and consent to receive marketing materials and other messages from {{ yandex-cloud }}.
 
-   1. Click **Log in**.
+   1. To go to the {{ yandex-cloud }} console, confirm adding your account to the organization by clicking **Log in**.
+
+   1. Select your organization from the list and click **Next**.
 
 - Identity federation
 
