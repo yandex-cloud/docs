@@ -111,15 +111,13 @@
       Данная команда создаст виртуальную машину:
   
       - С именем `first-instance`.
+
+        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+        
       - В зоне доступности `{{ region-id }}-a`.
       - В подсети `default-a`.
       - С публичным IP и двумя дисками.
-  
-      Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
-  
-      {% include [name-format](../../../_includes/name-format.md) %}
-  
-      {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+ 
   
       Чтобы указать необходимость удаления диска при удалении машины, установите флаг `--auto-delete`:
   

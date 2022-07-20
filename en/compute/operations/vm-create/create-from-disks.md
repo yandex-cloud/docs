@@ -111,15 +111,13 @@ To create a VM from a set of disks:
       This command creates the VM:
 
       - Named `first-instance`.
+
+        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+        
       - In the `{{ region-id }}-a` availability zone.
       - In the `default-a` subnet.
       - With a public IP address and two disks.
 
-      To create a VM without a public IP, remove the `--public-ip` flag.
-
-      {% include [name-format](../../../_includes/name-format.md) %}
-
-      {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
       To specify whether to delete the disk when deleting the VM, set the `--auto-delete` flag:
 

@@ -29,6 +29,9 @@ Syntax:
 |`--image`|<b>`string`</b><br/>Image to run|
 |`--command`|<b>`value[,value]`</b><br/>Comma-separated entrypoint for the container image. If not specified, the image's default ENTRYPOINT will be used. Pass an empty string to reset it to zero value.|
 |`--args`|<b>`value[,value]`</b><br/>Comma-separated list of arguments that are passed to the command, run by a container. If not specified, the image's default CMD will be used. Pass an empty string to reset it to zero value.|
+|`--network-id`|<b>`string`</b><br/>Network id to be used in new revision.|
+|`--network-name`|<b>`string`</b><br/>Network name to be used in new revision.|
+|`--subnets`|<b>`value[,value]`</b><br/>Specifies the subnets for the revision. Can use subnet names or subnet ids, or both.<br/><br/>Example: `--subnets=id1,id2 --subnets=name3'.|
 
 #### Global Flags
 
@@ -38,10 +41,11 @@ Syntax:
 |`--debug`|Debug logging.|
 |`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
 |`--no-user-output`|Disable printing user intended output to stderr.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts. Pass 0 to disable retries. Pass any negative value for infinite retries. Even infinite retries are capped with 2 minutes timeout.|
+|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
 |`--cloud-id`|<b>`string`</b><br/>Set the ID of the cloud to use.|
 |`--folder-id`|<b>`string`</b><br/>Set the ID of the folder to use.|
 |`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
+|`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|

@@ -72,14 +72,14 @@
      1. Отключите опцию **Создать подсети**.
      1. Нажмите кнопку **Создать сеть**.
      
-  1. Создайте подсеть `queue-autoscale-subnet-b` в зоне `{{ region-id }}-b`:
+  1. Создайте подсеть `queue-autoscale-subnet-a` в зоне `{{ region-id }}-a`:
   
      1. В списке сетей выберите `queue-autoscale-network`.
      1. Нажмите кнопку **Добавить подсеть**.
      1. Укажите параметры подсети:
      
-        * **Имя** — `queue-autoscale-subnet-b`.
-        * **Зона** — `{{ region-id }}-b`.
+        * **Имя** — `queue-autoscale-subnet-a`.
+        * **Зона** — `{{ region-id }}-a`.
         * **CIDR** — `192.168.1.0/24`.
         
      1. Нажмите кнопку **Создать подсеть**.
@@ -163,20 +163,20 @@
      name: queue-autoscale-network
      ```
 
-  1. Создайте подсеть `queue-autoscale-subnet-b` в зоне `{{ region-id }}-b`:
+  1. Создайте подсеть `queue-autoscale-subnet-a` в зоне `{{ region-id }}-a`:
 
      ```bash
-     yc vpc subnet create queue-autoscale-subnet-b \
+     yc vpc subnet create queue-autoscale-subnet-a \
        --network-name queue-autoscale-network 
        --range 192.168.1.0/24 
-       --zone {{ region-id }}-b
+       --zone {{ region-id }}-a
      ```
      
      Где:
 
      * `--network-name` — имя сети, в которой создается подсеть: `queue-autoscale-network`.
      * `--range` — CIDR подсети.
-     * `--zone` — зона доступности, в которой создается подсеть: `{{ region-id }}-b`.
+     * `--zone` — зона доступности, в которой создается подсеть: `{{ region-id }}-a`.
 
      Результат:
 
@@ -184,9 +184,9 @@
      id: e1lnabc23r1c9d0efoje
      folder_id: b0g12ga82bcv0cdeferg
      created_at: "2021-10-04T16:29:12.450858436Z"
-     name: queue-autoscale-subnet-b
+     name: queue-autoscale-subnet-a
      network_id: enpabce123hde4ft1r3t
-     zone_id: {{ region-id }}-b
+     zone_id: {{ region-id }}-a
      v4_cidr_blocks:
      - 192.168.1.0/24
      ```
@@ -207,7 +207,7 @@
         ```
         
   1. Создайте облачную сеть `queue-autoscale-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/network_service.md#Create) или метода REST API [create](../../vpc/api-ref/Network/create.md). В ответных данных будет указан идентификатор сети.
-  1. Создайте подсеть `queue-autoscale-subnet-b` в зоне `{{ region-id }}-b` с CIDR `192.168.1.0/24` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) или метода REST API [create](../../vpc/api-ref/Subnet/create.md). В теле запроса укажите идентификатор сети.
+  1. Создайте подсеть `queue-autoscale-subnet-a` в зоне `{{ region-id }}-a` с CIDR `192.168.1.0/24` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/subnet_service.md#Create) или метода REST API [create](../../vpc/api-ref/Subnet/create.md). В теле запроса укажите идентификатор сети.
   
 {% endlist %}
 
@@ -305,10 +305,10 @@
    
    {% endnote %}
  
-1. Скачайте [архив с файлами для образа](https://storage.yandexcloud.net/doc-files/queue-autoscale-server.zip) (ZIP, 3 КБ) и распакуйте его:
+1. Скачайте [архив с файлами для образа](https://{{ s3-storage-host }}/doc-files/queue-autoscale-server.zip) (ZIP, 3 КБ) и распакуйте его:
 
    ```bash
-   wget https://storage.yandexcloud.net/doc-files/queue-autoscale-server.zip
+   wget https://{{ s3-storage-host }}/doc-files/queue-autoscale-server.zip
    unzip queue-autoscale-server.zip
    ```
    
@@ -388,7 +388,7 @@
      
      {% endcut %}
      
-   * В поле `subnet_id` укажите идентификатор подсети `queue-autoscale-subnet-b`.
+   * В поле `subnet_id` укажите идентификатор подсети `queue-autoscale-subnet-a`.
    
      {% cut "Как узнать идентификатор подсети" %}
      
@@ -399,14 +399,14 @@
        1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
        1. В списке сервисов выберите **{{ vpc-name }}**.
        1. Перейдите на вкладку **Подсети**.
-       1. В списке подсетей найдите `queue-autoscale-subnet-b` и скопируйте ее **Идентификатор**.
+       1. В списке подсетей найдите `queue-autoscale-subnet-a` и скопируйте ее **Идентификатор**.
             
      - CLI
      
        Выполните следующую команду:
        
        ```bash
-       yc vpc subnet get queue-autoscale-subnet-b
+       yc vpc subnet get queue-autoscale-subnet-a
        ```
        
        Результат:
@@ -415,9 +415,9 @@
        id: e1lnabc23r1c9d0efoje
        folder_id: b0g12ga82bcv0cdeferg
        created_at: "2021-10-04T16:29:12.450858436Z"
-       name: queue-autoscale-subnet-b
+       name: queue-autoscale-subnet-a
        network_id: enpabce123hde4ft1r3t
-       zone_id: {{ region-id }}-b
+       zone_id: {{ region-id }}-a
        v4_cidr_blocks:
        - 192.168.1.0/24
        ```
@@ -493,7 +493,7 @@
      * **Имя** — `queue-autoscale-ig`.
      * **Сервисный аккаунт** — `queue-autoscale-sa`.
      
-  1. В блоке **Распределение** выберите зону доступности `{{ region-id }}-b`.
+  1. В блоке **Распределение** выберите зону доступности `{{ region-id }}-a`.
   1. В блоке **Шаблон виртуальной машины** нажмите кнопку **Задать** и настройте шаблон:
   
      1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **Пользовательские** и нажмите кнопку **Выбрать**.
@@ -505,7 +505,7 @@
         
      1. В блоке **Сетевые настройки**:
      
-        * Выберите **Сеть** `queue-autoscale-network`. Подсеть `queue-autoscale-subnet-b` будет выбрана автоматически.
+        * Выберите **Сеть** `queue-autoscale-network`. Подсеть `queue-autoscale-subnet-a` будет выбрана автоматически.
         * В поле **Публичный адрес** выберите **Автоматически**, чтобы ВМ имели доступ в интернет и могли получать сообщения из очереди.
         
      1. В блоке **Доступ**:
@@ -573,7 +573,7 @@
   
      * В поле `folder_id` укажите идентификатор каталога в {{ yandex-cloud }}.
      * В поле `image_id` укажите идентификатор созданного образа.
-     * В поле `network_id` укажите идентификатор сети `queue-autoscale-network`, а в поле `subnet_ids` — идентификатор подсети `queue-autoscale-subnet-b`.
+     * В поле `network_id` укажите идентификатор сети `queue-autoscale-network`, а в поле `subnet_ids` — идентификатор подсети `queue-autoscale-subnet-a`.
      
        {% cut "Как узнать идентификатор сети" %}
             
@@ -629,7 +629,7 @@
     
      * В поле `folder_id` укажите идентификатор каталога в {{ yandex-cloud }}.
      * В поле `image_id` укажите идентификатор созданного образа.
-     * В поле `network_id` укажите идентификатор сети `queue-autoscale-network`, а в поле `subnet_ids` — идентификатор подсети `queue-autoscale-subnet-b`.
+     * В поле `network_id` укажите идентификатор сети `queue-autoscale-network`, а в поле `subnet_ids` — идентификатор подсети `queue-autoscale-subnet-a`.
      
        {% cut "Как узнать идентификатор сети" %}
             
@@ -709,6 +709,6 @@
 1. [Удалите](../operations/instance-groups/delete.md) группу виртуальных машин `queue-autoscale-ig`.
 1. [Удалите](../operations/image-control/delete.md) образ из семейства `queue-autoscale-image`.
 1. [Удалите](../../message-queue/operations/message-queue-delete-queue.md) очередь `queue-autoscale-queue`.
-1. [Удалите](../../vpc/operations/subnet-delete.md) подсеть `queue-autoscale-subnet-b`.
+1. [Удалите](../../vpc/operations/subnet-delete.md) подсеть `queue-autoscale-subnet-a`.
 1. [Удалите](../../vpc/operations/network-delete.md) сеть `queue-autoscale-network`.
 1. [Удалите](../../iam/operations/sa/delete.md) сервисный аккаунт `queue-autoscale-sa`.

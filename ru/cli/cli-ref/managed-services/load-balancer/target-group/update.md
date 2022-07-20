@@ -15,13 +15,13 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/> Target group id.|
-|`--name`|<b>`string`</b><br/> Target group name.|
-|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
-|`--target`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Adds a target to the target group.  Possible property names:  subnet-name Specifies the subnet that the target will connect to.  subnet-id Specifies the ID of the subnet that the target will connect to.  address Specifies the IP address that the target will connect to  |
-|`--new-name`|<b>`string`</b><br/> A new name of the target group.|
-|`--description`|<b>`string`</b><br/> Specifies a textual description of the target group.|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
+|`--id`|<b>`string`</b><br/>Target group id.|
+|`--name`|<b>`string`</b><br/>Target group name.|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--target`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Adds a target to the target group.<br/><br/>Possible property names:<br/><ul> <li><code>subnet-name</code>:     Specifies the subnet that the target will connect to.</li> <li><code>subnet-id</code>:     Specifies the ID of the subnet that the target will connect to.</li> <li><code>address</code>:     Specifies the IP address that the target will connect to</li> </ul>|
+|`--new-name`|<b>`string`</b><br/>A new name of the target group.|
+|`--description`|<b>`string`</b><br/>Specifies a textual description of the target group.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add.|
 
 #### Global Flags
 
@@ -31,10 +31,11 @@ Syntax:
 |`--debug`|Debug logging.|
 |`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
 |`--no-user-output`|Disable printing user intended output to stderr.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts. Pass 0 to disable retries. Pass any negative value for infinite retries. Even infinite retries are capped with 2 minutes timeout.|
+|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
 |`--cloud-id`|<b>`string`</b><br/>Set the ID of the cloud to use.|
 |`--folder-id`|<b>`string`</b><br/>Set the ID of the folder to use.|
 |`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
+|`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|
