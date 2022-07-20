@@ -120,7 +120,7 @@ Create and configure an [API Gateway](../api-gateway/concepts/index.md).
   1. Open **{{ api-gw-name }}**.
   1. Click Create **API gateway**.
   1. Enter a name for the gateway: `for-serverless-hello-telegram-bot`.
-  1. Clear the contents of the **Specification** field and replace them with the code below. In the `bucket` field, enter a name for the bucket. In the `service_account` field, enter the [service account ID](../iam/operations/sa/get-id.md).
+  1. Clear the contents of the **Specification** field and replace them with the code below. In the `bucket` field, enter a name for the bucket. In the `service_account_id` field, enter the [service account ID](../iam/operations/sa/get-id.md).
 
       ```yml
       openapi: 3.0.0
@@ -135,7 +135,7 @@ Create and configure an [API Gateway](../api-gateway/concepts/index.md).
               bucket: <bucket name>
               object: sayhello.png
               presigned_redirect: false
-              service_account: <service account ID>
+              service_account_id: <service account ID>
             operationId: static
       ```
 
