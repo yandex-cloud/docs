@@ -18,7 +18,7 @@ To change the organization assigned to the cloud:
 
       ![image](../../../_assets/iam/cloud-actions.png)
 
-   1. Select a new organization from the list and click **Change**. This automatically creates a request to [technical support]({{ link-console-support }}).
+   1. Select a new organization from the list and click **Change**.
 
 - New navigation
 {% endif %}
