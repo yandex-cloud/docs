@@ -14,6 +14,7 @@ description: "Step-by-step instructions for managing the cloud with {{ resmgr-fu
 * [{#T}](cloud/set-access-bindings.md)
 * [{#T}](cloud/change-organization.md)
 * [{#T}](cloud/switch-cloud.md)
+* [{#T}](cloud/get-id.md)
 * [{#T}](cloud/notify.md)
 
 ## Folder {#folder}
