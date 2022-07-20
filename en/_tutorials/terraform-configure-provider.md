@@ -4,12 +4,12 @@ The settings apply to {{ TF }} `0.13` and higher.
 
 {% endnote %}
 
-
+{% if product == "yandex-cloud" %}
 1. Specify the source the provider will be installed from.
 
    {% list tabs %}
 
-   - Linux and MacOS
+   - Linux and macOS
 
       Open the {{ TF }} CLI configuration file:
 
@@ -38,6 +38,7 @@ The settings apply to {{ TF }} `0.13` and higher.
    ```
 
    For more information about setting up mirrors, see the [documentation](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
+{% endif %}
 
 1. Add the following sections at the top of the `.tf` configuration file:
 
@@ -97,15 +98,19 @@ The settings apply to {{ TF }} `0.13` and higher.
    * `folder_id`: [ID of the folder](../resource-manager/operations/folder/get-id.md) where resources will be created by default.
    * `zone`: [The availability zone](../overview/concepts/geo-scope.md) where all cloud resources will be created by default.
 
+{% if product == "yandex-cloud" %}
 1. If you previously had a provider from the Hashicorp registry configured, delete its settings:
 
    ```
    rm -rf .terraform*
    ```
+{% endif %}
 
 1. Execute the `terraform init` command in the folder containing the `.tf` configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
 
 If the provider installation failed, create a [support]({{ link-console-support }}?section=contact) request indicating the provider name and version.
+
+{% if product == "yandex-cloud" %}
 
 If you used the `.terraform.lock.hcl` file, run the `terraform providers lock` command before initializing, specifying the URL of the mirror that the provider will be uploaded from and the platforms that the configuration will be used on:
 
@@ -114,3 +119,5 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 ```
 
 If you used modules, first run `terraform init`, then delete the lock file. After that, run the `terraform providers lock` command.
+
+{% endif %}
