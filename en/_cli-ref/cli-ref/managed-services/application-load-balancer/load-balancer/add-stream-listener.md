@@ -12,17 +12,17 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/> ID of the Application load balancer.|
-|`--name`|<b>`string`</b><br/> Name of the Application load balancer.|
-|`--listener-name`|<b>`string`</b><br/> Name of listener to add/update in application load balancer.|
-|`--enable-tls`| Enable TLS for specified listener.|
-|`--certificate-id`|<b>`value[,value]`</b><br/> Certificate ID for specified listener.|
-|`--external-ipv4-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> External IPv4 endpoint settings for specified listener.  Possible property names:  port Port for the listener.  address Use allocated address for the listener.  |
-|`--internal-ipv4-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Internal IPv4 endpoint settings for specified listener.  Possible property names:  port Port for the new listener.  subnet-id Subnet for internal endpoint.  |
-|`--external-ipv6-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> External IPv6 endpoint settings for specified listener.  Possible property names:  port Port for the listener.  address Use allocated address for the listener.  |
-|`--backend-group-id`|<b>`string`</b><br/> Backend group id for new listener.|
-|`--backend-group-name`|<b>`string`</b><br/> Backend group name for new listener.|
-|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+|`--id`|<b>`string`</b><br/>ID of the Application load balancer.|
+|`--name`|<b>`string`</b><br/>Name of the Application load balancer.|
+|`--listener-name`|<b>`string`</b><br/>Name of listener to add/update in application load balancer.|
+|`--enable-tls`|Enable TLS for specified listener.|
+|`--certificate-id`|<b>`value[,value]`</b><br/>Certificate ID for specified listener.|
+|`--external-ipv4-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>External IPv4 endpoint settings for specified listener.<br/><br/>Possible property names:<br/><ul> <li><code>port</code>:     Port for the listener.</li> <li><code>address</code>:     Use allocated address for the listener.</li> </ul>|
+|`--internal-ipv4-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Internal IPv4 endpoint settings for specified listener.<br/><br/>Possible property names:<br/><ul> <li><code>port</code>:     Port for the new listener.</li> <li><code>subnet-id</code>:     Subnet for internal endpoint.</li> </ul>|
+|`--external-ipv6-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>External IPv6 endpoint settings for specified listener.<br/><br/>Possible property names:<br/><ul> <li><code>port</code>:     Port for the listener.</li> <li><code>address</code>:     Use allocated address for the listener.</li> </ul>|
+|`--backend-group-id`|<b>`string`</b><br/>Backend group id for new listener.|
+|`--backend-group-name`|<b>`string`</b><br/>Backend group name for new listener.|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
 
@@ -32,10 +32,11 @@ Syntax:
 |`--debug`|Debug logging.|
 |`--debug-grpc`|Debug gRPC logging. Very verbose, used for debugging connection problems.|
 |`--no-user-output`|Disable printing user intended output to stderr.|
-|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts. Pass 0 to disable retries. Pass any negative value for infinite retries. Even infinite retries are capped with 2 minutes timeout.|
+|`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
 |`--cloud-id`|<b>`string`</b><br/>Set the ID of the cloud to use.|
 |`--folder-id`|<b>`string`</b><br/>Set the ID of the folder to use.|
 |`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
+|`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|
 |`--format`|<b>`string`</b><br/>Set the output format: text (default), yaml, json, json-rest.|
 |`-h`,`--help`|Display help for the command.|
