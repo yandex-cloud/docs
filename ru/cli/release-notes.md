@@ -39,7 +39,7 @@
 
   * Добавлен флаг `--node-name`, позволяющий указать шаблон именования узлов в группе.
 
-  * Добавлены флаги `--template-labels` и `--template-labels-from-files`, позволяющие указать [ресурсные метки {{ yandex-cloud }}](../overview/concepts/services.md#labels) для ВМ — узлов группы (не путать с [метками узлов {{ k8s }}](../managed-kubernetes/concepts/index.md#node-labels)).
+  * Добавлены флаги `--template-labels` и `--template-labels-from-files`, позволяющие указать {% if audience == "external" %}[ресурсные метки {{ yandex-cloud }}](../overview/concepts/services.md#labels){% endif %}{% if audience == "internal" %}ресурсные метки {{ yandex-cloud }}{% endif %} для ВМ — узлов группы (не путать с {% if audience == "external" %}[метками узлов {{ k8s }}](../managed-kubernetes/concepts/index.md#node-labels){% endif %}{% if audience == "internal" %}метками узлов {{ k8s }}{% endif %}).
 
 {% if product == "yandex-cloud" %}
 
