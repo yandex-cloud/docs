@@ -247,7 +247,7 @@ items:
       href: user/notification-digest.md
     - name: Подписать пользователей на изменения очереди
       href: manager/subscriptions.md
-    - name: Настройки уведомлений
+    - name: Настройки почтовых уведомлений
       items:
         - name: Обзор
           href: user/notification-settings.md
