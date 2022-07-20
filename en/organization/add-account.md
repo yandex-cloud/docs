@@ -1,6 +1,5 @@
 # Add a user
 
-{% if product == "yandex-cloud" %}
 ## Adding {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %}{#add-user-account} users
 
 If your employees have {% if product == "yandex-cloud" %}Yandex (for example, `{{login-example}}`){% endif %}{% if product == "cloud-il" %} Google{% endif %} accounts, they can use them to access {{yandex-cloud}} services enabled in your organization.
@@ -13,15 +12,22 @@ To add employee accounts to the organization, follow these steps:
 
 1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.png).
 
-1. In the top right-hand corner, click **Add user**.
+1. In the top right-hand corner, click {% if product == "yandex-cloud" %}**Add user**{% endif %}{% if product == "cloud-il" %}**Invite users**{% endif %}.
 
-1. Enter the email addresses of the {% if product == "yandex-cloud" %}Yandex users{% endif %}{% if product == "cloud-il" %}Google users{% endif %} you want to invite to the organization{% if product == "yandex-cloud" %} (for example, `{{login-example}}`){% endif %}.
+1. Enter the email addresses of the {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %} users you want to invite to the organization (for example, `{{login-example}}`).
 
-1. Click **Add**. This will give the users access to the organization.
+{% if product == "cloud-il" %}
+1. Select the invite expiration.
+   {% endif %}
 
-To access the organization's enabled services, invited users simply need to log in to their{% if product == "yandex-cloud" %} Yandex{% endif %}{% if product == "cloud-il" %} Google{% endif %} account.
+1. Click {% if product == "yandex-cloud" %}**Add**{% endif %}{% if product == "cloud-il" %}**Send invite**{% endif %}.
 
-{% endif %}
+To access the services enabled for the organization, invited users just {% if product == "yandex-cloud" %}need to log in to their Yandex account.{% endif %}{% if product == "cloud-il" %} need to:
+
+1. Click the invitation link and accept the invitation.
+2. Log into the organization.
+   {% endif %}
+
 ## Add federated users {#add-user-sso}
 
 If, when [setting up a federation](add-federation.md#federation-usage), you didn't enable the option to **Automatically create users**, you need to add your federated users to your organization manually.

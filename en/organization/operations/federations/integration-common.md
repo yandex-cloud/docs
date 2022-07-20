@@ -402,11 +402,11 @@ To correctly pass user information to {{ org-full-name }}, map SAML message attr
 ------------------- | ----------- | ----------------------
 | Unique user ID | Required attribute. We recommend using the User Principal Name (UPN) or email address. | `<NameID>` |
 | Last name | Displayed in {{yandex-cloud}} services. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"` parameter |
-| Name | Displayed in {{yandex-cloud}} services. | `<Attribute>`  with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"` parameter |
-| Full name | Displayed in {{yandex-cloud}} services.<br>Example: John Smith | `<Attribute>`  with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"` parameter |
-| Email | Used to send notifications from {{yandex-cloud}} services.<br>Example: `smith@example.com` | `<Attribute>`  with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"` parameter |
-| Phone | Used to send notifications from {{yandex-cloud}} services.<br>Example: {% if product == "yandex-cloud" %}+71234567890{% endif %}{% if product == "cloud-il" %}+972571234567{% endif %} | `<Attribute>`  with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"` parameter |
-| Profile image | Displayed in {{yandex-cloud}} services.<br>Images are transmitted in Base64 encoding. [Example](#avatar-example) | `<Attribute>`  with the<br>`Name="thumbnailPhoto"` parameter |
+| Name | Displayed in {{yandex-cloud}} services. | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"` parameter |
+| Full name | Displayed in {{yandex-cloud}} services.<br>Example: John Smith | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"` parameter |
+| Email | Used to send notifications from {{yandex-cloud}} services.<br>Example: `smith@example.com` | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"` parameter |
+| Phone | Used to send notifications from {{yandex-cloud}} services.<br>Example: {% if product == "yandex-cloud" %}+71234567890{% endif %}{% if product == "cloud-il" %}+972571234567{% endif %} | `<Attribute>` with the<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"` parameter |
+| Profile image | Displayed in {{yandex-cloud}} services.<br>Images are transmitted in Base64 encoding. [Example](#avatar-example) | `<Attribute>` with the<br>`Name="thumbnailPhoto"` parameter |
 
 ### Sample Base64-encoded image {#avatar-example}
 

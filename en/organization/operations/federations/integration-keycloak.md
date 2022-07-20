@@ -526,7 +526,7 @@ You can set up a mapping between the SAML message attributes and the personal da
 
 1. Enable the option for mapping the identity provider roles and {{org-full-name}}:
 
-   1. In the left panel, select **Client Scopes**  →  **role_list**.
+   1. In the left panel, select **Client Scopes** → **role_list**.
 
    1. Go to the **Mappers** tab and select **role list**.
 

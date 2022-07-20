@@ -29,7 +29,7 @@ links:
   href: "add-account"
   when: product == "yandex-cloud"
 - title: "Add users"
-  description: "To let your employees access your organization's services, connect them to the organization using an identity federation"
+  description: "Connect employees to an organization using an identity federation or Google account federation."
   href: "add-account"
   when: product == "cloud-il"
 - title: "Configure an identity federation"

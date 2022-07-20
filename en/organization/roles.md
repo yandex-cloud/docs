@@ -8,9 +8,7 @@ If a resource has child resources, all permissions from the parent resource will
 
 For more information about access control in {{ yandex-cloud }}, see the {{ iam-full-name }} documentation, [{#T}](../iam/concepts/access-control/index.md).
 
-## Appointing a user the organization administrator{#admin}
-
-To grant a user organization management access, [assign](#add-role) the user one of the following roles:
+## Service roles {#service-roles}
 
 * `organization-manager.admin`: The organization administrator role.
 
@@ -24,9 +22,16 @@ To grant a user organization management access, [assign](#add-role) the user one
 
 * `organization-manager.viewer`: This role is able to view, but not edit, an organization's settings.
 
-## Assigning a role to a user {#add-role}
+### Appointing a user the organization administrator {#admin}
 
-An organization's administrators and owners can assign roles in {{ org-full-name }}.  You can assign users both roles for managing an organization and roles for your organization's connected cloud resources.
+To grant a user organization management access, [assign](#add-role) the user one of the following roles:
+
+* `organization-manager.admin`;
+* `organization-manager.organizations.owner`.
+
+### Assigning a role to a user {#add-role}
+
+An organization's administrators and owners can assign roles in {{ org-full-name }}. You can assign users both roles for managing an organization and roles for your organization's connected cloud resources.
 
 For information about roles available in {{ yandex-cloud }} and their associated permissions, see the {{ iam-full-name }} documentation, [{#T}](../iam/concepts/access-control/roles.md).
 
@@ -73,14 +78,14 @@ For information about roles available in {{ yandex-cloud }} and their associated
           --subject federatedUser:<USER-ACCOUNT-ID>
       ```
 {% endif %}
-      * `<SERVICE-NAME>` is the name of the service whose resource an assigned role, such as `organization-manager`, applies to.
+      * `<SERVICE-NAME>` is the name of the service whose resource the role, such as `organization-manager`, is assigned to.
       * `<RESOURCE>` is the resource category. For an organization, `organization` is the category of importance.
       * `<RESOURCE-NAME>` is the name of the resource. Refer to an organization by its [technical name](#org-profile.md).
       * `<RESOURCE-ID>` is the resource ID.
       * `<ROLE-ID>` is the role ID, such as `organization-manager.admin`.
       * `<USER-ACCOUNT-ID>` is the ID of the user account assigned the role.
 
-      For example, assign an organization administrator role with the ID `bpf3crucp1v28b74p3rk`:
+      For example, assign the administrator role for the organization with the ID `bpf3crucp1v28b74p3rk`:
 {% if product == "yandex-cloud" %}
 
       ```bash
@@ -106,11 +111,9 @@ For information about roles available in {{ yandex-cloud }} and their associated
    1. [Get the user ID](users-get.md).
 
    1. Create a request body, for example, in a `body.json` file. Set the `action` property to `ADD` and specify the {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} type and user ID in the `subject` property:
-
-      Example `body.json` file:
 {% if product == "yandex-cloud" %}
 
-      Пример файла `body.json`:
+      Example `body.json` file:
 
       ```json
       {
@@ -130,7 +133,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 {% endif %}
 {% if product == "cloud-il" %}
 
-      Пример файла `body.json`:
+      Sample file `body.json`:
 
       ```json
       {
@@ -150,14 +153,14 @@ For information about roles available in {{ yandex-cloud }} and their associated
 {% endif %}
    1. Assign the role. For example, for an organization with the ID `bpf3crucp1v28b74p3rk`:
 
-   ```bash
-   export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
-   export IAM_TOKEN=CggaATEVAgA...
-   curl -X POST \
-       -H "Content-Type: application/json" \
-       -H "Authorization: Bearer ${IAM_TOKEN}" \
-       -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
-   ```
+      ```bash
+      export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
+      export IAM_TOKEN=CggaATEVAgA...
+      curl -X POST \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${IAM_TOKEN}" \
+          -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      ```
 
    For detailed instructions on assigning a role to a resource, please see the {{ iam-full-name }} and {{ resmgr-full-name }} documentation:
    * [{#T}](../iam/operations/sa/set-access-bindings.md)
@@ -172,10 +175,10 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
       * `organization_id`: Organization ID.
       * `role`: Role to assign. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../iam/concepts/access-control/roles.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding`.
-      * `members`: An array of the IDs of users to assign a role to:
-{% if product == "yandex-cloud" %}
-         * `userAccount:{user_id}`: User's {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %} account ID.
-{% endif %}
+      * `members`: An array of the IDs of users to assign the role to:
+         {% if product == "yandex-cloud" %}
+         * `userAccount:{user_id}`: User's {% if product == "yandex-cloud" %} Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %} account ID.
+            {% endif %}
          * `serviceAccount:{service_account_id}`: Service account ID.
          * `federatedUser:{federated_user_id}`: Federated user ID.
 
@@ -191,7 +194,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       }
       ```
 
-      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
 
    2. Make sure that the configuration files are correct.
 
@@ -215,7 +218,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
 {% endlist %}
 
-## Revoking a user's role {#revoke}
+### Revoking a user's role {#revoke}
 
 If you wish to deny a user access to a resource, revoke the relevant roles for this resource and for resources that grant inherited access rights. For more information on access control in {{ yandex-cloud }}, please see the [{{ iam-full-name }}](../iam/concepts/access-control/index.md) documentation.
 
@@ -283,6 +286,7 @@ If you wish to deny a user access to a resource, revoke the relevant roles for t
       ```
 
 {% endif %}
+
    1. To delete an access binding, run:
 
       ```bash
@@ -291,18 +295,18 @@ If you wish to deny a user access to a resource, revoke the relevant roles for t
           --subject <SUBJECT-TYPE>:<SUBJECT-ID>
       ```
 
-      * `<ROLE-ID>` is the ID of the role to revoke, such as `organization-manager.admin`.
-      * `<SUBJECT-TYPE>` is the [subject](../iam/concepts/access-control/index.md#subject) type to revoke a role from.
-      * `<SUBJECT-ID>` is the subject ID.
+   * `<ROLE-ID>` is the ID of the role to revoke, such as `organization-manager.admin`.
+   * `<SUBJECT-TYPE>` is the [subject](../iam/concepts/access-control/index.md#subject) type to revoke a role from.
+   * `<SUBJECT-ID>` is the subject ID.
 
-      For example, to revoke a role from a user with the ID `aje6o61dvog2h6g9a33s`:
+   For example, to take a role away from a user with the ID `aje6o61dvog2h6g9a33s`:
 {% if product == "yandex-cloud" %}
 
-      ```bash
-      yc organization-manager organization remove-access-binding bpf3crucp1v28b74p3rk \
-          --role organization-manager.admin \
-          --subject userAccount:aje6o61dvog2h6g9a33s
-      ```
+   ```bash
+   yc organization-manager organization remove-access-binding bpf3crucp1v28b74p3rk \
+       --role organization-manager.admin \
+       --subject userAccount:aje6o61dvog2h6g9a33s
+   ```
 
 {% endif %}
 {% if product == "cloud-il" %}
@@ -402,13 +406,13 @@ If you wish to deny a user access to a resource, revoke the relevant roles for t
 {% endif %}
    1. Revoke the role by deleting the specified access binding:
 
-   ```bash
-   export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
-   export IAM_TOKEN=CggaATEVAgA...
-   curl -X POST \
-       -H "Content-Type: application/json" \
-       -H "Authorization: Bearer ${IAM_TOKEN}" \
-       -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
-   ```
+       ```bash
+       export ORGANIZATION_ID=bpf3crucp1v28b74p3rk
+       export IAM_TOKEN=CggaATEVAgA...
+       curl -X POST \
+           -H "Content-Type: application/json" \
+           -H "Authorization: Bearer ${IAM_TOKEN}" \
+           -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+       ```
 
 {% endlist %}
