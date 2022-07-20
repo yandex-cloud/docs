@@ -114,6 +114,12 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
         --ssh-key ~/.ssh/id_rsa.pub
       ```
 
+      {% if product == "cloud-il" %}
+
+      {% include [vm-platform-cli](../../../_includes/compute/vm-platform-cli.md) %}
+
+      {% endif %}
+
       This command creates a preemptible VM with the following characteristics:
 
       * Named `first-preemptible-instance`.

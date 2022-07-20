@@ -78,6 +78,24 @@ description: "Следуя данной инструкции вы сможете
       * `nat-ip-version=ipv4` – публичный IP. Чтобы создать виртуальную машину без публичного IP, исключите параметр.
       * `ssh-key` — путь до публичного SSH-ключа. Для этого ключа на виртуальной машине будет автоматически создан пользователь `yc-user`.
 
+      {% if product == "cloud-il" %}
+
+      {% include [vm-platform-cli](../../../_includes/compute/vm-platform-cli.md) %}
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      {% include [vm-platform-cli](../../../_includes/compute/vm-platform-cli.md) %}
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      {% include [vm-platform-cli](../../../_includes/compute/vm-platform-cli.md) %}
+
+      {% endif %}
+
   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
 - API

@@ -59,7 +59,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
       * `platform`: [Platform](../../concepts/vm-platforms.md) ID:
          {% if product == "yandex-cloud" %}* `gpu-standard-v1` for {{ v100-broadwell }}.{% endif %}
-         {% if product == "yandex-cloud" %}* `gpu-standard-v2` for {{ v100-cascade-lake }}.{% endif %}s
+         {% if product == "yandex-cloud" %}* `gpu-standard-v2` for {{ v100-cascade-lake }}.{% endif %}
          * `gpu-standard-v3` for {{ a100-epyc }}.
       * `cores`: [Number of vCPUs](../../concepts/gpus.md).
       * `memory`: [RAM](../../concepts/gpus.md).

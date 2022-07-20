@@ -120,11 +120,15 @@ Make sure the uploaded image is in the `READY` status.
 
       This command creates a VM with a 5 GB boot disk from the pre-loaded image named `test-vm-from-image`.
 
-      {% include [name-format](../../../_includes/name-format.md) %}
-
       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
       The `yc-user` user will be created on the VM with the public key from the `~/.ssh/id_rsa.pub` file. The VM gets a public IP address. To create a VM without a public IP, remove the `--public-ip` flag.
+
+      {% if product == "cloud-il" %}
+
+      {% include [vm-platform-cli](../../../_includes/compute/vm-platform-cli.md) %}
+
+      {% endif %}
 
 - API
 

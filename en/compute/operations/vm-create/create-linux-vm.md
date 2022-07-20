@@ -80,6 +80,12 @@ This section provides guidelines for creating a VM with a Linux OS. To create a 
 
       This creates a VM named `first-instance`.
 
+      {% if product == "cloud-il" %}
+ 
+      {% include [vm-platform-cli](../../../_includes/compute/vm-platform-cli.md) %}
+ 
+      {% endif %}
+
    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
 - API

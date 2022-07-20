@@ -67,11 +67,11 @@ export PATH=$PATH:/path/to/packer
       "folder_id": "<folder ID>",
       "zone":      "{{ region-id }}-a",
 
-      "image_name":        "debian-9-nginx-not_var{{isotime | clean_resource_name}}",
+      "image_name":        "debian-11-nginx-not_var{{isotime | clean_resource_name}}",
       "image_family":      "debian-web-server",
       "image_description": "my custom debian with nginx",
 
-      "source_image_family": "debian-9",
+      "source_image_family": "debian-11",
       "subnet_id":           "<subnet ID>",
       "use_ipv4_nat":        true,
       "disk_type":           "network-ssd",
@@ -103,18 +103,19 @@ export PATH=$PATH:/path/to/packer
 {
   "builders": [
     {
-      "type":      "yandex",
-      "endpoint":  "{{ api-host }}:443",
-      "token":     "<service account static key>",
-      "folder_id": "<folder ID>",
-      "zone":      "{{ region-id }}-a",
+      "type":                     "yandex",
+      "endpoint":                 "{{ api-host }}:443",
+      "service_account_key_file": "<path to the file with the service account static key>",
+      "folder_id":                "<folder ID>",
+      "zone":                     "{{ region-id }}-a",
 
-      "image_name":        "debian-9-nginx-not_var{{isotime | clean_resource_name}}",
+      "image_name":        "debian-11-nginx-not_var{{isotime | clean_resource_name}}",
       "image_family":      "debian-web-server",
       "image_description": "my custom debian with nginx",
 
-      "source_image_family": "debian-9",
+      "source_image_family": "debian-11",
       "subnet_id":           "<subnet ID>",
+      "platform_id":         "standard-v3",
       "use_ipv4_nat":        true,
       "disk_type":           "network-ssd",
       "ssh_username":        "debian"

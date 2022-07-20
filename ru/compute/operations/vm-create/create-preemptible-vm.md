@@ -114,6 +114,12 @@
         --ssh-key ~/.ssh/id_rsa.pub
       ```
 
+      {% if product == "cloud-il" %}
+
+      {% include [vm-platform-cli](../../../_includes/compute/vm-platform-cli.md) %}
+
+      {% endif %}
+
       Данная команда создаст прерываемую виртуальную машину со следующими характеристиками:
 
       * С именем `first-preemptible-instance`.
