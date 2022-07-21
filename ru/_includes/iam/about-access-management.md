@@ -4,7 +4,7 @@
 
 {% if audience != "internal" %}
 
-Чтобы выдать разрешения к ресурсу, [назначьте роли](../../iam/operations/roles/grant.md) на этот ресурс субъекту, который будет выполнять операции. Роли можно назначить аккаунту {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md) или [системной группе](../../iam/concepts/access-control/system-group.md). Подробнее читайте в разделе [{#T}](../../iam/concepts/access-control/index.md).
+Чтобы выдать разрешения к ресурсу, [назначьте роли](../../iam/operations/roles/grant.md) на этот ресурс субъекту, который будет выполнять операции. Роли можно назначить аккаунту {% if product == "yandex-cloud" %}на Яндексе{% endif %}{% if product == "cloud-il" %}Google{% endif %}, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md) или [системной группе](../../iam/concepts/access-control/system-group.md). Подробнее читайте в разделе [{#T}](../../iam/concepts/access-control/index.md).
 
 {% endif %}
 
