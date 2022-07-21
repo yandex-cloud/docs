@@ -11,6 +11,10 @@ Syntax:
 
 `yc compute instance add-labels <INSTANCE-NAME>|<INSTANCE-ID> --labels KEY=VALUE[,KEY=VALUE...] [Flags...] [Global Flags...]`
 
+Example: 
+
+`yc compute instance add-labels fhme5u4e916alasfe119 --labels label="testlabel"`
+
 #### Flags
 
 | Flag | Description |
