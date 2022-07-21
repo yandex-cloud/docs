@@ -91,6 +91,8 @@ items:
             href: operations/node-customization.md
           - name: Запросы в ноды
             href: operations/node-api.md
+          - name: Удаление ноды
+            href: operations/node-delete.md
   - name: Концепции
     items:
       - name: Обзор
