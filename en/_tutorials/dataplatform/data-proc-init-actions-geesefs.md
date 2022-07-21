@@ -1,6 +1,6 @@
 # Using initialization actions to configure GeeseFS in {{ dataproc-name }}
 
-In {{ dataproc-full-name }}, you can use [initialization actions](../../data-proc/concepts/init-action.md) to configure hosts.
+In {{ dataproc-full-name }}, you can use {% if audience != "internal" %}[initialization actions](../../data-proc/concepts/init-action.md){% else %}initialization actions{% endif %} to configure hosts.
 
 With them, you can automate the installation and set up of [GeeseFS](../../storage/tools/geesefs.md), the software that lets {{ dataproc-full-name }} cluster hosts to mount {{ objstorage-full-name }} buckets via [FUSE]({% if lang == "ru" %}https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра){% else %}https://en.wikipedia.org/wiki/Filesystem_in_Userspace{% endif %}).
 
@@ -10,11 +10,11 @@ To set up GeeseFS:
 1. [Create a cluster that uses the initialization action](#create-cluster).
 1. [Check bucket availability](#check-availability).
 
-If you no longer need these resources, [delete them](clear-out).
+If you no longer need these resources, [delete them](#clear-out).
 
 ## Before you begin {#before-you-begin}
 
-1. [Create a service account](../../iam/operations/sa/create.md) with the `mdb.dataproc.agent` role.
+1. {% if audience != "internal" %}[Create a service account](../../iam/operations/sa/create.md){% else %}Create a service account{% endif %} with the `mdb.dataproc.agent` role.
 
 1. [Create an {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).
 
@@ -24,7 +24,7 @@ If you no longer need these resources, [delete them](clear-out).
 
       The service account will get read access only for the specified bucket.
 
-   * [Grant to the service account](../../iam/operations/sa/assign-role-for-sa.md) the `storage.viewer` role.
+   * {% if audience != "internal" %}[Assign the service account](../../iam/operations/sa/assign-role-for-sa.md){% else %}Assign the service account{% endif %} the `storage.viewer` role.
 
       The service account will get read access to all buckets in the folder.
 
@@ -59,7 +59,7 @@ If you no longer need these resources, [delete them](clear-out).
 
 ## Create a cluster that would use the initialization action {#create-cluster}
 
-[Create a {{ dataproc-name }} cluster](../../data-proc/operations/cluster-create.md) with the following settings:
+{% if audience != "internal" %}[Create a {{ dataproc-name }} cluster](../../data-proc/operations/cluster-create.md){% else %}Create a {{ dataproc-name }} cluster{% endif %} with the following settings:
 
 * **Service account**: Select the service account you created previously.
 * **Custom scripts**: Add an action with the following parameters:
@@ -70,10 +70,11 @@ If you no longer need these resources, [delete them](clear-out).
       s3a://<bucket name>/geesefs_mount.sh
       ```
 
-   * **Arguments**: Use a single string to specify the name of the previously created bucket and the `/mnt/test` mount point, separating them by a comma:
+   * **Arguments**: Specify the name of the previously created bucket and `/mnt/test` as your mount point. Arguments are specified on separate lines:
 
       ```text
-      ["<bucket name>","/mnt/test"]
+      <bucket name>
+      /mnt/test
       ```
 
 * **Bucket name**: Select a previously created bucket.
@@ -82,7 +83,7 @@ If you no longer need these resources, [delete them](clear-out).
 
 ## Check {#check-availability} bucket availability.
 
-1. After the cluster status changes to **Alive**, [connect via SSH](../../data-proc/operations/connect.md#data-proc-ssh) from the `ubuntu` user to any of its hosts.
+1. After the cluster status changes to **Alive**, {% if audience != "internal" %}[connect via SSH](../../data-proc/operations/connect.md#data-proc-ssh){% else %}connect via SSH{% endif %} to any of its hosts as the `ubuntu` user.
 
 1. To make sure that the bucket has been mounted successfully, run the command:
 
@@ -96,6 +97,6 @@ If you no longer need these resources, [delete them](clear-out).
 
 If you no longer need these resources, delete them:
 
-1. [Delete a {{ dataproc-name }} cluster](../../data-proc/operations/cluster-delete.md).
-1. If static public IP addresses were used for accessing the cluster hosts, release and [delete them](../../vpc/operations/address-delete.md).
+1. {% if audience != "internal" %}[Delete the {{ dataproc-name }} cluster](../../data-proc/operations/cluster-delete.md){% else %}Delete the {{ dataproc-name }} cluster{% endif %}.
+1. If you used static public IP addresses to access the cluster hosts, release and {% if audience != "internal" %}[delete them](../../vpc/operations/address-delete.md){% else %}delete them{% endif %}.
 1. [Delete the {{ objstorage-full-name }} bucket](../../storage/operations/buckets/delete.md).
