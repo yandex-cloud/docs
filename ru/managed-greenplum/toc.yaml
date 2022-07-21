@@ -23,6 +23,8 @@ items:
         href: operations/update.md
       - name: Использование внешних таблиц
         href: operations/external-tables.md
+      - name: Управление расширениями Greenplum
+        href: operations/cluster-extensions.md
       - name: Просмотр логов кластера
         href: operations/cluster-logs.md
       - name: Удаление кластера
