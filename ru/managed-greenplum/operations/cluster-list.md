@@ -8,7 +8,19 @@
 
 - Консоль управления
 
-    Перейдите на страницу каталога и выберите сервис **{{ mgp-name }}**.
+    Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgp-name }}**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы запросить список кластеров {{ GP }} в каталоге, выполните команду:
+
+    ```bash
+    {{ yc-mdb-gp }} cluster list
+    ```
 
 - API
 
@@ -22,8 +34,22 @@
 
 - Консоль управления
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ mgp-name }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgp-name }}**.
     1. Нажмите на имя нужного кластера.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы получить информацию о кластере {{ GP }}, выполните команду:
+
+    ```bash
+    {{ yc-mdb-gp }} cluster get <идентификатор или имя кластера>
+    ```
+
+    Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
 
 - API
 
@@ -39,8 +65,22 @@
 
 - Консоль управления
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ mgp-name }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mgp-name }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![operations.svg](../../_assets/mdb/operations.svg) **Операции**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы получить список операций, выполните команду:
+
+    ```bash
+    {{ yc-mdb-gp }} cluster list-operations <идентификатор или имя кластера>
+    ```
+
+    Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
 
 - API
 

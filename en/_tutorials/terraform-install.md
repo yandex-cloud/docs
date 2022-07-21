@@ -1,3 +1,4 @@
+
 ### From a mirror {#from-yc-mirror}
 
 You can download a {{ TF }} distribution for your platform from a [mirror]({{ terraform-mirror }}). When the download is complete, add the path to the folder with the executable to the `PATH` variable:
@@ -6,7 +7,9 @@ You can download a {{ TF }} distribution for your platform from a [mirror]({{ te
 export PATH=$PATH:/path/to/terraform
 ```
 
+
 ### From the Hashicorp website {#from-hashicorp-site}
+
 
 {% list tabs %}
 

@@ -1,3 +1,4 @@
+
 ### Из зеркала {#from-yc-mirror}
 
 Вы можете скачать дистрибутив {{ TF }} для вашей платформы из [зеркала]({{ terraform-mirror }}). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`:
@@ -6,7 +7,9 @@
 export PATH=$PATH:/path/to/terraform
 ```
 
+
 ### С сайта Hashicorp {#from-hashicorp-site}
+
 
 {% list tabs %}
 
