@@ -523,34 +523,34 @@ default:
   yds: yds
   ch-domain: clickhouse.com
 
-  #СУБД
-  ch: #Clickhouse
-   docs: https://clickhouse.com/docs/ru
-  gl: #GitLab
+  # СУБД
+  ch: # Clickhouse
+    docs: https://clickhouse.com/docs/ru
+  gl: # GitLab
     docs: https://docs.gitlab.com
-  gp: #Greenplum
-   docs:
+  gp: # Greenplum
+    docs:
       org: https://docs.greenplum.org
       pivotal: https://gpdb.docs.pivotal.io
-  kf: #Apache Kafka
+  kf: # Kafka
     docs: https://kafka.apache.org/documentation/
-  md: #MongoDB
+  # Kubernetes
+  k8s-docs: https://kubernetes.io/ru/docs
+  mg: # MongoDB
     docs:
-       comd: https://www.mongodb.com/docs/manual
-       dcom: https://docs.mongodb.com/manual/mongo
-  ms: #SQL Server
+      comd: https://www.mongodb.com/docs/manual
+      dcom: https://docs.mongodb.com/manual/mongo
+  ms: # SQL Server
     docs: https://docs.microsoft.com/ru-ru
-  my: #MySQL
+  my: # MySQL
     docs: https://dev.mysql.com/doc
-  pg: #PostgreSQL
+  pg: # PostgreSQL
     docs:
-       org: https://www.postgresql.org/docs
-       pro: https://postgrespro.ru/docs
-  rd: #Redis
+      org: https://www.postgresql.org/docs
+      pro: https://postgrespro.ru/docs
+  rd: # Redis
     docs: https://redis.io/docs
-  k8s-docs: https://kubernetes.io/ru/docs #Kubernetes в документации нет некоторых страниц на русском языке
-    
-  ydb:
+  ydb: # YDB
     docs: https://ydb.tech/ru/docs/
 
   yq-full-name: Yandex Query

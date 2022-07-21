@@ -516,34 +516,34 @@ default:
   yds: yds
   ch-domain: clickhouse.com
 
-  #DB
-  ch: #Clickhouse
-   docs: https://clickhouse.com/docs/en
-  gl:  #GitLab
+  # DB
+  ch: # Clickhouse
+    docs: https://clickhouse.com/docs/en
+  gl: # GitLab
     docs: https://docs.gitlab.com
-  gp:  #Greenplum
+  gp: # Greenplum
    docs:
-      org: https://docs.greenplum.org
-      pivotal: https://gpdb.docs.pivotal.io
-  kf:  #Apache Kafka
+     org: https://docs.greenplum.org
+     pivotal: https://gpdb.docs.pivotal.io
+  kf: # Kafka
     docs: https://kafka.apache.org/documentation/
-  md: #MongoDB
+  # Kubernetes
+  k8s-docs: https://kubernetes.io/docs
+  mg: # MongoDB
     docs:
-       comd: https://www.mongodb.com/docs/manual
-       dcom: https://docs.mongodb.com/manual
-  ms: #SQL Server
+      comd: https://www.mongodb.com/docs/manual
+      dcom: https://docs.mongodb.com/manual
+  ms: # SQL Server
     docs: https://docs.microsoft.com/en-us
-  my: #MySQL
+  my: # MySQL
     docs: https://dev.mysql.com/doc
-  pg: #PostgreSQL
+  pg: # PostgreSQL
     docs:
-       org: https://www.postgresql.org/docs
-       pro: https://postgrespro.com/docs
-  rd: #Redis
+      org: https://www.postgresql.org/docs
+      pro: https://postgrespro.com/docs
+  rd: # Redis
     docs: https://redis.io/docs
-  k8s-docs: https://kubernetes.io/docs #Kubernetes
-
-  ydb:
+  ydb: # YDB
     docs: https://ydb.tech/en/docs/
 
   # ML
