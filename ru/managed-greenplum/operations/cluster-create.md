@@ -83,6 +83,185 @@
 
     1. Нажмите кнопку **Создать**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы создать кластер:
+
+    {% if audience != "internal" %}
+
+    1. Проверьте, есть ли в каталоге подсети для хостов кластера:
+
+        ```bash
+        yc vpc subnet list
+        ```
+
+        Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
+
+    {% endif %}
+
+    1. Посмотрите описание команды CLI для создания кластера:
+
+        ```bash
+        {{ yc-mdb-gp }} cluster create --help
+        ```
+
+    1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
+
+        {% if audience != "internal" %}
+
+        ```bash
+        {{ yc-mdb-gp }} cluster create <имя кластера> \
+           --greenplum-version=<версия {{ GP }}: {{ versions.cli.str }}> \
+           --environment=<окружение: PRESTABLE или PRODUCTION> \
+           --network-name=<имя сети> \
+           --user-name=<имя пользователя> \
+           --user-password=<пароль пользователя> \
+           --master-config resource-id=<класс хоста>,`
+                          `disk-size=<объем хранилища, ГБ>,`
+                          `disk-type=<тип хранилища> \
+           --segment-config resource-id=<класс хоста>,`
+                          `disk-size=<объем хранилища, ГБ>,`
+                          `disk-type=<тип хранилища> \
+           --zone-id=<зона доступности> \
+           --subnet-id=<идентификатор подсети> \
+           --assign-public-ip=<доступ к хостам через публичный IP-адрес: true или false> \
+           --security-group-ids=<список идентификаторов групп безопасности> \
+           --deletion-protection=<защита от удаления кластера: true или false>
+        ```
+
+        {% note info %}
+
+        Имя кластера должно быть уникальным в каталоге. Оно может содержать латинские буквы, цифры, дефис и нижнее подчеркивание. Максимальная длина имени 63 символа.
+
+        {% endnote %}
+
+        Где:
+
+        * `--greenplum-version` — версия {{ GP }}.
+        * `--environment` — окружение:
+            * `PRODUCTION` — для стабильных версий ваших приложений.
+            * `PRESTABLE` — для тестирования, в том числе самого сервиса {{ GP }}. В Prestable-окружении раньше появляются новая функциональность, улучшения и исправления ошибок. При этом не все обновления обеспечивают обратную совместимость.
+        * `--network-name` — [имя сети](../../vpc/concepts/network.md#network).
+        * `--user-name` — имя пользователя. Может содержать латинские буквы, цифры, дефис и нижнее подчеркивание, но должно начинаться с буквы, цифры или нижнего подчеркивания. Длина от 1 до 32 символов.
+        * `--user-password` — пароль. Длина от 8 до 128 символов.
+        * `--master-config` и `--segment-config` — конфигурация хостов-мастеров и хостов-сегментов:
+            * `resource-id` — [класс хоста](../concepts/instance-types.md#available-flavors).
+            * `disk-size` — объем хранилища в гигабайтах.
+            * `disk-type` — [тип хранилища](../concepts/storage.md):
+                * `network-hdd`;
+                * `network-ssd`;
+                * `local-ssd`;
+                * `network-ssd-nonreplicated`.
+        * `--zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
+        * `--subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
+        * `--assign-public-ip` — флаг, который указывается, если хостам требуется [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
+        * `--security-group-ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
+        * `--deletion-protection` — защита от удаления кластера.
+
+        {% else %}
+
+        ```bash
+        {{ yc-mdb-gp }} cluster create <имя кластера> \
+           --greenplum-version=<версия {{ GP }}: {{ versions.cli.str }}> \
+           --environment=<окружение: PRESTABLE или PRODUCTION> \
+           --network-name=<имя сети> \
+           --user-name=<имя пользователя> \
+           --user-password=<пароль пользователя> \
+           --master-config resource-id=<класс хоста>,`
+                          `disk-size=<объем хранилища, ГБ>,`
+                          `disk-type=<тип хранилища> \
+           --segment-config resource-id=<класс хоста>,`
+                          `disk-size=<объем хранилища, ГБ>,`
+                          `disk-type=<тип хранилища> \
+           --zone-id=<зона доступности> \
+           --security-group-ids=<список идентификаторов групп безопасности> \
+           --deletion-protection=<защита от удаления кластера: true или false>
+        ```
+
+        {% note info %}
+
+        Имя базы должно быть уникальным в каталоге. Оно может содержать латинские буквы, цифры, дефис и нижнее подчеркивание. Максимальная длина имени 63 символа.
+
+        {% endnote %}
+
+        Где:
+
+        * `--greenplum-version` — версия {{ GP }}.
+        * `--environment` — окружение:
+            * `PRODUCTION` — для стабильных версий ваших приложений.
+            * `PRESTABLE` — для тестирования, в том числе самого сервиса {{ GP }}. В Prestable-окружении раньше появляются новая функциональность, улучшения и исправления ошибок. При этом не все обновления обеспечивают обратную совместимость.
+        * `--network-name` — [имя сети](../../vpc/concepts/network.md#network).
+        * `--user-name` — имя пользователя. Может содержать латинские буквы, цифры, дефис и нижнее подчеркивание, но должно начинаться с буквы, цифры или нижнего подчеркивания. Длина от 1 до 32 символов.
+        * `--user-password` — пароль. Длина от 8 до 128 символов.
+        * `--master-config` и `--segment-config` — конфигурация хостов-мастеров и хостов-сегментов:
+            * `resource-id` — [класс хоста](../concepts/instance-types.md#available-flavors).
+            * `disk-size` — объем хранилища в гигабайтах.
+            * `disk-type` — [тип хранилища](../concepts/storage.md):
+                * `network-hdd`;
+                * `network-ssd`;
+                * `local-ssd`;
+                * `network-ssd-nonreplicated`.
+        * `--zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
+        * `--security-group-ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
+        * `--deletion-protection` — защита от удаления кластера.
+
+        {% endif %}
+
+            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+    1. Чтобы задать время начала резервного копирования, передайте нужное значение в формате `HH:MM:SS` в параметре `--backup-window-start`:
+
+        ```bash
+        {{ yc-mdb-gp }} cluster create <имя кластера> \
+           ...
+           --backup-window-start=<время начала резервного копирования>
+        ```
+
+    {% if product == "yandex-cloud" and audience != "internal" %}
+
+    1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids`:
+
+        ```bash
+        {{ yc-mdb-gp }} cluster create <имя кластера> \
+           ...
+           --host-group-ids=<идентификаторы групп выделенных хостов>
+        ```
+
+        {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
+    {% endif %}
+
+    1. Чтобы настроить время технического обслуживания (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window` при создании кластера:
+
+        ```bash
+        {{ yc-mdb-gp }} cluster create <имя кластера> \
+           ...
+           --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
+                               `day=<день недели для типа weekly>,`
+                               `hour=<час дня для типа weekly>
+        ```
+
+        Где:
+
+        * `type` — тип технического обслуживания:
+            * `anytime` — в любое время.
+            * `weekly` — по расписанию.
+        * `day` — день недели для типа `weekly` в формате `DDD`. Например, `MON`.
+        * `hour` — час дня по UTC для типа `weekly` в формате `HH`. Например, `21`.
+
+    1. Чтобы разрешить доступ из других сервисов, передайте значение `true` в их параметрах при создании кластера:
+
+        ```bash
+        {{ yc-mdb-gp }} cluster create <имя кластера> \
+           ...
+           --datalens-access=<доступ из DataLens: true или false> \
+           --websql-access=<доступ из консоли управления: true или false>
+        ```
+
 - API
 
     Воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
@@ -107,6 +286,105 @@
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+{% endlist %}
+
+## Примеры {#examples}
+
+### Создание кластера {#create-example}
+
+{% list tabs %}
+
+- CLI
+
+    Создайте кластер {{ mgp-name }} с тестовыми характеристиками:
+
+    {% if audience != "internal" %}
+
+    * С именем `gp-cluster`.
+    * Версии `{{ versions.cli.latest }}`.
+    * В окружении `PRODUCTION`.
+    * В сети `default`.
+    * С пользователем `user1`.
+    * С паролем `user1user1`.
+    * С хостами-мастерами и хостами-сегментами:
+
+        * Класса `s2.medium`.
+        * С хранилищем на локальных SSD-дисках (`local-ssd`) объемом 100 ГБ.
+
+    * В зоне доступности `{{ region-id }}-a`, в подсети `{{ subnet-id }}`.
+    * С публичным доступом к хостам.
+    * В группе безопасности `{{ security-group }}`.
+    * С защитой от случайного удаления кластера.
+
+    {% else %}
+
+    * С именем `gp-cluster`.
+    * Версии `{{ versions.cli.latest }}`.
+    * В окружении `PRODUCTION`.
+    * В сети `default`.
+    * С пользователем `user1`.
+    * С паролем `user1user1`.
+    * С хостами-мастерами и хостами-сегментами:
+
+        * Класса `s2.medium`.
+        * С хранилищем на локальных SSD-дисках (`local-ssd`) объемом 100 ГБ.
+
+    * В зоне доступности `{{ zone-id }}`.
+    * С публичным доступом к хостам.
+    * В группе безопасности `{{ security-group }}`.
+    * С защитой от случайного удаления кластера.
+
+    {% endif %}
+
+    Выполните следующую команду:
+
+    {% if audience != "internal" %}
+
+    ```bash
+    {{ yc-mdb-gp }} cluster create \
+       --name=gp-cluster \
+       --sqlserver-version={{ versions.cli.latest }} \
+       --environment=PRODUCTION \
+       --network-name=default \
+       --user-name=user1 \
+       --user-password=user1user1 \
+       --master-config resource-id=s2.medium,`
+                      `disk-size=100,`
+                      `disk-type=local-ssd \
+       --segment-config resource-id=s2.medium,`
+                       `disk-size=100,`
+                       `disk-type=local-ssd \
+       --zone-id={{ region-id }}-a \
+       --subnet-id={{ subnet-id }} \
+       --assign-public-ip=true \
+       --security-group-ids={{ security-group }} \
+       --deletion-protection=true
+    ```
+
+    {% else %}
+
+    ```bash
+    {{ yc-mdb-gp }} cluster create \
+       --name=gp-cluster \
+       --sqlserver-version={{ versions.cli.latest }} \
+       --environment=PRODUCTION \
+       --network-name=default \
+       --user-name=user1 \
+       --user-password=user1user1 \
+       --master-config resource-id=s2.medium,`
+                      `disk-size=100,`
+                      `disk-type=local-ssd \
+       --segment-config resource-id=s2.medium,`
+                       `disk-size=100,`
+                       `disk-type=local-ssd \
+       --zone-id={{ zone-id }} \
+       --assign-public-ip=true \
+       --security-group-ids={{ security-group }} \
+       --deletion-protection=true
+    ```
+
+    {% endif %}
 
 {% endlist %}
 
