@@ -57,7 +57,7 @@ editable: false
 
 ### Вычислительные ресурсы хостов {#prices-host}
 
-Цены на вычислительные ресурсы одинаковы для всех видов хостов — mongod, mongos и mongocfg. 
+Цены на вычислительные ресурсы одинаковы для всех видов хостов — mongod, mongos и mongocfg.
 
 
 {% include [rub-host](../_pricing/managed-mongodb/rub-host.md) %}

@@ -15,12 +15,16 @@ items:
         href: operations/cluster-create.md
       - name: Подключение к базе данных
         href: operations/connect.md
+      - name: Остановка и запуск кластера
+        href: operations/cluster-stop.md
       - name: Управление хостами кластера
         href: operations/cluster-hosts.md
       - name: Изменение настроек кластера
         href: operations/update.md
       - name: Использование внешних таблиц
         href: operations/external-tables.md
+      - name: Управление расширениями Greenplum
+        href: operations/cluster-extensions.md
       - name: Просмотр логов кластера
         href: operations/cluster-logs.md
       - name: Удаление кластера

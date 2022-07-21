@@ -4,6 +4,7 @@
 * [{#T}](calculate-specs.md)
 * [{#T}](cluster-create.md)
 * [{#T}](connect.md)
+* [{#T}](cluster-stop.md)
 * [{#T}](cluster-hosts.md)
 * [{#T}](update.md)
 * [{#T}](external-tables.md)

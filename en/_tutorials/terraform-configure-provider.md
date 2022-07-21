@@ -4,12 +4,11 @@ The settings apply to {{ TF }} `0.13` and higher.
 
 {% endnote %}
 
-
 1. Specify the source the provider will be installed from.
 
    {% list tabs %}
 
-   - Linux and MacOS
+   - Linux and macOS
 
       Open the {{ TF }} CLI configuration file:
 
@@ -82,6 +81,7 @@ The settings apply to {{ TF }} `0.13` and higher.
 
 If the provider installation failed, create a [support]({{ link-console-support }}?section=contact) request indicating the provider name and version.
 
+
 If you used the `.terraform.lock.hcl` file, run the `terraform providers lock` command before initializing, specifying the URL of the mirror that the provider will be uploaded from and the platforms that the configuration will be used on:
 
 ```
@@ -89,3 +89,4 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 ```
 
 If you used modules, first run `terraform init`, then delete the lock file. After that, run the `terraform providers lock` command.
+
