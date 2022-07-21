@@ -17,7 +17,10 @@
    {% if product == "cloud-il" %}
    
    ```
-   yc init --endpoint {{ api-host }}:443 --federation-id <ID федерации>
+   yc init \
+     --endpoint {{ api-host }}:443 \
+     --federation-endpoint {{ console-host }} \
+     --federation-id <ID федерации>
    ```
    
    {% endif %}

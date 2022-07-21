@@ -32,7 +32,10 @@ To authenticate using a Google account:
 1. Launch the profile creation wizard:
 
    ```
-   yc init --endpoint {{ api-host }}:443 --federation-id google
+   yc init \
+     --endpoint {{ api-host }}:443 \
+     --federation-endpoint {{ console-host }} \
+     --federation-id google
    ```
 1. Select the profile you want to set up authentication for or create a new one.
    ```

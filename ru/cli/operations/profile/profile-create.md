@@ -53,10 +53,29 @@
 
 Интерактивное создание профилей доступно:
 
-* Для пользователей (аккаунтов Google) — с помощью команды `yc init --endpoint {{ api-host }}:443 --federation-id google`. Подробнее см. в разделе [{#T}](../authentication/user.md).
-* Для федеративных пользователей — с помощью команды `yc init --endpoint {{ api-host }}:443 --federation-id <идентификатор федерации>`. Подробнее см. в разделе [{#T}](../authentication/federated-user.md).
+* Для пользователей с аккаунтами Google:
+  
+  ```bash
+  yc init \
+    --endpoint {{ api-host }}:443 \
+    --federation-endpoint {{ console-host }} \
+    --federation-id google
+  ```
+  
+  Подробнее см. в разделе [{#T}](../authentication/user.md).
+  
+* Для федеративных пользователей:
+  
+  ```bash
+  yc init \
+    --endpoint {{ api-host }}:443 \
+    --federation-endpoint {{ console-host }} \
+    --federation-id <идентификатор федерации>
+  ```
+  
+  Подробнее см. в разделе [{#T}](../authentication/federated-user.md).
 
-Запускать команду `yc init` без параметров `--endpoint` и `--federation-id` нельзя.
+Запускать команду `yc init` без параметров `--endpoint`, `--federation-endpoint` и `--federation-id` нельзя.
 
 {% endif %}
 

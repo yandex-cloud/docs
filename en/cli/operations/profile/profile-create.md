@@ -47,10 +47,29 @@ Create a profile with the `test` name:
 
 Wizard-based profile creation is available:
 
-* For users (of Google accounts): With the `yc init --endpoint {{ api-host }}:443 --federation-id google` command. For more information, see [{#T}](../authentication/user.md).
-* For federated users: With the `yc init --endpoint {{ api-host }}:443 --federation-id <federation ID>` command. For more information, see [{#T}](../authentication/federated-user.md).
+* For users with Google accounts: 
+  
+  ```bash
+  yc init \
+    --endpoint {{ api-host }}:443 \
+    --federation-endpoint {{ console-host }} \
+    --federation-id google
+  ```
+  
+  For more information, see [{#T}](../authentication/user.md).
+  
+* For federated users:
+  
+  ```bash
+  yc init \
+    --endpoint {{ api-host }}:443 \
+    --federation-endpoint {{ console-host }} \
+    --federation-id <federation ID>
+  ```
+  
+  For more information, see [{#T}](../authentication/federated-user.md).
 
-You can't run the `yc init` command without the `--endpoint` parameter or without the `--federation-id` parameter.
+You can't run the `yc init` command without `--endpoint`, `--federation-endpoint`, or `--federation-id` parameters.
 
 {% endif %}
 

@@ -15,7 +15,10 @@ To authenticate using an [SAML-compatible identity federation](../../organizatio
    {% if product == "cloud-il" %}
 
    ```
-   yc init --endpoint {{ api-host }}:443 --federation-id <federation ID>
+   yc init \
+     --endpoint {{ api-host }}:443 \
+     --federation-endpoint {{ console-host }} \
+     --federation-id <federation ID>
    ```
 
    {% endif %}

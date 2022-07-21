@@ -475,6 +475,7 @@ default:
   coi: Container Optimized Image
   yc-install-path: /yandexcloud-yc/install.sh
   yc-windows-path: /yandexcloud-yc/install.ps1
+  console-host: console.cloud.yandex.ru
   link-console-billing: https://console.cloud.yandex.ru/billing
   link-console-cloud: https://console.cloud.yandex.ru/cloud
   link-console-main: https://console.cloud.yandex.ru
@@ -804,6 +805,7 @@ cloud-il:
   s3-storage-host: storage.cloudil.com
   s3-web-host: website.cloudil.com
   s3-objstorage-host: s3.cloudil.com
+  console-host: console.cloudil.co.il
   link-console-billing: https://console.cloudil.co.il/billing
   link-console-cloud: https://console.cloudil.co.il/cloud
   link-console-main: https://console.cloudil.co.il
