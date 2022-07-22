@@ -78,19 +78,19 @@ Two VMs were created running Linux OS:
 
 Both VMs have been running for 30 days.
 
-Cost formula for a virtual machine with 5% vCPU at ₽0.1932 per hour of CPU core time and ₽0.2441 per hour of 1 GB of RAM:
-> 5% vCPU = ₽0.1932/hour * 30 days * 24 hours = ₽139.1040
+Cost formula for a virtual machine with 5% vCPU at ₽0.3100 per hour of CPU core time and ₽0.3900 per hour of 1 GB of RAM:
+> 5% vCPU = ₽0.3100/hour * 30 days * 24 hours = ₽223.2000
 >
-> 1 GB RAM = ₽0.2441/hour * 30 days * 24 hours = ₽175.7520
+> 1 GB RAM = ₽0.3900/hour * 30 days * 24 hours = ₽280.8000
 >
->Total: ₽314.8560
+>Total: ₽504.0000
 
-Cost formula for a virtual machine with 100% vCPU at ₽0.7017 per hour of CPU core time and ₽0.2441 per hour of 1 GB of RAM:
-> 1 vCPU = ₽0.7017/hour * 30 days * 24 hours = ₽505.2240
+Cost formula for a virtual machine with 100% vCPU at ₽1.1200 per hour of CPU core time and ₽0.3900 per hour of 1 GB of RAM:
+> 100% vCPU = ₽1.1200/hour * 30 days * 24 hours = ₽806.4000
 >
-> 1 GB RAM = ₽0.2441/hour * 30 days * 24 hours = ₽175.7520
+> 1 GB RAM = ₽0.3900/hour * 30 days * 24 hours = ₽280.8000
 >
->Total: ₽680.9760
+>Total: ₽1087.2000
 
 As you can see, the cost of the VM using 5% vCPU is about half as much as that of the VM using 100% vCPU.
 
