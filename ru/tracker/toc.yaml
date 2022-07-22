@@ -595,8 +595,12 @@ items:
                 href: concepts/queues/get-info-local-field.md
               - name: Редактировать локальное поле очереди
                 href: concepts/queues/edit-local-field.md
-      - name: Получить информацию о текущем пользователе
-        href: get-user-info.md
+      - name: Пользователи
+        items:
+          - name: Получить информацию о текущем пользователе
+            href: get-user-info.md
+          - name: Получить информацию о пользователях
+            href: get-users.md
       - name: Возможные коды ответа
         href: error-codes.md
   - name: Вопросы и ответы
