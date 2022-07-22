@@ -1,3 +1,15 @@
+### 1C:Предприятие {#1c}
+
+Если кластер использует версию {{ PG }}, оптимизированную для работы с системой <q>1С:Предприятие</q>, укажите в настройках:
+
+* **Защищенное соединение** — отключено.
+* **Тип СУБД** — `PostgreSQL`.
+* **Сервер баз данных** — `с-<идентификатор кластера>.rw.{{ dns-zone }} port={{ port-mpg }}`.
+* **Имя базы данных** — `<имя БД>`.
+* **Пользователь базы данных** — `<имя пользователя>`.
+* **Пароль пользователя** — `<пароль>`.
+* **Создать базу данных в случае ее отсутствия** — отключено.
+
 ### Bash {#bash}
 
 Перед подключением установите зависимости:
@@ -47,53 +59,38 @@ sudo apt update && sudo apt install -y postgresql-client
 
 ### C# EF Core {#csharpefcore}
 
-Необходимые пакеты:
-
-* Microsoft.EntityFrameworkCore
-* Npgsql.EntityFrameworkCore.PostgreSQL
+Для подключения к кластеру необходим пакет [Npgsql](https://www.nuget.org/packages/Npgsql/).
 
 {% list tabs %}
 
 - Подключение с SSL
 
   ```csharp
-  using System;
-  using System.Threading.Tasks;
-  using Microsoft.EntityFrameworkCore;
-
+  using Npgsql;
+  
   namespace ConsoleApp
   {
-      public class VersionString
-      {
-          public int id { get; set; }
-          public string versionString { get; set; }
-      }
-      public class ApplicationContext : DbContext
-      {
-          public ApplicationContext()
-          {
-              Database.EnsureCreated();
-          }
-          protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-          {
-              var host      = "c-<идентификатор кластера>.rw.{{ dns-zone }}";
-              var port      = "6432";
-              var db        = "<имя БД>";
-              var username  = "<имя пользователя>";
-              var password  = "<пароль пользователя>";
-              optionsBuilder.UseNpgsql($"Host={host};Port={port};Database={db};Username={username};Password={password};Ssl Mode=Require;Trust Server Certificate=true;");
-          }
-          public DbSet<VersionString> VersionStrings { get; set; }
-
-      }
       class Program
       {
           static async Task Main(string[] args)
           {
-              using (ApplicationContext db = new ApplicationContext())
+              var host       = "c-<идентификатор кластера>.rw.{{ dns-zone }}";
+              var port       = "{{ port-mpg }}";
+              var db         = "<имя БД>";
+              var username   = "<имя пользователя>";
+              var password   = "<пароль пользователя>";
+              var connString = $"Host={host};Port={port};Database={db};Username={username};Password={password};Ssl Mode=VerifyFull;";
+
+              await using var conn = new NpgsqlConnection(connString);
+              await conn.OpenAsync();
+
+              await using (var cmd = new NpgsqlCommand("SELECT VERSION();", conn))
+              await using (var reader = await cmd.ExecuteReaderAsync())
               {
-                  var versionStrings = await db.VersionStrings.FromSqlRaw(@"select 1 as id,version() as versionString;").ToListAsync();
-                  Console.WriteLine(versionStrings[0].versionString);
+                  while (await reader.ReadAsync())
+                  {
+                      Console.WriteLine(reader.GetInt32(0));
+                  }
               }
           }
       }
@@ -794,6 +791,89 @@ pip3 install psycopg2-binary
       ```bash
       python3 connect.py
       ```
+
+{% endlist %}
+
+### R {#r}
+
+Перед подключением:
+
+1. Установите зависимости:
+
+    ```bash
+    sudo apt update && sudo apt install libpq-dev r-base --yes
+    ```
+
+1. Установите библиотеку [RPostgres](https://rpostgres.r-dbi.org/):
+
+    ```bash
+    sudo R --interactive
+    install.packages("RPostgres")
+    quit()
+    ```
+
+{% list tabs %}
+
+- Подключение без SSL
+
+    1. Пример кода:
+
+        `connect.R`
+
+        ```R
+        library(DBI)
+
+        conn <- dbConnect(RPostgres::Postgres(),
+            dbname="<имя БД>",
+            host="с-<идентификатор кластера>.rw.{{ dns-zone }}",
+            port={{ port-mpg }},
+            user="<имя пользователя>",
+            password="<пароль пользователя>"
+        )
+        
+        res <- dbSendQuery(conn, "SELECT VERSION();")
+        dbFetch(res)
+        dbClearResult(res)
+
+        dbDisconnect(conn)
+        ```
+
+    1. Подключение:
+
+        ```bash
+        R connect.r
+        ```
+
+- Подключение с SSL
+
+    1. Пример кода:
+
+        `connect.R`
+
+        ```R
+        library(DBI)
+
+        conn <- dbConnect(RPostgres::Postgres(),
+            dbname="<имя БД>",
+            host="с-<идентификатор кластера>.rw.{{ dns-zone }}",
+            port={{ port-mpg }},
+            sslmode="verify-full",
+            user="<имя пользователя>",
+            password="<пароль пользователя>"
+        )
+
+        res <- dbSendQuery(conn, "SELECT VERSION();")
+        dbFetch(res)
+        dbClearResult(res)
+
+        dbDisconnect(conn)
+        ```
+
+    1. Подключение:
+
+        ```bash
+        R connect.r
+        ```
 
 {% endlist %}
 
