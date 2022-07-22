@@ -1,6 +1,6 @@
-Для крупных организаций стоимость {{ tracker-name }} [рассчитывается по ступенчатому тарифу](../../tracker/pricing#sec_calculate). Для первых 100 пользователей полный доступ к {{ tracker-name }} стоит {{ sku|KZT|b2b.tracker.license.v1|pricingRate.6|int|string }} в месяц за каждого пользователя. Если к {{ tracker-name }} уже подключены 100 сотрудников организации, для следующих 150 пользователей цена будет ниже — {{ sku|KZT|b2b.tracker.license.v1|pricingRate.100|int|string }} в месяц. Если подключены более 250 сотрудников, цена за каждого нового пользователя — {{ sku|KZT|b2b.tracker.license.v1|pricingRate.250|int|string }} в месяц.
+Для крупных организаций стоимость {{ tracker-name }} [рассчитывается по ступенчатому тарифу](../../tracker/pricing#sec_calculate). Для первых 100 пользователей полный доступ к {{ tracker-name }} стоит {{ sku|KZT|b2b.tracker.license.v1|pricingRate.6|int|string }} за пользователя в месяц. Если к {{ tracker-name }} уже подключены 100 сотрудников организации, для следующих 150 пользователей цена будет ниже — {{ sku|KZT|b2b.tracker.license.v1|pricingRate.100|int|string }} за пользователя в месяц. Если подключены более 250 сотрудников, цена за каждого нового пользователя — {{ sku|KZT|b2b.tracker.license.v1|pricingRate.250|int|string }} в месяц.
 
-| Количество <br>подключенных <br>пользователей | Цена при подключении <br>новых пользователей <br>(за пользователя в месяц) * |
+| Количество пользователей <br>с полным доступом| Стоимость {{ tracker-full-name }} <br>за одного пользователя, <br>в месяц * |
 | ----- | ----- |
 | не более 5 | {{ sku|KZT|b2b.tracker.license.v1|int|string }} |
 | 6–100 | {{ sku|KZT|b2b.tracker.license.v1|pricingRate.6|int|string }} |
