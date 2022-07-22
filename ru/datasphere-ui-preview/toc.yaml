@@ -50,8 +50,8 @@ items:
             href: operations/projects/work-with-git.md
           - name: Работа с контрольными точками
             href: operations/projects/checkpoints.md
-          - name: Безопасная работа с секретными данными
-            href: operations/secret.md
+          - name: Работа с секретами
+            href: operations/data/secret.md
       - name: Подключение к источникам данных
         items:
           - name: Подключение к базе данных {{ CH }}

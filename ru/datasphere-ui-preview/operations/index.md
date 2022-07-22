@@ -21,3 +21,10 @@ description: "Страница содержит все инструкции дл
 * [{#T}](data-proc-integration.md)
 {% endif %}
 
+## Подключение к источникам данных {#connections-to-data-sources}
+
+* [{#T}](data/connect-to-s3.md)
+* [{#T}](data/connect-to-google-drive.md)
+* [{#T}](data/connect-to-clickhouse.md)
+* [{#T}](data/connect-to-postgresql.md)
+* [{#T}](data/connect-to-ya-disk.md)

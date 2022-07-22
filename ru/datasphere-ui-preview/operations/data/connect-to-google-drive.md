@@ -8,9 +8,9 @@
 1. [Создайте OAuth client ID](https://developers.google.com/workspace/guides/create-credentials#tvs-limited-input-devices), укажите тип приложения **TVs and Limited Input devices**. Сохраните файл `client_secret.json` с секретом пользователя, он понадобится при подключении к Google Drive. 
 1. {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 
-1. [Создайте секрет](../secret.md#create), в котором будет храниться содержимое файла `client_secret.json`.
+1. [Создайте секрет](../data/secret.md#create), в котором будет храниться содержимое файла `client_secret.json`.
 
-## Загрузите содержимое из файла на Google Drive в файл проекта {{ ml-platform-name }} {#get-file}
+## Загрузить содержимое из файла на Google Drive в файл проекта {{ ml-platform-name }} {#get-file}
 
 1. Перейдите в новую ячейку и скопируйте туда команду для загрузки содержимого из файла на Google Drive:
 
@@ -30,7 +30,7 @@
 
 1. Запустите ячейку, выбрав в меню **Run** → **Run Selected Cells** (также можно использовать сочетание клавиш **Shift** + **Enter**).
 
-## Загрузите содержимое из каталога на Google Drive в каталог проекта {{ ml-platform-name }} {#get-dir}
+## Загрузить содержимое из каталога на Google Drive в каталог проекта {{ ml-platform-name }} {#get-dir}
 
 1. Перейдите в новую ячейку и скопируйте туда команду для загрузки содержимого из каталога на Google Drive:
 
@@ -50,7 +50,7 @@
 
 1. Запустите ячейку.
 
-## Загрузите содержимое из файла проекта {{ ml-platform-name }} в файл на Google Drive {#put-file}
+## Загрузить содержимое из файла проекта {{ ml-platform-name }} в файл на Google Drive {#put-file}
 
 1. Перейдите в новую ячейку и скопируйте туда команду для загрузки содержимого файла проекта {{ ml-platform-name }} в Google Drive:
 
@@ -70,7 +70,7 @@
 
 1. Запустите ячейку.
 
-## Загрузите содержимое из каталога проекта {{ ml-platform-name }} в каталог на Google Drive {#put-dir}
+## Загрузить содержимое из каталога проекта {{ ml-platform-name }} в каталог на Google Drive {#put-dir}
 
 1. Перейдите в новую ячейку и скопируйте туда команду для загрузки содержимого каталога проекта {{ ml-platform-name }} в Google Drive:
 

@@ -1,0 +1,1 @@
+Для этого выберите **Kernel** ⟶ **Restart kernel** в меню проекта, открытого в JupyterLab.

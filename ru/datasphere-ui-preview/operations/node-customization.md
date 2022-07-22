@@ -2,7 +2,7 @@
 
 1. [Создайте Docker-образ](user-images.md) в проекте и установите необходимые зависимости в скрипте сборки. Соберите образ.
 
-1. [Создайте секрет](secret.md#create) с паролем для вашего реестра контейнеров. Если вы используете реестр {{ container-registry-full-name }}, [аутентифицируйтесь по авторизованному ключу](../../container-registry/operations/authentication.md#sa-json) для [сервисного аккаунта](../../iam/concepts/users/service-accounts.md). Чтобы сгенерировать авторизованный ключ, в CLI выполните команду:
+1. [Создайте секрет](data/secret.md#create) с паролем для вашего реестра контейнеров. Если вы используете реестр {{ container-registry-full-name }}, [аутентифицируйтесь по авторизованному ключу](../../container-registry/operations/authentication.md#sa-json) для [сервисного аккаунта](../../iam/concepts/users/service-accounts.md). Чтобы сгенерировать авторизованный ключ, в CLI выполните команду:
 
       ``` 
       yc iam key create --service-account-id <service_account_id> -o key.json
