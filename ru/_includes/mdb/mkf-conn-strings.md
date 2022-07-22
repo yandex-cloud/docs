@@ -1452,7 +1452,7 @@ npm install node-rdkafka
 
 {% include [shell-howto](../../_includes/mdb/mkf/connstr-shell-howto.md) %}
 
-### Python {#python}
+### Python (kafka-python) {#kafka-python}
 
 Перед подключением установите зависимости:
 
@@ -1557,6 +1557,156 @@ pip3 install kafka-python lz4 python-snappy crc32c
 
       for msg in consumer:
           print(msg.key.decode("utf-8") + ":" + msg.value.decode("utf-8"))
+      ```
+
+  1. Запуск приложений:
+
+      ```bash
+      python3 consumer.py
+      ```
+
+      ```bash
+      python3 producer.py
+      ```
+
+{% endlist %}
+
+{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
+
+### Python (confluent-kafka) {#confluent-kafka-python}
+
+Перед подключением установите зависимости:
+
+```bash
+pip install confluent_kafka
+```
+
+{% list tabs %}
+
+- Подключение без SSL
+
+  1. Пример кода для отправки сообщения в топик:
+
+      `producer.py`
+
+      ```python
+      from confluent_kafka import Producer
+
+      def error_callback(err):
+          print('Something went wrong: {}'.format(err))
+
+      params = {
+          'bootstrap.servers': '<FQDN хоста-брокера>:9092',
+          'security.protocol': 'SASL_PLAINTEXT',
+          'sasl.mechanism': 'SCRAM-SHA-512',
+          'sasl.username': '<имя производителя>',
+          'sasl.password': '<пароль производителя>',
+          'error_cb': error_callback,
+      }
+
+      p = Producer(params)
+      p.produce('<имя топика>', 'some payload1')
+      p.flush(10)
+      ```
+
+  1. Пример кода для получения сообщений из топика:
+
+      `consumer.py`
+
+      ```python
+      from confluent_kafka import Consumer
+
+      def error_callback(err):
+          print('Something went wrong: {}'.format(err))
+
+      params = {
+          'bootstrap.servers': '<FQDN хоста-брокера>:9092',
+          'security.protocol': 'SASL_PLAINTEXT',
+          'sasl.mechanism': 'SCRAM-SHA-512',
+          'sasl.username': '<имя потребителя>',
+          'sasl.password': '<пароль потребителя>',
+          'group.id': 'test-consumer1',
+          'auto.offset.reset': 'earliest',
+          'enable.auto.commit': False,
+          'error_cb': error_callback,
+          'debug': 'all',
+      }
+      c = Consumer(params)
+      c.subscribe(['<имя топика>'])
+      while True:
+          msg = c.poll(timeout=3.0)
+          if msg:
+              val = msg.value().decode()
+              print(val)
+      ```
+
+  1. Запуск приложений:
+
+      ```bash
+      python3 producer.py
+      ```
+
+      ```bash
+      python3 consumer.py
+      ```
+
+- Подключение с SSL
+
+  1. Пример кода для отправки сообщения в топик:
+
+      `producer.py`
+
+      ```python
+      from confluent_kafka import Producer
+
+      def error_callback(err):
+          print('Something went wrong: {}'.format(err))
+
+      params = {
+          'bootstrap.servers': '<FQDN хоста-брокера>:9091',
+          'security.protocol': 'SASL_SSL',
+          'ssl.ca.location': '{{ crt-local-dir }}{{ crt-local-file }}',
+          'sasl.mechanism': 'SCRAM-SHA-512',
+          'sasl.username': '<имя производителя>',
+          'sasl.password': '<пароль производителя>',
+          'error_cb': error_callback,
+      }
+
+      p = Producer(params)
+      p.produce('<имя топика>', 'some payload1')
+      p.flush(10)
+      ```
+
+  1. Пример кода для получения сообщений из топика:
+
+      `consumer.py`
+
+      ```python
+      from confluent_kafka import Consumer
+
+      def error_callback(err):
+          print('Something went wrong: {}'.format(err))
+
+      params = {
+          'bootstrap.servers': '<FQDN хоста-брокера>:9091',
+          'security.protocol': 'SASL_SSL',
+          'ssl.ca.location': '{{ crt-local-dir }}{{ crt-local-file }}',
+          'sasl.mechanism': 'SCRAM-SHA-512',
+          'sasl.username': '<имя потребителя>',
+          'sasl.password': '<пароль потребителя>',
+          'group.id': 'test-consumer1',
+          'auto.offset.reset': 'earliest',
+          'enable.auto.commit': False,
+          'error_cb': error_callback,
+          'debug': 'all',
+      }
+      c = Consumer(params)
+      c.subscribe(['<имя топика>'])
+      while True:
+          msg = c.poll(timeout=3.0)
+          if msg:
+              val = msg.value().decode()
+              print(val)
       ```
 
   1. Запуск приложений:
