@@ -6,7 +6,7 @@
 
     1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
   1. [Получите IAM-токен](../iam/operations/iam-token/create.md), необходимый для аутентификации.
-  1. [Получите идентификатор любого каталога](../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `editor` или выше.
+  1. [Получите идентификатор любого каталога](../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `ai.vision.user` или выше.
 
 - Сервисный аккаунт
 
@@ -17,7 +17,7 @@
           ```
           Authorization: Api-Key <API-ключ>
           ```
-  1. [Назначьте сервисному аккаунту роль](../iam/operations/sa/assign-role-for-sa.md) `editor` или выше на каталог, в котором он был создан.
+  1. [Назначьте сервисному аккаунту роль](../iam/operations/sa/assign-role-for-sa.md) `ai.vision.user` или выше на каталог, в котором он был создан.
 
       Не указывайте в запросах идентификатор каталога — сервис использует каталог, в котором был создан сервисный аккаунт.
 
@@ -29,7 +29,7 @@
       ```bash
       yc iam create-token
       ```
-  1. [Получите идентификатор любого каталога](../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `editor` или выше.
+  1. [Получите идентификатор любого каталога](../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `ai.vision.user` или выше.
   
 {% endlist %}
 
