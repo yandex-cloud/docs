@@ -76,14 +76,24 @@ items:
       - name: Запуск распределенного обучения
         href: operations/taas-run.md
         when: product == "yandex-cloud"
-      - name: Развертывание эксплуатации моделей
+      - name: Развернуть эксплуатацию моделей
         items:
-          - name: Создание ноды из ячейки с кодом на Python
-            href: operations/node-cell.md
-          - name: Настройка окружения ноды
-            href: operations/node-customization.md
-          - name: Запросы в ноды
-            href: operations/node-api.md
+          - name: Создать ноду с кодом на Python
+            href: operations/deploy/node-create.md
+          - name: Изменить ноду
+            href: operations/deploy/node-update.md
+          - name: Удалить ноду
+            href: operations/deploy/node-delete.md
+          - name: Настроить окружение ноды
+            href: operations/deploy/node-customization.md
+          - name: Отправить запрос в ноду
+            href: operations/deploy/node-api.md
+          - name: Создать алиас
+            href: operations/deploy/alias-create.md
+          - name: Изменить алиас
+            href: operations/deploy/alias-update.md
+          - name: Удалить алиас
+            href: operations/deploy/alias-delete.md
   - name: Концепции
     items:
       - name: О сервисе DataSphere
