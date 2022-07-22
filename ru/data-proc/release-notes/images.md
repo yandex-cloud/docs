@@ -2,6 +2,16 @@
 
 Полный состав актуальных и устаревших образов {{ dataproc-name }} см. в разделе [{#T}](../concepts/environment.md).
 
+## 2.0.45 {#2.0.45}
+
+* Исправлена ошибка с MapReduce Application History Server не на мастер-хосте кластера.
+* Разрешена конфигурация HIVE без YARN.
+* Разрешен запуск HiveServer2 только вместе с MapReduce.
+
+## 2.0.43 {#2.0.43}
+
+* Унифицированы расчеты cores/memory для Spark/YARN.
+
 ## 2.0.42 {#2.0.42}
 
 * Apache Spark обновлен до версии 3.0.3 и собран с профилем [hadoop-cloud](https://spark.apache.org/docs/3.0.3/cloud-integration.html) для использования [Magic Committer](https://hadoop.apache.org/docs/r3.2.3/hadoop-aws/tools/hadoop-aws/committers.html#Using_the_Magic_committer) и формата Parquet.
