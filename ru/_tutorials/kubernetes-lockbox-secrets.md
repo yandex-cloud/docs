@@ -2,11 +2,7 @@
 
 Существует [несколько схем интеграции](https://external-secrets.io/latest/guides-multi-tenancy/) {{ lockbox-name }} с сервисом {{ managed-k8s-name }}. Далее для примера рассматривается схема [ESO as a Service](https://external-secrets.io/latest/guides-multi-tenancy/#eso-as-a-service):
 
-{% if product == "yandex-cloud" %}
-
-![image](../_assets/managed-kubernetes/mks-lockbox-eso.svg)
-
-{% endif %}
+{% if product == "yandex-cloud" %}![image](../_assets/managed-kubernetes/mks-lockbox-eso.svg){% endif %}{% if product == "cloud-il" %}![image](../_assets/managed-kubernetes/mks-lockbox-eso-il.svg){% endif %}
 
 Чтобы настроить синхронизацию секретов:
 1. [Установите External Secrets Operator](#install-eso).
