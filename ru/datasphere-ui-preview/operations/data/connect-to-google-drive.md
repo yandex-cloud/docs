@@ -8,7 +8,7 @@
 1. [Создайте OAuth client ID](https://developers.google.com/workspace/guides/create-credentials#tvs-limited-input-devices), укажите тип приложения **TVs and Limited Input devices**. Сохраните файл `client_secret.json` с секретом пользователя, он понадобится при подключении к Google Drive. 
 1. {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 
-1. [Создайте секрет](../data/secret.md#create), в котором будет храниться содержимое файла `client_secret.json`.
+1. [Создайте секрет](../data/secrets.md#create), в котором будет храниться содержимое файла `client_secret.json`.
 
 ## Загрузить содержимое из файла на Google Drive в файл проекта {{ ml-platform-name }} {#get-file}
 

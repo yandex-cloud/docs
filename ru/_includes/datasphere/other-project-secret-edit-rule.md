@@ -1,1 +1,1 @@
-Секрет, который создан в другом проекте, нельзя изменить, но можно изменить его [копию](../../datasphere-ui-preview/operations/data/secret.md#copy).
+Секрет, который создан в другом проекте, нельзя изменить, но можно изменить его [копию](../../datasphere-ui-preview/operations/data/secrets.md#copy).

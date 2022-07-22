@@ -88,7 +88,7 @@
 
 1. Создайте персональный токен доступа на [GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token).
 
-1. [Создайте секрет](../data/secret.md#create.md) для этого токена.
+1. [Создайте секрет](../data/secrets.md#create.md) для этого токена.
 
 1. Перейдите в блок ![git](../../../_assets/datasphere/jupyterlab/git.svg) **Git**.
 

@@ -28,55 +28,50 @@ items:
             href: operations/projects/create.md
           - name: Добавить пользователя в проект
             href: operations/projects/add-user.md
-          - name: Установить пакеты
-            href: operations/projects/install-dependencies.md
           - name: Выбрать версию Python
             href: operations/projects/python-version.md
-          - name: Создать Docker-образ для проекта
-            href: operations/user-images.md
           - name: Изменить размер хранилища проекта
             href: operations/projects/storage-resize.md
           - name: Изменить настройки проекта
             href: operations/projects/update.md
           - name: Удалить ноутбук или проект
             href: operations/projects/delete.md
+          - name: Настроить интеграцию с Data Proc
+            href: operations/data-proc-integration.md
+            when: product == "yandex-cloud"
       - name: Работа в ноутбуке
         items:
           - name: Выбрать вычислительные ресурсы
             href: operations/projects/control-compute-resources.md
+          - name: Установить пакеты
+            href: operations/projects/install-dependencies.md
           - name: Очистить состояние интерпретатора
             href: operations/projects/clear-kernel-state.md
           - name: Работа с Git
             href: operations/projects/work-with-git.md
+          - name: Запустить Docker-контейнер в отдельной ячейке
+            href: operations/user-images-cell.md
+      - name: Работа с ресурсами
+        items:
+          - name: Работа с секретами
+            href: operations/data/secrets.md
           - name: Работа с контрольными точками
             href: operations/projects/checkpoints.md
-          - name: Работа с секретами
-            href: operations/data/secret.md
+          - name: Конфигурация окружения с помощью Docker-образа
+            href: operations/user-images.md
       - name: Подключение к источникам данных
         items:
+          - name: Подключение к хранилищу S3
+            href: operations/data/connect-to-s3.md
           - name: Подключение к базе данных {{ CH }}
             href: operations/data/connect-to-clickhouse.md
           - name: Подключение к базе данных {{ PG }}
             href: operations/data/connect-to-postgresql.md
-          - name: Подключение к хранилищу S3
-            href: operations/data/connect-to-s3.md
           - name: Подключение к Яндекс Диску
             href: operations/data/connect-to-ya-disk.md
           - name: Подключение к Google Drive
             href: operations/data/connect-to-google-drive.md
-      - name: Поделиться результатами
-        items:
-          - name: Публикация ноутбука
-            href: operations/projects/publication.md
-          - name: Экспорт проекта
-            href: operations/projects/export.md
-      - name: Настройка интеграции с Data Proc
-        href: operations/data-proc-integration.md
-        when: product == "yandex-cloud"
-      - name: Запуск распределенного обучения
-        href: operations/taas-run.md
-        when: product == "yandex-cloud"
-      - name: Развернуть эксплуатацию моделей
+      - name: Развертывание эксплуатации моделей
         items:
           - name: Создать ноду с кодом на Python
             href: operations/deploy/node-create.md
@@ -94,6 +89,15 @@ items:
             href: operations/deploy/alias-update.md
           - name: Удалить алиас
             href: operations/deploy/alias-delete.md
+      - name: Совместный доступ
+        items:
+          - name: Публикация ноутбука
+            href: operations/projects/publication.md
+          - name: Экспорт проекта
+            href: operations/projects/export.md
+      - name: Запуск распределенного обучения
+        href: operations/taas-run.md
+        when: product == "yandex-cloud"
   - name: Концепции
     items:
       - name: О сервисе DataSphere

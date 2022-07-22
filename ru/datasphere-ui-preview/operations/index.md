@@ -5,21 +5,38 @@ description: "Страница содержит все инструкции дл
 
 # Пошаговые инструкции для {{ ml-platform-name }}
 
+## Управление сообществом {#community}
+
+* [{#T}](community/create.md)
+* [{#T}](community/add-user.md)
+* [{#T}](community/link-channel.md)
+* [{#T}](community/delete.md)
+
+## Управление проектом {#project}
+
 * [{#T}](projects/create.md)
-* [{#T}](projects/install-dependencies.md)
-* [{#T}](projects/checkpoints.md)
-* [{#T}](projects/control-compute-resources.md)
 * [{#T}](projects/storage-resize.md)
-* [{#T}](user-images.md)
-* [{#T}](projects/clear-kernel-state.md)
-* [{#T}](projects/publication.md)
-* [{#T}](projects/export.md)
+* [{#T}](projects/add-user.md)
 * [{#T}](projects/update.md)
+* [{#T}](projects/python-version.md)
 * [{#T}](projects/delete.md)
-* [{#T}](projects/work-with-git.md)
 {% if product == "yandex-cloud" %}
 * [{#T}](data-proc-integration.md)
 {% endif %}
+
+## Работа в ноутбуке {#notebook}
+
+* [{#T}](projects/control-compute-resources.md)
+* [{#T}](projects/install-dependencies.md)
+* [{#T}](projects/clear-kernel-state.md)
+* [{#T}](projects/work-with-git.md)
+* [{#T}](user-images-cell.md)
+
+## Работа с ресурсами {#resources}
+
+* [{#T}](data/secrets.md)
+* [{#T}](projects/checkpoints.md)
+* [{#T}](user-images.md)
 
 ## Подключение к источникам данных {#connections-to-data-sources}
 
@@ -28,3 +45,23 @@ description: "Страница содержит все инструкции дл
 * [{#T}](data/connect-to-clickhouse.md)
 * [{#T}](data/connect-to-postgresql.md)
 * [{#T}](data/connect-to-ya-disk.md)
+
+## Развертывание эксплуатации моделей {#deploy}
+
+* [{#T}](deploy/node-create.md)
+* [{#T}](deploy/node-update.md)
+* [{#T}](deploy/node-delete.md)
+* [{#T}](deploy/node-customization.md)
+* [{#T}](deploy/node-api.md)
+* [{#T}](deploy/alias-create.md)
+* [{#T}](deploy/alias-update.md)
+* [{#T}](deploy/alias-delete.md)
+
+## Совместный доступ к ресурсам, проектам и результатам вычислений {#share}
+
+* [{#T}](projects/publication.md)
+* [{#T}](projects/export.md)
+
+## Дополнительные возможности {{ ml-platform-name }}
+
+* [{#T}](taas-run.md)
