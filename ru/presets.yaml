@@ -834,4 +834,4 @@ cloud-il:
   subnet-name: default-il1-a
   region-id: il1
   registry: cr.cloudil.com
-  pem-path: /cloud-certs/CA.pem
+  pem-path: /certs/CA.pem
