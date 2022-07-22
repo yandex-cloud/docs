@@ -79,6 +79,6 @@ containers:
 
 Укажите доступность vCPU в тысячных долях, а RAM — в мегабайтах. Сервис не превысит лимиты vCPU и RAM, указанные в значениях `limits`. Настройка `requests` позволяет масштабировать узлы кластера при помощи автоматического масштабирования.
 
-Чтобы автоматически управлять ресурсами подов настройте политики {{ k8s }}:
+Чтобы автоматически управлять ресурсами подов, настройте политики {{ k8s }}:
 * [Quality of Service for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) для создания подов различных классов доступности.
 * [Limit Ranges](https://kubernetes.io/docs/concepts/policy/limit-range/) для установки лимитов на уровне [пространства имен](../concepts/index.md#namespace).
