@@ -45,6 +45,12 @@
 {% if audience == "internal" %}
 
 1. При необходимости настройте аутентификацию с помощью [TVM2](https://wiki.yandex-team.ru/passport/tvm2/):
+
+    {% note info %}
+    
+    Настроить аутентификацию c помощью TVM может пользователь с ролью `tvm_manager` или `form_manager` в сервисе ABC, с которым связан указанный Client ID приложения.
+
+    {% endnote %}
     
     1. Включите опцию **Использовать TVM2**.
 
