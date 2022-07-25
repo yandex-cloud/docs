@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/resource-preset/list.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/ydb/resource-preset/list.md
 ---
 # yc ydb resource-preset list
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/version/list.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/version/list.md
 ---
 # yc serverless function version list
 

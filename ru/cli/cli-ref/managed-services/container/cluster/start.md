@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/container/cluster/start.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/container/cluster/start.md
 ---
 # yc container cluster start
 

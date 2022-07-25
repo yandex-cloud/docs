@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/update-config.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/update-config.md
 ---
 # yc managed-elasticsearch cluster update-config
 

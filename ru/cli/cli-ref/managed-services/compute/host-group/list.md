@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/host-group/list.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/host-group/list.md
 ---
 # yc compute host-group list
 

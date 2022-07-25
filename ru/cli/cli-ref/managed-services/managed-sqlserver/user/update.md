@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/user/update.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/user/update.md
 ---
 # yc managed-sqlserver user update
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/backup/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/backup/get.md
 ---
 # yc managed-postgresql backup get
 

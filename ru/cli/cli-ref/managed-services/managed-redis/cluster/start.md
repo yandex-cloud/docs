@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/cluster/start.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-redis/cluster/start.md
 ---
 # yc managed-redis cluster start
 

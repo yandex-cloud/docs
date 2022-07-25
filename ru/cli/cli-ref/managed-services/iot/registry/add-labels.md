@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/add-labels.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/registry/add-labels.md
 ---
 # yc iot registry add-labels
 

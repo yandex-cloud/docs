@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iam/certificate/list.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/certificate/list.md
 ---
 # yc iam certificate list
 

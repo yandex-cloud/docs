@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/resource-preset/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mysql/resource-preset/get.md
 ---
 # yc managed-mysql resource-preset get
 

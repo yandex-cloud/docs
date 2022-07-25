@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/node-group/add-node-labels.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kubernetes/node-group/add-node-labels.md
 ---
 # yc managed-kubernetes node-group add-node-labels
 

@@ -23,13 +23,13 @@ keywords:
 
 * На создание и загрузку архива журнала транзакций в объектное хранилище требуется некоторое время. Из-за этого состояние кластера, хранящееся в объектном хранилище, может отличаться от реального.
 
-Подробнее о PITR см. в [документации {{ MS }}]({{ ms.docs }}/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model?view=sql-server-2016).
+Подробнее о PITR см. в [документации {{ MS }}](https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model?view=sql-server-2016).
 
 Чтобы восстановить кластер или отдельную базу данных из резервной копии, [следуйте инструкциям](../operations/cluster-backups.md).
 
 {% note warning %}
 
-Вы не можете с помощью команд SQL изменять [модель восстановления]({{ ms.docs }}/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016) для операций резервного копирования и восстановления.
+Вы не можете с помощью команд SQL изменять [модель восстановления](https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016) для операций резервного копирования и восстановления.
 
 {% endnote %}
 

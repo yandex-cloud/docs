@@ -1,6 +1,6 @@
 # Memory management in {{ mch-name }}
 
-The amount of RAM available for using {{ CH }} is specified in the [Max server memory usage]({{ ch.docs }}/operations/server-configuration-parameters/settings/#max_server_memory_usage) setting.
+The amount of RAM available for using {{ CH }} is specified in the [Max server memory usage](https://{{ ch-domain }}/docs/en/operations/server-configuration-parameters/settings/#max_server_memory_usage) setting.
 
 It also affects the maximum value of the [Max memory usage](./settings-list.md#setting-max-memory-usage) setting.
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/connect-to-serial-port.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/connect-to-serial-port.md
 ---
 # yc compute connect-to-serial-port
 

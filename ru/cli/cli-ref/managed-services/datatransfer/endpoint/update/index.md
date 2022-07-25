@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/update/index.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/update/index.md
 ---
 # yc datatransfer endpoint update
 

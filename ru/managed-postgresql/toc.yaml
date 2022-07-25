@@ -27,12 +27,8 @@ items:
         href: operations/hosts.md
       - name: Управление базами данных
         href: operations/databases.md
-      - name: Расширения PostgreSQL
-        items:
-          - name: Управление расширениями
-            href: operations/extensions/cluster-extensions.md
-          - name: pg_cron
-            href: operations/extensions/pg_cron.md
+      - name: Управление PostgreSQL-расширениями
+        href: operations/cluster-extensions.md
       - name: Управление пользователями БД
         href: operations/cluster-users.md
       - name: Назначение привилегий и ролей

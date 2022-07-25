@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/origin/create.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/cdn/origin/create.md
 ---
 # yc cdn origin create
 

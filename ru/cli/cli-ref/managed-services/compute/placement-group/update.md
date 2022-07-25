@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/placement-group/update.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/placement-group/update.md
 ---
 # yc compute placement-group update
 

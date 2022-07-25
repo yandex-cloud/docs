@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/remove-access-binding.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/remove-access-binding.md
 ---
 # yc serverless function remove-access-binding
 

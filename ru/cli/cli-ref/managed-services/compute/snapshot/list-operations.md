@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot/list-operations.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/snapshot/list-operations.md
 ---
 # yc compute snapshot list-operations
 

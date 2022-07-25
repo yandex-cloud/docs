@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/resource-manager/cloud/list-operations.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/resource-manager/cloud/list-operations.md
 ---
 # yc resource-manager cloud list-operations
 

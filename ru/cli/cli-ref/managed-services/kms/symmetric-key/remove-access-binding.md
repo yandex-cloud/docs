@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-key/remove-access-binding.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/kms/symmetric-key/remove-access-binding.md
 ---
 # yc kms symmetric-key remove-access-binding
 

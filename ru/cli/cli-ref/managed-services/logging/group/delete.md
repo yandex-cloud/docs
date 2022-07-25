@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/logging/group/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/logging/group/delete.md
 ---
 # yc logging group delete
 

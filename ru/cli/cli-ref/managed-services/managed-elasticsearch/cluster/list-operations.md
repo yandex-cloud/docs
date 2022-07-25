@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/list-operations.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/list-operations.md
 ---
 # yc managed-elasticsearch cluster list-operations
 

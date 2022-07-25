@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/extension/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-elasticsearch/extension/get.md
 ---
 # yc managed-elasticsearch extension get
 

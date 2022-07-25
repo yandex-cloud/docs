@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-yc/config/profile/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-yc/config/profile/get.md
 ---
 # yc config profile get
 

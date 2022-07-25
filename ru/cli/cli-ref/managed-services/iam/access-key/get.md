@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iam/access-key/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/access-key/get.md
 ---
 # yc iam access-key get
 

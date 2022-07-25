@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/cache/index.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/cdn/cache/index.md
 ---
 # yc cdn cache
 

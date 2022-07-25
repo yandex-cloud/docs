@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-yc/config/profile/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-yc/config/profile/delete.md
 ---
 # yc config profile delete
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/create/internet-of-things.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/trigger/create/internet-of-things.md
 ---
 # yc serverless trigger create internet-of-things
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/reschedule-maintenance.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/reschedule-maintenance.md
 ---
 # yc managed-postgresql cluster reschedule-maintenance
 

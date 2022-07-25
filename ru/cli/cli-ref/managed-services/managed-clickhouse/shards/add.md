@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/shards/add.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/shards/add.md
 ---
 # yc managed-clickhouse shards add
 

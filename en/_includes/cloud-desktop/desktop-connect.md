@@ -40,7 +40,7 @@ Desktops are connected to using the [Remote Desktop Protocol](https://en.wikiped
 
    #### For details, see also {#mac-see-also}
 
-   * [Getting started with a remote desktop in macOS]({{ ms.docs }}/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
+   * [Getting started with a remote desktop in macOS](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
 
 - Linux
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/resource-preset/index.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/dataproc/resource-preset/index.md
 ---
 # yc dataproc resource-preset
 

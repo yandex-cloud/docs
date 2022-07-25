@@ -2,7 +2,7 @@
 
 {{ mch-name }} automatically creates a cluster with a single shard. This shard includes all the hosts in the cluster.
 
-To start using sharding, [add](../operations/shards.md#add-shard) the desired number of shards and create a table on the [Distributed]({{ ch.docs }}/operations/table_engines/distributed/) engine. The article under the link describes sharding strategies and guidelines for creating tables in the applicable format, as well as distributed table limits.
+To start using sharding, [add](../operations/shards.md#add-shard) the desired number of shards and create a table on the [Distributed](https://{{ ch-domain }}/docs/en/operations/table_engines/distributed/) engine. The article under the link describes sharding strategies and guidelines for creating tables in the applicable format, as well as distributed table limits.
 
 Each sharded table in {{ CH }} consists of:
 - A distributed table on the Distributed engine that routes queries.
@@ -20,7 +20,7 @@ Let's assume that a {{ mch-name }} cluster named `chcluster` is [created](../ope
 - Five shards: `shard1, ..., shard5`.
 - The `tutorial` database.
 
-For example, you need to enable sharding for a [table]({{ ch.docs }}/getting-started/example-datasets/metrica/) named `hits_v1`. The table will be created for each example separately. You can find the structure of the table that you need to put in place of the `<table structure>` text in the [documentation for {{ CH }}]({{ ch.docs }}/getting-started/tutorial/#create-tables).
+For example, you need to enable sharding for a [table](https://{{ ch-domain }}/docs/en/getting-started/example-datasets/metrica/) named `hits_v1`. The table will be created for each example separately. You can find the structure of the table that you need to put in place of the `<table structure>` text in the [documentation for {{ CH }}](https://{{ ch-domain }}/docs/en/getting-started/tutorial/#create-tables).
 
 After enabling sharding using any of the methods below, you can send the `SELECT` and `INSERT` queries to the created distributed table, and they will be processed according to the specified configuration.
 
@@ -32,7 +32,7 @@ In this example, a distributed table that will be created based on `hits_v1` use
 
 Before operating a distributed table:
 1. [Connect](../operations/connect.md) to the `tutorial` database.
-1. Create a table named `hits_v1` on the [MergeTree engine]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/), which will be located on all cluster hosts:
+1. Create a table named `hits_v1` on the [MergeTree engine](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/), which will be located on all cluster hosts:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER '{cluster}' ( <table structure> )
@@ -45,7 +45,7 @@ Before operating a distributed table:
 
 To create the `hits_v1_distributed` distributed table in the cluster:
 1. [Connect](../operations/connect.md) to the `tutorial` database.
-1. Create a table on the [Distributed engine]({{ ch.docs }}/engines/table-engines/special/distributed/):
+1. Create a table on the [Distributed engine](https://{{ ch-domain }}/docs/en/engines/table-engines/special/distributed/):
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER '{cluster}' AS tutorial.hits_v1
@@ -67,7 +67,7 @@ In this example:
 Before operating a distributed table:
 1. [Create](../operations/shard-groups.md#create-shard-group) the `sgroup` shard group consisting of the `shard1` and `shard2` shards in the cluster.
 1. [Connect](../operations/connect.md) to the `tutorial` database.
-1. Create a table named `hits_v1` on the [MergeTree engine]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/), which will use all hosts of the `sgroup` shard group in the cluster:
+1. Create a table named `hits_v1` on the [MergeTree engine](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/mergetree/), which will use all hosts of the `sgroup` shard group in the cluster:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup ( <table structure> )
@@ -80,7 +80,7 @@ Before operating a distributed table:
 
 To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
 1. [Connect](../operations/connect.md) to the `tutorial` database.
-1. Create a table on the [Distributed engine]({{ ch.docs }}/engines/table-engines/special/distributed/):
+1. Create a table on the [Distributed engine](https://{{ ch-domain }}/docs/en/engines/table-engines/special/distributed/):
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup AS tutorial.hits_v1
@@ -101,7 +101,7 @@ Before operating a distributed table:
    - `sgroup`: Contains the `shard1` and `shard2` shards.
    - `sgroup_data`: Contains the `shard3`, `shard4` and `shard5` shards.
 1. [Connect](../operations/connect.md) to the `tutorial` database.
-1. Create a table named `hits_v1` on the [ReplicatedMergeTree engine]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/), which will use all hosts of the `sgroup_data` shard group in the cluster:
+1. Create a table named `hits_v1` on the [ReplicatedMergeTree engine](https://{{ ch-domain }}/docs/en/engines/table-engines/mergetree-family/replication/), which will use all hosts of the `sgroup_data` shard group in the cluster:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup_data ( <table structure> )
@@ -116,7 +116,7 @@ Before operating a distributed table:
 
 To create the `tutorial.hits_v1_distributed` distributed table in the cluster:
 1. [Connect](../operations/connect.md) to the `tutorial` database.
-1. Create a table on the [Distributed engine]({{ ch.docs }}/engines/table-engines/special/distributed/):
+1. Create a table on the [Distributed engine](https://{{ ch-domain }}/docs/en/engines/table-engines/special/distributed/):
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup ( <table structure> )

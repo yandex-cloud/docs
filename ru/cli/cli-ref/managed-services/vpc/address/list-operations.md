@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/address/list-operations.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/address/list-operations.md
 ---
 # yc vpc address list-operations
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/password/index.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/registry/password/index.md
 ---
 # yc iot registry password
 

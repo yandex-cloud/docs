@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/list-scaling-policies.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/list-scaling-policies.md
 ---
 # yc serverless function list-scaling-policies
 

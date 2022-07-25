@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/target-group/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/target-group/delete.md
 ---
 # yc application-load-balancer target-group delete
 

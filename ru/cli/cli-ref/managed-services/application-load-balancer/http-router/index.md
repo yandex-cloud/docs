@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/http-router/index.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/http-router/index.md
 ---
 # yc application-load-balancer http-router
 

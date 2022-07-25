@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/hosts/list/master.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-greenplum/hosts/list/master.md
 ---
 # yc managed-greenplum hosts list master
 

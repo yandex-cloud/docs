@@ -50,7 +50,7 @@ Use the link markup:
 
 ### Creating a link from an image {#img-link}
 
-You can create a link from an image, so that clicking an image opens a page or document. To do this, [embed an image](#add-image) to the link markup element instead of text:
+You can create a link from an image, so that clicking an image opens a page or document. To do this, [embed an image](f#add-image) to the link markup element instead of text:
 
 ```
 [![Alternative text](image address)](link address)

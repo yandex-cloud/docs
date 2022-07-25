@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/node-group/list-operations.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kubernetes/node-group/list-operations.md
 ---
 # yc managed-kubernetes node-group list-operations
 

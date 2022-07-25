@@ -22,7 +22,7 @@
 
 * **Active Transactions [count]** — количество активных транзакций, для каждого хоста.
 
-* **Batch Requests/sec** — количество пакетных операций, выполненных на каждом хосте за 1 секунду. Подробнее о пакетных операциях см. в [документации {{ MS }}]({{ ms.docs }}/sql/odbc/reference/develop-app/batches-of-sql-statements).
+* **Batch Requests/sec** — количество пакетных операций, выполненных на каждом хосте за 1 секунду. Подробнее о пакетных операциях см. в [документации {{ MS }}](https://docs.microsoft.com/ru-ru/sql/odbc/reference/develop-app/batches-of-sql-statements).
 
 * **CPU** — загрузка процессорных ядер. При повышении нагрузки значение `percent_idle_time` уменьшается.
 
@@ -37,9 +37,9 @@
     * _Логическая запись_ — изменение данных в RAM.
     * _Физическая запись_ — запись измененных страниц из RAM в хранилище.
 
-    Подробнее см. в [документации {{ MS }}]({{ ms.docs }}/sql/relational-databases/writing-pages).
+    Подробнее см. в [документации {{ MS }}](https://docs.microsoft.com/ru-ru/sql/relational-databases/writing-pages).
 
-* **Memory Grants Pending on primary** — количество запросов, ожидающих выделения RAM. Подробнее см. в [документации {{ MS }}]({{ ms.docs }}/sql/relational-databases/memory-management-architecture-guide).
+* **Memory Grants Pending on primary** — количество запросов, ожидающих выделения RAM. Подробнее см. в [документации {{ MS }}](https://docs.microsoft.com/ru-ru/sql/relational-databases/memory-management-architecture-guide).
 
 * **Page Life Expectancy [sec]** — время жизни страниц памяти (в секундах) до записи в хранилище. Чем оно больше, тем эффективнее используется буфер, и тем реже кластеру приходится обращаться к хранилищу для выборки нужных данных.
 

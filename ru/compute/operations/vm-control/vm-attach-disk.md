@@ -137,7 +137,7 @@
 - Windows
 
   1. Подключитесь к ВМ [по RDP](../vm-connect/rdp.md).
-  1. Назначьте букву подключенному диску. Как это сделать читайте в [документации Microsoft]({{ ms.docs }}/windows-server/storage/disk-management/change-a-drive-letter).
+  1. Назначьте букву подключенному диску. Как это сделать читайте в [документации Microsoft](https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter).
 
 {% endlist %}
 
@@ -268,8 +268,8 @@
      {% endnote %}
 
   1. Инициализируйте диск. Для этого нажмите правой кнопкой мыши на пустой диск и выберите пункт **Инициализировать диск**. Откроется окно **Инициализация диска**.
-  1. Выберите [стиль разделов]({{ ms.docs }}/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr) и нажмите **ОК**.
+  1. Выберите [стиль разделов](https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr) и нажмите **ОК**.
   1. Создайте разделы на диске. Для этого нажмите правой кнопкой мыши на пустой диск и выберите пункт **Создать простой том**.
-  1. С помощью **Мастера создания простых томов** задайте размер раздела, [назначьте букву]({{ ms.docs }}/windows-server/storage/disk-management/change-a-drive-letter) диска и укажите файловую систему.
+  1. С помощью **Мастера создания простых томов** задайте размер раздела, [назначьте букву](https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter) диска и укажите файловую систему.
   
 {% endlist %}

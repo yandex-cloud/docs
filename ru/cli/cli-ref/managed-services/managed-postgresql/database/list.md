@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/database/list.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/database/list.md
 ---
 # yc managed-postgresql database list
 

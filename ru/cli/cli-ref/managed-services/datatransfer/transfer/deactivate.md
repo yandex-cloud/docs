@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/datatransfer/transfer/deactivate.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/datatransfer/transfer/deactivate.md
 ---
 # yc datatransfer transfer deactivate
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/federation/saml/certificate/create.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/organization-manager/federation/saml/certificate/create.md
 ---
 # yc organization-manager federation saml certificate create
 

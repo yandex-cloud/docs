@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/cluster/list-ui-links.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/dataproc/cluster/list-ui-links.md
 ---
 # yc dataproc cluster list-ui-links
 

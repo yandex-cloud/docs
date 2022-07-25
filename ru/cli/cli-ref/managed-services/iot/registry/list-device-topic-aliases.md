@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/list-device-topic-aliases.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/registry/list-device-topic-aliases.md
 ---
 # yc iot registry list-device-topic-aliases
 

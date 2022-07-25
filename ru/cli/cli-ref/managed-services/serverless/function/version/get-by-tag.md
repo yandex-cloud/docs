@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/version/get-by-tag.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/version/get-by-tag.md
 ---
 # yc serverless function version get-by-tag
 

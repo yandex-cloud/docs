@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/container/cluster/add-labels.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/container/cluster/add-labels.md
 ---
 # yc container cluster add-labels
 

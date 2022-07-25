@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/payload/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/lockbox/payload/get.md
 ---
 # yc lockbox payload get
 

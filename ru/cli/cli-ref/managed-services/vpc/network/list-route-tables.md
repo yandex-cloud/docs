@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/network/list-route-tables.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/network/list-route-tables.md
 ---
 # yc vpc network list-route-tables
 

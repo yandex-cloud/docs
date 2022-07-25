@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/remove-one-to-one-nat.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/remove-one-to-one-nat.md
 ---
 # yc compute instance remove-one-to-one-nat
 

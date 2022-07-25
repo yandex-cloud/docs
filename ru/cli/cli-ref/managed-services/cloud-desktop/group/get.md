@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/cloud-desktop/group/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/cloud-desktop/group/get.md
 ---
 # yc cloud-desktop group get
 

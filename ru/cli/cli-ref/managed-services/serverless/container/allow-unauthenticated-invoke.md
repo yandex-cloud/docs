@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/allow-unauthenticated-invoke.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/container/allow-unauthenticated-invoke.md
 ---
 # yc serverless container allow-unauthenticated-invoke
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/snapshot/delete.md
 ---
 # yc compute snapshot delete
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/container/delete.md
 ---
 # yc serverless container delete
 

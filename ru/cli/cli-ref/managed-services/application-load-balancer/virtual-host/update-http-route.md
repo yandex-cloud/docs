@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/virtual-host/update-http-route.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/virtual-host/update-http-route.md
 ---
 # yc application-load-balancer virtual-host update-http-route
 

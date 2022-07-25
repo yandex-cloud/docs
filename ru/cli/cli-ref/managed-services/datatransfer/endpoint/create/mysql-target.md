@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/create/mysql-target.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/create/mysql-target.md
 ---
 # yc datatransfer endpoint create mysql-target
 

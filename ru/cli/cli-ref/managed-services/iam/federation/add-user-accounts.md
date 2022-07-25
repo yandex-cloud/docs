@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iam/federation/add-user-accounts.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/federation/add-user-accounts.md
 ---
 # yc iam federation add-user-accounts
 

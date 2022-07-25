@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/resource-manager/cloud/index.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/resource-manager/cloud/index.md
 ---
 # yc resource-manager cloud
 

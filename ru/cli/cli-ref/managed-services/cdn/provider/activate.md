@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/provider/activate.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/cdn/provider/activate.md
 ---
 # yc cdn provider activate
 

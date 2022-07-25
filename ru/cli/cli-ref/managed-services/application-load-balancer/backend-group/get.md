@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/backend-group/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/backend-group/get.md
 ---
 # yc application-load-balancer backend-group get
 

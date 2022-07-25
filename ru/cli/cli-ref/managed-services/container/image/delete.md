@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/container/image/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/container/image/delete.md
 ---
 # yc container image delete
 

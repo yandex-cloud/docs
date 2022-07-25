@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/disk/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/disk/delete.md
 ---
 # yc compute disk delete
 

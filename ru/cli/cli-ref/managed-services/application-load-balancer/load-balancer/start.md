@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/start.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/start.md
 ---
 # yc application-load-balancer load-balancer start
 

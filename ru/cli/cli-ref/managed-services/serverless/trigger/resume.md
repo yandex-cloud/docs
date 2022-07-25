@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/resume.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/trigger/resume.md
 ---
 # yc serverless trigger resume
 

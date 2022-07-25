@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/container/node-group/list-nodes.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/container/node-group/list-nodes.md
 ---
 # yc container node-group list-nodes
 

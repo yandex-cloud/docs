@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance-group/delete-instances.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance-group/delete-instances.md
 ---
 # yc compute instance-group delete-instances
 

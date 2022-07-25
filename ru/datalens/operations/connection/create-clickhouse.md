@@ -3,7 +3,7 @@
 {% note info %}
 
 - Подключение к {{ CH }} выполняется только по HTTP-интерфейсу.
-- Все запросы к данным выполняются с включенным флагом [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls). Ознакомьтесь с разделом [{#T}](#ch-connection-specify), если вы используете представления (VIEW) или подзапросы с секцией JOIN в {{ datalens-short-name }}.
+- Все запросы к данным выполняются с включенным флагом [join_use_nulls](https://{{ ch-domain }}/docs/ru/operations/settings/settings/#join_use_nulls). Ознакомьтесь с разделом [{#T}](#ch-connection-specify), если вы используете представления (VIEW) или подзапросы с секцией JOIN в {{ datalens-short-name }}.
 
 {% endnote %}
 
@@ -82,4 +82,4 @@ CREATE VIEW ... (
 
 Также следует включать эту опцию для подзапросов raw-sql, которые используются как источник данных в датасете.
 
-Чтобы избежать ошибок при работе с представлениями в {{ datalens-short-name }}, содержащими секцию JOIN, создайте заново все представления с настройкой `join_use_nulls = 1`. Пустые ячейки при этом заполнятся значениями `NULL`, а тип соответствующих полей преобразуется в [Nullable]({{ ch.docs }}/sql-reference/data-types/nullable/#data_type-nullable).
+Чтобы избежать ошибок при работе с представлениями в {{ datalens-short-name }}, содержащими секцию JOIN, создайте заново все представления с настройкой `join_use_nulls = 1`. Пустые ячейки при этом заполнятся значениями `NULL`, а тип соответствующих полей преобразуется в [Nullable](https://{{ ch-domain }}/docs/ru/sql-reference/data-types/nullable/#data_type-nullable).

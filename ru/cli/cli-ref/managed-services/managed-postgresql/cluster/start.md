@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/start.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/start.md
 ---
 # yc managed-postgresql cluster start
 

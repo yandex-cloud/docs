@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iot/device/create.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/device/create.md
 ---
 # yc iot device create
 

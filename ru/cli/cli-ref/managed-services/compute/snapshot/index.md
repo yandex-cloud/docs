@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot/index.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/snapshot/index.md
 ---
 # yc compute snapshot
 

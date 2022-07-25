@@ -62,8 +62,8 @@ _Трансфер_ — это процесс переноса данных ме�
 
 Если на приемнике {{ CH }} включена репликация, то движки для воссоздания таблиц будут выбраны в зависимости от типа источника:
 
-* При переносе данных из строковых СУБД будут использоваться движки [ReplicatedReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) и [ReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replacingmergetree/).
-* При переносе данных из {{ CH }} будут использоваться движки семейства [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/).
+* При переносе данных из строковых СУБД будут использоваться движки [ReplicatedReplacingMergeTree](https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/replication/) и [ReplacingMergeTree](https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/replacingmergetree/).
+* При переносе данных из {{ CH }} будут использоваться движки семейства [ReplicatedMergeTree](https://{{ ch-domain }}/docs/ru/engines/table-engines/mergetree-family/replication/).
 
 ### {{ GP }} {#greenplum}
 

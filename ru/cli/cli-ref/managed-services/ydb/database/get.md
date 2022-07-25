@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/ydb/database/get.md
 ---
 # yc ydb database get
 

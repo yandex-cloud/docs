@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/container/image/list-vulnerabilities.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/container/image/list-vulnerabilities.md
 ---
 # yc container image list-vulnerabilities
 

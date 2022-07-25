@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/resource-preset/list/index.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-greenplum/resource-preset/list/index.md
 ---
 # yc managed-greenplum resource-preset list
 

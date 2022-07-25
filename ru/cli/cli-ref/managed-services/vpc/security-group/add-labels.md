@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/security-group/add-labels.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/security-group/add-labels.md
 ---
 # yc vpc security-group add-labels
 

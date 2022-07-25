@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/database/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/database/get.md
 ---
 # yc managed-clickhouse database get
 

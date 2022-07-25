@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/cloud-desktop/desktop/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/cloud-desktop/desktop/delete.md
 ---
 # yc cloud-desktop desktop delete
 

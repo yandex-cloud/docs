@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/image/update.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/image/update.md
 ---
 # yc compute image update
 

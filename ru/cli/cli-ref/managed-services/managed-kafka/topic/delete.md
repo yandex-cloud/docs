@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/topic/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kafka/topic/delete.md
 ---
 # yc managed-kafka topic delete
 

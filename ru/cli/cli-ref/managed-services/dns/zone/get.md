@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/dns/zone/get.md
 ---
 # yc dns zone get
 

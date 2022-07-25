@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/target-group/remove-targets.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/load-balancer/target-group/remove-targets.md
 ---
 # yc load-balancer target-group remove-targets
 

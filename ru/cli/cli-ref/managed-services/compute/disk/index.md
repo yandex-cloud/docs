@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/disk/index.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/disk/index.md
 ---
 # yc compute disk
 

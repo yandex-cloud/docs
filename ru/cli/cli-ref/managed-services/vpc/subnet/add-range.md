@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/subnet/add-range.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/subnet/add-range.md
 ---
 # yc vpc subnet add-range
 

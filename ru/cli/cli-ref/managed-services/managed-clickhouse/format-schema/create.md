@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/format-schema/create.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/format-schema/create.md
 ---
 # yc managed-clickhouse format-schema create
 

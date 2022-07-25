@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iam/role/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/role/get.md
 ---
 # yc iam role get
 

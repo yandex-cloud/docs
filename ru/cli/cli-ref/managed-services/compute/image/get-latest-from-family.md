@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/image/get-latest-from-family.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/image/get-latest-from-family.md
 ---
 # yc compute image get-latest-from-family
 

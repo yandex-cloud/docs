@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/user/revoke-permission.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/user/revoke-permission.md
 ---
 # yc managed-sqlserver user revoke-permission
 

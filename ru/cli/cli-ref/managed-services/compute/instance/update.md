@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/update.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/update.md
 ---
 # yc compute instance update
 

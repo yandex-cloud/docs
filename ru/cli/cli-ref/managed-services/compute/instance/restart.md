@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/restart.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/restart.md
 ---
 # yc compute instance restart
 

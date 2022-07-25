@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/resource-manager/folder/list-access-bindings.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/resource-manager/folder/list-access-bindings.md
 ---
 # yc resource-manager folder list-access-bindings
 

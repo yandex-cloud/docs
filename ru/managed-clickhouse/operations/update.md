@@ -11,7 +11,7 @@
 
 * [{#T}](#SQL-management)
 
-* [Настроить серверы](#change-clickhouse-config) {{ CH }} согласно [документации {{ CH }}]({{ ch.docs }}/operations/server_settings/settings/).
+* [Настроить серверы](#change-clickhouse-config) {{ CH }} согласно [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/operations/server_settings/settings/).
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 
@@ -330,7 +330,7 @@
 
 {% note info %}
 
-Изменить значение настройки [Max server memory usage]({{ ch.docs }}/operations/server-configuration-parameters/settings/#max_server_memory_usage) можно только [изменив класс хостов {{ CH }}](#change-resource-preset).
+Изменить значение настройки [Max server memory usage](https://{{ ch-domain }}/docs/ru/operations/server-configuration-parameters/settings/#max_server_memory_usage) можно только [изменив класс хостов {{ CH }}](#change-resource-preset).
 
 Подробнее см. в разделе [{#T}](../concepts/memory-management.md).
 

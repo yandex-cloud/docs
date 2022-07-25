@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/organization/remove-access-binding.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/organization-manager/organization/remove-access-binding.md
 ---
 # yc organization-manager organization remove-access-binding
 

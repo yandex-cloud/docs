@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/cluster/create.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-greenplum/cluster/create.md
 ---
 # yc managed-greenplum cluster create
 

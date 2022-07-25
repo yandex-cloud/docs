@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/list.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/container/list.md
 ---
 # yc serverless container list
 

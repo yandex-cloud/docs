@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/shards/update-config.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/shards/update-config.md
 ---
 # yc managed-clickhouse shards update-config
 

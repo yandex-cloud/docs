@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/logs.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/registry/logs.md
 ---
 # yc iot registry logs
 

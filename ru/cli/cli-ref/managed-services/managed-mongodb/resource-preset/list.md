@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/resource-preset/list.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/resource-preset/list.md
 ---
 # yc managed-mongodb resource-preset list
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/delete-records.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/dns/zone/delete-records.md
 ---
 # yc dns zone delete-records
 

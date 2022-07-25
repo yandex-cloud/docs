@@ -196,9 +196,9 @@ _Node labels_, `node_labels` are a mechanism for grouping nodes together in {{ k
 
 {% note warning %}
 
-Do not confuse [cloud labels of a node group](../../overview/concepts/services.md#labels) (`labels`) and [{{ k8s }} labels of nodes]({{ k8s-docs }}/concepts/overview/working-with-objects/labels/) (`node_labels`) which are managed by {{ managed-k8s-name }}.
+Do not confuse [cloud labels of a node group](../../overview/concepts/services.md#labels) (`labels`) and [{{ k8s }} labels of nodes](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) (`node_labels`) which are managed by {{ managed-k8s-name }}.
 
-We recommend managing all node labels via the [{{ managed-k8s-name }} API](../api-ref/NodeGroup/index.md) method, because by default, when [updating or changing a node group](../operations/node-group/node-group-update.md), some of the nodes are recreated with different names and some of the old ones are deleted. That's why the labels added via the [{{ k8s }} API]({{ k8s-docs }}/concepts/overview/kubernetes-api) may get lost. Conversely, using the {{ k8s }} API to delete labels created via the {{ managed-k8s-name }} API has no effect since such labels will be restored.
+We recommend managing all node labels via the [{{ managed-k8s-name }} API](../api-ref/NodeGroup/index.md) method, because by default, when [updating or changing a node group](../operations/node-group/node-group-update.md), some of the nodes are recreated with different names and some of the old ones are deleted. That's why the labels added via the [{{ k8s }} API](https://kubernetes.io/docs/concepts/overview/kubernetes-api) may get lost. Conversely, using the {{ k8s }} API to delete labels created via the {{ managed-k8s-name }} API has no effect since such labels will be restored.
 
 {% endnote %}
 

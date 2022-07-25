@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/index.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mysql/index.md
 ---
 # yc managed-mysql
 

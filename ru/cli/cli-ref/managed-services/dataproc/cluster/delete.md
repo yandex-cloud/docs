@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/cluster/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/dataproc/cluster/delete.md
 ---
 # yc dataproc cluster delete
 

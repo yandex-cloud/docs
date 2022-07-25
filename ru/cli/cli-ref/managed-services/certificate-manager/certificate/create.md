@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/create.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/create.md
 ---
 # yc certificate-manager certificate create
 

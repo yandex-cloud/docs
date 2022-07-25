@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/placement-group/list-operations.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/placement-group/list-operations.md
 ---
 # yc compute placement-group list-operations
 

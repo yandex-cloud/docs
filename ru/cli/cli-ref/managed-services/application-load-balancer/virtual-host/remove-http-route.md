@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/virtual-host/remove-http-route.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/virtual-host/remove-http-route.md
 ---
 # yc application-load-balancer virtual-host remove-http-route
 

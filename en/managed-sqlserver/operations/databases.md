@@ -150,11 +150,11 @@ You can create an unlimited number of databases in each {{ mms-name }} cluster.
 
 {% note info %}
 
-The query will change collation settings for new DB objects only. Learn more about modifying collation settings for existing databases in the [{{ MS }} documentation]({{ ms.docs }}/sql/relational-databases/collations/set-or-change-the-database-collation).
+The query will change collation settings for new DB objects only. Learn more about modifying collation settings for existing databases in the [{{ MS }} documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-database-collation).
 
 {% endnote %}
 
-For more information, see the [{{ MS }} documentation]({{ ms.docs }}/sql/relational-databases/collations/set-or-change-the-database-collation).
+For more information, see the [{{ MS }} documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-database-collation).
 
 ## Deleting a database {#remove-db}
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/resource-manager/folder/remove-labels.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/resource-manager/folder/remove-labels.md
 ---
 # yc resource-manager folder remove-labels
 

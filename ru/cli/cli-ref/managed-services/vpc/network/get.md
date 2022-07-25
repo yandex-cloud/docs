@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/network/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/network/get.md
 ---
 # yc vpc network get
 

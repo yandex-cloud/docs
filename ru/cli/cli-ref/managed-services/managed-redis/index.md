@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/index.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-redis/index.md
 ---
 # yc managed-redis
 

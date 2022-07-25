@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iot/mqtt/subscribe.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/mqtt/subscribe.md
 ---
 # yc iot mqtt subscribe
 

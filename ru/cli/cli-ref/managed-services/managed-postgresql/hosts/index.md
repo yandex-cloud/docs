@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/hosts/index.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/hosts/index.md
 ---
 # yc managed-postgresql hosts
 

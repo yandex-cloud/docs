@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/backup/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/ydb/backup/delete.md
 ---
 # yc ydb backup delete
 

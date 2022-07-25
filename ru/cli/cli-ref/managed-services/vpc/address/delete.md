@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/address/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/address/delete.md
 ---
 # yc vpc address delete
 

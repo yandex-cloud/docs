@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/add-metadata.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/add-metadata.md
 ---
 # yc compute instance add-metadata
 

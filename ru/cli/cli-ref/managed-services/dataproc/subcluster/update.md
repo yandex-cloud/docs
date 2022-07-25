@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/subcluster/update.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/dataproc/subcluster/update.md
 ---
 # yc dataproc subcluster update
 

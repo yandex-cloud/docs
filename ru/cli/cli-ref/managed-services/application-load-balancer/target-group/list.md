@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/target-group/list.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/target-group/list.md
 ---
 # yc application-load-balancer target-group list
 

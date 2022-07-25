@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/network/create.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/network/create.md
 ---
 # yc vpc network create
 

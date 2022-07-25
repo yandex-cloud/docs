@@ -3,7 +3,7 @@
 {% note info %}
 
 - {{ CH }} connections only run over the HTTP interface.
-- All the data requests are executed with the [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls) flag enabled. See the [{#T}](#ch-connection-specify) section if you use views or subqueries with a JOIN in {{ datalens-short-name }}.
+- All the data requests are executed with the [join_use_nulls](https://{{ ch-domain }}/docs/en/operations/settings/settings/#join_use_nulls) flag enabled. See the [{#T}](#ch-connection-specify) section if you use views or subqueries with a JOIN in {{ datalens-short-name }}.
 
 {% endnote %}
 
@@ -77,5 +77,5 @@ CREATE VIEW ... (
 
 You should also enable this option for raw-sql subqueries that are used as a data source in your dataset.
 
-To avoid errors when using views with a JOIN in {{ datalens-short-name }}, re-create all views and set `join_use_nulls = 1`. This fills in empty cells with `NULL` values and converts the type of the corresponding fields to [Nullable]({{ ch.docs }}/sql-reference/data-types/nullable/#data_type-nullable).
+To avoid errors when using views with a JOIN in {{ datalens-short-name }}, re-create all views and set `join_use_nulls = 1`. This fills in empty cells with `NULL` values and converts the type of the corresponding fields to [Nullable](https://{{ ch-domain }}/docs/en/sql-reference/data-types/nullable/#data_type-nullable).
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/update.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/update.md
 ---
 # yc certificate-manager certificate update
 

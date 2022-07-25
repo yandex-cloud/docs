@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/cluster/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kubernetes/cluster/delete.md
 ---
 # yc managed-kubernetes cluster delete
 

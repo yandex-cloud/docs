@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/federation/saml/certificate/update.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/organization-manager/federation/saml/certificate/update.md
 ---
 # yc organization-manager federation saml certificate update
 

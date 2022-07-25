@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iam/api-key/create.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/api-key/create.md
 ---
 # yc iam api-key create
 

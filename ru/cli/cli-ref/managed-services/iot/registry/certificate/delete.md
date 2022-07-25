@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/certificate/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/registry/certificate/delete.md
 ---
 # yc iot registry certificate delete
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/backup/remove-access-binding.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/ydb/backup/remove-access-binding.md
 ---
 # yc ydb backup remove-access-binding
 

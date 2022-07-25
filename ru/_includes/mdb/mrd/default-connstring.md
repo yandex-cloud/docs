@@ -1,8 +1,8 @@
 ```bash
 redis-cli \
-    -h c-<идентификатор кластера>.rw.{{ dns-zone }} \
-    -a <пароль> \
-    -p {{ port-mrd-tls }} \
+    -hostname c-<идентификатор кластера>.rw.{{ dns-zone }} \
+    -password <пароль> \
+    -port {{ port-mrd-tls }} \
     --tls \
     --cacert ~/.redis/{{ crt-local-file }}
 ```

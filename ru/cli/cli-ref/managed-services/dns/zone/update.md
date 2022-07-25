@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/update.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/dns/zone/update.md
 ---
 # yc dns zone update
 

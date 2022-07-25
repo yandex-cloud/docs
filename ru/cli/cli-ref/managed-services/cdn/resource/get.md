@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/resource/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/cdn/resource/get.md
 ---
 # yc cdn resource get
 

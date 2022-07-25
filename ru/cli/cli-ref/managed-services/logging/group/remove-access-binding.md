@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/logging/group/remove-access-binding.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/logging/group/remove-access-binding.md
 ---
 # yc logging group remove-access-binding
 

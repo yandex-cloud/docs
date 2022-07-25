@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/update.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/trigger/update.md
 ---
 # yc serverless trigger update
 

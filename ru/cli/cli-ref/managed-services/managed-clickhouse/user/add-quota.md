@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/user/add-quota.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/user/add-quota.md
 ---
 # yc managed-clickhouse user add-quota
 

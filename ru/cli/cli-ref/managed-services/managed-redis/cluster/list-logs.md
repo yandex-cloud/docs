@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/cluster/list-logs.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-redis/cluster/list-logs.md
 ---
 # yc managed-redis cluster list-logs
 

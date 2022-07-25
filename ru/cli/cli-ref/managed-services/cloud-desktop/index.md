@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/cloud-desktop/index.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/cloud-desktop/index.md
 ---
 # yc cloud-desktop
 

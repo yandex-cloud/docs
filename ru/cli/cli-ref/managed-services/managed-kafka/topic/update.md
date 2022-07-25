@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/topic/update.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kafka/topic/update.md
 ---
 # yc managed-kafka topic update
 

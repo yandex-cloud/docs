@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iot/device/add-topic-aliases.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/device/add-topic-aliases.md
 ---
 # yc iot device add-topic-aliases
 

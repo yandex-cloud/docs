@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/ydb/database/delete.md
 ---
 # yc ydb database delete
 

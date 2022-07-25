@@ -93,7 +93,7 @@ shard | Идентификатор шарда
 
 ### Метрики сервиса {#managed-clickhouse-metrics}
 ##### Метрики системных событий {#managed-clickhouse-system-events-metrics}
-Нативные метрики Clickhouse из таблицы [system.events]({{ ch.docs }}/operations/system-tables/events). 
+Нативные метрики Clickhouse из таблицы [system.events](https://clickhouse.com/docs/en/operations/system-tables/events). 
 По каждой метрике считается прирост `inc` и скорость изменения `rate` за единицу времени.
 
 | Имя<br/>Тип| 
@@ -284,7 +284,7 @@ shard | Идентификатор шарда
 | `ch_system_events_ZooKeeperWatchResponse_rate`<br/>`DGAUGE` | 
 
 ##### Метрики текущих событий {#managed-clickhouse-system-metrics}
-Нативные метрики Clickhouse из таблицы [system.metrics]({{ ch.docs }}/operations/system-tables/metrics/).
+Нативные метрики Clickhouse из таблицы [system.metrics](https://clickhouse.com/docs/en/operations/system-tables/metrics/).
 
 | Имя<br/>Тип| 
 | ----- | 
@@ -371,7 +371,7 @@ shard | Идентификатор шарда
 | `ch_system_metrics_ZooKeeperWatch`<br/>`DGAUGE` | 
 
 ##### Метрики очереди запросов {#managed-clickhouse-query-log-metrics}
-Нативные метрики Clickhouse из таблицы [system.query_log]({{ ch.docs }}/operations/system-tables/query_log).
+Нативные метрики Clickhouse из таблицы [system.query_log](https://clickhouse.com/docs/en/operations/system-tables/query_log).
 По каждой метрике считается прирост за единицу времени (секунда).
 
 | Имя<br/>Тип| 

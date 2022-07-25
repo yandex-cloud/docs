@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/hosts/list.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-redis/hosts/list.md
 ---
 # yc managed-redis hosts list
 

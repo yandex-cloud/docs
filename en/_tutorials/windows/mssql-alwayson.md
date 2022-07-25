@@ -275,9 +275,9 @@ The `setpass` file must be in UTF-8 encoding.
 
 The set password is only used for testing. Use your own complex password when deploying a cluster to work in a product environment.
 
-The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочные-материалы).
+The password must meet the [complexity requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
 
-Read more about the best practices for securing Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+Read more about the best practices for securing Active Directory on the [official website](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 {% endnote %}
 

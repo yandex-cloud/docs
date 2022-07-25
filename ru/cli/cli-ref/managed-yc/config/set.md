@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-yc/config/set.md
+sourcePath: ru/_cli-ref/cli-ref/managed-yc/config/set.md
 ---
 # yc config set
 

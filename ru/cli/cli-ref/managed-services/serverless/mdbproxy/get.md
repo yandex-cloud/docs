@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/get.md
 ---
 # yc serverless mdbproxy get
 

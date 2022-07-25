@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/add-external-dictionary.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/add-external-dictionary.md
 ---
 # yc managed-clickhouse cluster add-external-dictionary
 

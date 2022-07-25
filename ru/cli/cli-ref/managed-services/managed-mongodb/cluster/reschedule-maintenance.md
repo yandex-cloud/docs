@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/reschedule-maintenance.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/reschedule-maintenance.md
 ---
 # yc managed-mongodb cluster reschedule-maintenance
 

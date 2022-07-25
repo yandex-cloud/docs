@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/logging/group/set-access-bindings.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/logging/group/set-access-bindings.md
 ---
 # yc logging group set-access-bindings
 

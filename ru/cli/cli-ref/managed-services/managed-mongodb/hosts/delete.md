@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/hosts/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/hosts/delete.md
 ---
 # yc managed-mongodb hosts delete
 

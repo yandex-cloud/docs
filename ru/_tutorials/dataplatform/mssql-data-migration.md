@@ -6,7 +6,7 @@
   - В процессе создания снапшота используются блокировки таблиц.
   - Процесс импорта снапшота проходит медленно по сравнению с транзакционной репликацией.
   - Данные в кластере-приемнике будут актуальны только на момент создания снапшота и могут устареть.
-  - Этот способ не подходит для баз данных с логическими неконсистентностями — например, если в ней удалены зависимости или таблицы, на которые ссылаются представления. Если это ограничение критично, вместо этого вы можете создать [моментальный снимок базы данных]({{ ms.docs }}/sql/relational-databases/databases/create-a-database-snapshot-transact-sql) и направить его в [службу поддержки]({{ link-console-support }}), чтобы наши специалисты восстановили базу из снапшота вручную.
+  - Этот способ не подходит для баз данных с логическими неконсистентностями — например, если в ней удалены зависимости или таблицы, на которые ссылаются представления. Если это ограничение критично, вместо этого вы можете создать [моментальный снимок базы данных](https://docs.microsoft.com/ru-ru/sql/relational-databases/databases/create-a-database-snapshot-transact-sql) и направить его в [службу поддержки]({{ link-console-support }}), чтобы наши специалисты восстановили базу из снапшота вручную.
 
 - Миграция с помощью транзакционной репликации:
   - Однонаправленность — изменения на кластере-приемнике не будут реплицироваться в кластер-источник.
@@ -14,7 +14,7 @@
 
 ## Миграция с помощью логического импорта {#snapshot}
 
-Перенести данные из кластера {{ MS }} в кластер {{ mms-short-name }} можно с помощью программы [sqlpackage]({{ ms.docs }}/sql/tools/sqlpackage/sqlpackage-download). Она создаст файл снапшота базы {{ MS }} со схемой и данными таблиц и других объектов, а затем импортирует его в кластер {{ mms-short-name }}.
+Перенести данные из кластера {{ MS }} в кластер {{ mms-short-name }} можно с помощью программы [sqlpackage](https://docs.microsoft.com/ru-ru/sql/tools/sqlpackage/sqlpackage-download). Она создаст файл снапшота базы {{ MS }} со схемой и данными таблиц и других объектов, а затем импортирует его в кластер {{ mms-short-name }}.
 
 Чтобы мигрировать базу данных из кластера-источника {{ MS }} в кластер-приемник {{ mms-name }} с помощью логического импорта:
 
@@ -32,7 +32,7 @@
 
 1. Проверьте, что вы можете [подключиться к кластеру-приемнику](../../managed-sqlserver/operations/connect.md#connection-ide) и к кластеру-источнику с помощью {{ ssms }}.
 
-1. [Скачайте и установите программу sqlpackage]({{ ms.docs }}/sql/tools/sqlpackage/sqlpackage-download).
+1. [Скачайте и установите программу sqlpackage](https://docs.microsoft.com/ru-ru/sql/tools/sqlpackage/sqlpackage-download).
 
 ### Настройте кластер-источник {#configure-source}
 
@@ -75,7 +75,7 @@
 
 {% endnote %}
 
-Подробнее см. в [документации {{ MS }}]({{ ms.docs }}/sql/tools/sqlpackage/sqlpackage-extract).
+Подробнее см. в [документации {{ MS }}](https://docs.microsoft.com/ru-ru/sql/tools/sqlpackage/sqlpackage-extract).
 
 ### Импортируйте снапшот базы данных в кластер-приемник {#import-snapshot}
 
@@ -102,15 +102,15 @@
        /p:ScriptRefreshModule=False
    ```
 
-Подробнее см. в [документации {{ MS }}]({{ ms.docs }}/sql/tools/sqlpackage/sqlpackage-publish).
+Подробнее см. в [документации {{ MS }}](https://docs.microsoft.com/ru-ru/sql/tools/sqlpackage/sqlpackage-publish).
 
 ## Миграция с помощью транзакционной репликации {#replication}
 
-Перенести данные из кластера {{ MS }} в кластер {{ mms-name }} с минимальным временем простоя можно с помощью [репликации транзакций (transactional replication)]({{ ms.docs }}/sql/relational-databases/replication/transactional/transactional-replication). Такой тип репликации поддерживается с 2016-й версии {{ MS }} и позволяет мигрировать данные на более поздние версии SQL Server в кластере {{ mms-name }}.
+Перенести данные из кластера {{ MS }} в кластер {{ mms-name }} с минимальным временем простоя можно с помощью [репликации транзакций (transactional replication)](https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/transactional/transactional-replication). Такой тип репликации поддерживается с 2016-й версии {{ MS }} и позволяет мигрировать данные на более поздние версии SQL Server в кластере {{ mms-name }}.
 
 При репликации транзакций:
 
-* При инициализации [агент моментальных снимков]({{ ms.docs }}/sql/relational-databases/replication/agents/replication-agents-overview#snapshot-agent) создает снапшот базы данных со схемой и файлами данных таблиц и других объектов и копирует его с [издателя (publisher)]({{ ms.docs }}/sql/relational-databases/replication/publish/replication-publishing-model-overview#publisher) на [распространителя (distributor)]({{ ms.docs }}/sql/relational-databases/replication/publish/replication-publishing-model-overview#distributor), который управляет переносом данных.
+* При инициализации [агент моментальных снимков](https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/agents/replication-agents-overview#snapshot-agent) создает снапшот базы данных со схемой и файлами данных таблиц и других объектов и копирует его с [издателя (publisher)](https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/publish/replication-publishing-model-overview#publisher) на [распространителя (distributor)](https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/publish/replication-publishing-model-overview#distributor), который управляет переносом данных.
 
    {% note info %}
    
@@ -118,8 +118,8 @@
    
    {% endnote %}
 
-* [Агент чтения журнала (Log Reader Agent)]({{ ms.docs }}/sql/relational-databases/replication/agents/replication-agents-overview#log-reader-agent) переносит транзакции из лога транзакций на распространителя.
-* Снапшот и транзакции из распространителя переносятся с помощью [агента распространителя (Distribution Agent)]({{ ms.docs }}/sql/relational-databases/replication/agents/replication-agents-overview#distribution-agent) к [подписчику (subscriber)]({{ ms.docs }}/sql/relational-databases/replication/publish/replication-publishing-model-overview#subscribers).
+* [Агент чтения журнала (Log Reader Agent)](https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/agents/replication-agents-overview#log-reader-agent) переносит транзакции из лога транзакций на распространителя.
+* Снапшот и транзакции из распространителя переносятся с помощью [агента распространителя (Distribution Agent)](https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/agents/replication-agents-overview#distribution-agent) к [подписчику (subscriber)](https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/publish/replication-publishing-model-overview#subscribers).
 
 В такой схеме издатель, распространитель и оба агента располагаются в кластере-источнике, а подписчик — в кластере-приемнике. Возможны и другие варианты распределения ролей, например выделенные сервера для распространителя.
 
@@ -160,7 +160,7 @@
    1. Выберите в списке статей для публикации все сущности базы данных, которые требуется реплицировать (таблицы, представления, хранимые процедуры).
    1. Выберите время создания снапшота базы данных.
    
-   Подробнее см. в [документации {{ MS }}]({{ ms.docs }}/sql/relational-databases/replication/publish/create-a-publication).
+   Подробнее см. в [документации {{ MS }}](https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/publish/create-a-publication).
 
 1. Нажмите кнопку **Finish**.
 
@@ -183,11 +183,11 @@
    1. Выберите для подписчика базу данных кластера-приемника.
    1. В параметрах безопасности **Distribution Agent Security** в блоке **Connect to the Subscriber** укажите имя и пароль учетной записи владельца базы данных на кластере-приемнике.
 
-   Подробнее см. в [документации {{ MS }}]({{ ms.docs }}/sql/relational-databases/replication/create-a-push-subscription).
+   Подробнее см. в [документации {{ MS }}](https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/create-a-push-subscription).
 
  1. Нажмите кнопку **Finish**.
 
-Запустится процесс репликации. Чтобы следить за его статусом, [запустите монитор]({{ ms.docs }}/sql/relational-databases/replication/monitor/start-the-replication-monitor) и [добавьте подписку для отслеживания]({{ ms.docs }}/sql/relational-databases/replication/monitor/add-and-remove-publishers-from-replication-monitor).
+Запустится процесс репликации. Чтобы следить за его статусом, [запустите монитор](https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/monitor/start-the-replication-monitor) и [добавьте подписку для отслеживания](https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/monitor/add-and-remove-publishers-from-replication-monitor).
 
 ### Остановите процесс репликации и перенесите нагрузку {#transfer-load}
 
@@ -196,7 +196,7 @@
    1. Откройте {{ ssms }}.
    1. Откройте контекстное меню для реплицируемой базы данных, затем выберите пункт **Properties**.
    1. Выберите **Database Properties → Options** и в блоке **State** поменяйте значение **Database Read Only** на **True**.
-1. [Остановите репликацию]({{ ms.docs }}/sql/relational-databases/replication/agents/start-and-stop-a-replication-agent-sql-server-management-studio) на кластере-источнике.
+1. [Остановите репликацию](https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/agents/start-and-stop-a-replication-agent-sql-server-management-studio) на кластере-источнике.
 1. Удалите подписку и публикацию на кластере-источнике. Подтвердите разрешение {{ ssms }} удалить подписчика на кластере-приемнике.
 1. Перенесите нагрузку на кластер-приемник.
 

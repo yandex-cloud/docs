@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/placement-group/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/placement-group/delete.md
 ---
 # yc compute placement-group delete
 

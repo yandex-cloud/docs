@@ -13,7 +13,7 @@ To add two records to the `series` table:
 
    {% note warning %}
 
-   To work with the AWS CLI from Windows, we recommend using the [WSL]({{ ms.docs }}/windows/wsl/).
+   To work with the AWS CLI from Windows, we recommend using the [WSL](https://docs.microsoft.com/en-us/windows/wsl/).
 
    {% endnote %}
 

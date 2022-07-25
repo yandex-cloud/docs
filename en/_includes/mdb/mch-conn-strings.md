@@ -4,7 +4,7 @@
 
   **Before connecting:**
 
-  1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
+  1. Add the {{ CH }} [DEB repository](https://{{ ch-domain }}/docs/en/getting-started/install/#install-from-deb-packages):
 
      ```bash
      sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \

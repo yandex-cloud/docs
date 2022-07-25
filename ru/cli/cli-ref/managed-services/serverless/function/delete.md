@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/delete.md
 ---
 # yc serverless function delete
 

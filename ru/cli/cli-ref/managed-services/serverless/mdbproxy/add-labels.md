@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/add-labels.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/add-labels.md
 ---
 # yc serverless mdbproxy add-labels
 

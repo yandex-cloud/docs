@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/create/yds.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/trigger/create/yds.md
 ---
 # yc serverless trigger create yds
 

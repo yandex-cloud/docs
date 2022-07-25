@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/host/update.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/host/update.md
 ---
 # yc managed-sqlserver host update
 

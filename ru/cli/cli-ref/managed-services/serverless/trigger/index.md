@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/index.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/trigger/index.md
 ---
 # yc serverless trigger
 

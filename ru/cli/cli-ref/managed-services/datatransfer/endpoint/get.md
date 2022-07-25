@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/get.md
 ---
 # yc datatransfer endpoint get
 

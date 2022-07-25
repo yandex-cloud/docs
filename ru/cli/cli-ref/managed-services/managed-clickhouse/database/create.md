@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/database/create.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/database/create.md
 ---
 # yc managed-clickhouse database create
 

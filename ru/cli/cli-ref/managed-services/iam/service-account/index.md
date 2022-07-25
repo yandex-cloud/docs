@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iam/service-account/index.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/service-account/index.md
 ---
 # yc iam service-account
 

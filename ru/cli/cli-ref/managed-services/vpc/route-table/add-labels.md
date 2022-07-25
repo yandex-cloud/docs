@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/route-table/add-labels.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/route-table/add-labels.md
 ---
 # yc vpc route-table add-labels
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/placement-group/create.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/placement-group/create.md
 ---
 # yc compute placement-group create
 

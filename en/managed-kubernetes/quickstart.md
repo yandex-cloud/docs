@@ -17,7 +17,7 @@ To start working with {{ managed-k8s-name }}:
 
 
 1. If you don't have a folder, [create one](../resource-manager/operations/folder/create.md).
-1. Install the [Kubernetes CLI (kubectl)]({{ k8s-docs }}/tasks/tools/install-kubectl/).
+1. Install the [Kubernetes CLI (kubectl)](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 1. Make sure you have enough [resources available in the cloud](concepts/limits.md).
 1. If you don't have a network, [create one](../vpc/operations/network-create.md).
 1. If you don't have any subnets, [create them](../vpc/operations/subnet-create.md) in the availability zones where your {{ k8s }} cluster and node group will be created.

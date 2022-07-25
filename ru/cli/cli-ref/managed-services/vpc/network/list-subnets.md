@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/network/list-subnets.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/network/list-subnets.md
 ---
 # yc vpc network list-subnets
 

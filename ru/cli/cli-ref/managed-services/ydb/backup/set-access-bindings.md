@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/backup/set-access-bindings.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/ydb/backup/set-access-bindings.md
 ---
 # yc ydb backup set-access-bindings
 

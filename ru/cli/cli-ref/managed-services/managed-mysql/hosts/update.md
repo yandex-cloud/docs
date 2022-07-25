@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/hosts/update.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mysql/hosts/update.md
 ---
 # yc managed-mysql hosts update
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iam/federation/list-user-accounts.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/federation/list-user-accounts.md
 ---
 # yc iam federation list-user-accounts
 

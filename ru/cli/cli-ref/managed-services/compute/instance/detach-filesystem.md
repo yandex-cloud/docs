@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/detach-filesystem.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/detach-filesystem.md
 ---
 # yc compute instance detach-filesystem
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/tag-history.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/tag-history.md
 ---
 # yc serverless function tag-history
 

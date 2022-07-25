@@ -21,7 +21,6 @@
     * `dblink`
     * `pg_repack`
     * `postgres_fdw`
-    * `pg_cron`
 * Использование специфических функций расширений:
     * `pg_stat_kcache_reset()` из расширения `pg_stat_kcache`;
     * `pg_stat_reset()`, `pg_stat_statements_reset()` из расширения `pg_stat_statements`.

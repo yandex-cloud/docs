@@ -4,7 +4,7 @@ To use [{{ k8s }}](https://kubernetes.io) to create an [NGINX Ingress Controller
 
 ## Before you start {#before-begin}
 
-1. Install the {{ k8s }} CLI [kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl).
+1. Install the {{ k8s }} CLI [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl).
 1. [Configure](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) kubectl.
 1. Install the {{ k8s }} [Helm 3](https://helm.sh/docs/intro/install) package manager.
 1. Add a repository for NGINX to Helm:

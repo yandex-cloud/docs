@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/add-access-binding.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/add-access-binding.md
 ---
 # yc serverless function add-access-binding
 

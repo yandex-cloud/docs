@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iam/service-account/set-access-bindings.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/service-account/set-access-bindings.md
 ---
 # yc iam service-account set-access-bindings
 

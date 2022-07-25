@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iam/federation/create.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/federation/create.md
 ---
 # yc iam federation create
 

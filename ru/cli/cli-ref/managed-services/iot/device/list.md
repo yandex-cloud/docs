@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iot/device/list.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/device/list.md
 ---
 # yc iot device list
 

@@ -21,4 +21,4 @@ keywords:
 
 ## Настройки NTP на ОС Windows {#ntp-windows}
 
-По умолчанию Windows не обрабатывает передаваемые через DHCP настройки NTP и использует либо собственные сервера синхронизации времени, либо указанные администратором, если ВМ введена в домен. [Изменить настройки]({{ ms.docs }}/windows-server/networking/windows-time-service/windows-time-service-tools-and-settings) вручную можно с помощью службы времени W32Time. 
+По умолчанию Windows не обрабатывает передаваемые через DHCP настройки NTP и использует либо собственные сервера синхронизации времени, либо указанные администратором, если ВМ введена в домен. [Изменить настройки](https://docs.microsoft.com/ru-ru/windows-server/networking/windows-time-service/windows-time-service-tools-and-settings) вручную можно с помощью службы времени W32Time. 

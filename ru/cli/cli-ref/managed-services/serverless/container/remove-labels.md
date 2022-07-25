@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/remove-labels.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/container/remove-labels.md
 ---
 # yc serverless container remove-labels
 

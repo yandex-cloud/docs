@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/container/registry/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/container/registry/get.md
 ---
 # yc container registry get
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/origin-group/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/cdn/origin-group/get.md
 ---
 # yc cdn origin-group get
 

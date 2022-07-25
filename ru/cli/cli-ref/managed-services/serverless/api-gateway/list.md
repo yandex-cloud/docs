@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/api-gateway/list.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/api-gateway/list.md
 ---
 # yc serverless api-gateway list
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iam/create-token.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/create-token.md
 ---
 # yc iam create-token
 

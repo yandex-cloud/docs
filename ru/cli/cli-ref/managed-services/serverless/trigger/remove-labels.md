@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/remove-labels.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/trigger/remove-labels.md
 ---
 # yc serverless trigger remove-labels
 

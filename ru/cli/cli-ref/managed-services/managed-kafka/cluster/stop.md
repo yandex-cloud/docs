@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/stop.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/stop.md
 ---
 # yc managed-kafka cluster stop
 

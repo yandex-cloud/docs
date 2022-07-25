@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/cluster/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-greenplum/cluster/get.md
 ---
 # yc managed-greenplum cluster get
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/create/postgresql.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/create/postgresql.md
 ---
 # yc serverless mdbproxy create postgresql
 

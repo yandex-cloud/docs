@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-yc/config/index.md
+sourcePath: ru/_cli-ref/cli-ref/managed-yc/config/index.md
 ---
 # yc config
 

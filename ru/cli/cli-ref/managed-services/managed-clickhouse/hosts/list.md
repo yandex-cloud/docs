@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/hosts/list.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/hosts/list.md
 ---
 # yc managed-clickhouse hosts list
 

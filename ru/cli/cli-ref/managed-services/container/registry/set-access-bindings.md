@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/container/registry/set-access-bindings.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/container/registry/set-access-bindings.md
 ---
 # yc container registry set-access-bindings
 

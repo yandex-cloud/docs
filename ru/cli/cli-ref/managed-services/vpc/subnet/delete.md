@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/subnet/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/subnet/delete.md
 ---
 # yc vpc subnet delete
 

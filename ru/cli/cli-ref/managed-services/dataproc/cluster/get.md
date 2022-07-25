@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/cluster/get.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/dataproc/cluster/get.md
 ---
 # yc dataproc cluster get
 

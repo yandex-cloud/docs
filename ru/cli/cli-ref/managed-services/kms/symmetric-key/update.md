@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-key/update.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/kms/symmetric-key/update.md
 ---
 # yc kms symmetric-key update
 

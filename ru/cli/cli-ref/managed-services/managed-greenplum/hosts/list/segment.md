@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/hosts/list/segment.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-greenplum/hosts/list/segment.md
 ---
 # yc managed-greenplum hosts list segment
 

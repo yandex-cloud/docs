@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/list.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/list.md
 ---
 # yc datatransfer endpoint list
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/create/logging.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/trigger/create/logging.md
 ---
 # yc serverless trigger create logging
 

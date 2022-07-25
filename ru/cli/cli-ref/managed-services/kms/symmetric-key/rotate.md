@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-key/rotate.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/kms/symmetric-key/rotate.md
 ---
 # yc kms symmetric-key rotate
 

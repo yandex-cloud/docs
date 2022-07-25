@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/container/registry/set-ip-permissions.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/container/registry/set-ip-permissions.md
 ---
 # yc container registry set-ip-permissions
 

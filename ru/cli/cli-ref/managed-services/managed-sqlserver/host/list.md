@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/host/list.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/host/list.md
 ---
 # yc managed-sqlserver host list
 

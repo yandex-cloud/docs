@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/organization/update.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/organization-manager/organization/update.md
 ---
 # yc organization-manager organization update
 

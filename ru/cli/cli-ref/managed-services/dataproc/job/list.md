@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/job/list.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/dataproc/job/list.md
 ---
 # yc dataproc job list
 

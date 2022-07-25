@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/secret/set-access-bindings.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/lockbox/secret/set-access-bindings.md
 ---
 # yc lockbox secret set-access-bindings
 

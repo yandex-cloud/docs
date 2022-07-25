@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/invoke.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/invoke.md
 ---
 # yc serverless function invoke
 

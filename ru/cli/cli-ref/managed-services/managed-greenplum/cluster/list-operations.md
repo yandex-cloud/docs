@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/cluster/list-operations.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-greenplum/cluster/list-operations.md
 ---
 # yc managed-greenplum cluster list-operations
 

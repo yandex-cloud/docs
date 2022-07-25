@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/cluster/stop.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/dataproc/cluster/stop.md
 ---
 # yc dataproc cluster stop
 

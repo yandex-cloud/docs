@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/cloud-desktop/desktop/get-rdp-file.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/cloud-desktop/desktop/get-rdp-file.md
 ---
 # yc cloud-desktop desktop get-rdp-file
 

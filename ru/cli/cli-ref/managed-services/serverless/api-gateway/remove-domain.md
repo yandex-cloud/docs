@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/api-gateway/remove-domain.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/api-gateway/remove-domain.md
 ---
 # yc serverless api-gateway remove-domain
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/create/postgres-target.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/create/postgres-target.md
 ---
 # yc datatransfer endpoint create postgres-target
 

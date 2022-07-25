@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance-group/remove-metadata.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance-group/remove-metadata.md
 ---
 # yc compute instance-group remove-metadata
 

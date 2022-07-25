@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/address/update.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/address/update.md
 ---
 # yc vpc address update
 

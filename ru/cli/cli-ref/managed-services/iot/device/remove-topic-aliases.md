@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/iot/device/remove-topic-aliases.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/device/remove-topic-aliases.md
 ---
 # yc iot device remove-topic-aliases
 

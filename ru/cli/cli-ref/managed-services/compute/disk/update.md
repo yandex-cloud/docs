@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/disk/update.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/disk/update.md
 ---
 # yc compute disk update
 

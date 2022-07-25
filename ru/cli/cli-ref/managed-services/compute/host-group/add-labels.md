@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/host-group/add-labels.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/host-group/add-labels.md
 ---
 # yc compute host-group add-labels
 

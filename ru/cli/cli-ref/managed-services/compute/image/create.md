@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/compute/image/create.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/image/create.md
 ---
 # yc compute image create
 

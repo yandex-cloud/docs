@@ -33,7 +33,7 @@ Before uploading an image to Marketplace, prepare the image using the `sysprep` 
 
 ### Preparing the answer file {#preparing-file}
 
-Each Windows version has its own `sysprep` copy installed. Run the local utility found in `$env:SystemRoot\System32\Sysprep\Sysprep.exe` with the options `/oobe /generalize /quiet /quit /unattend:<unattend_answer_file_path>`, where `<unattend_answer_file_path>` is the path to the [answer file]({{ ms.docs }}/windows-hardware/manufacture/desktop/use-answer-files-with-sysprep). You need an answer file to configure and automate OS depersonalization. If at `sysprep` launch you do not specify an explicit path to an answer file, the utility will attempt to find a previous answer file in the cache or run without it. Launching `sysprep` without an answer file may damage the image you prepared.
+Each Windows version has its own `sysprep` copy installed. Run the local utility found in `$env:SystemRoot\System32\Sysprep\Sysprep.exe` with the options `/oobe /generalize /quiet /quit /unattend:<unattend_answer_file_path>`, where `<unattend_answer_file_path>` is the path to the [answer file](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/use-answer-files-with-sysprep). You need an answer file to configure and automate OS depersonalization. If at `sysprep` launch you do not specify an explicit path to an answer file, the utility will attempt to find a previous answer file in the cache or run without it. Launching `sysprep` without an answer file may damage the image you prepared.
 
 {% cut "Sample contents of the answer file" %}
 

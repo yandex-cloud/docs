@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/address/create.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/address/create.md
 ---
 # yc vpc address create
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/add-labels.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/add-labels.md
 ---
 # yc managed-elasticsearch cluster add-labels
 

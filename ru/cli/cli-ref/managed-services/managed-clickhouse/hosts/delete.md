@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/hosts/delete.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/hosts/delete.md
 ---
 # yc managed-clickhouse hosts delete
 

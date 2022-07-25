@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/user/list.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/user/list.md
 ---
 # yc managed-mongodb user list
 

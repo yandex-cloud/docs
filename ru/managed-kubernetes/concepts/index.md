@@ -196,9 +196,9 @@ _Метки узлов_, `node_labels` — механизм группировк
 
 {% note warning %}
 
-Не путайте [облачные метки группы узлов](../../overview/concepts/services.md#labels) (`labels`) и [{{ k8s }}-метки узлов]({{ k8s-docs }}/concepts/overview/working-with-objects/labels/) (`node_labels`), которыми управляет {{ managed-k8s-name }}.
+Не путайте [облачные метки группы узлов](../../overview/concepts/services.md#labels) (`labels`) и [{{ k8s }}-метки узлов](https://kubernetes.io/ru/docs/concepts/overview/working-with-objects/labels/) (`node_labels`), которыми управляет {{ managed-k8s-name }}.
 
-Мы рекомендуем управлять всеми метками узлов через [API {{ managed-k8s-name }}](../api-ref/NodeGroup/index.md), поскольку во время [обновления/изменения групп узлов](../operations/node-group/node-group-update.md), по умолчанию, часть узлов пересоздается с другим именем, а часть старых удаляется. Поэтому метки, добавленные через [{{ k8s }} API]({{ k8s-docs }}/concepts/overview/kubernetes-api) могут быть потеряны. И наоборот, удаление через {{ k8s }} API меток, созданных через API {{ managed-k8s-name }}, не имеет эффекта, — они будут восстановлены.
+Мы рекомендуем управлять всеми метками узлов через [API {{ managed-k8s-name }}](../api-ref/NodeGroup/index.md), поскольку во время [обновления/изменения групп узлов](../operations/node-group/node-group-update.md), по умолчанию, часть узлов пересоздается с другим именем, а часть старых удаляется. Поэтому метки, добавленные через [{{ k8s }} API](https://kubernetes.io/ru/docs/concepts/overview/kubernetes-api) могут быть потеряны. И наоборот, удаление через {{ k8s }} API меток, созданных через API {{ managed-k8s-name }}, не имеет эффекта, — они будут восстановлены.
 
 {% endnote %}
 

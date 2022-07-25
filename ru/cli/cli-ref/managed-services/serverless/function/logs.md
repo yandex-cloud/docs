@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/logs.md
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/logs.md
 ---
 # yc serverless function logs
 
