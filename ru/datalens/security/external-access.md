@@ -12,9 +12,9 @@
 
 {% note warning %}
 
-* Права выдаются только для ABC-групп. Не согласуются права доступа для отдельных пользователей и Staff-групп. О правилах заказа сетевого доступа через ABC см. в [документации](https://wiki.yandex-team.ru/security/dostup/get_network_access/#abcrol).
+* Права выдаются только для [ABC-групп](https://wiki.yandex-team.ru/intranet/abc/archive/vodstvo/create/). Не согласуются права доступа для отдельных пользователей и Staff-групп. О правилах заказа сетевого доступа через ABC см. в [документации](https://wiki.yandex-team.ru/security/dostup/get_network_access/#abcrol).
 
-* Доступ к сервисам {{ datalens-short-name }} осуществляется только через VPN.
+* Доступ к сервисам {{ datalens-short-name }} осуществляется только через [VPN](https://diy-outstaff.daas.yandex-team.ru/common/auth/VPN.html).
 
 {% endnote %}
 
