@@ -1,6 +1,7 @@
-# Настройка права доступа к облаку
+# Настройка прав доступа к облаку
 
-Чтобы предоставить пользователю доступ ко всем ресурсам в облаке, назначьте ему [роль](../../../iam/concepts/access-control/roles.md) на это облако.
+Чтобы предоставить пользователю доступ к ресурсам в облаке, назначьте ему [роль](../../../iam/concepts/access-control/roles.md) на это облако.
+
 
 ## Назначить роль на облако {#access-to-user}
 
@@ -8,10 +9,7 @@
 
 - Консоль управления
 
-  1. {% include [grant-role-console-first-steps](../../../_includes/iam/grant-role-console-first-steps.md) %}
-  1. {% include [configure-roles-console](../../../_includes/iam/configure-roles-console.md) %}
-  1. Нажмите значок ![image](../../../_assets/plus-sign.svg) в блоке **Роли на облако <имя облака>**.
-  1. Выберите необходимую роль из списка.
+  {% include [set-access-binding-user-cloud-console](../../../_includes/resource-manager/set-access-binding-user-cloud-console.md) %}
 
 - CLI
 
@@ -271,16 +269,15 @@
 
 {% endlist %}
 
-## Примеры {#examples}
 
-* [{#T}](#multiple-roles)
-* [{#T}](#access-to-sa)
-* [{#T}](#access-to-all)
-
-### Назначить несколько ролей {#multiple-roles}
+## Назначить несколько ролей {#multiple-roles}
 
 {% list tabs %}
 
+- Консоль управления
+
+  {% include [set-access-binding-multiple-users-cloud-console](../../../_includes/resource-manager/set-access-binding-multiple-users-cloud-console.md) %}
+  
 - CLI
 
   Команда `add-access-binding` позволяет добавить только одну роль. Вы можете назначить несколько ролей с помощью команды `set-access-binding`.
@@ -503,13 +500,22 @@
 
 {% endlist %}
 
-### Доступ к облаку для сервисного аккаунта {#access-to-sa}
+
+## Доступ к облаку для сервисного аккаунта {#access-to-sa}
 
 Сервисному аккаунту можно назначать роли только на облако, которому он принадлежит.
 
 Разрешите сервисному аккаунту `test-sa` управлять облаком `my-cloud` и ресурсами в нем:
 
 {% list tabs %}
+
+- Консоль управления
+
+  Роли сервисному аккаунту назначаются так же, как пользовательскому аккаунту.
+
+  Чтобы назначить сервисному аккаунту роль на облако:
+
+  {% include [set-accessbinding-sa-cloud-console](../../../_includes/iam/set-accessbinding-sa-cloud-console.md) %}
 
 - CLI
 
@@ -630,95 +636,13 @@
 
 {% endlist %}
 
-### Доступ к ресурсу всем пользователям {#access-to-all}
 
-{% include [set-access-to-all](../../../_includes/iam/set-access-to-all.md) %}
+## Доступ к ресурсу всем пользователям {#access-to-all}
 
-Например, разрешите любому прошедшему аутентификацию пользователю просматривать информацию об облаке `my-cloud` и ресурсах в нем:
+{% include [set-accessbinding-all-console](../../../_includes/iam/set-accessbinding-all-console.md) %}
 
-{% list tabs %}
 
-- CLI
-
-  Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В типе субъекта укажите `system`:
-
-  ```bash
-  yc resource-manager cloud add-access-binding my-cloud \
-    --role viewer \
-    --subject system:allAuthenticatedUsers
-  ```
-
-- API
-
-  Назначьте роль `viewer` системной группе `allAuthenticatedUsers`. В свойстве `subject` укажите тип `system`:
-
-  ```bash
-  curl -X POST \
-      -H 'Content-Type: application/json' \
-      -H "Authorization: Bearer <IAM-TOKEN>" \
-      -d '{
-      "accessBindingDeltas": [{
-          "action": "ADD",
-          "accessBinding": {
-              "roleId": "viewer",
-              "subject": {
-                  "id": "allAuthenticatedUsers",
-                  "type": "system"
-      }}}]}' \
-      https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7qca5onqs:updateAccessBindings
-  ```
-
-- {{ TF }}
-
-  1. Назначьте роль `viewer` системной группе `allAuthenticatedUsers`: 
-
-      ```hcl
-      data "yandex_resourcemanager_cloud" "project1" {
-        name = "Project 1"
-      }
-
-      resource "yandex_resourcemanager_cloud_iam_binding" "viewer" {
-        cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
-        role = "viewer"
-        members = [
-          "system:allAuthenticatedUsers",
-        ]
-      }
-      ```
-
-  1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-  1. Проверьте корректность конфигурационного файла с помощью команды:
-      
-      ```bash
-      terraform validate
-      ```
-     
-      Если конфигурация является корректной, появится сообщение:
-     
-      ```bash
-      Success! The configuration is valid.
-      ```
-
-  1. Выполните команду:
-      
-      ```bash
-      terraform plan
-      ```
-  
-      В терминале будет выведен список создаваемых ресурсов и их параметров. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-  1. Примените изменения конфигурации:
-
-      ```bash
-      terraform apply
-      ```
-     
-  1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
-
-      После этого будут назначены права доступа к облаку.
-
-{% endlist %}
-
-#### Что дальше {#what-is-next}
+## Что дальше {#what-is-next}
 
 * [{#T}](../folder/create.md)
 * [{#T}](../folder/set-access-bindings.md)
