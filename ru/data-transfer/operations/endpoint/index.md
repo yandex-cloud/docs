@@ -121,11 +121,15 @@
 
        * Источники:
 
+           * [{{ CH }}](source/clickhouse.md).
+           * [{{ MG }}](source/mongodb.md).
            * [{{ MY }}](source/mysql.md).
            * [{{ PG }}](source/postgresql.md).
 
        * Приемники:
 
+           * [{{ CH }}](target/clickhouse.md).
+           * [{{ MG }}](target/mongodb.md).
            * [{{ MY }}](target/mysql.md).
            * [{{ PG }}](target/postgresql.md).
 

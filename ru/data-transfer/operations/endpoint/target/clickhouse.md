@@ -15,6 +15,39 @@
 
     {% include [Managed ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-clickhouse.md) %}
 
+- Terraform
+
+    * Тип эндпоинта — `clickhouse_target`.
+
+    {% include [Managed ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse.md) %}
+
+    Пример структуры конфигурационного файла:
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        clickhouse_target {
+          security_groups = [ "список идентификаторов групп безопасности" ]
+          subnet_id       = "<идентификатор подсети>"
+          connection {
+            connection_options {
+              mdb_cluster_id = "<идентификатор кластера {{ mch-name }}>"
+              database       = "<имя переносимой базы данных>"
+              user           = "<имя пользователя для подключения>"
+              password {
+                raw = "<пароль пользователя>"
+              }
+            }
+          }
+          <дополнительные настройки эндпоинта>
+        }
+      }
+    }
+    ```
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+
 {% endlist %}
 
 ## Пользовательская инсталляция {#on-premise}
@@ -26,6 +59,51 @@
 - Консоль управления
 
     {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse.md) %}
+
+- Terraform
+
+    * Тип эндпоинта — `clickhouse_target`.
+
+    {% include [On premise ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse.md) %}
+
+    Пример структуры конфигурационного файла:
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        clickhouse_target {
+          security_groups = [ "список групп безопасности" ]
+          subnet_id       = "<идентификатор подсети>"
+          connection {
+            connection_options {
+              on_premise {
+                http_port   = "<порт для подключения по HTTP>"
+                native_port = "<порт для подключения к нативному интерфейсу>"
+                shards {
+                  name  = "<имя шарда>"
+                  hosts = [ "список IP-адресов или FQDN хостов шарда" ]
+                }
+                tls_mode {
+                  enabled {
+                    ca_certificate = "<сертификат в формате PEM>"
+                  }
+                }
+              }
+              database = "<имя переносимой базы данных>"
+              user     = "<имя пользователя для подключения>"
+              password {
+                raw = "<пароль пользователя>"
+              }
+            }
+          }
+          <дополнительные настройки эндпоинта>
+        }
+      }
+    }
+    ```
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 {% endlist %}
 
@@ -45,7 +123,7 @@
 
        {% note warning %}
 
-       Если не задавать имя колонки для шардирования и не использовать настройку **Шардирование по идентификатору трансфера**, то все данные будут перенесены в один и тот же шард.
+       Если не задавать имя колонки для шардирования и не использовать настройку **Шардирование по идентификатору трансфера**, то все данные будут перенесены в один шард.
 
        {% endnote %}
 
@@ -56,5 +134,34 @@
     * **Интервал записи** — укажите задержку, с которой данные должны поступать в кластер-приемник. Увеличьте значение в этом поле, если ClickHouse не успевает делать слияние кусков данных.
 
     * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
+
+- Terraform
+
+    * `clickhouse_cluster_name` — укажите имя кластера, в который будут передаваться данные.
+
+    * `alt_names` — при необходимости укажите правила переименования таблиц базы-источника при переносе в базу-приемник:
+
+        * `from_name` – имя таблицы в источнике.
+        * `to_name` – имя таблицы в приемнике.
+
+    * `sharding.column_value_hash.column_name` — имя колонки в таблицах, по которой следует [шардировать](../../../../managed-clickhouse/concepts/sharding.md) данные. Равномерное распределение по шардам будет определяться хешем значения этой колонки.
+
+    * `sharding.transfer_id` — при значении `true` данные по шардам распределяются на основе значения идентификатора трансфера. При этом трансфер игнорирует настройку `sharding.column_value_hash.column_name` и шардирует данные только по идентификатору трансфера.
+
+       {% note warning %}
+
+       Если не задавать имя колонки для шардирования и не использовать настройку `sharding.transfer_id`, то все данные будут перенесены в один шард.
+
+       {% endnote %}
+
+    * `cleanup_policy` — укажите способ очистки данных в базе-приемнике перед переносом:
+
+        * `CLICKHOUSE_CLEANUP_POLICY_DROP` — полное удаление таблиц, участвующих в трансфере (вариант по умолчанию).
+
+           Используйте эту опцию, чтобы при любой активации трансфера в базу-приемник всегда передавалась самая последняя версия схемы таблиц из источника.
+
+        * `CLICKHOUSE_CLEANUP_POLICY_DISABLED` — не очищать.
+
+           Выберите эту опцию, если будет производиться только репликация без копирования данных.
 
 {% endlist %}

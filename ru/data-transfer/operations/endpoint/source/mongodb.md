@@ -17,6 +17,39 @@
 
     {% include [Managed MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/managed-mongodb.md) %}
 
+- Terraform
+
+    * Тип эндпоинта — `mongo_source`.
+
+    {% include [Managed MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mongodb.md) %}
+
+    Пример структуры конфигурационного файла:
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        mongo_source {
+          security_groups = [ "список идентификаторов групп безопасности" ]
+          subnet_id       = "<идентификатор подсети>"
+          connection {
+            connection_options {
+              mdb_cluster_id = "<идентификатор кластера {{ mmg-name }}>"
+              auth_source    = "<имя базы данных>"
+              user           = "<имя пользователя>"
+              password {
+                raw = "<пароль пользователя>"
+              }
+            }
+          }
+          <дополнительные настройки эндпоинта>
+        }
+      }
+    }
+    ```
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+
 {% endlist %}
 
 {% endif %}
@@ -31,6 +64,46 @@
 
     {% include [On premise MongoDB](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mongodb.md) %}
 
+- Terraform
+
+    * Тип эндпоинта — `mongo_source`.
+
+    {% include [On premise MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mongodb.md) %}
+
+    Пример структуры конфигурационного файла:
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "<имя эндпоинта в {{ TF }}>" {
+      name = "<имя эндпоинта>"
+      settings {
+        mongo_source {
+          connection {
+            connection_options {
+              on_premise {
+                hosts       = [ "список хостов набора реплик" ]
+                port        = "<порт для подключения>"
+                replica_set = "<имя набора реплик>"
+                tls_mode {
+                  enabled {
+                    ca_certificate = "<сертификат в формате PEM>"
+                  }
+                }
+              }
+              auth_source = "<имя базы данных>"
+              user        = "<имя пользователя>"
+              password {
+                raw = "<пароль пользователя>"
+              }
+            }
+          }
+          <дополнительные настройки эндпоинта>
+        }
+      }
+    }
+    ```
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+
 {% endlist %}
 
 ## Дополнительные настройки {#additional-settings}
@@ -43,12 +116,20 @@
 
     * **Список исключенных коллекций** — будут передаваться данные из всех коллекций, кроме указанных.
 
-    Если источник испытывает высокую рабочую нагрузку (более 10000 транзакций на запись в секунду), то рекомендуется задать эти настройки так, чтобы в каждом эндпоинте присутствовало не более десяти различных баз. Это позволит избежать ошибок подключения к базам во время работы трансфера.
+- Terraform
 
-    {% note info %}
+    * `secondary_preferred_mode` – если в кластере есть реплики, они будут использоваться для чтения данных вместо хоста-мастера.
 
-    Если вы используете несколько эндпоинтов, то для каждого из них необходимо создать отдельный трансфер.
+    * `collections` — будут передаваться данные только из перечисленных коллекций. По умолчанию передаются все коллекции.
 
-    {% endnote %}
+    * `excluded_collections` — будут передаваться данные из всех коллекций, кроме указанных.
 
 {% endlist %}
+
+Если источник испытывает высокую рабочую нагрузку (более 10000 транзакций на запись в секунду), то рекомендуется задать эти настройки так, чтобы в каждом эндпоинте присутствовало не более десяти различных баз. Это позволит избежать ошибок подключения к базам во время работы трансфера.
+
+{% note info %}
+
+Если вы используете несколько эндпоинтов, то для каждого из них необходимо создать отдельный трансфер.
+
+{% endnote %}
