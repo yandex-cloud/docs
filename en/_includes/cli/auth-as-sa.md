@@ -14,7 +14,7 @@ To authenticate as a service account:
 1. Create an authorized key for the service account and save it to the `key.json` file:
 
     ```
-    yc iam key create --service-account-name default-sa --output key.json
+    yc iam key create --service-account-name default-sa --output key.json --folder-id <folder ID>
     id: aje83v701b1un777sh40
     service_account_id: aje3932acd0c5ur7dagp
     created_at: "2019-08-26T12:31:25Z"
