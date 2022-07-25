@@ -13,7 +13,7 @@
 1. Создайте авторизованный ключ для сервисного аккаунта и сохраните его в файл `key.json`:
 
     ```
-    yc iam key create --service-account-name default-sa --output key.json
+    yc iam key create --service-account-name default-sa --output key.json --folder-id <ID каталога>
     id: aje83v701b1un777sh40
     service_account_id: aje3932acd0c5ur7dagp
     created_at: "2019-08-26T12:31:25Z"
