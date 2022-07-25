@@ -122,7 +122,7 @@
      
      ```
      aws s3api put-bucket-logging \
-       --endpoint-url {{ s3-storage-host }} \
+       --endpoint-url https://{{ s3-storage-host }} \
        --bucket <имя целевого бакета> \
        --bucket-logging-status file://log-config.json
      ```

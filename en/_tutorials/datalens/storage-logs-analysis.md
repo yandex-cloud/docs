@@ -122,7 +122,7 @@ To enable the export of logs to the `bucket-logs` bucket:
 
      ```
      aws s3api put-bucket-logging \
-       --endpoint-url {{ s3-storage-host }} \
+       --endpoint-url https://{{ s3-storage-host }} \
        --bucket <target bucket name> \
        --bucket-logging-status file://log-config.json
      ```
