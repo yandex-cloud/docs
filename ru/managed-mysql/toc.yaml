@@ -89,7 +89,7 @@ items:
       - name: Выгрузка базы данных в {{ dataproc-full-name }}
         when: audience != "internal" and product == "yandex-cloud"
         href: tutorials/sqoop.md
-      - name: Миграция базы данных в Managed Service for MySQL
+      - name: Миграция базы данных из стороннего кластера {{ MY }}
         href: tutorials/data-migration.md
       - name: Миграция базы данных из {{ mmy-name }} в {{ MY }}
         href: tutorials/mmy-to-mysql-migration.md

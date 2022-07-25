@@ -46,7 +46,7 @@ items:
         href: tutorials/index.md
       - name: Миграция в {{ mes-name }} с помощью снапшотов
         href: tutorials/migration-via-snapshots.md
-      - name: Миграция в {{ mes-name }} с помощью Reindex API
+      - name: Миграция данных из стороннего кластера {{ ES }} с помощью Reindex API
         href: tutorials/migration-via-reindex-api.md
   - name: Концепции
     items:

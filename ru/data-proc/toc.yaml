@@ -29,9 +29,9 @@ items:
         when: product == "yandex-cloud"
       - name: Использование {{ objstorage-full-name }} в {{ dataproc-name }}
         href: tutorials/copy-files-from-object-storage.md
-      - name: Обмен данными с {{ mch-name }}
+      - name: Обмен данными с {{ mch-full-name }}
         href: tutorials/exchange-data-with-mch.md
-      - name: Импорт базы данных с использованием Sqoop
+      - name: Импорт базы данных из {{ mmy-full-name }} или {{ mpg-full-name }} с использованием Sqoop
         href: tutorials/sqoop.md
       - name: >-
           Использование скриптов инициализации для настройки GeeseFS в

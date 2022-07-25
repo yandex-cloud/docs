@@ -1,4 +1,4 @@
-# Миграция базы данных в {{ mms-full-name }}
+# Миграция базы данных из стороннего кластера {{ MS }} в {{ mms-full-name }}
 
 Вы можете перенести базу данных из стороннего _кластера-источника_ {{ MS }} в _кластер-приемник_ {{ mms-short-name }} с помощью [логического импорта]({{ ms.docs }}/sql/relational-databases/replication/snapshot-replication) снапшота базы данных или [транзакционной репликации]({{ ms.docs }}/sql/relational-databases/replication/transactional/transactional-replication). Оба способа имеют свои ограничения:
 

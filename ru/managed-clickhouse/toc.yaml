@@ -79,7 +79,7 @@ items:
         href: tutorials/fetch-data-from-mkf.md
       - name: Получение данных из RabbitMQ
         href: tutorials/fetch-data-from-rabbitmq.md
-      - name: Обмен данными с Data Proc
+      - name: Обмен данными с {{ dataproc-full-name }}
         when: audience != "internal" and product == "yandex-cloud"
         href: tutorials/exchange-data-with-dp.md
       - name: >-
@@ -88,7 +88,7 @@ items:
       - name: Анализ логов Object Storage при помощи DataLens
         href: tutorials/storage-logs-analysis.md
         when: product == "yandex-cloud"
-      - name: Настройка кластера под Graphite
+      - name: Настройка {{ mch-name }} для Graphite
         href: tutorials/clickhouse-for-graphite.md        
   - name: Концепции
     items:

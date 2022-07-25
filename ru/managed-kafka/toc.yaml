@@ -51,9 +51,9 @@ items:
             href: tutorials/schema-registry-overview.md
           - name: Работа с управляемым реестром схем формата данных
             href: tutorials/managed-schema-registry.md
-          - name: Работа с реестром схем формата данных Confluent
+          - name: Использование Confluent Schema Registry с {{ mkf-short-name }}
             href: tutorials/confluent-schema-registry.md
-      - name: Миграция данных в {{ mkf-name }}
+      - name: Миграция базы данных из стороннего кластера {{ KF }}
         href: tutorials/kafka-connectors.md
       - name: Поставка данных из {{ mpg-full-name }} с помощью Debezium
         href: tutorials/kafka-cdc.md

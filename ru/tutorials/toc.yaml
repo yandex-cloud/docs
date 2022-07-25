@@ -126,61 +126,86 @@ items:
     items:
       - name: Все руководства
         href: dataplatform/index.md
-      - name: Синхронизация данных из {{ MY }} с помощью {{ data-transfer-full-name }}
-        href: dataplatform/sync-mysql.md
-      - name: Миграция базы данных из {{ mmy-full-name }} в {{ MY }}
-        href: dataplatform/mmy-to-mysql-migration.md
-      - name: Настройка управляемой базы данных в кластере {{ CH }} для Graphite
-        href: dataplatform/clickhouse-for-graphite.md
-      - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
-        href: dataplatform/dp-mch-data-exchange.md
-        when: product == "yandex-cloud"
-      - name: Импорт базы данных в {{ dataproc-full-name }} с использованием Sqoop
-        href: dataplatform/sqoop.md
-        when: product == "yandex-cloud"
+        # KF
+      - name: Миграция базы данных из стороннего кластера {{ KF }} в {{ mkf-full-name }}
+        href: dataplatform/kafka-connector.md
+      - name: Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью Debezium
+        href: dataplatform/kafka-cdc.md
+      - name: >-
+          Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
+        href: dataplatform/kafka-cdc-data-transfer.md
+      - name: Настройка Kafka Connect для работы с кластером {{ mkf-full-name }}
+        href: dataplatform/kafka-connect.md
       - name: Управление схемами данных в {{ mkf-full-name }}
         href: dataplatform/schema-registry-overview.md
       - name: Использование {{ mkf-msr }} с {{ mkf-full-name }}
         href: dataplatform/managed-schema-registry.md
       - name: Использование Confluent Schema Registry с {{ mkf-full-name }}
         href: dataplatform/confluent-schema-registry.md
-      - name: Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью Debezium
-        href: dataplatform/kafka-cdc.md
-      - name: >-
-          Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью
-          {{ data-transfer-full-name }}
-        href: dataplatform/kafka-cdc-data-transfer.md
-      - name: Миграция данных в {{ mkf-full-name }}
-        href: dataplatform/kafka-connector.md
-      - name: Перенос коллекций из {{ MG }} в {{ mmg-full-name }}
-        href: dataplatform/mongodb-migration.md
-        when: product == "yandex-cloud"
-      - name: Миграция базы данных в {{ mms-full-name }}
-        href: dataplatform/mssql-data-migration.md
-        when: product == "yandex-cloud"
-      - name: Миграция базы данных из {{ mms-full-name }} в сторонний кластер {{ MS }}
-        href: dataplatform/mssql-outbound-migration.md
-        when: product == "yandex-cloud"
-      - name: Перенос данных из {{ PG }} в {{ CH }} с помощью {{ data-transfer-full-name }}
+        # CH
+      - name: Миграция базы данных из {{ PG }} в {{ CH }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/rdbms-to-clickhouse.md
-      - name: Настройка Kafka Connect для работы с кластером {{ mkf-full-name }}
-        href: dataplatform/kafka-connect.md
+      - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
+        href: dataplatform/dp-mch-data-exchange.md
+        when: product == "yandex-cloud"
+      - name: Настройка {{ mch-full-name }} для Graphite
+        href: dataplatform/clickhouse-for-graphite.md
+        # dns
       - name: >-
           Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз данных из других облачных сетей
         href: dataplatform/mdb-dns-peering.md
-      - name: Перенос базы данных в {{ mrd-full-name }}
-        href: dataplatform/redis-data-migration.md
-      - name: Миграция в {{ mes-full-name }} с помощью Reindex API
-        href: dataplatform/migration-via-reindex-api.md
+        # dataproc
+      - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
+        href: dataplatform/dp-mch-data-exchange.md
+        when: product == "yandex-cloud"
+      - name: Импорт базы данных из {{ mmy-full-name }} или {{ mpg-full-name }} в {{ dataproc-full-name }} с использованием Sqoop
+        href: dataplatform/sqoop.md
         when: product == "yandex-cloud"
       - name: >-
-          Использование скриптов инициализации для настройки GeeseFS в
-          {{ dataproc-full-name }}
+          Использование скриптов инициализации для настройки GeeseFS в {{ dataproc-full-name }}
         href: dataplatform/data-proc-init-actions-geesefs.md
         when: product == "yandex-cloud"
+        # ES
+      - name: Миграция данных из стороннего кластера {{ ES }} в {{ mes-full-name }} с помощью Reindex API
+        href: dataplatform/migration-via-reindex-api.md
+        when: product == "yandex-cloud"
+        # MG
+      - name: Миграция коллекций из стороннего кластера {{ MG }} в {{ mmg-full-name }}
+        href: dataplatform/mongodb-migration.md
+        when: product == "yandex-cloud"
+        # MY
       - name: Миграция базы данных из стороннего кластера {{ MY }} в кластер {{ mmy-full-name }}
         href: dataplatform/mysql-data-migration.md
-  - name: Windows в {{ yandex-cloud }}
+      - name: Синхронизация данных из стороннего кластера {{ MY }} в {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}
+        href: dataplatform/sync-mysql.md
+      - name: Миграция базы данных из {{ mmy-full-name }} в сторонний кластер {{ MY }}
+        href: dataplatform/mmy-to-mysql-migration.md
+      - name: Импорт базы данных из {{ mmy-full-name }} или {{ mpg-full-name }} в {{ dataproc-full-name }} с использованием Sqoop
+        href: dataplatform/sqoop.md
+        when: product == "yandex-cloud"
+        # PG
+      - name: Миграция базы данных из {{ PG }} в {{ CH }} с помощью {{ data-transfer-full-name }}
+        href: dataplatform/rdbms-to-clickhouse.md
+      - name: Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью Debezium
+        href: dataplatform/kafka-cdc.md
+      - name: >-
+          Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
+        href: dataplatform/kafka-cdc-data-transfer.md
+      - name: Импорт базы данных из {{ mmy-full-name }} или {{ mpg-full-name }} в {{ dataproc-full-name }} с использованием Sqoop
+        href: dataplatform/sqoop.md
+        when: product == "yandex-cloud"
+        # RD
+      - name: Миграция базы данных из стороннего кластера {{ RD }} в {{ mrd-full-name }}
+        href: dataplatform/redis-data-migration.md
+        # MS
+      - name: Миграция базы данных из стороннего кластера {{ MS }} в {{ mms-full-name }}
+        href: dataplatform/mssql-data-migration.md
+        when: product == "yandex-cloud"
+      - name: Миграция базы данных из {{ mms-name }} в сторонний кластер {{ MS }}
+        href: dataplatform/mssql-outbound-migration.md
+        when: product == "yandex-cloud"
+
+  - name: Windows в Yandex Cloud
     when: product == "yandex-cloud"
     items:
       - name: Все руководства
