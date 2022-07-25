@@ -96,11 +96,17 @@
 
 - API
 
-  Обновить версию {{ MG }} для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужное значение в свойстве `configSpec.version`.
+    Чтобы обновить версию {{ MG }}, воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
-  После обновления все возможности MongoDB, у которых нет обратной совместимости с прежней версией, выключены. Чтобы снять это ограничение, используйте метод API [update](../api-ref/Cluster/update.md): передайте в запросе номер новой версии в свойстве `configSpec.featureCompatibilityVersion`.
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
+    * Версию {{ MG }}, до которой производится обновление, в параметре `configSpec.version`.
+    * Список настроек, которые необходимо изменить (в данном случае — `configSpec.version`), в параметре `updateMask`.
 
-  Подробнее об обратной совместимости читайте в [документации MongoDB](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+    После обновления все возможности MongoDB, у которых нет обратной совместимости с прежней версией, выключены. Чтобы снять это ограничение, используйте метод API [update](../api-ref/Cluster/update.md): передайте в запросе номер новой версии в свойстве `configSpec.featureCompatibilityVersion`.
+
+    Подробнее об обратной совместимости читайте в [документации MongoDB](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
 {% endlist %}
 

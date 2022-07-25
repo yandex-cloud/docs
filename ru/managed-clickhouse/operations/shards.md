@@ -179,7 +179,15 @@
 
 - API
 
-  Изменить настройки шарда можно с помощью метода [updateShard](../api-ref/Cluster/updateShard.md).
+    Воспользуйтесь методом API [updateShard](../api-ref/Cluster/updateShard.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
+    * Имя шарда в параметре `shardName`.
+    * Настройки шарда в параметре `configSpec`.
+    * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
 
 {% endlist %}
 

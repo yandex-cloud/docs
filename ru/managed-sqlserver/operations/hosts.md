@@ -60,7 +60,7 @@
     1. Настройки публичного доступа к хосту в параметре `updateHostSpecs.assignPublicIp`.
     1. Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
 
-    {% include [Note warning update mask](../../_includes/mdb/note-api-updatemask.md) %}
+    {% include [Note warning update mask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

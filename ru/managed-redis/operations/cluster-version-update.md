@@ -84,11 +84,11 @@
 
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
-  * Идентификатор кластера в параметре `clusterId`. Его можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
   * Номер версии {{ RD }} в параметре `configSpec.version`.
   * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
 
-      {% include [updateMask note](../../_includes/mdb/note-api-updatemask.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
