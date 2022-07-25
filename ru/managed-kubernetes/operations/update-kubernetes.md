@@ -192,7 +192,7 @@
   * Настройки автоматического обновления в параметре `masterSpec.maintenancePolicy`.
   * Список изменяемых настроек в параметре `updateMask`.
 
-  {% include [updateMask warning](../../_includes/mdb/warning-default-settings.md) %}
+  {% include [updateMask warning](../../_includes/note-api-updatemask.md) %}
 
   Чтобы отключить автоматическое обновление, передайте значение `false` в параметре `masterSpec.maintenancePolicy.autoUpgrade`.
 
@@ -292,7 +292,7 @@
   * Нужную версию {{ k8s }} в параметре `masterSpec.version.version`.
   * Список изменяемых настроек в параметре `updateMask`.
 
-  {% include [updateMask warning](../../_includes/mdb/warning-default-settings.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -479,7 +479,7 @@
   * Настройки автоматического обновления в параметре `maintenancePolicy`.
   * Список изменяемых настроек в параметре `updateMask`.
 
-  {% include [updateMask warning](../../_includes/mdb/warning-default-settings.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
   Чтобы отключить автоматическое обновление, передайте значение `false` в параметре `maintenancePolicy.autoUpgrade`.
 
@@ -597,7 +597,7 @@
   * Нужную версию {{ k8s }} в параметре `version.version`.
   * Список изменяемых настроек в параметре `updateMask`.
 
-  {% include [updateMask warning](../../_includes/mdb/warning-default-settings.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -642,7 +642,7 @@
   * Значение `true` в параметре `masterSpec.version.version`.
   * Список изменяемых настроек в параметре `updateMask`.
 
-  {% include [updateMask warning](../../_includes/mdb/warning-default-settings.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -678,6 +678,6 @@
   * Значение `true` в параметре `version.latestRevision`.
   * Список изменяемых настроек в параметре `updateMask`.
 
-  {% include [updateMask warning](../../_includes/mdb/warning-default-settings.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

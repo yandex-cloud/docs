@@ -260,7 +260,9 @@
         * `configSpec.mysqlConfig_5_7.sqlMode` для {{ MY }} версии 5.7.
         * `configSpec.mysqlConfig_8_0.sqlMode` для {{ MY }} версии 8.0.
 
-    {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+    * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

@@ -130,6 +130,12 @@
 
 - API
 
-    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе нужное значение в параметре `configSpec.clickhouse.config.version`.
+    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters)
+    * Нужное значение в параметре `configSpec.clickhouse.config.version`.
+    * Список настроек, которые необходимо изменить (в данном случае — `configSpec.clickhouse.config.version`), в параметре `updateMask`.
+
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

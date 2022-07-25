@@ -40,11 +40,11 @@
 
     Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
-    * Идентификатор кластера в параметре `clusterId`. Его можно получить [со списком кластеров в каталоге](cluster-list.md#list).
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list).
     * Значение `true` в параметре `uiProxy`.
-    * Список полей конфигурации кластера, подлежащих изменению (в данном случае — `uiProxy`), в параметре `updateMask`.
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask` (в данном случае — `uiProxy`).
 
-    {% include [Note warning update mask](../../_includes/mdb/note-api-updatemask.md) %}
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

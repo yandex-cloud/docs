@@ -24,9 +24,9 @@
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Новое имя в параметре `name`.
     * Новое описание в параметре `description`.
-    * Список полей конфигурации кластера, подлежащих изменению (в данном случае — `name`, `description`) в параметре `updateMask`.
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask` (в данном случае — `name`, `description`).
 
-        {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -63,9 +63,9 @@
 
         {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-    * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask`.
 
-        {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+    {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

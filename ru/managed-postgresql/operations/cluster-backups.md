@@ -427,6 +427,6 @@ description: "Вы можете создавать резервные копии
     * Новое время начала резервного копирования в параметре `configSpec.backupWindowStart`.
     * Список полей конфигурации кластера, подлежащих изменению (в данном случае — `configSpec.backupWindowStart`), в параметре `updateMask`.
 
-    {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+    {% include [Сброс настроек изменяемого объекта](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

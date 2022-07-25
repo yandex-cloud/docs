@@ -204,9 +204,9 @@
 
       {% include [password-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
 
-  * Список полей конфигурации пользователя, подлежащих изменению (в данном случае — `password`), в параметре `updateMask`.
+  * Список полей конфигурации пользователя, которые необходимо изменить (в данном случае — `password`), в параметре `updateMask`.
 
-  {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -306,9 +306,9 @@
   * Идентификатор кластера, в котором находится пользователь, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Имя пользователя в параметре `userName`. Чтобы узнать имя пользователя, [получите список пользователей в кластере](#list-users).
   * Новые значения настроек пользователя.
-  * Список полей конфигурации пользователя подлежащих изменению в параметре `updateMask`.
+  * Список полей конфигурации пользователя, которые необходимо изменить, в параметре `updateMask`.
 
-  {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

@@ -413,12 +413,12 @@ description: "Вы можете создавать резервные копии
 - API
 
     Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
-    
+
     * Идентификатор кластера в параметре `clusterId`. Его можно получить [со списком кластеров в каталоге](cluster-list.md#list-clusters).
     * Новое время начала резервного копирования в параметре `configSpec.backupWindowStart`.
-    * Список полей конфигурации кластера, подлежащих изменению (в данном случае — `configSpec.backupWindowStart`), в параметре `updateMask`.
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask` (в данном случае — `configSpec.backupWindowStart`).
 
-    {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -457,6 +457,6 @@ description: "Вы можете создавать резервные копии
   * Новое значение приоритета хоста в параметре `updateHostSpecs.backupPriority`.
   * Список полей конфигурации кластера, подлежащих изменению (в данном случае — `updateHostSpecs.hostName` и `updateHostSpecs.backupPriority`), в параметре `updateMask`.
 
-  {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+  {% include [Сброс настроек изменяемого объекта](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

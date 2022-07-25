@@ -319,9 +319,9 @@
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Новый пароль в параметре `configSpec.adminPassword`.
-    * Список полей конфигурации кластера, подлежащих изменению (в данном случае — `configSpec.adminPassword`), в параметре `updateMask`.
+    * Список полей конфигурации пользователя, которые необходимо изменить (в данном случае — `configSpec.adminPassword`), в параметре `updateMask`.
 
-    {% include [note-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

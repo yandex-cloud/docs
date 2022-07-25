@@ -291,8 +291,24 @@ items:
             href: function-ref/array-functions.md
           - name: ARRAY
             href: function-ref/ARRAY.md
+          - name: ARR_AVG
+            href: function-ref/ARR_AVG.md
+          - name: ARR_MAX
+            href: function-ref/ARR_MAX.md
+          - name: ARR_MIN
+            href: function-ref/ARR_MIN.md
+          - name: ARR_PRODUCT
+            href: function-ref/ARR_PRODUCT.md
           - name: ARR_STR
             href: function-ref/ARR_STR.md
+          - name: ARR_SUM
+            href: function-ref/ARR_SUM.md
+          - name: CAST_ARR_FLOAT
+            href: function-ref/CAST_ARR_FLOAT.md
+          - name: CAST_ARR_INT
+            href: function-ref/CAST_ARR_INT.md
+          - name: CAST_ARR_STR
+            href: function-ref/CAST_ARR_STR.md
           - name: CONTAINS
             href: function-ref/CONTAINS_ARRAY.md
           - name: COUNT_ITEM

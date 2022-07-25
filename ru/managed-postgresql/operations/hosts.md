@@ -266,13 +266,19 @@
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
-  
-  Чтобы изменить параметры хоста, воспользуйтесь методом API [updateHosts](../api-ref/Cluster/updateHosts.md) и передайте в запросе:
-  1. Идентификатор кластера, в котором нужно изменить хост, в параметре `clusterId`.
-  1. Имя хоста, который нужно изменить, в параметре `updateHostSpecs.hostName`.
-  
-  Имя хоста можно запросить со [списком хостов в кластере](#list), идентификатор кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-  
+
+    Чтобы изменить параметры хоста, воспользуйтесь методом API [updateHosts](../api-ref/Cluster/updateHosts.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
+    * Один или несколько объектов с настройками изменяемых хостов в параметре `updateHostSpecs`.
+
+        Для каждого хоста укажите:
+
+        * имя в поле `hostName`;
+        * список настроек, которые необходимо изменить, в параметре `updateMask`.
+
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
 {% endlist %}
 
 {% note warning %}
