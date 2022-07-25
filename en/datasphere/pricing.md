@@ -65,7 +65,7 @@ Cost calculation:
 
 Where:
 * 72 is the number of units per g1.1 configuration.
-* 2 is 1400 ms rounded up.
+* 2 is 1400 ms rounded up to the nearest second.
 * ₽0.0012 is the cost of 1 unit.
 
 {% endif %}
