@@ -283,14 +283,12 @@
 
     Воспользуйтесь методом API [update](../api-ref/MlModel/update.md) и передайте в запросе:
 
-    * Идентификатор кластера в параметре `clusterId`.
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
     * Имя модели в параметре `mlModelName`.
     * Новую ссылку на файл модели в {{ objstorage-full-name }} в параметре `uri`.
-    * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask`.
 
-    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), имя модели — со [списком моделей в кластере](#list).
-
-    {% include [updateMask note](../../_includes/mdb/note-api-updatemask.md) %}
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

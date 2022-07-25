@@ -171,9 +171,16 @@
 
 - API
 
-  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе нужные значения в параметре `configSpec.clickhouse.resources.resourcePresetId` (для ZooKeeper — `configSpec.zookeeper.resources.resourcePresetId`).
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
-  Список поддерживаемых значений запрашивайте методом [list](../api-ref/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
+  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
+  * Нужные значения в параметре `configSpec.clickhouse.resources.resourcePresetId` (для ZooKeeper — `configSpec.zookeeper.resources.resourcePresetId`).
+
+      Список поддерживаемых значений запрашивайте методом [list](../api-ref/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
+
+  * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -265,12 +272,12 @@
 
   Чтобы {% if audience != "internal" %}увеличить{% else %}изменить{% endif %} размер хранилища, воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
-  * Идентификатор кластера в параметре `clusterId`. Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
-  * Нужный объем хранилища в параметре `configSpec.clickhouse.resources.diskSize`.
+  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
+  * Нужный объем хранилища хостов {{ CH }} в параметре `configSpec.clickhouse.resources.diskSize`.
   * Нужный объем хранилища хостов {{ ZK }} в параметре `configSpec.zookeeper.resources.diskSize`.
-  * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
+  * Список полей конфигарации кластера, которые необходимо изменить, в параметре `updateMask`.
 
-    {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -350,6 +357,7 @@
 - API
 
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе нужные значения в параметре `configSpec.clickhouse.config`:
+
     * `sqlUserManagement` — задайте значение `true` для включения режима [управления пользователями через SQL](cluster-users.md#sql-user-management).
     * `sqlDatabaseManagement` — задайте значение `true` для включения режима [управления базами данных через SQL](databases.md#sql-database-management). Необходимо, чтобы был включен режим управления пользователями через SQL.
     * `adminPassword` — задайте пароль пользователя `admin`, с помощью которого осуществляется управление.
@@ -478,9 +486,16 @@
 
 - API
 
-  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе нужные значения в параметре `configSpec.clickhouse.config`.
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
-  Все поддерживаемые настройки описаны в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings) и в [справочнике API](../api-ref/Cluster/update.md).
+  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
+  * Нужные значения в параметре `configSpec.clickhouse.config`.
+
+      Все поддерживаемые настройки описаны в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings) и в [справочнике API](../api-ref/Cluster/update.md).
+
+  * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -641,7 +656,7 @@
 
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
-    * Идентификатор кластера в параметре `clusterId`.
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
     * Настройки доступа из других сервисов и к SQL-запросам из консоли управления в параметре `configSpec.access`.
     * Настройки окна резервного копирования в параметре `configSpec.backupWindowStart`.
     * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
@@ -649,31 +664,26 @@
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-    * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask`.
 
-    Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-    {% note warning %}
 
-    Этот метод API сбросит все настройки кластера, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, обязательно передайте название полей, подлежащих изменению, в параметре `updateMask`.
-
-    {% endnote %}
-    
   {% if product == "yandex-cloud" %}
   {% if audience != "internal" %}
 
-  Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+    Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
-  {% else %}
+    {% else %}
 
-  Чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}, передайте значение `true` для параметра `configSpec.access.serverless`.
+    Чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}, передайте значение `true` для параметра `configSpec.access.serverless`.
+
+
+    {% endif %}
 
   {% endif %}
-  {% endif %}
-
   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
-  Чтобы разрешить доступ к кластеру из сервиса {{ yq-full-name }}, передайте значение `true` для параметра `configSpec.access.yandexQuery`.
 
 {% endlist %}
 
@@ -783,9 +793,11 @@
 
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md).
+  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Список идентификаторов групп безопасности в параметре `securityGroupIds`.
-  * Список настроек, которые необходимо изменить, в параметре `updateMask`. Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки кластера, которые не были явно указаны в запросе.
+  * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

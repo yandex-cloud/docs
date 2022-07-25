@@ -124,16 +124,17 @@
 
 - API
 
-  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Новый класс хостов в параметре  `configSpec.resources.resourcePresetId`. Чтобы узнать список поддерживаемых значений, воспользуйтесь методом `list` для `ResourcePreset`.
-  * Список полей конфигурации кластера, подлежащих изменению (в данном случае — `configSpec.resources.resourcePresetId`), в параметре `updateMask`.
+    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
-  {% note warning %}
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
 
-  Этот метод API сбросит все настройки кластера, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `updateMask` (одной строкой через запятую).
+    * Новый класс хостов в параметре `configSpec.resources.resourcePresetId`.
 
-  {% endnote %}
+        Чтобы узнать список поддерживаемых значений, воспользуйтесь методом [list](../api-ref/ResourcePreset/list.md) для объекта [ResourcePreset](../api-ref/ResourcePreset).
+
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask` (в данном случае — `configSpec.resources.resourcePresetId`).
+
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -216,12 +217,13 @@
 
 - API
 
-  Чтобы {% if audience != "internal" %}увеличить{% else %}изменить{% endif %} размер хранилища для кластера, воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Необходимое значение размера хранилища (в байтах) в параметре `configSpec.resources.diskSize`.
-  * Список полей конфигурации пользователя, подлежащих изменению (в данном случае — `configSpec.resources.diskSize`), в параметре `updateMask`.
-  
-      {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+    Чтобы {% if audience != "internal" %}увеличить{% else %}изменить{% endif %} размер хранилища для кластера, воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Новый размер хранилища (в байтах) в параметре `configSpec.resources.diskSize`.
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask` (в данном случае — `configSpec.resources.diskSize`).
+
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -301,16 +303,16 @@
 
 - API
 
-  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Необходимые значения в параметре `configSpec.sqlserverConfig_2016sp2`.
-  * Список полей конфигурации пользователя, подлежащих изменению (в данном случае — `configSpec.sqlserverConfig_2016sp2`), в параметре `updateMask`.
+    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
-  {% note warning %}
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Необходимые значения в параметре `configSpec.sqlserverConfig_<версия {{ MS }}>`.
 
-  Этот метод API сбросит все настройки кластера, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `updateMask` (одной строкой через запятую).
+        Список доступных для изменения настроек представлен в [описании API](../api-ref/Cluster/update.md) и в разделе [{#T}](../concepts/settings-list.md).
 
-  {% endnote %}
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask`.
+
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -404,16 +406,13 @@
 
 - API
 
-  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Новое время начала резервного копирования в параметре `configSpec.backupWindowStart`.
-  * Список полей конфигурации кластера, подлежащих изменению (в данном случае — `configSpec.backupWindowStart`), в параметре `updateMask`.
+    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
-  {% note warning %}
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Новое время начала резервного копирования в параметре `configSpec.backupWindowStart`.
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask` (в данном случае — `configSpec.backupWindowStart`).
 
-  Этот метод API сбросит все настройки кластера, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `updateMask` (одной строкой через запятую).
-
-  {% endnote %}
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -509,7 +508,7 @@
     * Список идентификаторов групп безопасности в параметре `securityGroupIds`.
     * Список настроек, которые необходимо изменить, в параметре `updateMask`.
 
-    {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+    {% include [Сброс настроек изменяемого объекта](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -556,7 +555,7 @@
     * Идентификатор сервисного аккаунта в параметре `serviceAccountId`. Чтобы получить идентификатор, воспользуйтесь [инструкцией](../../iam/operations/sa/get-id.md).
     * Список настроек, которые необходимо изменить, в параметре `updateMask`.
 
-    {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

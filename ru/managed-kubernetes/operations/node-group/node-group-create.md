@@ -170,6 +170,7 @@
 - API
 
   Воспользуйтесь методом API [create](../../api-ref/NodeGroup/create.md) и передайте в запросе:
+
   * Идентификатор [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) в параметре `clusterId`. Его можно получить со [списком кластеров в каталоге](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [Конфигурацию группы узлов](../../concepts/index.md#config) в параметре `nodeTemplate`.
   * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
@@ -177,7 +178,7 @@
   * Настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates) в параметрах `maintenancePolicy`.
   * Список изменяемых настроек в параметре `updateMask`.
 
-    {% include [updateMask warning](../../../_includes/mdb/warning-default-settings.md) %}
+ {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
   Чтобы узлы использовали [нереплицируемые диски](../../../compute/concepts/disk.md#disks_types), передайте значение `network-ssd-nonreplicated` для параметра `nodeTemplate.bootDiskSpec.diskTypeId`.
 

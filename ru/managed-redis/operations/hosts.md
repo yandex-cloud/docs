@@ -270,13 +270,13 @@
 
     Чтобы изменить параметры хоста, воспользуйтесь методом API [updateHosts](../api-ref/Cluster/updateHosts.md) и передайте в запросе:
 
-    1. Идентификатор кластера, в котором нужно изменить хост, в параметре `clusterId`. Чтобы узнать идентификатор, получите [список кластеров в каталоге](cluster-list.md#list-clusters).
-    1. Имя хоста, который нужно изменить, в параметре `updateHostSpecs.hostName`. Чтобы узнать имя, получите [список хостов в кластере](#list).
-    1. Настройки публичного доступа к хосту в параметре `updateHostSpecs.assignPublicIp`.
-    1. Приоритет хоста в параметре `updateHostSpecs.replicaPriority`.
-    1. Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
+    - Идентификатор кластера, в котором нужно изменить хост, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    - Имя хоста, который нужно изменить, в параметре `updateHostSpecs.hostName`. Чтобы узнать имя, [получите список хостов в кластере](#list).
+    - Настройки публичного доступа к хосту в параметре `updateHostSpecs.assignPublicIp`.
+    - Приоритет хоста в параметре `updateHostSpecs.replicaPriority`.
+    - Список изменяемых полей конфигурации кластера в параметре `updateMask`.
 
-    {% include [Note warning update mask](../../_includes/mdb/note-api-updatemask.md) %}
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

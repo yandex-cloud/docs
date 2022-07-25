@@ -137,9 +137,13 @@
 
 - API
 
-  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе нужное значение в параметре `configSpec.resources.resourcePresetId`.
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
-  Список поддерживаемых значений запрашивайте методом [list](../api-ref/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
+  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
+  * Идентификатор класса хоста в параметре `configSpec.resources.resourcePresetId`. Список поддерживаемых значений запрашивайте методом [list](../api-ref/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
+  * Список настроек, которые необходимо изменить (в данном случае — `configSpec.resources.resourcePresetId`), в параметре `updateMask`.
+
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -223,11 +227,11 @@
 
   Чтобы {% if audience != "internal" %}увеличить{% else %}изменить{% endif %} размер хранилища для кластера, воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
-  * Идентификатор кластера в параметре `clusterId`.
-  * Новый размер хранилища в параметре `configSpec.postgresqlConfig_<версия {{ PG }}>.resources.diskSize`.
-  * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
+  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
+  * Новый размер хранилища в параметре `configSpec.resources.diskSize`.
+  * Список настроек, которые необходимо изменить (в данном случае — `configSpec.resources.diskSize`), в параметре `updateMask`.
 
-      {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -320,7 +324,13 @@
 
 - API
 
-  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе нужные значения в параметре `configSpec.postgresqlConfig_<версия>.config`.
+    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
+    * Нужные значения настроек в параметре `configSpec.postgresqlConfig_<версия {{ PG }}>`.
+    * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -474,7 +484,7 @@
 
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
-    * Идентификатор кластера в параметре `clusterId`.
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
     * Настройки доступа из других сервисов и к SQL-запросам из консоли управления в параметре `configSpec.access`.
     * Настройки окна резервного копирования в параметре `configSpec.backupWindowStart`.
     * [Режим работы менеджера соединений](../concepts/pooling.md) в параметре `configSpec.poolerConfig.poolingMode`.
@@ -483,24 +493,18 @@
 
         {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-    * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
+    * Список изменяемых полей конфигурации кластера в параметре `updateMask`.
 
-    Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
-
-    {% note warning %}
-
-    Этот метод API сбросит все настройки кластера, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, обязательно передайте название полей, подлежащих изменению, в параметре `updateMask`.
-
-    {% endnote %}
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
   {% if product == "yandex-cloud" %}
   {% if audience != "internal" %}
 
-  Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+    Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
-  {% else %}
+    {% else %}
 
-  Чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}, передайте значение `true` для параметра `configSpec.access.serverless`.
+    Чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}, передайте значение `true` для параметра `configSpec.access.serverless`.
 
   {% endif %}
   {% endif %}
@@ -688,11 +692,13 @@
 
 - API
 
-  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md).
-  * Список групп в параметре `securityGroupIds`.
-  * Список настроек, которые необходимо изменить, в параметре `updateMask`. Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки кластера, которые не были явно указаны в запросе.
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Список идентификаторов групп безопасности в параметре `securityGroupIds`.
+    * Список настроек, которые необходимо изменить (в данном случае — `securityGroupIds`), в параметре `updateMask`.
+
+    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
