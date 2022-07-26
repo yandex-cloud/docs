@@ -93,7 +93,7 @@ items:
       - name: Host classes
         when: product == "cloud-il"
         href: concepts/instance-types.md
-      - name: Network in Yandex Managed Service for PostgreSQL
+      - name: Network in {{ mpg-name }}
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
