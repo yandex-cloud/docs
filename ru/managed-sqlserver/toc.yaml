@@ -41,7 +41,7 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Миграция базы данных в Managed Service for Microsoft SQL Server
+      - name: Миграция базы данных из стороннего кластера {{ MS }}
         href: tutorials/data-migration.md
       - name: Миграция базы данных в сторонний кластер {{ MS }}
         href: tutorials/outbound-migration.md

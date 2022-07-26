@@ -10,7 +10,11 @@ In {{ yandex-cloud }}, each service has its own SLA. You can learn more about SL
 
 #### Where can I find the bank details of {{ yandex-cloud }}? {#requisites}
 
-You can find the bank details in the [{{ yandex-cloud }} LLC registration card](https://storage.yandexcloud.net/doc-files/{{ yandex-cloud }}_requisites.pdf) and in the section [Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en) (paragraph **18. Yandex Details**).
+
+
+
+You can find the bank details in the section [Legal documents](https://yandex.com/legal/cloud_customer_agreement/) (paragraph **19. Yandex Details**).
+
 
 #### How do I contact technical support? {#support}
 

@@ -1,24 +1,61 @@
 # Построение Data Platform на базе {{ yandex-cloud }}
 
-* [Синхронизация данных из {{ MY }} с помощью {{ data-transfer-full-name }}](sync-mysql.md)
-* [Миграция базы данных из {{ mmy-full-name }} в {{ MY }}](mmy-to-mysql-migration.md)
-* [Настройка управляемой базы данных в кластере {{ CH }} для Graphite](clickhouse-for-graphite.md)
-* [Обмен данными между {{ mch-name }} и {{ dataproc-full-name }}](dp-mch-data-exchange.md)
-* [Импорт базы данных в {{ dataproc-full-name }} с использованием Sqoop](sqoop.md)
-* Использование реестра схем форматов данных с Managed Service for Apache Kafka®:
+## {{ KF }} {#kafka}
+
+* [{#T}](kafka-connector.md)
+* [{#T}](kafka-cdc/data-transfer-mpg.md)
+* [{#T}](kafka-cdc/debezium-mmy.md)
+* [{#T}](kafka-cdc/debezium-mpg.md)
+* [{#T}](kafka-connect.md)
+* Использование реестра схем форматов данных с {{ mkf-name }}:
+
     * [Управление схемами данных](schema-registry-overview.md)
-    * [Использование {{ mkf-msr }} с {{ mkf-full-name }}](managed-schema-registry.md)
-    * [Использование Confluent Schema Registry](confluent-schema-registry.md)
-* [Настройка Kafka Connect для работы с кластером {{ mkf-name }}](kafka-connect.md)
-* [{#T}](kafka-cdc.md)
-* [{#T}](./kafka-cdc-data-transfer.md)
-* [Миграция данных в {{ mkf-name }}](kafka-connector.md)
-* [Перенос коллекций из {{ MG }} в {{ mmg-name }}](mongodb-migration.md)
-* [Миграция базы данных в {{ mms-name }}](mssql-data-migration.md)
-* [{#T}](mssql-outbound-migration.md)
-* [Перенос данных из {{ PG }} в {{ CH }} с помощью {{ data-transfer-full-name }}](rdbms-to-clickhouse.md)
-* [Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз данных из других облачных сетей](mdb-dns-peering.md)
-* [{#T}](redis-data-migration.md)
+    * [{#T}](managed-schema-registry.md)
+    * [{#T}](confluent-schema-registry.md)
+
+## {{ CH }} {#clickhouse}
+
+* [{#T}](rdbms-to-clickhouse.md)
+* [{#T}](dp-mch-data-exchange.md)
+* [{#T}](clickhouse-for-graphite.md)
+
+## {{ dns-name }} {#dns}
+
+* [{#T}](mdb-dns-peering.md)
+
+## {{ dataproc-name }} {#dataproc}
+
+* [{#T}](dp-mch-data-exchange.md)
+* [{#T}](sqoop.md)
+* [{#T}](data-proc-init-actions-geesefs.md).
+
+## {{ ES }} {#elasticsearch}
+
 * [{#T}](migration-via-reindex-api.md)
-* [Настройка GeeseFS в {{ dataproc-full-name }} с помощью скриптов инициализации](./data-proc-init-actions-geesefs.md).
+
+## {{ MG }} {#mongodb}
+
+* [{#T}](mongodb-migration.md)
+
+## {{ MY }} {#mysql}
+
 * [{#T}](mysql-data-migration.md)
+* [{#T}](sync-mysql.md)
+* [{#T}](mmy-to-mysql-migration.md)
+* [{#T}](sqoop.md)
+* [{#T}](./kafka-cdc/debezium-mmy.md)
+
+## {{ PG }} {#postgresql}
+
+* [{#T}](rdbms-to-clickhouse.md)
+* [{#T}](./kafka-cdc/data-transfer-mpg.md)
+* [{#T}](./kafka-cdc/debezium-mpg.md)
+* [{#T}](sqoop.md)
+
+## {{ RD }} {#redis}
+* [{#T}](redis-data-migration.md)
+
+## {{ MS }} {#sqlserver}
+
+* [{#T}](mssql-data-migration.md)
+* [{#T}](mssql-outbound-migration.md)

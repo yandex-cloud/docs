@@ -1,4 +1,4 @@
-# Настроить управляемую базу данных в кластере {{ CH }} для Graphite
+# Настройка {{ mch-name }} для Graphite
 
 {{ mch-full-name }} можно использовать как хранилище данных для [Graphite](https://graphite.readthedocs.io/en/latest/index.html).
 
