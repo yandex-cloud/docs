@@ -1,6 +1,6 @@
-# Go function request handler
+# Go function call handler
 
-A _request handler_ is a method used to handle each Go function invocation. When creating a function version, you should specify the entry point that consists of the file name and request handler name (for example, `index.Handler`).
+A _call handler_ is a method used to handle each Go function call. When creating a function version, you should specify the entry point that consists of the file name and request handler name (for example, `index.Handler`).
 
 * To work properly, the handler must reside in the `main` package.
 * To make the handler available outside the module (file), export it by typing the first letter of its name in uppercase.
@@ -14,40 +14,36 @@ At any given time, a single function instance processes only one request. This l
 ## Cloud Functions signature {#functions}
 
 When calling the handler, the runtime environment may pass the following arguments:
-
 1. The invocation context (the `context` parameter).
 
-    The context contains the necessary information about the function version. The structure of this object is described in [{#T}](context.md).
-    If the second argument (HTTP request body) is present, the invocation context must be the first in the list of arguments.
-
+   The context contains the necessary information about the function version. The structure of this object is described in [{#T}](context.md).
+   If the second argument (HTTP request body) is present, the invocation context must be the first in the list of arguments.
 1. The HTTP request body (the `request` parameter).
 
-    The body can be represented by an array of bytes, a string, a custom type, or a pointer to it. In the first two cases, the view reflects the HTTP request in its pure form: either as a byte array or as a string.
-    If the handler argument has a custom type and the request body is a JSON document, it's converted to an object of this type using the `json.Unmarshal` method.
+   The body can be represented by an array of bytes, a string, a custom type, or a pointer to it. In the first two cases, the view reflects the HTTP request in its pure form: either as a byte array or as a string.
+   If the handler argument has a custom type and the request body is a JSON document, it's converted to an object of this type using the `json.Unmarshal` method.
 
 All the above arguments are **optional**.
 If the argument responsible for the request body is missing, any function input data is **ignored**.
 
 The runtime environment returns the function execution result as a data set:
-
 1. The response body (the `response` value).
 
-    The body can be represented by an array of bytes, a string, a custom type, or a pointer to it, as well as an [empty interface](https://go.dev/tour/methods/14). In the first two cases, to get the correct response, you should run functions by specifying the `integration=raw` request string parameter. Learn more about invoking functions in the [relevant section](../../concepts/function-invoke.md#http). In other cases, the response value is converted to an object of the corresponding type using the `json.Unmarshal` method and returned as a JSON document.
+   The body can be represented by an array of bytes, a string, a custom type, or a pointer to it, as well as an [empty interface](https://go.dev/tour/methods/14). In the first two cases, to get the correct response, you should run functions by specifying the `integration=raw` request string parameter. Learn more about invoking functions in the [relevant section](../../concepts/function-invoke.md#http). In other cases, the response value is converted to an object of the corresponding type using the `json.Unmarshal` method and returned as a JSON document.
 
 1. An error (the `error` value).
 
-    If an error occurs when calling a function, it's recommended to return an appropriate error message. If `error != nil`, the response body, if any, is ignored. **Important**: An error is a **mandatory** return value. In other words, if the response body is missing, an error must be returned as the only return value of the function, otherwise the error must be the last on the list of return values.
+   If an error occurs when calling a function, it's recommended to return an appropriate error message. If `error != nil`, the response body, if any, is ignored. **Important**: An error is a **mandatory** return value. In other words, if the response body is missing, an error must be returned as the only return value of the function, otherwise the error must be the last on the list of return values.
 
 ## Standard Go signature {#go}
 
-As a handler, {{ sf-name }} supports:
-
-* Functions with the signature `func (http.ResponseWriter, *http.Request)`.
+{{ sf-name }} supports the following handlers:
+* Functions with the `func (http.ResponseWriter, *http.Request)` signature.
 * Objects that satisfy the [http.Handler](https://pkg.go.dev/net/http#Handler) interface.
 
-The function can take values that are passed in the request from the [http.Request](https://pkg.go.dev/net/http#Request) structure, and pass the response to the request via the [http.ResponseWriter](https://pkg.go.dev/net/http#ResponseWriter) interface.
+The function can take values passed in the request from the [http.Request](https://pkg.go.dev/net/http#Request) structure and return a response via the [http.ResponseWriter](https://pkg.go.dev/net/http#ResponseWriter) interface.
 
-{{ sf-name }} does not support paths in requests. For [http.ServeMux](https://pkg.go.dev/net/http#ServeMux) to work properly, the function must be [invoked via the API gateway](../../../api-gateway/quickstart/index.md#function).
+{{ sf-name }} does not support paths in requests. For [http.ServeMux](https://pkg.go.dev/net/http#ServeMux) to work properly, [call the function via the API gateway](../../../api-gateway/quickstart/index.md#function).
 
 Function example:
 
@@ -76,7 +72,7 @@ The following function receives a request with two fields (a string and a number
 
 {% note warning %}
 
-Invoke the function using the [YC CLI](../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
+To invoke the function, use the [YC CLI](../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
 
 {% endnote %}
 
@@ -104,7 +100,7 @@ func Handler(ctx context.Context, request *Request) ([]byte, error) {
   // The function logs contain the values of the invocation context and request body
   fmt.Println("context", ctx)
   fmt.Println("request", request)
-  
+
   // The object containing the response body is converted to an array of bytes
   body, err := json.Marshal(&ResponseBody {
     Context: ctx,
@@ -130,7 +126,6 @@ Example of input data:
 ```
 
 The log will contain the following:
-
 ```
 context {context.Background map[lambdaRuntimeFunctionName:b09ks558ute7l8agve8t lambdaRuntimeFunctionVersion:b09ebrsp6jbam10vrvs2 lambdaRuntimeLogGroupName:eolitpnj15jrgmsnqloh lambdaRuntimeLogStreamName:b09ebrsp6jbam10vrvs2 lambdaRuntimeMemoryLimit:512 lambdaRuntimeRequestID:58fc90cc-97b9-4c2b-95db-9dd0e961e8ae]}
 request &{Hello, world 24}
@@ -139,7 +134,7 @@ request &{Hello, world 24}
 JSON document returned:
 
 ```json
-{ 
+{
   "context": {
     "Context": 0
   },
@@ -168,7 +163,7 @@ func Handler() (string, error) {
   if (rand.Int31n(100) >= 50) {
     return "", fmt.Errorf("not so lucky")
   }
-  
+
   return "Lucky one!", nil
 }
 ```
@@ -263,25 +258,24 @@ Example of input data (the POST method):
 ```
 
 The log will contain the following:
-
 ```
 POST { "name": "Anonymous" }
 ```
 
 Response returned:
-
 ```
 Hello, Anonymous
 ```
 
-### Parsing an HTTP request from API Gateway
 
-The function is invoked by API Gateway service, logs the request method and body, and returns a greeting.
+### Parsing an API Gateway HTTP request
 
-The function decode request body via `json.Unmarshal()`.
+The function is called by Yandex API Gateway with a service account, logs the request method and body, and returns a greeting.
 
- ```golang
- package main
+The function decodes the body of an incoming request using `json.Unmarshal()`.
+
+```golang
+package main
 
 import (
 	"context"
@@ -289,7 +283,7 @@ import (
 	"fmt"
 )
 
-// The request structure
+// API Gateway v1 request structure
 type APIGatewayRequest struct {
 	OperationID string `json:"operationId"`
 	Resource    string `json:"resource"`
@@ -314,7 +308,7 @@ type APIGatewayRequest struct {
 	RequestContext interface{} `json:"requestContext"`
 }
 
-// The response structure
+// API Gateway v1 response structure
 type APIGatewayResponse struct {
 	StatusCode        int                 `json:"statusCode"`
 	Headers           map[string]string   `json:"headers"`
@@ -330,25 +324,25 @@ type Request struct {
 func Greet(ctx context.Context, event *APIGatewayRequest) (*APIGatewayResponse, error) {
 	req := &Request{}
 
-	// The event.Body field is converted to a Request object to get the passed name
+	// The request's event.Body field is converted to a Request object to get the passed name
 	if err := json.Unmarshal(event.Body, &req); err != nil {
 		return nil, fmt.Errorf("an error has occurred when parsing body: %v", err)
 	}
 
-	// The log will show the name of the HTTP method used to make the request and the request body
+	// The log will show the name of the HTTP method that was used to make the request and the path
 	fmt.Println(event.HTTPMethod, event.Path)
 
-	// The API Gateway response
+	// The response body.
 	return &APIGatewayResponse{
 		StatusCode: 200,
 		Body:       fmt.Sprintf("Hello, %s", req.Name),
 	}, nil
 }
- ```
+```
 
 {% note warning %}
 
-You need to access the function via the API gateway.
+Access the function via the API gateway.
 
 {% endnote %}
 
@@ -361,13 +355,13 @@ Example of input data (the POST method):
 ```
 
 The log will contain the following:
-
 ```
 POST { "name": "Anonymous" }
 ```
 
 Response returned:
-
 ```
 Hello, Anonymous
 ```
+
+
