@@ -12,13 +12,19 @@
 
 {% if region == "ru" %}
 
-Банковские реквизиты вы можете найти в документе [Учетная карточка ООО «Яндекс.Облако»](https://storage.yandexcloud.net/doc-files/Yandex.Cloud_requisites.pdf), а также в разделе [Правовые документы]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %} (пункт **18. Реквизиты Яндекса**).
+Банковские реквизиты вы можете найти {% if lang == "ru" %}в документе [Учетная карточка ООО «Яндекс.Облако»](https://storage.yandexcloud.net/doc-files/Yandex.Cloud_requisites.pdf), а также {% endif %}в разделе [Правовые документы]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %} (пункт **18. Реквизиты Яндекса**).
 
 {% endif %}
 
 {% if region == "kz" %}
 
-Банковские реквизиты вы можете найти в разделе [Правовые документы]{% if lang == "ru" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=en){% endif %} (пункт **18. Реквизиты Яндекса**).
+Банковские реквизиты вы можете найти в разделе [Правовые документы](https://yandex.com/legal/cloud_oferta_kz/) (пункт **18. Реквизиты Яндекса**).
+
+{% endif %}
+
+{% if region == "int" %}
+
+Банковские реквизиты вы можете найти в разделе [Правовые документы](https://yandex.com/legal/cloud_customer_agreement/) (пункт **19. Реквизиты Яндекса**).
 
 {% endif %}
 

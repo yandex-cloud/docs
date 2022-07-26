@@ -10,7 +10,23 @@ In {{ yandex-cloud }}, each service has its own SLA. You can learn more about SL
 
 #### Where can I find the bank details of {{ yandex-cloud }}? {#requisites}
 
-You can find the bank details in the [{{ yandex-cloud }} LLC registration card](https://storage.yandexcloud.net/doc-files/{{ yandex-cloud }}_requisites.pdf) and in the section [Legal documents]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %} (paragraph **18. Yandex Details**).
+{% if region == "ru" %}
+
+You can find the bank details {% if lang == "ru" %}in the [Yandex.Cloud LLC registration card](https://storage.yandexcloud.net/doc-files/Yandex.Cloud_requisites.pdf) and {% endif %}in the section [Legal documents]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %} (paragraph **18. Yandex Details**).
+
+{% endif %}
+
+{% if region == "kz" %}
+
+You can find the bank details in the section [Legal documents](https://yandex.com/legal/cloud_oferta_kz/) (paragraph **18. Yandex Details**).
+
+{% endif %}
+
+{% if region == "int" %}
+
+You can find the bank details in the section [Legal documents](https://yandex.com/legal/cloud_customer_agreement/) (paragraph **19. Yandex Details**).
+
+{% endif %}
 
 #### How do I contact technical support? {#support}
 
