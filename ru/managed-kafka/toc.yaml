@@ -56,11 +56,13 @@ items:
       - name: Миграция базы данных из стороннего кластера {{ KF }}
         href: tutorials/kafka-connectors.md
       - name: Поставка данных из {{ mpg-full-name }} с помощью Debezium
-        href: tutorials/kafka-cdc.md
+        href: tutorials/cdc/debezium-mpg.md
+      - name: Поставка дданных из {{  mmy-full-name }} с помощью Debezium
+        href: tutorials/cdc/debezium-mmy.md
       - name: >-
           Поставка данных из {{ mpg-full-name }} с помощью
           {{ data-transfer-full-name }}
-        href: tutorials/kafka-cdc-data-transfer.md
+        href: tutorials/cdc/data-transfer-mpg.md
       - name: Поставка данных в {{ mch-name }}
         href: tutorials/send-data-to-mch.md
       - name: Поставка данных в ksqlDB

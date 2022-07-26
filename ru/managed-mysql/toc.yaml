@@ -93,6 +93,8 @@ items:
         href: tutorials/data-migration.md
       - name: Миграция базы данных из {{ mmy-name }} в {{ MY }}
         href: tutorials/mmy-to-mysql-migration.md
+      - name: Поставка данных в {{ mkf-full-name }} с помощью Debezium
+        href: tutorials/cdc-debezium.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

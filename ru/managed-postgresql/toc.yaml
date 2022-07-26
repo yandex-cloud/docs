@@ -64,6 +64,12 @@ items:
         href: tutorials/sqoop.md
       - name: Анализ производительности и оптимизация
         href: tutorials/profiling.md
+      - name: >-
+          Поставка данных в {{ mkf-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: tutorials/cdc-data-transfer.md
+      - name: Поставка данных в {{ mkf-full-name }} с помощью Debezium
+        href: tutorials/cdc-debezium.md
       - name: Репликация и миграция
         items:
         - name: Логическая репликация {{ PG }}
@@ -76,12 +82,6 @@ items:
             Создание логической реплики Amazon RDS для {{ PG }} в {{ mpg-name }}
           when: audience != "internal"
           href: operations/logical-replica-from-rds.md
-      - name: >-
-          Поставка данных в {{ mkf-full-name }} с помощью
-          {{ data-transfer-full-name }}
-        href: tutorials/kafka-cdc-data-transfer.md
-      - name: Поставка данных в {{ mkf-full-name }} с помощью Debezium
-        href: tutorials/kafka-cdc.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

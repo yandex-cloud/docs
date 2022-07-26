@@ -3,8 +3,9 @@
 ## {{ KF }} {#kafka}
 
 * [{#T}](kafka-connector.md)
-* [{#T}](kafka-cdc.md)
-* [{#T}](kafka-cdc-data-transfer.md)
+* [{#T}](kafka-cdc/data-transfer-mpg.md)
+* [{#T}](kafka-cdc/debezium-mmy.md)
+* [{#T}](kafka-cdc/debezium-mpg.md)
 * [{#T}](kafka-connect.md)
 * Использование реестра схем форматов данных с {{ mkf-name }}:
 
@@ -52,12 +53,13 @@
 {% if product == "yandex-cloud" %}
 * [{#T}](sqoop.md)
 {% endif %}
+* [{#T}](./kafka-cdc/debezium-mmy.md)
 
 ## {{ PG }} {#postgresql}
 
 * [{#T}](rdbms-to-clickhouse.md)
-* [{#T}](kafka-cdc.md)
-* [{#T}](kafka-cdc-data-transfer.md)
+* [{#T}](./kafka-cdc/data-transfer-mpg.md)
+* [{#T}](./kafka-cdc/debezium-mpg.md)
 {% if product == "yandex-cloud" %}
 * [{#T}](sqoop.md)
 {% endif %}

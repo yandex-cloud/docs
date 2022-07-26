@@ -86,7 +86,7 @@ items:
       - name: Миграция базы данных в {{ mpg-full-name }}
         href: tutorials/managed-postgresql.md
       - name: Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }}
-        href: tutorials/kafka-cdc.md
+        href: tutorials/cdc-mpg.md
       - name: Миграция базы данных из {{ PG }} в {{ CH }}
         href: tutorials/rdbms-to-clickhouse.md
   - name: Концепции
