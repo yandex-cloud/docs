@@ -1,8 +1,10 @@
 # OAuth-токен
 
-В {{ yandex-cloud }} OAuth-токен используется в процедуре аутентификации для [получения IAM-токена](../../operations/iam-token/create.md).
+OAuth-токен необходим для авторизации в {{ yandex-cloud }} пользователя с аккаунтом на Яндексе: пользователь обменивает OAuth-токен на [IAM-токен](iam-token.md).
 
-Получить OAuth-токен для работы с {{ yandex-cloud }} можно с помощью {% if product == "yandex-cloud" %}[запроса]({{ link-cloud-oauth }}) к сервису Яндекс.OAuth{% endif %}{% if product == "cloud-il" %}[запроса]({{ link-cloud-oauth }}) к сервису Google OAuth{% endif %}.
+Получить OAuth-токен для работы с {{ yandex-cloud }} можно с помощью [запроса]({{ link-cloud-oauth }}) к сервису {% if product == "yandex-cloud" %}Яндекс.OAuth{% endif %}{% if product == "cloud-il" %}Google OAuth{% endif %}.
+
+OAuth-токен недоступен для федеративных пользователей и сервисных аккаунтов.
 
 ## Время жизни {#lifetime}
 
