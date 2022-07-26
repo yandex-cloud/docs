@@ -1,6 +1,6 @@
-# Установка NGINX Ingress-контроллера с менеджером для сертификатов Let's Encrypt<sup>®</sup>
+# Установка Ingress-контроллера NGINX с менеджером для сертификатов Let's Encrypt<sup>®</sup>
 
-Чтобы с помощью [{{ k8s }}](https://kubernetes.io/ru/) создать [NGINX Ingress-контроллер](https://kubernetes.github.io/ingress-nginx/) и защитить его сертификатом [Let's Encrypt<sup>®</sup>](https://letsencrypt.org/ru/), выполните следующие действия.
+Чтобы с помощью [{{ k8s }}](https://kubernetes.io/ru/) создать [Ingress-контроллер NGINX](https://kubernetes.github.io/ingress-nginx/) и защитить его сертификатом [Let's Encrypt<sup>®</sup>](https://letsencrypt.org/ru/), выполните следующие действия.
 
 ## Перед началом работы {#before-begin}
 

@@ -47,6 +47,10 @@ items:
         href: operations/cert-backup.md
       - name: Добавление алерта для сертификата
         href: operations/alert.md
+  - name: Практические руководства
+    items:
+      - name: Установка Ingress-контроллера NGINX в {{ managed-k8s-name }}
+        href: tutorials/nginx-ingress-certificate-manager.md
   - name: Концепции
     items:
       - name: Обзор

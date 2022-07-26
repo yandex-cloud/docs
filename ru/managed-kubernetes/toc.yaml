@@ -96,8 +96,12 @@ items:
         href: tutorials/container-registry.md
       - name: Запуск рабочих нагрузок с GPU
         href: tutorials/running-pod-gpu.md
-      - name: Установка NGINX Ingress-контроллера с Let's Encrypt®
+      - name: Установка Ingress-контроллера NGINX с Let's Encrypt®
         href: tutorials/ingress-cert-manager.md
+      - name: >-
+          Установка Ingress-контроллера NGINX с сертификатом из {{
+          certificate-manager-full-name }}
+        href: tutorials/nginx-ingress-certificate-manager.md
       - name: Настройка {{ alb-full-name }} Ingress-контроллера
         href: tutorials/alb-ingress-controller.md
       - name: Резервное копирование в {{ objstorage-name }}

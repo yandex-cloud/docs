@@ -55,7 +55,7 @@ items:
         href: tutorials/sharding.md
       - name: Миграция данных в {{ mmg-name }}
         href: tutorials/data-migration.md
-      - name: Перенос коллекций из {{ MG }} в {{ mmg-name }}
+      - name: Миграция коллекций из стороннего кластера {{ MG }}
         href: tutorials/mongodb-migration.md
       - name: Анализ производительности и оптимизация
         href: tutorials/profiling.md
