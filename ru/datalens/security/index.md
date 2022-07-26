@@ -239,36 +239,36 @@
 Объект доступа<br/>Действие | {{ permission-execute }} | {{ permission-read }} | {{ permission-write }} | {{ permission-admin }}
 ----|----|----|----|----
 **Папка** |
-Просмотр папки | N/A | ✔ | ✔ | ✔
-Редактирование папки | N/A | - | ✔ | ✔
-Удаление папки | N/A | - | - | ✔
-Изменение прав доступа | N/A | - | - | ✔
+Просмотр папки | N/A | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Редактирование папки | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Удаление папки | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
+Изменение прав доступа | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 **Подключение** |
-Выполнение запросов<br/>к подключению | ✔ | ✔ | ✔ | ✔
-Создание датасета<br/>над подключением | - | ✔ | ✔ | ✔
-Просмотр параметров<br/>подключения | - | ✔ | ✔ | ✔
-Редактирование подключения | - | - | ✔ | ✔
-Удаление подключения | - | - | - | ✔
-Изменение прав доступа | - | - | - | ✔
+Выполнение запросов<br/>к подключению | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Создание датасета<br/>над подключением | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Просмотр параметров<br/>подключения | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Редактирование подключения | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Удаление подключения | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
+Изменение прав доступа | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 **Датасет** |
-Выполнение запросов<br/>к датасету | ✔ | ✔ | ✔ | ✔
-Создание чарта<br/>над датасетом | - | ✔ | ✔ | ✔
-Просмотр датасета | - | ✔ | ✔ | ✔
-Редактирование датасета | - | - | ✔ | ✔
-Удаление датасета | - | - | - | ✔
-Изменение прав доступа | - | - | - | ✔
+Выполнение запросов<br/>к датасету | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Создание чарта<br/>над датасетом | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Просмотр датасета | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Редактирование датасета | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Удаление датасета | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
+Изменение прав доступа | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 **Чарт** |
-Просмотр чарта | N/A | ✔ | ✔ | ✔
-Редактирование чарта | N/A | - | ✔ | ✔
-Удаление чарта | N/A | - | - | ✔
-Изменение прав доступа | N/A | - | - | ✔
-Предоставить публичный доступ | N/A | - | - | ✔
+Просмотр чарта | N/A | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Редактирование чарта | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Удаление чарта | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
+Изменение прав доступа | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
+Предоставить публичный доступ | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 **Дашборд** |
-Просмотр дашборда | N/A | ✔ | ✔ | ✔
-Редактирование дашборда | N/A | - | ✔ | ✔
-Удаление дашборда | N/A | - | - | ✔
-Изменение прав доступа | N/A | - | - | ✔
-Предоставить публичный доступ | N/A | - | - | ✔
+Просмотр дашборда | N/A | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Редактирование дашборда | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Удаление дашборда | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
+Изменение прав доступа | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
+Предоставить публичный доступ | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 
 {% if audience != "internal" %}
 
