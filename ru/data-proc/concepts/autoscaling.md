@@ -8,7 +8,7 @@
 
 {% if audience == "external" %}
 
-{{ dataproc-full-name }} поддерживает автоматическое масштабирование [подкластеров обработки данных](../concepts/index.md) (`Compute`-кластеров) на основе метрик, которые поставляются в сервис [{{ monitoring-full-name }}](../../monitoring/concepts/index.md):
+{{ dataproc-full-name }} поддерживает автоматическое масштабирование [подкластеров для обработки данных](../concepts/index.md) на основе метрик, которые поставляются в сервис [{{ monitoring-full-name }}](../../monitoring/concepts/index.md):
 
 {% endif %}
 
