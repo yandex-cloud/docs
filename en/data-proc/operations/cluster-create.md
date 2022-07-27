@@ -2,7 +2,7 @@
 
 ## Configure a network {#setup-network}
 
-In the subnet that the {{ dataproc-name }} subcluster will connect to with the `Master` role, [enable NAT to the internet](../../vpc/operations/enable-nat.md). This will enable the subcluster to interact with {{ yandex-cloud }} services or hosts on other networks.
+In the subnet that the {{ dataproc-name }} subcluster will connect to with the `Master` role, {% if audience != "internal" %}[enable egress NAT](../../vpc/operations/enable-nat.md){% else %}enable egress NAT{% endif %}. This will enable the subcluster to interact with {{ yandex-cloud }} services or hosts on other networks.
 
 ## Configure security groups {#change-security-groups}
 
@@ -12,8 +12,8 @@ Security groups must be created and configured before creating a cluster. If the
 
 {% endnote %}
 
-1. [Create](../../vpc/operations/security-group-create.md) one or more security groups for cluster service traffic.
-1. [Add rules](../../vpc/operations/security-group-update.md#add-rule):
+1. {% if audience != "internal" %}[Create](../../vpc/operations/security-group-create.md){% else %}Create{% endif %} one or more security groups for cluster service traffic.
+1. {% if audience != "internal" %}[Add rules](../../vpc/operations/security-group-update.md#add-rule){% else %}Add rules{% endif %}:
 
    * One rule for inbound and outbound service traffic:
 
@@ -45,35 +45,41 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
 
 ## Create a cluster {#create}
 
+A cluster must contain at least two subclusters: one `Master` and one `Data`.
+
 {% list tabs %}
 
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
 
-   1. Click **Create resource** and select **{{ dataproc-name }} cluster** from the drop-down list.
+   1. Click **Create resource** and select ![image](../../_assets/data-proc/data-proc.svg) **{{ dataproc-name }} cluster** from the drop-down list.
 
-   1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder. Naming requirements:
+   1. Name the cluster in the **Cluster name** field. Naming requirements:
+
+      * It must be unique within the folder.
 
       {% include [name-format.md](../../_includes/name-format.md) %}
 
    1. Select a suitable [image version](../concepts/environment.md) and the services you would like to use in the cluster.
 
-      {% note info %}
+      {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
 
-      Note that some components require other components to work. For example, to use Spark, you need YARN.
+      {% note tip %}
+
+      To use the most recent image version, specify `2.0`.
 
       {% endnote %}
 
-   1. Enter the public part of your SSH key in the **SSH key** field. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
-   1. Select or create a [service account](../../iam/concepts/users/service-accounts.md) to be granted cluster access.
+   1. Enter the public part of your SSH key in the **SSH key** field.{% if audience != "internal" %} For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).{% endif %}
+   1. Select or create a {% if audience != "internal" %}[service account](../../iam/concepts/users/service-accounts.md){% else %}service account{% endif %} to be granted cluster access.
    1. Select the availability zone for the cluster.
    1. If necessary, configure the [properties of cluster components](../concepts/settings-list.md), jobs, and the environment.
    1. If necessary, specify the custom [initialization scripts](../concepts/init-action.md) of cluster hosts. For each script, specify:
 
-      * **uri**: Link to the initialization script in the `https://` or `s3a://` scheme.
-      * (Optional) **Timeout**: Script execution timeout (in seconds). The initialization script that runs longer than the specified time will be terminated.
-      * (Optional) **Arguments**: Arguments, enclosed in square brackets `[]` and separated by commas, with which an initialization script must be executed, for example:
+      * **URI**: Link to the initialization script in the `https://` or `s3a://` scheme.
+      * (Optional) **Timeout**: The script execution timeout (in seconds). If your initialization script runs longer than this time, it will be terminated.
+      * (Optional) **Arguments**: The list of arguments of your initialization script, enclosed in square brackets `[]` and separated by commas, for example:
 
          ```text
          ["arg1","arg2",...,"argN"]
@@ -90,10 +96,13 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
       {% endnote %}
 
    1. Enable the **UI Proxy** option to access the [web interfaces of {{ dataproc-name }} components](../concepts/interfaces.md).
+      {% if product == "yandex-cloud" %}
+
    1. Cluster logs are saved in [{{ cloud-logging-full-name }}](../../logging/). Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
 
-      To enable this functionality, assign the [cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
+      To enable this functionality, {% if audience != "internal" %}[assign the cluster service account](../../iam/operations/roles/grant.md#access-to-sa){% else %}assign the cluster service account{% endif %} the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
 
+   {% endif %}
    1. Configure subclusters: no more than one main subcluster with a **Master** host and subclusters for data storage or computing.
 
       The roles of `Compute` and `Data` subcluster are different: you can deploy data storage components on `Data` subclusters, and data processing components on `Compute` subclusters. Storage on a `Compute` subcluster is only used to temporarily store processed files.
@@ -101,7 +110,7 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
    1. For each subcluster, you can configure:
 
       * The number of hosts.
-      * The [host class](../concepts/instance-types.md), which dictates the platform and computing resources available to the host.
+      * [Host class](../concepts/instance-types.md): The platform and computing resources available to the host.
       * [Storage](../concepts/storage.md) size and type.
       * The subnet of the network where the cluster is located.
 
@@ -142,54 +151,157 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
 
    To create a cluster:
 
+   {% if audience != "internal" %}
+
+   1. Check whether the folder has any subnets for the cluster hosts:
+
+      ```bash
+      yc vpc subnet list
+      ```
+
+      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-full-name }}.
+
+   {% endif %}
+
    1. View a description of the CLI's create cluster command:
 
       ```bash
-      yc dataproc cluster create --help
+      {{ yc-dp }} cluster create --help
       ```
 
    1. Specify cluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
 
       ```bash
       {{ yc-dp }} cluster create <cluster name> \
-        --zone <cluster availability zone> \
-        --service-account-name <cluster service account name> \
-        --version <image version> \
-        --services <component list> \
-        --subcluster name=<name of MASTERNODE subcluster>,`
-                    `role=masternode,`
-                    `resource-preset=<host class>,`
-                    `disk-type=<storage type>,`
-                    `disk-size=<storage size, GB>,`
-                    `subnet-name=<subnet name>,`
-                    `hosts-count=1`
-                    `assign-public-ip=<assignment of public IP address to subcluster host: true or false> \
-        --subcluster name=<name of DATANODE subcluster>,`
-                    `role=datanode,`
-                    `resource-preset=<host class>,`
-                    `disk-type=<storage type>,`
-                    `disk-size=<storage size, GB>,`
-                    `subnet-name=<subnet name>,`
-                    `hosts-count=<host count>,`
-                    `assign-public-ip=<assignment of public IP address to all subcluster hosts: true or false> \
-        --bucket <bucket name> \
-        --ssh-public-keys-file <path to public portion of SSH key> \
-        --security-group-ids <security group ID list> \
-        --deletion-protection=<cluster deletion protection: true or false> \
-        --log-group-id <log group ID>
+         --bucket=<bucket name> \
+         --zone=<availability zone> \
+         --service-account-name=<cluster service account name> \
+         --version=<image version> \
+         --services=<component list> \
+         --ssh-public-keys-file=<full path to the file with the SSH key's public part> \
+         --subcluster name=<name of MASTERNODE subcluster>,`
+                     `role=masternode,`
+                     `resource-preset=<host class>,`
+                     `disk-type=<storage type: network-ssd, network-hdd, or network-ssd-nonreplicated>,`
+                     `disk-size=<storage size, GB>,`
+                     `subnet-name=<subnet name>,`
+                     `hosts-count=<host count>,`
+                     `assign-public-ip=<public access to subcluster host: true or false> \
+         --subcluster name=<name of DATANODE subcluster>,`
+                     `role=datanode,`
+                     `resource-preset=<host class>,`
+                     `disk-type=<storage type: network-ssd, network-hdd, or network-ssd-nonreplicated>,`
+                     `disk-size=<storage size, GB>,`
+                     `subnet-name=<subnet name>,`
+                     `hosts-count=<host count>,`
+                     `assign-public-ip=<public access to subcluster hosts: true or false> \
+         --deletion-protection=<cluster deletion protection: true or false> \
+         --ui-proxy=<access to component web interfaces: true or false> \
+         --security-group-ids=<list of security group IDs> \
+         --log-group-id=<log group ID>
       ```
 
-      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      {% note info %}
 
-   1. To create a cluster deployed on [groups of dedicated hosts](../../compute/concepts/dedicated-host.md), specify host IDs as a comma-separated list in the `--host-group-ids` parameter:
+      The cluster name must be unique within the folder. It may contain Latin letters, numbers, hyphens, and underscores. The maximum name length is 63 characters.
+
+      {% endnote %}
+
+      Where:
+
+      * `--bucket`: The name of the bucket in {{ objstorage-full-name }} to store job dependencies and results. The cluster service account must have `READ and WRITE` permissions for this bucket.
+      * `--zone`: The {% if audience != "internal" %}[availability zone](../../overview/concepts/geo-scope.md){% else %}availability zone{% endif %} to host the cluster hosts.
+      * `--service-account-name`: The name of the {% if audience != "internal" %}[cluster service account](../../iam/concepts/users/service-accounts.md){% else %}cluster service account{% endif %}. Be sure to assign the cluster service account the `mdb.dataproc.agent` role.
+      * `--version`: The [image version](../concepts/environment.md).
+
+         {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
+
+         {% note tip %}
+
+         To use the most recent image version, set the `--version` parameter value to `2.0`.
+
+         {% endnote %}
+
+      * `--services`: A list of [components](../concepts/environment.md) that you want to use in the cluster. If this parameter is omitted, the default set is used: `hdfs`, `yarn`, `mapreduce`, `tez`, and `spark`.
+      * `--ssh-public-keys-file`: The full path to the file with the public part of the SSH key to be used to access the cluster hosts.{% if audience != "internal" %} For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).{% endif %}
+      * `--subcluster`: Subcluster parameters:
+         * `name`: Subcluster name.
+         * `role`: Subcluster role (`masternode`, `datanode`, or `computenode`).
+         * `resource-preset`: [Host class](../concepts/instance-types.md).
+         * `disk-type`: [Storage type](../concepts/storage.md).
+         * `disk-size`: Storage size in GB.
+         * `subnet-name`: {% if audience != "internal" %}[Name of the subnet](../../vpc/concepts/network.md#subnet){% else %}Name of the subnet{% endif %}.
+         * `hosts-count`: Subcluster host count. The minimum value is `1` and the maximum value is `32`.
+         * `assign-public-ip`: Access to subcluster hosts from the internet. This way, you can only connect to the cluster over an SSL connection. For more information, see [{#T}](connect.md).
+
+            {% note warning %}
+
+            After you create your cluster, you can't request or disable public access to the subcluster. However, you can delete any subcluster (if its role is not `Master`) and then create it again with a relevant public access setting.
+
+            {% endnote %}
+
+      * `--deletion-protection`: Cluster deletion protection.
+
+         {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+      * `--ui-proxy`: Access to [{{ dataproc-name }} component web interfaces](../concepts/interfaces.md).
+      * `--security-group-ids`: List of {% if audience != "internal" %}[security group](../../vpc/concepts/security-groups.md){% else %}security group{% endif %} IDs.
+      * `--log-group-id`: [Log group ID](../concepts/logs.md).
+
+      To create a cluster with multiple `Compute` and `Data` subclusters, pass the necessary number of `--subcluster` arguments in the cluster create command:
+
+      ```bash
+         {{ yc-dp }} cluster create \
+         ...
+         --subcluster <subcluster parameters> \
+         --subcluster <subcluster parameters> \
+         ...
+      ```
+
+      1. To enable [autoscaling](../concepts/autoscaling.md) for `Compute` subclusters, set the following parameters:
+
+         ```bash
+         {{ yc-dp }} cluster create <cluster name> \
+            ...
+            --subcluster name=<subcluster name>,`
+                        `role=computenode`
+                        `...`
+                        `hosts-count=<minimum number of hosts>`
+                        `max-hosts-count=<maximum number of hosts>,`
+                        `preemptible=<use preemptible VMs: true or false>,`
+                        `warmup-duration=<instance warmup period>,`
+                        `stabilization-duration=<stabilization period>,`
+                        `measurement-duration=<utilization measurement period>,`
+                        `cpu-utilization-target=<target CPU utilization level, %>,`
+                        `autoscaling-decommission-timeout=<decommissioning timeout, seconds>
+         ```
+
+         Where:
+
+         * `hosts-count`: The minimum number of hosts (VMs) in a subcluster. The minimum value is `1` and the maximum value is `32`.
+         * `max-hosts-count`: The maximum number of hosts (VMs) in a subcluster. The minimum value is `1` and the maximum value is `100`.
+         * `preemptible`: Indicates if {% if audience != "internal" %}[preemptible VMs](../../compute/concepts/preemptible-vm.md){% else %}preemptible VMs{% endif %} are used.
+         * `warmup-duration`: The time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s` and the maximum value is `600s` (10 minutes).
+         * `stabilization-duration`: The interval, in seconds, during which the required number of instances can't be decreased, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `1800s` (30 minutes).
+         * `measurement-duration`: The period, in seconds, for which utilization measurements should be averaged for each instance, in `<value>s` format. The minimum value is `60s` (1 minute) and the maximum value is `600s` (10 minutes).
+         * `cpu-utilization-target`: The target CPU utilization level, %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used as a metric (based on the number of pending resources). The minimum value is `10` and the maximum value is `100`.
+         * `autoscaling-decommission-timeout`: The [decommissioning timeout](../concepts/decommission.md) in seconds. The minimum value is `0` and the maximum value is `86400` (24h).
+
+         {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
+
+   {% if product == "yandex-cloud" %}
+
+   1. To create a cluster deployed on {% if audience != "internal" %}[groups of dedicated hosts](../../compute/concepts/dedicated-host.md){% else %}groups of dedicated hosts{% endif %}, specify host group IDs as a comma-separated list in the `--host-group-ids` parameter:
 
       ```bash
       {{ yc-dp }} cluster create <cluster name> \
          ...
-        --host-group-ids <IDs of dedicated host groups>
+         --host-group-ids=<IDs of groups of dedicated hosts>
       ```
 
       {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
+
+   {% endif %}
 
    1. To configure cluster hosts using [initialization scripts](../concepts/init-action.md), specify them in one or more `--initialization-action` parameters:
 
@@ -203,14 +315,14 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
 
       Where:
 
-      * `uri`: link to the initialization script in the `https://` or `s3a://` scheme.
-      * (Optional) `timeout`: Script execution timeout (in seconds). The initialization script that runs longer than the specified time will be terminated.
+      * `uri`: Link to the initialization script in the `https://` or `s3a://` scheme.
+      * (Optional) `timeout`: Script execution timeout (in seconds). If your initialization script runs longer than this time, it will be terminated.
       * (Optional) `args`: Arguments, enclosed in square brackets and separated by commas, with which an initialization script must be executed.
 
 - {{ TF }}
 
   {% if audience != "internal" %}
-
+   
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
   {% endif %}
@@ -353,6 +465,14 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+      {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
+
+      {% note tip %}
+
+      To use the most recent image version, set the `version_id` parameter value to `2.0`.
+
+      {% endnote %}
+
       To access {{ dataproc-name }} [component web interfaces](../concepts/interfaces.md), add a `ui_proxy` field to the cluster description:
 
       ```hcl
@@ -401,7 +521,16 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
    * ID of the folder to host the cluster, in the `folderId` parameter.
    * The cluster name in the `name` parameter.
    * Cluster configuration in the `configSpec` parameter, including:
-      * [Image](../concepts/environment.md) version, in the `configSpec.versionId` parameter.
+      * [Image version](../concepts/environment.md), in the `configSpec.versionId` parameter.
+
+         {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
+
+         {% note tip %}
+
+         To use the most recent image version, specify `2.0`.
+
+         {% endnote %}
+
       * Component list, in the `configSpec.hadoop.services` parameter.
       * Public portion of the SSH key, in the `configSpec.hadoop.sshPublicKeys` parameter.
       * Subcluster settings, in the `configSpec.subclustersSpec` parameter.
@@ -415,12 +544,73 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
 
    To assign a public IP address to all subcluster hosts, pass the `true` value in the `configSpec.subclustersSpec.assignPublicIp` parameter.
 
-   To create a cluster deployed on [groups of dedicated hosts](../../compute/concepts/dedicated-host.md), pass a list of host IDs in the `hostGroupIds` parameter.
+   {% if product == "yandex-cloud" %}
+
+   To create a cluster deployed on {% if audience != "internal" %}[groups of dedicated hosts](../../compute/concepts/dedicated-host.md){% else %}groups of dedicated hosts{% endif %}, pass a list of host group IDs in the `hostGroupIds` parameter.
 
    {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
+
+   {% endif %}
 
    To use [initialization scripts](../concepts/init-action.md) for the initial configuration of cluster hosts, specify them in the `config_spec.hadoop.initialization_actions[]` parameter.
 
 {% endlist %}
 
-After your cluster's status changes to **Running**, you can [connect](connect.md) to the primary subcluster host using the specified SSH key.
+After your cluster's status changes to **Running**, you can [connect](connect.md) to subcluster hosts using the specified SSH key.
+
+## Examples {#examples}
+
+### Creating a lightweight cluster for Spark and PySpark jobs {#creating-a-light-weight-cluster}
+
+{% list tabs %}
+
+* CLI
+
+   Create a {{ dataproc-name }} cluster to run Spark jobs without HDFS and data storage subclusters and set the following characteristics:
+
+   * Cluster name: `my-dataproc`.
+   * With a bucket named `dataproc-bucket`.
+   * In the `{{ zone-id }}` availability zone.
+   * With a service account named `dataproc-sa`.
+   * With image version `2.0`.
+   * With `SPARK` and `YARN` components.
+   * With the SSH key's public part path: `/home/username/.ssh/id_rsa.pub`.
+   * With the `master` subcluster for master hosts and a single `compute` subcluster for processing data:
+
+      * Of the `{{ host-class }}` class.
+      * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
+      * In the `{{ subnet-name }}` subnet.
+      * With public access.
+
+   * In the security group `{{ security-group }}`.
+   * With protection against accidental cluster deletion.
+
+   To create a cluster with these characteristics, run the command:
+
+   ```bash
+   {{ yc-dp }} cluster create my-dataproc \
+      --bucket=dataproc-bucket \
+      --zone={{ zone-id }} \
+      --service-account-name=dataproc-sa \
+      --version=2.0 \
+      --services=SPARK,YARN \
+      --ssh-public-keys-file=/home/username/.ssh/id_rsa.pub \
+      --subcluster name="master",`
+                  `role=masternode,`
+                  `resource-preset={{ host-class }},`
+                  `disk-type={{ disk-type-example }},`
+                  `disk-size=20,`
+                  `subnet-name={{ subnet-name }},`
+                  `assign-public-ip=true \
+      --subcluster name="compute",`
+                  `role=computenode,`
+                  `resource-preset={{ host-class }},`
+                  `disk-type={{ disk-type-example }},`
+                  `disk-size=20,`
+                  `subnet-name={{ subnet-name }},`
+                  `assign-public-ip=true \
+      --security-group-ids={{ security-group }} \
+      --deletion-protection=true
+   ```
+
+{% endlist %}

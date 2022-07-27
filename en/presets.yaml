@@ -301,6 +301,7 @@ default:
   tag-sql: <code><b><small>SQL</small></b></code>
   tag-all: <code><b><small>All interfaces</small></b></code>
   zone-id: ru-central1-c
+  subnet-name: default-ru-central1-c
   region-id: ru-central1
 
   compute-ubuntu-lts-image-id: fd81hgrcv6lsnkremf32
@@ -818,6 +819,8 @@ cloud-il:
   dns-zone: mdb.cloudil.com
   link-monitoring: https://monitoring.cloudil.co.il
   yandex-cloud: CloudIL
+  zone-id: il1-a
+  subnet-name: default-il1-a
   region-id: il1
   registry: cr.cloudil.com
   pem-path: /certs/CA.pem
