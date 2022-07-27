@@ -40,13 +40,13 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
    1. Select the host class to define the technical specifications of the VMs where the database hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
    1. Under **Storage size**:
 
-{% if audience != "internal" %}
+      {% if audience != "internal" %}
 
       * Select a [storage type](../concepts/storage.md).
 
           {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
-{% endif %}
+      {% endif %}
 
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
@@ -364,8 +364,9 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
    * Security [group identifiers](../concepts/network.md#security-groups), in the `securityGroupIds` parameter.
    * Database configuration, in one or more `databaseSpecs` parameters.
    * User settings, in one or more `userSpecs` parameters.
-      {% if product == "yandex-cloud" %}
-      {% if audience != "internal" %}
+
+   {% if product == "yandex-cloud" %}
+   {% if audience != "internal" %}
 
    To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
 
