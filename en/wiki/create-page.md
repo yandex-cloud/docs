@@ -31,7 +31,7 @@ To create a new Wiki page:
     {% note tip %}
 
     The `~` symbol at the start of a row indicates that the address is relative to your personal cluster. The `!` symbol at the start of a row indicates that the address is relative to the current page.
-You can set a page address for a page that doesn't exist. For example, you set the page address to `~/foo/bar` even the `~/foo` page doesn't exist.
+    You can set a page address for a page that doesn't exist. For example, you set the page address to `~/foo/bar` even the `~/foo` page doesn't exist.
 
     {% endnote %}
 
@@ -62,8 +62,6 @@ You can create a Wiki page in a specific cluster:
 - [{#T}](page-management/access-setup.md)
 
 - [{#T}](edit-page.md)
-
-- [{#T}](create-note.md)
 
 - [{#T}](create-grid.md)
 

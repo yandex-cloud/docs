@@ -1,6 +1,6 @@
 # Markdown markup
 
-A markup language is a set of rules used to structure and format text using special symbols called markup elements.
+The markup language is the set of rules for creating the structure and visual design of text using special markup-symbol elements.
 
 {{ wiki-name }} supports additional formatting elements that are not present in the standard Markdown syntax.
 
@@ -8,17 +8,17 @@ You can use Markdown to:
 
 * [Set the Wiki page structure](static-markup/document-structure.md)
 
-* [Format text](static-markup/formatting.md)
+* [Format the text](static-markup/formatting.md)
 
 * [Add links](static-markup/links.md)
 
 * [Attach images and files](static-markup/files.md)
 
-* [Embed tables](static-markup/grids.md)
+* [Insert tables](static-markup/grids.md)
 
-* [Embed quotes](static-markup/quoting.md)
+* [Insert quotes](static-markup/quoting.md)
 
-* [Embed source code blocks](static-markup/source.md)
+* [Insert source code blocks](static-markup/source.md)
 
 * [Use HTML elements on the page](static-markup/html-code.md)
 

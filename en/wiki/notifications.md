@@ -1,32 +1,88 @@
 # Subscriptions and favorites
 
-Follow and bookmark the pages that interest you. This way you'll stay posted on any updates.
+Use subscriptions and favorites to stay up-to-date with changes in the pages you're interested in.
 
-## Bookmarks {#bookmarks}
+In the {{ wiki-name }} panel on the left, there are buttons to navigate through pages that may be of interest to you.
 
-Find the pages you're interested in under the **Bookmarks** menu. Bookmarks are found in the {{ wiki-name }} top menu. The pages there are split into groups:
+* ![](../_assets/wiki/svg/fav.svg) [**Favorites**](#favorites) are pages that you [added to favorites](#add-fav).
 
-- **Favorites**: Pages you [added to favorites](#add-fav).
+* ![](../_assets/wiki/svg/edited-icon.svg) [**Created and edited**](#added-edited) are all pages that you created or made edits to.
 
-- **My pages**: Pages owned by you.
+* ![](../_assets/wiki/svg/subscriptions.svg) [**Subscriptions**](#subscribes) are pages you're [following](#subscribe).
 
-- **Subscriptions**: Pages you're [following](#subscribe).
+## Favorites {#favorites}
 
-- **Edited by me**: All pages you made edits to.
+1. In the panel on the left, click ![](../_assets/wiki/svg/fav.svg) **Favorites**
 
-## How to subscribe to pages and clusters {#subscribe}
+1. You can filter the list of favorite pages:
 
-Follow pages and clusters in order to receive notifications about any changes. To subscribe to notifications:
+* **By name**: Enter the page title in the search bar.
 
-1. Open a page.
+* **By tag**: Select one or more keywords in the **Tags** field and click **Apply**.
 
-1. Click **Subscribe** in the upper-right corner.
+### Adding pages to favorites{#add-fav}
 
-1. Choose your subscription type: you can subscribe to this particular page or to the whole cluster (with subpages).
+1. Open the page.
 
-## Adding pages to favorites {#add-fav}
+1. In the top panel, click ![](../_assets/wiki/svg/add-favorites-icon.svg) **Add to favorites**.
 
-1. Open a page.
+### Tagging a page {#tags}
 
-1. Click **Add to favorites** in the upper-right corner.
+{% note info %}
+
+You can tag a page that is added to [Favorites](#add-fav).
+
+{% endnote %}
+
+To tag a Wiki page:
+
+1. In the panel on the left, click ![](../_assets/wiki/svg/fav.svg) **Favorites**
+
+1. In the list of pages, click on the **Tags** column area.
+
+1. Select a tag:
+
+* To tag a page with a new tag, enter the new tag's name in the **Search** field and click **Add to list**.
+
+* To tag a page with a previously created tag, select the tag from the list and click **Apply**.
+
+## Created and edited {#added-edited}
+
+1. In the panel on the left, click ![](../_assets/wiki/svg/edited-icon.svg) **Created and edited**.
+
+1. You can filter the list of pages that you created or made edits to:
+
+* **By name**: Enter the page title in the search bar.
+
+* **By action**: To the right of the search bar, select **Created by me**, **Edited by me**, or **Show all**.
+
+1. To go to the [personal cluster](structure.md#personal_cluster), at the top, click ![](../_assets/wiki/svg/go-to-my-page-icon.svg) **Go to personal page**.
+
+## Subscriptions {#subscribes}
+
+1. In the panel on the left, click ![](../_assets/wiki/svg/subscriptions.svg) **Subscriptions**.
+
+1. You can filter the list of pages you're [following](#subscribe):
+
+    * **By name**: Enter the page title in the search bar.
+
+    * **By subscription type**: To the right of the search bar, select **My subscriptions**, **I was subscribed**, or **Show all**.
+
+1. To unsubscribe from a page or cluster, in the line on the right, click ![](../_assets/wiki/svg/unsubscribe.svg) **Unsubscribe**.
+
+### Following pages and clusters {#subscribe}
+
+Subscribe to receive notifications about all changes to a page or cluster. To subscribe to changes:
+
+1. Open the page.
+
+1. In the upper-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/subscriptions.svg) **Subscription**.
+
+1. Next, select an action:
+
+* **Subscribe users**: Subscribe individual users to follow a page or cluster.
+
+* **Subscribe to a page**: Follow the current page.
+
+* **Subscribe to a cluster**: Follow all subpages in the cluster.
 

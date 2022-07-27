@@ -7,7 +7,7 @@ The billing threshold is a negative [personal account balance](../concepts/perso
 
 Your billing threshold is valid for 1 month.
 
-The billing threshold is only valid when you select a bank card as your payment method. If you do, you will receive an email notification when you reach your threshold, and an attempt will be made to debit your card to cover what you owe.
+The billing threshold is only valid when you select a bank card as your payment method. When you reach your threshold, an attempt will be made to debit your card to cover what you owe.
 
 {% note alert %}
 

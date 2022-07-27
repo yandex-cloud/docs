@@ -1,0 +1,1 @@
+**Type**: Specify [Oracle SID](https://docs.oracle.com/en/database/oracle/oracle-database/21/cncpt/oracle-database-instance.html#GUID-8BB8140D-63ED-454E-AAC3-1964F80D102D) or [Service Name](https://docs.oracle.com/en/database/oracle/oracle-database/21/cncpt/application-and-networking-architecture.html#GUID-C931A159-E1FE-4DB3-A811-510C42516683) in the respective field below.

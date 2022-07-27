@@ -1,18 +1,18 @@
 # Links
 
-Use the following markup to format your links:
+To design links, use the markup:
 
 ```
 [link text](URL)
 ```
 
-Example:
+For example:
 
 | Markup | Result |
 | --- | --- |
 | `[Yandex]({{ link-yandex }})` | [Yandex]({{ link-yandex }}) |
 
-If you paste a URL with no markup, it will be converted into a hyperlink anyway.
+If you paste an address with no markup, it will be converted into a hyperlink anyway:
 
 | Markup | Result |
 | --- | --- |
@@ -20,52 +20,52 @@ If you paste a URL with no markup, it will be converted into a hyperlink anyway.
 
 ## Links to Wiki pages {#wiki-ref}
 
-If you want insert a link to a Wiki page, you can use the page's relative address instead of the full page or cluster address.
+If you want to link to a Wiki page, you can use that page's relative address instead of the full page or cluster address.
 
-### Link to page {#page-link}
+### Links to pages {#page-link}
 
-- Specify the address in relation to the main {{ wiki-name }} page. Add the `/` symbol before the address.
+- Specify the address in relation to the main page {{ wiki-name }}. Add the `/` symbol before the address.
 
-    | Link destination | Markup |
+    | Where the link goes | Markup |
     | --- | --- |
     | `{{ wiki-host-name }}/users/{{ username-oleg }}/notes` | `[{{ oleg-notes-title }}](/users/{{ username-oleg }}/notes)` |
 
-- The address of the page with the link must be specified relative to that page's parent page. Do not add the `/` symbol before the address.
+- Specify the address relative to the parent of the page where you're placing the link. Do not add a `/` symbol before the address.
 
     | Page addresses | Markup |
     | --- | --- |
-    | Link source: `{{ wiki-host-name }}/users/{{ username-oleg }}/newpage`<br/><br/>Link destination: `{{ wiki-host-name }}/users/{{ username-oleg }}/notes` | `[{{ oleg-notes-title }}](notes)` |
-    | Link source: `{{ wiki-host-name }}/users/{{ username-oleg }}/notes/note1`<br/><br/>Link destination: `{{ wiki-host-name }}/users/{{ username-oleg }}/newpage` | `[New page](../newpage)` |
+    | Links from: `{{ wiki-host-name }}/users/{{ username-oleg }}/newpage`<br/><br/>Links to: `{{ wiki-host-name }}/users/{{ username-oleg }}/notes` | `[{{ oleg-notes-title }}](notes)` |
+    | Links from: `{{ wiki-host-name }}/users/{{ username-oleg }}/notes/note1`<br/><br/>Links to: `{{ wiki-host-name }}/users/{{ username-oleg }}/newpage` | `[New page](../newpage)` |
 
-### Links to clusters {#section-link}
+### Links to clusters{#section-link}
 
-Every heading on a page has an auto-generated *anchor*, which is the cluster ID. Anchors are used as direct links to the page clusters.
+Each page title automatically gets its own *anchor*, which is the cluster ID. Anchors are used for direct links to clusters on the page.
 
-Anchors are based on cluster headings. For example, `My cluster` will have the anchor `{{ example-anchor }}`.
+The anchor is formed from the name of the cluster. For example, to the cluster `My cluster`, the anchor `{{ example-anchor }}` will be assigned.
 
 To add a link to a cluster, enter the page address followed by the `#` symbol and the anchor:
 
 ```
-[link text](/page address/#{{ example-anchor }})
+[link text](/page url/#{{ example-anchor }})
 ```
 
-To view the anchor value for a section:
+Find out the value of the cluster anchor:
 
-1. Hover your cursor over the section heading and click the **§** symbol, which will appear to the right of the heading.
+1. Hover over the section title and click **§**, which will appear to the right of the title.
 
 1. Copy the cluster address from the browser's address bar.
 
 The anchor is shown after the `#` symbol at the end of the address.
 
-### Linking to a specific spot on the page {#place-link}
+### Link to any place on the page {#place-link}
 
-If you want to link to a specific place on a page, you can always create an anchor ID wherever you need. To set an anchor, use the [not_var{{anchor}}](../actions/anchor.md) dynamic block:
+If you want to link to a specific place in a page, you can always create an anchor ID wherever you need. To set an anchor, use the [dynamic block `not_var{{anchor}}`](../actions/anchor.md):
 
 ```
 {{anchor name="my-anchor"}}
 ```
 
-To add an anchor link, enter the page address followed by the `#` symbol and add the anchor at the end:
+To add an anchor link, enter the page address followed by the `#` symbol and then add the anchor at the end:
 
 ```
 [link text](http://page-address/#my-anchor)
@@ -75,7 +75,7 @@ To add an anchor link, enter the page address followed by the `#` symbol and add
 
 If you paste an image link with no markup, the image itself will be displayed on the page.
 
-To add a link to an image, use the markup for links:
+To add a link to an image, use the link markup:
 
 ```
 [link text](image URL)
@@ -85,9 +85,9 @@ To add a link to an image, use the markup for links:
 | --- | --- |
 | `[Yandex Logo]({{ yandex-logo-link }})` | [Yandex logo]({{ yandex-logo-link }}) |
 
-## Creating a link from an image {#image-as-ref}
+## Make an image a link {#image-as-ref}
 
-You can create a link from an image, so that clicking an image opens a page or document. To do this, [embed an image](files.md#add-image) to the link's markup element instead of text:
+Images can also function as links so that when you click on the image, a page or file opens. To do this, add links to the markup element instead of text [insert an image](files.md#add-image):
 
 ```
 [![Alternative text](image address)](link address)
@@ -103,7 +103,7 @@ To add a link to an email address:
 
 - Enclose the email address in angle brackets `< >`.
 
-- Use the common link markup and add `mailto:` before the email address.
+- Use the link markup and add `mailto:` before the email address.
 
 `[link text](mailto:email-address)`
 
@@ -114,18 +114,18 @@ To add a link to an email address:
 
 ## Footnotes {#footnotes}
 
-Footnotes are notes that are usually placed at the bottom of the page. To add a footnote to your page:
+A footnote is a note to the text, usually found at the bottom of the page. To add a footnote to the page:
 
-1. Add double brackets, <q>an asterisk</q>, and a footnote symbol after the words referenced by the footnote. You can use numbers or other symbols as your footnote sign. Otherwise, you can just use <q>asterisks</q>.
+1. Add double brackets, an <q>asterisk</q>, and a footnote symbol after the words covered by the footnote. You can use numbers and other sequential symbols as your asterisk symbols. You can also simply use <q>asterisks</q>.
 
 1. Add double square brackets, the `#` symbol, and the footnote sign before the footnote text.
 
-Example:
+For example:
 
 ```
-Text, then the first footnote[[*]] and the second footnote [[**]].
+Text, then footnote[[*]] and the second [[**]].
 
-Text, then the first numbered footnote[[*1]] and the second footnote [[*2]].
+Text, then digital footnote[[*1]] and the second [[*2]].
 
 [[#*]] Footnote definition.
 [[#**]] Footnote definition.

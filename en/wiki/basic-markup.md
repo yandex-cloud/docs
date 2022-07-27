@@ -1,34 +1,34 @@
 # Formatting text
 
-You can format text using special symbols called markup elements. Markup elements are used to bold or italize a piece of text, add headings and lists to a page, embed links, images, tables, and more.
+To format the text of a page, special symbols called markup elements are used. Using markup, you can highlight text in bold or italics, add titles and lists to the page, insert links, images, tables, and so on.
 
-To add markup elements to your page, use the [formatting toolbar](#buttons) or type [markup symbols](#markup) on your keyboard. You'll see the result in the preview panel on the right.
+You can add markup elements to a page using [formatting panels](#buttons) or enter [markup symbols](#markup) from the keyboard. The result can be seen on the right side of the view panel.
 
-## Formatting toolbar {#buttons}
+## Formatting panel {#buttons}
 
-Use the toolbar at the top of the page to add common formatting elements to the text.
+To add frequently used formatting elements to the text, use the panel at the top of the page.
 
 ![](../_assets/wiki/format_pane.png)
 
-There are two ways you can use the formatting toolbar:
+There are two ways to work with the formatting panel:
 
-- To add a markup element to your text, place the cursor in the desired position and click a button on the formatting toolbar. A markup template will appear in the text. Insert your own text in the template. Clicking **Add link** or **Embed code** will open a new window. Enter your text in the window and click **Add**.
+- To add a markup element to the text, place the cursor in the desired position and click on the formatting panel. A markup template will appear in the text, add your text to it. If you clicked **Add link** or **Insert code**, in the window that appears, enter your text and click **Add**.
 
-- To format text that has already been added to the page, select a text fragment and click a button on the formatting toolbar.
+- To format text that has already been added to the page, select a text fragment and click on the formatting panel.
 
-To undo text formatting, delete the markup symbols manually.
+To cancel text formatting, delete the markup characters manually.
 
 {% note info %}
 
-You may notice that the toolbar buttons create markup symbols that are different from the Markdown markup. This markup type is supported along with Markdown and is correctly displayed on the page.
+You may notice that the markup characters added to the text using the buttons differ from the Markdown markup. This form of markup is supported along with Markdown and is displayed correctly on the page.
 
 {% endnote %}
 
 ## Markup elements {#markup}
 
-{{ wiki-name }} supports [Markdown markup]({{ link-about-markdown }}) with additional formatting elements that are not present in the standard Markdown syntax.
+{{ wiki-name }} supports [Markdown markup]({{ link-about-markdown }}) for additional formatting elements that are not present in the standard Markdown syntax.
 
-This section lists the most common markup features. For a complete list of supported elements, see [{#T}](static-markup.md).
+This section contains frequently used formatting elements. For a complete list of supported elements, see [{#T}](static-markup.md).
 
 | Element | Markup | Result |
 | --- | --- | --- |

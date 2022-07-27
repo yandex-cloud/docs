@@ -1,26 +1,26 @@
-# Viewing edit history
+# Viewing the history of page changes
 
-After you save a page, its copy appears in edit history. You can use the edit history to view all previous versions of a page, compare changes, and roll back to any of the previous versions.
+After saving the page, a copy of it is placed in the history of changes. In the history of changes, you can always view previous versions of the page, compare them with each other, or restore any of them.
 
-To view a page's edit history:
+To view the history of page changes:
 
-1. On the left-hand panel, click ![](../_assets/wiki/history-sidebar.png).
+1. In the panel on the left, click ![](../_assets/wiki/history-sidebar.png).
 
-1. Select the type of changes you want to view. **Edits** are displayed by default.
+1. Select the type of changes you want to view. **Only edits** is displayed by default.
 
 ## Viewing an older version of a page {#show-old-page}
 
-Select an entry in the page history. The selected version will appear in the main window. At the top of the page, you'll see a caption saying **This is an old version of the page**.
+Click an entry in the page history. The main window will display the version you select at the top with a caption that says **You're viewing an older version**.
 
-## Comparing two versions of a page {#compare-pages}
+## Comparing versions {#compare-pages}
 
-Choose the page versions you wish to compare. Their differences will be displayed in the main window.
+Select the versions of the page that you want to compare. Their differences will be displayed in the main window.
 
-## Restoring an older version of a page {#return-to-old}
+## Rolling back to an older version {#return-to-old}
 
-1. Select an entry in the page history. The selected version will appear in the main window. At the top of the page, you'll see a caption saying **This is an old version of the page**.
+1. Click an entry in the page history. The main window will display the version you select at the top with a caption that says **You're viewing an older version**.
 
-1. Select **Edit this version**.
+1. Select **Return to this version**.
 
 1. You can then edit this version or simply save it without applying any changes, making it the latest current version of the page.
 

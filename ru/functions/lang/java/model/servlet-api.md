@@ -47,6 +47,39 @@
 
 {% endnote %}
 
+{{ sf-name }} [поддерживает](../dependencies.md#maven) Maven — систему управления зависимостями для языка `Java`.
+
+Чтобы создать функцию:
+1. Создайте файл `Handler.java` по пути `/src/main/java/Handler.java` и файл `pom.xml`.
+1. Добавьте в ZIP-архив директорию `/src` и файл `pom.xml`.
+1. [Загрузите](../../../operations/function/version-manage.md#func-version-create) ZIP-архив в {{ sf-name }}.
+
+Файл `pom.xml`:
+
+```xml
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>my.company.app</groupId>
+    <artifactId>servlet</artifactId>
+    <version>1</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+</project>
+```
+
 Файл `Handler.java`:
 ```java
 import java.io.IOException;

@@ -1,4 +1,4 @@
-1. На [странице облака]({{ link-console-cloud }}) нажмите кнопку ![Create icon](../_assets/create.png) **Создать каталог**.
+1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![Create icon](../_assets/create.png) **Создать каталог**.
 1. Введите имя каталога. Требования к имени:
 
     {% include [name-format](name-format.md) %}

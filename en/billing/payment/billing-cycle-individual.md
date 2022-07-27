@@ -2,7 +2,7 @@
 
 The diagram shows the cycle of debiting funds from an individual's bank card, as well as suspending and blocking the use of resources.
 
-![image](../../_assets/billing/billing-cycle-individual_60.png)
+![image](../../_assets/billing/billing-cycle-individual.svg)
 
 1. You [activate the paid version](../operations/activate-commercial.md) before the end of the trial period.
 

@@ -30,17 +30,17 @@
 
 Режим работы<br/>Источник  | Прямой доступ | Единовременная<br/>материализация | Периодическая<br/>материализация
 ----|----|----|----
-CSV-файл | - | ✔ | -
-{{ CH }} | ✔ | ✔ | ✔
-{{ PG }} | ✔ | ✔ | ✔
-{{ MY }} | ✔ | ✔ | ✔
-MS SQL Server | ✔ | ✔ | ✔
-Oracle Database| ✔ | ✔ | ✔
-Greenplum | ✔ | ✔ | ✔
-Google Sheets | ✔ | ✔ | ✔
-{{ ydb-name }} | ✔ | - | -
-Metrica | ✔ | - | -
-AppMetrica | ✔ | - | -
+CSV-файл | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg)
+{{ CH }} | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg)
+{{ PG }} | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg)
+{{ MY }} | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg)
+MS SQL Server | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg)
+Oracle Database| ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg)
+Greenplum | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg)
+Google Sheets | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg)
+{{ ydb-name }} | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/no.svg)
+Metrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/no.svg)
+AppMetrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/no.svg)
 
 ### Прямой доступ {#direct}
 

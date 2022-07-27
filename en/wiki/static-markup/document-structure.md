@@ -1,14 +1,14 @@
-# Page structure
+# Page Structure
 
 ## Sections and headings {#sections-and-titles}
 
-Add headings to divide a page into sections. To add a heading, insert from 1 to 6 `#` symbols and a space before the heading text. The heading level depends on the number of `#` symbols you use.
+Add headings to divide a page into sections. To format the title, insert 1-6 `#` symbols and a space before the title text. The heading level changes based on how many `#` symbols you type.
 
-You can use a different markup style for the first and second level headings:
+You can use a different markup style for the first- and second-level titles:
 
-- To create a first-level heading, insert any number of `=` signs in the line under the heading.
+- For a first level title, insert any number of `=` symbols in the line following the title.
 
-- To create a second-level heading, insert any number of `-` signs in the line under the heading.
+- For a second-level title, insert any number of hyphens `-` in the line following the title.
 
 | Markup | Result |
 | --- | --- |
@@ -21,21 +21,21 @@ You can use a different markup style for the first and second level headings:
 | `##### The fifth level header` | ![](../../_assets/wiki/h5.png) |
 | `###### The sixth level header` | ![](../../_assets/wiki/h6.png) |
 
-### Get a section link {#section-link}
+### Get a link to the section {#section-link}
 
-1. Hover your cursor over the section heading and click the **§** symbol, which will appear to the right of the heading.
+1. Hover over the section title and click **§**, which will appear to the right of the title.
 
 1. Copy the cluster address from the browser's address bar.
 
-Learn more in the [{#T} section](../actions/anchor.md).
+Read more in [{#T}](../actions/anchor.md).
 
 ## Paragraphs {#section_paragraphs}
 
-To start a new paragraph, insert an empty line to separate it from the existing text:
+To start a new paragraph, insert an empty line after the previous one:
 
 ```
-First line of a paragraph.
-Second line of a paragraph.
+First line of the paragraph.
+Second line of the paragraph.
 
 New paragraph.
 ```
@@ -48,45 +48,45 @@ New paragraph.
 
 {% note info %}
 
-To insert several empty lines between blocks of text, enter a backslash at the beginning of each line: `\`.
+To get several empty lines between blocks of text, insert a backslash `\` at the beginning of each line.
 
 {% endnote %}
 
-## Indents {#section_spacing}
+## Margins {#section_spacing}
 
-- Indentation with spaces is used at the start of each line in second-level and third-level [lists](lists.md).
+- Indents created with spaces at the beginning of the line are used for formatting [lists](lists.md) of the second and third levels.
 
-- If you add spaces at the beginning of a paragraph, they won't be displayed. The paragraph will not have an indent.
+- If you add spaces to the beginning of a paragraph, they will be ignored. The paragraph will be displayed without indentation.
 
-- To indent a paragraph, enter several non-breaking spaces using the code ` `.
+- To indent a paragraph, insert a few non-breaking spaces using the code ` `.
 
 | Markup | Result |
 | --- | --- |
-| ![](../../_assets/wiki/spacing1.png) | ![](../../_assets/wiki/spacing2.png) |
+|![](../../_assets/wiki/spacing1.png) |![](../../_assets/wiki/spacing2.png) |
 
 ## Horizontal line {#section_rulers}
 
-- To insert a horizontal line between parts of your text, enter 3 or more hyphens `-`, <q>asterisks</q>`*`, or underscores `_` inside an empty line.
+- To insert a horizontal line between parts of the text, insert three or more hyphens `-`, <q>asterisks</q>`*`, or underscores `_` in a row on an empty line.
 
-- If you use hyphens, add another empty line before the horizontal line. Otherwise the previous line will turn into a heading.
+- If you use hyphens, add an empty line before the line. Otherwise the previous line will turn into a heading.
 
 | Markup | Result |
 | --- | --- |
-| `---` | ![](../../_assets/wiki/3-rules.png) |
-| `****` | ![](../../_assets/wiki/3-rules.png) |
-| `___` | ![](../../_assets/wiki/3-rules.png) |
+| `---` |![](../../_assets/wiki/3-rules.png) |
+| `****` |![](../../_assets/wiki/3-rules.png) |
+| `___` |![](../../_assets/wiki/3-rules.png) |
 
 ## Collapsed text {#section-cut}
 
-To collapse a part of your text:
+To make part of the page's text collapsable:
 
-1. In the line before the text, insert the `<{` symbols and the title of the collapsible text.
+1. In the line before the text, insert the symbols  `<{` and the title of the collapsable text.
 
-1. Enter the collapsible text in the new line.
+1. From a new line, enter the text that will be hidden under the collapsable section.
 
-1. At the end of the collapsible text, enter the `}>` symbols.
+1. After the text, insert the symbols `}>`.
 
 | Markup | Result |
 | --- | --- |
-| `<{Read the entire text`<br>`To see the full text,`<br>`click Read more.`<br>`}>` | ![](../../_assets/wiki/cut.png) |
+| `<{ Read all`<br>`This text can be seen,`<br>`by clicking the "read all" link.`<br>`}>` |![](../../_assets/wiki/cut.png) |
 

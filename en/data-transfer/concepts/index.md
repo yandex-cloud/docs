@@ -5,7 +5,7 @@ description: "{{ data-transfer-full-name} } allows you to easily transfer data b
 
 # Relationships between resources in {{ data-transfer-name }}
 
-{{ data-transfer-full-name }} helps transfer data between DBMS, object storages or message brokers. This way you can reduce the migration period and minimize downtime when switching to a new database.
+{{ data-transfer-full-name }} helps transfer data between DBMS, object stores, and message brokers. This way you can reduce the migration period and minimize downtime when switching to a new database.
 
 {{ data-transfer-full-name }} is configurable via {{ yandex-cloud }} standard interfaces.
 
@@ -13,14 +13,14 @@ The service is suitable for creating a permanent replica of the database. The tr
 
 ## Endpoint {#endpoint}
 
-_Endpoint_ is a configuration used to connect to the _datasource_ service or _target service_. In addition to connection settings, the endpoint may contain information about which data will be involved in the transfer and how it should be processed during the transfer.
+_Endpoint_ is a configuration used to connect to the _datasource_ service or _target_ service. In addition to connection settings, the endpoint may contain information about which data will be involved in the transfer and how it should be processed during the transfer.
 
 The following can be the data source or target:
 
 
 | Service | Source | Target |
 |------------------------------------------------------------------------------------------------------------|:------------------------------------:|:------------------------------------:|
-| {{ KF }} topic: Your own topic or a topic in [{{ mkf-short-name }}](../../managed-kafka/). | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
+| {{ KF }} topic: your own topic or a topic in [{{ mkf-short-name }}](../../managed-kafka/) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | AWS CloudTrail message stream | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | Your own BigQuery database | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | {{ CH }} database: your own or as part of the [{{ mch-short-name }} service](../../managed-clickhouse/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
@@ -31,7 +31,7 @@ The following can be the data source or target:
 | {{ PG }} database: your own or as part of the [{{ mpg-short-name }} service](../../managed-postgresql/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | S3 compatible bucket | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | Data stream [{{ yds-full-name }}](../../data-streams/) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
-| {{ ydb-name }} database: A database in [{{ ydb-name }}](../../ydb/). | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
+| {{ ydb-name }} database: A database in [{{ ydb-name }}](../../ydb/) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
 | Bucket [{{ objstorage-full-name }}](../../storage/) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
 
 
@@ -62,7 +62,7 @@ For more information about the differences between transfer types, see [{#T}](./
 
 If replication is enabled on a {{ CH }} target, the engines for recreating tables are selected depending on the source type:
 
-* Data transfer from row-oriented DBMS systems will use engines like [ReplicatedReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) and [ReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replacingmergetree/) engines.
+* Data transfer from row-oriented DBMS systems will use [ReplicatedReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) and [ReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replacingmergetree/) engines.
 * Date transfers from {{ CH }} will use engines from the [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) family.
 
 ### {{ GP }} {#greenplum}
@@ -92,6 +92,7 @@ For more information about the `createIndex()` function, see the [{{ MG }} docum
 
 By default, a separate table is created for every partition when data is transferred from {{ yds-name }} to {{ CH }}. For all data to be entered in a single table, specify conversion rules in the [advanced endpoint settings for the source](../operations/endpoint/source/data-streams.md#additional-settings).
 
+
 ## Change data capture {#cdc}
 
 CDC ([change data capture](https://en.wikipedia.org/wiki/Change_data_capture)) is a process of tracking changes in a database and delivering them to consumers in near real-time. CDC can be used to:
@@ -102,7 +103,10 @@ CDC ([change data capture](https://en.wikipedia.org/wiki/Change_data_capture)) i
 
 In {{ yandex-cloud }}, one way CDC can be implemented is with a transfer from the database to the message broker. All database updates are tracked by the transfer and sent to the message broker, and consumers are connected to the broker and read the incoming messages.
 
-{{ data-transfer-name }} supports CDC for transfers from {{ PG }} databases to {{ KF }} and {{ yds-full-name }}. Data is sent to the target in [Debezium](https://debezium.io/) format.
+{{ data-transfer-name }} supports CDC for transfers from {{ PG }}, {{ MG }}, and {{ MY }} databases to {{ KF }} and {{ yds-full-name }}^1^. Data is sent to the target in [Debezium](https://debezium.io/) format.
+
+![image](../../_assets/data-transfer/concepts/cdc-flow.png)
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
 
+^1^ This feature is in the Preview stage.

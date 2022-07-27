@@ -289,49 +289,49 @@ yc iam create-token
 
   ```go
   import (
-  	"crypto/rsa"
-  	"io/ioutil"
-  	"time"
+    "crypto/rsa"
+    "io/ioutil"
+    "time"
 
-  	"github.com/golang-jwt/jwt/v4"
+    "github.com/golang-jwt/jwt/v4"
   )
 
   const (
-  	keyID            = "<идентификатор_открытого_ключа>"
-  	serviceAccountID = "<идентификатор_сервисного_аккаунта>"
-  	keyFile          = "<файл_закрытого_ключа>"
+    keyID            = "<идентификатор_открытого_ключа>"
+    serviceAccountID = "<идентификатор_сервисного_аккаунта>"
+    keyFile          = "<файл_закрытого_ключа>"
   )
 
   // Формирование JWT.
   func signedToken() string {
-  	claims := jwt.RegisteredClaims{
+    claims := jwt.RegisteredClaims{
             Issuer:    serviceAccountID,
             ExpiresAt: jwt.NewNumericDate(time.Now().Add(1 * time.Hour)),
             IssuedAt:  jwt.NewNumericDate(time.Now()),
             NotBefore: jwt.NewNumericDate(time.Now()),
             Audience:  []string{"https://iam.{{ api-host }}/iam/v1/tokens"},
-  	}
-  	token := jwt.NewWithClaims(jwt.SigningMethodPS256, claims)
-  	token.Header["kid"] = keyID
+    }
+    token := jwt.NewWithClaims(jwt.SigningMethodPS256, claims)
+    token.Header["kid"] = keyID
 
-  	privateKey := loadPrivateKey()
-  	signed, err := token.SignedString(privateKey)
-  	if err != nil {
-  		panic(err)
-  	}
-  	return signed
+    privateKey := loadPrivateKey()
+    signed, err := token.SignedString(privateKey)
+    if err != nil {
+        panic(err)
+    }
+    return signed
   }
 
   func loadPrivateKey() *rsa.PrivateKey {
-  	data, err := ioutil.ReadFile(keyFile)
-  	if err != nil {
-  		panic(err)
-  	}
-  	rsaPrivateKey, err := jwt.ParseRSAPrivateKeyFromPEM(data)
-  	if err != nil {
-  		panic(err)
-  	}
-  	return rsaPrivateKey
+    data, err := ioutil.ReadFile(keyFile)
+    if err != nil {
+        panic(err)
+    }
+    rsaPrivateKey, err := jwt.ParseRSAPrivateKeyFromPEM(data)
+    if err != nil {
+        panic(err)
+    }
+    return rsaPrivateKey
   }
   ```
 
@@ -525,37 +525,37 @@ yc iam create-token
 
   ```go
   import (
-  	"encoding/json"
-  	"fmt"
-  	"io/ioutil"
-  	"net/http"
-  	"strings"
+    "encoding/json"
+    "fmt"
+    "io/ioutil"
+    "net/http"
+    "strings"
   )
 
   func getIAMToken() string {
-  	jot := signedToken()
-  	fmt.Println(jot)
-  	resp, err := http.Post(
-  		"https://iam.{{ api-host }}/iam/v1/tokens",
-  		"application/json",
-  		strings.NewReader(fmt.Sprintf(`{"jwt":"%s"}`, jot)),
-  	)
-  	if err != nil {
-  		panic(err)
-  	}
-  	defer resp.Body.Close()
-  	if resp.StatusCode != http.StatusOK {
-  		body, _ := ioutil.ReadAll(resp.Body)
-  		panic(fmt.Sprintf("%s: %s", resp.Status, body))
-  	}
-  	var data struct {
-  		IAMToken string `json:"iamToken"`
-  	}
-  	err = json.NewDecoder(resp.Body).Decode(&data)
-  	if err != nil {
-  		panic(err)
-  	}
-  	return data.IAMToken
+    jot := signedToken()
+    fmt.Println(jot)
+    resp, err := http.Post(
+        "https://iam.{{ api-host }}/iam/v1/tokens",
+        "application/json",
+        strings.NewReader(fmt.Sprintf(`{"jwt":"%s"}`, jot)),
+    )
+    if err != nil {
+        panic(err)
+    }
+    defer resp.Body.Close()
+    if resp.StatusCode != http.StatusOK {
+        body, _ := ioutil.ReadAll(resp.Body)
+        panic(fmt.Sprintf("%s: %s", resp.Status, body))
+    }
+    var data struct {
+        IAMToken string `json:"iamToken"`
+    }
+    err = json.NewDecoder(resp.Body).Decode(&data)
+    if err != nil {
+        panic(err)
+    }
+    return data.IAMToken
   }
   ```
 

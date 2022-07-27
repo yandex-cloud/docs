@@ -1,32 +1,32 @@
-# Viewing the page and cluster hierarchy
+# Viewing the structure of pages and clusters
 
 ## Table of contents of a Wiki page {#toc}
 
-To view the table of contents for a Wiki page:
+To view the table of contents of a Wiki page:
 
-1. Open the Wiki page.
+1. Open the desired Wiki page.
 
-1. Click the ![](../_assets/wiki/ico-toc.png) icon in the left-hand panel.
+1. In the top-right panel, click ![](../_assets/wiki/svg/ico-toc.svg) **Page contents**.
 
-1. To insert a table of contents into the text body of a Wiki page, use the [not_var{{toc}}](actions/toc.md) dynamic block.
+1. To insert a table of contents into the Wiki page text, use the [dynamic block `not_var{{toc}}`](actions/toc.md).
 
-## Cluster hierarchy {#subpages}
+## Cluster structure {#subpages}
 
-A page and all of its subpages comprise a [cluster](structure.md). To view the cluster hierarchy:
+A page with all its subpages forms a [cluster](structure.md). To view the cluster structure:
 
-1. Open the page.
+1. Open the desired Wiki page.
 
-1. To see the list of pages one level below the current page, click the ![](../_assets/wiki/ico-subpages.png) icon in the left-hand panel.
+1. In the top panel, click ![](../_assets/wiki/svg/structure-icon.svg) **Cluster structure**.
 
-1. To see all the subpages related to the current page, click **Action** in the upper-right corner and choose **Cluster structure**.
+1. To see all subpages, click the expand list icon ![](../_assets/wiki/svg/navigation-tree-item.svg) to the left of the parent page name.
 
-    To view the entire hierarchy, click **Show all subpages**.
+1. To change the position of pages in the tree, click on the desired page and drag it along the structure of the cluster.
 
-## Embed a cluster tree on a Wiki page {#action-tree}
+## Embedding a cluster tree in a Wiki page {#action-tree}
 
-Use the `not_var{{tree}}` dynamic block to create cluster trees and embed them on any Wiki page.
+Using the dynamic block `not_var{{tree}}`, you can create a tree of cluster pages and place it on any Wiki page.
 
-To build a tree for the current Wiki page, add the `not_var{{tree}}` block to the text body.
+To build a tree for the current Wiki page, place the `not_var{{tree}}` block in its text.
 
-You can customize the appearance of the tree using additional parameters.
+You can customize the appearance of the page tree using [additional parameters](actions/page-lists.md).
 

@@ -1,50 +1,50 @@
-# Changing the page address
+# Changing a page address
 
-You can change the page address or move it to another cluster. You can move pages one at a time or include subpages.
+You can change the address of a page and move it to another cluster. Pages can be moved one by one or together with subpages.
 
-To move a page to a different cluster, do the following:
+To move a page to another cluster:
 
-1. Open a page.
+1. Open the page.
 
-1. In the upper-right corner of the page, click ![](../../_assets/wiki/ico-actions.png) **Action** and select **Move** (for dynamic tables, ![](../../_assets/wiki/table-settings-footer.png) → **Move**).
+1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Move** (for dynamic tables ![](../../_assets/wiki/table-settings-footer.png) → **Move**).
 
-1. Set a new page address.
+1. Enter a new page address.
 
-1. If you want to move a page with all subpages, choose **Move subpages**.
+1. If you want to move the page together with all its subpages, choose **Move subpages**.
 
 1. If you want to change the page name, choose **Rename page**.
 
 1. Click **Move**.
 
-Things to note about moving pages:
+Specifics of moving pages:
 
 * If you selected the **Move subpages** option, subpages will be moved even if you don't have access rights to them.
 
-* All access rights to pages and subpages are carried over during the move.
+* The values of access rights to the page and subpages are fixed and saved when moving them.
 
-* A service page at the old page address will automatically *redirect* users to the new page. You can also [cancel the redirect](#redirect).
+* The old page address will then automatically *redirect* users to the new page. You can [cancel a redirect](#redirect).
 
-* Files located on the page are moved to the new address. At the same time, files located at the old address are deleted. When you cancel the redirect, the files will only be stored at the new address.
+* Files located on the page are moved to its new address. Files at the old page address are deleted. Once you cancel a redirect, the files will only remain on the page at the new address.
 
-## How to cancel a redirect {#redirect}
+## Canceling a redirect {#redirect}
 
-To cancel the auto-redirect to the new page address:
+To cancel an automatic user redirect to a new page address:
 
-1. Open the page at the new address. A notification about redirecting from the old page is displayed under the heading.
+1. Open the page at the new address. You'll see a notification about a redirect from the page located at the old address under the page title.
 
-1. Follow the link. This will take you to the page at the old address. `? will be added to the page address.noredirect`.
+1. Follow the link. This opens the page at the old address with `?noredirect` added to the page URL.
 
-1. Click **Remove redirect**. [Page settings](page-settings.md) will open.
+1. Click **Delete redirect**. This opens the [page settings](page-settings.md).
 
-1. In the**Redirect** setting, delete the redirect address. To do this, click ![](../../_assets/wiki/button_del_setting.png) and save changes.
+1. Delete the redirect address in the **Redirect** setting. To do this, click ![](../../_assets/wiki/button_del_setting.png) and save the changes.
 
-1. To update data, click anywhere on the page and confirm changes.
+1. To update the data, click anywhere on the page and confirm the changes.
 
-Now the pages at the old and the new addresses are not linked to each other.
+From now on, the pages at the old and new addresses are not linked to each other.
 
 {% note warning %}
 
-When you cancel the redirect, the files will only be stored at the new address.
+Once you cancel a redirect, the files located on the page will only remain at the new address.
 
 {% endnote %}
 

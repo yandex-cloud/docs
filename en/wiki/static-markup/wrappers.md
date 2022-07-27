@@ -1,21 +1,21 @@
-# Borders, width, and block alignment
+# Borders, width, and alignment of blocks
 
-For [blocks of text with special formatting](../formatter.md), you can add borders and adjust block width and position relative to the edges of the page. To do this, add additional parameters to the block markup.
+For [text blocks with special formatting](../formatter.md), you can add frames, adjust the width of a block and its position relative to the edges of the page. To do this, add additional parameters to the block markup.
 
-## Formatting templates {#wrapper}
+## Ready-made formatting templates {#wrapper}
 
-Use the `wrapper` parameter to apply one of the formatting templates. The body of the text wraps around this block.
+Use the `wrapper` parameter to apply one of the block formatting templates. The main text of the page will flow around the block.
 
 | Parameter | Description |
 | --- | --- |
-| `box` | A block with green borders aligned to the right edge of the page. |
-| `shade` | A block with green borders aligned to the left edge of the page. |
-| `text` | A block without borders with text alignment to the right edge of the page. Text alignment can be adjusted using the ["align" parameter](#align). |
-| `page` | A block without borders aligned to the left edge of the page. |
+| `box` | A block in a green frame located on the right edge of the page. |
+| `shade` | A block in a green frame located on the left edge of the page. |
+| `text` | A block without a frame with right-aligned text. You can set up text alignment using the [`align` parameter](#align). |
+| `page` | A block without a frame located on the left edge of the page. |
 
 {% note tip %}
 
-Along with the `wrapper` parameter, you can add other parameters to adjust the block's [position](#align) and [width](#width), as well as the color, type, and thickness of [borders](#border).
+When using the `wrapper` parameter, you can add other parameters to customize a block's [position](#align) on the page, [width](#width), color, type and thickness of [borders](#border).
 
 {% endnote %}
 
@@ -23,22 +23,22 @@ Example:
 
 ```
 %%(wacko wrapper=box)
-This text is wrapped in a box.
+Text inside the block
 %%
 ```
 
 
-## Adjust alignment {#align}
+## Setting up alignment {#align}
 
-Use the `align` parameter to adjust the block's position on the page.
+Use the `align` parameter  to adjust the position of a block on the page.
 
-Combine `wrapper=text` and `align` parameters to adjust text alignment inside a block.
+Along with the `wrapper=text` parameter, the `align` parameter lets you adjust the alignment of text inside the block.
 
 | Parameter | Description |
 | --- | --- |
-| `right` | Align to the right edge of the page. |
-| `left` | Align to the left edge of the page. |
-| `center` | Align to center. The value can only be applied when combined with the `wrapper=text` parameter. |
+| `right` | Right alignment. |
+| `left` | Left alignment. |
+| `center` | Center alignment. This value is only valid in combination with the `wrapper=text` parameter. |
 
 Example:
 
@@ -48,9 +48,9 @@ Example:
 %%
 ```
 
-## Adjust block width {#width}
+## Setting up the width of a block {#width}
 
-Use the `width` parameter to adjust the width of the block in pixels.
+Use the `width` parameter to adjust the block width in pixels.
 
 Example:
 
@@ -61,9 +61,9 @@ Example:
 ```
 
 
-## Adjust borders {#border}
+## Setting up the border of a block {#border}
 
-Use the `border` parameter to adjust borders around the block.
+Use the `border` parameter to adjust the border around a block.
 
 ```
 border="<thickness in pixels> <line type> <line color>"
@@ -75,11 +75,11 @@ border="<thickness in pixels> <line type> <line color>"
 | `solid` | Solid line. |
 | `dashed` | Dashed line. |
 | **Colors** |
-| `red` | Red line. |
-| `green` | Green line. |
-| `blue` | Blue line. |
-| `grey` | Grey line. |
-| `yellow` | Yellow line. |
+| `red` | Red. |
+| `green` | Green. |
+| `blue` | Blue. |
+| `grey` | Gray. |
+| `yellow` | Yellow. |
 
 Example:
 

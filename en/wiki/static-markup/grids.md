@@ -1,14 +1,14 @@
 # Tables
 
-Static tables do not have any dynamic elements and are marked up manually.
+Simple tables are static tables that are created manually using markup elements.
 
 {{ wiki-name }} also supports table markup using standard [HTML tags](html-code.md).
 
 {% list tabs %}
 
-- Tables in the {{ wiki-name }} format
+- Table in {{ wiki-name }} format
 
-    * To format your table, use the following markup:
+    * To create a table, use the markup:
 
         ```
         #|
@@ -24,7 +24,7 @@ Static tables do not have any dynamic elements and are marked up manually.
 
         {% endcut %}
 
-    * To fit the table to the full page width without borders, use the following markup:
+    * To format a table at full page width without borders, use the markup:
 
         ```
         #||
@@ -41,14 +41,14 @@ Static tables do not have any dynamic elements and are marked up manually.
 
     {% note info %}
 
-    You can use [text formatting](formatting.md) inside table cells.
+    In table cells, you can use [text styling elements](formatting.md).
 
     {% endnote %}
 
 - Markdown table
 
-    Add an empty line before inserting the table.
-    To format your table, use the following markup:
+    Add an empty row before the table.
+To create a table, use the markup:
 
     ```
     | Heading 1 | Heading 2 | Heading 3 |
@@ -65,13 +65,13 @@ Static tables do not have any dynamic elements and are marked up manually.
 
     {% note info %}
 
-    You can use [text formatting](formatting.md) inside table cells.
+    In table cells, you can use [text styling elements](formatting.md).
 
     {% endnote %}
 
 - Table in CSV format
 
-    To display [CSV data](csv.md) as a table, use the following markup:
+    To display [data in CSV format](csv.md) as a table, use the markup:
 
     ```
     %%(csv delimiter=; head=1)
@@ -89,13 +89,13 @@ Static tables do not have any dynamic elements and are marked up manually.
 
     Markup parameters:
 
-    - `delimiter`: a field separator used in CSV tables.
+    - `delimiter` — a field separator used in CSV tables.
 
-    - `head`: if set to 1, the first row of the table becomes a header.
+    - `head` — if set to 1, the first row of the table becomes a title.
 
     {% note info %}
 
-    You can't use text formatting elements in CSV tables.
+    CSV tables don't support any other text markup.
 
     {% endnote %}
 

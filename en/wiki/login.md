@@ -1,14 +1,14 @@
-# Log in to your account
+# Logging in to {{ wiki-full-name }}
 
-To work with the corporate knowledge base in {{ wiki-full-name }}, log in to your account:
+To work with a corporate knowledge base in {{ wiki-full-name }}, log in to your account:
 
-1. Go to {{ wiki-name }} home page: [{{ link-wiki }}]({{ link-wiki }}).
+1. Go to the home page {{ wiki-name }}: [{{ link-wiki }}]({{ link-wiki }}).
 
-1. Log in to the account you use for the organization:
-   - To log in using your Yandex email address or the email address on the organization's domain, click **Log in to Yandex account** and enter your username of the type `{{ example-account }}` or `login@example.com`.
-   - If your organization uses Single Sign-On authentication via identity federation, click **Log in via SSO**, specify your federation ID, and log in to your corporate account.
+1. Log in to the account that you use for the organization:
+   - To log in using a Yandex email address or an organization's domain, click **Log in to your Yandex account** and enter your username in the format `{{ example-account }}` or `login@example.com`.
+   - If your organization has a Single Sign-On system configured via an identity federation, click **Log in via SSO**, enter the federation ID, and log in to your work account.
 
-   To find out the federation ID, contact your organization's admin. For more information about identity federation, see the [{{ org-full-name }} documentation](../organization/add-federation.md).
+   You can get the federation ID from your organization's administrator. For more information about identity federations, see the the [{{ org-full-name }} documentation](../organization/add-federation.md).
 
    {% note info %}
 
@@ -16,5 +16,5 @@ To work with the corporate knowledge base in {{ wiki-full-name }}, log in to you
 
    {% endnote %}
 
-1. If you're registered with multiple companies, select the one you you to work with in {{ wiki-full-name }}. To do this, click your profile picture in the upper-right corner of the page and select an organization.
+1. If you are registered in several organizations, select the organization where you want to work with {{ wiki-full-name }}. To do this, click your profile picture in the lower-left corner of the page and select the desired organization.
 

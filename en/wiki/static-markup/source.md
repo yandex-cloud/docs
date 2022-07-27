@@ -1,8 +1,8 @@
 # Source code formatting
 
-* To highlight a fragment of the source code (for example, the name of a function), enclose the fragment in backquotes ``` ` ```.
+* To format a fragment of source code (like the name of a function), surround it with backquotes (``` ` ```) on both sides.
 
-* To format multiple lines of the source code, insert three backquotes ` ``` ` in the lines above and below the code.
+* To format multiple lines of source code, insert three backquotes (` ``` `) in the line before the actual code starts, and three more in the line after it ends.
 
 Example:
 
@@ -17,7 +17,7 @@ Example:
     {% endcut %}
 
 * ```
-      Start of the code snippet
+      Beginning of the code snippet
       ```
       <?
       phpinfo();

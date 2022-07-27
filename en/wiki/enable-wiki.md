@@ -1,36 +1,36 @@
 # Enabling {{ wiki-full-name }}
 
-Organization users registered on {{ yandex-cloud }} can use {{ wiki-full-name }} to create a corporate knowledge base. To learn more about {{ wiki-full-name }} and its features, see [{#T}](overview.md).
+Users of organizations registered on the {{ yandex-cloud }} platform can use {{ wiki-full-name }} to create a corporate knowledge base. Learn more about the features of {{ wiki-full-name }} in [{#T}](overview.md).
 
-You can link {{ wiki-full-name }} to an existing organization or create a new one. Read more about companies in the [documentation {{ org-full-name }}](../organization/index.yaml).
+You can connect {{ wiki-full-name }} to an existing organization or create a new one. Read more about organizations in the [{{ org-full-name }} documentation](../organization/index.yaml).
 
-## Enabling {{ wiki-name }} for an existing organization {#current-org}
+## Activate {{ wiki-name }} in an existing organization {#current-org}
 
-If you already have an organization on {{ org-full-name}}, the {{ wiki-full-name }} service will be automatically enabled once any of the organization users log in for the first time:
+If you already have an organization in {{ org-full-name}}, {{ wiki-full-name }} is automatically activated when any user of the organization logs in for the first time:
 
-1. Go to {{ wiki-name }} home page: [{{ link-wiki }}]({{ link-wiki }}).
+1. Go to the {{ wiki-name }} home page: [{{ link-wiki }}]({{ link-wiki }}).
 
-1. [Log in to your corporate account](login.md).
+1. [Log in to the account](login.md) that you use for the organization.
 
-1. If your account is linked to multiple companies, select the one you want to use with {{ wiki-full-name }}. Click **Log in**.
+1. If your account is registered in several organizations, select the one where you want to activate {{ wiki-full-name }}. Then click **Continue**.
 
-## Creating a new organization {#new-org}
+## Create a new organization {#new-org}
 
-If you don't have an organization on {{ org-full-name}}, you can create a new one when you first log in to {{ wiki-full-name }}.
+If you don't have an organization in {{ org-full-name}}, you can create a new one when you first log in to {{ wiki-full-name }}.
 
 {% note warning %}
 
-An organization can only be created for users with a Yandex account.
+An organization can only be created for users who have a Yandex account.
 
 {% endnote %}
 
 1. Log in to your [Yandex account]({{ link-passport }}). If you don't have an account yet, [create]({{ support-passport-create }}) it.
 
-1. Go to {{ wiki-name }} home page: [{{ link-wiki }}]({{ link-wiki }}).
+1. Go to the home page {{ wiki-name }}: [{{ link-wiki }}]({{ link-wiki }}).
 
 1. Accept the {{ yandex-cloud }} terms of use and click **Log in**.
 
-   A new organization will be automatically created for you, with the{{ wiki-full-name }} service activated.
+   A new organization will be automatically created for you and {{ wiki-full-name }} will be activated.
 
-1. You can use {{ org-full-name}} to add users to your organization or configure identity federation so that employees can use their corporate accounts to access the {{ yandex-cloud }} services. Read more in the [documentation {{ org-full-name}}](../organization/manage-users.md).
+1. In {{ org-full-name}}, add users to your organization or set up an identity federation for employees to use their work accounts to access the {{ yandex-cloud }} services. Learn more in the [{{ org-full-name}} documentation](../organization/manage-users.md).
 

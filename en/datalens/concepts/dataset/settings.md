@@ -29,17 +29,17 @@ The table shows the data source operating modes:
 
 | Operating mode<br/>Source | Direct access | One-time<br/>materialization | Periodic<br/>materialization |
 | ---- | ---- | ---- | ---- |
-| CSV file | - | ✔ | - |
-| {{ CH }} | ✔ | ✔ | ✔ |
-| {{ PG }} | ✔ | ✔ | ✔ |
-| {{ MY }} | ✔ | ✔ | ✔ |
-| MS SQL Server | ✔ | ✔ | ✔ |
-| Oracle Database | ✔ | ✔ | ✔ |
-| Greenplum | ✔ | ✔ | ✔ |
-| Google Sheets | ✔ | ✔ | ✔ |
-| {{ ydb-name }} | ✔ | - | - |
-| Yandex Metrica | ✔ | - | - |
-| AppMetrica | ✔ | - | - |
+| CSV file | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) |
+| {{ CH }} | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) |
+| {{ PG }} | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) |
+| {{ MY }} | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) |
+| MS SQL Server | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) |
+| Oracle Database| ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) |
+| Greenplum | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) |
+| Google Sheets | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) |
+| {{ ydb-name }} | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/no.svg) |
+| Metrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/no.svg) |
+| AppMetrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/no.svg) |
 
 ### Direct access {#direct}
 

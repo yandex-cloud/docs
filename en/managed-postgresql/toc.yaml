@@ -83,7 +83,7 @@ items:
                 href: concepts/instance-types-archive/instance-types-01062020.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
-      - name: Network in Yandex Managed Service for PostgreSQL
+      - name: Network in {{ mpg-name }}
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
