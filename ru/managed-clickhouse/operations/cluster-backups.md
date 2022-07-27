@@ -121,7 +121,7 @@ description: "Вы можете создавать резервные копии
          --backup-id=<идентификатор резервной копии> \
          --name=<имя кластера> \
          --environment=<окружение: PRESTABLE или PRODUCTION> \
-         --network-name=<имя сети> \
+         --network-name={{ network-name }} \
          --host type=<clickhouse или zookeeper>,`
                `zone-id=<зона доступности> \
          --clickhouse-disk-size=<размер хранилища в гигабайтах> \
@@ -161,18 +161,20 @@ description: "Вы можете создавать резервные копии
 
           * `type` — тип хоста: `clickhouse` или `zookeeper`.
           * `zone-id` — {% if audience != "internal" %}[зона доступности](../../overview/concepts/geo-scope.md){% else %}зона доступности{% endif %}.
-          {% if audience != "internal" %}* `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.{% endif %}
+          {% if audience != "internal" %}* `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.{% endif %}
 
       * `--resource-preset` — [класс хоста](../concepts/instance-types.md#available-flavors).
       * `--disk-size` — объем хранилища в гигабайтах.
       * `--disk-type` — [тип хранилища](../concepts/storage.md):
-
           {% if audience != "internal" %}
+
           * `network-hdd`;
           * `network-ssd`;
           * `local-ssd`;
           * `network-ssd-nonreplicated`.
+
           {% else %}
+
           * `local-ssd`;
           * `local-hdd`.
           {% endif %}
@@ -240,7 +242,7 @@ description: "Вы можете создавать резервные копии
 
   Чтобы получить список резервных копий кластера, воспользуйтесь методом API [listBackups](../api-ref/Cluster/listBackups.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
 
-  Чтобы получить список резервных копий всех кластеров **{{ mch-name }}** в каталоге, воспользуйтесь методом API [list](../api-ref/Backup/list.md) и передайте идентификатор каталога в параметре `folderId` запроса.
+  Чтобы получить список резервных копий всех кластеров {{ mch-name }} в каталоге, воспользуйтесь методом API [list](../api-ref/Backup/list.md) и передайте идентификатор каталога в параметре `folderId` запроса.
 
   Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
