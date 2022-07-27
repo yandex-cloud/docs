@@ -112,20 +112,17 @@
 
         О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+        Полный список доступных для изменения полей конфигурации базы данных кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_postgresql_database).
 
-    1. Добавьте к описанию кластера {{ mpg-name }} блок `database`. При необходимости укажите нужные локали сортировки и набора символов (по умолчанию задаются `LC_COLLATE=C` и `LC_CTYPE=C`):
+    1. Добавьте ресурс `yandex_mdb_postgresql_database`. При необходимости укажите нужные локали сортировки и набора символов (по умолчанию задаются `LC_COLLATE=C` и `LC_CTYPE=C`):
   
         ```hcl
-        resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
-          ...
-          database {
-            name       = "<имя базы данных>"
-            owner      = "<имя пользователя-владельца: должен быть задан в блоке user>"
-            lc_collate = "<локаль сортировки>"
-            lc_type    = "<локаль набора символов>"
-            ...
-          }
+        resource "yandex_mdb_postgresql_database" "<имя базы данных>" {
+          cluster_id = "<идентификатор кластера>"
+          name       = "<имя базы данных>"
+          owner      = "<имя пользователя-владельца: должен быть задан в ресурсе yandex_mdb_postgresql_user>"
+          lc_collate = "<локаль сортировки>"
+          lc_type    = "<локаль набора символов>"
         }
         ```
   
@@ -138,8 +135,6 @@
     1. Подтвердите изменение ресурсов.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
@@ -181,9 +176,9 @@
   
      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
 
-     Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+     Полный список доступных для изменения полей конфигурации базы данных кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_postgresql_database).
 
-  1. Удалите из описания кластера {{ mpg-name }} блок `database` с именем удаляемой базы данных.
+  1. Удалите ресурс `yandex_mdb_postgresql_database` с именем удаляемой базы данных.
   
   1. Проверьте корректность настроек.
   
@@ -192,8 +187,6 @@
   1. Подтвердите изменение ресурсов.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 
