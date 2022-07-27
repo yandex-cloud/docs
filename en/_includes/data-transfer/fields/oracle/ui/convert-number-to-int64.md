@@ -1,0 +1,1 @@
+**Convert "number" type to "int64"**: Enable this option to convert the type from `NUMBER` (without parameters) to `INT64`. [Parameterized `NUMBER (precision, scale)` types](https://docs.oracle.com/cd/B28359_01/server.111/b28318/datatype.htm#CNCPT1832) are automatically converted to integer types whenever possible.

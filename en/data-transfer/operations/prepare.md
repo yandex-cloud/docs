@@ -8,7 +8,7 @@
 
 - {{ mkf-name }}
 
-   [Create an account](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_CONSUMER` role for the source topic.
+   [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_CONSUMER` role for the source topic.
 
 - {{ KF }}
 
@@ -16,9 +16,45 @@
 
    1. Configure the source cluster to allow connections from {% if audience != "internal" %}the internet{% else %}the network `_YTVANGANETS_`{% endif %}.
 
-   1. [Configure access rights](https://kafka.apache.org/documentation/#multitenancy-security) to the desired topic for the account.
+   1. [Configure user access rights](https://kafka.apache.org/documentation/#multitenancy-security) to the necessary topic.
 
    1. (Optional) To log in with username and password, [configure SASL authentication](https://kafka.apache.org/documentation/#security_sasl).
+
+{% endlist %}
+
+### AWS CloudTrail source {#source-aws}
+
+Get an AWS key ID and secret access key by following the [AWS instructions](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html).
+
+For more information, see the [Airbyte® documentation](https://docs.airbyte.com/integrations/sources/aws-cloudtrail/).
+
+### BigQuery source {#source-bigquery}
+
+1. [Create a Google Cloud service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts).
+1. [Add the service account](https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console) as a participant to the Google Cloud project with the `BigQuery User` role.
+1. [Create a Google Cloud service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
+
+For more information, see the [Airbyte® documentation](https://docs.airbyte.com/integrations/sources/bigquery).
+
+### {{ CH }} source {#source-ch}
+
+{% list tabs %}
+
+* {{ mch-name }}
+
+   1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [materialized views]({{ ch.docs }}/engines/table-engines/special/materializedview/) (MaterializedView) will transfer.
+   1. [Create a user](../../managed-clickhouse/operations/cluster-users.md) with access to the source database.
+
+* {{ CH }}
+
+   1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [materialized views]({{ ch.docs }}/engines/table-engines/special/materializedview/) (MaterializedView) will transfer.
+   1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+   1. Configure the source cluster to allow connections from {% if audience != "internal" %}the internet{% else %}the network `_YTVANGANETS_`{% endif %}.
+
+   1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [materialized views]({{ ch.docs }}/engines/table-engines/special/materializedview/) (MaterializedView) will transfer.
+
+   1. Create a user with access to the source database.
 
 {% endlist %}
 
@@ -26,17 +62,17 @@
 
 {% list tabs %}
 
-- {{ GP }}
+{% if product == "yandex-cloud" %}
 
-   1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+- {{ mgp-name }}
 
-   1. Create a user account the transfer will utilize to connect to the source by running the following command:
+   1. Create a user account the transfer will use to connect to the source. To do this, run the command:
 
       ```pgsql
       CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
       ```
 
-   1. Configure the source cluster to enable the created user to connect to all the cluster's master and segment hosts.
+   1. Configure the source cluster to enable the created user to connect to the cluster's master and segment hosts.
 
       Access to segment hosts is in utility mode with no requirement to communicate with masters.
 
@@ -64,45 +100,19 @@
       GRANT SELECT ON ALL TABLES IN SCHEMA <housekeeping schema name> TO <user login>;
       ```
 
-{% endlist %}
-
-### {{ CH }} source {#source-ch}
-
-{% list tabs %}
-
-- {{ mch-name }}
-   1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [materialized views]({{ ch.docs }}/engines/table-engines/special/materializedview/) (MaterializedView) will transfer.
-   1. [Create a user](../../managed-clickhouse/operations/cluster-users.md) with access to the source database.
-
-- {{ CH }}
-
-   1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [materialized views]({{ ch.docs }}/engines/table-engines/special/materializedview/) (MaterializedView) will transfer.
-
-   1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
-
-   1. Configure the source cluster to allow connections from {% if audience != "internal" %}the internet{% else %}the network `_YTVANGANETS_`{% endif %}.
-
-   1. Make sure that the transferred tables use the `MergeTree` engines. Only these tables and [materialized views]({{ ch.docs }}/engines/table-engines/special/materializedview/) (MaterializedView) will transfer.
-
-   1. Create a user with access to the source database.
-
-{% endlist %}
-
-### {{ GP }} source {#source-gp}
-
-{% list tabs %}
+{% endif %}
 
 - {{ GP }}
 
    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
-   1. Create a user account the transfer will utilize to connect to the source by running the following command:
+   1. Create a user account the transfer will use to connect to the source. To do this, run the command:
 
       ```pgsql
       CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
       ```
 
-   1. Configure the source cluster to enable the created user to connect to all the cluster's master and segment hosts.
+   1. Configure the source cluster to enable the created user to connect to the cluster's master and segment hosts.
 
       Access to segment hosts is in utility mode with no requirement to communicate with masters.
 
@@ -138,14 +148,14 @@
 
 {% if product == "yandex-cloud" %}
 
-* {{ mmg-name }}
+- {{ mmg-name }}
 
    1. Estimate the total number of databases for transfer and the total {{ mmg-name }} workload. If database workload exceeds 10,000 writes per second, create several endpoints and transfers. For more information, see [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
    1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the role `readWrite` for the source database.
-      
+
 {% endif %}
 
-* {{ MG }}
+- {{ MG }}
 
    1. Estimate the total number of databases for transfer and the total {{ MG }} workload. If database workload exceeds 10,000 writes per second, create several endpoints and transfers. For more information, see [{#T}](../../data-transfer/operations/endpoint/source/mongodb.md).
 
@@ -233,7 +243,7 @@
 
    1. [Enable full binary logging](../../managed-mysql/operations/update.md#change-mysql-config) on the source using the **Binlog row image** parameter.
 
-   1. (Optional) [Set a limit](../../managed-mysql/operations/update.md#change-mysql-config) on the size of data chunks to be sent using the **Max allowed packet** parameter.
+   1. (optional) [Set a limit](../../managed-mysql/operations/update.md#change-mysql-config) on the size of data chunks to be sent using the **Max allowed packet** parameter.
 
    1. [Create a user](../../managed-mysql/operations/cluster-users.md#adduser) for connecting to the source.
 
@@ -265,7 +275,7 @@
 
       In both cases, this lets replication continue even after changing the master host.
 
-   1. (Optional) [Set a limit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) on the size of data chunks to be sent using the `max_allowed_packet` parameter.
+   1. (optional) [Set a limit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) on the size of data chunks to be sent using the `max_allowed_packet` parameter.
 
    1. Create a user to connect to the source and grant them the necessary privileges:
 
@@ -283,7 +293,87 @@
 
       {% endnote %}
 
-   1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ MY }} source](./endpoint/source/mysql.md#additional-settings).
+   1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ MY }} source](./endpoint/source/mysql.md#additional-settings).
+
+{% endlist %}
+
+### Oracle source {#source-oracle}
+
+{% list tabs %}
+
+- Oracle
+
+   1. Create a user account the transfer will utilize to connect to the source:
+
+      ```sql
+      CREATE USER <username> IDENTIFIED BY <password>;
+      GRANT CREATE SESSION TO <username>;
+      ```
+
+   1. To prepare the source for the `{{ dt-type-copy }}` transfer:
+
+      * Grant privileges to the created user:
+
+         ```sql
+         GRANT SELECT ON V$DATABASE TO <username>;
+         GRANT SELECT ON DBA_EXTENTS TO <username>;
+         GRANT SELECT ON DBA_OBJECTS TO <username>;
+         GRANT FLASHBACK ANY TABLE TO <username>;
+         ```
+
+         The `FLASHBACK` privileges can't be granted to `ANY TABLE`. You can only grant them to the tables to be copied.
+
+      * Grant the user the [privilege to read the tables](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html) to be copied.
+
+   1. To prepare the source for the `{{ dt-type-repl }}` transfer:
+
+      * Grant privileges to the created user:
+
+         ```sql
+         GRANT SELECT ON V$DATABASE TO <username>;
+         GRANT SELECT ON V$LOG TO <username>;
+         GRANT SELECT ON V$LOGFILE TO <username>;
+         GRANT SELECT ON V$ARCHIVED_LOG TO <username>;
+         GRANT EXECUTE ON SYS.DBMS_LOGMNR TO <username>;
+         ```
+
+      * Grant the user the [privilege to read the tables](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html) to be replicated.
+      * Enable [Minimal Supplemental Logging](https://docs.oracle.com/database/121/SUTIL/GUID-D2DDD67C-E1CC-45A6-A2A7-198E4C142FA3.htm#SUTIL1583) with primary keys as follows:
+
+         ```sql
+         ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
+         ```
+
+   1. (optional) If you're using the [CDB environment](https://docs.oracle.com/database/121/CNCPT/cdbovrvw.htm#CNCPT89234), configure additional settings:
+
+      1. Create a [user](https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/overview-of-managing-a-multitenant-environment.html#GUID-7D303718-2D59-495F-90FB-E51A377B1AD2) `Common User`:
+
+         ```sql
+         CREATE USER C##<username> IDENTIFIED BY <password> CONTAINER=ALL;
+         GRANT CREATE SESSION TO C##<username>;
+         ```
+
+         {% note info %}
+
+         Make sure the `Common User` has a username with the `C##` prefix.
+
+         {% endnote %}
+
+         You can only specify the `cdb$root` container and the container with the tables to transfer.
+
+      1. To allow the user to switch to the `cdb$root` container, grant them the `ALTER SESSION` privileges:
+
+         ```sql
+         GRANT ALTER SESSION TO C##<username>;
+         ```
+
+      1. Grant the user the privilege to read the appropriate [PDB container](https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/overview-of-the-multitenant-architecture.html#GUID-49C0C90D-5A72-4131-8C3D-B07341C75CB2):
+
+         ```sql
+         GRANT SELECT ANY TABLE TO C##<usename> CONTAINER=<PDB container name>;
+         ```
+
+         You can only specify the tables to transfer and not `ANY TABLE`.
 
 {% endlist %}
 
@@ -291,7 +381,7 @@
 
 {% list tabs %}
 
-* {{ mpg-name }}
+- {{ mpg-name }}
 
    1. Configure the user the transfer will connect to the source under:
 
@@ -308,11 +398,11 @@
 
    1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/cluster-extensions.md) the `pg_tm_aux` extension for it. This lets replication continue even after changing the master host.
 
-   1. {% include [primary-keys-postgresql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
+   1. {% include [primary-keys-mysql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
 
-* {{ PG }}
+- {{ PG }}
 
    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
@@ -348,7 +438,7 @@
 
       * Windows 10, 11
 
-         1. If you don't have Microsoft Visual Studio installed yet, download and install it. To build the wal2json extension, the [Community Edition](https://visualstudio.microsoft.com/ru/vs/community/) is sufficient. During installation, select the following components:
+         1. If you don't have Microsoft Visual Studio installed yet, download and install it. To build the wal2json extension, the [Community Edition](https://visualstudio.microsoft.com/vs/community/) is sufficient. During installation, select the following components:
 
             * MSBuild,
             * MSVC v141 x86/x64 build tools,
@@ -413,7 +503,7 @@
 
    1. If the replication source is a cluster, install and enable the [pg_tm_aux](https://github.com/x4m/pg_tm_aux) extension on its hosts. This lets replication continue even after changing the master host.
 
-   1. {% include [primary-keys-postgresql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
+   1. {% include [primary-keys-mysql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ PG }} source](./endpoint/source/postgresql.md#additional-settings).
 
@@ -443,21 +533,23 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
 {% endnote %}
 
+### S3 source {#source-s3}
+
+If you are using a private bucket as a source, grant `read` and `list` permissions to the account that you will use for connection.
+
+For more information, see the [Airbyte® documentation](https://docs.airbyte.com/integrations/sources/s3/).
+
 {% if product == "yandex-cloud" %}
 
 ### {{ yds-full-name }} source {#source-yds}
 
 {% if audience == "external" %}
-
 1. [Create a data stream](../../data-streams/operations/manage-streams.md#create-data-stream).
-1. (Optional) [Create a processing function](../../functions/operations/function/function-create.md).
-
-{% else %}
-
+1. (optional) [Create a processing function](../../functions/operations/function/function-create.md).
+   {% else %}
 1. Create a data stream.
-1. (Optional) Create a processing function.
-
-{% endif %}
+1. (optional) Create a processing function.
+   {% endif %}
 
    {% cut "Processing function example" %}
 
@@ -587,11 +679,11 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
 {% list tabs %}
 
-- {{ GP }}
+{% if product == "yandex-cloud" %}
 
-   1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+- {{ mgp-name }}
 
-   1. On the target, disable the following:
+   1. Disable the following settings on the target:
 
       * Integrity checks for foreign keys.
       * Triggers.
@@ -603,13 +695,51 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
       {% endnote %}
 
-   1. Create a user with the command:
+   1. Create a user:
 
       ```sql
       CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
       ```
 
-   1. Run the following command to grant the user all privileges for the database, schemas, and tables to be transferred:
+   1. Grant the user all privileges for the database, schemas, and tables to be transferred:
+
+      ```sql
+      GRANT ALL PRIVILEGES ON DATABASE <database name> TO <username>;
+      ```
+
+      If the database is not empty, the user must be its owner:
+
+      ```sql
+      ALTER DATABASE <database name> OWNER TO <username>;
+      ```
+
+      Once started, the transfer will connect to the target on behalf of this user.
+
+{% endif %}
+
+- {{ GP }}
+
+   1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
+   1. Disable the following settings on the target:
+
+      * Integrity checks for foreign keys.
+      * Triggers.
+      * Other constraints.
+
+      {% note warning %}
+
+      Do not reactivate these settings before the transfer is complete. This will ensure data integrity with respect to foreign keys.
+
+      {% endnote %}
+
+   1. Create a user:
+
+      ```sql
+      CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
+      ```
+
+   1. Grant the user all privileges for the database, schemas, and tables to be transferred:
 
       ```sql
       GRANT ALL PRIVILEGES ON DATABASE <database name> TO <username>;
@@ -631,7 +761,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
 {% if product == "yandex-cloud" %}
 
-* {{ mmg-name }}
+- {{ mmg-name }}
 
    1. [Create a database](../../managed-mongodb/operations/databases.md#add-db) a with the same name as the source database.
    1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) with the [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) role for the created database.
@@ -647,10 +777,10 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
          {% include [MongoDB endpoint DROP clean policy warning](../../_includes/data-transfer/note-mongodb-clean-policy.md) %}
 
       Learn more about sharding in the [{{ MG }} documentation](https://docs.mongodb.com/manual/sharding/).
-      
+
 {% endif %}
 
-* {{ MG }}
+- {{ MG }}
 
    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
@@ -770,7 +900,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
 {% list tabs %}
 
-* {{ mmy-name }}
+- {{ mmy-name }}
 
    1. Make sure that the major version of {{ MY }} on the target is not lower than that on the source.
 
@@ -778,9 +908,9 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. [Create a user](../../managed-mysql/operations/cluster-users.md#adduser) for connecting to the source.
 
-      1. [Assign the user](../../managed-mysql/operations/grant.md#grant-role)the `ALL_PRIVILEGES` role for the source database.
+      1. [Assign the user](../../managed-mysql/operations/grant.md#grant-role) the `ALL_PRIVILEGES` role for the source database.
 
-* {{ MY }}
+- {{ MY }}
 
    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
@@ -817,11 +947,11 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
 {% list tabs %}
 
-* {{ mpg-name }}
+- {{ mpg-name }}
 
    1. Make sure that the major version of {{ PG }} on the target is not lower than that on the source.
 
-   1. On the target, disable the following:
+   1. Disable the following settings on the target:
 
       * Integrity checks for foreign keys.
       * Triggers.
@@ -831,7 +961,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
       Do not reactivate these settings before the transfer is complete. This will ensure data integrity with respect to foreign keys.
 
-      If you use the _{{ dt-type-copy-repl }}_ transfer type, you can enable the settings again after the [snapshot stage](../concepts/transfer-lifecycle.md#snapshot-and-increment) is completed.
+      If you use the _{{ dt-type-copy-repl }}_ transfer type, you can enable the settings again after the [copy stage](../concepts/transfer-lifecycle.md#copy-and-replication) is completed.
 
       {% endnote %}
 
@@ -839,13 +969,13 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
       Once started, the transfer will connect to the target on behalf of this user.
 
-* {{ PG }}
+- {{ PG }}
 
    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
    1. Make sure that the major version of {{ PG }} on the target is not lower than that on the source.
 
-   1. On the target, disable the following:
+   1. Disable the following settings on the target:
 
       * Integrity checks for foreign keys.
       * Triggers.
@@ -855,17 +985,17 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
       Do not reactivate these settings before the transfer is complete. This will ensure data integrity with respect to foreign keys.
 
-      If you use the _{{ dt-type-copy-repl }}_ transfer type, you can enable the settings again after the [snapshot stage](../concepts/transfer-lifecycle.md#snapshot-and-increment) is completed.
+      If you use the _{{ dt-type-copy-repl }}_ transfer type, you can enable the settings again after the [copy stage](../concepts/transfer-lifecycle.md#copy-and-replication) is completed.
 
       {% endnote %}
 
-   1. Create a user with the command:
+   1. Create a user:
 
       ```sql
       CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
       ```
 
-   1. Run the following command to grant the user all privileges for the database, schemas, and tables to be transferred:
+   1. Grant the user all privileges for the database, schemas, and tables to be transferred:
 
       ```sql
       GRANT ALL PRIVILEGES ON DATABASE <database name> TO <username>;
@@ -888,6 +1018,8 @@ The service does not transfer `MATERIALIZED VIEWS`. For more detail, please revi
 ### {{ ydb-full-name }} target {#target-ydb}
 
 To receive data in {{ ydb-full-name }}, no setup is necessary.
+
+{% include [airbyte-trademark](../../_includes/data-transfer/airbyte-trademark.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
 
