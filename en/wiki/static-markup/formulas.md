@@ -1,13 +1,13 @@
 # Formulas
 
-Formulas that use [TeX]({{ link-about-tex }}) can be added to {{ wiki-name }}.
+You can insert in {{ wiki-name }} formulas created with the help of markup [TeX]({{ link-about-tex }}).
 
-- Standard formatting is used to insert a formula in a separate line:
+- Standard formula design, suitable for inserting a separate line:
 
    ```
-   Some text here.
+   First line.
    %%(math outline) formula %%
-   Some text here.
+   Second line.
    ```
 
    {% cut "See the result" %}
@@ -16,7 +16,7 @@ Formulas that use [TeX]({{ link-about-tex }}) can be added to {{ wiki-name }}.
 
    {% endcut %}
 
-- Compact formatting is used to insert a formula into the line containing text:
+- Compact formula design, suitable for inserting in the same line with text:
 
    ```
    Some text here %%(math inline) formula %% some text here

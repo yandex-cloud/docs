@@ -9,10 +9,14 @@ items:
         href: login.md
       - name: Создать первую страницу
         href: quick-guide.md
+      - name: Настроить интерфейс {{ wiki-name }}
+        href: settings-wiki.md
   - name: Концепции
     items:
       - name: Обзор сервиса
         href: overview.md
+      - name: Роли
+        href: roles.md
       - name: Работа в {{ wiki-full-name }}
         href: concepts.md
       - name: Структура {{ wiki-full-name }}
@@ -25,13 +29,15 @@ items:
         href: create-page.md
       - name: Динамическая таблица
         href: create-grid.md
-      - name: Заметка
-        href: create-note.md
       - name: Импорт из файла
         href: import-page.md
+      - name: Копия страницы
+        href: create-copy.md
+      - name: Страница Wysiwyg
+        href: wysiwyg-create.md
   - name: Редактирование вики-страниц и динамических таблиц
     items:
-      - name: Отредактировать вики-страницу или заметку
+      - name: Отредактировать вики-страницу
         href: edit-page.md
       - name: Отредактировать динамическую таблицу
         href: edit-grid.md
@@ -39,8 +45,6 @@ items:
         items:
           - name: Форматировать текст
             href: basic-markup.md
-          - name: Прикрепить файл
-            href: attach-file.md
           - name: Вставить изображение
             href: add-image.md
           - name: Вставить таблицу
@@ -65,28 +69,28 @@ items:
             href: actions/anchor.md
           - name: Списки страниц
             href: actions/page-lists.md
+  - name: Работа в визуальном редакторе (Wysiwyg)
+    href: wysiwyg-edit.md
   - name: Управление страницами
     items:
-      - name: Настройки страницы
+      - name: Обзор
         href: page-management/page-settings.md
-      - name: Ограничить просмотр страницы
-        href: page-management/access-setup.md
-      - name: Запретить редактирование страницы
-        href: page-management/read-only.md
-      - name: Назначить автора страницы
-        href: page-management/edit-owner.md
-      - name: Изменить адрес страницы
-        href: page-management/move-page.md
-      - name: Добавить ключевые слова (теги)
-        href: add-key-words.md
-      - name: Пометить устаревшие страницы
-        href: exp-page.md
       - name: Посмотреть историю изменений страницы
         href: history.md
+      - name: Прикрепить файлы
+        href: attach-file.md
+      - name: Переместить страницу
+        href: page-management/move-page.md
+      - name: Редактировать список авторов страницы
+        href: page-management/edit-owner.md
+      - name: Настроить доступ к странице
+        href: page-management/access-setup.md
       - name: Удалить страницу
         href: delete-page.md
   - name: Навигация по {{ wiki-name }}
     items:
+      - name: Обзор
+        href: navigation.md
       - name: Поиск по {{ wiki-name }}
         href: search.md
       - name: Подписки и избранное

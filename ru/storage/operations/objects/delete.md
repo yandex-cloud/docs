@@ -1,6 +1,5 @@
 # Удаление объекта
 
-
 {% list tabs %}
 
 - Консоль управления
@@ -18,5 +17,63 @@
   
       {% endnote %}
   1. Подтвердите удаление.
+
+- {{ TF }}
+
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы удалить объект из бакета, созданный с помощью {{ TF }}:
+
+  1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием объекта.
+
+     {% cut "Пример описания объекта в конфигурации {{ TF }}" %}
+
+     ```hcl
+     ...
+     resource "yandex_storage_object" "cute-cat-picture" {
+       access_key = "YCAJEX9Aw2ge1VKjlYXf-w-lJ"
+       secret_key = "YCONxG7rSdzVF9UMxLA_NRy5VbKzKlqZMcSJz2N0"
+       bucket     = "cat-pictures"
+       key        = "cute-cat"
+       source     = "/images/cats/cute-cat.jpg"
+     }
+     ...
+     ```
+
+     {% endcut %}
+
+  1. В командной строке перейдите в папку, где расположен файл конфигурации {{ TF }}.
+
+  1. Проверьте конфигурацию командой:
+
+     ```bash
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```bash
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```bash
+     terraform plan
+     ```
   
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```bash
+     terraform apply
+     ```
+
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+     Проверить изменения можно в [консоли управления]({{ link-console-main }}).
+
 {% endlist %}

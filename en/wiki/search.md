@@ -1,6 +1,6 @@
 # Searching {{ wiki-name }}
 
-You can do a text search or search for [keywords](add-key-words.md) in Wiki pages. To do this, use the search bar that appears at the top right of each page.
+You can do a text search in Wiki pages. To do this, use the search bar that appears at the top right of each page.
 
 1. Enter your search query and click the ![](../_assets/wiki/search-icon.png) icon or press **Enter**.
 
@@ -9,8 +9,6 @@ You can do a text search or search for [keywords](add-key-words.md) in Wiki page
    - **Page owner**. Page owner username {{ wiki-name }}.
    - **Creation date** or **Update date**. The time period when the page was created or the last edited.
    - **Document type**. Document search on {{ wiki-name }} by type: page, table, or file.
-
-   If you want the search results to include pages marked as [outdated](exp-page.md), select **Show outdated pages**.
 
 1. Sort the search results: by relevance, last update, or creation date.
 

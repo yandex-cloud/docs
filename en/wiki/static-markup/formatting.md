@@ -4,7 +4,7 @@
 
 {% note alert %}
 
-For text highlighting to work properly, don't leave any spaces between the markup symbols and the text.
+The selection works correctly only if the markup characters are adjacent to the text.
 
 {% endnote %}
 
@@ -25,16 +25,16 @@ For text highlighting to work properly, don't leave any spaces between the marku
 | `!!Red text!!` | ![](../../_assets/wiki/red-colored.png) |
 | `!!(blue)Blue text!!`<br>Supported colors:<ul><li>`red`;</li><li>`green`;</li><li>`blue`;</li><li>`grey`/`gray`;</li><li>`yellow`;</li><li>`cyan`;</li><li>`orang`;</li><li>`violet`.</li></ul> | ![](../../_assets/wiki/colored.png) |
 
-## Combining formatting elements {#sec_combine}
+## Combining formatting types{#sec_combine}
 
-You can apply multiple formatting elements to a text fragment:
+You can apply several types of formatting to a single text fragment simultaneously:
 
 | Markup | Result |
 | --- | --- |
 | `_**Bold italic**_` | ![](../../_assets/wiki/bold-italic.png) |
 | `*!!Red italic!!*` | ![](../../_assets/wiki/red-italic.png) |
 
-Text formatting elements can be combined with other markup elements:
+Text formatting can be used together with other markup elements:
 
 | Markup | Result |
 | --- | --- |

@@ -21,7 +21,7 @@ links:
     description: Set up your personal Wiki cluster.
     href: quick-guide
   - title: Create pages
-    description: Use Wiki to create simple pages, notes, and tables.
+    description: Use Wiki to create simple pages and tables.
     href: create-page
   - title: Configure access
     description: By default, all users who have access to a page can edit it.

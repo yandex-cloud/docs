@@ -2,17 +2,17 @@
 
 ## Tags {#html-tags}
 
-You can use HTML tags to embed markup elements not supported by Markdown.
+To insert design elements on the page that are not provided for by Markdown markup, you can use HTML tags in the text.
 
-Example:
+For example:
 
 * ```html
-  <p style="color: gray; font-weight: bold;">Grey text</p>
+  <p style="color: gray; font-weight: bold;">Gray text</p>
   ```
 
     {% cut "See the result" %}
 
-    <p style="color: gray; font-weight: bold;">Grey text</p>
+    <p style="color: gray; font-weight: bold;">Gray text</p>
 
     {% endcut %}
 

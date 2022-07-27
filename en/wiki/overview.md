@@ -1,39 +1,43 @@
 # Service overview
 
-{{ wiki-full-name }} is a service for creating a corporate knowledge base, which is maintained and updated by users — the organization employees.
+{{ wiki-full-name }} a service for creating a corporate knowledge base, which is filled and updated by company users and employees.
 
-{{ wiki-name}} can be used to store any information that the organization employees may need in their work: memos, useful links and contacts, work instructions, project documentation, and personal notes. {{ wiki-name }} provides employees with additional opportunities for collaboration: they can share information, search for answers to frequently asked questions, and discuss tasks in page comments.
+On {{ wiki-name}} pages, you can store information that employees need for work: memos, useful links and contacts, instructions, project documentation, and personal notes. {{ wiki-name }} gives the company's employees additional opportunities for collaboration: they can share information, search for answers to frequently asked questions, and discuss issues in the page comments.
 
 
 
 ## Access to {{ wiki-full-name }} {#access}
 
-{{ wiki-full-name }} can be accessed by organization employees registered on [{{ org-full-name }}](../organization/index.yaml). Each organization has its own knowledge base on {{ wiki-full-name }}, which can only be accessed by the organization employees. To learn more about setting up {{ wiki-full-name }}, read [{#T}](enable-wiki.md).
+Users registered in [{{ org-full-name }}](../organization/index.yaml) can work in {{ wiki-full-name }}. For an organization, its own knowledge base is created in {{ wiki-full-name }}, which is only accessible to employees. Read about how to connect {{ wiki-full-name }} in the cluster [{#T}](enable-wiki.md).
 
-To access {{ wiki-name }}, [log in to your corporate account](login.md).
+To get access to {{ wiki-name }}, [log in to the account](login.md) that you use for the organization.
 
-If the organization has a user and access management system (such as Active Directory or Google Workspace), employees can use their corporate accounts to log in to the {{ yandex-cloud }} organization and access {{ wiki-name }} through a Single Sign-On (SSO) system. To do this, the organization admin needs to configure identity federation. Read more in the {{ org-full-name }} documentation in the [{#T}](../organization/add-federation.md) section.
+If the company has a user and access management system (for example, Active Directory or Google Workspace), employees can use their corporate accounts to log in to the {{ yandex-cloud }} organization and access {{ wiki-name }} using a Single Sign-On (SSO) system. To do this, the organization administrator must set up an identity federation. Read more in the  {{ org-full-name }} documentation under [{#T}](../organization/add-federation.md).
 
 
-## Features {{ wiki-full-name }} {#features}
+## {{ wiki-full-name }} features {#features}
 
 - [Create Wiki pages](quick-guide.md) with text, images, tables, and links.
+The maximum number of pages per organization is 10,000.
 
-- Use the [Markdown markup](static-markup.md) for text formatting: you can highlight text fragments, add titles, lists, quotes, and other elements.
+- [Attach files](attach-file.md) to a Wiki page.
+The maximum total size of all files per organization is 5 GB.
 
-- Use [edit history](history.md) to track user changes to Wiki pages. You can compare two page versions or restore a previous version from the edit history.
+- When formatting text, use [Markdown markup](static-markup.md) to highlight text fragments and add titles, lists, quotes, and other elements.
 
-- To structure information on {{wiki-name}}, create cluster trees and link pages with cross-links. Learn more in [{#T}](structure.md).
+- Track user edits to pages in the [history of changes](history.md). You can compare two versions of a page or restore a version from the history.
 
-- To quickly find information on {{ wiki-name }}, use the [search](search.md), subscribe to pages, and add them to [favorites](notifications.md).
+- To structure information in {{wiki-name}}, create a page tree and link the pages with cross-references. Read more in [{#T}](structure.md).
 
-- Configure [page access rights](page-management/access-setup.md): you can open the page for all or some employees, restrict editing access, or prohibit users from viewing the page.
+- To quickly find information on {{ wiki-name }}, use the [search](search.md), subscribe to pages, and add them to your [favorites](notifications.md).
+
+- Configure [access rights to pages](page-management/access-setup.md): you can make a page accessible to all or some employees, restrict editing, or prohibit viewing a page.
 
 - Use {{ wiki-name }} integration with {{ tracker-full-name }} and {{ forms-full-name }}:
 
-  * [Adding an issue list to a page from {{ tracker-full-name }}](actions/tracker.md).
+  * [Adding a list of issues from {{ tracker-full-name }} to a page](actions/tracker.md).
 
-  * [Embedding a form on a page](actions/forms.md).
+  * [Embedding a form in a page](actions/forms.md).
 
-  * [Saving responses from the {{ forms-full-name }} form](../forms/send-wiki.md) on a Wiki page.
+  * [Saving responses from {{ forms-full-name }} on a page](../forms/send-wiki.md).
 
