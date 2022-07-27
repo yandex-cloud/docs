@@ -160,8 +160,11 @@ items:
       - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
         href: dataplatform/dp-mch-data-exchange.md
         when: product == "yandex-cloud"
-      - name: Импорт базы данных из {{ mmy-full-name }} или {{ mpg-full-name }} в {{ dataproc-full-name }} с использованием Sqoop
-        href: dataplatform/sqoop.md
+      - name: Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с помощью Sqoop
+        href: dataplatform/sqoop-mmy.md
+        when: product == "yandex-cloud"
+      - name: Импорт данных из {{ mpg-full-name }} в {{ dataproc-full-name }} с помощью Sqoop
+        href: dataplatform/sqoop-mpg.md
         when: product == "yandex-cloud"
       - name: >-
           Использование скриптов инициализации для настройки GeeseFS в {{ dataproc-full-name }}
@@ -182,8 +185,8 @@ items:
         href: dataplatform/sync-mysql.md
       - name: Миграция базы данных из {{ mmy-full-name }} в сторонний кластер {{ MY }}
         href: dataplatform/mmy-to-mysql-migration.md
-      - name: Импорт базы данных из {{ mmy-full-name }} или {{ mpg-full-name }} в {{ dataproc-full-name }} с использованием Sqoop
-        href: dataplatform/sqoop.md
+      - name: Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с помощью Sqoop
+        href: dataplatform/sqoop-mmy.md
         when: product == "yandex-cloud"
       - name: Поставка данных из {{ mmy-full-name }} в {{ mkf-full-name }} с помощью Debezium
         href: dataplatform/kafka-cdc/debezium-mmy.md
@@ -195,8 +198,8 @@ items:
         href: dataplatform/kafka-cdc/data-transfer-mpg.md
       - name: Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью Debezium
         href: dataplatform/kafka-cdc/debezium-mpg.md
-      - name: Импорт базы данных из {{ mmy-full-name }} или {{ mpg-full-name }} в {{ dataproc-full-name }} с использованием Sqoop
-        href: dataplatform/sqoop.md
+      - name: Импорт данных из {{ mpg-full-name }} в {{ dataproc-full-name }} с помощью Sqoop
+        href: dataplatform/sqoop-mpg.md
         when: product == "yandex-cloud"
         # RD
       - name: Миграция базы данных из стороннего кластера {{ RD }} в {{ mrd-full-name }}

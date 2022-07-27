@@ -29,7 +29,8 @@
 ## {{ dataproc-name }} {#dataproc}
 
 * [{#T}](dp-mch-data-exchange.md)
-* [{#T}](sqoop.md)
+* [{#T}](sqoop-mmy.md)
+* [{#T}](sqoop-mpg.md)
 * [{#T}](data-proc-init-actions-geesefs.md).
 {% endif %}
 
@@ -51,7 +52,7 @@
 * [{#T}](sync-mysql.md)
 * [{#T}](mmy-to-mysql-migration.md)
 {% if product == "yandex-cloud" %}
-* [{#T}](sqoop.md)
+* [{#T}](sqoop-mmy.md)
 {% endif %}
 * [{#T}](./kafka-cdc/debezium-mmy.md)
 
@@ -61,7 +62,7 @@
 * [{#T}](./kafka-cdc/data-transfer-mpg.md)
 * [{#T}](./kafka-cdc/debezium-mpg.md)
 {% if product == "yandex-cloud" %}
-* [{#T}](sqoop.md)
+* [{#T}](sqoop-mpg.md)
 {% endif %}
 
 ## {{ RD }} {#redis}

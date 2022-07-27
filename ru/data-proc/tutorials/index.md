@@ -3,7 +3,8 @@
 {% if product == "yandex-cloud" %}* [{#T}](./configure-network.md).{% endif %}
 * [{#T}](./copy-files-from-object-storage.md).
 * [{#T}](./exchange-data-with-mch.md)
-* [{#T}](./sqoop.md)
+* [{#T}](./sqoop-mmy.md)
+* [{#T}](./sqoop-mpg.md)
 * [{#T}](./geesefs-init-actions.md)
 
 ## Работа с заданиями {#jobs}
