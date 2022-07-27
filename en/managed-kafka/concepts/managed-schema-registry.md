@@ -2,7 +2,7 @@
 
 {{ KF }} uses a binary format for storing and passing messages. Messages don't contain any information about their structure. As a result, to interpret data in binary format, the consumer needs a _data format schema_. It describes the format of data input or output.
 
-Based on the data format schema, the producer generates and the consumer interprets messages from topics. If data format schemas differ between [producers and consumers](../../managed-kafka/concepts/producers-consumers.md), the application may throw errors because of incorrect message interpretation. 
+Based on the data format schema, the producer generates and the consumer interprets messages from topics. If data format schemas differ between [producers and consumers](../../managed-kafka/concepts/producers-consumers.md), the application may throw errors because of incorrect message interpretation.
 
 The developers of the producer and consumer must:
 
@@ -36,8 +36,8 @@ The registry provides a JSON REST API that is fully compatible with the [Conflue
 
 The following data schema formats are supported:
 
-* [Avro](https://avro.apache.org/),
-* [JSON Schema](https://json-schema.org/),
+* [Avro](https://avro.apache.org/)
+* [JSON Schema](https://json-schema.org/)
 
 Schema information is posted to a [service topic](./topics.md#service-topics) called `_schemas`. You cannot use standard tools to write data to this topic.
 
@@ -49,19 +49,19 @@ Working with {{ mkf-msr }} requires an advanced [security group configuration](.
 
 When working with the {{ mkf-msr }} API over an SSL connection, you need to configure the same client [SSL certificate](../operations/connect#get-ssl-cert) as for broker host connections.
 
-You also need to authorize API server requests using the `Authorization` HTTP header. In the header, specify the [{{ KF }} account username and password](../operations/cluster-accounts#create-account).
+You also need to authorize API server requests using the `Authorization` [HTTP header](https://en.wikipedia.org/wiki/Basic_access_authentication). In the header, specify the [username and password of the {{ KF }} user](../operations/cluster-accounts#create-user).
 
-The ability to work with schemas depends on the selected [topic management method](./topics.md#management) and the configured account roles:
+Access to schemas depends on the selected [topic management method](./topics.md#management) and the configured user roles:
 
 1. If managed topics are used in the cluster:
 
-   * An account with the `ACCESS_ROLE_CONSUMER` role for a topic can perform read operations with _subjects_[](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#subjects) associated with the topic.
-   * An account with the `ACCESS_ROLE_CONSUMER` role with respect to a topic is able to perform read operations with subjects associated with the topic.
+   * A user with the `ACCESS_ROLE_CONSUMER` role for a topic can perform any operations with _subjects_[](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#subjects) associated with the topic.
+   * A user with the `ACCESS_ROLE_CONSUMER` role for a topic can perform read operations with subjects associated with the topic.
 
 1. If a cluster uses unmanaged topics:
 
    * The same is true for a cluster with managed topics.
-   * In addition, an account with the `ACCESS_ROLE_ADMIN` role with respect to a topic has access to any operations with subjects related to the topic. This account can be granted access to any topics.
+   * In addition, a user with the `ACCESS_ROLE_ADMIN` role for a topic has access to any operations with subjects related to the topic. This user can be granted access to any topics.
 
 For more information about roles, see [{#T}](../operations/cluster-accounts.md).
 
