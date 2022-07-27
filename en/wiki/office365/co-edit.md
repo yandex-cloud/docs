@@ -1,45 +1,45 @@
 # Co-editing documents
 
-In Office 365, you can collaborate with other users when editing Word, Excel, and PowerPoint documents. The documents can be edited and saved by multiple users at once. This feature is also available in cloud documents embedded on Wiki pages. Cloud documents open in Office 365 applications, so you can edit them simultaneously with other users.
+Office 365 allows co-editing Word, Excel, and PowerPoint documents: multiple users can edit a document at the same time and save their changes. This feature also works for cloud documents embedded in Wiki pages: when editing a cloud document, it opens in the Office 365 application and you can edit it simultaneously with other users.
 
-## Editing a document embedded on a Wiki page {#edit-button}
+## Editing a document embedded in a Wiki page {#edit-button}
 
-To edit an Office 365 document embedded on a Wiki page, click **Edit in cloud** in the upper-right corner. The document will open in an Office 365 application in a new tab.
+To edit an Office 365 document embedded in a Wiki page, click  **Edit in cloud** in the upper-right corner. The document opens in a new tab in the Office 365 application.
 
-If you don't have editing rights for the document, the message "You do not have access to this page" will appear instead. To request access to the document from its owner, enter your message and click **Request access**.
+If you have no permission to edit the document, you'll see a message saying "You do not have access to this page". To request permission to access the document from its author, write a message and click **Access request**.
 
 {% note alert %}
 
-To edit documents, you must be [logged in to office.com](ms-office.md#office-login). If you don't have an Office 365 license, send a request via this [form](https://help.yandex-team.ru/?form=soft).
+To edit documents, be sure to [log in to office.com](ms-office.md#office-login). If you don't have an MS Office 365 license, submit a request using the [form](https://help.yandex-team.ru/?form=soft).
 
 {% endnote %}
 
-### How to switch to shared document editing using {{wiki-name}} {#shared-edit}
+### Switching to document co-editing using {{wiki-name}} {#shared-edit}
 
-Working with documents, you may often need to co-edit and receive comments from several colleagues.
+When preparing a document, it's often necessary to be able to make edits simultaneously or receive comments from multiple colleagues.
 
-In the past, we used to send a document over by mail and then combine the edits from different versions of the document. Or we could create a page on {{wiki-name}} and take turns editing the document.
+Previously, you would send a document to each other by email and then merge the edits made in multiple versions of the document. Or create a page in {{wiki-name}} and make changes one by one.
 
-Today, you can embed cloud documents on {{wiki-name}} and edit them simultaneously with your colleagues:
+Now you can embed cloud documents in {{wiki-name}} and edit them simultaneously with your colleagues:
 
-* If you already have Office 365 documents that you co-edit with your colleagues, you can simply continue using {{wiki-name}}. To do this, create a **Word, Excel, or PowerPoint** page and [import your file](create-ms-office.md#import-doc).
+* If you already have Office 365 documents that you're editing together with your colleagues, you can continue doing that in {{wiki-name}}. Just create a **Word, Excel, or PowerPoint** page and [import your file](create-ms-office.md#import-doc).
 
-* If you co-edit a page on {{wiki-name}}, [create a new cloud document](create-ms-office.md#new-from-wiki), copy the text from the page you edit, and paste it into the new document.
+* If you're co-editing a {{wiki-name}} page with your colleagues, [create a new cloud document](create-ms-office.md#new-from-wiki) and copy the page text there.
 
-### Co-editing documents with external users {#shared-edit-ext}
+### Co-editing documents together with external users {#shared-edit-ext}
 
-If you often need to co-edit documents with external contractors, you can provide them with shared editing access to your Office 365 files. Since our security policies prohibit external users from accessing the Sharepoint portal, you will have to create a separate Sharepoint website (section) that will be accessible to users outside Yandex.
+If you often need to collaborate on documents with your contractors who are not Yandex employees, you can grant them permission to co-edit documents in Office 365. Since external users' access to a Sharepoint shared website is prohibited by security policies, you need to create a separate website (cluster) in Sharepoint that can be accessed from outside the company.
 
 To do this:
 
-1. Send a request to `help@yandex-team.ru`: specify that your team or department requires a new Sharepoint site for sharing documents with external users. In your message, clarify why you require this type of access.
+1. Send an email to `help@yandex-team.ru` and request that a new Sharepoint website be created for your team or department, where you can share documents with external users. In your email, explain why you need this.
 
-1. After HelpDesk employees set up the site, you'll be able to [create new documents](create-sharepoint.md#create-sharepoint) or [move existing documents](doc-access.md#move-doc) there from other Sharepoint pages.
+1. Once HelpDesk employees create a website for you, you'll be able to [create new documents on it](create-sharepoint.md#create-sharepoint) or [move existing documents](doc-access.md#move-doc) from other Sharepoint clusters to it.
 
-1. To invite external users for collaborative document editing:
-   1. Find a document on your Sharepoint site that is accessible to external users.
-   1. Hover your cursor over the document and click ![](../../_assets/wiki/share-opt.png) and choose **Manage access**.
-   1. In the panel that opens, find the **Direct access** block, enter the email address of the external user you wish to share the document with, and set the access level to **Can make edits**.
+1. To invite external users to co-edit a document:
+   1. Find the desired document on your Sharepoint website that external users are allowed to access.
+   1. Hover over the document, click ![](../../_assets/wiki/share-opt.png), and select **Access management**.
+   1. In the panel that opens, under **Direct access**, enter the email address of the external user to grant document access to and select the **Can edit** access level.
    1. Click **Grant access**.
-   1. The user will receive a link to the email address you specified. After clicking the link, the user will receive a code by email. They will need to enter the code to access the document.
+   1. An email with a link is sent to the specified user's email address. Once the user clicks the link, an email is sent to them containing the code to be entered to access the document.
 

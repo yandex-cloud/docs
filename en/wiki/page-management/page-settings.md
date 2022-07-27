@@ -2,43 +2,66 @@
 
 {% note alert %}
 
-Settings can be edited by the {% if audience == "external" %}[page owner](edit-owner.md) or [admin of the organization](../overview.md#access).{% else %}only by the [page owner](edit-owner.md). If the page owner no longer works at Yandex, write a message to [tools@](mailto:tools@yandex-team.ru). The request will be processed by the internal service support team.{% endif %}
+Settings can be edited by the {% if audience == "external" %}page author or the administrator of the [organization](../overview.md#access).{% else %}page author only. If the author of a page is no longer a Yandex employee, send an email to [tools@](mailto:tools@yandex-team.ru). Your request will be handled by the internal services support team.{% endif %}
 
 {% endnote %}
 
-You can use settings to specify page owners, redirect addresses, set keywords, or disable user comments.
+Using settings, you can add page authors, change the owner, set permissions to view and edit pages, configure a redirect, comments, and keywords.
 
-To go to page settings:
+To go to the page settings:
 
-1. Open a page.
+1. Open the page.
 
-1. In the upper-right corner of the page, click ![](../../_assets/wiki/ico-actions.png) **Action** and choose **Settings** or simply write `.settings` at the end of the page address in your address bar.
+1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Settings** or add `.settings` at the end of the page URL in the address bar.
 
-## Keywords {#key-words}
+## Page authors {#author}
 
-To help users find pages via the {{ wiki-name }} search bar, try [adding keywords](../add-key-words.md).
+Edit page [authors](edit-owner.md). They can manage [page access permissions](access-setup.md).
 
-## Page owners {#owner}
+## Configuring access to a page
 
-Assign additional [page owners](edit-owner.md). They will be able to manage [page access rights](access-setup.md).
+Edit [access rights](access-setup.md) to the page to set which users can view and edit it.
+
+## Adding a cover
+
+You can add a cover to each page, which is the background of the upper part where the owner of the page, its title, and the date of the last update are indicated.
+
+To set a cover:
+
+  1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select![](../../_assets/wiki/svg/add-cover.svg) **Add cover**.
+
+  1. In the **Select cover** menu, click on the cover you like and it immediately applies to the page.
+
+  1. Close the cover selection window.
+
+{% if audience == "internal" %}
+
+## Translating a page
+
+1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Translate page**.
+
+1. Click **English** or **Russian** to translate the content of the Wiki page into the selected language.
+
+{% note alert %}
+
+Please note that the Wiki interface itself won't change: only the content of the page is translated.
+{% endif %}
+
+{% endnote %}
 
 ## Redirects {#redirect}
 
-In this field, specify the page address users will be automatically redirected to from the current page.
+In this field, specify the address of the page where the user will be automatically redirected from this page.
 
-This field is filled in automatically if the page has been [moved to another cluster](move-page.md). A service page at the old address will automatically redirect users to the new page.
+In addition, this setting is filled in automatically if the page was [moved to another cluster](move-page.md). The old page address will then automatically redirect users to the new page.
 
 ## Comments {#comments}
 
-To prevent users from commenting on a page, disable this option:
+To prevent users from adding comments to a page, disable this feature:
 
-* Click on the **Comments** setting and choose **Disabled**.
+* Click **Comments** and set **Disabled**.
 
-* Uncheck the box to the right of **Comments** so that the new setting doesn't apply to subpages.
+* To make sure the new setting value isn't applied to subpages, uncheck the checkbox to the right of **Comments**.
 
 * Click **Save**.
-
-## Restricting page editing
-
-To make a page read-only, enable **Only the author can edit the page**. Read more about [restricting page editing](read-only.md).
 

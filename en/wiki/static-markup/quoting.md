@@ -1,14 +1,14 @@
-# Quotations
+# Quotes
 
 ## Quoting a paragraph
 
-* To quote a paragraph, insert the `>` symbol at the start of the paragraph.
+* To quote a paragraph, add the `>` symbol at the start of that paragraph.
 
-* To create a nested quote, insert the `>>` symbols at the start of the paragraph.
+* To create a subquote, add `>>` symbols at the start of the paragraph.
 
-* Add an empty line after the quote to separate it from the following text.
+* Separate the quote from the following text with an empty line.
 
-* Use other text formatting elements within quotes, for example: headings, lists, or bold font.
+* You can use other kinds of formatting inside quotes, such as headings, lists, or a bold font.
 
 Markup examples:
 
@@ -24,9 +24,9 @@ Markup examples:
 
 * ```
   >First-level quote.
-  >Second-level quote.
+  >>Second-level quote.
   >
-  >>>First level again.
+  >First level again.
   ```
 
     {% cut "See the result" %}
@@ -49,15 +49,15 @@ Markup examples:
 
     {% endcut %}
 
-## Long quotes
+## Quoting a long text
 
-To quote a long piece of text, enclose the quote inside `<[` and `]>`.
+To quote a long piece of text, enclose the quote between the `<[` and `]>` symbols.
 
-This format also supports quotes within quotes and other markup features.
+This citation format also supports nested quotes and other markup elements.
 
 * ```
   <[First-level quote. 
-  >Second-level quote
+  >Second-level quote.
 
   First level again.]>
   ```

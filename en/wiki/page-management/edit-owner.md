@@ -1,68 +1,83 @@
-# Assign page owners
+# Editing a list of page authors
 
-A page can have one or more owners. By default, the page owner is the user who created the page.
+A page can have one or more authors. The main author is the page [owner](#edit-owner). By default, this is the user who created it. The owner's name is indicated above the page title. All other authors are called co-authors and have the same rights as the page owner.
 
 {% note alert %}
 
-A new owner can be assigned by the current page owner or {% if audience == "external" %}organization admin{% else %}the internal service support team{% endif %}.
+A new author of the page can be assigned by its current author or the {% if audience == "external" %}organization administrator{% else %}internal services support team{% endif %}.
 
 {% endnote %}
 
-## Assign page owners {#add}
+## Adding a page author {#add}
 
-To assign another user as the page owner:
+To add a page author:
 
-  1. Open a page.
+  1. Open the page.
 
-  1. In the upper-right corner of the page, click ![](../../_assets/wiki/ico-actions.png) **Action** and go to **Settings**.
+  1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Settings**.
 
-  1. Click **Page owners** and enter the username of the new page owner.
+  1. Click the line **Authors** and specify the username of the new author of the page.
 
-  1. Click **Save**.
+  1. Close the author editing window. The changes are saved automatically.
 
-## Become the owner of another user's page {#request}
+## Removing a user from the list of page authors {#del}
 
-To become the owner of a page created by another user:
+To remove a page author:
 
-  1. Open a page.
+  1. Open the page.
 
-  1. In the upper-right corner of the page, click ![](../../_assets/wiki/ico-actions.png) **Action** and go to **Settings**.
+  1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Settings**.
 
-  1. Click **Become owner** and explain why you should be assigned as the page owner.
+  1. Click the line **Authors**.
 
-  1. Click **Submit**.
+  1. Next to the name of the user you want to remove from the list of authors, click ![](../../_assets/wiki/svg/actions-icon.svg) and select **Delete**.
 
-  The current page owner will receive your request by mail. After they approve your request, you will be added to the page owner list and receive a notification by mail.
+  1. Close the author editing window. The changes are saved automatically.
 
-## Edit the page owner list {#edit}
+{% note alert %}
 
-{% if audience == "external" %}
-The organization admin can edit the page owner list for any page:
+If you remove the page owner from the list of authors, the user whose name is first in the list of authors will be automatically assigned a new owner.
 
-  1. Open a page.
+{% endnote %}
 
-  1. In the upper-right corner of the page, click ![](../../_assets/wiki/ico-actions.png) **Action** and go to **Settings**.
+## Becoming an author of someone else's page {#addme}
 
-  1. Add or remove usernames in the **Page owners** section.
+  1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Settings**.
 
-  1. Click **Save**.
+  1. Click the line **Authors** and view the list of all authors.
 
-{% else %}
-The internal service support team can edit the page owner list for any page.
+  1. Contact one of the current authors and ask them to add you to this list.
 
-If the page owner is currently employed at Yandex, but they don't have access to the Internet or a PC:
+{% if audience == "internal" %} 
+The internal services support team can edit the list of authors for any page.
 
-  1. Send a message to [tools@](mailto:tools@yandex-team.ru). Add the cluster owner to the recipient list.
+If the page author is an active Yandex employee who currently has no access to the intranet or PC:
+
+  1. Send an email to [tools@](mailto:tools@yandex-team.ru) with a copy to the cluster author.
 
   1. Wait for the team to process your request.
 
-If the page owner no longer works at Yandex:
+If the author of a page is no longer a Yandex employee:
 
-  1. Click **Become page owner**.
+  1. Click **Become an author**.
 
-  1. Wait for the internal service team to process your request.
+  1. Wait for the internal services support team to process your request.
 
 {% endif %}
+
+## Changing the page owner {#edit-owner}
+
+To assign the owner of a page whose author{% if audience == "external" %} or organization administrator{% endif %} you are:
+
+  1. Open the page.
+
+  1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Settings**.
+
+  1. Click the line **Authors**.
+
+  1. Make sure the user is in the list of authors. If not, [add them](#add).
+
+  1. Next to the name of the user you want to appoint the owner, click ![](../../_assets/wiki/svg/actions-icon.svg) and select **Appoint as owner**. You can only assign one owner for a page.
 
 #### See also
 

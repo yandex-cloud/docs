@@ -38,6 +38,7 @@ default:
   link-sharepoint-common: https://yandexteam.sharepoint.com/Shared%20Documents/Forms/AllItems.aspx
   link-sharepoint-personal: https://yandexteam-my.sharepoint.com/_layouts/15/MySite.aspx?MySiteRedirect=AllDocuments
   link-excel: https://support.microsoft.com/ru-ru/office/определение-и-использование-имен-в-формулах-4d0f13ac-53b7-422e-afd2-abd7ff379c64
+  yfm-link: https://ydocs.tech/ru/
   
   #Тексты из примеров
   yandex-logo-link: http://img.yandex.net/i/logo95x37x8.png
@@ -51,6 +52,7 @@ default:
   exapmlle-anchor: m-mojjrazdel
   example-account: login@yandex.ru
   yandex-music: https://music.yandex.ru
+  yfm: Yandex Flavored Markdown
 
 
 internal:

@@ -10,6 +10,8 @@ items:
     href: login.md
   - name: Create your first Wiki page
     href: quick-guide.md
+  - name: Customize the appearance of Wiki pages
+    href: settings-wiki.md
 - name: Getting started
   when: audience == "internal"
   href: quick-guide.md
@@ -29,15 +31,12 @@ items:
     href: create-page.md
   - name: Dynamic table
     href: create-grid.md
-  - name: Note
-    href: create-note.md
   - name: Importing data from a file
     href: import-page.md
   - name: Microsoft Office 365 document
     when: audience == "internal"
     href: create-office.md
   - name: Wysiwyg page
-    when: audience == "internal"
     href: wysiwyg-create.md
 - name: Editing Wiki pages and dynamic tables
   items:
@@ -49,8 +48,6 @@ items:
     items:
     - name: Formatting text
       href: basic-markup.md
-    - name: Attaching a file
-      href: attach-file.md
     - name: Embedding images
       href: add-image.md
     - name: Insert a table
@@ -84,6 +81,8 @@ items:
       href: actions/anchor.md
     - name: Page lists
       href: actions/page-lists.md
+- name: Working in the visual editor (Wysiwyg)
+  href: wysiwyg-edit.md
 - name: Managing pages
   items:
   - name: Page settings
@@ -96,17 +95,16 @@ items:
     href: page-management/edit-owner.md
   - name: Changing the page address
     href: page-management/move-page.md
-  - name: Adding keywords (tags)
-    href: add-key-words.md
-  - name: Marking pages as outdated
-    href: exp-page.md
+# - name: Adding keywords (tags)
+#   href: add-key-words.md
+# - name: Marking pages as outdated
+#   href: exp-page.md
   - name: Viewing edit history
     href: history.md
+  - name: Attaching a file
+    href: attach-file.md
   - name: Deleting pages
     href: delete-page.md
-  - name: Customize the appearance of Wiki pages
-    when: audience == "internal"
-    href: settings-wiki.md
 - name: Navigation in {{ wiki-name }}
   items:
   - name: Searching {{ wiki-name }}
@@ -147,9 +145,6 @@ items:
     - name: Vim text editor
       when: audience == "internal"
       href: vim.md
-- name: Working in the visual editor (Wysiwyg)
-  when: audience == "internal"
-  href: wysiwyg-edit.md
 - name: Using Microsoft Office 365 documents
   when: audience == "internal"
   items:

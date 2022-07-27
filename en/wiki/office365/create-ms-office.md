@@ -1,113 +1,112 @@
 # Creating a Microsoft Office 365 document in {{wiki-name}}
 
-To embed an Office 365 document on {{wiki-name}}, create a new **Word, Excel, or PowerPoint** page and link it to the document using one of the following methods:
+To embed an MS Office 365 document in {{wiki-name}}, create a new **Word, Excel, or PowerPoint** page and link it to the document in one of the following ways:
 
-* [Create a new Office 365 document in the {{wiki-name}} interface.](#new-from-wiki)
+* [Create a new Office 365 document through the {{wiki-name}} interface.](#new-from-wiki)
 
-* [Provide a link to an existing document](#embed-existing) stored on the Sharepoint portal or in your personal OneDrive folder.
+* [Provide a link to an existing document](#embed-existing) that is saved on Sharepoint or in your OneDrive personal folder.
 
-* [Upload the document from your computer in the {{wiki-name}} interface.](#import-doc)
+* [Upload a document from your PC using the {{wiki-name}} interface.](#import-doc)
 
-By default, the embedded cloud document takes up the entire page, and no other content can be added to the page. If you need to, you can [embed another document on the page using iframe](embed-iframe.md).
+By default, an embedded cloud document occupies the entire page and no other content can be added to it. If you need to add it, you can [embed a document in a page using an iframe](embed-iframe.md).
 
-## Create a new document from the {{wiki-name}} interface {#new-from-wiki}
+## Creating a new document from the {{wiki-name}} interface {#new-from-wiki}
 
-Use the {{wiki-name}} interface to create a Word, Excel, or PowerPoint document on the Sharepoint portal and embed it on a new Wiki page.
+Using the {{wiki-name}} interface, you can create a Word, Excel, or PowerPoint document on Sharepoint and embed it in a new Wiki page.
 
-1. In the top {{wiki-name}} menu, click **Create**.
+1. Click {{wiki-name}} **Create** in the upper panel.
 
-1. Select the page type: **Word, Excel, or PowerPoint**.
+1. Select the **Word, Excel, or PowerPoint** page type.
 
-1. Enter the page name and address in the same way as when [creating a Wiki page](../create-page.md).
+1. Set the page title and address in the same way as when [creating a regular Wiki page](../create-page.md).
 
 1. Choose **Create a new Microsoft 365 document**.
 
-1. Select the type of document you want to create.
+1. Select the type of document to create.
 
-1. Click **Create**. An empty document will be created on the Sharepoint portal and embedded on a new Wiki page.
+1. Click **Create**. As a result, an empty document is created on Sharepoint and embedded in a new Wiki page.
 
-1. To add content to the document, click [**Cloud editing**](co-edit.md#edit-button) on the Wiki page. The document will then open in Office 365 in a new browser tab.
+1. To add content to the document, click [**Edit in cloud**](co-edit.md#edit-button) on the Wiki page. The document opens in a new browser tab in the Office 365 application.
 
-1. To manage access permissions to your document, change the [Wiki page access settings](../page-management/access-setup.md). By default, the **Same as parent page** option is applied to new pages. For more information, see [Configure access to documents](doc-access.md).
-
-{% note alert %}
-
-If you aren't [logged in to the Office 365 portal](ms-office.md#office-login), you won't be able to view the created document. If you don't have an Office 365 license, send a request via this [form](https://help.yandex-team.ru/?form=soft).
-
-{% endnote %}
-
-## Embed an existing document on a new page {#embed-existing}
-
-If you have documents stored in the Office 365 corporate cloud, you can embed those documents on Wiki pages. Documents to be viewed by a large audience should be stored on the [Sharepoint site]({{link-sharepoint-common}}) in your project or department folder.
+1. To control access to the document, edit the [Wiki page access settings](../page-management/access-setup.md). By default, the **Like the parent page** option applies to a new page. Learn more in [Configuring access to documents](doc-access.md).
 
 {% note alert %}
 
-If your documents are stored in a personal OneDrive folder, [transfer them to a shared site](doc-access.md#move-doc) before you embed them on {{wiki-name}}. Otherwise, the files in your personal folder will be deleted in case you leave the organization or your Office 365 license is revoked.
+To view the document you created, be sure to [log in to Office 365](ms-office.md#office-login). If you don't have an MS Office 365 license, submit a request using the [form](https://help.yandex-team.ru/?form=soft).
 
 {% endnote %}
 
-To embed a document on a new page:
+## Embedding an existing document in a new page {#embed-existing}
 
-1. Find the file on the [Sharepoint portal]({{link-sharepoint-common}}) or in your [personal OneDrive folder]({{link-sharepoint-personal}}) and make sure it can be accessed by the users you want to share the file with on {{wiki-name}}.
-By default, any file stored on the common Sharepoint site can be accessed by all internal and external employees. For more information, see [Configure access to documents](doc-access.md).
+If you have documents that you store in the Office 365 corporate cloud, you can embed them in Wiki pages. Documents intended for a wide audience should be stored on a [Sharepoint shared website]({{link-sharepoint-common}}) in your project or department folder.
+
+{% note alert %}
+
+If your documents are stored in your OneDrive personal folder, before embedding them in {{wiki-name}}, [move them to a shared website](doc-access.md#move-doc). Otherwise, in case of your dismissal or revocation of the Office 365 license, all files in your personal folder are deleted.
+
+{% endnote %}
+
+To embed a document in a new page:
+
+1. Find the desired file on the [Sharepoint portal]({{link-sharepoint-common}}) or in your [OneDrive personal folder]({{link-sharepoint-personal}}) and check that access to the file is granted to the users you want to share the file with in {{wiki-name}}.
+If the file is stored on a Sharepoint shared website, it's available to all full-time employees and contractors by default. Learn more in [Configuring access to documents](doc-access.md).
 
 1. Copy the link to the document or get the embed code.
-    * Open the document in the browser and copy the link from the address bar.
-    * Open the folder with the document on the [Sharepoint portal]({{link-sharepoint-common}}) or in your [personal section in OneDrive]({{link-sharepoint-personal}}). Hover your cursor over the document, click ![](../../_assets/wiki/share-opt.png), and choose **Copy link**.
+    * Open the document in your browser and copy the link from the address bar.
+    * Open the document folder on the [Sharepoint portal]({{link-sharepoint-common}}) or in your [OneDrive personal cluster]({{link-sharepoint-personal}}). Hover over the document, click ![](../../_assets/wiki/share-opt.png), and select **Copy link**.
 
-   Via the link, the document will be embedded using the default parameters. To customize how your document appears on the page and configure other parameters, use the embed code.
+   Via the link, the document is embedded with default parameters. To customize the appearance of the document on the page and other parameters, use the embed code.
 
    {% cut "How to get the embed code" %}
-   
    1. Open the document.
-   1. In the menu, select **File** → **Share** → **Embed** (in PowerPoint, **File** → **Shared access** → **Embed**).
-   1. Configure embedding parameters for the document.
-   1. Copy the text from the **Embed code** field.
+   1. Select **File** → **Share** → **Embed** (in the PowerPoint menu: **File** → **Share** → **Embed**).
+   1. Configure the document embed parameters.
+   1. Copy text from the **Embed Code** field.
 
    {% endcut %}
 
-1. In the top {{wiki-name}} menu, click **Create**.
+1. Click {{wiki-name}} **Create** in the upper panel.
 
-1. Select the page type: **Word, Excel, or PowerPoint**.
+1. Select the **Word, Excel, or PowerPoint** page type.
 
-1. Just like you do when creating a Wiki page, enter the page name and choose the cluster where the page will be stored.
+1. Just like when creating a Wiki page, name the page and choose the cluster to place it in.
 
 1. Choose **Add an existing Microsoft 365 document**.
 
-1. Insert the embed code or a link to the document in the **Document code** field.
+1. In the **Document code** field, paste the embed code or document link.
 
 1. Click **Create**.
 
-   The document will be embedded on the Wiki page you've created.
+   This embeds the document in the Wiki page you created.
 
 {% note alert %}
 
-If the document was created in the Sharepoint interface, the access settings of its parent Wiki page will not apply to the document. You can only manage access to such documents in the Sharepoint interface. For more information, see [Configure access to documents](doc-access.md).
+If the document was created through the Sharepoint interface, the access settings of the Wiki page the document is embedded in do not apply to it. You can only manage access to these documents through the Sharepoint interface. Learn more in [Configuring access to documents](doc-access.md).
 
 {% endnote %}
 
-## Create a page from a local document {#import-doc}
+## Creating a page from a local document {#import-doc}
 
-Upload a DOCX, XLSX, or PPTX file from the {{wiki-name}} interface to the Sharepoint portal and embed the file on a new Wiki page.
+Using the {{wiki-name}} interface, you can upload a DOCX, XLSX, or PPTX document to Sharepoint and embed it in a new Wiki page.
 
-1. In the top {{wiki-name}} menu, click **Create**.
+1. Click {{wiki-name}} **Create** in the upper panel.
 
-1. Select the page type: **Word, Excel, or PowerPoint**.
+1. Select the **Word, Excel, or PowerPoint** page type.
 
-1. Just like you do when creating a Wiki page, enter the page name and choose the cluster where the page will be stored.
+1. Just like when creating a Wiki page, name the page and choose the cluster to place it in.
 
-1. Choose **Upload a document from your computer**.
+1. Choose **Upload documents from your computer**.
 
-1. Click **Upload a file** and select the document you want to embed on the Wiki page.
+1. Click **Upload file**and select the document to embed in the Wiki page.
 
 1. Click **Create**.
-The selected file will be uploaded to the Sharepoint portal through a robot account and embedded on the Wiki page you've created.
+As a result, the selected file is uploaded to Sharepoint by a robot and embedded in the created Wiki page.
 
-1. To manage access permissions to your document, change the [Wiki page access settings](../page-management/access-setup.md). By default, the **Same as parent page** option is applied to new pages. For more information, see [Configure access to documents](doc-access.md).
+1. To control access to the document, edit the [Wiki page access settings](../page-management/access-setup.md). By default, the **Like the parent page** option applies to a new page. Learn more in [Configuring access to documents](doc-access.md).
 
 {% note alert %}
 
-If you aren't [logged in to the Office 365 portal](ms-office.md#office-login), you won't be able to view the created document. If you don't have an Office 365 license, send a request via this [form](https://help.yandex-team.ru/?form=soft).
+To view the document you created, be sure to [log in to Office 365](ms-office.md#office-login). If you don't have an MS Office 365 license, submit a request using the [form](https://help.yandex-team.ru/?form=soft).
 
 {% endnote %}
 

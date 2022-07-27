@@ -1,16 +1,16 @@
 # Diagrams and flowcharts
 
-You can use one of the supported text markup languages to add a diagram, a chart, or a graph to your Wiki page.
+To add a diagram, chart, or graph to a page, you can use one of the supported text markup languages.
 
 {% if audience == "internal" %}
 
-{{ wiki-name }} supports [draw.io](https://drawio.yandex-team.ru/) integration. You can create a diagram in a convenient graphics editor and [place it on a page](../actions/drawio.md) using the `iframe` block.
+{{ wiki-name }} supports integration with [draw.io](https://drawio.yandex-team.ru/). You can create a chart in a convenient graphical editor and [move it to a page](../actions/drawio.md) using an `iframe`.
 
 {% endif %}
 
 ## Graphviz (DOT) {#graphviz}
 
-[Graphviz]({{ link-about-graphviz }}) is the best option for designing charts and trees.
+[Graphviz]({{ link-about-graphviz }}) best suited for styling graphs and trees.
 
 Markup example:
 
@@ -39,9 +39,9 @@ Markup example:
 
 {% endcut %}
 
-You can customize the appearance of your graphs using optional parameters:
+Configure the appearance of your diagrams using optional parameters:
 
-* `dot`, `neato`, `circo`, `twopi`, `fdp` — name of a utility for making graphs. By default, `dot` is used.
+* `dot`, `neato`, `circo`, `twopi`, `fdp`: The name of the utility to use to create graphs. By default, `dot` is used.
 
 * `width` — maximum graph width in pixels.
 
@@ -49,7 +49,7 @@ You can customize the appearance of your graphs using optional parameters:
 
 ## Blockdiag {#blockdiag}
 
-[Blockdiag](http://blockdiag.com/en/) is used for creating flowcharts.
+[Blockdiag](http://blockdiag.com/en/) is intended for building flowcharts.
 
 Markup example:
 
@@ -72,15 +72,15 @@ orientation = portrait
 
 {% endcut %}
 
-You can customize the appearance of your diagrams using optional parameters:
+You can configure the appearance of your diagrams using optional parameters:
 
-* `width` — maximum flowchart width in pixels.
+* `width` – maximum width of the flowchart in pixels.
 
-* `height` — maximum flowchart height in pixels.
+* `height` – maximum height of the flowchart in pixels.
 
 ## Seqdiag {#seqdiag}
 
-[Seqdiag](http://blockdiag.com/en/seqdiag/) is used for building [sequence diagrams]({{ link-about-diagram }}).
+[Seqdiag](http://blockdiag.com/en/seqdiag/) is intended for building [sequence diagram]({{ link-about-diagram }}).
 
 Markup example:
 
@@ -113,15 +113,15 @@ Markup example:
 
 {% endcut %}
 
-You can customize the appearance of your diagrams using optional parameters:
+You can configure the appearance of your diagrams using optional parameters:
 
-* `width` — maximum diagram width in pixels.
+* `width` — maximum width of the diagram in pixels.
 
-* `height` — maximum diagram height in pixels.
+* `height` — maximum height of the diagram in pixels.
 
 ## PlantUML {#plantuml}
 
-[PlantUML](https://plantuml.com/) is an open source project that supports many notation types and saves you time creating complex diagrams.
+[PlantUML](https://plantuml.com/): An open-source project that supports multiple notations and lets you quickly create complex diagrams.
 
 Markup example:
 
@@ -143,6 +143,7 @@ Foo1 -[#00cc00]> Foo6 : To collections
 Foo1 -> Foo7 : To Queue
 
 @enduml
+%%
 ```
 
 {% cut "See the result" %}
@@ -151,5 +152,5 @@ Foo1 -> Foo7 : To Queue
 
 {% endcut %}
 
-For more information about the PlantUML diagram markup language, see [PlantUML Language Reference Guide]{% if locale == "ru" %}(http://plantuml.com/ru/guide){% else %}(http://plantuml.com/guide){% endif %}.
+For more information about the PlantUML diagram markup language, see the [PlantUML Language Reference Guide](http://plantuml.com/ru/guide).
 

@@ -1,109 +1,132 @@
-# Working in the visual editor (Wysiwyg)
+# Working in the Wysiwyg visual editor
 
-{% note info %}
+The visual editor only works on [Wysiwyg pages](pages-types.md#wysiwyg). The editor is now at the beta stage, so it may be unstable.
 
-You can only use the visual editor with [Wysiwyg pages](pages-types.md#wysiwyg) that are accessible from the internal Yandex {{wiki-name}}.
+You can't convert Wysiwyg pages into regular Wiki pages or use Wiki markup and [dynamic blocks](actions.md) on them.
 
-{% endnote %}
+## Editing a Wysiwyg page {#edit-page}
 
-The visual editor is currently in the beta phase, so it may be unstable. Wysiwyg pages have certain limitations:
+To edit a page [created](wysiwyg-create.md) in the Wysiwyg visual editor:
 
-* They are not compatible with the Wiki markup or [dynamic blocks](actions.md).
+1. Open the desired Wysiwyg page and click **Edit** in the upper-right corner.
 
-* They can't be converted into Wiki pages with the common markup.
-
-* They can't be found via the [intranet search](search.md).
-
-## Editing Wysiwyg pages {#edit-page}
-
-To edit a page [created](wysiwyg-create.md) in the visual editor (Wysiwyg):
-
-1. Open the Wysiwyg page and click **Edit** in the upper-right corner.
-
-1. Make edits on the Wysiwyg page. Use the toolbar buttons to format text, edit lists, or insert tables and images:
+1. Edit the Wysiwyg page. To format text and lists, insert tables and pictures, use the following toolbar buttons:
 
     ![](../_assets/wiki/tools-panel.png)
 
-## Text formatting {#format-wysiwyg}
+1. To cancel or repeat an action, use the ![](../_assets/wiki/svg/wysiwyg/undo.svg) and ![](../_assets/wiki/svg/wysiwyg/redo.svg) buttons.
 
-To format text, use the toolbar buttons or keyboard shortcuts:
+1. To use [{{ yfm }} markup]({{ yfm-link }}) to format text, click ![](../_assets/wiki/svg/wysiwyg/set.svg) and select **Markup** mode.
 
-| Formatting | Toolbar button | Keyboard shortcut |
-| --- | --- | --- |
-| Header | ![](../_assets/wiki/tool-headrs.png) | — |
-| Bold | ![](../_assets/wiki/bold.png) | **Ctrl** + **B** |
-| Italics | ![](../_assets/wiki/tool-curve.png) | **Ctrl** + **I** |
-| Strikethrough | ![](../_assets/wiki/tool-line.png) | **Ctrl** + **Shift** + **S** |
-| Underline | ![](../_assets/wiki/tool-underline.png) | **Ctrl** + **U** |
-| Code line | ![](../_assets/wiki/tool-codeline.png) | — |
+1. To disable the toolbar, click ![](../_assets/wiki/svg/wysiwyg/set.svg) and turn off the **Toolbar** option. If the toolbar is disabled, you can call commands using the `/` symbol in **Editor** mode.
+
+## Formatting text {#format-wysiwyg}
+
+To format text, use the following toolbar buttons or keyboard shortcuts:
+
+| Formatting | Toolbar button | Windows shortcuts | Mac OS shortcuts |
+| --- | --- | --- | --- |
+| Header | ![](../_assets/wiki/svg/wysiwyg/header.svg) ![](../_assets/wiki/svg/wysiwyg/show.svg) | **Ctrl** + **Alt** + **1**—**6** | **⌘** + **⌥** + **1**—**6** |
+| Bold | ![](../_assets/wiki/svg/wysiwyg/bold.svg) | **Ctrl** + **B** | **⌘** + **B** |
+| Italics | ![](../_assets/wiki/svg/wysiwyg/italic.svg) | **Ctrl** + **I** | **⌘** + **I** |
+| Underlined text | ![](../_assets/wiki/svg/wysiwyg/underline.svg) | **Ctrl** + **U** | **⌘** + **U** |
+| Crossed out text | ![](../_assets/wiki/svg/wysiwyg/strikethrough.svg) | **Ctrl** + **Shift** + **S** | **⌘** + **Shift** + **S** |
+| Colored text | ![](../_assets/wiki/svg/wysiwyg/color.svg) ![](../_assets/wiki/svg/wysiwyg/show.svg) | — | — |
 
 ## Lists {#lists-wysiwyg}
 
-To add a list, select one or more paragraphs and use the buttons on the toolbar:
+To add a list, select one or more paragraphs and use the following toolbar buttons or keyboard shortcuts:
 
-| List | Toolbar button |
-| --- | --- |
-| Bulleted list | ![](../_assets/wiki/tool-list-mark.png) |
-| Numbered list | ![](../_assets/wiki/tool-list-num.png) |
+| List | Toolbar button | Windows shortcuts | Mac OS shortcuts |
+| --- | --- | --- | --- |
+| Bulleted list | ![](../_assets/wiki/svg/wysiwyg/ul.svg) | **Ctrl** + **Shift** + **L** | **⌘** + **Shift** + **L** |
+| Numbered list | ![](../_assets/wiki/svg/wysiwyg/ol.svg) | **Ctrl** + **Shift** + **M** | **⌘** + **Shift** + **M** |
+| Checklist (checkbox) | ![](../_assets/wiki/svg/wysiwyg/checkbox.svg) | — | — |
 
-To format a nested list item, select a paragraph and press the tab key at the beginning of the line.
+To format a nested list item, select a paragraph and press the Tab key (**⇥**) at the beginning of the line.
 
-## Quotes and code blocks {#src-wysiwyg}
+## Block formatting {#block-wysiwyg}
 
-To add a quote or a code block, select one or more paragraphs and use the buttons on the toolbar:
-Block | Toolbar button
---- / ---
-Quote | ![](../_assets/wiki/tool-quote.png)
-Code block | ![](../_assets/wiki/tool-codeblock.png)
+To add a quote, note, or cut, select one or more paragraphs and use the following toolbar buttons or keyboard shortcuts:
+
+| Block | Toolbar button | Windows shortcuts | Mac OS shortcuts |
+| --- | --- | --- | --- |
+| Note | ![](../_assets/wiki/svg/wysiwyg/note.svg) | **Ctrl** + **Alt** + **8** | **⌘** + **⌥** + **8** |
+| Cut | ![](../_assets/wiki/svg/wysiwyg/cut.svg) | **Ctrl** + **Alt** + **7** | **⌘** + **⌥** + **7** |
+| Quote | ![](../_assets/wiki/svg/wysiwyg/quote.svg) | **Ctrl** + **>** | **⌘** + **>** |
+
+For the **Note** block, you can choose its type: <q>Note</q>, <q>Advice</q>, <q>Important</q>, or <q>Attention</q>.
+
+## Code formatting {#src-wysiwyg}
+
+To add a code block, select a line or paragraph and use the following toolbar buttons or keyboard shortcuts:
+
+| Block | Toolbar button | Windows shortcuts | Mac OS shortcuts |
+| --- | --- | --- | --- |
+| Code block | ![](../_assets/wiki/svg/wysiwyg/code-block.svg) | **Ctrl** + **Alt** + **E** | **⌘** + **⌥** + **E** |
+| Line of code in text | ![](../_assets/wiki/svg/wysiwyg/inline-code.svg) | **Ctrl** + **E** | **⌘** + **E** |
 
 ## Links {#links-wysiwyg}
 
 To add a link:
 
-1. Select a text fragment or click on the area where you want to add the link.
+1. Select a text fragment or click on the area to add a link to.
 
-1. Click ![](../_assets/wiki/tool-link.png) on the toolbar.
+1. On the toolbar, click ![](../_assets/wiki/svg/wysiwyg/link.svg).
 
-1. Enter a direct or [relative](static-markup/links.md#wiki-ref) link address and click **OK**.
+1. Enter a direct or [relative](static-markup/links.md#wiki-ref) reference. If you haven't selected a text fragment, enter the text to be displayed as a link.
+
+1. Click **Save**.
 
 To change or delete a link:
 
-1. Click the link.
+1. Click on the link.
 
-1. Click ![](../_assets/wiki/tool-link.png) on the toolbar.
+1. Edit it and click **Save**.
 
-1. Make edits and click **OK**.
+## Embedded content {#content-wysiwyg}
 
-## Images {#pictures-wysiwyg}
+In the visual editor, you can't upload an image or objects from external sources to a page. You can add a picture or object by copying its address from another Wiki page or an external resource. A user can only see this object on your page if they have access to the original page.
 
-{% note info %}
-
-You can't upload images to a page in the visual editor. To add an image, copy its address from a different Wiki page. A user will be able to view the image on your page if they have access to the Wiki page with the original file.
-
-{% endnote %}
+### Image {#image}
 
 To insert an image:
 
-1. Upload the image to a [Wiki page](add-image.md) or a file hosting service, such as [Jing](https://jing.yandex-team.ru/). You can't change the size of an image in the visual editor, so make sure to adjust the size beforehand.
+1. Upload the image to a [Wiki page](add-image.md) or a file hosting service{% if audience == "internal" %} such as [Jing](https://jing.yandex-team.ru/){% endif %}.
 
-1. Copy the page address.
+1. Copy the image URL.
 
-1. Click ![](../_assets/wiki/tool-pic.png) on the toolbar.
+1. On the toolbar, click ![](../_assets/wiki/svg/wysiwyg/image.svg):
 
-1. Paste the image address and click **OK**.
+    * In the **Link** field, paste the image URL.
 
-1. To delete an image, use the _Backspace_ or _Del_ keys.
+    * Add a **Picture caption**. The caption is displayed when hovering over the image.
+
+    * Enter **Alternative text**. The text is displayed if the image fails to load.
+
+    * Set the image size.
+
+1. Click **Save**.
+
+### Objects and media files {#iframe}
+
+To embed an object or media file from an external source in a page, use an embedded iFrame:
+
+1. Copy the link to the resource to be displayed in the iFrame.
+
+1. On the toolbar, click ![](../_assets/wiki/svg/wysiwyg/iframe.svg):
+
+    * In the **Link** field, paste the resource URL.
+
+    * Specify the iFrame size.
+
+1. Click **Save**.
 
 ## Tables {#tables-wysiwyg}
 
-To add a table, click ![](../_assets/wiki/tool-tab.png) on the toolbar and fill in the cells. You can format text in the table cells.
+To add a table, click ![](../_assets/wiki/svg/wysiwyg/table.svg) on the toolbar and fill in table cells. You can format text in table cells.
 
-To edit a table, select a cell and use the toolbar buttons:
-Action | Toolbar button --- | --- Delete table | ![](../_assets/wiki/tool-del-tab.png)
-Insert row | ![](../_assets/wiki/tool-tab-add-line.png)
-Delete row | ![](../_assets/wiki/tool-tab-del-line.png)
-Insert column | ![](../_assets/wiki/tool-tab-add-column.png)
-Delete column | ![](../_assets/wiki/tool-tab-del-column.png)
+To edit a table, select a cell and use the dynamic buttons.
 
 #### See also
 

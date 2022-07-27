@@ -2,17 +2,17 @@
 
 ## Tags {#html-tags}
 
-You can use HTML tags to embed markup elements not supported by Markdown.
+To insert design elements on the page that are not provided for by Markdown markup, you can use HTML tags in the text.
 
-Example:
+For example:
 
 * ```html
-  <p style="color: gray; font-weight: bold;">Grey text</p>
+  <p style="color: gray; font-weight: bold;">Gray text</p>
   ```
 
     {% cut "See the result" %}
 
-    <p style="color: gray; font-weight: bold;">Grey text</p>
+    <p style="color: gray; font-weight: bold;">Gray text</p>
 
     {% endcut %}
 
@@ -46,9 +46,9 @@ Example:
 
 ## Wiki snippets {#snippets}
 
-You can add additional formatting elements to the page using HTML code templates called snippets. Snippets for {{ wiki-name}} are available via the links:
+To add additional formatting elements to a page, you can use snippets that are HTML code templates. Snippets for {{ wiki-name}} are available at the following links:
 
-* [Page layout with multiple columns](https://wiki.yandex-team.ru/wiki/vodstvo/syntax/wiki-snippets/#1.razmetkastranicysetka)
+* [Page markup using multiple columns](https://wiki.yandex-team.ru/wiki/vodstvo/syntax/wiki-snippets/#1.razmetkastranicysetka)
 * [Buttons](https://wiki.yandex-team.ru/wiki/vodstvo/syntax/wiki-snippets/#2.knopki)
 * [Alerts](https://wiki.yandex-team.ru/wiki/vodstvo/syntax/wiki-snippets/#3.alerty)
 * [Badges](https://wiki.yandex-team.ru/wiki/vodstvo/syntax/wiki-snippets/#4.bejjdzhi)

@@ -30,7 +30,7 @@ By default, to display code with syntax highlighting in {{wiki-name}}, the font 
 
 | Programming language | Label |
 | ----- | ----- |
-| 1C | 1с, 1c |
+| 1C | 1c, 1c |
 | ActionScript | actionscript |
 | Apache | apache |
 | Applescript | applescript |

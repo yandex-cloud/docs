@@ -1,89 +1,89 @@
-# Configure access to cloud documents
+# Configuring access to cloud documents
 
-The procedure for configuring access depends on how the cloud document was created:
+Access to a cloud document is configured depending on the way it was created:
 
 * Use the Wiki page access settings if you created a new cloud document or uploaded a file via the {{wiki-name}} interface.
 
-* Use the Sharepoint access settings if you created a document in the Office 365 interface and embedded it on a Wiki page.
+* Use the Sharepoint access settings if you created a document through the Office 365 interface and then embedded it in a Wiki page.
 
-## Managing access rights via Wiki pages {#wiki-access}
+## Managing access via a Wiki page {#wiki-access}
 
-If you created a new cloud document or uploaded a file via the {{wiki-name}} interface, use the Wiki page settings to change access rights: click the button for configuring access rights at the top of the page and select [access mode](../page-management/access-setup.md).
+If you created a new cloud document or uploaded a file through the {{wiki-name}} interface, to change the document access rights, use the Wiki page settings: click the access setup button at the top of the page and select [access mode](../page-management/access-setup.md).
 
-Users with limited access to a Wiki page won't be able to read or edit the embedded document via the {{wiki-name}} interface.
-
-{% note alert %}
-
-Access rights set to {{wiki-name}} are synchronized with access rights on the Office 365 portal. Access rights configured in the Sharepoint interface will be overwritten by the Wiki page settings during synchronization.
-
-{% endnote %}
-
-## Managing access rights via the Office 365 interface {#access-list}
-
-If you created a document in the Office 365 interface and want to [embed it on Wiki pages](create-ms-office.md#embed-existing), configure access rights to the documents or folders they are located in. Otherwise, the documents may not be accessible to {{wiki-name}} users.
+Users who have limited access to the Wiki page won't be able to read and edit the embedded document through the {{wiki-name}} interface.
 
 {% note alert %}
 
-Wiki page access settings do not apply to documents created in the Office 365 interface.
-When you embed such a document on a Wiki page, the warning will show up: "Access to this document was configured by the owner on the Sharepoint portal".
+The access rights configured in {{wiki-name}} are synced with the access rights on the Office 365 portal. If you configure access rights via the Sharepoint interface, they will be overwritten by the Wiki page settings when syncing them.
 
 {% endnote %}
 
-By default, documents stored in the [personal OneDrive folder]({{link-sharepoint-personal}}) can only be accessed by their owner. Documents stored on [Sharepoint]({{link-sharepoint-common}}) can be accessed by all internal and external Yandex employees. To share a document, you can [move it to the shared site](doc-access.md#move-doc).
+## Managing access through the Office 365 interface {#access-list}
+
+If you created documents through the Office 365 portal interface and want to [embed them in Wiki pages](create-ms-office.md#embed-existing), configure access rights to the documents or folders storing them. Otherwise, the documents may be unavailable to {{wiki-name}} users.
+
+{% note alert %}
+
+Wiki page access settings do not apply to documents created through the Office 365 portal interface.
+When embedding such a document in a Wiki page, a warning saying "Access to this document was configured by the author on the Sharepoint portal" appears.
+
+{% endnote %}
+
+By default, documents that are stored in one's [OneDrive personal folder]({{link-sharepoint-personal}}) are only available to the author. Documents that are stored on a [Sharepoint shared site]({{link-sharepoint-common}}) are available to all Yandex full-timers and contractors. To share a document, you can [move it to a shared site](doc-access.md#move-doc).
 
 To configure access rights for a document or folder:
 
-1. Find the document or folder on the [Sharepoint portal]({{link-sharepoint-common}}) or in your [personal OneDrive folder]({{link-sharepoint-personal}}).
+1. Find the desired document or folder on the [Sharepoint portal]({{link-sharepoint-common}}) or in your [OneDrive personal folder]({{link-sharepoint-personal}}).
 
-1. Hover your cursor over the document and click ![](../../_assets/wiki/share-opt.png) and choose **Manage access**.
+1. Hover over the document or folder, click ![](../../_assets/wiki/share-opt.png), and select **Access management**.
 
-1. On the panel that opens up in the **Direct access** block, enter the name of the employee or the group name and the required access level: **Can edit** or **Can view**.
-   * To grant access to all internal employees, use the **Yandex.All.Staff** group. To grant access to all external employees, use **Yandex.All.Outstaff**.
-   * To grant access to all Yandex employees (internal and external), add both groups: **Yandex.All.Staff** and **Yandex.All.Outstaff**.
-   * There aren't dedicated access groups for separate divisions and departments.
+1. In the panel that opens, under **Direct access**, enter the name of an employee or the name of a group and set the access level: **Can edit** or **Can view**.
 
-    {% note alert %}
+   To specify a Staff department, enter the last part of the department link. For example, for the [<q>Documentation service</q>](https://staff.yandex-team.ru/departments/yandex_infra_tech_doc_dep78367), specify `yandex_infra_tech_doc_dep78367`.
 
-    If you grant access to a large group of employees, turn off the **Notify users** option. Otherwise, all members of the group will receive notifications by mail.
+   {% note alert %}
 
-    {% endnote %}
+   If you need to grant permissions to access a folder or website to a wide range of users (one or more groups totaling more than 200-300 people), get the approval of the Information Security service. To do this, submit a request via the [form](https://forms.yandex-team.ru/surveys/106156/).
+Access rights granted to a wide audience without being authorized by the Information Security Service are revoked automatically.
+
+   {% endnote %}
 
 1. Click **Grant access**.
 
-### Moving a document from a personal folder to a shared site {#move-doc}
+### Moving a document from a personal folder to a shared website {#move-doc}
 
-By default, documents stored in the [personal OneDrive folder]({{link-sharepoint-personal}}) can only be accessed by their owner.
+By default, documents that are stored in one's [OneDrive personal folder]({{link-sharepoint-personal}}) are only available to the author.
 
-If your shared documents are intended for a large audience, store them on the [Sharepoint site]({{link-sharepoint-common}}). On the portal, you can create a folder for your project or department and use it to store documents for public use. To keep the storage space neat and tidy, avoid moving documents in the root folder.
+If your documents are intended for a wide audience, store them on a[Sharepoint shared website]({{link-sharepoint-common}}). You can create a folder for your project or department there and store work materials to be shared in it. To maintain order in the repository, don't store your documents in the root directory.
 
-If your documents are stored in a personal OneDrive folder, move them to a shared site before embedding them on {{wiki-name}}. Otherwise, the files in your personal folder will be deleted in case you leave the organization or your Office 365 license is revoked.
+If your documents are stored in the OneDrive personal folder, move them to a shared website before embedding them in {{wiki-name}}. Otherwise, in case of your dismissal or revocation of the Office 365 license, all files in your personal folder are deleted.
 
 To move a document:
 
-1. Find the document in your [personal OneDrive folder]({{link-sharepoint-personal}}).
+1. Find the desired document in your [OneDrive personal folder]({{link-sharepoint-personal}}).
 
-1. Hover your cursor over the document and click ![](../../_assets/wiki/share-opt.png) and choose **Move**.
+1. Hover over the document, click ![](../../_assets/wiki/share-opt.png), and select **Move**.
 
-1. On the panel that opens up in the **Locations** block, select **Yandex** → **Group website** → **Documents**, then select your department or project folder. If there is no such folder, you can create a new one.
+1. In the panel that opens, under **Location**, select **Yandex** → **Group site** → **Documents** and choose your department or project folder. If there is no such folder, you can create one.
 
 1. Click **Move here**.
 
-### Accessing documents via link {#share-link}
+### Accessing a document via a link {#share-link}
 
-If you want other users to work with a document in the Office 365 interface, you can share access to the document via a link.
+If you want other users to work with a document in the Office 365 interface, you can enable access to the document via a link.
 
 {% note alert %}
 
-You can't use this method for embedding a document on {{wiki-name}}.
+This method doesn't work for embedding a document in {{wiki-name}}.
 
 {% endnote %}
 
-1. Find the document on the [Sharepoint portal]({{link-sharepoint-common}}) or in your [personal OneDrive folder]({{link-sharepoint-personal}}). Hover your cursor over the document and click ![](../../_assets/wiki/access.png).
-If the document is open, select **File** → **Share** → **Share** (in PowerPoint, **File** → **Shared access** → **Share with other users**).
+1. Find the desired document [on the Sharepoint portal]({{link-sharepoint-common}}) or in your [OneDrive personal folder]({{link-sharepoint-personal}}). Hover over the document and click ![](../../_assets/wiki/access.png).
+If the document is open, select **File** → **Share** → **Share** (in the PowerPoint menu: **File** → **Share** → **Share with people**).
 
-1. To set up access rights via the link, click **Specified users can edit**.
+1. To set up access with the link, click **People you specify can edit**.
 
-1. To send the link by mail, enter usernames or email addresses and click **Send**.
+1. To send the link by email, enter the usernames or email addresses and click **Send**.
 
 1. To copy the link, click **Copy link**.
 

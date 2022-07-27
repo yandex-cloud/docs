@@ -1,12 +1,12 @@
 # Formatting CSV data
 
-To display CSV data as a table, use the following markup:
+To display data in CSV format as a table, use the markup:
 
 ```
 %%(csv delimiter=; head=1)
-Heading 1; Heading 2; Heading 3
+Title 1;Title 2;Title 3
 cell 11;cell 12;cell 13
-cell 21; cell 22; cell 23
+cell 21;cell 22;cell 23
 %%
 ```
 
@@ -18,19 +18,19 @@ cell 21; cell 22; cell 23
 
 Markup parameters:
 
-* `delimiter`: a field separator used in CSV tables.
+* `delimiter` — a field separator used in CSV tables.
 
-* `head`: if set to 1, the first row of the table becomes a header.
+* `head` — if set to 1, the first row of the table becomes a title.
 
 {% note info %}
 
-You can't use [text formatting elements](formatting.md) in CSV tables.
+CSV tables don't support any other [text markup](formatting.md).
 
 {% endnote %}
 
 #### See also
 
-* [Insert diagrams and flowcharts](diagram.md)
+* [Embedding diagrams and flowcharts](diagram.md)
 
-* [Insert formulas](formulas.md)
+* [Embedding formulas](formulas.md)
 

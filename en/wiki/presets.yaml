@@ -38,7 +38,8 @@ default:
   link-sharepoint-common: https://yandexteam.sharepoint.com/Shared%20Documents/Forms/AllItems.aspx
   link-sharepoint-personal: https://yandexteam-my.sharepoint.com/_layouts/15/MySite.aspx?MySiteRedirect=AllDocuments
   link-excel: https://support.microsoft.com/en-us/office/define-and-use-names-in-formulas-4d0f13ac-53b7-422e-afd2-abd7ff379c64
-  
+  yfm-link: https://ydocs.tech/en/
+
   #Тексты из примеров
   yandex-logo-link: http://img.yandex.net/i/logo95x37x8.png
   wiki-host-name: wiki.yandex.com
@@ -51,6 +52,7 @@ default:
   example-anchor: m-mycluster
   example-account: login@yandex.com
   yandex-music: https://music.yandex.com
+  yfm: Yandex Flavored Markdown
 
 
 internal:
