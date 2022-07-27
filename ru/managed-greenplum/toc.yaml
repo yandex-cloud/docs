@@ -55,6 +55,8 @@ items:
         href: concepts/cluster-users.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
+      - name: Настройки Greenplum®
+        href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md
   - name: Ресурсы и квоты
