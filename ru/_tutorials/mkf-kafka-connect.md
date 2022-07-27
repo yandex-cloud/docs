@@ -41,53 +41,84 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте кластер {{ mkf-name }}](../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации.
+{% list tabs %}
 
+- Вручную
+    1. [Создайте кластер {{ mkf-name }}](../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации.
     1. [Создайте топик](../managed-kafka/operations/cluster-topics.md#create-topic) с именем `messages` для обмена сообщениями между {{ KFC }} и кластером {{ mkf-name }}.
-    1. [Создайте учетную запись](../managed-kafka/operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ей права](../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `messages`:
+    1. [Создайте пользователя](../managed-kafka/operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ему права](../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `messages`:
+
         * `ACCESS_ROLE_CONSUMER`,
         * `ACCESS_ROLE_PRODUCER`.
 
-{% if audience != "internal" %}
+    {% if audience != "internal" %}
 
-1. В той же сети, что и кластер {{ mkf-name }}, [создайте виртуальную машину](../compute/operations/vm-create/create-linux-vm.md) c Ubuntu 20.04 и публичным IP-адресом.
+    1. В той же сети, что и кластер {{ mkf-name }}, [создайте виртуальную машину](../compute/operations/vm-create/create-linux-vm.md) c Ubuntu 20.04 и публичным IP-адресом.
 
+    {% else %}
+
+    1. В той же сети, что и кластер {{ mkf-name }}, создайте виртуальную машину c Ubuntu 20.04 и публичным IP-адресом.
+
+    {% endif %}
+
+- С помощью Terraform
+
+    1. Если у вас еще нет {{ TF }}, {% if audience != "internal" %}[установите его](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его{% endif %}.
+    1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и {% if audience != "internal" %}[укажите значения параметров](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider){% else %}укажите значения параметров{% endif %}.
+    1. Скачайте в ту же рабочую директорию файл конфигурации [kafka-connect.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/kafka-connect.tf).
+
+        В этом файле описаны:
+
+        * сеть;
+        * подсеть;
+        * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру и виртуальной машине из интернета;
+        * виртуальная машина c Ubuntu 20.04;
+        * кластер {{ mkf-name }} с необходимыми настройками.
+
+    1. Укажите в файле пароль для пользователя `user`, который будет использоваться для доступа к кластеру {{ mkf-name }}, а также имя пользователя и публичную часть SSH-ключа для виртуальной машины. Если на виртуальную машину будет установлена Ubuntu 20.04 из рекомендованного {% if audience != "internal" %}[списка образов](../compute/operations/images-with-pre-installed-software/get-list.md){% else %}списка образов{% endif %}, то указанное здесь имя пользователя игнорируется. В таком случае при [подключении](#prepare-vm) используйте имя пользователя `ubuntu`.
+    1. Выполните команду `terraform init` в директории с конфигурационным файлом. Эта команда инициализирует провайдеров, указанных в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+       ```bash
+       terraform validate
+       ```
+
+       Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+    1. Создайте необходимую инфраструктуру:
+
+       {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+
+       {% include [explore-resources](../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
 
 ## Настройте виртуальную машину {#prepare-vm}
 
-1. [Подключитесь к виртуальной машине по SSH](../compute/operations/vm-connect/ssh.md).
+{% if audience != "internal" %}
 
-1. Подготовьте виртуальную машину к работе с {{ KFC }}:
+1. [Подключитесь к виртуальной машине по SSH](../compute/operations/vm-connect/ssh.md).
 
 {% else %}
 
-1. В той же сети, что и кластер {{ mkf-name }}, создайте виртуальную машину c Ubuntu 20.04 и публичным IP-адресом.
-
-1. Подготовьте виртуальную машину к работе с {{ KFC }}:
-
-    1. Подключитесь к виртуальной машине по SSH.
+1. Подключитесь к виртуальной машине по SSH.
 
 {% endif %}
 
-    1. Установите JDK:
+1. Установите JDK и утилиту [kcat](https://docs.confluent.io/platform/current/app-development/kafkacat-usage.html):
 
-        ```bash
-        sudo apt update && \
-        sudo apt install openjdk-11-jre-headless --yes
-        ```
+    ```bash
+    sudo apt update && \
+    sudo apt install default-jdk --yes && \
+    sudo apt install kafkacat
+    ```
 
-    1. [Скачайте](https://downloads.apache.org/kafka/) и распакуйте архив с {{ KF }}:
+1. [Скачайте](https://downloads.apache.org/kafka/) и распакуйте архив с {{ KF }}:
 
-        ```bash
-        wget https://downloads.apache.org/kafka/2.6.2/kafka_2.12-2.6.2.tgz && \
-        tar -xvf kafka_2.12-2.6.2.tgz
-        ```
+    ```bash
+    wget https://downloads.apache.org/kafka/3.1.0/kafka_2.12-3.1.0.tgz  && tar -xvf kafka_2.12-3.1.0.tgz --strip 1 --directory /opt/kafka/
+    ```
 
-    1. Установите утилиту [Kafkacat](https://docs.confluent.io/platform/current/app-development/kafkacat-usage.html):
-
-        ```bash
-        sudo apt install kafkacat
-        ```
+    В данном примере используется {{ KF }} версии `3.1.0`.
 
 1. [Получите SSL-сертификат](../managed-kafka/operations/connect#get-ssl-cert).
 
@@ -125,14 +156,14 @@
     security.protocol=SASL_SSL
     ssl.truststore.location=/etc/kafka-connect-worker/client.truststore.jks
     ssl.truststore.password=<пароль к хранилищу сертификата>
-    sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<пароль учетной записи user>";
+    sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<пароль пользователя user>";
 
     # Producer connect properties
     producer.sasl.mechanism=SCRAM-SHA-512
     producer.security.protocol=SASL_SSL
     producer.ssl.truststore.location=/etc/kafka-connect-worker/client.truststore.jks
     producer.ssl.truststore.password=<пароль к хранилищу сертификата>
-    producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<пароль учетной записи user>";
+    producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<пароль пользователя user>";
 
     # Worker properties
     plugin.path=/etc/kafka-connect-worker/plugins
@@ -143,7 +174,7 @@
     offset.storage.file.filename=/etc/kafka-connect-worker/worker.offset
     ```
 
-    {{ KFC }} будет подключаться к кластеру {{ mkf-name }} от имени учетной записи `user`, [созданной ранее](#before-you-begin).
+    {{ KFC }} будет подключаться к кластеру {{ mkf-name }} от имени пользователя `user`, [созданного ранее](#before-you-begin).
 
     FQDN хостов-брокеров можно запросить со [списком хостов в кластере](../managed-kafka/operations/cluster-hosts.md#list-hosts).
 
@@ -167,13 +198,13 @@
 1. Чтобы отправить тестовые данные в кластер, запустите процесс-исполнитель на виртуальной машине:
 
     ```bash
-    cd ~/kafka_2.12-2.6.2/bin/ && \
+    cd ~/opt/kafka/bin/ && \
     sudo ./connect-standalone.sh \
          /etc/kafka-connect-worker/worker.properties \
          /etc/kafka-connect-worker/file-connector.properties
     ```
 
-1. Подключитесь к кластеру [с помощью Kafkacat](../managed-kafka/operations/connect.md#bash) и получите данные из топика кластера:
+1. Подключитесь к кластеру [с помощью kcat](../managed-kafka/operations/connect.md#bash) и получите данные из топика кластера:
 
     ```bash
     kafkacat -C \
@@ -193,16 +224,43 @@
 ## Удалите созданные ресурсы {#clear-out}
 
 Если созданные ресурсы вам больше не нужны, удалите их:
-{% if audience != "internal" %}
 
-* [Удалите виртуальную машину](../compute/operations/vm-control/vm-delete.md).
-* Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../vpc/operations/address-delete.md).
+{% list tabs %}
 
-{% else %}
+- Вручную
 
-* Удалите виртуальную машину.
-* Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, удалите его.
+    {% if audience != "internal" %}
 
-{% endif %}
+    1. [Удалите виртуальную машину](../compute/operations/vm-control/vm-delete.md).
+    1. Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../vpc/operations/address-delete.md).
+    1. [Удалите кластер {{ mkf-name }}](../managed-kafka/operations/cluster-delete.md).
 
-* [Удалите кластер {{ mkf-name }}](../managed-kafka/operations/cluster-delete.md).
+    {% else %}
+
+    1. Удалите виртуальную машину.
+    1. Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, освободите и удалите его.
+    1. Удалите кластер {{ mkf-name }}.
+
+    {% endif %}
+
+- С помощью Terraform
+
+    Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#before-you-begin):
+
+    1. В терминале перейдите в директорию с планом инфраструктуры.
+    1. Удалите конфигурационный файл `kafka-connect.tf`.
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+
+        Все ресурсы, которые были описаны в конфигурационном файле, будут удалены.
+
+{% endlist %}
