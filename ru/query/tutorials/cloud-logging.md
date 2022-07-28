@@ -19,8 +19,15 @@ SELECT
 FROM (
     SELECT 
         CAST(Data AS Json) AS Data 
-    FROM yds.object(`cloud-logging-connection`, raw)
-    WITH SCHEMA (String AS Data)
+    FROM yds.`cloud-logging-connection` 
+    WITH 
+    (
+        format=raw,
+        SCHEMA 
+        (
+            Data String
+        )
+    )
 );
 
 SELECT 
@@ -128,8 +135,15 @@ SELECT
 FROM (
     SELECT 
         CAST(Data AS Json) AS Data 
-    FROM yds.object(`cloud-logging-connection`, raw)
-    WITH SCHEMA (String AS Data)
+    FROM yds.`cloud-logging-connection` 
+    WITH
+    (
+        format=raw,
+        SCHEMA 
+        (
+            Data String
+        )
+    )
 );
 
 SELECT 

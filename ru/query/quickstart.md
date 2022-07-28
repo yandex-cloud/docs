@@ -1,3 +1,6 @@
+NOT USED!!!
+
+
 # Как начать работать с {{ yq-full-name }}
 
 В этом сценарии вы разместите данные в [бакете {{ objstorage-full-name }}](../storage/concepts/bucket.md) и выполните к ним [запрос](concepts/glossary.md#query).
@@ -98,14 +101,17 @@ id,registration_dttm,email,ip_address
       SELECT
       COUNT(*)
       FROM
-        yq-public.object("yq-tutorial.csv", CSVWithNames)
-        WITH SCHEMA (Int64 AS id, String AS registration_dttm, String AS email, String AS `ip_address`)
-
+        `yq-public`.`yq-tutorial.csv`
+      WITH 
+      (
+        format=csv_with_names,
+        SCHEMA (id Int64, registration_dttm String, email String, `ip_address` String)
+      )
       WHERE CAST(`registration_dttm` AS DateTime) >= Timestamp('2016-02-03T01:09:31Z')
       AND CAST(`registration_dttm` AS DateTime) <= Timestamp('2016-02-03T07:09:31Z')
       ```
 
-  1. Нажмите кнопку **Run**.
+  2. Нажмите кнопку **Run**.
 
 {% endlist %}
 

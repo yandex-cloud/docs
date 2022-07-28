@@ -53,33 +53,45 @@ $data =
 SELECT 
     *
 FROM 
-    `yellow-taxi`.object("nyc_taxi_csv/yellow_tripdata_2018-01.csv.gz", csv_with_names, "Gzip" AS compression) 
-WITH SCHEMA (
-    Int AS VendorID,
-    Datetime AS tpep_pickup_datetime,
-    Datetime AS tpep_dropoff_datetime,
-    Int AS passenger_count,
-    float AS trip_distance,
-    String AS RatecodeID,
-    String AS store_and_fwd_flag,
-    String AS PULocationID,
-    String AS DOLocationID,
-    Int AS payment_type,
-    Double AS fare_amount,
-    String AS extra,
-    Double AS mta_tax,
-    Double AS tip_amount,
-    Double AS tolls_amount,
-    Double AS improvement_surcharge,
-    Double AS total_amount);
+    `yellow-taxi`.`nyc_taxi_csv/yellow_tripdata_2018-01.csv.gz`
+WITH 
+(
+    format=csv_with_names, 
+    compression="gzip", 
+    SCHEMA 
+    (
+        VendorID Int,
+        tpep_pickup_datetime Datetime,
+        tpep_dropoff_datetime Datetime,
+        passenger_count Int,
+        trip_distance float,
+        RatecodeID String,
+        store_and_fwd_flag String,
+        PULocationID String,
+        DOLocationID String,
+        payment_type Int,
+        fare_amount Double,
+        extra String,
+        mta_tax Double,
+        tip_amount Double,
+        tolls_amount Double,
+        improvement_surcharge Double,
+        total_amount Double
+    )
+);
 
 $locations = 
 SELECT 
     PULocationID
 FROM 
-    `yellow-taxi`.object("nyc_taxi_csv/example_locations.csv", csv_with_names)
-WITH SCHEMA (
-    String AS PULocationID
+    `yellow-taxi`.`nyc_taxi_csv/example_locations.csv`
+WITH 
+(
+    format=csv_with_names,
+    SCHEMA 
+    (
+        PULocationID String 
+    )
 );
 
 $time = 
@@ -130,7 +142,11 @@ FROM
     SELECT 
         CAST(Data AS Json) AS Data 
     FROM 
-        `yds-yellow-taxi`.object("yellow-taxi", raw_blob)
+        `yds-yellow-taxi`.`yellow-taxi`
+    WITH 
+    (
+        format=raw
+    )
     LIMIT 100
 );
 
@@ -138,9 +154,14 @@ $locations =
 SELECT 
     PULocationID
 FROM 
-    `yellow-taxi`.object("nyc_taxi_csv/example_locations.csv", csv_with_names)
-WITH SCHEMA (
-    String AS PULocationID
+    `yellow-taxi`.`nyc_taxi_csv/example_locations.csv`
+WITH 
+(
+    format=csv_with_names,
+    SCHEMA 
+    (
+        PULocationID String 
+    )
 );
 
 $time = 

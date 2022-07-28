@@ -28,25 +28,31 @@ $data =
 SELECT 
     * 
 FROM 
-    `yellow-taxi`.object("nyc_taxi_csv/yellow_tripdata_2018-01.csv.gz", csv_with_names, "gzip" as compression) 
-WITH SCHEMA (
-    INT as VendorID,
-    Datetime as tpep_pickup_datetime,
-    Datetime as tpep_dropoff_datetime,
-    Int as passenger_count,
-    float as trip_distance,
-    String as RatecodeID,
-    String as store_and_fwd_flag,
-    String as PULocationID,
-    String as DOLocationID,
-    Int as payment_type,
-    Double as fare_amount,
-    String as extra,
-    Double as mta_tax,
-    Double as tip_amount,
-    Double as tolls_amount,
-    Double as improvement_surcharge,
-    Double as total_amount);
+    `yellow-taxi`.`nyc_taxi_csv/yellow_tripdata_2018-01.csv.gz`
+WITH (
+    format=csv_with_names, 
+    compression="gzip",
+    SCHEMA 
+    (
+        VendorID Int,
+        tpep_pickup_datetime Datetime,
+        tpep_dropoff_datetime Datetime,
+        passenger_count Int,
+        trip_distance float,
+        RatecodeID String,
+        store_and_fwd_flag String,
+        PULocationID String,
+        DOLocationID String,
+        payment_type Int,
+        fare_amount Double,
+        extra String,
+        mta_tax Double,
+        tip_amount Double,
+        tolls_amount Double,
+        improvement_surcharge Double,
+        total_amount Double
+    )
+);
 
 $ride_time = 
 SELECT

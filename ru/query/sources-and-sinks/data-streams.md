@@ -7,8 +7,14 @@
 ```sql
 SELECT
     JSON_VALUE(CAST(Data as Json), "$.action") as action
-FROM yds.object(`input_stream`, raw)
-    WITH SCHEMA (String as Data)
+FROM yds.`input_stream`
+WITH (
+    format=raw,
+    SCHEMA 
+    (
+        String as Data
+    )
+)
 LIMIT 10;
 ```
 
@@ -32,8 +38,15 @@ LIMIT 10;
 SELECT 
     <expression> 
 FROM 
-    <yds_connection_name>.object(<stream_name>, raw)
-WITH SCHEMA (String as Data)
+    <yds_connection_name>.`<stream_name>`
+WITH
+(
+    format=raw,
+    SCHEMA 
+    (
+        Data String
+    )
+)
 WHERE <filter>;
 ```
 
@@ -44,7 +57,7 @@ WHERE <filter>;
 
 {% note info %}
 
-Так как через {{yds-short-name}} передаются бинарные данные, то их нельзя схематизировать. Вместо этого необходимо использовать ключевую конструкцию `WITH SCHEMA (String as Data)`, которая присваивает тип `String` вводимым данным и дает им название `Data`.
+Так как через {{yds-short-name}} передаются бинарные данные, то их нельзя схематизировать. Вместо этого необходимо использовать ключевую конструкцию `SCHEMA (Data String)`, которая присваивает тип `String` вводимым данным и дает им название `Data`.
 
 {% endnote %}
 
@@ -62,8 +75,15 @@ FROM
 (
     SELECT
         CAST(Data as Json) as Data
-    FROM yds.object(`input_stream`, raw)
-        WITH SCHEMA (String as Data)
+    FROM yds.`input_stream`
+    WITH 
+    (
+        format=raw,
+        SCHEMA 
+        (
+            Data String
+        )
+    )
 )
 WHERE 
     JSON_VALUE(Data, "$.tag") = "my_tag";
@@ -83,4 +103,3 @@ LIMIT 10;
 |`input_stream`| |Название потока-источника данных в SQL-запросе|
 |`host`|Строка|Строковый параметр запроса|
 |`raw`|Строка|Формат данных. На данный поддерживается только формат `raw` - сырые данные|
-

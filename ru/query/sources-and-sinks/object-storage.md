@@ -8,11 +8,15 @@
 SELECT
         *
 FROM
-    object_storage.object('*.tsv', tsv_with_names)
-WITH SCHEMA
+    object_storage.`*.tsv`
+WITH
 (
-    Uint32 AS `timestamp`,
-    String AS action
+    format=tsv_with_names,
+    SCHEMA
+    (
+        `timestamp` Uint32,
+        action String 
+    )
 );
 ```
 
@@ -40,7 +44,8 @@ WITH SCHEMA
 SELECT
     <expression>
 FROM
-    <object_storage_connection_name>.object(<file_path>,  <file_format>, <compression> AS compression)
+    <object_storage_connection_name>.`<file_path>`
+WITH(format=<file_format>, <compression> AS compression)
 WHERE
     <filter>;
 ```
@@ -72,6 +77,9 @@ WHERE
 - [`json_list`](#json_list).
 - [`json_each_row`](#json_each_row).
 - [`raw`](#raw).
+- [`json_each_row`](#json_each_row).
+- [`json_as_string`](#json_as_string).
+- [`parquet`](#parquet). 
 
 {% if version>0.1 %}
 - [`JSONEachRow`](#JSONEachRow).
@@ -87,6 +95,36 @@ Year,Manufacturer,Model,Price
 1999,Chevy,"Venture «Extended Edition»",4900.00
 ```
 
+{% cut "Пример запроса" %}
+
+```sql
+SELECT 
+    * 
+FROM `connection`.`path` 
+WITH
+(
+    format=csv_with_names, 
+    SCHEMA
+    (
+        Year int, 
+        Manufacturer string, 
+        Model string, 
+        Price double
+    )
+)
+```
+
+Результат выполнения запроса:
+
+|#|Manufacturer|Model|Price|Year|
+|-|-|-|-|-|
+|1|Ford|E350|3000|1997|
+|2|Chevy|Venture «Extended Edition»|4900|1999
+
+
+{% endcut %}
+
+
 #### Формат tsv_with_names { #tsv_with_names }
 Данный формат основан на формате [`TSV`](https://ru.wikipedia.org/wiki/TSV). Данные размещены в колонках, разделены символами табуляции (код `0x9`), в первой строке файла находятся имена колонок.
 
@@ -96,6 +134,35 @@ Year    Manufacturer    Model   Price
 1997    Ford    E350    3000.00
 1999    Chevy   "Venture «Extended Edition»"    4900.00
 ```
+
+{% cut "Пример запроса" %}
+
+```sql
+SELECT 
+    * 
+FROM `connection`.`path` 
+WITH
+(
+    format=tsv_with_names, 
+    SCHEMA
+    (
+        Year int, 
+        Manufacturer string, 
+        Model string, 
+        Price double
+    )
+)
+```
+
+Результат выполнения запроса:
+
+|#|Manufacturer|Model|Price|Year|
+|-|-|-|-|-|
+|1|Ford|E350|3000|1997|
+|2|Chevy|Venture «Extended Edition»|4900|1999
+
+
+{% endcut %}
 
 #### Формат json_list { #json_list }
 Данный формат основан на [`JSON-представлении`](https://ru.wikipedia.org/wiki/JSON) данных. В этом формате внутри каждого файла должен находиться объект в корректном JSON-представлении.
@@ -129,6 +196,153 @@ Year    Manufacturer    Model   Price
 
 Этот формат стоит использовать, если встроенных возможностей парсинга исходных данных в {{yq-full-name}} не достаточно.
 
+{% cut "Пример запроса" %}
+
+```sql
+SELECT 
+    * 
+FROM `connection`.`path` 
+WITH
+(
+    format=raw, 
+    SCHEMA
+    (
+        Data String
+    )
+)
+```
+
+Результат выполнения запроса:
+
+```
+Year,Manufacturer,Model,Price
+1997,Ford,E350,3000.00
+1999,Chevy,\"Venture «Extended Edition»\",4900.00
+```
+
+{% endcut %}
+
+#### Формат json_each_row { #json_each_row }
+Данный формат основан на [`JSON-представлении`](https://ru.wikipedia.org/wiki/JSON) данных. В этом формате внутри каждого файла на каждой отдельной строке файла должен находиться объект в корректном JSON-представлении, но эти объекты не объединены в JSON-список. Такой формат используется при передаче данных через потоковые системы, типа [Yandex Data Streams](../../data-streams/concepts/index.md).
+
+Пример корректных данных (на каждой отдельной строке находится отдельный объект в формате JSON, но эти объекты не объединены в список):
+```json
+{ "Year": 1997, "Manufacturer": "Ford", "Model": "E350", "Price": 3000.0 },
+{ "Year": 1999, "Manufacturer": "Chevy", "Model": "Venture «Extended Edition»", "Price": 4900.00 }
+```
+
+
+{% cut "Пример запроса" %}
+
+```sql
+SELECT 
+    * 
+FROM `connection`.`path` 
+WITH
+(
+    format=json_each_row, 
+    SCHEMA
+    (
+        Year int, 
+        Manufacturer string, 
+        Model string, 
+        Price double
+    )
+)
+```
+
+Результат выполнения запроса:
+
+|#|Manufacturer|Model|Price|Year|
+|-|-|-|-|-|
+|1|Ford|E350|3000|1997|
+|2|Chevy|Venture «Extended Edition»|4900|1999
+
+
+{% endcut %}
+
+#### Формат json_as_string { #json_as_string }
+Данный формат основан на [`JSON-представлении`](https://ru.wikipedia.org/wiki/JSON) данных. Данный формат не разбивает входной JSON-документ на поля, а представляет кажду строку файла в виде одного объекта JSON (или одной строки). Такой формат удобен, если список полей не фиксирован и может изменяться в разных сообщениях.
+
+В этом формате внутри каждого файла должен находиться:
+- объект в корректном JSON-представлении в каждой отдельной строке файла;
+- объекты в корректном JSON-представлении, объединенные в список.
+
+Пример корректных данных (данные представлены в виде списка объектов JSON):
+```json
+{ "Year": 1997, "Manufacturer": "Ford", "Model": "E350", "Price": 3000.0 }
+{ "Year": 1999, "Manufacturer": "Chevy", "Model": "Venture «Extended Edition»", "Price": 4900.00 }
+```
+
+
+{% cut "Пример запроса" %}
+
+```sql
+SELECT 
+    * 
+FROM `connection`.`path` 
+WITH
+(
+    format=json_as_string, 
+    SCHEMA
+    (
+        Data Json
+    )
+)
+```
+
+Результат выполнения запроса:
+
+|#|Data|
+|-|-|
+|1|`{"Manufacturer": "Ford", "Model": "E350", "Price": 3000, "Year": 1997}`|
+|2|`{"Manufacturer": "Chevy", "Model": "Venture «Extended Edition»", "Price": 4900, "Year": 1999}`|
+
+
+{% endcut %}
+
+#### Формат parquet { #parquet }
+Данный формат позволяет считывать содержимое файлов в формате [Apache Parquet](https://parquet.apache.org).
+
+Поддерживаемые алгоритмы сжатия данных внутри файлов Parquet:
+- Без сжатия
+- SNAPPY
+- GZIP
+- LZO
+- BROTLI
+- LZ4
+- ZSTD
+- LZ4_RAW
+
+
+{% cut "Пример запроса" %}
+
+```sql
+SELECT 
+    * 
+FROM `connection`.`path` 
+WITH
+(
+    format=parquet, 
+    SCHEMA
+    (
+        Year int, 
+        Manufacturer string, 
+        Model string, 
+        Price double
+    )
+)
+```
+
+Результат выполнения запроса:
+
+|#|Manufacturer|Model|Price|Year|
+|-|-|-|-|-|
+|1|Ford|E350|3000|1997|
+|2|Chevy|Venture «Extended Edition»|4900|1999
+
+
+{% endcut %}
 
 ## Пример чтения данных
 
@@ -137,12 +351,16 @@ Year    Manufacturer    Model   Price
 SELECT
         *
 FROM
-    connection.object('folder/filename.csv', 'csv_with_names')
-WITH SCHEMA (
-    int as Year,
-    String as Manufacturer,
-    String as Model,
-    Double as Price
+    connection.`folder/filename.csv`
+WITH(
+    format='csv_with_names',
+    SCHEMA 
+    (
+        int as Year,
+        String as Manufacturer,
+        String as Model,
+        Double as Price
+    )
 );
 ```
 
@@ -152,5 +370,4 @@ WITH SCHEMA (
 |--|---|
 |`connection`| Название подключения к {{ objstorage-full-name }}|
 |`folder/filename.csv`| Путь к файлу в бакете {{ objstorage-full-name }}|
-|`WITH SCHEMA`| Описание схемы данных в файле|
-
+|`SCHEMA`| Описание схемы данных в файле|

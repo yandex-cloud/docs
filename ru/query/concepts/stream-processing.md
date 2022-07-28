@@ -84,8 +84,12 @@ $json_stream =
 SELECT
     CAST(Data AS json) AS data,
 FROM 
-    yds.object(`input_stream`, raw_blob)
-WITH SCHEMA (String AS Data);
+    yds.`input_stream`
+WITH 
+(  
+    format=raw, 
+    SCHEMA (Data String)
+);
 
 $events =
 SELECT
@@ -96,10 +100,16 @@ FROM
 $host_dictionary =
 SELECT
         *
-FROM object_storage_lookup.object('hosts.csv', csv_with_names)
-    WITH SCHEMA (
-        String AS hostid,
-        String AS host_name);
+FROM object_storage_lookup.`hosts.csv`
+WITH 
+(
+    format=csv_with_names,
+    SCHEMA 
+    (
+        hostid String,
+        host_name String
+    )
+);
 
 SELECT 
     *

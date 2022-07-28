@@ -1,5 +1,7 @@
 # Агрегирование данных
 
+{% include [yql_tutorial_prerequisites.md](_includes/yql_tutorial_prerequisites.md) %}
+
 Возвращаемые данные можно агрегировать по полям.
 
 В примере ниже показано, как рассчитать количество уникальных IP-адресов и средний возраст пользователей для каждого региона:
@@ -14,26 +16,29 @@ SELECT
                      -- Звездочка (*) указывает, что функция COUNT
                      -- посчитает количество всех строк в таблице.
                      -- DISTINCT оставит только уникальные значения.
-                     -- COUNT(*) возвращает количество строк
-                     -- в указанной таблице с учетом повторяющихся строк.
+                     -- COUNT(*) возвращает количество строк в
+                     -- указанной таблице с учетом повторяющихся строк.
                      -- Функция считает каждую строку отдельно.
                      -- В результат также входят строки, содержащие значения null.
-FROM `tutorial`.object("tutorial/users.json", json_each_row)
-WITH SCHEMA (
-    Int32 AS last_visit_time,
-    String AS ip,
-    Int32 AS age,
-    Float AS last_time_on_site,
-    String AS user_agent,
-    String AS name,
-    Int32 AS region,
-    String AS last_url
+FROM `tutorial`.`tutorial/users.json`
+WITH (
+    format=json_each_row,
+    SCHEMA 
+    (
+        last_visit_time Int32,
+        ip String,
+        age Int32,
+        last_time_on_site Float,
+        user_agent String,
+        name String,
+        region Int32,
+        last_url String 
+    )
 )
-GROUP BY region;    -- Результат выполнения запроса будет выведен
-                    -- в порядке указанных колонок.
+GROUP BY region;    -- Результат выполнения запроса будет выведен в порядке указанных колонок.
                     -- Несколько колонок разделяются запятой.
-                    -- Другие колонки можно указать после выполнения SELECT,
-                    -- только если они передаются в функцию агрегации.
+                    -- Другие колонки можно указать после выполнения SELECT, только если
+                    -- они передаются в функцию агрегации.
 ```
 
 ## Смотрите также {#see-also}

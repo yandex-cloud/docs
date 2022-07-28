@@ -62,8 +62,14 @@ FROM
 (
     SELECT
         CAST(Data as Json) as Data
-    FROM yds.object(`input_stream`, raw_blob)
-        WITH SCHEMA (String as Data)
+    FROM yds.`input_stream`
+    WITH(
+        format=raw,
+        SCHEMA 
+        (
+            Data String
+        )
+    )
 )
 WHERE 
     JSON_VALUE(Data, "$.tag") = "my_tag";
@@ -94,7 +100,7 @@ FROM
 |`output_stream`| |Название потока-приемника данных в SQL-запросе|
 |`host`|Строка|Строковый параметр запроса|
 |`count`|Целое|Численный параметр запроса|
-|`raw_blob`|Строка|Формат данных. На данный поддерживается только формат `raw_blob` - сырые данные|
+|`raw`|Строка|Формат данных. На данный поддерживается только формат `raw` - сырые данные|
 
 Результаты обработки записываются в выходной поток {{ yds-full-name }}. Для удобства обработки этих данных, данные преобразовываются в формат `JSON`, это выполняется с помощью конструкции:
 
@@ -108,4 +114,3 @@ FROM
 ```
 
 В документации языка YQL доступно детальное описание модулей [Yson]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/udf/list/yson){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/udf/list/yson){% endif %}, [Json]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/types/json){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/types/json){% endif %} и [его функций]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/builtins/json){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/builtins/json){% endif %}, [<|"key": value|>]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/builtins/struct){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/builtins/struct){% endif %}.
-
