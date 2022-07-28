@@ -20,8 +20,15 @@ FROM
 (
     SELECT 
         CAST(Data AS json) AS data 
-    FROM yds.object(`debezium`, raw_blob)
-    WITH SCHEMA(String AS data) 
+    FROM yds.`debezium` 
+    WITH 
+    (
+        format=raw,
+        SCHEMA
+        (
+            Data String
+        )
+    )
 );
 
 SELECT 
@@ -69,8 +76,15 @@ GROUP BY
 $raw_data = 
 SELECT 
     CAST(Data AS json) AS data 
-FROM yds.object(`debezium`, raw_blob)
-WITH SCHEMA(String AS data) 
+FROM yds.`debezium` 
+WITH
+(
+    format=raw,
+    SCHEMA
+    (
+        Data String
+    )
+)
 
 $debezium_data = 
 SELECT 

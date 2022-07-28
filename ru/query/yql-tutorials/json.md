@@ -19,9 +19,9 @@ $json = CAST(@@{
 }@@ AS Json);
 
 SELECT
-    JSON_EXISTS($json, "$.friends[*].name"),  -- Проверка существования объекта name,
-    JSON_VALUE($json, "$.friends[0].age"),    -- получение значения объекта age,
-    JSON_QUERY($json, "$.friends[0]");        -- запрос на получение данных из объекта.
+    JSON_EXISTS($json, "$.friends[*].name"), -- проверка существования объекта name,
+    JSON_VALUE($json, "$.friends[0].age"), -- получение значения объекта age
+    JSON_QUERY($json, "$.friends[0]"); -- запрос на получение данных из объекта
 ```
 
 ## Смотрите также {#see-also}

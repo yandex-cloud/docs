@@ -38,27 +38,33 @@
 SELECT 
     *
 FROM 
-    `yellow-taxi`.object("nyc_taxi_csv/yellow_tripdata_2016-01-100k.csv", csv_with_names)
-WITH SCHEMA (
-    INT AS VendorID,
-    Datetime AS tpep_pickup_datetime,
-    Datetime AS tpep_dropoff_datetime,
-    Int AS passenger_count,
-    float AS trip_distance,
-    String AS RatecodeID,
-    String AS store_and_fwd_flag,
-    Double AS pickup_longitude,
-    Double AS pickup_latitude,
-    Double AS dropoff_longitude,
-    Double AS dropoff_latitude,    
-    Int AS payment_type,
-    Double AS fare_amount,
-    String AS extra,
-    Double AS mta_tax,
-    Double AS tip_amount,
-    Double AS tolls_amount,
-    Double AS improvement_surcharge,
-    Double AS total_amount)
+    `yellow-taxi`.`nyc_taxi_csv/yellow_tripdata_2016-01-100k.csv`
+WITH
+(
+    format=csv_with_names,
+    SCHEMA 
+    (
+        VendorID INT,
+        tpep_pickup_datetime Datetime,
+        tpep_dropoff_datetime Datetime,
+        passenger_count Int,
+        trip_distance float,
+        RatecodeID String,
+        store_and_fwd_flag String,
+        pickup_longitude Double,
+        pickup_latitude Double,
+        dropoff_longitude Double,
+        dropoff_latitude Double,    
+        payment_type Int,
+        fare_amount Double,
+        extra String,
+        mta_tax Double,
+        tip_amount Double,
+        tolls_amount Double,
+        improvement_surcharge Double,
+        total_amount Double
+    )
+)
 ```
 
 Для проверки, что подключение создано правильно, выполните запрос выше в консоли {{yq-full-name}}:
@@ -113,43 +119,49 @@ WITH SCHEMA (
     SELECT 
         *
     FROM 
-        `yellow-taxi`.object("nyc_taxi_csv/yellow_tripdata_2016-01-100k.csv", csv_with_names)
-    WITH SCHEMA (
-        INT AS VendorID,
-        Datetime AS tpep_pickup_datetime,
-        Datetime AS tpep_dropoff_datetime,
-        Int AS passenger_count,
-        float AS trip_distance,
-        String AS RatecodeID,
-        String AS store_and_fwd_flag,
-        Double AS pickup_longitude,
-        Double AS pickup_latitude,
-        Double AS dropoff_longitude,
-        Double AS dropoff_latitude,    
-        Int AS payment_type,
-        Double AS fare_amount,
-        String AS extra,
-        Double AS mta_tax,
-        Double AS tip_amount,
-        Double AS tolls_amount,
-        Double AS improvement_surcharge,
-        Double AS total_amount)
+        `yellow-taxi`.`nyc_taxi_csv/yellow_tripdata_2016-01-100k.csv` 
+    WITH 
+    (
+        format=csv_with_names,
+        SCHEMA 
+        (
+            VendorID INT,
+            tpep_pickup_datetime Datetime,
+            tpep_dropoff_datetime Datetime,
+            passenger_count Int,
+            trip_distance float,
+            RatecodeID String,
+            store_and_fwd_flag String,
+            pickup_longitude Double,
+            pickup_latitude Double,
+            dropoff_longitude Double,
+            dropoff_latitude Double,    
+            payment_type Int,
+            fare_amount Double,
+            extra String,
+            mta_tax Double,
+            tip_amount Double,
+            tolls_amount Double,
+            improvement_surcharge Double,
+            total_amount Double
+        )
+    )
     ```
 
-1. Нажмите кнопку **Создать**. Датасет появится в списке.
-1. Если все настроено правильно, то в поле **Предпросмотр** появятся данные следующего вида:
+2. Нажмите кнопку **Создать**. Датасет появится в списке.
+3. Если все настроено правильно, то в поле **Предпросмотр** появятся данные следующего вида:
     ![yellow-taxi-data](../_assets/datalens-dataset-results.png)
-1. Создайте вычисляемое поле:
+4. Создайте вычисляемое поле:
    1. Перейдите во вкладку **Поля**.
-   1. Нажмите кнопку **Добавить поле**.
-   1. В поле **Название поля** укажите `dropoff_point`.
-   1. В поле **Формула** введите: 
+   2. Нажмите кнопку **Добавить поле**.
+   3. В поле **Название поля** укажите `dropoff_point`.
+   4. В поле **Формула** введите: 
         ```
         GEOPOINT(ROUND([dropoff_latitude],1),ROUND([dropoff_longitude],1))
         ```
-   1. Нажмите кнопку **Сохранить**.
-   1. В разделе **Предпросмотр** появится новое поле `dropoff_point`, содержащее данные вида: `[40.7,-74]`.
-1. Для сохранения датасета нажмите кнопку **Сохранить** в правом верхнем углу.
+   5. Нажмите кнопку **Сохранить**.
+   6. В разделе **Предпросмотр** появится новое поле `dropoff_point`, содержащее данные вида: `[40.7,-74]`.
+5. Для сохранения датасета нажмите кнопку **Сохранить** в правом верхнем углу.
 
 
 ## Чарт с данными {#create_chart}
@@ -165,8 +177,3 @@ WITH SCHEMA (
 В результате работы запроса будет выведена карта, отражающая распределение стоимости поездки в зависимости от региона, где цветом отражается величина чаевых водителю.
 
 ![datalens-map](../_assets/datalens-map-results.png)
-
-
-
-
-

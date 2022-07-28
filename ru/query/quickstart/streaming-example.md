@@ -49,7 +49,11 @@ FROM
     SELECT 
         CAST(Data AS Json) AS Data 
     FROM 
-        `yds-yellow-taxi`.object("yellow-taxi", raw_blob)
+        `yds-yellow-taxi`.`yellow-taxi` 
+    WITH
+    (
+        format=raw
+    )
     LIMIT 10
 );
 

@@ -1,38 +1,52 @@
 # Объединение таблиц
 
+{% include [yql_tutorial_prerequisites.md](_includes/yql_tutorial_prerequisites.md) %}
+
 Запросы можно выполнять не только к данным отдельных источников, но и объединять данные нескольких.
 
 В примере ниже показано, как объединить данные источника `users.json` и `lastnames.csv` на основании одинакового имени:
 
 ```sql
-$a = -- Именованное выражение.
-SELECT * FROM `tutorial`.object("tutorial/users.json", json_each_row)
-WITH SCHEMA (
-    Int32 AS last_visit_time,
-    String AS ip,
-    Int32 AS age,
-    Float AS last_time_on_site,
-    String AS user_agent,
-    String AS name,
-    Int32 AS region,
-    String AS last_url);
+$a = -- именованное выражение
+SELECT * FROM `tutorial`.`tutorial/users.json`
+WITH 
+(
+    format=json_each_row,
+    SCHEMA 
+    (
+        last_visit_time Int32,
+        ip String,
+        age Int32,
+        last_time_on_site Float,
+        user_agent String,
+        name String,
+        region Int32,
+        last_url String 
+    )
+);
 
 
-$b = -- Именованное выражение.
-SELECT * FROM `tutorial`.object("tutorial/lastnames.csv", csv_with_names)
-WITH SCHEMA (
-    String AS lastname,
-    String AS name1);
+$b = -- именованное выражение
+SELECT * FROM `tutorial`.`tutorial/lastnames.csv` 
+WITH
+(
+    format=csv_with_names,
+    SCHEMA 
+    (
+        lastname String,
+        name1 String
+    )
+);
 
 SELECT 
     name, 
     lastname 
 FROM 
     $a AS a 
-        INNER JOIN                  -- Команда объединения таблиц
+        INNER JOIN -- команда объединения таблиц
             $b AS b 
                 ON 
-                    a.name=b.name1  --по указанному условию.
+                    a.name=b.name1 --по указанному условию
 WHERE age>15;
 ```
 
