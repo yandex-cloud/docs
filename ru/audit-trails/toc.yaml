@@ -50,6 +50,8 @@ items:
       - name: Настройка реагирования в Cloud Functions
         href: tutorials/logging-functions.md
         when: product == "yandex-cloud"
+      - name: Загрузка аудитных логов в {{ mch-full-name }} и визуализация данных в {{ datalens-full-name }}
+        href: tutorials/logs-analysis.md
   - name: Концепции
     expanded: true
     items:
