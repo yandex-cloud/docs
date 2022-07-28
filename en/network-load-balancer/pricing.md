@@ -19,37 +19,53 @@ Outgoing traffic is charged the same as for other {{ yandex-cloud }} services, s
 
 ## Pricing {#prices}
 
-### Using an internal load balancer {#internal-load-balancer}
+### Incoming and outgoing traffic {#prices-traffic}
 
-The [internal load balancer](concepts/internal-load-balancer.md) functionality is at the [Preview](../overview/concepts/launch-stages.md) stage and can be used free of charge.
+{% if product == "yandex-cloud" %}
 
-### Incoming traffic {#prices-traffic}
+{% note warning %}
 
-You are charged for incoming traffic to the IP address and port specified as the network load balancer's listener. Any other traffic directed to the load balancer is not accepted and is not charged.
+Prices for the incoming and outgoing traffic routed through load balancers will change on August 12th, 2022.
+
+{% endnote %}
+
+{% endif %}
+
+You are charged for traffic to the IP address and port specified as the network load balancer's listener. Any other traffic directed to the load balancer is not accepted and is not charged.
 
 {% if region == "ru"%}
 
-{% include [rub.md](../_pricing/network-load-balancer/rub-ingress.md) %}
+{% include [rub.md](../_pricing/network-load-balancer/rub-traffic.md) %}
 
 {% endif %}
 
 {% if region == "kz"%}
 
-{% include [kzt.md](../_pricing/network-load-balancer/kzt-ingress.md) %}
+{% include [kzt.md](../_pricing/network-load-balancer/kzt-traffic.md) %}
 
 {% endif %}
 
 {% if region == "int"%}
 
-{% include [usd.md](../_pricing/network-load-balancer/usd-ingress.md) %}
+{% include [usd.md](../_pricing/network-load-balancer/usd-traffic.md) %}
 
 {% endif %}
 
 ### Network load balancers {#network-load-balancers}
 
+{% if product == "yandex-cloud" %}
+
+{% note warning %}
+
+Internal load balancer will become [generally available](../overview/concepts/launch-stages.md) and paid on August 12th, 2022.
+
+{% endnote %}
+
+{% endif %}
+
 You are charged for network load balancers if they have a listener and a non-empty target group attached.
 
-If a network load balancer has no target groups attached but has a listener, then the public IP address of the listener is charged as an [inactive public IP address](../vpc/pricing.md#prices-public-ip).
+If a load balancer has no target groups attached but has a listener, then the public IP address of the listener is charged as an [inactive public IP address](../vpc/pricing.md#prices-public-ip).
 
 {% if region == "ru"%}
 

@@ -1,6 +1,14 @@
 # Создать внутренний сетевой балансировщик
 
-Функция находится на [стадии Preview](../../overview/concepts/launch-stages.md).
+{% if product == "yandex-cloud" %}
+
+{% note warning %}
+
+С 12 августа 2022 г. функциональность внутреннего балансировщика нагрузки становится [общедоступной](../../overview/concepts/launch-stages.md) и начнет [тарифицироваться](../pricing.md). 
+
+{% endnote %}
+
+{% endif %}
 
 {% note info %}
 

@@ -1,6 +1,14 @@
 # Create an internal network load balancer
 
-The feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
+{% if product == "yandex-cloud" %}
+
+{% note warning %}
+
+Internal load balancer will become [generally available](../../overview/concepts/launch-stages.md) and [paid](../pricing.md) on August 12th, 2022.
+
+{% endnote %}
+
+{% endif %}
 
 {% note info %}
 
