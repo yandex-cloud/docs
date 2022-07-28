@@ -92,7 +92,7 @@
     * Новые значения в параметре `configSpec.greenplumConfig_<версия>`.
     * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
 
-        {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+        {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
