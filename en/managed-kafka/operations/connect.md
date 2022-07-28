@@ -4,9 +4,7 @@ You can connect to {{ mkf-name }} cluster hosts:
 
 * Over the internet if you configured public access for the cluster [when creating it](cluster-create.md). You can only connect to this type of cluster using an [SSL connection](#get-ssl-cert).
 
-
 * From {{ yandex-cloud }} virtual machines located in the same [cloud network](../../vpc/concepts/network.md). If the cluster isn't publicly available, you don't need to use an SSL connection to connect to such VMs.
-
 
 
 You can connect to the {{ KF }} cluster both with encryption (`SASL_SSL`, port 9091) and without it (`SASL_PLAINTEXT`, port 9092).
@@ -14,7 +12,7 @@ You can connect to the {{ KF }} cluster both with encryption (`SASL_SSL`, port 9
 
 To connect to an {{ KF }} cluster:
 
-1. [Create accounts](cluster-accounts.md#create-account) for clients (producers and consumers) with access to the required topics.
+1. [Create users](cluster-accounts.md#create-user) for clients (producers and consumers) with access to the required topics.
 1. Connect the clients to the cluster:
    * Producers using the [Kafka Producer API](https://kafka.apache.org/documentation/#producerapi).
    * Consumers using the [Kafka Consumer API](https://kafka.apache.org/documentation/#consumerapi).
@@ -81,7 +79,7 @@ Settings of rules depend on the connection method you select:
       * Source type: `CIDR`.
       * CIDR blocks: `0.0.0.0/0`.
 
-      This rule allows any outgoing traffic: this lets you both connect to the cluster and install certificates and utilities you might need to connect to the cluster.
+      This rule allows any outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
 
 {% endlist %}
 
@@ -103,7 +101,7 @@ To use an encrypted connection, get an SSL certificate:
 
 - Linux (Bash)
 
-  {% include [install-certificate](../../_includes/mdb/mkf/install-certificate.md) %}
+   {% include [install-certificate](../../_includes/mdb/mkf/install-certificate.md) %}
 
 
 - Windows (PowerShell)
@@ -122,7 +120,7 @@ The resulting SSL certificate is also used when working with [{{ mkf-msr }}](../
 {% include [conn-strings-environment](../../_includes/mdb/mkf-conn-strings-env.md) %}
 
 Prior to connecting to cluster hosts over an SSL connection, [generate a certificate](#get-ssl-cert). The examples below assume that the `{{ crt-local-file }}` certificate is located in the directory:
-* `{{ crt-local-dir }}` for Ubuntu;
+* `{{ crt-local-dir }}` for Ubuntu.
 * `$HOME\.kafka\` for Windows.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}

@@ -152,6 +152,10 @@
 
      * Кластер базы данных — описание кластера и его хостов.
 
+     * База данных — описание базы данных кластера.
+
+     * Пользователь — описание пользователя кластера.
+
      * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
@@ -196,23 +200,22 @@
          ...
        }
 
-       database {
-         name  = "<имя базы данных>"
-         owner = "<имя владельца базы данных>"
-       }
-
-       user {
-         name     = "<имя пользователя>"
-         password = "<пароль пользователя>"
-         permission {
-           database_name = "<имя базы данных>"
-         }
-       }
-
        host {
          zone      = "<зона доступности>"
          subnet_id = "<идентификатор подсети>"
        }
+     }
+
+     resource "yandex_mdb_postgresql_database" "<имя базы данных>" {
+       cluster_id = "<идентификатор кластера>"
+       name       = "<имя базы данных>"
+       owner      = "<имя владельца базы данных>"
+     }
+
+     resource "yandex_mdb_postgresql_user" "<имя пользователя>" {
+       cluster_id = "<идентификатор кластера>"
+       name       = "<имя пользователя>"
+       password   = "<пароль пользователя>"
      }
 
      resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
@@ -366,23 +369,22 @@
       }
     }
 
-    database {
-      name  = "db1"
-      owner = "user1"
-    }
-
-    user {
-      name     = "user1"
-      password = "user1user1"
-      permission {
-        database_name = "db1"
-      }
-    }
-
     host {
       zone      = "{{ region-id }}-a"
       subnet_id = yandex_vpc_subnet.mysubnet.id
     }
+  }
+
+  resource "yandex_mdb_postgresql_database" "db1" {
+    cluster_id = yandex_mdb_postgresql_cluster.mypg.id
+    name       = "db1"
+    owner      = "user1"
+  }
+
+  resource "yandex_mdb_postgresql_user" "user1" {
+    cluster_id = yandex_mdb_postgresql_cluster.mypg.id
+    name       = "user1"
+    password   = "user1user1"
   }
 
   resource "yandex_vpc_network" "mynet" {

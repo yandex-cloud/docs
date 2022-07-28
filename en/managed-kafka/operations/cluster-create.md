@@ -19,7 +19,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Click **Create cluster**.
    1. Under **Basic parameters**:
@@ -30,7 +30,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       1. Select the {{ KF }} version.
       1. To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
          1. Enable **Manage topics via the API**.
-         1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
+         1. After creating a cluster, [create an admin user](./cluster-accounts.md#create-user).
 
          {% include [mkf-admin-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
       1. To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), enable the **Data Schema Registry** setting.
@@ -164,7 +164,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
          You cannot edit this setting after you create a cluster.
 
-      1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
+      1. After creating a cluster, [create an admin user](./cluster-accounts.md#create-user).
 
    
    1. {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-create.md) %}
@@ -285,12 +285,12 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
    * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
-      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
    To manage topics via the {{ KF }} Admin API:
 
    1. Pass `true` for the `unmanagedTopics` parameter. You cannot edit this setting after you create a cluster.
-   1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
+   1. After creating a cluster, [create an admin user](./cluster-accounts.md#create-user).
 
    To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), pass the `true` value for the `configSpec.schemaRegistry` parameter. You cannot edit this setting after you create a cluster.
 
@@ -326,7 +326,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With {{ KF }} version `{{ versions.cli.latest }}`.
    * In the `{{ network-name }}` network.
    * In the security group `{{ security-group }}`.
-   * With a single `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
+   * With one `{{ host-class }}` host in the `{{ region-id }}-a` availability zone.
    * With one broker.
    * With a network SSD storage (`{{ disk-type-example }}`) of 10 GB.
    * With public access.
@@ -342,7 +342,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      --environment production \
      --version {{ versions.cli.latest }} \
      --network-name {{ network-name }} \
-     --zone-ids {{ zone-id }} \
+     --zone-ids {{ region-id }}-a \
      --brokers-count 1 \
      --resource-preset {{ host-class }} \
      --disk-size 10 \
@@ -364,7 +364,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With {{ KF }} version `{{ versions.tf.latest }}`.
    * In the new `mynet` network with the subnet `mysubnet`.
    * In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
-   * With a single `{{ host-class }}` class host in the `{{ zone-id }}` availability zone.
+   * With one `{{ host-class }}` host in the `{{ region-id }}-a` availability zone.
    * With one broker.
    * With a network SSD storage (`{{ disk-type-example }}`) of 10 GB.
    * With public access.
@@ -386,7 +386,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      token     = "<OAuth or static key of service account>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ zone-id }}"
+     zone      = "{{ region-id }}-a"
    }
 
    resource "yandex_mdb_kafka_cluster" "mykf" {
@@ -409,7 +409,7 @@ If you specified security group IDs when creating a cluster, you may also need t
        }
 
        zones = [
-         "{{ zone-id }}"
+         "{{ region-id }}-a"
        ]
      }
    }
@@ -420,7 +420,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    resource "yandex_vpc_subnet" "mysubnet" {
      name           = "mysubnet"
-     zone           = "{{ zone-id }}"
+     zone           = "{{ region-id }}-a"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.5.0.0/24"]
    }

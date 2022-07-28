@@ -45,19 +45,17 @@ description: "Атомарные полномочия в PostgreSQL называ
   
         О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+        Полный список доступных для изменения полей конфигурации пользователей кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_postgresql_user).
 
-    1. Найдите в описании кластера {{ mpg-name }} блок `user` для нужного пользователя.
+    1. Найдите ресурс `yandex_mdb_postgresql_user` нужного пользователя.
     1. Добавьте атрибут `grants` со списком нужных ролей:
   
         ```hcl
-        resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+        resource "yandex_mdb_postgresql_user" "<имя пользователя>" {
           ...
-          user {
-            name   = "<имя пользователя>"
-            ...
-            grants = [ "<роль1>","<роль2>" ]
-          }
+          name   = "<имя пользователя>"
+          grants = [ "<роль1>","<роль2>" ]
+          ...
         }
         ```
 
@@ -68,8 +66,6 @@ description: "Атомарные полномочия в PostgreSQL называ
     1. Подтвердите изменение ресурсов.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 

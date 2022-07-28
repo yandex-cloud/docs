@@ -21,3 +21,4 @@
 * [Configuring {{ dns-full-name }} for access to managed database clusters from other cloud networks](mdb-dns-peering.md)
 * [Configuring GeeseFS in {{ dataproc-full-name }} using initialization actions](./data-proc-init-actions-geesefs.md).
 * [{#T}](migration-via-reindex-api.md)
+* [{#T}](mysql-data-migration.md)

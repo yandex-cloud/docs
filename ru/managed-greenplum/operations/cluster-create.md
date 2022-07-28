@@ -61,6 +61,8 @@
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+    1. При необходимости задайте [настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
+
     1. Укажите параметры хостов-мастеров на вкладке **Master**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](calculate-specs.md#master).
 
         * Класс хоста — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-мастеры кластера.
@@ -228,6 +230,7 @@
     * Настройки окна резервного копирования в параметре `config.backupWindowStart`.
     * Настройки доступа из [{{ datalens-full-name }}](../../datalens/concepts/index.md) в параметре `config.access.dataLens`.
     * {% include [Maintenance window](../../_includes/mdb/api/maintenance-window.md) %}
+    * [Настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings) в параметре `configSpec.greenplumConfig_<версия>`.
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}

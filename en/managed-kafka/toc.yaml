@@ -23,7 +23,7 @@ items:
         href: operations/cluster-hosts.md
       - name: Working with topics and partitions
         href: operations/cluster-topics.md
-      - name: Managing Kafka accounts
+      - name: Managing Apache Kafka® users
         href: operations/cluster-accounts.md
       - name: Managing connectors
         href: operations/cluster-connector.md

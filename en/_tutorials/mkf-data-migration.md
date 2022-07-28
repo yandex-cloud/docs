@@ -17,11 +17,11 @@ There are two ways to migrate topics from a {{ KF }} _source cluster_ to a {{ mk
 
 1. Prepare the target cluster:
    * Enable [topic management](../managed-kafka/concepts/topics.md#management) via the Admin API.
-   * Create an [administrator](../managed-kafka/operations/cluster-accounts.md#create-account) account with the `admin-cloud` username.
+   * Create an [admin user](../managed-kafka/operations/cluster-accounts.md#create-account) named `admin-cloud`.
    * Enable [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
    * Configure [security groups](../managed-kafka/operations/connect.md#configuring-security-groups), if required, to connect to the target cluster.
 
-1. Create the source cluster `admin-source` account authorized to manage topics via the Admin API.
+1. Create a source cluster user named `admin-source` that is authorized to manage topics via the Admin API.
 1. Configure a firewall in the source cluster, if required to connect to the cluster from outside.
 
 ### Create a connector {#create-connector}
@@ -32,7 +32,7 @@ There are two ways to migrate topics from a {{ KF }} _source cluster_ to a {{ mk
 * Under **Source cluster**, specify the parameters for connecting to the source cluster:
    * **Alias**: A prefix to indicate the source cluster in the connector settings. Defaults to `source`. Topics in the target cluster are created with the indicated prefix.
    * **Bootstrap servers**: A comma-separated list of the FQDNs of the source cluster's broker hosts with the port numbers to connect to.
-   * **SASL username**, **SASL password**: Username and password for the previously created `admin-source` account.
+   * **SASL username**, **SASL password**: Username and password for the previously created `admin-source` user.
    * **SASL mechanism**: `SCRAM-SHA-512` mechanism for username and password encryption.
    * **Security protocol**: Select a protocol for connecting the connector:
       * `SASL_PLAINTEXT`: For connecting to the source cluster without SSL.
@@ -65,7 +65,7 @@ If you no longer need these resources, [delete them](#clear-out).
    1. [Create a {{ mkf-name }} target cluster](../managed-kafka/operations/cluster-create.md):
 
       * With [topic management](../managed-kafka/concepts/topics#management) via the Admin API.
-      * With the `admin-cloud` [administrator](../managed-kafka/operations/cluster-accounts.md#create-account) account.
+      * With the `admin-cloud` [admin user](../managed-kafka/operations/cluster-accounts.md#create-account).
       * With [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics) activated.
 
    1. [Create a new Linux VM](../compute/operations/vm-create/create-linux-vm.md) for MirrorMaker on the same network the target cluster is on. To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access when creating it.
@@ -81,12 +81,12 @@ If you no longer need these resources, [delete them](#clear-out).
       * Network.
       * Subnet.
       * Default security group and rules required to connect to the cluster and VM from the internet.
-      * A {{ mkf-name }} cluster with [topic management](../managed-kafka/concepts/topics#management) enabled via the Admin API, the `admin-cloud` [administrator](../managed-kafka/operations/cluster-accounts.md#create-account) account, and [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
+      * A {{ mkf-name }} cluster with [topic management](../managed-kafka/concepts/topics#management) enabled via the Admin API, the `admin-cloud` [admin user](../managed-kafka/operations/cluster-accounts.md#create-account), and [Auto create topics enable](../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
       * A virtual machine with public internet access.
 
    1. In `kafka-mirror-maker.tf`, specify:
 
-      * The {{ mkf-name }} administrator account password.
+      * {{ mkf-name }} admin user password.
       * ID of the public [image](../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU. For example, for [Ubuntu 20.04 LTS](https://cloud.yandex.com/en-ru/marketplace/products/yc/ubuntu-20-04-lts).
       * Username and path to the [public key](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file to use to access to the virtual machine. By default, the specified username is ignored in the image used. Instead, a user with the `ubuntu` username is created. Use it to connect to the instance.
 
@@ -109,7 +109,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 #### Configure additional settings {#additional-settings}
 
-1. Create the source cluster `admin-source` account authorized to manage topics via the Admin API.
+1. Create a source cluster user named `admin-source` that is authorized to manage topics via the Admin API.
 
 1. [Connect to a virtual machine over SSH](../compute/operations/vm-connect/ssh.md).
 
@@ -149,8 +149,8 @@ If you no longer need these resources, [delete them](#clear-out).
 1. Select a password for and create the certificate store and add an SSL certificate for connecting to the cluster:
 
    ```bash
-   sudo keytool --noprompt -importcert -alias YandexCA \
-      -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+   sudo keytool --noprompt -importcert -alias {{ crt-alias }} \
+      -file {{ crt-local-dir }}{{ crt-local-file }} \
       -keystore /home/<home directory>/mirror-maker/keystore \
       -storepass <certificate store password, at least 6 characters>
    ```
@@ -258,7 +258,7 @@ To learn more about MirrorMaker 2.0, see the [{{ KF }} documentation](https://cw
 
    If you no longer need these resources, delete them:
 
-   * [Delete a {{ mkf-full-name }} cluster](../managed-kafka/operations/cluster-delete.md).
+   * [Delete the {{ mkf-full-name }} cluster](../managed-kafka/operations/cluster-delete.md).
    * [Delete the virtual machine](../compute/operations/vm-control/vm-delete.md).
    * If you reserved public static IP addresses, release and [delete them](../vpc/operations/address-delete.md).
 

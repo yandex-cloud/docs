@@ -18,7 +18,7 @@ In this section, you'll learn:
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-To allow access to {{ mkf-name }} service resources (clusters and hosts, cluster backups, partitions and topics, and accounts), assign the user the appropriate roles for the folder or cloud hosting the resources.
+To allow access to {{ mkf-name }} service resources (clusters and hosts, cluster backups, partitions and topics, and users), assign the user the appropriate roles for the folder or cloud hosting the resources.
 
 ## What roles exist in the service {#roles-list}
 
@@ -37,7 +37,7 @@ The table below lists the roles needed to perform a given action. You can always
 | Creating clusters with public access enabled | `create` | Or `vpc.publicAdmin` together with `mdb.admin`, or `editor` for the folder |
 | Change and delete clusters and related resources | `update`, `delete` | `mdb.admin` or `editor` for the folder hosting the cluster |
 | **Manage resource access** | |
-| [Create](../operations/cluster-accounts.md#create-account), [update](../operations/cluster-accounts.md#update-account), and [delete](../operations/cluster-accounts.md#delete-account) cluster accounts | `create`, `update`, `delete` | `editor` for the folder hosting the cluster |
+| [Create](../operations/cluster-accounts.md#create-user), [update](../operations/cluster-accounts.md#update-account), and [delete](../operations/cluster-accounts.md#delete-account) cluster users | `create`, `update`, `delete` | `editor` for the folder hosting the cluster |
 | [Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view the roles assigned for a folder or cloud. | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for this folder or cloud |
 
 ## What's next {#whats-next}

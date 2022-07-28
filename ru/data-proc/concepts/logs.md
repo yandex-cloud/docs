@@ -25,7 +25,7 @@
    * `telegraf` — лог отправки метрик кластера {{ dataproc-name }} в сервис [{{ monitoring-name }}](../../monitoring/));
    * `yandex-dataproc-start` — лог сервисной инициализации кластера {{ dataproc-name }}.
 
-* Управляющие хосты подкластера с ролью `Мастер`:
+* Управляющий хост:
    * `flume` — кластеры {{ dataproc-name }} с [версией образа](../concepts/environment.md) ниже 2.0;
    * `hadoop-hdfs-namenode`;
    * `hadoop-hdfs-secondarynamenode`;
@@ -57,11 +57,11 @@
    * `zeppelin`;
    * `zookeeper`.
 
-* Хосты `Data` подкластеров:
+* Хосты подкластеров для хранения данных:
    * `hadoop-hdfs-datanode`;
    * `hadoop-yarn-nodemanager`.
 
-* Хосты `Compute` подкластеров содержат логи `hadoop-yarn-nodemanager`.
+* Хосты подкластеров для обработки данных содержат логи `hadoop-yarn-nodemanager`.
 
 ### Логи заданий {#jobs}
 

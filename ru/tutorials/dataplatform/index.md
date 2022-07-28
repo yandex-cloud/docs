@@ -26,7 +26,8 @@
 ## {{ dataproc-name }} {#dataproc}
 
 * [{#T}](dp-mch-data-exchange.md)
-* [{#T}](sqoop.md)
+* [{#T}](sqoop-mmy.md)
+* [{#T}](sqoop-mpg.md)
 * [{#T}](data-proc-init-actions-geesefs.md).
 
 ## {{ ES }} {#elasticsearch}
@@ -42,7 +43,7 @@
 * [{#T}](mysql-data-migration.md)
 * [{#T}](sync-mysql.md)
 * [{#T}](mmy-to-mysql-migration.md)
-* [{#T}](sqoop.md)
+* [{#T}](sqoop-mmy.md)
 * [{#T}](./kafka-cdc/debezium-mmy.md)
 
 ## {{ PG }} {#postgresql}
@@ -50,7 +51,7 @@
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](./kafka-cdc/data-transfer-mpg.md)
 * [{#T}](./kafka-cdc/debezium-mpg.md)
-* [{#T}](sqoop.md)
+* [{#T}](sqoop-mpg.md)
 
 ## {{ RD }} {#redis}
 * [{#T}](redis-data-migration.md)

@@ -31,7 +31,7 @@ If you no longer need these resources, [delete them](#clear-out).
    1. A service topic named `default_ksql_processing_log`. It may have any settings.
    1. A topic for data storage named `locations`. It may have any settings.
 
-1. [Create an account](../../managed-kafka/operations/cluster-accounts.md#create-account) named `ksql` and assign it the producer and the consumer roles for all the previously created topics.
+1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) named `ksql` and assign it the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` roles for all the previously created topics.
 
 1. Check that you can connect to the ksqlDB server.
 
@@ -59,7 +59,7 @@ If you no longer need these resources, [delete them](#clear-out).
    security.protocol=SASL_SSL
    ssl.truststore.location=/etc/ksqldb/ssl
    ssl.truststore.password=<certificate store password>
-   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="ksql" password="<ksql account password>";
+   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="ksql" password="<ksql user password>";
    ```
 
    The broker FQDNs can be requested with a [list of cluster hosts](../operations/cluster-hosts.md#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
@@ -115,7 +115,7 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
    );
    ```
 
-   This data stream table will be automatically populated with messages from the {{ mkf-name }} cluster `locations` topic. ksqlDB uses the `ksql` account [settings](#configure-ksqldb-for-kf) to read messages.
+   This data stream table will be automatically populated with messages from the {{ mkf-name }} cluster `locations` topic. ksqlDB uses the `ksql` user [settings](#configure-ksqldb-for-kf) to read messages.
 
    For more information about creating a data stream table in the ksqlDB engine, see the [ksqlDB documentation](https://www.confluent.io/blog/how-real-time-stream-processing-works-with-ksqldb).
 
@@ -163,11 +163,11 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
       -X security.protocol=SASL_SSL \
       -X sasl.mechanisms=SCRAM-SHA-512 \
       -X sasl.username=ksql \
-      -X sasl.password="<ksql account password>" \
+      -X sasl.password="<ksql user password>" \
       -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
    ```
 
-   Information is sent using the `ksql` account. To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../operations/connect.md).
+   Information is sent using the `ksql` user. To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../operations/connect.md).
 
 1. Make sure that the [session](#create-kf-table) displays the data sent to the topic:
 
@@ -179,7 +179,7 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
    |4a7c7b41                  |37.4049                   |-122.0822               |
    ```
 
-  Data is read using the `ksql` account.
+  Data is read using the `ksql` user.
 
 ## Write the test data to ksqlDB {#insert-data-to-ksqldb}
 
@@ -198,12 +198,12 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
    INSERT INTO riderLocations (profileId, latitude, longitude) VALUES ('4ddad000', 37.7857, -122.4011);
    ```
 
-   This data is sent synchronously to the {{ KF }} `locations` topic using the `ksql` account.
+   This data is sent synchronously to the {{ KF }} `locations` topic using the `ksql` user.
 
 ## Check that the test data is present in the {{ KF }} topic {#fetch-data-from-kf}
 
 1. Connect to the ksqlDB server.
-1. Check the messages in the `locations` topic of the {{ mkf-name }} cluster using `kafkacat` and the `ksql` account:
+1. Check the messages in the `locations` topic of the {{ mkf-name }} cluster using `kafkacat` and the `ksql` user:
 
    ```bash
    kafkacat -C  \
@@ -212,7 +212,7 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
     -X security.protocol=SASL_SSL \
     -X sasl.mechanisms=SCRAM-SHA-512 \
     -X sasl.username=ksql \
-    -X sasl.password="<ksql account password>" \
+    -X sasl.password="<ksql user password>" \
     -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:   
    ```
 

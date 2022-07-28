@@ -243,6 +243,8 @@ items:
         href: tutorials/ntp.md
       - name: Работа с группой ВМ с автоматическим масштабированием
         href: tutorials/vm-autoscale.md
+      - name: Автомасштабирование группы ВМ по расписанию
+        href: tutorials/vm-scale-scheduled.md
       - name: Автомасштабирование группы ВМ для обработки сообщений из очереди
         href: tutorials/autoscale-monitoring.md
       - name: Обновление группы ВМ под нагрузкой
