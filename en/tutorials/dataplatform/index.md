@@ -27,3 +27,4 @@
 * [Configuring GeeseFS in {{ dataproc-full-name }} using initialization actions](./data-proc-init-actions-geesefs.md).
 * [{#T}](migration-via-reindex-api.md)
 {% endif %}
+* [{#T}](mysql-data-migration.md)

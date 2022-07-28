@@ -163,6 +163,8 @@ items:
           Using initialization actions to configure GeeseFS in {{ dataproc-full-name }}
         href: dataplatform/data-proc-init-actions-geesefs.md
         when: product == "yandex-cloud"
+      - name: Migrating databases from a third-party {{ MY }} cluster to a {{ mmy-full-name }} cluster
+        href: dataplatform/mysql-data-migration.md
   - name: Windows in {{ yandex-cloud }}
     when: product == "yandex-cloud"
     items:
