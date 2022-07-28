@@ -1,32 +1,36 @@
 Если импорт прошел успешно, вы увидите содержимое таблицы `persons`.
 
-### Проверка импорта в {{ objstorage-full-name }} {#check-object-storage}
+{% list tabs %}
 
-[Скачайте из бакета](../../storage/operations/objects/download.md) `my-bucket` файлы с результатами импорта.
+* {{ objstorage-name }}
 
-### Проверка импорта в директорию HDFS {#correct-hdfs}
+    [Скачайте из бакета](../../storage/operations/objects/download.md) `my-bucket` файлы с результатами импорта.
 
-1. [Подключитесь](../../data-proc/operations/connect.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
-1. Выполните команду:
+* Директория HDFS
 
-    ```bash
-    hdfs dfs -cat /user/root/import-directory/*
-    ```
+    1. [Подключитесь](../../data-proc/operations/connect.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
+    1. Выполните команду:
 
-### Проверка импорта в Apache Hive {#check-hive}
+        ```bash
+        hdfs dfs -cat /user/root/import-directory/*
+        ```
 
-1. [Подключитесь](../../data-proc/operations/connect.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
-1. Выполните команду:
+* Apache Hive
 
-    ```bash
-    hive -e "SELECT * FROM import-table;"
-    ```
+    1. [Подключитесь](../../data-proc/operations/connect.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
+    1. Выполните команду:
 
-### Проверка импорта в Apache HBase {#check-hbase}
+        ```bash
+        hive -e "SELECT * FROM import-table;"
+        ```
 
-1. [Подключитесь](../../data-proc/operations/connect.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
-1. Выполните команду:
+* Apache HBase
 
-    ```bash
-    echo -e "scan 'import-table'" | hbase shell -n
-    ```
+    1. [Подключитесь](../../data-proc/operations/connect.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
+    1. Выполните команду:
+
+        ```bash
+        echo -e "scan 'import-table'" | hbase shell -n
+        ```
+
+{% endlist %}

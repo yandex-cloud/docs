@@ -42,6 +42,10 @@ items:
         href: tutorials/alerts-monitoring.md
       - name: Настройка реагирования в Cloud Functions
         href: tutorials/logging-functions.md
+      - name: >-
+          Загрузка аудитных логов в {{ mch-full-name }} и визуализация данных в
+          {{ datalens-full-name }}
+        href: tutorials/logs-analysis.md
   - name: Концепции
     expanded: true
     items:

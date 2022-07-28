@@ -285,7 +285,7 @@
     * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
-        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+        {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     Чтобы управлять топиками через Admin API {{ KF }}:
 

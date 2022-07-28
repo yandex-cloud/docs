@@ -27,7 +27,7 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mkf-name }}**.
    1. In the row next to the appropriate cluster, click ![image](../../_assets/horizontal-ellipsis.svg), then **Edit cluster**.
    1. Enable **Manage topics via the API**.
-   1. [Create an administrator account](./cluster-accounts.md#create-account).
+   1. [Create an admin user](./cluster-accounts.md#create-user).
 
 - CLI
 
@@ -43,7 +43,7 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
       {{ yc-mdb-kf }} cluster update <cluster name or ID> --unmanaged-topics=true
       ```
 
-   1. [Create an administrator account](./cluster-accounts.md#create-account).
+   1. [Create an admin user](./cluster-accounts.md#create-user).
 
 - {{ TF }}
 
@@ -63,7 +63,7 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
       }
       ```
 
-   1. [Create an administrator account](./cluster-accounts.md#create-account).
+   1. [Create an admin user](./cluster-accounts.md#create-user).
 
 
 - API
@@ -76,7 +76,7 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
       * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
       * The new cluster configuration in the `configSpec` parameter. Specify the value `"unmanagedTopics": true` in the configuration.
 
-   1. [Create an administrator account](./cluster-accounts.md#create-account).
+   1. [Create an admin user](./cluster-accounts.md#create-user).
 
 
 {% endlist %}
@@ -91,7 +91,7 @@ You can change:
 
 {% note warning %}
 
-You can't decrease the number of {{ KF }} broker hosts. You can only increase it if the cluster already contains at least two broker hosts in different availability zones.
+You can't decrease the number of {{ KF }} broker hosts. You can only increase it if the cluster already contains at least two broker hosts located in different availability zones.
 
 {% endnote %}
 
@@ -359,7 +359,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
    You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -380,7 +380,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
       }
       ```
 
-      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
    1. Make sure the settings are correct.
 
@@ -408,7 +408,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
-      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
    * List of cluster configuration fields to be changed in the `updateMask` parameter.
 

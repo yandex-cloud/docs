@@ -13,25 +13,37 @@ Outgoing traffic is charged the same as for other {{ yandex-cloud }} services, s
 
 ## Pricing {#prices}
 
-### Using an internal load balancer {#internal-load-balancer}
-
-The [internal load balancer](concepts/internal-load-balancer.md) functionality is at the [Preview](../overview/concepts/launch-stages.md) stage and can be used free of charge.
-
-### Incoming traffic {#prices-traffic}
-
-You are charged for incoming traffic to the IP address and port specified as the network load balancer's listener. Any other traffic directed to the load balancer is not accepted and is not charged.
+### Incoming and outgoing traffic {#prices-traffic}
 
 
+{% note warning %}
+
+Prices for the incoming and outgoing traffic routed through load balancers will change on August 12th, 2022.
+
+{% endnote %}
 
 
-{% include [usd.md](../_pricing/network-load-balancer/usd-ingress.md) %}
+You are charged for traffic to the IP address and port specified as the network load balancer's listener. Any other traffic directed to the load balancer is not accepted and is not charged.
+
+
+
+
+{% include [usd.md](../_pricing/network-load-balancer/usd-traffic.md) %}
 
 
 ### Network load balancers {#network-load-balancers}
 
+
+{% note warning %}
+
+Internal load balancer will become [generally available](../overview/concepts/launch-stages.md) and paid on August 12th, 2022.
+
+{% endnote %}
+
+
 You are charged for network load balancers if they have a listener and a non-empty target group attached.
 
-If a network load balancer has no target groups attached but has a listener, then the public IP address of the listener is charged as an [inactive public IP address](../vpc/pricing.md#prices-public-ip).
+If a load balancer has no target groups attached but has a listener, then the public IP address of the listener is charged as an [inactive public IP address](../vpc/pricing.md#prices-public-ip).
 
 
 

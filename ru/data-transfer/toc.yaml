@@ -103,6 +103,8 @@ items:
         href: troubleshooting/postgresql.md
       - name: '{{ ydb-full-name }} и {{ yds-full-name }}'
         href: troubleshooting/ydb.md
+      - name: Сеть
+        href: troubleshooting/network.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

@@ -1,5 +1,5 @@
 ```yaml
-name: group-for-load # Имя группы ВМ, уникальным в рамках каталога.
+name: group-for-load # Имя группы ВМ, уникальное в рамках каталога.
 service_account_id: ajeab0cnib1pdefe21dm # Идентификатор сервисного аккаунта.
 allocation_policy: # Политика распределения ВМ в группе.
    zones:

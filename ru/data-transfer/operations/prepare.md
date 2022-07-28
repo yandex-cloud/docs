@@ -247,7 +247,7 @@
 
         1. [Выдайте пользователю привилегии](../../managed-mysql/operations/grant.md#grant-privilege) `REPLICATION CLIENT` и `REPLICATION SLAVE`.
 
-    1. {% include [Таблицы без первичных ключей](../../_includes/data-transfer/primary-keys-mysql.md) %}
+    1. {% include [primary-keys-mysql](../../_includes/data-transfer/primary-keys-mysql.md) %}
 
         {% note info %}
 

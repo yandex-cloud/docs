@@ -1,6 +1,12 @@
 # Create an internal network load balancer
 
-The feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
+
+{% note warning %}
+
+Internal load balancer will become [generally available](../../overview/concepts/launch-stages.md) and [paid](../pricing.md) on August 12th, 2022.
+
+{% endnote %}
+
 
 {% note info %}
 

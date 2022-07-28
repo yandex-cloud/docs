@@ -29,10 +29,10 @@ items:
         href: tutorials/copy-files-from-object-storage.md
       - name: Обмен данными с {{ mch-full-name }}
         href: tutorials/exchange-data-with-mch.md
-      - name: >-
-          Импорт базы данных из {{ mmy-full-name }} или {{ mpg-full-name }} с
-          использованием Sqoop
-        href: tutorials/sqoop.md
+      - name: Импорт данных из кластера {{ mmy-full-name }} с помощью Sqoop
+        href: tutorials/sqoop-mmy.md
+      - name: Импорт данных из кластера {{ mpg-full-name }} с помощью Sqoop
+        href: tutorials/sqoop-mpg.md
       - name: >-
           Использование скриптов инициализации для настройки GeeseFS в {{
           dataproc-name }}

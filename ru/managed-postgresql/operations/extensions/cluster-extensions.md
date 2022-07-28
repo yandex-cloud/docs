@@ -94,20 +94,16 @@
 
      О том, как создать такой файл, см. в разделе [{#T}](../cluster-create.md).
 
-     Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+     Полный список доступных для изменения полей конфигурации базы данных кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_postgresql_database).
 
-  1. Добавьте к описанию кластера {{ mpg-name }} один или несколько блоков `extension` в секции `database`, соответствующей нужной базе данных (по одному блоку на каждое расширение):
-  
+  1. Добавьте к описанию соответствующей базы данных кластера один или несколько блоков `extension` (по одному блоку на каждое расширение):
+
       ```hcl
-      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+      resource "yandex_mdb_postgresql_database" "<имя базы данных>" {
         ...
-        database {
-          ...
-          extension {
-            name    = "<имя расширения>"
-            version = "<версия расширения>"
-          }
-          ...
+        extension {
+          name    = "<имя расширения>"
+          version = "<версия расширения>"
         }
         ...
       }
@@ -120,8 +116,6 @@
   1. Подтвердите изменение ресурсов.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-     {% include [Terraform timeouts](../../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - API
 

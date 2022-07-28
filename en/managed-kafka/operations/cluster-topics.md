@@ -10,8 +10,8 @@ A {{ mkf-name }} cluster provides two ways for you to manage topics and partitio
 To manage topics via the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi):
 
 1. Enable **Manage topics via the API** when [creating a cluster](./cluster-create.md) or [changing its settings](./cluster-update.md).
-1. [Create](./cluster-accounts.md#create-account) an administrator account in the cluster.
-1. Manage topics with this account using [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi) calls. Review your favorite programming language manual for information on working with the Admin API.
+1. [Create](./cluster-accounts.md#create-user) a cluster admin user.
+1. Manage topics on behalf of this user through [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi) calls. Review your favorite programming language manual for information on working with the Admin API.
 
 For more information about using the Admin API and existing limitations, see [{#T}](../concepts/topics.md#management) and the [{{ KF }} documentation](https://kafka.apache.org/documentation/#adminapi).
 
@@ -23,7 +23,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Click the name of the cluster and go to the **Topics** tab.
    1. Click **Create topic**.
@@ -129,19 +129,15 @@ While running, {{ mkf-name }} is able to create [service topics](../concepts/top
 
 ## Updating topic settings {#update-topic}
 
-{% note warning %}
-
 You cannot reduce the number of partitions in {{ mkf-name }} topics. If there isn't enough storage space, you cannot create new partitions.
 
 For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
-
-{% endnote %}
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Click on the name of the cluster and select the **Topics** tab.
    1. Click ![image](../../_assets/options.svg) for the desired topic and select **Edit**.
@@ -233,7 +229,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Click the name of the cluster and go to the **Topics** tab.
    1. Click ![image](../../_assets/options.svg) for the desired topic and select **Delete topic**.
@@ -276,7 +272,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_kafka_cluster).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 
 - API
@@ -294,7 +290,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Click the name of the cluster and go to the **Topics** tab.
 
@@ -326,7 +322,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Click the name of the cluster and go to the **Topics** tab.
    1. Click on the name of the topic.
