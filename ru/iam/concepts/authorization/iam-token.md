@@ -28,6 +28,7 @@ IAM-токен действует не больше {{ iam-token-lifetime }}, н
 * [{#T}](../../operations/iam-token/create.md)
 {% endif %}
 * [{#T}](../../operations/iam-token/create-for-sa.md)
+* [{#T}](../../operations/iam-token/create-for-federation.md)
 * [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md)
 {% if product == "yandex-cloud" %}
 * [{#T}](../../../functions/operations/function-sa.md)

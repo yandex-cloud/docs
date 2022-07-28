@@ -146,7 +146,7 @@
 
      1. Создайте сеть с помощью метода [create](../../vpc/api-ref/Network/create.md) для ресурса `Network`.
 
-     1. Создать подсети в зонах `{{ region-id }}-a` и `{{ region-id }}-b` с помощью метода [create](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnet`.
+     1. Создайте подсети в зонах `{{ region-id }}-a` и `{{ region-id }}-b` с помощью метода [create](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnet`.
 
    {% endlist %}
 
