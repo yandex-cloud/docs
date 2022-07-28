@@ -286,9 +286,6 @@ items:
     items:
       - name: Управление доступом к DataLens
         href: security/index.md
-      - name: Доступ для внешних сотрудников
-        when: audience == "internal"
-        href: security/external-access.md
       - name: Управление доступом на уровне строк данных
         href: security/row-level-security.md
   - name: Правила тарификации

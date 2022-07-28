@@ -13,7 +13,7 @@
 
 {% if audience == "internal" %}
 
-У всех штатных сотрудников есть доступ к {{ datalens-short-name }} по умолчанию. Чтобы предоставить доступ внешним сотрудникам, воспользуйтесь [инструкцией](external-access.md).
+У всех сотрудников есть доступ к {{ datalens-short-name }} по умолчанию. Для доступа в {{ datalens-short-name }} не из корпоративной сети необходимо пройти [двухфакторную аутентификацию](https://wiki.yandex-team.ru/passport/yateamtotp/).
 
 {% endif %}
 

@@ -11,6 +11,3 @@
 Создаваемые чарты затем можно вынести на [дашборды](https://wiki.yandex-team.ru/DataLens/UserGuide/#dashbord), добавить к ним элементы управления в виде селекторов, текстовые пояснения, настроить автоматическую рассылку отчетов на почту и т.п.
 
 Кроме пользовательских инструментов, мы предоставляем [API](api/index.md): [данные](api/dashboards/data.md), [скриншоты](api/dashboards/scr.md), [комментарии](api/dashboards/comments/index.md), [дашборды](api/dashboards/dash/index.md), [чарты](api/dashboards/charts.md), [воркбуки](api/workbooks/index.md), а также позволяем встраивать чарты в другие сервисы, как с помощью iframe, так и через нашу react-компоненту — [ChartKit](chartkit/index.md).
-
-У всех штатных сотрудников есть доступ к DataLens по умолчанию. Чтобы предоставить доступ внешним сотрудникам, воспользуйтесь [инструкцией](security/external-access.md).
-
