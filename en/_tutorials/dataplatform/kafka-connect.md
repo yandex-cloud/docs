@@ -1,8 +1,8 @@
-# Configuring {{ KFC }} for {{ mkf-full-name }} clusters
+# Configuring {{ KFC }} for {{ mkf-name }} clusters
 
 {% note info %}
 
-{{ mkf-name }} has built-in support for certain connectors and lets you manage them. For a list of available connectors, see [{#T}](../../managed-kafka/concepts/connectors.md). If you need other connectors or want to manage Kafka Connect manually, refer to this manual.
+{{ mkf-name }} has built-in support for certain connectors and lets you manage them. For a list of available connectors, see [{#T}](../../managed-kafka/concepts/connectors.md). If you need other connectors or want to manage {{ KFC }} manually, refer to this manual.
 
 {% endnote %}
 
@@ -34,35 +34,31 @@ You can use any other {{ KFC }} connector to interact with {{ mkf-name }} cluste
 To configure {{ KFC }} to work with a {{ mkf-name }} cluster:
 
 1. [Configure the VM](#prepare-vm).
-1. [Prepare the test data](#prepare-test-data).
 1. [Configure {{ KFC }}](#configure-kafka-connect).
 1. [Run {{ KFC }} and test it](#test-kafka-connect).
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) with any suitable configuration.
 
    1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `messages` for exchanging messages between {{ KFC }} and the {{ mkf-name }} cluster.
-   1. [Create an account](../../managed-kafka/operations/cluster-accounts.md#create-account) with the name `user` and [grant to it the rights](../../managed-kafka/operations/cluster-accounts.md#grant-permission) for the `messages` topic:
+   1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `user` and [grant it the rights](../../managed-kafka/operations/cluster-accounts.md#grant-permission) for the `messages` topic:
       * `ACCESS_ROLE_CONSUMER`,
       * `ACCESS_ROLE_PRODUCER`.
 
 {% if audience != "internal" %}
 
-1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }} and the public IP address.
-
-
-## Configure the VM {#prepare-vm}
-
-1. [Connect to the virtual machine over SSH](../../compute/operations/vm-connect/ssh.md).
+1. In the network hosting the {{ mkf-name }} cluster, [create a VM](../../compute/operations/vm-create/create-linux-vm.md) with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }} and with a public IP address.
 
 1. Prepare the VM to work with {{ KFC }}:
 
+   1. [Connect to the virtual machine over SSH](../../compute/operations/vm-connect/ssh.md).
+
 {% else %}
 
-1. In the network hosting the {{ mkf-name }} cluster, create a virtual machine with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }} and the public IP address.
+1. In the network hosting the {{ mkf-name }} cluster, create a VM with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }} and with a public IP address.
 
 1. Prepare the VM to work with {{ KFC }}:
 
@@ -90,6 +86,17 @@ If you no longer need these resources, [delete them](#clear-out).
         sudo apt install kafkacat
         ```
 
+## Configure the VM {#prepare-vm}
+{% if audience != "internal" %}
+
+1. [Connect to the virtual machine over SSH](../../compute/operations/vm-connect/ssh.md).
+
+{% else %}
+
+1. Connect to the virtual machine over SSH.
+
+{% endif %}
+
 1. [Get an SSL certificate](../../managed-kafka/operations/connect#get-ssl-cert).
 
 1. {% include [keytool-importcert](../../_includes/mdb/keytool-importcert.md) %}
@@ -101,39 +108,39 @@ If you no longer need these resources, [delete them](#clear-out).
    sudo cp ssl /etc/kafka-connect-worker/client.truststore.jks
    ```
 
-## Prepare the test data {#prepare-test-data}
+1. Create a `/var/log/sample.json` file with test data. This file contains data from car sensors in JSON format:
 
-Create a `/var/log/sample.json` file with test data. This file contains data from car sensors in JSON format:
+   {% cut "sample.json" %}
 
-{% cut "sample.json" %}
+   ```json
+   {"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":55.70329032,"longitude":37.65472196,"altitude":427.5,"speed":0,"battery_voltage":23.5,"cabin_temperature":17,"fuel_level":null}
+   {"device_id":"rhibbh3y08qmz3sdbrbu","datetime":"2020-06-06 09:49:54","latitude":55.71294467,"longitude":37.66542005,"altitude":429.13,"speed":55.5,"battery_voltage":null,"cabin_temperature":18,"fuel_level":32}
+   {"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-07 15:00:10","latitude":55.70985913,"longitude":37.62141918,"altitude":417,"speed":15.7,"battery_voltage":10.3,"cabin_temperature":17,"fuel_level":null}
+   ```
 
-```json
-{"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":55.70329032,"longitude":37.65472196,"altitude":427.5,"speed":0,"battery_voltage":23.5,"cabin_temperature":17,"fuel_level":null}
-{"device_id":"rhibbh3y08qmz3sdbrbu","datetime":"2020-06-06 09:49:54","latitude":55.71294467,"longitude":37.66542005,"altitude":429.13,"speed":55.5,"battery_voltage":null,"cabin_temperature":18,"fuel_level":32}
-{"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-07 15:00:10","latitude":55.70985913,"longitude":37.62141918,"altitude":417,"speed":15.7,"battery_voltage":10.3,"cabin_temperature":17,"fuel_level":null}
-```
-
-{% endcut %}
+   {% endcut %}
 
 ## Configure {{ KFC }} {#configure-kafka-connect}
 
 1. Create a file named `/etc/kafka-connect-worker/worker.properties with worker settings`:
 
+   {% cut "worker.properties" %}
+
    ```ini
    # AdminAPI connect properties
-   bootstrap.servers=<FQDN хоста-брокера>:9091
+   bootstrap.servers=<broker host FQDN>:9091
    sasl.mechanism=SCRAM-SHA-512
    security.protocol=SASL_SSL
    ssl.truststore.location=/etc/kafka-connect-worker/client.truststore.jks
-   ssl.truststore.password=<password for the certificate store>
-   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<password for the user account>";
+   ssl.truststore.password=<certificate store password>
+   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<password for the user>";
 
    # Producer connect properties
    producer.sasl.mechanism=SCRAM-SHA-512
    producer.security.protocol=SASL_SSL
    producer.ssl.truststore.location=/etc/kafka-connect-worker/client.truststore.jks
-   producer.ssl.truststore.password=<password for the certificate store>
-   producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<password for the user account>";
+   producer.ssl.truststore.password=<certificate store password>
+   producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="<password of the user named user>";
 
    # Worker properties
    plugin.path=/etc/kafka-connect-worker/plugins
@@ -144,7 +151,9 @@ Create a `/var/log/sample.json` file with test data. This file contains data fro
    offset.storage.file.filename=/etc/kafka-connect-worker/worker.offset
    ```
 
-   {{ KFC }} will connect to the {{ mkf-name }} cluster under the `user` account [created previously](#before-you-begin).
+   {% endcut %}
+
+   {{ KFC }} will connect to the {{ mkf-name }} cluster as the [previously created](#before-you-begin) user named `user`.
 
    You can request the FQDNs of broker hosts with a [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md#list-hosts).
 
@@ -183,7 +192,7 @@ Create a `/var/log/sample.json` file with test data. This file contains data fro
        -X security.protocol=SASL_SSL \
        -X sasl.mechanisms=SCRAM-SHA-512 \
        -X sasl.username=user \
-       -X sasl.password="<the user account password>" \
+       -X sasl.password="<password of the user named user>" \
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
    ```
 

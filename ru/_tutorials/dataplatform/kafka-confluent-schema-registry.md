@@ -21,8 +21,8 @@
 
 1. Производитель передает схемы форматов данных в _реестр схем_ Confluent Schema Registry в одном из [поддерживаемых форматов](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html):
 
-    * [Avro](https://avro.apache.org/),
-    * [JSON Schema](https://json-schema.org/),
+    * [Avro](https://avro.apache.org/).
+    * [JSON Schema](https://json-schema.org/).
     * [Protobuf](https://developers.google.com/protocol-buffers/).
 
 1. Confluent Schema Registry помещает схемы форматов данных на хранение в служебный топик {{ KF }} с именем `_schemas`. При этом каждой схеме присваивается уникальный номер версии.
@@ -45,7 +45,7 @@
 
     1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `messages` для обмена сообщениями между производителем и потребителем.
     1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ему права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `messages`:
-        * `ACCESS_ROLE_CONSUMER`,
+        * `ACCESS_ROLE_CONSUMER`.
         * `ACCESS_ROLE_PRODUCER`.
 {% if audience != "internal" %}
 
@@ -84,7 +84,7 @@
     Указанные значения настроек необходимы для работы Confluent Schema Registry.
 
 1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `registry` и [выдайте ему права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `_schemas`:
-    * `ACCESS_ROLE_CONSUMER`,
+    * `ACCESS_ROLE_CONSUMER`.
     * `ACCESS_ROLE_PRODUCER`.
 
     От имени этого пользователя Confluent Schema Registry будет работать со служебным топиком `_schemas`.

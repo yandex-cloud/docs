@@ -16,11 +16,11 @@ The following example demonstrates how to configure CDC using [Debezium](https:/
 1. Create a [{{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) *target cluster* in any applicable configuration with publicly available hosts.
    {% if audience != "internal" %}
 
-1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) for Debezium with Ubuntu 20.04 and a public IP address.
+1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) for Debezium with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }}and with a public IP address.
 
 {% else %}
 
-1. Create a virtual machine for Debezium with Ubuntu 20.04 and a public IP address.
+1. Create a VM for Debezium with [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) from {{ marketplace-name }} and with a public IP address.
 
 {% endif %}
 
@@ -43,11 +43,11 @@ The following example demonstrates how to configure CDC using [Debezium](https:/
     ```
 {% if audience != "internal" %}
 
-1. [Connect to the VM instance](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH and make sure the clusters are available:
+1. [Connect to the VM instance](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH and check access to the clusters:
 
 {% else %}
 
-1. Connect to the VM instance over SSH and make sure the clusters are available:
+1. Connect to the VM instance over SSH and check access to the clusters:
 
 {% endif %}
     * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#connection-string) (use `psql`).
@@ -64,7 +64,7 @@ The following example demonstrates how to configure CDC using [Debezium](https:/
 
       This is necessary to create a publication for Debezium to monitor changes in a {{ mpg-name }} cluster.
 
-   1. [Connect to the](../../managed-postgresql/operations/connect.md) `db1` database of the {{ mpg-name }} cluster on behalf of `user1`.
+   1. [Connect to the](../../managed-postgresql/operations/connect.md) `db1` database of the {{ mpg-name }} cluster as `user1`.
 
    1. Add test data to the database. In this example, a simple table with information from car sensors is used.
 
@@ -120,7 +120,7 @@ The following example demonstrates how to configure CDC using [Debezium](https:/
    git clone https://github.com/yandex-cloud/examples.git
    ```
 
-1. Download and unpack the current [Debezium connector](https://debezium.io/releases/) to the `~/examples/mdb/managed-kafka/debezium-cdc/plugins/` directory.
+1. Download and unpack the current [Debezium connector](https://debezium.io/releases/) to the `~/examples/mdb/managed-kafka/debezium-cdc/plugins/` folder.
 
    The example below uses version `1.6.0`. The required commands depend on the type of source cluster:
 
@@ -166,10 +166,12 @@ The following example demonstrates how to configure CDC using [Debezium](https:/
       heartbeat.topics.prefix=__debezium-heartbeat
       ```
 
+      The cluster ID can be requested with a [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list).
+
       Where:
 
       * `name`: The name of the Debezium connector.
-      * `database.hostname`: A [special FQDN](../../managed-postgresql/operations/connect.md#fqdn-master) to connect to the source cluster master host. The cluster ID can be requested with a [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list).
+      * `database.hostname`: A [special FQDN](../../managed-postgresql/operations/connect.md#fqdn-master) to connect to the source cluster master host.
       * `database.user`: The {{ PG }} username.
       * `database.dbname`: The {{ PG }} database name.
       * `database.server.name`: The custom name of the database server that [Debezium will use](#prepare-target) when choosing a topic for sending messages.
@@ -211,9 +213,9 @@ The target cluster settings depend on the source cluster type:
 
       If you need data from multiple source clusters, create a separate service topic for each of them.
 
-   1. [Create an account](../../managed-kafka/operations/cluster-accounts.md#create-account) named `debezium`.
+   1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `debezium`.
 
-      [Grant it](../../managed-kafka/operations/cluster-accounts.md#grant-permission) the following rights to the created topics:
+      [Grant the user](../../managed-kafka/operations/cluster-accounts.md#grant-permission) the following rights to the created topics:
 
       * `ACCESS_ROLE_CONSUMER`
       * `ACCESS_ROLE_PRODUCER`
@@ -333,5 +335,5 @@ If you no longer need these resources, delete them:
 
 1. Delete the clusters:
 
-   * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md);
+   * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
    * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).

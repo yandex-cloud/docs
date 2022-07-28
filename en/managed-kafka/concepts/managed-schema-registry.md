@@ -36,8 +36,8 @@ The registry provides a JSON REST API that is fully compatible with the [Conflue
 
 The following data schema formats are supported:
 
-* [Avro](https://avro.apache.org/)
-* [JSON Schema](https://json-schema.org/)
+* [Avro](https://avro.apache.org/).
+* [JSON Schema](https://json-schema.org/).
 
 Schema information is posted to a [service topic](./topics.md#service-topics) called `_schemas`. You cannot use standard tools to write data to this topic.
 

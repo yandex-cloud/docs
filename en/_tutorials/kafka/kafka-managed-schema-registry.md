@@ -4,16 +4,16 @@ To use [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#m
 1. [Check that {{ mkf-msr }} runs correctly](#check-schema-registry).
 1. [Delete the resources you created](#clear-out).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 1. [Create a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) with any suitable configuration. When creating a cluster, enable **Schema registry** and **Public access**.
 
-    1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `messages` for exchanging messages between the producer and the consumer.
-    1. [Create an account](../../managed-kafka/operations/cluster-accounts.md#create-account) with the name `user` and [grant to it the rights](../../managed-kafka/operations/cluster-accounts.md#grant-permission) for the `messages` topic:
-        * `ACCESS_ROLE_CONSUMER`,
-        * `ACCESS_ROLE_PRODUCER`.
+   1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `messages` for exchanging messages between the producer and the consumer.
+   1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `user` and [grant it the rights](../../managed-kafka/operations/cluster-accounts.md#grant-permission) for the `messages` topic:
+      * `ACCESS_ROLE_CONSUMER`,
+      * `ACCESS_ROLE_PRODUCER`.
 
-1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 20.04 and a public IP address.
+1. In the network hosting the {{ mkf-name }} cluster, {% if audience != "internal" %}[create a VM](../../compute/operations/vm-create/create-linux-vm.md){% else %}create a VM{% endif %} with Ubuntu 20.04 and a public IP address.
 
 1. To allow traffic between the {{ mkf-name }} cluster and the virtual machine, [configure security groups](../../managed-kafka/operations/connect.md#configuring-security-groups).
 
@@ -21,157 +21,157 @@ To use [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#m
 
 {% include [Schema registry scripts explanation](./schema-registry-scripts-explanation.md) %}
 
-1. [Connect to the virtual machine over SSH](../../compute/operations/vm-connect/ssh.md).
+1. {% if audience != "internal" %}[Connect](../../compute/operations/vm-connect/ssh.md){% else %}Connect{% endif %} to the virtual machine over SSH.
 
 1. Install the necessary Python packages:
 
-    ```bash
-    sudo apt-get update && \
-    sudo pip3 install avro confluent_kafka
-    ```
+   ```bash
+   sudo apt-get update && \
+   sudo pip3 install avro confluent_kafka
+   ```
 
 1. To use an encrypted connection, install an SSL certificate.
 
-    ```bash
-    sudo mkdir -p /usr/share/ca-certificates && \
-    sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" \
-              -O /usr/share/ca-certificates/{{ crt-local-file }} && \
-    sudo chmod 655 /usr/share/ca-certificates/{{ crt-local-file }}
-    ```
+   ```bash
+   sudo mkdir -p /usr/share/ca-certificates && \
+   sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" \
+             -O /usr/share/ca-certificates/{{ crt-local-file }} && \
+   sudo chmod 655 /usr/share/ca-certificates/{{ crt-local-file }}
+   ```
 
 1. Create a Python script for the consumer.
 
-    {% include [Consumer script algorithm](./consumer-script-algorithm.md) %}
+   {% include [Consumer script algorithm](./consumer-script-algorithm.md) %}
 
-    `consumer.py`
+   `consumer.py`
 
-    ```python
-    #!/usr/bin/python3
+   ```python
+   #!/usr/bin/python3
 
-    from confluent_kafka.avro import AvroConsumer
-    from confluent_kafka.avro.serializer import SerializerError
+   from confluent_kafka.avro import AvroConsumer
+   from confluent_kafka.avro.serializer import SerializerError
 
 
-    c = AvroConsumer(
-        {
-            "bootstrap.servers": ','.join([
-            "<FQDN of the 1st broker host>:9091",
-            ...
-            "<FQDN of the Nth broker host>:9091",
-            ]),
-            "group.id": "avro-consumer",
-            "security.protocol": "SASL_SSL",
-            "ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}",
-            "sasl.mechanism": "SCRAM-SHA-512",
-            "sasl.username": "user",
-            "sasl.password": "<password for the user account>",
-            "schema.registry.url": "https://<FQDN or IP address of the {{ mkf-msr }} server>:443",
-            "schema.registry.basic.auth.credentials.source": "SASL_INHERIT",
-            "auto.offset.reset": "earliest"
-        }
-    )
+   c = AvroConsumer(
+       {
+           "bootstrap.servers": ','.join([
+           "<FQDN of first broker host>:9091",
+           ...
+           "<FQDN of the Nth broker host>:9091",
+           ]),
+           "group.id": "avro-consumer",
+           "security.protocol": "SASL_SSL",
+           "ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}",
+           "sasl.mechanism": "SCRAM-SHA-512",
+           "sasl.username": "user",
+           "sasl.password": "<password of the user named user>",
+           "schema.registry.url": "https://<FQDN or IP address of the {{ mkf-msr }} server>:443",
+           "schema.registry.basic.auth.credentials.source": "SASL_INHERIT",
+           "auto.offset.reset": "earliest"
+       }
+   )
 
-    c.subscribe(["messages"])
+   c.subscribe(["messages"])
 
-    while True:
-        try:
-            msg = c.poll(10)
+   while True:
+       try:
+           msg = c.poll(10)
 
-        except SerializerError as e:
-            print("Message deserialization failed for {}: {}".format(msg, e))
-            break
+       except SerializerError as e:
+           print("Message deserialization failed for {}: {}".format(msg, e))
+           break
 
-        if msg is None:
-            continue
+       if msg is None:
+           continue
 
-        if msg.error():
-            print("AvroConsumer error: {}".format(msg.error()))
-            continue
+       if msg.error():
+           print("AvroConsumer error: {}".format(msg.error()))
+           continue
 
-        print(msg.value())
+       print(msg.value())
 
-    c.close()
-    ```
+   c.close()
+   ```
 
 1. Create a Python script for the producer.
 
-    {% include [Producer script algorithm](./producer-script-algorithm.md) %}
+   {% include [Producer script algorithm](./producer-script-algorithm.md) %}
 
-    `producer.py`
+   `producer.py`
 
-    ```python
-    #!/usr/bin/python3
+   ```python
+   #!/usr/bin/python3
 
-    from confluent_kafka import avro
-    from confluent_kafka.avro import AvroProducer
-
-
-    value_schema_str = """
-    {
-        "namespace": "my.test",
-        "name": "value",
-        "type": "record",
-        "fields": [
-            {
-                "name": "name",
-                "type": "string"
-            }
-        ]
-    }
-    """
-
-    key_schema_str = """
-    {
-        "namespace": "my.test",
-        "name": "key",
-        "type": "record",
-        "fields": [
-            {
-                "name": "name",
-                "type": "string"
-            }
-        ]
-    }
-    """
-
-    value_schema = avro.loads(value_schema_str)
-    key_schema = avro.loads(key_schema_str)
-    value = {"name": "Value"}
-    key = {"name": "Key"}
+   from confluent_kafka import avro
+   from confluent_kafka.avro import AvroProducer
 
 
-    def delivery_report(err, msg):
-        """Called once for each message produced to indicate delivery result.
-        Triggered by poll() or flush()."""
-        if err is not None:
-            print("Message delivery failed: {}".format(err))
-        else:
-            print("Message delivered to {} [{}]".format(msg.topic(), msg.partition()))
+   value_schema_str = """
+   {
+       "namespace": "my.test",
+       "name": "value",
+       "type": "record",
+       "fields": [
+           {
+               "name": "name",
+               "type": "string"
+           }
+       ]
+   }
+   """
+
+   key_schema_str = """
+   {
+       "namespace": "my.test",
+       "name": "key",
+       "type": "record",
+       "fields": [
+           {
+               "name": "name",
+               "type": "string"
+           }
+       ]
+   }
+   """
+
+   value_schema = avro.loads(value_schema_str)
+   key_schema = avro.loads(key_schema_str)
+   value = {"name": "Value"}
+   key = {"name": "Key"}
 
 
-    avroProducer = AvroProducer(
-        {
-            "bootstrap.servers": ','.join([
-                "<FQDN of the 1st broker host>:9091",
-                ...
-                "<FQDN of the Nth broker host>:9091",
-            ]),
-            "security.protocol": 'SASL_SSL',
-            "ssl.ca.location": '/usr/share/ca-certificates/{{ crt-local-file }}',
-            "sasl.mechanism": 'SCRAM-SHA-512',
-            "sasl.username": 'user',
-            "sasl.password": '<password for the user account>',
-            "on_delivery": delivery_report,
-            "schema.registry.basic.auth.credentials.source": 'SASL_INHERIT',
-            "schema.registry.url": 'https://<FQDN or IP address of the {{ mkf-msr }} server>:443'
-        },
-        default_key_schema=key_schema,
-        default_value_schema=value_schema
-    )
+   def delivery_report(err, msg):
+       """Called once for each message produced to indicate delivery result.
+       Triggered by poll() or flush()."""
+       if err is not None:
+           print("Message delivery failed: {}".format(err))
+       else:
+           print("Message delivered to {} [{}]".format(msg.topic(), msg.partition()))
 
-    avroProducer.produce(topic="messages", key=key, value=value)
-    avroProducer.flush()
-    ```
+
+   avroProducer = AvroProducer(
+       {
+           "bootstrap.servers": ','.join([
+               "<FQDN of the 1st broker host>:9091",
+               ...
+               "<FQDN of the Nth broker host>:9091",
+           ]),
+           "security.protocol": 'SASL_SSL',
+           "ssl.ca.location": '/usr/share/ca-certificates/{{ crt-local-file }}',
+           "sasl.mechanism": 'SCRAM-SHA-512',
+           "sasl.username": 'user',
+           "sasl.password": '<password of the user named user>',
+           "on_delivery": delivery_report,
+           "schema.registry.basic.auth.credentials.source": 'SASL_INHERIT',
+           "schema.registry.url": 'https://<FQDN or IP address of the {{ mkf-msr }} server>:443'
+       },
+       default_key_schema=key_schema,
+       default_value_schema=value_schema
+   )
+
+   avroProducer.produce(topic="messages", key=key, value=value)
+   avroProducer.flush()
+   ```
 
 ## Check that {{ mkf-msr }} runs correctly {#check-schema-registry}
 

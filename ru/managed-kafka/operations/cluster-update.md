@@ -2,7 +2,7 @@
 
 После создания кластера {{ mkf-name }} вы можете:
 
-* [{#T}](#enable-api)
+* [{#T}](#enable-api).
 * [{#T}](#change-resource-preset).
 * [{#T}](#change-disk-size){% if audience != "internal" %} (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках){% endif %}.
 * [{#T}](#change-additional-settings).
@@ -336,7 +336,7 @@
   1. В строке с нужным кластером нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg), затем **Изменить кластер**.
   1. Измените дополнительные настройки кластера:
 
-     {% include [Дополнительные настройки кластера MKF](../../_includes/mdb/mkf/extra-settings.md) %}
+     {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
 
   1. Нажмите кнопку **Сохранить**.
 
@@ -373,7 +373,7 @@
 
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+        {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -394,7 +394,7 @@
         }
         ```
 
-        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+        {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     1. Проверьте корректность настроек.
 
@@ -422,7 +422,7 @@
 
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
 
-        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+        {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     * Список изменяемых полей конфигурации кластера в параметре `updateMask`.
 

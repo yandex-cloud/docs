@@ -21,9 +21,9 @@ It works as follows:
 
 1. The producer delivers data format schemas to the Confluent _schema registry_ in a [supported format](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html):
 
-   * [Avro](https://avro.apache.org/)
-   * [JSON Schema](https://json-schema.org/)
-   * [Protobuf](https://developers.google.com/protocol-buffers/)
+   * [Avro](https://avro.apache.org/).
+   * [JSON Schema](https://json-schema.org/).
+   * [Protobuf](https://developers.google.com/protocol-buffers/).
 
 1. Confluent Schema Registry lets you store data format schemas in the {{ KF }} service topic named `_schemas`. Each schema is assigned a unique version number.
 1. The producer specifies the schema version number in a message being sent.
@@ -45,8 +45,8 @@ If you no longer need these resources, [delete them](#clear-out).
 
    1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `messages` for exchanging messages between the producer and the consumer.
    1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `user` and [grant it the rights](../../managed-kafka/operations/cluster-accounts.md#grant-permission) for the `messages` topic:
-      * `ACCESS_ROLE_CONSUMER`
-      * `ACCESS_ROLE_PRODUCER`
+      * `ACCESS_ROLE_CONSUMER`.
+      * `ACCESS_ROLE_PRODUCER`.
          {% if audience != "internal" %}
 
 1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 20.04 and a public IP address.
@@ -84,8 +84,8 @@ If you no longer need these resources, [delete them](#clear-out).
    Confluent Registry Schema requires the specified parameter values to run.
 
 1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `registry` and [grant it the rights](../../managed-kafka/operations/cluster-accounts.md#grant-permission) for the `_schemas` topic:
-   * `ACCESS_ROLE_CONSUMER`
-   * `ACCESS_ROLE_PRODUCER`
+   * `ACCESS_ROLE_CONSUMER`.
+   * `ACCESS_ROLE_PRODUCER`.
 
    On behalf of this user, Confluent Schema Registry interacts with the `_schemas` service topic.
 
