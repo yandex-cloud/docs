@@ -117,6 +117,8 @@ items:
       - name: "{{ ydb-full-name }} и {{ yds-full-name }}"
         href: troubleshooting/ydb.md
         when: product == "yandex-cloud"
+      - name: Сеть
+        href: troubleshooting/network.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
