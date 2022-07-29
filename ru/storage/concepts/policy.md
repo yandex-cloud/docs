@@ -86,127 +86,127 @@
 
 * Политика, которая разрешает анонимному пользователю чтение объектов бакета `samplebucket` по зашифрованному подключению:
 
-```json
-{
-  "Id": "epd4limdp3dgec7enpq5",
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "f1qqoehl1q53l06kqurs",
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<имя бакета>/*",
-      "Condition": {
-        "Bool": {
-          "aws:SecureTransport": "true"
+  ```json
+  {
+    "Id": "epd4limdp3dgec7enpq5",
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "f1qqoehl1q53l06kqurs",
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "s3:GetObject",
+        "Resource": "arn:aws:s3:::<имя бакета>/*",
+        "Condition": {
+          "Bool": {
+            "aws:SecureTransport": "true"
+          }
         }
       }
-    }
-  ]
-}
-```
+    ]
+  }
+  ```
 
 * Политика, которая разрешает скачивать объекты только из указанного диапазона IP-адресов:
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<имя бакета>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "100.101.102.128/30"
+  ```json
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "s3:GetObject",
+        "Resource": "arn:aws:s3:::<имя бакета>/*",
+        "Condition": {
+          "IpAddress": {
+            "aws:SourceIp": "100.101.102.128/30"
+          }
         }
       }
-    }
-  ]
-}
-```
+    ]
+  }
+  ```
 
 * Политика, которая запрещает скачивать объекты с указанного IP-адреса:
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "*",
-      "Resource": "arn:aws:s3:::<имя бакета>/*"
-    },
-    {
-      "Effect": "Deny",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::<имя бакета>/*",
-      "Condition": {
-        "IpAddress": {
-          "aws:SourceIp": "100.101.102.103"
+  ```json
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "*",
+        "Resource": "arn:aws:s3:::<имя бакета>/*"
+      },
+      {
+        "Effect": "Deny",
+        "Principal": "*",
+        "Action": "s3:GetObject",
+        "Resource": "arn:aws:s3:::<имя бакета>/*",
+        "Condition": {
+          "IpAddress": {
+            "aws:SourceIp": "100.101.102.103"
+          }
         }
       }
-    }
-  ]
-}
-```
+    ]
+  }
+  ```
 
 * Политика, которая разрешает разным пользователям доступ только к определенным папкам, каждому пользователю — к своей:
 
-```json
-{
-  "Version":"2012-10-17",
-  "Statement":[
-    {
-      "Sid":"User1PermissionsResource",
-      "Effect":"Allow",
-      "Principal": {
-        "CanonicalUser": "<идентификатор пользователя>"
-      },
-      "Action": "*",
-      "Resource":["arn:aws:s3:::<имя бакета>/user1path/*"]
-    },
-    {
-      "Sid":"User1PermissionsPrefix",
-      "Effect":"Allow",
-      "Principal": {
+  ```json
+  {
+    "Version":"2012-10-17",
+    "Statement":[
+      {
+        "Sid":"User1PermissionsResource",
+        "Effect":"Allow",
+        "Principal": {
           "CanonicalUser": "<идентификатор пользователя>"
+        },
+        "Action": "*",
+        "Resource":["arn:aws:s3:::<имя бакета>/user1path/*"]
       },
-      "Action": "s3:ListBucket",
-      "Resource":["arn:aws:s3:::<имя бакета>"],
-      "Condition": {
-        "StringLike": {
-          "s3:prefix": "user1path/*"
+      {
+        "Sid":"User1PermissionsPrefix",
+        "Effect":"Allow",
+        "Principal": {
+            "CanonicalUser": "<идентификатор пользователя>"
+        },
+        "Action": "s3:ListBucket",
+        "Resource":["arn:aws:s3:::<имя бакета>"],
+        "Condition": {
+          "StringLike": {
+            "s3:prefix": "user1path/*"
+          }
+        }
+      },
+      {
+        "Sid":"User2PermissionsResource",
+        "Effect":"Allow",
+        "Principal": {
+          "CanonicalUser": "<идентификатор пользователя>"
+        },
+        "Action": "*",
+        "Resource":["arn:aws:s3:::<имя бакета>/user2path/*"]
+      },
+      {
+        "Sid":"User2PermissionsPrefix",
+        "Effect":"Allow",
+        "Principal": {
+          "CanonicalUser": "<идентификатор пользователя>"
+        },
+        "Action": "s3:ListBucket",
+        "Resource":["arn:aws:s3:::<имя бакета>"],
+        "Condition": {
+          "StringLike": {
+            "s3:prefix": "user2path/*"
+          }
         }
       }
-    },
-    {
-      "Sid":"User2PermissionsResource",
-      "Effect":"Allow",
-      "Principal": {
-        "CanonicalUser": "<идентификатор пользователя>"
-      },
-      "Action": "*",
-      "Resource":["arn:aws:s3:::<имя бакета>/user2path/*"]
-    },
-    {
-      "Sid":"User2PermissionsPrefix",
-      "Effect":"Allow",
-      "Principal": {
-        "CanonicalUser": "<идентификатор пользователя>"
-      },
-      "Action": "s3:ListBucket",
-      "Resource":["arn:aws:s3:::<имя бакета>"],
-      "Condition": {
-        "StringLike": {
-          "s3:prefix": "user2path/*"
-        }
-      }
-    }
-  ]
-}
-```
+    ]
+  }
+  ```
