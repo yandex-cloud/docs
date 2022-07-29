@@ -375,9 +375,9 @@ AD FS требует создавать _отношение доверия с п
 
 1. На шаге Configure URL выберите **Enable support for the SAML 2.0 WebSSO protocol** и укажите [ссылку для входа в консоль](#get-link), полученную ранее. После этого нажмите **Next**.
 
-    {% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" %}
     ![image](../../../_assets/iam/federations/specify-console-sso-link.png)
-    {% endif %}
+{% endif %}
 
 1. На следующей странице введите в качестве идентификатора эту же [ссылку для входа в консоль](#get-link) и нажмите **Add**. После этого нажмите **Next**.
 

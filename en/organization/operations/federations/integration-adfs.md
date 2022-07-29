@@ -376,9 +376,9 @@ Create a relying party trust for the federation you created in the cloud:
 
 1. In the Configure URL step, select **Enable support for the SAML 2.0 WebSSO protocol** and specify the [console login link](#get-link) you obtained earlier. Then click **Next**.
 
-   {% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" %}
    ![image](../../../_assets/iam/federations/specify-console-sso-link.png)
-   {% endif %}
+{% endif %}
 
 1. On the next page, enter the same [console login link](#get-link) as an identifier and click **Add**. Then click **Next**.
 
