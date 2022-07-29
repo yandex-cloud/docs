@@ -4,7 +4,9 @@
 * [{#T}](calculate-specs.md)
 * [{#T}](cluster-create.md)
 * [{#T}](connect.md)
+{% if audience != "internal" %}
 * [{#T}](cluster-stop.md)
+{% endif %}
 * [{#T}](cluster-hosts.md)
 * [{#T}](update.md)
 * [{#T}](external-tables.md)

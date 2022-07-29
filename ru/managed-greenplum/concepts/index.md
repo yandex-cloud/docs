@@ -17,7 +17,7 @@ _Резервный_ хост-мастер (STANDBY) непрерывно реп
 
 {% if product == "yandex-cloud" %}
 
-Все хосты кластера {{ mgp-name }} размещаются в одной зоне доступности: `{{ region-id }}-a` или `{{ region-id }}-b`. Создавать хосты в зоне `{{ region-id }}-c` нельзя. Подробнее см. в разделах [{#T}](../../overview/concepts/geo-scope.md) и [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
+Все хосты кластера {{ mgp-name }} размещаются в одной зоне доступности: `{{ region-id }}-a` или `{{ region-id }}-b`. Создавать хосты в зоне `{{ region-id }}-c` нельзя.{% if audience != "internal" %} Подробнее см. в разделах [{#T}](../../overview/concepts/geo-scope.md) и [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).{% endif %}
 
 {% endif %}
 
@@ -27,7 +27,7 @@ _Резервный_ хост-мастер (STANDBY) непрерывно реп
 
     Это физические серверы для размещения виртуальных машин кластера. Такие хосты выбираются случайным образом из пула доступных хостов, удовлетворяющих выбранной конфигурации кластера.
 
-{% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" and audience != "internal" %}
 
 * На _выделенных хостах_ {{ yandex-cloud }}.
 

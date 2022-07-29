@@ -79,15 +79,18 @@ items:
   - name: Lockbox
     href: lockbox/index.yaml
     when: audience == "external" and product == "yandex-cloud" or product == "cloud-il"
+  - name: Managed Service for Apache Kafka®
+    href: managed-kafka/index.yaml
+    when: product == "yandex-cloud" or product == "cloud-il"
   - name: Managed Service for ClickHouse
     href: managed-clickhouse/index.yaml
     when: product == "yandex-cloud" or product == "cloud-il"
   - name: Managed Service for Elasticsearch
     href: managed-elasticsearch/index.yaml
     when: product == "yandex-cloud"
-  - name: Managed Service for Apache Kafka®
-    href: managed-kafka/index.yaml
-    when: product == "yandex-cloud" or product == "cloud-il"
+  - name: Managed Service for Greenplum®
+    href: managed-greenplum/index.yaml
+    when: product == "yandex-cloud"
   - name: Managed Service for Kubernetes®
     href: managed-kubernetes/index.yaml
     when: audience == "external" and product == "yandex-cloud" or product == "cloud-il"

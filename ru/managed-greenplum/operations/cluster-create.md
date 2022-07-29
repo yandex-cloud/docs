@@ -20,7 +20,7 @@
         * `PRESTABLE` — для тестирования, в том числе самого сервиса {{ mgp-full-name }}. В Prestable-окружении раньше появляются новые функциональные возможности, улучшения и исправления ошибок. При этом не все обновления обеспечивают обратную совместимость.
     1. Выберите версию {{ GP }}.
 
-    {% if product == "yandex-cloud" %}
+    {% if product == "yandex-cloud" and audience != "internal" %}
 
     1. (опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер.
        
@@ -71,7 +71,9 @@
         * В блоке **Хранилище**:
           * Выберите [тип хранилища](../concepts/storage.md).
 
+            {% if audience != "internal" %}
             {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+            {% endif %}
 
     1. Укажите параметры хостов-сегментов на вкладке **Segment**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](calculate-specs.md#segment).
 
@@ -81,7 +83,9 @@
         * В блоке **Хранилище**:
            * Выберите [тип хранилища](../concepts/storage.md).
 
+             {% if audience != "internal" %}
              {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+             {% endif %}
 
     1. Нажмите кнопку **Создать**.
 
@@ -196,19 +200,17 @@
         * `--environment` — окружение:
             * `PRODUCTION` — для стабильных версий ваших приложений.
             * `PRESTABLE` — для тестирования, в том числе самого сервиса {{ GP }}. В Prestable-окружении раньше появляются новая функциональность, улучшения и исправления ошибок. При этом не все обновления обеспечивают обратную совместимость.
-        * `--network-name` — [имя сети](../../vpc/concepts/network.md#network).
+        * `--network-name` — имя сети.
         * `--user-name` — имя пользователя. Может содержать латинские буквы, цифры, дефис и нижнее подчеркивание, но должно начинаться с буквы, цифры или нижнего подчеркивания. Длина от 1 до 32 символов.
         * `--user-password` — пароль. Длина от 8 до 128 символов.
         * `--master-config` и `--segment-config` — конфигурация хостов-мастеров и хостов-сегментов:
             * `resource-id` — [класс хоста](../concepts/instance-types.md#available-flavors).
             * `disk-size` — объем хранилища в гигабайтах.
             * `disk-type` — [тип хранилища](../concepts/storage.md):
-                * `network-hdd`;
-                * `network-ssd`;
                 * `local-ssd`;
-                * `network-ssd-nonreplicated`.
-        * `--zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
-        * `--security-group-ids` — список идентификаторов [групп безопасности](../../vpc/concepts/security-groups.md).
+                * `local-hdd`.
+        * `--zone-id` — зона доступности.
+        * `--security-group-ids` — список идентификаторов групп безопасности.
         * `--deletion-protection` — защита от удаления кластера.
 
         {% endif %}

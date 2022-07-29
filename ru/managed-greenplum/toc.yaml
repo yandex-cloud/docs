@@ -16,6 +16,7 @@ items:
       - name: Подключение к базе данных
         href: operations/connect.md
       - name: Остановка и запуск кластера
+        when: audience != "internal"
         href: operations/cluster-stop.md
       - name: Управление хостами кластера
         href: operations/cluster-hosts.md
@@ -63,6 +64,7 @@ items:
     href: quotas.md
     when: audience == "internal"
   - name: Правила тарификации
+    when: audience != "internal"
     href: pricing/index.md
   - name: Справочник API
     items:

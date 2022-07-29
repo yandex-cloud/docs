@@ -41,7 +41,6 @@ ignore:
   - "ru/lockbox/*"
   - "ru/logging/*"
   - "ru/managed-gitlab/*"
-  - "ru/managed-greenplum/*"
   - "ru/managed-kubernetes/*"
   - "ru/managed-sqlserver/*"
   - "ru/marketplace/*"

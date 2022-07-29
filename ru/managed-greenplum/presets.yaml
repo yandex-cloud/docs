@@ -1,5 +1,6 @@
 ---
 default:
+  audience: external
   state: ga
   # Актуальные версии Greenplum
   versions:
@@ -12,3 +13,7 @@ default:
     console:
       latest: '6.19'
       str: '6.19'
+internal:
+  audience: internal
+external:
+  audience: external

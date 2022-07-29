@@ -204,7 +204,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя таблицы>
 
     1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с именем `test-bucket`.
 
-    1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md).
+    1. {% if audience != "internal" %}[Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md){% else %}Создайте статический ключ доступа{% endif %}.
 
     1. На локальной машине создайте тестовый файл `test.csv`:
 

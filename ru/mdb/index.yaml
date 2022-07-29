@@ -13,15 +13,18 @@ description:
 meta:
   title: MDB
 links:
+  - title: Managed Kafka
+    description: Управление кластерами Apache Kafka®
+    href: ../managed-kafka/
   - title: Managed ClickHouse
     description: Управление кластерами ClickHouse
     href: ../managed-clickhouse/
   - title: Managed Elasticsearch
     description: Управление кластерами Elasticsearch
     href: ../managed-elasticsearch/
-  - title: Managed Kafka
-    description: Управление кластерами Apache Kafka®
-    href: ../managed-kafka/
+  - title: Managed Greenplum®
+    description: Управление кластерами Greenplum®
+    href: ../managed-greenplum/
   - title: Managed MongoDB
     description: Управление кластерами MongoDB
     href: ../managed-mongodb/
