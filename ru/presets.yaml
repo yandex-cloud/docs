@@ -514,7 +514,7 @@ default:
     wiki: # Wikipedia
       ci: https://ru.wikipedia.org/wiki/Непрерывная_интеграция
   pg-docs: https://www.postgresql.org/docs/current
-  link-datasphere-main: https://datasphere-preprod.cloud.yandex.ru/
+  link-datasphere-main: https://datasphere.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex Cloud
