@@ -42,7 +42,7 @@ When deleting a host with a public FQDN, the assigned IP address is revoked.
 
 {% note tip %}
 
-When connecting to a cluster from within its cloud network, be sure to [configure](../operations/connect.md#configuring-security-groups) security groups both for the cluster and the connecting host.
+When connecting to a cluster from within its cloud network, be sure to [configure](../operations/connect/index.md#configuring-security-groups) security groups both for the cluster and the connecting host.
 
 {% endnote %}
 

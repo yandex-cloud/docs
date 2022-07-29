@@ -1,1 +1,1 @@
-**CA Certificate**: To encrypt transferred data, upload the {% if product == "yandex-cloud" %}[PEM certificate](../../../../../managed-mongodb/operations/connect.md#get-ssl-cert){% endif %}{% if product == "cloud-il" %}PEM certificate{% endif %} file or add its contents as text.
+**CA Certificate**: To encrypt transferred data, upload the {% if product == "yandex-cloud" %}[PEM certificate](../../../../../managed-mongodb/operations/connect/index.md#get-ssl-cert){% endif %}{% if product == "cloud-il" %}PEM certificate{% endif %} file or add its contents as text.

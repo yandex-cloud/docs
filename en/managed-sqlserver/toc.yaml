@@ -59,6 +59,8 @@ items:
         href: concepts/backup.md
       - name: Replication
         href: concepts/replication.md
+      - name: Maintenance
+        href: concepts/maintenance.md
       - name: SQL Server settings
         href: concepts/settings-list.md
       - name: Access to SQL Server components

@@ -26,25 +26,25 @@ Settings of rules depend on the connection method you select:
 
    1. {% include [Cluster security group rules](../../_includes/mdb/mgp/cluster-sg-rules.md) %}
 
-   1. [Configure the security group](../../vpc/operations/security-group-update.md#add-rule) assigned to the VM to allow connections to the VM and traffic between the VM and the cluster hosts.
+   1. [Configure the security group](../../vpc/operations/security-group-update.md#add-rule) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
 
       Example of rules for a VM:
 
       * For incoming traffic:
-         * Protocol: `TCP`.
          * Port range: `22`.
-         * Source type: `CIDR`.
-         * Source: `0.0.0.0/0`.
+         * Protocol: `TCP`.
+         * Source: `CIDR`.
+         * CIDR blocks: `0.0.0.0/0`.
 
          This rule lets you connect to the VM over SSH.
 
       * For outgoing traffic:
-         * Protocol: `Any` (`Any`).
-         * Port range: `0-65535`.
-         * Destination type: `CIDR`.
-         * Destination: `0.0.0.0/0`.
+         * Port range: `{{ port-any }}`.
+         * Protocol: `Any`.
+         * Source type: `CIDR`.
+         * CIDR blocks: `0.0.0.0/0`.
 
-         This rule allows any outgoing traffic: this lets you both connect to the cluster and install certificates and utilities you might need to connect to the cluster.
+         This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
 
 {% endlist %}
 
@@ -128,7 +128,7 @@ You can only use graphical IDEs to connect to a publicly accessible cluster. Bef
 
    1. Create a new DB connection:
       1. In the **Database** menu, select **New connection**.
-      1. Select the **{{ GP }}** database from the list.
+      1. Select **{{ GP }}** from the DB list.
       1. Click **Next**.
       1. Specify the connection parameters on the **Main** tab:
          * **Host**: [Special primary master FQDN](#fqdn-master): `c-<cluster ID>.rw.{{ dns-zone }}`.
@@ -136,8 +136,8 @@ You can only use graphical IDEs to connect to a publicly accessible cluster. Bef
          * **Database**: Name of the DB to connect to.
          * Under **Authentication**, specify the DB user's name and password.
       1. On the **SSL** tab:
-         1. Enable the **Use SSL** setting.
-         1. In the **Root certificate** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
+         1. Enable **Use SSL**.
+         1. In the **CA certificate** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
    1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 

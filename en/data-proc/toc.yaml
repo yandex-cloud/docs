@@ -95,6 +95,8 @@ items:
         href: concepts/decommission.md
       - name: Network in Data Proc
         href: concepts/network.md
+      - name: Maintenance
+        href: concepts/maintenance.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Storage in {{ dataproc-name }}

@@ -103,7 +103,7 @@
     * {% include [Field Subnet ID](../../_includes/data-transfer/fields/subnet-id.md) %}
 {% endif %}
 
-    * **CA Certificate**: To encrypt transferred data, upload the [PEM certificate](../../managed-mongodb/operations/connect.md#get-ssl-cert) file or add its contents as text.
+    * **CA Certificate**: To encrypt transferred data, upload the [PEM certificate](../../managed-mongodb/operations/connect/index.md#get-ssl-cert) file or add its contents as text.
 
     * {% include [Field Cleanup policy](../../_includes/data-transfer/fields/cleanup-policy-disabled-drop-truncate.md) %}
 

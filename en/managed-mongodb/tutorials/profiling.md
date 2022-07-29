@@ -16,7 +16,7 @@ Here are some tips for diagnosing and fixing these issues.
 
 ## Before you begin {#before-start}
 
-1. On an external host that has network access to a {{ MG }} host (see [{#T}](../operations/connect.md)), install the `mongostat` and `mongotop` [utilities](../operations/tools.md#monitoring-tools), which provide {{ MG }} performance data.
+1. On an external host that has network access to a {{ MG }} host (see [{#T}](../operations/connect/index.md)), install the `mongostat` and `mongotop` [utilities](../operations/tools.md#monitoring-tools), which provide {{ MG }} performance data.
 1. Determine which databases need to be checked for issues.
 1. [Create a {{ MG }} user](../operations/cluster-users.md#adduser) with the [`mdbMonitor`](../concepts/users-and-roles.md#mdbMonitor) role for these databases. This is necessary so that you can use `mongostat` and `mongotop`.
 

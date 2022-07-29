@@ -57,7 +57,7 @@ To create a database cluster in {{ mmg-short-name }}, you must define its charac
 - The network your cluster will be connected to.
 - The number of hosts for the cluster and the availability zone for each host.
 
-For detailed instructions, see [{#T}](../quickstart.md).
+For detailed instructions, see  [{#T}](../quickstart.md).
 
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
@@ -75,7 +75,7 @@ For more information, see [{#T}](../concepts/limits.md).
 
 You can connect to {{ mmg-short-name }} databases using standard DBMS methods.
 
-[Learn more about connecting to clusters](../operations/connect.md).
+[Learn more about connecting to clusters](../operations/connect/index.md).
 
 
 #### How many clusters can I create within a single cloud? {#db-limit}
@@ -87,10 +87,11 @@ MDB technical and organizational limits are given in [{#T}](../concepts/limits.m
 
 Maintenance in {{ mmg-short-name }} implies:
 
-- Automatic installation of DBMS updates and revisions for your database hosts (including disabled clusters).
+- Automatic installation of DBMS updates and revisions for DB hosts (including disabled clusters).
 - Changes to the host class and storage size.
 - Other {{ mmg-short-name }} maintenance activities.
 
+For more information, see [{#T}](../concepts/maintenance.md).
 
 #### Which version of {{ MG }} does {{ mmg-short-name }} use? {#dbms-version}
 
@@ -117,7 +118,6 @@ In {{ mmg-short-name }}, the usage cost is calculated based on the following par
 - Size of the storage reserved for the database host.
 - Size of the database cluster backups. {% if audience != "internal" %}Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../pricing.md).{% endif %}
 - Number of hours of database host operation. Partial hours are rounded to an integer value. {% if audience != "internal" %}The cost per hour of operation for each host class is given in [{#T}](../pricing.md).{% endif %}
-
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 

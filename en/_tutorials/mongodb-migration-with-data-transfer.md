@@ -145,7 +145,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
    1. Wait for the transfer to change to the **Incremented** status.
    1. Switch the source cluster to <q>read-only</q> mode and switch the load to the target cluster.
    1. On the [transfer monitoring](../../data-transfer/operations/monitoring.md) page, wait for the **Maximum lag on delivery, [s]** metric to decrease to zero. This means that all changes that occurred in the source cluster after data copying was completed are transferred to the target cluster.
-   1. [Connect](../../managed-mongodb/operations/connect.md#cluster-connect) to the target cluster.
+   1. [Connect](../../managed-mongodb/operations/connect/non-sharded.md) to the target cluster.
    1. Make sure that the `collection1` collection has been transferred and contains 200000 documents like in the source cluster:
 
       ```javascript
@@ -163,7 +163,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
    1. Wait for the transfer to change to the **Incremented** status.
    1. Switch the source cluster to <q>read-only</q> mode and switch the load to the target cluster.
    1. On the [transfer monitoring](../../data-transfer/operations/monitoring.md) page, wait for the **Maximum lag on delivery, [s]** metric to decrease to zero. This means that all changes that occurred in the source cluster after data copying was completed are transferred to the target cluster.
-   1. [Connect](../../managed-mongodb/operations/connect.md#shard-connect) to the target cluster.
+   1. [Connect](../../managed-mongodb/operations/connect/sharded.md) to the target cluster.
    1. Make sure that the `collection1 `collection has been transferred, contains 200000 documents like in the source cluster, and the documents are distributed across shards:
 
       ```javascript

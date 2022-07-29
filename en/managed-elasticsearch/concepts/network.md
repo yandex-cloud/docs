@@ -12,7 +12,7 @@ You can create a cluster without specifying any subnets for the hosts, if the av
 
 {% else %}
 
-All clusters are created inside our network, which is [already accessible](../../mdb/access.md#network-access) from most networks and most employees. If you don't have access, request access to the macro `_PGAASINTERNALNETS_` in [Puncher](https://puncher.yandex-team.ru/). To connect to {{ ES }}, specify port 9200 (Elasticsearch) and/or port 443 (Kibana) in your request.
+All of the clusters are created inside our network, which is [accessible](../../mdb/access.md#network-access) from most networks and by most employees. If you don't have access, request access to the macro `_PGAASINTERNALNETS_` in [Puncher](https://puncher.yandex-team.ru/). To connect to {{ ES }}, specify port 9200 (Elasticsearch) and/or port 443 (Kibana) in your request.
 
 {% endif %}
 
@@ -36,7 +36,7 @@ When deleting a host with a public FQDN, the assigned IP address is revoked.
 
 ## Security groups {#security-groups}
 
-Security groups follow the principle "All traffic that is not allowed is prohibited". Therefore, security group rules for a cluster's cloud network might prevent connections to the cluster if one or more groups are assigned to it.
+Security groups follow the principle "All traffic that is not allowed is prohibited". To connect to a cluster, security groups must include rules allowing traffic from certain ports, IP addresses, or from other security groups.
 
 Say, for example, that a host with the _Data node_ role is assigned a public IP address. If there's no security group rule that allows connecting to it from the internet on port `443`, you won't be able to connect to the Kibana web interface. You also won't be able to access a host that has no security group rule that explicitly allows incoming traffic on port `9200`.
 

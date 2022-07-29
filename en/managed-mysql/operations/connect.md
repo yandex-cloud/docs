@@ -22,7 +22,7 @@ Settings of rules depend on the connection method you select:
 
 {% list tabs %}
 
-- Over the internet 
+- Over the internet
    {% if audience != "internal" %}
 
    [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) in the cluster to allow incoming traffic on port {{ port-mmy }} from any IP address. To do this, create the following rule for incoming traffic:
@@ -63,22 +63,22 @@ Settings of rules depend on the connection method you select:
    {% endif %}
 
          Example VM rule:
-       
+
          * Incoming traffic:
             * Port range: `{{ port-ssh }}`.
             * Protocol: `TCP`.
             * Source: `CIDR`.
             * CIDR blocks: `0.0.0.0/0`.
-       
+
              This rule lets you connect to the VM over SSH.
-       
+
          * Outgoing traffic:
              * Port range: `{{ port-any }}`.
              * Protocol: `Any`.
              * Destination name: `CIDR`.
              * CIDR blocks: `0.0.0.0/0`.
-       
-             This rule allows any outgoing traffic: this lets you both connect to the cluster and install certificates and utilities you might need to connect to the cluster.
+
+             This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
 
 {% endlist %}
 

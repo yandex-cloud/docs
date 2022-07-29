@@ -65,6 +65,8 @@ Maintenance in {{ mgp-short-name }} implies:
 * Changes to the host class and storage size.
 * Other {{ mgp-short-name }} maintenance activities.
 
+For more information, see [{#T}](../concepts/maintenance.md).
+
 ## What happens when a new DBMS version is released? {#new-version}
 
 The database software is updated when new minor versions are released. The owners of the affected DB clusters receive advanced notice of expected work times and DB availability.

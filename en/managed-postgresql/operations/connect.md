@@ -18,7 +18,7 @@ Settings of rules depend on the connection method you select:
 
 {% list tabs %}
 
-- Over the internet 
+- Over the internet
    {% if audience != "internal" %}
 
    [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) in your cluster to allow incoming traffic on port 6432 from any IP. To do this, create the following rule for incoming traffic:
@@ -75,7 +75,7 @@ Settings of rules depend on the connection method you select:
       * Source type: `CIDR`.
       * CIDR blocks: `0.0.0.0/0`.
 
-      This rule allows any outgoing traffic: this lets you both connect to the cluster and install certificates and utilities you might need to connect to the cluster.
+      This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
 
 {% endlist %}
 

@@ -11,8 +11,14 @@ items:
         href: operations/cluster-list.md
       - name: Creating clusters
         href: operations/cluster-create.md
-      - name: Connecting to databases
-        href: operations/connect.md
+      - name: Connecting to a database
+        items:
+          - name: Overview of database connection methods
+            href: operations/connect/index.md
+          - name: Connecting to a non-sharded cluster
+            href: operations/connect/non-sharded.md
+          - name: Connecting to a sharded cluster
+            href: operations/connect/sharded.md
       - name: Stopping and starting clusters
         when: audience != "internal"
         href: operations/cluster-stop.md
@@ -78,6 +84,8 @@ items:
         href: concepts/sharding.md
       - name: Users and roles
         href: concepts/users-and-roles.md
+      - name: Maintenance
+        href: concepts/maintenance.md
       - name: Supported clients
         href: concepts/supported-clients.md
       - name: MongoDB settings

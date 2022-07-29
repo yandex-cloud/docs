@@ -4,18 +4,36 @@ If necessary, you can stop and restart a DB cluster. You are not charged for the
 
 {% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
 
-## Stopping a cluster {#stop-cluster}
 
-{% include [cluster-stop](../../_includes/mdb/cluster-stop.md) %}
+## Stopping a cluster {#stop-cluster}
 
 {% list tabs %}
 
 - Management console
 
-  To stop all hosts in the cluster:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-  1. Select the cluster from the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Stop**.
-  1. Confirm that you want to stop the cluster and click **Stop**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
+   1. Select the desired cluster in the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Stop**.
+   1. Confirm that you want to stop the cluster and click **Stop**.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To stop a cluster, run the command:
+
+   ```bash
+   {{ yc-mdb-mg }} cluster stop <cluster name or ID>
+   ```
+
+   You can request the cluster ID or name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- API
+
+   Use the API [stop](../api-ref/Cluster/stop.md) method and pass the cluster ID in the `clusterId` request parameter.
+
+   The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -27,10 +45,28 @@ You can restart **STOPPED** clusters.
 
 - Management console
 
-  To start a cluster:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-  1. Select a stopped cluster from the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Start**.
-  1. Confirm that you want to start the cluster: click **Start** in the dialog box that opens.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
+   1. Select the stopped cluster in the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Start**.
+   1. Confirm that you want to start the cluster: click **Start** in the dialog box that opens.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To start a stopped cluster, run the command:
+
+   ```bash
+   {{ yc-mdb-mg }} cluster start <cluster name or ID>
+   ```
+
+   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- API
+
+   Use the API [start](../api-ref/Cluster/start.md) method and pass the ID of the desired cluster in the `clusterId` request parameter.
+
+   The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
-

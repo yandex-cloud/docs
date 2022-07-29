@@ -72,7 +72,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
    1. Under **Network settings**, select:
 
       * Cloud network for the cluster.
-      * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+      * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
    1. Under **Hosts**, add the DB hosts created with the cluster:
 
@@ -156,16 +156,16 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
       ```bash
       {{ yc-mdb-mg }} cluster create \
-         --name <cluster name> \
-         --environment=<environment, prestable or production> \
-         --network-id {{ network-name }} \
-         --host zone-id=<availability zone> \
-         --mongod-resource-preset <host class> \
-         --user name=<username>,password=<user password> \
-         --database name=<database name> \
-         --mongod-disk-type local-ssd \
-        --mongod-disk-size <storage size in DB> \
-         --deletion-protection=<cluster deletion protection: true or false>
+        --name <cluster name> \
+        --environment=<environment, prestable or production> \
+        --network-id {{ network-name }} \
+        --host zone-id=<availability zone> \
+        --mongod-resource-preset <host class> \
+        --user name=<username>,password=<user password> \
+        --database name=<database name> \
+        --mongod-disk-type <local-ssd | local-hdd> \
+        --mongod-disk-size <storage size in gigabytes> \
+        --deletion-protection=<cluster deletion protection: true or false>
       ```
 
       {% endif %}
@@ -219,10 +219,10 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
         environment         = "<environment: PRESTABLE or PRODUCTION>"
         network_id          = "<network ID>"
         security_group_ids  = [ "<list of security groups>" ]
-        deletion_protection = <deletion protection for the cluster: true or false>
+        deletion_protection = <cluster deletion protection: true or false>
 
         cluster_config {
-          version = "<{{ MG }} version: {{ versions.tf.str }}>"
+          version = "<version {{ MG }}: {{ versions.tf.str }}>"
         }
 
         database {
@@ -253,7 +253,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
       resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
 
       resource "yandex_vpc_subnet" "<subnet name>" {
-        name           = "<network name>"
+        name           = "<subnet name>"
         zone           = "<availability zone>"
         network_id     = "<network ID>"
         v4_cidr_blocks = ["<range>"]
@@ -275,7 +275,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
       provider "yandex" {
         endpoint  = "{{ api-host }}:443"
-        token     = "<static key of the service account>"
+        token     = "<service account static key>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "<availability zone>"
@@ -286,7 +286,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
         environment         = "<environment: PRESTABLE or PRODUCTION>"
         network_id          = "<network ID>"
         security_group_ids  = [ "<list of security groups>" ]
-        deletion_protection = <deletion protection for the cluster: true or false>
+        deletion_protection = <cluster deletion protection: true or false>
 
         cluster_config {
           version = "<{{ MG }} version: {{ versions.tf.str }}>"
@@ -320,7 +320,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
       resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
 
       resource "yandex_vpc_subnet" "<subnet name>" {
-        name           = "<network name>"
+        name           = "<subnet name>"
         zone           = "<availability zone>"
         network_id     = "<network ID>"
         v4_cidr_blocks = ["<range>"]
@@ -343,7 +343,26 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources appear with correct settings, using the [management console]({{ link-console-main }}).
+      After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check that the resources are there with the correct settings, using the [management console]({{ link-console-main }}).
+
+      {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+
+- API
+
+   Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
+
+   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
+   * The cluster name in the `name` parameter.
+   * The environment of the cluster, in the `environment` parameter.
+   * Network ID, in the `networkId` parameter.
+   * Cluster configuration, in the `configSpec` parameter.
+   * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
+   * Security [group identifiers](../concepts/network.md#security-groups), in the `securityGroupIds` parameter.
+   * Database configuration, in one or more `databaseSpecs` parameters.
+   * User settings, in one or more `userSpecs` parameters.
+   * Cluster deletion protection settings in the `deletionProtection` parameter.
+
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
       {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
@@ -351,7 +370,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
 {% note warning %}
 
-If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect.md#configuring-security-groups) to connect to the cluster.
+If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
@@ -373,8 +392,8 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the `production` environment.
    * In the `{{ network-name }}` network.
    * In the security group with the ID `{{ security-group }}`.
-   * With one `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone.
-   * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
+   * With one `{{ host-class }}` host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone.
+   * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.
    * With one database, `db1`.
    * With protection against accidental cluster deletion.
@@ -384,7 +403,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Named `mymg`.
    * In the `production` environment.
    * In the security group with the ID `{{ security-group }}`.
-   * With a single `{{ host-class }}` class host in the `{{ region-id }}-a` availability zone.
+   * With one `{{ host-class }}` host in the `{{ region-id }}-a` availability zone.
    * With 20 GB of local SSD storage (`local-ssd`).
    * With one user, `user1`, with the password `user1user1`.
    * With one database, `db1`.
@@ -435,21 +454,21 @@ If you specified security group IDs when creating a cluster, you may also need t
    Let's say we need to create a {{ MG }} cluster and a network for it with the following characteristics:
 
    * Named `mymg`.
-   * Version `{{ versions.tf.latest }}`.
+   * Versions `{{ versions.tf.latest }}`.
    * In the `PRODUCTION` environment.
    * In the cloud with the ID `{{ tf-cloud-id }}`.
    * In the folder with the ID `{{ tf-folder-id }}`.
    * In the new `mynet` network.
-   * With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
    * In the new security group `mymg-sg` allowing TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
-   * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
+   * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.
    * With one database, `db1`.
    * With protection against accidental cluster deletion.
 
    The configuration file for the cluster looks like this:
 
-  {% if product == "yandex-cloud" %}
+   {% if product == "yandex-cloud" %}
 
    ```hcl
    terraform {
@@ -461,7 +480,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    }
 
    provider "yandex" {
-     token     = "<An OAuth or static key of the service account>"
+     token     = "<service account's OAuth or static key>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
      zone      = "{{ region-id }}-a"
@@ -541,7 +560,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    provider "yandex" {
      endpoint  = "{{ api-host }}:443"
-     token     = "<static key of the service account>"
+     token     = "<service account static key>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
      zone      = "{{ region-id }}-a"

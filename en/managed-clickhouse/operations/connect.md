@@ -56,7 +56,7 @@ Settings of rules depend on the connection method you select:
          * Source type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule allows any outgoing traffic: this lets you both connect to the cluster and install certificates and utilities you might need to connect to the cluster.
+         This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
 
 {% endlist %}
 
@@ -104,7 +104,7 @@ Settings of rules depend on the connection method you select:
          * Source type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule allows any outgoing traffic: this lets you both connect to the cluster and install certificates and utilities you might need to connect to the cluster.
+         This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
 
 {% endlist %}
 
@@ -206,9 +206,8 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 You can connect to public {{ CH }} cluster hosts only if you use an SSL certificate. Before connecting [prepare a certificate](#get-ssl-cert).
 
-In the examples below, it is assumed that the certificate `{{ crt-local-file }}`:
-
-* Is located in the directory `{{ crt-local-dir }}/` (for Ubuntu).
+In the examples below, it is assumed that the `{{ crt-local-file }}` certificate:
+* Is located in the `{{ crt-local-dir }}` folder (for Ubuntu).
 * Is imported to the Trusted Root Certificate store (for Windows).
 
 Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. For connections to the database, traffic inside the virtual network isn't encrypted in this case.

@@ -2,7 +2,7 @@
 
 - [{#T}](cluster-list.md)
 - [{#T}](cluster-create.md)
-- [{#T}](connect.md)
+- [{#T}](connect/index.md)
 {% if audience != "internal" %}
 - [{#T}](cluster-stop.md)
 {% endif %}
