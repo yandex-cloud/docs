@@ -47,7 +47,7 @@ To use the instructions in this section, you will need:​
 
    1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.png).
+   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click **Create federation**.
 
@@ -257,7 +257,7 @@ To add a certificate to a federation:
 
    1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.png).
+   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click the name of the federation to add a certificate to.
 
@@ -333,7 +333,7 @@ Obtain and save this link:
 
    1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.png).
+   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Copy the ID of the federation you're configuring access for.
 
@@ -375,7 +375,7 @@ Create a relying party trust for the federation you created in the cloud:
 
 1. In the Configure URL step, select **Enable support for the SAML 2.0 WebSSO protocol** and specify the [console login link](#get-link) you obtained earlier. Then click **Next**.
 
-   
+
    ![image](../../../_assets/iam/federations/specify-console-sso-link.png)
 
 1. On the next page, enter the same [console login link](#get-link) as an identifier and click **Add**. Then click **Next**.
@@ -499,7 +499,7 @@ To add federation users to an organization:
 
    1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../../../_assets/organization/icon-users.png).
+   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
    1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
 

@@ -19,7 +19,7 @@ Calculation of the monthly cost of processing data (provided that there are 31 d
 
 Where:
 * 50 is the size of one message in KB.
-* 40 is the size of units of written data in KB.
+* 40 is the [size of units](#event) of written data in KB.
 * 2 is the number of data units written per message.
 
 While calculating the cost, the number of units of written data is rounded up to an integer. In this example, the number is rounded to 2.
@@ -48,7 +48,7 @@ Where:
 
 ### Cost of a unit of written data {#event}
 
-The first 2000000 messages per month are free of charge.
+The first 2000000 units per month are free of charge.
 
 
 

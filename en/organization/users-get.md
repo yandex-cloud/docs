@@ -14,7 +14,7 @@ You can get the following information about an organization's registered users:
 
    1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.png). The page will display a list:
+   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg). The page will display a list:
 
       - The **User** column contains the user's username and email.
 

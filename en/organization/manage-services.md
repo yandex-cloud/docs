@@ -12,7 +12,7 @@ To go to cloud and service management:
 
 1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-1. In the left panel, select [Clouds and services]({{link-org-services}}) ![icon-services](../_assets/organization/icon-services.png).
+1. In the left panel, select [Clouds and services]({{link-org-services}}) ![icon-services](../_assets/organization/icon-services.svg).
 
    The page displays a list of clouds connected to the organization as well as services, such as {{ tracker-full-name }}, {{ wiki-full-name }}, {{ forms-full-name }}, and {{ datalens-full-name }}.
 

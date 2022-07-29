@@ -26,7 +26,7 @@ If your employees have Yandex accounts (for example, `{{login-example}}`), they 
 
 To connect employees with Yandex accounts:
 
-1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.png).
+1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
 
 1. In the top right-hand corner, click **Add user**.
 
@@ -43,7 +43,7 @@ Identity federation is a technology with which you can implement a single sign-o
 
 To configure your identity federation, follow these steps:
 
-1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.png).
+1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.svg).
 
 1. Click **Create federation**.
 

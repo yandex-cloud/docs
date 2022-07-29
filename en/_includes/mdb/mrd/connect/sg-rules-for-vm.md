@@ -1,21 +1,24 @@
 
-[Set up the security group](../../../../vpc/operations/security-group-update.md#add-rule) assigned to the VM to allow connections to the VM and traffic between the VM and the cluster hosts.
+To connect to a cluster from a VM in {{ yandex-cloud }}, [in its security groups, create](../../../../vpc/operations/security-group-update.md#add-rule) rules, enabling:
+
+* VM connections from the internet.
+* Traffic between the VM and cluster hosts.
 
 
 Example of rules for a VM:
 
 * For incoming traffic:
-    * Protocol: `TCP`.
-    * Port range: `22`.
-    * Source type: `CIDR`.
-    * Source: `0.0.0.0/0`.
+   * Port range: `22`.
+   * Protocol: `TCP`.
+   * Source: `CIDR`.
+   * CIDR blocks: `0.0.0.0/0`.
 
-    This rule lets you connect to the VM over SSH.
+   This rule lets you connect to the VM over SSH.
 
 * For outgoing traffic:
-    * Protocol: `Any`.
-    * Port range: `0-65535`.
-    * Destination type: `CIDR`.
-    * Destination: `0.0.0.0/0`.
+   * Port range: `{{ port-any }}`.
+   * Protocol: `Any`.
+   * Source type: `CIDR`.
+   * CIDR blocks: `0.0.0.0/0`.
 
-    This rule allows any outgoing traffic: this lets you both connect to the cluster and install certificates and utilities you might need to connect to the cluster.
+   This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.

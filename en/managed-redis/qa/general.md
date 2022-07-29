@@ -88,6 +88,8 @@ Maintenance in {{ mrd-short-name }} implies:
 - Changes to the host class and storage size.
 - Other {{ mrd-short-name }} maintenance activities.
 
+For more information, see [{#T}](../concepts/maintenance.md).
+
 #### Which version of {{ RD }} does {{ mrd-short-name }} use? {#dbms-version}
 
 {{ mrd-short-name }} supports {{ RD }} versions {{ versions.console.str }}.

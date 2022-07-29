@@ -71,6 +71,8 @@ items:
         href: concepts/scalability-and-resilience.md
       - name: Elasticsearch version control policy
         href: concepts/update-policy.md
+      - name: Maintenance
+        href: concepts/maintenance.md
       - name: Elasticsearch settings
         href: concepts/settings-list.md
   - name: Access management

@@ -9,6 +9,13 @@ Depending on the selected interface, the same setting is represented differently
 * `max_incoming_connections` in gRPC, CLI, or {{ TF }}.
 * `maxIncomingConnections` in the REST API.
 
+The following settings are only available for the {{ mmg-name }} cluster Enterprise version.
+
+* [Audit log](#setting-audit-log);
+* [Security](#setting-security).
+
+In a sharded cluster, some settings are only available to certain [host roles](sharding.md#shard-management).
+
 ## Settings dependency on the host class {#settings-instance-dependent}
 
 Values of some {{ MG }} settings can be automatically adjusted when you change the host class:
@@ -24,4 +31,3 @@ List of settings that depend on the host class:
 ## Cluster-level DBMS settings {#dbms-cluster-settings}
 
 {% include [mmg-dbms-settings](../../_includes/mdb/mmg-dbms-settings.md) %}
-

@@ -10,7 +10,7 @@ To add employee accounts to the organization, follow these steps:
 
 1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.png).
+1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
 
 1. In the top right-hand corner, click **Add user**.
 
@@ -37,7 +37,7 @@ To add federation users to an organization:
 
    1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.png).
+   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
 
    1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
 

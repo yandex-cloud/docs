@@ -25,13 +25,20 @@ You can change the payer's contact information (for example, mailing address or 
 1. Click **Edit data in Yandex Balance**. <br/>This redirects you to [Yandex Balance](https://balance.yandex.ru/).
 1. Follow the [instructions in the Help](https://yandex.ru/support/balance/operations/change-data.html) for Yandex Balance.
 
-## Changing billing details {#change-details}
+## Changing any details other than TIN {#change-details}
 
 [Write a request](../qa/common.md) to {{ yandex-cloud }} support. In the request, specify the details to modify and the number of the [contract](../concepts/contract.md) and attach a copy of the certificate verifying these changes (signed and stamped with the company's seal).
+
+## Changing a business or TIN {#change-legal-entity}
+
+You cannot change a business or TIN in the billing account settings. If these details have changed:
+1. [Create](create-new-account.md) a billing account with new details by selecting **Legal entity or individual entrepreneur** as the payer type.
+1. Wait until the billing account is activated to avoid downtime of resources.
+1. Transfer all clouds from the old billing account to the new one. All you have to do is [link](pin-cloud.md) them to the new billing account.
 
 ##### See also
 
 * [Link another bank card](pin-card.md)
 * [Unlink a card](unlink-card.md)
 * [Change the payment method](change-payment-method.md)
-* [Configuring notifications ](budgets.md)
+* [Configuring notifications](budgets.md)

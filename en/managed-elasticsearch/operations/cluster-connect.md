@@ -4,9 +4,8 @@ You can connect to the hosts in the {{ mes-name }} cluster with the [_Data node_
 
 - Over the internet, if you configured public access for the appropriate host.
    
-
 - From {{ yandex-cloud }} VM instances hosted in the same [virtual network](../../vpc/concepts/network.md).
-
+
 
 Regardless of the connection method, {{ mes-name }} only supports cluster host connections with an [SSL certificate](#get-ssl-cert).
 
@@ -21,9 +20,8 @@ Settings of rules depend on the connection method you select:
 - Over the internet
 
    
-
    [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) of a cluster to allow incoming traffic from any IP on ports 443 (Kibana) and 9200 ({{ ES }}). To do this, create the following rules for incoming traffic:
-
+
 
    - Port range: `443`, `9200`.
    - Protocol: `TCP`.
@@ -35,9 +33,8 @@ Settings of rules depend on the connection method you select:
 - With a VM in Yandex.Cloud
 
    
-
    1. [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) of your cluster to allow incoming traffic on ports 443 (Kibana) and 9200 ({{ ES }}) from the security group where your VM is located. To do this, create the following rules for incoming traffic in these security groups:
-
+
 
          - Protocol: `TCP`.
          - Port range: `443`, `9200`.
@@ -47,9 +44,8 @@ Settings of rules depend on the connection method you select:
          A separate rule is created for each port.
 
    
-
    1. [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) where your VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
-
+
 
          Example VM rule:
 
@@ -82,9 +78,8 @@ Security groups must be configured correctly for all subnets that will include c
 {% endnote %}
 
 
-
 For more information about security groups, see [{#T}](../concepts/network.md#security-groups).
-
+
 
 ## Getting an SSL certificate {#get-ssl-cert}
 
@@ -101,11 +96,10 @@ To use an encrypted connection, get an SSL certificate:
 - Windows (PowerShell)
 
    
-
    ```powershell
    mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt https://{{ s3-storage-host }}{{ pem-path }}
    ```
-
+
 
    The certificate will be saved in the `$HOME\.elasticsearch\root.crt` folder.
 

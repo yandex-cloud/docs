@@ -1,2 +1,3 @@
-[Security groups](../../vpc/concepts/security-groups.md) might prevent connection to the cluster. If this is the case, make changes to the group rules.
+
+To connect to a cluster, [security groups](../../vpc/concepts/security-groups.md) must include rules allowing traffic from certain ports, IP addresses, or from other security groups.
 

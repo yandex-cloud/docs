@@ -43,11 +43,11 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
    1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.png).
+   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
 
    1. Select a user from the list or use the search bar at the top of the page.
 
-   1. In the right-hand column, click ![icon-context-menu](../_assets/organization/icon-context-menu.png) and select **Configure access**.
+   1. In the right-hand column, click ![icon-context-menu](../_assets/horizontal-ellipsis.svg) and select **Configure access**.
 
    1. In the **Configure access rights** window, click **Add role** and enter the name of the role or select from list.
 
@@ -186,11 +186,11 @@ If you wish to deny a user access to a resource, revoke the relevant roles for t
 
    1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.png).
+   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
 
    1. Select a user from the list or use the search bar at the top of the page.
 
-   1. In the right-hand column, click ![icon-context-menu](../_assets/organization/icon-context-menu.png) and select **Configure access**.
+   1. In the right-hand column, click ![icon-context-menu](../_assets/horizontal-ellipsis.svg) and select **Configure access**.
 
    1. Click ![cross](../_assets/cross.svg) next to a role to delete it.
 

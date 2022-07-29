@@ -14,7 +14,7 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing the desired cluster.
+   1. In the [management console]({{ link-console-main }}), select the folder with the desired cluster.
    1. Select **{{ mrd-name }}**.
    1. Click the name of a cluster and open the **Shards** tab.
 
@@ -24,10 +24,10 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of databases in a cluster, run the command:
+   To get a list of shards in a cluster, run the following command:
 
    ```
-   yc managed-redis shards list --cluster-name <cluster name>
+   {{ yc-mdb-rd }} shards list --cluster-name <cluster name>
    ```
 
    Result:
@@ -44,21 +44,40 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
    +--------------+
    ```
 
+- API
+
+   Use the API [listShards](../api-ref/Cluster/listShards.md) method and pass the cluster ID in the `clusterId` request parameter.
+
+   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md).
+
 {% endlist %}
 
 ## Getting detailed information about a shard {#get}
 
-{% include [cli-install](../../_includes/cli-install.md) %}
+{% list tabs %}
 
-{% include [default-catalogue](../../_includes/default-catalogue.md) %}
+- CLI
 
-To get information about a shard, run the following command:
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-```
-{{ yc-mdb-rd }} shards get <shard name> --cluster-name <cluster name>
-```
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md).
+   To get information about a shard, run the following command:
+
+   ```bash
+   {{ yc-mdb-rd }} shards get <shard name> --cluster-name <cluster name>
+   ```
+
+- API
+
+   Use the API [getShard](../api-ref/Cluster/getShard.md) method and pass the following in the request:
+
+   * The cluster ID in the `clusterId` parameter.
+   * In the `shardName` parameter, the name of the desired shard.
+
+{% endlist %}
+
+You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md).
 
 ## Adding a shard {#add}
 
@@ -86,10 +105,10 @@ You can query the cluster ID and name with a [list of clusters in the folder](cl
 
    To add a two-host shard to the cluster:
 
-   ```
-   yc managed-redis shards add --name <new shard's name> --cluster-name <cluster name> \
-     --host zone-id=<availability zone>,subnet-name=<subnet name> \
-     --host zone-id=<availability zone>,subnet-name=<subnet name>
+   ```bash
+   {{ yc-mdb-rd }} shards add --name <new shard's name> --cluster-name <cluster name> \
+      --host zone-id=<availability zone>,subnet-name=<subnet name> \
+      --host zone-id=<availability zone>,subnet-name=<subnet name>
    ```
 
 - {{ TF }}
@@ -123,6 +142,16 @@ You can query the cluster ID and name with a [list of clusters in the folder](cl
 
    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
+- API
+
+   Use the API [addShard](../api-ref/Cluster/addShard.md) method and pass the following in the request:
+
+   * The cluster ID in the `clusterId` parameter.
+   * In the `shardName` parameter, the name of the desired shard.
+   * In the array of `hostSpecs` parameters, the shard's host configuration.
+
+   You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md).
+
 {% endlist %}
 
 To be able to place data in the new shard, start [rebalancing](#rebalance-cluster) the {{ mrd-name }} cluster.
@@ -153,9 +182,9 @@ All the shard hosts are deleted with the shard.
 
    To delete a shard from the cluster, run:
 
-   ```
-   {{ yc-mdb-rd }} shards delete <shard name>
-     --cluster-name=<cluster name>
+   ```bash
+   {{ yc-mdb-rd }} shards delete <shard name> \
+      --cluster-name=<cluster name>
    ```
 
    You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md).
@@ -179,6 +208,15 @@ All the shard hosts are deleted with the shard.
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
 
    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
+
+- API
+
+   Use the API [deleteShard](../api-ref/Cluster/deleteShard.md) method and pass the following in the request:
+
+   * The cluster ID in the `clusterId` parameter.
+   * In the `shardName` parameter, the name of the shard to delete.
+
+   You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md).
 
 {% endlist %}
 

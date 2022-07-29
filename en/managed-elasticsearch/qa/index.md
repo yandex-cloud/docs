@@ -15,6 +15,8 @@ Maintenance in {{ mes-short-name }} implies:
 * Changes to the host class and storage size.
 * Other {{ mes-short-name }} maintenance activities.
 
+For more information, see [{#T}](../concepts/maintenance.md).
+
 #### Is cluster backup enabled by default? {#default-backup}
 
 Yes, backup is enabled by default. For {{ mes-name }} clusters, a complete backup is performed every hour, and all the indexes are saved. This helps restore a cluster's state from any available backup.

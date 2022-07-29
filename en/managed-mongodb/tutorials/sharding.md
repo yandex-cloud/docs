@@ -29,7 +29,7 @@ Run all your sharding setup commands via the `mongo` CLI from a user granted the
 
 1. [Enable sharding](../operations/shards.md#enable) for the cluster.
 
-1. [Connect](../operations/connect.md) to the `MONGOS` or `MONGOINFRA` host using the `mongo` CLI and enable sharding:
+1. [Connect](../operations/connect/index.md) to the `MONGOS` or `MONGOINFRA` host using the `mongo` CLI and enable sharding:
 
    ```
    sh.enableSharding("<database name>")
@@ -66,7 +66,7 @@ Let's say you already have a {{ mmg-name }} sharded cluster hosting the `billing
 
 Sequence of operations:
 
-1. [Connect](../operations/connect.md) to the `billing` database. Make sure that the user connecting to the database has the [mdbShardingManager](../concepts/users-and-roles.md#mdbShardingManager) role in the [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database.
+1. [Connect](../operations/connect/index.md) to the `billing` database. Make sure that the user connecting to the database has the [mdbShardingManager](../concepts/users-and-roles.md#mdbShardingManager) role in the [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database.
 
 1. Enable `billing` database sharding:
 

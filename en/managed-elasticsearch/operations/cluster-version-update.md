@@ -2,6 +2,8 @@
 
 In the {{ mes-name }} cluster, you can [update the version](#version-update) and [update the edition](#start-edition-update) of {{ ES }}.
 
+To learn more about updates within one version and host maintenance, see [{#T}](../concepts/maintenance.md).
+
 ## Updating the {{ ES }} version {#version-update}
 
 You can update a {{ mes-name }} cluster to a later [{{ ES }} version](../concepts/update-policy.md#versioning-policy).
