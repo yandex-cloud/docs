@@ -30,11 +30,11 @@ The {{ marketplace-name }} provides images with Microsoft Windows Server Datacen
 
 ### Remote Desktop Services (RDS) {#rds}
 
-The {{ marketplace-name }} provides [Windows RDS](/marketplace?tab=software&search=windows+rds) images based on [Windows Server 2019 Datacenter](/marketplace?tab=software&search=Windows+Server+2019+Datacenter) with the pre-activated Remote Desktop Licensing Server role and a custom license package. You can choose from RDS license packages of [5](/marketplace/products/yc/windows-rds-5-licenses), [10](/marketplace/products/yc/windows-rds-10-licenses), [25](/marketplace/products/yc/windows-rds-25-licenses), [50](/marketplace/products/yc/windows-rds-50-licenses), [100](/marketplace/products/yc/windows-rds-100-licenses), [250](/marketplace/products/yc/windows-rds-250-licenses) or [500](/marketplace/products/yc/windows-rds-500-licenses) licenses.
+The {{ marketplace-name }} provides [Windows RDS](/marketplace?tab=software&search=windows+rds) images based on [Windows Server 2019 Datacenter](/marketplace?tab=software&search=Windows+Server+2019+Datacenter) with the pre-activated Remote Desktop Licensing Server role and a custom license package. You can choose from RDS license packages of [5](/marketplace/products/yc/windows-rds-5-licenses), [10](/marketplace/products/yc/windows-rds-10-licenses), [25](/marketplace/products/yc/windows-rds-25-licenses), [50](/marketplace/products/yc/windows-rds-50-licenses), [100](/marketplace/products/yc/windows-rds-100-licenses), [250](/marketplace/products/yc/windows-rds-250-licenses), or [500](/marketplace/products/yc/windows-rds-500-licenses) licenses.
 
 {% note warning %}
 
-Images with pre-activated RDS are not optimized using the `sysprep` utility and have a constant SID. This may cause conflicts if two VMs with the same number of licenses are running in the same domain.
+Images with pre-activated RDS are not optimized using the `sysprep` utility and have a constant SID. Otherwise, there might be conflicts if two VMs with the same number of licenses are running in the same domain. Optimization using the `sysrep` utility will also permanently reset the Remote Desktop Services license server activation.
 
 {% endnote %}
 
