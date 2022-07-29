@@ -6,6 +6,10 @@
 
 * Обновлена инструкция [{#T}](operations/chart/create-table.md).
 
+### Решение проблем {#troubleshooting072022}
+
+* Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-BFB_UNSELECTED_DIMENSION.md) и рекомендации по исправлению.
+
 ## Июнь 2022 {#june2022}
 
 ### Концепции {#concepts062022}
