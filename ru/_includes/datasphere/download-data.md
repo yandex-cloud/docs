@@ -7,3 +7,11 @@
 1. Выберите файлы, которые нужно загрузить. 
 
 [Подробнее о хранилище проекта](../../datasphere-ui-preview/concepts/project.md#storage).
+
+{{ ml-platform-name }} позволяет загружать данные из разных источников:
+
+* [{#T}](../../datasphere-ui-preview/operations/data/connect-to-s3.md).
+* [{#T}](../../datasphere-ui-preview/operations/data/connect-to-google-drive.md).
+* [{#T}](../../datasphere-ui-preview/operations/data/connect-to-clickhouse.md).
+* [{#T}](../../datasphere-ui-preview/operations/data/connect-to-postgresql.md).
+* [{#T}](../../datasphere-ui-preview/operations/data/connect-to-ya-disk.md).

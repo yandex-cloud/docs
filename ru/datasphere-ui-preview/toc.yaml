@@ -117,6 +117,8 @@ items:
             href: concepts/save-state.md
           - name: Список предустановленного ПО
             href: concepts/preinstalled-packages.md
+          - name: Режим раннего доступа
+            href: concepts/early-access.md
       - name: Вычисления и обучение моделей
         items:
           - name: Доступные команды
@@ -125,6 +127,8 @@ items:
             href: concepts/pragma.md
           - name: Фоновые операции
             href: concepts/async.md
+          - name: EA — Специальные фоновые ячейки
+            href: concepts/repeat.md
           - name: Распределенное обучение
             href: concepts/taas.md
             when: product == "yandex-cloud"
@@ -133,35 +137,16 @@ items:
             when: product == "yandex-cloud"
       - name: Ресурсы
         items:
-          - name: Датасеты
-            href: concepts/dataset.md
           - name: Секреты
             href: concepts/secrets.md
+          - name: Контрольные точки
+            href: concepts/checkpoints.md
+          - name: Датасеты
+            href: concepts/dataset.md
       - name: Эксплуатация моделей
         href: concepts/deploy/index.md
-      - name: Ранний доступ
-        href: concepts/early-access.md
-        items:
-          - name: Специальные фоновые ячейки
-            href: concepts/repeat.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Практические руководства
-    items:
-      - name: Все руководства
-        href: tutorials/index.md
-      - name: Знакомство с DataSphere
-        href: tutorials/basics.md
-      - name: Голосовая биометрия
-        href: tutorials/speech-recognition.md
-      - name: Оценка качества STT моделей
-        href: tutorials/estimate-quality.md
-      - name: Классификация изображений на видеокадрах
-        href: tutorials/video-recognition.md
-  - name: Справочник API
-    items:
-      - name: Аутентификация в API
-        href: api-ref/authentication.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
