@@ -8,6 +8,8 @@ items:
     items:
       - name: Методы подключения виджета
         href: concepts/widget-methods.md
+      - name: Невидимая капча
+        href: concepts/invisible-captcha.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Правила тарификации
