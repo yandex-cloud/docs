@@ -41,6 +41,8 @@ items:
         href: concepts/sharding.md
       - name: Types of data storage
         href: concepts/tables.md
+      - name: Maintenance
+        href: concepts/maintenance.md
       - name: Managing users
         href: concepts/cluster-users.md
   - name: Access management

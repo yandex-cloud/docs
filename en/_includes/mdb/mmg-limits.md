@@ -22,4 +22,4 @@
 
 {% include [storage-limitations-mmg](./mmg/storage-limitations-note.md) %}
 
-{% include [mmg-conn-limits](mmg-conn-limits.md) %}
+{% include [mmg-conn-limits](./mmg/conn-limits.md) %}

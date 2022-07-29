@@ -15,6 +15,11 @@ links:
   - title: Методы установки виджета
     description: Узнайте о способах подключения SmartCaptcha к вашему сайту
     href: concepts/widget-methods
+  - title: Невидимая капча
+    description: >-
+      Показывайте капчу только для запросов, которые сервис посчитает
+      подозрительными
+    href: concepts/invisible-captcha
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

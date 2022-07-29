@@ -72,15 +72,18 @@ links:
   - title: Yandex Lockbox
     description: Создание и хранение секретов
     href: lockbox/
+  - title: Managed Service for Apache Kafka®
+    description: Управление кластерами Apache Kafka®
+    href: managed-kafka/
   - title: Managed Service for ClickHouse
     description: Управление базой данных ClickHouse
     href: managed-clickhouse/
   - title: Managed Service for Elasticsearch
     description: Управление кластерами Elasticsearch
     href: managed-elasticsearch/
-  - title: Managed Service for Apache Kafka®
-    description: Управление кластерами Apache Kafka®
-    href: managed-kafka/
+  - title: Managed Service for Greenplum®
+    description: Управление кластерами Greenplum®
+    href: managed-greenplum/
   - title: Managed Service for Kubernetes®
     description: Управление кластерами Kubernetes
     href: managed-kubernetes/

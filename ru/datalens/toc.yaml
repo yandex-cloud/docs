@@ -749,6 +749,10 @@ items:
       - name: Unknown referenced source column
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_SOURCE_COLUMN.md
+      - name: Window function has unselected dimension
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-BFB_UNSELECTED_DIMENSION.md
       - name: Window function has no aggregated expressions among its arguments
         hidden: true
         href: >-

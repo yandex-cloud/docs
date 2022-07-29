@@ -5,6 +5,7 @@
 1. [Создайте кластер](#cluster-create).
 1. [Подключитесь к БД](#connect).
 
+
 ## Перед началом работы {#before-you-begin}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
@@ -29,6 +30,7 @@
     ```bash
     sudo apt update && sudo apt install postgresql-client --yes
     ```
+
 
 ## Создайте кластер {#cluster-create}
 

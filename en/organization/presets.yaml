@@ -4,6 +4,7 @@ default:
   link-org-settings: https://org.cloud.yandex.com/settings
   link-org-federations: https://org.cloud.yandex.com/federations
   link-org-services: https://org.cloud.yandex.com/services
+  link-org-groups: https://org.cloud.yandex.com/groups
   link-passport: https://passport.yandex.com/
   login-example: login@yandex.com
   yandex-domain: yandex.com

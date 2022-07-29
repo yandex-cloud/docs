@@ -9,7 +9,7 @@ You can add [users with a Yandex account](#passport-user) and [federated users](
 
 1. [Log in to the account]({{ link-passport-login }}) your organization's administrator.
 1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-1. In the left panel, select [Users]({{ link-org-main }}/users) ![icon-users](../../../_assets/organization/icon-users.png).
+1. In the left panel, select [Users]({{ link-org-main }}/users) ![icon-users](../../../_assets/organization/icon-users.svg).
 1. In the upper-right corner, click **Add user**.
 1. Enter the Yandex user's email address.
 1. Click **Add**. The user will be added to the organization and get access to its services.
@@ -33,7 +33,7 @@ To add federation users to an organization:
 
   1. [Log in to the account]({{ link-passport-login }}) your organization's administrator.
   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-  1. In the left panel, select [Users]({{ link-org-main }}/users) ![icon-users](../../../_assets/organization/icon-users.png).
+  1. In the left panel, select [Users]({{ link-org-main }}/users) ![icon-users](../../../_assets/organization/icon-users.svg).
   1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
   1. Select the identity federation to add users from.
   1. List the Name IDs of users, separating them with line breaks.

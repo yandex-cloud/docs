@@ -1,4 +1,5 @@
 default:
+  audience: external
   state: ga
   versions:
     tf:

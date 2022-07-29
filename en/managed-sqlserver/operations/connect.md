@@ -2,13 +2,13 @@
 
 You can connect to {{ mms-short-name }} cluster hosts:
 
-* Over the internet, if you configured public access for the appropriate host. You can only connect to such clusters over an [SSL connection](#get-ssl-cert).
+* Over the internet, if you configured public access for the appropriate host. You can only connect to this type of cluster using an [SSL connection](#get-ssl-cert).
 * From {{ yandex-cloud }} VM instances hosted in the same [virtual network](../../vpc/concepts/network.md). If the cluster isn't publicly available, you don't need to use an SSL connection to connect to such VMs.
 
 If the cluster consists of multiple hosts, you can connect:
 
 * To the primary replica for read and write operations.
-* To secondary replicas for read operations if [readable replicas](../concepts/replication.md#readable-and-non-readable-replicas) were enabled when [creating the cluster](./cluster-create.md) or [afterwards in its additional settings](./update.md#change-additional-settings) 
+* To secondary replicas for read operations if [readable replicas](../concepts/replication.md#readable-and-non-readable-replicas) were enabled when [creating the cluster](./cluster-create.md) or [afterwards in its additional settings](./update.md#change-additional-settings).
 
 You can connect to a cluster from a single host both for reading and writing.
 
@@ -29,50 +29,50 @@ Settings of rules depend on the connection method you select:
 {% list tabs %}
 
 - Over the internet
-    
-    [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port {{ port-mms }} from any IP address. To do this, create the following rule for incoming traffic:
+   
+   [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) in the cluster to allow incoming traffic on port {{ port-mms }} from any IP address. To do this, create the following rule for incoming traffic:
 
-    * Protocol: `TCP`.
-    * Port range: `{{ port-mms }}`.
-    * Source type: `CIDR`.
-    * Source: `0.0.0.0/0`.
+   * Port range: `{{ port-mms }}`.
+   * Protocol: `TCP`.
+   * Source: `CIDR`.
+   * CIDR blocks: `0.0.0.0/0`.
 
 - With a VM in Yandex.Cloud
-    
-    1. [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port {{ port-mms }} from the security group assigned to the VM. To do this, create the following rule for incoming traffic in these groups:
+   
+   1. [Configure all security groups](../../vpc/operations/security-group-update.md#add-rule) in the cluster to allow incoming traffic from the security group where your VM is located on port {{ port-mms }}. To do this, create the following rule for incoming traffic in these groups:
 
 
-        * Protocol: `TCP`.
-        * Port range: `{{ port-mms }}`.
-        * Source type: `Security group`.
-        * Source: Security group assigned to the VM. If it is the same as the configured group, specify **Current**.
-    
-    1. [Set up the security group](../../vpc/operations/security-group-update.md#add-rule) assigned to the VM to allow connections to the VM and traffic between the VM and the cluster hosts.
+         * Port range: `{{ port-mms }}`.
+         * Protocol: `TCP`.
+         * Source: `Security group`.
+         * Security group: If your cluster and VM are in the same security group, select `Self` as the value. Otherwise, specify the VM security group.
+   
+   1. [Configure the security group](../../vpc/operations/security-group-update.md#add-rule) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
 
 
-        Example of rules for a VM:
+         Example VM rule:
 
-        * For incoming traffic:
-            * Protocol: `TCP`.
+         * Incoming traffic:
             * Port range: `{{ port-ssh }}`.
-            * Source type: `CIDR`.
-            * Source: `0.0.0.0/0`.
+            * Protocol: `TCP`.
+            * Source: `CIDR`.
+            * CIDR blocks: `0.0.0.0/0`.
 
-            This rule lets you connect to the VM over SSH.
+             This rule lets you connect to the VM over SSH.
 
-        * For outgoing traffic:
-            * Protocol: `Any`.
-            * Port range: `{{ port-any }}`.
-            * Destination type: `CIDR`.
-            * Destination: `0.0.0.0/0`.
-      
-            This rule allows any outgoing traffic: this lets you both connect to the cluster and install certificates and utilities you might need to connect to the cluster.
+         * Outgoing traffic:
+             * Port range: `{{ port-any }}`.
+             * Protocol: `Any`.
+             * Destination name: `CIDR`.
+             * CIDR blocks: `0.0.0.0/0`.
+
+             This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
 
 {% endlist %}
 
 {% note info %}
 
-You can set more detailed rules for security groups, such as to allow traffic in only specific subnets.
+You can set more detailed rules for security groups, such as allowing traffic in only specific subnets.
 
 Security groups must be configured correctly for all subnets that will include cluster hosts. If the security group settings are incomplete or incorrect, you might lose access the cluster.
 
@@ -104,52 +104,52 @@ You can only use graphical IDEs to connect to publicly accessible cluster hosts.
 
 - DataGrip
 
-  1. Create a data source:
-     1. Select **File** → **New** → **Data Source** → **Microsoft SQL Server**.
-     1. On the **General** tab:
-        1. Specify the connection parameters:
-           * **Host**: FQDN of the primary replica or a [special FQDN](#special-fqdns).
-           * **Port**: `{{ port-mms }}`.
-           * **User**, **Password**: DB user's name and password.
-           * **Database**: Name of the DB to connect to.
-        1. Click **Download** to download the connection driver.
-     1. On the **SSH/SSL** tab:
+   1. Create a data source:
+      1. Select **File** → **New** → **Data Source** → **Microsoft SQL Server**.
+      1. On the **General** tab:
+         1. Specify the connection parameters:
+            * **Host**: FQDN of the primary replica or a [special FQDN](#special-fqdns).
+            * **Port**: `{{ port-mms }}`.
+            * **User**, **Password**: DB user's name and password.
+            * **Database**: Name of the DB to connect to.
+         1. Click **Download** to download the connection driver.
+      1. On the **SSH/SSL** tab:
          1. Enable the **Use SSL** setting.
          1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
-  1. Click **Test Connection** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
-  1. Click **OK** to save the data source.
+   1. Click **Test Connection** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+   1. Click **OK** to save the data source.
 
 - DBeaver
 
-  1. Create a new DB connection:
-     1. In the **Database** menu, select **New connection**.
-     1. Select the **{{ MS }}** database from the list.
-     1. Click **Next**.
-     1. Specify the connection parameters on the **Main** tab:
-        * **Host**: FQDN of the primary replica or a [special FQDN](#special-fqdns).
-        * **Port**: `{{ port-mms }}`.
-        * **DB/Schema**: Name of the DB to connect to.
-        * **User**, **Password**: DB user's name and password.
-     1. On the **SSL** tab, enable the **Use SSL** and **Always trust the server certificate** settings.
-  1. Click **Test Connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
-  1. Click **Done** to save the connection settings.
+   1. Create a new DB connection:
+      1. In the **Database** menu, select **New connection**.
+      1. Select **{{ MS }}** from the DB list.
+      1. Click **Next**.
+      1. Specify the connection parameters on the **Main** tab:
+         * **Host**: FQDN of the primary replica or a [special FQDN](#special-fqdns).
+         * **Port**: `{{ port-mms }}`.
+         * **DB/Schema**: Name of the DB to connect to.
+         * **Username**, **Password**: DB username and password.
+      1. On the **SSL** tab, enable the **Use SSL** and **Always trust the server certificate** settings.
+   1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+   1. Click **Done** to save the connection settings.
 
 - SQL Server Management Studio
 
-  1. Create a new connection:
+   1. Create a new connection:
       1. Specify the connection parameters in the **Connect to server** window:
-          * **Server type**: Database Engine.
-          * **Server name**: `<host FQDN>,1433`. Specify the FQDN of the primary replica or a [special FQDN](#special-fqdns).
-          * **Authentication**: SQL Server authentication.
-          * **Login**, **Password**: User's login and password.
+         * **Server type**: Database engine.
+         * **Server name**: `<host FQDN>,1433`. Specify the the primary replica or a [special FQDN](#special-fqdns).
+         * **Authentication**: SQL Server authentication.
+         * **Login**, **Password**: User's login and password.
       1. Click **Options**.
       1. Click the **Connection Properties** tab.
       1. Select **Encrypt connection** and **Trust server certificate**.
-  1. Click **Connect** to connect to the {{ MS }} host.
+   1. Click **Connect** to connect to the {{ MS }} host.
 
-  For more information about the connection, see the developer's [documentation]({{ ms.docs }}/sql/linux/sql-server-linux-manage-ssms?view=sql-server-ver15#connect-to-sql-server-on-linux).
+   For more information about connections, see the developer [documentation]({{ ms.docs }}/sql/linux/sql-server-linux-manage-ssms?view=sql-server-ver15#connect-to-sql-server-on-linux).
 
-  If the connection is successful, **Object Explorer** will display information about all {{ MS }} objects.
+   If the connection is successful, **Object Explorer** will display information about all {{ MS }} objects.
 
 {% endlist %}
 
@@ -167,7 +167,7 @@ Just like usual FQDNs, which can be requested with a [list of cluster hosts](hos
 
 ### Current primary replica {#fqdn-primary-replica}
 
-An FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` always points to the primary replica in the cluster. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+A FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` always points to a cluster's primary replica. The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 
@@ -175,6 +175,6 @@ Example connection to a primary replica for a cluster with the ID `c9qash3nb1v9u
 
 ```bash
 mssql-cli --username <username> \
-          --database <DB name> \
+          --database <database name> \
           --server c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }},1433
 ```

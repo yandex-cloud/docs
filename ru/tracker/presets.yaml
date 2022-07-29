@@ -8,6 +8,7 @@ default:
   link-connect: https://connect.yandex.ru/
   link-connect-main: https://connect.yandex.ru/portal/home
   link-admin-fields: https://tracker.yandex.ru/admin/fields
+  link-admin-types: https://tracker.yandex.ru/admin/types
   link-admin-resolutions: https://tracker.yandex.ru/admin/resolutions
   link-quick-start: https://tracker.yandex.ru/queues/new/quick-start
   link-repositories: https://tracker.yandex.ru/admin/repositories

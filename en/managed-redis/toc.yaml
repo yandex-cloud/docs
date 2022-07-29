@@ -69,6 +69,8 @@ items:
         href: concepts/limits.md
       - name: Storage types
         href: concepts/storage.md
+      - name: Maintenance
+        href: concepts/maintenance.md
       - name: Redis settings
         href: concepts/settings-list.md
   - name: Access management

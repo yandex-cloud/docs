@@ -69,7 +69,7 @@
         * В блоке **Хранилище**:
           * Выберите [тип хранилища](../concepts/storage.md).
 
-            {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+                        {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
     1. Укажите параметры хостов-сегментов на вкладке **Segment**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](calculate-specs.md#segment).
 
@@ -79,7 +79,7 @@
         * В блоке **Хранилище**:
            * Выберите [тип хранилища](../concepts/storage.md).
 
-             {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+                          {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
     1. Нажмите кнопку **Создать**.
 
