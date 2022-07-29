@@ -23,7 +23,7 @@ description: "Step-by-step instructions for managing access rights to {{ yandex-
 
 ## Identity federations {#federations}
 
-Instructions for managing identity federations are now included in the [documentation](../../organization/index.yaml) for {{ org-full-name }}.
+Instructions for managing identity federations are now included in the {{ org-full-name }} [documentation](../../organization/index.yaml).
 
 ## Roles {#roles}
 
@@ -37,6 +37,9 @@ Instructions for managing identity federations are now included in the [document
 {% endif %}
 - [{#T}](iam-token/create-for-sa.md)
 - [{#T}](iam-token/create-for-federation.md)
+   {% if product == "yandex-cloud" %}
+- [Reissue an IAM token](compromised-credentials.md#iam-reissue)
+   {% endif %}
 
 {% if audience == "internal" %}
 - [{#T}](iam-token/create-for-robot.md)
@@ -51,4 +54,3 @@ Instructions for managing identity federations are now included in the [document
 ## Authorized keys {#authorized-keys}
 
 - [{#T}](authorized-key/create.md)
-
