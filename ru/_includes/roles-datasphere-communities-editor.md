@@ -1,5 +1,5 @@
-### {{ roles-datasphere-communities-editor }} {#communities-editor}
+#### {{ roles-datasphere-communities-developer }} {#communities-developer}
 
-Роль `{{ roles-datasphere-communities-editor }}` позволяет редактировать настройки сообщества и создавать в нем новые проекты. Пользователь с этой ролью может публиковать ресурсы проектов в сообществе.
+Роль `{{ roles-datasphere-communities-developer }}` позволяет редактировать настройки сообщества и создавать в нем новые проекты. Пользователь с этой ролью не может публиковать ресурсы проектов в сообществе.
 
-Помимо этого роль `{{ roles-datasphere-communities-editor }}` включает в себя все разрешения ролей `{{ roles-datasphere-communities-viewer }}` и `{{ roles-datasphere-project-viewer }}`.
+Помимо этого роль `{{ roles-datasphere-communities-developer }}` включает в себя все разрешения ролей `{{ roles-datasphere-communities-viewer }}`.

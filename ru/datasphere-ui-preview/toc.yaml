@@ -38,6 +38,7 @@ items:
             href: operations/projects/delete.md
           - name: Настроить интеграцию с Data Proc
             href: operations/data-proc-integration.md
+            hidden: true
             when: product == "yandex-cloud"
       - name: Работа в ноутбуке
         items:
