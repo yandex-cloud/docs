@@ -18,6 +18,7 @@ default:
   link-connect: https://connect.yandex.ru/
   link-connect-main: https://connect.yandex.ru/portal/home
   link-admin-fields: https://tracker.yandex.ru/admin/fields
+  link-admin-types: https://tracker.yandex.ru/admin/types
   link-admin-resolutions: https://tracker.yandex.ru/admin/resolutions
   link-quick-start: https://tracker.yandex.ru/queues/new/quick-start
   link-repositories: https://tracker.yandex.ru/admin/repositories
@@ -98,6 +99,7 @@ internal:
   link-settings: https://st.yandex-team.ru/settings
   link-tracker: https://st.yandex-team.ru/
   link-admin-fields: https://st.yandex-team.ru/admin/fields
+  link-admin-types: https://st.yandex-team.ru/admin/types
   link-tracker-statuses: https://st.yandex-team.ru/admin/statuses
   link-tracker-templates: https://st.yandex-team.ru/settings/templates/issues/edit
   link-sub-roles: https://st.yandex-team.ru/subscriptions/roles
