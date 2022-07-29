@@ -4,7 +4,7 @@
 
 {% note info %}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, there is a limitation: only 1 organization and 1 cloud is available.
+At the [Preview](../overview/concepts/launch-stages.md) stage, the following limitation applies: only one organization and one cloud are available.
 
 {% endnote %}
 

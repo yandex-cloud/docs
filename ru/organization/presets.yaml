@@ -12,6 +12,7 @@ default:
   link-org-settings: https://org.cloud.yandex.ru/settings
   link-org-federations: https://org.cloud.yandex.ru/federations
   link-org-services: https://org.cloud.yandex.ru/services
+  link-org-groups: https://org.cloud.yandex.ru/groups
   
   #Ссылки на сервисы Яндекса  
   link-passport: https://passport.yandex.ru/
@@ -37,6 +38,7 @@ cloud-il:
   link-org-settings: https://org.cloudil.co.il/settings
   link-org-federations: https://org.cloudil.co.il/federations
   link-org-services: https://org.cloudil.co.il/services
+  link-org-groups: https://org.cloudil.co.il/groups
   link-passport: https://accounts.google.com/
   login-example: login@gmail.com
   yandex-domain: example.com

@@ -76,7 +76,7 @@ Add users to the IdP server:
 
    1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.png).
+   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click **Create federation**.
 
@@ -298,7 +298,7 @@ While authenticating, the {{org-name}} service should be able to verify the IdP 
 
 - Management console
 
-   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.png).
+   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Click the name of the federation to add a certificate to.
 
@@ -376,7 +376,7 @@ Get the link:
 
 1. Copy the Federation ID:
 
-   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.png).
+   1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.svg).
 
    1. Copy the ID of the federation you're configuring access for.
 
@@ -432,7 +432,7 @@ To do this, you will need user Name IDs. They are returned by the IdP server alo
 
    1. Go to [{{org-full-name}}]({{link-org-main}}).
 
-   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../../../_assets/organization/icon-users.png).
+   1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../../../_assets/organization/icon-users.svg).
 
    1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
 

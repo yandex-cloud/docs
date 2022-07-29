@@ -23,7 +23,7 @@
 
 1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
 
-1. На левой панели выберите раздел [Группы]({{link-org-services}}) ![icon-services](../_assets/organization/icon-groups.svg).
+1. На левой панели выберите раздел [Группы]({{link-org-groups}}) ![icon-services](../_assets/organization/icon-groups.svg).
 
 1. В правом верхнем углу страницы нажмите **Создать группу** и введите название и описание группы.
 
@@ -35,7 +35,7 @@
 
 1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
 
-1. На левой панели выберите раздел [Группы]({{link-org-services}}) ![icon-services](../_assets/organization/icon-groups.svg) и откройте группу из списка.
+1. На левой панели выберите раздел [Группы]({{link-org-groups}}) ![icon-services](../_assets/organization/icon-groups.svg) и откройте группу из списка.
 
 1. Чтобы изменить название и описание группы, на вкладке **Обзор** в правом верхнем углу страницы нажмите кнопку **Изменить**.
 
@@ -59,7 +59,7 @@
 
 1. Перейдите в сервис [{{org-full-name}}]({{link-org-main}}).
 
-1. На левой панели выберите раздел [Группы]({{link-org-services}}) ![icon-services](../_assets/organization/icon-groups.svg) и откройте группу из списка.
+1. На левой панели выберите раздел [Группы]({{link-org-groups}}) ![icon-services](../_assets/organization/icon-groups.svg) и откройте группу из списка.
 
 1. На вкладке **Права доступа к группе** нажмите кнопку **Назначить роли**.
 

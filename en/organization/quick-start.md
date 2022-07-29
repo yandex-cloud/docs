@@ -26,7 +26,7 @@ If your employees have {% if product == "yandex-cloud" %}Yandex{% endif %}{% if 
 
 To connect employees with {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %} accounts:
 
-1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.png).
+1. In the left panel, select [Users]({{link-org-users}}) ![icon-users](../_assets/organization/icon-users.svg).
 
 1. In the top right-hand corner, click {% if product == "yandex-cloud" %}**Add user**{% endif %}{% if product == "cloud-il" %}**Invite users**{% endif %}.
 
@@ -46,7 +46,7 @@ Identity federation is a technology with which you can implement a single sign-o
 
 To configure your identity federation, follow these steps:
 
-1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.png).
+1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.svg).
 
 1. Click **Create federation**.
 
