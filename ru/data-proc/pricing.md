@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ dataproc-name }}
 
+
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Из чего складывается стоимость использования {{ dataproc-name }} {#rules}
@@ -81,6 +83,7 @@ editable: false
 
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+
 
 
 

@@ -104,6 +104,8 @@ items:
         href: tutorials/backup.md
       - name: Horizontal application scaling in a cluster
         href: tutorials/autoscaling.md
+      - name: Vertical application scaling in a cluster
+        href: tutorials/vpa-autoscaling.md
       - name: Working with snapshots
         href: tutorials/pvc-snapshot-restore.md
       - name: Integration with a corporate DNS zone

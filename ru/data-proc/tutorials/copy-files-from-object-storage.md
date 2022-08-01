@@ -115,6 +115,7 @@ hadoop distcp \
        hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.{{ dns-zone }}/user/root/datasets/set01/
 ```
 
+
 ## Оптимизация чтения файлов из {{ objstorage-name }} {#optimize-s3-reading}
 
 Способ чтения данных из бакета определяется [настройкой](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/performance.html#Improving_data_input_performance_through_fadvise) `fs.s3a.experimental.input.fadvise`. Ее значение зависит от версии используемого образа:
@@ -124,12 +125,16 @@ hadoop distcp \
 
 Подробнее об используемых версиях компонентов см. в разделе [{#T}](../concepts/environment.md).
 
+
 ## Оптимизация записи файлов в {{objstorage-name}} {#optimize-s3-writing}
+
 
 Способ записи данных в бакет {{ objstorage-name }} определяется настройкой `core:fs.s3a.fast.upload`. Ее значение зависит от версии используемого образа:
 
 * В образах версий `1.0`—`1.4` по умолчанию используется значение `false` для экономии RAM. Укажите для этой настройки значение `true` в свойствах компонентов кластера или настройках задания. Это ускорит запись в бакет больших файлов и предотвратит переполнение хранилищ узлов.
 * В образе версии `2.0` настройка `fs.s3a.fast.upload` включена по умолчанию.
+
+
 
 При необходимости укажите значения [других настроек](https://hadoop.apache.org/docs/r2.10.0/hadoop-aws/tools/hadoop-aws/index.html), отвечающих за режим записи в {{ objstorage-name }}:
 

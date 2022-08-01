@@ -33,6 +33,10 @@ fi
 
 Если выполнение скрипта завершилось ошибкой:
 
+
 1. Посмотрите логи в [{{ cloud-logging-full-name }}](../../logging/operations/read-logs.md) или на хостах кластера в файле `/var/log/yandex/dataproc-init-actions.log`.
+
+
+
 1. Исправьте ошибку.
 1. [Удалите](../operations/cluster-delete.md) этот кластер и [создайте](../operations/cluster-create.md) новый.

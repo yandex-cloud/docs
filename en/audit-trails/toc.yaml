@@ -25,6 +25,8 @@ items:
     items:
       - name: Uploading audit logs to a log group
         href: operations/export-cloud-logging.md
+      - name: Uploading audit logs to a data stream
+        href: operations/export-data-streams.md
       - name: Uploading audit logs to a bucket
         href: operations/export-bucket.md
   - name: Practical guidelines

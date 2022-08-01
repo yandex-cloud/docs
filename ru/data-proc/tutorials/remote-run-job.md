@@ -18,6 +18,7 @@
     ```bash
     ssh -A ubuntu@remote-run
     ```
+
 1. Скопируйте настройки репозитория с любого из хостов кластера {{ dataproc-name }}. Для этого запустите следующие команды на созданной виртуальной машине.
     1. Скопируйте адрес репозитория:
     
@@ -25,37 +26,32 @@
         ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "cat /etc/apt/sources.list.d/yandex-dataproc.list" | sudo tee /etc/apt/sources.list.d/yandex-dataproc.list
         deb [arch=amd64] http://{{ s3-storage-host }}/dataproc/releases/0.2.10 xenial main
         ```
+
     1. Скопируйте gpg-ключ для верификации подписей deb-пакетов:
     
         ```bash
-        ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "cat /srv/dataproc.gpg"  | sudo apt-key add -
-        OK
+        ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "cat /srv/dataproc.gpg" | sudo apt-key add -
         ```
+
     1. Обновите кэш репозиториев:
     
         ```bash
         sudo apt update
-        Hit:1 http://{{ s3-storage-host }}/dataproc/releases/0.2.10 xenial InRelease
-        Hit:2 http://mirror.yandex.ru/ubuntu xenial InRelease
-        Hit:3 http://mirror.yandex.ru/ubuntu xenial-updates InRelease
-        Hit:4 http://mirror.yandex.ru/ubuntu xenial-backports InRelease
-        Hit:5 http://security.ubuntu.com/ubuntu xenial-security InRelease
-        Reading package lists... Done
-        Building dependency tree
-        Reading state information... Done
-        All packages are up to date.
         ```
+
 1. Установите необходимые пакеты:
 
     ```bash
     sudo apt install openjdk-8-jre-headless hadoop-client hadoop-hdfs spark-core
     ```
+
 1. Скопируйте конфигурационные файлы Hadoop и Spark:
 
     ```bash
     sudo -E scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:/etc/hadoop/conf/* /etc/hadoop/conf/
     sudo -E scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:/etc/spark/conf/* /etc/spark/conf/
     ```
+
 1. Создайте нового пользователя, от имени которого будут запускаться задания:
 
     ```bash
@@ -63,7 +59,7 @@
     ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "sudo -u hdfs hdfs dfs -ls /user/sparkuser"
     ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "sudo -u hdfs hdfs dfs -chown sparkuser:sparkuser /user/sparkuser"
     ```
-   
+
 Хост готов к удаленному запуску заданий на кластере {{ dataproc-name }}.
 
 ### Запуск Spark-задания {#spark-submit}
@@ -156,7 +152,6 @@ Application Report :
 	AM container Node Label Expression : <DEFAULT_PARTITION>
 	TimeoutType : LIFETIME	ExpiryTime : UNLIMITED	RemainingTime : -1seconds
 ```
-
 
 ### Просмотр журналов выполнения задания {#get-log}
 

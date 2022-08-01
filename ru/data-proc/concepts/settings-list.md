@@ -55,7 +55,7 @@ spark:spark.driver.cores : 1
 |:----------------------------------|:--------------------------------------------------------|:-----------------------------------------------------------------------------------|
 | `fs.s3a.access.key`               | —                                                       | Идентификатор [статического ключа](../../iam/concepts/authorization/access-key.md) |
 | `fs.s3a.secret.key`               | —                                                       | Секретный ключ                                                                     |
-| `fs.s3a.endpoint`                 | `{{ s3-storage-host }}`                               | Эндпоинт для подключения к {{ objstorage-name }}                                   |
+| `fs.s3a.endpoint`                 | `{{ s3-storage-host }}`                                 | Эндпоинт для подключения к {{ objstorage-name }}                                   |
 | `fs.s3a.signing-algorithm`        | Пустое значение                                         | Алгоритм подписи                                                                   |
 | `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Поставщик учетных данных                                                           |
 

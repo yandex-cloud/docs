@@ -25,7 +25,7 @@ items:
             href: operations/connect/create-static-conf.md
       - name: Установка приложений
         items:
-          - name: Основы работы с {{ marketplace-full-name }}
+          - name: Основы работы с {{ marketplace-name }}
             href: operations/applications/marketplace.md
           - name: Установка Jaeger
             href: operations/applications/jaeger.md
@@ -55,7 +55,7 @@ items:
             href: operations/volumes/statefulset-pvc-expansion.md
           - name: Подключение тома в блочном режиме
             href: operations/volumes/mode-block.md
-          - name: Интеграция с {{ objstorage-full-name }}
+          - name: Интеграция с {{ objstorage-name }}
             href: operations/volumes/s3-csi-integration.md
       - name: Управление кластером {{ k8s }}
         items:
@@ -92,7 +92,7 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Интеграция с {{ container-registry-full-name }}
+      - name: Интеграция с {{ container-registry-name }}
         href: tutorials/container-registry.md
       - name: Запуск рабочих нагрузок с GPU
         href: tutorials/running-pod-gpu.md
@@ -100,9 +100,9 @@ items:
         href: tutorials/ingress-cert-manager.md
       - name: >-
           Установка Ingress-контроллера NGINX с сертификатом из {{
-          certificate-manager-full-name }}
+          certificate-manager-name }}
         href: tutorials/nginx-ingress-certificate-manager.md
-      - name: Настройка {{ alb-full-name }} Ingress-контроллера
+      - name: Настройка {{ alb-name }} Ingress-контроллера
         href: tutorials/alb-ingress-controller.md
       - name: Резервное копирование в {{ objstorage-name }}
         href: tutorials/backup.md
@@ -118,15 +118,13 @@ items:
         href: tutorials/dns-autoscaler.md
       - name: Настройка локального кеширования DNS
         href: tutorials/node-local-dns.md
-      - name: Настройка Fluent Bit для работы с {{ cloud-logging-full-name }}
+      - name: Настройка Fluent Bit для работы с {{ cloud-logging-name }}
         href: tutorials/fluent-bit-logging.md
       - name: Синхронизация с секретами {{ lockbox-name }}
         href: tutorials/kubernetes-lockbox-secrets.md
       - name: Использование продуктов {{ marketplace-name }}
         items:
-          - name: >-
-              Использование Jaeger для трассировки запросов в {{ ydb-full-name
-              }}
+          - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
   - name: Концепции
     items:

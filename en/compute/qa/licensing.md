@@ -26,10 +26,6 @@ This information is included in the terms of use for the Microsoft product. Whet
 
 When transferring your licensed software to Compute Cloud, you must have a current Software Assurance agreement in place and participate in the License Mobility through Software Assurance program. An active Software Assurance agreement is always a requirement for participating in the License Mobility through Software Assurance program.
 
-#### Can I import my own Windows image to {{ yandex-cloud }}? {#import-os-windows}
-
-No. Currently, you cannot upload your own images with Windows.
-
 ### Windows Server licensing {#windows-server}
 
 #### Can I purchase Windows Server from {{ yandex-cloud }}? {#buy-windows-server}

@@ -28,10 +28,6 @@ This information is included in the terms of use for the Microsoft product. Whet
 
 Yes. When using licensed Microsoft software in Yandex Compute Cloud, you must have a current Software Assurance agreement in place and participate in the License Mobility through Software Assurance program. An active Software Assurance agreement is always a requirement for participating in the License Mobility through Software Assurance program.
 
-#### Can I import my own Windows image to {{ yandex-cloud }}? {#import-os-windows}
-
-No. Currently, you cannot upload your own images with Windows.
-
 #### Why do I need to specify the address when using Microsoft products? {#ms-licensing-address}
 
 As of January 24, 2022, to use Microsoft products, you need to specify user data and addresses of individuals and legal entities. These are the requirements of the Microsoft licensing policy. If the data isn't provided, you can't run Microsoft products.
