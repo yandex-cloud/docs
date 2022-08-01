@@ -100,8 +100,8 @@
       # The issuer created previously
       name: clusterissuer
       kind: ClusterIssuer
-    dnsNames:
-     - your-site.com
+     dnsNames:
+       - your-site.com
     ```
 
 ## Запустите менеджер сертификатов с веб-хуком {#run-webhook}
