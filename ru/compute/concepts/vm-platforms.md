@@ -19,19 +19,6 @@ Intel Cascade Lake</br>with NVIDIA® Tesla® V100</br>(`gpu-standard-v2`) | [NVI
 Intel Ice Lake with</br>NVIDIA® Tesla® T4</br>(`standard-v3-t4`) | [NVIDIA® Tesla® T4]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/tesla-t4//){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/tesla-t4//){% endif %} | [Intel Xeon Gold 6338]{% if lang == "ru" %}(https://ark.intel.com/content/www/ru/ru/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html){% endif %}{% if lang == "en" %}(https://ark.intel.com/content/www/us/en/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html){% endif %} | **Макс. кол-во GPU на 1 ВМ**: 1 </br> **Кол-во vCPU на 1 GPU**: 32 </br> **Объем RAM на 1 GPU**: 128 ГБ{% endif %}
 AMD EPYC™</br>with NVIDIA® Ampere® A100</br>(`gpu-standard-v3`) | [NVIDIA® Ampere® A100]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/a100/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/a100/){% endif %} | [AMD EPYC™ 7702]{% if lang == "ru" %}(https://www.amd.com/ru/products/cpu/amd-epyc-7702){% endif %}{% if lang == "en" %}(https://www.amd.com/en/products/cpu/amd-epyc-7702){% endif %} | **Макс. кол-во GPU на 1 ВМ**: 8 </br> **Кол-во vCPU на 1 GPU**: 28 </br> **Объем RAM на 1 GPU**: 119 ГБ
 
-
-{% if product == "yandex-cloud" %}
-
-## Платформы с vGPU {#vgpu-platforms}
-
-{% include [vgpu-to-standard](../../_includes/compute/vgpu-to-standard.md) %}
-
-Платформа | Графический</br>ускоритель | Процессор | Характеристики |
---- | --- | --- | --- 
-Intel Broadwell with</br>NVIDIA® vGPU Tesla® V100 8G</br>(`vgpu-standard-v1`) | [NVIDIA® Tesla® V100]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/tesla-v100/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/v100/){% endif %} | [Intel Xeon</br>Processor E5-2660 v4]{% if lang == "ru" %}(https://ark.intel.com/content/www/ru/ru/ark/products/91772/intel-xeon-processor-e5-2660-v4-35m-cache-2-00-ghz.html){% endif %}{% if lang == "en" %}(https://ark.intel.com/content/www/us/en/ark/products/91772/intel-xeon-processor-e5-2660-v4-35m-cache-2-00-ghz.html){% endif %} | **Кол-во vGPU**: 1</br>**Кол-во vCPU**: 4</br>**Объем RAM**: 12 ГБ</br>**Объем GPU RAM**: 8 ГБ
-
-{% endif %}
-
 ## Смотрите также {#see-also}
 
 * [Допустимые конфигурации vCPU и RAM](performance-levels.md).

@@ -28,17 +28,9 @@
 
 {% include [initialization-windows-vm](../_includes/initialization-windows-vm.md) %}
 
-### Графические ускорители GPU{% if product == "yandex-cloud" %} и vGPU{% endif %} {#gpus}
+### Графические ускорители GPU {#gpus}
 
-Windows Server 2016 и Windows Server 2019 в редакции Datacenter доступны с графическими ускорителями GPU{% if product == "yandex-cloud" %} и vGPU{% endif %}.
-
-{% if product == "yandex-cloud" %}
-
-{% include [gpu-comparation](../_includes/compute/gpu-comparation.md) %}
-
-Работа виртуальных графических ускорителей vGPU на платформе {{ yandex-cloud }} имеет некоторые особенности. Подробнее об этом читайте на странице [{#T}](../compute/concepts/gpus.md).
-
-{% endif %}
+Windows Server 2016 и Windows Server 2019 в редакции Datacenter доступны с графическими ускорителями GPU.
 
 {% if product == "cloud-il" %}
 
