@@ -24,18 +24,9 @@
 
   Если у вас ещё нет {{ TF }}, {% if audience != "internal" %}[установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его и настройте провайдер {{ yandex-cloud }}{% endif %}.
 
-  Перед началом работы получите {% if audience != "internal" %}[статические ключи доступа](../../iam/operations/sa/create-access-key.md){% else %}статические ключи доступа{% endif %} — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
-
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     * `access_key` — идентификатор статического ключа доступа.
-     * `secret_key` — значение секретного ключа доступа.
-     * `bucket` — имя создаваемого бакета. Необязательный параметр, если не указан — будет сгенерирована случайное уникальное имя бакета.
-
-     Пример структуры конфигурационного файла:
-
-     {% if product == "yandex-cloud" %}
-
+     
      ```
      provider "yandex" {
        token     = "<OAuth>"
@@ -44,34 +35,36 @@
        zone      = "{{ region-id }}-a"
      }
 
+     resource "yandex_iam_service_account" "sa" {
+       name      = "<имя_сервисного_аккаунта>"
+     }
+
+     // Назначение роли сервисному аккаунту
+     resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
+       role      = "storage.editor"
+       member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
+     }
+
+     // Создание статического ключа доступа
+     resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
+       service_account_id = yandex_iam_service_account.sa.id
+       description        = "static access key for object storage"
+     }
+
+     // Создание бакета с использованием ключа
      resource "yandex_storage_bucket" "test" {
-       access_key = "<идентификатор статического ключа>"
-       secret_key = "<секретный ключ>"
-       bucket = "<имя бакета>"
+       access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+       secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+       bucket = "<имя_бакета>"
      }
      ```
-
-     {% endif %}
-
-     {% if product == "cloud-il" %}
-
-     ```
-     provider "yandex" {
-       endpoint  = "{{ api-host }}:443"
-       token     = "<статический ключ сервисного аккаунта>"
-       cloud_id  = "<идентификатор облака>"
-       folder_id = "<идентификатор каталога>"
-       zone      = "{{ region-id }}-a"
-     }
-
-     resource "yandex_storage_bucket" "test" {
-       access_key = "<идентификатор статического ключа>"
-       secret_key = "<секретный ключ>"
-       bucket = "<имя бакета>"
-     }
-     ```
-
-     {% endif %}
+     
+     Где:
+     
+     * `yandex_iam_service_account` - описание сервисного аккаунта, который создаст бакет и будет работать с ним:
+       * `name` - имя сервисного аккаунта.
+     * `yandex_storage_bucket` — описание бакета:
+       * `bucket` — имя бакета.
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
 
