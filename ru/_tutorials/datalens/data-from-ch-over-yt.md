@@ -116,7 +116,7 @@
 
 После создания подключения вы можете создать датасет над ним.
 
-1. Перейдите на [https://stat.yandex-team.ru/datasets/](https://stat.yandex-team.ru/datasets/) и нажмите кнопку **Создать** в правом верхнем углу.
+1. Перейдите на [https://datalens.yandex-team.ru/datasets/](https://datalens.yandex-team.ru/datasets/) и нажмите кнопку **Создать** в правом верхнем углу.
 
 1. В меню выберите **Dataset**.
 
