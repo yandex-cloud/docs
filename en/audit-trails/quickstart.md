@@ -1,6 +1,6 @@
 # Getting started with {{ at-name }}
 
-{{ at-name }} collects [audit logs](./concepts/format.md) from {{ yandex-cloud }} resources and uploads them to an {{ objstorage-name }} bucket or a {{ cloud-logging-name }} log group.
+{{ at-name }} collects [audit logs](./concepts/format.md) from {{ yandex-cloud }} resources and uploads them to an {{ objstorage-name }} bucket, a {{ cloud-logging-name }} log group, or a {{ yds-name }} data stream.
 
 Within {{ at-name }}, audit logs are managed by [trails](./concepts/trail.md).
 
@@ -11,18 +11,45 @@ Follow these instructions to create a new trail that will upload audit logs of y
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
    1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
 1. Make sure that your cloud has a bucket where you can store your audit log. [Create a new bucket](../storage/quickstart.md#the-first-bucket) if necessary.
-1. Create a service account and assign the following roles to it:
-   * `storage.uploader` for the folder to host the trail:
+1. [Create](../iam/operations/sa/create.md) a service account and assign the following roles to it:
 
-        ```
-        yc resource-manager folder add-access-binding --role storage.uploader --id <folder ID> --service-account-id <service account ID>
-        ```
+   {% list tabs %}
 
-   * `audit-trails.viewer` for the organization whose audit logs will be collected:
+   - CLI
 
-      ```
-      yc organization-manager organization add-access-binding --role audit-trails.viewer --id <organization ID> --service-account-id <service account ID>
-      ```
+      {% include [cli-install](../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../_includes/default-catalogue.md) %}
+
+      * Assign the [`storage.uploader`](../storage/security/index.md#storage-uploader) role for the folder to host the trail:
+
+         ```
+         yc resource-manager folder add-access-binding \
+           --role storage.uploader \
+           --id <folder ID> \
+           --service-account-id <service account ID>
+         ```
+
+         Where:
+         * `role`: The role assigned.
+         * `id`: The ID of the folder to host the trail.
+         * `service-account-id`: The ID of your service account.
+
+      * Assign the role [`audit-trails.viewer`](./security/index.md#roles) for the organization whose audit logs will be collected:
+
+         ```
+         yc organization-manager organization add-access-binding
+           --role audit-trails.viewer \
+           --id <organization ID> \
+           --service-account-id <service account ID>
+         ```
+
+         Where:
+         * `role`: The role assigned.
+         * `id`: The ID of the cloud from which audit logs will be collected.
+         * `service-account-id`: The ID of your service account.
+
+   {% endlist %}
 
 1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the following roles:
    * `iam.serviceAccounts.user` for the service account.
@@ -34,20 +61,26 @@ Follow these instructions to create a new trail that will upload audit logs of y
 
 To create the first trail in {{ at-name }} and start the audit log management process:
 
-1. In the [management console]({{ link-console-main }}), select the folder where you wish to host your trail.
-1. Select **{{ at-name }}**.
-1. Click **Create audit log** and specify:
-   1. **Name**: The name of the trail being created.
-   1. **Description**: A description of the trail (optional).
-   1. **Service account**: Select the service account on behalf of which the trail will upload audit log files to the bucket.
-   1. **Destination**:
-      * **Destination**: {{ objstorage-name }}.
-      * **Bucket**: The name of the bucket where you want to upload audit logs.
-      * **Object prefix**: An optional parameter used in the [full name](./concepts/format.md#log-file-name) of the audit log file.
-   1. **Filter**:
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the folder where you wish to host the trail.
+   1. Select **{{ at-name }}**.
+   1. Click **Create trail**.
+   1. In the **Name** field, enter a name for the trail.
+   1. In the **Description** field, enter the trail description (optional).
+   1. Under **Filter**, set up the audit log scope:
       * **Resource**: Select `Organization`.
-      * **Organization**: Select the name of the organization where the current trail is located.
-1. Click **Create**.
+      * **Organization**: An automatically populated field containing the name of the current organization.
+   1. Under **Destination**, set up the destination object:
+      * **Destination**: `{{ objstorage-name }}`.
+      * **Bucket**: Select the bucket where you want to upload audit logs.
+      * **Object prefix**: An optional parameter used in the [full name](./concepts/format.md#log-file-name) of the audit log file.
+   1. Under **Service account**, select the service account that the trail will use to upload audit log files to the bucket.
+   1. Click **Create**.
+
+{% endlist %}
 
 ## Viewing audit logs {#watch-logs}
 

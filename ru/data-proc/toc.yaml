@@ -23,7 +23,7 @@ items:
             href: tutorials/run-spark-job.md
           - name: Запуск заданий с удаленного хоста
             href: tutorials/remote-run-job.md
-      - name: Настройка сети для Data Proc
+      - name: Настройка сети для {{ dataproc-name }}
         href: tutorials/configure-network.md
       - name: Использование {{ objstorage-full-name }} в {{ dataproc-name }}
         href: tutorials/copy-files-from-object-storage.md
@@ -83,15 +83,15 @@ items:
         href: concepts/instance-types.md
       - name: Среда исполнения
         href: concepts/environment.md
-      - name: Интерфейсы и порты компонентов Data Proc
+      - name: Интерфейсы и порты компонентов {{ dataproc-name }}
         href: concepts/interfaces.md
-      - name: Задания в Data Proc
+      - name: Задания в {{ dataproc-name }}
         href: concepts/jobs.md
       - name: Автоматическое масштабирование
         href: concepts/autoscaling.md
       - name: Декомиссия подкластеров и хостов
         href: concepts/decommission.md
-      - name: Сеть в Data Proc
+      - name: Сеть в {{ dataproc-name }}
         href: concepts/network.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
@@ -101,7 +101,7 @@ items:
         href: concepts/storage.md
       - name: Свойства компонентов
         href: concepts/settings-list.md
-      - name: Логи в Data Proc
+      - name: Логи в {{ dataproc-name }}
         href: concepts/logs.md
       - name: Скрипты инициализации
         href: concepts/init-action.md

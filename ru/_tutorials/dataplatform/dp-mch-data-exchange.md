@@ -69,13 +69,13 @@
         INSERT INTO persons VALUES
            ('Anna', 19),
            ('Michael', 65),
-           ('Fred', 28),
-           ('Alsou', 50),
+           ('Alvar', 28),
+           ('Lilith', 50),
            ('Max', 27),
-           ('John', 34),
+           ('Jaimey', 34),
            ('Dmitry', 42),
-           ('Oleg', 19),
-           ('Alina', 20),
+           ('Qiang', 19),
+           ('Augustyna', 20),
            ('Maria', 28);
         ```
 

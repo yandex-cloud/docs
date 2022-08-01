@@ -1,10 +1,10 @@
 ### Host computing resources {#prices-hosts}
 
-The cost for computing resources depends on the selected {{ ES }} edition:
+The cost for computing resources depends on the selected {{ ES }} edition.
 
 {% list tabs %}
 
-- BASIC
+- Basic
 
    | Resource       | Cost for 1 hour                                             |
    |----------------|-------------------------------------------------------------|
@@ -15,7 +15,8 @@ The cost for computing resources depends on the selected {{ ES }} edition:
    | 100% vCPU      | {{ sku|USD|mdb.cluster.elasticsearch.v3.cpu.c100|string }}  |
    | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.elasticsearch.v3.ram.basic|string }} |
 
-- GOLD
+
+- Gold
 
    | Resource       | Cost for 1 hour                                            |
    |----------------|------------------------------------------------------------|
@@ -26,7 +27,8 @@ The cost for computing resources depends on the selected {{ ES }} edition:
    | 100% vCPU      | {{ sku|USD|mdb.cluster.elasticsearch.v3.cpu.c100|string }} |
    | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.elasticsearch.v3.ram.gold|string }} |
 
-- PLATINUM
+
+- Platinum
 
    | Resource       | Cost for 1 hour                                                |
    |----------------|----------------------------------------------------------------|
@@ -36,18 +38,18 @@ The cost for computing resources depends on the selected {{ ES }} edition:
    | **Intel Ice Lake**                                                              |
    | 100% vCPU      | {{ sku|USD|mdb.cluster.elasticsearch.v3.cpu.c100|string }}     |
    | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.elasticsearch.v3.ram.platinum|string }} |
-   
-{% endlist %}
 
+
+{% endlist %}
 
 ### Storage {#prices-storage}
 
 {% include [local-ssd for Ice Lake only on request](../../_includes/ice-lake-local-ssd-note.md) %}
 
-| Service                         | Cost of 1 GB per month                                                         |
-|---------------------------------|--------------------------------------------------------------------------------|
-| Standard network storage        | {{ sku|USD|mdb.cluster.network-hdd.elasticsearch|month|string }}               |
-| Non-replicated network storage  | {{ sku|USD|mdb.cluster.network-ssd-nonreplicated.elasticsearch|month|string }} |
-| Fast network storage            | {{ sku|USD|mdb.cluster.network-nvme.elasticsearch|month|string }}              |
-| Fast local storage              | {{ sku|USD|mdb.cluster.local-nvme.elasticsearch|month|string }}                |
-| Backups beyond the storage size | $0.032594                                                                      |
+| Service                        | Cost of 1 GB per month                                                         |
+|--------------------------------|--------------------------------------------------------------------------------|
+| Standard network storage       | {{ sku|USD|mdb.cluster.network-hdd.elasticsearch|month|string }}               |
+| Non-replicated network storage | {{ sku|USD|mdb.cluster.network-ssd-nonreplicated.elasticsearch|month|string }} |
+| Fast network storage           | {{ sku|USD|mdb.cluster.network-nvme.elasticsearch|month|string }}              |
+| Fast local storage             | {{ sku|USD|mdb.cluster.local-nvme.elasticsearch|month|string }}                |
+| Backup over storage size       | $0.032594                                                                      |

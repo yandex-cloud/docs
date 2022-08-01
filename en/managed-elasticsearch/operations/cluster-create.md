@@ -11,14 +11,20 @@ keywords:
 
 A {{ mes-name }} cluster is a group of multiple linked {{ ES }} hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the _Data node_ role. To learn more about roles in the cluster, see [{#T}](../concepts/hosts-roles.md).
 
-The number of hosts with the _Data node_ role that can be created together with a {{ ES }} cluster depends on the selected [type of storage](../concepts/storage.md):
+{% note info %}
 
-* With **local SSD** or **non-replicated SSD storage**, you can create a cluster with three or more hosts (a minimum of three hosts is required for fault tolerance).
-* With **HDD network** or **SSD network storage**, you can add any number of hosts within the [current quota](../concepts/limits.md).
+* The number of hosts with the _Data node_ role you can create together with a {{ ES }} cluster depends on the selected [storage type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* Available storage types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
 
-After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
+{% endnote %}
 
 ## Creating a cluster {#create-cluster}
+
+{% note info %}
+
+As of June 13, 2022, the `Gold` [edition](../concepts/es-editions.md) in {{ mes-name }} clusters is no longer supported. You cannot create a new cluster with this edition.
+
+{% endnote %}
 
 When creating a cluster, parameters are specified separately for the hosts with the _Master node_ role and for the hosts with the _Data node_ role.
 
@@ -100,9 +106,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
       {% include [extra-settings](../../_includes/mdb/mes/extra-settings.md) %}
 
-   1. If necessary, configure the DBMS settings:
-
-      You can configure the `Fielddata cache size` parameter: a percentage or an absolute value of the dynamic memory structure allocated for the `fielddata` cache. For example, 10% or 512 MB.
+   1. If necessary, configure the [DBMS settings](../concepts/settings-list.md).
 
    1. Click **Create**.
 
@@ -145,8 +149,8 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
         --masternode-disk-size <storage size in GB for hosts with the Master node role> \
         --masternode-disk-type <storage type with the Master node role> \
         --security-group-ids <list of security group IDs> \
-        --version <{{ ES }} version> \
-        --edition <{{ ES }} edition: basic, gold, or platinum> \
+        --version <{{ ES }} versions: {{ versions.cli.str }}> \
+        --edition <edition {{ ES }}: basic or platinum> \
         --admin-password <admin user password> \
         --plugins=<plugin 1 name>,...,<plugin N name> \
         --deletion-protection=<cluster deletion protection: true or false>
@@ -176,6 +180,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
       Example configuration file structure:
 
+      
       ```hcl
       terraform {
         required_providers {
@@ -198,8 +203,8 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
         network_id  = "<network ID>"
 
         config {
-          version = "<(optional) {{ ES }} version>"
-          edition = "<(optional) {{ ES }} edition: basic, gold, or platinum>"
+          version = "<(optional)  version {{ ES }}: {{ versions.tf.str }}>"
+          edition = "<(optional)  edition {{ ES }}: basic or platinum>"
 
           admin_password = "<admin user password>"
 
@@ -244,7 +249,9 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       }
       ```
 
-      1. {% include [maintenance-window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
+
+
+      1. {% include [Maintenance window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
 
       For more information about the resources you can create using Terraform, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 
@@ -296,12 +303,12 @@ If you specified security group IDs when creating a cluster, you may also need t
    Let's say we need to create a {{ ES }} cluster with the following characteristics:
 
    * Name `my-es-clstr`.
-   * Version `7.10`.
+   * Version `{{ versions.cli.latest }}`.
    * Edition `Platinum`.
    * Environment `PRODUCTION`.
    * Network `default`.
    * Security group with the ID `enpp2s8l3irhk5eromd7`.
-   * With a single publicly available `{{ host-class }}` class host with the _Data node_ tole in the `{{ subnet-id }}` subnet, in the `{{ zone-id }}` availability zone.
+   * With a single publicly available `{{ host-class }}` class host with the _Data node_ role in the `{{ subnet-id }}` subnet, in the `{{ zone-id }}` availability zone.
    * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
    * Password `esadminpwd` and username `admin`.
    * Protection against accidental cluster deletion.
@@ -319,7 +326,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      --datanode-disk-size=20 \
      --admin-password=esadminpwd \
      --security-group-ids enpp2s8l3irhk5eromd7 \
-     --version 7.10 \
+     --version {{ versions.cli.latest }} \
      --edition platinum \
      --deletion-protection=true
    ```
@@ -329,7 +336,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    Let's say we need to create a {{ ES }} cluster with the following characteristics:
 
    * Name `my-es-clstr`.
-   * Version `7.13`.
+   * Version `{{ versions.tf.latest }}`.
    * Edition `Basic`.
    * Environment `PRODUCTION`.
    * Cloud with the `{{ tf-cloud-id }}` ID.
@@ -342,6 +349,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    The configuration file for the cluster looks like this:
 
+   
    ```hcl
    terraform {
      required_providers {
@@ -365,6 +373,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
      config {
        edition = "basic"
+       version = "{{ versions.tf.latest }}"
 
        admin_password = "esadminpwd"
 
@@ -382,7 +391,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
      host {
        name = "node"
-       zone = "ru-central1-c"
+       zone = "{{ region-id }}-c"
        type = "DATA_NODE"
        assign_public_ip = true
        subnet_id = yandex_vpc_subnet.mysubnet.id
@@ -420,5 +429,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
    }
    ```
+
+
 
 {% endlist %}

@@ -2,6 +2,7 @@
 
 Полный состав актуальных и устаревших образов {{ dataproc-name }} см. в разделе [{#T}](../concepts/environment.md).
 
+
 ## 2.0.45 {#2.0.45}
 
 * Исправлена ошибка с MapReduce Application History Server не на мастер-хосте кластера.
@@ -123,3 +124,4 @@ Python обновлен до версии [3.7.9](https://docs.python.org/3.7/wh
 * scikit-learn — 0.21.3.
 * TensorFlow— 1.15.0.
 * XGBoost — 0.90.
+
