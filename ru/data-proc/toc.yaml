@@ -1,5 +1,8 @@
----
-title: Yandex Data Proc
+title:
+  - text: Yandex Data Proc
+    when: product == "yandex-cloud"
+  - text: Data Proc
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Практические руководства
@@ -24,17 +27,18 @@ items:
             href: tutorials/run-spark-job.md
           - name: Запуск заданий с удаленного хоста
             href: tutorials/remote-run-job.md
-      - name: Настройка сети для Data Proc
+      - name: Настройка сети для {{ dataproc-name }}
         href: tutorials/configure-network.md
-        when: product == "yandex-cloud"
       - name: Использование {{ objstorage-full-name }} в {{ dataproc-name }}
         href: tutorials/copy-files-from-object-storage.md
       - name: Обмен данными с {{ mch-full-name }}
         href: tutorials/exchange-data-with-mch.md
       - name: Импорт данных из кластера {{ mmy-full-name }} с помощью Sqoop
         href: tutorials/sqoop-mmy.md
+        when: product == "yandex-cloud"
       - name: Импорт данных из кластера {{ mpg-full-name }} с помощью Sqoop
         href: tutorials/sqoop-mpg.md
+        when: product == "yandex-cloud"
       - name: >-
           Использование скриптов инициализации для настройки GeeseFS в
           {{ dataproc-name }}
@@ -59,6 +63,7 @@ items:
         href: operations/connect-interfaces.md
       - name: Использование Sqoop
         href: operations/sqoop-usage.md
+        when: product == "yandex-cloud"
       - name: Управление заданиями
         items:
           - name: Все задания
@@ -86,15 +91,15 @@ items:
         href: concepts/instance-types.md
       - name: Среда исполнения
         href: concepts/environment.md
-      - name: Интерфейсы и порты компонентов Data Proc
+      - name: Интерфейсы и порты компонентов {{ dataproc-name }}
         href: concepts/interfaces.md
-      - name: Задания в Data Proc
+      - name: Задания в {{ dataproc-name }}
         href: concepts/jobs.md
       - name: Автоматическое масштабирование
         href: concepts/autoscaling.md
       - name: Декомиссия подкластеров и хостов
         href: concepts/decommission.md
-      - name: Сеть в Data Proc
+      - name: Сеть в {{ dataproc-name }}
         href: concepts/network.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
@@ -104,7 +109,7 @@ items:
         href: concepts/storage.md
       - name: Свойства компонентов
         href: concepts/settings-list.md
-      - name: Логи в Data Proc
+      - name: Логи в {{ dataproc-name }}
         href: concepts/logs.md
         when: product == "yandex-cloud"
       - name: Скрипты инициализации
@@ -128,6 +133,7 @@ items:
           repo: docs
           path: en/_api-ref/dataproc/toc.yaml
   - name: История изменений
+    when: product == "yandex-cloud"
     items:
       - name: Изменения сервиса
         href: release-notes/index.md

@@ -17,7 +17,7 @@ SQL-запрос для Hive можно передать двумя способ
 *  В команде на запуск задачи:
 
     ```bash
-    {{ yc-dp }} job create-hive --cluster-id <ID кластера> --name <имя задачи> --query-list "SELECT Month, COUNT(*)  FROM flights GROUP BY Month;"
+    {{ yc-dp }} job create-hive --cluster-id <ID кластера> --name <имя задачи> --query-list "SELECT Month, COUNT(*) FROM flights GROUP BY Month;"
     ```
 
 * В объекте {{objstorage-name}}, который доступен на чтение сервисному аккаунту кластера {{dataproc-name}}:

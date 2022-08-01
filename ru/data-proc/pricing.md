@@ -4,6 +4,14 @@ editable: false
 
 # Правила тарификации для {{ dataproc-name }}
 
+{% if product == "cloud-il" %}
+
+На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ dataproc-name }} не тарифицируется.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Из чего складывается стоимость использования {{ dataproc-name }} {#rules}
@@ -114,5 +122,7 @@ editable: false
 {% if region == "int" %}
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}
 
 {% endif %}

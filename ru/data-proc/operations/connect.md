@@ -122,7 +122,7 @@
    ssh-add ~/.ssh/example-key
    ```
 
-1. Откройте SSH-соединение с хостом {{ dataproc-name }}, указав его FQDN или IP-адрес, если для хоста включен публичный доступ. Для образа 2.0 укажите пользователя `ubuntu`, для образа 1.4 — `root`, например:
+1. Откройте SSH-соединение с хостом {{ dataproc-name }}, указав его FQDN или IP-адрес, если для хоста включен публичный доступ. {% if product == "yandex-cloud" %} Для образа 2.0 укажите пользователя `ubuntu`, для образа 1.4 — `root`, например: {% endif %} {% if product == "cloud-il" %} В качестве имени пользователя укажите `ubuntu`. Например: {% endif %}
 
    ```bash
    ssh ubuntu@rc1b-dataproc-m-fh4y4nur0i0uqqkz.{{ dns-zone }}

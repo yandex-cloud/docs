@@ -80,7 +80,7 @@ items:
       - name: Получение данных из RabbitMQ
         href: tutorials/fetch-data-from-rabbitmq.md
       - name: Обмен данными с {{ dataproc-full-name }}
-        when: audience != "internal" and product == "yandex-cloud"
+        when: audience != "internal"
         href: tutorials/exchange-data-with-dp.md
       - name: >-
           Настройка {{ dns-full-name }} для доступа к кластеру из других облачных сетей

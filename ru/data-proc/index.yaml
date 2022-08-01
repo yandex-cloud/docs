@@ -1,29 +1,61 @@
-title: Yandex Data Proc
+title:
+  - text: Yandex Data Proc
+    when: product == "yandex-cloud"
+  - text: Data Proc
+    when: product == "cloud-il"
 description:
-  - >-
-    Сервис помогает разворачивать кластеры Apache Hadoop<sup>®</sup> и Apache
-    Spark™ в инфраструктуре Yandex Cloud. Вы сами определяете размер кластера,
-    мощность узлов и набор сервисов Apache<sup>®</sup> (Spark™, HDFS, YARN,
-    Hive, HBase<sup>®</sup>, Oozie™, Sqoop™, Flume™, Tez<sup>®</sup>,
-    Zeppelin™).
-  - >-
-    Инфраструктура Yandex Cloud <a href="/docs/security/conform">
-    защищена</a> в соответствии со следующими стандартами:
-    <ul>
-    <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li>
-    <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li>
-    <li>Генеральный регламент о защите данных (GDPR).</li>
-    <li>Стандарт ISO 27001.</li>
-    <li>Стандарт ISO 27017.</li>
-    <li>Стандарт ISO 27018.</li>
-    <li>ГОСТ 57580.1-2017.</li>
-    </ul>
-  - >-
-    <em>Apache<sup>®</sup>, Apache Hadoop<sup>®</sup> и Apache Spark™ являются
-    зарегистрированными товарными знаками или товарными знаками Apache Software
-    Foundation в США и/или других странах.</em>
+  - text:
+    - >-
+      Сервис помогает разворачивать кластеры Apache Hadoop<sup>®</sup> и Apache
+      Spark™ в инфраструктуре Yandex Cloud. Вы сами определяете размер кластера,
+      мощность узлов и набор сервисов Apache<sup>®</sup> (Spark™, HDFS, YARN,
+      Hive, HBase<sup>®</sup>, Oozie™, Sqoop™, Flume™, Tez<sup>®</sup>,
+      Zeppelin™).
+    - >-
+      Инфраструктура Yandex Cloud <a href="/docs/security/conform">
+      защищена</a> в соответствии со следующими стандартами:
+      <ul>
+      <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li>
+      <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li>
+      <li>Генеральный регламент о защите данных (GDPR).</li>
+      <li>Стандарт ISO 27001.</li>
+      <li>Стандарт ISO 27017.</li>
+      <li>Стандарт ISO 27018.</li>
+      <li>ГОСТ 57580.1-2017.</li>
+      </ul>
+    - >-
+      <em>Apache<sup>®</sup>, Apache Hadoop<sup>®</sup> и Apache Spark™ являются
+      зарегистрированными товарными знаками или товарными знаками Apache Software
+      Foundation в США и/или других странах.</em>
+    when: product == "yandex-cloud"
+  - text:
+    - >-
+      Сервис помогает разворачивать кластеры Apache Hadoop<sup>®</sup> и Apache
+      Spark™ в инфраструктуре CloudIL. Вы сами определяете размер кластера,
+      мощность узлов и набор сервисов Apache<sup>®</sup> (Spark™, HDFS, YARN,
+      Hive, HBase<sup>®</sup>, Oozie™, Sqoop™, Flume™, Tez<sup>®</sup>,
+      Zeppelin™).
+    - >-
+      Инфраструктура CloudIL <a href="/docs/security/conform">
+      защищена</a> в соответствии со следующими стандартами:
+      <ul>
+      <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li>
+      <li>Генеральный регламент о защите данных (GDPR).</li>
+      <li>Стандарт ISO 27001.</li>
+      <li>Стандарт ISO 27017.</li>
+      <li>Стандарт ISO 27018.</li>
+      </ul>
+    - >-
+      <em>Apache<sup>®</sup>, Apache Hadoop<sup>®</sup> и Apache Spark™ являются
+      зарегистрированными товарными знаками или товарными знаками Apache Software
+      Foundation в США и/или других странах.</em>
+    when: product == "cloud-il"
 meta:
-  title: Yandex Data Proc
+  title:
+    - text: Yandex Data Proc
+      when: product == "yandex-cloud"
+    - text: Data Proc
+      when: product == "cloud-il"
 links:
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
@@ -41,5 +73,6 @@ links:
     description: Настройка прав доступа для работы с сервисом
     href: security/
   - title: Правила тарификации
+    when: product == "yandex-cloud"
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing

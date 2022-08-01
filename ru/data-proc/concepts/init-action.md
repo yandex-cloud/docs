@@ -33,6 +33,17 @@ fi
 
 Если выполнение скрипта завершилось ошибкой:
 
+{% if product == "yandex-cloud" %}
+
 1. Посмотрите логи в [{{ cloud-logging-full-name }}](../../logging/operations/read-logs.md) или на хостах кластера в файле `/var/log/yandex/dataproc-init-actions.log`.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+1. Посмотрите логи на хостах кластера в файле `/var/log/yandex/dataproc-init-actions.log`.
+
+{% endif %}
+
 1. Исправьте ошибку.
 1. [Удалите](../operations/cluster-delete.md) этот кластер и [создайте](../operations/cluster-create.md) новый.

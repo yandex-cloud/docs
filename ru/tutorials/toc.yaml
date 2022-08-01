@@ -159,7 +159,6 @@ items:
         # dataproc
       - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
         href: dataplatform/dp-mch-data-exchange.md
-        when: product == "yandex-cloud"
       - name: Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с помощью Sqoop
         href: dataplatform/sqoop-mmy.md
         when: product == "yandex-cloud"
@@ -169,7 +168,6 @@ items:
       - name: >-
           Использование скриптов инициализации для настройки GeeseFS в {{ dataproc-full-name }}
         href: dataplatform/data-proc-init-actions-geesefs.md
-        when: product == "yandex-cloud"
         # ES
       - name: Миграция данных из стороннего кластера {{ ES }} в {{ mes-full-name }} с помощью Reindex API
         href: dataplatform/migration-via-reindex-api.md
@@ -246,7 +244,6 @@ items:
         href: routing/usergate-proxy.md
       - name: Настройка сети для {{ dataproc-full-name }}
         href: routing/dataproc-nat-instance.md
-        when: product == "yandex-cloud"
   - name: Визуализация и анализ данных
     when: product == "yandex-cloud"
     items:
