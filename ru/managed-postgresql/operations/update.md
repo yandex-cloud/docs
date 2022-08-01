@@ -10,7 +10,7 @@
 
 * [Изменить класс хостов](#change-resource-preset).
 
-* [{#T}](#change-disk-size){% if audience != "internal" %} (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках){% endif %}.
+* [{#T}](#change-disk-size).
 
 * [Настроить серверы {{ PG }}](#change-postgresql-config) согласно [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config.html).
 
@@ -155,7 +155,9 @@
 
 {% endnote %}
 
-{% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
+{% if audience != "internal" %}
+Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [Квоты]({{ link-console-quotas }}) для облака и убедитесь, что в секции **Managed Databases** в строке **Объем HDD-хранилищ** или **Объем SSD-хранилищ** есть запас места.
+{% endif %}
 
 {% list tabs %}
 
