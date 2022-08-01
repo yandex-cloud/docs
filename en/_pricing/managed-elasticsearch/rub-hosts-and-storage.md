@@ -4,7 +4,7 @@ The cost for computing resources depends on the selected {{ ES }} edition:
 
 {% list tabs %}
 
-- BASIC
+- Basic
 
    | Resource       | Cost for 1 hour                                            |
    |----------------|------------------------------------------------------------|
@@ -28,7 +28,7 @@ The cost for computing resources depends on the selected {{ ES }} edition:
 
 {% endif %}
 
-- GOLD
+- Gold
 
    | Resource       | Cost for 1 hour                                            |
    |----------------|------------------------------------------------------------|
@@ -52,7 +52,7 @@ The cost for computing resources depends on the selected {{ ES }} edition:
 
 {% endif %}
 
-- PLATINUM
+- Platinum
 
    | Resource       | Cost for 1 hour                                                |
    |----------------|----------------------------------------------------------------|

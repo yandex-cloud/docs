@@ -81,6 +81,12 @@ Before updating the {{ ES }} version, make sure this doesn't affect your apps:
 
 ## Updating the {{ ES }} edition {#start-edition-update}
 
+{% note info %}
+
+As of June 13, 2022, the `Gold` [edition](../concepts/es-editions.md) in {{ mes-name }} clusters is no longer supported. You cannot switch to it from the `Basic` or `Platinum` editions. On July 6, 2022, the `Gold` edition of all clusters will be automatically upgraded to `Platinum`.
+
+{% endnote %}
+
 You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the cluster. If you decide to downgrade the edition, please double-check that reduced functionality won't affect your applications.
 
 {% list tabs %}
@@ -89,7 +95,7 @@ You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the clu
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
    1. Select a cluster and click **Edit**.
-   1. In the **Edition** field, select{{ ES }} `Basic`, `Gold`, or `Platinum`.
+   1. In the **Edition** field, select the required {{ ES }} edition: `Basic` or `Platinum`.
    1. Click **Save**.
 
 - CLI
@@ -114,7 +120,7 @@ You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the clu
 
       ```bash
       {{ yc-mdb-es }} cluster update <cluster name or ID> \
-         --edition <{{ ES }} edition: basic, gold, or platinum>
+         --edition <{{ ES }} edition: basic or platinum>
       ```
 
 - {{ TF }}
@@ -129,7 +135,7 @@ You can update the [{{ ES }} edition](../concepts/es-editions.md) run in the clu
       resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
         ...
         config {
-          edition = "<{{ ES }} edition: basic, gold, or platinum>"
+          edition = "<{{ ES }} edition: basic or platinum>"
           ...
         }
         ...
