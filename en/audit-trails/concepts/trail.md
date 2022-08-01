@@ -1,21 +1,21 @@
 # Trail
 
-A trail is an {{ at-name }} resource responsible for collecting and delivering audit logs of {{ yandex-cloud }} resources to a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}{% if product == "yandex-cloud" %} or a [log group](../../logging/concepts/log-group.md) in {{ cloud-logging-name }}{% endif %}.
+A trail is an {{ at-name }} resource responsible for collecting and delivering audit logs of {{ yandex-cloud }} resources to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md){% if product == "yandex-cloud" %}, a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md), or a {{ yds-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts){% endif %}.
 
 ## Audit log collection scope {#collecting-area}
 
 In the trail settings, you can choose where to collect audit logs from:
-* Organization: Audit logs of all resources in all clouds of the organization.
-* Cloud: Audit logs of resources in all folders in a given cloud.
-* Individual folders: Audit logs of specific folders in a cloud.
+* Organization: Collect audit logs from all resources in all clouds of the organization.
+* Cloud: Collect audit logs from the resources hosted in the selected folders of the cloud.
+* Folder: Collect audit logs from the folder hosting the trail.
 
-The trail will collect the audit logs of all [resources](./events.md) in the specified audit log collection scope, including the resources added to the scope after trail creation, and upload them to a bucket{% if product == "yandex-cloud" %} or log group{% endif %}.
+A trail will collect the audit logs of all the [resources](./events.md) found in a specified area, including resources added to this area after the trail was created, and upload them to a bucket{% if product == "yandex-cloud" %}, a log group, or a data stream{% endif %}.
 
 If resources are added to the audit log collection scope after a trail is created, the trail will automatically start collecting audit logs for them.
 
 ## Destination object {#target}
 
-Each trail only uploads audit logs to one destination object: a bucket{% if product == "yandex-cloud" %} or a log group{% endif %}.
+Each trail only uploads audit logs to a single destination object, such as a bucket{% if product == "yandex-cloud" %}, a log group, or a data stream{% endif %}.
 
 When uploading audit logs to a bucket, {{ at-name }} generates audit log files approximately once every 5 minutes. The trail will write all the [events](./events.md) that occurred to the cloud resources during that period to one or more files. If no events occurred during the period, no files are generated.
 
@@ -34,21 +34,26 @@ Each trail runs independently of one another. Using multiple trails, you can dif
 The trail contains all the audit log settings:
 * **Name**: Required parameter.
 * **Description**: Optional parameter.
-* **Service account**: The account on behalf of which audit logs will be uploaded to a bucket{% if product == "yandex-cloud" %} or a log group{% endif %}. To determine the available audit log collection scope, the access rights of this account are checked.
-* **Destination**:
-   * **Destination**: {{ objstorage-name }}{% if product == "yandex-cloud" %} or {{ cloud-logging-name }}{% endif %}.
-   * For {{ objstorage-name }}:
+* **Filter** section:
+   * **Resource**: This field can take on the values `Organization`, `Cloud`, or `Folder`.
+   * For the `Organization` value:
+      * **Organization**: The name of the current organization. The value is populated automatically.
+   * For the `Cloud` value:
+      * **Cloud**: The name of the cloud hosting the current trail. The value is populated automatically.
+      * **Folders** are the folders for whose resources the trail will collect audit logs. If you don't specify any folder, the trail will collect audit logs from all resources in the cloud.
+   * For the `Folder` parameter:
+      * **Folder** is the name of the folder hosting the trail. The value is populated automatically.
+* **Destination** section:
+   * **Destination**: {% if product == "yandex-cloud" %}Values{% endif %}{% if product == "cloud-il" %}Value{% endif %} of `{{ objstorage-name }}`{% if product == "yandex-cloud" %}, `{{ cloud-logging-name }}`, or `{{ yds-name }}`{% endif %}.
+   * For the `{{ objstorage-name }}` value:
       * **Bucket**: The name of the bucket.
       * **Object prefix**: An optional parameter used in the [full name](./format.md#log-file-name) of the audit log file.
-   {% if product == "yandex-cloud" %}* For {{ cloud-logging-name }}:
-      * **Group**: The name of the log group.{% endif %}
-* **Filter**:
-   * **Resource**: `Cloud` or `Organization`.
-   * For `Cloud`:
-      * **Cloud**: The name of the cloud hosting the current trail, must be selected manually.
-      * **Folders**: The folders whose resources the trail is going to collect audit logs for. If no folder is specified, the trail collects audit logs for every resource in the cloud.
-   * For `Organization`:
-      * **Organization**: The name of the organization.
+   {% if product == "yandex-cloud" %}* For the `{{ cloud-logging-name }}` value:
+      * **Log group**: Log group name.
+   * For the `{{ yds-name }}` value:
+      * **Data stream**: Data stream name.
+         {% endif %}
+* **Service account** section: Service account to use to upload audit logs to a bucket {% if product == "yandex-cloud" %}, a log group, or a data stream{% endif %}. If the account needs more roles, a warning with a list of the roles will show up.
 
 ## Trail status {#status}
 

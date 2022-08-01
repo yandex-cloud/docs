@@ -4,6 +4,8 @@
 
 ## Applying or editing a policy {#apply-policy}
 
+The minimum role required to apply or modify an access policy is `storage.configurer`. See the [role description](../../../storage/security/#storage-configurer).
+
 To apply or edit a bucket access policy:
 
 {% list tabs %}
@@ -80,6 +82,10 @@ To apply or edit a bucket access policy:
    Retrieve {% if audience != "internal" %}[static access keys](../../../iam/operations/sa/create-access-key.md){% else %}static access keys{% endif %}: a static key and a key ID used to authenticate in {{ objstorage-short-name }}.
 
    1. In the configuration file, describe the parameters of resources that you want to create:
+      * `access_key`: The ID of the static access key.
+      * `secret_key`: The value of the secret access key.
+      * `bucket`: Bucket name. Required parameter.
+      * `policy`: Policy name. Required parameter.
 
       ```hcl
       resource "yandex_storage_bucket" "b" {
@@ -112,14 +118,7 @@ To apply or edit a bucket access policy:
       }
       ```
 
-      Where:
-
-      * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the secret access key.
-      * `bucket`: Bucket name. Required parameter.
-      * `policy`: Policy name. Required parameter.
-
-      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
@@ -149,6 +148,8 @@ To apply or edit a bucket access policy:
 {% endlist %}
 
 ## Viewing a policy {#view-policy}
+
+The minimum role required to view an access policy is `storage.configViewer`. See the [role description](../../../storage/security/#storage-config-viewer).
 
 To view the access policy applied to a bucket:
 
@@ -188,6 +189,9 @@ To view the access policy applied to a bucket:
 {% endlist %}
 
 ## Deleting a policy {#delete-policy}
+
+The minimum role required to delete an access policy is `storage.configurer`. See the [role description](../../../storage/security/#storage-configurer).
+
 
 To delete a bucket policy:
 
