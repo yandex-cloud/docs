@@ -28,44 +28,43 @@
 
      
      ```
-
-     locals {
-       folder_id = "<identificator_of_your_folder>"
+     provider "yandex" {
+       token     = "<OAuth>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "{{ region-id }}-a"
      }
 
      resource "yandex_iam_service_account" "sa" {
-       folder_id = local.folder_id
-       name      = "<service_account_name>"
+       name      = "<имя_сервисного_аккаунта>"
      }
 
-     // Grant permissions
+     // Назначение роли сервисному аккаунту
      resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
-       folder_id = local.folder_id
        role      = "storage.editor"
        member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
      }
 
-     // Create Static Access Keys
+     // Создание статического ключа доступа
      resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
        service_account_id = yandex_iam_service_account.sa.id
        description        = "static access key for object storage"
      }
 
-     // Use keys to create bucket
+     // Создание бакета с использованием ключа
      resource "yandex_storage_bucket" "test" {
        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
-       bucket = "original_name_of_your_bucket"
+       bucket = "<имя_бакета>"
      }
-     
      ```
      
      Где:
      
-     * `yandex_iam_service_account` - описание сервисного аккаунта:
-       * `name` - имя сервисного аккаунта
+     * `yandex_iam_service_account` - описание сервисного аккаунта, который создаст бакет и будет работать с ним:
+       * `name` - имя сервисного аккаунта.
      * `yandex_storage_bucket` — описание бакета:
-       * `bucket` — имя бакета
+       * `bucket` — имя бакета.
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
 
