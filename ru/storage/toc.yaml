@@ -33,7 +33,7 @@ items:
             href: operations/buckets/versioning.md
           - name: Редактирование ACL бакета
             href: operations/buckets/edit-acl.md
-          - name: Включение механизма логированния
+          - name: Включение механизма логирования
             href: operations/buckets/enable-logging.md
             when: product == "yandex-cloud"
       - name: Объекты
