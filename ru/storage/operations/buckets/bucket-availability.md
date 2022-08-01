@@ -19,7 +19,11 @@
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
+  {% if audience != "internal" %}
+
   Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% endif %}
 
   Чтобы открыть публичный доступ к операциям с бакетом:
 

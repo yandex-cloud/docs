@@ -24,7 +24,11 @@
 
      {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
+     {% if audience != "internal" %}
+
      Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+ 
+     {% endif %}
 
      Чтобы включить механизм логирования в бакете, который вы хотите отслеживать:
 
@@ -154,7 +158,11 @@
 
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
+  {% if audience != "internal" %}
+
   Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% endif %}
 
   Чтобы выключить механизм логирования:
 
