@@ -22,7 +22,52 @@ Pricing features:
 * Reading metrics via the {{ monitoring-short-name }} interface and {{ yandex-cloud }} console is not charged.
 * Incoming and outgoing traffic in {{ monitoring-short-name }} is not charged.
 
-### Pricing {#prices}
+### Example of cost calculation {#example}
+
+The cost of using the {{ monitoring-short-name }} service for 30 days while writing 20 metrics at a rate of **1 value per minute**:
+
+> 20 * 1 * (60 * 24 * 30) = 864,000 values = 0.864 million values
+> 0.864 * 9.8 = ₽8.4672 = ₽8.47
+> 
+> Total: ₽8.47
+
+Where:
+
+* 20 — number of metrics.
+* 1 — number of values recorded per minute.
+* (60 * 24 * 30) — number of minutes in 30 days.
+* ₽9.8 — cost of writing 1 million values (up to 50 million values).
+
+The cost of using the {{ monitoring-short-name }} service for 30 days while writing 20 metrics at a rate of **1 value per second**:
+
+> 20 * 1 * (60 * 60 * 24 * 30) = 51,840,000 values = 51.84 million values
+> 50 * 9.8 + (51.84 - 50) * 5.6 = ₽500.3
+> 
+> Total: ₽500.3
+
+Where:
+
+* 20 — number of metrics.
+* 1 — number of values recorded per second.
+* (60 * 60 * 24 * 30) — number of seconds in 30 days.
+* ₽9.8 — cost of writing 1 million values (up to 50 million values).
+* ₽5.6 — cost of writing 1 million values (over 50 million values).
+
+The cost of exporting 100 metrics from {{ monitoring-short-name }} to your on-premise installation of the {{ prometheus-name }} monitoring system with a polling interval of **15 seconds** for 30 days:
+
+> 100 * (60 / 15) * (60 * 24 * 30) = 17,280,000 values = 17.28 million values
+> 17.28 * 7 = ₽120.96
+> 
+> Total: ₽120.96
+
+Where:
+
+* 100 — number of metrics.
+* (60 / 15) — number of readings per minute.
+* (60 * 24 * 30) — number of minutes in 30 days.
+* ₽7 — cost of reading 1 million values (up to 50 million values).
+
+## Pricing {#prices}
 
 The minimum billable unit is 1 metric value. The price is rounded up to the nearest hundredth of a ruble.
 
@@ -51,26 +96,6 @@ For example, the cost of writing the first 86,400 values is `(86 400 values / 1 
 {% endif %}
 
 {% if region == "ru"%}
-
-### Example of cost calculation {#example}
-
-Let's say you write to {{ monitoring-short-name }} 20 metrics at a rate of **1 value per minute**. In 30 days, your amount written will be:
-
-> 20 metrics * 1 value/min * 60 minutes * 24 hours * 30 days = 864,000 values = 0.864 million values
-
-The service cost for 30 days will be `0.864 million values * ₽9.8 = ₽8.4672`. After rounding: `₽8.47`.
-
-If you write 20 metrics at a rate of **1 value per second**, in 30 days your total written will be:
-
-> 20 metrics * 1 value/second * 60 seconds * 60 minutes * 24 hours * 30 days = 51,840,000 values = 51.84 million values
-
-In this case, the service cost for 30 days will be `50 million values * ₽9.8 + (51.84 - 50) million values * ₽5,6 = ₽500.304`. After rounding: `₽500.3`.
-
-For another example, perhaps you set up export for 100 metrics from {{ monitoring-short-name }} to your on-premise installation of the {{ prometheus-name }} monitoring system with a polling interval of **15 seconds**. In 30 days, your total read will be:
-
-> 100 metrics * 60 seconds / 15 seconds * 60 minutes * 24 hours * 30 days = 17,280,000 values = 17.28 million values
-
-In this case, the service cost for 30 days will be `17.28 million values * ₽7 = ₽120.96`.
 
 {% endif %}
 
