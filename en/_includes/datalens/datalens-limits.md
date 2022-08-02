@@ -10,7 +10,7 @@ There are no quotas for {{ datalens-short-name }}.
 | Maximum CSV file size | 200 MB |
 | Maximum number of rows of persisted data<br>per dataset | 100,000,000 |
 | Maximum number of tables in a single dataset | 32 |
-| Maximum number of fields in a single dataset | 500 |
+| Maximum number of fields in a single dataset | 1,200 |
 
 #### Chart data limits {#datalens-chart-data-limits}
 

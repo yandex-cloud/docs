@@ -6,7 +6,7 @@
    {% note warning %}
 
    * The maximum number of tables in a single dataset is 32.
-   * The maximum number of fields in a single dataset is 500.
+   * The maximum number of fields in a single dataset is 1,200.
 
    {% endnote %}
 

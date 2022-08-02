@@ -10,8 +10,10 @@
 
 ## Перед началом работы {#before-you-begin}
 
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md) `k8s.tunnelClusters.agent` и `vpc.publicAdmin`.
 1. [Создайте кластер](kubernetes-cluster/kubernetes-cluster-create.md) {{ k8s }} со следующими настройками:
-   1. **Релизный канал**: `RAPID`.
+   1. **Сервисный аккаунт для ресурсов** — созданный ранее сервисный аккаунт с ролями `k8s.tunnelClusters.agent` и `vpc.publicAdmin`.
+   1. **Релизный канал** — `RAPID`.
    1. В блоке **Сетевые настройки кластера** выберите опцию **Включить туннельный режим**.
 1. [Создайте группу узлов](node-group/node-group-create.md) любой подходящей вам конфигурации.
 
@@ -258,7 +260,7 @@
    kubectl apply -f hubble-ui.yaml
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```text
    serviceaccount/hubble-ui created
@@ -276,7 +278,7 @@
      | grep hubble | grep -v certs
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```text
    hubble-relay-6b9c774ffc-2jm7t  Running
@@ -380,7 +382,7 @@
    kubectl create -f http-sw-app.yaml
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```text
    service/deathstar created
@@ -395,7 +397,7 @@
    kubectl get pods,svc
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```text
    NAME                            READY   STATUS    RESTARTS   AGE
@@ -415,7 +417,7 @@
    kubectl -n kube-system get pods -l k8s-app=cilium
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```text
    NAME           READY   STATUS    RESTARTS   AGE
@@ -436,7 +438,7 @@
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```text
    Ship landed
@@ -498,7 +500,7 @@
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```text
    Ship landed
@@ -534,7 +536,7 @@
    kubectl exec tiefighter -- curl -s -XPUT deathstar.default.svc.cluster.local/v1/exhaust-port
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```text
    Panic: deathstar exploded
@@ -592,7 +594,7 @@
    kubectl exec tiefighter -- curl -s -XPOST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```text
    Ship landed
@@ -604,7 +606,7 @@
    kubectl exec tiefighter -- curl -s -XPUT deathstar.default.svc.cluster.local/v1/exhaust-port
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```text
    Access denied

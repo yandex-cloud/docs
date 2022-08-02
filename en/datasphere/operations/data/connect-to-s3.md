@@ -1,6 +1,6 @@
 # Connecting to S3 storage
 
-You can connect to S3 object storage from the Jupiter Notebook interface.
+You can connect to S3 object storage from the Jupyter Notebook interface.
 
 1. Get an access key from your S3 storage provider. Follow these steps in {{objstorage-full-name }}:
    1. [Create a service account](../../../iam/operations/sa/create.md).

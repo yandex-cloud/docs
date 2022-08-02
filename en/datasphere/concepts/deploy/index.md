@@ -18,6 +18,14 @@ Read more about creating a node from a Python code cell in [{#T}](../../operatio
 
 By default, instances use standard system Docker images and don't copy user-installed libraries. If your microservice requires packages that are not included in the [pre-installed software](../preinstalled-packages.md), configure the Docker image for [deployment of the node environment](../../operations/node-customization.md).
 
+{% note warning %}
+
+{% include [pricing nodes](../../../_includes/datasphere/nodes-pricing-warn.md) %}
+
+For more information about the cost of using {{ ml-platform-name }}, see [{#T}](../../pricing.md).
+
+{% endnote %}
+
 ## Statuses of nodes and their instances {#statuses}
 
 Node instances can have one of the following statuses:

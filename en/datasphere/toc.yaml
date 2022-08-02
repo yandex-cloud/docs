@@ -81,6 +81,8 @@ items:
             href: operations/node-customization.md
           - name: Queries to nodes
             href: operations/node-api.md
+          - name: Deleting a node
+            href: operations/node-delete.md
   - name: Concepts
     items:
       - name: Overview

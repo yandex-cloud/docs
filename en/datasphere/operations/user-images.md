@@ -10,7 +10,7 @@ For a Docker image to run and operate correctly in {{ ml-platform-name }}, it mu
 
 * A Python 3.7 or Python 3.8 installation.
 * A pip installation.
-* A Jupiter user.
+* A Jupyter user.
 
 {% note info %}
 
