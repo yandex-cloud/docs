@@ -586,6 +586,9 @@ items:
         when: audience == "internal"
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_KEY_PREFIX_COLUMN.md
+      - name: Measure filter is unsupported for this type of query
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md
       - name: Memory limit has been exceeded during query execution
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md

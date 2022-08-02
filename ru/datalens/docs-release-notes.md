@@ -2,6 +2,10 @@
 
 ## Июль 2022 {#july2022}
 
+### Решение проблем {#troubleshooting072022}
+
+* Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md) и рекомендации по исправлению.
+
 ### Пошаговые инструкции {#operations072022}
 
 * Обновлена инструкция [{#T}](operations/chart/create-table.md).

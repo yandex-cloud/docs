@@ -34,6 +34,7 @@
 [ERR.DS_API.FIELD.NOT_FOUND](ERR-DS_API-FIELD-NOT_FOUND.md) | Unknown field |
 [ERR.DS_API.FIELD.TITLE.CONFLICT](ERR-DS_API-FIELD-TITLE-CONFLICT.md) | Field title conflicts with another field |
 {% if audience == "internal" %}[ERR.DS_API.FILTER.INVALID_VALUE](ERR-DS_API-FILTER-INVALID_VALUE.md) | Filter invalid value |{% endif %}
+[ERR.DS_API.FILTER.MEASURE_UNSUPPORTED](ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md) | Measure filter is unsupported for this type of query |
 [ERR.DS_API.FORMULA.UNKNOWN_FIELD_IN_FORMULA](ERR-DS_API-FORMULA-UNKNOWN_FIELD_IN_FORMULA.md) | Unknown field found in formula |
 [ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN](ERR-DS_API-FORMULA-UNKNOWN_SOURCE_COLUMN.md) | Unknown referenced source column |
 [ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT](ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md) | Inconsistent aggregation among operands |
