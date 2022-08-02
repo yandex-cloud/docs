@@ -1,16 +1,16 @@
 # 1C-Bitrix Online Store: Site Management
 
-[1C-Bitrix: Site Management](https://ru.wikipedia.org/wiki/1%D0%A1-%D0%91%D0%B8%D1%82%D1%80%D0%B8%D0%BA%D1%81:_%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5_%D1%81%D0%B0%D0%B9%D1%82%D0%BE%D0%BC) is a content management system (CMS) that lets you create an online store, corporate site, or news portal and easily manage your site structure and content.
+[1C-Bitrix: Site Management](https://ru.wikipedia.org/wiki/1%D0%A1-%D0%91%D0%B8%D1%82%D1%80%D0%B8%D0%BA%D1%81:_%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5_%D1%81%D0%B0%D0%B9%D1%82%D0%BE%D0%BC) is a content management system (CMS) that can help you create an online store, corporate website, or news portal. It can also make it easy to manage your website's structure and content.
 
-In this tutorial, you'll deploy and configure an online store built on the 1C-Bitrix platform. During the configuration, you'll create a VM in {{ yandex-cloud }}, deploy 1C-Bitrix on it, and launch the necessary services. You'll use a failover {{ mmy-name }} cluster as a database.
+In this tutorial, you'll deploy and configure an online store built on the 1C-Bitrix platform. During the configuration process, you'll create a virtual machine in {{ yandex-cloud }}, deploy 1C-Bitrix on it, and launch the necessary services. You'll use a failover {{ mmy-name }} cluster as a database.
 
 To deploy and configure 1C-Bitrix:
-
 1. [Before you start](#before-you-begin)
 1. [Create a VM in the cloud](#create-vm)
 1. [Create a MySQL DB cluster](#create-mysql)
 1. [Configure a server to work with 1C-Bitrix](#configure-server)
 1. [Configure 1C-Bitrix](#configure-bitrix)
+
 
 ## Before you start {#before-you-begin}
 
@@ -24,7 +24,7 @@ The infrastructure support cost for 1C-Bitrix includes:
 
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* A fee for using a managed MySQL database (see [pricing for {{ mmy-name }}](../../managed-mysql/pricing.md)).
+* A fee for using a managed MySQL database (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 
 {% endif %}
 
@@ -32,20 +32,15 @@ The infrastructure support cost for 1C-Bitrix includes:
 
 To create a VM:
 
-1. Go to the desired folder from [management console]({{ link-console-main }}): click on the folder name under **Your resources**.
-
+1. Go to the desired folder in the [management console]({{ link-console-main }}) by clicking the folder name under **Your resources**.
 1. Click **Create resource** and select **Virtual machine**.
-
 1. In the **Name** field, enter a name for the VM, such as `bitrix`.
 
    {% include [name-format](../../_includes/name-format.md) %}
 
-1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.  If you don't know which availability zone you need, leave the default.
-
-1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the [Ubuntu 18.04 LTS](/marketplace/products/yc/ubuntu-18-04-lts) image.
-
+1. Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in. If you don't know which availability zone you need, leave the default.
+1. Under **Images from {{ marketplace-name }}**, select an image of the [Ubuntu 18.04 lts]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %} operating system.
 1. Under **Disks**, select an SSD with 13 GB.
-
 1. Under **Computing resources**, specify the configuration for proper operation of 1C-Bitrix:
    * **Platform**: Intel Ice Lake.
    * **Guaranteed vCPU share**: 20%.
@@ -54,41 +49,37 @@ To create a VM:
 
 1. Under **Network settings**:
    - Select the **Network** and **Subnet** to connect the VM to. If you don't have a network or subnet, create them right in this section.
-   - In the **Public address** field, leave the **Auto** value to assign a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
+   - In the **Public address** field, leave the **Auto** value to assign the virtual machine a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 
 1. Under **Access**, specify the information required to access the VM:
    - In the **Login** field, enter a username to create on the VM, such as `ubuntu`.
-   - In the **SSH key** field, copy the value of your public SSH key. A key pair for an SSH connection should be [created on your own](../../compute/operations/vm-connect/ssh.md).
+   - In the **SSH key** field, copy the value of your public SSH key. You need to [create](../../compute/operations/vm-connect/ssh.md) the SSH key pair yourself.
 
-1. Click **Create VM**.
+1. Click **Create VM**.
+
 
 ## Create a MySQL database cluster {#create-mysql}
 
 To create a MySQL database cluster:
 
-1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **MySQL cluster**.
-
+1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select the **MySQL cluster** option.
 1. In the **Name** field, enter a name for the VM, such as `bitrix-mysql`.
 
    {% include [name-format](../../_includes/name-format.md) %}
 
 1. Under **Host class**, select the **Type** of the host: **s2.micro**.
-
 1. Under **Database**, enter:
    - **DB name**. Leave the default value, `db1`.
    - **Username** to connect to the database. Leave the default value, `user1`.
    - **Password** for 1C-Bitrix to access the database.
 
-1. Under **Hosts**, change the **Availability zone** for the host. To do this, click ![pencil](../../_assets/pencil.svg) in the host line and select the appropriate availability zone in the window that opens.
+1. Under **Hosts**, change the host's **Availability zone**. To do this, click ![pencil](../../_assets/pencil.svg) in the host's row and select the desired zone in the resulting window.
 
-   We recommend selecting the same **Availability zone** as you did when creating the VM. This reduces latency between the VM and database.
+   We recommend selecting the same **Availability zone** as when you created the VM. This reduces latency between the VM and database.
 
    To make the database fault-tolerant, you can add more hosts to the cluster. To do this, click **Add host**, select the availability zone and subnet, and click **Save**.
-
 1. Make sure that no public access is requested for the cluster hosts, otherwise 1C-Bitrix won't be able to connect to the cluster.
-
 1. Leave the other fields as they are.
-
 1. Click **Create cluster**.
 
 Creating the DB cluster may take several minutes.
@@ -97,14 +88,14 @@ Creating the DB cluster may take several minutes.
 
 To configure the VM to work with 1C-Bitrix:
 
-1. Log in to the VM via SSH (using `ubuntu` as the username that you set when [creating the VM](#create-vm)):
+1. Log in to the virtual machine over SSH (`ubuntu` is the username you set when [creating the VM](#create-vm)):
 
    ```bash
    ssh ubuntu@<VM-public-IP>
    ```
 
    To find out the public IP address of your VM:
-   1. in the [management console]({{ link-console-main }}), select the folder where the VM was created.
+   1. Select the folder the VM is in using the [management console]({{ link-console-main }}).
    1. Select **{{compute-short-name}}**.
    1. Click on the name of your VM (`bitrix` in the example).
    1. In the window with general VM info that opens, you can find the public IP address in the **Public IPv4** field under **Network**.
@@ -146,8 +137,8 @@ To configure the VM to work with 1C-Bitrix:
 
    ```bash
    root@bitrix:/var/www/html# chown -R www-data:www-data /var/www/html
-   
-   # Make sure that the command worked properly.
+
+   # Make sure the command worked
    root@bitrix:/var/www/html# ls -l
    total 76
    drwxrwxr-x 6 www-data www-data  4096 May 15 13:50 bitrix
@@ -162,10 +153,17 @@ To configure the VM to work with 1C-Bitrix:
    ...
    ```
 
-1. Specify the necessary PHP parameters in the configuration file `/etc/php/7.2/apache2/php.ini`
+1. Open the `/etc/php/7.4/apache2/php.ini` configuration file and specify the required PHP settings.
+
+   {% note info %}
+
+   The path to the configuration file may differ depending on the <q>1C-Bitrix</q> version. Specify the path to the current PHP version on the virtual machine.
+
+   {% endnote %}
+
 
    | Previously | Now |
-   | :--------------------------- | :---------------------------- |
+   |:---------------------------| :----------------------------|
    | short_open_tag = Off | short_open_tag = On |
    | display_errors = Off | display_errors = On |
    | memory_limit = 128M | memory_limit = 256M |
@@ -191,9 +189,10 @@ To configure the VM to work with 1C-Bitrix:
 
 The server is configured for 1C-Bitrix to run properly. Now you need to configure the 1C-Bitrix system itself.
 
+
 ## Configure 1C-Bitrix {#configure-bitrix}
 
-Perform the initial installation and setup of 1C-Bitrix:
+Perform initial installation and setup of 1C-Bitrix:
 
 1. Open the <q>1C-Bitrix: Site Management</q> web interface. To do this, open `http://<VM-public-IP-address>/`. A page opens asking you to install 1C-Bitrix.
 
@@ -206,8 +205,9 @@ Perform the initial installation and setup of 1C-Bitrix:
 1. 1C-Bitrix checks if the server is configured correctly. Click **Next** at the bottom of the page.
 
 1. Setting up the database.
+
    1. In the **Server** field, enter the fully qualified domain name of the created database. To find it:
-      1. Open the [management console]({{ link-console-main }}) folder page in a new browser tab.
+      1. Open the folder page in the [management console]({{ link-console-main }}) in a new browser tab.
       1. Select **{{mmy-name}}**.
       1. In the table, click on the row of the DB cluster you created.
       1. Go to the **Hosts** tab.
@@ -247,17 +247,17 @@ Perform the initial installation and setup of 1C-Bitrix:
 
 {% note tip %}
 
-To get system backups, occasionally [create disk snapshots](../../compute/operations/disk-control/create-snapshot.md) of your VM.
+To make system backups, periodically [create disk snapshots](../../compute/operations/disk-control/create-snapshot.md) on your virtual machine.
 
 {% endnote %}
 
+
 ## How to delete created resources {#clear-out}
 
-To stop paying for your deployed server, just [delete the VM named](../../compute/operations/vm-control/vm-delete.md) `bitrix` and [delete the cluster named](../../managed-mysql/operations/cluster-delete.md) `bitrix-mysql`.
+To stop paying for the deployed server, [delete the virtual machine](../../compute/operations/vm-control/vm-delete.md) named `bitrix` and [delete the cluster](../../managed-mysql/operations/cluster-delete.md) named `bitrix-mysql`.
 
 If you reserved a static public IP address specifically for this VM:
 
 1. Open the **Virtual Private Cloud** in your folder.
 1. Go to the **IP addresses** tab.
-1. Find the address you need, click ![ellipsis](../../_assets/options.svg), and select **Delete**.
-
+1. Find the required address, click ![ellipsis](../../_assets/options.svg), and select **Delete**.
