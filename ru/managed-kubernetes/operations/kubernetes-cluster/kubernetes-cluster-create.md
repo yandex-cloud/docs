@@ -25,6 +25,9 @@
    * Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../../../container-registry/security/index.md#required-roles) на каталог с [реестром](../../../container-registry/concepts/registry.md) [Docker-образов](../../../container-registry/concepts/docker-image.md). От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
    Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
+
+   {% include [k8s.tunnelClusters.agent role](../../../_includes/managed-kubernetes/note-tunnelClusters-agent.md) %}
+
 1. Создайте нужные [группы безопасности](../connect/security-groups.md).
 1. Изучите [рекомендации по использованию {{ managed-k8s-name }}](../../concepts/usage-recommendations.md).
 
@@ -62,7 +65,6 @@
      ```
 
      Где:
-
      * `--name` — имя кластера {{ k8s }}.
      * `--network-name` — имя сети.
      * `--zone` — зона доступности.
@@ -80,7 +82,7 @@
      * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для узлов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
      * `--daily-maintenance-window` — настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates).
 
-     Результат:
+     Результат выполнения команды:
 
      ```bash
      done (5m47s)
