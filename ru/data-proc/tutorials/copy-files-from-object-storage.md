@@ -31,24 +31,21 @@
 
     Подробнее про эти роли см. в [документации {{objstorage-name}}](../../storage/security/index.md).
 
->Например, получите список файлов, находящихся в публичном бакете `yc-mdb-examples` по пути `dataproc/example01/set01`.
+> Например, получите список файлов, находящихся в публичном бакете `yc-mdb-examples` по пути `dataproc/example01/set01`. Для этого [подключитесь](../operations/connect.md) к кластеру и выполните команду:
 >
->1. [Подключитесь](../operations/connect.md) к кластеру.
->1. Выполните команду:
+> ```bash
+> hadoop fs -ls s3a://yc-mdb-examples/dataproc/example01/set01
+> ```
 >
->   ```bash
->   hadoop fs -ls s3a://yc-mdb-examples/dataproc/example01/set01
->   ```
->
->   Результат:
->
->   ```text
->   Found 12 items
->   -rw-rw-rw-   1 root root   19327838 2019-09-13 17:17 s3a://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_1.parquet
->   -rw-rw-rw-   1 root root   21120204 2019-09-13 17:17 s3a://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_10.parquet
->   -rw-rw-rw-   1 root root   20227757 2019-09-13 17:17 s3a://yc-mdb-examples/dataproc/example01/set01/
->   ...
->   ```
+> Результат:
+> 
+> ```text
+> Found 12 items
+> -rw-rw-rw-   1 root root   19327838 2019-09-13 17:17 s3a://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_1.parquet
+> -rw-rw-rw-   1 root root   21120204 2019-09-13 17:17 s3a://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_10.parquet
+> -rw-rw-rw-   1 root root   20227757 2019-09-13 17:17 s3a://yc-mdb-examples/dataproc/example01/set01/
+> ...
+> ```
 
 ### Копирование с использованием CredentialProvider {#copying-via-credentialprovider}
 

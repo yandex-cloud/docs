@@ -27,6 +27,8 @@ description: "В этой инструкции вы создадите клас�
 
    Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
 
+   {% include [k8s.tunnelClusters.agent role](../_includes/managed-kubernetes/note-tunnelClusters-agent.md) %}
+
 ## Создайте кластер {{ k8s }} {#kubernetes-cluster-create}
 
 {% include [create-cluster](../_includes/managed-kubernetes/cluster-create.md) %}
