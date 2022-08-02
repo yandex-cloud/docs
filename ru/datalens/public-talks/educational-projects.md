@@ -1,5 +1,11 @@
 # Образовательные проекты
 
+{% if audience == "internal" %}
+
+{% include [datalens-start-video](../../_includes/datalens/datalens-start-video.md) %}
+
+{% endif %}
+
 - DataYoga: бесплатный образовательный марафон по {{ datalens-short-name }} (7 дней и 7 кейсов):
     - [Регистрация и лендинг](https://datayoga.ru/datalens)
     - [Книга марафона: все дни со ссылками](https://datayoga.ru/datalensbook)
