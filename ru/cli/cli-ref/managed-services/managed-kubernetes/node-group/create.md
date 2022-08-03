@@ -23,8 +23,8 @@ Syntax:
 |`--platform`|<b>`string`</b><br/>Specifies platform for instances in the node group.|
 |`--metadata`|<b>`key=value[,key=value...]`</b><br/>Metadata for instances in the node group.|
 |`--metadata-from-file`|<b>`key=value[,key=value...]`</b><br/>Same as --metadata except that the value for the entry will be read from a local file.|
-|`--template-labels`|<b>`key=value[,key=value...]`</b><br/>Metadata for instances in the node group.|
-|`--template-labels-from-file`|<b>`key=value[,key=value...]`</b><br/>Same as --metadata except that the value for the entry will be read from a local file.|
+|`--template-labels`|<b>`key=value[,key=value...]`</b><br/>Labels for instances in the node group.|
+|`--template-labels-from-file`|<b>`key=value[,key=value...]`</b><br/>Same as --template-labels except that the value for the entry will be read from a local file.|
 |`--public-ip`|Set when node group needs external public IP.|
 |`--memory`|<b>`byteSize`</b><br/>Specifies how much memory instances should have.|
 |`--cores`|<b>`int`</b><br/>Specifies how many CPU cores instances should have.|
