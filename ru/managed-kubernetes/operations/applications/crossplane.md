@@ -12,7 +12,7 @@
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролью `admin`. Он необходим для работы Crossplane.
 
-## Установка с помощью {{ marketplace-name }} {#marketplace-install}
+## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ managed-k8s-name }}**.
 1. Нажмите на имя нужного [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
