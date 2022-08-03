@@ -1,6 +1,5 @@
 default:
   api: show
-  ui: noshow
   # Актуальные версии Kafka
   versions:
     tf:

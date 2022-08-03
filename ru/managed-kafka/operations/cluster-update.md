@@ -2,8 +2,9 @@
 
 После создания кластера {{ mkf-name }} вы можете:
 
-* [{#T}](#enable-api).
-* [{#T}](#change-resource-preset).
+* [{#T}](#enable-api)
+* [{#T}](#change-brokers).
+* [{#T}](#change-zookeeper).
 * [{#T}](#change-disk-size){% if audience != "internal" %} (недоступно для [хранилища](../concepts/storage.md) на нереплицируемых SSD-дисках){% endif %}.
 * [{#T}](#change-additional-settings).
 * [{#T}](#change-kafka-settings).
@@ -65,8 +66,6 @@
 
     1. [Создайте пользователя-администратора](./cluster-accounts.md#create-user).
 
-{% if api != "noshow" %}
-
 - API
 
   Чтобы включить управление топиками через Admin API:
@@ -81,23 +80,11 @@
 
   1. [Создайте пользователя-администратора](./cluster-accounts.md#create-user).
 
-{% endif %}
-
 {% endlist %}
 
-## Изменить класс и количество хостов {#change-resource-preset}
+## Изменить класс и количество хостов-брокеров {#change-brokers}
 
-Вы можете изменить:
-
-* класс хостов-брокеров {{ KF }};
-* количество хостов-брокеров {{ KF }}, если для их размещения используются две или более зоны доступности;
-* класс хостов {{ ZK }}.
-
-{% note warning %}
-
-Количество хостов-брокеров {{ KF }} нельзя уменьшить. Увеличить его можно только в том случае, если в кластере уже существует не менее двух хостов-брокеров, расположенных в разных зонах доступности.
-
-{% endnote %}
+Увеличить количество хостов-брокеров {{ KF }} можно, только если кластер содержит не менее двух хостов-брокеров в разных зонах доступности. Уменьшить количество хостов-брокеров нельзя.
 
 {% list tabs %}
 
@@ -143,13 +130,6 @@
      ```
      {{ yc-mdb-kf }} cluster update <имя или идентификатор кластера> --resource-preset <класс хоста>
      ```
-  
-  1. Чтобы изменить класс хоста {{ ZK }}, выполните команду:
-
-     ```
-     {{ yc-mdb-kf }} cluster update <имя или идентификатор кластера> \
-       --zookeeper-resource-preset <класс хоста>
-     ```
 
 - {{ TF }}
 
@@ -169,7 +149,7 @@
         }
         ```
 
-    1. Измените в описании кластера {{ mkf-name }} значение параметра `resource_preset_id` в блоках `kafka.resources` и `zookeeper.resources` для хостов {{ KF }} и {{ ZK }} соответственно:
+    1. Измените в описании кластера {{ mkf-name }} значение параметра `resource_preset_id` в блоке `kafka.resources`, чтобы задать новый класс хостов-брокеров:
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
@@ -180,6 +160,83 @@
               ...
             }
           }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-link }}/mdb_kafka_cluster).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
+- API
+
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+  * Класс хостов-брокеров в параметре `configSpec.kafka.resources.resourcePresetId`.
+  * Количество хостов-брокеров в параметре `configSpec.brokersCount`.
+  * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
+## Изменить класс хостов {{ ZK }} {#change-zookeeper}
+
+{% list tabs %}
+
+- Консоль управления
+
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mkf-name }}**.
+  1. В строке с нужным кластером нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg), затем **Изменить кластер**.
+  1. Выберите новый [**Класс хоста Zookeeper**](../concepts/instance-types.md).
+  1. Нажмите кнопку **Сохранить**.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы изменить класс хостов {{ ZK }}:
+  
+  1. Получите информацию о кластере:
+
+     ```
+     {{ yc-mdb-kf }} cluster list
+     {{ yc-mdb-kf }} cluster get <имя или идентификатор кластера>
+     ```
+
+  1. Посмотрите описание команды CLI для изменения кластера:
+
+     ```
+     {{ yc-mdb-kf }} cluster update --help
+     ```
+
+  1. Чтобы изменить класс хостов {{ ZK }}, выполните команду:
+
+     ```
+     {{ yc-mdb-kf }} cluster update <имя или идентификатор кластера> \
+       --zookeeper-resource-preset <класс хоста>
+     ```
+
+- Terraform
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените в описании кластера {{ mkf-name }} значение параметра `resource_preset_id` в блоке `zookeeper.resources`, чтобы задать новый класс хостов {{ ZK }}:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+          ...
           zookeeper {
             resources {
               resource_preset_id = "<класс хостов {{ ZK }}>"
@@ -201,19 +258,15 @@
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-{% if api != "noshow" %}
-
 - API
 
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Новую конфигурацию кластера в параметре `configSpec`.
+  * Класс хостов {{ ZK }} в параметре `configSpec.zookeeper.resources.resourcePresetId`.
   * Список настроек, которые необходимо изменить, в параметре `updateMask`.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
-
-{% endif %}
 
 {% endlist %}
 
@@ -310,8 +363,6 @@
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-{% if api != "noshow" %}
-
 - API
 
   Чтобы {% if audience != "internal" %}увеличить{% else %}изменить{% endif %} размер хранилища для кластера, воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
@@ -321,8 +372,6 @@
   * Список настроек, которые необходимо изменить, в параметре `updateMask`.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
-
-{% endif %}
 
 {% endlist %}
 
@@ -503,8 +552,6 @@
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-{% if api != "noshow" %}
-
 - API
 
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
@@ -518,8 +565,6 @@
     * Список настроек, которые необходимо изменить, в параметре `updateMask`.
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
-
-{% endif %}
 
 {% endlist %}
 
