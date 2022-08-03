@@ -26,6 +26,14 @@ items:
             href: operations/users/get.md
           - name: Удаление пользователя
             href: operations/users/delete.md
+      - name: Группы пользователей
+        items:
+          - name: Создание группы
+            href: operations/groups/create.md
+          - name: Настройка прав доступа к группе
+            href: operations/groups/access-binding-object.md
+          - name: Назначение прав группе
+            href: operations/groups/access-binding-subject.md
       - name: Сервисные аккаунты
         items:
           - name: Создание сервисного аккаунта
