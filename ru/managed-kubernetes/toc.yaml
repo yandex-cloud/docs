@@ -33,6 +33,8 @@ items:
         items:
           - name: Основы работы с {{ marketplace-name }}
             href: operations/applications/marketplace.md
+          - name: Установка Crossplane
+            href: operations/applications/crossplane.md
           - name: Установка Jaeger
             href: operations/applications/jaeger.md
           - name: Установка Metrics Provider
