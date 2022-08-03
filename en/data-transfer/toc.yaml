@@ -90,6 +90,8 @@ items:
       - name: Data type conversions
         when: audience == "draft"
         href: concepts/data-type-bindings.md
+      - name: Change data capture
+        href: concepts/cdc.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Troubleshooting
