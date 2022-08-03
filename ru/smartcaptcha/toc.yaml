@@ -10,6 +10,8 @@ items:
         href: concepts/widget-methods.md
       - name: Невидимая капча
         href: concepts/invisible-captcha.md
+      - name: Ограниченный режим
+        href: concepts/restricted-mode.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Правила тарификации

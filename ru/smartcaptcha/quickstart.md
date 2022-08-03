@@ -7,6 +7,11 @@
 1. [Добавьте виджет на страницу](#add-widget).
 1. [Проверьте ответ пользователя](#check-answer).
 
+## Перед началом работы {#before-begin}
+
+1. Перейдите в [консоль управления]({{ link-console-main }}). Войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен {% if audience != "internal" %}[платежный аккаунт](../billing/concepts/billing-account.md){% else %}платежный аккаунт{% endif %}, и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, {% if audience != "internal" %}[создайте его](../billing/quickstart/index.md){% else %}создайте его{% endif %}.
+
 ## Создайте капчу {#creat-captcha}
 
 {% list tabs %}
