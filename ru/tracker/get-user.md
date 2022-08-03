@@ -1,24 +1,32 @@
 ---
-sourcePath: ru/tracker/api-ref/get-users.md
+sourcePath: ru/tracker/api-ref/get-user.md
 ---
-# Получить информацию о пользователях
+# Получить информацию о пользователе
 
-Запрос позволяет получить информацию об учетных записях пользователей, которые зарегистрированы в организации. Результат запроса отображается [постранично](common-format.md#displaying-results). 
+Запрос позволяет получить информацию об учетной записи пользователя организации.
 
 ## Формат запроса {#query}
 
 Перед выполнением запроса [получите доступ к API](concepts/access.md).
 
-Для получения информации о пользователях организации используйте HTTP-запрос с методом `GET`:
+Для получения информации о пользователе используйте HTTP-запрос с методом `GET`:
 
 ```json
-GET /v2/users
+GET /v2/users/<uid/login>
 Host: {{ host }}
 Authorization: OAuth <OAuth-токен>
 {{ org-id }}
 ```
 
 {% include [headings](../_includes/tracker/api/headings.md) %}
+
+{% cut "Ресурс" %}
+
+Параметр | Описание | Тип данных
+--- | --- | ---
+\<uid/login\> | Уникальный идентификатор учетной записи или логин пользователя. | Строка
+
+{% endcut %}
 
 ## Формат ответа {#answer}
 
@@ -28,7 +36,7 @@ Authorization: OAuth <OAuth-токен>
 
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
    
-    Тело ответа содержит JSON-массив с параметрами пользователей.
+    Тело ответа содержит JSON-массив с параметрами пользователя.
 
     
     ```json
@@ -37,7 +45,7 @@ Authorization: OAuth <OAuth-токен>
           "self": "{{ host }}/v2/users/1234567890",
           "uid": 1234567890,
           "login": "<user_login>",
-          "trackerUid": 1234567890>,
+          "trackerUid": 1234567890,
           "passportUid": 1234567890,
           "firstName": "<Имя>",
           "lastName": "<Фамилия>",
@@ -48,11 +56,10 @@ Authorization: OAuth <OAuth-токен>
           "dismissed": false,
           "useNewFilters": true,
           "disableNotifications": false,
-          "firstLoginDate": "2019-08-22T14:56:57.981+0000",
-          "lastLoginDate": "2022-06-22T17:44:32.981+0000",
+          "firstLoginDate": "2020-10-27T13:06:21.787+0000",
+          "lastLoginDate": "2022-07-25T17:12:33.787+0000",
           "welcomeMailSent": true
-          },
-        ...  
+          }
        ]
     ```
 
@@ -78,7 +85,6 @@ Authorization: OAuth <OAuth-токен>
     firstLoginDate | Дата и время первой авторизации пользователя в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Строка
     lastLoginDate | Дата и время последней авторизации пользователя в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Строка
     welcomeMailSent | Способ добавления пользователя: <ul><li>`true` — с помощью приглашения на почту;</li><li>`false` — другим способом.</li></ul>. | Логический
-
     
     {% endcut %}
     
@@ -87,5 +93,7 @@ Authorization: OAuth <OAuth-токен>
     {% include [answer-error-401](../_includes/tracker/api/answer-error-401.md) %}
 
     {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
+
+    {% include [answer-error-404](../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}

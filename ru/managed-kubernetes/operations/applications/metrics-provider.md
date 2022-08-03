@@ -6,7 +6,7 @@ Metrics Provider — связующий элемент между объекто
 
 Чтобы установить Metrics Provider:
 1. [Создайте сервисный аккаунт](#create-sa-key).
-1. [Установите провайдер с помощью {{ marketplace-name }}](#marketplace-install).
+1. [Установите провайдер с помощью {{ marketplace-full-name }}](#marketplace-install).
 
 
 ## Создание сервисного аккаунта и статического ключа доступа {#create-sa-key}

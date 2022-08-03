@@ -142,6 +142,22 @@ Install {{unified-agent-short-name}} using one of the following methods:
 
    Where `--config` is the path to the configuration file.
 
+- When creating a VM
+
+  You can install the agent when creating a VM in the [management console]({{ link-console-main }}). To do this, enable **Agent for delivering metrics** under **Monitoring**. The agent is installed automatically with the default configuration file that will send [basic VM metrics](./configuration.md#linux_metrics_input) and [agent health metrics](./configuration.md#agent_metrics_input). You'll be [charged](../../../pricing.md) for metric delivery.
+  
+  The installed agent is a regular [Unified Agent](./index.md) that you can additionally [set up](./configuration.md) to deliver custom metrics or [logs to {{ cloud-logging-name }}](./configuration.md#yc_logs_output).
+  
+  To install the agent while creating a VM in the CLI or API, add the following line to [user-defined metadata](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`):
+  
+   ```
+   #cloud-config\nruncmd:\n  - wget -O - https://monitoring.api.cloud.yandex.net/monitoring/v2/unifiedAgent/config/install.sh | bash"
+   ```
+  
+  To install the agent and send metrics properly, make sure the created VM has access to the internet.
+
+  Agent updating and maintaining should be performed by the end user.
+
 {% endlist %}
 
 ## Parameters for launching a Docker container with {{ unified-agent-short-name }} {#configure-docker}

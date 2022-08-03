@@ -37,7 +37,7 @@ Authorization: OAuth <OAuth-токен>
           "self": "{{ host }}/v2/users/1234567890",
           "uid": 1234567890,
           "login": "<user_login>",
-          "trackerUid": 1234567890>,
+          "trackerUid": 1234567890,
           "passportUid": 1234567890,
           "firstName": "<Имя>",
           "lastName": "<Фамилия>",
@@ -47,7 +47,10 @@ Authorization: OAuth <OAuth-токен>
           "hasLicense": true,
           "dismissed": false,
           "useNewFilters": true,
-          "disableNotifications": false
+          "disableNotifications": false,
+          "firstLoginDate": "2020-10-27T13:06:21.787+0000",
+          "lastLoginDate": "2022-07-25T17:12:33.787+0000",
+          "welcomeMailSent": true
           }
        ]
     ```
@@ -71,6 +74,9 @@ Authorization: OAuth <OAuth-токен>
     dismissed | Статус пользователя в организации:<ul><li>`true` — пользователь удален из организации;</li><li>`false` — действующий сотрудник организации.</li></ul> | Логический
     useNewFilters | Служебный параметр. | Логический
     disableNotifications | Признак принудительного отключения уведомлений для пользователя:<ul><li>`true` — уведомления отключены;</li><li>`false` — уведомления включены.</li></ul> | Логический
+    firstLoginDate | Дата и время первой авторизации пользователя в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Строка
+    lastLoginDate | Дата и время последней авторизации пользователя в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Строка
+    welcomeMailSent | Способ добавления пользователя: <ul><li>`true` — с помощью приглашения на почту;</li><li>`false` — другим способом.</li></ul>. | Логический
     
     {% endcut %}
     
