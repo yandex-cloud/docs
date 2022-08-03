@@ -255,8 +255,9 @@ items:
           href: user/user-notifications.md
         - name: Уведомления о ваших подписках
           href: user/user-subscriptions.md
-#    - name: Отправлять уведомления на почтовые ящики в вашем домене
-#      href: manager/mail-notifications.md
+    - name: Отправлять уведомления на почтовые ящики в вашем домене
+      when: audience == "external"
+      href: manager/mail-notifications.md 
     - name: Фильтрация входящей почты
       when: audience == "internal"
       href: user/email-filtering.md

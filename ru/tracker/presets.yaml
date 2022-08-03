@@ -41,6 +41,8 @@ default:
   link-cloud-oferta: https://yandex.ru/legal/cloud_oferta/
   link-balance-invoices: https://balance.yandex.ru/invoices.xml
   link-ya-360: https://admin.yandex.ru
+  link-ya-360-domains: https://admin.yandex.ru/domains/
+  link-ya-tariffs: https://360.yandex.ru/business/tariff/
   
 
   #Ссылки на справку на yandex.ru/support
@@ -52,8 +54,11 @@ default:
   support-connect-services: https://yandex.ru/support/connect/services.html#services__mail-settings
   support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
   support-business-domain: https://yandex.ru/support/business/domains.html
+  support-business-domain-main: https://yandex.ru/support/business/domains/add-domain.html#add-domain__add-main-domain
   support-business-users: https://yandex.ru/support/business/add-users.html
   support-business-admin: https://yandex.ru/support/business/admin.html
+  support-business-import: https://yandex.ru/support/business/import-mailboxes.html
+  support-business-link: https://yandex.ru/support/business/
   
   #Внешние ссылки
   link-wiki-scrum: https://ru.wikipedia.org/wiki/SCRUM
@@ -84,6 +89,7 @@ default:
   release-date: 1 марта
   example-account: login@yandex.ru
   yfm: Yandex Flavored Markdown
+  ya-360: Яндекс 360 для бизнеса
 
 #external:
 
