@@ -244,6 +244,8 @@ items:
     - name: Получить информацию о текущем пользователе
       href: get-user-info.md
     - name: Получить информацию о пользователях
-      href: get-users.md  
+      href: get-users.md
+    - name: Получить информацию о пользователе
+      href: get-user.md     
 - name: Возможные коды ответа
   href: error-codes.md

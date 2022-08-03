@@ -35,7 +35,7 @@ Authorization: OAuth <OAuth-токен>
           "self": "{{ host }}/v2/users/1234567890",
           "uid": 1234567890,
           "login": "<user_login>",
-          "trackerUid": 1234567890>,
+          "trackerUid": 1234567890,
           "passportUid": 1234567890,
           "firstName": "<Имя>",
           "lastName": "<Фамилия>",
@@ -45,7 +45,10 @@ Authorization: OAuth <OAuth-токен>
           "hasLicense": true,
           "dismissed": false,
           "useNewFilters": true,
-          "disableNotifications": false
+          "disableNotifications": false,
+          "firstLoginDate": "2020-10-27T13:06:21.787+0000",
+          "lastLoginDate": "2022-07-25T17:12:33.787+0000",
+          "welcomeMailSent": true
           }
        ]
     ```
@@ -74,6 +77,8 @@ Authorization: OAuth <OAuth-токен>
           "dismissed": false,
           "useNewFilters": true,
           "disableNotifications": false,
+          "firstLoginDate": "2020-10-27T13:06:21.787+0000",
+          "lastLoginDate": "2022-07-25T17:12:33.787+0000",
           "activeExperiments": [
              <список экспериментов>
           ]
@@ -96,11 +101,26 @@ Authorization: OAuth <OAuth-токен>
     lastName | Фамилия пользователя. | Строка
     display | Отображаемое имя пользователя. | Строка
     email | Электронная почта пользователя. | Строка
+    {% if audience == "internal" %}[office](#office)| Объект с информацией об офисе, в котором числится сотрудник. | Объект{% endif %}
     external | Служебный параметр. | Логический
     hasLicense | Признак наличия у пользователя полного доступа к {{ tracker-name }}:<ul><li>`true` — полный доступ;</li><li>`false` — только чтение.</li></ul> | Логический
     dismissed | Статус пользователя в организации:<ul><li>`true` — пользователь удален из организации;</li><li>`false` — действующий сотрудник организации.</li></ul> | Логический
     useNewFilters | Служебный параметр. | Логический
     disableNotifications | Признак принудительного отключения уведомлений для пользователя:<ul><li>`true` — уведомления отключены;</li><li>`false` — уведомления включены.</li></ul> | Логический
+    firstLoginDate | Дата и время первой авторизации пользователя в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Строка
+    lastLoginDate | Дата и время последней авторизации пользователя в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Строка
+    {% if audience == "external" %}welcomeMailSent | Способ добавления пользователя: <ul><li>`true` — с помощью приглашения на почту;</li><li>`false` — другим способом.</li></ul>. | Логический{% endif %}
+    {% if audience == "internal" %}activeExperiments| Список экспериментов, в которых пользователь принимает участие. | Массив элементов
+
+    **Поля объекта** `office` {#office}
+
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию об офисе. | Строка
+    id | Идентификатор офиса. | Строка
+    display | Отображаемое имя офиса. | Строка
+
+    {% endif %}
     
     {% endcut %}
     
