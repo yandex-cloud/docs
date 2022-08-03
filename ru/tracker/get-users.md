@@ -30,6 +30,7 @@ Authorization: OAuth <OAuth-токен>
    
     Тело ответа содержит JSON-массив с параметрами пользователей.
 
+    
     ```json
        [
           {
@@ -48,11 +49,13 @@ Authorization: OAuth <OAuth-токен>
           "useNewFilters": true,
           "disableNotifications": false,
           "firstLoginDate": "2019-08-22T14:56:57.981+0000",
-          "lastLoginDate": "2022-06-22T17:44:32.981+0000"
+          "lastLoginDate": "2022-06-22T17:44:32.981+0000",
+          "welcomeMailSent": true
           },
         ...  
        ]
     ```
+
 
     {% cut "Параметры ответа" %}
 
@@ -74,6 +77,8 @@ Authorization: OAuth <OAuth-токен>
     disableNotifications | Признак принудительного отключения уведомлений для пользователя:<ul><li>`true` — уведомления отключены;</li><li>`false` — уведомления включены.</li></ul> | Логический
     firstLoginDate | Дата и время первой авторизации пользователя в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Строка
     lastLoginDate | Дата и время последней авторизации пользователя в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Строка
+    welcomeMailSent | Способ добавления пользователя: <ul><li>`true` — с помощью приглашения на почту;</li><li>`false` — другим способом.</li></ul>. | Логический
+
     
     {% endcut %}
     

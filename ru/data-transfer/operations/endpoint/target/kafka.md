@@ -37,4 +37,6 @@
 
     {% include [On premise Kafka UI](../../../../_includes/data-transfer/kafka-topic.md) %}
 
+    {{ data-transfer-full-name }} поддерживает CDC-режим для трансферов из баз данных {{ PG }}, {{ MG }} и {{ MY }} в {{ KF }} и {{ yds-full-name }}. При этом данные в приемник попадают в формате Debezium. Подробнее о CDC-режиме см. в разделе [Захват изменения данных](../../../concepts/cdc.md).
+
 {% endlist %}

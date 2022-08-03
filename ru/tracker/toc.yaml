@@ -243,6 +243,8 @@ items:
             href: user/user-notifications.md
           - name: Уведомления о ваших подписках
             href: user/user-subscriptions.md
+      - name: Отправлять уведомления на почтовые ящики в вашем домене
+        href: manager/mail-notifications.md
   - name: Статистика и дашборды
     items:
       - name: Дашборды
@@ -601,6 +603,8 @@ items:
             href: get-user-info.md
           - name: Получить информацию о пользователях
             href: get-users.md
+          - name: Получить информацию о пользователе
+            href: get-user.md
       - name: Возможные коды ответа
         href: error-codes.md
   - name: Вопросы и ответы

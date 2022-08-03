@@ -157,8 +157,6 @@ items:
           Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз
           данных из других облачных сетей
         href: dataplatform/mdb-dns-peering.md
-      - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
-        href: dataplatform/dp-mch-data-exchange.md
       - name: >-
           Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с
           помощью Sqoop
