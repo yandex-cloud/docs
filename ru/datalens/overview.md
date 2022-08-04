@@ -10,6 +10,12 @@
 
 [**ChartEditor**](editor/architecture.md) — редактор, позволяющий создавать различные виджеты для визуализации данных путем написания кода на JavaScript. ChartEditor позволяет использовать данные из [большого количества различных источников](/docs/editor/sources) и обрабатывать их произвольным образом, что делает его очень гибким инструментом.
 
+{% if audience == "internal" %}
+
+Для внешних сотрудников на доступ к СhartEditor есть [ограничения](editor/index.md).
+
+{% endif %}
+
 Создаваемые чарты затем можно вынести на [дашборды](https://wiki.yandex-team.ru/DataLens/UserGuide/#dashbord), добавить к ним элементы управления в виде селекторов, текстовые пояснения, настроить автоматическую рассылку отчетов на почту и т.п.
 
 Кроме пользовательских инструментов, мы предоставляем [API](api/index.md): [данные](api/dashboards/data.md), [скриншоты](api/dashboards/scr.md), [комментарии](api/dashboards/comments/index.md), [дашборды](api/dashboards/dash/index.md), [чарты](api/dashboards/charts.md), [воркбуки](api/workbooks/index.md), а также позволяем встраивать чарты в другие сервисы, как с помощью iframe, так и через нашу react-компоненту — [ChartKit](chartkit/index.md).
