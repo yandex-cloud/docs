@@ -37,7 +37,7 @@ You're charged for using licenses on an pre-payment basis. This means that a fee
 * The first time a cluster that was stopped prior to the current billing cycle is restarted, you will be charged the full cost of the licenses for the entire billing cycle. If you stop and start a cluster multiple times within one period, you need to pay the license cost only at the first start.
 * If you change a cluster configuration and reduce resource usage during a billing cycle, the cost of the licenses released in this period is not subject to refund. The new pricing will take effect on the first day of the following billing cycle.
 * If you change your cluster configuration and increase resource usage during a billing cycle, you will need additional licenses. If this is the case, you will be charged the full cost of these licenses for the entire billing cycle regardless of the date you made the changes.
-* Multi-host {{ MS }} clusters with [unreadable secondary replicas](../concepts/replication.md#readable-and-non-readable-replicas) require only one Microsoft SQL Server Enterprise license: for the primary replica.
+* Multi-host {{ MS }} clusters with [non-readable secondary replicas](../concepts/replication.md#readable-and-non-readable-replicas) only require a Microsoft SQL Server Enterprise license for the primary replica.
 * Multi-host {{ MS }} clusters with [readable secondary replicas](../concepts/replication.md#readable-and-non-readable-replicas) require a Microsoft SQL Server Enterprise license for each replica.
 
 ### DB host usage {#rules-hosts-uptime}
@@ -115,5 +115,213 @@ All prices are shown without VAT.
 {% if region == "int" %}
 
 {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
+
+{% endif %}
+
+{% if region == "ru"%}
+
+## Example cluster cost calculations {#examples}
+
+### Cluster cost calculation without configuration changes {#example-simple}
+
+For example, you created a cluster:
+
+* With 3 standard `s3-c4-m16` class {{ MS }} hosts (Intel Ice Lake, 4 vCPUs, 16 GB RAM).
+* With any {{ MS }} version, Enterprise Edition.
+* With 100 GB of storage on network HDDs (`network-hdd`).
+
+Cost of using resources:
+
+* 1 billing period of using a Windows Server Datacenter license on 1 vCPU: ₽1202.40.
+* 1 billing period of using a Microsoft SQL Server Enterprise license on 1 vCPU: ₽23227.35.
+* 1 hour of using a core on an Ice Lake class {{ MS }} host with 100% vCPU: ₽1.0800.
+* 1 hour of using 1 GB of RAM on an Ice Lake class {{ MS }} host: ₽0.2880.
+* 1 month of using 1 GB of HDD network storage (`network-hdd`): ₽2.2881.
+
+Depending on the [secondary replica type](../concepts/replication.md#readable-and-non-readable-replicas) used, the total cost of a cluster in a billing period may vary. A billing period is assumed to include 720 hours (30 days).
+
+{% list tabs %}
+
+- With non-readable secondary replicas
+
+   * Software licenses:
+
+      * The cost of Windows Server Datacenter licenses is debited for each cluster host. Total:
+
+         `3 hosts × (4 vCPUs × ₽1202.40) = ₽14428.80` per billing period.
+
+      * The cost of Microsoft SQL Server licenses is debited for a single cluster host (primary replica). Total:
+
+         `1 host × (4 vCPUs × ₽23227.35) = ₽92909.4` per billing period.
+
+      Total license cost: `₽14428.80 + ₽92909.40 = ₽107338.20`
+
+   * Host computing resources:
+
+      Hourly cost for three hosts:
+
+      `3 hosts × (4 vCPUs × ₽1.0800 + 16 GB RAM × ₽0.2880) = ₽26.7840`
+
+      Total cost of computing resources: `720 hours × ₽26.7840 = ₽19284.48` per billing period.
+
+   * Storage (not including backups):
+
+      Total cost of storage for thee hosts: `3 hosts × 100 GB × ₽2.2881 = ₽686.43` per billing period.
+
+   Total cluster cost: `₽107338.20 + ₽19284.48 + ₽686.43 = ₽127309.11`
+
+- With readable secondary replicas
+
+   * Software licenses:
+
+      * The cost of Windows Server Datacenter licenses is debited for each cluster host. Total:
+
+         `3 hosts × (4 vCPUs × ₽1202.40) = ₽14428.80` per billing period.
+
+      * The cost of Microsoft SQL Server licenses is debited for each cluster host. Total:
+
+         `3 hosts × (4 vCPUs × ₽23227.35) = ₽278728.20` per billing period.
+
+      Total license cost: `₽14428.80 + ₽278728.20 = ₽293157.00`
+
+   * Host computing resources:
+
+      Hourly cost for three hosts:
+
+      `3 hosts × (4 vCPUs × ₽1.0800 + 16 GB RAM × ₽0.2880) = ₽26.7840`
+
+      Total cost of computing resources: `720 hours × ₽26.7840 = ₽19284.48` per billing period.
+
+   * Storage (not including backups):
+
+      Total cost of storage for thee hosts: `3 hosts × 100 GB × ₽2.2881 = ₽686.43` per billing period.
+
+   Total cluster cost: `₽293157.00 + ₽19284.48 + ₽686.43 = ₽313127.91`
+
+{% endlist %}
+
+### Cluster cost calculation with configuration changes {#example-difficult}
+
+For instance, on March 10 (in this example and hereafter, we assume for simplicity's sake that updates occur at 00:00 UTC+3), you create a cluster:
+
+* With 3 standard `s3-c4-m16` class {{ MS }} hosts (Intel Ice Lake, 4 vCPUs, 16 GB RAM).
+* With any {{ MS }} version, Enterprise Edition.
+* With 100 GB of storage on network HDDs (`network-hdd`).
+
+On March 15, you decided to upgrade your cluster host class to `s3-c12-m48` (Intel Ice Lake, 12 vCPUs, 48 GB RAM). On March 25, you shut the cluster down, and on March 30, you deleted it entirely.
+
+Cost of using resources:
+
+* 1 billing period of using a Windows Server Datacenter license on 1 vCPU: ₽1202.40.
+* 1 billing period of using a Microsoft SQL Server Enterprise license on 1 vCPU: ₽23227.35.
+* 1 hour of using a core on an Ice Lake class {{ MS }} host with 100% vCPU: ₽1.0800.
+* 1 hour of using 1 GB of RAM on an Ice Lake class {{ MS }} host: ₽0.2880.
+* 1 month of using 1 GB of HDD network storage (`network-hdd`): ₽2.2881.
+
+Depending on the [secondary replica type](../concepts/replication.md#readable-and-non-readable-replicas) used, the total cost of a cluster in a billing period may vary:
+
+{% list tabs %}
+
+- With non-readable secondary replicas
+
+   * Software licenses:
+
+      The license cost is debited when you create a cluster or scale one up.
+
+      * The cost of Windows Server Datacenter licenses is debited for each cluster host. Total when creating a cluster:
+
+         `3 hosts × (4 vCPUs × ₽1202.40) = ₽14428.80`.
+
+      * The cost of Microsoft SQL Server licenses is debited for a single cluster host (primary replica). Total when creating a cluster:
+
+         `1 host × (4 vCPUs × ₽23227.35) = ₽92909.4`
+
+      On March 10, you will be charged `₽14428.80 + ₽92909.40 = ₽107338.20`
+
+      On March 15, when you add 8 cores to each of the three cluster hosts, you will be charged:
+
+      `3 hosts × (8 vCPUs × ₽1202.40 ₽) + 1 host × (8 vCPUs × ₽23227.35) = ₽214676.40`
+
+      You will require additional licenses only for those cores that are not covered by licenses previously activated in the same month.
+
+      Total license cost: `₽107338.20 + ₽214676.40 = ₽322014.60`
+
+   * Host computing resources:
+
+      * Cost of one hour of operation for three `s3-c4-m16` class hosts (Intel Ice Lake, 4 vCPUs, 16 GB RAM):
+
+         `3 hosts × (4 vCPUs × ₽1.0800 + 16 GB RAM × ₽0.2880) = ₽26.7840`
+
+      For the period between March 10 and 14, you will be charged: `5 days × 24 hours × ₽26.7840 = ₽3214.08`
+
+      * Cost of one hour of operation for three `s3-c12-m48` class hosts (Intel Ice Lake, 12 vCPUs, 48 GB RAM):
+
+         `3 hosts × (12 vCPUs × ₽1.0800 + 48 GB RAM × ₽0.2880) = ₽80.3520`
+
+      For the period between March 15 and 24, you will be charged: `10 days x 24 hours x ₽80.3520 = ₽19284.48`
+
+      Once you stop the cluster on March 25, you will not be charged for any computing resources.
+
+      Total cost of computing resources: `₽3214.08 + ₽19284.48 = ₽22498.56`
+
+   * Storage (not including backups):
+
+      The cost of storage is calculated over the entire life of a cluster, from March 10 to 30:
+
+      `3 hosts × 100 GB × (20 days / 30 days) × ₽2.2881 = ₽457.62`
+
+   Total cluster cost: `₽322014.60 + ₽22498.56 + ₽457.62 = ₽344970.78`
+
+- With readable secondary replicas
+
+   * Software licenses:
+
+      The cost of licenses is debited when you create or scale up a cluster.
+
+      * The cost of Windows Server Datacenter licenses is debited for each cluster host. Total when creating a cluster:
+
+         `3 hosts × (4 vCPUs × ₽1202.40) = ₽14428.80`.
+
+      * The cost of Microsoft SQL Server licenses is debited for each cluster host. Total when creating a cluster:
+
+         `3 hosts × (4 vCPUs × ₽23227.35 ) = ₽278728.20`
+
+      On March 10, you will be charged: `₽14428.80 + ₽278728.20 = ₽293157.00`
+
+      On March 15, when you add 8 cores to each of the three cluster hosts, you will be charged:
+
+      `3 hosts × (8 vCPUs × ₽1202.40) + 3 hosts × (8 vCPUs × ₽23227.35) = ₽586314.00`
+
+      You will require additional licenses only for those cores that are not covered by licenses previously activated in the same month.
+
+      Total cost of licenses: `₽293157.00 + ₽586314.00 = ₽879471.00`
+
+   * Host computing resources:
+
+      * Cost of one hour of operation for three `s3-c4-m16` class hosts (Intel Ice Lake, 4 vCPUs, 16 GB RAM):
+
+         `3 hosts × (4 vCPUs × ₽1.0800 + 16 GB RAM × ₽0.2880) = ₽26.7840`
+
+      For the period between March 10 and 14, you will be charged: `5 days × 24 hours × ₽26.7840 = ₽3214.08`
+
+      * Cost of one hour of operation for three `s3-c12-m48` class hosts (Intel Ice Lake, 12 vCPUs, 48 GB RAM):
+
+         `3 hosts × (12 vCPUs × ₽1.0800 + 48 GB RAM × ₽0.2880) = ₽80.3520`
+
+      For the period between March 15 and 24, you will be charged: `10 days x 24 hours x ₽80.3520 = ₽19284.48`
+
+      Once you stop the cluster on March 25, you will not be charged for any computing resources.
+
+      Total cost of computing resources: `₽3214.08 + ₽19284.48 = ₽22498.56`
+
+   * Storage (not including backups):
+
+      The cost of storage is calculated over the entire life of a cluster, from March 10 to 30:
+
+      `3 hosts × 100 GB × (20 days / 30 days) × ₽2.2881 = ₽457.62`
+
+   Total cluster cost: `₽879471.00 + ₽22498.56 + ₽457.62 = ₽902427.18`
+
+{% endlist %}
 
 {% endif %}
