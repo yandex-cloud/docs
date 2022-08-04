@@ -1,7 +1,7 @@
 ---
 sourcePath: en/tracker/api-ref/concepts/queues/get-trigger.md
 ---
-# Receiving triggers
+# Get trigger parameters
 
 Use this request to get information about [triggers](../../user/trigger.md) in the queue.
 
@@ -9,7 +9,7 @@ Use this request to get information about [triggers](../../user/trigger.md) in t
 
 Before making the request, [get permission to access the API](../access.md).
 
-To get trigger information, use an HTTP `GET` request.
+To get trigger parameters, use an HTTP `GET` request.
 
 ```json
 GET /{{ ver }}/queues/<queue-id>/triggers/<trigger-id>

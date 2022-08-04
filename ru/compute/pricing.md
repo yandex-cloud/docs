@@ -131,8 +131,6 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 ### Вычислительные ресурсы ВМ {#prices-instance-resources}
 
-{% include [vgpu-to-standard](../_includes/compute/vgpu-to-standard.md) %}
-
 
 {% include [rub-instance-resources.md](../_pricing/compute/rub-instance-resources.md) %}
 

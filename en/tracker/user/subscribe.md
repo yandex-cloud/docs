@@ -50,7 +50,7 @@ To subscribe to a component:
 
 1. Go to the **Components** tab.
 
-1. Hold the cursor over the component.
+1. Put the cursor over the component.
 
 1. Select ![](../../_assets/tracker/icon-settings.png) → **Subscribe**.
 
@@ -66,13 +66,14 @@ To track issues associated with a specific version, subscribe to it:
 
 1. Go to the **Versions** tab.
 
-1. Hold the cursor over the version.
+1. Put the cursor over the version.
 
 1. Select ![](../../_assets/tracker/icon-settings.png) → **Subscribe**.
 
 If you did everything right, you'll see the following icon next to the version number: ![](../../_assets/tracker/subscribtion.png)
 
 By default, all notifications are sent to your email. You can [select events](user-subscriptions.md) to be notified about.
+
 
 
 ## Getting notifications about your own actions {#sec_self}

@@ -14,7 +14,7 @@ To create a new queue component:
 
 1. Click **Create component**.
 
-1. Enter the component **Name**.
+1. **Name** the component.
 
 1. If necessary, select the responsible person and fill in the component description.
 
@@ -30,7 +30,7 @@ To change an existing queue component:
 
 1. Go to the **Components** tab.
 
-1. Hold the cursor over the component.
+1. Put the cursor over the component.
 
 1. Select ![](../../_assets/tracker/icon-settings.png) → **Edit**.
 
@@ -44,7 +44,7 @@ If you want to be notified of changes to issues related to a particular componen
 
 1. Go to the **Components** tab.
 
-1. Hold the cursor over the component.
+1. Put the cursor over the component.
 
 1. Select ![](../../_assets/tracker/icon-settings.png) → **Subscribe**.
 
@@ -68,7 +68,7 @@ To delete a queue component:
 
 1. Go to the **Components** tab.
 
-1. Hold the cursor over the component.
+1. Put the cursor over the component.
 
 1. Select ![](../../_assets/tracker/icon-settings.png) → **Delete**.
 

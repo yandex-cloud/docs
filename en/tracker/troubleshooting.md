@@ -1,6 +1,7 @@
 # Support
 
 
-If you didn't find a solution to your issue in documentation, please contact [support]({{ link-tracker-support}}).
 
+If you didn't find the answer to your question in the documentation, contact [technical support]({{ link-tracker-support}}).
+
 

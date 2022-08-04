@@ -135,7 +135,7 @@ When an issue is **Closed**, the user is asked to leave a comment and choose a r
 
 ## Kanban {#section_lnl_jrm_qz}
 
-This queue template is meant for [Kanban]({{ link-wiki-kanban }}) development.
+This queue template fits the [Kanban]({{ link-wiki-kanban }}) methodology.
 
 A [<q>Kanban</q> issue board](agile.md#sec_boards) is created when you select this template.
 
@@ -170,6 +170,7 @@ When an issue is **Closed**, the user is asked to leave a comment and choose a r
 - **Duplicate**
 
 
+
 ## Services {#section_service}
 
 This template is designed for organizations that provide services to other companies and private clients.
@@ -182,7 +183,7 @@ The workflow includes the following issue types:
 The following issue statuses are available:
 
 - **New**
-- **Need info**
+- **Needs info**
 - **Awaiting confirmation**
 - **In progress**
 - **Awaiting approval**
@@ -212,7 +213,7 @@ The workflow includes the following issue types:
 The following issue statuses are available:
 
 - **New**
-- **Need info**
+- **Needs info**
 - **Awaiting confirmation**
 - **In progress**
 - **Awaiting approval**
@@ -266,7 +267,7 @@ The workflow includes one issue type: **Task**.
 The following issue statuses are available:
 
 - **New**
-- **Need info**
+- **Needs info**
 - **Awaiting confirmation**
 - **In progress**
 - **Documents ready**
@@ -298,7 +299,7 @@ The workflow includes the following issue types:
 The following issue statuses are available:
 
 - **New**
-- **Need info**
+- **Needs info**
 - **Awaiting confirmation**
 - **In progress**
 - **Documents ready**
@@ -327,7 +328,7 @@ The workflow includes the following issue types:
 The following issue statuses are available:
 
 - **New**
-- **Need info**
+- **Needs info**
 - **Awaiting confirmation**
 - **In progress**
 - **Awaiting approval**

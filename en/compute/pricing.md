@@ -97,8 +97,6 @@ All prices are shown without VAT.
 
 ### VM computing resources {#prices-instance-resources}
 
-{% include [vgpu-to-standard](../_includes/compute/vgpu-to-standard.md) %}
-
 
 
 

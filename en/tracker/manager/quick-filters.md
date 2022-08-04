@@ -12,7 +12,7 @@ The quick filter buttons are located above the list of issues. They are grouped 
 
 1. Resolution filters. Select one of the options:
 
-    - **All**: The page displays all issues, regardless of the resolution.
+    - **All** — The page displays all issues, regardless of the resolution.
 
     - **Without resolution**: The page only shows issues that don't have a resolution.
 
@@ -40,7 +40,7 @@ If the quick filters don't provide enough filtering options for you, use the cus
 
 1. In the upper-right corner, click ![](../../_assets/tracker/queue-filter.png).
 
-1. In the left pane, select options for filtering issues in the queue. If the options you need aren't in the list, click ![](../../_assets/tracker/task-params-btn.png) **Select fields** to add them.
+1. In the left pane, select options for filtering issues in the queue. If the options you need aren't in the list, click ![](../../_assets/tracker/task-params-btn.png) **Choose fields** to add them.
 
 1. Click **Apply**.
 
@@ -50,7 +50,7 @@ Configure which fields to show in the list of issues, so that you only see the d
 
 1. Go to the queue page.
 
-1. Click ![](../../_assets/tracker/task-params-btn.png) **Select fields** on the right of the page.
+1. Click ![](../../_assets/tracker/task-params-btn.png) **Choose fields** on the right of the page.
 
 1. Select the fields you want to see in the list of issues.
 

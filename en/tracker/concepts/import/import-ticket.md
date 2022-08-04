@@ -3,11 +3,14 @@ sourcePath: en/tracker/api-ref/concepts/import/import-ticket.md
 ---
 # Import an issue
 
+
+
 {% note warning %}
 
-This request can only be made on behalf of the company's administrator.
+This request can only be made on behalf of the organization's [administrator](../../role-model.md).
 
 {% endnote %}
+
 
 Use it to import to {{ tracker-name }} tasks from other project management systems.
 
@@ -29,7 +32,7 @@ Authorization: OAuth <token>
 }
 ```
 
-If necessary, you can extend the list of fields available for import. To do this, [create](../../user/create-param.md) additional fields in {{ tracker-name }} and specify them in the request body in the following format:
+If necessary, you can extend the list of fields available for import. To do this, [create](../../user/create-param.md) additional fields in {{ tracker-name }} and specify them in the request in the following format:
 
 ```
 "field_name": "field value"
@@ -136,7 +139,7 @@ If necessary, you can extend the list of fields available for import. To do this
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -319,7 +322,7 @@ If necessary, you can extend the list of fields available for import. To do this
   | spent | Value of the "Time Spent" parameter. | String |
   | [updatedBy](#updatedBy) | Object with information about the user who edited the issue last. | Object |
   | resolvedAt | Date and time of the resolution. | String |
-  | start | Date when work on the issue started. | String |
+  | start | Date when progress started on the issue. | String |
   | [resolvedBy](#resolvedBy) | Object with information about the user who added the resolution. | Object |
   | description | Issue description. | String |
   | [followingMaillists](#followingMaillists) | Array of objects with information about mailing lists (teams and departments subscribed to the issue). | Array of objects |
@@ -375,7 +378,7 @@ If necessary, you can extend the list of fields available for import. To do this
   | Parameter | Description | Data type |
   | -------- | -------- | ---------- |
   | self | Address of the API resource with information about the version. | String |
-  | id | Version ID. | String |
+| id | Version ID. | String |
   | display | Version name. | String |
 
   **Object fields** `type` {#type}
@@ -474,9 +477,9 @@ If necessary, you can extend the list of fields available for import. To do this
 
   {% endcut %}
 
-- The request failed
+- Request failed
 
-  If the request is processed incorrectly, the API returns a message with error details:
+  If a request fails, the response message contains details of the errors encountered:
 
   {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 

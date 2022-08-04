@@ -26,5 +26,5 @@ In {{ wiki-full-name }}, you can insert a list of issues from any queue or filte
 
 | Example | Result |
 | ----- | ----- |
-| ``` {{tasks url="https://st.yandex-team.ru/filters/<filter>}} ``` | ![](../../_assets/tracker/magic-tickets-list.png) |
+| ``` {{tasks url="{{ link-tracker }}filters/<filter>}} ``` | ![](../../_assets/tracker/magic-tickets-list.png) |
 

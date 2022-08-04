@@ -312,7 +312,7 @@ You can change the DBMS settings of the hosts in your cluster.
    1. Select the cluster and click **Edit cluster** in the top panel. 
    1. Change additional cluster settings:
 
-      {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
+      {% include [mpg-extra-settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
 
 - CLI
 

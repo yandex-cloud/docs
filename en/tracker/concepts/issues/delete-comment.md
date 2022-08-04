@@ -28,27 +28,27 @@ Authorization: OAuth <OAuth token>
 {% endcut %}
 
 > Request for deleting a comment added to the `JUNE-2` issue:
-> 
-> - An HTTP DELETE method is used.
-> 
-> ```
-> DELETE /v2/issues/JUNE-2/comments/53a170e8e4b07a4c3358d60a
-> Host: {{ host }}
-> Authorization: OAuth <OAuth token>
-> {{ org-id }}
-> ```
+>
+>- An HTTP DELETE method is used.
+>
+>```
+>DELETE /v2/issues/JUNE-2/comments/53a170e8e4b07a4c3358d60a
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>```
 
 ## Response format {#section_xc3_53j_p1b}
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
 
     The response body is missing.
 
-- The request failed
+- Request failed
 
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 

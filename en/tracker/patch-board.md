@@ -24,12 +24,12 @@ If-Match: "<version number>"
 {% cut "Headers" %}
 
 - **Host**
-        Address of the node that provides the API:
+
+    API host address:
 
     ```
     {{ host }}
     ```
-
 
 - **Authorization**
 
@@ -40,10 +40,11 @@ If-Match: "<version number>"
     ```
 
 
+
 - **X-Org-ID**
 
     Organization ID.
-
+
 
 - **If-Match**
 
@@ -68,13 +69,13 @@ The request body contains the board parameters to be changed.
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
 | name | Board name. | String |
-| [columns](#req-columns) | Object with information about new board columns. | Objects |
-| [filter](#req-filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values.<br/>The `filter`, `orderBy`, and `orderAsc` parameter group is incompatible with the `query` parameter that also describes filter conditions. | Objects |
+| [columns](#req-columns) | Object with information about new board columns. | Object |
+| [filter](#req-filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values.<br/>The `filter`, `orderBy`, and `orderAsc` parameter group is incompatible with the `query` parameter that also describes filter conditions. | Object |
 | orderBy | Field key.<br/>The field is used as a parameter for sorting board issues.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
 | orderAsc | Field value sorting order:<ul><li>`true`: Ascending.</li><li>`false`: Descending.</li></ul> | Boolean |
 | query | Parameters of the filter used to select issues for the board.<br/>The parameters are specified in the [query language](user/query-filter.md).<br/>The `query` parameter is incompatible with the group of parameters that also describe filter criteria, including `filter`, `orderBy`, and `orderAsc`. | String |
 | useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes.</li><li>`false`: No.</li></ul> | Boolean |
-| [country](#req-country) | Object with information about the country. Data of a country's business calendar is used in the Burn down chart.<br/>To get a list of countries, use the HTTP `GET /v2/countries` request. | Objects |
+| [country](#req-country) | Object with information about the country. Data of a country's business calendar is used in the Burn down chart.<br/>To get a list of countries, use the HTTP `GET /v2/countries` request. | Object |
 
 **Object fields** `columns` {#req-columns}
 
@@ -82,7 +83,7 @@ The request body contains the board parameters to be changed.
 | -------- | -------- | ---------- |
 | id | Column ID | String |
 | name | Column name | String |
-| statuses | Keys of statuses of issues to be output in the column.<br/>A list of all issue statuses: [{{ link-tracker-statuses }}]({{ link-tracker-statuses }}) | String |
+| statuses | Key of statuses of the issues to be output in the column.<br/>List of all issue statuses: [{{ link-tracker-statuses }}]({{ link-tracker-statuses }}) | String |
 
 **Object fields** `filter` {#req-filter}
 
@@ -146,7 +147,7 @@ The request body contains the board parameters to be changed.
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
@@ -163,7 +164,7 @@ The request body contains the board parameters to be changed.
        {
          "self" : "{{ host }}/v2/boards/1/columns/1387461731452",
          "id" : "1387461731452",
-         "display" : "Open"
+         "display": "Open"
        },
         ...
       ],
@@ -196,13 +197,13 @@ The request body contains the board parameters to be changed.
     | id | Board ID. | Number |
     | version | Board version. Each change to the board increases its version number. | Number |
     | name | Board name. | String |
-    | [columns](#ans-columns) | Object with information about board columns. | Objects |
-    | [filter](#ans-filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values. | Objects |
+    | [columns](#ans-columns) | Object with information about board columns. | Object |
+    | [filter](#ans-filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values. | Object |
     | orderBy | Field key.<br/>The field is used as a parameter for sorting board issues.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
     | orderAsc | Field value sorting order:<ul><li>`true`: Ascending.</li><li>`false`: Descending.</li></ul> | Boolean |
     | query | Parameters of the filter used to select issues for the board.<br/>The parameters are specified in the [query language](user/query-filter.md). | String |
     | useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes.</li><li>`false`: No.</li></ul> | Boolean |
-    | [country](#ans-country) | Object with information about the country. Data of a country's business calendar is used in the Burn down chart.<br/>To get a list of countries, use the HTTP `GET /v2/countries` request. | Objects |
+    | [country](#ans-country) | Object with information about the country. Data of a country's business calendar is used in the Burn down chart.<br/>To get a list of countries, use the HTTP `GET /v2/countries` request. | Object |
 
     **Object fields** `columns` {#ans-columns}
 
@@ -229,7 +230,7 @@ The request body contains the board parameters to be changed.
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

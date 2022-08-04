@@ -51,7 +51,7 @@ Authorization: OAuth <token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
@@ -62,7 +62,7 @@ Authorization: OAuth <token>
       "self" : "{{ host }}/v2/sprints/4469",
       "id" : 4469,
       "version" : 1,
-      "name" : "New Sprint",
+      "name": "New Sprint",
       "board" : {
         "self" : "{{ host }}/v2/boards/3",
         "id" : "1",
@@ -94,7 +94,7 @@ Authorization: OAuth <token>
     | [board](#ans-board) | Object with information about the board whose issues the sprint refers to. | String |
     | status | Sprint status. <br/>Possible statuses:<ul><li>`draft`: Open.</li><li>`in_progress`: In progress.</li><li>`released`: Resolved.</li><li>`archived`: Archived.</li></ul> | String |
     | archived | Shows whether the sprint is archived:<ul><li>`true`: The sprint is archived.</li><li>`false`: The sprint is not archived.</li></ul> | Boolean |
-    | [createdBy](#ans-createdBy) | Object with information about the user who created the sprint. | Objects |
+    | [createdBy](#ans-createdBy) | Object with information about the user who created the sprint. | Object |
     | createdAt | Sprint creation date and time in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
     | startDate | Sprint start date in ```YYYY-MM-DD``` format | String |
     | endDate | Sprint end date in ```YYYY-MM-DD``` format | String |
@@ -119,9 +119,9 @@ Authorization: OAuth <token>
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
-    If the request is processed incorrectly, the API returns a message with error details:
+    If a request fails, the response message contains details of the errors encountered:
 
     {% include [error](../_includes/tracker/api/answer-error-400.md) %}
 

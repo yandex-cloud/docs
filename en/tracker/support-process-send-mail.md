@@ -10,11 +10,11 @@ To send emails from the issue page, do the following:
 
     If you want to send issues from the issue page, you need a shared queue address. Responses sent to the queue address will be added to issue comments.
 
-    If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in Yandex.Mail 360 for Business]({{ support-business-domain }}).
+    If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in {{ ya-360 }}]({{ support-business-domain }}).
 
 1. [Set up sender names and signatures](manager/queue-mail.md#section_ffq_gqb_hgb) if needed.
 
-1. If the users aren't your organization's employees, [allow sending email from issue pages to external addresses](manager/queue-mail.md#send_outside).
+1. If the users aren't your organization's employees, [allow sending emails from issue pages to external addresses](manager/queue-mail.md#send_outside).
 
 ### Step 2. Send emails from the issue page
 

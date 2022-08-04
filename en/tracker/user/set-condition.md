@@ -28,9 +28,9 @@ To specify issue updates that will fire the trigger, set a condition:
 
 > **Example**
 >
-> ![image](../../_assets/tracker/trigger-example1.png)
->
-> The trigger will be activated once a set condition is met: New comment AND (one of two conditions is met: User assigned to issue OR issue status changed to Need info) AND (one of two conditions is met: Start date specified OR Original estimate specified).
+>![](../../_assets/tracker/trigger-example1.png)
+
+The trigger will be activated once a set condition is met: New comment AND (one of two conditions is met: User assigned to issue OR issue status changed to Need info) AND (one of two conditions is met: Start date specified OR Original estimate specified).
 
 ## Comparison operations {#section_cdn_d4j_wfb}
 

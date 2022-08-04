@@ -22,9 +22,9 @@ Authorization: OAuth <OAuth token>
 
 {% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}
 
-> Request for comments on a single issue:
+>Request for comments on a single issue:
 >
->An HTTP GET method is used.
+>Use the HTTP GET method.
 >
 >```
 >GET /v2/issues/JUNE-3/comments HTTP/1.1
@@ -37,7 +37,7 @@ Authorization: OAuth <OAuth token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md %}
 
@@ -96,7 +96,7 @@ Authorization: OAuth <OAuth token>
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

@@ -4,30 +4,35 @@ description:
   - >-
     It can help you organize any type of work, such as software development, ad
     campaign management, accepting user requests, negotiating contracts, and so
-    on
+    on.
   - >-
-    Yandex Tracker helps managers distribute work among their employees and
-    monitor their progress.
+    Tracker helps managers distribute work among their employees and monitor
+    their progress.
   - >-
-    Yandex Tracker helps employees find their list of issues and keep track of
-    deadlines and priorities.
+    Tracker helps employees find their issue list and keep track of deadlines
+    and priorities.
 meta:
   title: Yandex Tracker
+  keywords:
+    - keyword: yandex tracker
+    - keyword: yandex.tracker
+    - keyword: yandex issues
+    - keyword: yandex tracker help
 links:
   - title: Setting up Yandex Tracker
     description: >-
       Configure a queue in Yandex Tracker, which is a common workspace for
       issues in the same pipeline or for a single product.
     href: quick-start
-  - title: How to use Yandex Tracker
+  - title: Working with Yandex Tracker
     description: >-
       Log in to Yandex Tracker, start working on an issue, or close a completed
-      issue.
+      one
     href: user/ticket-in-progress
   - title: Concepts
     description: >-
-      Learn about how Yandex Tracker works. Find out how you can use Yandex
-      Tracker for your workflow.
+      Learn how Yandex Tracker works. Learn how you can use Yandex Tracker for
+      your workflow.
     href: about-tracker
   - title: Agile tools
     description: >-
@@ -44,7 +49,7 @@ links:
       You can use filters to search for issues by any issue parameter or
       combinations. Use the filter builder or query language to set filters.
     href: user/filters
-  - title: Monitoring issues
+  - title: Issue control
     description: >-
       Collect all information about important issues on a dashboard by adding
       issue lists, statistics, tables, or notes there. Keep track of your team's

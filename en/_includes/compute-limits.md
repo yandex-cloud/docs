@@ -18,7 +18,7 @@ Total SDD file storage capacity per cloud^1^ | 0 B
 Number of images per cloud | 8
 Number of images optimized for deployment per cloud^1^ | 0
 Number of instance groups per cloud | 10
-Total number of GPUs and vGPUs for all VMs per cloud^1^ | 0
+Total number of GPUs for all VMs per cloud^1^ | 0
 Number of concurrent [operations](../api-design-guide/concepts/operation.md) per folder | 15
 Maximum number of [placement groups](../compute/concepts/placement-groups.md) per cloud | 2
 Number of dedicated hosts per dedicated host group^1^ | 0
@@ -38,11 +38,10 @@ Limits per virtual machine depend on the virtual machine [platform](../compute/c
 
   Limits | Value
   --- | ---
-  Maximum number of vCPUs per VM | Without [vGPU](../compute/concepts/gpus.md#vgpu): 32<br>With vGPU: 4
-  Maximum virtual memory per VM | Without [GPU](../compute/concepts/gpus.md#gpu) and vGPU: 256 GB<br>With GPU: 384 GB<br>With vGPU: 12 GB
+  Maximum number of vCPUs per VM | 32
+  Maximum virtual memory per VM | Without [GPU](../compute/concepts/gpus.md#gpu): 256 GB<br>With GPU: 384 GB
   Maximum number of disks and file stores attached to a single VM^2^ | Less than 18 vCPUs: 8<br>From 18 vCPUs: 16^3^
   Maximum number of GPUs connected to a single VM | 4
-  Maximum number of vGPUs connected to a VM | 1
   Maximum number of security groups per interface | 5
   Maximum number of VM instances in a [placement group](../compute/concepts/placement-groups.md) | 5
 

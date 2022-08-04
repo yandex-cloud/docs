@@ -10,7 +10,7 @@ You can use {{ forms-full-name }} to set up your form to act as a template for c
 
 ## Step 1. Create and configure your form {#section_ovd_5hl_1gb}
 
-1. Go to [{{ forms-full-name }}]({{ link-forms }}). If the service hasn't been activated, contact your company's administrator.
+1. Go to [{{ forms-full-name }}]({{ link-forms }}). If the service hasn't been activated, contact your organization's administrator.
 
 1. [Create](../../forms/new-form.md) a new form from scratch or use the **Issue for {{ tracker-name }}** template.
 
@@ -37,5 +37,6 @@ You can use {{ forms-full-name }} to set up your form to act as a template for c
 1. Add the name and description for your form. You can view them in the form selection window when creating an issue.
 
 1. Click **Add**.
+
 
 

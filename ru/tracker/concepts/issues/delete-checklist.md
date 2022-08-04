@@ -43,7 +43,7 @@ Authorization: OAuth <токен>
       "key": "ORG-3",
       "version": 147,
       "lastCommentUpdatedAt": "2020-12-13T13:18:22.965+0000",
-      "pendingReplayFrom": [
+      "pendingReplyFrom": [
           {
               "self": "{{ host }}/v2/users/1134669289",
               "id": "id сотрудника",
@@ -129,7 +129,7 @@ Authorization: OAuth <токен>
   key | Ключ задачи.| Строка
   version | Версия задачи. Каждое изменение параметров увеличивает номер версии. | Число
   lastCommentUpdatedAt | Время обновления последнего комментария. | Строка
-  [pendingReplayFrom](#pending-replay-from) | Объект с информацией о сотруднике, от которого ожидается ответ. | Объект
+  [pendingReplyFrom](#pending-reply-from) | Объект с информацией о сотруднике, от которого ожидается ответ. | Объект
   summary | Название задачи. | Строка
   statusStartTime | Время создание задачи. | Строка
   [updatedBy](#updated-by) | Объект с информацией о последнем сотруднике, изменявшим задачу. | Объект
@@ -159,7 +159,7 @@ Authorization: OAuth <токен>
   id | Идентификатор пользователя. | Число
   display | Отображаемое имя пользователя. | Строка
 
-  **Поля объекта** `pendingReplayFrom` {#pending-replay-from}
+  **Поля объекта** `pendingReplyFrom` {#pending-reply-from}
     
   Параметр | Описание | Тип данных
   ----- | ----- | -----

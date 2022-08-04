@@ -21,6 +21,7 @@ Sometimes it may be more convenient to [create a new issue field](user/create-pa
 To do this in {{ tracker-name }}:
 
 
+
 ### Step 1. Create a new issue field
 
 Go to the {{ tracker-name }} settings and [create a new field](user/create-param.md#section_pxn_fp4_xgb) with the following parameters:
@@ -36,7 +37,7 @@ Go to the {{ tracker-name }} settings and [create a new field](user/create-param
 - List items: 1, 2 (for two-tier support).
 
 ![](../_assets/tracker/param-support-line.png)
-
+
 
 ### Step 2. Set up a request form
 
@@ -81,3 +82,4 @@ In the support team queue, create two triggers that will be fired if the **Line*
 1. Create a similar trigger for the second support line.
 
 Issues created via the form will now automatically be distributed between the two support lines based on their subject.
+

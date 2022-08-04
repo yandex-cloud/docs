@@ -20,3 +20,9 @@ To create a template of an issue or comment:
 
 The new template will be available on the [template page]({{ link-tracker-templates }}).
 
+If you want other users to be able to use your template:
+
+1. [Set up template sharing](share-template.md#section_nmn_prs_zz).
+
+1. Tell your colleagues [to enable your template](share-template.md#section_vkg_trs_zz) in [Manage templates](https://tracker.yandex.ru/settings/templates/issues).
+

@@ -22,7 +22,7 @@ Authorization: OAuth <OAuth token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -51,7 +51,7 @@ Authorization: OAuth <OAuth token>
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
     {% include [400](../../../_includes/tracker/api/answer-error-400.md) %}
 

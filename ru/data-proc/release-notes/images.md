@@ -3,6 +3,10 @@
 Полный состав актуальных и устаревших образов {{ dataproc-name }} см. в разделе [{#T}](../concepts/environment.md).
 
 
+## 2.0.46 {#2.0.46}
+
+* Часть свойств Spark теперь применяется также и в Zeppelin: `spark.submit.deployMode`, `spark.driver.cores`, `spark.driver.memory`, `spark.executor.cores`, `spark.executor.memory`, `spark.files`, `spark.jars` и `spark.jars.packages`.
+
 ## 2.0.45 {#2.0.45}
 
 * Исправлена ошибка с MapReduce Application History Server не на мастер-хосте кластера.

@@ -8,6 +8,10 @@ When you move an issue, its sub-issues remain in the original queue. If the issu
 
 To move an issue:
 
+1. Make sure you have [access to issue creation](../manager/queue-access.md) in the queue you wish to move the issue to.
+
+1. Open the issue you wish to move.
+
 1. Select **Actions** → **Change queue**.
 
 1. Specify the queue to move the issue to.

@@ -7,10 +7,11 @@ For example, duplicate issues can be closed with the <q>Duplicate</q> resolution
 You can also hide an unnecessary issue from search results and dashboards by clearing the **Assignee** field, deleting its links to other issues, and so on.
 
 
+
 {% note tip %}
 
 You can [delete a queue](../manager/delete-queue.md) and all issues in it. [Move](move-ticket.md) the issues you don't need to a special queue and then delete it.
 
 {% endnote %}
-
+
 

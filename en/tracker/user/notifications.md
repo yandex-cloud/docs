@@ -16,3 +16,4 @@ If the standard rules for sending notifications do not suit you, you can change 
 - [Set up a list of events and roles you want to be notified about](notification-settings.md)
 - [Subscribe other users to issue, component, or version updates](../manager/subscriptions.md)
 
+

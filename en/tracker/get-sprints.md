@@ -30,7 +30,7 @@ Authorization: OAuth <token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
@@ -73,10 +73,10 @@ Authorization: OAuth <token>
     | id | Sprint ID. | Number |
     | version | Sprint version. Each change to the sprint increases its version number. | Number |
     | name | Sprint name. | String |
-    | [board](#board) | Object with information about the board whose issues the sprint refers to. | String |
+    | [board](#ans-board) | Object with information about the board whose issues the sprint refers to. | String |
     | status | Sprint status. <br/>Possible statuses:<ul><li>`draft`: Open.</li><li>`in_progress`: In progress.</li><li>`released`: Resolved.</li><li>`archived`: Archived.</li></ul> | String |
     | archived | Shows whether the sprint is archived:<ul><li>`true`: The sprint is archived.</li><li>`false`: The sprint is not archived.</li></ul> | Boolean |
-    | [createdBy](#createdBy) | Object with information about the user who created the sprint. | Objects |
+    | [createdBy](#createdBy) | Object with information about the user who created the sprint. | Object |
     | createdAt | Sprint creation date and time in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
     | startDate | Sprint start date in ```YYYY-MM-DD``` format | String |
     | endDate | Sprint end date in ```YYYY-MM-DD``` format | String |
@@ -101,9 +101,9 @@ Authorization: OAuth <token>
 
     {% endcut %}
 
-- The request failed
+- Request failed
 
-    If the request is processed incorrectly, the API returns a message with error details:
+    If a request fails, the response message contains details of the errors encountered:
 
     {% include [error](../_includes/tracker/api/answer-error-400.md) %}
 

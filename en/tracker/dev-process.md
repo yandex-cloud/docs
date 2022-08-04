@@ -9,7 +9,9 @@
 - [Recurring action automation](dev-process-automation.md) to save developers' time.
 
 
-- [Enabling source code repositories](dev-process-repo.md) and [integration with other environments](dev-process-api.md).
 
+- [Enabling source code repositories](dev-process-repo.md) and [integration with other environments](dev-process-api.md).
+
 
 Let's look at how to set up a {{ tracker-name }} workflow for a development team.
+

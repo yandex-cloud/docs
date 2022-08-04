@@ -4,7 +4,6 @@ vCPU 5% | {{ sku|USD|compute.vm.cpu.c05|string }} | {{ sku|USD|compute.vm.cpu.c0
 vCPU 20% | {{ sku|USD|compute.vm.cpu.c20|string }} | {{ sku|USD|compute.vm.cpu.c20.preemptible|string }}
 vCPU 100% | {{ sku|USD|compute.vm.cpu.c100|string }} | {{ sku|USD|compute.vm.cpu.c100.preemptible|string }}
 1 GPU Nvidia V100 | {{ sku|USD|compute.vm.gpu.gpu-standard|string }} | {{ sku|USD|compute.vm.gpu.gpu-standard.preemptible|string }}
-1 vGPU Nvidia V100 | {{ sku|USD|compute.vm.gpu.vgpu-standard.v1|string }} | {{ sku|USD|compute.vm.gpu.vgpu-standard.v1.preemptible|string }}
 RAM (for 1 GB) | {{ sku|USD|compute.vm.ram|string }} | {{ sku|USD|compute.vm.ram.preemptible|string }}
 
 <br>

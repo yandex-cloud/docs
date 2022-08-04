@@ -39,7 +39,7 @@ Authorization: OAuth <token>
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -214,7 +214,7 @@ Authorization: OAuth <token>
    | Type of change. | Description |
    | ----- | ----- |
    | IssueUpdated | The issue was edited. |
-   | IssueCreated | The issue was created. |
+   | IssueCreated | Issue created. |
    | IssueMoved | The issue was moved to another queue. |
    | IssueCloned | A clone of the issue was created. |
    | IssueCommentAdded | A comment was added to the issue. |
@@ -237,7 +237,7 @@ Authorization: OAuth <token>
 
   {% endcut %}
 
-- The request failed
+- Request failed
 
   If the request is processed incorrectly, the API returns a response with an error code:
 

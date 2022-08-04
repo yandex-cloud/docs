@@ -2,13 +2,21 @@
 title: Pricing for Yandex Tracker
 description: "The cost of using Tracker is based on the number of users with full access to the platform. You don't have to pay for Tracker if you have a small team. You can subscribe up to 5 employees to Tracker for free."
 ---
-# Pricing policy for Yandex Tracker
+# Pricing policy for {{ tracker-full-name }}
 
 By default, all company employees can use {{ tracker-full-name }} for free in [<q>Read only</q>](access.md#readonly) mode. Grant [full access](access.md) to {{ tracker-name }} so that your employees can use all of its features.
 
+You can find the FAQ for payments in [{#T}](payment.md).
+
 ## Pricing {#sec_price}
 
-The cost of using {{ tracker-name }} is based on the number of users with full access to the platform. You don't have to pay anything for {{ tracker-name }} if you only have a small team since {{ tracker-name }} is free of charge for up to five employees.
+The {{ tracker-name }} service cost is based on the number of users with [full access to the platform](access.md). Your monthly payment is debited from the [billing account](billing-account.md) linked to {{ tracker-name }}.
+
+{% note tip %}
+
+You don't have to pay anything for {{ tracker-name }} if you only have a small team since {{ tracker-name }} is free of charge for up to 5 employees.
+
+{% endnote %}
 
 
 
@@ -53,24 +61,25 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 >
 >The number of employees who had full access to {{ tracker-name }} changed in January:
 >
->* 245 employees had full {{tracker-name}} access for 14 days.
+>* 245 employees had full Tacker access for 14 days.
 >
->* The next 7 days saw 270 employees with access to Tracker.
+>* The next 7 days saw 270 employees with access to {{tracker-name}}.
 >
->* Finally, during the last 10 days there were 260 employees with access to Tracker.
+>* Finally, during the last 10 days there were 260 employees with access to {{tracker-name}}.
 >
 >During the month, the maximum number of users with access to {{ tracker-name }} at the same time was 270.
 >
 >That means the following formula will be used to calculate the subscription fee for 270 users:
 >
-> 
 >
-> 
 >
-> 
 >
-> ```
-> 100 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}
-> ```
 >
-> 
+>
+>
+>```
+>100 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}
+>```
+>
+>
+

@@ -11,6 +11,7 @@ The plugin only allows you to work with issues that you are assigned to.
 ## Installing the plugin {#section_jm1_r4d_kdb}
 
 
+
 #### From the repository
 
 1. Open the settings window in IntelliJ: **File** → **Settings**.
@@ -25,7 +26,7 @@ The plugin only allows you to work with issues that you are assigned to.
 
 #### From a file
 
-1. Download the plugin from the official [plugin marketplace](https://plugins.jetbrains.com/plugin/10549-yandex-tracker-integration).
+1. Download the plugin from the official [plugin directory](https://plugins.jetbrains.com/plugin/10549-yandex-tracker-integration).
 
 1. Open the settings window in IntelliJ: **File** → **Settings**.
 
@@ -34,17 +35,19 @@ The plugin only allows you to work with issues that you are assigned to.
 1. Specify the location of the archive with the plugin and click **OK**.
 
 1. Restart your IDE.
-
+
 
 ## Connecting the plugin to {{ tracker-name }} {#section_vgn_cqd_kdb}
 
 
+
 To make the plugin work, link it to your {{ tracker-name }} account:
+
 
 
 
 1. Log in to {{ tracker-name }}.
-
+
 
 1. Launch your IntelliJ IDE and select **Tools** → **Tasks & Contexts** → **Configure Servers**.
 
@@ -52,7 +55,7 @@ To make the plugin work, link it to your {{ tracker-name }} account:
 
 1. Click **Authorize** and wait for the browser window to appear.
 
-1. Allow the <q>Yandex Tracker IntelliJ Plugin</q> to access your data on Yandex.
+1.  Allow the <q>Yandex.Tracker IntelliJ Plugin</q> to access your data on Yandex.
 
 1. Copy the authentication code.
 
@@ -62,4 +65,5 @@ To make the plugin work, link it to your {{ tracker-name }} account:
 
 1. Select the queue that you want to work in.
 
-1. Press **OK**.
+1. Click **OK**.
+

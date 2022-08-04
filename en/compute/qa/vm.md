@@ -54,12 +54,6 @@ Yes, you can. However, if the load on the vCPU and/or vRAM was high enough when 
 
 If the load on the server is small and uniform, we recommend decreasing the parameters to avoid paying extra.
 
-#### What's the difference between a GPU and vGPU? {#gpu-vs-vgpu}
-
-The main difference is that a GPU can be used for mathematical calculations and machine learning, and a vGPU can also be used for graphics tasks.
-
-In addition, their cost, support of multiple processors, and licensing differ. For a detailed description and comparison of GPUs and vGPUs, see [{#T}](../concepts/gpus.md).
-
 #### Is it possible to change the FQDN? {#change-fqdn}
 
 The FQDN is issued to the VM at the time of its creation, and you cannot change it.

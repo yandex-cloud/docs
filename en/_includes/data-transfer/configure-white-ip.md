@@ -1,1 +1,3 @@
-Make sure that the settings for the network hosting the cluster allow connections from the internet from IP addresses [used by the {{ data-transfer-name }} service]({{ dt-white-ip-list-uri }}).
+
+Make sure the settings for the network hosting the cluster allow public connections from IP addresses [used by {{ data-transfer-name }}]({{ dt-white-ip-list-uri }}).
+

@@ -18,7 +18,7 @@ Use [planning poker on the issue board](planning-poker.md) to assess an issue's 
 
 If you've already decided on the score, you can [enter it on the issue page](../user/edit-ticket.md#section_jqw_ppn_jz) in the **Story Points** field.
 
-If you want to evaluate the complexity of multiples issues when planning a sprint, do the following:
+To evaluate the complexity of multiple issues when planning a sprint:
 
 1. On the {{ tracker-name }} top panel, click **Boards** and select your board.
 
@@ -66,7 +66,7 @@ The sprint's status reflects its completion stage. To change sprint status, do t
     | ----- | ----- |
     | Open | The sprint's issues are not yet being worked on. |
     | In progress | The sprint's issues are being worked on. |
-    | Completed | All issues have been resolved. |
+    | Completed | Sprint issues resolved.<br/><br/> If your sprint contains unresolved issues or issues that have been closed with no resolution, please select what you want to do with them in the pop-up window: move to a backlog, move to a new spring, or leave in this sprint. |
     | Archived | The sprint has been archived and won't be displayed in the sprint list. To open the list of archived sprints, click **Archived sprints**.<br/><br/>You can't add an issue to an archived sprint. |
 
 1. Click **Save**.

@@ -43,7 +43,7 @@ Authorization: OAuth <token>
 {% cut "Request body parameters" %}
 
 The request body contains the checklist item parameters.
-It must list all the items.
+ It must list all the items.
 
 **Required parameters**
 
@@ -73,7 +73,7 @@ It must list all the items.
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
   {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -302,7 +302,7 @@ It must list all the items.
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
-  | date | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | Date. |
+  | date | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | Date |
   | deadlineType | The `deadline` parameter data type. | String |
   | isExceeded | Flag indicating if the deadline has passed: <ul><li>`true`: Passed.</li><li>`false`: Not passed.</li></ul> | Boolean |
 
@@ -335,7 +335,7 @@ It must list all the items.
 
   {% endcut %}
 
-- The request failed
+- Request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 

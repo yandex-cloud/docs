@@ -1,4 +1,4 @@
-# Collecting request statistics
+# Collecting requests statistics
 
 Managers and staff members of the support team often require various kinds of information about the ongoing issues as well as statistics on previously resolved requests. In {{ tracker-name }}, you can view all relevant information and statistics on a dashboard. First, [create a dashboard](user/create-dashboard.md#section_cv2_ck3_pz) and then add [widgets](user/widgets.md#section_ll1_zdp_pz). These may include issue lists, tables, and charts, all of which are created automatically based on filters.
 

@@ -43,17 +43,17 @@ To set the parameter, start typing its name and choose the appropriate one from 
 >    ```no-highlight
 >    "Queue": "TEST"
 >    ```
-> - Issues that are assigned to Alice Little:
+>- Issues that are assigned to Alice Little:
 >
 >    ```no-highlight
 >    "Assignee": "Alice Little"
 >    ```
-> - Issues with the `Open` or `In progress` status.
+>- Issues with the `Open` or `In progress` status.
 >
 >    ```no-highlight
 >    "Status": "Open", "In progress"
 >    ```
-> - Issues created from January 1 to January 30, 2017:
+>- Issues created from January 1 to January 30, 2017:
 >
 >    ```no-highlight
 >    "Created": "2017-01-01".."2017-01-30"
@@ -70,10 +70,10 @@ parameter: "value1", "value2", " value3"
 #### Example {#multiple-example}
 
 > ```no-highlight
-> author: "vpupkin","iivanov"
-> ```
->
->This filter outputs all issues that were reported by `vpupkin` or `iivanov`.
+>author: "vpupkin","iivanov"
+>```
+
+This filter outputs all issues that were reported by `vpupkin` or `iivanov`.
 
 ## Filters with multiple conditions {#query-multiple-conditions}
 
@@ -426,76 +426,76 @@ Try a few ready-made queries to learn how they work:
 
 | Parameter | Value | Description |
 | ----- | ----- | ----- |
-| ```"Access"``` | User logins and names | Searching for issues with certain users specified in the **Access** field.<br/>For example:<br/>```"Access": user3370@, "Alice Little"``` |
-| ```"Affected Version"``` | Version names | Searching for issues that list a specific value in the **Affected Version** field.<br/>For example:<br/>```"Affected Version": "14.09.1978"``` |
-| ```"Assignee"``` | User logins and names | Searching for issues with specific assignees.<br/>For example:<br/>```"Assignee": user3370@, "Alice Little"``` |
-| ```"Author"``` | User logins and names | Searching for issues with specific reporters.<br/>For example:<br/>```"Author": user3370@, "Alice Little"``` |
-| ```"Block Queue"``` | Queue names or keys | Searching for issues that have dependent (blocked) issues in the specified queues.<br/>For example:<br/>``` "Block Queue": TEST ``` |
-| ```"Clone"``` | Issue keys | Searching for issues cloned from specific issues.<br/>For example:<br/>``` "Clone": "TASK-123", "TASK-321"``` |
-| ```"Clones Of Queue"``` | Queue names or keys | Searching for issues cloned from issues in specific queues.<br/>For example:<br/>``` "Clones Of Queue": TEST, DEVELOP ``` |
-| ```"Comment"``` | Text string | Searching for issues that have comments with specific text.<br/>For example:<ul><li>Find issues with comments that contain the words and forms of words in the phrase:<br/>    ```"Comment": "great job"```</li><li>Find issues with comments that contain the exact phrase:<br/>    ```"Comment": #"great job"```</li></ul> |
-| ```"Comment Author"``` | User logins and names | Searching for issues with comments made by specific users.<br/>For example:<br/>```"Comment Author": user3370@, "Alice Little"``` |
-| ```"Component Owner"``` | User logins and names | Searching for issues that include components managed by specific users.<br/>For example:<br/>```"Component Owner": user3370@, "Alice Little"``` |
-| ```"Components"``` | Component names | Searching for issues that refer to specific components.<br/>For example:<br/>```"Components": "backend", " frontend"``` |
-| ```"Created"``` | Date or date range | Searching for issues created on a specific date or within a specific date range.<br/>For example:<br/>```"Created": 2017-01-01..2017-01-30 ``` |
-| ```"Deadline"``` | Date or date range | Searching for issues with a deadline set for a specific date or date range.<br/>For example:<br/>```"Deadline": 2017-01-30 ``` |
-| ```"Depend On Queue"``` | Queue names or keys | Searching for issues dependent on (blocked by) issues from specific queues.<br/>For example:<br/>``` "Depend On Queue": TEST ``` |
-| ```"Depends On"``` | Issue keys | Search for issues dependent on (blocked by) specific issues.<br/>For example:<br/>``` "Depends On": "TASK-123", "TASK-321"``` |
-| ```"Description"``` | Text string | Searching for issues that have a description with specific text.<br/>For example:<ul><li>Find issues that have a description containing the words and word forms in the phrase:<br/>    ```"Description": "invent the wheel"```</li><li>Find issues that contain the exact phrase in their description:<br/>    ```"Description": #"invent the wheel"```</li></ul> |
-| ```"Duplicated In Queue"``` | Queue names or keys | Searching for issues that have duplicates in specific queues.<br/>For example:<br/>``` "Duplicated In Queue": TEST ``` |
-| ```"Duplicates"``` | Issue keys | Searching for issues that duplicate specific issues.<br/>For example:<br/>```"Duplicates": "TASK-123", "TASK-321"``` |
-| ```"Duplicates In Queue"``` | Queue names or keys | Searching for issues that are duplicates of issues in the specified queues.<br/>For example:<br/>``` "Duplicates In Queue": TEST ``` |
-| ```"End Date"``` | Date or date range | Searching for issues whose **End date** value matches a specific date or date range.<br/>For example:<br/>```"End Date": 2017-01-30 ``` |
-| ```"Epic"``` | Epic keys | Searching for issues that refer to specific epics.<br/>For example:<br/>```Epic: "TASK-123", "TASK-321"``` |
-| ```"Epics For Queue"``` | Queue names or keys | Searching for epics that include issues from specific queues.<br/>For example:<br/>``` "Epics For Queue": TEST, DEVELOP ``` |
-| ```"Favorited by"``` | Only the [function](#query-functions) `me()` can be used as the parameter value | Searching for your favorite issues.<br/>For example:<br/>```"Favorited by": me() ``` |
-| ```"Filter"``` | Filter names or IDs | Search for issues that match specific filters.<br/>For example:<br/>```"Filter": "Issues in my department"```<br/>**Note.** If different users set filters with the same names, they may get different results when running the same query with the filter name specified, because a search is performed using the filter created by the user who initiates the query. |
-| ```"Fix Version"``` | Version names | Searching for issues that list a specific value in the **Fix Version** field.<br/>For example:<br/>```"Fix Version": "12.11.1986"``` |
-| ```"Followers"``` | User logins and names | Searching for issues with specific followers.<br/>For example:<br/>```"Followers": user3370@, "Alice Little"``` |
+| ```"Access" ``` | User logins and names | Searching for issues with certain users specified in the **Access** field.<br/>For example:<br/>```"Access": user3370@, "Alice Little" ``` |
+| ```"Affected Version" ``` | Version names | Searching for issues that list a specific value in the **Affected Version** field.<br/>For example:<br/>```"Affected Version": "14.09.1978" ``` |
+| ```"Assignee" ``` | User logins and names | Searching for issues with specific assignees.<br/>For example:<br/>```"Assignee": user3370@, "Alice Little" ``` |
+| ```"Author" ``` | User logins and names | Searching for issues with specific reporters.<br/>For example:<br/>```"Author": user3370@, "Alice Little" ``` |
+| ```"Block Queue" ``` | Queue names or keys | Searching for issues that have dependent (blocked) issues in the specified queues.<br/>For example:<br/>``` "Block Queue": TEST ``` |
+| ```"Clone" ``` | Issue keys | Searching for issues cloned from specific issues.<br/>For example:<br/>``` "Clone": "TASK-123", "TASK-321" ``` |
+| ```"Clones Of Queue" ``` | Queue names or keys | Searching for issues cloned from issues in specific queues.<br/>For example:<br/>``` "Clones Of Queue": TEST, DEVELOP ``` |
+| ```"Comment" ``` | Text string | Searching for issues that have comments with specific text.<br/>For example:<ul><li>Find issues with comments that contain the words and forms of words in the phrase:<br/>    ```"Comment": "great job" ```</li><li>Find issues with comments that contain the exact phrase:<br/>    ```"Comment": #"great job" ```</li></ul> |
+| ```"Comment Author" ``` | User logins and names | Searching for issues with comments made by specific users.<br/>For example:<br/>```"Comment Author": user3370@, "Alice Little" ``` |
+| ```"Component Owner" ``` | User logins and names | Searching for issues that include components managed by specific users.<br/>For example:<br/>```"Component Owner": user3370@, "Alice Little" ``` |
+| ```"Components" ``` | Component names | Searching for issues that refer to specific components.<br/>For example:<br/>```"Components": "backend", " frontend" ``` |
+| ```"Created" ``` | Date or date range | Searching for issues created on a specific date or within a specific date range.<br/>For example:<br/>```"Created": 2017-01-01..2017-01-30 ``` |
+| ```"Deadline" ``` | Date or date range | Searching for issues with a deadline set for a specific date or date range.<br/>For example:<br/>```"Deadline": 2017-01-30 ``` |
+| ```"Depend On Queue" ``` | Queue names or keys | Searching for issues dependent on (blocked by) issues from specific queues.<br/>For example:<br/>``` "Depend On Queue": TEST ``` |
+| ```"Depends On" ``` | Issue keys | Search for issues dependent on (blocked by) specific issues.<br/>For example:<br/>``` "Depends On": "TASK-123", "TASK-321" ``` |
+| ```"Description" ``` | Text string | Searching for issues that have a description with specific text.<br/>For example:<ul><li>Find issues that have a description containing the words and word forms in the phrase:<br/>    ```"Description": "invent the wheel" ```</li><li>Find issues that contain the exact phrase in their description:<br/>    ```"Description": #"invent the wheel" ```</li></ul> |
+| ```"Duplicated In Queue" ``` | Queue names or keys | Searching for issues that have duplicates in specific queues.<br/>For example:<br/>``` "Duplicated In Queue": TEST ``` |
+| ```"Duplicates" ``` | Issue keys | Searching for issues that duplicate specific issues.<br/>For example:<br/>```"Duplicates": "TASK-123", "TASK-321" ``` |
+| ```"Duplicates In Queue" ``` | Queue names or keys | Searching for issues that are duplicates of issues in the specified queues.<br/>For example:<br/>``` "Duplicates In Queue": TEST ``` |
+| ```"End Date" ``` | Date or date range | Searching for issues whose **End date** value matches a specific date or date range.<br/>For example:<br/>```"End Date": 2017-01-30 ``` |
+| ```"Epic" ``` | Epic keys | Searching for issues that refer to specific epics.<br/>For example:<br/>```Epic: "TASK-123", "TASK-321" ``` |
+| ```"Epics For Queue" ``` | Queue names or keys | Searching for epics that include issues from specific queues.<br/>For example:<br/>``` "Epics For Queue": TEST, DEVELOP ``` |
+| ```"Favorited by" ``` | Only the [function](#query-functions) `me()` can be used as the parameter value | Searching for your favorite issues.<br/>For example:<br/>```"Favorited by": me() ``` |
+| ```"Filter" ``` | Filter names or IDs | Search for issues that match specific filters.<br/>For example:<br/>```"Filter": "Issues in my department" ```<br/>**Note.** If different users set filters with the same names, they may get different results when running the same query with the filter name specified, because a search is performed using the filter created by the user who initiates the query. |
+| ```"Fix Version" ``` | Version names | Searching for issues that list a specific value in the **Fix Version** field.<br/>For example:<br/>```"Fix Version": "12.11.1986" ``` |
+| ```"Followers" ``` | User logins and names | Searching for issues with specific followers.<br/>For example:<br/>```"Followers": user3370@, "Alice Little" ``` |
 |  |
-| ```"Has Epic"``` | Issue keys | Searching for issues that refer to specific epics.<br/>For example:<br/>``` "Has Epic": TASK-123 ``` |
-| ```"Have Links To Queue"``` | Queue names or keys | Searching for issues that are somehow linked with issues from the specified queues (parent, related, duplicate, sub-issue, and so on).<br/>For example:<br/>``` "Have Links To Queue": TEST ``` |
-| ```"History"``` | Text string | Searching for issues with a history that includes the words or forms of words from a specific phrase.<br/>A search is only made by the **Summary** and **Description** field values.<br/>For example:<br/>```"History": "easy as pie"``` |
-| ```"In Epics Of Queue"``` | Queue names or keys | Searching for issues related to epics from specific queues.<br/>For example:<br/>``` "In Epics Of Queue": TEST ``` |
-| ```"Is Dependent By"``` | Issue keys | Searching for issues that block specific issues.<br/>For example:<br/>``` "Is Dependent By": "TASK-123", "TASK-321"``` |
-| ```"Is Duplicated By"``` | Issue keys | Searching for issues that are duplicated by specific issues.<br/>For example:<br/>``` "Is Duplicated By": "TASK-123", "TASK-321"``` |
-| ```"Is Epic Of"``` | Issue keys | Searching for epics that include specific issues.<br/>For example:<br/>``` "Is Epic Of": "TASK-123", "TASK-321"``` |
-| ```"Is Parent Task For"``` | Issue keys | Searching for issues that are parent to specific issues.<br/>For example:<br/>```"Is Parent Task For": "TASK-123", "TASK-321"``` |
-| ```"Is Subtask For"``` | Issue keys | Searching for sub-issues for specified parent issues.<br/>For example:<br/>```"Is Subtask For": "TASK-123", "TASK-321"``` |
+| ```"Has Epic" ``` | Issue keys | Searching for issues that refer to specific epics.<br/>For example:<br/>``` "Has Epic": TASK-123 ``` |
+| ```"Have Links To Queue" ``` | Queue names or keys | Searching for issues that are somehow linked with issues from the specified queues (parent, related, duplicate, sub-issue, and so on).<br/>For example:<br/>``` "Have Links To Queue": TEST ``` |
+| ```"History" ``` | Text string | Searching for issues with a history that includes the words or forms of words from a specific phrase.<br/>A search is only made by the **Summary** and **Description** field values.<br/>For example:<br/>```"History": "easy as pie" ``` |
+| ```"In Epics Of Queue" ``` | Queue names or keys | Searching for issues related to epics from specific queues.<br/>For example:<br/>``` "In Epics Of Queue": TEST ``` |
+| ```"Is Dependent By" ``` | Issue keys | Searching for issues that block specific issues.<br/>For example:<br/>``` "Is Dependent By": "TASK-123", "TASK-321" ``` |
+| ```"Is Duplicated By" ``` | Issue keys | Searching for issues that are duplicated by specific issues.<br/>For example:<br/>``` "Is Duplicated By": "TASK-123", "TASK-321" ``` |
+| ```"Is Epic Of" ``` | Issue keys | Searching for epics that include specific issues.<br/>For example:<br/>``` "Is Epic Of": "TASK-123", "TASK-321" ``` |
+| ```"Is Parent Task For" ``` | Issue keys | Searching for issues that are parent to specific issues.<br/>For example:<br/>```"Is Parent Task For": "TASK-123", "TASK-321" ``` |
+| ```"Is Subtask For" ``` | Issue keys | Searching for sub-issues for specified parent issues.<br/>For example:<br/>```"Is Subtask For": "TASK-123", "TASK-321" ``` |
 |  |
-| ```"Key"``` | Issue keys | Searching for issues with specific keys.<br/>For example:<br/>```"Key": "TASK-123", "TASK-321"``` |
-| ```"Last comment"``` | Date and time when the last comment was posted | Searching for issues that didn't receive any new comments during a particular timeframe.<br/>For example:<br/>```"Last Comment": < now()-1h ``` |
-| ```"Linked to"``` | Issue keys | Searching for issues that are somehow linked with the specified issues (parent, related, duplicate, sub-issue, and so on).<br/>For example:<br/>```"Linked to": "TASK-123", "TASK-321"``` |
+| ```"Key" ``` | Issue keys | Searching for issues with specific keys.<br/>For example:<br/>```"Key": "TASK-123", "TASK-321" ``` |
+| ```"Last comment" ``` | Date and time when the last comment was posted | Searching for issues that didn't receive any new comments during a particular timeframe.<br/>For example:<br/>```"Last Comment": < now()-1h ``` |
+| ```"Linked to" ``` | Issue keys | Searching for issues that are somehow linked with the specified issues (parent, related, duplicate, sub-issue, and so on).<br/>For example:<br/>```"Linked to": "TASK-123", "TASK-321" ``` |
 |  |
-| ```"Modifier"``` | User logins and names | Searching for issues recently updated by specific users.<br/>For example:<br/>```"Modifier": user3370@, "Alice Little"``` |
-| ```"Old Queue"``` | Queue names or keys | Searching for issues moved from the specified queues.<br/>For example:<br/>```"Old Queue": TEST ``` |
-| ```"Original"``` | Issue keys | Searching for clones of specified issues.<br/>For example:<br/>```"Original": "TASK-123", "TASK-321"``` |
-| ```"Original Estimate"``` | Time range in the format `"XXw XXd XXh XXm XXs"` | Searching for issues with a specific initial estimate.<br/>For example:<br/>```"Original Estimate": "5d 2h 30m"``` |
-| ```"Originals Of Queue"``` | Queue names or keys | Searching for issues that have clones in specific queues.<br/>For example:<br/>``` "Originals Of Queue": TEST ``` |
+| ```"Modifier" ``` | User logins and names | Searching for issues recently updated by specific users.<br/>For example:<br/>```"Modifier": user3370@, "Alice Little" ``` |
+| ```"Old Queue" ``` | Queue names or keys | Searching for issues moved from the specified queues.<br/>For example:<br/>```"Old Queue": TEST ``` |
+| ```"Original" ``` | Issue keys | Searching for clones of specified issues.<br/>For example:<br/>```"Original": "TASK-123", "TASK-321" ``` |
+| ```"Original Estimate" ``` | Time range in the format `"XXw XXd XXh XXm XXs"` | Searching for issues with a specific initial estimate.<br/>For example:<br/>```"Original Estimate": "5d 2h 30m" ``` |
+| ```"Originals Of Queue" ``` | Queue names or keys | Searching for issues that have clones in specific queues.<br/>For example:<br/>``` "Originals Of Queue": TEST ``` |
 |  |
-| ```"Parent Tasks For Queue"``` | Queue names or keys | Searching for issues that have sub-issues in specific queues.<br/>For example:<br/>``` "Parent Tasks For Queue": TEST, DEVELOP ``` |
-| ```"Pending Reply From"``` | User logins and names | Searching for issues with a pending reply from a specific user (the user has been [invited to comment](comments.md#call-comment)).<br/>Let's say you need to find issues pending a reply from a user with the username `user3370` or a user with the first and last name Alice Little:<br/>```"Pending Reply From": user3370@, "Alice Little"``` |
-| ```"Priority"``` | Priority value | Searching for issues with a specific priority.<br/>For example:<br/>```"Priority": "Minor", "Normal"``` |
-| ```"Project"``` | Project titles | Searching for issues from specific projects.<br/>For example:<br/>```"Project": "Perpetuum mobile"``` |
-| ```"Queue"``` | Queue names or keys | Searching for issues from specific queues.<br/>For example:<br/>```"Queue": TEST ``` |
-| ```"Queue Owner"``` | User logins and names | Searching for issues from queues with specific owners.<br/>For example:<br/>```"Queue Owner": user3370@, "Alice Little"``` |
-| ```"Related"``` | User logins and names | Searching for issues with specific reporters, assignees, or followers.<br/>For example:<br/>```"Related": user3370@, "Alice Little"``` |
-| ```"Related To Queue"``` | Queue names or keys | Searching for issues that are related to issues from specific queues (the <q>Related</q> link type).<br/>For example:<br/>``` "Related To Queue": TEST ``` |
-| ```"Relates"``` | Issue keys | Searching for issues related to specific issues (the <q>Related</q> link type).<br/>For example:<br/>```"Relates": "TASK-123", "TASK-321"``` |
-| ```"Resolved"``` | Date or date range | Searching for issues that were closed (resolved) on a specific date or during a specific date range.<br/>For example:<br/>```"Resolved": 2017-01-01..2017-01-30 ``` |
-| ```"Resolver"``` | User logins and names | Searching for issues that were closed (resolved) by a specific users.<br/>For example:<br/>```"Resolver": user3370@, "Alice Little"``` |
-| ```"Sprint"``` | Sprint names or IDs | Searching for issues from specific sprints.<br/>For example:<br/>```Sprint: "TrackerSprint32"``` |
-| ```"Sprint In Progress By Board"``` | Issue Board ID (can be found in the Board page URL) | Searching for issues related to an active sprint on a specific issue board.<br/>For example:<br/>```"Sprint In Progress By Board": 87 ``` |
-| ```"Sprints By Board"``` | Issue Board ID (can be found in the Board page URL) | Searching for issues from specific boards.<br/>For example:<br/>```"Sprints By Board": 87 ``` |
-| ```"Start Date"``` | Date or date range | Searching for issues whose **Start date** value matches a specific date or date range.<br/>For example:<br/>```"Start Date": <2017-01-30 ``` |
-| ```"Status"``` | Status names | Searching for issues with specific statuses.<br/>For example:<br/>```"Status": Open, Resolved, Closed ``` |
-| ```"Story Points"``` | Story Points score | Searching for issues with a specific number of Story Points.<br/>For example:<br/>```"Story Points": >=5 ``` |
-| ```"Subtasks For Queue"``` | Queue names or keys | Searching for sub-issues that have parent issues in the specified queues.<br/>For example:<br/>``` "Subtasks For Queue": TEST ``` |
-| ```"Summary"``` | Text string | Searching for issues whose name contains specific text.<br/>For example:<ul><li>Find issues that have a title containing the words and word forms in the phrase:<br/>    ```"Summary": "invent the wheel"```</li><li>Find issues whose name completely matches the following phrase:<br/>    ```"Summary": #"invent the wheel"```</li></ul> |
-| ```"Tags"``` | Issue tags | Searching for issues with specific tags.<br/>For example:<br/>```"Tags": "Support", "wiki"``` |
-| ```"Time Spent"``` | Time range in the format `"XXw XXd XXh XXm XXs"` | Searching for issues with a specific amount of time spent.<br/>For example:<br/>```"Time Spent": >"5d 2h 30m"``` |
-| ```"Type"``` | Issue type | Search for issues with the specified type. For example:<br/>```"Type": Epic``` |
-| ```"Updated"``` | Date or date range | Searching for issues updated on a specific date or within a specific date range.<br/>For example:<br/>```"Updated": >2017-01-30 ``` |
-| ```"Voted by"``` | User logins and names | Searching for issues that have been voted for by specific users.<br/>For example:<br/>```"Voted By": user3370@, "Alice Little"``` |
-| ```"Votes"``` | Number of votes | Searching for issues with a specific number of votes.<br/>For example:<br/>```"Votes": > 6 ``` |
+| ```"Parent Tasks For Queue" ``` | Queue names or keys | Searching for issues that have sub-issues in specific queues.<br/>For example:<br/>``` "Parent Tasks For Queue": TEST, DEVELOP ``` |
+| ```"Pending Reply From" ``` | User logins and names | Searching for issues with a pending reply from a specific user (the user has been [invited to comment](comments.md#call-comment)).<br/>Let's say you need to find issues pending a reply from a user with the username `user3370` or a user with the first and last name Alice Little:<br/>```"Pending Reply From": user3370@, "Alice Little" ``` |
+| ```"Priority" ``` | Priority value | Searching for issues with a specific priority.<br/>For example:<br/>```"Priority": "Minor", "Normal" ``` |
+| ```"Project" ``` | Project titles | Searching for issues from specific projects.<br/>For example:<br/>```"Project": "Perpetuum mobile" ``` |
+| ```"Queue" ``` | Queue names or keys | Searching for issues from specific queues.<br/>For example:<br/>```"Queue": TEST ``` |
+| ```"Queue Owner" ``` | User logins and names | Searching for issues from queues with specific owners.<br/>For example:<br/>```"Queue Owner": user3370@, "Alice Little" ``` |
+| ```"Related" ``` | User logins and names | Searching for issues with specific reporters, assignees, or followers.<br/>For example:<br/>```"Related": user3370@, "Alice Little" ``` |
+| ```"Related To Queue" ``` | Queue names or keys | Searching for issues that are related to issues from specific queues (the <q>Related</q> link type).<br/>For example:<br/>``` "Related To Queue": TEST ``` |
+| ```"Relates" ``` | Issue keys | Searching for issues related to specific issues (the <q>Related</q> link type).<br/>For example:<br/>```"Relates": "TASK-123", "TASK-321" ``` |
+| ```"Resolved" ``` | Date or date range | Searching for issues that were closed (resolved) on a specific date or during a specific date range.<br/>For example:<br/>```"Resolved": 2017-01-01..2017-01-30 ``` |
+| ```"Resolver" ``` | User logins and names | Searching for issues that were closed (resolved) by a specific users.<br/>For example:<br/>```"Resolver": user3370@, "Alice Little" ``` |
+| ```"Sprint" ``` | Sprint names or IDs | Searching for issues from specific sprints.<br/>For example:<br/>```Sprint: "TrackerSprint32" ``` |
+| ```"Sprint In Progress By Board" ``` | Issue Board ID (can be found in the Board page URL) | Searching for issues related to an active sprint on a specific issue board.<br/>For example:<br/>```"Sprint In Progress By Board": 87 ``` |
+| ```"Sprints By Board" ``` | Issue Board ID (can be found in the Board page URL) | Searching for issues from specific boards.<br/>For example:<br/>```"Sprints By Board": 87 ``` |
+| ```"Start Date" ``` | Date or date range | Searching for issues whose **Start date** value matches a specific date or date range.<br/>For example:<br/>```"Start Date": <2017-01-30 ``` |
+| ```"Status" ``` | Status names | Searching for issues with specific statuses.<br/>For example:<br/>```"Status": Open, Resolved, Closed ``` |
+| ```"Story Points" ``` | Story Points score | Searching for issues with a specific number of Story Points.<br/>For example:<br/>```"Story Points": >=5 ``` |
+| ```"Subtasks For Queue" ``` | Queue names or keys | Searching for sub-issues that have parent issues in the specified queues.<br/>For example:<br/>``` "Subtasks For Queue": TEST ``` |
+| ```"Summary" ``` | Text string | Searching for issues whose name contains specific text.<br/>For example:<ul><li>Find issues that have a title containing the words and word forms in the phrase:<br/>    ```"Summary": "invent the wheel" ```</li><li>Find issues whose name completely matches the following phrase:<br/>    ```"Summary": #"invent the wheel" ```</li></ul> |
+| ```"Tags" ``` | Issue tags | Searching for issues with specific tags.<br/>For example:<br/>```"Tags": "Support", "wiki" ``` |
+| ```"Time Spent" ``` | Time range in the format `"XXw XXd XXh XXm XXs"` | Searching for issues with a specific amount of time spent.<br/>For example:<br/>```"Time Spent": >"5d 2h 30m" ``` |
+| ```"Type" ``` | Issue type | Search for issues with the specified type. For example:<br/>```"Type": Epic``` |
+| ```"Updated" ``` | Date or date range | Searching for issues updated on a specific date or within a specific date range.<br/>For example:<br/>```"Updated": >2017-01-30 ``` |
+| ```"Voted by" ``` | User logins and names | Searching for issues that have been voted for by specific users.<br/>For example:<br/>```"Voted By": user3370@, "Alice Little" ``` |
+| ```"Votes" ``` | Number of votes | Searching for issues with a specific number of votes.<br/>For example:<br/>```"Votes": > 6 ``` |
 

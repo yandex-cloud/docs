@@ -4,25 +4,62 @@
 
 The most popular issue fields (settings) are available in {{ tracker-name }} by default. You can see the list of existing fields on the [{{ tracker-name }} settings]({{ link-admin-fields }}) page.
 
-If the field you need is missing, you can [create a new one in your queue](create-param.md#section_local_field). If you want to add a field that will be available in all {{ tracker-name }} queues, your organization's administrator can [create a global field](create-param.md#section_global_field).
+If the field you need is missing, you can [create a new one in your queue](create-param.md#section_local_field). If you want to add a field that will be available in all {{ tracker-name }} queues, the administrator can [create a global field](create-param.md#section_global_field).
 
 Issue field | Description
 ----- | -----
-**System** |
-Followers | The usernames or names of users subscribed to the issue.<br/><br/>By default, followers have permission to read and edit the issue and are notified of any changes to it.<br/><br/>The access permissions for issues are determined by the [queue settings](../manager/queue-access.md). For details, contact the queue owner.
-Access | By default, users in this group have permission to read and edit the issue, but they don't receive notifications about changes to the issue.<br/><br/>The access permissions for issues are determined by the [queue settings](../manager/queue-access.md). For details, contact the queue owner.
-Start date | Date when work on the issue started. You usually don't need to fill this in when creating an issue.
-End date | Date when the issue was completed. You usually don't need to fill this in when creating an issue.
+**System**
+QA-engineer | The user who is assigned to test the task.
+Author | The user who created the issue.
+Possible spam | Spam flag for tasks created by services with [integration](../manager/queue-mail.md).
+End date | Date when the issue was resolved.
+Start date | Date when the issue was initiated.
 Deadline | Date by which the issue should be resolved.
-Tags | Tags are text labels that make it easier to find and sort issues.
-Components | You can mark issues with special labels called [components](../manager/components.md). They will help you sort issues within the queue.<br/><br/>The list of possible components depends on the [queue settings](../manager/components.md#section_zrt_szk_xz).
-Affected version | The version of the product that the issue is related to. The list of available versions is determined by the [queue settings](../manager/versions.md#section_f5q_bfl_xz).<br/><br/>The **Affected Version** field is usually used with **Bug** type issues.
-Fix version | The version of the product that the issue is related to. The list of available versions is determined by the [queue settings](../manager/versions.md#section_f5q_bfl_xz).<br/><br/>The **Affected Version** field is usually used with **Bug** type issues.
-**Time tracking** |
-Original estimate | Initial estimation of time needed for the issue. Time is specified in `1w2d3h` format.
+Boards | A list of boards the issue belongs to.
+Access | A list of users who have permission to read and edit the issue but don't receive notifications about issue updates.<br/><br/>Access permissions to issues are depend on the [queue settings](../manager/queue-access.md).
+Issue | Issue name.
+Last update by | Last user to make changes to the issue.
+Assignee | User handling the issue.
+Fix Version | Product version that the issue belongs to. The list of available [versions](../manager/versions.md) is determined by issue settings.
+Key | Unique issue ID used within its queue. Created automatically.
+Comments <br/>without messages | Number of issue comments created in {{tracker-name}}.
+Comments <br/>with messages | Number of issue comments created via [email](../manager/queue-mail.md).
+Components | Tags used to mark and sort issues within a queue.<br/><br/>The list of available [components](../manager/components.md) is determined by issue settings.
+Followers | A list of users following the issue. By default, users can view and edit issues and receive all notifications about issue updates.<br/><br/>Access permissions to issues depend on the [queue settings](../manager/queue-access.md).
+Affected Version | [Product version](../manager/versions.md) that the issue belongs to. The list of available versions depends on the queue settings.
+Pending reply <br/>from | A list of users who have been [called to comment on the issue](comments.md#call-comment). Users are removed from this field as soon as they reply in a comment.
+Updated | Date and time of the [latest issue update](history.md).
+Description | The field describes the issue and explains what has to be done.
+Queue | [Key of the queue](../manager/create-queue.md#key) that the issue belongs to.
+Last Comment | Date and time of the last comment in the issue.
+Priority | The value determines the issue's importance.
+Voted By | A list of users who voted on the issue.
+Votes | Number of users [who voted](votes.md).
+Project | Names of [projects](../manager/projects.md) the issue belongs to.
+Resolved | Date and time when the issue was [resolved](../manager/create-resolution.md).
+Mailing lists | Teams and departments subscribed to the issue. By default, these users can view and edit issues and receive all notifications about issue updates.<br/><br/>Access permissions depend on the [queue settings](../manager/queue-access.md).
+Resolution | Reason for closing the issue.
+Resolver | User who closed the issue.
+Created | Date and time of issue creation.
+Status | Current issue progress. Examples: <q>Open</q>, <q>In progress</q>, <q>Testing</q>. For more information, see [Setting up issue statuses](../manager/workflow-status-edit.md).
+Last status change | Date and time of issue status update.
+Tags | Text labels that make it easier to search for issues and sort them. For more information, see [Structuring issues](../structure.md).
+|  |
+Type | Issue type, such as <q>New feature</q>, <q>Bug</q>, or <q>Improvement</q>. For more information, see [{#T}](../manager/add-ticket-type.md).
+**Time Tracking** |
+Time spent | Time that the assignee [spent resolving the issue](time-spent.md).
+Estimate | Time that the assignee is planning to spend on the issue. The field value decreases when [time spent](time-spent.md#section_cqc_hkh_vcb) is specified.
+Original estimate | The initial estimation of the time it should take to resolve the issue.
 **Agile** |
-Sprint | The name of the sprint that the issue belongs to.
-Story Points | Estimated effort for the issue in terms of Story Points.
+Story Points | Issue complexity visualized as Story Points. For more information, see [Basic concepts of agile development](../manager/agile.md#dlen_sp).
+Sprint | Name of the [sprint](../manager/create-agile-sprint.md) that the issue belongs to.
+**Email** |
+Email To | A list of email addresses the user specified in the **Email To** field when sending an email.
+Email Cc | Email address that the user specified in the **Cc** field when sending an email.
+Email From | Sender's email address.
+Created By email to | Email address that received the message triggering issue creation.
+**SLA** |
+SLA | Timer that tracks the timeframe for processing issues in a queue. For example, you can specify the time allowed for the assignee to respond to a newly created issue. For more information, see [SLA](../sla-head.md).
 
 ## Adding a local field {#section_local_field}
 
@@ -34,22 +71,23 @@ To learn more about creating and using local fields, see [Local issue fields](..
 
 {% note alert %}
 
-Local fields are temporarily not supported in certain cases. They will be implemented later. To learn more, see [Local field constraints](../local-fields.md#restrictions).
+Local fields are temporarily not supported in certain cases. They will be implemented later. For more information, see [Local field constraints](../local-fields.md#restrictions).
 
 {% endnote %}
 
 ## Adding a global field {#section_global_field}
 
 
+
 {% note alert %}
 
-Only your organization's administrator can add global issue fields.
+Only the [administrator](../role-model.md) can add global issue fields.
 
 {% endnote %}
 
 To add a new issue field (parameter):
 
-1. Make sure that you are logged in as an administrator.
+1. Make sure you are logged in as an [administrator](../role-model.md).
 
 1. On the {{ tracker-name }} top panel, select ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
 
@@ -63,7 +101,7 @@ To add a new issue field (parameter):
 
     - **Category**. All {{ tracker-name }} fields are grouped into categories. Select the category that best suits the new field.
 
-    - **Name**. Try to give the fields short and informative names.
+    - **Name in Russian**. Try to give the fields short and informative names.
 
     - **Name in English**. This name is shown in the English interface of {{ tracker-name }}.
 
@@ -76,5 +114,5 @@ To add a new issue field (parameter):
     - **Number of employees** (only for fields with the <q>user list</q> type).
 
 1. Click **Create**.
-
+
 

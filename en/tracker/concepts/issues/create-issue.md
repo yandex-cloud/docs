@@ -123,7 +123,7 @@ The request body contains the information required to create a new issue:
 
 {% list tabs %}
 
-- Successful execution of the request
+- Request executed successfully
 
   {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
 
@@ -131,7 +131,7 @@ The request body contains the information required to create a new issue:
 
   {% include [answer-issue](../../../_includes/tracker/api/answer-issue.md) %}
 
-- The request failed
+- Request failed
 
   {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
