@@ -4,7 +4,6 @@
 | vCPU 20% | {{ sku|KZT|compute.vm.cpu.c20|string }} | {{ sku|KZT|compute.vm.cpu.c20.preemptible|string }} |
 | vCPU 100% | {{ sku|KZT|compute.vm.cpu.c100|string }} | {{ sku|KZT|compute.vm.cpu.c100.preemptible|string }} |
 | 1 GPU Nvidia V100 | {{ sku|KZT|compute.vm.gpu.gpu-standard|string }} | {{ sku|KZT|compute.vm.gpu.gpu-standard.preemptible|string }} |
-| 1 vGPU Nvidia V100 | {{ sku|KZT|compute.vm.gpu.vgpu-standard.v1|string }} | {{ sku|KZT|compute.vm.gpu.vgpu-standard.v1.preemptible|string }} |
 | RAM (for 1 GB) | {{ sku|KZT|compute.vm.ram|string }} | {{ sku|KZT|compute.vm.ram.preemptible|string }} |
 
 <br>
