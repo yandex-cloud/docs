@@ -29,8 +29,8 @@
         }
 
         window.smartCaptcha.render('captcha-container', {
-          sitekey: '<Ключ для клиентской части>',
-          invisbile: true, // Сделать капчу невидимой
+          sitekey: '<Ключ_для_клиентской_части>',
+          invisible: true, // Сделать капчу невидимой
           callback: callback,
         });
       }
