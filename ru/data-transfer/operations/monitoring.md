@@ -8,6 +8,14 @@
 
 Вы можете [настроить алерты](#monitoring-integration) в сервисе {{ monitoring-full-name }} для получения уведомлений о сбоях в работе трансфера. В {{ monitoring-full-name }} используются два порога срабатывания алерта: `Warning` и `Alarm`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting.md#notification-channel).
 
+{% else %}
+
+Вы можете [настроить алерты](#monitoring-integration) в сервисе {{ monitoring-full-name }} для получения уведомлений о сбоях в работе трансфера. Для настройки алертов используются два внутренних сервиса:
+* Solomon — хранит метрики, отправляемые процессами {{ data-transfer-short-name }}.
+* Juggler — отслеживает набор событий и оповещает о событиях по различным каналам.
+
+См. подробную информацию об алертах на [вики-странице](https://wiki.yandex-team.ru/transfer-manager/replication/monitoring/alerts/) сервиса.
+
 {% endif %}
 
 ## Мониторинг состояния трансфера {#monitoring}
