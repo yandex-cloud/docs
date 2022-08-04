@@ -56,8 +56,10 @@ Storing backups in {{ mpg-name }}:
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
    {% if product == "yandex-cloud" and audience != "internal" %}
+
    For more information, see the [Pricing policy for {{ mpg-name }}](../pricing.md#rules-storage).
    {% endif %}
+
 ## Checking backups {#verify}
 
 ### Checking backup integrity {#integrity}

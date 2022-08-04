@@ -1,4 +1,4 @@
-* **Backup start time (UTC)**: UTC time when you want to start creating a cluster backup (in 24-hour format). If the time is not set, the backup will start at 00:00 UTC.
+* **Backup start time (UTC)**: UTC time when you want to start creating a cluster backup (in 24-hour format). If the time is not set, the backup will start at 22:00 UTC.
 
 * {% include [Maintenance window](../../mdb/console/maintenance-window.md) %}
 

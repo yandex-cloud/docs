@@ -46,13 +46,14 @@ For more information about creating a backup manually, see [{#T}](../operations/
 
 * Backups of cold data from [hybrid storage](storage.md#hybrid-storage-features) are stored in the same {{ objstorage-name }} bucket as the data. The cost for using Object Storage factors in the amount of space used by backups and the volume of data.
     {% if audience != "internal" %}
+
     For more information, see the [Pricing policy for {{ mch-short-name }}](../pricing.md#rules-storage).
     {% endif %}
 * Backups of cold data from [hybrid storage](storage.md#hybrid-storage-features) only contain increments: the history of changes to data parts for the last {{ mch-backup-retention }} days. Backups of data that hasn't been modified are provided by {{ objstorage-name }}.
 
 * Backups are stored as binary files and encrypted using [GPG]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/GnuPG){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/GNU_Privacy_Guard){% endif %}. Each cluster has its own encryption keys.
 
-* Automatically created backups of an existing cluster are kept for 7 days whereas those created manually are stored indefinitely. Once you delete a cluster, all its backups are kept for {{ mch-backup-retention }} days.
+* Automatically created backups of an existing cluster are kept for 7 days whereas those created manually are stored indefinitely. Once you delete a cluster, all its backups persist for {{ mch-backup-retention }} days.
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 
