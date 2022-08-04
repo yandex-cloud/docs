@@ -220,6 +220,8 @@ default:
   roles-cloud-owner: resource-manager.clouds.owner
   roles-cloud-member: resource-manager.clouds.member
   roles-mdb-admin: mdb.admin
+  roles-mdb-auditor: mdb.auditor
+  roles-mdb-viewer: mdb.viewer
   roles:
     gitlab:
       admin: gitlab.admin
